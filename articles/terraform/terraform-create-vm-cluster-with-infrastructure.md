@@ -5,10 +5,10 @@ keywords: azure devops terraform vm virtual cluster de máquina
 ms.topic: tutorial
 ms.date: 03/09/2020
 ms.openlocfilehash: ae1b8eac15309ff27297d9472e70d32e68acaaac
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78945275"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-and-hcl"></a>Tutorial: Criar um cluster Azure VM com Terraform e HCL
@@ -22,7 +22,7 @@ Aprenderá a fazer as seguintes tarefas:
 > * Crie um ficheiro de configuração Terraform.
 > * Utilize um ficheiro de configuração Terraform para criar um equilibrador de carga.
 > * Utilize um ficheiro de configuração Terraform para implantar dois VMs Linux num conjunto de disponibilidade.
-> * Inicialize o Terraform.
+> * Inicie o Terraform.
 > * Crie um plano de execução terraforme.
 > * Aplique o plano de execução terraforme para criar os recursos Azure.
 
@@ -59,7 +59,7 @@ Nesta secção, vai gerar um principal de serviço do Azure e dois ficheiros de 
    }
    ```
 
-6. Crie um novo ficheiro com os valores das suas variáveis do Terraform. É comum nomear o seu ficheiro variável Terraform `terraform.tfvars` uma vez que a Terraform carrega automaticamente qualquer ficheiro chamado `terraform.tfvars` (ou seguindo um padrão de `*.auto.tfvars`) se estiver presente no diretório atual. 
+6. Crie um novo ficheiro com os valores das suas variáveis do Terraform. É comum nomear o seu `terraform.tfvars` ficheiro variável Terraform como `terraform.tfvars` Terraform automaticamente `*.auto.tfvars`carrega qualquer ficheiro nomeado (ou seguindo um padrão de ) se presente no diretório atual. 
 
 7. Copie o seguinte código para o seu ficheiro de variáveis. Certifique-se de que substitui os marcadores de posição da seguinte forma: para `subscription_id`, utilize o ID da subscrição do Azure que especificou quando executou `az account set`. Para `tenant_id`, utilize o valor `tenant` devolvido de `az ad sp create-for-rbac`. Para `client_id`, utilize o valor `appId` devolvido de `az ad sp create-for-rbac`. Para `client_secret`, utilize o valor `password` devolvido de `az ad sp create-for-rbac`.
 
@@ -218,7 +218,7 @@ Nesta secção, o utilizador cria um ficheiro com as definições dos recursos p
 
 ## <a name="3-initialize-terraform"></a>3. Inicializar terraforma 
 
-O [comando init do terraform](https://www.terraform.io/docs/commands/init.html) é utilizado para inicializar um diretório com os ficheiros de configuração do Terraform que criou nas secções anteriores. É uma boa prática sempre executar o comando `terraform init` depois de escrever uma nova configuração Terraforme. 
+O [comando init do terraform](https://www.terraform.io/docs/commands/init.html) é utilizado para inicializar um diretório com os ficheiros de configuração do Terraform que criou nas secções anteriores. É uma boa prática sempre `terraform init` dirigir o comando depois de escrever uma nova configuração Terraforme. 
 
 > [!TIP]
 > O comando `terraform init` é idempotent, o que significa que pode ser chamado repetidamente e produzir o mesmo resultado. Desta forma, se estiver a trabalhar num ambiente de colaboração e achar que os ficheiros de configuração poderão ter sido alterados, é sempre uma boa ideia chamar o comando `terraform init` antes de executar ou aplicar um plano.
@@ -259,10 +259,10 @@ Se precisar de salvar o seu plano de execução, faça o seguinte comando. Subst
 Outro parâmetro útil é [-var-file](https://www.terraform.io/docs/commands/plan.html#var-file-foo).
 
 Por padrão, a Terraform tentou encontrar o seu ficheiro de variáveis da seguinte forma:
-- Arquivo chamado `terraform.tfvars`
-- Ficheiro nomeado com o seguinte padrão: `*.auto.tfvars`
+- Arquivo nomeado`terraform.tfvars`
+- Ficheiro nomeado com o seguinte padrão:`*.auto.tfvars`
 
-No entanto, o seu ficheiro de variáveis não precisa de seguir nenhuma das duas convenções anteriores. Nesse caso, especifique o nome do ficheiro das suas variáveis com o parâmetro `-var-file` onde o nome do ficheiro variável não tem uma extensão. O exemplo que se segue ilustra este ponto:
+No entanto, o seu ficheiro de variáveis não precisa de seguir nenhuma das duas convenções anteriores. Nesse caso, especifique o `-var-file` nome do ficheiro das suas variáveis com o parâmetro onde o nome do ficheiro variável não tem uma extensão. O exemplo que se segue ilustra este ponto:
 
 ```hcl
 terraform plan -var-file <my-variables-file>
@@ -290,7 +290,7 @@ Se quiser aplicar um plano de execução previamente guardado, execute o seguint
 
 ![Aplicar um plano de execução do Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
 > [Criar um conjunto de escala de máquina virtual Azure usando terrafora](terraform-create-vm-scaleset-network-disks-hcl.md)

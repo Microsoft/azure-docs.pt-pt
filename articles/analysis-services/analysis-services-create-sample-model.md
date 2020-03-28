@@ -1,5 +1,5 @@
 ---
-title: Tutorial – adicionar um modelo de exemplo – Azure Analysis Services | Microsoft Docs
+title: Tutorial - Adicione um modelo de amostra- Serviços de Análise Azure [ Microsoft Docs
 description: Nesta aula de tutorial, aprenda a adicionar um modelo de exemplo no Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: a72236843c13e139f33a669b54f108e91679c8c6
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74326586"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Tutorial: Adicionar um modelo de exemplo a partir do portal
@@ -22,7 +22,7 @@ Neste tutorial, irá adicionar uma base de dados de modelo tabular do Adventure 
 > * Adicionar um modelo de dados tabular de exemplo concluído para um servidor 
 > * Ligar ao modelo com o SSMS
 
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -30,7 +30,7 @@ Para concluir este tutorial, precisa de:
 
 - Um servidor do Azure Analysis Services. Para saber mais, veja [Criar um servidor - portal](analysis-services-create-server.md).
 - Permissões de administrador de servidor
-- [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
+- [Estúdio de Gestão de Servidores SQL](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
@@ -43,7 +43,7 @@ Inicie sessão no [portal](https://portal.azure.com/).
 
     ![Criar um modelo de exemplo](./media/analysis-services-create-sample-model/aas-create-sample-new-model.png)
 
-2. Em **novo modelo** > **escolha uma fonte de dados**, verifique se **dados de exemplo** estão selecionados e clique em **Adicionar**.
+2. No **novo modelo** > Escolha uma fonte de**dados,** verifique se os **dados da amostra** são selecionados e, em seguida, clique em **Adicionar**.
 
     ![Selecionar dados de exemplo](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
 

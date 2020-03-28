@@ -1,5 +1,5 @@
 ---
-title: Tutorial-dimensionar um aplicativo em execução na malha de Service Fabric do Azure
+title: Tutorial - Escala uma aplicação em execução em Malha de Tecido de Serviço Azure
 description: Neste tutorial, vai ficar a saber como dimensionar os serviços numa aplicação em execução no Service Fabric Mesh.
 author: dkkapur
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 1b9070e826c30bbeafdee4185ea45cfb53d9efd2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75351809"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Tutorial: dimensionar uma aplicação em execução no Service Fabric Mesh
@@ -42,7 +42,7 @@ Antes de começar este tutorial:
 
 ## <a name="manually-scale-your-services-in-or-out"></a>Reduzir ou aumentar horizontalmente os seus serviços de forma manual
 
-Uma das principais vantagens da implantação de aplicativos em Service Fabric malha é a capacidade de você facilmente dimensionar seus serviços para dentro ou para fora. Isso deve ser usado para lidar com quantidades diferentes de carga em seus serviços ou para melhorar a disponibilidade.
+Uma das principais vantagens de implementar aplicações para a Malha de Tecido de Serviço é a capacidade de você facilmente escalar os seus serviços dentro ou fora. Isto deve ser utilizado para lidar com quantidades variadas de carga nos seus serviços ou para melhorar a disponibilidade.
 
 Este tutorial utiliza o exemplo de Lista de Tarefas, que foi [implementado anteriormente](service-fabric-mesh-tutorial-template-deploy-app.md) e deve estar agora em execução. A aplicação tem dois serviços: WebFrontEnd e ToDoService. Cada serviço foi inicialmente implementado com uma contagem de réplicas de 1.  Para ver o número de réplicas em execução para o serviço WebFrontEnd, execute o seguinte:
 

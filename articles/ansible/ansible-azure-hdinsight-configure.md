@@ -1,28 +1,28 @@
 ---
-title: Tutorial-configurar um cluster no Azure HDInsight usando o Ansible
-description: Saiba como usar o Ansible para configurar, redimensionar e excluir um cluster do Azure HDInsight
-keywords: Ansible, Azure, DevOps, Bash, manual, Apache Hadoop, hdinsight
+title: Tutorial - Configure um cluster em Azure HDInsight usando Ansible
+description: Aprenda a usar o Ansible para configurar, redimensionar e eliminar um cluster Azure HDInsight
+keywords: ansível, azul, devops, bash, playbook, apache hadoop, hdinsight
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 2281c9683583e1def034b79809829a068ef9f3e6
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156666"
 ---
-# <a name="tutorial-configure-a-cluster-in-azure-hdinsight-using-ansible"></a>Tutorial: configurar um cluster no Azure HDInsight usando o Ansible
+# <a name="tutorial-configure-a-cluster-in-azure-hdinsight-using-ansible"></a>Tutorial: Configure um cluster em Azure HDInsight usando Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-O [Azure HDInsight](/azure/hdinsight/) é um serviço de análise baseado em Hadoop para processamento de dados. O HDInsight é uma ferramenta ETL (extração, transformação, carregamento) usada para trabalhar com Big Data estruturada ou não estruturada. O HDInsight dá suporte a vários [tipos de cluster](/azure/hdinsight/hadoop/apache-hadoop-introduction) em que cada tipo dá suporte a um conjunto diferente de componentes. 
+[Azure HDInsight](/azure/hdinsight/) é um serviço de análise baseado em Hadoop para o processamento de dados. HDInsight é uma ferramenta ETL (extrato, transformação, carga) usada para trabalhar com big data - estruturada ou não estruturada. O HDInsight suporta vários tipos de [cluster](/azure/hdinsight/hadoop/apache-hadoop-introduction) onde cada tipo suporta um conjunto diferente de componentes. 
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
 > * Criar uma conta de armazenamento para o HDInsight
-> * Configurar um [cluster HDInsight Spark](/azure/hdinsight/spark/apache-spark-overview).
+> * Configure um [cluster de faíscas HDInsight](/azure/hdinsight/spark/apache-spark-overview).
 > * Redimensionar um cluster
 > * Eliminar um cluster
 
@@ -31,9 +31,9 @@ O [Azure HDInsight](/azure/hdinsight/) é um serviço de análise baseado em Had
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)] 
 
-## <a name="create-a-random-postfix"></a>Criar um sufixo aleatório
+## <a name="create-a-random-postfix"></a>Criar um postfixo aleatório
 
-O código do guia estratégico nesta seção cria um sufixo aleatório a ser usado como parte do nome do cluster do Azure HDInsight.
+O código de jogadas nesta secção cria um postfixo aleatório para usar como parte do nome do cluster Azure HDInsight.
 
 ```yml
 - hosts: localhost
@@ -48,9 +48,9 @@ O código do guia estratégico nesta seção cria um sufixo aleatório a ser usa
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
+Um grupo de recursos Azure é um recipiente lógico no qual os recursos azure são implantados e geridos.
 
-O código do guia estratégico nesta seção cria um grupo de recursos.
+O código de jogadas nesta secção cria um grupo de recursos.
 
 
 ```yml
@@ -63,9 +63,9 @@ O código do guia estratégico nesta seção cria um grupo de recursos.
 
 ## <a name="create-a-storage-account-and-retrieve-key"></a>Criar uma conta de armazenamento e recuperar a chave
 
-Uma conta de armazenamento do Azure é usada como o armazenamento padrão para o cluster HDInsight. 
+Uma conta de armazenamento Azure é usada como armazenamento predefinido para o cluster HDInsight. 
 
-O código do guia estratégico nesta seção recupera a chave usada para acessar a conta de armazenamento.
+O código de jogadas nesta secção recupera a chave utilizada para aceder à conta de armazenamento.
 
 ```yml
 - name: Create storage account
@@ -91,9 +91,9 @@ O código do guia estratégico nesta seção recupera a chave usada para acessar
     var: storage_output
 ```
 
-## <a name="create-an-hdinsight-spark-cluster"></a>Criar um cluster do Apache Spark no HDInsight
+## <a name="create-an-hdinsight-spark-cluster"></a>Criar um cluster do Spark no HDInsight
 
-O código do guia estratégico nesta seção cria o cluster do Azure HDInsight.
+O código de jogadas nesta secção cria o cluster Azure HDInsight.
 
 ```yml
 - name: Create instance of Cluster
@@ -134,13 +134,13 @@ O código do guia estratégico nesta seção cria o cluster do Azure HDInsight.
           password: MuABCPassword!!@123
 ```
 
-A criação da instância pode levar vários minutos para ser concluída.
+A criação pode levar vários minutos para ser concluída.
 
 ## <a name="resize-the-cluster"></a>Redimensionar o cluster
 
-Após a criação do cluster, a única configuração que você pode alterar é o número de nós de trabalho. 
+Após a criação do cluster, o único cenário que pode alterar é o número de nós dos trabalhadores. 
 
-O código do guia estratégico nesta seção incrementa o número de nós de trabalho atualizando `target_instance_count` em `workernode`.
+O código de jogadas nesta secção aumenta o `target_instance_count` número `workernode`de nós dos trabalhadores atualizando-se no interior .
 
 ```yml
 - name: Resize cluster
@@ -184,11 +184,11 @@ O código do guia estratégico nesta seção incrementa o número de nós de tra
   register: output
 ```
 
-## <a name="delete-the-cluster-instance"></a>Excluir a instância de cluster
+## <a name="delete-the-cluster-instance"></a>Eliminar a instância do cluster
 
-A cobrança por clusters HDInsight é rateada por minuto. 
+A faturação dos clusters HDInsight é pronunciada por minuto. 
 
-O código do guia estratégico nesta seção exclui o cluster.
+O código de jogadas nesta secção elimina o cluster.
 
 ```yml
 - name: Delete instance of Cluster
@@ -198,11 +198,11 @@ O código do guia estratégico nesta seção exclui o cluster.
     state: absent
 ```
 
-## <a name="get-the-sample-playbook"></a>Obter o guia estratégico de exemplo
+## <a name="get-the-sample-playbook"></a>Obtenha o livro de jogadas da amostra
 
-Há duas maneiras de obter o guia estratégico de exemplo completo:
-- [Baixe o guia estratégico](https://github.com/Azure-Samples/ansible-playbooks/blob/master/hdinsight_create.yml) e salve-o em `hdinsight_create.yml`.
-- Crie um novo arquivo chamado `hdinsight_create.yml` e copie-o para ele no seguinte conteúdo:
+Há duas maneiras de obter o livro completo da amostra:
+- [Descarregue o](https://github.com/Azure-Samples/ansible-playbooks/blob/master/hdinsight_create.yml) livro `hdinsight_create.yml`de jogadas e guarde-o para .
+- Crie um `hdinsight_create.yml` novo ficheiro nomeado e copie-o nos seguintes conteúdos:
 
 ```yml
 ---
@@ -344,14 +344,14 @@ Há duas maneiras de obter o guia estratégico de exemplo completo:
         state: absent
 ```
 
-## <a name="run-the-sample-playbook"></a>Executar o guia estratégico de exemplo
+## <a name="run-the-sample-playbook"></a>Executar o livro de jogadas da amostra
 
-Nesta seção, execute o guia estratégico para testar vários recursos mostrados neste artigo.
+Nesta secção, execute o livro de jogadas para testar várias funcionalidades mostradas neste artigo.
 
-Antes de executar o guia estratégico, faça as seguintes alterações:
-- Na seção `vars`, substitua o espaço reservado `{{ resource_group_name }}` pelo nome do seu grupo de recursos.
+Antes de executar o livro de jogadas, faça as seguintes alterações:
+- Na `vars` secção, substitua o `{{ resource_group_name }}` espaço reservado pelo nome do seu grupo de recursos.
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook hdinsight.yml
@@ -359,9 +359,9 @@ ansible-playbook hdinsight.yml
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, exclua os recursos criados neste artigo. 
+Quando já não for necessário, apague os recursos criados neste artigo. 
 
-Salve o código a seguir como `cleanup.yml`:
+Guarde o `cleanup.yml`seguinte código como:
 
 ```yml
 - hosts: localhost
@@ -375,7 +375,7 @@ Salve o código a seguir como `cleanup.yml`:
         state: absent
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook cleanup.yml

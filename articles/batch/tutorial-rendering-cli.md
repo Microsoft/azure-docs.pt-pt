@@ -10,10 +10,10 @@ ms.date: 03/05/2020
 ms.author: labrenne
 ms.custom: mvc
 ms.openlocfilehash: a415a74af654ef9cf56a37c1fca5ac6632ba4418
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78672986"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: compor uma cena com o Azure Batch 
@@ -31,19 +31,19 @@ Neste tutorial, irá compor uma cena 3ds Max com o Batch, através do compositor
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de uma subscrição pay as you go ou de outra opção de compra do Azure para utilizar aplicações de composição no Batch num modelo de faturação de pagamento por utilização. **O licenciamento de pagamento por utilização não será suportado se utilizar uma oferta gratuita do Azure que oferece um crédito monetário.**
+Precisa de uma subscrição pay as you go ou de outra opção de compra do Azure para utilizar aplicações de composição no Batch no modelo de faturação de pagamento por utilização. **O licenciamento de pagamento por utilização não será suportado se utilizar uma oferta gratuita do Azure que oferece um crédito monetário.**
 
 A cena 3ds Max de exemplo para este tutorial encontra-se no [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), em conjunto com um script Bash de exemplo e ficheiros de configuração JSON. A cena 3ds Max é proveniente dos [ficheiros de exemplo do Autodesk 3ds Max](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Os ficheiros de exemplo do Autodesk 3ds Max estão disponíveis com uma licença de Atribuição Semelhante à Partilha Não Comercial da Creative Commons. Copyright &copy; Autodesk, Inc.)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.20 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.20 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-batch-account"></a>Criar uma conta do Batch
 
 Se ainda não o tiver feito, crie um grupo de recursos, uma conta do Batch e uma conta de armazenamento ligada na sua subscrição. 
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eualeste2*.
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus2*.
 
 ```azurecli-interactive 
 az group create \
@@ -60,7 +60,7 @@ az storage account create \
     --location eastus2 \
     --sku Standard_LRS
 ```
-Crie uma conta do Batch com o comando [az batch account create](/cli/azure/batch/account#az-batch-account-create). O exemplo seguinte cria uma conta do Batch com o nome *mybatchaccount* em *myResourceGroup* e associa a conta de armazenamento criada.  
+Crie uma conta do Batch com o comando [az batch account create](/cli/azure/batch/account#az-batch-account-create). O exemplo seguinte cria uma conta do Batch com o nome *mybatchaccount* em *myResourceGroup* e associa a conta de armazenamento que criou.  
 
 ```azurecli-interactive 
 az batch account create \
@@ -156,7 +156,7 @@ az batch pool show \
     --query "allocationState"
 ```
 
-Continue para os passos seguintes para criar um trabalho e tarefas enquanto o estado do conjunto é alterado. O conjunto está completamente aprovisionado quando o estado de atribuição for `steady` e os nós estiverem em execução.  
+Continue para os passos seguintes para criar tarefas enquanto o estado do conjunto é alterado. O conjunto está completamente aprovisionado quando o estado de atribuição for `steady` e os nós estiverem em execução.  
 
 ## <a name="create-a-blob-container-for-output"></a>Criar um contentor de blobs para a saída
 
@@ -188,7 +188,7 @@ se=2020-11-15&sp=rw&sv=2019-09-24&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ### <a name="create-a-job"></a>Criar uma tarefa
 
-Crie uma tarefa de composição para executar no conjunto, com o comando [az batch job create](/cli/azure/batch/job#az-batch-job-create). Inicialmente, os trabalhos não têm tarefas.
+Crie uma tarefa de composição para executar no conjunto, com o comando [az batch job create](/cli/azure/batch/job#az-batch-job-create). Inicialmente, o trabalho não tem tarefas.
 
 ```azurecli-interactive
 az batch job create \
@@ -317,7 +317,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-As tarefas geram ficheiros de saída com o nome *dragon0002.jpg* - *dragon0007.jpg* nos nós de computação e carregam-nos para o contentor *job-myrenderjob* da sua conta de armazenamento. Para ver o resultado, transfira os ficheiros para uma pasta para o computador local, com o comando [az storage blob download-batch](/cli/azure/storage/blob). Por exemplo:
+As tarefas geram ficheiros de saída *chamados dragon0002.jpg* - *dragon0007.jpg* nos nós da computação e enviam-nos para o recipiente *de emprego-myrenderjob* na sua conta de armazenamento. Para ver o resultado, transfira os ficheiros para uma pasta para o computador local, com o comando [az storage blob download-batch](/cli/azure/storage/blob). Por exemplo:
 
 ```azurecli-interactive
 az storage blob download-batch \
@@ -332,7 +332,7 @@ Abra um dos ficheiros no seu computador. O fotograma composto 6 é semelhante ao
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for preciso, pode utilizar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, conta do Batch e todos os recursos relacionados. Elimine os recursos da seguinte forma:
+Quando já não for necessário, pode utilizar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, a conta do Batch, os conjuntos e todos os recursos relacionados. Elimine os recursos da seguinte forma:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

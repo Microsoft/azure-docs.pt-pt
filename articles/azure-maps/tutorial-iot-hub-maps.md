@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Implementar análise espacial IoT  Microsoft Azure Maps'
+title: 'Tutorial: Implementar análise espacial IoT [ Microsoft Azure Maps'
 description: Integre o IoT Hub com as APIs do serviço Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: f0367a195ca0aa5f26ff0819b00c50fabae1d271
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: cfea9aa7bfcc9a9698bb93bdf54797481b8539ce
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79239617"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80333967"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Tutorial: Implementar análise espacial IoT usando mapas azure
 
@@ -89,7 +89,7 @@ A figura que se segue representa a área geoveda realçada em azul. A rota do ve
 
 Para completar os passos neste tutorial, é necessário primeiro criar um grupo de recursos no portal Azure. Para criar um grupo de recursos, faça os seguintes passos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 2. Selecione **Grupos de recursos**.
     
@@ -114,7 +114,7 @@ Para implementar a lógica empresarial baseada na análise espacial do Azure Map
 
 
 
-### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+### <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
 Para registar os dados do evento, criaremos um **v2storage** de uso geral que fornece acesso a todos os serviços de Armazenamento Azure: blobs, ficheiros, filas, tabelas e discos.  Precisamos colocar esta conta de armazenamento no grupo de recursos "ContosoRental" para armazenar dados como bolhas. Para criar uma conta de armazenamento, siga as instruções para [criar uma conta](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)de armazenamento . Em seguida, precisamos criar um recipiente para armazenar bolhas. Siga os passos abaixo para fazê-lo:
 
@@ -175,7 +175,7 @@ Abra a aplicação Postman e siga os passos abaixo para carregar a geovete usand
     https://atlas.microsoft.com/mapData/upload?subscription-key={subscription-key}&api-version=1.0&dataFormat=geojson
     ```
     
-    O valor "geojsão" face ao parâmetro `dataFormat` no caminho do URL representa o formato dos dados que estão a ser carregados.
+    O valor "geojsão" `dataFormat` contra o parâmetro no caminho do URL representa o formato dos dados que estão a ser carregados.
 
 3. Clique em **Params**e introduza os seguintes pares chave/valor a utilizar para o URL de pedido de POST. Substitua o valor da chave de subscrição pela chave Azure Maps.
    
@@ -191,13 +191,13 @@ Abra a aplicação Postman e siga os passos abaixo para carregar a geovete usand
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-6. Copie o seu estado URI e alhe um parâmetro `subscription-key`. Atribua o valor da chave de subscrição da sua conta Azure Maps ao parâmetro `subscription-key`. O formato URI de estatuto deve ser como o abaixo, e `{Subscription-key}` substituído sem chave de subscrição.
+6. Copie o seu estado `subscription-key` URI e apreenda-lhe um parâmetro. Atribua o valor da chave de `subscription-key` subscrição da sua conta Azure Maps ao parâmetro. O formato URI de estatuto deve `{Subscription-key}` ser como o abaixo, e substituído pela sua chave de subscrição.
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-7. Para obter o, `udId` abrir um novo separador na aplicação Postman e selecionar o método GET HTTP no separador construtor e fazer um pedido GET no estado URI. Se o seu upload de dados tiver sido bem sucedido, receberá um udId no corpo de resposta. Copie o udId para posterior utilização.
+7. Para obter `udId` o separador, abra um novo separador na aplicação Postman e selecione o método GET HTTP no separador construtor e faça um pedido GET no estado URI. Se o seu upload de dados tiver sido bem sucedido, receberá um udId no corpo de resposta. Copie o udId para posterior utilização.
 
    ```JSON
    {
@@ -239,9 +239,9 @@ Todas as informações relevantes do evento são então guardadas na loja blob. 
     
     O Gatilho do Hub de **Eventos Azure** e o Gatilho da Grelha de **Eventos Azure** têm ícones semelhantes. Certifique-se de que seleciona o gatilho da grelha de **eventos Azure**.
 
-6. Copie [ C# ](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx) o código na sua função.
+6. Copie o [código C#](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx) na sua função.
  
-7. No C# script, substitua os seguintes parâmetros. Clique em **Guardar**. Não clique em **Run** ainda
+7. No script C#, substitua os seguintes parâmetros. Clique em **Guardar**. Não clique em **Run** ainda
     * Substitua o **SUBSCRIPTION_KEY** pela chave de subscrição primária da conta Azure Maps.
     * Substitua o **UDID** pelo uídídio da geovete que carregou, 
     * A função **CreateBlobAsync** no script cria uma bolha por evento na conta de armazenamento de dados. Substitua a **ACCESS_KEY,** **ACCOUNT_NAME**e **STORAGE_CONTAINER_NAME** com a chave de acesso da sua conta de armazenamento, nome da conta e recipiente de armazenamento de dados.
@@ -261,20 +261,20 @@ Depois de adicionar uma subscrição da Grelha de Eventos à Função Azure, ver
 
 ![hub-EG-route](./media/tutorial-iot-hub-maps/hub-route.png)
 
-No nosso cenário de exemplo, queremos filtrar todas as mensagens para onde o veículo de aluguer se move. Para publicar tais eventos de telemetria de dispositivos para Event Grid, usaremos a consulta de encaminhamento para filtrar os eventos onde a propriedade `Engine` é **"ON"** . Existem várias formas de consultar mensagens ioT dispositivo-para-nuvem, para saber mais sobre a sintaxe de encaminhamento de mensagens, ver [encaminhamento de mensagens IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax). Para criar uma consulta de encaminhamento, clique na rota **RouteToEventGrid** e substitua a **consulta de Encaminhamento** por **"Engine='ON'"** e clique em **Guardar**. Agora o hub IoT só publicará telemetria do dispositivo onde o motor está LIGADO.
+No nosso cenário de exemplo, queremos filtrar todas as mensagens para onde o veículo de aluguer se move. Para publicar tais eventos de telemetria de dispositivos para Event Grid, usaremos `Engine` a consulta de encaminhamento para filtrar os eventos onde a propriedade está **"ON"**. Existem várias formas de consultar mensagens ioT dispositivo-para-nuvem, para saber mais sobre a sintaxe de encaminhamento de mensagens, ver [encaminhamento de mensagens IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax). Para criar uma consulta de encaminhamento, clique na rota **RouteToEventGrid** e substitua a **consulta de Encaminhamento** por **"Engine='ON'"** e clique em **Guardar**. Agora o hub IoT só publicará telemetria do dispositivo onde o motor está LIGADO.
 
 ![hub-EG-filtro](./media/tutorial-iot-hub-maps/hub-filter.png)
 
 
 ## <a name="send-telemetry-data-to-iot-hub"></a>Envie dados de telemetria para ioT Hub
 
-Uma vez que a nossa Função Azure esteja em funcionamento, podemos agora enviar dados de telemetria para o IoT Hub, que irá encaminhá-lo para a Grelha de Eventos. Vamos usar uma C# aplicação para simular dados de localização para um dispositivo no veículo de um carro alugado. Para executar a aplicação, precisa do .NET Core SDK 2.1.0 ou superior na sua máquina de desenvolvimento. Siga os passos abaixo para enviar dados simulados de telemetria para o IoT Hub.
+Uma vez que a nossa Função Azure esteja em funcionamento, podemos agora enviar dados de telemetria para o IoT Hub, que irá encaminhá-lo para a Grelha de Eventos. Vamos usar uma aplicação C# para simular dados de localização para um dispositivo no veículo de um carro alugado. Para executar a aplicação, precisa do .NET Core SDK 2.1.0 ou superior na sua máquina de desenvolvimento. Siga os passos abaixo para enviar dados simulados de telemetria para o IoT Hub.
 
-1. Descarregue o projeto [rentalCarSimulation.](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation) C# 
+1. Descarregue o projeto [RentalCarSimulation](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation) C#. 
 
-2. Abra o ficheiro simulatedCar.cs num editor de texto à sua escolha e substitua o valor do `connectionString` pelo que guardou quando registou o dispositivo e guarde alterações no ficheiro.
+2. Abra o ficheiro simulatedCar.cs num editor de texto à `connectionString` sua escolha e substitua o valor do que guardou quando registou o dispositivo e guarde alterações no ficheiro.
  
-3. Certifique-se de que tem o Núcleo .NET instalado na sua máquina. Na janela do terminal local, navegue C# até à pasta raiz do projeto e execute o seguinte comando para instalar as embalagens necessárias para aplicação simulada do dispositivo:
+3. Certifique-se de que tem o Núcleo .NET instalado na sua máquina. Na janela do terminal local, navegue para a pasta raiz do projeto C# e execute o seguinte comando para instalar as embalagens necessárias para aplicação simulada do dispositivo:
     
     ```cmd/sh
     dotnet restore
@@ -298,7 +298,7 @@ O mapa abaixo mostra quatro pontos onde o veículo estava fora da geoveda, regis
 
 ![mapa de violação](./media/tutorial-iot-hub-maps/violation-map.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para explorar as APIs do Azure Maps utilizadas neste tutorial, consulte:
 
@@ -311,7 +311,7 @@ Para obter uma lista completa de APIs REST DO Azure Maps, consulte:
 
 Para saber mais sobre IoT Plug and Play, consulte:
 
-* [Plug e Play IoT](https://docs.microsoft.com/azure/iot-pnp)
+* [IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp)
 
 Para obter uma lista de dispositivos certificados azure para IoT, visite:
 
@@ -319,4 +319,4 @@ Para obter uma lista de dispositivos certificados azure para IoT, visite:
 
 Para saber mais sobre como enviar o dispositivo para a telemetria em nuvem e o contrário, consulte:
 
-* [Send telemetry from a device](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet) (Enviar telemetria a partir de um dispositivo)
+* [Enviar telemetria a partir de um dispositivo](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet)

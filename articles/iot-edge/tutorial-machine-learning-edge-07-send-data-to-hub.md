@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: enviar dados de dispositivo por meio de Machine Learning de gateway transparentes em Azure IoT Edge'
-description: Este tutorial mostra como você pode usar seu computador de desenvolvimento como um dispositivo de IoT Edge simulado para enviar dados para o Hub IoT através de um dispositivo configurado como um gateway transparente.
+title: 'Tutorial: Envie dados do dispositivo através de gateway transparente - Machine Learning on Azure IoT Edge'
+description: Este tutorial mostra como pode usar a sua máquina de desenvolvimento como um dispositivo IoT Edge simulado para enviar dados para o IoT Hub, passando por um dispositivo configurado como uma porta de entrada transparente.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,65 +9,65 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 50f339b257110f0a5dc0ac08b9f40043ee384afb
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74706900"
 ---
-# <a name="tutorial-send-data-via-transparent-gateway"></a>Tutorial: enviar dados por meio do gateway transparente
+# <a name="tutorial-send-data-via-transparent-gateway"></a>Tutorial: Enviar dados através de gateway transparente
 
 > [!NOTE]
-> Este artigo faz parte de uma série de um tutorial sobre como usar Azure Machine Learning em IoT Edge. Se você chegou a este artigo diretamente, incentivamos você a começar com o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série para obter os melhores resultados.
+> Este artigo faz parte de uma série para um tutorial sobre a utilização de Machine Learning Azure em IoT Edge. Se chegou diretamente a este artigo, encorajamo-lo a começar com o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série para obter os melhores resultados.
 
-Neste artigo, usamos novamente o computador de desenvolvimento como um dispositivo simulado, mas em vez de enviar dados diretamente para o Hub IoT, o dispositivo envia dados para o dispositivo IoT Edge configurado como um gateway transparente.
+Neste artigo, voltamos a usar a máquina de desenvolvimento como um dispositivo simulado, mas em vez de enviar dados diretamente para o IoT Hub, o dispositivo envia dados para o dispositivo IoT Edge configurado como uma porta de entrada transparente.
 
-Monitoramos a operação do dispositivo IoT Edge enquanto o dispositivo simulado está enviando dados. Após a conclusão da execução do dispositivo, examinaremos os dados em nossa conta de armazenamento para validar tudo o que funcionou conforme o esperado.
+Monitorizamos o funcionamento do dispositivo IoT Edge enquanto o dispositivo simulado está a enviar dados. Uma vez que o dispositivo esteja terminado de funcionamento, olhamos para os dados na nossa conta de armazenamento para validar tudo o que funcionou como esperado.
 
-Essa etapa normalmente é executada por um desenvolvedor de dispositivo ou nuvem.
+Este passo é normalmente realizado por um desenvolvedor de nuvem ou dispositivo.
 
-## <a name="review-device-harness"></a>Examinar o equipamento de dispositivo
+## <a name="review-device-harness"></a>Rever o arnês do dispositivo
 
-Reutilize o [projeto DeviceHarness](tutorial-machine-learning-edge-03-generate-data.md) para simular o dispositivo downstream (ou folha). Conectar-se ao gateway transparente requer duas coisas adicionais:
+Reutilizar o [projeto DeviceHarness](tutorial-machine-learning-edge-03-generate-data.md) para simular o dispositivo a jusante (ou folha). A ligação ao gateway transparente requer duas coisas adicionais:
 
-* Registre o certificado para fazer com que o dispositivo downstream (nesse caso, nosso computador de desenvolvimento) confie na autoridade de certificação que está sendo usada pelo IoT Edge Runtime.
-* Adicione o FQDN (nome de domínio totalmente qualificado) do gateway de borda à cadeia de conexão do dispositivo.
+* Registe o certificado para que o dispositivo a jusante (neste caso a nossa máquina de desenvolvimento) confie na autoridade de certificados que está a ser utilizada pelo tempo de execução ioT Edge.
+* Adicione o nome de domínio totalmente qualificado (FQDN) à cadeia de ligação do dispositivo.
 
-Examine o código para ver como esses dois itens são implementados.
+Veja o código para ver como estes dois itens são implementados.
 
-1. No computador de desenvolvimento, abra Visual Studio Code.
+1. Na sua máquina de desenvolvimento abrir o Código do Estúdio Visual.
 
-2. Usar **arquivo** > **abrir pasta...** para abrir C:\\fonte\\IoTEdgeAndMlSample\\DeviceHarness.
+2. Utilize a pasta aberta do\\\\\\ **ficheiro...** > **Open Folder...** para abrir C: fonte IoTEdgeAndMlSample DeviceHarness.
 
-3. Examine o método InstallCertificate () em Program.cs.
+3. Veja o método de Instalação de Certificados em Program.cs.
 
-4. Observe que, se o código encontrar o caminho do certificado, ele chamará o método Certificatemanager. InstallCACert para instalar o certificado no computador.
+4. Note que se o código encontrar o caminho do certificado, chama o método CertificateManager.InstallCACert para instalar o certificado na máquina.
 
-5. Agora, examine o método GetIotHubDevice na classe TurbofanDevice.
+5. Agora veja o método GetIotHubDevice na classe TurbofanDevice.
 
-6. Quando o usuário especifica o FQDN do gateway usando a opção "-g", esse valor é passado para esse método como gatewayFqdn, que é anexado à cadeia de conexão do dispositivo.
+6. Quando o utilizador especifica o FQDN do gateway utilizando a opção "-g", esse valor é passado para este método como gatewayFqdn, que é anexado à cadeia de ligação do dispositivo.
 
    ```csharp
    connectionString = $"{connectionString};GatewayHostName={gatewayFqdn.ToLower()}";
    ```
 
-## <a name="build-and-run-leaf-device"></a>Compilar e executar dispositivo de folha
+## <a name="build-and-run-leaf-device"></a>Construir e executar dispositivo de folha
 
-1. Com o projeto DeviceHarness ainda aberto no Visual Studio Code, compile o projeto (Ctrl + Shift + B ou **Terminal** > **Executar tarefa de compilação...** ) e selecione **Compilar** na caixa de diálogo.
+1. Com o projeto DeviceHarness ainda aberto no Código do Estúdio Visual, construa o projeto (Ctrl + Shift + B ou **Terminal** > **Run Build Task...**) e selecione **Build** a partir do diálogo.
 
-2. Localize o FQDN (nome de domínio totalmente qualificado) do seu gateway de borda navegando até a máquina virtual do dispositivo IoT Edge no portal e copiando o valor do **nome DNS** da visão geral.
+2. Encontre o nome de domínio totalmente qualificado (FQDN) para o seu portal de entrada de borda, navegando para a sua máquina virtual do dispositivo IoT Edge no portal e copiando o valor para o **nome DNS** a partir da visão geral.
 
-3. Abra o terminal do Visual Studio Code (**terminal** > **novo terminal**) e execute o comando a seguir, substituindo `<edge_device_fqdn>` pelo nome DNS que você copiou da máquina virtual:
+3. Abra o terminal de**Terminal** > Código do Estúdio Visual ( Terminal `<edge_device_fqdn>` **Novo)** e execute o seguinte comando, substituindo o nome DNS que copiou da máquina virtual:
 
    ```cmd
    dotnet run -- --gateway-host-name "<edge_device_fqdn>" --certificate C:\edgecertificates\certs\azure-iot-test-only.root.ca.cert.pem --max-devices 1
    ```
 
-4. O aplicativo tenta instalar o certificado em seu computador de desenvolvimento. Em caso afirmativo, aceite o aviso de segurança.
+4. A aplicação tenta instalar o certificado na sua máquina de desenvolvimento. Quando acontecer, aceite o aviso de segurança.
 
-5. Quando for solicitada a cadeia de conexão do Hub IoT, clique nas reticências ( **...** ) no painel dispositivos do Hub IOT do Azure e selecione **copiar cadeia de conexão do Hub IOT**. Cole o valor no terminal.
+5. Quando solicitado para a cadeia de ligação IoT Hub clique na elipse **(...**) no painel de dispositivos Azure IoT Hub e selecione **Copy IoT Hub Connection String**. Cola o valor no terminal.
 
-6. Você verá uma saída como:
+6. Verá a saída como:
 
    ```output
    Found existing device: Client_001
@@ -79,73 +79,73 @@ Examine o código para ver como esses dois itens são implementados.
    Device: 1 Message count: 250
    ```
 
-   Observe a adição de "GatewayHostName" à cadeia de conexão do dispositivo, que faz com que o dispositivo se comunique através do Hub IoT por meio do IoT Edge gateway transparente.
+   Note a adição do "GatewayHostName" à cadeia de ligação do dispositivo, o que faz com que o dispositivo se comunique através do IoT Hub através do portal transparente IoT Edge.
 
-## <a name="check-output"></a>Verificar saída
+## <a name="check-output"></a>Verificar a saída
 
 ### <a name="iot-edge-device-output"></a>Saída do dispositivo IoT Edge
 
-A saída do módulo avroFileWriter pode ser prontamente observada examinando o dispositivo IoT Edge.
+A saída do módulo AvroFileWriter pode ser facilmente observada olhando para o dispositivo IoT Edge.
 
-1. SSH em sua máquina virtual de IoT Edge.
+1. SSH na sua máquina virtual IoT Edge.
 
-2. Procure arquivos gravados em disco.
+2. Procure ficheiros escritos em disco.
 
    ```bash
    find /data/avrofiles -type f
    ```
 
-3. A saída do comando se parecerá com o exemplo a seguir:
+3. A saída do comando será o seguinte exemplo:
 
    ```output
    /data/avrofiles/2019/4/18/22/10.avro
    ```
 
-   Você pode ter mais de um único arquivo, dependendo do tempo da execução.
+   Pode ter mais do que um único ficheiro, dependendo do tempo da execução.
 
-4. Preste atenção aos carimbos de data/hora. O módulo avroFileWriter carrega os arquivos para a nuvem quando a hora da última modificação é mais de 10 minutos no passado (consulte o arquivo\_modificado\_tempo limite em uploader.py no módulo avroFileWriter).
+4. Preste atenção aos selos temporais. O módulo avroFileWriter envia os ficheiros para a nuvem uma vez que o último\_\_tempo de modificação é superior a 10 minutos no passado (ver TEMPO DE FICHEIRO MODIFICADO em uploader.py no módulo avroFileWriter).
 
-5. Depois que os 10 minutos tiverem decorrido, o módulo deverá carregar os arquivos. Se o upload for bem-sucedido, ele excluirá os arquivos do disco.
+5. Uma vez decorridos os 10 minutos, o módulo deve carregar os ficheiros. Se o upload for bem sucedido, elimina os ficheiros do disco.
 
 ### <a name="azure-storage"></a>Storage do Azure
 
-Podemos observar os resultados do nosso dispositivo de folha enviando dados examinando as contas de armazenamento em que esperamos que os dados sejam roteados.
+Podemos observar os resultados do nosso dispositivo de folhas enviando dados olhando para as contas de armazenamento onde esperamos que os dados sejam encaminhados.
 
-1. No computador de desenvolvimento, abra Visual Studio Code.
+1. Na máquina de desenvolvimento abre o Código do Estúdio Visual.
 
-2. No painel "armazenamento do AZURE" na janela explorar, navegue na árvore para localizar sua conta de armazenamento.
+2. No painel "ARMAZENAMENTO AZURE" na janela de exploração, navegue na árvore para encontrar a sua conta de armazenamento.
 
-3. Expanda o nó **contêineres de blob** .
+3. Expanda o nó **blob containers.**
 
-4. Do trabalho que fizemos na parte anterior do tutorial, esperamos que o contêiner **ruldata** deva conter mensagens com RUL. Expanda o nó **ruldata** .
+4. Pelo trabalho que fizemos na parte anterior do tutorial, esperamos que o recipiente **ruldata** contenha mensagens com RUL. Expanda o nó **ruldata.**
 
-5. Você verá um ou mais arquivos de blob nomeados como: `<IoT Hub Name>/<partition>/<year>/<month>/<day>/<hour>/<minute>`.
+5. Verá um ou mais ficheiros blob chamados como: `<IoT Hub Name>/<partition>/<year>/<month>/<day>/<hour>/<minute>`.
 
-6. Clique com o botão direito do mouse em um dos arquivos e escolha **baixar blob** para salvar o arquivo em seu computador de desenvolvimento.
+6. Clique num dos ficheiros e escolha **download Blob** para guardar o ficheiro para a sua máquina de desenvolvimento.
 
-7. Em seguida, expanda o nó **uploadturbofanfiles** . No artigo anterior, definimos esse local como o destino para os arquivos carregados pelo módulo avroFileWriter.
+7. Em seguida, expanda o nó **de uploadturbofanfiles.** No artigo anterior, definimos esta localização como o alvo para ficheiros carregados pelo módulo avroFileWriter.
 
-8. Clique com o botão direito do mouse nos arquivos e escolha **baixar blob** para salvá-lo em seu computador de desenvolvimento.
+8. Clique nos ficheiros e escolha **download Blob** para guardá-lo para a sua máquina de desenvolvimento.
 
-### <a name="read-avro-file-contents"></a>Ler conteúdo do arquivo Avro
+### <a name="read-avro-file-contents"></a>Ler conteúdo de ficheiros Avro
 
-Incluímos um utilitário de linha de comando simples para ler um arquivo Avro e retornar uma cadeia de caracteres JSON das mensagens no arquivo. Nesta seção, vamos instalá-lo e executá-lo.
+Incluímos um simples utilitário de linha de comando para ler um ficheiro Avro e devolver uma série jSON das mensagens no ficheiro. Nesta secção, vamos instalá-la e executá-la.
 
-1. Abra um terminal no Visual Studio Code (**terminal** > **novo terminal**).
+1. Abra um terminal em Visual Studio Code (**Terminal** > **Novo terminal).**
 
-2. Instalar o hubavroreader:
+2. Instale hubavroreader:
 
    ```cmd
    pip install c:\source\IoTEdgeAndMlSample\HubAvroReader
    ```
 
-3. Use hubavroreader para ler o arquivo Avro que você baixou do **ruldata**.
+3. Utilize o hubavroreader para ler o ficheiro Avro que descarregou a partir de **ruldata**.
 
    ```cmd
    hubavroreader <avro file with ath> | more
    ```
 
-4. Observe que o corpo da mensagem é semelhante ao esperado com a ID do dispositivo e a RUL prevista.
+4. Note que o corpo da mensagem parece como esperávamos com identificação do dispositivo e rul previsto.
 
    ```json
    {
@@ -176,9 +176,9 @@ Incluímos um utilitário de linha de comando simples para ler um arquivo Avro e
    }
    ```
 
-5. Execute o mesmo comando passando o arquivo Avro que você baixou de **uploadturbofanfiles**.
+5. Execute o mesmo comando passando o ficheiro Avro que descarregou a partir de **uploadturbofanfiles**.
 
-6. Conforme esperado, essas mensagens contêm todos os dados do sensor e as configurações operacionais da mensagem original. Esses dados podem ser usados para melhorar o modelo RUL em nosso dispositivo de borda.
+6. Como esperado, estas mensagens contêm todos os dados do sensor e configurações operacionais da mensagem original. Estes dados poderiam ser utilizados para melhorar o modelo RUL no nosso dispositivo de borda.
 
    ```json
    {
@@ -219,21 +219,21 @@ Incluímos um utilitário de linha de comando simples para ler um arquivo Avro e
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você planeja explorar os recursos usados por este tutorial de ponta a ponta, aguarde até que você tenha terminado de limpar os recursos que criou. Se você não planeja continuar, use as seguintes etapas para excluí-las:
+Se planeia explorar os recursos utilizados por este tutorial de ponta a ponta, espere até que esteja feito para limpar os recursos que criou. Se não pretender continuar, utilize os seguintes passos para os eliminar:
 
-1. Exclua os grupos de recursos criados para manter a VM de desenvolvimento, IoT Edge VM, Hub IoT, conta de armazenamento, serviço de espaço de trabalho do Machine Learning (e recursos criados: registro de contêiner, Application insights, cofre de chaves, conta de armazenamento).
+1. Eliminar o(s) grupo de recursos criado para deter o Dev VM, IoT Edge VM, IoT Hub, conta de armazenamento, serviço de espaço de trabalho de aprendizagem automática (e recursos criados: registo de contentores, insights de aplicação, cofre chave, conta de armazenamento).
 
-2. Exclua o projeto de Machine Learning nos [blocos de anotações do Azure](https://notebooks.azure.com).
+2. Elimine o projeto de aprendizagem automática em [cadernos Azure.](https://notebooks.azure.com)
 
-3. Se você clonou o repositório localmente, feche qualquer PowerShell ou VS Code Windows fazendo referência ao repositório local e, em seguida, exclua o diretório do repositório.
+3. Se clonou o repo localmente, feche quaisquer janelas de Código PowerShell ou VS referindo-se ao repo local, então elimine o repo diretório.
 
-4. Se você tiver criado certificados localmente, exclua a pasta c:\\edgeCertificates.
+4. Se criou certificados localmente, elimine a pasta c:\\edgeCertificates.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, usamos nossa máquina de desenvolvimento para simular um dispositivo de folha enviando dados de sensor e operacionais ao nosso dispositivo de borda. Validamos que os módulos no dispositivo roteados, classificados, persistiram e carregaram os dados primeiro examinando a operação em tempo real do dispositivo de borda e, em seguida, examinando os arquivos carregados na conta de armazenamento.
+Neste artigo, usamos a nossa máquina de desenvolvimento para simular um dispositivo de folha sondar sensores e dados operacionais para o nosso dispositivo de borda. Validámos que os módulos do dispositivo foram encaminhados, classificados, persumidos e carregamos os dados primeiro examinando o funcionamento em tempo real do dispositivo de borda e, em seguida, olhando para os ficheiros enviados para a conta de armazenamento.
 
 Mais informações podem ser encontradas nas seguintes páginas:
 
 * [Ligar um dispositivo a jusante a um gateway do Azure IoT Edge](how-to-connect-downstream-device.md)
-* [Armazenar dados na borda com o armazenamento de BLOBs do Azure no IoT Edge (versão prévia)](how-to-store-data-blob.md)
+* [Armazenar dados na borda com armazenamento de Blob Azure no IoT Edge (pré-visualização)](how-to-store-data-blob.md)

@@ -1,6 +1,6 @@
 ---
 title: Criar um ambiente de teste do Azure Firewall
-description: Este exemplo de script cria uma firewall e um ambiente de rede de teste. A rede tem uma VNet, com três sub-redes.
+description: Este exemplo de script cria uma firewall e um ambiente de rede de teste. A rede tem um VNet, com três subnets.
 services: virtual-network
 author: vhorne
 ms.service: firewall
@@ -9,10 +9,10 @@ ms.topic: sample
 ms.date: 11/19/2019
 ms.author: victorh
 ms.openlocfilehash: 6cb0eafce354ba54dd161fee52efe46677ad2765
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74195890"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Criar um ambiente de teste do Azure Firewall
@@ -21,20 +21,20 @@ Este exemplo de script cria uma firewall e um ambiente de rede de teste. A rede 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-O firewall está no AzureFirewallSubnet e está configurado com uma coleção de regras de aplicativo com uma única regra que permite acesso a `www.microsoft.com`.
+A firewall está no AzureFirewallSubnet e está configurada com uma Coleção `www.microsoft.com`de Regras de Aplicação com uma regra única que permite o acesso a .
 
 É criada uma rota definida pelo utilizador que aponta o tráfego de rede de ServersSubnet através da firewall, em que são aplicadas as regras de firewall.
 
 Pode executar o script a partir do [Azure Cloud Shell](https://shell.azure.com/powershell) ou a partir de uma instalação local do PowerShell. 
 
-Se você executar o PowerShell localmente, esse script exigirá Azure PowerShell. Para localizar a versão instalada, execute `Get-Module -ListAvailable Az`. 
+Se executar o PowerShell localmente, este script requer Azure PowerShell. Para localizar a versão instalada, execute `Get-Module -ListAvailable Az`. 
 
 Pode utilizar o `PowerShellGet` se precisar de atualizar, o qual está incorporado no Windows 10 e no Windows Server 2016.
 
 > [!NOTE]
 >Outra versão do Windows requer a instalação do `PowerShellGet` antes de poder utilizá-lo. Pode executar `Get-Module -Name PowerShellGet -ListAvailable | Select-Object -Property Name,Version,Path` para determinar se está instalado no seu sistema. Se a saída estiver em branco, tem de instalar a versão mais recente do [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616).
 
-Para obter mais informações, consulte [instalar Azure PowerShell](/powershell/azure/install-Az-ps)
+Para mais informações, consulte [Instalar o Azure PowerShell](/powershell/azure/install-Az-ps)
 
 Qualquer instalação existente do Azure PowerShell feita com o instalador de Plataforma Web entrará em conflito com a instalação do PowerShellGet e terá de ser removida.
 
@@ -63,7 +63,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma r
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Cria um objeto de configuração de sub-rede |
-| [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Cria uma rede e sub-rede virtual de front-end do Azure. |
+| [Rede Nova AzVirtual](/powershell/module/az.network/new-azvirtualnetwork) | Cria uma rede e sub-rede virtual de front-end do Azure. |
 | [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) | Cria regras de segurança a serem atribuídas a um grupo de segurança de rede. |
 | [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) |Cria regras do NSG que permitem ou bloquear portas específicas para sub-redes específicas. |
 | [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) | Associa os NSGs a sub-redes. |

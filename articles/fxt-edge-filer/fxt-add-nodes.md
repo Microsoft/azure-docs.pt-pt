@@ -1,116 +1,116 @@
 ---
-title: 'Tutorial: adicionar nós a um cluster de filer do Azure FXT Edge'
-description: Como adicionar nós ao cache de armazenamento do Filer do Azure FXT Edge
+title: 'Tutorial: Adicione nós a um cluster de filetes de borda Azure FXT'
+description: Como adicionar nódosos ao cache de armazenamento Azure FXT Edge Filer
 author: ekpgh
 ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.openlocfilehash: 6251fe8f88b7db25e3c09898540e07754d72fb0d
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75551952"
 ---
-# <a name="tutorial-add-cluster-nodes-to-an-azure-fxt-edge-filer-cluster"></a>Tutorial: adicionar nós de cluster a um cluster de filer do Azure FXT Edge
+# <a name="tutorial-add-cluster-nodes-to-an-azure-fxt-edge-filer-cluster"></a>Tutorial: Adicione nós de cluster a um cluster Azure FXT Edge Filer
 
-Um novo cluster de arquivos do Azure FXT Edge é criado com apenas um nó. Você deve adicionar pelo menos mais dois nós e habilitar a alta disponibilidade antes de fazer outras configurações. 
+Um novo cluster Azure FXT Edge Filer é criado com apenas um nó. Deve adicionar pelo menos mais dois nós e permitir uma alta disponibilidade antes de fazer outra configuração. 
 
-Este tutorial explica como adicionar nós de cluster e habilitar o recurso de alta disponibilidade (HA). 
+Este tutorial explica como adicionar nós de cluster e ativar a funcionalidade de Alta Disponibilidade (HA). 
 
 Neste tutorial, irá aprender: 
 
 > [!div class="checklist"]
 > * Como adicionar nós ao cluster FXT
-> * Como habilitar a HA
+> * Como ativar ha
 
-As etapas neste tutorial levam aproximadamente 45 minutos para serem concluídas.
+Os passos deste tutorial demoram aproximadamente 45 minutos a ser concluídos.
 
-Antes de iniciar este tutorial, ligue os nós que você deseja adicionar e [defina suas senhas iniciais](fxt-node-password.md). 
+Antes de iniciar este tutorial, ligue os nós que pretende adicionar e [definir as suas palavras-passe iniciais](fxt-node-password.md). 
 
-## <a name="1-load-the-cluster-nodes-page"></a>1. carregar a página de nós de cluster
+## <a name="1-load-the-cluster-nodes-page"></a>1. Carregue a página de nós do cluster
 
-Abra o painel de controle do cluster em um navegador da Web e entre como administrador. (As instruções detalhadas estão no artigo de visão geral, em [abrir as páginas de configurações](fxt-cluster-create.md#open-the-settings-pages).)
+Abra o Painel de Controlo do cluster num navegador web e inscreva-se como administrador. (Instruções detalhadas estão no artigo de visão geral, sob [as páginas De definições abertas](fxt-cluster-create.md#open-the-settings-pages).)
 
-O painel de controle mostra a guia **painel** quando ele é aberto. 
+O Painel de Controlo mostra o **separador dashboard** quando abre. 
 
-![Painel do painel de controle (primeira guia)](media/fxt-cluster-config/dashboard-1-node.png)
+![Painel de controlo painel painel (primeiro separador)](media/fxt-cluster-config/dashboard-1-node.png)
 
-Esta imagem mostra o painel de um cluster recém-criado, com um único nó.
+Esta imagem mostra o painel de instrumentos de um cluster recém-criado, com um único nó.
 
-## <a name="2-locate-the-node-to-add"></a>2. Localize o nó a ser adicionado
+## <a name="2-locate-the-node-to-add"></a>2. Localizar o nó para adicionar
 
-Para adicionar nós, clique na guia **configurações** e escolha a página **nós FXT** na seção **cluster** .
+Para adicionar nós, clique no separador **Definições** e escolha a página **de nós FXT** na secção **Cluster.**
 
-![Guia Configurações do painel de controle (segunda guia) com cluster > nós do FXT carregados](media/fxt-cluster-config/settings-fxt-nodes.png)
+![Separador de definições do painel de controlo (segundo separador) com nódos de cluster > FXT carregados](media/fxt-cluster-config/settings-fxt-nodes.png)
 
-A lista **nós FXT-Unassociated** mostra todos os nós FXT não atribuídos (a maioria dos data centers tem apenas alguns. Localize os nós FXT que você deseja adicionar ao cluster.
+Os **nós FXT - Lista não unida** mostra todos os nós FXT não atribuídos (a maioria dos centros de dados tem apenas alguns. Encontre os nós FXT que pretende adicionar ao cluster.
 
 > [!Tip] 
-> Se você não conseguir localizar o nó desejado na lista não **unida** , verifique se ele atende a estes requisitos:
+> Se não encontrar o nó que deseja na lista **não unida,** verifique se satisfaz estes requisitos:
 > 
-> * Ele está ligado e teve uma [senha raiz definida](fxt-node-password.md).
-> * Ele é conectado a uma rede que você pode acessar. Se você usar VLANs, ela deverá estar na mesma VLAN que o cluster.
-> * Ele pode ser detectado com o protocolo Bonjour. 
+> * É ligado e tem um conjunto de [palavra-passe raiz.](fxt-node-password.md)
+> * Está ligado a uma rede a que pode aceder. Se utilizar VLANs, deve estar no mesmo VLAN que o cluster.
+> * Pode ser detetado com o protocolo Bonjour. 
 >
->   Algumas configurações de firewall bloqueiam as portas TCP/UDP usadas pelo Bonjour, o que impede que o sistema operacional FXT detecte automaticamente os nós.
+>   Algumas definições de firewall bloqueiam as portas TCP/UDP utilizadas pela Bonjour, o que impede que o sistema operativo FXT detete automaticamente os nós.
 > 
-> Se o nó que você deseja adicionar não estiver na lista, tente estas soluções: 
+> Se o nó que pretende adicionar não estiver na lista, experimente estas soluções: 
 > 
-> * Clique no botão de **descoberta manual** para encontrá-lo por endereço IP.
+> * Clique no botão **Desconhecer manualmente** para o encontrar por endereço IP.
 > 
-> * Atribua manualmente endereços IP temporários. Isso é raro, mas pode ser necessário se você usar VLANs marcadas e se os nós não estiverem na rede correta, ou se a sua rede não permitir endereços IP atribuídos automaticamente. Siga as instruções na versão herdada deste documento para [definir manualmente um endereço IP estático](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/static_ip.html).
+> * Atribua manualmente endereços IP temporários. Isto é raro, mas pode ser necessário se utilizar VLANs marcados e os nós não estiverem na rede correta, ou se a sua rede não permitir endereços IP autoatribuídos. Siga as instruções na versão antiga deste documento para [definir manualmente um endereço IP estático](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/static_ip.html).
 
-O nome do nó, o endereço IP, a versão do software e o status de qualificação são exibidos na lista. Normalmente, a coluna **status** diz "quer ingressar" ou descreve um problema de sistema ou de hardware que torna o nó inelegível para ingressar no cluster.
+O nome do nó, endereço IP, versão de software e estado de elegibilidade são apresentados na lista. Normalmente, a coluna **Status** ou diz "Quer aderir" ou descreve um problema de sistema ou hardware que torna o nó inelegível para aderir ao cluster.
 
-A coluna **ações** tem botões que permitem adicionar o nó ao cluster ou atualizar seu software. O botão atualizar instala automaticamente a versão do software que corresponde aos nós que já estão no cluster.
+A coluna **Ações** tem botões que permitem adicionar o nó ao cluster ou atualizar o seu software. O botão de atualização instala automaticamente a versão do software que corresponde aos nós já no cluster.
 
-Todos os nós em um cluster devem usar a mesma versão do sistema operacional, mas você não precisa atualizar o software antes de adicionar um nó. Depois de clicar no botão **permitir ingresso** , o processo de ingresso no cluster verifica e instala automaticamente o software do sistema operacional que corresponde à versão no cluster.
+Todos os nós de um cluster devem usar a mesma versão do SISTEMA, mas não precisa de atualizar o software antes de adicionar um nó. Depois de clicar no botão **Permitir Juntar,** o processo de adesão do cluster verifica automaticamente e instala o software OS que corresponde à versão do cluster.
 
-Para saber mais sobre as opções nesta página, leia [ **cluster** > **nós FXT** ](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html) no guia de configuração do cluster.
+Para saber mais sobre as opções nesta página, leia os nós do [ **Cluster** > FXT](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html) no Guia de Configuração do Cluster.
 
-## <a name="3-click-the-allow-to-join-button"></a>3. Clique no botão "permitir junção" 
+## <a name="3-click-the-allow-to-join-button"></a>3. Clique no botão "Permitir juntar-se" 
 
-Clique no botão **permitir para ingressar*** na coluna **ações** para o nó que você deseja adicionar.
+Clique no botão **Permitir juntar*na**coluna **Ações** para o nó que pretende adicionar.
 
-Depois que você clicar no botão, o status do nó poderá mudar à medida que seu software for atualizado na preparação para adicioná-lo ao cluster. 
+Depois de clicar no botão, o estado do nó pode mudar à medida que o seu software é atualizado em preparação para adicioná-lo ao cluster. 
 
-A imagem abaixo mostra um nó que está no processo de ingressar no cluster (muito provavelmente, está obtendo uma atualização do sistema operacional antes de ser adicionada). Nenhum botão aparece na coluna **ações** para os nós que estão no processo de serem adicionados ao cluster.
+A imagem abaixo mostra um nó que está em processo de juntar o cluster (provavelmente, está recebendo uma atualização de OS antes de ser adicionado). Não aparecem botões na coluna **Ações** para nós que estão em processo de ser adicionados ao cluster.
 
-![uma linha da tabela node, mostrando o nome de um nó, o endereço IP, a versão do software, a mensagem "permissão para ingressar" e uma última coluna em branco](media/fxt-cluster-config/node-join-in-process.png)
+![uma linha da mesa do nó, mostrando o nome de um nó, endereço IP, versão de software, a mensagem "Autorizado a aderir", e uma última coluna em branco](media/fxt-cluster-config/node-join-in-process.png)
 
-Após alguns instantes, o novo nó deve aparecer na lista de nós de cluster na parte superior da página de configurações de **nós do FXT** . 
+Após alguns momentos, o novo nó deve aparecer na lista de nós de cluster no topo da página de definições de **nós fxt.** 
 
-Repita esse processo para adicionar os outros nós ao cluster. Você não precisa esperar que um nó termine de ingressar no cluster antes de iniciar outro.
+Repita este processo para adicionar os outros nós ao seu cluster. Não é preciso esperar que um nó termine de se juntar ao agrupamento antes de começar outro.
 
-## <a name="enable-high-availability"></a>Habilitar alta disponibilidade
+## <a name="enable-high-availability"></a>Ativar alta disponibilidade
 
-Depois de adicionar um segundo nó ao cluster, você poderá ver uma mensagem de aviso no painel do painel de controle que o recurso de alta disponibilidade não está configurado. 
+Depois de adicionar um segundo nó ao seu cluster, pode ver uma mensagem de aviso no painel de controlo Dashboard de que a funcionalidade de alta disponibilidade não está configurada. 
 
-HA (alta disponibilidade) permite que os nós de cluster compensam uns aos outros se um falhar. A HA não está habilitada por padrão.
+Alta disponibilidade (HA) permite que os nós do cluster compensem uns aos outros se um descer. Ha não é ativado por padrão.
 
-![Guia painel com a mensagem "o cluster tem mais de um nó, mas a HA não está habilitada..." na tabela condições](media/fxt-cluster-config/no-ha-2-nodes.png)
+![Tab dashboard com a mensagem "O cluster tem mais do que um nó, mas HA não está ativado..." na tabela Condições](media/fxt-cluster-config/no-ha-2-nodes.png)
 
 > [!Note] 
-> Não habilite a HA até que você tenha pelo menos três nós no cluster.
+> Não ative ha até ter pelo menos três nós no aglomerado.
 
-Siga este procedimento para ativar a HA: 
+Siga este procedimento para ligar ha: 
 
-1. Carregue a página **alta disponibilidade** na seção **cluster** da guia **configurações** .
+1. Carregue a página **de Alta Disponibilidade** na secção **Cluster** do separador **Definições.**
 
-   ![Página de configuração de HA (cluster > alta disponibilidade). A caixa de seleção "Habilitar HA" está na parte superior e o botão enviar está na parte inferior.](media/fxt-cluster-config/enable-ha.png)
+   ![Página de configuração HA (Cluster > Alta Disponibilidade). A caixa de verificação "Enable HA" está na parte superior e o botão de apresentação está na parte inferior.](media/fxt-cluster-config/enable-ha.png)
 
-2. Clique na caixa rotulada **habilitar ha** e clique no botão **Enviar** . 
+2. Clique na caixa rotulada **Ativação HA** e clique no botão **Enviar.** 
 
-Um alerta é exibido no **painel** para confirmar se a ha está habilitada.
+Um alerta aparece no **Dashboard** para confirmar que ha está ativado.
 
-![Tabela do painel mostrando a mensagem "a HA agora está totalmente configurada"](media/fxt-cluster-config/ha-configured-alert.png)
+![Tabela do painel de instrumentos mostrando a mensagem "HA está agora totalmente configurada"](media/fxt-cluster-config/ha-configured-alert.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de adicionar todos os nós no cluster, continue a instalação Configurando o armazenamento de longo prazo do cluster.
+Depois de adicionar todos os nós do seu cluster, continue a configurar configurando o armazenamento a longo prazo do seu cluster.
 
 > [!div class="nextstepaction"]
-> [Adicionar armazenamento de back-end e configurar o namespace virtual](fxt-add-storage.md)
+> [Adicione armazenamento de back-end e instale o espaço de nome virtual](fxt-add-storage.md)

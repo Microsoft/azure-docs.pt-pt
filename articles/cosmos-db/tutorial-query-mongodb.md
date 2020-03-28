@@ -1,6 +1,6 @@
 ---
-title: Consultar dados com a API do Azure Cosmos DB para MongoDB
-description: Saiba como consultar dados da API do Azure Cosmos DB para MongoDB usando comandos do shell do MongoDB
+title: Dados de consulta com API da Azure Cosmos DB para MongoDB
+description: Saiba como consultar dados da API da Azure Cosmos DB para mongoDB utilizando comandos de conchas MongoDB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -9,20 +9,20 @@ ms.topic: tutorial
 ms.date: 12/03/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 5b9bc78f6af833d89a3404de0295ddad78ebdf20
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74870144"
 ---
-# <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Consultar dados usando a API do Azure Cosmos DB para MongoDB
+# <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Dados de consulta utilizando a API da Azure Cosmos DB para mongoDB
 
-A [API do Azure Cosmos DB para MongoDB](mongodb-introduction.md) dá suporte a [consultas do MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
+A [API do Azure Cosmos DB para MongoDB](mongodb-introduction.md) suporta [consultas mongoDB.](https://docs.mongodb.com/manual/tutorial/query-documents/) 
 
 Este artigo abrange as seguintes tarefas: 
 
 > [!div class="checklist"]
-> * Consultando dados armazenados em seu banco de Cosmos usando o Shell do MongoDB
+> * Consulta de dados armazenados na sua base de dados cosmos usando concha MongoDB
 
 Para começar, pode utilizar os exemplos neste documento e ver o vídeo [Query Azure Cosmos DB with MongoDB shell](https://azure.microsoft.com/resources/videos/query-azure-cosmos-db-data-by-using-the-mongodb-shell/) (Consultar o Azure Cosmos DB com a shell do MongoDB).
 
@@ -58,7 +58,7 @@ As consultas neste artigo utilizam o documento de exemplo seguinte.
   "isRegistered": false
 }
 ```
-## <a id="examplequery1"></a> Consulta de exemplo 1 
+## <a name="example-query-1"></a><a id="examplequery1"></a> Consulta de exemplo 1 
 
 Tendo em conta o documento de família de exemplo acima, a seguinte consulta devolve os documentos em que o campo ID corresponde a `WakefieldFamily`.
 
@@ -108,7 +108,7 @@ Tendo em conta o documento de família de exemplo acima, a seguinte consulta dev
     "isRegistered": false
     }
 
-## <a id="examplequery2"></a>Consulta de exemplo 2 
+## <a name="example-query-2"></a><a id="examplequery2"></a>Consulta de exemplo 2 
 
 A seguinte consulta devolve todos os elementos subordinados na família. 
 
@@ -141,7 +141,7 @@ A seguinte consulta devolve todos os elementos subordinados na família.
     }
 
 
-## <a id="examplequery3"></a>Consulta de exemplo 3 
+## <a name="example-query-3"></a><a id="examplequery3"></a>Consulta de exemplo 3 
 
 A consulta seguinte devolve todas as famílias que estão registadas. 
 
@@ -150,7 +150,7 @@ A consulta seguinte devolve todas as famílias que estão registadas.
     db.families.find( { "isRegistered" : true })
 **Resultados** nenhum documento vai ser devolvido. 
 
-## <a id="examplequery4"></a>Consulta de exemplo 4
+## <a name="example-query-4"></a><a id="examplequery4"></a>Consulta de exemplo 4
 
 A consulta seguinte devolve todas as famílias que não estão registadas. 
 
@@ -194,7 +194,7 @@ A consulta seguinte devolve todas as famílias que não estão registadas.
     "isRegistered": false
 }
 
-## <a id="examplequery5"></a>Consulta de exemplo 5
+## <a name="example-query-5"></a><a id="examplequery5"></a>Consulta de exemplo 5
 
 A consulta seguinte devolve todas as famílias que não estão registadas e o estado é NY. 
 
@@ -240,7 +240,7 @@ A consulta seguinte devolve todas as famílias que não estão registadas e o es
 }
 
 
-## <a id="examplequery6"></a>Consulta de exemplo 6
+## <a name="example-query-6"></a><a id="examplequery6"></a>Consulta de exemplo 6
 
 A consulta seguinte devolve todas as famílias em que as classificações de elementos subordinados são 8.
 
@@ -285,7 +285,7 @@ A consulta seguinte devolve todas as famílias em que as classificações de ele
     "isRegistered": false
 }
 
-## <a id="examplequery7"></a>Consulta de exemplo 7
+## <a name="example-query-7"></a><a id="examplequery7"></a>Consulta de exemplo 7
 
 A consulta seguinte devolve todas as famílias em que a matriz de elementos subordinados é 3.
 
@@ -302,7 +302,7 @@ Não serão devolvidos resultados, porque não há famílias com mais de dois su
 Neste tutorial, fez o seguinte:
 
 > [!div class="checklist"]
-> * Aprendeu a consultar usando a API do Cosmos DB para MongoDB
+> * Aprendeu a consultar usando a API da Cosmos DB para o MongoDB
 
 Agora pode avançar para o tutorial seguinte para saber como distribuir dados globalmente.
 

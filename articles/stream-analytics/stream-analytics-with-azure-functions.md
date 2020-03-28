@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/27/2020
 ms.openlocfilehash: 837174b3ccc08a74583587cb9efd34f8f720aec5
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77589458"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Tutorial: Run Azure Funções a partir de trabalhos da Azure Stream Analytics 
@@ -28,7 +28,7 @@ Neste tutorial, ficará a saber como:
 > * Criar uma Função do Azure
 > * Verifique os resultados do Azure Cache para redis
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="configure-a-stream-analytics-job-to-run-a-function"></a>Configurar uma tarefa do Stream Analytics para executar uma função 
 
@@ -52,7 +52,7 @@ Siga o tutorial [Deteção de fraudes em tempo real](stream-analytics-real-time-
 
 1. Veja a secção [Criar uma aplicação de funções](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) na documentação das Funções. Esta secção explica-o como criar uma aplicação de função e uma [função desencadeada em HTTP nas Funções Azure,](../azure-functions/functions-create-first-azure-function.md#create-function)utilizando a linguagem CSharp.  
 
-2. Navegue para a função **run.csx**. Atualize-a com o seguinte código. Substitua **"\<o seu Cache Azure para a corda de ligação Redis vai para cá\>"** com a corda de ligação primária Azure Cache para Redis que recuperou na secção anterior. 
+2. Navegue para a função **run.csx**. Atualize-a com o seguinte código. Substitua **"\<o seu Cache Azure\>para a corda de ligação Redis vai aqui "** com a corda de ligação primária Azure Cache para Redis que você recuperou na secção anterior. 
 
     ```csharp
     using System;
@@ -140,9 +140,9 @@ Siga o tutorial [Deteção de fraudes em tempo real](stream-analytics-real-time-
 
 1. Abra a sua tarefa do Stream Analytics no portal do Azure.  
 
-2. Navegue para a sua função e selecione **Descrição Geral** > **Saídas** > **Adicionar**. Para adicionar uma nova saída, selecione **Função do Azure** para a opção de sink. O adaptador de saída functiontem as seguintes propriedades:  
+2. Navegue na sua função e selecione**Saídas** >  **de visão geral** > **Adicionar**. Para adicionar uma nova saída, selecione **Função do Azure** para a opção de sink. O adaptador de saída functiontem as seguintes propriedades:  
 
-   |**Nome da propriedade**|**Descrição**|
+   |**Nome de propriedade**|**Descrição**|
    |---|---|
    |Alias de saída| Um nome de utilizador amigável que utiliza na consulta da tarefa para a referência de saída. |
    |Opção de Importar| Pode utilizar a função da subscrição atual ou fornecer as definições manualmente se a função estiver localizada noutra subscrição. |
@@ -167,7 +167,7 @@ Siga o tutorial [Deteção de fraudes em tempo real](stream-analytics-real-time-
         WHERE CS1.SwitchNum != CS2.SwitchNum
    ```
 
-5. Inicie a aplicação telcodatagen.exe executando o seguinte comando na linha de comando. O comando utiliza o formato `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`.  
+5. Inicie a aplicação telcodatagen.exe executando o seguinte comando na linha de comando. O comando utiliza `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`o formato .  
    
    ```cmd
    telcodatagen.exe 1000 0.2 2

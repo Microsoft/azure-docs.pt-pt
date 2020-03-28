@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o Zscaler privada acesso (ZPA) | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o acesso privado Zscaler (ZPA).
+title: 'Tutorial: Integração do Diretório Ativo Azure com o Acesso Privado zscaler (ZPA) [ Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Zscaler Private Access (ZPA).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,160 +17,160 @@ ms.date: 05/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0a1538f640bb4722eca1d4f3a80125837593bab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67085745"
 ---
-# <a name="tutorial-integrate-zscaler-private-access-zpa-with-azure-active-directory"></a>Tutorial: Integrar o Zscaler privada acesso (ZPA) com o Azure Active Directory
+# <a name="tutorial-integrate-zscaler-private-access-zpa-with-azure-active-directory"></a>Tutorial: Integrar o Acesso Privado zscaler (ZPA) com o Diretório Ativo Azure
 
-Neste tutorial, irá aprender como integrar o acesso privado Zscaler (ZPA) com o Azure Active Directory (Azure AD). Quando integrar o acesso privado Zscaler (ZPA) com o Azure AD, pode:
+Neste tutorial, você vai aprender a integrar o Zscaler Private Access (ZPA) com o Azure Ative Directory (Azure AD). Quando integrar o Zscaler Private Access (ZPA) com a Azure AD, pode:
 
-* Controlar no Azure AD que tenha acesso para Zscaler privada acesso (ZPA).
-* Permita que os utilizadores ser automaticamente sessão iniciada para Zscaler privada acesso (ZPA) com as suas contas do Azure AD.
-* Gira as suas contas num local central – portal do Azure.
+* Controlo em Azure AD que tem acesso ao Zscaler Private Access (ZPA).
+* Ative que os seus utilizadores sejam automaticamente inscritos no Zscaler Private Access (ZPA) com as suas contas Azure AD.
+* Gerencie as suas contas num local central - o portal Azure.
 
-Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, terá dos seguintes itens:
+Para começar, precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver uma subscrição, pode obter um [conta gratuita](https://azure.microsoft.com/free/).
-* Acesso privado Zscaler (ZPA) início de sessão único (SSO) ativado na subscrição.
+* Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* A assinatura ativada pelo Acesso Privado (ZPA) zscaler Private Access (ZPA) permitiu a subscrição.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configurar e testar o SSO do Azure AD num ambiente de teste. Acesso privado Zscaler (ZPA) suporta **SP** iniciada SSO.
+Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste. Zscaler Private Access (ZPA) suporta **SP** iniciado SSO.
 
-## <a name="adding-zscaler-private-access-zpa-from-the-gallery"></a>Adicionando o acesso privado Zscaler (ZPA) da Galeria
+## <a name="adding-zscaler-private-access-zpa-from-the-gallery"></a>Adicionando acesso privado zscaler (ZPA) da galeria
 
-Para configurar a integração do Zscaler privada acesso (ZPA) para o Azure AD, terá de adicionar acesso privado Zscaler (ZPA) a partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração do Zscaler Private Access (ZPA) no Azure AD, é necessário adicionar o Zscaler Private Access (ZPA) da galeria à sua lista de aplicações geridas do SaaS.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, selecione o **do Azure Active Directory** serviço.
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **todos os aplicativos**.
-1. Para adicionar nova aplicação, selecione **nova aplicação**.
-1. Na **adicionar a partir da galeria** secção, escreva **Zscaler privada acesso (ZPA)** na caixa de pesquisa.
-1. Selecione **Zscaler privada acesso (ZPA)** do painel de resultados e, em seguida, adicionar a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
+1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. No Add da secção **galeria,** **digite Zscaler Private Access (ZPA)** na caixa de pesquisa.
+1. Selecione **Zscaler Private Access (ZPA)** a partir do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
-Configurar e testar o SSO do Azure AD com o Zscaler privada acesso (ZPA) com um utilizador de teste **Eduarda Almeida**. Para SSO para funcionar, tem de estabelecer uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Zscaler privada acesso (ZPA).
+Configure e teste Azure AD SSO com Zscaler Private Access (ZPA) utilizando um utilizador de teste chamado **Britta Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado no Zscaler Private Access (ZPA).
 
-Para configurar e testar o SSO do Azure AD com o Zscaler privada acesso (ZPA), conclua os seguintes blocos de construção:
+Para configurar e testar o Azure AD SSO com o Zscaler Private Access (ZPA), complete os seguintes blocos de construção:
 
-1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)**  para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Configurar o acesso privado Zscaler (ZPA)](#configure-zscaler-private-access-zpa)**  para configurar as definições de SSO no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste de acesso privado Zscaler (ZPA)](#create-zscaler-private-access-zpa-test-user)**  ter um equivalente da Eduarda Almeida na Zscaler privada acesso (ZPA) que está ligado à representação de utilizador do Azure AD.
-6. **[Testar o SSO](#test-sso)**  para verificar se a configuração funciona.
+1. **[Configure O SSO AD Azure](#configure-azure-ad-sso)** para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configure o Acesso Privado zscaler (ZPA)](#configure-zscaler-private-access-zpa)** para configurar as definições SSO no lado da aplicação.
+3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** para testar o único sign-on da Azure AD com britta Simon.
+4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** para permitir que Britta Simon utilize um único sinal de AD Azure.
+5. Crie o utilizador de **[teste Zscaler Private Access (ZPA)](#create-zscaler-private-access-zpa-test-user)** para ter uma contrapartida da Britta Simon no Zscaler Private Access (ZPA) que está ligada à representação do utilizador da AD Azure.
+6. **[Teste sSO](#test-sso)** para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
+Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
-1. Na [portal do Azure](https://portal.azure.com/), na **Zscaler privada acesso (ZPA)** página de integração de aplicativo, encontrar o **gerir** secção e selecione **início de sessão único**.
-1. Sobre o **selecionar um método de início de sessão único** , selecione **SAML**.
-1. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique no ícone de edição/caneta para **configuração básica de SAML** para editar as definições.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **Zscaler Private Access (ZPA),** encontre a secção **Gerir** e selecione **single sign-on**.
+1. Na página **Select a Single sign-on,** selecione **SAML**.
+1. Na configuração do Single Sign-On com a página **SAML,** clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
 
-   ![Editar a configuração SAML do básico](common/edit-urls.png)
+   ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-1. Sobre o **configuração básica de SAML** página, introduza os valores para os seguintes campos:
+1. Na página **basic SAML Configuração,** introduza os valores para os seguintes campos:
 
-    1. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://samlsp.private.zscaler.com/auth/login?domain=<your-domain-name>`
+    1. No **Sign on URL** text box, digite um URL utilizando o seguinte padrão:`https://samlsp.private.zscaler.com/auth/login?domain=<your-domain-name>`
 
-    1. Na **identificador (ID de entidade)** caixa de texto, escreva um URL: `https://samlsp.private.zscaler.com/auth/metadata`
+    1. Na caixa de texto **identificador (Id da entidade),** digite um URL:`https://samlsp.private.zscaler.com/auth/metadata`
 
     > [!NOTE]
-    > O **iniciar sessão no URL** valor não é real. Atualize o valor com o início de sessão real no URL. Contacte [equipa de suporte de cliente de acesso privado Zscaler (ZPA)](https://help.zscaler.com/zpa-submit-ticket) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > O **valor do Signon on URL** não é real. Atualize o valor com o sinal real no URL. Contacte a equipa de apoio ao [cliente zscaler Private Access (ZPA)](https://help.zscaler.com/zpa-submit-ticket) para obter o valor. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-1. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, encontrar **XML de metadados de Federação** e selecione **transferir** para transferir o certificado e guarde-o no seu computador.
+1. Na configuração de um único sign-on com a página **SAML,** na secção certificado de **assinatura SAML,** encontre **metadados da Federação XML** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
 
-   ![O link de download de certificado](common/metadataxml.png)
+   ![O link de descarregamento do Certificado](common/metadataxml.png)
 
-1. Sobre o **definir a cópia de segurança Zscaler privada acesso (ZPA)** secção, copie o URL adequado com base nos seus requisitos.
+1. Na secção **Configurar o Acesso Privado (ZPA) do Zscaler,** copie os URL(s) adequados com base no seu requisito.
 
    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-### <a name="configure-zscaler-private-access-zpa"></a>Configurar o acesso privado do Zscaler (ZPA)
+### <a name="configure-zscaler-private-access-zpa"></a>Configure Zscaler Private Access (ZPA)
 
-1. Para automatizar a configuração no Zscaler privada acesso (ZPA), tem de instalar **segura de aplicações meu início de sessão da extensão de browser** ao clicar em **instalar a extensão**.
+1. Para automatizar a configuração dentro do Acesso Privado de Zscaler (ZPA), precisa de instalar a extensão de **navegador Secure-in das Minhas Aplicações** clicando em **instalar a extensão**.
 
-    ![Extensão My apps](common/install-myappssecure-extension.png)
+    ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
 
-2. Depois de adicionar a extensão para o navegador, clique em **configuração Zscaler privada acesso (ZPA)** irá direcioná-lo para a aplicação de acesso privado Zscaler (ZPA). A partir daí, forneça as credenciais de administrador para iniciar sessão em Zscaler privada acesso (ZPA). A extensão do browser irá configurar o aplicativo para e automatizar passos 3 a 6 automaticamente.
+2. Depois de adicionar extensão ao navegador, clique em **Configurar Zscaler Private Access (ZPA)** irá direcioná-lo para a aplicação Zscaler Private Access (ZPA). A partir daí, forneça as credenciais de administração para assinar no Zscaler Private Access (ZPA). A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-6.
 
-    ![Configuração do programa de configuração](common/setup-sso.png)
+    ![Configuração de configuração de configuração](common/setup-sso.png)
 
-3. Se desejar configurar manualmente o acesso privado Zscaler (ZPA), abra uma nova janela de browser e inicie sessão no site da sua empresa Zscaler acesso (ZPA privada) como administrador e execute os seguintes passos:
+3. Se pretender configurar manualmente o Zscaler Private Access (ZPA), abra uma nova janela do navegador web e inscreva-se no site da empresa Zscaler Private Access (ZPA) como administrador e execute os seguintes passos:
 
-4. Do lado esquerdo do menu, clique em **Administration** e navegue até à **autenticação** secção clique **configuração do IdP**.
+4. Do lado esquerdo do menu, clique em **Administração** e navegue até à secção **DE AUTENTICAÇÃO** clique na **configuração idp**.
 
-    ![Administração de administrador de acesso privado Zscaler](./media/zscalerprivateaccess-tutorial/tutorial-zscaler-private-access-administration.png)
+    ![Administração de Administrador de Acesso Privado Zscaler](./media/zscalerprivateaccess-tutorial/tutorial-zscaler-private-access-administration.png)
 
-5. No canto superior direito, clique em **adicionar a configuração do IdP**. 
+5. No canto superior direito, clique em **Adicionar Configuração IdP**. 
 
-    ![Idp de administrador de acesso privado Zscaler](./media/zscalerprivateaccess-tutorial/tutorial-zscaler-private-access-idp.png)
+    ![Zscaler Private Access Administrator IDP](./media/zscalerprivateaccess-tutorial/tutorial-zscaler-private-access-idp.png)
 
-6. Sobre o **adicionar a configuração do IdP** página execute os seguintes passos:
+6. Na página **de Configuração Add IDP** efetuar os seguintes passos:
  
-    ![Selecione de administrador de acesso privado Zscaler](./media/zscalerprivateaccess-tutorial/tutorial-zscaler-private-access-select.png)
+    ![Selecionador de Acesso Privado Zscaler](./media/zscalerprivateaccess-tutorial/tutorial-zscaler-private-access-select.png)
 
-    a. Clique em **selecionar ficheiro** para carregar o ficheiro de metadados baixado do Azure AD no **carregamento de ficheiros de metadados do IdP** campo.
+    a. Clique em **Selecionar Ficheiro** para fazer o upload do ficheiro Metadados descarregado a partir do Azure AD no campo de upload de **ficheiros idp metadados.**
 
-    b. Ele lê a **metadados de IdP** do Azure AD e preenche todas as informações de campos, conforme mostrado abaixo.
+    b. Lê os **metadados idp** da AD Azure e povoa todas as informações dos campos, como mostrado abaixo.
 
-    ![Configuração de administrador de acesso privado Zscaler](./media/zscalerprivateaccess-tutorial/config.png)
+    ![Administrador de Acesso Privado Zscaler config](./media/zscalerprivateaccess-tutorial/config.png)
 
-    c. Selecione o seu domínio a partir **domínios** campo.
+    c. Selecione o seu domínio a partir do campo **Domínios.**
     
     d. Clique em **Guardar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-Nesta secção, irá criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+Nesta secção, você vai criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No painel à esquerda no portal do Azure, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
-1. Selecione **novo utilizador** na parte superior do ecrã.
-1. Na **utilizador** propriedades, siga estes passos:
+1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `Britta Simon`.  
-   1. Na **nome de utilizador** , insira o username@companydomain.extension. Por exemplo, `BrittaSimon@contoso.com`.
-   1. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `BrittaSimon@contoso.com`.
+   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta secção, irá ativar a Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso para Zscaler privada acesso (ZPA).
+Nesta secção, permitirá que Britta Simon utilize um único sign-on Azure, concedendo acesso ao Zscaler Private Access (ZPA).
 
-1. No portal do Azure, selecione **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
-1. Na lista de aplicações, selecione **Zscaler privada acesso (ZPA)** .
-1. Na página de descrição geral da aplicação, localize a **Manage** secção e selecione **utilizadores e grupos**.
+1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **Zscaler Private Access (ZPA)**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. Selecione **adicionar utilizador**, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
 
-    ![A ligação de adicionar utilizador](common/add-assign-user.png)
+    ![Ligação Adicionar Utilizador](common/add-assign-user.png)
 
-1. Na **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** a partir da lista de utilizadores, em seguida, clique nas **selecione** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na asserção de SAML, no **selecionar função** caixa de diálogo, selecione a função adequada para o utilizador a partir da lista e, em seguida, clique nas **selecione** na parte inferior do ecrã.
-1. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
+1. No diálogo **de Utilizadores e grupos,** selecione **Britta Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
 
-### <a name="create-zscaler-private-access-zpa-test-user"></a>Criar utilizador de teste de acesso privado Zscaler (ZPA)
+### <a name="create-zscaler-private-access-zpa-test-user"></a>Criar o utilizador de teste de acesso privado zscaler (ZPA)
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida na Zscaler privada acesso (ZPA). Trabalhe em conjunto com [equipa de suporte de acesso privado Zscaler (ZPA)](https://help.zscaler.com/zpa-submit-ticket) para adicionar os utilizadores na plataforma do Zscaler privada acesso (ZPA).
+Nesta secção, cria-se uma utilizadora chamada Britta Simon no Zscaler Private Access (ZPA). Por favor, trabalhe com a equipa de [suporte zscaler Private Access (ZPA)](https://help.zscaler.com/zpa-submit-ticket) para adicionar os utilizadores na plataforma Zscaler Private Access (ZPA).
 
 ### <a name="test-sso"></a>Teste SSO
 
-Ao selecionar o mosaico de acesso privado Zscaler (ZPA) no painel de acesso, deve ser automaticamente conectado para o Zscaler privada acesso (ZPA) para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar o azulejo Zscaler Private Access (ZPA) no Painel de Acesso, deverá ser automaticamente inscrito no Zscaler Private Access (ZPA) para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -8,10 +8,10 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
 ms.openlocfilehash: dc0f8171e18598e4f805a03a4bc6d17de220fbe1
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68698981"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Verificar as métricas de débito e latência de uma conta de armazenamento
@@ -28,7 +28,7 @@ As [métricas do armazenamento do Azure](../common/storage-metrics-in-azure-moni
 
 ## <a name="configure-metrics"></a>Configurar as métricas
 
-Navegue para **Métricas (pré-visualização)** , em **DEFINIÇÕES**, na conta de armazenamento.
+Navegue para **Métricas (pré-visualização)**, em **DEFINIÇÕES**, na conta de armazenamento.
 
 Escolha Blob no menu pendente **SUBSERVIÇO**.
 
@@ -44,7 +44,7 @@ As métricas seguintes dão-lhe uma ideia da latência e do débito da aplicaç�
 |**Entrada**|A quantidade de dados de entrada. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure. |
 |**Saída**|A quantidade de dados de saída. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável. |
 
-Selecione **Últimas 24 horas (Automático)** , junto a **Tempo**. Escolha **Última hora** e **Minuto** para **Granularidade de tempo** e, em seguida, clique em **Aplicar**.
+Selecione **Últimas 24 horas (Automático)**, junto a **Tempo**. Escolha **Última hora** e **Minuto** para **Granularidade de tempo** e, em seguida, clique em **Aplicar**.
 
 ![Métricas da conta de armazenamento](./media/storage-blob-scalable-app-verify-metrics/figure1.png)
 
@@ -62,7 +62,7 @@ As [dimensões](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fsto
 
 Quando já não for necessário, elimine o grupo de recursos, a máquina virtual e todos os recursos relacionados. Para tal, selecione o grupo de recursos da VM e clique em Eliminar.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Na quarta parte da série, ficou a saber mais sobre a visualização de métricas para a solução de exemplo, tal como:
 

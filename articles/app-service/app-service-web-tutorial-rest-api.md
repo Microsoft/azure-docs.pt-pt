@@ -5,13 +5,13 @@ ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/11/2020
-ms.custom: seodec18
-ms.openlocfilehash: 28848d8b676bb5f4182a887f5efdd48c6221041a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.custom: mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seodec18
+ms.openlocfilehash: 766b860e6c711107472645d84db50412aaba0e12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79239701"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80046775"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutorial: Alojar uma API RESTful com CORS no Serviço de Aplicações do Azure
 
@@ -32,7 +32,7 @@ Pode seguir os passos neste tutorial em macOS, Linux e Windows.
 
 Para concluir este tutorial:
 
-* [Instalar o Git](https://git-scm.com/).
+* [Instale Git](https://git-scm.com/).
 * [Instale o .NET Core](https://www.microsoft.com/net/core/).
 
 ## <a name="create-local-aspnet-core-app"></a>Criar uma aplicação .NET Core local
@@ -81,7 +81,7 @@ Neste passo, vai implementar a aplicação .NET Core ligada à Base de Dados SQL
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)]
 
@@ -141,7 +141,7 @@ Em seguida, ative o suporte de CORS no Serviço de Aplicações para a sua API.
 
 No seu repositório local, abra _wwwroot/index.html_.
 
-Na Linha 51, defina a variável `apiEndpoint` como o URL da API implementada (`http://<app_name>.azurewebsites.net`). Substitua _\<appname>_ pelo nome da sua aplicação no Serviço de Aplicações.
+Na Linha 51, defina a variável `apiEndpoint` como o URL da API implementada (`http://<app_name>.azurewebsites.net`). Substitua o _ \<nome de aplicações>_ pelo nome da sua aplicação no Serviço de Aplicações.
 
 Na janela de terminal local, execute novamente a aplicação de exemplo.
 
@@ -149,7 +149,7 @@ Na janela de terminal local, execute novamente a aplicação de exemplo.
 dotnet run
 ```
 
-Navegue para a aplicação de browser em `http://localhost:5000`. Abra a janela de ferramentas de desenvolvimento no seu navegador (`Ctrl`+`Shift`+`i` no Chrome para Windows) e inspecione o separador **Consola.** Deve agora ver a mensagem de erro, `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
+Navegue para a aplicação de browser em `http://localhost:5000`. Abra a janela de ferramentas de desenvolvimento no seu navegador (no`Ctrl` + `Shift` + `i` Chrome para Windows) e inspecione o separador **Consola.** Agora deve ver a `No 'Access-Control-Allow-Origin' header is present on the requested resource`mensagem de erro.
 
 ![Erro CORS no cliente de browser](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-error.png)
 
@@ -159,7 +159,7 @@ Na produção, a aplicação de browser teria um URL público em vez do URL de l
 
 ### <a name="enable-cors"></a>Ativar o CORS 
 
-No Cloud Shell, ative CORS no URL do seu cliente com o comando [`az resource update`](/cli/azure/resource#az-resource-update). Substitua o marcador de posição _&lt;appname>_ .
+Na Cloud Shell, ative o CORS no URL [`az resource update`](/cli/azure/resource#az-resource-update) do seu cliente utilizando o comando. Substitua o _ &lt;nome de>_ espaço reservado.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.cors.allowedOrigins="['http://localhost:5000']" --api-version 2015-06-01
@@ -168,7 +168,7 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 Pode definir mais de um URL do cliente em `properties.cors.allowedOrigins` (`"['URL1','URL2',...]"`). Também pode ativar todos os URLs do cliente com `"['*']"`.
 
 > [!NOTE]
-> Se a sua aplicação necessitar de credenciais como cookies ou fichas de autenticação para ser enviada, o navegador poderá exigir que o cabeçalho `ACCESS-CONTROL-ALLOW-CREDENTIALS` na resposta. Para o ativar no Serviço de Aplicações, detete `properties.cors.supportCredentials` `true` no seu config CORS. Isto não pode ser ativado quando `allowedOrigins` inclui `'*'`.
+> Se a sua aplicação necessitar de credenciais como cookies ou fichas `ACCESS-CONTROL-ALLOW-CREDENTIALS` de autenticação para ser enviada, o navegador poderá necessitar do cabeçalho na resposta. Para ativar isto no `properties.cors.supportCredentials` Serviço `true` de Aplicações, coloque-o no seu config CORS. Isto não pode `allowedOrigins` ser `'*'`ativado quando inclui .
 
 ### <a name="test-cors-again"></a>Testar o CORS novamente
 

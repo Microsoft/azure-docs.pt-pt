@@ -1,5 +1,5 @@
 ---
-title: Exploração madeireira do Cofre de Chaves Azure  Microsoft Docs
+title: Exploração madeireira do Cofre de Chaves Azure [ Microsoft Docs
 description: Utilize este tutorial para ajudá-lo a começar com o registo do Cofre de Chaves do Azure.
 services: key-vault
 author: msmbaldwin
@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 8915970cd4c70228fad3b49921f4c81d6d90aa72
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78195350"
 ---
 # <a name="azure-key-vault-logging"></a>Registo do Azure Key Vault
@@ -43,10 +43,10 @@ Para obter informações sobre o Cofre chave, veja [o que é o Cofre chave Azure
 Para concluir este tutorial, deve ter o seguinte:
 
 * Um cofre de chaves que tiver utilizado.  
-* Azure PowerShell, versão mínima de 1.0.0. Para instalar o Azure PowerShell e associá-lo à sua subscrição do Azure, consulte o artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Se já instalou o Azure PowerShell e não conhece a versão, a partir da consola Azure PowerShell, introduza `$PSVersionTable.PSVersion`.  
+* Azure PowerShell, versão mínima de 1.0.0. Para instalar o Azure PowerShell e associá-lo à sua subscrição do Azure, consulte o artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Se já instalou o Azure PowerShell e não conhece a versão, a `$PSVersionTable.PSVersion`partir da consola Azure PowerShell, introduza .  
 * Armazenamento suficiente no Azure para os seus registos do Cofre de Chaves.
 
-## <a id="connect"></a>Ligue-se à subscrição do seu cofre chave
+## <a name="connect-to-your-key-vault-subscription"></a><a id="connect"></a>Ligue-se à subscrição do seu cofre chave
 
 O primeiro passo para a configuração da exploração da chave é apontar o Azure PowerShell para o cofre chave que pretende registar.
 
@@ -72,7 +72,7 @@ Set-AzContext -SubscriptionId <subscription ID>
 
 Apontar o PowerShell para a subscrição certa é um passo importante, especialmente se tiver várias subscrições associadas à sua conta. Para obter mais informações sobre como configurar o Azure PowerShell, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview).
 
-## <a id="storage"></a>Crie uma conta de armazenamento para os seus registos
+## <a name="create-a-storage-account-for-your-logs"></a><a id="storage"></a>Crie uma conta de armazenamento para os seus registos
 
 Embora possa utilizar uma conta de armazenamento existente para os seus registos, criaremos uma conta de armazenamento que será dedicada aos registos do Key Vault. Para conveniência para quando tivermos que especificar isto mais tarde, vamos armazenar os detalhes em uma variável chamada **sa**.
 
@@ -87,7 +87,7 @@ Para uma maior facilidade de gestão, também usaremos o mesmo grupo de recursos
 >
 >
 
-## <a id="identify"></a>Identifique o cofre de chaves para os seus registos
+## <a name="identify-the-key-vault-for-your-logs"></a><a id="identify"></a>Identifique o cofre de chaves para os seus registos
 
 No [tutorial de início,](key-vault-get-started.md)o nome chave do cofre era **ContosoKeyVault.** Continuaremos a usar esse nome e armazenaros os detalhes numa variável chamada **kv:**
 
@@ -95,7 +95,7 @@ No [tutorial de início,](key-vault-get-started.md)o nome chave do cofre era **C
 $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 ```
 
-## <a id="enable"></a>Ativar registo
+## <a name="enable-logging"></a><a id="enable"></a>Ativar registo
 
 Para ativar o registo do Key Vault, utilizaremos o cmdlet **Set-AzDiagnosticSetting,** juntamente com as variáveis que criámos para a nova conta de armazenamento e o cofre chave. Também definiremos a bandeira **ativada** para **$true** e definiremos a categoria para **AuditEvent** (a única categoria para a exploração de key vault):
 
@@ -132,7 +132,7 @@ O que é registado:
   * Assinar, verificar, encriptar, desencriptar, embrulhar e desembrulhar chaves, obter segredos e listar chaves e segredos (e as suas versões).
 * Pedidos não autenticados que resultam numa resposta 401. Exemplos são pedidos que não têm um símbolo portador, que são mal formados ou expirados, ou que têm um token inválido.  
 
-## <a id="access"></a>Aceder aos seus registos
+## <a name="access-your-logs"></a><a id="access"></a>Aceder aos seus registos
 
 Os registos key Vault são armazenados no recipiente de **insights-logs-auditevent** na conta de armazenamento que forneceu. Para ver os registos, tem de descarregar bolhas.
 
@@ -163,7 +163,7 @@ resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CO
 resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json
 ```
 
-Como pode ver a partir desta saída, as bolhas seguem uma convenção de nomeação: `resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
+Como pode ver a partir desta saída, as bolhas seguem uma convenção de nomeação:`resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
 
 Os valores data e hora utilizam o UTC.
 
@@ -187,7 +187,7 @@ Pipe esta lista através do **Get-AzStorageBlobContent** para descarregar as bol
 $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVaultLogs'
 ```
 
-Quando executa este segundo comando, o **/** delimitador nos nomes blob cria uma estrutura de pasta completa sob a pasta de destino. Você usará esta estrutura para descarregar e armazenar as bolhas como ficheiros.
+Quando executa este segundo **/** comando, o delimitador nos nomes blob cria uma estrutura de pasta completa sob a pasta de destino. Você usará esta estrutura para descarregar e armazenar as bolhas como ficheiros.
 
 Para transferir seletivamente blobs, utilize carateres universais. Por exemplo:
 
@@ -203,7 +203,7 @@ Para transferir seletivamente blobs, utilize carateres universais. Por exemplo:
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
   ```
 
-* Se quiser baixar todos os registos para o mês de janeiro de 2019, utilize `-Blob '*/year=2019/m=01/*'`:
+* Se quiser baixar todos os registos para o mês de `-Blob '*/year=2019/m=01/*'`janeiro de 2019, utilize:
 
   ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
@@ -214,7 +214,7 @@ Agora, está pronto para começar a procurar o conteúdo dos registos. Mas antes
 * Para consultar o estado das definições de diagnóstico para o recurso do seu cofre de chaves: `Get-AzDiagnosticSetting -ResourceId $kv.ResourceId`
 * Para desativar o registo do seu cofre de chaves: `Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Category AuditEvent`
 
-## <a id="interpret"></a>Interpretar os registos do seu Cofre de Chaves
+## <a name="interpret-your-key-vault-logs"></a><a id="interpret"></a>Interpretar os registos do seu Cofre de Chaves
 
 Os blobs individuais são armazenadas como texto, formatados como um blob JSON. Vamos ver um exemplo de entrada de registo. Execute este comando:
 
@@ -252,14 +252,14 @@ A tabela seguinte enumera os nomes e descrições do campo:
 | Nome do campo | Descrição |
 | --- | --- |
 | **tempo** |Data e hora na UTC. |
-| **recursosId** |ID de recurso de Gestor de recursos do Azure. Para os registos do Cofre chave, este é sempre o ID de recurso key vault. |
+| **recursosId** |ID de recurso do Gestor de Recursos Azure. Para os registos do Cofre chave, este é sempre o ID de recurso key vault. |
 | **operaçãoNome** |Nome da operação, conforme documentada na tabela seguinte. |
-| **operaçãoVersão** |Versão REST API solicitada pelo cliente. |
+| **operationVersion** |Versão REST API solicitada pelo cliente. |
 | **categoria** |Tipo de resultado. Para os registos key vault, **auditEvent** é o valor único e disponível. |
-| **resultadoTipo** |Resultado do pedido de API REST. |
-| **resultadoAssinatura** |Estado de HTTP. |
-| **resultadoDescrição** |Descrição adicional sobre o resultado, quando disponível. |
-| **duraçãoMs** |Tempo necessário para o processamento do pedido de API REST, em milissegundos. Não inclui a latência de rede, assim, o tempo que medir do lado do cliente poderá não corresponder a este período de tempo. |
+| **resultType** |Resultado do pedido de API REST. |
+| **resultSignature** |Estado de HTTP. |
+| **resultDescription** |Descrição adicional sobre o resultado, quando disponível. |
+| **durationMs** |Tempo necessário para o processamento do pedido de API REST, em milissegundos. Não inclui a latência de rede, assim, o tempo que medir do lado do cliente poderá não corresponder a este período de tempo. |
 | **callerIpAddress** |Endereço IP do cliente que fez o pedido. |
 | **coralaid** |Um GUID opcional que o cliente pode passar para correlacionar os registos do lado do cliente com os registos do lado do serviço (Cofre de Chaves). |
 | **identidade** |Identidade do símbolo que foi apresentado no pedido rest API. Trata-se geralmente de um "utilizador", um "diretor de serviço", ou a combinação "user+appId", como no caso de um pedido que resulta de um cmdlet Azure PowerShell. |
@@ -267,9 +267,9 @@ A tabela seguinte enumera os nomes e descrições do campo:
 
 Os valores de campo **do nome da operação** estão no formato *ObjectVerb.* Por exemplo:
 
-* Todas as operações de cofre têm o formato `Vault<action>`, como `VaultGet` e `VaultCreate`.
-* Todas as operações-chave têm o formato `Key<action>`, como `KeySign` e `KeyList`.
-* Todas as operações secretas têm o formato `Secret<action>`, como `SecretGet` e `SecretListVersions`.
+* Todas as operações `Vault<action>` de cofre `VaultGet` `VaultCreate`têm o formato, como e .
+* Todas as operações-chave têm o `Key<action>` formato, como `KeySign` e `KeyList`.
+* Todas as operações secretas têm o `Secret<action>` formato, como `SecretGet` e `SecretListVersions`.
 
 A tabela seguinte lista os valores de nome de **funcionamento** e os comandos correspondentes da API REST:
 
@@ -278,38 +278,38 @@ A tabela seguinte lista os valores de nome de **funcionamento** e os comandos co
 | **Autenticação** |Autenticação via Ponto final do Diretório Ativo Azure |
 | **VaultGet** |[Obter informações sobre um cofre de chaves](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
 | **VaultPut** |[Criar ou atualizar um cofre de chaves](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| **Abóbada Delete** |[Eliminar um cofre de chaves](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
+| **VaultDelete** |[Eliminar um cofre de chaves](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
 | **VaultPatch** |[Atualizar um cofre de chaves](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| **Lista de Cofres** |[Lista todos os cofres de chaves num grupo de recursos](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
+| **VaultList** |[Lista todos os cofres de chaves num grupo de recursos](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
 | **KeyCreate** |[Criar uma chave](https://msdn.microsoft.com/library/azure/dn903634.aspx) |
 | **KeyGet** |[Obter informações sobre uma chave](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
-| **ChaveImport** |[Importar uma chave para um cofre](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
+| **KeyImport** |[Importar uma chave para um cofre](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
 | **KeyBackup** |[Apoiar uma chave](https://msdn.microsoft.com/library/azure/dn878058.aspx) |
-| **TeclaEliminar** |[Eliminar uma chave](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
-| **Restabelecimento da chave** |[Restaurar uma chave](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
-| **Chave** |[Assinar com uma chave](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
-| **KeyCheck** |[Verificar com uma chave](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
+| **KeyDelete** |[Eliminar uma chave](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
+| **KeyRestore** |[Restaurar uma chave](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
+| **KeySign** |[Assinar com uma chave](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
+| **KeyVerify** |[Verificar com uma chave](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
 | **KeyWrap** |[Moldar uma chave](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
 | **KeyUnwrap** |[Desenrolar uma chave](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
 | **KeyEncrypt** |[Encriptar com uma chave](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
 | **KeyDecrypt** |[Desencriptar com uma chave](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
 | **KeyUpdate** |[Atualizar uma chave](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
-| **Lista de Chaves** |[Lista as chaves num cofre](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
-| **Versão sinuosa** |[Lista as versões de uma chave](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
+| **KeyList** |[Lista as chaves num cofre](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
+| **KeyListVersions** |[Lista as versões de uma chave](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
 | **SecretSet** |[Criar um segredo](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
 | **SecretGet** |[Obter um segredo](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
-| **Atualização Secreta** |[Atualizar um segredo](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
-| **Eliminação secreta** |[Eliminar um segredo](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
-| **Lista Secreta** |[Lista os segredos num cofre](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
+| **SecretUpdate** |[Atualizar um segredo](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
+| **SecretDelete** |[Eliminar um segredo](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
+| **SecretList** |[Lista os segredos num cofre](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[Lista as versões de um segredo](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
-## <a id="loganalytics"></a>Utilize os registos do Monitor Azure
+## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Utilizar os registos do Azure Monitor
 
 Pode utilizar a solução Key Vault nos registos do Monitor Azure para rever os registos do Key Vault **AuditEvent.** Nos registos do Monitor Azure, utiliza consultas de registo para analisar dados e obter a informação de que necessita. 
 
 Para mais informações, incluindo como configurar isto, consulte a [solução Azure Key Vault nos registos do Monitor Azure](../azure-monitor/insights/azure-key-vault.md). Este artigo também contém instruções se precisar de migrar da antiga solução Key Vault que foi oferecida durante a pré-visualização dos registos do Monitor Azure, onde primeiro encaminhou os seus registos para uma conta de armazenamento Azure e configuraram os registos do Monitor Azure para ler a partir daí.
 
-## <a id="next"></a>Passos seguintes
+## <a name="next-steps"></a><a id="next"></a>Passos seguintes
 
 Para um tutorial que utiliza o Cofre chave Azure numa aplicação web .NET, consulte [use Azure Key Vault a partir de uma aplicação web](tutorial-net-create-vault-azure-web-app.md).
 

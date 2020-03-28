@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 979b390f65363b43f33ce2f09d26844c3cc1a2e8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c5d2bbe920f87421550fadf30a7e7e9d23931bfd
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79238917"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80292473"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurar recuperação de desastres para VMs Azure
 
@@ -19,10 +19,10 @@ O serviço de recuperação de [sítios Azure](site-recovery-overview.md) contri
 Este tutorial mostra-lhe como configurar a recuperação de desastres para os VMs Azure, replicando-os de uma região de Azure para outra. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Criar um cofre dos Serviços de Recuperação
+> * Criar um cofre dos Serviços de Recuperação 
 > * Verificar as definições dos recursos de destino
 > * Criar conectividade de rede de saída para VMs
-> * Ativar replicação para uma VM
+> * Ativar a replicação para uma VM
 
 > [!NOTE]
 > Este artigo fornece instruções para a implementação da recuperação de desastres com as configurações mais simples. Se quiser aprender sobre configurações personalizadas, reveja os artigos na [secção Como Fazer](azure-to-azure-how-to-enable-replication.md).
@@ -34,13 +34,13 @@ Para concluir este tutorial:
 - Reveja a [arquitetura e os componentes do cenário](concepts-azure-to-azure-architecture.md).
 - Reveja os [requisitos](site-recovery-support-matrix-azure-to-azure.md) de suporte antes de começar.
 
-## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
+## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
 Crie o cofre em qualquer região, exceto na região de origem.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. No menu do portal Azure ou na página **Inicial,** selecione **Criar um recurso**. Em seguida, selecione **ferramentas de TI e gestão** > **backup e recuperação**do site.
-1. Em **Nome**, especifique um nome amigável para identificar o cofre. Se tiver mais do que uma subscrição, selecione a que for adequada.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**. Em seguida, selecione **IT & Management Tools** > **Backup and Site Recovery**.
+1. Em **Nome,** especifique um nome amigável para identificar o cofre. Se tiver mais do que uma subscrição, selecione a que for adequada.
 1. Crie um grupo de recursos ou selecione um existente. Selecione uma região do Azure. Para verificar as regiões suportadas, veja a disponibilidade geográfica em [Detalhes dos Preços do Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 1. Para aceder ao cofre a partir do painel de instrumentos, selecione **Pin para painel de instrumentos** e, em seguida, selecione **Criar**.
 
@@ -75,14 +75,14 @@ Se estiver a utilizar um representante de firewall baseado em URL para controlar
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP
 
-Se estiver a utilizar um grupo de segurança de rede (NSG), crie regras nsg baseadas em etiquetas de serviço para acesso ao Armazenamento Azure, Diretório Ativo Azure, serviço de Recuperação de Sites e monitorização de Recuperação do Site. [Saiba mais](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
+Se estiver a utilizar um grupo de segurança de rede (NSG), crie regras nsg baseadas em etiquetas de serviço para acesso ao Armazenamento Azure, Diretório Ativo Azure, serviço de Recuperação de Sites e monitorização de Recuperação do Site. [Saiba mais](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
 
 ## <a name="verify-azure-vm-certificates"></a>Verificar os certificados de VM do Azure
 
 Verifique se os VMs que pretende replicar têm os mais recentes certificados de raiz. Se não o fizerem, o VM não pode ser registado na Recuperação do Local devido a restrições de segurança.
 
 - Para VMs do Windows, instale todas as atualizações mais recentes do Windows na VM, para que todos os certificados de raiz fidedigna fiquem na máquina. Num ambiente desligado, siga o padrão do Windows Update e os processos de atualização de certificados da sua organização.
-- Para VMs do Linux, siga a documentação de orientação fornecida pelo distribuidor do Linux, para obter os certificados de raiz fidedigna mais recentes e a lista de revogação de certificados na VM.
+- Para VMs do Linux, siga as orientações fornecidas pelo distribuidor do Linux, para obter os certificados de raiz fidedigna mais recentes e a lista de revogação de certificados na VM.
 
 ## <a name="set-permissions-on-the-account"></a>Definir permissões na conta
 
@@ -96,7 +96,7 @@ O Azure Site Recovery fornece três funções incorporadas para controlar as ope
 
 Saiba mais sobre [as funções integradas do Azure RBAC.](../role-based-access-control/built-in-roles.md)
 
-## <a name="enable-replication-for-a-vm"></a>Ativar replicação para uma VM
+## <a name="enable-replication-for-a-vm"></a>Ativar a replicação para uma VM
 
 As seguintes secções descrevem como permitir a replicação.
 
@@ -135,12 +135,12 @@ O Site Recovery cria as predefinições e a política de replicação para a reg
    | --- | --- |
    | **Subscrição de alvo** | Por predefinição, a subscrição do alvo é a mesma que a subscrição de origem. Selecione **Personalizar** para selecionar uma subscrição de alvo diferente dentro do mesmo inquilino do Azure Ative Directory. |
    | **Localização de destino** | A região alvo usada para a recuperação de desastres.<br/><br/> Recomendamos que a localização de destino corresponda à localização do cofre do Site Recovery. |
-   | **Grupo de recursos-alvo** | O grupo de recursos na região alvo que detém VMs Azure após a falha.<br/><br/> Por padrão, a Recuperação do Site cria um novo grupo de recursos na região alvo com um sufixo `asr`. A localização do grupo de recursos alvo pode ser qualquer região, exceto a região em que as suas máquinas virtuais de origem estão hospedadas. |
-   | **Rede virtual alvo** | A rede na região alvo que os VMs estão localizados após o fracasso.<br/><br/> Por padrão, a Recuperação do Site cria uma nova rede virtual (e subnets) na região alvo com um sufixo `asr`. |
+   | **Grupo de recursos-alvo** | O grupo de recursos na região alvo que detém VMs Azure após a falha.<br/><br/> Por padrão, a Recuperação do Site cria `asr` um novo grupo de recursos na região alvo com um sufixo. A localização do grupo de recursos alvo pode ser qualquer região, exceto a região em que as suas máquinas virtuais de origem estão hospedadas. |
+   | **Rede virtual alvo** | A rede na região alvo que os VMs estão localizados após o fracasso.<br/><br/> Por padrão, a Recuperação do Site cria uma nova rede `asr` virtual (e subnets) na região alvo com um sufixo. |
    | **Contas de armazenamento de cache** | A Recuperação do Site utiliza uma conta de armazenamento na região de origem. As alterações às VMs de origem são enviadas para esta conta antes da replicação para a localização de destino.<br/><br/> Se estiver a utilizar uma conta de armazenamento de cache ativada por firewall, certifique-se de que ativa os **serviços fidedignos da Microsoft**. [Saiba mais](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions). Além disso, certifique-se de que permite o acesso a pelo menos uma sub-rede da fonte Vnet. |
    | **Contas de armazenamento-alvo (fonte VM usa discos não geridos)** | Por padrão, a Recuperação do Site cria uma nova conta de armazenamento na região alvo para espelhar a conta de armazenamento VM fonte.<br/><br/> Ativar **permitir serviços fidedignos da Microsoft** se estiver a utilizar uma conta de armazenamento de cache ativada por firewall. |
    | **Réplica de discos geridos (Se a fonte VM utilizar discos geridos)** | Por padrão, a Recuperação do Site cria discos geridos de réplica na região alvo para espelhar os discos geridos pela VM de origem com o mesmo tipo de armazenamento (padrão ou premium) que o disco gerido pela VM de origem. Só é possível personalizar o tipo de Disco. |
-   | **Conjuntos de disponibilidade de destino** | Por padrão, a Recuperação do Site Azure cria uma nova disponibilidade definida na região alvo com o nome tendo `asr` sufixo para os VMs parte de um conjunto de disponibilidade definido na região de origem. Caso já exista um conjunto de disponibilidade criado pela Azure Site Recovery, é reutilizado. |
+   | **Conjuntos de disponibilidade de destino** | Por padrão, a Recuperação do Site Azure cria uma `asr` nova disponibilidade definida na região alvo com nome tendo sufixo para os VMs parte de um conjunto de disponibilidade definido na região de origem. Caso já exista um conjunto de disponibilidade criado pela Azure Site Recovery, é reutilizado. |
    | **Zonas de disponibilidade de destino** | Por predefinição, a Recuperação do Local atribui o mesmo número de zona que a região-alvo na região alvo se a região alvo apoiar as zonas de disponibilidade.<br/><br/> Se a região alvo não suportar zonas de disponibilidade, os VMs-alvo são configurados como instâncias únicas por padrão.<br/><br/> Selecione **Personalizar** para configurar VMs como parte de um conjunto de disponibilidade na região alvo.<br/><br/> Não é possível alterar o tipo de disponibilidade (instância única, conjunto de disponibilidade ou zona de disponibilidade) depois de ativar a replicação. Para alterar o tipo de disponibilidade, desative e ativa a replicação. |
 
 1. Para personalizar as definições de política de replicação, selecione **Personalizar** ao lado da política de **replicação**e modificar as definições conforme necessário.
@@ -166,8 +166,8 @@ O Site Recovery cria as predefinições e a política de replicação para a reg
 Se a fonte VM tiver encriptação de disco Azure (ADE) ativada, reveja as definições.
 
 1. Verifique as definições:
-   1. **Cofres**de chave de encriptação de disco : Por padrão, a Recuperação do Site cria um novo cofre chave nas teclas de encriptação do disco VM de origem, com um sufixo `asr`. Se o cofre já existe, é reutilizado.
-   1. **Cofres chave de encriptação**: Por padrão, a Recuperação do Site cria um novo cofre chave na região alvo. O nome tem um sufixo `asr`, e é baseado nas chaves de encriptação da chave VM de origem. Se o cofre de chaves criado pela Recuperação do Site já existe, é reutilizado.
+   1. **Cofres**de chave de encriptação de disco : Por padrão, a Recuperação do `asr` Site cria um novo cofre chave nas teclas de encriptação do disco VM de origem, com um sufixo. Se o cofre já existe, é reutilizado.
+   1. **Cofres chave de encriptação**: Por padrão, a Recuperação do Site cria um novo cofre chave na região alvo. O nome `asr` tem um sufixo, e é baseado nas chaves de encriptação da chave VM de origem. Se o cofre de chaves criado pela Recuperação do Site já existe, é reutilizado.
 1. Selecione **Personalizar** para selecionar cofres de chaves personalizados.
 
 > [!NOTE]
@@ -179,8 +179,8 @@ Após a replicação ser ativada, pode rastrear o estado do trabalho.
 
 1. Em **Definições,** selecione **Refresh** para obter o estado mais recente.
 1. Acompanhe o progresso e o estado da seguinte forma:
-   1. Acompanhe o progresso do trabalho de **proteção enable** em **Definições** > **Jobs** > Trabalhos de **Recuperação**do Site .
-   1. Em **Definições** > **Itens Replicados**, pode ver o estado das VMs e o progresso da replicação inicial. Selecione o VM para perfurar as suas definições.
+   1. Acompanhe o progresso do trabalho de **proteção enable** em **Configurações** > **Empregos** > **de Recuperação**de Locais .
+   1. Em **Definições** > **Itens Replicados,** pode visualizar o estado dos VMs e o progresso inicial da replicação. Selecione o VM para perfurar as suas definições.
 
 ## <a name="next-steps"></a>Passos seguintes
 

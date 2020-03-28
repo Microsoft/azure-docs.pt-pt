@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
 ms.openlocfilehash: c2a0dde496d6af66387210ca9b2ebf9cb4bdae7f
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79087940"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Tutorial: Ligar, configurar, ativar portal da caixa de dados Azure
@@ -88,7 +88,7 @@ O seu painel de instrumentos apresenta as várias definições necessárias para
    
    Na página de **procuração da Web,** faça o seguinte:
    
-   1. Na caixa URL proxy **Web,** introduza o URL neste formato: `http://&lt;host-IP address or FQDN&gt;:Port number`. OS URLs HTTPS não são suportados.
+   1. Na caixa URL proxy **Web,** introduza `http://&lt;host-IP address or FQDN&gt;:Port number`o URL neste formato: . OS URLs HTTPS não são suportados.
    2. Em **Autenticação,** selecione **Nenhum** ou **NTLM**.
    3. Se estiver a utilizar a autenticação, introduza um **nome de utilizador** e **palavra-passe**.
    4. Para validar e aplicar as definições configuradas de procuração web, selecione **Aplicar**.
@@ -109,7 +109,7 @@ O seu painel de instrumentos apresenta as várias definições necessárias para
     1. Na lista de desmina do **fuso horário,** selecione o fuso horário correspondente à localização geográfica em que o dispositivo é implantado.
         O fuso horário predefinido para o seu dispositivo é PST. O dispositivo utiliza este fuso horário para todas as operações agendadas.
 
-    2. Especifique um **servidor NTP primário** para o seu dispositivo ou aceite o valor padrão de `time.windows.com`.   
+    2. Especifique um **servidor NTP primário** para `time.windows.com`o seu dispositivo ou aceite o valor padrão de .   
         Verifique se a sua rede permite que o tráfego NTP passe do datacenter para a Internet.
 
     3. Opcionalmente, na caixa de **servidores NTP secundária,** introduza um servidor secundário para o seu dispositivo.

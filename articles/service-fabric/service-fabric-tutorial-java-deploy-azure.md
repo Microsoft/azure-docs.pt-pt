@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b7754a289c06dff37aedcf8da76d35dfac4b183d
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: df6719cad79bdb063c2d4d74892206b6e5bbd414
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252808"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80292041"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Tutorial: Implementar uma aplicação Java num cluster do Service Fabric no Azure
 
@@ -36,8 +36,8 @@ Nesta série de tutoriais, ficará a saber como:
 
 Antes de começar este tutorial:
 
-* Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Instalar o SDK do Service Fabric para [Mac](service-fabric-get-started-mac.md) ou [Linux](service-fabric-get-started-linux.md)
 * [Instalar o Python 3](https://wiki.python.org/moin/BeginnersGuide/Download)
 
@@ -162,9 +162,9 @@ Os passos seguintes criam os recursos necessários para implementar a sua aplica
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
-    O seu URL SAS para os EventHubs segue a estrutura: `https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>`. Por exemplo, `https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender`
+    O url sas para os EventHubs segue a estrutura: `https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>`. Por exemplo, `https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender`
 
-12. Abra o ficheiro *sfdeploy.parameters.json* e substitua o conteúdo seguinte dos passos anteriores. [SAS-URL-STORAGE-ACCOUNT] foi indicado no passo 8. [SAS-URL-EVENT-HUBS] foi indicado no passo 11.
+12. Abra o ficheiro *sfdeploy.parâmetros.json* e substitua o seguinte conteúdo dos passos anteriores. [SAS-URL-STORAGE-ACCOUNT] foi indicado no passo 8. [SAS-URL-EVENT-HUBS] foi indicado no passo 11.
 
     ```json
     "applicationDiagnosticsStorageAccountName": {
@@ -217,11 +217,11 @@ Os passos seguintes criam os recursos necessários para implementar a sua aplica
     ./install.sh
     ```
 
-5. Para aceder ao Service Fabric Explorer, abra o seu browser favorito e escreva https://testlinuxcluster.westus.cloudapp.azure.com:19080. Escolha o certificado no arquivo de certificados que quer utilizar para ligar a este ponto final. Se estiver a utilizar uma máquina Linux, os certificados gerados pelo script *new-service-fabric-cluster-certificate.sh* têm de ser importados para o Chrome para ver o Service Fabric Explorer. Se estiver a utilizar um Mac, tem de instalar o ficheiro PFX na Keychain. Repare se a aplicação foi instalada no cluster.
+5. Para aceder ao Service Fabric Explorer, abra o seu browser favorito e escreva `https://testlinuxcluster.westus.cloudapp.azure.com:19080`. Escolha o certificado no arquivo de certificados que quer utilizar para ligar a este ponto final. Se estiver a utilizar uma máquina Linux, os certificados gerados pelo script *new-service-fabric-cluster-certificate.sh* têm de ser importados para o Chrome para ver o Service Fabric Explorer. Se estiver a utilizar um Mac, tem de instalar o ficheiro PFX na Keychain. Repare se a aplicação foi instalada no cluster.
 
     ![SFX Java Azure](./media/service-fabric-tutorial-java-deploy-azure/sfxjavaonazure.png)
 
-6. Para aceder à sua aplicação, escreva https://testlinuxcluster.westus.cloudapp.azure.com:8080
+6. Para aceder à sua aplicação, escreva `https://testlinuxcluster.westus.cloudapp.azure.com:8080`
 
     ![Voting App Java Azure](./media/service-fabric-tutorial-java-deploy-azure/votingappjavaazure.png)
 

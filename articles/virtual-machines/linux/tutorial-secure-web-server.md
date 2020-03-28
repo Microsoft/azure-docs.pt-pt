@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: proteger um servidor Web Linux com certificados SSL no Azure'
+title: 'Tutorial: Proteja um servidor web Linux com certificados TLS/SSL em Azure'
 description: Neste tutorial, vai aprender a utilizar a CLI do Azure para proteger uma máquina virtual do Linux que executa o servidor Web NGINX com certificados SSL armazenados no Azure Key Vault.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,28 +15,28 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: aaa3f32cc48c6d051a2ff2a959372886435e5dcb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b51d0747a4ffa08bc230b33cd416986dda1e1908
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976167"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80154309"
 ---
-# <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Tutorial: proteger um servidor Web numa máquina virtual com Linux no Azure com certificados SSL armazenados no Key Vault
-Para proteger servidores Web, pode ser utilizado um certificado SSL (Secure Sockets Layer) para encriptar o tráfego da Web. Estes certificados SSL podem ser armazenados no Azure Key Vault e permitir implementações seguras de certificados para máquinas virtuais (VMs) com Linux no Azure. Neste tutorial, ficará a saber como:
+# <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Tutorial: Proteja um servidor web numa máquina virtual Linux em Azure com certificados TLS/SSL armazenados em Key Vault
+Para proteger os servidores web, um Transport Layer Security (TLS), anteriormente conhecido como Secure Sockets Layer (SSL), o certificado pode ser usado para encriptar o tráfego web. Estes certificados TLS/SSL podem ser armazenados no Cofre de Chaves Azure e permitem a implementação segura de certificados para máquinas virtuais Linux (VMs) em Azure. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar um Azure Key Vault
 > * Gerar ou carregar um certificado para o Key Vault
 > * Criar uma VM e instalar o servidor Web NGINX
-> * Inserir o certificado na VM e configurar o NGINX com um enlace SSL
+> * Injetar o certificado no VM e configurar o NGINX com uma ligação TLS
 
-Este tutorial usa a CLI dentro do [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que é constantemente atualizado para a versão mais recente. Para abrir o Cloud Shell, selecione **Experimente** na parte superior de qualquer bloco de código.
+Este tutorial utiliza o CLI dentro da [Cloud Shell Azure,](https://docs.microsoft.com/azure/cloud-shell/overview)que é constantemente atualizada para a versão mais recente. Para abrir a Cloud Shell, selecione **Experimente a** partir do topo de qualquer bloco de código.
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial precisará que execute a versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 O Azure Key Vault salvaguarda as chaves criptográficas e os segredos, como os certificados ou as palavras-passe. O Key Vault ajuda a simplificar o processo de gestão de chaves e permite-lhe manter o controlo das chaves que acedem a esses certificados. Pode criar um certificado autoassinado no Key Vault ou carregar um certificado fidedigno que já possui.
 
 Em vez de utilizar uma imagem de VM personalizada, que inclua certificados integrados, pode inserir certificados numa VM em execução. Este processo garante que são instalados os certificados mais atualizados num servidor Web durante a implementação. Se renovar ou substituir um certificado, também não tem de criar uma nova imagem de VM personalizada. Os certificados mais recentes são inseridos automaticamente à medida que cria VMs adicionais. Durante todo o processo, os certificados nunca saem da plataforma do Azure nem são expostos num script, histórico de linha de comandos ou modelo.
@@ -49,7 +49,7 @@ Para poder criar um Key Vault e certificados, crie primeiro um grupo de recursos
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-Em seguida, crie um Key Vault com [az keyvault create](/cli/azure/keyvault) e ative-o para utilização quando implementar uma VM. Cada Key Vault requer um nome exclusivo com todas as letras minúsculas. Substitua *\<mykeyvault >* no exemplo a seguir por seu próprio nome de Key Vault exclusivo:
+Em seguida, crie um Key Vault com [az keyvault create](/cli/azure/keyvault) e ative-o para utilização quando implementar uma VM. Cada Key Vault requer um nome exclusivo com todas as letras minúsculas. Substitua o * \<mykeyvault>* no seguinte exemplo com o seu nome exclusivo do Cofre chave:
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>
@@ -136,7 +136,7 @@ az vm open-port \
 
 
 ### <a name="test-the-secure-web-app"></a>Testar a aplicação Web segura
-Agora você pode abrir um navegador da Web e digitar *https:\/\/\<publicIpAddress >* na barra de endereços. Forneça o seu próprio endereço IP público a partir do processo de criação da VM. Aceite o aviso de segurança se utilizou um certificado autoassinado:
+Agora pode abrir um navegador web e inserir *https:\/\/\<publicIpAddress>* na barra de endereços. Forneça o seu próprio endereço IP público a partir do processo de criação da VM. Aceite o aviso de segurança se utilizou um certificado autoassinado:
 
 ![Aceitar o aviso de segurança do browser](./media/tutorial-secure-web-server/browser-warning.png)
 
@@ -147,13 +147,13 @@ O site NGINX protegido é apresentado como no exemplo seguinte:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, protegeu um servidor Web NGINX com um certificado SSL armazenado no Azure Key Vault. Aprendeu a:
+Neste tutorial, garantiu um servidor web NGINX com um certificado TLS/SSL armazenado no Cofre de Chaves Azure. Aprendeu a:
 
 > [!div class="checklist"]
 > * Criar um Azure Key Vault
 > * Gerar ou carregar um certificado para o Key Vault
 > * Criar uma VM e instalar o servidor Web NGINX
-> * Inserir o certificado na VM e configurar o NGINX com um enlace SSL
+> * Injetar o certificado no VM e configurar o NGINX com uma ligação TLS
 
 Siga esta ligação para ver os exemplos de scripts de máquina virtual pré-criados.
 

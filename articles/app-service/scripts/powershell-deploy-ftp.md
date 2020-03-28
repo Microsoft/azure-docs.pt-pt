@@ -1,16 +1,16 @@
 ---
-title: 'PowerShell: carregar arquivos usando FTP'
-description: Saiba como usar Azure PowerShell para automatizar a implantação e o gerenciamento do serviço de aplicativo. Este exemplo mostra como carregar arquivos para um aplicativo usando FTP.
+title: 'PowerShell: Upload de ficheiros usando FTP'
+description: Aprenda a usar o Azure PowerShell para automatizar a implementação e gestão do App Service. Esta amostra mostra como enviar ficheiros para uma aplicação utilizando FTP.
 tags: azure-service-management
 ms.assetid: b7d46d6f-44fd-454c-8008-87dab6eefbc1
 ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc
 ms.openlocfilehash: 1dfcbec9530a66570244e8168faa84bfe0759038
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74685100"
 ---
 # <a name="upload-files-to-a-web-app-using-ftp"></a>Carregar ficheiros para uma aplicação Web com FTP
@@ -40,9 +40,9 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | Comando | Notas |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Cria um plano do Serviço de Aplicações. |
-| [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria uma aplicação Web. |
-| [Get-AzWebAppPublishingProfile](/powershell/module/az.websites/get-azwebapppublishingprofile) | Obter o perfil de publicação de uma aplicação Web. |
+| [Novo AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Cria um plano do Serviço de Aplicações. |
+| [Novo AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria uma aplicação Web. |
+| [Perfil de publicação Get-AzWebApp](/powershell/module/az.websites/get-azwebapppublishingprofile) | Obter o perfil de publicação de uma aplicação Web. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

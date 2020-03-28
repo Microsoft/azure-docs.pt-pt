@@ -10,40 +10,40 @@ ms.custom: include file
 ms.topic: include
 ms.date: 11/04/2019
 ms.openlocfilehash: 8ccd3e6129f4a061eacf83a1f4e70174c697480f
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73633723"
 ---
-1. Entre no [portal do Azure](https://portal.azure.com/) usando as credenciais para sua assinatura do Azure.
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) utilizando as credenciais para a sua subscrição Azure.
 
-1. No canto superior esquerdo da portal do Azure, selecione **+ criar um recurso**.
+1. No canto superior esquerdo do portal Azure, selecione **+ Crie um recurso**.
 
     ![Criar um novo recurso](media/aml-create-in-portal/create-workspace.gif)
 
-1. Use a barra de pesquisa para localizar **Machine Learning**.
+1. Utilize a barra de pesquisa para encontrar **machine learning**.
 
 1. Selecione **Machine Learning**.
 
-1. No painel **Machine Learning** , selecione **criar** para começar.
+1. No painel **machine learning,** selecione **Criar** para começar.
 
-1. Forneça as seguintes informações para configurar seu novo espaço de trabalho:
+1. Forneça as seguintes informações para configurar o seu novo espaço de trabalho:
 
    Campo|Descrição 
    ---|---
-   Nome do espaço de trabalho |Insira um nome exclusivo que identifique seu espaço de trabalho. Neste exemplo, usamos **docs-WS**. Os nomes devem ser exclusivos em todo o grupo de recursos. Use um nome que seja fácil de lembrar e diferencie os espaços de trabalho criados por outras pessoas.  
+   Nome da área de trabalho |Introduza um nome único que identifique o seu espaço de trabalho. Neste exemplo, utilizamos **docs-ws**. Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de recordar e para diferenciar dos espaços de trabalho criados por outros.  
    Subscrição |Selecione a subscrição do Azure que pretende utilizar.
-   Grupo de recursos | Use um grupo de recursos existente em sua assinatura ou insira um nome para criar um novo grupo de recursos. Um grupo de recursos contém recursos relacionados para uma solução do Azure. Neste exemplo, usamos **docs-AML**. 
-   Localização | Selecione o local mais próximo de seus usuários e os recursos de dados para criar seu espaço de trabalho.
-   Edição do espaço de trabalho | Selecione **básico** como o tipo de espaço de trabalho para este tutorial. O tipo de espaço de trabalho (básico & Enterprise) determina os recursos aos quais você terá acesso e preços. Tudo neste tutorial pode ser executado com um espaço de trabalho básico ou empresarial.
+   Grupo de recursos | Utilize um grupo de recursos já existente na sua subscrição ou introduza um nome para criar um grupo de recursos novo. Um grupo de recursos detém recursos relacionados para uma solução Azure. Neste exemplo, utilizamos **docs-aml**. 
+   Localização | Selecione a localização mais próxima dos seus utilizadores e os recursos de dados para criar o seu espaço de trabalho.
+   Edição do espaço de trabalho | Selecione **Basic** como o tipo de espaço de trabalho para este tutorial. O tipo de espaço de trabalho (Basic & Enterprise) determina as funcionalidades a que terá acesso e preços. Tudo neste tutorial pode ser realizado com um espaço de trabalho Básico ou Empresarial.
 
-1. Depois de concluir a configuração do espaço de trabalho, selecione **revisar + criar**. 
+1. Depois de terminar de configurar o espaço de trabalho, selecione **Review + Create**. 
 
    > [!Warning] 
-   > Pode levar vários minutos para criar seu espaço de trabalho na nuvem.
+   > Pode levar vários minutos para criar o seu espaço de trabalho na nuvem.
 
-   Quando o processo for concluído, uma mensagem de êxito de implantação será exibida. 
+   Quando o processo está concluído, aparece uma mensagem de sucesso de implantação. 
  
- 1. Para exibir o novo espaço de trabalho, selecione **ir para o recurso**.
+ 1. Para ver o novo espaço de trabalho, selecione **Ir para o recurso**.
 

@@ -1,20 +1,20 @@
 ---
-title: Script do PowerShell para atualizar RU/s para Azure Cosmos DB API de Tabela
-description: Saiba como usar um script do PowerShell para atualizar a taxa de transferência de um banco de dados ou de um contêiner na conta Azure Cosmos DB API de Tabela
+title: PowerShell script para atualizar RU/s para Azure Cosmos DB Table API
+description: Saiba como usar um script PowerShell para atualizar o resultado para uma base de dados ou um contentor na conta API da Tabela API da Tabela Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 12/02/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 37e7ab82a42b8bcd633e0c083e1a3f51505a95cd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 101e9e5591198b84bb9bba886249b0784cc6b43e
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444912"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365943"
 ---
-# <a name="update-rus-for-a-table-for-azure-cosmos-db---table-api"></a>Atualizar RU/s para uma tabela para Azure Cosmos DB-API de Tabela
+# <a name="update-rus-for-a-table-for-azure-cosmos-db---table-api"></a>Atualização RU/s para uma tabela para Azure Cosmos DB - Tabela API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -38,9 +38,9 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-|**Recursos do Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Cria um recurso. |
-|**Grupos de recursos do Azure**| |
+|**Azure Cosmos DB**| |
+| [Set-AzCosmosDBTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbtable) | Cria ou atualiza uma tabela API tabela Cosmos DB. |
+|**Grupos de Recursos Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 

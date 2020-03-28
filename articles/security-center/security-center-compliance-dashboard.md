@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/12/2019
 ms.author: memildin
 ms.openlocfilehash: 1a6999c05c0b3dbaf572b376412f666c50c23df7
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77604450"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Melhorar a sua conformidade regulamentar
@@ -31,7 +31,7 @@ Neste tutorial, vai aprender a:
 
 -   Melhore a sua postura de conformidade tomando medidas sobre recomendações
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -49,7 +49,7 @@ A visão do dashboard de conformidade regulamentar pode ajudar a concentrar a su
 >
 > A funcionalidade [dynamic compliance packages (pré-visualização)](update-regulatory-compliance-packages.md) permite-lhe atualizar as normas mostradas no seu painel de conformidade regulamentar para os novos pacotes *dinâmicos.* Também pode utilizar a mesma funcionalidade de pré-visualização para adicionar novos pacotes de conformidade e monitorizar a sua conformidade com as normas adicionais. 
 
-1.  No menu principal do Centro de Segurança, em termos de **POLÍTICA e CONFORMIDADE** selecione conformidade **regulamentar.** <br>
+1.  No menu principal do Centro de Segurança, em termos de **POLÍTICA & COMPLIANCE** selecione conformidade **regulamentar.** <br>
 Na parte superior do ecrã, vê um dashboard com uma visão geral do seu estado de conformidade com o conjunto de regulamentos de conformidade suportados. Pode ver a sua pontuação de conformidade geral, e o número de avaliações de passagem vs. falta de dados associadas a cada padrão.
 
     ![descrição do computador alta confiança](./media/security-center-compliance-dashboard/compliance-dashboard.png)

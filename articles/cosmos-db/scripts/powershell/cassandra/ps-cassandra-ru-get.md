@@ -1,20 +1,20 @@
 ---
-title: Script do PowerShell para obter a taxa de transferência (RU/s) para recursos de API do Cassandra Azure Cosmos DB
-description: Azure PowerShell script-Azure Cosmos DB obter taxa de transferência (RU/s) para API do Cassandra
+title: PowerShell script para obter O Beput (RU/s) para os recursos da API da Azure Cosmos DB Cassandra
+description: Script Azure PowerShell - Azure Cosmos DB Get Throughput (RU/s) para Cassandra API
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
-ms.date: 07/03/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 9386b95bbc2a3bfd3e3ea362488fcfcdd0a98299
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f1cae958fce1de000ee4349a2fe8229d69f1a0ae
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441577"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366173"
 ---
-# <a name="get-throughput-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Obter taxa de transferência (RU/s) para um keyspace ou uma tabela para Azure Cosmos DB API do Cassandra
+# <a name="get-throughput-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Obtenha Aputação (RU/s) para um espaço-chave ou mesa para Azure Cosmos DB - Cassandra API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -38,9 +38,10 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-|**Recursos do Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Cria um recurso. |
-|**Grupos de recursos do Azure**| |
+|**Azure Cosmos DB**| |
+| [Get-AzCosmosDBCassandraKeyspacePutput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandrakeyspacethroughput) | Obtém o valor de entrada do espaço de chaves Cassandra API especificado. |
+| [Get-AzCosmosDBCassandraTableThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandratablethroughput) | Obtém o valor de entrada da tabela API de Cassandra especificada. |
+|**Grupos de Recursos Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 

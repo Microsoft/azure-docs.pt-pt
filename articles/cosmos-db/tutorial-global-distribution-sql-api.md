@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 541fcdd966ec1e0443fa6211d894bab3ed965f93
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 177973cf766a6215453f3062c0fb206961649272
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79238462"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80295530"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Tutorial: Criar distribuição global da Azure Cosmos DB utilizando a API SQL
 
@@ -22,7 +22,7 @@ Este artigo abrange as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Configurar a distribuição global com o portal do Azure
-> * Configurar a distribuição global com as [APIs SQL](sql-api-introduction.md)
+> * Configure a distribuição global utilizando as [APIs SQL](sql-api-introduction.md)
 
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
@@ -47,7 +47,7 @@ Se a propriedade PreferredLocations não estiver definida, todos os pedidos ser�
 ## <a name="net-sdk"></a>SDK .NET
 O SDK pode ser utilizado sem quaisquer alterações de código. Neste caso, o SDK direciona automaticamente as leituras e as escritas para a região de escrita atual.
 
-Na versão 1.8 e posterior do SDK .NET, o parâmetro ConnectionPolicy do construtor DocumentClient tem uma propriedade denominada Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. Esta propriedade é do tipo de Coleção `<string>` e deve conter uma lista de nomes de região. Os valores das cordas são formatados pela coluna Nome da Região na página [das Regiões Azure,][regions] sem espaços antes ou depois do primeiro e último caracteres, respectivamente.
+Na versão 1.8 e posterior do SDK .NET, o parâmetro ConnectionPolicy do construtor DocumentClient tem uma propriedade denominada Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. Esta propriedade é do tipo de Coleção `<string>` e deve conter uma lista de nomes de região. Os valores de cadeia são formatados pela coluna Nome da Região na página [Regiões do Azure][regions], sem espaços antes ou depois do primeiro e do último caráter, respetivamente.
 
 Os pontos finais de escrita e leitura atuais estão disponíveis em DocumentClient.WriteEndpoint e DocumentClient.ReadEndpoint, respetivamente.
 
@@ -167,15 +167,15 @@ Resposta de exemplo
 
 
 * Todos os pedidos PUT, POST e DELETE têm de ir para o URI de escrita indicado
-* Todos os GETs e outros pedidos só de leitura (por exemplo, consultas) podem ir para qualquer ponto final à escolha do cliente
+* Todos os GETs e outros pedidos de leitura (por exemplo consultas) podem ir para qualquer ponto final da escolha do cliente
 
 Os pedidos de escrita para regiões só de leitura falharão com o código de erro HTTP 403 ("Proibido").
 
-Se a região de escrita for alterada após a fase de deteção inicial do cliente, as escritas subsequentes para a região de escrita anterior falharão com o código de erro HTTP 403 ("Proibido"). Em seguida, o cliente deve obter novamente a lista de regiões para obter a região de escrita atualizada.
+Se a região de escrita mudar após a fase inicial de descoberta do cliente, as escritas subsequentes para a região de escrita anterior falharão com o código de erro HTTP 403 ("Proibido"). Em seguida, o cliente deve obter novamente a lista de regiões para obter a região de escrita atualizada.
 
 Já está, isto conclui este tutorial. Pode saber como gerir a consistência da sua conta replicada globalmente ao ler [Níveis de consistência no Azure Cosmos DB](consistency-levels.md). Para obter mais informações sobre como funciona a replicação de base de dados global no Azure Cosmos DB, veja [Distribuir dados globalmente com o Azure Cosmos DB](distribute-data-globally.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, fez o seguinte:
 

@@ -1,20 +1,20 @@
 ---
-title: Script do PowerShell para criar banco de dados e coleção na API do Azure Cosmos DB para MongoDB
-description: Azure PowerShell script-Azure Cosmos DB criar banco de dados e coleção do MongoDB API
+title: PowerShell script para criar base de dados e coleção na API da Azure Cosmos DB para MongoDB
+description: Script Azure PowerShell - Azure Cosmos DB criar base de dados e coleção MongoDB API
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 347bd6d4d9788516d51d22f43ea60a223e91c49f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 59e30de7a0f069cfc69db715115f776034e94909
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444994"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365886"
 ---
-# <a name="create-a-database-and-collection-for-azure-cosmos-db---mongodb-api"></a>Criar um banco de dados e uma coleção para a API Azure Cosmos DB MongoDB
+# <a name="create-a-database-and-collection-for-azure-cosmos-db---mongodb-api"></a>Criar uma base de dados e coleção para a Azure Cosmos DB - MongoDB API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -38,9 +38,12 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-|**Recursos do Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Cria um recurso. |
-|**Grupos de recursos do Azure**| |
+|**Azure Cosmos DB**| |
+| [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Cria uma nova Conta Cosmos DB. |
+| [Set-AzCosmosDBMongoDBDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbmongodbdatabase) | Cria uma nova ou atualiza uma base de dados cosmos DB MongoDB API existente. |
+| [New-AzCosmosDBMongoDBIndex](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbmongodbindex) | Cria um novo Índice De PiA MongoDB. |
+| [Set-AzCosmosDBMongoDBCollection](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbmongodbcollection) | Cria uma nova ou atualiza uma coleção Cosmos DB SQL existente. |
+|**Grupos de Recursos Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 

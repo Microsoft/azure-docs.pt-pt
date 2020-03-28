@@ -4,10 +4,10 @@ description: Enumeraas iniciativas políticas integradas para a Política Azure.
 ms.date: 01/31/2020
 ms.topic: sample
 ms.openlocfilehash: f98a5d611e807875390102d67efd1b0f0f262628
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239750"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Definições de iniciativa integradas da Política Azure

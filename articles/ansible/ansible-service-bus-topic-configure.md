@@ -1,17 +1,17 @@
 ---
-title: Tutorial-configurar tópicos no barramento de serviço do Azure usando o Ansible
-description: Saiba como usar o Ansible para criar um tópico do barramento de serviço do Azure
-keywords: Ansible, Azure, DevOps, Bash, manual, barramento de serviço, tópicos, assinaturas
+title: Tutorial - Configurar tópicos no Ônibus de Serviço Azure usando Ansible
+description: Saiba como usar o Ansible para criar um tópico de ônibus de serviço azure
+keywords: ansível, azul, devops, bash, playbook, ônibus de serviço, tópicos, subscrições
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: d07c7622043353a79d5a82994c2fab4f0835b453
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74155793"
 ---
-# <a name="tutorial-configure-topics-in-azure-service-bus-using-ansible"></a>Tutorial: configurar tópicos no barramento de serviço do Azure usando o Ansible
+# <a name="tutorial-configure-topics-in-azure-service-bus-using-ansible"></a>Tutorial: Configurar tópicos no ônibus de serviço azure usando Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
@@ -24,21 +24,21 @@ ms.locfileid: "74155793"
 > * Criar um tópico
 > * Criar uma subscrição
 > * Criar uma política SAS
-> * Recuperar informações de namespace
-> * Recuperar informações de tópico e assinatura
-> * Revogar uma política SAS
+> * Recuperar informações sobre espaço de nome
+> * Recuperar informações sobre tópicos e subscrições
+> * Revogar uma política sas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-## <a name="create-the-service-bus-topic"></a>Criar o tópico do barramento de serviço
+## <a name="create-the-service-bus-topic"></a>Crie o tópico do Ônibus de serviço
 
-O código do guia estratégico de exemplo cria os seguintes recursos:
+O código de livro de amostras cria os seguintes recursos:
 - Grupo de recursos do Azure
-- Namespace do barramento de serviço dentro do grupo de recursos
-- Tópico do barramento de serviço com o namespace
+- Espaço de nome de ônibus de serviço dentro do grupo de recursos
+- Tópico de ônibus de serviço com o espaço de nome
 
 Guarde o manual de procedimentos seguinte como `servicebus_topic.yml`:
 
@@ -69,15 +69,15 @@ Guarde o manual de procedimentos seguinte como `servicebus_topic.yml`:
           var: topic
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook servicebus_topic.yml
 ```
 
-## <a name="create-the-subscription"></a>Criar a assinatura
+## <a name="create-the-subscription"></a>Criar a subscrição
 
-O código do guia estratégico de exemplo cria a assinatura em um tópico do barramento de serviço. Os tópicos do barramento de serviço do Azure podem ter várias assinaturas. Um assinante de um tópico pode receber uma cópia de cada mensagem enviada para o tópico. As assinaturas são entidades nomeadas, que são permanentemente criadas, mas podem, opcionalmente, expirar.
+O código de playbook da amostra cria a subscrição sob um tópico de Ônibus de serviço. Os tópicos do Azure Service Bus podem ter várias subscrições. Um assinante de um tópico pode receber uma cópia de cada mensagem enviada para o tópico. As assinaturas são entidades nomeadas, que são duramente criadas, mas podem expirar opcionalmente.
 
 ```yml
 ---
@@ -102,7 +102,7 @@ O código do guia estratégico de exemplo cria a assinatura em um tópico do bar
 
 Guarde o manual de procedimentos seguinte como `servicebus_subscription.yml`:
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook servicebus_subscription.yml
@@ -110,9 +110,9 @@ ansible-playbook servicebus_subscription.yml
 
 ## <a name="create-the-sas-policy"></a>Criar a política SAS
 
-Uma [SAS (assinatura de acesso compartilhado)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) é um mecanismo de autorização baseado em declarações usando tokens. 
+A [Shared Access Signature (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) é um mecanismo de autorização baseado em sinistros que utiliza fichas. 
 
-O código do guia estratégico de exemplo cria duas políticas SAS para uma fila do barramento de serviço com privilégios diferentes.
+O código de playbook da amostra cria duas políticas SAS para uma fila de ônibus de serviço com diferentes privilégios.
 
 Guarde o manual de procedimentos seguinte como `servicebus_topic_policy.yml`:
 
@@ -139,15 +139,15 @@ Guarde o manual de procedimentos seguinte como `servicebus_topic_policy.yml`:
           var: policy
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook servicebus_topic_policy.yml
 ```
 
-## <a name="retrieve-namespace-information"></a>Recuperar informações de namespace
+## <a name="retrieve-namespace-information"></a>Recuperar informações sobre espaço de nome
 
-O código do guia estratégico de exemplo consulta as informações do namespace.
+O código de livro de amostras consulta a informação do espaço de nome.
 
 Guarde o manual de procedimentos seguinte como `servicebus_namespace_info.yml`:
 
@@ -169,20 +169,20 @@ Guarde o manual de procedimentos seguinte como `servicebus_namespace_info.yml`:
           var: ns
 ```
 
-Antes de executar o guia estratégico, consulte as seguintes observações:
-- O valor `show_sas_policies` indica se as políticas SAS devem ser mostradas no namespace especificado. Por padrão, o valor é `False` para evitar a sobrecarga de rede adicional.
+Antes de executar o livro de jogadas, consulte as seguintes notas:
+- O `show_sas_policies` valor indica se deve mostrar as políticas SAS no espaço de nome especificado. Por predefinição, `False` o valor é evitar despesas adicionais de rede.
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook servicebus_namespace_info.yml
 ```
 
-## <a name="retrieve-topic-and-subscription-information"></a>Recuperar informações de tópico e assinatura
+## <a name="retrieve-topic-and-subscription-information"></a>Recuperar informações sobre tópicos e subscrições
 
-O código do guia estratégico de exemplo consulta as seguintes informações:
-- Informações do tópico do barramento de serviço
-- Lista de detalhes da assinatura para o tópico
+O código de livro de amostras consulta para as seguintes informações:
+- Informações sobre tópicos de ônibus de serviço
+- Lista de detalhes de subscrição para o tópico
  
 Guarde o manual de procedimentos seguinte como `servicebus_list.yml`:
 
@@ -216,18 +216,18 @@ Guarde o manual de procedimentos seguinte como `servicebus_list.yml`:
         - subs_fact.servicebuses
 ```
 
-Antes de executar o guia estratégico, consulte as seguintes observações:
-- O valor `show_sas_policies` indica se as políticas SAS devem ser mostradas na fila especificada. Por padrão, esse valor é definido como `False` para evitar a sobrecarga de rede adicional.
+Antes de executar o livro de jogadas, consulte as seguintes notas:
+- O `show_sas_policies` valor indica se deve mostrar as políticas SAS sob a fila especificada. Por predefinição, este `False` valor está definido para evitar sobrecargas adicionais da rede.
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook servicebus_list.yml
 ```
 
-## <a name="revoke-the-queue-sas-policy"></a>Revogar a política de SAS da fila
+## <a name="revoke-the-queue-sas-policy"></a>Revogar a política sas da fila
 
-O código do guia estratégico de exemplo exclui uma política de SAS da fila.
+O código de livro de amostras elimina uma política SAS de fila.
 
 Guarde o manual de procedimentos seguinte como `servicebus_queue_policy_delete.yml`:
 
@@ -248,7 +248,7 @@ Guarde o manual de procedimentos seguinte como `servicebus_queue_policy_delete.y
           state: absent
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook servicebus_topic_policy_delete.yml
@@ -256,9 +256,9 @@ ansible-playbook servicebus_topic_policy_delete.yml
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, exclua os recursos criados neste artigo. 
+Quando já não for necessário, apague os recursos criados neste artigo. 
 
-Salve o código a seguir como `cleanup.yml`:
+Guarde o `cleanup.yml`seguinte código como:
 
 ```yml
 ---
@@ -294,7 +294,7 @@ Salve o código a seguir como `cleanup.yml`:
           force_delete_nonempty: yes
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook cleanup.yml

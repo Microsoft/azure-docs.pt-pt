@@ -1,7 +1,7 @@
 ---
-title: Filtrar o tráfego de rede-tutorial-portal do Azure
+title: Tráfego de rede de filtros - tutorial - Portal Azure
 titlesuffix: Azure Virtual Network
-description: Neste tutorial, você aprende a filtrar o tráfego de rede para uma sub-rede, com um grupo de segurança de rede, usando o portal do Azure.
+description: Neste tutorial, aprende-se a filtrar o tráfego da rede para uma subnet, com um grupo de segurança de rede, utilizando o portal Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -15,13 +15,13 @@ ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
 ms.openlocfilehash: b5a136ae05b3cd410ca252b6d5a1df443aff6f7a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75350145"
 ---
-# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Tutorial: filtrar o tráfego de rede com um grupo de segurança de rede usando o portal do Azure
+# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Tutorial: Filtrar tráfego de rede com um grupo de segurança de rede usando o portal Azure
 
 Pode filtrar o tráfego de rede de entrada e de saída de uma sub-rede de rede virtual com um grupo de segurança de rede. Os grupos de segurança de rede contêm regras de segurança que filtram o tráfego de rede por endereço IP, porta e protocolo. As regras de segurança são aplicadas a recursos implementados numa sub-rede. Neste tutorial, ficará a saber como:
 
@@ -33,13 +33,13 @@ Pode filtrar o tráfego de rede de entrada e de saída de uma sub-rede de rede v
 
 Se preferir, pode concluir este tutorial com a [CLI do Azure](tutorial-filter-network-traffic-cli.md) ou o [PowerShell](tutorial-filter-network-traffic-powershell.md).
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
-## <a name="create-a-virtual-network"></a>Criar rede virtual
+## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
 1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**. 
 2. Selecione **Redes** e, em seguida, selecione **Rede virtual**.
@@ -51,7 +51,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     | Espaço de endereços           | 10.0.0.0/16                                        |
     | Subscrição            | Selecione a sua subscrição.                          |
     | Grupo de recursos          | Selecione **Criar novo** e introduza *myResourceGroup*. |
-    | Localização                | Selecione **E.U.A. Leste**.                                |
+    | Localização                | Selecione **East US**.                                |
     | Nome da Sub-rede            | mySubnet                                           |
     | Sub-rede - Intervalo de endereços  | 10.0.0.0/24                                        |
 
@@ -67,7 +67,7 @@ Os grupos de segurança de aplicações permitem-lhe agrupar servidores com fun�
     | ---            | ---                                                           |
     | Nome           | myAsgWebServers                                               |
     | Subscrição   | Selecione a sua subscrição.                                     |
-    | Grupo de recursos | Selecione **Utilizar existente** e, em seguida, selecione **myResourceGroup**. |
+    | Grupo de recursos | Selecione **Use existente** e, em seguida, selecione **myResourceGroup**. |
     | Localização       | E.U.A. Leste                                                       |
 
 4. Conclua o passo 3 novamente, com os seguintes valores:
@@ -76,7 +76,7 @@ Os grupos de segurança de aplicações permitem-lhe agrupar servidores com fun�
     | ---            | ---                                                           |
     | Nome           | myAsgMgmtServers                                              |
     | Subscrição   | Selecione a sua subscrição.                                     |
-    | Grupo de recursos | Selecione **Utilizar existente** e, em seguida, selecione **myResourceGroup**. |
+    | Grupo de recursos | Selecione **Use existente** e, em seguida, selecione **myResourceGroup**. |
     | Localização       | E.U.A. Leste                                                       |
 
 ## <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
@@ -140,29 +140,29 @@ Crie duas VMs na rede virtual.
 
 1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**. 
 2. Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**.
-3. Insira, ou selecione, as informações a seguir e aceite os padrões para as configurações restantes:
+3. Introduza, ou selecione, as seguintes informações e aceite as predefinições para as restantes definições:
 
     |Definição|Valor|
     |---|---|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Utilizar existente** e selecione **myResourceGroup**.|
     |Nome|myVmWeb|
-    |Localização| Selecione **E.U.A. Leste**.|
+    |Localização| Selecione **East US**.|
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
 
    
 
 4. Escolha um tamanho para a VM e selecione **Selecionar**.
-5. Em **rede**, selecione os valores a seguir e aceite os padrões restantes:
+5. Em **Rede,** selecione os seguintes valores e aceite os restantes incumprimentos:
 
     |Definição|Valor|
     |---|---|
     |Rede virtual |Selecione **myVirtualNetwork**.|
-    |Grupo de segurança de rede NIC |Selecione **Nenhuma**.|
+    |Grupo de segurança da rede NIC |selecione **Nenhuma**.|
   
 
-6. Selecione **revisão + criar** na parte inferior, canto esquerdo, selecione **criar** para iniciar a implantação da VM.
+6. Selecione **Review + Criar** no canto inferior, canto esquerdo, selecione **Criar** para iniciar a implementação vM.
 
 ### <a name="create-the-second-vm"></a>Criar a segunda VM
 
@@ -215,7 +215,7 @@ Quando o portal criou as VMs, criou uma interface de rede para cada VM e associo
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos contidos no mesmo:
 
-1. Introduza *myResourceGroup* na caixa **Pesquisar** na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
+1. Introduza *myResourceGroup* na caixa **Pesquisar**, na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza *myResourceGroup* em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar**.
 

@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
 ms.openlocfilehash: 8f483f8d383da1f9ba05eb172db185bec9406c7e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78195163"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configure firewalls e redes virtuais do Cofre de Chaves
@@ -53,7 +53,7 @@ Aqui está como configurar firewalls key vault e redes virtuais usando o Azure C
    az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.KeyVault"
    ```
 
-4. Adicione uma regra de rede para uma rede virtual e uma sub-rede.
+4. Adicione uma regra de rede para uma rede virtual e subnet.
    ```azurecli
    subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
    az keyvault network-rule add --resource-group "demo9311" --name "demo9311premium" --subnet $subnetid
@@ -64,7 +64,7 @@ Aqui está como configurar firewalls key vault e redes virtuais usando o Azure C
    az keyvault network-rule add --resource-group "myresourcegroup" --name "mykeyvault" --ip-address "191.10.18.0/24"
    ```
 
-6. Se este cofre-chave for acessível por quaisquer serviços fidedignos, `bypass` `AzureServices`.
+6. Se este cofre-chave for acessível `bypass` por `AzureServices`quaisquer serviços fidedignos, definido para .
    ```azurecli
    az keyvault update --resource-group "myresourcegroup" --name "mykeyvault" --bypass AzureServices
    ```
@@ -92,7 +92,7 @@ Aqui está como configurar firewalls key vault e redes virtuais usando powerShel
    Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.1.1.0/24" -ServiceEndpoint "Microsoft.KeyVault" | Set-AzVirtualNetwork
    ```
 
-4. Adicione uma regra de rede para uma rede virtual e uma sub-rede.
+4. Adicione uma regra de rede para uma rede virtual e subnet.
    ```powershell
    $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
    Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -VirtualNetworkResourceId $subnet.Id
@@ -103,7 +103,7 @@ Aqui está como configurar firewalls key vault e redes virtuais usando powerShel
    Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -IpAddressRange "16.17.18.0/24"
    ```
 
-6. Se este cofre-chave for acessível por quaisquer serviços fidedignos, `bypass` `AzureServices`.
+6. Se este cofre-chave for acessível `bypass` por `AzureServices`quaisquer serviços fidedignos, definido para .
    ```powershell
    Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -Bypass AzureServices
    ```

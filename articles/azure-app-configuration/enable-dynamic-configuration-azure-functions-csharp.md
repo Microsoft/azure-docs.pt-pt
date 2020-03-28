@@ -1,6 +1,6 @@
 ---
-title: Tutorial para usar a configuração dinâmica de configuração do Azure App em um aplicativo Azure Functions | Microsoft Docs
-description: Neste tutorial, você aprenderá a atualizar dinamicamente os dados de configuração para aplicativos Azure Functions
+title: Tutorial para usar configuração dinâmica de configuração de configuração de aplicação Azure em uma aplicação Funções Azure [ Microsoft Docs
+description: Neste tutorial, aprende-se a atualizar de forma dinâmica os dados de configuração das aplicações De Funções Azure
 services: azure-app-configuration
 documentationcenter: ''
 author: zhenlan
@@ -16,39 +16,39 @@ ms.author: zhenlwa
 ms.custom: azure-functions
 ms.tgt_pltfrm: Azure Functions
 ms.openlocfilehash: ba70d5f186c1424b2019716ab7a87aeae85f8913
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74185451"
 ---
-# <a name="tutorial-use-dynamic-configuration-in-an-azure-functions-app"></a>Tutorial: usar a configuração dinâmica em um aplicativo Azure Functions
+# <a name="tutorial-use-dynamic-configuration-in-an-azure-functions-app"></a>Tutorial: Utilize a configuração dinâmica numa aplicação de funções Azure
 
-O provedor de configuração do .NET Standard de configuração de aplicativo dá suporte ao Caching e à atualização da configuração controlada dinamicamente pela atividade do aplicativo. Este tutorial mostra como você pode implementar atualizações de configuração dinâmicas em seu código. Ele se baseia no aplicativo Azure Functions introduzido nos guias de início rápido. Antes de continuar, conclua a [criação de um aplicativo do Azure Functions com Azure app configuração](./quickstart-azure-functions-csharp.md) primeiro.
+O fornecedor de configuração de configuração App Configuração .NET Standard suporta configuração de cache e configuração refrescante impulsionada dinamicamente pela atividade da aplicação. Este tutorial mostra como pode implementar atualizações dinâmicas de configuração no seu código. Baseia-se na aplicação Funções Azure introduzida nos quickstarts. Antes de continuar, termine Criar uma aplicação de [funções Azure com configuração de aplicações Azure](./quickstart-azure-functions-csharp.md) primeiro.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Configure seu aplicativo Azure Functions para atualizar sua configuração em resposta a alterações em um repositório de configuração de aplicativo.
-> * Insira a configuração mais recente para suas chamadas de Azure Functions.
+> * Crie a sua aplicação Funções Azure para atualizar a sua configuração em resposta a alterações numa loja de Configuração de Aplicações.
+> * Injete a configuração mais recente nas chamadas das suas Funções Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
-- [Visual Studio 2019](https://visualstudio.microsoft.com/vs) com a carga de trabalho de **desenvolvimento do Azure**
-- [Ferramentas de Azure Functions](../azure-functions/functions-develop-vs.md#check-your-tools-version)
-- Concluir início rápido [criar um aplicativo do Azure Functions com a configuração do Azure app](./quickstart-azure-functions-csharp.md)
+- Assinatura Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/)
+- [Estúdio Visual 2019](https://visualstudio.microsoft.com/vs) com a carga de trabalho de **desenvolvimento do Azure**
+- [Ferramentas de funções azure](../azure-functions/functions-develop-vs.md#check-your-tools-version)
+- Termine quickstart Criar uma aplicação de [funções Azure com configuração](./quickstart-azure-functions-csharp.md) de app Azure
 
-## <a name="reload-data-from-app-configuration"></a>Recarregar dados da configuração do aplicativo
+## <a name="reload-data-from-app-configuration"></a>Recarregar dados da configuração da app
 
-1. Abra *function1.cs*. Além da `Configuration`de propriedades `static`, adicione uma nova propriedade `static` `ConfigurationRefresher` para manter uma instância singleton de `IConfigurationRefresher` que será usada para sinalizar atualizações de configuração durante chamadas de funções posteriormente.
+1. Abra *Function1.cs.* Além da `static` `Configuration`propriedade, adicione `static` `ConfigurationRefresher` uma nova propriedade `IConfigurationRefresher` para manter uma instância singleton que será usada para sinalizar atualizações de configuração durante as chamadas de Funções posteriormente.
 
     ```csharp
     private static IConfiguration Configuration { set; get; }
     private static IConfigurationRefresher ConfigurationRefresher { set; get; }
     ```
 
-2. Atualize o construtor e use o método `ConfigureRefresh` para especificar a configuração a ser atualizada no repositório de configuração do aplicativo. Uma instância de `IConfigurationRefresher` é recuperada usando `GetRefresher` método. Opcionalmente, também alteramos a janela de tempo de expiração do cache de configuração para 1 minuto a partir do padrão de 30 segundos.
+2. Atualize o construtor `ConfigureRefresh` e utilize o método para especificar a definição a renovar a partir da loja de configuração da aplicação. Uma instância `IConfigurationRefresher` de é `GetRefresher` recuperada usando o método. Opcionalmente, também alteramos a janela de tempo de validade da cache de configuração para 1 minuto a partir dos 30 segundos predefinidos.
 
     ```csharp
     static Function1()
@@ -67,7 +67,7 @@ Neste tutorial, ficará a saber como:
     }
     ```
 
-3. Atualize o método de `Run` e o sinal para atualizar a configuração usando o método `Refresh` no início da chamada de funções. Isso não será op se a janela de tempo de expiração do cache não for atingida. Remova o operador de `await` se preferir que a configuração seja atualizada sem bloqueio.
+3. Atualize `Run` o método e o `Refresh` sinal para refrescar a configuração utilizando o método no início da chamada funções. Isto não será operatório se a janela de tempo de validade da cache não for alcançada. Retire `await` o operador se preferir que a configuração seja atualizada sem bloquear.
 
     ```csharp
     public static async Task<IActionResult> Run(
@@ -88,49 +88,49 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="test-the-function-locally"></a>Testar localmente a função
 
-1. Defina uma variável de ambiente chamada **ConnectionString**e defina-a como a chave de acesso para seu repositório de configuração de aplicativo. Se você usar o prompt de comando do Windows, execute o seguinte comando e reinicie o prompt de comando para permitir que a alteração entre em vigor:
+1. Detete uma variável ambiental chamada **ConnectionString**e detetete-a na chave de acesso à sua loja de configuração de aplicações. Se utilizar o pedido de comando do Windows, execute o seguinte comando e reinicie a solicitação de comando para permitir que a alteração faça efeito:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
-    Se você usar o Windows PowerShell, execute o seguinte comando:
+    Se utilizar o Windows PowerShell, execute o seguinte comando:
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-    Se você usar o macOS ou Linux, execute o seguinte comando:
+    Se utilizar macOS ou Linux, execute o seguinte comando:
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-2. Para testar a sua função, prima F5. Se solicitado, aceite a solicitação do Visual Studio para baixar e instalar as ferramentas de **Azure Functions Core (CLI)** . Talvez você também precise habilitar uma exceção de firewall para que as ferramentas possam lidar com solicitações HTTP.
+2. Para testar a sua função, prima F5. Se solicitado, aceite o pedido do Estúdio Visual para descarregar e instalar **ferramentas Do Núcleo de Funções Azure (CLI).** Também pode ser necessário permitir uma exceção à firewall para que as ferramentas possam lidar com pedidos HTTP.
 
 3. Copie o URL da sua função na saída do tempo de execução das funções do Azure.
 
-    ![Depuração de função de início rápido no VS](./media/quickstarts/function-visual-studio-debugging.png)
+    ![Depuração da função Quickstart em VS](./media/quickstarts/function-visual-studio-debugging.png)
 
-4. Cole o URL do pedido HTTP na barra de endereço do browser. A imagem a seguir mostra a resposta no navegador para a solicitação GET local retornada pela função.
+4. Cole o URL do pedido HTTP na barra de endereço do browser. A imagem que se segue mostra a resposta no navegador ao pedido de GET local devolvido pela função.
 
-    ![Local de inicialização da função de início rápido](./media/quickstarts/dotnet-core-function-launch-local.png)
+    ![Quickstart Function lançar local](./media/quickstarts/dotnet-core-function-launch-local.png)
 
-5. Iniciar sessão no [portal do Azure](https://portal.azure.com). Selecione **todos os recursos**e selecione a instância do repositório de configuração de aplicativo que você criou no guia de início rápido.
+5. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Todos os recursos**e selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
 
-6. Selecione **Configuration Explorer**e atualize os valores da seguinte chave:
+6. Selecione O Explorador de **Configuração**e atualize os valores da seguinte tecla:
 
     | Chave | Valor |
     |---|---|
-    | TestApp: configurações: mensagem | Dados da configuração Azure App-atualizado |
+    | TestApp:Definições:Mensagem | Dados da Configuração de Aplicações Azure - Atualizado |
 
-7. Atualize o navegador algumas vezes. Quando a configuração armazenada em cache expira após um minuto, a página mostra a resposta da chamada de funções com o valor atualizado.
+7. Refresque o navegador algumas vezes. Quando a definição em cache expira após um minuto, a página mostra a resposta da chamada funções com valor atualizado.
 
-    ![Atualização local da função de início rápido](./media/quickstarts/dotnet-core-function-refresh-local.png)
+    ![Função Quickstart refrescar local](./media/quickstarts/dotnet-core-function-refresh-local.png)
 
-O código de exemplo usado neste tutorial pode ser baixado do [repositório GitHub de configuração de aplicativo](https://github.com/Azure/AppConfiguration/tree/master/examples/DotNetCore/AzureFunction)
+O código de exemplo usado neste tutorial pode ser descarregado a partir de [App Configuration GitHub repo](https://github.com/Azure/AppConfiguration/tree/master/examples/DotNetCore/AzureFunction)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você habilitou seu aplicativo Azure Functions para atualizar dinamicamente as definições de configuração da configuração do aplicativo. Para saber como usar uma identidade gerenciada do Azure para simplificar o acesso à configuração do aplicativo, prossiga para o próximo tutorial.
+Neste tutorial, ativou a sua aplicação Funções Azure para atualizar dinamicamente as definições de configuração a partir da Configuração da App. Para aprender a usar uma identidade gerida pelo Azure para agilizar o acesso à Configuração de Aplicações, continue para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Integração de identidade gerenciada](./howto-integrate-azure-managed-service-identity.md)
+> [Integração de identidade gerida](./howto-integrate-azure-managed-service-identity.md)

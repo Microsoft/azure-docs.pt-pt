@@ -10,10 +10,10 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239519"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Tutorial: Detetar problemas dos dispositivos ligados à sua solução de monitorização
@@ -33,7 +33,7 @@ Neste tutorial:
 > * Editar uma regra existente
 > * Ativar e desativar regras
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
@@ -68,7 +68,7 @@ Para guardar a nova regra, clique em **Aplicar**.
 
 Pode ver quando a regra está acionada na página **Regras** ou na página **Dashboard**:
 
-[![Regra de aviso acionada](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-expanded.png#lightbox)
+[![Regra de aviso desencadeada](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-expanded.png#lightbox)
 
 ## <a name="create-an-advanced-rule"></a>Criar uma regra avançada
 
@@ -86,7 +86,7 @@ Para criar uma regra com várias condições que gera um alerta crítico quando,
 | Condição 1 valor    | 80                                |
 | Nível de gravidade  | Crítica                              |
 
-[![Criar regra de várias condições parte 1](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-expanded.png#lightbox)
+[![Criar a regra da condição múltipla parte um](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-expanded.png#lightbox)
 
 Para adicionar a segunda condição, clique em "+Adicionar condição". Utilize os seguintes valores para a nova condição:
 
@@ -96,25 +96,25 @@ Para adicionar a segunda condição, clique em "+Adicionar condição". Utilize 
 | Condição 2 operador | Maior que                      |
 | Condição 2 valor    | 75                                |
 
-[![Criar regra de várias condições parte dois](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-expanded.png#lightbox)
+[![Criar a regra da condição múltipla parte dois](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-expanded.png#lightbox)
 
 Para guardar a nova regra, clique em **Aplicar**.
 
 Pode ver quando a regra está acionada na página **Regras** ou na página **Dashboard**:
 
-[![Regra de várias condições acionada](./media/iot-accelerators-remote-monitoring-automate/criticalruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/criticalruletriggered-expanded.png#lightbox)
+[![Regra de condição múltipla desencadeada](./media/iot-accelerators-remote-monitoring-automate/criticalruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/criticalruletriggered-expanded.png#lightbox)
 
 ## <a name="edit-an-existing-rule"></a>Editar uma regra existente
 
 Para fazer uma alteração a uma regra existente, selecione-a na lista de regras e clique em **Editar**:
 
-[![Editar regra](./media/iot-accelerators-remote-monitoring-automate/rulesactionsedit_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsedit_v2-expanded.png#lightbox)
+[![Regra de edição](./media/iot-accelerators-remote-monitoring-automate/rulesactionsedit_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsedit_v2-expanded.png#lightbox)
 
 ## <a name="disable-a-rule"></a>Desativar uma regra
 
 Para desativar temporariamente uma regra, pode desativá-la na lista de regras. Selecione a regra a desativar e, em seguida, escolha **Desativar**. O **Estado** da regra é alterado na lista para indicar que a regra está agora desativada. Pode voltar a ativar uma regra que desativou anteriormente com o mesmo procedimento.
 
-[![Desativar regra](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-expanded.png#lightbox)
+[![Regra de desativar](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-expanded.png#lightbox)
 
 Pode ativar e desativar várias regras ao mesmo tempo, ao selecionar várias regras na lista.
 
@@ -122,11 +122,11 @@ Pode ativar e desativar várias regras ao mesmo tempo, ao selecionar várias reg
 
 Para eliminar permanentemente uma regra, pode eliminá-la na lista de regras. Selecione a regra a eliminar e, em seguida, escolha **Eliminar**.
 
-[![Eliminar Regra](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
+[![Excluir regra](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
 
 Depois de confirmar que pretende eliminar a regra, é-lhe dada a oportunidade de eliminar todos os alertas associados à regra na página **Manutenção**.
 
-[![Eliminar Regra](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-expanded.png#lightbox)
+[![Excluir regra](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-expanded.png#lightbox)
 
 Só é possível eliminar uma regra de cada vez.
 

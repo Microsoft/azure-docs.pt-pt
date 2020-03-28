@@ -10,20 +10,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 02/02/2020
+ms.date: 03/26/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: abd4a3a3a3e8494ea325e65a78eea7fb56b78f94
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b7864d89cc14a1473fd43e94bfe74c368bcb391d
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988367"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80349488"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Tutorial: Analisar vídeos com Media Services v3
 
 > [!NOTE]
-> Embora este tutorial use os exemplos do [SDK do .net](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) , as etapas gerais são as mesmas para a [API REST](https://docs.microsoft.com/rest/api/media/liveevents), a [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)ou outros [SDKs](media-services-apis-overview.md#sdks)com suporte.
+> Mesmo que este tutorial utilize os exemplos [.NET SDK,](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) os passos gerais são os mesmos para [REST API,](https://docs.microsoft.com/rest/api/media/liveevents) [CLI,](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)ou outros [SDKs](media-services-apis-overview.md#sdks)suportados .
 
 Este tutorial mostra-lhe como analisar vídeos com os Serviços de Multimédia do Microsoft Azure. Existem muitos cenários em que pode querer obter mais informações sobre conteúdos de áudio ou vídeos gravados. Por exemplo, para alcançar uma maior satisfação do cliente, as organizações podem executar o processamento de voz em texto para converter gravações de suporte de clientes num catálogo pesquisável, com índices e dashboards. Depois, podem obter informações sobre os seus negócios. Estes conhecimentos incluem uma lista de queixas comuns, fontes de tais queixas e outras informações úteis.
 
@@ -32,8 +32,8 @@ Este tutorial mostrar-lhe como:
 > [!div class="checklist"]
 > * Descarregue a aplicação de amostra supor no tópico.
 > * Examine o código que analisa o vídeo especificado.
-> * Executar a aplicação.
-> * Examine a saída.
+> * Execute a aplicação.
+> * Examine o resultado.
 > * Limpe os recursos.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -45,7 +45,7 @@ Como um lembrete importante, você deve cumprir todas as leis aplicáveis na sua
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se não tiver o Visual Studio instalado, obtenha [visual studio community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- [Criar uma conta de Media Services](create-account-cli-how-to.md).<br/>Lembre-se dos valores que utilizou para o nome do grupo de recursos e nome da conta Media Services.
+- [Criar uma conta de Media Services.](create-account-cli-how-to.md)<br/>Lembre-se dos valores que utilizou para o nome do grupo de recursos e nome da conta Media Services.
 - Siga os passos na API access [Azure Media Services com o Azure CLI](access-api-cli-how-to.md) e guarde as credenciais. Terá de usá-los para aceder à API.
 
 ## <a name="download-and-configure-the-sample"></a>Descarregue e configure a amostra
@@ -92,6 +92,8 @@ A seguinte função completa estas ações:
 
 * Cria um Ativo.
 * Obtém um [URL SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) writável para o contentor do Ativo [em armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container).
+
+    Se utilizar a função [ListContainerSas](https://docs.microsoft.com/rest/api/media/assets/listcontainersas) do ativo para obter URLs SAS, note que a função devolve vários URLs SAS, uma vez que existem duas chaves de conta de armazenamento para cada conta de armazenamento. Uma conta de armazenamento tem duas chaves porque permite uma rotação perfeita das chaves da conta de armazenamento (por exemplo, mude uma enquanto utiliza a outra e depois comece a usar a nova tecla e rode a outra tecla). O 1º URL SAS representa a chave de armazenamento1 e a segunda chave de armazenamento 2.
 * Envia o ficheiro para o recipiente armazenado utilizando o URL SAS.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]
@@ -104,11 +106,11 @@ O [Elemento](https://docs.microsoft.com/rest/api/media/assets) de saída armazen
 
 ### <a name="create-a-transform-and-a-job-that-analyzes-videos"></a>Criar uma transformação e uma tarefa que analisa vídeos
 
-Ao codificar ou processar conteúdos em Serviços de Media, é um padrão comum configurar as definições de codificação como uma receita. Em seguida, deverá submeter uma **Tarefa** para aplicar essa receita a um vídeo. Ao submeter novos Jobs para cada novo vídeo, está a aplicar essa receita a todos os vídeos da sua biblioteca. Uma receita em Media Services chama-se **Transform**. Para obter mais informações, veja [Transforms and jobs](transform-concept.md) (Transformações e tarefas). O exemplo descrito neste tutorial define uma receita que analisa o vídeo especificado.
+Ao codificar ou processar conteúdos em Serviços de Media, é um padrão comum configurar as definições de codificação como uma receita. Em seguida, deverá submeter uma **Tarefa** para aplicar essa receita a um vídeo. Ao submeter novos Jobs para cada novo vídeo, está a aplicar essa receita a todos os vídeos da sua biblioteca. Uma receita em Media Services chama-se **Transform**. Para mais informações, consulte [Transforms e Jobs](transform-concept.md). O exemplo descrito neste tutorial define uma receita que analisa o vídeo especificado.
 
-#### <a name="transform"></a>Transformar
+#### <a name="transform"></a>Transformação
 
-Ao criar uma nova instância [Transformar](https://docs.microsoft.com/rest/api/media/transforms), tem de especificar a saída resultante que pretende. **TransformOutput** é um parâmetro necessário. Cada **TransformOutput** contém uma **Predefinição**. A **Predefinição** descreve instruções passo a passo das operações de processamento de áudio e/ou vídeo que estão a ser utilizadas para gerir o **TransformOutput** pretendido. Neste exemplo, o preset **VideoAnalyzerPreset** é usado e a linguagem ("en-US") é passada para o seu construtor (`new VideoAnalyzerPreset("en-US")`). Esta predefinição permite-lhe extrair múltiplas informações de vídeo e áudio a partir de um vídeo. Pode utilizar a predefinição **AudioAnalyzerPreset** se precisar de extrair múltiplas informações de áudio a partir de um vídeo.
+Ao criar uma nova instância [Transformação](https://docs.microsoft.com/rest/api/media/transforms), tem de especificar o que pretende produzir como uma saída. **TransformOutput** é um parâmetro necessário. Cada **TransformOutput** contém uma **Predefinição**. A **Predefinição** descreve instruções passo a passo das operações de processamento de áudio e/ou vídeo que estão a ser utilizadas para gerir o **TransformOutput** pretendido. Neste exemplo, o preset **VideoAnalyzerPreset** é usado e a linguagem ("en-US") é passada para o seu construtor (`new VideoAnalyzerPreset("en-US")`). Esta predefinição permite-lhe extrair múltiplas informações de vídeo e áudio a partir de um vídeo. Pode utilizar a predefinição **AudioAnalyzerPreset** se precisar de extrair múltiplas informações de áudio a partir de um vídeo.
 
 Ao criar um **Transform,** verifique primeiro se já existe o método **Get,** como mostra o código que se segue. Nos Serviços de Multimédia v3, os métodos **Get** nas entidades devolverão um valor **nulo** se a entidade não existir (uma verificação não sensível a maiúsculas e minúsculas no nome).
 
@@ -116,7 +118,7 @@ Ao criar um **Transform,** verifique primeiro se já existe o método **Get,** c
 
 #### <a name="job"></a>Tarefa
 
-Conforme mencionado acima, o objeto [Transformação](https://docs.microsoft.com/rest/api/media/transforms) é a receita e uma [Tarefa](https://docs.microsoft.com/rest/api/media/jobs) é o pedido real para os Serviços de Multimédia aplicarem essa **Transformação** a um determinado conteúdo de áudio ou vídeo de entrada. O **trabalho** especifica informações como o local do vídeo de entrada e o local para a saída. Pode especificar a localização do seu vídeo com: URLs HTTPS, URLs SAS ou Recursos que estão na sua conta dos Serviços de Multimédia.
+Conforme mencionado acima, o objeto [Transformação](https://docs.microsoft.com/rest/api/media/transforms) é a receita e uma [Tarefa](https://docs.microsoft.com/rest/api/media/jobs) é o pedido real para os Serviços de Multimédia aplicarem essa **Transformação** a um determinado conteúdo de áudio ou vídeo de entrada. O **Trabalho** especifica informações como a localização do vídeo de entrada e a localização para a saída. Pode especificar a localização do seu vídeo com: URLs HTTPS, URLs SAS ou Recursos que estão na sua conta dos Serviços de Multimédia.
 
 Neste exemplo, a entrada da tarefa é um vídeo local.  
 
@@ -124,19 +126,19 @@ Neste exemplo, a entrada da tarefa é um vídeo local.
 
 ### <a name="wait-for-the-job-to-complete"></a>Aguarde até que a tarefa termine
 
-O trabalho leva algum tempo para ser concluído. Quando isso ocorrer, você deseja ser notificado. Existem algumas opções diferentes para ser notificado sobre a conclusão da [Tarefa](https://docs.microsoft.com/rest/api/media/jobs). A opção mais simples (que é mostrada aqui) é usar as sondagens.
+O trabalho leva algum tempo para ser concluído. Quando acontecer, quer ser notificado. Existem algumas opções diferentes para ser notificado sobre a conclusão da [Tarefa](https://docs.microsoft.com/rest/api/media/jobs). A opção mais simples (que é mostrada aqui) é usar as sondagens.
 
-A sondagem não é uma prática recomendada para aplicativos de produção devido à possível latência. A consulta poderá ser limitada se for sobreutilizada numa conta. Em alternativa, os programadores devem utilizar o Event Grid.
+As sondagens não são uma boa prática recomendada para apps de produção devido a uma possível latência. A consulta poderá ser limitada se for sobreutilizada numa conta. Em alternativa, os programadores devem utilizar o Event Grid.
 
 O Event Grid foi concebido para ter uma elevada disponibilidade, um desempenho consistente e um dimensionamento dinâmico. Com o Event Grid, as aplicações podem escutar e reagir a eventos a partir de praticamente todos os serviços do Azure, bem como de origens personalizadas. O processamento de eventos simples, reativo e baseado em HTTP ajuda-o a criar soluções eficientes através da filtragem e do encaminhamento inteligente de eventos. Para mais informações, consulte os [eventos da Route para um ponto final personalizado](job-state-events-cli-how-to.md)da web .
 
-Normalmente, a **Tarefa** passa pelos seguintes estados: **Agendada**, **Em fila**, **Em processamento**, **Concluída** (o estado final). Se o trabalho tiver se originado em um erro, você obterá o estado de **erro** . Se o trabalho está em vias de ser cancelado, **é** cancelado e **depois cancelado** quando estiver feito.
+Normalmente, a **Tarefa** passa pelos seguintes estados: **Agendada**, **Em fila**, **Em processamento**, **Concluída** (o estado final). Se o trabalho tiver deparar-se com um erro, ficas com o estado **de erro.** Se o trabalho está em vias de ser cancelado, **é** cancelado e **depois cancelado** quando estiver feito.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#WaitForJobToFinish)]
 
 ### <a name="job-error-codes"></a>Códigos de erro das tarefas
 
-Consulte [códigos de erro](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Ver [Códigos de Erro](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ### <a name="download-the-result-of-the-job"></a>Transferir o resultado da tarefa
 
@@ -146,7 +148,7 @@ A função seguinte transfere os resultados do [Ativo](https://docs.microsoft.co
 
 ### <a name="clean-up-resource-in-your-media-services-account"></a>Limpar os recursos na conta dos Serviços de Multimédia
 
-Geralmente, deve limpar tudo, exceto objetos que planeia reutilizar (normalmente, vai reutilizar Transforms e persistir streamingLocators). Se desejar que sua conta seja limpa após o teste, exclua os recursos que você não planeja reutilizar. Por exemplo, o código a seguir exclui trabalhos:
+Geralmente, deve limpar tudo, exceto objetos que planeia reutilizar (normalmente, vai reutilizar Transforms e persistir streamingLocators). Se quiser que a sua conta esteja limpa após a experimentação, elimine os recursos que não planeia reutilizar. Por exemplo, o seguinte código elimina Jobs:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CleanUp)]
 
@@ -164,7 +166,7 @@ O ficheiro de saída para analisar vídeos chama-se insights.json. Este ficheiro
 
 Se já não precisa de nenhum dos recursos presentes no seu grupo de recursos, incluindo as contas de armazenamento que criou e os Serviços de Multimédia que carregou neste tutorial, elimine o grupo de recursos que criou anteriormente.
 
-Execute o seguinte comando da CLI:
+Executar o seguinte comando CLI:
 
 ```azurecli
 az group delete --name amsResourceGroup
@@ -174,9 +176,9 @@ az group delete --name amsResourceGroup
 
 Os Serviços De Mídia Azure v3 SDKs não são seguros. Ao trabalhar com uma aplicação com várias linhas, deverá gerar um novo objeto AzureMediaServicesClient por fio.
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, envie comentários, obtenha atualizações
+## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, dê feedback, obtenha atualizações
 
-Confira o artigo [da Comunidade dos serviços de mídia do Azure](media-services-community.md) para ver diferentes maneiras que você pode fazer perguntas, fornecer comentários e obter atualizações sobre os serviços de mídia.
+Confira o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Serviços de Media.
 
 ## <a name="next-steps"></a>Passos seguintes
 

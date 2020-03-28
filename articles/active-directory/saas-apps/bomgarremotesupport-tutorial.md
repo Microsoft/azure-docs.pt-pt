@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o suporte remoto do BeyondTrust | Microsoft Docs'
-description: Saiba como configurar o logon único entre o suporte remoto do Azure Active Directory e do BeyondTrust.
+title: 'Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com o BeyondTrust Remote Support [ BeyondTrust Remote Support ] Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o BeyondTrust Remote Support.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,189 +17,189 @@ ms.date: 10/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ff21c3ee7721c82232e668ddb9645895080cf79
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74082092"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-beyondtrust-remote-support"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o suporte remoto do BeyondTrust
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-beyondtrust-remote-support"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com suporte remoto BeyondTrust
 
-Neste tutorial, você aprenderá a integrar o suporte remoto do BeyondTrust com o Azure Active Directory (Azure AD). Ao integrar o suporte remoto do BeyondTrust ao Azure AD, você pode:
+Neste tutorial, você aprenderá a integrar o BeyondTrust Remote Support com o Azure Ative Directory (Azure AD). Quando integrar o BeyondTrust Remote Support com o Azure AD, pode:
 
-* Controle no Azure AD quem tem acesso ao BeyondTrust Remote Support.
-* Habilite seus usuários a serem conectados automaticamente ao BeyondTrust Remote Support com suas contas do Azure AD.
-* Gerencie suas contas em um local central-o portal do Azure.
+* Controle em Azure AD que tem acesso a Suporte Remoto BeyondTrust.
+* Ative que os seus utilizadores sejam automaticamente inscritos no BeyondTrust Remote Support com as suas contas Azure AD.
+* Gerencie as suas contas num local central - o portal Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, você precisa dos seguintes itens:
+Para começar, precisa dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
-* Assinatura habilitada para SSO (logon único) do BeyondTrust Remote Support.
+* Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* A subscrição ativada por um único sinal de suporte remoto BeyondTrust (SSO).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
+Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
 
-* O suporte remoto do BeyondTrust dá suporte ao SSO iniciado pelo **SP**
-* O suporte remoto do BeyondTrust dá suporte ao provisionamento **de usuário just in time**
+* BeyondTrust Remote Support suporta **SP** iniciado SSO
+* BeyondTrust Remote Support suporta o fornecimento de utilizadores **justo no tempo**
 
-## <a name="adding-beyondtrust-remote-support-from-the-gallery"></a>Adicionando o suporte remoto do BeyondTrust da Galeria
+## <a name="adding-beyondtrust-remote-support-from-the-gallery"></a>Adicionando suporte remoto BeyondTrust da galeria
 
-Para configurar a integração do suporte remoto do BeyondTrust ao Azure AD, você precisará adicionar o suporte remoto do BeyondTrust da Galeria à sua lista de aplicativos SaaS gerenciados.
+Para configurar a integração do BeyondTrust Remote Support em Azure AD, você precisa adicionar BeyondTrust Remote Support da galeria à sua lista de aplicações geridas saaS.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
-1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
-1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
-1. Na seção **Adicionar da Galeria** , digite **suporte remoto BeyondTrust** na caixa de pesquisa.
-1. Selecione **suporte remoto do BeyondTrust** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
+1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. No Add da secção **de galeria,** digite **O Suporte Remoto BeyondTrust** na caixa de pesquisa.
+1. Selecione **BeyondTrust Remote Support** a partir do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-beyondtrust-remote-support"></a>Configurar e testar o logon único do Azure AD para o suporte remoto do BeyondTrust
+## <a name="configure-and-test-azure-ad-single-sign-on-for-beyondtrust-remote-support"></a>Configure e teste azure AD único sign-on para BeyondTrust Remote Support
 
-Configure e teste o SSO do Azure AD com o suporte remoto do BeyondTrust usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no suporte remoto do BeyondTrust.
+Configure e teste Azure AD SSO com Suporte Remoto BeyondTrust utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado no BeyondTrust Remote Support.
 
-Para configurar e testar o SSO do Azure AD com o suporte remoto do BeyondTrust, conclua os seguintes blocos de construção:
+Para configurar e testar o Azure AD SSO com suporte remoto BeyondTrust, complete os seguintes blocos de construção:
 
-1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    * **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
-    * **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
-1. **[Configurar o SSO de suporte remoto do BeyondTrust](#configure-beyondtrust-remote-support-sso)** – para configurar as configurações de logon único no lado do aplicativo.
-    * **[Criar usuário de teste do suporte remoto do BeyondTrust](#create-beyondtrust-remote-support-test-user)** – para ter um equivalente de B. Simon no suporte remoto do BeyondTrust que esteja vinculado à representação do usuário no Azure AD.
-1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+    * **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com b.Simon.
+    * Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de AD Azure.
+1. **[Configure O Suporte Remoto BeyondTrust SSO](#configure-beyondtrust-remote-support-sso)** - para configurar as definições de início de sessão individuais no lado da aplicação.
+    * **[Create BeyondTrust Remote Support user](#create-beyondtrust-remote-support-test-user)** - para ter uma contrapartida de B.Simon no BeyondTrust Remote Support que está ligada à representação do utilizador da AD Azure.
+1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
+Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **BeyondTrust Remote Support** , localize a seção **gerenciar** e selecione **logon único**.
-1. Na página **selecionar um método de logon único** , selecione **SAML**.
-1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
+1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **BeyondTrust Remote Support,** encontre a secção **Gerir** e selecione **um único sinal.**
+1. Na página **de método de inscrição, selecione** **SAML**.
+1. No **set single sign-on com** a página SAML, clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
 
-   ![Editar configuração básica de SAML](common/edit-urls.png)
+   ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-1. Na seção **configuração básica do SAML** , insira os valores para os seguintes campos:
+1. Na secção **Basic SAML Configuration,** introduza os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<HOSTNAME>.bomgar.com/saml`
+    a. Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão:`https://<HOSTNAME>.bomgar.com/saml`
 
-    b. Na caixa **identificador** , digite uma URL usando o seguinte padrão: `https://<HOSTNAME>.bomgar.com`
+    b. Na caixa **de identificador,** digite um URL utilizando o seguinte padrão:`https://<HOSTNAME>.bomgar.com`
 
-    c. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão: `https://<HOSTNAME>.bomgar.com/saml/sso`
+    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<HOSTNAME>.bomgar.com/saml/sso`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de logon, o identificador e a URL de resposta reais. Você receberá esses valores explicados posteriormente no tutorial.
+    > Estes valores não são reais. Atualize estes valores com o URL, Identificador e Resposta real. Você terá estes valores explicados mais tarde no tutorial.
 
-1. O aplicativo de suporte remoto BeyondTrust espera que as asserções SAML estejam em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
+1. A aplicação BeyondTrust Remote Support espera as afirmações do SAML num formato específico, o que requer que adicione mapeamentos personalizados de atributos à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
     ![image](common/default-attributes.png)
 
-1. Além de acima, o aplicativo de suporte remoto do BeyondTrust espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seus requisitos.
+1. Além de acima, a aplicação BeyondTrust Remote Support espera que poucos atributos sejam retransmitidos na resposta SAML que são mostradas abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Nome |  Atributo de origem|
+    | Nome |  Atributo fonte|
     | ---------------| ----------|
-    | GivenName | user.givenname |
-    | EmailAddress | user.mail |
+    | Nome dado | user.givenname |
+    | Endereço de e-mail | utilizador.mail |
     | Nome | user.userprincipalname |
-    | Nome de Utilizador | user.userprincipalname |
+    | Nome de utilizador | user.userprincipalname |
     | Grupos | user.groups |
-    | Identificador de usuário exclusivo | user.userprincipalname |
+    | Identificador único de utilizador | user.userprincipalname |
 
     > [!NOTE]
-    > Ao atribuir grupos do Azure AD para o aplicativo de suporte remoto BeyondTrust, a opção ' grupos retornados na declaração ' precisará ser modificada de nenhum para grupo de segurança. Os grupos serão importados para o aplicativo como suas IDs de objeto. A ID de objeto do grupo do Azure AD pode ser encontrada verificando as propriedades na interface Azure Active Directory. Isso será necessário para referenciar e atribuir grupos do Azure AD às políticas de grupo corretas.
+    > Ao atribuir os Grupos AD Azure para a aplicação BeyondTrust Remote Support, a opção "Grupos devolvidos por sinistro" terá de ser modificada de Nenhum para o SecurityGroup. Os Grupos serão importados para o pedido como identificações de objetos. O Id do Objeto do Grupo Azure AD pode ser encontrado verificando as propriedades na interface azure Ative Diretório. Isto será necessário para referência e atribuir aos Grupos AD Azure as políticas corretas do grupo.
 
-1. Ao definir o identificador de usuário exclusivo, esse valor deve ser definido como NameID-Format: **persistent**. Exigimos que este seja um identificador persistente para identificar e associar corretamente o usuário às diretivas de grupo corretas para permissões. Clique no ícone Editar para abrir a caixa de diálogo **atributos de usuário & declarações** para editar o valor exclusivo do identificador de usuário.
+1. Ao definir o identificador único do utilizador, este valor deve ser definido para O Formato Nomeid: **Persistente**. Exigimos que este seja um identificador Persistente para identificar e associar corretamente o utilizador às políticas corretas de permissões do grupo. Clique no ícone de edição para abrir os **Atributos** do Utilizador & diálogo de reclamações para editar o valor exclusivo do identificador de utilizador.
 
-1. Na seção **gerenciar declaração** , clique no **formato escolher identificador de nome** e defina o valor como **persistente** e clique em **salvar**.
+1. Na secção **'Gerir Reclamar',** clique no **formato identificador** de nome Escolha e detete o valor para **Persistente** e clique em **Guardar**.
 
-    ![Atributos e declarações de usuário](./media/bomgarremotesupport-tutorial/attribute-unique-user-identifier.png)
+    ![Atributos e Reclamações do Utilizador](./media/bomgarremotesupport-tutorial/attribute-unique-user-identifier.png)
 
-1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **XML de metadados de Federação** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
+1. Na configuração de um único sessão com a página **SAML,** na secção Certificado de **Assinatura SAML,** encontre **metadados da Federação XML** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
 
-    ![O link de download de certificado](common/metadataxml.png)
+    ![O link de descarregamento do Certificado](common/metadataxml.png)
 
-1. Na seção **Configurar o suporte remoto do BeyondTrust** , copie as URLs apropriadas com base em seu requisito.
+1. Na secção **de Suporte Remoto BeyondTrust,** copie os URL(s) apropriados com base na sua exigência.
 
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
+Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo utilizador** na parte superior do ecrã.
-1. Nas propriedades do **usuário** , siga estas etapas:
+1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
+   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso ao BeyondTrust Remote Support.
+Nesta secção, permitirá que a B.Simon utilize um único sign-on azure, concedendo acesso ao BeyondTrust Remote Support.
 
-1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
-1. Na lista de aplicativos, selecione **suporte remoto do BeyondTrust**.
-1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
+1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **BeyondTrust Remote Support**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
+1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
 
-    ![O link Adicionar usuário](common/add-assign-user.png)
+    ![Ligação Adicionar Utilizador](common/add-assign-user.png)
 
-1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
 
-## <a name="configure-beyondtrust-remote-support-sso"></a>Configurar SSO de suporte remoto do BeyondTrust
+## <a name="configure-beyondtrust-remote-support-sso"></a>Configure BeyondTrust Remote Support SSO
 
-1. Em uma janela diferente do navegador da Web, entre no suporte remoto do BeyondTrust como administrador.
+1. Numa janela de navegador web diferente, inscreva-se no BeyondTrust Remote Support como Administrador.
 
-1. Clique no menu **status** e copie o **identificador**, a **URL de resposta** e a **URL de logon** e use esses valores na seção **configuração básica do SAML** no portal do Azure.
+1. Clique no menu **STATUS** e copie o **Identificador,** **Url de resposta** e assine no **URL** e utilize estes valores na secção **de Configuração SAML Básica** no portal Azure.
 
-    ![Configurar o suporte remoto do BeyondTrust](./media/bomgarremotesupport-tutorial/config-url-values.png)
+    ![Configure suporte remoto BeyondTrust](./media/bomgarremotesupport-tutorial/config-url-values.png)
 
-1. Navegue até a interface do BeyondTrust Remote Support/login em `https://support.example.com/login` em que **support.example.com** é o nome de host primário do seu dispositivo e autentique usando suas credenciais administrativas.
+1. Navegue para a interface BeyondTrust `https://support.example.com/login` Remote Support /login onde **support.example.com** é o nome principal do seu aparelho e autenticar usando as suas credenciais administrativas.
 
-1. Navegue até **usuários & segurança** > **provedores de segurança**.
+1. Navegue para **utilizadores &** > **Fornecedores**de Segurança .
 
-1. No menu suspenso, selecione **SAML** e clique no botão **criar provedor** .
+1. No menu suspenso, selecione **SAML** e clique no botão **Criar fornecedor.**
 
-1. Na seção Configurações do provedor de identidade, há uma opção para carregar os metadados do provedor de identidade. Localize o arquivo XML de metadados que você baixou do portal do Azure e clique no botão **carregar** . A **ID da entidade**, a **URL do serviço de logon único** e o certificado serão automaticamente carregados e a associação de **protocolo** precisará ser alterada para **http post**. Consulte a captura de tela abaixo:
+1. No âmbito da secção Definições do Fornecedor de Identidade, existe uma opção para carregar os Metadados do Fornecedor de Identidade. Localize o ficheiro Metadata XML que descarregou do portal Azure e clique no botão **Upload.** O **ID da Entidade,** URL e Certificado de Serviço de **Assinatura Única** serão automaticamente carregados, e o **Encadernação** do Protocolo terá de ser alterado para **HTTP POST**. Veja a imagem abaixo:
 
-    ![Configurar o suporte remoto do BeyondTrust](./media/bomgarremotesupport-tutorial/config-uploadfile.png)
+    ![Configure suporte remoto BeyondTrust](./media/bomgarremotesupport-tutorial/config-uploadfile.png)
 
-### <a name="create-beyondtrust-remote-support-test-user"></a>Criar usuário de teste do suporte remoto do BeyondTrust
+### <a name="create-beyondtrust-remote-support-test-user"></a>Criar o utilizador do teste de suporte remoto BeyondTrust
 
-Iremos definir as configurações de provisionamento do usuário aqui. Os valores usados nesta seção serão referenciados na seção **atributos de usuário & declarações** no portal do Azure. Configuramos isso para ser os valores padrão que já foram importados no momento da criação, no entanto, o valor pode ser personalizado, se necessário.
+Estaremos a configurar as Definições de Provisionamento de Utilizadores aqui. Os valores utilizados nesta secção serão referenciados a partir da secção **Atributos do Utilizador & Reivindicações** no portal Azure. Configuramos estes como os valores predefinidos que já são importados no momento da criação, no entanto, o valor pode ser personalizado se necessário.
 
-![Criando usuário](./media/bomgarremotesupport-tutorial/config-user1.png)
-
-> [!NOTE]
-> Os atributos Groups e email não são necessários para essa implementação. Se você estiver utilizando grupos do Azure AD e atribuindo-os a políticas de grupo de suporte remoto do BeyondTrust para permissões, a ID de objeto do grupo precisará ser referenciada por meio de suas propriedades no portal do Azure e colocada na seção ' grupos disponíveis '. Depois que isso tiver sido concluído, a ID de objeto/grupo do AD agora estará disponível para atribuição a uma política de grupo para permissões.
-
-![Criando usuário](./media/bomgarremotesupport-tutorial/config-user2.png)
-
-![Criando usuário](./media/bomgarremotesupport-tutorial/config-user3.png)
+![Criação de Utilizador](./media/bomgarremotesupport-tutorial/config-user1.png)
 
 > [!NOTE]
-> Como alternativa, uma política de grupo padrão pode ser definida no provedor de segurança SAML2. Ao definir essa opção, você atribuirá a todos os usuários que autenticam por meio do SAML as permissões especificadas na política de grupo. A política de membros gerais está incluída no suporte remoto do BeyondTrust/acesso remoto privilegiado com permissões limitadas, que podem ser usadas para testar a autenticação e atribuir usuários às políticas corretas. Os usuários não preencherão a lista de usuários do SAML2 por meio do/login > usuários & segurança até a primeira tentativa de autenticação bem-sucedida. Informações adicionais sobre políticas de grupo podem ser encontradas no seguinte link: `https://www.beyondtrust.com/docs/remote-support/getting-started/admin/group-policies.htm`
+> Os grupos e o atributo de e-mail não são necessários para esta implementação. Se utilizar os grupos Azure AD e atribuí-los às Políticas de Grupo de Apoio Remoto BeyondTrust para permissões, o Id do objeto do grupo terá de ser referenciado através das suas propriedades no portal Azure e colocado na secção "Grupos Disponíveis". Uma vez concluído, o Grupo Id/AD do Objeto estará agora disponível para atribuição de uma política de grupo para permissões.
 
-## <a name="test-sso"></a>Testar SSO
+![Criação de Utilizador](./media/bomgarremotesupport-tutorial/config-user2.png)
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+![Criação de Utilizador](./media/bomgarremotesupport-tutorial/config-user3.png)
 
-Ao clicar no bloco de suporte remoto do BeyondTrust no painel de acesso, você deverá ser conectado automaticamente ao suporte remoto do BeyondTrust para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+> [!NOTE]
+> Em alternativa, uma política de grupo padrão pode ser definida no Provedor de Segurança SAML2. Ao definir esta opção, isto atribuirá a todos os utilizadores que autenticarem através da SAML as permissões especificadas na política do grupo. A política dos Membros Gerais está incluída no BeyondTrust Remote Support/Privileged Remote Access com permissões limitadas, que podem ser usadas para testar a autenticação e atribuir os utilizadores às políticas corretas. Os utilizadores não irão preencher a lista de Utilizadores SAML2 através de /login > Utilizadores & Security até à primeira tentativa de autenticação bem sucedida. Informações adicionais sobre as políticas do Grupo podem ser encontradas no seguinte link:`https://www.beyondtrust.com/docs/remote-support/getting-started/admin/group-policies.htm`
+
+## <a name="test-sso"></a>Teste SSO
+
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
+
+Quando clicar no azulejo BeyondTrust Remote Support no Painel de Acesso, deve ser automaticamente inscrito no Suporte Remoto BeyondTrust para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Experimente o suporte remoto do BeyondTrust com o Azure AD](https://aad.portal.azure.com/)
+- [Experimente o Suporte Remoto BeyondTrust com a AD Azure](https://aad.portal.azure.com/)

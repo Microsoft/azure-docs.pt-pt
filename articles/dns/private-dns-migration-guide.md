@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: rohink
 ms.openlocfilehash: d29885104d6f39a17b5bdeb786cda8f56f58d987
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76939354"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migrar legado Azure DNS zonas privadas para novo modelo de recursos
@@ -27,7 +27,7 @@ az network dns zone list --query "[?zoneType=='Private']"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Certifique-se de que instalou a versão mais recente do Azure PowerShell. Para mais informações sobre o Azure PowerShell (Az) e como instalá-lo visite https://docs.microsoft.com/powershell/azure/new-azureps-module-az
+Certifique-se de que instalou a versão mais recente do Azure PowerShell. Para mais informações sobre o Azure PowerShell (Az) e como instalá-lohttps://docs.microsoft.com/powershell/azure/new-azureps-module-az
 
 Certifique-se de que tem o módulo Az.PrivateDns para o Azure PowerShell instalado. Para instalar este módulo, abra uma janela PowerShell elevada (modo administrativo) e introduza o seguinte comando
 
@@ -50,7 +50,7 @@ Introduza "A" quando solicitado para instalar o script
 
 ![Instalação do script](./media/private-dns-migration-guide/install-migration-script.png)
 
-Também pode obter manualmente a versão mais recente do script PowerShell em https://www.powershellgallery.com/packages/PrivateDnsMigrationScript
+Também pode obter manualmente a versão mais recente do script PowerShell emhttps://www.powershellgallery.com/packages/PrivateDnsMigrationScript
 
 >[!IMPORTANT]
 >O roteiro de migração não deve ser executado em casca de nuvem Azure e deve ser executado numa VM ou numa máquina local ligada à internet.
@@ -120,9 +120,9 @@ Crie um bilhete de apoio se precisar de mais ajuda com o processo de migração 
 
 * Saiba como criar uma zona privada em Azure DNS utilizando [o Azure PowerShell](./private-dns-getstarted-powershell.md) ou [o Azure CLI](./private-dns-getstarted-cli.md).
 
-* Leia sobre alguns cenários comuns de [zona privada](./private-dns-scenarios.md) que podem ser percebidos com zonas privadas no DNS do Azure.
+* Leia sobre [alguns cenários de zona privada](./private-dns-scenarios.md) comum que podem ser realizados com zonas privadas em DNS Azure.
 
-* Para perguntas e respostas comuns sobre zonas privadas no DNS do Azure, incluindo um comportamento específico que você pode esperar para determinados tipos de operações, consulte [DNS privado perguntas frequentes](./dns-faq-private.md).
+* Para perguntas e respostas comuns sobre zonas privadas em DNS Azure, incluindo comportamentos específicos que pode esperar para determinados tipos de operações, consulte o [DNS faQ privado](./dns-faq-private.md).
 
 * Conheça as zonas e registos dNS visitando [zonas de DNS e a visão geral](dns-zones-records.md)dos registos .
 

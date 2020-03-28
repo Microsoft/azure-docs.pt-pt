@@ -10,22 +10,19 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/24/2020
+ms.date: 03/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 21725e64bb359b2f11086baceb186605f010b796
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 94b351ddb18ca596f47e8ef40cff8229c838d7bd
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561464"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239213"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutorial: Utilize scripts de implementação para criar um certificado auto-assinado (Pré-visualização)
 
-Aprenda a usar scripts de implementação em modelos de Gestão de Recursos Azure. Scripts de implementação podem ser usados para executar passos personalizados que não podem ser feitos por modelos de Gestor de Recursos. Por exemplo, criar um certificado auto-assinado.  Neste tutorial, você cria um modelo para implantar um cofre chave Azure, e depois usa um recurso `Microsoft.Resources/deploymentScripts` no mesmo modelo para criar um certificado e, em seguida, adicionar o certificado ao cofre chave. Para saber mais sobre o script de implementação, consulte [scripts de implementação use scripts de implementação em modelos de Gestor de Recursos Azure](./deployment-script-template.md).
-
-> [!NOTE]
-> O script de implantação está atualmente em pré-visualização. Para usá-lo, deve [inscrever-se para a pré-visualização](https://aka.ms/armtemplatepreviews).
+Saiba como utilizar scripts de implementação em modelos de Gestão de Recursos Azure (ARM). Scripts de implementação podem ser usados para executar passos personalizados que não podem ser feitos por modelos ARM. Por exemplo, criar um certificado auto-assinado.  Neste tutorial, você cria um modelo para implantar um cofre `Microsoft.Resources/deploymentScripts` de chave Azure, e depois usa um recurso no mesmo modelo para criar um certificado e, em seguida, adicionar o certificado ao cofre chave. Para saber mais sobre o script de implementação, consulte [use scripts de implementação em modelos ARM](./deployment-script-template.md).
 
 > [!IMPORTANT]
 > Dois recursos de script de implementação, uma conta de armazenamento e uma instância de contentores, são criados no mesmo grupo de recursos para execução de scripts e resolução de problemas. Estes recursos são geralmente eliminados pelo serviço de script quando a execução do script entra em estado terminal. Você é cobrado pelos recursos até que os recursos sejam eliminados. Para saber mais, consulte [a Limpeza dos recursos do script de implementação.](./deployment-script-template.md#clean-up-deployment-script-resources)
@@ -43,7 +40,7 @@ Este tutorial abrange as seguintes tarefas:
 
 Para concluir este artigo, precisa de:
 
-* **[Código de estúdio visual](https://code.visualstudio.com/) com a extensão ferramentas de gestor de recursos**. Consulte [o Código do Estúdio Visual para criar modelos](./use-vs-code-to-create-template.md)de Gestor de Recursos Azure .
+* ** [Código de estúdio visual](https://code.visualstudio.com/) com a extensão ferramentas de gestor de recursos**. Consulte [o Use Visual Studio Code para criar modelos ARM](./use-vs-code-to-create-template.md).
 
 * Uma identidade gerida atribuída ao **utilizador com o papel do contribuinte ao nível da subscrição**. Esta identidade é usada para executar scripts de implantação. Para criar um, consulte [a identidade gerida atribuída pelo Utilizador.](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity) Precisa da identificação de identidade quando implementar o modelo. O formato da identidade é:
 
@@ -62,11 +59,11 @@ Para concluir este artigo, precisa de:
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
-Em vez de criar um modelo de raiz, pode abrir um modelo dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/). Os modelos Azure Quickstart é um repositório para modelos de Gestor de Recursos.
+Em vez de criar um modelo de raiz, pode abrir um modelo dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/). Os modelos Azure Quickstart é um repositório para modelos ARM.
 
 O modelo usado neste quickstart chama-se [Criar um Cofre chave Azure e um segredo.](https://azure.microsoft.com/resources/templates/101-key-vault-create/) O modelo cria um cofre chave, e depois adiciona um segredo ao cofre da chave.
 
-1. No Visual Studio Code, selecione **Ficheiro**>**Abrir Ficheiro**.
+1. A partir do Código do Estúdio Visual, selecione **File**>**Open File**.
 2. em **Nome de ficheiro**, cole o seguinte URL:
 
     ```url
@@ -74,7 +71,7 @@ O modelo usado neste quickstart chama-se [Criar um Cofre chave Azure e um segred
     ```
 
 3. Selecione **Abrir** para abrir o ficheiro.
-4. Selecione **Ficheiro**>**Guardar Como** para guardar o ficheiro como **azuredeploy.json** no computador local.
+4. Selecione **File**>**Save As** para guardar o ficheiro como **azuredeploy.json** para o seu computador local.
 
 ## <a name="edit-the-template"></a>Editar o modelo
 
@@ -177,7 +174,7 @@ O guião de implantação adiciona um certificado ao cofre da chave. Configure a
 1. Adicione um recurso de implementaçãoScripts:
 
     > [!NOTE]
-    > Como os scripts de implementação em linha são fechados em citações duplas, as cordas dentro dos scripts de implementação precisam de ser fechadas em cotações únicas. O personagem de **&#92;** fuga para a PowerShell é.
+    > Como os scripts de implementação em linha são fechados em citações duplas, as cordas dentro dos scripts de implementação precisam de ser fechadas em cotações únicas. O personagem de fuga para a PowerShell é **&#92;. **
 
     ```json
     {
@@ -257,7 +254,7 @@ O guião de implantação adiciona um certificado ao cofre da chave. Configure a
     }
     ```
 
-    O recurso `deploymentScripts` depende do recurso chave do cofre e do recurso de atribuição de funções.  Tem estas propriedades:
+    O `deploymentScripts` recurso depende do recurso chave do cofre e do recurso de atribuição de funções.  Tem estas propriedades:
 
     * **identidade**: O script de implementação utiliza uma identidade gerida atribuída pelo utilizador para executar os scripts.
     * **tipo:** Especificar o tipo de script. Atualmente, apenas o script PowerShell é suporte.
@@ -284,7 +281,7 @@ O guião de implantação adiciona um certificado ao cofre da chave. Configure a
 
     O comando correto é **Write-Output** em vez de **Write-Output1**.
 
-1. Selecione **Ficheiro**>**Guardar** para guardar o ficheiro.
+1. Selecione**Guardar** **ficheiros**>para guardar o ficheiro.
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
@@ -320,7 +317,7 @@ O resultado da execução do script de implementação é armazenado nos recurso
 
 ## <a name="debug-the-failed-script"></a>Depurar o guião falhado
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Abra o grupo de recursos. É o nome do projeto com **rg** anexado. Verá dois recursos adicionais no grupo de recursos. Estes recursos são referidos como recursos de script de *implantação.*
 
     ![Recursos de script de implementação de modelo de gestor de recursos de gestor de recursos](./media/template-tutorial-deployment-script/resource-manager-template-deployment-script-resources.png)
@@ -341,14 +338,14 @@ Quando a segunda implementação for executada com sucesso, os recursos do scrip
 
 Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos.
 
-1. No portal do Azure, selecione **Grupo de recursos** no menu à esquerda.
+1. A partir do portal Azure, selecione **Grupo Recurso** do menu esquerdo.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
 3. Selecione o nome do grupo de recursos.  Verá um total de seis recursos no grupo de recursos.
-4. Selecione **Eliminar grupo de recursos** no menu superior.
+4. **Selecione Eliminar** o grupo de recursos do menu superior.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a usar o script de implementação nos modelos do Gestor de Recursos Azure. Para saber como implementar recursos do Azure com base em condições, veja:
+Neste tutorial, aprendeu a usar o script de implantação em modelos ARM. Para saber como implementar recursos do Azure com base em condições, veja:
 
 > [!div class="nextstepaction"]
 > [Condições de utilização](./template-tutorial-use-conditions.md)

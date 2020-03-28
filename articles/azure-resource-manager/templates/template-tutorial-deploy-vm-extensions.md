@@ -5,16 +5,16 @@ author: mumian
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 30b7aeaed0bfc2621cb2c71ab3f5e618771a1c26
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 469948d3d3207dd684d5a9b752e0c448ac7e83a9
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250076"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239253"
 ---
-# <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Tutorial: Implementar extensões de máquina virtual com modelos do Azure Resource Manager
+# <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Tutorial: Implementar extensões de máquinavirtual com modelos ARM
 
-Aprenda a utilizar [extensões de máquina virtual do Azure](../../virtual-machines/extensions/features-windows.md) para fazer tarefas de automatização e configuração de pós-implementação em VMs do Azure. Estão disponíveis muitas VMs diferentes para utilização com as VMs do Azure. Neste tutorial, você implementa uma extensão de Script personalizado a partir de um modelo de Gestor de Recursos Azure para executar um script PowerShell em um VM windows.  O script instala o Servidor Web na VM.
+Aprenda a utilizar [extensões de máquina virtual do Azure](../../virtual-machines/extensions/features-windows.md) para fazer tarefas de automatização e configuração de pós-implementação em VMs do Azure. Estão disponíveis muitas VMs diferentes para utilização com as VMs do Azure. Neste tutorial, você implementa uma extensão de Script Personalizado a partir de um modelo de Gestor de Recursos Azure (ARM) para executar um script PowerShell em um Windows VM.  O script instala o Servidor Web na VM.
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -25,20 +25,20 @@ Este tutorial abrange as seguintes tarefas:
 > * Implementar o modelo
 > * Verificar a implementação
 
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este artigo, precisa de:
 
-* Código de estúdio visual com extensão de ferramentas de gestor de recursos. Consulte [o Código do Estúdio Visual para criar modelos](use-vs-code-to-create-template.md)de Gestor de Recursos Azure .
+* Visual Studio Code com extensão Ferramentas do Resource Manager. Consulte [o Use Visual Studio Code para criar modelos ARM](use-vs-code-to-create-template.md).
 * Para aumentar a segurança, utilize uma palavra-passe gerada para a conta de administrador da máquina virtual. Eis um exemplo para gerar uma palavra-passe:
 
     ```console
     openssl rand -base64 32
     ```
 
-    O Azure Key Vault foi criado para salvaguardar chaves criptográficos e outros segredos. Para obter mais informações, veja [Tutorial: Integrar o Azure Key Vault na implementação de modelos do Resource Manager](./template-tutorial-use-key-vault.md). Recomendamos também que atualize a sua palavra-passe de três em três meses.
+    O Azure Key Vault foi criado para salvaguardar chaves criptográficos e outros segredos. Para mais informações, consulte [Tutorial: Integre o Cofre chave Azure na implementação](./template-tutorial-use-key-vault.md)do modelo ARM . Recomendamos também que atualize a sua palavra-passe de três em três meses.
 
 ## <a name="prepare-a-powershell-script"></a>Preparar o script do Powershell
 
@@ -48,27 +48,27 @@ Um script PowerShell com o seguinte conteúdo é partilhado a partir do [GitHub:
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Se optar por publicar o ficheiro na sua própria localização, tem de atualizar o elemento `fileUri` no modelo mais tarde no tutorial.
+Se optar por publicar o ficheiro na sua `fileUri` própria localização, tem de atualizar o elemento no modelo mais tarde no tutorial.
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de início rápido
 
-Os modelos Azure Quickstart é um repositório para modelos de Gestor de Recursos. Em vez de criar um modelo do zero, pode encontrar um modelo de exemplo e personalizá-lo. O modelo utilizado neste tutorial é denominado [Implementar uma VM do Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Os modelos Azure Quickstart é um repositório para modelos ARM. Em vez de criar um modelo do zero, pode encontrar um modelo de exemplo e personalizá-lo. O modelo utilizado neste tutorial é denominado [Implementar uma VM do Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. No Código do Estúdio Visual, selecione **File** > **Open File**.
-1. Na caixa de **nome** sinuoso, colá o seguinte URL: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
+1. Na caixa de **nomes de ficheiros,** cola o seguinte URL:https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
 
 1. Para abrir o ficheiro, selecione **Open**.
     O modelo define cinco recursos:
 
-   * **Microsoft.Storage/storageAccounts**. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-   * **Microsoft.Network/publicIPAddresss**. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-   * **Microsoft.Network/virtualNetworks**. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-   * **Microsoft.Network/networkInterfaces**. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-   * **Microsoft.Compute/virtualMachines**. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * **Microsoft.Storage/storageAccounts**. Veja a [referência de modelo](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+   * **Microsoft.Network/publicIPAddresss**. Veja a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+   * **Microsoft.Network/virtualNetworks**. Veja a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+   * **Microsoft.Network/networkInterfaces**. Veja a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+   * **Microsoft.Compute/virtualMachines**. Veja a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
 
      É útil obter alguma compreensão básica do modelo antes de personalizá-lo.
 
-1. Guarde uma cópia do ficheiro para o seu computador local com o nome *azuredeploy.json* selecionando **File** > **Save As**.
+1. Guarde uma cópia do ficheiro para o seu computador local com o nome *azuredeploy.json* selecionando **O Guardar** > **ficheiros Como**.
 
 ## <a name="edit-the-template"></a>Editar o modelo
 
@@ -107,7 +107,7 @@ Para mais informações sobre esta definição de recursos, consulte a referênc
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-Para o procedimento de implementação, consulte a secção "Implementar o modelo" do [Tutorial: Criar modelos de Gestor de Recursos Azure com recursos dependentes](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Recomendamos que utilize uma palavra-passe gerada para a conta de administrador de máquinas virtuais. Consulte a secção [de pré-requisitos](#prerequisites) deste artigo.
+Para o procedimento de implantação, consulte a secção "Implementar o modelo" do [Tutorial: Criar modelos ARM com recursos dependentes](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Recomendamos que utilize uma palavra-passe gerada para a conta de administrador de máquinas virtuais. Consulte a secção [de pré-requisitos](#prerequisites) deste artigo.
 
 ## <a name="verify-the-deployment"></a>Verificar a implementação
 

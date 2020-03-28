@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: tutorial
 ms.date: 03/04/2020
 ms.custom: mvc
-ms.openlocfilehash: 347f2fbc0f12aa775c42dbb14a4625dc509a20ed
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f7130f3289ce42ca1481ec14be893c846c9ed55b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79239659"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80335791"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gerencie atualizações e patches para os seus VMs Azure
 
@@ -67,7 +67,7 @@ Clique em **Adicionar condição** para selecionar o sinal adequado para a sua i
 |**Execuções de implementação total de atualização**|- Nome de implementação de atualização</br>- Estatuto|Este sinal é utilizado para alertar sobre o estado geral de uma implementação de atualização.|
 |**Corridas de máquinas de implantação de atualização total**|- Nome de implementação de atualização</br>- Estatuto</br>- Computador-alvo</br>- Id de execução de implementação de atualização|Este sinal é usado para alertar sobre o estado de uma implementação de atualização direcionada a máquinas específicas|
 
-Para os valores de dimensão, selecione um valor válido da lista. Se o valor que procura não estiver na lista, clique no sinal **de\+** ao lado da dimensão e digite o nome personalizado. Em seguida, pode selecionar o valor que pretende procurar. Se pretender selecionar todos os valores a partir de uma dimensão, clique no botão **Select \*.** Se não escolher um valor para uma dimensão, essa dimensão será ignorada durante a avaliação.
+Para os valores de dimensão, selecione um valor válido da lista. Se o valor que procura não estiver na **\+** lista, clique no sinal junto à dimensão e escreva o nome personalizado. Em seguida, pode selecionar o valor que pretende procurar. Se pretender selecionar todos os valores a partir de uma dimensão, clique no botão **Select. \* ** Se não escolher um valor para uma dimensão, essa dimensão será ignorada durante a avaliação.
 
 ![Configurar lógica de sinal](./media/automation-tutorial-update-management/signal-logic.png)
 
@@ -109,7 +109,7 @@ Em **Nova implementação de atualização**, especifique as seguintes informaç
 
 * **Sistema operativo**: selecione o SO de destino para a implementação da atualização.
 
-* **Grupos a atualizar (pré-visualização)** : defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e etiquetas para criar um grupo dinâmico de VMs do Azure para incluir na sua implementação. Para saber mais, consulte [Grupos Dinâmicos](automation-update-management-groups.md)
+* **Grupos a atualizar (pré-visualização)**: defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e etiquetas para criar um grupo dinâmico de VMs do Azure para incluir na sua implementação. Para saber mais, consulte [Grupos Dinâmicos](automation-update-management-groups.md)
 
 * **Computadores a atualizar**: Selecione uma Pesquisa guardada, o Grupo importado ou escolha a Máquina a partir do menu pendente e selecione máquinas individuais. Se escolher **Máquinas,** a prontidão da máquina é mostrada na coluna de prontidão do **agente Atualizar.** Para conhecer os diferentes métodos de criação de grupos informáticos nos registos do Monitor Azure, consulte [grupos informáticos em registos do Monitor Azure](../azure-monitor/platform/computer-groups.md)
 
@@ -127,7 +127,7 @@ Em **Nova implementação de atualização**, especifique as seguintes informaç
 * **Atualizações a incluir/excluir**: esta opção abre a página **Incluir/Excluir**. As atualizações a serem incluídas ou excluídas estão em separadores diferentes.
 
 > [!NOTE]
-> É importante saber que as exclusões sobrepõem-se às inclusãos. Por exemplo, se definir uma regra de exclusão de `*`, então não são instalados patches ou pacotes, uma vez que todos estão excluídos. Os patches excluídos continuam a mostrar como desaparecidos da máquina. Para as máquinas Linux se um pacote estiver incluído mas tiver um pacote dependente que foi excluído, o pacote não está instalado.
+> É importante saber que as exclusões sobrepõem-se às inclusãos. Por exemplo, se definir uma `*`regra de exclusão de, então não são instalados patches ou pacotes, uma vez que todos estão excluídos. Os patches excluídos continuam a mostrar como desaparecidos da máquina. Para as máquinas Linux se um pacote estiver incluído mas tiver um pacote dependente que foi excluído, o pacote não está instalado.
 
 > [!NOTE]
 > Não é possível especificar atualizações que tenham sido substituídos para inclusão com a implementação da atualização.
@@ -139,7 +139,7 @@ Em **Nova implementação de atualização**, especifique as seguintes informaç
 
 * **Scripts prévios + Scripts posteriores**: selecione os scripts para executar antes e após a sua implementação. Para saber mais, veja [Gerir Scripts prévios e posteriores](pre-post-scripts.md).
 
-* **Janela de manutenção (minutos)** : deixe o valor predefinido. As janelas de manutenção controlam a quantidade de tempo permitida para que as atualizações possam instalar. Considere os seguintes detalhes ao especificar uma janela de manutenção.
+* **Janela de manutenção (minutos)**: deixe o valor predefinido. As janelas de manutenção controlam a quantidade de tempo permitida para que as atualizações possam instalar. Considere os seguintes detalhes ao especificar uma janela de manutenção.
 
   * As janelas de manutenção controlam quantas atualizações são tentadas de ser instaladas.
   * A Atualização A Gestão não para de instalar novas atualizações se se aproximar do fim de uma janela de manutenção.
@@ -182,8 +182,8 @@ Em **Resultados da atualização**, um resumo indica o número total de atualiza
 A lista seguinte mostra os valores disponíveis:
 
 * **Não tentado**: a atualização não foi instalada porque não havia tempo suficiente disponível com base na duração da janela de manutenção definida.
-* **Com êxito**: a atualização foi executada com êxito.
-* **Falhou**: a atualização falhou.
+* **Sucesso**: A atualização foi bem sucedida.
+* **Falha :** A atualização falhou.
 
 Selecione **Todos os registos** para ver todas as entradas de registo criadas pela implementação.
 
@@ -209,5 +209,5 @@ Neste tutorial, ficou a saber como:
 Avance para a descrição geral da solução de Gestão de Atualizações.
 
 > [!div class="nextstepaction"]
-> [Solução de Gestão de Atualizações](../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json)
+> [Solução de Gestão de Atualizações](automation-update-management.md)
 

@@ -7,10 +7,10 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.openlocfilehash: 3f736942627d088e3a639f89bef5438714c2608b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239218"
 ---
 # <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Tutorial: Adicione armazenamento de back-end e configure o espaço de nome virtual 
@@ -55,7 +55,7 @@ Depois de adicionar um ficheiro principal, pode atualizar as definições na pá
 
 ## <a name="add-a-core-filer"></a>Adicione um filer principal
 
-Defina um ficheiro core clicando no botão **Criar** na página de definições de Ficheiros **Core** > Gerir o **Núcleo.**
+Defina um ficheiro core clicando no botão **Criar** na página de definições de**ficheiros core** do Ficheiro **Core.** > 
 
 ![Clicar no botão criar acima da lista de ficheiros core na página 'Gerir Ficheiros Core'](media/fxt-cluster-config/create-core-filer-button.png)
 
@@ -79,7 +79,7 @@ As subtarefas incluem:
 
   ![Informações de ficheiros de núcleo de nuvem no novo assistente de Ficheiro seleção](media/fxt-cluster-config/new-core-filer-cloud3.png) 
   
-  Se já adicionou credenciais de acesso à nuvem para este cluster, elas aparecem na lista. Atualizar e adicionar credenciais na página de definições de **Credenciais** de Nuvem do **Cluster** > . 
+  Se já adicionou credenciais de acesso à nuvem para este cluster, elas aparecem na lista. Atualizar e adicionar credenciais na página de definições de**Credenciais** de **Nuvem cluster.** >  
 
 Depois de preencher todas as definições necessárias no assistente, clique no botão **Adicionar Filer** para submeter a alteração.
 
@@ -129,7 +129,7 @@ Para criar um novo servidor de servidores, necessita das seguintes informações
 
 * Se a sua rede tiver VLANs, que vLAN usar para este vserver
 
-Utilize a página de definições **do VServer** > **Gerir os VServers** para criar um novo servidor de vserver. Para mais detalhes leia [Criar um VServer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver) no Guia de Configuração do Cluster. 
+Utilize a página de definições **vServer** > **Manage VServers** para criar um novo servidor de vserver. Para mais detalhes leia [Criar um VServer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver) no Guia de Configuração do Cluster. 
 
 ![janela pop-up para criar um novo vserver](media/fxt-cluster-config/new-vserver.png)
 
@@ -141,17 +141,17 @@ Você pode usar este sistema para simplificar o caminho usado nos pontos de mont
 
 ![Adicione a página do assistente de junção nova com as definições preenchidas](media/fxt-cluster-config/add-junction-full.png)
 
-Consulte o [ **VServer** > **Namespace** ](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html) no Guia de Configuração do Cluster para obter detalhes completos sobre a criação de uma junção espaço de nome.
+Consulte o Espaço de Nome sinuoso [ **vServer** > ](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html) no Guia de Configuração do Cluster para obter detalhes completos sobre a criação de uma junção espaço de nome.
 
-![A página de definições do VServer > Namespace mostrando detalhes para uma junção](media/fxt-cluster-config/namespace-populated.png)
+![A página de definições do Nome do VServer > mostrando detalhes para uma junção](media/fxt-cluster-config/namespace-populated.png)
 
 ## <a name="configure-export-rules"></a>Configure regras de exportação
 
 Depois de ter um vserver e um filer principal, deve personalizar as regras de exportação e as políticas de exportação que controlam como os clientes podem aceder a ficheiros sobre as exportações de filer seletiva.
 
-Em primeiro lugar, utilize a página **Do VServer** > **Regras de Exportação** para adicionar novas regras, para modificar a política de incumprimento ou para criar a sua própria política de exportação personalizada.
+Em primeiro lugar, utilize a página de Regras de**Exportação** **vServer** > para adicionar novas regras, para modificar a política de incumprimento, ou para criar a sua própria política de exportação personalizada.
 
-Em segundo lugar, utilize a página **VServer** > **Export Policies** para aplicar a política personalizada às exportações do seu ficheiro principal quando acedida através desse servidor.
+Em segundo lugar, utilize a página De Política de**Exportação** **vServer** > para aplicar a política personalizada às exportações do seu ficheiro principal quando acedida através desse servidor.
 
 Leia o artigo do Guia de Configuração do Cluster [controlando o acesso às exportações de filer seleções](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/export_rules_overview.html) para mais detalhes.
 

@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions
 ms.openlocfilehash: 8c074c677c645dd03e3cf5288d82aa3e65720e8b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239631"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux usando um recipiente personalizado
@@ -44,7 +44,7 @@ Pode seguir este tutorial em qualquer computador que execute Windows, Mac OS ou 
     - [.NET Core 2.2.x ou mais tarde](https://dotnet.microsoft.com/download)
     ::: zone-end
     ::: zone pivot="programming-language-javascript"
-    - [Node.js](https://nodejs.org/en/download/)
+    - [Nó.js](https://nodejs.org/en/download/)
     ::: zone-end
     ::: zone pivot="programming-language-powershell"
     - [PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7)
@@ -53,18 +53,18 @@ Pode seguir este tutorial em qualquer computador que execute Windows, Mac OS ou 
     - [Python 3.6 - 64 bit](https://www.python.org/downloads/release/python-3610/) ou [Python 3.7 - 64 bit](https://www.python.org/downloads/release/python-376/)
     ::: zone-end
     ::: zone pivot="programming-language-typescript"
-    - [Node.js](https://nodejs.org/en/download/)
+    - [Nó.js](https://nodejs.org/en/download/)
     - [TypeScript](http://www.typescriptlang.org/#download-links)
     ::: zone-end
-- [Docker](https://docs.docker.com/install/)
+- [Estivador](https://docs.docker.com/install/)
 - Uma [identificação do Docker](https://hub.docker.com/signup)
 
 ### <a name="prerequisite-check"></a>Verificação pré-requisito
 
-1. Numa janela de terminais ou comando, faça `func --version` para verificar se as Ferramentas Core funções Do Azure são a versão 2.7.1846 ou posterior.
-1. Execute `az --version` para verificar se a versão Azure CLI é de 2.0.76 ou mais tarde.
-1. Execute `az login` para iniciar sessão no Azure e verificar uma subscrição ativa.
-1. Corra `docker login` para se inscrever no Docker. Este comando falha se o Docker não estiver a funcionar, caso em que começar a tentar o comando.
+1. Numa janela de terminal `func --version` ou comando, corra para verificar se as Ferramentas Core funções Do Azure são a versão 2.7.1846 ou posterior.
+1. Corra `az --version` para verificar se a versão Azure CLI é 2.0.76 ou mais tarde.
+1. Corra `az login` para iniciar sessão no Azure e verifique uma subscrição ativa.
+1. Corra `docker login` para assinar com Docker. Este comando falha se o Docker não estiver a funcionar, caso em que começar a tentar o comando.
 
 ## <a name="create-and-test-the-local-functions-project"></a>Criar e testar o projeto de funções locais
 
@@ -72,7 +72,7 @@ Pode seguir este tutorial em qualquer computador que execute Windows, Mac OS ou 
 
 1. Siga as instruções sobre [Criar e ativar um ambiente virtual](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv) para criar um ambiente virtual para uso com este tutorial.
 
-1. Execute o seguinte comando para o seu idioma escolhido para criar um projeto de aplicação de função numa pasta chamada `LocalFunctionsProject`. A opção `--docker` gera uma `Dockerfile` para o projeto, que define um recipiente personalizado adequado para utilização com funções Azure e o tempo de execução selecionado.
+1. Execute o seguinte comando para o seu idioma `LocalFunctionsProject`escolhido para criar um projeto de aplicação de função numa pasta chamada . A `--docker` opção `Dockerfile` gera um para o projeto, que define um recipiente personalizado adequado para utilização com funções Azure e o tempo de execução selecionado.
 
     ::: zone pivot="programming-language-csharp"
     ```
@@ -110,7 +110,7 @@ Pode seguir este tutorial em qualquer computador que execute Windows, Mac OS ou 
     cd LocalFunctionsProject
     ```
     
-1. Adicione uma função ao seu projeto utilizando o seguinte comando, onde o argumento `--name` é o nome único da sua função e o `--template` argumento especifica o gatilho da função. `func new` criar uma subpasta que contenha um ficheiro de código adequado ao idioma escolhido do projeto e um ficheiro de configuração chamado *função.json*.
+1. Adicione uma função ao seu projeto utilizando `--name` o seguinte comando, onde `--template` o argumento é o nome único da sua função e o argumento especifica o gatilho da função. `func new`criar uma subpasta que contenha um ficheiro de código adequado ao idioma escolhido do projeto e um ficheiro de configuração denominado *função.json*.
 
     ```
     func new --name HttpExample --template "HTTP trigger"
@@ -152,9 +152,9 @@ Pode seguir este tutorial em qualquer computador que execute Windows, Mac OS ou 
     ```
     ::: zone-end
 
-1. Assim que vir o ponto final `HttpExample` aparecer na saída, navegue para `http://localhost:7071/api/HttpExample?name=Functions`. O navegador deve apresentar uma mensagem como "Olá, Funções" (variado ligeiramente dependendo da sua linguagem de programação escolhida).
+1. Assim que `HttpExample` vir o ponto final aparecer `http://localhost:7071/api/HttpExample?name=Functions`na saída, navegue para . O navegador deve apresentar uma mensagem como "Olá, Funções" (variado ligeiramente dependendo da sua linguagem de programação escolhida).
 
-1. Utilize **o Ctrl**-**C** para parar o hospedeiro.
+1. Use **ctrl**-**C** para parar o hospedeiro.
 
 ## <a name="build-the-container-image-and-test-locally"></a>Construa a imagem do recipiente e teste localmente
 
@@ -242,7 +242,7 @@ Pode seguir este tutorial em qualquer computador que execute Windows, Mac OS ou 
     > [!NOTE]
     > A lista completa de imagens base suportadas para funções azure pode ser encontrada na página de [imagem base funções do Azure](https://hub.docker.com/_/microsoft-azure-functions-base).
     
-1. Na pasta *LocalFunctionsProject,* execute o comando de construção do [estivador](https://docs.docker.com/engine/reference/commandline/build/) e forneça um nome, `azurefunctionsimage`, e etiqueta, `v1.0.0`. Substitua `<docker_id>` pelo ID da sua conta do Docker Hub. Este comando cria a imagem do Docker para o contentor.
+1. Na pasta *LocalFunctionsProject,* execute o comando de `azurefunctionsimage`construção do `v1.0.0` [estivador](https://docs.docker.com/engine/reference/commandline/build/) e forneça um nome, e etiqueta, . Substitua `<docker_id>` pelo ID da sua conta do Docker Hub. Este comando cria a imagem do Docker para o contentor.
 
     ```
     docker build --tag <docker_id>/azurefunctionsimage:v1.0.0 .
@@ -250,13 +250,13 @@ Pode seguir este tutorial em qualquer computador que execute Windows, Mac OS ou 
     
     Quando o comando estiver concluído, pode executar o novo contentor localmente.
     
-1. Para testar a construção, faça a imagem num contentor local utilizando o comando de execução do [estivador,](https://docs.docker.com/engine/reference/commandline/run/) substituindo novamente `<docker_id>` com o seu Docker ID e adicionando o argumento das portas, `-p 8080:80`:
+1. Para testar a construção, faça a imagem num contentor local `<docker_id>` utilizando o comando de execução `-p 8080:80`do [estivador,](https://docs.docker.com/engine/reference/commandline/run/) substituindo novamente o seu Docker ID e adicionando o argumento das portas:
 
     ```
     docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
     ```
     
-1. Uma vez que a imagem esteja em execução num contentor local, abra um navegador para `http://localhost:8080`, que deve exibir a imagem do espaço reservado mostrada abaixo. A imagem aparece neste ponto porque a sua função está a funcionar no contentor local, como em Azure, o que significa que está protegida por uma chave de acesso, tal como definida na *função.json* com a propriedade `"authLevel": "function"`. O contentor ainda não foi publicado numa aplicação de funções no Azure, no entanto, a chave ainda não está disponível. Se quiser testar localmente, pare o estivador, altere a propriedade de autorização para `"authLevel": "anonymous"`, reconstrua a imagem e reinicie o estivador. Em seguida, redefinir `"authLevel": "function"` em *função.json*. Para mais informações, consulte [as chaves de autorização](functions-bindings-http-webhook-trigger.md#authorization-keys).
+1. Uma vez que a imagem esteja em `http://localhost:8080`execução num contentor local, abra um browser para, que deve exibir a imagem do espaço reservado mostrada abaixo. A imagem aparece neste ponto porque a sua função está a funcionar no contentor local, como em Azure, o que significa `"authLevel": "function"` que está protegida por uma chave de acesso, tal como definida na *função.json* com a propriedade. O contentor ainda não foi publicado numa aplicação de funções no Azure, no entanto, a chave ainda não está disponível. Se quiser testar localmente, pare o estivador, altere a propriedade de autorização para, `"authLevel": "anonymous"`reconstruir a imagem e reiniciar o estivador. Em seguida, reset `"authLevel": "function"` em *função.json*. Para mais informações, consulte [as chaves de autorização](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
     ![Imagem de espaço reservado indicando que o recipiente está funcionando localmente](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
@@ -266,13 +266,13 @@ Pode seguir este tutorial em qualquer computador que execute Windows, Mac OS ou 
 
 Docker Hub é um registo de contentores que acolhe imagens e fornece serviços de imagem e contentores. Para partilhar a sua imagem, que inclui a implantação para o Azure, deve empurrá-la para um registo.
 
-1. Se ainda não assinou com o Docker, faça-o com o comando de login do [estivador,](https://docs.docker.com/engine/reference/commandline/login/) substituindo `<docker_id>` pela sua identificação do Docker. Este comando solicita-lhe o seu nome de utilizador e palavra-passe. Uma mensagem "Login Succeeded" confirma que está inscrito.
+1. Se ainda não assinou com o Docker, fá-lo com o `<docker_id>` comando de login do [Docker,](https://docs.docker.com/engine/reference/commandline/login/) substituindo a tua identificação do Docker. Este comando solicita-lhe o seu nome de utilizador e palavra-passe. Uma mensagem "Login Succeeded" confirma que está inscrito.
 
     ```
     docker login
     ```
     
-1. Depois de ter assinado, empurre a imagem para o Docker Hub usando o comando de pressão do [estivador,](https://docs.docker.com/engine/reference/commandline/push/) substituindo novamente `<docker_id>` com a sua identificação do Docker.
+1. Depois de ter assinado, empurre a imagem para o Docker Hub `<docker_id>` usando o comando de pressão do [estivador,](https://docs.docker.com/engine/reference/commandline/push/) substituindo novamente o seu Docker ID.
 
     ```
     docker push <docker_id>/azurefunctionsimage:v1.0.0
@@ -296,16 +296,16 @@ Usa comandos Azure CLI para criar estes itens. Cada comando fornece saída JSON 
     az login
     ```
     
-1. Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). O exemplo seguinte cria um grupo de recursos chamado `AzureFunctionsContainers-rg` na região `westeurope`. (Geralmente cria o seu grupo de recursos e recursos numa região próxima de si, utilizando uma região disponível a partir do comando `az account list-locations`.)
+1. Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). O exemplo seguinte cria `AzureFunctionsContainers-rg` um `westeurope` grupo de recursos nomeado na região. (Geralmente cria o seu grupo de recursos e recursos numa `az account list-locations` região próxima de si, utilizando uma região disponível a partir do comando.)
 
     ```azurecli
     az group create --name AzureFunctionsContainers-rg --location westeurope
     ```
     
     > [!NOTE]
-    > Não é possível hospedar aplicações linux e Windows no mesmo grupo de recursos. Se tiver um grupo de recursos existente chamado `AzureFunctionsContainers-rg` com uma aplicação de função Windows ou aplicação web, deve utilizar um grupo de recursos diferente.
+    > Não é possível hospedar aplicações linux e Windows no mesmo grupo de recursos. Se tiver um grupo de `AzureFunctionsContainers-rg` recursos existente nomeado com uma aplicação de função Windows ou uma aplicação web, deve utilizar um grupo de recursos diferente.
     
-1. Crie uma conta de armazenamento geral no seu grupo de recursos e região utilizando a conta de [armazenamento az criar](/cli/azure/storage/account#az-storage-account-create) comando. No exemplo seguinte, substitua `<storage_name>` por um nome globalmente único adequado a si. Os nomes devem conter três a 24 caracteres e apenas letras minúsculas. `Standard_LRS` especifica uma conta típica de uso geral.
+1. Crie uma conta de armazenamento geral no seu grupo de recursos e região utilizando a conta de [armazenamento az criar](/cli/azure/storage/account#az-storage-account-create) comando. No exemplo seguinte, `<storage_name>` substitua-o por um nome globalmente único adequado a si. Os nomes devem conter três a 24 caracteres e apenas letras minúsculas. `Standard_LRS`especifica uma conta típica de uso geral.
 
     ```azurecli
     az storage account create --name <storage_name> --location westeurope --resource-group AzureFunctionsContainers-rg --sku Standard_LRS
@@ -313,7 +313,7 @@ Usa comandos Azure CLI para criar estes itens. Cada comando fornece saída JSON 
     
     A conta de armazenamento incorre apenas alguns cêntimos de USD para este tutorial.
     
-1. Utilize o comando para criar um plano Premium para funções Azure denominado `myPremiumPlan` no nível de preços **Elástico Premium 1** (`--sku EP1`), na região da Europa Ocidental (`-location westeurope`, ou utilize uma região adequada perto de si) e num recipiente Linux (`--is-linux`).
+1. Utilize o comando para criar um plano `myPremiumPlan` Premium para funções Azure`--sku EP1`nomeados no nível de preços **Elástico Premium 1** (`--is-linux`), na região da Europa Ocidental (`-location westeurope`ou utilize uma região adequada perto de si) e num recipiente Linux ().
 
     ```azurecli
     az functionapp plan create --resource-group AzureFunctionsContainers-rg --name myPremiumPlan --location westeurope --number-of-workers 1 --sku EP1 --is-linux
@@ -327,7 +327,7 @@ Usa comandos Azure CLI para criar estes itens. Cada comando fornece saída JSON 
 
 Uma aplicação de função no Azure gere a execução das suas funções no seu plano de hospedagem. Nesta secção, utiliza os recursos Azure da secção anterior para criar uma aplicação de função a partir de uma imagem no Docker Hub e configurá-la com uma cadeia de ligação ao Armazenamento Azure.
 
-1. Criar a aplicação Funções utilizando o [app de funções az criar](/cli/azure/functionapp#az-functionapp-create) comando. No exemplo seguinte, substitua `<storage_name>` pelo nome utilizado na secção anterior para a conta de armazenamento. Substitua também `<app_name>` por um nome globalmente único apropriado para si, e `<docker_id>` com o seu Docker ID.
+1. Criar a aplicação Funções utilizando o [app de funções az criar](/cli/azure/functionapp#az-functionapp-create) comando. No exemplo seguinte, `<storage_name>` substitua-o pelo nome utilizado na secção anterior para a conta de armazenamento. Substitua `<app_name>` também por um nome globalmente `<docker_id>` único apropriado para si, e com o seu Id Docker.
 
     ```azurecli
     az functionapp create --name <app_name> --storage-account <storage_name> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
@@ -335,13 +335,13 @@ Uma aplicação de função no Azure gere a execução das suas funções no seu
     
     O parâmetro de nome de *imagem de contentor de implantação* especifica a imagem a utilizar para a aplicação de função. Pode utilizar o comando do recipiente de visualização de [config az functionapp](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) para visualizar informações sobre a imagem utilizada para a implantação. Também pode utilizar o comando de conjunto de conjunto de recipientes de [config az functionapp](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) para desdobrar a partir de uma imagem diferente.
 
-1. Recupere a cadeia de ligação para a conta de armazenamento que criou utilizando o comando de cadeia de conexão de conta [de armazenamento az,](/cli/azure/storage/account) atribuindo-o a uma variável de concha `storageConnectionString`:
+1. Recupere a cadeia de ligação para a conta de armazenamento que criou utilizando o comando `storageConnectionString`de cadeia de conexão de conta de armazenamento [az,](/cli/azure/storage/account) atribuindo-o a uma variável de concha:
 
     ```azurecli
     az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <storage_name> --query connectionString --output tsv
     ```
     
-1. Adicione esta definição à aplicação de funções utilizando as definições de definição de definição de definições de definição de definição de definição de definição de definição de definição de definição de definição de definição de definição de definição de definição de definição de [definição](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) No comando seguinte, substitua `<app_name>` pelo nome da sua aplicação de função e substitua `<connection_string>` com a cadeia de ligação do passo anterior (uma longa cadeia codificada que começa com "DefaultEndpointProtocol="):
+1. Adicione esta definição à aplicação de funções utilizando as definições de definição de definição de definições de definição de definição de definição de definição de definição de definição de definição de definição de definição de definição de definição de definição de definição de [definição](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) No comando seguinte, `<app_name>` substitua-o pelo nome `<connection_string>` da sua aplicação de função e substitua-o pela cadeia de ligação do passo anterior (uma longa cadeia codificada que começa com "DefaultEndpointProtocol="):
  
     ```azurecli
     az functionapp config appsettings set --name <app_name> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=<connection_string>
@@ -363,34 +363,34 @@ Uma aplicação de função no Azure gere a execução das suas funções no seu
 > ```
 
 > [!NOTE]    
-> Se publicar a sua imagem personalizada numa conta de contentores privados, deve utilizar variáveis ambientais no Dockerfile para a cadeia de ligação. Para mais informações, consulte a [instrução env](https://docs.docker.com/engine/reference/builder/#env). Também deve definir as variáveis `DOCKER_REGISTRY_SERVER_USERNAME` e `DOCKER_REGISTRY_SERVER_PASSWORD`. Para utilizar os valores, então, deve reconstruir a imagem, empurrar a imagem para o registo e, em seguida, reiniciar a aplicação de função no Azure.
+> Se publicar a sua imagem personalizada numa conta de contentores privados, deve utilizar variáveis ambientais no Dockerfile para a cadeia de ligação. Para mais informações, consulte a [instrução env](https://docs.docker.com/engine/reference/builder/#env). Também deve definir as `DOCKER_REGISTRY_SERVER_USERNAME` `DOCKER_REGISTRY_SERVER_PASSWORD`variáveis e . Para utilizar os valores, então, deve reconstruir a imagem, empurrar a imagem para o registo e, em seguida, reiniciar a aplicação de função no Azure.
 
 ## <a name="verify-your-functions-on-azure"></a>Verifique as suas funções no Azure
 
-Com a imagem implementada na aplicação de funções no Azure, pode agora invocar a função através de pedidos HTTP. Como a definição *fun.json* inclui a propriedade `"authLevel": "function"`, você deve primeiro obter a chave de acesso (também chamada de "chave de função") e incluí-la como um parâmetro DE URL em quaisquer pedidos para o ponto final.
+Com a imagem implementada na aplicação de funções no Azure, pode agora invocar a função através de pedidos HTTP. Como a definição *fun.json* inclui a propriedade, `"authLevel": "function"`você deve primeiro obter a chave de acesso (também chamada de "chave de função") e incluí-la como um parâmetro DE URL em qualquer pedido para o ponto final.
 
-1. Recupere o URL de função com a tecla de acesso (função) utilizando o portal Azure, ou utilizando o Azure CLI com o comando `az rest`.)
+1. Recupere o URL de função com a tecla de acesso (função) utilizando `az rest` o portal Azure, ou utilizando o Azure CLI com o comando.)
 
     # <a name="portal"></a>[Portal](#tab/portal)
 
     1. Inscreva-se no portal Azure e, em seguida, localize a sua aplicação de função, inserindo o nome da sua aplicação de função na caixa **de pesquisa** no topo da página. Nos resultados, selecione o recurso **do Serviço de Aplicações.**
 
-    1. No painel de navegação esquerdo, em **funções (Ler Apenas)** , selecione o nome da sua função.
+    1. No painel de navegação esquerdo, em **funções (Ler Apenas)**, selecione o nome da sua função.
 
-    1. No painel de detalhes, **selecione <> Obtenha URL de função:**
+    1. No painel de detalhes, selecione **</> Obtenha URL de função:**
     
         ![O comando URL da função Get no portal Azure](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key.png)   
 
-    1. No popup, selecione **predefinido (Tecla de função)** e, em seguida, **Copiar**. A chave é a cadeia de caracteres que se segue `?code=`.
+    1. No popup, selecione **predefinido (Tecla de função)** e, em seguida, **Copiar**. A chave é a `?code=`cadeia de caracteres que se seguem.
 
         ![Copiar o URL de função do portal Azure](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key-popup.png)   
 
     > [!NOTE]  
     > Como a sua aplicação de função é implementada como um recipiente, não pode fazer alterações ao seu código de função no portal. Em vez disso, deve atualizar o projeto à imagem local, empurrar a imagem para o registo novamente e, em seguida, recolocar para Azure. Pode configurar uma implantação contínua numa secção posterior.
     
-    # <a name="azure-cli"></a>[CLI do Azure](#tab/azurecli)
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 
-    1. Construa uma cadeia DE URL no seguinte formato, substituindo `<subscription_id>`, `<resource_group>`e `<app_name>` com o seu ID de subscrição Azure, o grupo de recursos da sua aplicação de função e o nome da sua aplicação de função, respectivamente:
+    1. Construa uma cadeia DE URL `<subscription_id>`no `<resource_group>`seguinte `<app_name>` formato, substituindo, e com o seu ID de subscrição Azure, o grupo de recursos da sua aplicação de função, e o nome da sua app de funções, respectivamente:
 
         ```
         "/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Web/sites/<app_name>/host/default/listKeys?api-version=2018-11-01"
@@ -403,22 +403,22 @@ Com a imagem implementada na aplicação de funções no Azure, pode agora invoc
         ```
 
         > [!TIP]
-        > Por conveniência, pode, em vez disso, atribuir o URL a uma variável ambiental e usá-lo no comando `az rest`.
+        > Por conveniência, pode, em vez disso, atribuir o `az rest` URL a uma variável ambiental e usá-lo no comando.
     
-    1. Executar o seguinte comando `az rest` (disponível na versão Azure CLI 2.0.77 e mais tarde), substituindo `<uri>` com a corda URI do último passo, incluindo as cotações:
+    1. Executar o `az rest` seguinte comando (disponível na versão 2.0.77 do `<uri>` Azure CLI) e posteriormente), substituindo a cadeia URI do último passo, incluindo as cotações:
 
         ```azurecli
         az rest --method post --uri <uri> --query functionKeys.default --output tsv
         ```
 
-    1. A saída do comando é a chave de função. O URL de função completa é então `https://<app_name>.azurewebsites.net/api/<function_name>?code=<key>`, substituindo `<app_name>`, `<function_name>`, e `<key>` com os seus valores específicos.
+    1. A saída do comando é a chave de função. O URL de `https://<app_name>.azurewebsites.net/api/<function_name>?code=<key>`função `<app_name>`completa `<function_name>`é `<key>` então, substituindo, e com os seus valores específicos.
     
         > [!NOTE]
         > A chave aqui recuperada é a chave do *hospedeiro* que funciona para todas as funções na aplicação de funções; o método mostrado para o portal recupera a chave apenas para uma função.
 
     ---
 
-1. Colá-lo na barra de endereços do seu navegador, adicionando o parâmetro `&name=Azure` ao final deste URL. Textocomo "Hello Azure" deve aparecer no navegador.
+1. Colhe o URL de função na barra de `&name=Azure` endereços do seu navegador, adicionando o parâmetro ao fim deste URL. Textocomo "Hello Azure" deve aparecer no navegador.
 
     ![Resposta da função no browser.](./media/functions-create-function-linux-custom-image/function-app-browser-testing.png)
 
@@ -429,7 +429,7 @@ Com a imagem implementada na aplicação de funções no Azure, pode agora invoc
 
 Pode ativar as Funções Azure para atualizar automaticamente a sua implementação de uma imagem sempre que atualizar a imagem no registo.
 
-1. Ativar a implantação contínua utilizando o comando config do recipiente de implementação do recipiente de implementação de placas [az,](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config) substituindo `<app_name>` com o nome da sua aplicação de funções:
+1. Ativar a implantação contínua utilizando o comando config `<app_name>` do recipiente de implementação do recipiente de implementação de [placas az,](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config) substituindo o nome da sua aplicação de funções:
 
     ```azurecli
     az functionapp deployment container config --enable-cd --query CI_CD_URL --output tsv --name <app_name> --resource-group AzureFunctionsContainers-rg
@@ -449,7 +449,7 @@ Pode ativar as Funções Azure para atualizar automaticamente a sua implementaç
 
 O SSH permite a comunicação segura entre um contentor e um cliente. Com o SSH ativado, pode ligar-se ao seu recipiente utilizando ferramentas avançadas do Serviço app (Kudu). Para facilitar a ligação ao seu recipiente utilizando o SSH, a Azure Functions fornece uma imagem de base que já tem SSH ativado. Só precisa editar o seu Dockerfile, depois reconstruir e reimplantar a imagem. Em seguida, pode ligar-se ao recipiente através das Ferramentas Avançadas (Kudu)
 
-1. No seu Dockerfile, acomode a cadeia `-appservice` à imagem base na sua instrução `FROM`:
+1. No seu Dockerfile, acomode a `-appservice` cadeia `FROM` à imagem base na sua instrução:
 
     ::: zone pivot="programming-language-csharp"
     ```Dockerfile
@@ -483,7 +483,7 @@ O SSH permite a comunicação segura entre um contentor e um cliente. Com o SSH 
 
     As diferenças entre as imagens base são descritas no Tutorial de Imagens de [App - Imagens personalizadas do estivador.](../app-service/containers/tutorial-custom-docker-image.md#enable-ssh-connections)
 
-1. Reconstruir a imagem usando o comando `docker build` novamente, substituindo `<docker_id>` pelo seu Id Docker:
+1. Reconstruir a imagem `docker build` usando novamente `<docker_id>` o comando, substituindo-o pelo seu Id Docker:
 
     ```
     docker build --tag <docker_id>/azurefunctionsimage:v1.0.0 .
@@ -497,17 +497,17 @@ O SSH permite a comunicação segura entre um contentor e um cliente. Com o SSH 
     
 1. As Funções Azure reimplantam automaticamente a imagem para a sua aplicação de funções; o processo ocorre em menos de um minuto.
 
-1. Num navegador, abra `https://<app_name>.scm.azurewebsites.net/`, substituindo `<app_name>` pelo seu nome único. Este URL é o ponto final das Ferramentas Avançadas (Kudu) para o seu recipiente de aplicação de funções.
+1. Num browser, `https://<app_name>.scm.azurewebsites.net/`aberto, `<app_name>` substituindo pelo seu nome único. Este URL é o ponto final das Ferramentas Avançadas (Kudu) para o seu recipiente de aplicação de funções.
 
 1. Inscreva-se na sua conta Azure e, em seguida, selecione o **SSH** para estabelecer uma ligação com o recipiente. A ligação pode demorar alguns momentos se o Azure ainda estiver em processo de atualização da imagem do contentor.
 
-1. Depois de estabelecer uma ligação com o seu recipiente, execute o comando `top` para ver os processos em curso. 
+1. Depois de estabelecer uma ligação `top` com o seu recipiente, execute o comando para ver os processos em funcionamento atualmente. 
 
     ![Comando de topo linux correndo em uma sessão SSH](media/functions-create-function-linux-custom-image/linux-custom-kudu-ssh-top.png)
 
 ## <a name="write-to-an-azure-storage-queue"></a>Escreva para uma fila de armazenamento azure
 
-As Funções Azure permitem ligar as suas funções a outros serviços e recursos Azure tendo de escrever o seu próprio código de integração. Estas *encadernações*, que representam tanto a entrada como a saída, são declaradas dentro da definição de função. Os dados das encadernações são fornecidos à função como parâmetros. Um *gatilho* é um tipo especial de encadernação de entrada. Embora uma função tenha apenas um gatilho, pode ter várias ligações de entrada e saída. Para saber mais, consulte as [Funções Azure desencadeia e encaderna conceitos.](functions-triggers-bindings.md)
+As Funções Azure permitem ligar as suas funções a outros serviços e recursos Azure tendo de escrever o seu próprio código de integração. Estas *encadernações*, que representam tanto a entrada como a saída, são declaradas dentro da definição de função. Os dados de enlaces são fornecidos à função como parâmetros. Um *gatilho* é um tipo especial de encadernação de entrada. Embora uma função tenha apenas um gatilho, pode ter várias ligações de entrada e saída. Para saber mais, consulte as [Funções Azure desencadeia e encaderna conceitos.](functions-triggers-bindings.md)
 
 Esta secção mostra-lhe como integrar a sua função com uma fila de Armazenamento Azure. O encadernação de saída que adiciona a esta função escreve dados de um pedido HTTP para uma mensagem na fila.
 
@@ -515,24 +515,24 @@ Esta secção mostra-lhe como integrar a sua função com uma fila de Armazename
 
 Anteriormente, criou uma conta de Armazenamento Azure para utilização pela aplicação de funções. A cadeia de ligação para esta conta é armazenada de forma segura nas definições da aplicação em Azure. Ao descarregar a definição no ficheiro *local.settings.json,* pode utilizar essa ligação escrever para uma fila de armazenamento na mesma conta ao executar a função localmente. 
 
-1. A partir da raiz do projeto, execute o seguinte comando, substituindo `<app_name>` com o nome da sua aplicação de função a partir do quickstart anterior. Este comando irá substituir quaisquer valores existentes no ficheiro.
+1. A partir da raiz do projeto, execute o seguinte comando, substituindo `<app_name>` pelo nome da sua aplicação de função a partir do quickstart anterior. Este comando irá substituir quaisquer valores existentes no ficheiro.
 
     ```
     func azure functionapp fetch-app-settings <app_name>
     ```
     
-1. Abra *local.settings.json* e localize o valor denominado `AzureWebJobsStorage`, que é a cadeia de ligação da conta de armazenamento. Usa o nome `AzureWebJobsStorage` e a cadeia de ligação noutras secções deste artigo.
+1. Abra *local.settings.json* e localize o valor nomeado, `AzureWebJobsStorage`que é a cadeia de ligação da conta de armazenamento. Usa o `AzureWebJobsStorage` nome e a corda de ligação noutras secções deste artigo.
 
 > [!IMPORTANT]
 > Como *local.settings.json contém segredos descarregados* do Azure, exclua sempre este ficheiro do controlo de origem. O ficheiro *.gitignore* criado com um projeto de funções locais exclui o ficheiro por defeito.
 
 ### <a name="add-an-output-binding-to-functionjson"></a>Adicione uma ligação de saída ao função.json
 
-Nas Funções Azure, cada tipo de encadernação requer um `direction`, `type`, e um `name` único a ser definido no ficheiro *função.json.* A sua *função.json* já inclui uma encadernação de entrada para o tipo "httpTrigger" e uma ligação de saída para a resposta HTTP. Para adicionar uma ligação a uma fila de armazenamento, modifique o ficheiro da seguinte forma, o que adiciona uma ligação de saída para o tipo de "fila", onde a fila aparece no código como um argumento de entrada chamado `msg`. A ligação da fila também requer o nome da fila para usar, neste caso `outqueue`, e o nome das definições que detém a corda de ligação, neste caso `AzureWebJobStorage`.
+Nas Funções Azure, cada tipo `direction`de `type`encadernação requer a, e um único `name` a ser definido no ficheiro *função.json.* A sua *função.json* já inclui uma encadernação de entrada para o tipo "httpTrigger" e uma ligação de saída para a resposta HTTP. Para adicionar uma ligação a uma fila de armazenamento, modifique o ficheiro da seguinte forma, o que adiciona uma `msg`ligação de saída para o tipo de "fila", onde a fila aparece no código como um argumento de entrada chamado . A ligação da fila também requer o nome `outqueue`da fila para usar, neste caso, e `AzureWebJobStorage`o nome das definições que detém a corda de ligação, neste caso .
 
 ::: zone pivot="programming-language-csharp"
 
-Num C# projeto de biblioteca de classes, as encadernações são definidas como atributos vinculativos no método da função. O ficheiro *função.json* é então autogerado com base nestes atributos.
+Num projeto de biblioteca de classe C#, as encadernações são definidas como atributos vinculativos no método da função. O ficheiro *função.json* é então autogerado com base nestes atributos.
 
 1. Para a ligação da fila, execute o seguinte comando [de pacote de dotnet](/dotnet/core/tools/dotnet-add-package) para adicionar o pacote de extensão de armazenamento ao seu projeto.
 
@@ -540,19 +540,19 @@ Num C# projeto de biblioteca de classes, as encadernações são definidas como 
     dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
     ```
 
-1. Abra o ficheiro *HttpTrigger.cs* e adicione a seguinte declaração `using`:
+1. Abra o ficheiro *HttpTrigger.cs* `using` e adicione a seguinte declaração:
 
     ```cs
     using Microsoft.Azure.WebJobs.Extensions.Storage;
     ```
     
-1. Adicione o seguinte parâmetro à definição de método `Run`:
+1. Adicione o seguinte parâmetro `Run` à definição do método:
     
     ```csharp
     [Queue("outqueue"), StorageAccount("AzureWebJobsStorage")] ICollector<string> msg
     ```
     
-    A definição de método `Run` deve agora coincidir com o seguinte código:
+    A `Run` definição do método deve agora coincidir com o seguinte código:
     
     ```csharp
     [FunctionName("HttpTrigger")]
@@ -561,7 +561,7 @@ Num C# projeto de biblioteca de classes, as encadernações são definidas como 
         [Queue("outqueue"), StorageAccount("AzureWebJobsStorage")] ICollector<string> msg, ILogger log)
     ```
 
-O parâmetro `msg` é um tipo `ICollector<T>`, que representa uma coleção de mensagens que são escritas para uma ligação de saída quando a função completa. Neste caso, a saída é uma fila de armazenamento chamada `outqueue`. A cadeia de ligação para a conta de armazenamento é definida pelo `StorageAccountAttribute`. Este atributo indica a definição que contém a cadeia de ligação da conta de armazenamento e pode ser aplicada ao nível de classe, método ou parâmetro. Neste caso, pode omitir `StorageAccountAttribute` porque já está a usar a conta de armazenamento predefinida.
+O `msg` parâmetro é `ICollector<T>` um tipo, que representa uma coleção de mensagens que são escritas para uma ligação de saída quando a função completa. Neste caso, a saída é `outqueue`uma fila de armazenamento chamada . A cadeia de ligação para `StorageAccountAttribute`a conta de armazenamento é definida pelo . Este atributo indica a definição que contém a cadeia de ligação da conta de armazenamento e pode ser aplicada ao nível de classe, método ou parâmetro. Neste caso, pode omitir `StorageAccountAttribute` porque já está a usar a conta de armazenamento predefinida.
 
 ::: zone-end
 
@@ -704,7 +704,7 @@ Atualização *função.json* para combinar com o seguinte adicionando a ligaç�
 
 ## <a name="add-code-to-use-the-output-binding"></a>Adicione código para usar a ligação de saída
 
-Após a definição da ligação, o nome da ligação, neste caso `msg`, aparece no código de função como argumento (ou no objeto `context` em JavaScript e TypeScript). Em seguida, pode usar essa variável para escrever mensagens para a fila. É necessário escrever qualquer código para autenticação, obter uma referência na fila ou escrever dados. Todas estas tarefas de integração são convenientemente tratadas no tempo de funcionamento das Funções Azure e na ligação de saída da fila.
+Depois de definida a ligação, o nome `msg`da ligação, neste caso, aparece `context` no código de função como argumento (ou no objeto em JavaScript e TypeScript). Em seguida, pode usar essa variável para escrever mensagens para a fila. É necessário escrever qualquer código para autenticação, obter uma referência na fila ou escrever dados. Todas estas tarefas de integração são convenientemente tratadas no tempo de funcionamento das Funções Azure e na ligação de saída da fila.
 
 ::: zone pivot="programming-language-csharp"
 ```csharp
@@ -856,13 +856,13 @@ export default httpTrigger;
 
 ### <a name="update-the-image-in-the-registry"></a>Atualizar a imagem no registo
 
-1. Na pasta raiz, volte a repetir `docker build` e desta vez atualize a versão na etiqueta para `v1.0.1`. Como antes, substitua `<docker_id>` com o id da sua conta Docker Hub:
+1. Na pasta raiz, `docker build` volte a ser executada e desta `v1.0.1`vez atualize a versão na etiqueta para . Como antes, `<docker_id>` substitua-o pelo ID da sua conta Docker Hub:
 
     ```
     docker build --tag <docker_id>/azurefunctionsimage:v1.0.1
     ```
     
-1. Empurre a imagem atualizada de volta para o repositório com `docker push`:
+1. Empurre a imagem atualizada de volta `docker push`para o repositório com:
 
     ```
     docker push <docker_id>/azurefunctionsimage:v1.0.1
@@ -872,11 +872,11 @@ export default httpTrigger;
 
 ## <a name="view-the-message-in-the-azure-storage-queue"></a>Veja a mensagem na fila do Armazenamento Azure
 
-Num browser, use o mesmo URL de antes para invocar a sua função. O navegador deve apresentar a mesma resposta que antes, porque não modificou essa parte do código de função. O código adicionado, no entanto, escreveu uma mensagem usando o parâmetro URL `name` para a `outqueue` fila de armazenamento.
+Num browser, use o mesmo URL de antes para invocar a sua função. O navegador deve apresentar a mesma resposta que antes, porque não modificou essa parte do código de função. O código adicionado, no entanto, escreveu uma mensagem usando o `name` parâmetro URL para a fila de `outqueue` armazenamento.
 
 Pode ver a fila no [portal Azure](../storage/queues/storage-quickstart-queues-portal.md) ou no [Microsoft Azure Storage Explorer](https://storageexplorer.com/). Pode também ver a fila no Azure CLI conforme descrito nos seguintes passos:
 
-1. Abra o ficheiro *local.definição.json* do projeto de função e copie o valor da cadeia de ligação. Numa janela de terminais ou comando, execute o seguinte comando para criar uma variável ambiental chamada `AZURE_STORAGE_CONNECTION_STRING`, colando a sua cadeia de ligação específica no lugar de `<connection_string>`. (Esta variável ambiental significa que não precisa de fornecer a cadeia de ligação a cada comando subsequente utilizando o argumento `--connection-string`.)
+1. Abra o ficheiro *local.definição.json* do projeto de função e copie o valor da cadeia de ligação. Numa janela de terminais ou comando, execute `AZURE_STORAGE_CONNECTION_STRING`o seguinte comando para criar `<connection_string>`uma variável ambiental chamada, colando a sua cadeia de ligação específica no lugar de . (Esta variável ambiental significa que não precisa de fornecer a `--connection-string` cadeia de ligação a cada comando subsequente usando o argumento.)
 
     # <a name="bash"></a>[bash](#tab/bash)
     
@@ -898,7 +898,7 @@ Pode ver a fila no [portal Azure](../storage/queues/storage-quickstart-queues-po
     
     ---
     
-1. (Opcional) Utilize o comando [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) para visualizar as filas de armazenamento na sua conta. A saída deste comando deve incluir uma fila chamada `outqueue`, que foi criada quando a função escreveu a sua primeira mensagem para aquela fila.
+1. (Opcional) Utilize [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) o comando para visualizar as filas de armazenamento na sua conta. A saída deste comando deve `outqueue`incluir uma fila chamada , que foi criada quando a função escreveu a sua primeira mensagem para aquela fila.
     
     # <a name="bash"></a>[bash](#tab/bash)
     
@@ -920,7 +920,7 @@ Pode ver a fila no [portal Azure](../storage/queues/storage-quickstart-queues-po
     
     ---
 
-1. Utilize o comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) para visualizar as mensagens nesta fila, que deve ser o primeiro nome utilizado ao testar a função anteriormente. O comando recupera a primeira mensagem na fila na [codificação base64,](functions-bindings-storage-queue-trigger.md#encoding)pelo que também deve descodificar a mensagem para visualizar como texto.
+1. Utilize [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) o comando para visualizar as mensagens nesta fila, que deve ser o primeiro nome utilizado ao testar a função anteriormente. O comando recupera a primeira mensagem na fila na [codificação base64,](functions-bindings-storage-queue-trigger.md#encoding)pelo que também deve descodificar a mensagem para visualizar como texto.
 
     # <a name="bash"></a>[bash](#tab/bash)
     
@@ -944,7 +944,7 @@ Pode ver a fila no [portal Azure](../storage/queues/storage-quickstart-queues-po
 
 Se quiser continuar a trabalhar com a Azure Function utilizando os recursos que criou neste tutorial, pode deixar todos esses recursos no lugar. Como criou um Plano Premium para Funções Azure, incorrerá num ou dois USD por dia em custos contínuos.
 
-Para evitar custos contínuos, elimine o grupo de recursos `AzureFunctionsContainer-rg` para limpar todos os recursos desse grupo: 
+Para evitar custos `AzureFunctionsContainer-rg` contínuos, elimine o grupo de recursos para limpar todos os recursos desse grupo: 
 
 ```azurecli
 az group delete --name AzureFunctionsContainer-rg

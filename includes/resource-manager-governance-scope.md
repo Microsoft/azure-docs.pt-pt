@@ -9,15 +9,15 @@ ms.date: 02/21/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: dc4281c17b92e1720625764a52a34a94d6f296ab
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67184190"
 ---
 Antes de criar quaisquer itens, vamos rever o conceito de âmbito. O Azure oferece quatro níveis de gestão: grupos de gestão, subscrição, grupo de recursos e recurso. Os [Grupos de gestão](../articles/billing/billing-enterprise-mgmt-group-overview.md) estão numa versão de pré-visualização. A imagem seguinte mostra um exemplo destas camadas.
 
-![Scope](./media/resource-manager-governance-scope/scope-levels.png)
+![Âmbito](./media/resource-manager-governance-scope/scope-levels.png)
 
 Pode aplicar as definições de gestão em qualquer um destes níveis de âmbito. O nível que selecionar determina o quanto a definição é aplicada. Os níveis inferiores herdam as definições de níveis mais altos. Quando aplica uma definição à subscrição, essa definição é aplicada a todos os grupos de recursos e recursos na sua subscrição. Quando aplica uma definição ao grupo de recursos, essa definição é aplicada ao grupo de recursos e todos os respetivos recursos. No entanto, outro grupo de recursos não tem essa definição.
 

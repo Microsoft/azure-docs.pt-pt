@@ -1,17 +1,17 @@
 ---
-title: Tutorial – atualização por push para o registro replicado geograficamente
-description: Envie por push uma imagem atualizada do Docker para o registro de contêiner do Azure replicado geograficamente e, em seguida, veja as alterações implantadas automaticamente em aplicativos Web em execução em várias regiões. Parte três de uma série com três partes.
+title: Tutorial - Push update to geo-replicated registry
+description: Empurre uma imagem atualizada do Docker para o seu registo de contentores Azure geo-replicado e, em seguida, veja as alterações automaticamente implementadas para aplicações web que executam em várias regiões. Parte três de uma série com três partes.
 ms.topic: tutorial
 ms.date: 04/30/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 9222ac31e067cba6a0ffa71143c90f906ba6ff7f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74454702"
 ---
-# <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Tutorial: enviar por push uma imagem de contêiner atualizada para um registro de contêiner replicado geograficamente para implantações de aplicativo Web regionais
+# <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Tutorial: Empurre uma imagem de contentor atualizada para um registo de contentores geo-replicado para implementações regionais de aplicações web
 
 Esta é a parte três de um tutorial de três partes. No [tutorial anterior](container-registry-tutorial-deploy-app.md), a georreplicação foi configurada para duas implementações regionais de Aplicações Web. Neste tutorial, comece por modificar a aplicação e, em seguida, crie uma nova imagem de contentor e envie-a para o seu registo georreplicado. Finalmente, verá a alteração, implementada automaticamente pelos webhooks do Azure Container Registry, em ambas as instâncias de Aplicações Web.
 
@@ -127,7 +127,7 @@ Com um único `docker push`, atualizou automaticamente a aplicação Web em exec
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, atualizou e enviou uma nova versão do contentor de aplicações Web para o seu registo georreplicado. Os Webhooks no Azure Container Registry notificaram as Aplicações Web para Contentores da atualização, o que acionou uma extração local da réplica do registo mais próximo.
+Neste tutorial, atualizou e enviou uma nova versão do contentor de aplicações Web para o seu registo georreplicado. Os Webhooks no Azure Container Registry notificaram as Aplicações Web para Contentores da atualização, o que acionou uma solicitação local da réplica do registo mais próximo.
 
 ### <a name="acr-build-automated-image-build-and-patch"></a>ACR Build: compilação e correção automáticas de imagens
 

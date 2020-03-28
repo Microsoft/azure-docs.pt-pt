@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.subservice: change-inventory-management
 ms.custom: mvc
 ms.openlocfilehash: 136521799dbc928a03c339ecc1cef6fdd3d029b2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239666"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Descobrir que software está instalado nos seus computadores do Azure e não Azure
@@ -31,8 +31,8 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial, precisa de:
 
-* Uma subscrição do Azure. Se ainda não tiver uma, pode [ativar as vantagens de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou [inscrever-se numa conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Uma [Conta de Automatização](automation-offering-get-started.md) para reter os runbooks de observador e ação e a Tarefa de Observador.
+* Uma subscrição do Azure. Se ainda não tiver um, pode ativar os seus benefícios de [subscrição da MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Uma [Conta de Automação](automation-offering-get-started.md) para segurar os cadernos de observadores e de ação e a Tarefa observadora.
 * Uma [máquina virtual](../virtual-machines/windows/quick-create-portal.md) para carregar.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
@@ -45,11 +45,11 @@ Primeiro, tem de ativar o Controlo de alterações e Inventário para este tutor
 
 Navegue até à sua Conta de Automatização e selecione **Inventário** em **GESTÃO DE CONFIGURAÇÃO**.
 
-Escolha a área de trabalho e a Conta de Automatização do Log Analytics e clique em **Ativar** para ativar a solução. A solução demora até 15 minutos a ativar.
+Escolha o espaço de trabalho do Log Analytics e a Conta de Automação e clique em **Ativar** a solução. A solução demora até 15 minutos a ativar.
 
 ![Faixa de configuração do carregamento de Inventário](./media/automation-tutorial-installed-software/enableinventory.png)
 
-Para ativar a solução, configure a localização, a área de trabalho e a Conta de Automatização do Log Analytics a utilizar e clique em **Ativar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e Conta de Automatização.
+Para ativar a solução, configure a localização, o espaço de trabalho de análise de registo e a Conta de Automação para utilizar e clicar em **Ativar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e Conta de Automatização.
 
 A área de trabalho do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) serve para recolher dados gerados pelas funcionalidades e serviços, como o Inventário.
 A área de trabalho fornece uma localização única para rever e analisar dados de várias origens.

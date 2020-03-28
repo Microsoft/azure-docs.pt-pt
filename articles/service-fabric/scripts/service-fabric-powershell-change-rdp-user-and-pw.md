@@ -1,5 +1,5 @@
 ---
-title: Atualizar o nome de usuário e a senha de RDP no PowerShell
+title: Atualize o nome de utilizador rdp e a palavra-passe no Powershell
 description: Exemplo de Script do Azure PowerShell - Atualizar o nome de utilizador e palavra-passe do RDP para todos os nós de cluster do Service Fabric de um tipo de nó específico.
 services: service-fabric
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.date: 03/19/2018
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: 0cf9f8362d3fa683084aef840cf35cd9a843608a
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75614813"
 ---
 # <a name="update-the-admin-username-and-password-of-the-vms-in-a-cluster"></a>Atualizar o nome de utilizador de administrador e a palavra-passe das VMs num cluster
@@ -40,8 +40,8 @@ Este script utiliza os seguintes comandos: cada comando na tabela está ligado a
 | Comando | Notas |
 |---|---|
 | [Get-AzVmss](/powershell/module/az.compute/get-azvmss) | Obtém as propriedades de um tipo de nó de cluster (um conjunto de dimensionamento de máquinas virtuais).   |
-| [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension)| Adiciona uma extensão ao conjunto de dimensionamento de máquinas virtuais.|
-| [Update-AzVmss](/powershell/module/az.compute/update-azvmss)|Atualiza o estado de um conjunto de dimensionamento de máquinas virtuais definido como o estado de um objeto VMSS local.|
+| [Extensão add-AzVmss](/powershell/module/az.compute/add-azvmssextension)| Adiciona uma extensão ao conjunto de dimensionamento de máquinas virtuais.|
+| [Atualização-AzVmss](/powershell/module/az.compute/update-azvmss)|Atualiza o estado de um conjunto de dimensionamento de máquinas virtuais definido como o estado de um objeto VMSS local.|
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: laobri
 ms.date: 03/11/2020
-ms.openlocfilehash: bfa39d4a508412322f0caec36d557c3fc6775090
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 1ccd7a7f33c6ee5cab8b7173d8eb93365b6cb587
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79238651"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472225"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Construa um oleoduto azure machine learning para pontuação de lotes
 
@@ -33,25 +33,25 @@ Neste tutorial, vai concluir as seguintes tarefas:
 > * Criar objetos conjuntos de dados para recolher e obter dados
 > * Descarregue, prepare e registe o modelo no seu espaço de trabalho
 > * Objetivos de computação de provisão e criar um roteiro de pontuação
-> * Utilize a classe `ParallelRunStep` para pontuação de lote assinizador
+> * Use `ParallelRunStep` a classe para pontuação de lote assinizador
 > * Construir, correr e publicar um oleoduto
 > * Ativar um ponto final DE REPOUSO para o gasoduto
 
-Se não tiver uma subscrição Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
+Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se ainda não tiver um espaço de trabalho azure Machine Learning ou uma máquina virtual de caderno, complete a [Parte 1 do tutorial de configuração](tutorial-1st-experiment-sdk-setup.md).
 * Quando terminar o tutorial de configuração, utilize o mesmo servidor de portátil para abrir os *tutoriais/machine-learning-pipeline-pipeline-pipeline-batch-scoring-classification.ipynb.*
 
-Se quiser executar o tutorial de configuração no seu próprio [ambiente local,](how-to-configure-environment.md#local)pode aceder ao tutorial no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials). Faça `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-contrib-pipeline-steps pandas requests` para obter os pacotes necessários.
+Se quiser executar o tutorial de configuração no seu próprio [ambiente local,](how-to-configure-environment.md#local)pode aceder ao tutorial no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials). Corra `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-contrib-pipeline-steps pandas requests` para obter os pacotes necessários.
 
 ## <a name="configure-workspace-and-create-a-datastore"></a>Configure espaço de trabalho e crie uma loja de dados
 
 Crie um objeto espaço de trabalho a partir do espaço de trabalho de Aprendizagem automática Azure existente.
 
 - Um [espaço de trabalho](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) é uma classe que aceita a sua informação de subscrição azure e recursos. O espaço de trabalho também cria um recurso em nuvem que pode usar para monitorizar e rastrear as execuções do seu modelo. 
-- `Workspace.from_config()` lê o ficheiro `config.json` e, em seguida, coloca os detalhes da autenticação num objeto chamado `ws`. O objeto `ws` é usado no código ao longo deste tutorial.
+- `Workspace.from_config()`lê `config.json` o ficheiro e, em seguida, `ws`carrega os detalhes da autenticação num objeto chamado . O `ws` objeto é usado no código ao longo deste tutorial.
 
 ```python
 from azureml.core import Workspace
@@ -60,7 +60,7 @@ ws = Workspace.from_config()
 
 ## <a name="create-a-datastore-for-sample-images"></a>Criar uma loja de dados para imagens de amostra
 
-Na conta `pipelinedata`, obtenha a amostra de dados públicos de avaliação imageNet do `sampledata` recipiente de blob público. Ligue `register_azure_blob_container()` para disponibilizar os dados ao espaço de trabalho com o nome `images_datastore`. Em seguida, detete tede o espaço de trabalho padrão datastore como a loja de dados de saída. Utilize a loja de dados de saída para marcar a saída no pipeline.
+Na `pipelinedata` conta, obtenha a amostra de dados `sampledata` públicos de avaliação imageNet do recipiente de blob público. Ligue `register_azure_blob_container()` para disponibilizar os dados ao espaço `images_datastore`de trabalho com o nome . Em seguida, detete tede o espaço de trabalho padrão datastore como a loja de dados de saída. Utilize a loja de dados de saída para marcar a saída no pipeline.
 
 ```python
 from azureml.core.datastore import Datastore
@@ -76,16 +76,16 @@ def_data_store = ws.get_default_datastore()
 
 ## <a name="create-dataset-objects"></a>Criar objetos conjuntos de dados
 
-Ao construir oleodutos, `Dataset` objetos são usados para ler dados de lojas de dados do espaço de trabalho, e `PipelineData` objetos são usados para transferir dados intermédios entre passos de pipeline.
+Ao construir oleodutos, `Dataset` os objetos são usados `PipelineData` para ler dados de lojas de dados do espaço de trabalho, e os objetos são usados para transferir dados intermédios entre passos de pipeline.
 
 > [!Important]
 > O exemplo de pontuação do lote neste tutorial usa apenas um passo de oleoduto. Nos casos de utilização que têm múltiplas etapas, o fluxo típico incluirá estes passos:
 >
-> 1. Use `Dataset` *objetos como inputs* para obter dados brutos, realizar alguma transformação e, em seguida, *obter* um objeto `PipelineData`.
+> 1. Use `Dataset` objetos como *inputs* para recolher dados brutos, realizar alguma transformação e, em seguida, *forrindo* um `PipelineData` objeto.
 >
-> 2. Utilize o objeto de *saída* `PipelineData` no passo anterior como objeto de *entrada*. Repita-o para os passos seguintes.
+> 2. Utilize `PipelineData` o objeto de *saída* no passo anterior como objeto de *entrada*. Repita-o para os passos seguintes.
 
-Neste cenário, cria-se `Dataset` objetos que correspondam aos diretórios da datastore tanto para as imagens de entrada como para as etiquetas de classificação (valores de teste y). Também cria um `PipelineData` objeto para os dados de saída de pontuação do lote.
+Neste cenário, cria-se `Dataset` objetos que correspondam aos diretórios da datastore tanto para as imagens de entrada como para as etiquetas de classificação (valores de teste y). Também cria `PipelineData` um objeto para os dados de saída de pontuação do lote.
 
 ```python
 from azureml.core.dataset import Dataset
@@ -123,7 +123,7 @@ tar = tarfile.open("model.tar.gz", "r:gz")
 tar.extractall("models")
 ```
 
-Em seguida, registe o modelo no seu espaço de trabalho, para que possa recuperar facilmente o modelo no processo do gasoduto. Na função estática `register()`, o parâmetro `model_name` é a chave que utiliza para localizar o seu modelo em todo o SDK.
+Em seguida, registe o modelo no seu espaço de trabalho, para que possa recuperar facilmente o modelo no processo do gasoduto. Na `register()` função estática, o `model_name` parâmetro é a chave que utiliza para localizar o seu modelo em todo o SDK.
 
 ```python
 from azureml.core.model import Model
@@ -139,7 +139,7 @@ model = Model.register(model_path="models/inception_v3.ckpt",
 
 Os gasodutos de aprendizagem automática não podem ser executados localmente, por isso executa-os em recursos em nuvem ou *alvos de computação remota.* Um alvo de computação remota é um ambiente de computação virtual reutilizável onde você executa experiências e fluxos de trabalho de aprendizagem automática. 
 
-Execute o seguinte código para criar um alvo [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) ativado por GPU e, em seguida, anexe-o ao seu espaço de trabalho. Para obter mais informações sobre alvos de cálculo, consulte o [artigo conceptual](https://docs.microsoft.com/azure/machine-learning/concept-compute-target).
+Execute o seguinte código para criar [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) um alvo ativado por GPU e, em seguida, anexe-o ao seu espaço de trabalho. Para obter mais informações sobre alvos de cálculo, consulte o [artigo conceptual](https://docs.microsoft.com/azure/machine-learning/concept-compute-target).
 
 
 ```python
@@ -162,14 +162,14 @@ except ComputeTargetException:
 
 ## <a name="write-a-scoring-script"></a>Escreva um roteiro de pontuação
 
-Para fazer a pontuação, crie um roteiro de pontuação de lote chamado `batch_scoring.py`, e depois escreva-o para o atual diretório. O script tira imagens de entrada, aplica o modelo de classificação e, em seguida, produz as previsões para um ficheiro de resultados.
+Para fazer a pontuação, crie `batch_scoring.py`um roteiro de pontuação de lote chamado , e depois escreva-o para o atual diretório. O script tira imagens de entrada, aplica o modelo de classificação e, em seguida, produz as previsões para um ficheiro de resultados.
 
-O roteiro `batch_scoring.py` toma os seguintes parâmetros, que são passados a partir do `ParallelRunStep` que cria mais tarde:
+O `batch_scoring.py` guião toma os seguintes parâmetros, que são passados a `ParallelRunStep` partir do que cria mais tarde:
 
 - `--model_name`: O nome do modelo que está a ser utilizado.
-- `--labels_name`: O nome do `Dataset` que detém o ficheiro `labels.txt`.
+- `--labels_name`: O nome `Dataset` do `labels.txt` ficheiro que contém.
 
-A infraestrutura do gasoduto utiliza a classe `ArgumentParser` para passar parâmetros em passos de gasoduto. Por exemplo, no seguinte código, o primeiro argumento `--model_name` é dado ao identificador de propriedade `model_name`. Na função `init()`, `Model.get_model_path(args.model_name)` é usado para aceder a esta propriedade.
+A infraestrutura `ArgumentParser` do gasoduto utiliza a classe para passar parâmetros em passos de gasoduto. Por exemplo, no seguinte código, `--model_name` o primeiro argumento `model_name`é dado ao identificador de propriedade . Na `init()` função, `Model.get_model_path(args.model_name)` é utilizado para aceder a esta propriedade.
 
 
 ```python
@@ -258,11 +258,11 @@ def run(mini_batch):
 ```
 
 > [!TIP]
-> O oleoduto neste tutorial tem apenas um passo, e escreve a saída para um ficheiro. Para gasodutos em várias etapas, também utiliza `ArgumentParser` para definir um diretório para escrever dados de saída para entrada em etapas posteriores. Para um exemplo de passagem de dados entre vários passos de pipeline utilizando o padrão de design `ArgumentParser`, consulte o [caderno](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb).
+> O oleoduto neste tutorial tem apenas um passo, e escreve a saída para um ficheiro. Para gasodutos em várias `ArgumentParser` etapas, também utiliza para definir um diretório para escrever dados de saída para entrada em etapas posteriores. Para um exemplo de passagem de dados `ArgumentParser` entre vários passos de pipeline utilizando o padrão de design, consulte o [caderno](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb).
 
 ## <a name="build-the-pipeline"></a>Construir o oleoduto
 
-Antes de executar o oleoduto, crie um objeto que defina o ambiente Python e crie as dependências que o seu `batch_scoring.py` script requer. A principal dependência necessária é a Tensorflow, mas também instala `azureml-defaults` para processos de fundo. Crie um objeto `RunConfiguration` usando as dependências. Além disso, especifique o apoio do Docker e do Docker-GPU.
+Antes de executar o oleoduto, crie um objeto que defina `batch_scoring.py` o ambiente Python e crie as dependências que o seu script necessita. A principal dependência necessária é a Tensorflow, mas também instala `azureml-defaults` para processos de fundo. Crie `RunConfiguration` um objeto usando as dependências. Além disso, especifique o apoio do Docker e do Docker-GPU.
 
 ```python
 from azureml.core import Environment
@@ -277,7 +277,7 @@ env.docker.base_image = DEFAULT_GPU_IMAGE
 
 ### <a name="create-the-configuration-to-wrap-the-script"></a>Criar a configuração para embrulhar o script
 
-Crie o passo de pipeline com o script, a configuração do ambiente e parâmetros. Especifique o alvo computacional que já está ligado ao seu espaço de trabalho.
+Crie o passo do gasoduto utilizando o script, configuração do ambiente e parâmetros. Especifique o alvo computacional que já está ligado ao seu espaço de trabalho.
 
 ```python
 from azureml.contrib.pipeline.steps import ParallelRunConfig
@@ -295,7 +295,7 @@ parallel_run_config = ParallelRunConfig(
 )
 ```
 
-### <a name="create-the-pipeline-step"></a>Criar o passo de pipeline
+### <a name="create-the-pipeline-step"></a>Criar o passo do oleoduto
 
 Um passo de oleoduto é um objeto que encapsula tudo o que precisa para executar um oleoduto, incluindo:
 
@@ -304,9 +304,9 @@ Um passo de oleoduto é um objeto que encapsula tudo o que precisa para executar
 * Dados de entrada e saída, e quaisquer parâmetros personalizados
 * Referência a uma lógica de script ou SDK para executar durante o passo
 
-Várias classes herdam da classe dos pais [`PipelineStep`. ](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py) Você pode escolher aulas para usar quadros ou pilhas específicos para construir um passo. Neste exemplo, você usa a classe `ParallelRunStep` para definir a sua lógica de passo usando um script python personalizado. Se um argumento para o seu script for uma entrada para o passo ou uma saída do passo, o argumento deve ser definido *tanto* na matriz `arguments` *como* no `input` ou no parâmetro `output`, respectivamente. 
+Várias classes herdam da classe [`PipelineStep`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py)dos pais. Você pode escolher aulas para usar quadros ou pilhas específicos para construir um passo. Neste exemplo, você `ParallelRunStep` usa a classe para definir a sua lógica de passo usando um script python personalizado. Se um argumento para o seu script for uma entrada para o passo ou uma saída do `input` passo, `output` o argumento deve ser definido tanto na `arguments` *matriz* *como* no parâmetro, respectivamente. 
 
-Nos cenários em que há mais de um passo, uma referência de objeto na matriz de `outputs` fica disponível como *entrada* para um passo de pipeline subsequente.
+Nos cenários em que há mais de um `outputs` passo, uma referência de objeto na matriz fica disponível como *uma entrada* para um passo de pipeline subsequente.
 
 ```python
 from azureml.contrib.pipeline.steps import ParallelRunStep
@@ -325,11 +325,11 @@ batch_score_step = ParallelRunStep(
 
 Para uma lista de todas as classes que pode utilizar para diferentes tipos de passos, consulte o [pacote de passos](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py).
 
-## <a name="run-the-pipeline"></a>Executar o pipeline
+## <a name="submit-the-pipeline"></a>Submeter o gasoduto
 
-Agora, corre o oleoduto. Em primeiro lugar, crie um objeto `Pipeline` utilizando a referência do espaço de trabalho e o passo do gasoduto que criou. O parâmetro `steps` é uma variedade de passos. Neste caso, só há um passo para marcar lotes. Para construir oleodutos com vários passos, coloque os passos em ordem nesta matriz.
+Agora, corre o oleoduto. Primeiro, crie um `Pipeline` objeto utilizando a referência do espaço de trabalho e o passo do gasoduto que criou. O `steps` parâmetro é uma variedade de passos. Neste caso, só há um passo para marcar lotes. Para construir oleodutos com vários passos, coloque os passos em ordem nesta matriz.
 
-Em seguida, utilize a função `Experiment.submit()` para submeter o gasoduto para execução. Especifica também o parâmetro personalizado `param_batch_size`. A função `wait_for_completion` os registos de saída durante o processo de construção do gasoduto. Pode utilizar os registos para ver o progresso atual.
+Em seguida, `Experiment.submit()` utilize a função para submeter o gasoduto para execução. Também especifica o parâmetro `param_batch_size`personalizado . A `wait_for_completion` função é de saída de troncos durante o processo de construção do gasoduto. Pode utilizar os registos para ver o progresso atual.
 
 > [!IMPORTANT]
 > A primeira execução do gasoduto demora cerca de *15 minutos*. Todas as dependências devem ser descarregadas, uma imagem do Docker é criada, e o ambiente Python é aprovisionado e criado. A execução do gasoduto volta a demorar significativamente menos tempo, porque esses recursos são reutilizados em vez de serem criados. No entanto, o tempo total de execução para o gasoduto depende da carga de trabalho dos seus scripts e dos processos que estão a decorrer em cada passo do gasoduto.
@@ -345,7 +345,7 @@ pipeline_run.wait_for_completion(show_output=True)
 
 ### <a name="download-and-review-output"></a>Descarregar e rever saída
 
-Execute o seguinte código para descarregar o ficheiro de saída que é criado a partir do script `batch_scoring.py`. Depois, explore os resultados das pontuações.
+Executar o seguinte código para descarregar o ficheiro `batch_scoring.py` de saída que é criado a partir do script. Depois, explore os resultados das pontuações.
 
 ```python
 import pandas as pd
@@ -380,9 +380,9 @@ published_pipeline
 
 Para executar o gasoduto a partir do ponto final REST, você precisa de um cabeçalho de autenticação tipo OAuth2. O exemplo seguinte utiliza a autenticação interativa (para fins de ilustração), mas para a maioria dos cenários de produção que requerem autenticação automatizada ou sem cabeça, utilize a autenticação principal do serviço [como descrito neste artigo.](how-to-setup-authentication.md)
 
-A autenticação principal do serviço envolve a criação de um Registo de *Aplicações* no *Diretório Ativo Azure.* Primeiro, gera um segredo de cliente e depois concede o seu *papel* principal de serviço ao seu espaço de trabalho de aprendizagem automática. Utilize a classe [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) para gerir o seu fluxo de autenticação. 
+A autenticação principal do serviço envolve a criação de um Registo de *Aplicações* no *Diretório Ativo Azure.* Primeiro, gera um segredo de cliente e depois concede o seu *papel* principal de serviço ao seu espaço de trabalho de aprendizagem automática. Use [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) a classe para gerir o seu fluxo de autenticação. 
 
-Tanto [`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py) como `ServicePrincipalAuthentication` herdam de `AbstractAuthentication`. Em ambos os casos, utilize a [função`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py#get-authentication-header--) da mesma forma para obter o cabeçalho:
+Ambos [`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py) `ServicePrincipalAuthentication` e `AbstractAuthentication`herdados de . Em ambos os [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py#get-authentication-header--) casos, utilize a função da mesma forma para obter o cabeçalho:
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication
@@ -391,11 +391,11 @@ interactive_auth = InteractiveLoginAuthentication()
 auth_header = interactive_auth.get_authentication_header()
 ```
 
-Obtenha o URL REST da propriedade `endpoint` do objeto de pipeline publicado. Também pode encontrar o URL REST no seu espaço de trabalho no estúdio Azure Machine Learning. 
+Obtenha o URL `endpoint` REST da propriedade do objeto de pipeline publicado. Também pode encontrar o URL REST no seu espaço de trabalho no estúdio Azure Machine Learning. 
 
-Construa um pedido HTTP POST para o ponto final. Especifique o seu cabeçalho de autenticação no pedido. Adicione um objeto de carga útil JSON que tenha o nome da experiência e o parâmetro do tamanho do lote. Como notado anteriormente no tutorial, `param_batch_size` é passado para o seu roteiro de `batch_scoring.py` porque o definiu como um objeto `PipelineParameter` na configuração do passo.
+Construa um pedido HTTP POST para o ponto final. Especifique o seu cabeçalho de autenticação no pedido. Adicione um objeto de carga útil JSON que tenha o nome da experiência e o parâmetro do tamanho do lote. Como notado anteriormente no `param_batch_size` tutorial, é `batch_scoring.py` passado para o seu `PipelineParameter` script porque o definiu como um objeto na configuração do passo.
 
-Faça o pedido para desencadear a corrida. Inclua código para aceder à chave `Id` do dicionário de resposta para obter o valor do ID de execução.
+Faça o pedido para desencadear a corrida. Inclua código `Id` para aceder à chave do dicionário de resposta para obter o valor do ID de execução.
 
 ```python
 import requests

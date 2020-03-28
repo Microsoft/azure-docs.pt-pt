@@ -1,20 +1,20 @@
 ---
-title: Script do PowerShell para listar e obter Azure Cosmos DB API de Tabela operações
-description: Azure PowerShell script – lista de Azure Cosmos DB e operações get para API de Tabela
+title: PowerShell script para listar e obter operações da Mesa API da Mesa DD
+description: Script Azure PowerShell - Lista de DB Azure Cosmos e obtenha operações para a Tabela API
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 9e904bdb635111b3fb0c3120be08f26e2e097236
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 166b9c2d6b20fbd6a71ba5df17e049838038617d
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444949"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365915"
 ---
-# <a name="list-and-get-tables-for-azure-cosmos-db---table-api"></a>Listar e obter tabelas para Azure Cosmos DB-API de Tabela
+# <a name="list-and-get-tables-for-azure-cosmos-db---table-api"></a>List e obtenha mesas para Azure Cosmos DB - Tabela API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -38,9 +38,10 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-|**Recursos do Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Cria um recurso. |
-|**Grupos de recursos do Azure**| |
+|**Azure Cosmos DB**| |
+| [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Lista as Contas DB da Cosmos ou obtém uma conta DB cosmos especificada. |
+| [Get-AzCosmosDBTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbtable) | Lista tabelas de API de tabela cosmos DB em uma conta, ou obtém uma tabela API tabela API de tabela Cosmos DB especificada em uma conta. |
+|**Grupos de Recursos Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 

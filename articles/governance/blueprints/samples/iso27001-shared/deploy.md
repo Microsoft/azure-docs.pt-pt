@@ -1,168 +1,168 @@
 ---
-title: Exemplo de implantação de plano gráfico de serviços compartilhados ISO 27001
-description: Implante as etapas para o exemplo de plano gráfico dos serviços compartilhados ISO 27001, incluindo detalhes do parâmetro de artefato do Blueprint.
+title: Implementar a amostra de plantas de serviços partilhados ISO 27001
+description: Desloque os passos para a amostra de projeto de serviços partilhados ISO 27001, incluindo detalhes do parâmetro do artefacto da planta.
 ms.date: 01/13/2020
 ms.topic: sample
 ms.openlocfilehash: a9dabc99469321445006e449757a10fbc51aba87
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75920681"
 ---
-# <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Implantar o exemplo de plano gráfico dos serviços compartilhados ISO 27001
+# <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Implementar a amostra de plantas iso 27001 serviços partilhados
 
-Para implantar a amostra do plano gráfico dos serviços compartilhados do ISO 27001, as seguintes etapas devem ser executadas:
+Para implantar a amostra de projeto de serviços partilhados Azure Blueprints ISO 27001, devem ser tomadas as seguintes medidas:
 
 > [!div class="checklist"]
-> - Criar um novo plano gráfico por meio do exemplo
-> - Marque sua cópia do exemplo como **publicado**
-> - Atribuir sua cópia do plano gráfico a uma assinatura existente
+> - Criar uma nova planta a partir da amostra
+> - Marque a sua cópia da amostra como **Publicado**
+> - Atribuir a sua cópia da planta a uma subscrição existente
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
-## <a name="create-blueprint-from-sample"></a>Criar plano gráfico por meio de exemplo
+## <a name="create-blueprint-from-sample"></a>Criar a planta a partir da amostra
 
-Primeiro, implemente o exemplo Blueprint criando uma nova especificação técnica em seu ambiente usando o exemplo como um início.
+Em primeiro lugar, implemente a amostra de planta criando uma nova planta no seu ambiente usando a amostra como entrada.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas**.
 
-1. Na página **Guia de introdução** à esquerda, selecione o botão **criar** em _criar um plano gráfico_.
+1. A partir da página **iniciar** à esquerda, selecione o botão **Criar** _uma planta_.
 
-1. Localize o exemplo de projeto **ISO 27001: serviços compartilhados** em _outros exemplos_ e selecione **usar este exemplo**.
+1. Encontre a amostra **iso 27001: Serviços Partilhados** em _outras amostras_ e selecione **Utilize esta amostra**.
 
-1. Insira os _conceitos básicos_ do exemplo Blueprint:
+1. Introduza os _Fundamentos_ da amostra de plantas:
 
-   - **Nome do plano gráfico**: forneça um nome para a sua cópia do exemplo de plano gráfico de serviços compartilhados ISO 27001.
-   - **Local de definição**: Use as reticências e selecione o grupo de gerenciamento para salvar a cópia do exemplo.
+   - **Nome**da planta : Forneça um nome para a sua cópia da amostra de plantas de serviços partilhados ISO 27001.
+   - **Localização da definição**: Utilize a elipse e selecione o grupo de gestão para guardar a sua cópia da amostra para.
 
-1. Selecione a guia _artefatos_ na parte superior da página ou **próximo: artefatos** na parte inferior da página.
+1. Selecione o separador _Artefactos_ na parte superior da página ou **Seguinte: Artefactos** na parte inferior da página.
 
-1. Examine a lista de artefatos que compõem o exemplo Blueprint. Muitos dos artefatos têm parâmetros que vamos definir mais tarde. Selecione **salvar rascunho** ao concluir a revisão do exemplo Blueprint.
+1. Reveja a lista de artefactos que compõem a amostra da planta. Muitos dos artefactos têm parâmetros que definiremos mais tarde. Selecione **Guardar Rascunho** quando terminar de rever a amostra de plantas.
 
-## <a name="publish-the-sample-copy"></a>Publicar a cópia de exemplo
+## <a name="publish-the-sample-copy"></a>Publicar a cópia da amostra
 
-Sua cópia do exemplo Blueprint agora foi criada em seu ambiente. Ele é criado no modo de **rascunho** e deve ser **publicado** antes que possa ser atribuído e implantado. A cópia do exemplo de plano gráfico pode ser personalizada para seu ambiente e necessidades, mas essa modificação pode movê-lo para fora do padrão ISO 27001.
+A sua cópia da amostra de plantas foi agora criada no seu ambiente. É criado em modo **Draft** e deve ser **publicado** antes de ser atribuído e implantado. A cópia da amostra de plantas pode ser personalizada para o seu ambiente e necessidades, mas essa modificação pode afastá-la da norma ISO 27001.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas**.
 
-1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
+1. Selecione a página de **definições** de Blueprint à esquerda. Utilize os filtros para encontrar a sua cópia da amostra de plantas e, em seguida, selecione-a.
 
-1. Selecione **publicar Blueprint** na parte superior da página. Na nova página à direita, forneça uma **versão** para sua cópia do exemplo Blueprint. Essa propriedade será útil se você fizer uma modificação posteriormente. Forneça **observações de alteração** , como "primeira versão publicada do exemplo de plano gráfico ISO 27001". Em seguida, selecione **publicar** na parte inferior da página.
+1. Selecione **Publicar a planta** no topo da página. Na nova página à direita, forneça uma **Versão** para a sua cópia da amostra de plantas. Esta propriedade é útil para se fizer uma modificação mais tarde. Forneça notas de **alteração** como "Primeira versão publicada a partir da amostra de plantas ISO 27001." Em seguida, **selecione Publicar** na parte inferior da página.
 
-## <a name="assign-the-sample-copy"></a>Atribuir a cópia de exemplo
+## <a name="assign-the-sample-copy"></a>Atribuir a cópia da amostra
 
-Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela poderá ser atribuída a uma assinatura dentro do grupo de gerenciamento no qual foi salva. Esta etapa é onde os parâmetros são fornecidos para fazer com que cada implantação da cópia do exemplo de plano gráfico seja exclusiva.
+Uma vez que a cópia da amostra de plantas tenha sido **publicada**com sucesso, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. Este passo é onde são fornecidos parâmetros para tornar cada implantação da cópia da amostra de plantas única.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas**.
 
-1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
+1. Selecione a página de **definições** de Blueprint à esquerda. Utilize os filtros para encontrar a sua cópia da amostra de plantas e, em seguida, selecione-a.
 
-1. Selecione **atribuir plano gráfico** na parte superior da página de definição do Blueprint.
+1. Selecione **a planta de atribuição** na parte superior da página de definição de planta.
 
-1. Forneça os valores de parâmetro para a atribuição Blueprint:
+1. Fornecer os valores do parâmetro para a atribuição do projeto:
 
    - Noções básicas
 
-     - **Assinaturas**: selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou sua cópia do exemplo Blueprint. Se você selecionar mais de uma assinatura, uma atribuição será criada para cada uma usando os parâmetros inseridos.
-     - **Nome da atribuição**: o nome é preenchido previamente para você com base no nome do plano gráfico.
-       Altere conforme necessário ou deixe como está.
-     - **Local**: selecione uma região na qual a identidade gerenciada deve ser criada. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, veja [identidades geridas dos recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Versão de definição do Blueprint**: escolha uma versão **publicada** da sua cópia do exemplo Blueprint.
+     - **Assinaturas**: Selecione uma ou mais das subscrições que estão no grupo de gestão para a qual guardou a sua cópia da amostra de projeto. Se selecionar mais do que uma subscrição, será criada uma atribuição para cada utilização dos parâmetros introduzidos.
+     - **Nome de atribuição**: O nome é pré-povoado para si com base no nome da planta.
+       Mude conforme necessário ou saia como está.
+     - **Localização**: Selecione uma região para a identidade gerida a criar. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, consulte [identidades geridas para os recursos do Azure.](../../../../active-directory/managed-identities-azure-resources/overview.md)
+     - Versão de **definição**de planta : Escolha uma versão **publicada** da sua cópia da amostra de plantas.
 
    - Atribuição de bloqueio
 
-     Selecione a configuração de bloqueio Blueprint para o seu ambiente. Para obter mais informações, veja [bloqueio de recurso em esquemas](../../concepts/resource-locking.md).
+     Selecione a definição de bloqueio da planta para o seu ambiente. Para obter mais informações, veja [bloqueio de recurso em esquemas](../../concepts/resource-locking.md).
 
    - Identidade Gerida
 
-     Deixe a opção de identidade gerenciada _atribuída pelo sistema_ padrão.
+     Deixe o sistema predefinido _atribuído_ à opção de identidade gerida.
 
    - Parâmetros de esquema
 
-     Os parâmetros definidos nesta seção são usados por muitos dos artefatos na definição do Blueprint para fornecer consistência.
+     Os parâmetros definidos nesta secção são utilizados por muitos dos artefactos na definição de planta para fornecer consistência.
 
-     - **Nome da organização**: Insira um nome curto para sua organização. Essa propriedade é usada principalmente para nomear recursos.
-     - **Prefixo de endereço de sub-rede dos serviços compartilhados**: forneça o valor de notação CIDR para a rede dos recursos implantados juntos.
-     - **Local dos serviços compartilhados**: determina em qual local os artefatos são implantados. Nem todos os serviços estão disponíveis em todos os locais. Os artefatos que implantam esses serviços fornecem uma opção de parâmetro para o local no qual o artefato será implantado.
-     - **Local permitido (política: iniciativa Blueprint para ISO 27001)** : valor que indica os locais permitidos para grupos de recursos e recursos.
-     - **Espaço de trabalho log Analytics para agentes de VM (política: iniciativa Blueprint para ISO 27001)** : especifica a ID de recurso de um espaço de trabalho. Esse parâmetro usa uma função `concat` para construir a ID do recurso.
+     - **Nome**da organização : Insira um nome curto para a sua organização. Esta propriedade é usada principalmente para nomear recursos.
+     - Prefixo de endereço de **sub-rede de serviços partilhados**: Forneça o valor de notação CIDR para a rede dos recursos implantados em conjunto.
+     - **Localização dos serviços partilhados**: Determina para que localização os artefactos são implantados. Nem todos os serviços estão disponíveis em todos os locais. Os artefactos que implantam tais serviços fornecem uma opção parametrómetro para a localização para implantar esse artefacto para.
+     - **Localização permitida (Política: Iniciativa blueprint para a ISO 27001)**: Valor que indica as localizações permitidas para grupos de recursos e recursos.
+     - Log Analytics espaço de **trabalho para agentes VM (Política: Iniciativa Blueprint para ISO 27001)**: Especifica o ID de recurso de um espaço de trabalho. Este parâmetro utiliza `concat` uma função para construir o ID de recurso.
 
-   - Parâmetros de artefato
+   - Parâmetros de artefacto
 
-     Os parâmetros definidos nesta seção se aplicam ao artefato sob o qual ele é definido. Esses parâmetros são [parâmetros dinâmicos](../../concepts/parameters.md#dynamic-parameters) , pois eles são definidos durante a atribuição do plano gráfico. Para obter uma lista completa ou parâmetros de artefato e suas descrições, consulte [tabela de parâmetros de artefato](#artifact-parameters-table).
+     Os parâmetros definidos nesta secção aplicam-se ao artefacto sob o qual é definido. Estes parâmetros são [parâmetros dinâmicos](../../concepts/parameters.md#dynamic-parameters) uma vez que são definidos durante a atribuição da planta. Para obter uma lista completa ou parâmetros de artefactos e suas descrições, consulte a [tabela de parâmetros do Artefacto](#artifact-parameters-table).
 
-1. Depois que todos os parâmetros forem inseridos, selecione **atribuir** na parte inferior da página. A atribuição Blueprint é criada e a implantação do artefato começa. A implantação leva aproximadamente uma hora. Para verificar o status da implantação, abra a atribuição Blueprint.
+1. Uma vez introduzidos todos os parâmetros, **selecione Atribuir** na parte inferior da página. A atribuição da planta é criada e a implantação de artefactos começa. O destacamento demora cerca de uma hora. Para verificar o estado da implantação, abra a atribuição da planta.
 
 > [!WARNING]
-> O serviço de plantas do Azure e os exemplos de plantas internas são **gratuitos**. Os recursos do Azure são [cobrados por produto](https://azure.microsoft.com/pricing/). Use a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para estimar o custo da execução de recursos implantados por este exemplo de Blueprint.
+> O serviço Azure Blueprints e as amostras de plantas incorporadas estão **isentos de custos.** Os recursos azure são [avaliados pelo produto.](https://azure.microsoft.com/pricing/) Utilize a [calculadora](https://azure.microsoft.com/pricing/calculator/) de preços para estimar o custo dos recursos de funcionamento implantados por esta amostra de plantas.
 
-## <a name="artifact-parameters-table"></a>Tabela de parâmetros de artefato
+## <a name="artifact-parameters-table"></a>Tabela de parâmetros de artefactos
 
-A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
+A tabela seguinte fornece uma lista dos parâmetros do artefacto da planta:
 
-|Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
+|Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|\]de visualização do \[: implantar o agente de Log Analytics para conjuntos de dimensionamento de VM do Linux (VMSS)|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Linux para adicionar ao escopo|Adicional O valor padrão é _["None"]_ .|
-|\[Pré-visualização\]: implementar o agente de análise de registo para VMs do Linux|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Linux para adicionar ao escopo|Adicional O valor padrão é _["None"]_ .|
-|\]de visualização de \[: implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Windows para adicionar ao escopo|Adicional O valor padrão é _["None"]_ .|
-|\[Pré-visualização\]: implementar o agente de análise de registo para VMs do Windows|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Windows para adicionar ao escopo|Adicional O valor padrão é _["None"]_ .|
-|Tipos de recursos permitidos|Atribuição de política|Tipos de recursos permitidos|Lista de tipos de recursos que podem ser implantados. Essa lista é composta por todos os tipos de recursos implantados em serviços compartilhados.|
-|SKUs de contas de armazenamento permitidos|Atribuição de política|SKUs de armazenamento permitidas|Lista de logs de diagnóstico SKUs de conta de armazenamento permitidos. O valor padrão é _["Standard_LRS"]_ .|
-|SKUs de máquinas virtuais permitidas|Atribuição de política|Lista de SKUs de máquina virtual que podem ser implantadas. O valor padrão é _["Standard_DS1_v2", "Standard_DS2_v2"]_ .|
-|Iniciativa Blueprint para ISO 27001|Atribuição de política|Tipos de recurso para auditar logs de diagnóstico|Lista de tipos de recursos para auditar se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Azure monitor esquemas de logs de diagnóstico](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
-|Log Analytics Grupo de recursos|Grupo de recursos|Nome|**Locked** – concatena o **nome da organização** com `-sharedsvsc-log-rg` para tornar o grupo de recursos exclusivo.|
-|Log Analytics Grupo de recursos|Grupo de recursos|Localização|**Locked** -usa o parâmetro Blueprint.|
-|Modelo de Log Analytics|Modelo do Resource Manager|Escalão de serviço|Define a camada do espaço de trabalho Log Analytics. O valor padrão é _PerNode_.|
-|Modelo de Log Analytics|Modelo do Resource Manager|Retenção de log em dias|Retenção de dados em dias. O valor padrão é _365_.|
-|Modelo de Log Analytics|Modelo do Resource Manager|Localização|Região usada para criar o espaço de trabalho Log Analytics. O valor padrão é _oeste dos EUA 2_.|
-|Grupo de recursos de rede|Grupo de recursos|Nome|**Locked** – concatena o **nome da organização** com `-sharedsvcs-net-rg` para tornar o grupo de recursos exclusivo.|
-|Grupo de recursos de rede|Grupo de recursos|Localização|**Locked** -usa o parâmetro Blueprint.|
-|Modelo de firewall do Azure|Modelo do Resource Manager|IP privado do firewall do Azure|Configura o IP privado do [Firewall do Azure](../../../../firewall/overview.md). Esse valor também é usado como tabela de rotas padrão na sub-rede de serviços compartilhados. Deve fazer parte da notação CIDR definida no **prefixo de endereço de sub-rede do firewall do Azure**. O valor padrão é _10.0.4.4_.|
-|Modelo de firewall do Azure|Modelo do Resource Manager|Retenção de log em dias|Retenção de dados em dias. O valor padrão é _365_.|
-|Modelo de grupo de segurança de rede|Modelo do Resource Manager|Retenção de log em dias|Retenção de dados em dias. O valor padrão é _365_.|
-|Modelo de rede virtual e de tabela de rotas|Modelo do Resource Manager|Prefixo de endereço de rede virtual|A notação CIDR para a rede virtual. O valor padrão é _10.0.0.0/16_.|
-|Modelo de rede virtual e de tabela de rotas|Modelo do Resource Manager|Habilitar a proteção contra DDoS da rede virtual|Configura a proteção contra DDoS para a rede virtual. O valor padrão é _true_.|
-|Modelo de rede virtual e de tabela de rotas|Modelo do Resource Manager|Prefixo de endereço de sub-rede dos serviços compartilhados|A notação CIDR para a sub-rede de serviços compartilhados. O valor padrão é _10.0.0.0/24_.|
-|Modelo de rede virtual e de tabela de rotas|Modelo do Resource Manager|Prefixo de endereço da sub-rede DMZ|A notação CIDR para a sub-rede DMZ. O valor padrão é _10.0.1.0/24_.|
-|Modelo de rede virtual e de tabela de rotas|Modelo do Resource Manager|Prefixo de endereço de sub-rede do gateway de aplicativo|A notação CIDR para a sub-rede do gateway de aplicativo. O valor padrão é _10.0.2.0/24_.|
-|Modelo de rede virtual e de tabela de rotas|Modelo do Resource Manager|Prefixo de endereço de sub-rede do gateway de rede virtual|A notação CIDR para a sub-rede de gateway de rede virtual. O valor padrão é _10.0.3.0/24_.|
-|Modelo de rede virtual e de tabela de rotas|Modelo do Resource Manager|Prefixo de endereço de sub-rede do firewall do Azure|A notação CIDR para a sub-rede do [Firewall do Azure](../../../../firewall/overview.md) . Deve incluir o parâmetro de **IP privado do firewall do Azure** .|
-|Key Vault grupo de recursos|Grupo de recursos|Nome|**Locked** – concatena o **nome da organização** com `-sharedsvcs-kv-rg` para tornar o grupo de recursos exclusivo.|
-|Key Vault grupo de recursos|Grupo de recursos|Localização|**Locked** -usa o parâmetro Blueprint.|
-|Modelo de Key Vault|Modelo do Resource Manager|Nome de usuário do administrador do Jumpbox|Nome de usuário para o Jumpbox. Deve corresponder ao mesmo valor de propriedade no **modelo Jumpbox**. O valor padrão é _JB-admin-user_.|
-|Modelo de Key Vault|Modelo do Resource Manager|Chave ou senha ssh de administrador do Jumpbox|Chave ou senha da conta no Jumpbox. Deve corresponder ao mesmo valor de propriedade no **modelo Jumpbox**. Nenhum valor padrão e não pode ser deixado em branco.|
-|Modelo de Key Vault|Modelo do Resource Manager|Nome de usuário do administrador de domínio|Nome de usuário usado para acessar Active Directory VM e unir outras VMs a um domínio. Deve corresponder ao valor da propriedade de **usuário administrador de domínio** no **modelo Active Directory Domain Services**. O valor padrão é _Domain-admin-user_.|
-|Modelo de Key Vault|Modelo do Resource Manager|Senha de administrador de domínio|Senha do usuário administrador de domínio. Nenhum valor padrão e não pode ser deixado em branco.|
-|Modelo de Key Vault|Modelo do Resource Manager|ID do objeto do AAD|O identificador de objeto do AAD da conta que requer acesso à instância de Key Vault. Nenhum valor padrão e não pode ser deixado em branco. Para localizar esse valor no portal do Azure, procure e selecione "usuários" em _Serviços_. Use a caixa _nome_ para filtrar o nome da conta e selecione essa conta. Na página _perfil do usuário_ , selecione o ícone "clique para copiar" ao lado da _ID do objeto_.  |
-|Modelo de Key Vault|Modelo do Resource Manager|Retenção de log em dias|Retenção de dados em dias. O valor padrão é _365_.|
-|Modelo de Key Vault|Modelo do Resource Manager|Key Vault SKU|Especifica a SKU do Key Vault que é criado. O valor padrão é _Premium_.|
-|Grupo de recursos Jumpbox|Grupo de recursos|Nome|**Locked** – concatena o **nome da organização** com `-sharedsvcs-jb-rg` para tornar o grupo de recursos exclusivo.|
-|Grupo de recursos Jumpbox|Grupo de recursos|Localização|**Locked** -usa o parâmetro Blueprint.|
-|Modelo Jumpbox|Modelo do Resource Manager|Nome de usuário do administrador do Jumpbox|O nome de usuário usado para acessar VMs Jumpbox. Deve corresponder ao mesmo valor de propriedade no **modelo de Key Vault**. O valor padrão é _JB-admin-user_.|
-|Modelo Jumpbox|Modelo do Resource Manager|Senha de administrador do Jumpbox (ID de recurso Key Vault)|A ID de recurso do Key Vault. Use "/subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv" e substitua `{subscriptionId}` pela sua ID de assinatura e `{orgName}` pelo parâmetro Blueprint **nome da organização** .|
-|Modelo Jumpbox|Modelo do Resource Manager|Senha do administrador do Jumpbox (nome do Key Vault segredo)|Nome de usuário do administrador do Jumpbox. Deve corresponder ao valor na propriedade de **modelo Key Vault** **nome de usuário do administrador Jumpbox**.|
-|Modelo Jumpbox|Modelo do Resource Manager|Sistema operacional Jumpbox|Determina o sistema operacional da VM Jumpbox. O valor padrão é _Windows_.|
-|Active Directory Domain Services grupo de recursos|Grupo de recursos|Nome|**Locked** – concatena o **nome da organização** com `-sharedsvcs-adds-rg` para tornar o grupo de recursos exclusivo.|
-|Active Directory Domain Services grupo de recursos|Grupo de recursos|Localização|**Locked** -usa o parâmetro Blueprint.|
-|Modelo de Active Directory Domain Services|Modelo do Resource Manager|Nome de usuário do administrador de domínio|Nome de usuário para o adiciona Jumpbox. Deve corresponder ao mesmo valor de propriedade no **modelo de Key Vault**. O valor padrão é _ADDS-admin-user_.|
-|Modelo de Active Directory Domain Services|Modelo do Resource Manager|Senha de administrador de domínio (Key Vault ID de recurso)|A ID de recurso do Key Vault. Use "/subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv" e substitua `{subscriptionId}` pela sua ID de assinatura e `{orgName}` pelo parâmetro Blueprint **nome da organização** .|
-|Modelo de Active Directory Domain Services|Modelo do Resource Manager|Senha do administrador de domínio (nome do Key Vault segredo)|Nome de usuário do administrador de domínio. Deve corresponder ao valor na propriedade de **modelo Key Vault** **nome de usuário administrador de domínio**.|
-|Modelo de Active Directory Domain Services|Modelo do Resource Manager|Nome de domínio|Nome do Active Directory criado pelo exemplo. O valor padrão é _contoso.com_.|
-|Modelo de Active Directory Domain Services|Modelo do Resource Manager|Usuário administrador de domínio|Nome de usuário para a conta do AD do administrador e para unir dispositivos ao domínio do AD. Deve corresponder ao valor da propriedade **username do administrador do AD** no **modelo Key Vault**. O valor padrão é _Domain-admin-user_.|
-|Modelo de Active Directory Domain Services|Modelo do Resource Manager|Senha de administrador de domínio|Defina os detalhes de Key Vault para armazenar a senha. Nenhum valor padrão e não pode ser deixado em branco.|
+|\[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala SM (VMSS)|Atribuição de política|Opcional: Lista de imagens VM que apoiaram o Sistema Linux OS para adicionar ao âmbito|(Opcional) O valor predefinido é _["nenhum"]_.|
+|\[Pré-visualização\]: Implementar o Agente de Análise de Registo para VMs Linux|Atribuição de política|Opcional: Lista de imagens VM que apoiaram o Sistema Linux OS para adicionar ao âmbito|(Opcional) O valor predefinido é _["nenhum"]_.|
+|\[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala seletivas VM Do Windows (VMSS)|Atribuição de política|Opcional: Lista de imagens VM que têm suportado o Windows OS para adicionar ao âmbito|(Opcional) O valor predefinido é _["nenhum"]_.|
+|\[Pré-visualização\]: Implementar o agente de análise de registo para VMs do Windows|Atribuição de política|Opcional: Lista de imagens VM que têm suportado o Windows OS para adicionar ao âmbito|(Opcional) O valor predefinido é _["nenhum"]_.|
+|Tipos de recursos permitidos|Atribuição de política|Tipos de recursos permitidos|Lista de tipos de recursos autorizados a serem implantados. Esta lista é composta por todos os tipos de recursos implantados em Serviços Partilhados.|
+|SKUs de contas de armazenamento permitidos|Atribuição de política|SKUs de armazenamento permitido|Lista de registos de diagnóstico conta de armazenamento SKUs permitida. O valor predefinido é _["Standard_LRS"]_.|
+|Máquina virtual permitida SKUs|Atribuição de política|A lista de SKUs da máquina virtual permitiu ser implantada. O valor predefinido é _["Standard_DS1_v2", "Standard_DS2_v2"]_.|
+|Iniciativa blueprint para ISO 27001|Atribuição de política|Tipos de recursos para auditar registos de diagnóstico|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Valores aceitáveis podem ser encontrados em [registos de diagnóstico do Monitor Azure.](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)|
+|Grupo de recursos Log Analytics|Grupo de recursos|Nome|**Locked** - Concatenates the `-sharedsvsc-log-rg` Organization **name** with to make the resource group unique.|
+|Grupo de recursos Log Analytics|Grupo de recursos|Localização|**Bloqueado** - Usa o parâmetro da planta.|
+|Modelo de Análise de Log|Modelo do Resource Manager|Camada de serviços|Define o nível do espaço de trabalho Log Analytics. O valor predefinido é _PerNode_.|
+|Modelo de Análise de Log|Modelo do Resource Manager|Retenção de registo em dias|Retenção de dados em dias. O valor predefinido é _de 365_.|
+|Modelo de Análise de Log|Modelo do Resource Manager|Localização|Região utilizada para criar o espaço de trabalho Log Analytics. O valor padrão é _West US 2_.|
+|Grupo de recursos de rede|Grupo de recursos|Nome|**Locked** - Concatenates the `-sharedsvcs-net-rg` Organization **name** with to make the resource group unique.|
+|Grupo de recursos de rede|Grupo de recursos|Localização|**Bloqueado** - Usa o parâmetro da planta.|
+|Modelo de Firewall Azure|Modelo do Resource Manager|IP privado de firewall Azure|Configura o IP privado da [firewall Azure.](../../../../firewall/overview.md) Este valor também é usado como tabela de rota padrão na subnet de serviços partilhados. Deve fazer parte da notação CIDR definida no prefixo de endereço de **sub-rede da Firewall Azure**. O valor predefinido é _de 10.0.4.4_.|
+|Modelo de Firewall Azure|Modelo do Resource Manager|Retenção de registo em dias|Retenção de dados em dias. O valor predefinido é _de 365_.|
+|Modelo de grupo de segurança de rede|Modelo do Resource Manager|Retenção de registo em dias|Retenção de dados em dias. O valor predefinido é _de 365_.|
+|Modelo de tabela de rede virtual e rota|Modelo do Resource Manager|Prefixo de endereço de rede virtual|A notação CIDR para a rede virtual. O valor predefinido é _de 10.0.0.0/16_.|
+|Modelo de tabela de rede virtual e rota|Modelo do Resource Manager|Ativar a proteção DDoS da rede virtual|Configura a proteção DDoS para a rede virtual. O valor predefinido é _verdadeiro._|
+|Modelo de tabela de rede virtual e rota|Modelo do Resource Manager|Prefixo de endereço de sub-rede de serviços partilhados|A notação CIDR para a subnet de Serviços Partilhados. O valor predefinido é _de 10.0.0.0/24_.|
+|Modelo de tabela de rede virtual e rota|Modelo do Resource Manager|Prefixo de endereço de sub-rede DMZ|A notação CIDR para a sub-rede DMZ. O valor predefinido é _de 10.0.1.0/24_.|
+|Modelo de tabela de rede virtual e rota|Modelo do Resource Manager|Prefixo de endereço de sub-rede gateway de aplicação|A notação CIDR para a sub-rede de gateway de aplicação. O valor predefinido é _de 10.0.2.0/24_.|
+|Modelo de tabela de rede virtual e rota|Modelo do Resource Manager|Prefixo de endereço de sub-rede de gateway virtual|A notação CIDR para a sub-rede de gateway virtual. O valor predefinido é _de 10.0.3.0/24_.|
+|Modelo de tabela de rede virtual e rota|Modelo do Resource Manager|Prefixo de endereço de sub-rede Azure Firewall|A notação CIDR para a sub-rede [de firewall Azure.](../../../../firewall/overview.md) Deve incluir o parâmetro **IP privado da firewall Azure.**|
+|Grupo de recursos key vault|Grupo de recursos|Nome|**Locked** - Concatenates the `-sharedsvcs-kv-rg` Organization **name** with to make the resource group unique.|
+|Grupo de recursos key vault|Grupo de recursos|Localização|**Bloqueado** - Usa o parâmetro da planta.|
+|Modelo de cofre de chave|Modelo do Resource Manager|Nome de utilizador de administrador jumpbox|Nome de utilizador para a caixa de salto. Deve corresponder ao mesmo valor de propriedade no **modelo Jumpbox**. O valor predefinido é _jb-admin-user_.|
+|Modelo de cofre de chave|Modelo do Resource Manager|Chave ou senha de sh ssh de administração jumpbox|Chave ou senha para a conta na caixa de salto. Deve corresponder ao mesmo valor de propriedade no **modelo Jumpbox**. Sem valor predefinido e não pode ser deixado em branco.|
+|Modelo de cofre de chave|Modelo do Resource Manager|Nome de utilizador de administração de domínio|O nome de utilizador usado para aceder ao Ative Directory VM e para se juntar a outros VMs a um domínio. Deve corresponder ao valor de propriedade do **utilizador administrativo de domínio** no modelo de Serviços de Domínio de **Diretório Ativo**. O valor predefinido é o _utilizador de domínio-administrador._|
+|Modelo de cofre de chave|Modelo do Resource Manager|Senha de administração de domínio|Palavra-passe do utilizador do utilizador de domínio. Sem valor predefinido e não pode ser deixado em branco.|
+|Modelo de cofre de chave|Modelo do Resource Manager|Id de objeto AAD|O identificador de objetos AAD da conta que requer acesso à instância do Cofre chave. Sem valor predefinido e não pode ser deixado em branco. Para localizar este valor a partir do portal Azure, procure e selecione "Utilizadores" nos _Serviços_. Utilize a caixa _nome_ para filtrar o nome da conta e selecione essa conta. Na página do perfil do _Utilizador,_ selecione o ícone "Clique para copiar" ao lado do ID do _objeto_.  |
+|Modelo de cofre de chave|Modelo do Resource Manager|Retenção de registo em dias|Retenção de dados em dias. O valor predefinido é _de 365_.|
+|Modelo de cofre de chave|Modelo do Resource Manager|Cofre chave SKU|Especifica o SKU do Cofre chave que é criado. O valor predefinido é _Premium._|
+|Grupo de recursos jumpbox|Grupo de recursos|Nome|**Locked** - Concatenates the `-sharedsvcs-jb-rg` Organization **name** with to make the resource group unique.|
+|Grupo de recursos jumpbox|Grupo de recursos|Localização|**Bloqueado** - Usa o parâmetro da planta.|
+|Modelo de caixa de salto|Modelo do Resource Manager|Nome de utilizador de administrador jumpbox|O nome de utilizador usado para aceder a VMs de caixa de salto. Deve corresponder ao mesmo valor de propriedade no **modelo key vault**. O valor predefinido é _jb-admin-user_.|
+|Modelo de caixa de salto|Modelo do Resource Manager|Palavra-passe de administração jumpbox (ID de recurso do cofre chave)|A identificação de recursos do cofre chave. Utilize "/subscrições/{subscriçãoId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv" `{subscriptionId}` e substitua-o pelo seu ID de subscrição e `{orgName}` pelo parâmetro de nome da **Organização.**|
+|Modelo de caixa de salto|Modelo do Resource Manager|Palavra-passe de administrador da Jumpbox (Nome Secreto do Cofre chave)|Nome de utilizador do administrador da caixa de salto. Deve corresponder ao valor na propriedade do **modelo do Cofre chave** **Jumpbox nome de utilizador**.|
+|Modelo de caixa de salto|Modelo do Resource Manager|Sistema Operativo Jumpbox|Determina o sistema operativo da caixa de salto VM. O valor predefinido é _o Windows_.|
+|Grupo de recursos de serviços de domínio de diretório ativo|Grupo de recursos|Nome|**Locked** - Concatenates the `-sharedsvcs-adds-rg` Organization **name** with to make the resource group unique.|
+|Grupo de recursos de serviços de domínio de diretório ativo|Grupo de recursos|Localização|**Bloqueado** - Usa o parâmetro da planta.|
+|Modelo de serviços de domínio de diretório ativo|Modelo do Resource Manager|Nome de utilizador de administração de domínio|Nome de utilizador para a caixa de salto ADDS. Deve corresponder ao mesmo valor de propriedade no **modelo key vault**. O valor predefinido é _o utilizador de adiciona-administrador._|
+|Modelo de serviços de domínio de diretório ativo|Modelo do Resource Manager|Senha de administração de domínio (ID de recurso do cofre chave)|A identificação de recursos do cofre chave. Utilize "/subscrições/{subscriçãoId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv" `{subscriptionId}` e substitua-o pelo seu ID de subscrição e `{orgName}` pelo parâmetro de nome da **Organização.**|
+|Modelo de serviços de domínio de diretório ativo|Modelo do Resource Manager|Palavra-passe de administração de domínio (Nome secreto do cofre chave)|Nome de utilizador do administrador de domínio. Deve corresponder ao valor na propriedade do **modelo do cofre chave** Nome de utilizador de **domínio**.|
+|Modelo de serviços de domínio de diretório ativo|Modelo do Resource Manager|Nome de domínio|Nome do Diretório Ativo criado pela amostra. O valor predefinido é _contoso.com_.|
+|Modelo de serviços de domínio de diretório ativo|Modelo do Resource Manager|Utilizador administrativo de domínio|Nome de utilizador para a conta AD de administrador e para a junção de dispositivos ao domínio AD. Deve corresponder ao valor de propriedade do nome de utilizador da **administração AD** no **modelo key vault**. O valor predefinido é o _utilizador de domínio-administrador._|
+|Modelo de serviços de domínio de diretório ativo|Modelo do Resource Manager|Senha de administração de domínio|Detete os detalhes do Cofre de Chaves para armazenar a palavra-passe. Sem valor predefinido e não pode ser deixado em branco.|
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você analisou as etapas para implantar o exemplo de plano gráfico de serviços compartilhados ISO 27001, visite os seguintes artigos para saber mais sobre o mapeamento de arquitetura e controle:
+Agora que reviu os passos para implementar a amostra de projeto iso 27001 Serviços Partilhados, visite os seguintes artigos para saber sobre a arquitetura e o mapeamento de controlo:
 
 > [!div class="nextstepaction"]
-> [Plano de serviços compartilhados iso 27001-visão geral](./index.md)
-> [ISO 27001 serviços compartilhados Blueprint-mapeamento de controle](./control-mapping.md)
+> [ISO 27001 Projeto de Serviços Partilhados - Visão geral](./index.md)
+> [ISO 27001 Projeto de Serviços Partilhados - Mapeamento](./control-mapping.md) de controlo
 
 Artigos adicionais sobre esquemas e como os utilizar:
 
-- Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
+- Conheça o ciclo de vida da [planta.](../../concepts/lifecycle.md)
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

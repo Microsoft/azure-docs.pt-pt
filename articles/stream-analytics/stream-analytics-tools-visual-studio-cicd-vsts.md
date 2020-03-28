@@ -1,5 +1,5 @@
 ---
-title: Implantar Azure Stream Analytics trabalhos com CI/CD e DevOps do Azure
+title: Implementar trabalhos de Análise de Fluxo sinuoso com CI/CD e Azure DevOps
 description: Este artigo descreve como implementar uma tarefa do Stream Analytics com CI/CD através dos Serviços de DevOps do Azure.
 author: su-jie
 ms.author: sujie
@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: d9360ff64206cdce208f9643cf8ca86515aaeb7e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75354442"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Tutorial: Implementar uma tarefa do Azure Stream Analytics com CI/CD através do Azure Pipelines
@@ -29,10 +29,10 @@ Neste tutorial, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, certifique-se de que tem o seguinte:
 
-* Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Instale o [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) e as cargas de trabalho **Desenvolvimento do Azure** ou **Armazenamento de Dados e Processamento**.
 * Crie um [projeto do Stream Analytics no Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs).
-* Crie uma organização do [Azure DevOps](https://visualstudio.microsoft.com/team-services/).
+* Criar uma organização [Azure DevOps.](https://visualstudio.microsoft.com/team-services/)
 
 ## <a name="configure-nuget-package-dependency"></a>Configurar a dependência do pacote NuGet
 Para efetuar uma compilação e implementação automáticas numa máquina arbitrária, tem de utilizar o pacote NuGet `Microsoft.Azure.StreamAnalytics.CICD`. Fornece o MSBuild, execução local e ferramentas de implementação que suportam o processo de integração e implementação contínuas de projetos do Stream Analytics para Visual Studio. Para obter mais informações, veja [Ferramentas de CI/CD do Stream Analytics](stream-analytics-tools-for-visual-studio-cicd.md).
@@ -54,13 +54,13 @@ Partilhe os ficheiros de origem da aplicação para um projeto no Azure DevOps, 
 
 2. Na vista **Sincronização** no **Team Explorer**, selecione o botão **Publicar Repositório Git** em **Push para os Serviços de DevOps do Azure**.
 
-   ![Botão enviar para Azure DevOps Services publicar repositório git](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-git-repo-devops.png)
+   ![Pressione para azure DevOps Serviços Publicar botão Git Repo](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-git-repo-devops.png)
 
 3. Verifique o seu e-mail e selecione a sua organização na lista pendente **Domínio dos Serviços de DevOps do Azure**. Introduza o nome do seu repositório e selecione **Publicar repositório**.
 
-   ![Botão de publicação do repositório do git de push](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-repository-devops.png)
+   ![Pressione git repo Publique botão repositório](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-repository-devops.png)
 
-    A publicação do repositório cria um novo projeto na sua organização com o mesmo nome que o repositório local. Para criar o repositório num projeto existente, clique em **Avançadas** junto ao nome do **Repositório** e selecione um projeto. Pode ver o código no browser ao selecionar **Ver na Web**.
+    A publicação do repositório cria um novo projeto na sua organização com o mesmo nome que o repositório local. Para criar o repo num projeto existente, clique em **Advanced** ao lado do **nome repositório**, e selecione um projeto. Pode ver o código no browser ao selecionar **Ver na Web**.
  
 ## <a name="configure-continuous-delivery-with-azure-devops"></a>Configurar a entrega contínua com o Azure DevOps
 Um pipeline de compilação do Azure Pipelines descreve um fluxo de trabalho composto por passos de compilação que são executados sequencialmente. Saiba mais sobre [Pipelines de compilação do Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav). 
@@ -72,33 +72,33 @@ Abra um browser e navegue para o projeto que acabou de criar no [Azure DevOps](h
 
 1. No separador **Compilação e Versão**, selecione **Compilações** e, em seguida **+Novo**.  Selecione **Git dos Serviços de DevOps do Azure** e **Continuar**.
     
-    ![Selecione a origem do git do DevOps no Azure DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source-devops.png)
+    ![Selecione DevOps Git fonte em Azure DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source-devops.png)
 
 2. Em **Selecionar um modelo**, clique em **Processo Vazio** para começar com um pipeline vazio.
     
-    ![Selecione o processo vazio nas opções de modelo no DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template-empty-process.png)
+    ![Selecione processo vazio a partir de opções de modelo em DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template-empty-process.png)
 
 3. Em **Acionadores**, ative a integração contínua ao selecionar o estado do acionador **Ativar a integração contínua**.  Selecione **Guardar e colocar em fila de espera** para iniciar manualmente uma compilação. 
     
-    ![Habilitar o status do gatilho de integração contínua](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger-status-ci.png)
+    ![Ativar o estado do gatilho de integração contínua](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger-status-ci.png)
 
-4. As compilações também são acionadas após push ou dar entrada. Para verificar o progresso da compilação, alterne para a guia **compilações** .  Depois de verificar se a compilação é executada com êxito, você deve definir um pipeline de liberação que implanta seu aplicativo em um cluster. Clique com o botão direito do rato nas reticências junto ao pipeline de compilação e selecione **Editar**.
+4. As compilações também são acionadas após push ou dar entrada. Para verificar o progresso da sua construção, mude para o separador **Builds.**  Uma vez verificado que a construção executa com sucesso, deve definir um gasoduto de libertação que implemente a sua aplicação para um cluster. Clique com o botão direito do rato nas reticências junto ao pipeline de compilação e selecione **Editar**.
 
 5.  Em **Tarefas**, introduza "Hosted" como **Fila de agentes**.
     
-    ![Selecionar fila do agente no menu tarefas](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-agent-queue-task.png) 
+    ![Selecione fila de agente no menu Tarefas](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-agent-queue-task.png) 
 
 6. Em **Fase 1**, clique em **+** e adicione uma tarefa **NuGet**.
     
-    ![Adicionar uma tarefa do NuGet na fila do agente](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-nuget-task.png)
+    ![Adicione uma tarefa NuGet na fila do Agente](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-nuget-task.png)
 
 7. Expanda **Avançadas** e adicione `$(Build.SourcesDirectory)\packages` ao **Diretório de destino**. Mantenha a predefinição dos restantes valores de configuração do NuGet.
 
-   ![Configurar tarefa de restauração do NuGet](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-nuget-restore-config.png)
+   ![Configure nuGet restaurar tarefa](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-nuget-restore-config.png)
 
 8. Em **Fase 1**, clique em **+** e adicione uma tarefa **MSBuild**.
 
-   ![Adicionar tarefa do MSBuild na fila do agente](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-msbuild-task.png)
+   ![Adicionar Tarefa MSBuild na fila do agente](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-msbuild-task.png)
 
 9. Altere os **Argumentos de MSBuild** para os seguintes:
 
@@ -106,7 +106,7 @@ Abra um browser e navegue para o projeto que acabou de criar no [Azure DevOps](h
    /p:CompilerTaskAssemblyFile="Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll"  /p:ASATargetsFilePath="$(Build.SourcesDirectory)\packages\Microsoft.Azure.StreamAnalytics.CICD.1.0.0\build\StreamAnalytics.targets"
    ```
 
-   ![Configurar a tarefa do MSBuild no DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-config-msbuild-task.png)
+   ![Configure a tarefa MSBuild em DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-config-msbuild-task.png)
 
 10. Em **Fase 1**, clique em **+** e adicione uma tarefa **Implementação do Grupo de Recursos do Azure**. 
     
@@ -123,16 +123,16 @@ Abra um browser e navegue para o projeto que acabou de criar no [Azure DevOps](h
     |Parâmetros do modelo  | [Caminho da solução]\bin\Debug\Deploy\\[Nome do projeto].JobTemplate.parameters.json   |
     |Substituir os parâmetros do modelo  | Escreva os parâmetros do modelo a substituir na caixa de texto. Exemplo, –storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre). Esta propriedade é opcional, mas a compilação resultará em erros se os parâmetros de chave não forem substituídos.    |
     
-    ![Definir propriedades para implantação do grupo de recursos do Azure](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deployment-properties.png)
+    ![Definir propriedades para implantação do grupo de recursos Azure](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deployment-properties.png)
 
 12. Clique em **Guardar e Colocar em Fila** para testar o pipeline de compilação.
     
-    ![Salvar e enfileirar a compilação no DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-save-and-queue-build.png)
+    ![Salvar e fazer fila em DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-save-and-queue-build.png)
 
 ### <a name="failed-build-process"></a>Processo de compilação falhado
 Poderá receber erros para parâmetros de implementação nulos se não substituir os parâmetros do modelo na tarefa **Implementação do Grupo de Recursos do Azure** do pipeline de compilação. Regresse ao pipeline de compilação e substitua os parâmetros nulos para resolver o erro.
 
-   ![Falha no processo de compilação do DevOps Stream Analytics](./media/stream-analytics-tools-visual-studio-cicd-vsts/devops-build-process-failed.png)
+   ![Processo de construção de DevOps Stream Analytics falhou](./media/stream-analytics-tools-visual-studio-cicd-vsts/devops-build-process-failed.png)
 
 ### <a name="commit-and-push-changes-to-trigger-a-release"></a>Consolidar e emitir alterações para acionar uma versão
 Verifique se o pipeline de integração contínua está a funcionar ao dar entrada de algumas alterações de código no Azure DevOps.    
@@ -141,11 +141,11 @@ Verifique se o pipeline de integração contínua está a funcionar ao dar entra
 
 1. Na vista **Alterações**, no Team Explorer, adicione uma mensagem que descreva a atualização e consolide as alterações.
 
-    ![Confirmar alterações do repositório do Visual Studio](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-commit-changes-visual-studio.png)
+    ![Cometa alterações de repo do Estúdio Visual](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-commit-changes-visual-studio.png)
 
 2. Selecione o ícone da barra de estado de alterações não publicadas ou a vista de Sincronização no Team Explorer. Selecione **Push** para atualizar o código no Azure DevOps.
 
-    ![Enviar alterações por push do Visual Studio](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes-visual-studio.png)
+    ![Mudanças de push do Estúdio Visual](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes-visual-studio.png)
 
 A emissão das alterações aos Serviços de DevOps do Azure aciona automaticamente uma compilação.  Quando o pipeline de compilação for concluído com êxito, é criada automaticamente uma versão e começa a atualizar a tarefa no cluster.
 

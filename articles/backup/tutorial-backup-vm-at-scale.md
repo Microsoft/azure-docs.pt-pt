@@ -1,32 +1,32 @@
 ---
-title: Tutorial – fazer backup de máquinas virtuais do Azure em escala
-description: Neste tutorial, saiba como criar um cofre dos serviços de recuperação, definir uma política de backup e fazer backup de várias máquinas virtuais simultaneamente.
+title: Tutorial - Back up multiple machines virtuais Azure
+description: Neste tutorial, aprenda a criar um cofre de Serviços de Recuperação, defina uma política de backup e, simultaneamente, faça backup de várias máquinas virtuais.
 ms.date: 01/31/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 6034202649e6d9bce75f0069316b79b55e533490
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f9306f2ef5c4b2a53dcba17cafca9ea13b8dab43
+ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171858"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80245247"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Utilizar o portal do Azure para criar cópias de segurança de várias máquinas virtuais
 
-Quando cria cópias de segurança de dados no Azure, esses dados são armazenados num recurso do Azure chamado “Cofre dos Serviços de Recuperação”. O recurso Cofre dos Serviços de Recuperação está disponível no menu Definições da maioria dos serviços do Azure. O benefício de ter o cofre dos serviços de recuperação integrado ao menu configurações da maioria dos serviços do Azure facilita o backup dos dados. No entanto, trabalhar com cada base de dados ou máquina virtual da sua empresa individualmente é entediante. E se quiser criar uma cópia de segurança dos dados de todas as máquinas virtuais de um departamento ou de uma determinada localização? É fácil criar cópias de segurança de várias máquinas virtuais mediante a criação de uma política de cópia de segurança e aplicá-la às máquinas virtuais pretendidas. Este tutorial explica como:
+Quando cria cópias de segurança de dados no Azure, esses dados são armazenados num recurso do Azure chamado “Cofre dos Serviços de Recuperação”. O recurso Cofre dos Serviços de Recuperação está disponível no menu Definições da maioria dos serviços do Azure. O benefício de ter o cofre dos Serviços de Recuperação integrado no menu Definições da maioria dos serviços Azure facilita o backup de dados. No entanto, trabalhar com cada base de dados ou máquina virtual da sua empresa individualmente é entediante. E se quiser criar uma cópia de segurança dos dados de todas as máquinas virtuais de um departamento ou de uma determinada localização? É fácil criar cópias de segurança de várias máquinas virtuais mediante a criação de uma política de cópia de segurança e aplicá-la às máquinas virtuais pretendidas. Este tutorial explica como:
 
 > [!div class="checklist"]
 >
-> * Criar um cofre dos Serviços de Recuperação
+> * Criar um cofre dos Serviços de Recuperação 
 > * Definir uma política de cópias de segurança
 > * Aplicar a política de cópia de segurança para proteger várias máquinas virtuais
 > * Acionar um trabalho de cópia de segurança a pedido para as máquinas virtuais protegidas
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
+## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
 O cofre dos Serviços de Recuperação também contém os dados para os quais foi criada a cópia de segurança, bem como a política de cópia de segurança aplicada às máquinas virtuais protegidas. A cópia de segurança das máquinas virtuais é um processo local. Não pode criar cópias de segurança de máquinas virtuais de uma localização para um cofre dos Serviços de Recuperação noutra localização. Por isso, para cada localização do Azure com máquinas virtuais para as quais criar cópias de segurança, tem de existir, pelo menos, um cofre dos Serviços de Recuperação nessa localização.
 
@@ -34,7 +34,7 @@ O cofre dos Serviços de Recuperação também contém os dados para os quais fo
 
     ![Abrir o menu Cofre dos Serviços de Recuperação](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png)
 
-2. No menu **Cofre dos Serviços de Recuperação**, clique em **Add** (Adicionar) para abrir o respetivo.
+2. No menu **Cofre dos Serviços de Recuperação**, clique em **Adicionar** para abrir o respetivo menu.
 
     ![Abrir o menu do cofre](./media/tutorial-backup-vm-at-scale/provide-vault-detail-2.png)
 
@@ -42,7 +42,7 @@ O cofre dos Serviços de Recuperação também contém os dados para os quais fo
 
     * escreva *myRecoveryServicesVault* em **Name** (Nome).
     * O ID da subscrição atual aparece em **Subscription** (Subscrição). Se tiver subscrições adicionais, pode escolher outra subscrição para o cofre novo.
-    * Em **Resource group** (Grupo de recursos), selecione **Use existing** (Utilizar existente) *myResourceGroup*. Se *myResourceGroup* não existir, selecione **Criar novo** e escreva *myResourceGroup*.
+    * Em **Resource group** (Grupo de recursos), selecione **Use existing** (Utilizar existente) *myResourceGroup*. Se o *myResourceGroup* não existir, selecione **Criar novo** e digitar *o myResourceGroup*.
     * No menu pendente **Location** (Localização), escolha *West Europe* (Europa Ocidental).
     * Clique em **Create** (Criar) para criar o cofre dos Serviços de Recuperação.
 
@@ -54,7 +54,7 @@ Quando criar um cofre dos Serviços de Recuperação, esse cofre tem o armazenam
 
 ## <a name="set-backup-policy-to-protect-vms"></a>Definir a política de cópia de segurança para proteger VMs
 
-Depois de criar o cofre dos Serviços de Recuperação, o próximo passo é configurá-lo para o tipo de dados e definir a política de cópia de segurança. A política é a agenda da frequência e do momento em que os pontos de recuperação são obtidos. A política também inclui o período de retenção para os pontos de recuperação. Para este tutorial, vamos supor que sua empresa é uma pessoa esportiva com um hotel, estádio, restaurantes e concessões, e você está protegendo os dados nas máquinas virtuais. Os passos seguintes criam uma política de cópia de segurança para os dados financeiros.
+Depois de criar o cofre dos Serviços de Recuperação, o próximo passo é configurá-lo para o tipo de dados e definir a política de cópia de segurança. A política é a agenda da frequência e do momento em que os pontos de recuperação são obtidos. A política também inclui o período de retenção para os pontos de recuperação. Para este tutorial, vamos assumir que o seu negócio é um complexo desportivo com um hotel, estádio e restaurantes e concessões, e está protegendo os dados nas máquinas virtuais. Os passos seguintes criam uma política de cópia de segurança para os dados financeiros.
 
 1. Na lista dos cofres dos Serviços de Recuperação, selecione **myRecoveryServicesVault** para abrir o dashboard do mesmo.
 
@@ -84,7 +84,7 @@ Depois de criar o cofre dos Serviços de Recuperação, o próximo passo é conf
 
      Depois de criar a política de cópia de segurança, associe-a às máquinas virtuais.
 
-6. Na caixa de diálogo **selecionar máquinas virtuais** , selecione *myVM* e clique em **OK** para implantar a política de backup nas máquinas virtuais.
+6. No diálogo de **máquinas virtuais Select,** selecione *myVM* e clique em **OK** para implementar a política de backup para as máquinas virtuais.
 
     São apresentadas todas as máquinas virtuais que estejam na mesma localização e que ainda não tenham sido associadas a uma política de cópia de segurança. *myVMH1* e *myVMR1* são selecionadas para serem associadas à política *Finance*.
 
@@ -148,7 +148,7 @@ Se quiser continuar a trabalhar com os tutoriais subsequentes, não limpe os rec
 
     ![Ícone Definições](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
 
-4. No menu de contexto, selecione **parar backup** para abrir o menu parar backup.
+4. No menu de contexto, selecione **Parar de reserva** para abrir o menu Stop Backup.
 
     ![Ícone Definições](./media/tutorial-backup-vm-at-scale/context-menu-for-delete.png)
 
@@ -156,7 +156,7 @@ Se quiser continuar a trabalhar com os tutoriais subsequentes, não limpe os rec
 
 6. Na caixa de diálogo **Type the name of the Backup item** (Escrever o nome do Item de cópia de segurança), escreva *myVM*.
 
-7. Depois que o item de backup é verificado (uma marca de seleção é exibida), o botão **parar backup** é habilitado. Clique em **Stop Backup** para parar a política e eliminar os pontos de restauro.
+7. Uma vez verificado o item de reserva (aparece uma marca de verificação), o botão de **backup stop** está ativado. Clique em **Stop Backup** para parar a política e eliminar os pontos de restauro.
 
     ![clicar em Stop backup para eliminar o cofre](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png)
 
@@ -172,7 +172,7 @@ Neste tutorial, utilizou o portal do Azure para:
 
 > [!div class="checklist"]
 >
-> * Criar um cofre dos Serviços de Recuperação
+> * Criar um cofre dos Serviços de Recuperação 
 > * Definir o cofre para proteger máquinas virtuais
 > * Criar uma política de cópia de segurança e retenção personalizada
 > * Atribuir a política para proteger várias máquinas virtuais

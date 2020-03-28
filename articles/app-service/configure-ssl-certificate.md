@@ -7,13 +7,13 @@ ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
 ms.openlocfilehash: 120caf459a7a8ca4e60d5e447a1e4130c0bce389
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239764"
 ---
-# <a name="add-an-ssl-certificate-in-azure-app-service"></a>Adicione um certificado SSL no Serviço de Aplicações Azure
+# <a name="add-an-ssl-certificate-in-azure-app-service"></a>Adicionar um certificado SSL no Serviço de Aplicações do Azure
 
 O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este artigo mostra-lhe como criar, carregar ou importar um certificado privado ou um certificado público para o Serviço de Aplicações. 
 
@@ -23,7 +23,7 @@ A tabela que se segue lista as opções que tem para adicionar certificados no S
 
 |Opção|Descrição|
 |-|-|
-| Criar um Certificado gerido por serviço de aplicações gratuito (Pré-visualização) | Um certificado privado que é fácil de usar se apenas precisar de garantir o seu [domínio personalizado](app-service-web-tutorial-custom-domain.md) `www` ou qualquer domínio não nu no Serviço de Aplicações. |
+| Criar um Certificado gerido por serviço de aplicações gratuito (Pré-visualização) | Um certificado privado que é fácil de usar `www` se apenas precisar de garantir o seu [domínio personalizado](app-service-web-tutorial-custom-domain.md) ou qualquer domínio não nu no Serviço de Aplicações. |
 | Comprar um certificado de serviço de aplicações | Um certificado privado que é gerido pelo Azure. Combina a simplicidade da gestão automatizada de certificados e a flexibilidade das opções de renovação e exportação. |
 | Importar um certificado da Key Vault | Útil se utilizar o [Cofre de Chaves Azure](https://docs.microsoft.com/azure/key-vault/) para gerir os seus [certificados PKCS12](https://wikipedia.org/wiki/PKCS_12). Ver [requisitos de certificado privado](#private-certificate-requirements). |
 | Faça upload de um certificado privado | Se já tem um certificado privado de um fornecedor de terceiros, pode carregá-lo. Ver [requisitos de certificado privado](#private-certificate-requirements). |
@@ -34,7 +34,7 @@ A tabela que se segue lista as opções que tem para adicionar certificados no S
 Para seguir este guia:
 
 - [Criar uma aplicação de Serviço de Aplicações.](/azure/app-service/)
-- Certificado gratuito apenas: mapear um subdomínio (por exemplo, `www.contoso.com`) para o Serviço de Aplicações com um [registo CNAME](app-service-web-tutorial-custom-domain.md#map-a-cname-record).
+- Certificado gratuito apenas: mapear um `www.contoso.com`subdomínio (por exemplo, ) para o Serviço de Aplicações com um [registo CNAME](app-service-web-tutorial-custom-domain.md#map-a-cname-record).
 
 ## <a name="private-certificate-requirements"></a>Requisitos de certificados privados
 
@@ -67,14 +67,14 @@ O Certificado Gerido pelo Serviço de Aplicações gratuito é uma solução cha
 - Não suporta registos DNS A.
 
 > [!NOTE]
-> O certificado gratuito é emitido pela DigiCert. Para alguns domínios de alto nível, deve permitir explicitamente a DigiCert como emitente de certificado, criando um registo de [domínio CAA](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) com o valor: `0 issue digicert.com`.
+> O certificado gratuito é emitido pela DigiCert. Para alguns domínios de alto nível, deve permitir explicitamente a DigiCert como `0 issue digicert.com`emitente de certificado, criando um registo de [domínio CAA](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) com o valor: .
 > 
 
 Para criar um Certificado gerido por serviço de aplicações gratuito:
 
-No <a href="https://portal.azure.com" target="_blank">portal Azure,</a>a partir do menu esquerdo, selecione **App Services** >  **\<app-name>** .
+No <a href="https://portal.azure.com" target="_blank">portal Azure</a>, a partir do menu esquerdo, selecione o**\<nome da aplicação ** **App Services** > >.
 
-A partir da navegação à esquerda da sua aplicação, selecione **definições TLS/SSL** > **Certificados de Chave Privadas (.pfx)**  > Criar Certificado Gerido pelo Serviço de **Aplicações**.
+A partir da navegação à esquerda da sua aplicação, selecione >  **Configurações TLS/SSL****Certificados de chave privados (.pfx)** > Criar certificado gerido pelo serviço de**aplicações**.
 
 ![Criar certificado gratuito no Serviço de Aplicações](./media/configure-ssl-certificate/create-free-cert.png)
 
@@ -116,7 +116,7 @@ Utilize a tabela seguinte para o ajudar a configurar o certificado. Quando termi
 | Definição | Descrição |
 |-|-|
 | Nome | Um nome amigável para o seu certificado de Serviço de Aplicações. |
-| Nome do anfitrião do domínio nu | Especifique o domínio raiz aqui. O certificado emitido assegura tanto o domínio radicular *como* o subdomínio `www`. No certificado emitido, o campo Nome Comum contém o domínio raiz, e o campo Nome Alternativo sujeito contém o domínio `www`. Para fixar apenas qualquer subdomínio, especifique aqui o nome de domínio totalmente qualificado do subdomínio (por exemplo, `mysubdomain.contoso.com`).|
+| Nome do anfitrião do domínio nu | Especifique o domínio raiz aqui. O certificado emitido assegura *tanto* o `www` domínio radicular como o subdomínio. No certificado emitido, o campo Nome Comum contém o domínio raiz, e o campo Nome Alternativo sujeito contém o `www` domínio. Para fixar apenas qualquer subdomínio, especifique o nome `mysubdomain.contoso.com`de domínio totalmente qualificado do subdomínio aqui (por exemplo, ).|
 | Subscrição | A subscrição que conterá o certificado. |
 | Grupo de recursos | O grupo de recursos que conterá o certificado. Pode utilizar um novo grupo de recursos ou selecionar o mesmo grupo de recursos que a sua app App Service, por exemplo. |
 | Certificado SKU | Determina o tipo de certificado a criar, seja um certificado padrão ou um [certificado wildcard.](https://wikipedia.org/wiki/Wildcard_certificate) |
@@ -126,7 +126,7 @@ Utilize a tabela seguinte para o ajudar a configurar o certificado. Quando termi
 
 Uma vez concluído o processo de compra do certificado, há mais alguns passos que precisa de completar antes de começar a usar este certificado. 
 
-Selecione o certificado na página de Certificados de Serviço de [Aplicações](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) e, em seguida, clique na **configuração** do certificado > **Passo 1: Armazenar**.
+Selecione o certificado na página de Certificados de Serviço de [Aplicações](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) e, em seguida, clique em Passo de **Configuração** > do Certificado**1: Armazenar**.
 
 ![Configure armazenamento chave vault do certificado de serviço de aplicações](./media/configure-ssl-certificate/configure-key-vault.png)
 
@@ -163,9 +163,9 @@ Selecione Verificação de **Serviço de Aplicações**. Uma vez que já mapeou 
 
 ### <a name="import-certificate-into-app-service"></a>Certificado de importação em Serviço de Aplicações
 
-No <a href="https://portal.azure.com" target="_blank">portal Azure,</a>a partir do menu esquerdo, selecione **App Services** >  **\<app-name>** .
+No <a href="https://portal.azure.com" target="_blank">portal Azure</a>, a partir do menu esquerdo, selecione o**\<nome da aplicação ** **App Services** > >.
 
-A partir da navegação à esquerda da sua aplicação, selecione **definições TLS/SSL** > **Certificados de Chave Privadas (.pfx)**  > Certificado de Serviço de **Aplicações de Importação**.
+A partir da navegação à esquerda da sua aplicação, selecione >  **Configurações TLS/SSL****Certificados de chave privadas (.pfx)** > Certificado de serviço de**aplicações de importação**.
 
 ![Certificado de serviço de aplicações de importação no Serviço de Aplicações](./media/configure-ssl-certificate/import-app-service-cert.png)
 
@@ -183,9 +183,9 @@ Quando a operação estiver concluída, consulte o certificado na lista de **Cer
 
 Se utilizar o Cofre de Chaves Azure para gerir os seus certificados, pode importar um certificado PKCS12 do Key Vault para o Serviço de Aplicações, desde que [satisfaça os requisitos](#private-certificate-requirements).
 
-No <a href="https://portal.azure.com" target="_blank">portal Azure,</a>a partir do menu esquerdo, selecione **App Services** >  **\<app-name>** .
+No <a href="https://portal.azure.com" target="_blank">portal Azure</a>, a partir do menu esquerdo, selecione o**\<nome da aplicação ** **App Services** > >.
 
-A partir da navegação à esquerda da sua aplicação, selecione **as definições TLS/SSL** > **Certificados de Chave Privadas (.pfx)**  > Certificado de Cofre de **Chave de Importação**.
+A partir da navegação à esquerda da sua aplicação, selecione >  **Configurações TLS/SSL****Certificados de chave privadas (.pfx)** > Certificado de cofre de**chave de importação**.
 
 ![Certificado de cofre de chave de importação no serviço de aplicações](./media/configure-ssl-certificate/import-key-vault-cert.png)
 
@@ -239,7 +239,7 @@ Crie um ficheiro para o certificado intercalado, denominado _mergedcertificate.c
 
 Exporte o certificado SSL intercalado com a chave privada com que o pedido de certificado foi gerado.
 
-Se tiver gerado o pedido de certificado com OpenSSL, significa que criou um ficheiro de chave privada. Para exportar o certificado para PFX, execute o seguinte comando. Substitua os marcadores de posição _&lt;private-key-file>_ e _&lt;merged-certificate-file>_ pelos caminhos para a chave privada e o ficheiro de certificado intercalado.
+Se tiver gerado o pedido de certificado com OpenSSL, significa que criou um ficheiro de chave privada. Para exportar o certificado para PFX, execute o seguinte comando. Substitua os _ &lt;porta-chaves-reservados>_ e _ &lt;>_ de ficheiros de certificados fundidos com os caminhos da sua chave privada e o seu ficheiro de certificado fundido.
 
 ```bash
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
@@ -253,9 +253,9 @@ Se tiver utilizado o IIS ou _Certreq.exe_ para gerar o pedido de certificado, in
 
 Está agora pronto para carregar o certificado para o Serviço de Aplicações.
 
-No <a href="https://portal.azure.com" target="_blank">portal Azure,</a>a partir do menu esquerdo, selecione **App Services** >  **\<app-name>** .
+No <a href="https://portal.azure.com" target="_blank">portal Azure</a>, a partir do menu esquerdo, selecione o**\<nome da aplicação ** **App Services** > >.
 
-A partir da navegação à esquerda da sua aplicação, selecione **definições TLS/SSL** > **Certificados de Chave Privadas (.pfx)**  > **Upload Certificate**.
+A partir da navegação à esquerda da sua aplicação, selecione >  **Configurações TLS/SSL****Certificados**de**chave privados (.pfx)** > Certificado de upload .
 
 ![Faça upload de certificado privado no Serviço de Aplicações](./media/configure-ssl-certificate/upload-private-cert.png)
 
@@ -273,9 +273,9 @@ Quando a operação estiver concluída, consulte o certificado na lista de **Cer
 
 Os certificados públicos são suportados no formato *.cer.* 
 
-No <a href="https://portal.azure.com" target="_blank">portal Azure,</a>a partir do menu esquerdo, selecione **App Services** >  **\<app-name>** .
+No <a href="https://portal.azure.com" target="_blank">portal Azure</a>, a partir do menu esquerdo, selecione o**\<nome da aplicação ** **App Services** > >.
 
-A partir da navegação à esquerda da sua aplicação, clique nas **definições tLS/SSL** > **Certificados Públicos (.cer)**  > **Carregar Certificado**de Chave Pública .
+A partir da navegação à esquerda da sua aplicação, clique em >  **definições TLS/SSL****Certificados públicos (.cer)** > **Carregar Certificado**de Chave Pública .
 
 Em **Nome,** digite um nome para o certificado. No **ficheiro Cer Certificate,** selecione o ficheiro CER.
 
@@ -291,7 +291,7 @@ Esta secção mostra-lhe como gerir um certificado de Serviço app que adquiriu 
 
 - [Certificado de rechave](#rekey-certificate)
 - [Renovar certificado](#renew-certificate)
-- [Certificado de exportação](#export-certificate)
+- [Exportar o certificado](#export-certificate)
 - [Excluir certificado](#delete-certificate)
 
 ### <a name="rekey-certificate"></a>Certificado de rechave
@@ -357,7 +357,7 @@ Encontre o cadeado no seu certificado com o tipo de bloqueio **Delete**. À dire
 
 ![Eliminar o bloqueio para o certificado de serviço de aplicações](./media/configure-ssl-certificate/delete-lock-app-service-cert.png)
 
-Agora pode eliminar o certificado de Serviço de Aplicações. A partir da navegação à esquerda, selecione **Visão geral** > **Eliminar**. No diálogo de confirmação, escreva o nome do certificado e selecione **OK**.
+Agora pode eliminar o certificado de Serviço de Aplicações. A partir da navegação à esquerda, selecione **Visão Geral** > **Delete**. No diálogo de confirmação, escreva o nome do certificado e selecione **OK**.
 
 ## <a name="automate-with-scripts"></a>Automatizar com scripts
 

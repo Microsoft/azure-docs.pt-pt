@@ -8,10 +8,10 @@ ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 03/01/2020
 ms.openlocfilehash: d39cf8745c6f53cb11bb12561fd452325fe52ac6
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79296953"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e rótulos de exportação 
@@ -44,7 +44,7 @@ Neste artigo, aprenderá a:
 * Os dados que pretende rotular, quer em ficheiros locais, quer no armazenamento de blob Azure.
 * O conjunto de etiquetas que pretende aplicar.
 * As instruções para a rotulagem.
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree) antes de começar.
+* Uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://aka.ms/AMLFree) antes de começar.
 * Um espaço de trabalho de Aprendizagem automática. Consulte Criar um espaço de [trabalho de aprendizagem automática Azure](how-to-manage-workspace.md).
 
 ## <a name="create-a-labeling-project"></a>Criar um projeto de rotulagem
@@ -74,15 +74,15 @@ Em muitos casos, não faz mal enviar ficheiros locais. Mas o [Azure Storage Expl
 
 Para criar um conjunto de dados a partir de dados que já armazenou no armazenamento da Blob Azure:
 
-1. Selecione **Criar um conjunto de dados** > A partir da **datastore**.
+1. Selecione **Criar um conjunto de** > dados**A partir da datastore**.
 1. Atribuir um **Nome** ao seu conjunto de dados.
 1. Escolha o **Ficheiro** como o **tipo dataset**.  
 1. Selecione a loja de dados.
 1. Se os seus dados estiverem numa subpasta dentro do seu armazenamento de blob, escolha **Navegar** para selecionar o caminho.
     * Apêndice "/**" ao caminho para incluir todos os ficheiros em subpastas do caminho selecionado.
-    * Apêndice "* */* .*" para incluir todos os dados do recipiente atual e das suas subpastas.
+    * Apêndice "**/*.*" para incluir todos os dados do recipiente atual e das suas subpastas.
 1. Forneça uma descrição para o seu conjunto de dados.
-1. Selecione **Seguinte**.
+1. Selecione **Next**.
 1. Confirme os detalhes. Selecione **Voltar** a modificar as definições ou **criar** para criar o conjunto de dados.
 
 > [!NOTE]
@@ -92,13 +92,13 @@ Para criar um conjunto de dados a partir de dados que já armazenou no armazenam
 
 Para fazer o upload direto dos seus dados:
 
-1. Selecione **Criar um conjunto de dados** > a partir de **ficheiros locais**.
+1. Selecione **Criar um conjunto** > de dados**a partir de ficheiros locais**.
 1. Atribuir um **Nome** ao seu conjunto de dados.
 1. Escolha "File" como **o tipo dataset**.
 1. *Opcional:* Selecione **configurações avançadas** para personalizar a loja de dados, o recipiente e o caminho para os seus dados.
 1. **Selecione Navegar** para selecionar os ficheiros locais para carregar.
 1. Forneça uma descrição do seu conjunto de dados.
-1. Selecione **Seguinte**.
+1. Selecione **Next**.
 1. Confirme os detalhes. Selecione **Voltar** a modificar as definições ou **criar** para criar o conjunto de dados.
 
 Os dados são enviados para a loja de blob padrão ("workspaceblobstore") do seu espaço de trabalho machine learning.
@@ -107,7 +107,7 @@ Os dados são enviados para a loja de blob padrão ("workspaceblobstore") do seu
 
 Na página de aulas do **Label,** especifique o conjunto de aulas para categorizar os seus dados. Faça-o com cuidado, porque a precisão e a velocidade dos seus rotuladores serão afetadas pela sua capacidade de escolher entre as classes. Por exemplo, em vez de soletrar todo o género e espécies para plantas ou animais, use um código de campo ou abreobre o género.
 
-Introduza uma etiqueta por linha. Utilize o botão **+** para adicionar uma nova linha. Se tiver mais de 3 ou 4 etiquetas mas menos de 10, pode querer prefixar os nomes com números ("1: ", "2: ") para que os rotuladores possam usar as teclas de número para acelerar o seu trabalho.
+Introduza uma etiqueta por linha. Utilize **+** o botão para adicionar uma nova linha. Se tiver mais de 3 ou 4 etiquetas mas menos de 10, pode querer prefixar os nomes com números ("1: ", "2: ") para que os rotuladores possam usar as teclas de número para acelerar o seu trabalho.
 
 ## <a name="describe-the-labeling-task"></a>Descreva a tarefa de rotulagem
 
@@ -196,9 +196,9 @@ Utilize estes passos para adicionar um ou mais rótulos a um projeto:
 
 1. Selecione o projeto na página principal de Rotulagem de **Dados.**
 1. No topo da página, selecione **Pause** para parar os rótulos da sua atividade.
-1. Selecione o separador **Detalhes.**
+1. Selecione o separador **Detalhes**.
 1. Na lista à esquerda, selecione Aulas de **Etiqueta**.
-1. No topo da lista, selecione **+ Adicionar Rótulos** ![Adicione uma etiqueta](media/how-to-create-labeling-projects/add-label.png)
+1. No topo da lista, selecione **+ Adicionar Rótulos** ![Adicione um rótulo](media/how-to-create-labeling-projects/add-label.png)
 1. Na forma, adicione a sua nova etiqueta e escolha como proceder.  Uma vez que mudou as etiquetas disponíveis para uma imagem, escolhe como tratar os dados já rotulados:
     * Comece de novo, removendo todos os rótulos existentes.  Escolha esta opção se quiser começar a rotular desde o início com o novo conjunto completo de etiquetas. 
     * Comece de novo, mantendo todos os rótulos existentes.  Escolha esta opção para marcar todos os dados como não rotulados, mas mantenha as etiquetas existentes como uma etiqueta padrão para imagens que foram previamente rotuladas.
@@ -214,7 +214,7 @@ O ficheiro COCO é criado na loja de blob padrão do espaço de trabalho Azure M
 
 ![Conjunto de dados exportado](./media/how-to-create-labeling-projects/exported-dataset.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Rotular imagens para [classificação de imagem ou deteção de objetos](how-to-label-images.md)
 * Saiba mais sobre [o Azure Machine Learning e o Machine Learning Studio (clássico)](compare-azure-ml-to-studio-classic.md)

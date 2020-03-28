@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Implantar um modelo de clustering em R'
+title: 'Tutorial: Implementar um modelo de clustering em R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: Na parte três desta série de tutoriais de três partes, você implantará um modelo de clustering em R com o banco de dados SQL do Azure Serviços de Machine Learning (versão prévia).
+description: Na terceira parte desta série tutorial em três partes, irá sacar um modelo de clustering em R com o Azure SQL Database Machine Learning Services (pré-visualização).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -13,44 +13,46 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
-ms.openlocfilehash: 6f4d237d5e923aab61ae34a235d2e1f759399e6d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: d67f007ac91d4830557a2cae646698b130b02314
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640918"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80345794"
 ---
-# <a name="tutorial-deploy-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Implantar um modelo de clustering em R com o banco de dados SQL do Azure Serviços de Machine Learning (versão prévia)
+# <a name="tutorial-deploy-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Implementar um modelo de clustering em R com Serviços de Machine Learning de Base de Dados Azure SQL (pré-visualização)
 
-Na parte três desta série de tutoriais de três partes, você implantará um modelo de clustering, desenvolvido em R, em um banco de dados SQL usando o banco de dados SQL do Azure Serviços de Machine Learning (versão prévia).
+Na terceira parte desta série tutorial em três partes, irá implantar um modelo de clustering, desenvolvido em R, numa base de dados SQL utilizando os Serviços de Machine Learning de Máquinas de Base de Dados Azure SQL (pré-visualização).
 
-Você criará um procedimento armazenado com um script R incorporado que executa clustering. Como o seu modelo é executado no banco de dados SQL do Azure, ele pode ser facilmente treinado em relação aos dados armazenados nele.
+[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-Neste artigo, você aprenderá a:
+Você vai criar um procedimento armazenado com um script R incorporado que executa clustering. Como o seu modelo executa na base de dados Azure SQL, pode ser facilmente treinado contra dados armazenados na base de dados.
+
+Neste artigo, aprenderá a:
 
 > [!div class="checklist"]
-> * Criar um procedimento armazenado que gera o modelo
-> * Executar clustering no banco de dados SQL
-> * Usar as informações de clustering
+> * Criar um procedimento armazenado que gere o modelo
+> * Executar clustering na Base de Dados SQL
+> * Utilize a informação de agrupamento
 
-Na [parte um](sql-database-tutorial-clustering-model-prepare-data.md), você aprendeu como preparar os dados de um banco de dado SQL do Azure para executar o clustering.
+Na [primeira parte,](sql-database-tutorial-clustering-model-prepare-data.md)aprendeu a preparar os dados a partir de uma base de dados Azure SQL para realizar o agrupamento.
 
-Na [parte dois](sql-database-tutorial-clustering-model-build.md), você aprendeu a criar e treinar um modelo de clustering K-means em R.
+Na [segunda parte,](sql-database-tutorial-clustering-model-build.md)aprendeste a criar e treinar um modelo de agrupamento K-Means em R.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A parte três desta série de tutoriais pressupõe que você concluiu a [**parte um**](sql-database-tutorial-clustering-model-prepare-data.md) e a [**parte dois**](sql-database-tutorial-clustering-model-build.md).
+* A terceira parte desta série tutorial pressupõe que tenha completado a [**parte um**](sql-database-tutorial-clustering-model-prepare-data.md) e a [**segunda parte.**](sql-database-tutorial-clustering-model-build.md)
 
-## <a name="create-a-stored-procedure-that-generates-the-model"></a>Criar um procedimento armazenado que gera o modelo
+## <a name="create-a-stored-procedure-that-generates-the-model"></a>Criar um procedimento armazenado que gere o modelo
 
-Execute o seguinte script T-SQL para criar o procedimento armazenado. O procedimento recria as etapas que você desenvolveu nas partes um e duas desta série de tutoriais:
+Executar o seguinte script T-SQL para criar o procedimento armazenado. O procedimento recria os passos que desenvolveu nas partes um e dois desta série tutorial:
 
-* classificar clientes com base em seu histórico de compras e de retorno
-* gerar quatro clusters de clientes usando um algoritmo K-means
+* classificar os clientes com base no seu histórico de compra e devolução
+* gerar quatro clusters de clientes usando um algoritmo K-Means
 
-O procedimento armazena os mapeamentos de cluster do cliente resultantes na tabela de banco de dados **customer_return_clusters**.
+O procedimento armazena os mapeamentos de cluster de clientes resultantes na tabela de **dados customer_return_clusters**.
 
 ```sql
 USE [tpcxbb_1gb]
@@ -175,9 +177,9 @@ END;
 GO
 ```
 
-## <a name="perform-clustering-in-sql-database"></a>Executar clustering no banco de dados SQL
+## <a name="perform-clustering-in-sql-database"></a>Executar clustering na Base de Dados SQL
 
-Agora que você criou o procedimento armazenado, execute o script a seguir para executar o clustering.
+Agora que criou o procedimento armazenado, execute o seguinte guião para executar o agrupamento.
 
 ```sql
 --Empty table of the results before running the stored procedure
@@ -188,7 +190,7 @@ TRUNCATE TABLE customer_return_clusters;
 EXECUTE [dbo].[generate_customer_return_clusters];
 ```
 
-Verifique se ele funciona e se realmente temos a lista de clientes e seus mapeamentos de cluster.
+Verifique se funciona e que temos realmente a lista de clientes e os seus mapeamentos de cluster.
 
 ```sql
 --Select data from table customer_return_clusters
@@ -206,11 +208,11 @@ cluster  customer  orderRatio  itemsRatio  monetaryRatio  frequency
 2        32549     0           0           0.031281       4
 ```
 
-## <a name="use-the-clustering-information"></a>Usar as informações de clustering
+## <a name="use-the-clustering-information"></a>Utilize a informação de agrupamento
 
-Como você armazenou o procedimento de clustering no banco de dados, ele pode realizar o clustering com eficiência em relação ao cliente armazenado no mesmo banco de dado. Você pode executar o procedimento sempre que os dados do cliente são atualizados e usar as informações de clustering atualizadas.
+Como armazenou o procedimento de clustering na base de dados, pode realizar um agrupamento de forma eficiente contra os dados do cliente armazenados na mesma base de dados. Pode executar o procedimento sempre que os dados do seu cliente forem atualizados e utilizar as informações de clusteratualizadas atualizadas.
 
-Suponha que você deseja enviar um email promocional aos clientes no cluster 3, o grupo que tem um comportamento de retorno mais ativo (você pode ver como os quatro clusters foram descritos na [parte dois](sql-database-tutorial-clustering-model-build.md#analyze-the-results)). O código a seguir seleciona os endereços de email de clientes no cluster 3.
+Suponha que queira enviar um e-mail promocional aos clientes do cluster 3, o grupo que tem um comportamento de retorno mais ativo (pode ver como os quatro clusters foram descritos na [segunda parte](sql-database-tutorial-clustering-model-build.md#analyze-the-results)). O código seguinte seleciona os endereços de e-mail dos clientes no cluster 3.
 
 ```sql
 USE [tpcxbb_1gb]
@@ -222,30 +224,30 @@ JOIN [dbo].[customer_return_clusters] AS r ON r.customer = customer.c_customer_s
 WHERE r.cluster = 3
 ```
 
-Você pode alterar o valor de **r. cluster** para retornar endereços de email para clientes em outros clusters.
+Pode alterar o valor do **r.cluster** para devolver endereços de e-mail para clientes de outros clusters.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando tiver concluído este tutorial, você poderá excluir o banco de dados tpcxbb_1gb do seu servidor de banco de dados SQL do Azure.
+Quando terminar este tutorial, pode eliminar a base de dados tpcxbb_1gb do seu servidor de base de dados Azure SQL.
 
-No portal do Azure, siga estas etapas:
+A partir do portal Azure, siga estes passos:
 
-1. No menu à esquerda na portal do Azure, selecione **todos os recursos** ou bancos de **dados SQL**.
-1. No campo **Filtrar por nome...** , insira **tpcxbb_1gb**e selecione sua assinatura.
-1. Selecione o banco de dados **tpcxbb_1gb** .
+1. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** ou bases de dados **SQL**.
+1. No **campo Filter por nome...** introduza **tpcxbb_1gb,** e selecione a sua subscrição.
+1. Selecione a sua base de dados **tpcxbb_1gb.**
 1. Na página **Descrição geral**, selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Na parte três desta série de tutoriais, você concluiu estas etapas:
+Na terceira parte desta série tutorial, completou estes passos:
 
-* Criar um procedimento armazenado que gera o modelo
-* Executar clustering no banco de dados SQL
-* Usar as informações de clustering
+* Criar um procedimento armazenado que gere o modelo
+* Executar clustering na Base de Dados SQL
+* Utilize a informação de agrupamento
 
-Para saber mais sobre como usar o R no banco de dados SQL do Azure Serviços de Machine Learning (versão prévia), consulte:
+Para saber mais sobre a utilização de R em Azure SQL Database Machine Learning Services (pré-visualização), consulte:
 
-* [Tutorial: Preparar dados para treinar um modelo de previsão em R com o banco de dados SQL do Azure Serviços de Machine Learning (versão prévia)](sql-database-tutorial-predictive-model-prepare-data.md)
-* [Escrever funções de R avançadas no banco de dados SQL do Azure usando Serviços de Machine Learning (versão prévia)](sql-database-machine-learning-services-functions.md)
-* [Trabalhar com dados de R e SQL no banco de Serviços de Machine Learning SQL do Azure (versão prévia)](sql-database-machine-learning-services-data-issues.md)
-* [Adicionar um pacote do R ao Serviços de Machine Learning do banco de dados SQL do Azure (versão prévia)](sql-database-machine-learning-services-add-r-packages.md)
+* [Tutorial: Prepare dados para treinar um modelo preditivo em R com serviços de machine learning de base de dados Azure SQL (pré-visualização)](sql-database-tutorial-predictive-model-prepare-data.md)
+* [Escreva funções R avançadas na Base de Dados Azure SQL utilizando serviços de aprendizagem automática (pré-visualização)](sql-database-machine-learning-services-functions.md)
+* [Trabalhar com dados R e SQL nos Serviços de Machine Learning de Base de Dados Azure SQL (pré-visualização)](sql-database-machine-learning-services-data-issues.md)
+* [Adicione um pacote R aos Serviços de Machine Learning de Máquinas de Base de Dados Azure SQL (pré-visualização)](sql-database-machine-learning-services-add-r-packages.md)

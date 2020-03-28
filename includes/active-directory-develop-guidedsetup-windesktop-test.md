@@ -15,10 +15,10 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: f121be4ec8c3d3ab618e2955d9dbd8ab5eea461d
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "79129128"
 ---
 ## <a name="test-your-code"></a>Teste o seu código
@@ -39,11 +39,11 @@ A primeira vez que inscreveu a sua candidatura, também é solicitado a dar cons
 
 ### <a name="view-application-results"></a>Ver resultados da aplicação
 
-Depois de iniciar sessão, deverá consultar as informações de perfil do utilizador que são devolvidas pela chamada para a Microsoft Graph API. Os resultados são apresentados na caixa de Resultados de **Chamada API.** As informações básicas sobre o símbolo que foi adquirido através da chamada para `AcquireTokenInteractive` ou `AcquireTokenSilent` devem ser visíveis na caixa **Token Info.** Os resultados contêm as seguintes propriedades:
+Depois de iniciar sessão, deverá consultar as informações de perfil do utilizador que são devolvidas pela chamada para a Microsoft Graph API. Os resultados são apresentados na caixa de Resultados de **Chamada API.** Informações básicas sobre o símbolo que `AcquireTokenInteractive` foi `AcquireTokenSilent` adquirido através da chamada para ou devem ser visíveis na caixa **Token Info.** Os resultados contêm as seguintes propriedades:
 
 |Propriedade  |Formato  |Descrição |
 |---------|---------|---------|
-|**Nome de Utilizador** |<span>user@domain.com</span> |O nome de utilizador utilizado para identificar o utilizador.|
+|**Nome de utilizador** |<span>user@domain.com</span> |O nome de utilizador utilizado para identificar o utilizador.|
 |**Token Expira** |DateTime |O tempo em que o símbolo expira. A MSAL prolonga a data de validade renovando o símbolo conforme necessário.|
 
 
@@ -52,7 +52,7 @@ Depois de iniciar sessão, deverá consultar as informações de perfil do utili
 
 O Microsoft Graph API requer que o *utilizador.leia* o âmbito para ler o perfil de um utilizador. Este âmbito é automaticamente adicionado por padrão em todas as aplicações registadas no Portal de Registo de Aplicações. Outras APIs para o Microsoft Graph, bem como APIs personalizadas para o seu servidor back-end, podem requerer âmbitos adicionais. A Microsoft Graph API requer os *Calendários.Leia* o âmbito para listar os calendários do utilizador.
 
-Para aceder aos calendários do utilizador no contexto de uma aplicação, adicione os *Calendários.Leia* a permissão delegada à informação de registo de aplicações. Em seguida, adicione os *Calendários.Leia* o âmbito à chamada `acquireTokenSilent`.
+Para aceder aos calendários do utilizador no contexto de uma aplicação, adicione os *Calendários.Leia* a permissão delegada à informação de registo de aplicações. Em seguida, adicione os *Calendários.Leia* o âmbito da `acquireTokenSilent` chamada.
 
 >[!NOTE]
 >O utilizador pode ser solicitado para obter consentimentos adicionais à medida que aumenta o número de âmbitos.

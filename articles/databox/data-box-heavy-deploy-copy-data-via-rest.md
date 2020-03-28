@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 43f6404a483cad8377e70591f5454180f0dd07a6
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 9f3ba0a7e9f7cf72b0eade16679d980fe2207f98
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560342"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80297214"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutorial: Copiar dados para armazenamento de blob de caixa de dados Azure através de APIs REST  
 
@@ -90,19 +90,19 @@ Cada um destes passos é descrito nas seguintes secções.
 
 Utilize o portal Azure para descarregar certificado.
 
-1. Assine no portal Azure.
-2. Vá à sua encomenda da Caixa de Dados e navegue para **detalhes gerais > dispositivos**.
-3. Sob **as credenciais do Dispositivo,** aceda ao acesso da **API** ao dispositivo. Clique em **Transferir**. Esta ação descarrega um\<ficheiro de certificado **sinuoso>.cer.** **Guarde** este ficheiro. Irá instalar este certificado no cliente ou no computador anfitrião que utilizará para se ligar ao dispositivo.
+1. Inicie sessão no portal do Azure.
+2. Vá à sua encomenda da Caixa de Dados e navegue para **detalhes do Dispositivo > Geral**.
+3. Sob **as credenciais do Dispositivo,** aceda ao acesso da **API** ao dispositivo. Clique em **Baixar**. Esta ação descarrega um ** \<ficheiro de certificado>.cer.** **Guarde** este ficheiro. Irá instalar este certificado no cliente ou no computador anfitrião que utilizará para se ligar ao dispositivo.
 
     ![Certificado de descarregamento no portal Azure](media/data-box-deploy-copy-data-via-rest/download-cert-1.png)
  
-### <a name="import-certificate"></a>Importar certificado 
+### <a name="import-certificate"></a>Importar o certificado 
 
-Aceder ao armazenamento de Caixa de Dados Blob em HTTPS requer um certificado SSL para o dispositivo. A forma como este certificado é disponibilizado à aplicação do cliente varia de aplicação para aplicação e através de sistemas operativos e distribuições. Alguns pedidos podem aceder ao certificado depois de importados para o certificado do sistema, enquanto outros pedidos não utilizam esse mecanismo.
+Aceder ao armazenamento de Caixa de Dados Blob em HTTPS requer um certificado TLS/SSL para o dispositivo. A forma como este certificado é disponibilizado à aplicação do cliente varia de aplicação para aplicação e através de sistemas operativos e distribuições. Alguns pedidos podem aceder ao certificado depois de importados para o certificado do sistema, enquanto outros pedidos não utilizam esse mecanismo.
 
 Nesta secção são mencionadas informações específicas sobre algumas aplicações. Para obter mais informações sobre outras aplicações, consulte a documentação para a aplicação e o sistema operativo utilizado.
 
-Siga estes passos para importar o ficheiro `.cer` para o armazém raiz de um cliente Windows ou Linux. Num sistema Windows, pode utilizar o Windows PowerShell ou o Windows Server UI para importar e instalar o certificado no seu sistema.
+Siga estes passos `.cer` para importar o ficheiro para o armazém raiz de um cliente Windows ou Linux. Num sistema Windows, pode utilizar o Windows PowerShell ou o Windows Server UI para importar e instalar o certificado no seu sistema.
 
 #### <a name="use-windows-powershell"></a>Utilizar o Windows PowerShell
 
@@ -115,7 +115,7 @@ Siga estes passos para importar o ficheiro `.cer` para o armazém raiz de um cli
 
 #### <a name="use-windows-server-ui"></a>Utilizar o Windows Server UI
 
-1.  Clique no ficheiro `.cer` e selecione **Instalar o certificado**. Esta ação inicia o Certificado De Import Wizard.
+1.  Clique no `.cer` ficheiro e selecione **'Instalar certificado**'. Esta ação inicia o Certificado De Import Wizard.
 2.  Para **armazenar a localização,** selecione **Local Machine**, e, em seguida, clique em **Seguinte**.
 
     ![Certificado de importação usando powerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
@@ -135,14 +135,14 @@ O método de importação de um certificado varia por distribuição.
 > [!IMPORTANT]
 > Para data box heavy, você precisa repetir todas as instruções de ligação para ligar ao segundo nó.
 
-Vários, como Ubuntu e Debian, usam o comando `update-ca-certificates`.  
+Vários, como Ubuntu e Debian, usam o `update-ca-certificates` comando.  
 
-- Mude o nome do ficheiro de certificado codificado Base64 para ter uma extensão `.crt` e copiá-lo para o `/usr/local/share/ca-certificates directory`.
-- Executar o comando `update-ca-certificates`.
+- Mude o nome do ficheiro de certificado codificado Base64 para ter uma `.crt` extensão e copiá-lo para o `/usr/local/share/ca-certificates directory`.
+- Execute o comando `update-ca-certificates`.
 
-Versões recentes de RHEL, Fedora e CentOS usam o comando `update-ca-trust`.
+Versões recentes de RHEL, Fedora `update-ca-trust` e CentOS usam o comando.
 
-- Copie o ficheiro de certificado no diretório `/etc/pki/ca-trust/source/anchors`.
+- Copie o ficheiro `/etc/pki/ca-trust/source/anchors` de certificado para o diretório.
 - Execute `update-ca-trust`.
 
 Consulte a documentação específica da sua distribuição para obter mais detalhes.
@@ -208,9 +208,9 @@ Utilize o AzCopy para fazer o upload de todos os ficheiros numa pasta para o arm
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
 
 
-Substitua `<key>` com a chave da conta. Para obter a chave da sua conta, no portal Azure, vá à sua conta de armazenamento. Vá a **Definições > Teclas**de acesso, selecione uma tecla e cole-a no comando AzCopy.
+Substitua-a `<key>` pela chave da sua conta. Para obter a chave da sua conta, no portal Azure, vá à sua conta de armazenamento. Vá para **Definições > Teclas de acesso,** selecione uma tecla e cole-a no comando AzCopy.
 
-Se o contentor de destino especificado não existir, o AzCopy cria-o e carrega o ficheiro para o mesmo. Atualize o caminho de origem para o seu diretório de dados e substitua `data-box-storage-account-name` no URL de destino com o nome da conta de armazenamento associada à sua Caixa de Dados.
+Se o contentor de destino especificado não existir, o AzCopy cria-o e carrega o ficheiro para o mesmo. Atualize o caminho de origem para `data-box-storage-account-name` o seu diretório de dados e substitua no URL de destino com o nome da conta de armazenamento associada à sua Caixa de Dados.
 
 Para carregar o conteúdo do diretório especificado para o armazenamento de Blobs recursivamente, especifique a opção `--recursive` (Linux) ou `/S` (Windows). Quando executar o AzCopy com uma destas opções, todas as subpastas e respetivos ficheiros são também carregados.
 

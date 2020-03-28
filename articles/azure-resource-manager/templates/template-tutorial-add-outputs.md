@@ -2,19 +2,19 @@
 title: Tutorial - adicione saídas ao modelo
 description: Adicione saídas ao seu modelo de Gestor de Recursos Azure para simplificar a sintaxe.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 407a90827e856471fda33d57a14f56aefaedafc0
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 5d8966c492bd77eaa4d18c8a8b9ac524b8864027
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79370785"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371750"
 ---
-# <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>Tutorial: Adicione saídas ao seu modelo de Gestor de Recursos
+# <a name="tutorial-add-outputs-to-your-arm-template"></a>Tutorial: Adicione saídas ao seu modelo ARM
 
-Neste tutorial, aprende-se a devolver um valor ao seu modelo. Utiliza-se saídas quando se precisa de um valor a partir de um recurso implantado. Este tutorial leva **7 minutos** para ser concluído.
+Neste tutorial, aprende a devolver um valor do seu modelo de Gestor de Recursos Azure (ARM). Utiliza-se saídas quando se precisa de um valor a partir de um recurso implantado. Este tutorial leva **7 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -63,7 +63,9 @@ New-AzResourceGroupDeployment `
   -storageSKU Standard_LRS
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Para executar este comando de implantação, deve ter a [versão mais recente](/cli/azure/install-azure-cli) do Azure CLI.
 
 ```azurecli
 az deployment group create \
@@ -94,7 +96,7 @@ Fizeste muito nos últimos seis tutoriais. Vamos rever o que fez. Criou um model
 
 Agora, vamos olhar para o grupo de recursos e o histórico de implantação.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. A partir do menu esquerdo, selecione **Grupos de Recursos**.
 1. Selecione o grupo de recursos para o quais foi implantado.
 1. Dependendo dos passos que fez, deve ter pelo menos uma e talvez várias contas de armazenamento no grupo de recursos.
@@ -124,10 +126,10 @@ Se está saindo para o próximo tutorial, não precisa de apagar o grupo de recu
 
 Se estás a parar agora, talvez queiras limpar os recursos que implantaste ao apagar o grupo de recursos.
 
-1. No portal do Azure, selecione **Grupo de recursos** no menu à esquerda.
+1. A partir do portal Azure, selecione **Grupo Recurso** do menu esquerdo.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
 3. Selecione o nome do grupo de recursos.
-4. Selecione **Eliminar grupo de recursos** no menu superior.
+4. **Selecione Eliminar** o grupo de recursos do menu superior.
 
 ## <a name="next-steps"></a>Passos seguintes
 

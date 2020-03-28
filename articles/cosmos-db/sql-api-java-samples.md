@@ -9,10 +9,10 @@ ms.topic: sample
 ms.date: 02/08/2019
 ms.author: sngun
 ms.openlocfilehash: 8b133f0044bdf8f99fdee657177d561ef5bb406b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79238483"
 ---
 # <a name="azure-cosmos-db-java-examples-for-the-sql-api"></a>Azure Cosmos DB: Exemplos Java para a API SQL
@@ -23,15 +23,15 @@ ms.locfileid: "79238483"
 > * [Exemplos de Java](sql-api-java-samples.md)
 > * [Exemplos de Async Java](sql-api-async-java-samples.md)
 > * [Exemplos de Node.js](sql-api-nodejs-samples.md)
-> * [Exemplos de Python](sql-api-python-samples.md)
-> * [Galeria de Exemplos de Código do Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
+> * [Exemplos python](sql-api-python-samples.md)
+> * [Galeria de Exemplo de Código do Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
 
 Estão incluídas as mais recentes aplicações de exemplo que executam operações CRUD e outras operações comuns em recursos do Azure Cosmos DB no repositório do GitHub [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java). Este artigo fornece:
 
 * Ligações para as tarefas em cada um dos ficheiros do projeto de Java de exemplo. 
-* Ligações para o conteúdo relacionado de referência da API.
+* Ligações para o conteúdo de referência da API relacionada.
 
 **Pré-requisitos**
 
@@ -41,7 +41,7 @@ Estão incluídas as mais recentes aplicações de exemplo que executam operaç�
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-Precisa do seguinte para executar este exemplo de aplicação:
+Precisa do seguinte apra executar esta aplicação de exemplo:
 
 * Kit de desenvolvimento do Java 7
 * SDK do Java do DocumentDB do Microsoft Azure
@@ -69,7 +69,7 @@ Pode executar os exemplos com o Eclipse ou a partir da linha de comandos com o M
 
 Para executar a partir do Eclipse:
 * Carregue o ficheiro pom.xml do projeto principal no Eclipse; ele deve carregar automaticamente exemplos do documentdb.
-* Para executar os exemplos, precisa de um Ponto Final válido do Azure Cosmos DB. Os pontos finais são lidos a partir de `src/test/java/com/microsoft/azure/documentdb/examples/AccountCredentials.java`.
+* Para executar os exemplos, precisa de um Ponto Final válido do Azure Cosmos DB. Os pontos finais são lidos de `src/test/java/com/microsoft/azure/documentdb/examples/AccountCredentials.java`.
 * Pode transmitir as suas credenciais de ponto final como argumentos de VM na Configuração de Execução do Eclipse JUnit ou pode colocar as suas credenciais de ponto final no AccountCredentials.java.
     ```bash
     -DACCOUNT_HOST="https://REPLACE_THIS.documents.azure.com:443/" -DACCOUNT_KEY="REPLACE_THIS"
@@ -84,7 +84,7 @@ Para executar a partir da linha de comandos:
     ```
 
    > [!NOTE]
-   > Cada amostra é independente, configura-se automaticamente e limpa-se em seguida. Os exemplos emitem várias chamadas para [DocumentClient.createCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient.createcollection). Cada vez que isto é feito, a sua subscrição é cobrada por 1 hora de utilização pelo escalão de desempenho da coleção criada. 
+   > Cada amostra é independente, configura-se automaticamente e limpa-se em seguida. As amostras emitem várias chamadas para [DocumentClient.createCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient.createcollection). Cada vez que isto é feito, a sua subscrição é cobrada por 1 hora de utilização pelo escalão de desempenho da coleção criada. 
    > 
    > 
 

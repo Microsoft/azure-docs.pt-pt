@@ -1,6 +1,6 @@
 ---
-title: Carregar grandes quantidades de dados aleatórios em paralelo no armazenamento do Azure
-description: Saiba como usar a biblioteca de cliente de armazenamento do Azure para carregar grandes quantidades de dados aleatórios em paralelo a uma conta de armazenamento do Azure
+title: Faça upload de grandes quantidades de dados aleatórios em paralelo ao Armazenamento Azure
+description: Saiba como usar a biblioteca de clientes do Azure Storage para carregar grandes quantidades de dados aleatórios em paralelo a uma conta de Armazenamento Azure
 author: roygara
 ms.service: storage
 ms.topic: tutorial
@@ -8,10 +8,10 @@ ms.date: 10/08/2019
 ms.author: rogarana
 ms.subservice: blobs
 ms.openlocfilehash: dd87e1a9bcff55813dff420976df58351386fb34
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75371943"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Carregar grandes quantidades de dados aleatórios em paralelo para o armazenamento do Azure
@@ -26,13 +26,13 @@ Na segunda parte da série, saiba como:
 > * Executar a aplicação
 > * Validar o número de ligações
 
-O armazenamento de blobs do Azure proporciona um serviço dimensionável para armazenar os dados. Para garantir que a aplicação tem o melhor desempenho possível, recomenda-se uma compreensão sobre como funciona o armazenamento de blobs. O conhecimento dos limites dos BLOBs do Azure é importante, para saber mais sobre esses limites, visite: [escalabilidade e metas de desempenho para o armazenamento de BLOBs](../blobs/scalability-targets.md).
+O armazenamento de blobs do Azure proporciona um serviço dimensionável para armazenar os dados. Para garantir que a aplicação tem o melhor desempenho possível, recomenda-se uma compreensão sobre como funciona o armazenamento de blobs. O conhecimento dos limites para as bolhas Azure é importante, para saber mais sobre estes limites visita: Escalabilidade e metas de [desempenho para armazenamento blob](../blobs/scalability-targets.md).
 
-A [nomenclatura de partição](../blobs/storage-performance-checklist.md#partitioning) é outro fator potencialmente importante ao criar um aplicativo de alto desempenho usando BLOBs. Para tamanhos de bloco maiores ou iguais a 4 MiB, [blobs de blocos de alta taxa de transferência](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) são usados e a nomenclatura de partição não afetará o desempenho. Para tamanhos de bloco inferiores a 4 MiB, o armazenamento do Azure usa um esquema de particionamento baseado em intervalo para dimensionar e balancear a carga. Esta configuração significa que os ficheiros com as convenções de nomenclatura ou prefixos semelhantes vão para a mesma partição. Esta lógica inclui o nome do contentor para o qual os ficheiros estão a ser carregados. Neste tutorial, utilize os ficheiros que tenham GUIDs como nomes, bem como conteúdo gerado aleatoriamente. Em seguida, são carregados para cinco contentores com nomes aleatórios diferentes.
+[O nome da partilha](../blobs/storage-performance-checklist.md#partitioning) é outro fator potencialmente importante ao conceber uma aplicação de alto desempenho usando bolhas. Para tamanhos de blocos superiores ou iguais a 4 MiB, são [utilizadas bolhas de bloco de alta potência](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) e o nome ação da partição não terá impacto no desempenho. Para tamanhos de blocos inferiores a 4 MiB, o armazenamento Azure utiliza um esquema de partição baseado em gama para escalar e carregar o equilíbrio. Esta configuração significa que os ficheiros com as convenções de nomenclatura ou prefixos semelhantes vão para a mesma partição. Esta lógica inclui o nome do contentor para o qual os ficheiros estão a ser carregados. Neste tutorial, utilize os ficheiros que tenham GUIDs como nomes, bem como conteúdo gerado aleatoriamente. Em seguida, são carregados para cinco contentores com nomes aleatórios diferentes.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você deve ter concluído o tutorial de armazenamento anterior: [criar uma máquina virtual e uma conta de armazenamento para um aplicativo escalonável][previous-tutorial].
+Para concluir este tutorial, tem de concluir o tutorial de armazenamento anterior: [Criar uma máquina virtual e uma conta de armazenamento para uma aplicação dimensionável][previous-tutorial].
 
 ## <a name="remote-into-your-virtual-machine"></a>Aceder remotamente à máquina virtual
 
@@ -44,7 +44,7 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="configure-the-connection-string"></a>Configurar a cadeia de ligação
 
-No portal do Azure, navegue para a sua conta de armazenamento. Selecione **Chaves de acesso**, em **Definições**, na conta de armazenamento. Copie a **cadeia de ligação** da chave primária ou secundária. Inicie sessão na máquina virtual criada no tutorial anterior. Abra uma **Linha de Comandos** como um administrador e execute o comando `setx` com o comutador `/m`, este comando guarda uma variável de ambiente de definição do computador. A variável de ambiente não está disponível enquanto não recarregar a **Linha de Comandos**. Substitua **\<storageConnectionString\>** no exemplo seguinte:
+No portal do Azure, navegue para a sua conta de armazenamento. Selecione **Chaves de acesso**, em **Definições**, na conta de armazenamento. Copie a **cadeia de ligação** da chave primária ou secundária. Inicie sessão na máquina virtual criada no tutorial anterior. Abra uma **Linha de Comandos** como um administrador e execute o comando `setx` com o comutador `/m`, este comando guarda uma variável de ambiente de definição do computador. A variável de ambiente não está disponível enquanto não recarregar a **Linha de Comandos**. Substitua ** \<o\> armazenamentoConnectionString** na seguinte amostra:
 
 ```
 setx storageconnectionstring "<storageConnectionString>" /m
@@ -68,10 +68,10 @@ Além de configurar as definições de threading e de ligação, as [BlobRequest
 
 |Propriedade|Valor|Descrição|
 |---|---|---|
-|[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)| 8| A definição divide o blob em blocos ao carregar. Para obter o melhor desempenho, esse valor deve ser oito vezes o número de núcleos. |
+|[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)| 8| A definição divide o blob em blocos ao carregar. Para o maior desempenho, este valor deve ser oito vezes superior ao número de núcleos. |
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| Esta propriedade desativa a verificação do hash MD5 do conteúdo carregado. Desativar a validação MD5 permite uma transferência mais rápida. Mas não confirma a validade nem a integridade dos ficheiros que estão a ser transferidos.   |
 |[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| Esta propriedade determina se um hash MD5 é calculado e armazenado com o ficheiro.   |
-| [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy)| Término de 2 segundos com máximo de 10 repetições |Determina a política de repetição dos pedidos. As falhas de ligação são repetidas, neste exemplo, uma política[ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry) é configurada com um término de 2 segundos e uma contagem de repetições máxima de 10. Essa configuração é importante quando seu aplicativo fica perto de atingir as metas de escalabilidade para o armazenamento de BLOBs. Para obter mais informações, consulte [escalabilidade e metas de desempenho para o armazenamento de BLOBs](../blobs/scalability-targets.md).  |
+| [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy)| Término de 2 segundos com máximo de 10 repetições |Determina a política de repetição dos pedidos. As falhas de ligação são repetidas, neste exemplo, uma política[ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry) é configurada com um término de 2 segundos e uma contagem de repetições máxima de 10. Esta definição é importante quando a sua aplicação está perto de atingir os alvos de escalabilidade para armazenamento Blob. Para obter mais informações, consulte [a escalabilidade e os objetivos](../blobs/scalability-targets.md)de desempenho para o armazenamento blob .  |
 
 A tarefa `UploadFilesAsync` é mostrada no exemplo seguinte:
 

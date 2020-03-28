@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Criar uma instância de Serviços de Domínio de Diretório Ativo Azure  Microsoft Docs
+title: Tutorial - Criar uma instância de Serviços de Domínio de Diretório Ativo Azure [ Microsoft Docs
 description: Neste tutorial, aprende-se a criar e configurar uma instância de Serviços de Domínio de Diretório Ativo Azure e especifica opções avançadas de configuração utilizando o portal Azure.
 author: iainfoulds
 manager: daveba
@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: iainfou
 ms.openlocfilehash: f6817c1ec308e75a4af88825d46848b504775e19
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239148"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Tutorial: Crie e configure uma instância de Serviços de Domínio de Diretório Ativo Azure com opções avançadas de configuração
@@ -56,7 +56,7 @@ Neste tutorial, cria e configura a instância Azure AD DS utilizando o portal Az
 
 Para lançar o assistente enable **Azure AD Domain Services,** complete os seguintes passos:
 
-1. No menu do portal Azure ou na página **Inicial,** selecione **Criar um recurso**.
+1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**.
 1. Insira *os Serviços de Domínio* na barra de pesquisa e, em seguida, escolha os Serviços de Domínio *Azure AD* a partir das sugestões de pesquisa.
 1. Na página de Serviços de Domínio AD Azure, selecione **Criar**. O assistente **enable Azure AD Domain Services** é lançado.
 1. Selecione a **Subscrição** Azure na qual deseja criar o domínio gerido.
@@ -151,7 +151,7 @@ O assistente cria automaticamente o grupo *de administradores aAD DC* no seu dir
 1. Se desejar, altere ou adicione destinatários adicionais para notificações quando houver alertas no domínio gerido pelo Azure AD DS que requerem atenção.
 1. Quando estiver pronto, escolha **Seguinte - Sincronização**.
 
-## <a name="configure-synchronization"></a>Sincronização de configurar
+## <a name="configure-synchronization"></a>Configurar a sincronização
 
 O Azure AD DS permite sincronizar *todos os* utilizadores e grupos disponíveis em Azure AD, ou uma sincronização *de* apenas grupos específicos. Se optar por sincronizar *todos os* utilizadores e grupos, não poderá optar mais tarde por realizar apenas uma sincronização com âmbito de aplicação. Para obter mais informações sobre a sincronização por via geminada, consulte a [sincronização de sincronização dos Serviços de Domínio da AD Azure.][scoped-sync]
 
@@ -213,7 +213,7 @@ Antes de um utilizador poder redefinir a sua palavra-passe, o inquilino DaD Azur
 
 Para alterar a palavra-passe para um utilizador apenas na nuvem, o utilizador deve completar os seguintes passos:
 
-1. Aceda à página do Painel de Acesso AD Azure na [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. Aceda à página do Painel [https://myapps.microsoft.com](https://myapps.microsoft.com)de Acesso AD Azure em .
 1. No canto superior direito, selecione o seu nome e, em seguida, escolha **o Perfil** a partir do menu suspenso.
 
     ![Selecionar perfil](./media/tutorial-create-instance-advanced/select-profile.png)

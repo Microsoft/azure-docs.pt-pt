@@ -16,13 +16,13 @@ ms.date: 05/14/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 1b67522834497a264d95fc9b80246b16841d6026
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67594231"
 ---
-# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutorial: Adicionar a CDN do Azure para uma aplicação web do serviço de aplicações do Azure
+# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutorial: Adicionar a CDN do Azure a uma aplicação Web do Serviço de Aplicações do Azure
 
 Este tutorial mostra como adicionar a [Rede de Entrega de Conteúdo (CDN) do Azure](cdn-overview.md) a uma [aplicação Web no Serviço de Aplicações do Azure](../app-service/overview.md). As Aplicações Web são um serviço para o alojamento de aplicações Web, APIs REST e back-ends móveis. 
 
@@ -43,7 +43,7 @@ O que irá aprender:
 Para concluir este tutorial:
 
 - [Instalar o Git](https://git-scm.com/)
-- [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -75,8 +75,8 @@ Na página **Azure Content Delivery Network**(Rede de Entrega de Conteúdos do A
 | Definição | Valor sugerido | Descrição |
 | ------- | --------------- | ----------- |
 | **Perfil da CDN** | myCDNProfile | Um perfil da CDN é uma coleção de pontos finais da CDN com o mesmo escalão de preços. |
-| **Escalão de preço** | Standard da Akamai | O [escalão de preço](cdn-features.md) especifica o fornecedor e as funcionalidades disponíveis. Este tutorial utiliza o *Standard da Akamai*. |
-| **Nome do ponto final da CDN** | Qualquer nome que é exclusivo no domínio azureedge.net | Aceda aos seus recursos em cache no domínio *&lt;endpointname&gt;* .azureedge.net.
+| **Nível de preços** | Standard da Akamai | O [escalão de preço](cdn-features.md) especifica o fornecedor e as funcionalidades disponíveis. Este tutorial utiliza o *Standard da Akamai*. |
+| **Nome do ponto final da CDN** | Qualquer nome que é exclusivo no domínio azureedge.net | Acede aos seus recursos em cache no * &lt;nome&gt;final*de domínio .azureedge.net.
 
 Selecione **Criar** para criar um perfil de CDN.
 
@@ -256,7 +256,7 @@ Para obter mais informações, consulte [Control Azure CDN caching behavior with
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 O que aprendeu:
 
@@ -268,6 +268,6 @@ O que aprendeu:
 Saiba como otimizar o desempenho da CDN nos seguintes artigos:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md) (Adicionar um domínio personalizado ao ponto final da CDN do Azure)
+> [Tutorial: Adicionar um domínio personalizado ao ponto final da CDN do Azure](cdn-map-content-to-custom-domain.md)
 
 

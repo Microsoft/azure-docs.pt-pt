@@ -1,5 +1,5 @@
 ---
-title: Tutorial – implantar a lâmpada em uma máquina virtual do Linux no Azure
+title: Tutorial - Desloque a LÂMPADA numa máquina virtual Linux em Azure
 description: Neste tutorial, vai aprender a instalar a pilha LAMP numa máquina virtual do Linux no Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 3b1f4ef9d4e36c35cc72716125392aaff05eab6d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 2a636ae5609d9cb5c81782af5a419a27d7880106
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034461"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80154377"
 ---
 # <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Instalar um servidor Web da LAMP numa máquina virtual do Linux no Azure
 
@@ -35,9 +35,9 @@ Este artigo explica como implementar um servidor Web Apache, o MySQL e o PHP (pi
 
 Esta configuração é para testes rápidos ou uma prova de conceito. Para obter mais informações sobre a pilha LAMP, incluindo as recomendações para um ambiente de produção, veja a [Documentação do Ubuntu](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
-Este tutorial usa a CLI dentro do [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que é constantemente atualizado para a versão mais recente. Para abrir o Cloud Shell, selecione **Experimente** na parte superior de qualquer bloco de código.
+Este tutorial utiliza o CLI dentro da [Cloud Shell Azure,](https://docs.microsoft.com/azure/cloud-shell/overview)que é constantemente atualizada para a versão mais recente. Para abrir a Cloud Shell, selecione **Experimente a** partir do topo de qualquer bloco de código.
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
 
@@ -55,7 +55,7 @@ sudo apt update && sudo apt install lamp-server^
 ## <a name="verify-installation-and-configuration"></a>Verificar a instalação e a configuração
 
 
-### <a name="verify-apache"></a>Verificar Apache
+### <a name="verify-apache"></a>Verifique apache
 
 Verifique a versão do Apache com o seguinte comando:
 ```bash
@@ -75,13 +75,13 @@ Verifique a versão do MySQL com o seguinte comando (tenha em atenção o parâm
 mysql -V
 ```
 
-Para ajudar a proteger a instalação do MySQL, incluindo a definição de uma senha raiz, execute o script `mysql_secure_installation`. 
+Para ajudar a proteger a instalação do MySQL, incluindo a definição de uma palavra-passe de raiz, executar o `mysql_secure_installation` script. 
 
 ```bash
 sudo mysql_secure_installation
 ```
 
-Opcionalmente, você pode configurar o plug-in de validação de senha (recomendado). Em seguida, defina uma senha para o usuário raiz do MySQL e defina as configurações de segurança restantes para o seu ambiente. Recomendamos que você responda "Y" (Sim) a todas as perguntas.
+Pode configurar opcionalmente o Validar Password Plugin (recomendado). Em seguida, detete uma palavra-passe para o utilizador raiz MySQL e configure as restantes definições de segurança para o seu ambiente. Recomendamos que responda "Y" (sim) a todas as perguntas.
 
 Se pretender experimentar funcionalidades do MySQL (criar uma base de dados MySQL, adicionar utilizadores ou alterar as definições de configuração), inicie sessão no MySQL. Este passo não é necessário para concluir este tutorial.
 
@@ -122,10 +122,10 @@ Neste tutorial, implementou um servidor LAMP no Azure. Aprendeu a:
 > * Verificar a instalação e a configuração
 > * Instalar o WordPress no servidor LAMP
 
-Avance para o tutorial seguinte para aprender a proteger os servidores Web com certificados SSL.
+Avance para o próximo tutorial para aprender a proteger servidores web com certificados TLS/SSL.
 
 > [!div class="nextstepaction"]
-> [Proteger o servidor Web com SSL](tutorial-secure-web-server.md)
+> [Servidor web seguro com TLS](tutorial-secure-web-server.md)
 
 [2]: ./media/tutorial-lamp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lamp-stack/apachesuccesspage.png

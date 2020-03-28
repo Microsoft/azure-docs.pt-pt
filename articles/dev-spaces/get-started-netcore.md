@@ -4,13 +4,13 @@ services: azure-dev-spaces
 ms.date: 09/26/2018
 ms.topic: tutorial
 description: Este tutorial mostra-lhe como usar o Azure Dev Spaces e o Visual Studio Code para depurar e iterar rapidamente uma aplicação .NET Core no Serviço Azure Kubernetes
-keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
-ms.openlocfilehash: 306e1c7a43ddd10faa0a537d567257fe95336c23
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
+ms.openlocfilehash: d4078113f93159ef981a78a9917ed65bd03a304b
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942503"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80240557"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Crie um espaço de v Kubernetes: Visual Studio Code e .NET Core com Espaços Azure Dev
 
@@ -34,7 +34,7 @@ az login
 ```
 
 > [!Note]
-> Se não tiver uma subscrição do Azure, pode [criar uma conta gratuita](https://azure.microsoft.com/free).
+> Se não tiver uma subscrição Azure, pode criar uma [conta gratuita.](https://azure.microsoft.com/free)
 
 #### <a name="if-you-have-multiple-azure-subscriptions"></a>Se tiver várias subscrições do Azure...
 Pode ver as suas subscrições ao executar: 
@@ -75,13 +75,13 @@ Introduza o seguinte comando da CLI do Azure com o grupo de recursos que contém
    ```
    
 > [!IMPORTANT]
-> O processo de configuração dos Espaços Azure Dev removerá o espaço de nome `azds` no cluster, se existir.
+> O processo de configuração dos `azds` Espaços Azure Dev removerá o espaço de nome no cluster, se existir.
 
 ## <a name="get-kubernetes-debugging-for-vs-code"></a>Depurar o Kubernetes para o VS Code
 Estão disponíveis funcionalidades avançadas, como a depuração do Kubernetes, para programadores de .NET Core e o Node.js com o VS Code.
 
 1. Se não tiver, instale o [VS Code](https://code.visualstudio.com/Download).
-1. Descarregue e instale os [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) espaços vs [Azure Dev](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) e extensões. Para cada extensão, clique em instalar na página marketplace da extensão e novamente no Código VS.
+1. Descarregue e instale as extensões [VS Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) e [C#.](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) Para cada extensão, clique em instalar na página marketplace da extensão e novamente no Código VS.
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Criar uma aplicação Web em execução num contentor
 
@@ -106,7 +106,7 @@ O comando `azds prep` da CLI do Azure gera recursos do Docker e Kubernetes com a
 * Um [gráfico Helm](https://docs.helm.sh) em `./charts/webfrontend` descreve como implementar o contentor no Kubernetes.
 
 > [!TIP]
-> O [gráfico Dockerfile e Helm](how-dev-spaces-works.md#prepare-your-code) para o seu projeto é usado pela Azure Dev Spaces para construir e executar o seu código, mas pode modificar estes ficheiros se quiser alterar a forma como o projeto é construído e executado.
+> O [gráfico Dockerfile e Helm](how-dev-spaces-works-prep.md#prepare-your-code) para o seu projeto é usado pela Azure Dev Spaces para construir e executar o seu código, mas pode modificar estes ficheiros se quiser alterar a forma como o projeto é construído e executado.
 
 Por enquanto, não é necessário entender o conteúdo completo desses ficheiros. No entanto, importa realçar que **os mesmos recursos de configuração como código do Kubernetes e do Docker podem ser utilizados do desenvolvimento à produção, dando maior consistência em diferentes ambientes.**
  
@@ -130,7 +130,7 @@ Fique de olho no resultado do comando, vai reparar em várias coisas à medida q
 > Estes passos vão demorar mais tempo quando o comando `up` é executado pela primeira vez, mas as execuções seguintes deverão ser mais rápidas.
 
 ### <a name="test-the-web-app"></a>Testar a aplicação Web
-A digitalização da saída da consola para a *aplicação começou* a mensagem, confirmando que o comando `up` já terminou:
+Scaneie a saída da consola para `up` a mensagem iniciada pela *Aplicação,* confirmando que o comando já terminou:
 
 ```
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
@@ -151,20 +151,20 @@ webfrontend-5798f9dc44-99fsd: Now listening on: http://[::]:80
 webfrontend-5798f9dc44-99fsd: Application started. Press Ctrl+C to shut down.
 ```
 
-Identifique o URL público para o serviço na saída a partir do comando `up`. Termina em `.azds.io`. No exemplo acima, o URL público é `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
+Identifique o URL público para o `up` serviço na saída a partir do comando. Acaba em. `.azds.io` No exemplo acima, o `http://webfrontend.1234567890abcdef1234.eus.azds.io/`URL público é .
 
-Para ver a sua aplicação web, abra o URL público num browser. Além disso, note `stdout` e `stderr` saída é transmitida para a janela de rastreio de *azds* enquanto interage com a sua aplicação web. Também verá informações de rastreio para pedidos HTTP à medida que passam pelo sistema. Isto facilita-lhe o rastreio de chamadas complexas de vários serviços durante o desenvolvimento. A instrumentação adicionada pela Dev Spaces fornece este rastreio de pedido.
+Para ver a sua aplicação web, abra o URL público num browser. Além `stdout` disso, o aviso e `stderr` a saída são transmitidos para a janela de rastreio de *azds* enquanto interage com a sua aplicação web. Também verá informações de rastreio para pedidos HTTP à medida que passam pelo sistema. Isto facilita-lhe o rastreio de chamadas complexas de vários serviços durante o desenvolvimento. A instrumentação adicionada pela Dev Spaces fornece este rastreio de pedido.
 
 ![azds janela terminal de traço](media/get-started-netcore/azds-trace.png)
 
 
 > [!Note]
-> Além do URL público, pode utilizar o URL alternativo `http://localhost:<portnumber>` que é apresentado na saída da consola. Se utilizar o URL de anfitrião local, poderá parecer que o contentor está a ser executado localmente, contudo, está a ser executado no AKS. A Azure Dev Spaces utiliza a funcionalidade kubernetes *para* mapear o porto de acolhimento local para o contentor que funciona em AKS. Isto facilita a interação com o serviço da sua máquina local.
+> Além do URL público, pode `http://localhost:<portnumber>` utilizar o URL alternativo que é apresentado na saída da consola. Se utilizar o URL de anfitrião local, poderá parecer que o contentor está a ser executado localmente, contudo, está a ser executado no AKS. A Azure Dev Spaces utiliza a funcionalidade kubernetes *para* mapear o porto de acolhimento local para o contentor que funciona em AKS. Isto facilita a interação com o serviço da sua máquina local.
 
 ### <a name="update-a-content-file"></a>Atualizar um ficheiro de conteúdo
 O Azure Dev Spaces não se limita apenas a pôr o código em execução no Kubernetes. Tem que ver com permitir-lhe ver, de forma rápida e iterativa, as alterações ao código serem aplicadas num ambiente do Kubernetes na cloud.
 
-1. Localize o ficheiro `./Views/Home/Index.cshtml` e faça uma edição ao HTML. Por exemplo, alterar [a linha 73 que lê `<h2>Application uses</h2>`](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73) a algo como: 
+1. Localize o ficheiro `./Views/Home/Index.cshtml` e faça uma edição ao HTML. Por exemplo, alterar [a `<h2>Application uses</h2>` linha 73 que lê](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73) para algo como: 
 
     ```html
     <h2>Hello k8s in Azure!</h2>
@@ -251,7 +251,7 @@ Atualize a aplicação Web no browser e aceda à página About (Sobre). Deverá 
 
 **Agora, tem um método para iterar rapidamente no código e depurar diretamente no Kubernetes.** Em seguida, irá ver como pode criar e chamar um segundo contentor.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Conheça o desenvolvimento de vários serviços](multi-service-netcore.md)

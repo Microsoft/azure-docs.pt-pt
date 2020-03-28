@@ -11,10 +11,10 @@ ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
 ms.openlocfilehash: aa90655ecb14abe38ec8fdfc6c18e7d292abbef3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79238679"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Treine o seu primeiro modelo ML
@@ -23,7 +23,7 @@ ms.locfileid: "79238679"
 
 Este tutorial é a **segunda parte de uma série composta por duas partes**. No tutorial anterior, [criou-se um espaço de trabalho e escolheu um ambiente](tutorial-1st-experiment-sdk-setup.md)de desenvolvimento. Neste tutorial, você aprende os padrões de design fundacional em Azure Machine Learning, e treina um modelo simples de aprendizagem de scikit com base no conjunto de dados da diabetes. Depois de concluir este tutorial, terá o conhecimento prático do SDK para escalar até desenvolver experiências e fluxos de trabalho mais complexos.
 
-Neste tutorial, aprende-se as seguintes tarefas:
+Neste tutorial, irá aprender as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Conecte o seu espaço de trabalho e crie uma experiência
@@ -55,7 +55,7 @@ Nesta parte do tutorial, você executa o código na amostra de tutoriais de cade
 > Mude para o caderno Jupyter agora se quiser ler enquanto executa o código. 
 > Para executar uma única célula de código num caderno, clique na célula de código e clique no **Shift+Enter**. Ou, executar todo o caderno escolhendo **Executar tudo** a partir da barra de ferramentas superior.
 
-Importe a classe `Workspace` e carregue as suas informações de subscrição a partir do ficheiro `config.json` utilizando a função `from_config().` Este procura o ficheiro JSON no diretório atual por padrão, mas também pode especificar um parâmetro de percurso para apontar para o ficheiro usando `from_config(path="your/file/path")`. Num servidor de portátil em nuvem, o ficheiro encontra-se automaticamente no diretório raiz.
+Importe `Workspace` a classe e carregue as `config.json` suas `from_config().` informações de subscrição a partir do ficheiro utilizando a função Isto procura o ficheiro `from_config(path="your/file/path")`JSON no diretório atual por padrão, mas também pode especificar um parâmetro de percurso para apontar para o ficheiro utilizando . Num servidor de portátil em nuvem, o ficheiro encontra-se automaticamente no diretório raiz.
 
 Se o código seguinte pedir autenticação adicional, basta colar o link num browser e introduzir o símbolo de autenticação.
 
@@ -122,12 +122,12 @@ for alpha in alphas:
 
 O código acima realiza o seguinte:
 
-1. Para cada valor de hiperparâmetro alfa na matriz de `alphas`, uma nova execução é criada dentro da experiência. O valor alfa é registado para diferenciar entre cada corrida.
+1. Para cada valor de hiperparâmetro alfa na `alphas` matriz, uma nova execução é criada dentro da experiência. O valor alfa é registado para diferenciar entre cada corrida.
 1. Em cada corrida, um modelo Ridge é instantâneo, treinado e usado para executar previsões. O erro quadrado-raiz-médio é calculado para os valores reais versus previstos, e depois registrado na execução. Neste ponto, a execução tem metadados anexados tanto para o valor alfa como para a precisão rmse.
 1. Em seguida, o modelo para cada execução é serializado e carregado para a execução. Isto permite-lhe descarregar o ficheiro modelo a partir da execução no portal.
-1. No final de cada iteração, a corrida é completada chamando `run.complete()`.
+1. No final de cada iteração a `run.complete()`corrida é completada através da chamada .
 
-Depois de concluída a formação, ligue para a variável `experiment` para obter um link para a experiência no portal.
+Depois de concluído o treino, ligue para a `experiment` variável para obter um link para a experiência no portal.
 
 ```python
 experiment
@@ -137,13 +137,13 @@ experiment
 
 ## <a name="view-training-results-in-portal"></a>Ver resultados de formação no portal
 
-Seguir o **portal Link to Azure** leva-o à página principal de experiências. Aqui você vê todos os indivíduos corre na experiência. Quaisquer valores registados sob medida (`alpha_value` e `rmse`, neste caso) tornam-se campos para cada corrida, e também ficam disponíveis para os gráficos e azulejos no topo da página de experimentação. Para adicionar uma métrica registada a um gráfico ou azulejo, paire sobre ele, clique no botão de edição e encontre a sua métrica personalizada.
+Seguir o **portal Link to Azure** leva-o à página principal de experiências. Aqui você vê todos os indivíduos corre na experiência. Quaisquer valores personalizados `rmse`(e,`alpha_value` neste caso) tornam-se campos para cada corrida, e também ficam disponíveis para os gráficos e azulejos no topo da página de experimentação. Para adicionar uma métrica registada a um gráfico ou azulejo, paire sobre ele, clique no botão de edição e encontre a sua métrica personalizada.
 
 Quando os modelos de treino em escala ao longo de centenas e milhares de runs separados, esta página torna fácil ver todos os modelos que treinou, especificamente como foram treinados, e como as suas métricas únicas mudaram ao longo do tempo.
 
 ![Página principal de experimentação no Portal](./media/tutorial-1st-experiment-sdk-train/experiment-main.png)
 
-Clicar num link de número de execução na coluna `RUN NUMBER` leva-o à página para cada execução individual. O separador predefinido **Detalhes** mostram-lhe informações mais detalhadas em cada execução. Navegue para o separador **Outputs** e veja o ficheiro `.pkl` para o modelo que foi carregado para a execução durante cada iteração de treino. Aqui pode descarregar o ficheiro modelo, em vez de ter de o retreinar manualmente.
+Clicar num link de número `RUN NUMBER` de execução na coluna leva-o à página para cada execução individual. O separador predefinido **Detalhes** mostram-lhe informações mais detalhadas em cada execução. Navegue para o separador **Saídas** e veja o `.pkl` ficheiro do modelo que foi carregado para a execução durante cada iteração de treino. Aqui pode descarregar o ficheiro modelo, em vez de ter de o retreinar manualmente.
 
 ![Executar página de detalhes no Portal](./media/tutorial-1st-experiment-sdk-train/model-download.png)
 
@@ -177,7 +177,7 @@ print("Best run_id rmse: " + str(minimum_rmse))
     Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
     Best run_id rmse: 57.234760283951765
 
-Utilize o id de melhor execução para obter a execução individual usando o `Run` construtor juntamente com o objeto de experiência. Em seguida, ligue para `get_file_names()` para ver todos os ficheiros disponíveis para download a partir desta execução. Neste caso, só fez o upload de um ficheiro para cada corrida durante o treino.
+Utilize o id de melhor execução `Run` para obter a execução individual usando o construtor juntamente com o objeto de experiência. Em `get_file_names()` seguida, ligue para ver todos os ficheiros disponíveis para download a partir desta execução. Neste caso, só fez o upload de um ficheiro para cada corrida durante o treino.
 
 ```python
 from azureml.core import Run
@@ -187,7 +187,7 @@ print(best_run.get_file_names())
 
     ['model_alpha_0.1.pkl']
 
-Ligue `download()` no objeto de execução, especificando o nome do ficheiro do modelo para descarregar. Por predefinição, esta função descarrega para o diretório atual.
+Ligue `download()` para o objeto de execução, especificando o nome do ficheiro do modelo para descarregar. Por predefinição, esta função descarrega para o diretório atual.
 
 ```python
 best_run.download_file(name="model_alpha_0.1.pkl")
@@ -207,7 +207,7 @@ Não complete esta secção se planeia executar outros tutoriais de Aprendizagem
 
 Também pode manter o grupo de recursos, mas eliminar um único espaço de trabalho. Mostrar as propriedades do espaço de trabalho e selecionar **Apagar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, fez as seguintes tarefas:
 

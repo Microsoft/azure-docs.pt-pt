@@ -1,17 +1,17 @@
 ---
-title: Tutorial-preparar imagem de contêiner para implantação
-description: Tutorial de instâncias de contêiner do Azure, parte 1 de 3-preparar um aplicativo em uma imagem de contêiner para implantação em instâncias de contêiner do Azure
+title: Tutorial - Preparar imagem de recipiente para implantação
+description: Azure Container Instances tutorial parte 1 de 3 - Prepare uma aplicação em imagem de contentor para implantação em Instâncias de Contentores Azure
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 487dca97dc47bf214bedf38f44b2d29a71567cbb
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74533333"
 ---
-# <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Tutorial: criar uma imagem de contêiner para implantação em instâncias de contêiner do Azure
+# <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Tutorial: Criar uma imagem de contentor para implantação em Instâncias de Contentores Azure
 
 O Azure Container Instances permite a implementação de contentores do Docker na infraestrutura do Azure sem que seja necessário aprovisionar máquinas virtuais ou adotar serviços de nível superior. Neste tutorial, vai compactar uma aplicação Web pequena em Node.js e numa imagem de contentor que pode ser executada com o Azure Container Instances.
 
@@ -30,7 +30,7 @@ Nas partes dois e três do tutorial, vai carregar a imagem para o Azure Containe
 
 ## <a name="get-application-code"></a>Obter o código da aplicação
 
-O aplicativo de exemplo neste tutorial é um aplicativo Web simples criado no [node. js][nodejs]. A aplicação serve uma página HTML estática e é semelhante à captura de ecrã seguinte:
+O exemplo de aplicação neste tutorial é uma aplicação Web simples criada em [Node.js][nodejs]. A aplicação serve uma página HTML estática e é semelhante à captura de ecrã seguinte:
 
 ![Tutorial de aplicação mostrada no browser][aci-tutorial-app]
 
@@ -40,11 +40,11 @@ Utilizar o Git para clonar o repositório do exemplo de aplicação:
 git clone https://github.com/Azure-Samples/aci-helloworld.git
 ```
 
-Você também pode [baixar o arquivo zip][aci-helloworld-zip] do GitHub diretamente.
+Também pode [transferir o arquivo ZIP][aci-helloworld-zip] a partir diretamente do GitHub.
 
 ## <a name="build-the-container-image"></a>Criar a imagem do contentor
 
-O Dockerfile no exemplo de aplicação mostra como é que o contentor é criado. Ele inicia de uma [imagem oficial do node. js][docker-hub-nodeimage] com base no [Alpine Linux][alpine-linux], uma distribuição pequena que é adequada para uso com contêineres. Em seguida, copia os ficheiros da aplicação para o contentor, instala as dependências com o Node Package Manager e, por fim, inicia a aplicação.
+O Dockerfile no exemplo de aplicação mostra como é que o contentor é criado. Começa com uma [imagem Node.js oficial][docker-hub-nodeimage] baseada em [Alpine Linux][alpine-linux], uma pequena distribuição adequada para utilização com contentores. Em seguida, copia os ficheiros da aplicação para o contentor, instala as dependências com o Node Package Manager e, por fim, inicia a aplicação.
 
 ```Dockerfile
 FROM node:8.9.3-alpine
@@ -55,13 +55,13 @@ RUN npm install
 CMD node /usr/src/app/index.js
 ```
 
-Use o comando [Docker Build][docker-build] para criar a imagem de contêiner e marcá-la como *ACI-tutorial-app*:
+Utilize o comando [docker build][docker-build] para criar a imagem de contentor e identifique-a como *aci-tutorial-app*:
 
 ```bash
 docker build ./aci-helloworld -t aci-tutorial-app
 ```
 
-A saída do comando de [Build do Docker][docker-build] é semelhante ao seguinte (truncado para facilitar a leitura):
+O resultado do comando [docker build][docker-build] é semelhante ao seguinte (truncado para legibilidade):
 
 ```console
 $ docker build ./aci-helloworld -t aci-tutorial-app
@@ -83,7 +83,7 @@ Successfully built 6edad76d09e9
 Successfully tagged aci-tutorial-app:latest
 ```
 
-Use o comando [Docker images][docker-images] para ver a imagem interna:
+Utilize o comando [docker images][docker-images] para ver a imagem incorporada:
 
 ```bash
 docker images
@@ -99,7 +99,7 @@ aci-tutorial-app    latest    5c745774dfa9    39 seconds ago    68.1 MB
 
 ## <a name="run-the-container-locally"></a>Executar o contentor localmente
 
-Antes de implantar o contêiner nas instâncias de contêiner do Azure, use o [Docker Run][docker-run] para executá-lo localmente e confirme se ele funciona. O comutador `-d` permite que o contentor seja executado em segundo plano, ao passo que, com `-p`, pode mapear uma porta arbitrária do computador para a porta 80 do contentor.
+Antes de implementar o contentor no Azure Container Instances, utilize [docker run][docker-run] para executá-lo localmente e confirmar que funciona. O comutador `-d` permite que o contentor seja executado em segundo plano, ao passo que, com `-p`, pode mapear uma porta arbitrária do computador para a porta 80 do contentor.
 
 ```bash
 docker run -d -p 8080:80 aci-tutorial-app

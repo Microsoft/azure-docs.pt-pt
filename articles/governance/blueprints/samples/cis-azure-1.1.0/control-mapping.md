@@ -1,462 +1,462 @@
 ---
-title: Controles de exemplo de plano de referência do CIS Microsoft Azure Foundations
-description: Mapeamento de recomendação do exemplo de plano de referência do CIS Microsoft Azure Foundations para Azure Policy.
+title: CIS Microsoft Azure Foundations Benchmark controlos de amostras de projeto
+description: Mapeamento de recomendações da amostra de projeto de referência da CIS Microsoft Azure Foundations para a Política Azure.
 ms.date: 11/04/2019
 ms.topic: sample
 ms.openlocfilehash: 34d38f34dcd4233706f9b4578bc2dc2a644e4c2c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74707415"
 ---
-# <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Mapeamento de recomendação da amostra Blueprint de benchmark do Microsoft Azure Foundations do CIS
+# <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Mapeamento de recomendações da amostra de projeto de referência da CIS Microsoft Azure Foundations
 
-O artigo a seguir fornece detalhes sobre como a amostra do plano gráfico de benchmark do Azure Microsoft Azure Foundations do CIS é mapeada para as recomendações de benchmark Microsoft Azure Foundations. Para obter mais informações sobre as recomendações, consulte [CIS Microsoft Azure Foundations benchmark](https://www.cisecurity.org/benchmark/azure/).
+O seguinte artigo detalha como o Azure Blueprints CIS Microsoft Azure Foundations Benchmark mapeia os mapas da amostra de referência do CIS Microsoft Azure Foundations Benchmark. Para obter mais informações sobre as recomendações, consulte o [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/).
 
-Os mapeamentos a seguir são para as recomendações de **benchmark v 1.1.0 do Microsoft Azure Foundations do CIS** . Use a navegação à direita para ir diretamente para um mapeamento de recomendação específico.
-Muitas das recomendações mapeadas são implementadas com uma iniciativa de [Azure Policy](../../../policy/overview.md) . Para examinar a iniciativa completa, abra a **política** no portal do Azure e selecione a página **definições** . Em seguida, localize e selecione as **recomendações de\[visualização\] Audit CIS Microsoft Azure Foundations benchmark v 1.1.0 e implante extensões de VM específicas para dar suporte** à iniciativa de política interna de requisitos de auditoria.
+Os seguintes mapeamentos são para as recomendações **de Referência v1.1.0 da CIS Microsoft Azure Foundations.** Utilize a navegação à direita para saltar diretamente para um mapeamento de recomendação específico.
+Muitas das recomendações mapeadas são implementadas com uma iniciativa da [Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra a **Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione as ** \[recomendações de\] Referência de Referência cIS Microsoft Azure Foundations Benchmark v1.1.0 e implemente extensões vm específicas para apoiar os requisitos** de auditoria iniciativa política incorporada.
 
 > [!IMPORTANT]
-> Cada controle abaixo é associado a uma ou mais definições de [Azure Policy](../../../policy/overview.md) . Essas políticas podem ajudá-lo a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle; no entanto, muitas vezes não há uma correspondência completa ou 1:1 entre um controle e uma ou mais políticas. Como tal, em **conformidade** com Azure Policy refere-se apenas às próprias políticas; Isso não garante que você esteja totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição de Azure Policy no momento. Portanto, a conformidade em Azure Policy é apenas uma visão parcial do seu status de conformidade geral. As associações entre controles e definições de Azure Policy para esta amostra do Blueprint de conformidade podem mudar ao longo do tempo. Para exibir o histórico de alterações, consulte o [histórico de confirmação do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/cis-azure-1.1.0/control-mapping.md).
+> Cada controlo abaixo está associado a uma ou mais definições de [Política Azure.](../../../policy/overview.md) Estas políticas podem ajudá-lo a avaliar o [cumprimento](../../../policy/how-to/get-compliance-data.md) do controlo; no entanto, muitas vezes não há um 1:1 ou um jogo completo entre um controlo e uma ou mais políticas. Como tal, **a política do** Azure refere-se apenas às próprias políticas; isto não garante que esteja totalmente em conformidade com todos os requisitos de um controlo. Além disso, a norma de conformidade inclui controlos que não são abordados por quaisquer definições de Política Azure neste momento. Portanto, o cumprimento na Política Azure é apenas uma visão parcial do seu estado de conformidade geral. As associações entre controlos e definições de Política Azure para esta amostra de plano de conformidade podem mudar ao longo do tempo. Para ver a história da mudança, consulte o [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/cis-azure-1.1.0/control-mapping.md).
 
-## <a name="11-ensure-that-multi-factor-authentication-is-enabled-for-all-privileged-users"></a>1,1 garantir que a autenticação multifator esteja habilitada para todos os usuários privilegiados
+## <a name="11-ensure-that-multi-factor-authentication-is-enabled-for-all-privileged-users"></a>1.1 Certifique-se de que a autenticação multifactor está ativada para todos os utilizadores privilegiados
 
-Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que ajudam a monitorar quando a autenticação multifator não está habilitada em contas com privilégios de Azure Active Directory.
+Este projeto atribui definições de [Política Azure](../../../policy/overview.md) que o ajudam a monitorizar quando a autenticação de vários fatores não está ativada em contas privilegiadas do Diretório Ativo Azure.
 
-- A MFA deve ser habilitada em contas com permissões de proprietário em sua assinatura
-- A MFA deve ser habilitada em contas com permissões de gravação em sua assinatura
+- MFA deve ser ativado em contas com permissões do proprietário na sua subscrição
+- MFA deve ser ativado em contas com permissões de escrita na sua subscrição
 
-## <a name="12-ensure-that-multi-factor-authentication-is-enabled-for-all-non-privileged-users"></a>1,2 garantir que a autenticação multifator esteja habilitada para todos os usuários sem privilégios
+## <a name="12-ensure-that-multi-factor-authentication-is-enabled-for-all-non-privileged-users"></a>1.2 Certifique-se de que a autenticação multifactor está ativada para todos os utilizadores não privilegiados
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a monitorar quando a autenticação multifator não está habilitada em contas de Azure Active Directory sem privilégios.
+Este projeto atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a monitorizar quando a autenticação de vários fatores não está ativada em contas de Diretório Ativo Azure não privilegiadas.
 
-- A MFA deve ser habilitada em contas com permissões de leitura em sua assinatura
+- MFA deve ser ativado em contas com permissões de leitura na sua subscrição
 
-## <a name="13-ensure-that-there-are-no-guest-users"></a>1,3 Verifique se não há usuários convidados
+## <a name="13-ensure-that-there-are-no-guest-users"></a>1.3 Certifique-se de que não há utilizadores convidados
 
-Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que ajudam a monitorar as contas de convidado que podem precisar ser removidas.
+Esta planta atribui definições de [Política Azure](../../../policy/overview.md) que o ajudam a monitorizar as contas dos hóspedes que podem necessitar de ser removidas.
 
-- Contas externas com permissões de proprietário devem ser removidas da sua assinatura
-- Contas externas com permissões de leitura devem ser removidas da sua assinatura
+- As contas externas com permissões do proprietário devem ser removidas da sua subscrição
+- As contas externas com permissões de leitura devem ser removidas da sua subscrição
 - As contas externas com permissões de escrita devem ser removidas da sua subscrição
 
-## <a name="123-ensure-that-no-custom-subscription-owner-roles-are-created"></a>1,23 garantir que nenhuma função de proprietário de assinatura personalizada seja criada
+## <a name="123-ensure-that-no-custom-subscription-owner-roles-are-created"></a>1.23 Certifique-se de que não são criadas funções personalizadas do proprietário da subscrição
 
-Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que ajudam a monitorar as funções de proprietário de assinatura personalizadas que podem precisar ser removidas.
+Esta planta atribui definições de [Política Azure](../../../policy/overview.md) que o ajudam a monitorizar para funções personalizadas do proprietário de subscrição que possam necessitar de ser removidas.
 
-- Funções de proprietário de assinatura personalizadas não devem existir
+- Funções personalizadas do proprietário da subscrição não devem existir
 
-## <a name="21-ensure-that-standard-pricing-tier-is-selected"></a>2,1 garantir que o tipo de preço Standard esteja selecionado
+## <a name="21-ensure-that-standard-pricing-tier-is-selected"></a>2.1 Certifique-se de que o nível de preços padrão é selecionado
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a monitorar redes e máquinas virtuais em que a camada Standard da central de segurança não está habilitada.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a monitorizar redes e máquinas virtuais onde o nível padrão do Centro de Segurança não está ativado.
 
- - A camada de preços Standard da central de segurança deve ser selecionada
+ - Nível de preços padrão do Centro de Segurança deve ser selecionado
 
-## <a name="22-ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>2,2 Verifique se ' provisionamento automático do agente de monitoramento ' está definido como ' on '
+## <a name="22-ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>2.2 Assegurar que o "fornecimento automático do agente de monitorização" está definido para 'On'
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que o provisionamento automático do agente de log Analytics esteja habilitado.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que o fornecimento automático do agente Log Analytics está ativado.
 
-- O provisionamento automático do agente de monitoramento de Log Analytics deve ser habilitado em sua assinatura
+- O fornecimento automático do agente de monitorização Log Analytics deve ser ativado na sua subscrição
 
-## <a name="23-ensure-asc-default-policy-setting-monitor-system-updates-is-not-disabled"></a>2,3 Verifique se a configuração de política padrão ASC "monitorar atualizações do sistema" não está "desabilitada"
+## <a name="23-ensure-asc-default-policy-setting-monitor-system-updates-is-not-disabled"></a>2.3 Garantir que a definição da definição da política padrão ASC "Monitor System Updates" não é "Desativada"
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que as atualizações do sistema sejam instaladas em máquinas virtuais.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que as atualizações do sistema são instaladas em máquinas virtuais.
 
-- As atualizações do sistema devem ser instaladas em seus computadores
+- As atualizações de sistema devem ser instaladas nos seus computadores
 
-## <a name="24-ensure-asc-default-policy-setting-monitor-os-vulnerabilities-is-not-disabled"></a>2,4 Verifique se a configuração de política padrão ASC "monitorar vulnerabilidades do sistema operacional" não está "desabilitada"
+## <a name="24-ensure-asc-default-policy-setting-monitor-os-vulnerabilities-is-not-disabled"></a>2.4 Garantir que a definição da política padrão ASC "Monitor os as vulnerabilidades" não é "Desativada"
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a monitorar vulnerabilidades de máquina virtual unremediated.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a monitorizar vulnerabilidades de máquinas virtuais não remediadas.
 
-- Vulnerabilidades na configuração de segurança em seus computadores devem ser corrigidas
+- As vulnerabilidades na configuração de segurança das suas máquinas devem ser remediadas
 
-## <a name="25-ensure-asc-default-policy-setting-monitor-endpoint-protection-is-not-disabled"></a>2,5 Verifique se a configuração de política padrão ASC "monitor Endpoint Protection" não está "desabilitada"
+## <a name="25-ensure-asc-default-policy-setting-monitor-endpoint-protection-is-not-disabled"></a>2.5 Garantir que a definição da definição da definição de padrão ASC "Monitor Endpoint Protection" não é "Desativada"
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que o Endpoint Protection esteja habilitado em máquinas virtuais.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que a proteção do ponto final está ativada em máquinas virtuais.
 
-- Monitorar Endpoint Protection ausentes na central de segurança do Azure
+- Monitor desaparecido Proteção de Ponto final no Centro de Segurança Azure
 
-## <a name="26-ensure-asc-default-policy-setting-monitor-disk-encryption-is-not-disabled"></a>2,6 Verifique se a configuração de política padrão ASC "monitorar criptografia de disco" não está "desabilitada"
+## <a name="26-ensure-asc-default-policy-setting-monitor-disk-encryption-is-not-disabled"></a>2.6 Garantir que a definição da definição de definição de padrão ASC "Monitor Disk Crypton" não é "Desativada"
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que os discos de máquina virtual sejam criptografados.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que os discos de máquinas virtuais são encriptados.
 
-- A criptografia de disco deve ser aplicada em máquinas virtuais
+- A encriptação do disco deve ser aplicada em máquinas virtuais
 
-## <a name="27-ensure-asc-default-policy-setting-monitor-network-security-groups-is-not-disabled"></a>2,7 Verifique se a configuração de política padrão ASC "monitorar grupos de segurança de rede" não está "desabilitada"
+## <a name="27-ensure-asc-default-policy-setting-monitor-network-security-groups-is-not-disabled"></a>2.7 Garantir que a definição da definição da política padrão ASC "Monitor Network Security Groups" não é "Desativada"
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a proteger máquinas virtuais voltadas para a Internet.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a proteger as máquinas virtuais viradas para a Internet.
 
-- As regras do grupo de segurança de rede para máquinas virtuais voltadas para a Internet devem ser protegidas
+- As regras do Grupo de Segurança da Rede para as máquinas virtuais viradas para a Internet devem ser endurecidas
 
-## <a name="28-ensure-asc-default-policy-setting-monitor-web-application-firewall-is-not-disabled"></a>2,8 Verifique se a configuração de política padrão ASC "monitorar o Firewall do aplicativo Web" não está "desabilitada"
+## <a name="28-ensure-asc-default-policy-setting-monitor-web-application-firewall-is-not-disabled"></a>2.8 Garantir que a definição da definição da política padrão ASC "Firewall de aplicação web do monitor" não é "Desativada"
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a proteger máquinas virtuais que executam aplicativos Web.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a proteger as máquinas virtuais que executam aplicações web.
 
-- As regras de NSGs para aplicativos Web em IaaS devem ser protegidas
+- As regras do NSGs para aplicações web em IaaS devem ser endurecidas
 
-## <a name="29-ensure-asc-default-policy-setting-enable-next-generation-firewallngfw-monitoring-is-not-disabled"></a>2,9 Verifique se a configuração de política padrão ASC "Habilitar monitoramento de NGFW (firewall de próxima geração)" não está "desabilitada"
+## <a name="29-ensure-asc-default-policy-setting-enable-next-generation-firewallngfw-monitoring-is-not-disabled"></a>2.9 Garantir que a definição da política padrão ASC "Enable Next Generation Firewall (NGFW) Monitoring" não é "Desativada"
 
-Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que ajudam a proteger sub-redes e máquinas virtuais contra ameaças, restringindo o acesso. A política da central de segurança referenciada por esta recomendação de benchmark do Microsoft Azure Foundations foi substituída por duas novas recomendações. As políticas referenciadas abaixo abordam as novas recomendações.
+Esta planta atribui definições [de Política Azure](../../../policy/overview.md) que ajudam a proteger as subredes e as máquinas virtuais de ameaças, restringindo o acesso. A política do Security Center referenciada por esta recomendação de referência do CIS Microsoft Azure Foundations foi substituída por duas novas recomendações. As políticas abaixo referidas abordam as novas recomendações.
 
-- As sub-redes devem ser associadas a um grupo de segurança de rede
-- As máquinas virtuais devem ser associadas a um grupo de segurança de rede
+- As subredes devem ser associadas a um Grupo de Segurança da Rede
+- As máquinas virtuais devem ser associadas a um Grupo de Segurança da Rede
 
-## <a name="210-ensure-asc-default-policy-setting-monitor-vulnerability-assessment-is-not-disabled"></a>2,10 Verifique se a configuração de política padrão ASC "monitorar avaliação de vulnerabilidade" não está "desabilitada"
+## <a name="210-ensure-asc-default-policy-setting-monitor-vulnerability-assessment-is-not-disabled"></a>2.10 Garantir que a definição da política padrão ASC "Monitor Vulnerability Assessment" não é "Deficiente"
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que as vulnerabilidades sejam detectadas e corrigidas.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que as vulnerabilidades são detetadas e remediadas.
 
-- Vulnerabilidades devem ser corrigidas por uma solução de avaliação de vulnerabilidade
+- Vulnerabilidades devem ser remediadas por uma solução de Avaliação de Vulnerabilidades
 
-## <a name="211-ensure-asc-default-policy-setting-monitor-storage-blob-encryption-is-not-disabled"></a>2,11 Verifique se a configuração de política padrão ASC "monitorar criptografia de blob de armazenamento" não está "desabilitada"
+## <a name="211-ensure-asc-default-policy-setting-monitor-storage-blob-encryption-is-not-disabled"></a>2.11 Garantir que a definição da política padrão ASC "Monitor Storage Blob Crypton" não é "Desativada"
 
-A criptografia de armazenamento do Azure está habilitada para todas as contas de armazenamento novas e existentes e não pode ser desabilitada. (Esse é um recurso padrão do Azure; não há nenhuma atribuição de política.)
+A encriptação do Armazenamento do Microsoft Azure está ativada para todas as contas de armazenamento novas e já existentes e não pode ser desativada. (Esta é uma capacidade azure padrão; não há atribuição de políticas.)
 
-## <a name="212-ensure-asc-default-policy-setting-monitor-jit-network-access-is-not-disabled"></a>2,12 Verifique se a configuração de política padrão ASC "monitorar acesso à rede JIT" não está "desabilitada"
+## <a name="212-ensure-asc-default-policy-setting-monitor-jit-network-access-is-not-disabled"></a>2.12 Garantir que a definição da política padrão ASC "Monitor JIT Network Access" não é "Desativada"
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a controlar o acesso às máquinas virtuais.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a controlar o acesso a máquinas virtuais.
 
-- O controle de acesso à rede just-in-time deve ser aplicado em máquinas virtuais
+- O controlo de acesso à rede Just-In-Time deve ser aplicado em máquinas virtuais
 
-## <a name="213-ensure-asc-default-policy-setting-monitor-adaptive-application-whitelisting-is-not-disabled"></a>2,13 Verifique se a configuração de política padrão ASC "monitorar lista de permissões de aplicativo adaptável" não está "desabilitada"
+## <a name="213-ensure-asc-default-policy-setting-monitor-adaptive-application-whitelisting-is-not-disabled"></a>2.13 Garantir que a definição da política padrão ASC "Monitor Adaptive Application Whitelisting" não é "Desativada"
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que os controles de aplicativo adaptáveis estejam habilitados em máquinas virtuais.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que os controlos de aplicação adaptáveis estão ativados em máquinas virtuais.
 
-- Os controles de aplicativo adaptáveis devem ser habilitados em máquinas virtuais
+- Os controlos adaptáveis de aplicação devem ser ativados em máquinas virtuais
 
-## <a name="214-ensure-asc-default-policy-setting-monitor-sql-auditing-is-not-disabled"></a>2,14 Verifique se a configuração de política padrão ASC "monitorar auditoria de SQL" não está "desabilitada"
+## <a name="214-ensure-asc-default-policy-setting-monitor-sql-auditing-is-not-disabled"></a>2.14 Garantir que a definição da política padrão ASC "Monitor SQL Auditing" não é "Desativada"
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que a auditoria do SQL Server esteja habilitada.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que ajuda a garantir que a auditoria do servidor SQL está ativada.
 
-- A auditoria deve ser habilitada nas configurações de segurança de dados avançadas no SQL Server
+- A auditoria deve ser ativada em definições avançadas de segurança de dados no Servidor SQL
 
-## <a name="215-ensure-asc-default-policy-setting-monitor-sql-encryption-is-not-disabled"></a>2,15 Verifique se a configuração de política padrão ASC "monitorar criptografia de SQL" não está "desabilitada"
+## <a name="215-ensure-asc-default-policy-setting-monitor-sql-encryption-is-not-disabled"></a>2.15 Garantir que a definição de definição de definição de padrão ASC "Monitor SQL Encryption" não é "Desativada"
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que Transparent Data Encryption esteja habilitado em bancos de dados SQL.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que a encriptação de dados transparente está ativada nas bases de dados SQL.
 
-- Transparent Data Encryption em bancos de dados SQL devem ser habilitadas
+- Encriptação transparente de dados nas bases de dados SQL deve ser ativada
 
-## <a name="216-ensure-that-security-contact-emails-is-set"></a>2,16 Verifique se ' email de contato de segurança ' está definido
+## <a name="216-ensure-that-security-contact-emails-is-set"></a>2.16 Certifique-se de que estão definidos 'Emails de contacto de segurança'
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que as notificações de segurança estejam corretamente habilitadas
+Este plano atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que as notificações de segurança estão devidamente ativadas
 
-- Um endereço de email de contato de segurança deve ser fornecido para sua assinatura
+- Um endereço de e-mail de contacto de segurança deve ser fornecido para a sua subscrição
 
-## <a name="217-ensure-that-security-contact-phone-number-is-set"></a>2,17 garantir que o contato de segurança ' número de telefone ' esteja definido
+## <a name="217-ensure-that-security-contact-phone-number-is-set"></a>2.17 Certifique-se de que o contacto de segurança 'Número de telefone' está definido
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que as notificações de segurança estejam corretamente habilitadas
+Este plano atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que as notificações de segurança estão devidamente ativadas
 
-- Um número de telefone de contato de segurança deve ser fornecido para sua assinatura
+- Um número de telefone de contato de segurança deve ser fornecido para a sua subscrição
 
-## <a name="218-ensure-that-send-email-notification-for-high-severity-alerts-is-set-to-on"></a>2,18 Verifique se ' enviar notificação por email para alertas de severidade alta ' está definido como ' on '
+## <a name="218-ensure-that-send-email-notification-for-high-severity-alerts-is-set-to-on"></a>2.18 Certifique-se de que 'Enviar notificação por e-mail para alertas de alta gravidade' está definido para 'On'
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que as notificações de segurança estejam corretamente habilitadas
+Este plano atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que as notificações de segurança estão devidamente ativadas
 
-- A notificação por email para alertas de severidade alta deve ser habilitada
+- A notificação por e-mail para alertas de alta gravidade deve ser ativada
 
-## <a name="219-ensure-that-send-email-also-to-subscription-owners-is-set-to-on"></a>2,19 Verifique se "enviar email também para proprietários de assinatura" está definido como "ativado"
+## <a name="219-ensure-that-send-email-also-to-subscription-owners-is-set-to-on"></a>2.19 Certifique-se de que 'Enviar e-mail também para os proprietários de subscrições' está definido para 'On'
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que as notificações de segurança estejam corretamente habilitadas
+Este plano atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que as notificações de segurança estão devidamente ativadas
 
-- A notificação por email para o proprietário da assinatura para alertas de alta gravidade deve ser habilitada
+- Notificação por e-mail ao proprietário de subscrição para alertas de alta gravidade deve ser ativada
 
-## <a name="31-ensure-that-secure-transfer-required-is-set-to-enabled"></a>3,1 Verifique se ' transferência segura necessária ' está definido como ' habilitado '
+## <a name="31-ensure-that-secure-transfer-required-is-set-to-enabled"></a>3.1 Certifique-se de que a "transferência segura necessária" está definida para 'Activada'
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a monitorar contas de armazenamento que permitem conexões não seguras.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a monitorizar contas de armazenamento que permitem ligações inseguras.
 
-- A transferência segura para contas de armazenamento deve ser habilitada
+- A transferência segura para contas de armazenamento deve ser ativada
 
-## <a name="37-ensure-default-network-access-rule-for-storage-accounts-is-set-to-deny"></a>3,7 Verifique se a regra de acesso de rede padrão para contas de armazenamento está definida como negar
+## <a name="37-ensure-default-network-access-rule-for-storage-accounts-is-set-to-deny"></a>3.7 Garantir que a regra de acesso à rede padrão para contas de armazenamento está definida para negar
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a monitorar contas de armazenamento que permitem acesso irrestrito.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a monitorizar contas de armazenamento que permitem um acesso sem restrições.
 
-- Auditar o acesso irrestrito à rede para contas de armazenamento
+- Auditoria sem restrições ao acesso da rede às contas de armazenamento
 
-## <a name="38-ensure-trusted-microsoft-services-is-enabled-for-storage-account-access"></a>3,8 garantir que ' serviços confiáveis da Microsoft ' esteja habilitado para acesso à conta de armazenamento
+## <a name="38-ensure-trusted-microsoft-services-is-enabled-for-storage-account-access"></a>3.8 Garantir que os 'Serviços Microsoft Fidedignos' estão habilitados para acesso à conta de armazenamento
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a monitorar contas de armazenamento que não permitem o acesso de serviços confiáveis da Microsoft.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a monitorizar contas de armazenamento que não permitem o acesso a partir de serviços confiáveis da Microsoft.
 
-- As contas de armazenamento devem permitir o acesso de serviços confiáveis da Microsoft
+- As contas de armazenamento devem permitir o acesso a partir de serviços fidedignos da Microsoft
 
-## <a name="41-ensure-that-auditing-is-set-to-on"></a>4,1 Verifique se a ' auditoria ' está definida como ' on '
+## <a name="41-ensure-that-auditing-is-set-to-on"></a>4.1 Certifique-se de que a 'Auditoria' está definida para 'On'
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que a auditoria do SQL Server esteja habilitada. 
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que ajuda a garantir que a auditoria do servidor SQL está ativada. 
 
-- A auditoria deve ser habilitada nas configurações de segurança de dados avançadas no SQL Server
+- A auditoria deve ser ativada em definições avançadas de segurança de dados no Servidor SQL
 
-## <a name="42-ensure-that-auditactiongroups-in-auditing-policy-for-a-sql-server-is-set-properly"></a>4,2 Verifique se "AuditActionGroups" na política de "auditoria" de um SQL Server está definido corretamente
+## <a name="42-ensure-that-auditactiongroups-in-auditing-policy-for-a-sql-server-is-set-properly"></a>4.2 Certifique-se de que a política de "AuditActionGroups" na política de "auditoria" para um servidor SQL é corretamente definida
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que a auditoria do SQL Server esteja configurada corretamente.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que a auditoria do servidor SQL está devidamente configurada.
 
-- As configurações de auditoria do SQL devem ter grupos de ações configurados para capturar atividades críticas
+- As definições de auditoria sQL devem ter grupos de ação configurados para capturar atividades críticas
 
-## <a name="43-ensure-that-auditing-retention-is-greater-than-90-days"></a>4,3 garantir que a retenção de ' auditoria ' seja ' maior que 90 dias '
+## <a name="43-ensure-that-auditing-retention-is-greater-than-90-days"></a>4.3 Garantir que a retenção de 'Auditoria' seja "superior a 90 dias"
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que os logs do SQL Server sejam retidos por pelo menos 90 dias.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que os registos de servidores SQL sejam retidos durante pelo menos 90 dias.
 
-- Os SQL Servers devem ser configurados com dias de retenção de auditoria maiores que 90 dias.
+- Os servidores SQL devem ser configurados com dias de retenção de auditoria superiores a 90 dias.
 
-## <a name="44-ensure-that-advanced-data-security-on-a-sql-server-is-set-to-on"></a>4,4 Verifique se a ' segurança de dados avançada ' em um SQL Server está definida como ' on '
+## <a name="44-ensure-that-advanced-data-security-on-a-sql-server-is-set-to-on"></a>4.4 Certifique-se de que a 'Segurança avançada de dados' num servidor SQL está definida para 'On'
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que a segurança de dados avançada esteja habilitada em servidores SQL e instâncias gerenciadas do SQL.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que a segurança avançada de dados está ativada em servidores SQL e instâncias geridas pela SQL.
 
-- A segurança de dados avançada deve ser habilitada em suas instâncias gerenciadas do SQL
-- A segurança de dados avançada deve estar ativada nos seus servidores SQL
+- A segurança avançada de dados deve ser ativada nos seus casos geridos pela SQL
+- A segurança avançada de dados deve ser ativada nos seus servidores SQL
 
-## <a name="45-ensure-that-threat-detection-types-is-set-to-all"></a>4,5 Verifique se ' tipos de detecção de ameaças ' está definido como ' todos '
+## <a name="45-ensure-that-threat-detection-types-is-set-to-all"></a>4.5 Certifique-se de que os "tipos de deteção de ameaças" estão definidos para 'All'
 
-Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que ajudam a garantir que a proteção avançada contra ameaças esteja configurada corretamente em servidores SQL e instâncias gerenciadas do SQL.
+Esta planta atribui definições de [Política Azure](../../../policy/overview.md) que o ajudam a garantir que a proteção avançada de ameaças está devidamente configurada em servidores SQL e instâncias geridas pela SQL.
 
-- Os tipos de proteção avançada contra ameaças devem ser definidos como ' todos ' nas configurações de segurança de dados avançadas do SQL Server
-- Os tipos de proteção avançada contra ameaças devem ser definidos como ' todos ' na instância gerenciada do SQL configurações de segurança de dados avançadas
+- Os tipos avançados de proteção contra ameaças devem ser definidos para 'All' nas definições avançadas de segurança de dados do servidor SQL
+- Os tipos avançados de proteção contra ameaças devem ser definidos para 'All' em definições avançadas de segurança de dados geridas pela SQL
 
-## <a name="46-ensure-that-send-alerts-to-is-set"></a>4,6 Verifique se ' enviar alertas para ' está definido
+## <a name="46-ensure-that-send-alerts-to-is-set"></a>4.6 Certifique-se de que 'Enviar alertas para' está definido
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que as notificações de segurança de dados avançadas estejam habilitadas corretamente.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que notificações avançadas de segurança de dados estão devidamente ativadas.
 
-- As configurações de segurança de dados avançadas para a instância gerenciada do SQL devem conter um endereço de email para receber alertas de segurança
-- As configurações avançadas de segurança de dados para o SQL Server devem conter um endereço de email para receber alertas de segurança
+- As definições avançadas de segurança de dados para a instância gerida pela SQL devem conter um endereço de e-mail para receber alertas de segurança
+- As definições avançadas de segurança de dados para o servidor SQL devem conter um endereço de e-mail para receber alertas de segurança
 
-## <a name="47-ensure-that-email-service-and-co-administrators-is-enabled"></a>4,7 Verifique se ' serviço de email e coadministradores ' está ' habilitado '
+## <a name="47-ensure-that-email-service-and-co-administrators-is-enabled"></a>4.7 Certifique-se de que o 'serviço de e-mail e os co-administradores' estão 'habilitados'
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que as notificações de segurança de dados avançadas estejam habilitadas corretamente.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que notificações avançadas de segurança de dados estão devidamente ativadas.
 
-- As notificações por email para administradores e proprietários de assinatura devem ser habilitadas na instância gerenciada do SQL configurações de segurança de dados avançadas
-- As notificações por e-mail destinadas aos administradores e proprietários de subscrições devem estar ativadas nas definições da segurança de dados avançada no servidor SQL
+- As notificações por e-mail aos administradores e proprietários de subscrições devem ser ativadas em definições avançadas de segurança de dados geridas pela SQL
+- As notificações de e-mail para administradores e proprietários de subscrições devem ser ativadas em definições avançadas de segurança de dados do servidor SQL
 
-## <a name="48-ensure-that-azure-active-directory-admin-is-configured"></a>4,8 Verifique se o administrador do Azure Active Directory está configurado
+## <a name="48-ensure-that-azure-active-directory-admin-is-configured"></a>4.8 Certifique-se de que o Administrador de Diretório Ativo Azure está configurado
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que um administrador de Azure Active Directory seja provisionado para servidores SQL.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que um administrador de Diretório Ativo Azure é aprovisionado para servidores SQL.
 
-- Um administrador de Azure Active Directory deve ser provisionado para servidores SQL
+- Um administrador de Diretório Ativo Azure deve ser provisionado para servidores SQL
 
-## <a name="49-ensure-that-data-encryption-is-set-to-on-on-a-sql-database"></a>4,9 Verifique se a ' criptografia de dados ' está definida como ' on ' em um banco de dados SQL
+## <a name="49-ensure-that-data-encryption-is-set-to-on-on-a-sql-database"></a>4.9 Certifique-se de que 'Encriptação de dados' está definida para 'On' numa base de dados SQL
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que Transparent Data Encryption esteja habilitado em bancos de dados SQL.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que a encriptação de dados transparente está ativada nas bases de dados SQL.
 
-- Transparent Data Encryption em bancos de dados SQL devem ser habilitadas
+- Encriptação transparente de dados nas bases de dados SQL deve ser ativada
 
-## <a name="410-ensure-sql-servers-tde-protector-is-encrypted-with-byok-use-your-own-key"></a>4,10 garantir que o protetor de TDE do SQL Server seja criptografado com BYOK (Use sua própria chave)
+## <a name="410-ensure-sql-servers-tde-protector-is-encrypted-with-byok-use-your-own-key"></a>4.10 Certifique-se de que o protetor TDE do servidor SQL está encriptado com BYOK (Utilize a sua própria chave)
 
-Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que ajudam a garantir que o protetor de dados criptografados transparente para SQL Servers e instâncias gerenciadas do SQL seja criptografado com sua própria chave.
+Esta planta atribui definições de [Política Azure](../../../policy/overview.md) que o ajudam a garantir que o protetor encriptado de dados transparente para servidores SQL e instâncias geridas pela SQL é encriptado com a sua própria chave.
 
-- O protetor TDE da instância gerenciada do SQL deve ser criptografado com sua própria chave
-- O protetor de TDE do servidor SQL deve estar encriptado com a sua própria chave
+- SQL gerido exemplo TDE protetor deve ser encriptado com a sua própria chave
+- O protetor TDE do servidor SQL deve ser encriptado com a sua própria chave
 
-## <a name="411-ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>4,11 Verifique se ' impor conexão SSL ' está definido como ' habilitado ' para o servidor de banco de dados MySQL
+## <a name="411-ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>4.11 Certifique-se de que a 'ligação SSL' está definida como 'ACTIVADA' para o Servidor de Base de Dados MySQL
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que os servidores de banco de dados MySQL imponham conexões SSL.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que os servidores de base de dados MySQL aplicam as ligações SSL.
 
-- Impor a conexão SSL deve ser habilitada para servidores de banco de dados MySQL
+- Impor a ligação SSL deve ser ativada para servidores de base de dados MySQL
 
-## <a name="412-ensure-server-parameter-log_checkpoints-is-set-to-on-for-postgresql-database-server"></a>4,12 Verifique se o parâmetro de servidor ' log_checkpoints ' está definido como ' ON ' para o servidor de banco de dados PostgreSQL
+## <a name="412-ensure-server-parameter-log_checkpoints-is-set-to-on-for-postgresql-database-server"></a>4.12 Certifique-se de que o parâmetro do servidor 'log_checkpoints' está definido para 'ON' para o Servidor de Base de Dados PostgreSQL
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que os pontos de verificação de log dos servidores de banco de dados PostgreSQL sejam verificados.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que os servidores de dados PostgreSQL saiam postos de verificação.
 
-- Os pontos de verificação de log devem ser habilitados para servidores de banco de dados PostgreSQL
+- Os postos de verificação de registo devem ser ativados para servidores de base de dados PostgreSQL
 
-## <a name="413-ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>4,13 Verifique se ' impor conexão SSL ' está definido como ' habilitado ' para o servidor de banco de dados PostgreSQL
+## <a name="413-ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>4.13 Certifique-se de que a 'ligação SSL' está definida como 'ACTIVADA' para o Servidor de Base de Dados PostgreSQL
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que os servidores de banco de dados PostgreSQL imponham conexões SSL.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que os servidores de base de dados PostgreSQL aplicam as ligações SSL.
 
-- Impor a conexão SSL deve ser habilitada para servidores de banco de dados PostgreSQL
+- Impor a ligação SSL deve ser ativada para servidores de base de dados PostgreSQL
 
-## <a name="414-ensure-server-parameter-log_connections-is-set-to-on-for-postgresql-database-server"></a>4,14 Verifique se o parâmetro de servidor ' log_connections ' está definido como ' ON ' para o servidor de banco de dados PostgreSQL
+## <a name="414-ensure-server-parameter-log_connections-is-set-to-on-for-postgresql-database-server"></a>4.14 Certifique-se de que o parâmetro do servidor 'log_connections' está definido para 'ON' para o Servidor de Base de Dados PostgreSQL
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que os servidores de banco de dados PostgreSQL façam conexões de log.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que os servidores de base de dados PostgreSQL slogem ligações.
 
-- As conexões de log devem ser habilitadas para servidores de banco de dados PostgreSQL
+- As ligações de log devem ser ativadas para servidores de base de dados PostgreSQL
 
-## <a name="415-ensure-server-parameter-log_disconnections-is-set-to-on-for-postgresql-database-server"></a>4,15 Verifique se o parâmetro de servidor ' log_disconnections ' está definido como ' ON ' para o servidor de banco de dados PostgreSQL
+## <a name="415-ensure-server-parameter-log_disconnections-is-set-to-on-for-postgresql-database-server"></a>4.15 Certifique-se de que o parâmetro do servidor 'log_disconnections' está definido para 'ON' para o Servidor de Base de Dados PostgreSQL
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que os servidores de banco de dados PostgreSQL desconectem as desconexões.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que os servidores de base de dados PostgreSQL slogem desconexões.
 
-- As desconexões devem ser registradas em log para servidores de banco de dados PostgreSQL.
+- As desconexões devem ser registadas nos servidores de base de dados PostgreSQL.
 
-## <a name="416-ensure-server-parameter-log_duration-is-set-to-on-for-postgresql-database-server"></a>4,16 Verifique se o parâmetro de servidor ' log_duration ' está definido como ' ON ' para o servidor de banco de dados PostgreSQL
+## <a name="416-ensure-server-parameter-log_duration-is-set-to-on-for-postgresql-database-server"></a>4.16 Certifique-se de que o parâmetro do servidor 'log_duration' está definido para 'ON' para o Servidor de Base de Dados PostgreSQL
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que os servidores de banco de dados PostgreSQL registrem a duração das instruções concluídas.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que os servidores de base de dados PostgreSQL registam a duração das declarações concluídas.
 
-- A duração do log deve ser habilitada para servidores de banco de dados PostgreSQL
+- A duração do registo deve ser ativada para servidores de base de dados PostgreSQL
 
-## <a name="417-ensure-server-parameter-connection_throttling-is-set-to-on-for-postgresql-database-server"></a>4,17 Verifique se o parâmetro de servidor ' connection_throttling ' está definido como ' ON ' para o servidor de banco de dados PostgreSQL
+## <a name="417-ensure-server-parameter-connection_throttling-is-set-to-on-for-postgresql-database-server"></a>4.17 Certifique-se de que o parâmetro do servidor 'connection_throttling' está definido para 'ON' para o Servidor de Base de Dados PostgreSQL
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a reduzir ataques de força bruta em servidores de banco de dados PostgreSQL.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a mitigar ataques de força bruta em servidores de base de dados PostgreSQL.
 
-- A limitação de conexão deve ser habilitada para servidores de banco de dados PostgreSQL
+- O estrangulamento da ligação deve ser ativado para servidores de base de dados PostgreSQL
 
-## <a name="419-ensure-that-azure-active-directory-admin-is-configured"></a>4,19 Verifique se o administrador do Azure Active Directory está configurado
+## <a name="419-ensure-that-azure-active-directory-admin-is-configured"></a>4.19 Certifique-se de que o Administrador de Diretório Ativo Azure está configurado
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que um administrador de Azure Active Directory seja provisionado para servidores SQL. O parâmetro de comparação do CIS Microsoft Azure Foundations inclui essa recomendação; no entanto, é uma duplicata da [recomendação 4,8](#48-ensure-that-azure-active-directory-admin-is-configured).
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que um administrador de Diretório Ativo Azure é aprovisionado para servidores SQL. O CIS Microsoft Azure Foundations Benchmark inclui esta recomendação; no entanto, trata-se de uma duplicação da [recomendação 4.8](#48-ensure-that-azure-active-directory-admin-is-configured).
 
-- Um administrador de Azure Active Directory deve ser provisionado para servidores SQL
+- Um administrador de Diretório Ativo Azure deve ser provisionado para servidores SQL
 
-## <a name="511-ensure-that-a-log-profile-exists"></a>5.1.1 garantir que exista um perfil de log
+## <a name="511-ensure-that-a-log-profile-exists"></a>5.1.1 Certifique-se de que existe um perfil de registo
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que exista um perfil de log para todas as assinaturas do Azure. 
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que existe um perfil de registo para todas as subscrições do Azure. 
 
-- As assinaturas do Azure devem ter um perfil de log para o log de atividades
+- As subscrições do Azure devem ter um perfil de registo para o Registo de Atividades
 
-## <a name="512-ensure-that-activity-log-retention-is-set-365-days-or-greater"></a>5.1.2 Verifique se a retenção do log de atividades está definida em 365 dias ou mais
+## <a name="512-ensure-that-activity-log-retention-is-set-365-days-or-greater"></a>5.1.2 Certifique-se de que a retenção de registo de atividade está definida 365 dias ou mais
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que os logs de atividades sejam mantidos por pelo menos um ano.
+Este projeto atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que os registos de atividade são mantidos durante pelo menos um ano.
 
-- O log de atividades deve ser retido por pelo menos um ano
+- O registo de atividade deve ser conservado por pelo menos um ano
 
-## <a name="513-ensure-audit-profile-captures-all-the-activities"></a>5.1.3 garantir que o perfil de auditoria Capture todas as atividades
+## <a name="513-ensure-audit-profile-captures-all-the-activities"></a>5.1.3 Garantir que o perfil de auditoria capture todas as atividades
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que o perfil de log esteja configurado corretamente.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que o perfil de registo está corretamente configurado.
 
-- Azure Monitor perfil de log deve coletar logs para as categorias ' gravar ', ' ' excluir ' e ' ação '
+- O perfil de registo do Monitor Azure deve recolher registos para categorias 'escrever', 'excluir' e 'agir'
 
-## <a name="514-ensure-the-log-profile-captures-activity-logs-for-all-regions-including-global"></a>5.1.4 garantir que o perfil de log Capture logs de atividade para todas as regiões, incluindo global
+## <a name="514-ensure-the-log-profile-captures-activity-logs-for-all-regions-including-global"></a>5.1.4 Certifique-se de que o perfil de registo captura registos de atividade para todas as regiões, incluindo globais
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que o perfil de log esteja configurado corretamente.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que o perfil de registo está corretamente configurado.
 
-- Azure Monitor deve coletar logs de atividade de todas as regiões
+- O Monitor Azure deve recolher registos de atividade sacar registos de atividades de todas as regiões
 
-## <a name="517-ensure-that-logging-for-azure-keyvault-is-enabled"></a>5.1.7 garantir que o log do Azure keyvault esteja ' habilitado '
+## <a name="517-ensure-that-logging-for-azure-keyvault-is-enabled"></a>5.1.7 Certifique-se de que a exploração madeireira para o Azure KeyVault está 'activada'
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que os logs de diagnóstico estejam habilitados para cofres de chaves.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que os registos de diagnóstico estão ativados para cofres chave.
 
-- Os logs de diagnóstico no Key Vault devem ser habilitados
+- Os registos de diagnóstico no Cofre-Chave devem ser ativados
 
-## <a name="65-ensure-that-network-watcher-is-enabled"></a>6,5 Verifique se o observador de rede está ' habilitado '
+## <a name="65-ensure-that-network-watcher-is-enabled"></a>6.5 Certifique-se de que o Observador da Rede está 'Activado'
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que o observador de rede esteja habilitado para todas as regiões em que os recursos são implantados. Essa política requer uma matriz de parâmetros que especifica todas as regiões aplicáveis. O valor padrão nesta definição de iniciativa de política é ' eastus '.
+Este projeto atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que o Observador de Rede está habilitado para todas as regiões onde os recursos são implantados. Esta política requer um conjunto de parâmetros que especifique todas as regiões aplicáveis. O valor predefinido nesta definição de iniciativa política é "leste".
 
-- O observador de rede deve estar habilitado
+- O Observador da Rede deve ser ativado
 
-## <a name="71-ensure-that-os-disk-are-encrypted"></a>7,1 garantir que o ' disco do sistema operacional ' esteja criptografado
+## <a name="71-ensure-that-os-disk-are-encrypted"></a>7.1 Certifique-se de que o 'disco OS' está encriptado
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que a criptografia de disco esteja habilitada em máquinas virtuais.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que a encriptação do disco está ativada em máquinas virtuais.
 
-- A criptografia de disco deve ser aplicada em máquinas virtuais
+- A encriptação do disco deve ser aplicada em máquinas virtuais
 
-## <a name="72-ensure-that-data-disks-are-encrypted"></a>7,2 garantir que os ' discos de dados ' estejam criptografados
+## <a name="72-ensure-that-data-disks-are-encrypted"></a>7.2 Certifique-se de que os 'discos de dados' estão encriptados
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que a criptografia de disco esteja habilitada em máquinas virtuais.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que a encriptação do disco está ativada em máquinas virtuais.
 
-- A criptografia de disco deve ser aplicada em máquinas virtuais
+- A encriptação do disco deve ser aplicada em máquinas virtuais
 
-## <a name="73-ensure-that-unattached-disks-are-encrypted"></a>7,3 garantir que os ' discos desanexados ' sejam criptografados
+## <a name="73-ensure-that-unattached-disks-are-encrypted"></a>7.3 Certifique-se de que os discos não ligados estão encriptados
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que discos desconectados sejam criptografados.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que os discos não ligados são encriptados.
 
-- Discos desanexados devem ser criptografados
+- Os discos não ligados devem ser encriptados
 
-## <a name="74-ensure-that-only-approved-extensions-are-installed"></a>7,4 garantir que apenas as extensões aprovadas sejam instaladas
+## <a name="74-ensure-that-only-approved-extensions-are-installed"></a>7.4 Certifique-se de que só são instaladas extensões aprovadas
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que apenas as extensões de máquina virtual aprovadas sejam instaladas. Essa política requer uma matriz de parâmetros que especifica todas as extensões de máquina virtual aprovadas. Essa definição de iniciativa de política contém padrões sugeridos que os clientes devem validar. 
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que apenas as extensões de máquinas virtuais aprovadas são instaladas. Esta política requer uma matriz de parâmetros que especifica todas as extensões de máquinas virtuais aprovadas. Esta definição de iniciativa política contém incumprimentos sugeridos que os clientes devem validar. 
 
- - Somente extensões de VM aprovadas devem ser instaladas
+ - Só devem ser instaladas extensões VM aprovadas
 
-## <a name="75-ensure-that-the-latest-os-patches-for-all-virtual-machines-are-applied"></a>7,5 garantir que os patches do sistema operacional mais recentes para todas as máquinas virtuais sejam aplicados
+## <a name="75-ensure-that-the-latest-os-patches-for-all-virtual-machines-are-applied"></a>7.5 Certifique-se de que são aplicados os mais recentes Patches de OS para todas as Máquinas Virtuais
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que as atualizações do sistema sejam instaladas em máquinas virtuais.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que as atualizações do sistema são instaladas em máquinas virtuais.
 
-- As atualizações do sistema devem ser instaladas em seus computadores
+- As atualizações de sistema devem ser instaladas nos seus computadores
 
-## <a name="76-ensure-that-the-endpoint-protection-for-all-virtual-machines-is-installed"></a>7,6 garantir que o Endpoint Protection para todas as máquinas virtuais esteja instalado
+## <a name="76-ensure-that-the-endpoint-protection-for-all-virtual-machines-is-installed"></a>7.6 Certifique-se de que a proteção do ponto final para todas as máquinas virtuais está instalada
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que o Endpoint Protection esteja habilitado em máquinas virtuais.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que a proteção do ponto final está ativada em máquinas virtuais.
 
-- Monitorar Endpoint Protection ausentes na central de segurança do Azure
+- Monitor desaparecido Proteção de Ponto final no Centro de Segurança Azure
 
-## <a name="84-ensure-the-key-vault-is-recoverable"></a>8,4 garantir que o cofre de chaves seja recuperável
+## <a name="84-ensure-the-key-vault-is-recoverable"></a>8.4 Certifique-se de que o cofre chave está recuperável
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que os objetos do cofre de chaves sejam recuperáveis no caso de exclusão acidental.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que os objetos chave do cofre são recuperáveis em caso de eliminação acidental.
 
-- Os objetos Key Vault devem ser recuperáveis
+- Objetos do cofre da chave devem ser recuperáveis
 
-## <a name="85-enable-role-based-access-control-rbac-within-azure-kubernetes-services"></a>8,5 habilitar o RBAC (controle de acesso baseado em função) nos serviços Kubernetess do Azure
+## <a name="85-enable-role-based-access-control-rbac-within-azure-kubernetes-services"></a>8.5 Permitir o controlo de acesso baseado em funções (RBAC) nos serviços da Azure Kubernetes
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que o controle de acesso baseado em função seja usado para permissões gerenciadas em clusters do serviço kubernetes
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que o controlo de acesso baseado em papéis é usado para permissões geridas em clusters de serviços Kubernetes
 
-- \[visualização\]: o RBAC (controle de acesso baseado em função) deve ser usado nos serviços Kubernetess
+- \[Pré-visualização\]: O Controlo de Acesso baseado em funções (RBAC) deve ser utilizado nos serviços kubernetes
 
-## <a name="92-ensure-web-app-redirects-all-http-traffic-to-https-in-azure-app-service"></a>9,2 garantir que o aplicativo Web Redirecione todo o tráfego HTTP para HTTPS no serviço Azure App
+## <a name="92-ensure-web-app-redirects-all-http-traffic-to-https-in-azure-app-service"></a>9.2 Garantir que a aplicação web redireciona todo o tráfego HTTP para HTTPS no Serviço de Aplicações Azure
 
-Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que os aplicativos Web sejam acessíveis somente em conexões seguras.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que as aplicações web só são acessíveis através de ligações seguras.
 
-- O aplicativo Web só deve ser acessível via HTTPS
+- Aplicação Web só deve ser acessível em HTTPS
 
-## <a name="93-ensure-web-app-is-using-the-latest-version-of-tls-encryption"></a>9,3 garantir que o aplicativo Web esteja usando a versão mais recente da criptografia TLS
+## <a name="93-ensure-web-app-is-using-the-latest-version-of-tls-encryption"></a>9.3 Certifique-se de que a aplicação web está a usar a versão mais recente da encriptação TLS
 
-Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que ajudam a garantir que os aplicativos Web estejam usando a versão mais recente do TLS.
+Esta planta atribui definições de [Política Azure](../../../policy/overview.md) que o ajudam a garantir que as aplicações web estão a usar a versão Mais recente do TLS.
 
-- A versão mais recente do TLS deve ser usada em seu aplicativo de API
-- A versão mais recente do TLS deve ser usada no seu Aplicativo de funções
-- A versão mais recente do TLS deve ser usada em seu aplicativo Web
+- A versão TLS mais recente deve ser utilizada na sua app API
+- A versão TLS mais recente deve ser usada na sua App de Funções
+- A versão TLS mais recente deve ser utilizada na sua Web App
 
-## <a name="94-ensure-the-web-app-has-client-certificates-incoming-client-certificates-set-to-on"></a>9,4 garantir que o aplicativo Web tenha ' certificados de cliente (certificados de cliente de entrada) ' definido como ' ativado '
+## <a name="94-ensure-the-web-app-has-client-certificates-incoming-client-certificates-set-to-on"></a>9.4 Certifique-se de que a aplicação web tem 'Certificados de cliente (certificados de cliente de entrada)' definidos para 'On'
 
-Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que ajudam a garantir que somente clientes com certificados válidos sejam capazes de acessar um aplicativo Web.
+Esta planta atribui definições de [Política Azure](../../../policy/overview.md) que o ajudam a garantir que apenas os clientes com certificados válidos são capazes de chegar a uma aplicação web.
 
-- Verifique se o aplicativo de API tem ' certificados de cliente (certificados de cliente de entrada) ' definido como ' on '
-- Garantir que o aplicativo de funções tenha ' certificados de cliente (certificados de cliente de entrada) ' definido como ' ativado '
-- Verifique se o aplicativo WEB tem ' certificados de cliente (certificados de cliente de entrada) ' definido como ' ativado '
+- Garantir que a aplicação DaPI tem 'Certificados de cliente (certificados de cliente de entrada)' definidos para 'On'
+- Garantir a aplicação 'Certificar-se' tem 'Certificados de Cliente (Certificados de Cliente De entrada)' definidos para 'On'
+- Certifique-se de que a aplicação WEB tem 'Certificados de cliente (certificados de cliente de entrada)' definidos para 'On'
 
-## <a name="95-ensure-that-register-with-azure-active-directory-is-enabled-on-app-service"></a>9,5 Verifique se o registro com o Azure Active Directory está habilitado no serviço de aplicativo
+## <a name="95-ensure-that-register-with-azure-active-directory-is-enabled-on-app-service"></a>9.5 Certifique-se de que o Registo com Diretório Ativo Azure está ativado no Serviço de Aplicações
 
-Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que ajudam a garantir que os aplicativos Web estejam usando uma identidade gerenciada.
+Esta planta atribui definições de [Política Azure](../../../policy/overview.md) que o ajudam a garantir que as aplicações web estão usando uma identidade gerida.
 
-- Verifique se o registro com Azure Active Directory está habilitado no aplicativo de API
-- Verifique se o registro com Azure Active Directory está habilitado no Aplicativo de funções
-- Verifique se o registro com Azure Active Directory está habilitado no aplicativo WEB
+- Certifique-se de que o Register with Azure Ative Directory está ativado na aplicação API
+- Certifique-se de que o Registo com o Diretório Ativo Azure está ativado na App de Funções
+- Certifique-se de que o Registo com o Diretório Ativo Azure está ativado na Web App
 
-## <a name="96-ensure-that-net-framework-version-is-the-latest-if-used-as-a-part-of-the-web-app"></a>9,6 Verifique se a versão ' .NET Framework ' é a mais recente, se usada como parte do aplicativo Web
+## <a name="96-ensure-that-net-framework-version-is-the-latest-if-used-as-a-part-of-the-web-app"></a>9.6 Certifique-se de que a versão '.Net Framework' é a mais recente, se utilizada como parte da aplicação web
 
-Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que ajudam a garantir que os aplicativos Web estejam usando a versão mais recente do .NET Framework.
+Esta planta atribui definições de [Política Azure](../../../policy/overview.md) que o ajudam a garantir que as aplicações web estão a usar a versão mais recente do .Net Framework.
 
-- Verifique se a versão ' .NET Framework ' é a mais recente, se usada como parte do aplicativo de API
-- Verifique se a versão ' .NET Framework ' é a mais recente, se usada como parte da Aplicativo de funções
-- Verifique se a versão ' .NET Framework ' é a mais recente, se usada como parte do aplicativo Web
+- Certifique-se de que a versão '.Net Framework' é a mais recente, se utilizada como parte da aplicação DaPI
+- Certifique-se de que a versão '.Net Framework' é a mais recente, se utilizada como parte da App de Funções
+- Certifique-se de que a versão '.Net Framework' é a mais recente, se utilizada como parte da aplicação Web
 
-## <a name="97-ensure-that-php-version-is-the-latest-if-used-to-run-the-web-app"></a>9,7 Verifique se a ' versão do PHP ' é a mais recente, se usada para executar o aplicativo Web
+## <a name="97-ensure-that-php-version-is-the-latest-if-used-to-run-the-web-app"></a>9.7 Certifique-se de que 'versão PHP' é a mais recente, se usada para executar a aplicação web
 
-Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que ajudam a garantir que os aplicativos Web estejam usando a versão mais recente do php.
+Esta planta atribui definições de [Política Azure](../../../policy/overview.md) que o ajudam a garantir que as aplicações web estão a usar a versão mais recente do PHP.
 
-- Verifique se a ' versão do PHP ' é a mais recente, se usada como parte do aplicativo de API
-- Verifique se a ' versão do PHP ' é a mais recente, se usada como parte do aplicativo de funções
-- Verifique se a ' versão do PHP ' é a mais recente, se usada como parte do aplicativo WEB
+- Certifique-se de que 'versão PHP' é a mais recente, se usada como parte da app Api
+- Certifique-se de que 'versão PHP' é a mais recente, se utilizada como parte da aplicação Fun
+- Certifique-se de que 'versão PHP' é a mais recente, se usada como parte da aplicação WEB
 
-## <a name="98-ensure-that-python-version-is-the-latest-if-used-to-run-the-web-app"></a>9,8 Verifique se a ' versão do Python ' é a mais recente, se usada para executar o aplicativo Web
+## <a name="98-ensure-that-python-version-is-the-latest-if-used-to-run-the-web-app"></a>9.8 Certifique-se de que 'Versão Python' é a mais recente, se usada para executar a aplicação web
 
-Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que ajudam a garantir que os aplicativos Web estejam usando a versão mais recente do Python.
+Esta planta atribui definições de [Política Azure](../../../policy/overview.md) que o ajudam a garantir que as aplicações web estão a usar a versão mais recente da Python.
 
-- Verifique se a ' versão do Python ' é a mais recente, se usada como parte do aplicativo de API
-- Verifique se a ' versão do Python ' é a mais recente, se usada como parte do aplicativo de funções
-- Verifique se a ' versão do Python ' é a mais recente, se usada como parte do aplicativo Web
+- Certifique-se de que 'Versão Python' é a mais recente, se usada como parte da app Api
+- Certifique-se de que 'Versão Python' é a mais recente, se usada como parte da aplicação Fun
+- Certifique-se de que 'Versão Python' é a mais recente, se usada como parte da aplicação Web
 
-## <a name="99-ensure-that-java-version-is-the-latest-if-used-to-run-the-web-app"></a>9,9 Verifique se a ' versão Java ' é a mais recente, se usada para executar o aplicativo Web
+## <a name="99-ensure-that-java-version-is-the-latest-if-used-to-run-the-web-app"></a>9.9 Certifique-se de que 'versão Java' é a mais recente, se usada para executar a aplicação web
 
-Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que ajudam a garantir que os aplicativos Web estejam usando a versão mais recente do Java.
+Esta planta atribui definições de [Política Azure](../../../policy/overview.md) que o ajudam a garantir que as aplicações web estão a usar a versão mais recente de Java.
 
-- Verifique se a ' versão Java ' é a mais recente, se usada como parte do aplicativo de API
-- Verifique se a ' versão Java ' é a mais recente, se usada como parte do aplicativo criptografada
-- Verifique se a ' versão Java ' é a mais recente, se usada como parte do aplicativo Web
+- Certifique-se de que 'versão Java' é a mais recente, se usada como parte da app Api
+- Certifique-se de que 'Versão Java' é a mais recente, se usada como parte da aplicação Funtion
+- Certifique-se de que 'versão Java' é a mais recente, se usada como parte da aplicação Web
 
-## <a name="910-ensure-that-http-version-is-the-latest-if-used-to-run-the-web-app"></a>9,10 Verifique se a ' versão HTTP ' é a mais recente, se usada para executar o aplicativo Web
+## <a name="910-ensure-that-http-version-is-the-latest-if-used-to-run-the-web-app"></a>9.10 Certifique-se de que 'VERSÃO HTTP' é a mais recente, se usada para executar a aplicação web
 
-Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que ajudam a garantir que os aplicativos Web estejam usando a versão mais recente do http.
+Esta planta atribui definições de [Política Azure](../../../policy/overview.md) que o ajudam a garantir que as aplicações web estão a usar a versão mais recente do HTTP.
 
-- Verifique se a ' versão HTTP ' é a mais recente, se usada para executar o aplicativo de API
-- Verifique se a ' versão HTTP ' é a mais recente, se usada para executar o aplicativo de funções
-- Verifique se a ' versão HTTP ' é a mais recente, se usada para executar o aplicativo Web
+- Certifique-se de que 'VERSÃO HTTP' é o mais recente, se usado para executar a app Api
+- Certifique-se de que 'VERSÃO HTTP' é o mais recente, se usado para executar a aplicação Função
+- Certifique-se de que 'VERSÃO HTTP' é o mais recente, se usado para executar a aplicação Web
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você analisou o mapeamento de controle do plano de referência do CIS Microsoft Azure Foundations, visite os artigos a seguir para saber mais sobre o plano gráfico ou visite Azure Policy no portal do Azure para atribuir a iniciativa:
+Agora que reviu o mapeamento de controlo do projeto de referência da CIS Microsoft Azure Foundations Benchmark, visite os seguintes artigos para conhecer o projeto ou visite a Política Azure no portal Azure para atribuir a iniciativa:
 
 > [!div class="nextstepaction"]
-> [Cis Microsoft Azure Foundations plano de referência Blueprint-visão geral](./index.md)
-> [cis Microsoft Azure fundamentos de benchmark-etapas de implantação](./deploy.md)
+> [CIS Microsoft Azure Foundations Benchmark blueprint - Visão geral](./index.md)
+> [CIS Microsoft Azure Foundations Benchmark blueprint - Implementar passos](./deploy.md)
 
 Artigos adicionais sobre esquemas e como os utilizar:
 
-- Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
+- Conheça o ciclo de vida da [planta.](../../concepts/lifecycle.md)
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

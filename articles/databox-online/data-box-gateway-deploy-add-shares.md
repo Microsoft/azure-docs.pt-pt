@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: alkohli
 ms.openlocfilehash: 32466cc0a1ab9b86fc2fb8eb791c232ae13f1c01
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79213561"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Tutorial: Transferir dados com portal de caixas de dados Azure
@@ -107,7 +107,7 @@ No seu cliente do Windows Server ligado ao portal da caixa de dados, ligue-se a 
 
 
 2. No seu teclado, selecione Windows + R. 
-3. Na janela **Correr,** especifique a `\\<device IP address>` e, em seguida, selecione **OK**. O Explorador de Ficheiros abre. Agora deve poder ver as ações que criou como pastas. No File Explorer, clique duas vezes numa partilha (pasta) para visualizar o conteúdo.
+3. Na janela **Correr,** `\\<device IP address>` especifique o **e,** em seguida, selecione OK . O Explorador de Ficheiros abre. Agora deve poder ver as ações que criou como pastas. No File Explorer, clique duas vezes numa partilha (pasta) para visualizar o conteúdo.
  
     ![Ligar a uma partilha SMB](./media/data-box-gateway-deploy-add-shares/connect-to-share2.png)-->
 
@@ -137,9 +137,9 @@ No seu cliente Linux ligado ao seu dispositivo Data Box Edge, faça o seguinte p
 > As seguintes ressalvas aplicam-se a esta libertação:
 > - Depois de um ficheiro ser criado nas ações, a renomeação do ficheiro não é suportada.
 > - A eliminação de um ficheiro de uma partilha não elimina a entrada na conta de armazenamento.
-> - Se utilizar `rsync` para copiar dados, `rsync -a` opção não é suportada.
+> - Se `rsync` utilizar para copiar `rsync -a` dados, então a opção não é suportada.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Data Box Gateway, como:
 

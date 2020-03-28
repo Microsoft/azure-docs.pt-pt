@@ -11,13 +11,13 @@ ms.topic: sample
 ms.date: 05/30/2017
 ms.author: iainfou
 ms.openlocfilehash: b01d8d58da5a25ca9aa3d1ac16f10495fde8fc2b
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76270545"
 ---
-# <a name="deprecated-create-an-azure-container-service-dcos-cluster"></a>PRETERIDO Criar um cluster DC/OS do serviço de contêiner do Azure
+# <a name="deprecated-create-an-azure-container-service-dcos-cluster"></a>(DEPRECIADO) Criar um cluster de serviço de contentores Azure DC/OS
 
 [!INCLUDE [ACS deprecation](../../../../includes/container-service-kubernetes-deprecation.md)]
 

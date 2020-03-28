@@ -5,15 +5,15 @@ ms.subservice: machine-learning
 ms.topic: include
 ms.date: 11/20/2019
 ms.author: garye
-ms.openlocfilehash: eb5755d8e90c8134fe7bcef340820844eeb7e9cc
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 3e8bdafd8f024e7bd2ab0c9f894bb9d714094ab6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74462117"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80345735"
 ---
 > [!IMPORTANT]
-> O banco de dados SQL do Azure Serviços de Machine Learning está em visualização no momento. A inscrição para a visualização está fechada no momento.
+> Os Serviços de Machine Learning de Base de Dados Azure SQL estão atualmente em pré-visualização. A inscrição para a pré-visualização está **encerrada.**
 > 
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .

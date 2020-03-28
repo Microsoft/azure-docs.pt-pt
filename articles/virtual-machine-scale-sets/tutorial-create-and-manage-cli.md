@@ -1,5 +1,5 @@
 ---
-title: Tutorial – criar e gerenciar um conjunto de dimensionamento de máquinas virtuais do Azure
+title: Tutorial - Crie e gerencie um conjunto de escala de máquina virtual Azure
 description: Saiba como utilizar a CLI do Azure para criar um conjunto de dimensionamento de máquinas virtuais, juntamente com algumas tarefas de gestão comuns, como iniciar e parar uma instância ou alterar a capacidade do conjunto de dimensionamento.
 author: cynthn
 tags: azure-resource-manager
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c2bddb4ef1401dd45b5aa9418f6e1890df0879ae
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 27f216a3cc101d4241fb8d30d27999a0397356dc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277228"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80062796"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Criar e gerir um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir um conjunto de máquinas virtuais idênticas e de dimensionamento automático. Ao longo do ciclo de vida dos conjuntos de dimensionamento de máquinas virtuais, poderá ter de executar uma ou mais tarefas de gestão. Neste tutorial, ficará a saber como:
@@ -25,15 +25,15 @@ Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir
 > * Dimensionar manualmente um conjunto de dimensionamento
 > * Executar tarefas de gestão comuns de conjuntos de dimensionamento
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.29 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.29 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Um grupo de recursos tem de ser criado antes de um conjunto de dimensionamento de máquinas virtuais. Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Neste exemplo, é criado um grupo de recursos chamado *myResourceGroup* na região *eastus*. 
+Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Um grupo de recursos tem de ser criado antes de um conjunto de dimensionamento de máquinas virtuais. Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Neste exemplo, um grupo de recursos chamado *myResourceGroup* é criado na região *oriental.* 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -54,7 +54,7 @@ az vmss create \
   --generate-ssh-keys
 ```
 
-A criação e configuração de todas as instâncias de VM e recursos do conjunto de dimensionamento demora alguns minutos. Para distribuir o tráfego para instâncias de VM individuais, é também criado um balanceador de carga.
+A criação e configuração de todas as instâncias de VM e recursos do conjunto de dimensionamento demora alguns minutos. Para distribuir o tráfego pelas instâncias de VM individuais, é também criado um balanceador de carga.
 
 
 ## <a name="view-the-vm-instances-in-a-scale-set"></a>Ver as instâncias da VM num conjunto de dimensionamento
@@ -69,7 +69,7 @@ az vmss list-instances \
 
 O seguinte resultado de exemplo mostra duas instâncias da VM no conjunto de dimensionamento:
 
-```bash
+```output
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup    VmId
 ------------  --------------------  ----------  ------------  -------------------  ---------------  ------------------------------------
            1  True                  eastus      myScaleSet_1  Succeeded            MYRESOURCEGROUP  c059be0c-37a2-497a-b111-41272641533c
@@ -77,7 +77,7 @@ O seguinte resultado de exemplo mostra duas instâncias da VM no conjunto de dim
 ```
 
 
-A primeira coluna no resultado mostra um *InstanceId*. Para ver informações adicionais sobre uma instância de VM específica, adicione o parâmetro `--instance-id` a [az vmss get-instance-view](/cli/azure/vmss). O seguinte exemplo mostra informações sobre a instância de VM *1*:
+A primeira coluna no resultado mostra um *InstanceId*. Para ver informações adicionais sobre uma instância de VM específica, adicione o parâmetro `--instance-id` a [az vmss get-instance-view](/cli/azure/vmss). O seguinte exemplo mostra informações sobre a instância da VM *1*:
 
 ```azurecli-interactive
 az vmss get-instance-view \
@@ -100,7 +100,7 @@ az vmss list-instance-connection-info \
 
 O seguinte resultado de exemplo mostra o nome de instância, o endereço IP público do balanceador de carga e o número de porta para o qual as regras NAT encaminham o tráfego:
 
-```bash
+```output
 {
   "instance 1": "13.92.224.66:50001",
   "instance 3": "13.92.224.66:50003"
@@ -109,13 +109,13 @@ O seguinte resultado de exemplo mostra o nome de instância, o endereço IP púb
 
 SSH para a sua primeira instância de VM. Especifique o seu número de porta e endereço IP público com o parâmetro `-p`, conforme apresentado no comando anterior:
 
-```azurecli-interactive
+```console
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
 Após iniciar sessão na instância da VM, pode fazer algumas alterações de configuração manuais, conforme necessário. Por enquanto, encerre a sessão SSH como habitualmente:
 
-```bash
+```console
 exit
 ```
 
@@ -129,7 +129,7 @@ az vm image list --output table
 
 O seguinte resultado de exemplo mostra as imagens de VM mais comuns no Azure. O *UrnAlias* pode ser utilizado para especificar uma destas imagens comuns quando criar um conjunto de dimensionamento.
 
-```bash
+```output
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
 -------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
 CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:latest                                     CentOS               latest
@@ -153,7 +153,7 @@ az vm image list --offer CentOS --all --output table
 
 O resultado condensado seguinte mostra algumas das imagens disponíveis do CentOS 7.3:
 
-```azurecli-interactive 
+```output
 Offer    Publisher   Sku   Urn                                 Version
 -------  ----------  ----  ----------------------------------  -------------
 CentOS   OpenLogic   7.3   OpenLogic:CentOS:7.3:7.3.20161221   7.3.20161221
@@ -202,7 +202,7 @@ az vm list-sizes --location eastus --output table
 
 O resultado será semelhante ao seguinte exemplo condensado, que mostra os recursos atribuídos a cada tamanho de VM:
 
-```azurecli-interactive
+```output
   MaxDataDiskCount    MemoryInMb  Name                      NumberOfCores    OsDiskSizeInMb    ResourceDiskSizeInMb
 ------------------  ------------  ----------------------  ---------------  ----------------  ----------------------
                  4          3584  Standard_DS1_v2                       1           1047552                    7168

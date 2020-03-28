@@ -8,18 +8,18 @@ ms.topic: sample
 ms.date: 9/25/2019
 ms.author: mjbrown
 ms.openlocfilehash: f7807a4c2024e16f563adbcb46a5c60e5c542dda
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77524568"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-mongodb-api"></a>Amostras azure CLI para Azure Cosmos DB MongoDB API
 
-A tabela seguinte inclui links para a amostra de scripts Azure CLI para API Azure Cosmos DB MongoDB. As páginas de referência para todos os comandos da CLI do Azure Cosmos DB encontram-se disponíveis em [Referência da CLI do Azure](/cli/azure/cosmosdb). Todas as amostras de script soro D DD Do Azure Cosmos podem ser encontradas no [Repositório Azure Cosmos DB CLI GitHub](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
+A tabela seguinte inclui links para a amostra de scripts Azure CLI para API Azure Cosmos DB MongoDB. As páginas de referência para todos os comandos Azure Cosmos DB CLI estão disponíveis na [referência Azure CLI](/cli/azure/cosmosdb). Todas as amostras de script soro D DD Do Azure Cosmos podem ser encontradas no [Repositório Azure Cosmos DB CLI GitHub](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
 > [!NOTE]
-> Atualmente só pode criar a versão 3.2 (isto é, contas usando o ponto final no formato `*.documents.azure.com`) da API do Azure Cosmos DB para contas MongoDB utilizando modelos PowerShell, CLI e Resource Manager. Para criar 3.6 versão de contas, utilize o portal Azure.
+> Atualmente só pode criar versão 3.2 (isto é, contas `*.documents.azure.com`usando o ponto final no formato) da API do Azure Cosmos DB para contas MongoDB utilizando modelos PowerShell, CLI e Resource Manager. Para criar 3.6 versão de contas, utilize o portal Azure.
 
 | |  |
 |---|---|

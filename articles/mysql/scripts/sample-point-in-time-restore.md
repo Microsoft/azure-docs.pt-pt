@@ -1,5 +1,5 @@
 ---
-title: CLI script-Restore Server-banco de dados do Azure para MySQL
+title: Script CLI - Restaurar servidor - Base de Dados Azure para MySQL
 description: Este script da CLI do Azure de exemplo mostra como restaurar um servidor da Base de Dados do Azure para MySQL e as respetivas bases de dados para um ponto anterior no tempo.
 author: ajlam
 ms.author: andrela
@@ -9,10 +9,10 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 12/02/2019
 ms.openlocfilehash: 5a84a44a4ea941bf3b77f0762fc764ec069919c7
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74771333"
 ---
 # <a name="restore-an-azure-database-for-mysql-server-using-azure-cli"></a>Restaurar um servidor da Base de Dados do Azure para MySQL com a CLI do Azure

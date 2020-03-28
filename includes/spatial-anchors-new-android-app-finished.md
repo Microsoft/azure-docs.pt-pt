@@ -7,15 +7,15 @@ ms.topic: include
 ms.author: rgarcia
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 8bef7b12f4d9d9a63e41441ef22b029b2ee5afd1
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74276925"
 ---
-## <a name="putting-everything-together"></a>Colocando tudo em conjunto
+## <a name="putting-everything-together"></a>Juntar tudo
 
-Veja como o arquivo de classe de `MainActivity` completo deve ser semelhante, depois que todos os elementos diferentes tiverem sido agrupados. Você pode usá-lo como uma referência para comparar com seu próprio arquivo e identificar se você pode ter qualquer diferença restante.
+Aqui está como `MainActivity` o arquivo completo da classe deve ser, depois de todos os diferentes elementos terem sido reunidos. Pode usá-lo como referência para comparar com o seu próprio ficheiro, e detetar se pode ter alguma diferença.
 
 ```java
 package com.example.myfirstapp;
@@ -244,7 +244,7 @@ public class MainActivity extends AppCompatActivity {
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você viu como criar um novo aplicativo Android que integra a funcionalidade ARCore com âncoras espaciais do Azure. Para saber mais sobre a biblioteca de âncoras espaciais do Azure, vá para nosso guia sobre como criar e localizar âncoras.
+Neste tutorial, já viu como criar uma nova aplicação Android que integra a funcionalidade ARCore com âncoras espaciais Azure. Para saber mais sobre a biblioteca Azure Spatial Anchors, continue a nosso guia sobre como criar e localizar âncoras.
 
 > [!div class="nextstepaction"]
-> [Criar e localizar âncoras usando âncoras espaciais do Azure](/azure/spatial-anchors/create-locate-anchors-overview)
+> [Criar e localizar âncoras usando âncoras espaciais Azure](/azure/spatial-anchors/create-locate-anchors-overview)

@@ -1,20 +1,20 @@
 ---
-title: Script do PowerShell para criar um contêiner Cosmos do Azure com uma chave de partição grande
-description: Azure PowerShell exemplo de script – criar um contêiner com uma chave de partição grande em uma conta do Azure Cosmos
+title: PowerShell script para criar um recipiente Azure Cosmos DB com uma grande chave de partição
+description: Amostra de script Azure PowerShell - Crie um recipiente com uma grande chave de partição numa conta Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 07/03/2019
+ms.date: 03/17/2020
 ms.author: mjbrown
-ms.openlocfilehash: ecc5e7c13d898f89bbd6b542faf69834de26e0e0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7746154fe89b655d09345a2de655fa85a0d4cbae
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444970"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365928"
 ---
-# <a name="create-a-container-with-a-large-partition-key-in-an-azure-cosmos-account-using-powershell"></a>Criar um contêiner com uma chave de partição grande em uma conta do Azure Cosmos usando o PowerShell
+# <a name="create-a-container-with-a-large-partition-key-in-an-azure-cosmos-db-account-using-powershell"></a>Crie um recipiente com uma grande chave de partição numa conta Azure Cosmos DB usando powerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -38,9 +38,11 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-|**Recursos do Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Cria um recurso. |
-|**Grupos de recursos do Azure**| |
+|**Azure Cosmos DB**| |
+| [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Cria uma nova Conta Cosmos DB. |
+| [Set-AzCosmosDBSqlDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbsqldatabase) | Cria uma nova ou atualiza uma base de dados Cosmos DB SQL existente. |
+| [Set-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbsqlcontainer) | Cria um novo ou atualiza um recipiente Cosmos DB SQL existente. |
+|**Grupos de Recursos Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 

@@ -9,10 +9,10 @@ ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
 ms.openlocfilehash: 3ed00b1c68c41bc392b09c97dd47c9cdb8fa890d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77661730"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Arquivar os dados de métricas e de registos do Azure com o Armazenamento do Azure
@@ -33,13 +33,13 @@ Este tutorial mostra o processo de configuração do seu ambiente do Azure para 
 > * Ver os dados de monitorização na mesma
 > * Apague os seus recursos
 
-Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
 Primeiro, tem de configurar uma conta de armazenamento na qual os dados de monitorização serão arquivados. Para tal, [siga os passos aqui](../../storage/common/storage-account-create.md).
 
@@ -175,7 +175,7 @@ Pode agora definir com êxito o arquivamento dos dados de monitorização numa c
 
 2. Navegue para a secção **Definições de Diagnóstico**, clique no recurso no qual criou uma definição de diagnóstico no passo **Encaminhar os dados de recursos para a conta de armazenamento** anterior, localize a definição criou, clique no botão **Editar definição** e clique em **Eliminar**.
 
-3. Navegue para a secção **Definições de diagnóstico** na máquina virtual que configurou no passo **Encaminhar os dados da máquina virtual (SO convidado) para a conta de armazenamento** anterior e, no separador  **Agente**, clique em **Remover** (abaixo da secção **Remover agente de Diagnóstico do Azure**).
+3. Navegue para a secção **Definições de diagnóstico** na máquina virtual que configurou no passo **Encaminhar os dados da máquina virtual (SO convidado) para a conta de armazenamento** anterior e, no separador ** Agente**, clique em **Remover** (abaixo da secção **Remover agente de Diagnóstico do Azure**).
 
 4. Navegue para a conta de armazenamento que criou no passo **Criar uma conta de armazenamento** anterior e clique em **Eliminar conta de armazenamento**. Introduza o nome da conta e clique em **Eliminar**.
 
@@ -197,4 +197,4 @@ Neste tutorial, aprendeu a configurar os dados de monitorização do seu ambient
 Para tirar mais proveito dos seus dados e obter informações adicionais, envie-os também para o Log Analytics.
 
 > [!div class="nextstepaction"]
-> [Introdução ao Log Analytics](../../azure-monitor/log-query/log-query-overview.md)
+> [Começar com Log Analytics](../../azure-monitor/log-query/log-query-overview.md)

@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
 ms.openlocfilehash: d0024b8c43e76e3dd26b4b73c4ae0e09890b3b46
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75421834"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Carregar soluções de atualização e controlo de alterações para a Automatização do Azure
@@ -27,13 +27,13 @@ Neste tutorial, irá aprender a carregar automaticamente soluções de Atualiza�
 
 Para concluir este tutorial, é necessário o seguinte:
 
-* Subscrição do Azure. Se ainda não tiver uma, pode [ativar as vantagens de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou [inscrever-se numa conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Subscrição do Azure. Se ainda não tiver um, pode ativar os seus benefícios de [subscrição da MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Conta de automatização](automation-offering-get-started.md) para gerir máquinas.
 * Uma [máquina virtual](../virtual-machines/windows/quick-create-portal.md) para carregar.
 
 ## <a name="onboard-an-azure-vm"></a>Carregar uma VM do Azure
 
-Há várias maneiras de carregar computadores, você pode integrar a solução [de uma máquina virtual](automation-onboard-solutions-from-vm.md), [da navegação de vários computadores](automation-onboard-solutions-from-browse.md) a [partir de sua conta de automação](automation-onboard-solutions-from-automation-account.md)ou por runbook. Este tutorial explica a ativação da Gestão de Atualizações através de um runbook. Para carregar Máquinas Virtuais do Azure à escala, é necessário carregar uma VM existente com a solução de Controlo de alterações ou Gestão de atualizações. Neste passo, vai carregar uma máquina virtual com Gestão de atualizações e Controlo de alterações.
+Existem várias formas de carregar máquinas. Pode carregar a solução [a partir de uma máquina virtual](automation-onboard-solutions-from-vm.md), [ao pesquisar em várias máquinas, ](automation-onboard-solutions-from-browse.md) [a partir da sua conta de Automatização](automation-onboard-solutions-from-automation-account.md) ou através do runbook. Este tutorial explica a ativação da Gestão de Atualizações através de um runbook. Para carregar Máquinas Virtuais do Azure à escala, é necessário carregar uma VM existente com a solução de Controlo de alterações ou Gestão de atualizações. Neste passo, vai carregar uma máquina virtual com Gestão de atualizações e Controlo de alterações.
 
 ### <a name="enable-change-tracking-and-inventory"></a>Ativar o Controlo de Alterações e Inventário
 
@@ -77,7 +77,7 @@ Agora que as soluções estão ativadas, pode adicionar uma VM do Azure para car
    ![Ativar a solução de atualização para a VM](media/automation-onboard-solutions/enable-update.png)
 
 > [!NOTE]
-> Se você não aguardar a conclusão da outra solução, ao habilitar a próxima solução, você receberá uma mensagem informando: a *instalação de outra solução está em andamento nesta ou em uma máquina virtual diferente. Quando a instalação for concluída, o botão habilitar será habilitado e você poderá solicitar a instalação da solução nesta máquina virtual.*
+> Se não esperar que a outra solução esteja concluída, ao ativar a próxima solução recebe uma mensagem afirmando: *A instalação de outra solução está em andamento nesta ou numa máquina virtual diferente. Quando esta instalação completar o botão Ativação está ativado e pode solicitar a instalação da solução nesta máquina virtual.*
 
 ## <a name="install-and-update-modules"></a>Instalar e atualizar módulos
 
@@ -129,10 +129,10 @@ Tem de ter carregado as soluções de controlo de alterações ou atualização 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Para remover uma VM do Gerenciamento de Atualizações:
+Para remover um VM da Atualização:
 
-* No espaço de trabalho Log Analytics, remova a VM da pesquisa salva para o `MicrosoftDefaultScopeConfig-Updates`de configuração de escopo. As pesquisas salvas podem ser encontradas em **geral** em seu espaço de trabalho.
-* Remova o [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o [agente de log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+* No seu espaço de trabalho Log Analytics, retire o `MicrosoftDefaultScopeConfig-Updates`VM da pesquisa guardada para a Configuração scope . Pesquisas guardadas podem ser encontradas sob **o General** no seu espaço de trabalho.
+* Remova o agente de [monitorização](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) da Microsoft ou o [agente Log Analytics para o Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Passos seguintes
 

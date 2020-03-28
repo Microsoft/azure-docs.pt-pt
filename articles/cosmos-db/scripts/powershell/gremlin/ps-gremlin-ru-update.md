@@ -1,20 +1,20 @@
 ---
-title: Script do PowerShell para atualizar RU/s para Azure Cosmos DB API Gremlin
-description: Azure PowerShell script – Azure Cosmos DB atualização RU/s para API Gremlin
+title: PowerShell script para atualizar RU/s para Azure Cosmos DB Gremlin API
+description: Script Azure PowerShell - Azure Cosmos DB Update RU/s para Gremlin API
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: c298ec58b0d69d20429413f0f36b3e28ff8e5e61
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 61c06fca0fe2f2449f67890dd962905642605716
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441433"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366019"
 ---
-# <a name="update-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Atualizar RU/s para um banco de dados ou grafo para a API Azure Cosmos DB-Gremlin
+# <a name="update-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Atualização RU/s para uma base de dados ou gráfico para Azure Cosmos DB - Gremlin API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -38,9 +38,11 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-|**Recursos do Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Cria um recurso. |
-|**Grupos de recursos do Azure**| |
+|**Azure Cosmos DB**| |
+| [Set-AzCosmosDBGremlinDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbgremlindatabase) | Cria ou atualiza uma Base de Dados Gremlin API. |
+| [Get-AzCosmosDBGremlinGraph](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraph) | Recebe um gráfico da API gremlin. |
+| [Set-AzCosmosDBGremlinGraph](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbgremlingraph) | Cria ou atualiza um Gráfico Gremlin API. |
+|**Grupos de Recursos Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 

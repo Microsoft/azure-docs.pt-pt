@@ -2,19 +2,19 @@
 title: Tutorial - adicione parâmetros ao modelo
 description: Adicione parâmetros ao seu modelo de Gestor de Recursos Azure para torná-lo reutilizável.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 930ae27acf09dfa54638e27c938d7680817cbbab
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: b4f8d5098fc9cf2f91139979cae430594edac5af
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79370751"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80369858"
 ---
-# <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>Tutorial: Adicione parâmetros ao seu modelo de Gestor de Recursos
+# <a name="tutorial-add-parameters-to-your-arm-template"></a>Tutorial: Adicione parâmetros ao seu modelo ARM
 
-No [tutorial anterior,](template-tutorial-add-resource.md)aprendeu a adicionar uma conta de armazenamento ao modelo e implantá-la. Neste tutorial, aprende-se a melhorar o modelo adicionando parâmetros. Este tutorial leva cerca de **14 minutos** para ser concluído.
+No [tutorial anterior,](template-tutorial-add-resource.md)aprendeu a adicionar uma conta de armazenamento ao modelo e implantá-la. Neste tutorial, aprende-se a melhorar o modelo do Gestor de Recursos Azure (ARM), adicionando parâmetros. Este tutorial leva cerca de **14 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -54,7 +54,9 @@ New-AzResourceGroupDeployment `
   -storageName "{your-unique-name}"
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Para executar este comando de implantação, deve ter a [versão mais recente](/cli/azure/install-azure-cli) do Azure CLI.
 
 ```azurecli
 az deployment group create \
@@ -98,7 +100,7 @@ New-AzResourceGroupDeployment `
   -storageName "{your-unique-name}"
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az deployment group create \
@@ -123,7 +125,7 @@ New-AzResourceGroupDeployment `
   -storageSKU Standard_GRS
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az deployment group create \
@@ -148,7 +150,7 @@ New-AzResourceGroupDeployment `
   -storageSKU basic
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az deployment group create \
@@ -168,10 +170,10 @@ Se está saindo para o próximo tutorial, não precisa de apagar o grupo de recu
 
 Se estás a parar agora, talvez queiras limpar os recursos que implantaste ao apagar o grupo de recursos.
 
-1. No portal do Azure, selecione **Grupo de recursos** no menu à esquerda.
+1. A partir do portal Azure, selecione **Grupo Recurso** do menu esquerdo.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
 3. Selecione o nome do grupo de recursos.
-4. Selecione **Eliminar grupo de recursos** no menu superior.
+4. **Selecione Eliminar** o grupo de recursos do menu superior.
 
 ## <a name="next-steps"></a>Passos seguintes
 

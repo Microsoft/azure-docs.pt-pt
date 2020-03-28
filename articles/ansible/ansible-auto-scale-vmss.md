@@ -1,33 +1,33 @@
 ---
-title: Tutorial – conjuntos de dimensionamento de máquinas virtuais de dimensionamento automático no Azure usando Ansible
-description: Saiba como usar o Ansible para dimensionar conjuntos de dimensionamento de máquinas virtuais com dimensionamento automático no Azure
-keywords: Ansible, Azure, DevOps, Bash, manual, escala, dimensionamento automático, máquina virtual, conjunto de dimensionamento de máquinas virtuais, vmss
+title: Tutorial - Conjuntos de escala automática de máquinas virtuais em Azure usando Ansible
+description: Aprenda a usar conjuntos de escala virtual de máquinas virtuais com escala automática em Azure
+keywords: ansible, azul, devops, bash, playbook, escala, escala automática, máquina virtual, conjunto de escala de máquina virtual, vmss
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: fb8d2a4bfca32be4575ca8f11018e5cab17cd9a2
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156827"
 ---
-# <a name="tutorial-autoscale-virtual-machine-scale-sets-in-azure-using-ansible"></a>Tutorial: dimensionamento automático de conjuntos de dimensionamento de máquinas virtuais no Azure usando Ansible
+# <a name="tutorial-autoscale-virtual-machine-scale-sets-in-azure-using-ansible"></a>Tutorial: Conjuntos de escala automática de máquinas virtuais em Azure usando Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
 [!INCLUDE [open-source-devops-intro-vmss.md](../../includes/open-source-devops-intro-vmss.md)]
 
-O recurso de ajustar automaticamente o número de instâncias de VM é chamado de [dimensionamento automático](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview). O benefício do dimensionamento automático é que ele reduz a sobrecarga de gerenciamento para monitorar e otimizar o desempenho do seu aplicativo. O dimensionamento automático pode ser configurado em resposta à demanda ou em um agendamento definido. Usando o Ansible, você pode especificar as regras de dimensionamento automático que definem o desempenho aceitável para uma experiência de cliente positiva.
+A função de ajustar automaticamente o número de instâncias vm chama-se [escala automática](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview). O benefício da escala automática é que reduz a despesa de gestão para monitorizar e otimizar o desempenho da sua aplicação. A escala automática pode ser configurada em resposta à procura ou num horário definido. Utilizando o Ansible, pode especificar as regras de escala automática que definem o desempenho aceitável para uma experiência positiva do cliente.
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
 > * Definir um perfil de dimensionamento automático
-> * Dimensionamento automático com base em uma agenda recorrente
-> * Dimensionamento automático com base no desempenho do aplicativo
-> * Recuperar informações de configurações de autoescala 
-> * Desabilitar uma configuração de dimensionamento automático
+> * Escala automática com base num horário recorrente
+> * Escala automática com base no desempenho da aplicação
+> * Recuperar informações sobre configurações de escala automática 
+> * Desative uma definição de escala automática
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,13 +35,13 @@ O recurso de ajustar automaticamente o número de instâncias de VM é chamado d
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)] 
 [!INCLUDE [ansible-prereqs-vm-scale-set.md](../../includes/ansible-prereqs-vm-scale-set.md)]
 
-## <a name="autoscale-based-on-a-schedule"></a>Dimensionamento automático com base em uma agenda
+## <a name="autoscale-based-on-a-schedule"></a>Escala automática com base num horário
 
-Para ativar o dimensionamento automático num conjunto de dimensionamente, tem primeiro que definir um perfil de dimensionamento automático. Este perfil define a capacidade predefinida, máxima e mínima do conjunto de dimensionamento. Esses limites permitem controlar o custo não criando continuamente instâncias de VM e equilibram o desempenho aceitável com um número mínimo de instâncias que permanecem em um evento de redução. 
+Para ativar o dimensionamento automático num conjunto de dimensionamente, tem primeiro que definir um perfil de dimensionamento automático. Este perfil define a capacidade predefinida, máxima e mínima do conjunto de dimensionamento. Estes limites permitem controlar os custos não criando continuamente casos de VM, e equilibrar o desempenho aceitável com um número mínimo de instâncias que permanecem em um evento de escala. 
 
-O Ansible permite dimensionar seus conjuntos de dimensionamento em uma data específica ou em um agendamento recorrente.
+O Ansible permite-lhe escalar os seus conjuntos de escala numa data específica ou num horário recorrente.
 
-O código de guia estratégico nesta seção aumenta o número de instâncias de VM para três às 10:00 todas as segundas-feiras.
+O código de jogadanesta secção aumenta o número de casos de VM para três às 10:00 todas as segundas-feiras.
 
 Guarde o manual de procedimentos seguinte como `vmss-auto-scale.yml`:
 
@@ -77,22 +77,22 @@ Guarde o manual de procedimentos seguinte como `vmss-auto-scale.yml`:
               - '10'
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook vmss-auto-scale.yml
 ```
 
-## <a name="autoscale-based-on-performance-data"></a>Dimensionamento automático baseado em dados de desempenho
+## <a name="autoscale-based-on-performance-data"></a>Escala automática com base em dados de desempenho
 
-Se a demanda do aplicativo aumentar, a carga nas instâncias de VM nos conjuntos de dimensionamento aumentará. Se este aumento de carga for consistente, em vez de ser apenas uma breve exigência, pode configurar regras de dimensionamento automático para aumentar o número de instâncias de VM no conjunto de dimensionamento. Quando estas instâncias de VM forem criadas e as aplicações forem implementadas, o conjunto de dimensionamento começa a distribuir o tráfego pelas mesmas através do balanceador de carga. O Ansible permite que você controle quais métricas monitorar, como uso da CPU, uso do disco e tempo de carregamento do aplicativo. Você pode reduzir horizontalmente e escalar horizontalmente em conjuntos de dimensionamento com base nos limites de métrica de desempenho, por um agendamento recorrente ou por uma data específica. 
+Se a procura de aplicação aumentar, a carga nas instâncias VM na sua escala aumenta. Se este aumento de carga for consistente, em vez de ser apenas uma breve exigência, pode configurar regras de dimensionamento automático para aumentar o número de instâncias de VM no conjunto de dimensionamento. Quando estas instâncias de VM forem criadas e as aplicações forem implementadas, o conjunto de dimensionamento começa a distribuir o tráfego pelas mesmas através do balanceador de carga. O Ansible permite-lhe controlar quais as métricas a monitorizar, tais como o uso do CPU, o uso do disco e o tempo de carregamento de aplicações. Pode escalar e escalar em conjuntos de escala com base em limiares métricos de desempenho, por um calendário recorrente, ou por uma data específica. 
 
-O código do guia estratégico nesta seção verifica a carga de trabalho da CPU dos 10 minutos anteriores às 18:00 todas as segundas-feiras. 
+O código de jogadas nesta secção verifica a carga de trabalho da CPU durante os 10 minutos anteriores às 18:00 todas as segundas-feiras. 
 
-Com base nas métricas de percentual de CPU, o guia estratégico realiza uma das seguintes ações:
+Com base nas métricas percentuais do CPU, o livro de jogadas faz uma das seguintes ações:
 
-- Dimensiona o número de instâncias de VM para quatro
-- Dimensiona o número de instâncias de VM para uma
+- Escala o número de casos vm para quatro
+- Escalas no número de casos vm para um
 
 Guarde o manual de procedimentos seguinte como `vmss-auto-scale-metrics.yml`:
 
@@ -171,15 +171,15 @@ Guarde o manual de procedimentos seguinte como `vmss-auto-scale-metrics.yml`:
             value: '1'
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook vmss-auto-scale-metrics.yml
 ```
 
-## <a name="get-autoscale-settings-information"></a>Obter informações de configurações de dimensionamento automático 
+## <a name="get-autoscale-settings-information"></a>Obtenha informações sobre configurações de escala automática 
 
-O código de guia estratégico nesta seção usa o módulo `azure_rm_autoscale_facts` para recuperar os detalhes da configuração de dimensionamento automático.
+O código de jogadas `azure_rm_autoscale_facts` nesta secção utiliza o módulo para recuperar os detalhes da definição de escala automática.
 
 Guarde o manual de procedimentos seguinte como `vmss-auto-scale-get-settings.yml`:
 
@@ -199,17 +199,17 @@ Guarde o manual de procedimentos seguinte como `vmss-auto-scale-get-settings.yml
         var: autoscale_query.autoscales[0]
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook vmss-auto-scale-get-settings.yml
 ```
 
-## <a name="disable-autoscale-settings"></a>Desabilitar configurações de dimensionamento automático
+## <a name="disable-autoscale-settings"></a>Desativar as definições de escala automática
 
-Há duas maneiras de desabilitar as configurações de dimensionamento automático. Uma delas é alterar a chave de `enabled` de `true` para `false`. A segunda maneira é excluir a configuração.
+Existem duas formas de desativar as definições de escala automática. Uma maneira é `enabled` mudar `true` a `false`chave de . A segunda forma é apagar a definição.
 
-O código do guia estratégico nesta seção exclui a configuração de dimensionamento automático. 
+O código de jogadas nesta secção elimina a definição de escala automática. 
 
 Guarde o manual de procedimentos seguinte como `vmss-auto-scale-delete-setting.yml`:
 
@@ -226,7 +226,7 @@ Guarde o manual de procedimentos seguinte como `vmss-auto-scale-delete-setting.y
          state: absent
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 vmss-auto-scale-delete-setting.yml
@@ -235,4 +235,4 @@ vmss-auto-scale-delete-setting.yml
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
-> [Tutorial: atualizar imagem personalizada de conjuntos de dimensionamento de máquinas virtuais do Azure usando Ansible](./ansible-vmss-update-image.md)
+> [Tutorial: Atualizar imagem personalizada de conjuntos de escala de máquinas virtuais Azure usando Ansible](./ansible-vmss-update-image.md)

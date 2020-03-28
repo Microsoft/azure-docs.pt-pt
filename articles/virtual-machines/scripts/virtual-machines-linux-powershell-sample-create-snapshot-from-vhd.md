@@ -1,5 +1,5 @@
 ---
-title: Criar um instantâneo de um VHD para criar vários discos gerenciados idênticos-exemplo do PowerShell
+title: Crie um instantâneo de um VHD para criar vários discos geridos idênticos - PowerShell Sample
 description: Exemplo de Script do Azure PowerShell - Criar um instantâneo de um VHD para criar vários discos geridos idênticos num pequeno período de tempo
 services: virtual-machines-linux
 documentationcenter: storage
@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
 ms.openlocfilehash: 28c97e1cb5dd329269a822be6b0b1f6f120a6b13
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75463718"
 ---
 # <a name="create-a-snapshot-from-a-vhd-to-create-multiple-identical-managed-disks-in-small-amount-of-time-with-powershell"></a>Criar um instantâneo de um VHD para criar vários discos geridos idênticos num pequeno período de tempo com o PowerShell

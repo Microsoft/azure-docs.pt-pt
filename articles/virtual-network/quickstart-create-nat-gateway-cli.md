@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
 ms.openlocfilehash: 9402960927f56092e226ab81bd3e6ede0cf6a52d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79202201"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-azure-cli"></a>Quickstart: Criar um portal NAT usando o Azure CLI
@@ -28,7 +28,7 @@ Este quickstart mostra-lhe como utilizar o serviço AZURE Virtual Network NAT. V
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Pode completar este tutorial utilizando a Azure Cloud Shell ou executar os respetivos comandos localmente.  Se nunca usou a Azure Cloud Shell, [inscreva-se agora](https://shell.azure.com) para passar pela configuração inicial.
-Se optar por executar estes comandos localmente, tem de instalar o CLI.  Este tutorial requer que esteja a executar uma versão da versão Azure CLI 2.0.71 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por executar estes comandos localmente, tem de instalar o CLI.  Este tutorial requer que esteja a executar uma versão da versão Azure CLI 2.0.71 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
@@ -221,7 +221,7 @@ Quando já não for necessário, pode utilizar o [comando az group eliminar](/cl
     --name myResourceGroupNAT
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou um portal NAT e um VM para usá-lo. 
 

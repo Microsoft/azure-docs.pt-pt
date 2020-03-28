@@ -1,6 +1,6 @@
 ---
-title: Criar um teste do Internet Analyzer usando a CLI | Microsoft Docs
-description: Neste artigo, saiba como criar seu primeiro teste do Internet Analyzer.
+title: Criar um teste de Análise de Internet utilizando o CLI [ Microsoft Docs
+description: Neste artigo, aprenda a criar o seu primeiro teste de Análise de Internet.
 services: internet-analyzer
 author: diego-perez-botero
 ms.service: internet-analyzer
@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: d474442086e2a114f26df279ab2682cd7628a5f5
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74184272"
 ---
-# <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Criar um teste do Internet Analyzer usando a CLI (versão prévia)
+# <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Criar um teste de análise da Internet utilizando o CLI (Pré-visualização)
 
-Há duas maneiras de criar um recurso do Internet Analyzer – usando o [portal do Azure](internet-analyzer-create-test-portal.md) ou usando a CLI. Esta seção ajuda você a criar um novo recurso do Azure Internet Analyzer usando nossa experiência com a CLI. 
+Existem duas formas de criar um recurso analisador de Internet - utilizando o [portal Azure](internet-analyzer-create-test-portal.md) ou usando o CLI. Esta secção ajuda-o a criar um novo recurso Azure Internet Analyzer utilizando a nossa experiência CLI. 
 
 
 > [!IMPORTANT]
@@ -25,63 +25,63 @@ Há duas maneiras de criar um recurso do Internet Analyzer – usando o [portal 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-A visualização pública está disponível para uso global. no entanto, o armazenamento de dados é limitado ao *oeste dos EUA 2* durante a visualização.
+A pré-visualização pública está disponível para ser usada globalmente; no entanto, o armazenamento de dados está limitado a *US West 2* durante a pré-visualização.
 
 ## <a name="object-model"></a>Modelo de objeto
-A CLI do Internet Analyzer expõe os seguintes tipos de recursos:
-* **Testes** – um teste compara o desempenho do usuário final de dois pontos de extremidade da Internet (A e B) ao longo do tempo.
-* **Perfis** – os testes são criados em um perfil do Internet Analyzer. Os perfis permitem que os testes relacionados sejam agrupados; um único perfil pode conter um ou mais testes.
-* **Pontos de extremidade pré-configurados** – configuramos pontos de extremidade com uma variedade de configurações (regiões, tecnologias de aceleração, etc.). Você pode usar qualquer um desses pontos de extremidade pré-configurados em seus testes.
-* **Scorecards** -um scorecard fornece resumos rápidos e significativos dos resultados da medição. Consulte [interpretando seu Scorecard](internet-analyzer-scorecard.md).
-* **Série temporal** -uma série temporal mostra como uma métrica muda ao longo do tempo.
+O Internet Analyzer CLI expõe os seguintes tipos de recursos:
+* **Testes** - Um teste compara o desempenho do utilizador final de dois pontos finais de internet (A e B) ao longo do tempo.
+* **Perfis** - Os testes são criados sob um perfil de Analisador de Internet. Os perfis permitem a grumos agrupar testes conexos; um único perfil pode conter um ou mais testes.
+* **Pontos Finais reconfigurados** - Estabelecemos pontos finais com uma variedade de configurações (regiões, tecnologias de aceleração, etc.). Pode utilizar qualquer um destes pontos finais pré-configurados nos seus testes.
+* **Scorecards** - Um cartão de pontuação fornece resumos rápidos e significativos dos resultados da medição. Consulte [a Interpretação do seu Cartão de Pontuação](internet-analyzer-scorecard.md).
+* **Série de tempo** - Uma série de tempo mostra como uma métrica muda ao longo do tempo.
 
-## <a name="profile-and-test-creation"></a>Criação de perfil e teste
-1. Obtenha acesso à visualização do Internet Analyzer seguindo o **como fazer participar da versão prévia?** instruções das [perguntas frequentes sobre o Azure Internet Analyzer](internet-analyzer-faq.md).
-2. [Instale o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-3. Execute o comando `login` para iniciar uma sessão da CLI:
+## <a name="profile-and-test-creation"></a>Criação de Perfis e Testes
+1. Obtenha acesso de pré-visualização do Internet Analyzer seguindo o [Azure Internet Analyzer FAQ](internet-analyzer-faq.md) **como posso participar na pré-visualização?**
+2. [Instale o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+3. Executar `login` o comando para iniciar uma sessão CLI:
     ```azurecli-interactive
     az login
     ```
 
-    Se a CLI puder abrir o navegador padrão, ela fará isso e carregará uma página de entrada do Azure.
-    Caso contrário, abra uma página do navegador em https://aka.ms/devicelogin e insira o código de autorização exibido no terminal.
+    Se o CLI conseguir abrir o seu navegador predefinido, fá-lo-á e carregará uma página de entrada azure.
+    Caso contrário, abra uma https://aka.ms/devicelogin página do navegador e introduza o código de autorização apresentado no seu terminal.
 
 4. Inicie sessão com as credenciais da sua conta no browser.
 
-5. Selecione sua ID de assinatura que tenha recebido acesso à visualização pública do Internet Analyzer.
+5. Selecione o seu ID de subscrição que tenha tido acesso à pré-visualização pública do Analisador de Internet.
 
-    Depois de fazer logon, você verá uma lista de assinaturas associadas à sua conta do Azure. As informações de assinatura com `isDefault: true` é a assinatura ativada no momento após o logon. Para selecionar outra assinatura, use o comando [AZ Account Set](https://docs.microsoft.com/cli/azure/account#az-account-set) com a ID de assinatura para alternar para. Para obter mais informações sobre a seleção de assinatura, consulte [usar várias assinaturas do Azure](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+    Após o início do sessão, consulte uma lista de subscrições associadas à sua conta Azure. A informação `isDefault: true` de subscrição é a subscrição ativada atualmente após o login. Para selecionar outra subscrição, utilize o comando conjunto de [contas az](https://docs.microsoft.com/cli/azure/account#az-account-set) com o ID de subscrição para mudar. Para obter mais informações sobre a seleção de subscrições, consulte [Utilize várias subscrições do Azure.](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)
 
     Existem formas de iniciar sessão de forma não interativa, que são abordadas em detalhe em [Iniciar sessão com a CLI do Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
-6. **[Opcional]** Crie um novo grupo de recursos do Azure:
+6. **[Opcional]** Crie um novo Grupo de Recursos Azure:
     ```azurecli-interactive
     az group create --location eastus --name "MyInternetAnalyzerResourceGroup"
     ```
 
-7. Instale a extensão do CLI do Azure Internet Analyzer:
+7. Instale a extensão do Analisador de Internet Azure CLI:
      ```azurecli-interactive
     az extension add --name internet-analyzer
     ```
 
-8. Criar um novo perfil do Internet Analyzer:
+8. Criar um novo perfil de Analisador de Internet:
     ```azurecli-interactive
     az internet-analyzer profile create --location eastus --resource-group "MyInternetAnalyzerResourceGroup" --name "MyInternetAnalyzerProfile" --enabled-state Enabled
     ```
 
-9. Listar todos os pontos de extremidade pré-configurados disponíveis para o perfil recém-criado:
+9. Enumerar todos os pontos finais pré-configurados disponíveis para o perfil recém-criado:
     ```azurecli-interactive
     az internet-analyzer preconfigured-endpoint list --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile"
     ```
 
-10. Crie um novo teste no perfil InternetAnalyzer recém-criado:
+10. Criar um novo teste sob o perfil de InternetAnalyzer recém-criado:
     ```azurecli-interactive
     az internet-analyzer test create --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile" --endpoint-a-name "contoso" --endpoint-a-endpoint "www.contoso.com/some/path/to/trans.gif" --endpoint-b-name "microsoft" --endpoint-b-endpoint "www.microsoft.com/another/path/to/trans.gif" --name "MyFirstInternetAnalyzerTest" --enabled-state Enabled
     ```
 
-    O comando acima pressupõe que `www.contoso.com` e `www.microsoft.com` estão hospedando a imagem de um pixel ([Trans. gif](https://fpc.msedge.net/apc/trans.gif)) em caminhos personalizados. Se um caminho de objeto não for especificado explicitamente, o Internet Analyzer usará `/apc/trans.gif` como o caminho do objeto por padrão, que é onde os pontos de extremidade pré-configurados estão hospedando a imagem de um pixel. Observe também que o esquema (HTTPS/HTTP) não precisa ser especificado; O Internet Analyzer só dá suporte a pontos de extremidade HTTPS, portanto, HTTPS é assumido.
+    O comando acima pressupõe que ambos `www.contoso.com` e `www.microsoft.com` estão hospedando a imagem de um pixel[(trans.gif](https://fpc.msedge.net/apc/trans.gif)) em caminhos personalizados. Se um caminho de objeto não for especificado `/apc/trans.gif` explicitamente, o Analisador de Internet usará como o caminho do objeto por padrão, que é onde os pontos finais pré-configurados estão hospedando a imagem de um pixel. Note também que o esquema (https/http) não precisa de ser especificado; O Analisador de Internet suporta apenas pontos finais HTTPS, pelo que https é assumido.
 
-11. O novo teste deve aparecer sob o perfil do Internet Analyzer:
+11. O novo teste deve aparecer no perfil do Analisador de Internet:
     ```azurecli-interactive
     az internet-analyzer test list --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile"
     ```
@@ -113,14 +113,14 @@ A CLI do Internet Analyzer expõe os seguintes tipos de recursos:
     ]
     ````
 
-12. Para começar a gerar medidas, o arquivo JavaScript apontado pelo **scriptFileUri** do teste deve ser inserido em seu aplicativo Web. Instruções específicas podem ser encontradas na página [Inserir cliente do Internet Analyzer](internet-analyzer-embed-client.md) .
+12. Para começar a gerar medições, o ficheiro JavaScript apontado pelo **script FileUri** do teste deve ser incorporado na sua aplicação Web. Instruções específicas podem ser encontradas na página do Cliente do Analisador de [Internet Incorporado.](internet-analyzer-embed-client.md)
 
-13. Você pode monitorar o progresso do teste controlando seu valor de "status":
+13. Pode monitorizar o progresso do teste mantendo o seu valor de "estado":
     ```azurecli-interactive
     az internet-analyzer test show --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile" --name "MyFirstInternetAnalyzerTest"
     ```
 
-14. Você pode inspecionar os resultados coletados do teste gerando timeseries ou scorecards para ele:
+14. Pode inspecionar os resultados recolhidos do teste gerando séries de tempo ou cartões de pontuação para o mesmo:
     ```azurecli-interactive
     az internet-analyzer show-scorecard --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile" --name "MyFirstInternetAnalyzerTest" --aggregation-interval "Daily" --end-date-time-utc "2019-10-24T00:00:00"
     ```
@@ -130,8 +130,8 @@ A CLI do Internet Analyzer expõe os seguintes tipos de recursos:
     ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Procure a [referência da CLI do Internet Analyzer](https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest) para obter a lista completa de comandos e exemplos de uso com suporte.
-* Leia as [perguntas frequentes do Internet Analyzer](internet-analyzer-faq.md).
-* Saiba mais sobre como inserir o [cliente do Internet Analyzer](internet-analyzer-embed-client.md) e criar um [ponto de extremidade personalizado](internet-analyzer-custom-endpoint.md). 
+* Consulte a [referência CLI](https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest) do Analisador de Internet para obter a lista completa de comandos suportados e exemplos de utilização.
+* Leia o FaQ do [Analisador](internet-analyzer-faq.md)de Internet .
+* Saiba mais sobre incorporar o [Cliente analisador](internet-analyzer-embed-client.md) de Internet e criar um [ponto final personalizado.](internet-analyzer-custom-endpoint.md) 

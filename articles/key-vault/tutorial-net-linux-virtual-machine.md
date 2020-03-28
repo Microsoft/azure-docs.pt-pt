@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use uma máquina virtual Linux e uma aplicação de consola ASP.NET para armazenar segredos no Cofre de Chaves Azure  Microsoft Docs
+title: Tutorial - Use uma máquina virtual Linux e uma aplicação de consola ASP.NET para armazenar segredos no Cofre de Chaves Azure [ Microsoft Docs
 description: Neste tutorial, aprende-se a configurar uma aplicação ASP.NET Core para ler um segredo do cofre azure key.
 services: key-vault
 author: msmbaldwin
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 8c5b3fcc1cb2ac481be0b435c48ce213c716edde
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 05968fdd9e2ddfd89bd9310c744d9ee699f440d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78198172"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472729"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-net-app-to-store-secrets-in-azure-key-vault"></a>Tutorial: Use um Linux VM e uma aplicação .NET para armazenar segredos no Cofre de Chaves Azure
 
@@ -35,15 +35,15 @@ Antes de irmos mais longe, leia sobre [conceitos básicos](basic-concepts.md)de 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Git](https://git-scm.com/downloads).
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+* [Git.](https://git-scm.com/downloads)
+* Uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 * [Azure CLI 2.0 ou mais tarde](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ou Azure Cloud Shell.
 
 [!INCLUDE [Azure Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="understand-managed-service-identity"></a>Compreender identidade de serviço gerido
 
-O Azure Key Vault pode armazenar credenciais em segurança, para que não estejam no seu código. Contudo, para as obter, tem de se autenticar no serviço. No entanto, para autenticar o Cofre chave, precisa de uma credencial. É um problema clássico de botas. Com o Azure e o Azure Ative Directory (Azure AD), a Managed Service Identity (MSI) pode fornecer uma identidade de bootstrap que torna muito mais simples começar as coisas.
+O Azure Key Vault pode armazenar credenciais de forma segura para que não estejam no seu código, mas para as recuperar, é necessário autenticar o Cofre de Chaves Azure. No entanto, para autenticar o Cofre chave, precisa de uma credencial. É um problema clássico de botas. Com o Azure e o Azure Ative Directory (Azure AD), a Managed Service Identity (MSI) pode fornecer uma identidade de bootstrap que torna muito mais simples começar as coisas.
 
 Quando ativa o MSI para um serviço Azure como Máquinas Virtuais, Serviço de Aplicações ou Funções, o Azure cria um diretor de serviço para a instância do serviço no Diretório Ativo Azure. Injeta as credenciais para o diretor de serviço na instância do serviço.
 
@@ -60,11 +60,11 @@ Para iniciar sessão no Azure utilizando o Azure CLI, introduza:
 az login
 ```
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos utilizando o comando `az group create`. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
+Crie um grupo `az group create` de recursos utilizando o comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
-Crie um grupo de recursos na localização dos EUA Ocidentais. Escolha um nome para o seu grupo de recursos e substitua `YourResourceGroupName` no seguinte exemplo:
+Crie um grupo de recursos na localização dos EUA Ocidentais. Escolha um nome para o `YourResourceGroupName` seu grupo de recursos e substitua no seguinte exemplo:
 
 ```azurecli-interactive
 # To list locations: az account list-locations --output table
@@ -77,7 +77,7 @@ Você usa este grupo de recursos em todo o tutorial.
 
 Em seguida, crie um cofre chave no seu grupo de recursos. Forneça as seguintes informações:
 
-* Nome do cofre chave: uma cadeia de 3 a 24 caracteres que pode conter apenas números, letras e hífenes (0-9, a-z, A-Z e \-).
+* Nome do cofre chave: uma cadeia de 3 a 24 caracteres que pode conter apenas números, letras \- e hífenes (0-9, a-z, A-Z, e ).
 * Nome do grupo de recursos
 * Localização: **Oeste DOS EUA**
 
@@ -99,9 +99,9 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 ## <a name="create-a-linux-virtual-machine"></a>Criar uma máquina virtual do Linux
 
-Crie um VM com o comando `az vm create`.
+Crie um VM com o `az vm create` comando.
 
-O seguinte exemplo cria uma VM com o nome **myVM** e adiciona uma conta de utilizador com o nome **azureuser**. O parâmetro `--generate-ssh-keys` que usámos para gerar automaticamente uma chave SSH e colocá-la na localização da chave predefinida **(~/.ssh**). Para utilizar um conjunto específico de chaves em vez disso, utilize a opção `--ssh-key-value`.
+O seguinte exemplo cria uma VM com o nome **myVM** e adiciona uma conta de utilizador com o nome **azureuser**. O `--generate-ssh-keys` parâmetro que usámos para gerar automaticamente uma chave SSH e colocá-la na localização da chave predefinida **(~/.ssh**). Para utilizar um conjunto específico de chaves em vez disso, utilize a opção `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \
@@ -114,7 +114,7 @@ az vm create \
 
 São necessários alguns minutos para criar a VM e os recursos de suporte. A saída de exemplo que se segue mostra que a operação de criação de VM foi bem sucedida.
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -127,7 +127,7 @@ São necessários alguns minutos para criar a VM e os recursos de suporte. A sa�
 }
 ```
 
-Tome nota da sua `publicIpAddress` na saída do seu VM. Usará este endereço para aceder ao VM em etapas posteriores.
+Tome nota `publicIpAddress` da sua saída a partir do seu VM. Usará este endereço para aceder ao VM em etapas posteriores.
 
 ## <a name="assign-an-identity-to-the-vm"></a>Atribuir uma identidade ao VM
 
@@ -139,14 +139,14 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 
 A saída do comando deve ser semelhante a:
 
-```azurecli
+```output
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}
 }
 ```
 
-Tome nota do `systemAssignedIdentity`. Usa-o no próximo passo.
+Tome nota `systemAssignedIdentity`do . Usa-o no próximo passo.
 
 ## <a name="give-the-vm-identity-permission-to-key-vault"></a>Dê a autorização de identidade vM para o Cofre chave
 
@@ -204,7 +204,7 @@ Instale .NET e verifique a versão:
 
 ## <a name="create-and-run-a-sample-net-app"></a>Criar e executar uma aplicação de amostra .NET
 
-Executar os seguintes comandos. Devias ver "Hello World" impresso na consola.
+Execute os seguintes comandos. Devias ver "Hello World" impresso na consola.
 
 ```console
 dotnet new console -o helloworldapp
@@ -281,9 +281,9 @@ Agora aprendeu a realizar operações com o Azure Key Vault numa aplicação .NE
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Elimine o grupo de recursos, a máquina virtual e todos os recursos relacionados quando já não precisar deles. Para isso, selecione o grupo de recursos para o VM e selecione **Eliminar**.
+Elimine o grupo de recursos, a máquina virtual e todos os recursos relacionados quando já não precisar deles. Para tal, selecione o grupo de recursos para a VM e selecione **Eliminar**.
 
-Elimine o cofre da chave utilizando o comando `az keyvault delete`:
+Elimine o cofre `az keyvault delete` da chave utilizando o comando:
 
 ```azurecli-interactive
 az keyvault delete --name

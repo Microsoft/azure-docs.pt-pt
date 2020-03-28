@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 7ee17fa1ddb0c70921f8a9625944053e71ec016f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 111003718fc82683f1756276132def0aea7b7375
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77202383"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239561"
 ---
 # <a name="quickstart-configure-linux-virtual-machines-in-azure-using-ansible"></a>Quickstart: Configure máquinas virtuais Linux em Azure usando Ansible
 
@@ -24,7 +24,7 @@ Ao utilizar uma linguagem declarativa, o Ansible permite-lhe automatizar a cria�
 [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)]
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 O Ansible precisa de um grupo de recursos no qual os seus recursos vão ser implementados. A seguinte secção de manual de procedimentos de exemplo do Ansible cria um grupo de recursos denominado `myResourceGroup` na localização `eastus`:
 
@@ -102,7 +102,7 @@ O seguinte livro de jogadas cria um grupo de segurança de rede chamado `myNetwo
 
 As interfaces de rede virtual ligam a sua máquina virtual a uma rede virtual, a um endereço IP público e a um grupo de segurança de rede específico. 
 
-A seguinte secção numa secção de playbook Ansible de amostra cria um cartão de interface de rede virtual chamado `myNIC` ligado aos recursos de rede virtuais que criou:
+A seguinte secção numa secção de playbook Ansible `myNIC` de amostra cria um cartão de interface de rede virtual chamado ligado aos recursos de rede virtuais que criou:
 
 ```yaml
 - name: Create virtual network interface card
@@ -216,11 +216,11 @@ Esta secção mostra-lhe como executar o manual de procedimentos de exemplo do A
 
 1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Abra o [Cloud Shell](/azure/cloud-shell/overview).
+1. Open [Cloud Shell](/azure/cloud-shell/overview).
 
 1. Crie um ficheiro (para conter o manual de procedimentos) denominado `azure_create_complete_vm.yml` e abra-o no editor VI, da seguinte forma:
 
-   ```azurecli-interactive
+   ```bash
    vi azure_create_complete_vm.yml
    ```
 
@@ -228,7 +228,7 @@ Esta secção mostra-lhe como executar o manual de procedimentos de exemplo do A
 
 1. Cole o [manual de procedimentos completo de exemplo do Ansible](#complete-sample-ansible-playbook) no editor.
 
-1. Saia do modo de inserção ao clicar na tecla **Esc**.
+1. Saída modo de inserção selecionando a tecla **Esc.**
 
 1. Guarde o ficheiro e saia do editor vi ao inserir o seguinte comando:
 

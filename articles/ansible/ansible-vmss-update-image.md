@@ -1,31 +1,31 @@
 ---
-title: Tutorial – atualizar a imagem personalizada dos conjuntos de dimensionamento de máquinas virtuais do Azure usando Ansible
-description: Saiba como usar o Ansible para atualizar conjuntos de dimensionamento de máquinas virtuais no Azure com imagem personalizada
+title: Tutorial - Atualizar a imagem personalizada dos conjuntos de escala de máquinas virtuais Azure usando Ansible
+description: Saiba como usar o Ansible para atualizar conjuntos de escala de máquinas virtuais em Azure com imagem personalizada
 keywords: ansible, azure, devops, bash, manual de procedimentos, máquina virtual, conjunto de dimensionamento de máquinas virtuais, vmss
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: b7d3053c09d2dcb667a4fc407035f4814f786932
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74155841"
 ---
-# <a name="tutorial-update-the-custom-image-of-azure-virtual-machine-scale-sets-using-ansible"></a>Tutorial: atualizar a imagem personalizada dos conjuntos de dimensionamento de máquinas virtuais do Azure usando Ansible
+# <a name="tutorial-update-the-custom-image-of-azure-virtual-machine-scale-sets-using-ansible"></a>Tutorial: Atualizar a imagem personalizada dos conjuntos de escala de máquinas virtuais Azure usando Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-28-note.md)]
 
 [!INCLUDE [open-source-devops-intro-vmss.md](../../includes/open-source-devops-intro-vmss.md)]
 
-Depois que uma VM é implantada, você configura a VM com o software necessário ao seu aplicativo. Em vez de fazer essa tarefa de configuração para cada VM, você pode criar uma imagem personalizada. Uma imagem personalizada é um instantâneo de uma VM existente que inclui qualquer software instalado. Ao [configurar um conjunto de dimensionamento](./ansible-create-configure-vmss.md), você especifica a imagem a ser usada para as VMs do conjunto de dimensionamento. Usando uma imagem personalizada, cada instância de VM é configurada de forma idêntica para seu aplicativo. Às vezes, talvez seja necessário atualizar a imagem personalizada do conjunto de dimensionamento. Essa tarefa é o foco deste tutorial.
+Depois de implementado um VM, configura o VM com o software de que a sua aplicação necessita. Em vez de fazer esta tarefa de configuração para cada VM, pode criar uma imagem personalizada. Uma imagem personalizada é uma imagem instantânea de um VM existente que inclui qualquer software instalado. Quando [configurar um conjunto](./ansible-create-configure-vmss.md)de escala, especifique a imagem a utilizar para os VMs desse conjunto de escala. Ao utilizar uma imagem personalizada, cada instância VM está configurada de forma idêntica para a sua aplicação. Por vezes, pode ter de atualizar a imagem personalizada do seu conjunto de escala. Essa tarefa é o foco deste tutorial.
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
-> * Configurar duas VMs com HTTP
-> * Criar uma imagem personalizada de uma VM existente
-> * Criar um conjunto de dimensionamento de uma imagem
+> * Configure dois VMs com HTTPD
+> * Criar uma imagem personalizada a partir de um VM existente
+> * Criar um conjunto de escala a partir de uma imagem
 > * Atualizar a imagem personalizada
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -33,21 +33,21 @@ Depois que uma VM é implantada, você configura a VM com o software necessário
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-## <a name="configure-two-vms"></a>Configurar duas VMs
+## <a name="configure-two-vms"></a>Configure dois VMs
 
-O código do guia estratégico nesta seção cria duas máquinas virtuais com HTTP instalado em ambos. 
+O código de jogadas nesta secção cria duas máquinas virtuais com HTTPD instalada em ambas. 
 
-A página `index.html` para cada VM exibe uma cadeia de caracteres de teste:
+A `index.html` página de cada VM apresenta uma cadeia de teste:
 
-* A primeira VM exibe o valor `Image A`
-* A segunda VM exibe o valor `Image B`
+* O primeiro VM mostra o valor`Image A`
+* Segundo VM mostra o valor`Image B`
 
-Essa cadeia de caracteres destina-se a imitar a configuração de cada VM com software diferente.
+Esta cadeia destina-se a imitar a configuração de cada VM com um software diferente.
 
-Há duas maneiras de obter o guia estratégico de exemplo:
+Há duas maneiras de obter o livro de jogadas da amostra:
 
-* [Baixe o guia estratégico](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/01-create-vms.yml) e salve-o em `create_vms.yml`.
-* Crie um novo arquivo chamado `create_vms.yml` e copie-o para ele no seguinte conteúdo:
+* [Descarregue o](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/01-create-vms.yml) livro `create_vms.yml`de jogadas e guarde-o para .
+* Crie um `create_vms.yml` novo ficheiro nomeado e copie-o nos seguintes conteúdos:
 
 ```yml
 - name: Create two VMs (A and B) with HTTPS
@@ -163,39 +163,39 @@ Há duas maneiras de obter o guia estratégico de exemplo:
       msg: "Public IP Address B: {{ pip_output.results[1].state.ip_address }}"
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`, substituindo `myrg` pelo nome do grupo de recursos:
+Execute o `ansible-playbook` manual utilizando `myrg` o comando, substituindo o nome do grupo de recursos:
 
 ```bash
 ansible-playbook create-vms.yml --extra-vars "resource_group=myrg"
 ```
 
-Devido às seções de `debug` do guia estratégico, o comando `ansible-playbook` imprimirá o endereço IP de cada VM. Copie esses endereços IP para uso posterior.
+Devido às `debug` secções do livro `ansible-playbook` de jogadas, o comando irá imprimir o endereço IP de cada VM. Copie estes endereços IP para posterior utilização.
 
 ![Endereços IP da máquina virtual](media/ansible-vmss-update-image/vmss-update-vms-ip-addresses.png)
 
-## <a name="connect-to-the-two-vms"></a>Conectar-se às duas VMs
+## <a name="connect-to-the-two-vms"></a>Ligue-se aos dois VMs
 
-Nesta seção, você se conecta a cada VM. Conforme mencionado na seção anterior, as cadeias de caracteres `Image A` e `Image B` imitar duas VMs distintas com configurações diferentes.
+Nesta secção, ligue-se a cada VM. Como mencionado na secção anterior, `Image A` `Image B` as cordas e imitar ter dois VMs distintos com configurações diferentes.
 
-Usando os endereços IP da seção anterior, conecte-se a ambas as VMs:
+Utilizando os endereços IP da secção anterior, ligue-se a ambos os VMs:
 
-![Captura de tela da máquina virtual A](media/ansible-vmss-update-image/vmss-update-browser-vma.png)
+![Screenshot da máquina virtual A](media/ansible-vmss-update-image/vmss-update-browser-vma.png)
 
-![Captura de tela da máquina virtual B](media/ansible-vmss-update-image/vmss-update-browser-vmb.png)
+![Screenshot da máquina virtual B](media/ansible-vmss-update-image/vmss-update-browser-vmb.png)
 
 ## <a name="create-images-from-each-vm"></a>Criar imagens de cada VM
 
-Neste ponto, você tem duas VMs com configurações um pouco diferentes (seus arquivos de `index.html`).
+Neste ponto, tem dois VMs com configurações `index.html` ligeiramente diferentes (os seus ficheiros).
 
-O código do guia estratégico nesta seção cria uma imagem personalizada para cada VM:
+O código de jogadas nesta secção cria uma imagem personalizada para cada VM:
 
-* `image_vmforimageA`-imagem personalizada criada para a VM que exibe `Image A` em seu home page.
-* `image_vmforimageB`-imagem personalizada criada para a VM que exibe `Image B` em seu home page.
+* `image_vmforimageA`- Imagem personalizada criada para `Image A` o VM que exibe na sua página inicial.
+* `image_vmforimageB`- Imagem personalizada criada para `Image B` o VM que exibe na sua página inicial.
 
-Há duas maneiras de obter o guia estratégico de exemplo:
+Há duas maneiras de obter o livro de jogadas da amostra:
 
-* [Baixe o guia estratégico](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/02-capture-images.yml) e salve-o em `capture-images.yml`.
-* Crie um novo arquivo chamado `capture-images.yml` e copie-o para ele no seguinte conteúdo:
+* [Descarregue o](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/02-capture-images.yml) livro `capture-images.yml`de jogadas e guarde-o para .
+* Crie um `capture-images.yml` novo ficheiro nomeado e copie-o nos seguintes conteúdos:
 
 ```yml
 - name: Capture VM Images
@@ -224,24 +224,24 @@ Há duas maneiras de obter o guia estratégico de exemplo:
       - B
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`, substituindo `myrg` pelo nome do grupo de recursos:
+Execute o `ansible-playbook` manual utilizando `myrg` o comando, substituindo o nome do grupo de recursos:
 
 ```bash
 ansible-playbook capture-images.yml --extra-vars "resource_group=myrg"
 ```
 
-## <a name="create-scale-set-using-image-a"></a>Criar conjunto de dimensionamento usando A imagem A
+## <a name="create-scale-set-using-image-a"></a>Criar conjunto de escala usando a imagem A
 
-Nesta seção, um guia estratégico é usado para configurar os seguintes recursos do Azure:
+Nesta secção, é utilizado um livro de jogadas para configurar os seguintes recursos Azure:
 
 * Endereço IP público
 * Load balancer
-* Conjunto de dimensionamento que faz referência a `image_vmforimageA`
+* Conjunto de escala que referências`image_vmforimageA`
 
-Há duas maneiras de obter o guia estratégico de exemplo:
+Há duas maneiras de obter o livro de jogadas da amostra:
 
-* [Baixe o guia estratégico](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/03-create-vmss.yml) e salve-o em `create-vmss.yml`.
-* Crie um novo arquivo chamado `create-vmss.yml` e copie-o para ele no seguinte conteúdo: "
+* [Descarregue o](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/03-create-vmss.yml) livro `create-vmss.yml`de jogadas e guarde-o para .
+* Criar um novo `create-vmss.yml` ficheiro nomeado e copiar nele o seguinte conteúdo:"
 
 ```yml
 ---
@@ -307,40 +307,40 @@ Há duas maneiras de obter o guia estratégico de exemplo:
         msg: "Scale set public IP address: {{ pip_output.state.ip_address }}"
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`, substituindo `myrg` pelo nome do grupo de recursos:
+Execute o `ansible-playbook` manual utilizando `myrg` o comando, substituindo o nome do grupo de recursos:
 
 ```bash
 ansible-playbook create-vmss.yml --extra-vars "resource_group=myrg"
 ```
 
-Devido à seção `debug` do guia estratégico, o comando `ansible-playbook` imprimirá o endereço IP do conjunto de dimensionamento. Copie esse endereço IP para uso posterior.
+Devido à `debug` secção do livro `ansible-playbook` de jogadas, o comando irá imprimir o endereço IP do conjunto de escala. Copie este endereço IP para posterior utilização.
 
 ![Endereço IP Público](media/ansible-vmss-update-image/vmss-update-vmss-public-ip.png)
 
-## <a name="connect-to-the-scale-set"></a>Conectar-se ao conjunto de dimensionamento
+## <a name="connect-to-the-scale-set"></a>Ligar ao conjunto de escala
 
-Nesta seção, você se conecta ao conjunto de dimensionamento. 
+Nesta secção, ligue-se ao conjunto de escala. 
 
-Usando o endereço IP da seção anterior, conecte-se ao conjunto de dimensionamento.
+Utilizando o endereço IP da secção anterior, ligue-se ao conjunto de escala.
 
-Conforme mencionado na seção anterior, as cadeias de caracteres `Image A` e `Image B` imitar duas VMs distintas com configurações diferentes.
+Como mencionado na secção anterior, `Image A` `Image B` as cordas e imitar ter dois VMs distintos com configurações diferentes.
 
-O conjunto de dimensionamento faz referência à imagem personalizada chamada `image_vmforimageA`. A `image_vmforimageA` de imagem personalizada foi criada a partir da VM cujas home page exibe `Image A`.
+O conjunto de escala refere `image_vmforimageA`a imagem personalizada chamada . A `image_vmforimageA` imagem personalizada foi criada a `Image A`partir do VM cuja página inicial exibe.
 
-Como resultado, você verá uma home page exibir `Image A`:
+Como resultado, você vê uma `Image A`página inicial exibindo:
 
-![O conjunto de dimensionamento está associado à primeira VM.](media/ansible-vmss-update-image/vmss-update-browser-initial-vmss.png)
+![O conjunto de escala está associado ao primeiro VM.](media/ansible-vmss-update-image/vmss-update-browser-initial-vmss.png)
 
-Deixe a janela do navegador aberta enquanto você continua para a próxima seção.
+Deixe a janela do navegador aberta à medida que continua para a próxima secção.
 
-## <a name="change-custom-image-in-scale-set-and-upgrade-instances"></a>Alterar imagem personalizada em conjunto de dimensionamento e instâncias de atualização
+## <a name="change-custom-image-in-scale-set-and-upgrade-instances"></a>Alterar imagem personalizada em conjunto de escala e atualizar instâncias
 
-O código do guia estratégico nesta seção altera a imagem do conjunto de dimensionamento de `image_vmforimageA` para `image_vmforimageB`. Além disso, todas as máquinas virtuais atuais implantadas pelo conjunto de dimensionamento são atualizadas.
+O código de jogadanesta secção altera a `image_vmforimageA` imagem `image_vmforimageB`do conjunto de escala - de . Além disso, todas as máquinas virtuais atuais implantadas pelo conjunto de escala são atualizadas.
 
-Há duas maneiras de obter o guia estratégico de exemplo:
+Há duas maneiras de obter o livro de jogadas da amostra:
 
-* [Baixe o guia estratégico](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/04-update-vmss-image.yml) e salve-o em `update-vmss-image.yml`.
-* Crie um novo arquivo chamado `update-vmss-image.yml` e copie-o para ele no seguinte conteúdo:
+* [Descarregue o](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/04-update-vmss-image.yml) livro `update-vmss-image.yml`de jogadas e guarde-o para .
+* Crie um `update-vmss-image.yml` novo ficheiro nomeado e copie-o nos seguintes conteúdos:
 
 ```yml
 - name: Update scale set image reference
@@ -391,23 +391,23 @@ Há duas maneiras de obter o guia estratégico de exemplo:
     with_items: "{{ instances.instances }}"
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`, substituindo `myrg` pelo nome do grupo de recursos:
+Execute o `ansible-playbook` manual utilizando `myrg` o comando, substituindo o nome do grupo de recursos:
 
 ```bash
 ansible-playbook update-vmss-image.yml --extra-vars "resource_group=myrg"
 ```
 
-Retorne ao navegador e atualize a página. 
+Volte ao navegador e refresque a página. 
 
-Você vê que a imagem personalizada subjacente da máquina virtual é atualizada.
+Vê que a imagem personalizada subjacente da máquina virtual está atualizada.
 
-![O conjunto de dimensionamento está associado à segunda VM](media/ansible-vmss-update-image/vmss-update-browser-updated-vmss.png)
+![O conjunto de escala está associado ao segundo VM](media/ansible-vmss-update-image/vmss-update-browser-updated-vmss.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, exclua os recursos criados neste artigo. 
+Quando já não for necessário, apague os recursos criados neste artigo. 
 
-Salve o código a seguir como `cleanup.yml`:
+Guarde o `cleanup.yml`seguinte código como:
 
 ```yml
 - hosts: localhost
@@ -421,7 +421,7 @@ Salve o código a seguir como `cleanup.yml`:
         state: absent
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook cleanup.yml

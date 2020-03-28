@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: 9e954e9c1a7efa43a19849b1c5b40284ec84eeed
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77016005"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Tutorial: Criar e passar pelo modelo de aplicação de monitorização de contadores inteligentes 
@@ -42,7 +42,7 @@ Pode criar esta aplicação em três passos simples:
 2. Selecione o separador **Energia** e clique **em Criar app** sob o azulejo de **monitorização de contadores inteligentes.**
 
     > [!div class="mx-imgBorder"]
-    > ![construir app](media/tutorial-iot-central-smart-meter/smart-meter-build.png)
+    > ![Construir App](media/tutorial-iot-central-smart-meter/smart-meter-build.png)
     
 
 3. **A Create app** abrirá o novo formulário de **aplicação.** Preencha os detalhes solicitados, conforme indicado no valor abaixo:
@@ -75,24 +75,24 @@ A Adatum é uma empresa de energia fictícia, que monitoriza e gere contadores i
 * Operações de comando e controlo, tais como reconectar o medidor e atualizar a versão firmware. No modelo, os botões de comando mostram as possíveis funcionalidades e não enviam comandos reais. 
 
 > [!div class="mx-imgBorder"]
-> ![](media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png) de monitorização do painel de monitorização do contador Inteligente
+> ![Painel de monitorização de contadores inteligentes](media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png)
 
 ### <a name="devices"></a>Dispositivos
 A aplicação vem com um dispositivo de contador inteligente de amostras. Pode ver os detalhes do dispositivo clicando no separador **Dispositivos.**
 
 > [!div class="mx-imgBorder"]
-> ![dispositivos de contador Inteligente](media/tutorial-iot-central-smart-meter/smart-meter-devices.png)
+> ![Dispositivos de contador inteligente](media/tutorial-iot-central-smart-meter/smart-meter-devices.png)
 
 Clique no dispositivo de amostra **sM0123456789** para ver os detalhes do dispositivo. Pode atualizar as propriedades do dispositivo na página **Update Properties** e visualizar os valores atualizados no painel de instrumentos.
 
 > [!div class="mx-imgBorder"]
-> ![propriedades do contador Inteligente](media/tutorial-iot-central-smart-meter/smart-meter-device-properties.png)
+> ![Propriedades de contadores inteligentes](media/tutorial-iot-central-smart-meter/smart-meter-device-properties.png)
 
 ### <a name="device-template"></a>Modelo de dispositivo
 Clique no separador de **modelos do Dispositivo** para ver o modelo do dispositivo de contador inteligente. O modelo tem interface pré-definido para Dados, Propriedades, Comandos e Vistas.
 
 > [!div class="mx-imgBorder"]
-> ![modelos de dispositivo de contador inteligente](media/tutorial-iot-central-smart-meter/smart-meter-device-template.png)
+> ![Modelos de dispositivo de contador inteligente](media/tutorial-iot-central-smart-meter/smart-meter-device-template.png)
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -102,7 +102,7 @@ Se decidir não continuar a utilizar esta aplicação, elimine a sua aplicação
 2. Selecione as definições de Aplicação e clique em Eliminar o botão na parte inferior da página. 
 
     > [!div class="mx-imgBorder"]
-    > ![Eliminar](media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png) de aplicação
+    > ![Excluir aplicação](media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes

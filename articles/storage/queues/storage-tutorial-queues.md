@@ -1,6 +1,6 @@
 ---
-title: Tutorial – trabalhar com filas do armazenamento do Azure-armazenamento do Azure
-description: Um tutorial sobre como usar o serviço Fila do Azure para criar filas e inserir, obter e excluir mensagens.
+title: Tutorial - Trabalho com filas de armazenamento Azure - Armazenamento Azure
+description: Um tutorial sobre como usar o serviço De Fila Azure para criar filas, inserir, obter e apagar mensagens.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 04/24/2019
@@ -9,15 +9,15 @@ ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: cbrooks
 ms.openlocfilehash: 9cbdc5231fdc9f836f300b1a3a81a237a9efc123
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75968203"
 ---
-# <a name="tutorial-work-with-azure-storage-queues"></a>Tutorial: trabalhar com filas do armazenamento do Azure
+# <a name="tutorial-work-with-azure-storage-queues"></a>Tutorial: Trabalhar com filas de armazenamento Azure
 
-O armazenamento de filas do Azure implementa filas baseadas em nuvem para habilitar a comunicação entre os componentes de um aplicativo distribuído. Cada fila mantém uma lista de mensagens que podem ser adicionadas por um componente de remetente e processadas por um componente de receptor. Com uma fila, seu aplicativo pode ser dimensionado imediatamente para atender à demanda. Este artigo mostra as etapas básicas para trabalhar com uma fila de armazenamento do Azure.
+O armazenamento da Fila Azure implementa filas baseadas na nuvem para permitir a comunicação entre componentes de uma aplicação distribuída. Cada fila mantém uma lista de mensagens que podem ser adicionadas por um componente de remetente e processadas por um componente recetor. Com uma fila, a sua aplicação pode escalar imediatamente para satisfazer a procura. Este artigo mostra os passos básicos para trabalhar com uma fila de armazenamento Azure.
 
 Neste tutorial, ficará a saber como:
 
@@ -25,35 +25,35 @@ Neste tutorial, ficará a saber como:
 >
 > - Criar uma conta de armazenamento do Azure
 > - Criar a aplicação
-> - Adicionar suporte para código assíncrono
+> - Adicione suporte para código assíncrono
 > - Criar uma fila
-> - Inserir mensagens em uma fila
-> - Remover mensagens da fila
-> - Excluir uma fila vazia
-> - Verificar argumentos de linha de comando
+> - Insira mensagens numa fila
+> - Mensagens de defila
+> - Apagar uma fila vazia
+> - Verifique se existem argumentos de linha de comando
 > - Compilar e executar a aplicação
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Obtenha sua cópia gratuita do editor de [Visual Studio Code](https://code.visualstudio.com/download) de plataforma cruzada.
-- Baixe e instale o [SDK do .NET Core](https://dotnet.microsoft.com/download).
-- Se você não tiver uma assinatura atual do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+- Obtenha a sua cópia gratuita do editor de [Código](https://code.visualstudio.com/download) visual da plataforma cruzada.
+- Descarregue e instale o [.NET Core SDK](https://dotnet.microsoft.com/download).
+- Se não tiver uma subscrição atual do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do Azure
 
-Primeiro, crie uma conta de armazenamento do Azure. Para obter um guia passo a passo para criar uma conta de armazenamento, consulte o início rápido [criar uma conta de armazenamento](../common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json) .
+Primeiro, crie uma conta de armazenamento Azure. Para obter um guia passo a passo para criar uma conta de armazenamento, consulte a [conta de armazenamento Criar uma conta](../common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json) de armazenamento rápida.
 
 ## <a name="create-the-app"></a>Criar a aplicação
 
-Crie um aplicativo .NET Core chamado **QueueApp**. Para simplificar, esse aplicativo enviará e receberá mensagens por meio da fila.
+Crie uma aplicação .NET Core chamada **QueueApp**. Para a simplicidade, esta aplicação irá enviar e receber mensagens através da fila.
 
-1. Em uma janela de console (como CMD, PowerShell ou CLI do Azure), use o comando `dotnet new` para criar um novo aplicativo de console com o nome **QueueApp**. Este comando cria um projeto simples de " C# Olá, mundo" com um único arquivo de origem: **Program.cs**.
+1. Numa janela de consola (como CMD, PowerShell ou Azure CLI), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome **QueueApp**. Este comando cria um simples projeto C# "Hello World" com um único ficheiro fonte: **Program.cs**.
 
    ```console
    dotnet new console -n QueueApp
    ```
 
-2. Alterne para a pasta **QueueApp** recém-criada e compile o aplicativo para verificar se tudo está bem.
+2. Mude para a pasta **queueApp** recém-criada e construa a app para verificar se está tudo bem.
 
    ```console
    cd QueueApp
@@ -63,7 +63,7 @@ Crie um aplicativo .NET Core chamado **QueueApp**. Para simplificar, esse aplica
    dotnet build
    ```
 
-   Você deverá ver resultados semelhantes ao seguinte:
+   Deve ver resultados semelhantes aos seguintes:
 
    ```output
    C:\Tutorials>dotnet new console -n QueueApp
@@ -93,15 +93,15 @@ Crie um aplicativo .NET Core chamado **QueueApp**. Para simplificar, esse aplica
    C:\Tutorials\QueueApp>_
    ```
 
-## <a name="add-support-for-asynchronous-code"></a>Adicionar suporte para código assíncrono
+## <a name="add-support-for-asynchronous-code"></a>Adicione suporte para código assíncrono
 
-Como o aplicativo usa recursos de nuvem, o código é executado de forma assíncrona. No C#entanto **, Async** e **Await** não eram palavras-chave válidas em C# métodos **principais** até 7,1. Você pode alternar facilmente para esse compilador por meio de um sinalizador no arquivo **csproj** .
+Uma vez que a aplicação utiliza recursos na nuvem, o código funciona assincronicamente. No entanto, c#'s **async** e **aguardando** não eram palavras-chave válidas em métodos **principais** até C# 7.1. Pode facilmente mudar para esse compilador através de uma bandeira no ficheiro **csproj.**
 
-1. Na linha de comando no diretório do projeto, digite `code .` para abrir Visual Studio Code no diretório atual. Mantenha a janela de linha de comando aberta. Haverá mais comandos para executar mais tarde. Se você for solicitado a adicionar C# ativos necessários para compilar e depurar, clique no botão **Sim** .
+1. A partir da linha de comando `code .` no diretório do projeto, escreva para abrir o Código do Estúdio Visual no atual diretório. Mantenha a janela da linha de comando aberta. Haverá mais ordens para executar mais tarde. Se for solicitado a adicionar ativos C# necessários para construir e depurar, clique no botão **Sim.**
 
 2. Abra o ficheiro **QueueApp.csproj** no editor.
 
-3. Adicione `<LangVersion>7.1</LangVersion>` à primeira **PropertyGroup** no arquivo de compilação. Certifique-se de adicionar apenas a marca **langversion** , pois seu **TargetFramework** pode ser diferente dependendo da versão do .net instalada.
+3. Adicione `<LangVersion>7.1</LangVersion>` o primeiro **PropertyGroup** no ficheiro de construção. Certifique-se de que só adiciona a tag **LangVersion,** uma vez que o **targetFramework** pode ser diferente dependendo da versão de .NET que instalou.
 
    ```xml
    <Project Sdk="Microsoft.NET.Sdk">
@@ -116,26 +116,26 @@ Como o aplicativo usa recursos de nuvem, o código é executado de forma assínc
 
    ```
 
-4. Salve o arquivo **QueueApp. csproj** .
+4. Guarde o ficheiro **QueueApp.csproj.**
 
-5. Abra o arquivo de origem **Program.cs** e atualize o método **Main** para ser executado de forma assíncrona. Substituir **void** por um valor de retorno de **tarefa assíncrona** .
+5. Abra o ficheiro de origem **Program.cs** e atualize o método **Principal** para executar assíncronamente. Substitua o **vazio** por um valor de devolução de **tarefas asincronizada.**
 
    ```csharp
    static async Task Main(string[] args)
    ```
 
-6. Guarde o ficheiro **Program.cs**.
+6. Guarde o ficheiro **Program.cs.**
 
 ## <a name="create-a-queue"></a>Criar uma fila
 
-1. Instale os pacotes **Microsoft. Azure. Storage. Common** e **Microsoft. Azure. Storage. Queue** no projeto com o comando `dotnet add package`. Execute os seguintes comandos dotnet na pasta do projeto na janela do console.
+1. Instale os pacotes **Microsoft.Azure.Storage.Common** e **Microsoft.Azure.Storage.Queue** para o projeto com o `dotnet add package` comando. Execute os seguintes comandos do dotnet a partir da pasta do projeto na janela da consola.
 
    ```console
    dotnet add package Microsoft.Azure.Storage.Common
    dotnet add package Microsoft.Azure.Storage.Queue
    ```
 
-2. Na parte superior do arquivo **Program.cs** , adicione os namespaces a seguir logo após a instrução `using System;`. Esse aplicativo usa tipos desses namespaces para se conectar ao armazenamento do Azure e trabalhar com filas.
+2. No topo do ficheiro **Program.cs,** adicione os seguintes espaços de nome logo após a `using System;` declaração. Esta aplicação utiliza tipos destes espaços de nome para se conectar ao Armazenamento Azure e trabalhar com filas.
 
    ```csharp
    using System.Threading.Tasks;
@@ -143,19 +143,19 @@ Como o aplicativo usa recursos de nuvem, o código é executado de forma assínc
    using Microsoft.Azure.Storage.Queue;
    ```
 
-3. Guarde o ficheiro **Program.cs**.
+3. Guarde o ficheiro **Program.cs.**
 
 ### <a name="get-your-connection-string"></a>Obtenha a cadeia de ligação
 
-A biblioteca de cliente usa uma cadeia de conexão para estabelecer a conexão. Sua cadeia de conexão está disponível na seção **configurações** da sua conta de armazenamento no portal do Azure.
+A biblioteca de cliente utiliza uma cadeia de ligação para estabelecer a ligação. A sua cadeia de ligação está disponível na secção **Definições** da sua conta de armazenamento no portal Azure.
 
-1. No navegador da Web, entre no [portal do Azure](https://portal.azure.com/).
+1. No seu navegador web, inscreva-se no [portal Azure.](https://portal.azure.com/)
 
 2. Navegue para a sua conta de armazenamento no portal do Azure.
 
-3. Selecione **chaves de acesso**.
+3. Selecione **teclas de acesso**.
 
-4. Clique no botão **copiar** à direita do campo **cadeia de conexão** .
+4. Clique no botão **Copiar** à direita do campo de **cordas de Ligação.**
 
 ![Cadeia de ligação](media/storage-tutorial-queues/get-connection-string.png)
 
@@ -165,17 +165,17 @@ A cadeia de ligação está neste formato:
    "DefaultEndpointsProtocol=https;AccountName=<your storage account name>;AccountKey=<your key>;EndpointSuffix=core.windows.net"
    ```
 
-### <a name="add-the-connection-string-to-the-app"></a>Adicionar a cadeia de conexão ao aplicativo
+### <a name="add-the-connection-string-to-the-app"></a>Adicione a cadeia de ligação à aplicação
 
-Adicione a cadeia de conexão ao aplicativo para que ele possa acessar a conta de armazenamento.
+Adicione a cadeia de ligação na aplicação para que possa aceder à conta de armazenamento.
 
-1. Volte para Visual Studio Code.
+1. Mude de volta para visual studio code.
 
-2. Na classe **programa** , adicione um membro `private const string connectionString =` para manter a cadeia de conexão.
+2. Na aula do **Programa,** adicione um `private const string connectionString =` membro para segurar a corda de ligação.
 
-3. Após o sinal de igual, Cole o valor da cadeia de caracteres que você copiou anteriormente em seu portal do Azure. O valor **ConnectionString** será exclusivo para sua conta.
+3. Depois do sinal igual, cola o valor de corda que copiaste anteriormente no teu portal Azure. O valor **da ligaçãoString** será exclusivo da sua conta.
 
-4. Remova o código "Olá, Mundo" do **principal**. Seu código deve ser semelhante ao seguinte, mas com seu valor de cadeia de conexão exclusivo.
+4. Retire o código "Hello World" da **Main**. O seu código deve ser semelhante ao seguinte, mas com o seu valor de cadeia de ligação único.
 
    ```csharp
    namespace QueueApp
@@ -191,7 +191,7 @@ Adicione a cadeia de conexão ao aplicativo para que ele possa acessar a conta d
    }
    ```
 
-5. Atualize **Main** para criar um objeto **CloudQueue** , que é passado posteriormente para os métodos Send e Receive.
+5. Atualizar **Principal** para criar um objeto **CloudQueue,** que é posteriormente passado para o envio e receber métodos.
 
    ```csharp
         static async Task Main(string[] args)
@@ -204,11 +204,11 @@ Adicione a cadeia de conexão ao aplicativo para que ele possa acessar a conta d
 
 6. Guarde o ficheiro.
 
-## <a name="insert-messages-into-the-queue"></a>Inserir mensagens na fila
+## <a name="insert-messages-into-the-queue"></a>Insira mensagens na fila
 
-Crie um novo método para enviar uma mensagem para a fila. Adicione o método a seguir à sua classe de **programa** . Esse método obtém uma referência de fila e, em seguida, cria uma nova fila, caso ela ainda não exista chamando [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync). Em seguida, ele adiciona a mensagem à fila chamando [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
+Crie um novo método para enviar uma mensagem para a fila. Adicione o seguinte método à sua aula de **Programa.** Este método obtém uma referência de fila, e depois cria uma nova fila se já não existir chamando [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync). Em seguida, adiciona a mensagem à fila chamando [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
 
-1. Adicione o seguinte método **SendMessageAsync** à sua classe **programa** .
+1. Adicione o seguinte método **SendMessageAsync** à sua classe **Program.**
 
    ```csharp
    static async Task SendMessageAsync(CloudQueue theQueue, string newMessage)
@@ -227,19 +227,19 @@ Crie um novo método para enviar uma mensagem para a fila. Adicione o método a 
 
 2. Guarde o ficheiro.
 
-Uma mensagem deve estar em um formato que pode ser incluído em uma solicitação XML com codificação UTF-8 e pode ter até 64 KB de tamanho. Se uma mensagem contiver dados binários, recomendamos que você codifique a mensagem em base64.
+Uma mensagem deve estar num formato que possa ser incluído num pedido XML com codificação UTF-8, e pode ter até 64 KB de tamanho. Se uma mensagem contiver dados binários, recomendamos que o Código Base64 consiga a mensagem.
 
-Por padrão, o tempo de vida máximo para uma mensagem é definido como 7 dias. Você pode especificar qualquer número positivo para a vida útil da mensagem. Para adicionar uma mensagem que não expire, use `Timespan.FromSeconds(-1)` em sua chamada para **AddMessageAsync**.
+Por predefinição, o tempo máximo de vida para uma mensagem é definido para 7 dias. Pode especificar qualquer número positivo para o tempo de vida da mensagem. Para adicionar uma mensagem que `Timespan.FromSeconds(-1)` não expira, utilize a sua chamada para **AddMessageAsync**.
 
 ```csharp
 await theQueue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
 ```
 
-## <a name="dequeue-messages"></a>Remover mensagens da fila
+## <a name="dequeue-messages"></a>Mensagens de defila
 
-Crie um novo método chamado **ReceiveMessageAsync**. Esse método recebe uma mensagem da fila chamando [GetMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync). Depois que a mensagem for recebida com êxito, é importante excluí-la da fila para que ela não seja processada mais de uma vez. Depois que a mensagem for recebida, exclua-a da fila chamando [DeleteMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync).
+Crie um novo método chamado **ReceiveMessageAsync**. Este método recebe uma mensagem da fila chamando [GetMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync). Uma vez que a mensagem é recebida com sucesso, é importante apagá-la da fila para que não seja processada mais do que uma vez. Depois de recebida a mensagem, apague-a da fila, ligando para [DeleteMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync).
 
-1. Adicione o seguinte método **ReceiveMessageAsync** à sua classe **programa** .
+1. Adicione o seguinte método **ReceiveMessageAsync** à sua classe **Program.**
 
    ```csharp
    static async Task<string> ReceiveMessageAsync(CloudQueue theQueue)
@@ -262,11 +262,11 @@ Crie um novo método chamado **ReceiveMessageAsync**. Esse método recebe uma me
 
 2. Guarde o ficheiro.
 
-## <a name="delete-an-empty-queue"></a>Excluir uma fila vazia
+## <a name="delete-an-empty-queue"></a>Apagar uma fila vazia
 
-É uma prática recomendada no final de um projeto identificar se você ainda precisa dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Se a fila existir, mas estiver vazia, pergunte ao usuário se ele gostaria de excluí-la.
+É uma boa prática no final de um projeto para identificar se ainda precisa dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Se a fila existe mas está vazia, pergunte ao utilizador se gostaria de apagá-la.
 
-1. Expanda o método **ReceiveMessageAsync** para incluir um prompt para excluir a fila vazia.
+1. Expanda o método **ReceiveMessageAsync** para incluir uma solicitação para eliminar a fila vazia.
 
    ```csharp
    static async Task<string> ReceiveMessageAsync(CloudQueue theQueue)
@@ -308,15 +308,15 @@ Crie um novo método chamado **ReceiveMessageAsync**. Esse método recebe uma me
 
 2. Guarde o ficheiro.
 
-## <a name="check-for-command-line-arguments"></a>Verificar argumentos de linha de comando
+## <a name="check-for-command-line-arguments"></a>Verifique se existem argumentos de linha de comando
 
-Se houver argumentos de linha de comando passados para o aplicativo, presuma que eles são uma mensagem a ser adicionada à fila. Junte os argumentos para criar uma cadeia de caracteres. Adicione essa cadeia de caracteres à fila de mensagens chamando o método **SendMessageAsync** que adicionamos anteriormente.
+Se houver algum argumento de linha de comando passado para a aplicação, assuma que são uma mensagem a ser adicionada à fila. Juntem-se aos argumentos para fazer uma corda. Adicione esta cadeia à fila da mensagem, ligando para o método **SendMessageAsync** que adicionámos anteriormente.
 
-Se não houver argumentos de linha de comando, execute uma operação de recuperação. Chame o método **ReceiveMessageAsync** para recuperar a primeira mensagem na fila.
+Se não houver argumentos de linha de comando, execute uma operação de recuperação. Ligue para o método **ReceiveMessageAsync** para recuperar a primeira mensagem na fila.
 
-Por fim, aguarde a entrada do usuário antes de sair chamando **console. ReadLine**.
+Por fim, aguarde a entrada do utilizador antes de sair, ligando para **console.ReadLine**.
 
-1. Expanda o método **Main** para verificar argumentos de linha de comando e aguardar a entrada do usuário.
+1. Expanda o método **Principal** para verificar se existem argumentos de linha de comando e aguarde a entrada do utilizador.
 
    ```csharp
         static async Task Main(string[] args)
@@ -346,7 +346,7 @@ Por fim, aguarde a entrada do usuário antes de sair chamando **console. ReadLin
 
 ## <a name="complete-code"></a>Código completo
 
-Aqui está a listagem de código completa para este projeto.
+Aqui está a lista completa de código para este projeto.
 
    ```csharp
    using System;
@@ -440,13 +440,13 @@ Aqui está a listagem de código completa para este projeto.
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 
-1. Na linha de comando no diretório do projeto, execute o seguinte comando dotnet para compilar o projeto.
+1. A partir da linha de comando no diretório do projeto, executar o seguinte comando dotnet para construir o projeto.
 
    ```console
    dotnet build
    ```
 
-2. Depois que o projeto for compilado com êxito, execute o comando a seguir para adicionar a primeira mensagem à fila.
+2. Depois de o projeto construir com sucesso, execute o seguinte comando para adicionar a primeira mensagem à fila.
 
    ```console
    dotnet run First queue message
@@ -461,13 +461,13 @@ Deverá ver este resultado:
    Press Enter..._
    ```
 
-3. Execute o aplicativo sem argumentos de linha de comando para receber e remover a primeira mensagem na fila.
+3. Executar a aplicação sem argumentos de linha de comando para receber e remover a primeira mensagem na fila.
 
    ```console
    dotnet run
    ```
 
-4. Continue a executar o aplicativo até que todas as mensagens sejam removidas. Se você executá-lo mais uma vez, receberá uma mensagem informando que a fila está vazia e uma solicitação para excluir a fila.
+4. Continue a executar a aplicação até que todas as mensagens sejam removidas. Se o executar mais uma vez, receberá uma mensagem de que a fila está vazia e um pedido para apagar a fila.
 
    ```output
    C:\Tutorials\QueueApp>dotnet run First queue message
@@ -508,10 +508,10 @@ Deverá ver este resultado:
 Neste tutorial, ficou a saber como:
 
 1. Criar uma fila
-2. Adicionar e remover mensagens de uma fila
-3. Excluir uma fila de armazenamento do Azure
+2. Adicione e remova mensagens de uma fila
+3. Eliminar uma fila de armazenamento Azure
 
-Confira o guia de início rápido das filas do Azure para obter mais informações.
+Confira as filas Azure para obter mais informações.
 
 > [!div class="nextstepaction"]
-> [Início rápido das filas](storage-quickstart-queues-portal.md)
+> [Filas aceleradas](storage-quickstart-queues-portal.md)

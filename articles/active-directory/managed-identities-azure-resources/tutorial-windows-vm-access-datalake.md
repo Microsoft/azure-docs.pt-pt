@@ -1,5 +1,5 @@
 ---
-title: Tutorial`:` usar uma identidade gerenciada para acessar o Azure Data Lake Store-Windows-Azure AD
+title: Tutorial`:` Use uma identidade gerida para aceder à Azure Data Lake Store - Windows - Azure AD
 description: Um tutorial que lhe mostra como utilizar uma identidade gerida atribuída pelo sistema da VM do Windows para aceder ao Azure Data Lake Store.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 11/14/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c03f78341b7521267f8aaf72d58ebd4c912949ce
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75977883"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Tutorial: como utilizar a identidade gerida atribuída pelo sistema da VM do Windows para aceder ao Azure Data Lake Store
@@ -75,8 +75,8 @@ Neste tutorial, vai autenticar para a API REST do sistema de ficheiros do Data L
 
 1. No portal, navegue para **Máquinas Virtuais**, aceda à sua VM do Windows e, na **Descrição Geral** clique em **Ligar**.
 2. Introduza o seu **Nome de Utilizador** e a **Palavra-passe** que adicionou quando criou a VM do Windows. 
-3. Agora que já criou uma **Ligação ao Ambiente de Trabalho Remoto** com a máquina virtual, abra o **PowerShell** na sessão remota. 
-4. Através de `Invoke-WebRequest` do PowerShell, envie um pedido às identidades geridas locais para o ponto final dos recursos do Azure obter um token de acesso para o Azure Data Lake Store.  O identificador de recurso para Data Lake Store é `https://datalake.azure.net/`.  O Data Lake faz uma correspondência exata no identificador de recurso e a barra à direita é importante.
+3. Agora que criou uma **Ligação remota de ambiente** de trabalho com a máquina virtual, abra a **PowerShell** na sessão remota. 
+4. Através de `Invoke-WebRequest` do PowerShell, envie um pedido às identidades geridas locais para o ponto final dos recursos do Azure obter um token de acesso para o Azure Data Lake Store.  O identificador de recursos `https://datalake.azure.net/`da Data Lake Store é .  O Data Lake faz uma correspondência exata no identificador de recurso e a barra à direita é importante.
 
    ```powershell
    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}

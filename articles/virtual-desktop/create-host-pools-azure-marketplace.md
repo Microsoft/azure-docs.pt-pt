@@ -9,10 +9,10 @@ ms.date: 03/09/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: d5165b160ffc196416052a56aaa0d93c05db56bc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79238623"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: Criar uma piscina de anfitriões usando o Azure Marketplace
@@ -43,13 +43,13 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 ## <a name="run-the-azure-marketplace-offering-to-provision-a-new-host-pool"></a>Executar o Azure Marketplace oferecendo para fornecer um novo pool de anfitriões
 
 Para gerir o Azure Marketplace oferecendo-se para fornecer um novo pool de anfitriões:
 
-1. No menu do portal Azure ou na página **Inicial,** selecione **Criar um recurso**.
+1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**.
 1. Introduza o **Windows Virtual Desktop** na janela de pesquisa do Marketplace.
 1. Selecione **Windows Virtual Desktop - Forme uma piscina de anfitriões**e, em seguida, selecione **Criar**.
 
@@ -64,7 +64,7 @@ Eis o que faz para o separador **Basics:**
 1. Selecione uma **Região**.
 1. Insira um nome para a piscina anfitriã que é única dentro do inquilino do Windows Virtual Desktop.
 1. Selecione **o tipo de ambiente**de trabalho . Se selecionar **Personal**, cada utilizador que se conecta a esta piscina de hospedante é permanentemente atribuído a uma máquina virtual.
-1. Insira os utilizadores que possam iniciar sessão nos clientes do Windows Virtual Desktop e aceda a um ambiente de trabalho. Use uma lista separada de vírina. Por exemplo, se quiser atribuir `user1@contoso.com` e `user2@contoso.com` acesso, insira *`user1@contoso.com,user2@contoso.com`*
+1. Insira os utilizadores que possam iniciar sessão nos clientes do Windows Virtual Desktop e aceda a um ambiente de trabalho. Use uma lista separada de vírina. Por exemplo, se quiser `user1@contoso.com` atribuir `user2@contoso.com` e aceder, insira*`user1@contoso.com,user2@contoso.com`*
 1. Para a localização dos **metadados do Serviço,** selecione a mesma localização que a rede virtual que tem conectividade com o servidor Ative Directory.
 
    >[!IMPORTANT]
@@ -131,7 +131,7 @@ Depois do Azure Marketplace terminar de criar a piscina, pode atribuir mais util
 
 Para atribuir os utilizadores ao grupo de aplicações de ambiente de trabalho:
 
-1. Abra uma janela PowerShell.
+1. Abra uma janela do PowerShell.
 
 1. Executar o seguinte comando para iniciar sessão no ambiente de ambiente de trabalho virtual do Windows:
 
@@ -145,7 +145,7 @@ Para atribuir os utilizadores ao grupo de aplicações de ambiente de trabalho:
    Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
    ```
 
-   A UPN do utilizador deve corresponder à identidade do utilizador em Azure AD, por exemplo, *user1@contoso.com* . Se pretender adicionar vários utilizadores, execute o comando para cada utilizador.
+   A UPN do utilizador deve corresponder à identidade do utilizador em *user1@contoso.com*Azure AD, por exemplo, . Se pretender adicionar vários utilizadores, execute o comando para cada utilizador.
 
 Os utilizadores que adicionar ao grupo de aplicações de desktop podem iniciar sessão no Windows Virtual Desktop com clientes de ambiente de trabalho remoto suportados e ver um recurso para um ambiente de trabalho de sessão.
 

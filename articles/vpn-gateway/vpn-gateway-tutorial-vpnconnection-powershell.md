@@ -9,10 +9,10 @@ ms.date: 03/11/2020
 ms.author: yushwang
 ms.custom: mvc
 ms.openlocfilehash: c42d164647d608fc45e1135cd4111ff3900a733c
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79137165"
 ---
 # <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>Tutorial: Criar e gerir ligações VPN S2S usando powerShell
@@ -102,7 +102,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection1 -ResourceGroupName $RG1
   -ConnectionType IPsec -SharedKey "Azure@!b2C3" -ConnectionProtocol IKEv2
 ```
 
-Adicione a propriedade " **-EnableBGP $True**" opcional para ativar o BGP para a ligação se estiver a utilizar o BGP. Está desativado por predefinição. O parâmetro 'ConnectionProtocol' é opcional com o IKEv2 como padrão. Pode criar a ligação com protocolos IKEv1 especificando **-ConnectionProtocol IKEv1**.
+Adicione a propriedade "**-EnableBGP $True**" opcional para ativar o BGP para a ligação se estiver a utilizar o BGP. Está desativado por predefinição. O parâmetro 'ConnectionProtocol' é opcional com o IKEv2 como padrão. Pode criar a ligação com protocolos IKEv1 especificando **-ConnectionProtocol IKEv1**.
 
 ## <a name="update-the-vpn-connection-pre-shared-key-bgp-and-ipsecike-policy"></a>Atualizar a chave pré-partilhada, o BGP e a política IPsec/IKE da ligação VPN
 
@@ -245,5 +245,5 @@ Neste tutorial, aprendeu a criar e gerir ligações VPN S2S, como, por exemplo, 
 Avance para os tutoriais seguintes para saber mais sobre ligações S2S, VNet a VNet e P2S.
 
 > [!div class="nextstepaction"]
-> * [Criar ligações VNet a VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Criar ligações VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Criar ligações P2S](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

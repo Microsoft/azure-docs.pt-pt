@@ -1,6 +1,6 @@
 ---
-title: Tutorial – implementar Azure Databricks com um ponto de extremidade Cosmos DB
-description: Este tutorial descreve como implementar Azure Databricks em uma rede virtual com um ponto de extremidade de serviço habilitado para Cosmos DB.
+title: Tutorial - Implementar tijolos de dados Azure com um ponto final cosmos DB
+description: Este tutorial descreve como implementar os Azure Databricks numa rede virtual com um Ponto Final de Serviço habilitado para cosmos DB.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
@@ -8,127 +8,127 @@ ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.openlocfilehash: 4ac8c01e986cf1f3158c615a0791ba476e5bf1bb
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74706154"
 ---
-# <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Tutorial: implementar Azure Databricks com um ponto de extremidade Cosmos DB
+# <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Tutorial: Implementar tijolos de dados Azure com um ponto final cosmos DB
 
-Este tutorial descreve como implementar um ambiente de databricks injetado VNet com um ponto de extremidade de serviço habilitado para Cosmos DB.
+Este tutorial descreve como implementar um ambiente de Databricks injetado VNet com um ponto final de serviço habilitado para cosmos DB.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Criar um espaço de trabalho Azure Databricks em uma rede virtual
-> * Criar um ponto de extremidade de serviço de Cosmos DB
-> * Criar uma conta de Cosmos DB e importar dados
-> * Criar um cluster Azure Databricks
-> * Cosmos DB de consulta de um bloco de anotações Azure Databricks
+> * Criar um espaço de trabalho Azure Databricks numa rede virtual
+> * Criar um ponto final de serviço Cosmos DB
+> * Criar uma conta Cosmos DB e importar dados
+> * Criar um cluster de Databricks Azure
+> * Consulta Cosmos DB de um caderno Azure Databricks
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, faça o seguinte:
 
-* Crie um [espaço de trabalho Azure Databricks em uma rede virtual](quickstart-create-databricks-workspace-vnet-injection.md).
+* Criar um espaço de [trabalho Azure Databricks numa rede virtual.](quickstart-create-databricks-workspace-vnet-injection.md)
 
-* Baixe o [conector do Spark](https://search.maven.org/remotecontent?filepath=com/microsoft/azure/azure-cosmosdb-spark_2.4.0_2.11/1.3.4/azure-cosmosdb-spark_2.4.0_2.11-1.3.4-uber.jar).
+* Descarregue o [conector Spark](https://search.maven.org/remotecontent?filepath=com/microsoft/azure/azure-cosmosdb-spark_2.4.0_2.11/1.3.4/azure-cosmosdb-spark_2.4.0_2.11-1.3.4-uber.jar).
 
-* Baixe dados de exemplo dos [NOAA National centers para obter informações ambientais](https://www.ncdc.noaa.gov/stormevents/). Selecione um Estado ou uma área e selecione **Pesquisar**. Na próxima página, aceite os padrões e selecione **Pesquisar**. Em seguida, selecione **download de CSV** no lado esquerdo da página para baixar os resultados.
+* Descarregue os dados da amostra dos Centros Nacionais de Informação Ambiental da [NOAA.](https://www.ncdc.noaa.gov/stormevents/) Selecione uma área ou área e selecione **Procurar**. Na página seguinte, aceite as predefinições e selecione **Procurar**. Em seguida, selecione **CSV Baixar** no lado esquerdo da página para baixar os resultados.
 
-* Baixe o [binário pré-compilado](https://aka.ms/csdmtool) da ferramenta de migração de dados Azure Cosmos DB.
+* Descarregue o [binário pré-compilado](https://aka.ms/csdmtool) da Ferramenta de Migração de Dados Do BD do Azure Cosmos.
 
-## <a name="create-a-cosmos-db-service-endpoint"></a>Criar um ponto de extremidade de serviço de Cosmos DB
+## <a name="create-a-cosmos-db-service-endpoint"></a>Criar um ponto final de serviço Cosmos DB
 
-1. Depois de implantar um espaço de trabalho Azure Databricks em uma rede virtual, navegue até a rede virtual na [portal do Azure](https://portal.azure.com). Observe as sub-redes públicas e privadas que foram criadas por meio da implantação do databricks.
+1. Depois de ter implantado um espaço de trabalho Azure Databricks para uma rede virtual, navegue para a rede virtual no [portal Azure.](https://portal.azure.com) Note as subredes públicas e privadas que foram criadas através da implantação de Databricks.
 
-   ![Sub-redes da rede virtual](./media/service-endpoint-cosmosdb/virtual-network-subnets.png)
+   ![Subredes de rede virtual](./media/service-endpoint-cosmosdb/virtual-network-subnets.png)
 
-2. Selecione a *sub-rede pública* e crie um ponto de extremidade de serviço de Cosmos DB. Em seguida, **salve**.
+2. Selecione a *sub-rede pública* e crie um ponto final de serviço Cosmos DB. Em **seguida, guardar**.
    
-   ![Adicionar um ponto de extremidade de serviço de Cosmos DB](./media/service-endpoint-cosmosdb/add-cosmosdb-service-endpoint.png)
+   ![Adicione um ponto final de serviço Cosmos DB](./media/service-endpoint-cosmosdb/add-cosmosdb-service-endpoint.png)
 
 ## <a name="create-a-cosmos-db-account"></a>Criar uma conta do Cosmos DB
 
-1. Abra o portal do Azure. No lado superior esquerdo da tela, selecione **criar um recurso > bancos de dados > Azure Cosmos DB**.
+1. Abra o portal do Azure. No lado superior esquerdo do ecrã, selecione **Criar um recurso > Bases de dados > Azure Cosmos DB**.
 
-2. Preencha os **detalhes da instância** na guia **noções básicas** com as seguintes configurações:
+2. Preencha os detalhes da **instância** no separador Basics com as **seguintes** definições:
 
    |Definição|Valor|
    |-------|-----|
-   |Subscrição|*a sua subscrição*|
+   |Subscrição|*sua assinatura*|
    |Grupo de Recursos|*seu grupo de recursos*|
-   |Nome da Conta|DB-vnet-serviço-ponto de extremidade|
-   |API|Núcleo (SQL)|
+   |Nome da Conta|db-vnet-service-endpoint|
+   |API|Core (SQL)|
    |Localização|E.U.A. Oeste|
-   |Redundância geográfica|Desativar|
-   |Gravações de várias regiões|Ativar|
+   |Redundância Geográfica|Desativar|
+   |Escritas de várias regiões|Ativar|
 
-   ![Adicionar um ponto de extremidade de serviço de Cosmos DB](./media/service-endpoint-cosmosdb/create-cosmosdb-account-basics.png)
+   ![Adicione um ponto final de serviço Cosmos DB](./media/service-endpoint-cosmosdb/create-cosmosdb-account-basics.png)
 
-3. Selecione a guia **rede** e configure sua rede virtual. 
+3. Selecione o separador **Rede** e configure a sua rede virtual. 
 
-   a. Escolha a rede virtual que você criou como um pré-requisito e, em seguida, selecione *Public-subnet*. Observe que a *sub-rede privada* tem a observação *"o ponto de extremidade do Microsoft AzureCosmosDB" está faltando "* . Isso ocorre porque você habilitou apenas o ponto de extremidade de serviço Cosmos DB na *sub-rede pública*.
+   a. Escolha a rede virtual que criou como pré-requisito e, em seguida, selecione a *sub-rede pública*. Note que a *sub-rede privada* tem a nota *'Microsoft AzureCosmosDB' ponto final está em falta».* Isto porque só permitiu o ponto final do serviço Cosmos DB na *sub-rede pública.*
 
-   b. Verifique se você tem **permissão de acesso de portal do Azure** habilitado. Essa configuração permite que você acesse sua conta de Cosmos DB do portal do Azure. Se essa opção for definida como **negar**, você receberá erros ao tentar acessar sua conta. 
+   b. Certifique-se de que tem acesso de acesso do **portal Azure** ativado. Esta definição permite-lhe aceder à sua conta Cosmos DB a partir do portal Azure. Se esta opção estiver definida para **Negar,** receberá erros ao tentar aceder à sua conta. 
 
    > [!NOTE]
-   > Não é necessário para este tutorial, mas você também pode habilitar o recurso *permitir acesso do meu IP* se quiser ter a capacidade de acessar sua conta de Cosmos DB de seu computador local. Por exemplo, se você estiver se conectando à sua conta usando o SDK do Cosmos DB, você precisará habilitar essa configuração. Se estiver desabilitado, você receberá erros de "acesso negado".
+   > Não é necessário para este tutorial, mas também pode permitir *o acesso do meu IP* se quiser aceder à sua conta Cosmos DB a partir da sua máquina local. Por exemplo, se estiver a ligar-se à sua conta utilizando o Cosmos DB SDK, tem de ativar esta definição. Se estiver desativado, receberá erros de "Access Negado".
 
-   ![Cosmos DB configurações de rede da conta](./media/service-endpoint-cosmosdb/create-cosmosdb-account-network.png)
+   ![Definições da rede de rede da Conta DB cosmos](./media/service-endpoint-cosmosdb/create-cosmosdb-account-network.png)
 
-4. Selecione **revisar + criar**e **criar** para criar sua conta de Cosmos DB dentro da rede virtual.
+4. Selecione **Review + Create**, e depois **Crie** para criar a sua conta Cosmos DB dentro da rede virtual.
 
-5. Quando sua conta de Cosmos DB tiver sido criada, navegue até **chaves** em **configurações**. Copie a cadeia de conexão primária e salve-a em um editor de texto para uso posterior.
+5. Uma vez criada a sua conta Cosmos DB, navegue para **Chaves** em **Definições**. Copie a cadeia de ligação primária e guarde-a num editor de texto para posterior utilização.
 
     ![Página de chaves de conta Cosmos DB](./media/service-endpoint-cosmosdb/cosmos-keys.png)
 
-6. Selecione **Data Explorer** e **nova coleção** para adicionar um novo banco de dados e uma coleção à sua conta de Cosmos DB.
+6. Selecione **Data Explorer** e **New Collection** para adicionar uma nova base de dados e recolha à sua conta Cosmos DB.
 
-    ![Cosmos DB nova coleção](./media/service-endpoint-cosmosdb/new-collection.png)
+    ![Nova coleção cosmos DB](./media/service-endpoint-cosmosdb/new-collection.png)
 
-## <a name="upload-data-to-cosmos-db"></a>Carregar dados para Cosmos DB
+## <a name="upload-data-to-cosmos-db"></a>Enviar dados para Cosmos DB
 
-1. Abra a versão de interface gráfica da [ferramenta de migração de dados para Cosmos DB](https://aka.ms/csdmtool), **Dtui. exe**.
+1. Abra a versão da interface gráfica da ferramenta de migração de [dados para Cosmos DB,](https://aka.ms/csdmtool) **Dtui.exe**.
 
     ![Ferramenta de Migração de Dados do Cosmos DB](./media/service-endpoint-cosmosdb/cosmos-data-migration-tool.png)
 
-2. Na guia **informações de origem** , selecione **arquivo (s) CSV** na lista suspensa **importar de** . Em seguida, selecione **Adicionar arquivos** e adicione o CSV de dados do Storm baixado como um pré-requisito.
+2. No separador **Source Information,** selecione **Ficheiros CSV na** **Importação a partir de** dropdown. Em seguida, selecione **Adicionar Ficheiros** e adicionar os dados de tempestade CSV que descarregou como pré-requisito.
 
-    ![Informações de origem da ferramenta de migração de dados Cosmos DB](./media/service-endpoint-cosmosdb/cosmos-source-information.png)
+    ![Cosmos DB Data Migration Tool fonte de informação](./media/service-endpoint-cosmosdb/cosmos-source-information.png)
 
-3. Na guia **informações de destino** , insira a cadeia de conexão. O formato da cadeia de conexão é `AccountEndpoint=<URL>;AccountKey=<key>;Database=<database>`. O AccountEndpoint e o AccountKey são incluídos na cadeia de conexão primária que você salvou na seção anterior. Acrescente `Database=<your database name>` ao final da cadeia de conexão e selecione **verificar**. Em seguida, adicione o nome da coleção e a chave de partição.
+3. No separador **Informação do Alvo,** insera a corda de ligação. O formato `AccountEndpoint=<URL>;AccountKey=<key>;Database=<database>`de corda de ligação é . O AccountEndpoint e o AccountKey estão incluídos na cadeia de ligação primária que guardou na secção anterior. Aprete `Database=<your database name>` até ao fim da corda de ligação e selecione **Verificar**. Em seguida, adicione o nome da Coleção e a chave de partição.
 
-    ![Informações de destino da ferramenta de migração de dados Cosmos DB](./media/service-endpoint-cosmosdb/cosmos-target-information.png)
+    ![Cosmos DB Data Migration Tool target information](./media/service-endpoint-cosmosdb/cosmos-target-information.png)
 
-4. Selecione **Avançar** até chegar à página Resumo. Em seguida, selecione **importar**.
+4. Selecione **Em seguida** até chegar à página Resumo. Em seguida, selecione **Import**.
 
-## <a name="create-a-cluster-and-add-library"></a>Criar um cluster e Adicionar biblioteca
+## <a name="create-a-cluster-and-add-library"></a>Criar um cluster e adicionar biblioteca
 
-1. Navegue até o serviço de Azure Databricks na [portal do Azure](https://portal.azure.com) e selecione **Iniciar espaço de trabalho**.
+1. Navegue para o seu serviço Azure Databricks no [portal Azure](https://portal.azure.com) e selecione **Launch Workspace**.
 
-   ![Iniciar o espaço de trabalho do databricks](./media/service-endpoint-cosmosdb/launch-workspace.png)
+   ![Lançar espaço de trabalho databricks](./media/service-endpoint-cosmosdb/launch-workspace.png)
 
-2. Crie um novo cluster. Escolha um nome de cluster e aceite as configurações padrão restantes.
+2. Criar um novo aglomerado. Escolha um Nome de Cluster e aceite as definições predefinidas restantes.
 
    ![Novas configurações de cluster](./media/service-endpoint-cosmosdb/create-cluster.png)
 
-3. Depois que o cluster for criado, navegue até a página do cluster e selecione a guia **bibliotecas** . Selecione **instalar novo** e carregar o arquivo JAR do conector do Spark para instalar a biblioteca.
+3. Depois de criado o cluster, navegue para a página do cluster e selecione o separador **Bibliotecas.** Selecione **Instalar Novo** e carregue o ficheiro do conector Spark para instalar a biblioteca.
 
-    ![Instalar a biblioteca do conector do Spark](./media/service-endpoint-cosmosdb/install-cosmos-connector-library.png)
+    ![Instalar biblioteca de conector Spark](./media/service-endpoint-cosmosdb/install-cosmos-connector-library.png)
 
-    Você pode verificar se a biblioteca foi instalada na guia **bibliotecas** .
+    Pode verificar se a biblioteca foi instalada no separador **Bibliotecas.**
 
-    ![Guia bibliotecas de cluster do databricks](./media/service-endpoint-cosmosdb/installed-library.png)
+    ![Separador de bibliotecas de cluster de tijolos de dados](./media/service-endpoint-cosmosdb/installed-library.png)
 
-## <a name="query-cosmos-db-from-a-databricks-notebook"></a>Cosmos DB de consulta de um bloco de anotações do databricks
+## <a name="query-cosmos-db-from-a-databricks-notebook"></a>Consulta Cosmos DB de um caderno databricks
 
-1. Navegue até o espaço de trabalho Azure Databricks e crie um novo notebook Python.
+1. Navegue para o seu espaço de trabalho Azure Databricks e crie um novo caderno python.
 
-    ![Criar novo bloco de anotações do databricks](./media/service-endpoint-cosmosdb/new-python-notebook.png)
+    ![Criar novo caderno Databricks](./media/service-endpoint-cosmosdb/new-python-notebook.png)
 
-2. Execute o seguinte código Python para definir a configuração de conexão Cosmos DB. Altere o **ponto de extremidade**, **MasterKey**, **banco de dados**e **coleção** de acordo.
+2. Executar o seguinte código python para definir a configuração de ligação Cosmos DB. Alterar o **Ponto Final,** **Masterkey,** **Base de Dados**e **Recolha** em conformidade.
 
     ```python
     connectionConfig = {
@@ -143,33 +143,33 @@ Antes de começar, faça o seguinte:
     }
     ```
 
-3. Use o código Python a seguir para carregar os dados e criar uma exibição temporária.
+3. Utilize o seguinte código python para carregar os dados e criar uma visão temporária.
 
     ```python
     users = spark.read.format("com.microsoft.azure.cosmosdb.spark").options(**connectionConfig).load()
     users.createOrReplaceTempView("storm")
     ```
 
-4. Use o comando mágico a seguir para executar uma instrução SQL que retorna dados.
+4. Utilize o seguinte comando mágico para executar uma declaração SQL que devolve dados.
 
     ```python
     %sql
     select * from storm
     ```
 
-    Você conectou com êxito o espaço de trabalho do databricks inseridos por VNet a um ponto de extremidade de serviço habilitado Cosmos DB recurso. Para ler mais sobre como se conectar ao Cosmos DB, consulte [conector de Azure Cosmos DB para Apache Spark](https://github.com/Azure/azure-cosmosdb-spark).
+    Ligou com sucesso o seu espaço de trabalho de Databricks injetado em VNet a um recurso Cosmos DB ativado por um ponto de serviço. Para ler mais sobre como se conectar ao Cosmos DB, consulte [Azure Cosmos DB Connector para Apache Spark](https://github.com/Azure/azure-cosmosdb-spark).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, exclua o grupo de recursos, o espaço de trabalho Azure Databricks e todos os recursos relacionados. A exclusão do trabalho evita a cobrança desnecessária. Se estiver planejando usar o espaço de trabalho Azure Databricks no futuro, você poderá interromper o cluster e reiniciá-lo mais tarde. Se você não pretende usar este Azure Databricks espaço de trabalho, exclua todos os recursos criados neste tutorial usando as seguintes etapas:
+Quando já não for necessário, elimine o grupo de recursos, o espaço de trabalho azure Databricks e todos os recursos relacionados. Apagar o trabalho evita faturação desnecessária. Se planeia utilizar o espaço de trabalho azure Databricks no futuro, pode parar o cluster e reiniciá-lo mais tarde. Se não vai continuar a utilizar este espaço de trabalho Azure Databricks, elimine todos os recursos que criou neste tutorial utilizando os seguintes passos:
 
-1. No menu à esquerda na portal do Azure, clique em grupos de **recursos** e, em seguida, clique no nome do grupo de recursos que você criou.
+1. A partir do menu à esquerda no portal Azure, clique em **grupos de Recursos** e, em seguida, clique no nome do grupo de recursos que criou.
 
-2. Na página do grupo de recursos, selecione **excluir**, digite o nome do recurso a ser excluído na caixa de texto e, em seguida, selecione **excluir** novamente.
+2. Na página do grupo de recursos, selecione **Eliminar**, digite o nome do recurso para apagar na caixa de texto e, em seguida, selecione **Apagar** novamente.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você implantou um espaço de trabalho Azure Databricks em uma rede virtual e usou o conector Cosmos DB Spark para consultar dados de Cosmos DB do databricks. Para saber mais sobre como trabalhar com Azure Databricks em uma rede virtual, continue no tutorial para usar o SQL Server com Azure Databricks.
+Neste tutorial, você implementou um espaço de trabalho Azure Databricks para uma rede virtual, e usou o conector Cosmos DB Spark para consultar dados do Cosmos DB a partir de Databricks. Para saber mais sobre trabalhar com os Azure Databricks numa rede virtual, continue a ser tutorial para usar o SQL Server com Os Tijolos de Dados Azure.
 
 > [!div class="nextstepaction"]
-> [Tutorial: consultar um contêiner SQL Server do Docker do Linux em uma rede virtual de um notebook Azure Databricks](vnet-injection-sql-server.md)
+> [Tutorial: Consulta um recipiente SQL Server Linux Docker numa rede virtual a partir de um caderno Azure Databricks](vnet-injection-sql-server.md)

@@ -1,5 +1,5 @@
 ---
-title: Tutorial`:`Utilize uma identidade gerida para aceder ao Azure Cosmos DB - Linux - Azure AD
+title: Tutorial`:`Use uma identidade gerida para aceder a Azure Cosmos DB - Linux - Azure AD
 description: Um tutorial que explica o processo de utilização de uma identidade gerida atribuída pelo sistema numa VM do Linux, para aceder ao Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 04/09/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f15a269656f205b0acb6a49740dd4c625c0bdd41
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78248287"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema numa VM do Linux, para aceder ao Azure Cosmos DB 
@@ -67,7 +67,7 @@ Em seguida, adicione uma coleção de dados à conta do Cosmos DB, que possa con
 
 ## <a name="retrieve-the-principalid-of-the-linux-vms-system-assigned-managed-identity"></a>Obter o `principalID` da identidade gerida atribuída pelo sistema da VM do Linux
 
-Para obter acesso às chaves de acesso à conta do Cosmos DB do Resource Manager na secção seguinte, terá de obter o `principalID` da identidade gerida atribuída pelo sistema da VM do Linux.  Certifique-se de substituir os valores `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (grupo de recursos em que reside o seu VM) e `<VM NAME>` valores de parâmetros com os seus próprios valores.
+Para obter acesso às chaves de acesso à conta do Cosmos DB do Resource Manager na secção seguinte, terá de obter o `principalID` da identidade gerida atribuída pelo sistema da VM do Linux.  Certifique-se de `<SUBSCRIPTION ID>` `<RESOURCE GROUP>` substituir o ,(grupo de recursos `<VM NAME>` em que o seu VM reside) e valores de parâmetro saque com os seus próprios valores.
 
 ```azurecli-interactive
 az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe> --api-version 2017-12-01
@@ -88,7 +88,7 @@ A resposta inclui os detalhes da identidade gerida atribuída pelo sistema (anot
 
 O Cosmos DB não suporta nativamente a autenticação do Azure AD. No entanto, pode utilizar uma identidade gerida para obter uma chave de acesso do Cosmos DB do Resource Manager e, em seguida, utilizar a chave para aceder ao Cosmos DB. Neste passo, pode conceder o acesso da identidade gerida atribuída pelo sistema às chaves da conta do Cosmos DB.
 
-Para conceder o acesso de identidade gerida atribuída pelo sistema à conta do Cosmos DB no Azure Resource Manager com a CLI do Azure, atualize os valores de `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` e `<COSMOS DB ACCOUNT NAME>` para o seu ambiente. Substitua `<MI PRINCIPALID>` pela propriedade `principalId` devolvida pelo comando `az resource show` em Recuperar o principalID do MI do Linux VM.  O Cosmos DB suporta dois níveis de granularidade ao utilizar chaves de acesso: acesso de leitura/escrita à conta e acesso só de leitura à conta.  Atribua a função `DocumentDB Account Contributor` se pretender obter as chaves de leitura/escrita para a conta, ou atribua a função `Cosmos DB Account Reader Role` se quiser obter só as chaves de leitura para a conta:
+Para conceder o acesso de identidade gerida atribuída pelo sistema à conta do Cosmos DB no Azure Resource Manager com a CLI do Azure, atualize os valores de `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` e `<COSMOS DB ACCOUNT NAME>` para o seu ambiente. Substitua `<MI PRINCIPALID>` `principalId` a propriedade `az resource show` devolvida pelo comando em Recuperar o principalID do MI do Linux VM.  O Cosmos DB suporta dois níveis de granularidade ao utilizar chaves de acesso: acesso de leitura/escrita à conta e acesso só de leitura à conta.  Atribua a função `DocumentDB Account Contributor` se pretender obter as chaves de leitura/escrita para a conta, ou atribua a função `Cosmos DB Account Reader Role` se quiser obter só as chaves de leitura para a conta:
 
 ```azurecli-interactive
 az role assignment create --assignee <MI PRINCIPALID> --role '<ROLE NAME>' --scope "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.DocumentDB/databaseAccounts/<COSMODS DB ACCOUNT NAME>"

@@ -15,13 +15,13 @@ ms.date: 04/16/2018
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: ff40dc62b4dcd622156a78518bbdcb6b9b430644
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75526605"
 ---
-# <a name="deploy-an-application-to-a-service-fabric-cluster-using-the-service-fabric-cli"></a>Implantar um aplicativo em um Cluster Service Fabric usando a CLI do Service Fabric
+# <a name="deploy-an-application-to-a-service-fabric-cluster-using-the-service-fabric-cli"></a>Implementar uma aplicação para um cluster de tecido de serviço utilizando o ClI de Tecido de Serviço
 
 Este script de exemplo copia um pacote de aplicações para um arquivo de imagens do cluster, regista o tipo de aplicação no cluster e cria uma instância de aplicação no tipo de aplicação. Todos os serviços predefinidos também são criados nesta fase.
 

@@ -1,5 +1,5 @@
 ---
-title: Copiar dados de SQL Server para o armazenamento de BLOBs usando o PowerShell
+title: Copiar dados do SQL Server para o armazenamento Blob usando powerShell
 description: Saiba como copiar dados de um arquivo de dados no local para a cloud do Azure mediante a utilização de um integration runtime autoalojado no Azure Data Factory.
 services: data-factory
 author: nabhishek
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
 ms.openlocfilehash: 61ee9e46b1c1d4c1e1ec4815c7a88de921650230
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75982599"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutorial: copiar dados de uma base de dados SQL Server no local para o Armazenamento de Blobs do Azure
@@ -41,7 +41,7 @@ Neste tutorial, vai executar os seguintes passos:
 Antes de começar, se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/).
 
 ### <a name="azure-roles"></a>Funções do Azure
-Para criar instâncias de fábricas de dados, a conta de utilizador que utiliza para iniciar sessão no Azure tem de ter atribuída a função *Contribuidor* ou *Proprietário* ou ser *administradora* da subscrição do Azure.
+Para criar instâncias de fábrica de dados, a conta de utilizador que utiliza para iniciar sessão no Azure deve ser atribuída a uma função de *Contribuinte* ou *Proprietário* ou deve ser *administradora* da subscrição do Azure.
 
 Para ver as permissões que a sua subscrição tem, aceda ao portal do Azure, selecione o seu nome de utilizador, no canto superior direito, e selecione **Permissões**. Se tiver acesso a várias subscrições, selecione a subscrição apropriada. Para obter instruções de exemplo sobre como adicionar um utilizador a uma função, veja o artigo [Gerir o acesso através do RBAC e do portal do Azure](../role-based-access-control/role-assignments-portal.md).
 
@@ -73,7 +73,7 @@ Neste tutorial, vai utilizar uma base de dados do SQL Server no local como um ar
     ```
 
 
-### <a name="azure-storage-account"></a>Conta de armazenamento do Azure
+### <a name="azure-storage-account"></a>conta de Armazenamento do Azure
 Neste tutorial, vai utilizar uma Conta de Armazenamento do Azure de fins gerais (mais concretamente, o Armazenamento de Blobs do Azure) como arquivo de dados de destino/sink. Se não tiver uma conta de armazenamento do Azure para fins gerais, veja [Criar uma conta de armazenamento](../storage/common/storage-account-create.md). O pipeline da fábrica de dados que vai criar neste tutorial copia dados da base de dados do SQL Server no local (origem) para este armazenamento de Blobs do Azure (sink). 
 
 #### <a name="get-storage-account-name-and-account-key"></a>Obter o nome e a chave da conta de armazenamento
@@ -106,12 +106,12 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
 1. Na lista de contentores, clique em **adftutorial**.  
 
-1. Mantenha a janela do **contentor** de **adftutorial** aberta. Vai utilizá-la para verificar o resultado no final deste tutorial. O Data Fabric cria automaticamente a pasta de saída neste contentor, pelo que não precisa de a criar.
+1. Mantenha a janela do **recipiente** **aberta.** Vai utilizá-la para verificar o resultado no final deste tutorial. O Data Fabric cria automaticamente a pasta de saída neste contentor, pelo que não precisa de a criar.
 
 
 ### <a name="windows-powershell"></a>Windows PowerShell
 
-#### <a name="install-azure-powershell"></a>Instalar Azure PowerShell
+#### <a name="install-azure-powershell"></a>Instalar o Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -127,7 +127,7 @@ Instale a versão mais recente do Azure PowerShell, se ainda não a tiver no seu
     Connect-AzAccount
     ```        
 
-1. Se tiver várias subscrições do Azure, execute o comando seguinte selecionar aquela com que pretende trabalhar. Substitua **SubscriptionId** pelo ID da sua subscrição do Azure:
+1. Se tiver várias subscrições do Azure, execute o comando seguinte selecionar aquela com que pretende trabalhar. Substitua o **SubscriptionId** pelo ID da sua subscrição Azure:
 
     ```powershell
     Select-AzSubscription -SubscriptionId "<SubscriptionId>"    
@@ -255,7 +255,7 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
 ## <a name="install-the-integration-runtime"></a>Instalar o integration runtime
 1. Transfira o [Integration Runtime do Azure Data Factory](https://www.microsoft.com/download/details.aspx?id=39717) num computador Windows local e execute a instalação.
 
-1. No assistente **Bem-vindo à Configuração do Microsoft Integration Runtime** , selecione**Seguinte**.  
+1. No assistente **Bem-vindo à Configuração do Microsoft Integration Runtime **, selecione**Seguinte**.  
 
 1. Na janea **Contrato de Licença do Utilizador Final**, aceite os termos e o contrato de licença e selecione **Seguinte**.
 
@@ -265,11 +265,11 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
 
 1. No assistente **Configuração do Microsoft Integration Runtime Concluída**, selecione **Concluir**.
 
-1. Na janela **Registar o Integration Runtime (Autoalojado)** , cole a chave que guardou na secção anterior e selecione **Registar**.
+1. Na janela **Registar o Integration Runtime (Autoalojado)**, cole a chave que guardou na secção anterior e selecione **Registar**.
 
     ![Registar o integration runtime](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
-1. Na janela **novo nó Integration Runtime (auto-hospedado)** , selecione **concluir**.
+1. Na nova janela do nó de **integração (auto-hospedada),** selecione **Finish**.
 
     ![Janela Novo Nó do Integration Runtime](media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png)
 
@@ -277,7 +277,7 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
 
     ![Registado com êxito](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
 
-1. Na janela **Registar Integration Runtime (Autoalojado)** , selecione **Configuration Manager**.
+1. Na janela **Registar Integration Runtime (Autoalojado)**, selecione **Configuration Manager**.
 
 1. Quando o nó for ligado ao serviço cloud, é apresentada a página seguinte:
 
@@ -300,7 +300,7 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
     g. Introduza a palavra-passe que está associado ao nome de utilizador.
 
     h. Para confirmar que o integration runtime se consegue ligar ao SQL Server selecione **Testar**.  
-    ![conectividade com êxito](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png)
+    ![Conectividade conseguiu](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png)
 
     Se a ligação for bem-sucedida, é apresentada uma marca de verificação verde. Caso contrário, receberá uma mensagem de erro associada à falha. Corrija os problemas e confirme que o integration runtime se consegue ligar à sua instância do SQL Server.
 
@@ -411,9 +411,9 @@ Neste passo, vai ligar a instância do SQL Server no local à fábrica de dados.
 
     > [!IMPORTANT]
     > - Selecione a secção que tem como base a autenticação que utiliza para se ligar à sua instância do SQL Server.
-    > - Substitua **\<integration runtime name>** pelo nome do integration runtime.
-    > - Antes de guardar o ficheiro, substitua **\<servername>** , **\<databasename>** , **\<username>** e **\<password>** pelos valores da sua instância do SQL Server.
-    > - Se precisar de utilizar um caráter de barra invertida (\\) no nome da sua conta de utilizador ou no nome do seu servidor, utilize o caráter de escape (\\) como prefixo. Por exemplo, utilize *omeudominion\\\\omeuutilizador*.
+    > - Substitua o nome de tempo de execução da ** \<integração>** com o nome do seu tempo de execução de integração.
+    > - Antes de guardar o ** \< **ficheiro, substitua o nome do servidor>, ** \<nome de>** de base de dados, ** \<nome **de utilizador>e ** \<>de palavra-passe** com os valores da sua instância Do Servidor SQL.
+    > - Se precisar de utilizar um caráter de barra invertida (\\) no nome da sua conta de utilizador ou no nome do seu servidor, utilize o caráter de escape (\\) como prefixo. Por exemplo, use *mydomain myuser\\\\*.
 
 1. Para encriptar os dados confidenciais (nome de utilizador, palavra-passe, etc.), execute o cmdlet `New-AzDataFactoryV2LinkedServiceEncryptedCredential`.  
     Esta encriptação garante que as credenciais são encriptadas com a interface DPAPI (Data Protection Application Programming Interface). As credenciais encriptadas são armazenadas loclamente no nó do runtime de integração autoalojado (computador local). O payload de saída pode ser redirecionado para outro ficheiro JSON (neste caso, *encryptedLinkedService.json*) que contém credenciais encriptadas.
@@ -726,7 +726,7 @@ O pipeline neste exemplo copia dados de uma localização para outra localizaç�
 > * Iniciar uma execução de pipeline.
 > * Monitorizar a execução do pipeline.
 
-Para obter uma lista dos arquivos de dados que o Data Factory suporta, veja [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) (Arquivos de Dados suportados).
+Para obter uma lista de lojas de dados que são suportadas pela Data Factory, consulte as lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
 Para aprender a copiar dados em massa de uma origem para um destino, avance para o tutorial seguinte:
 

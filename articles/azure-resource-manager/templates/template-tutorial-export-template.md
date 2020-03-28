@@ -2,15 +2,15 @@
 title: Tutorial - Modelo de exportação do portal Azure
 description: Aprenda a usar um modelo exportado para completar o desenvolvimento do seu modelo.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 95d54a0661f0a0cebdbfc225074be0ce0d83a5cc
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 5a0d373fdf75f19c8fc1082593c15c14770f79c3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79368898"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80369904"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: Use modelo exportado do portal Azure
 
@@ -32,13 +32,13 @@ Este modelo funciona bem para a implementação de contas de armazenamento, mas 
 
 ## <a name="create-app-service-plan"></a>Criar plano do App Service
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Selecione **Criar um recurso**.
 1. Em **Search the Marketplace,** insira o plano de serviço de **aplicações**e, em seguida, selecione o plano de serviço de **aplicações.**  Não selecione o plano de serviço de **aplicações (clássico)**
 1. Selecione **Criar**.
-1. introduza:
+1. Introduza:
 
-    - **Subscrição**: selecione a sua subscrição do Azure.
+    - **Subscrição**: selecione a sua subscrição Azure.
     - **Grupo de Recursos**: Selecione **Criar novo** e, em seguida, especificar um nome. Forneça um nome de grupo de recursos diferente daquele que tem usado nesta série tutorial.
     - **Nome**: insira um nome para o plano de serviço da App.
     - **Sistema operativo**: selecione **Linux**.
@@ -95,7 +95,9 @@ New-AzResourceGroupDeployment `
   -storageSKU Standard_LRS
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Para executar este comando de implantação, deve ter a [versão mais recente](/cli/azure/install-azure-cli) do Azure CLI.
 
 ```azurecli
 az deployment group create \
@@ -111,7 +113,7 @@ az deployment group create \
 
 Pode verificar a implantação explorando o grupo de recursos a partir do portal Azure.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. A partir do menu esquerdo, selecione **Grupos de Recursos**.
 1. Selecione o grupo de recursos para o quais foi implantado.
 1. O grupo de recursos contém uma conta de armazenamento e um plano de Serviço de Aplicações.
@@ -122,10 +124,10 @@ Se está saindo para o próximo tutorial, não precisa de apagar o grupo de recu
 
 Se estás a parar agora, talvez queiras limpar os recursos que implantaste ao apagar o grupo de recursos.
 
-1. No portal do Azure, selecione **Grupo de recursos** no menu à esquerda.
+1. A partir do portal Azure, selecione **Grupo Recurso** do menu esquerdo.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
 3. Selecione o nome do grupo de recursos.
-4. Selecione **Eliminar grupo de recursos** no menu superior.
+4. **Selecione Eliminar** o grupo de recursos do menu superior.
 
 ## <a name="next-steps"></a>Passos seguintes
 

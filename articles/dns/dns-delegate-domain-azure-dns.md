@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
 ms.openlocfilehash: 8f29a2bbe0eb392927dd111b13e2260111ddd18e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79238973"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Tutorial: Alojar o seu domínio no DNS do Azure
@@ -30,7 +30,7 @@ Neste tutorial, ficará a saber como:
 > * Verifique se a delegação está a funcionar.
 
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,7 +50,7 @@ O domínio de exemplo usado para este tutorial é contoso.net, mas use o seu pr�
    | **Definição** | **Valor** | **Detalhes** |
    |---|---|---|
    |**Nome**|[o seu nome de domínio] |O nome de domínio que comprou. Este tutorial utiliza contoso.net como exemplo.|
-   |**Subscrição**|[A sua subscrição]|Selecione uma subscrição na que vai criar a zona.|
+   |**Assinatura**|[A sua subscrição]|Selecione uma subscrição na que vai criar a zona.|
    |**Grupo de recursos**|**Criar novo:** contosoRG|Crie um grupo de recursos. O nome do grupo de recursos tem de ser exclusivo dentro da subscrição que selecionou.<br>A localização do grupo de recursos não tem qualquer impacto na zona DNS. A localização da zona DNS é sempre "global", e não é mostrada.|
    |**Localização**|E.U.A. Leste||
 
@@ -60,7 +60,7 @@ Antes de pode delegar a zona DNS ao DNS do Azure, terá de conhecer os servidore
 
 1. Com a zona DNS criada, no painel **Favoritos** do portal do Azure, selecione **Todos os recursos**. Na página **Todos os recursos**, selecione a zona de DNS. Se a subscrição que selecionou já tiver vários recursos, pode introduzir o seu nome de domínio na caixa **de nome Filter** para aceder facilmente ao gateway da aplicação. 
 
-1. Obtenha os servidores de nome na página da zona DNS. Neste exemplo, foram atribuídos à zona contoso.net os servidores de nomes *ns1-01.azure-dns.com*, *ns2-01.azure-dns.net*, *ns3-01.azure-dns.org* e *ns4-01.azure-dns.info*:
+1. Obtenha os servidores de nome na página da zona DNS. Neste exemplo, a zona contoso.net foi atribuído aos servidores *de nomes ns1-01.azure-dns.com,* *ns2-01.azure-dns.net,* *ns3-01.azure-dns.org*e *ns4-01.azure-dns.info:*
 
    ![Lista dos servidores de nomes](./media/dns-delegate-domain-azure-dns/viewzonens500.png)
 

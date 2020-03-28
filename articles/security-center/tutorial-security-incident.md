@@ -1,6 +1,6 @@
 ---
-title: Tutorial de resposta a incidentes – central de segurança do Azure
-description: Neste tutorial, você aprenderá a fazer a triagem de alertas de segurança, determinar a causa raiz & escopo de um incidente e pesquisar dados de segurança.
+title: Tutorial de resposta a incidentes - Centro de Segurança Azure
+description: Neste tutorial, você vai aprender a triagem de alertas de segurança, determinar a causa principal & âmbito de um incidente, e pesquisar dados de segurança.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
 ms.openlocfilehash: 49e2af8fd2d71e1e5103f5337d5c7104c2904322
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74559190"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Tutorial: responder a incidentes de segurança
@@ -29,10 +29,10 @@ O Centro de Segurança analisa continuamente as suas cargas de trabalho da cloud
 > * Fazer investigações mais aprofundadas para determinar a origem e o âmbito dos incidentes de segurança
 > * Procurar dados de segurança para ajudar à investigação
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para acompanhar as funcionalidades abrangidas neste tutorial, tem de estar no escalão de preço Standard do Centro de Segurança. Você pode experimentar a central de segurança Standard sem nenhum custo. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Incluir a sua subscrição do Azure no Centro de Segurança Standard) explica-lhe como atualizar para Standard.
+Para acompanhar as funcionalidades abrangidas neste tutorial, tem de estar no escalão de preço Standard do Centro de Segurança. Pode tentar o Nível Padrão do Centro de Segurança sem custos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Incluir a sua subscrição do Azure no Centro de Segurança Standard) explica-lhe como atualizar para Standard.
 
 ## <a name="scenario"></a>Cenário
 A Contoso migrou recentemente alguns dos recursos no local para o Azure, incluindo algumas cargas de trabalho de linha de negócio baseadas em máquinas virtuais e bases de dados SQL. De momento, a CSIRT (Equipa de Resposta a Incidentes de Segurança Informática) da Contoso tem dificuldade em investigar problemas de segurança porque as informações de segurança não estão integradas com as respetivas ferramentas atuais de resposta a incidentes. Esta falta de integração apresenta um problema durante a fase de Deteção (demasiados falsos positivos), bem como durante as fases de Avaliação e Diagnóstico. Como parte desta migração, eles decidem se pretendem que o Centro de Segurança os ajude a resolver este problema.
@@ -43,12 +43,12 @@ Para efeitos deste cenário, vamos concentrar-nos nas funções das seguintes pe
 
 ![Ciclo de vida de resposta a incidentes](./media/tutorial-security-incident/security-center-incident-response.png)
 
-A Constança está nas operações de segurança. Suas responsabilidades incluem:
+A Constança está nas operações de segurança. As suas responsabilidades incluem:
 
 * Monitorização e capacidade de resposta contínuas a ameaças de segurança.
 * Escalonamento para o proprietário da carga de trabalho na nuvem ou analista de segurança, conforme necessário.
 
-Sam é analista de segurança e suas responsabilidades incluem:
+Sam é um analista de segurança e as suas responsabilidades incluem:
 
 * Investigar ataques.
 * Resolver alertas.
@@ -108,7 +108,7 @@ Outros inícios rápidos e tutoriais desta coleção têm por base este início 
 
 Se pretender desativar aprovisionamento automático:
 
-1. Regresse ao menu principal do Centro de Segurança e selecione **Política de segurança**.
+1. Volte ao menu principal do Centro de Segurança e selecione a política de **segurança.**
 2. Selecione a subscrição para a qual pretende desativar o aprovisionamento automático.
 3. Em **Política de segurança – Recolha de Dados**, selecione **Desativar** em **Inclusão** para desativar o aprovisionamento automático.
 4. Selecione **Guardar**.

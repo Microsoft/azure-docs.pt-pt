@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
 ms.openlocfilehash: c88048e3fc62c0414cac45dab9917fe7b2f57922
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78183335"
 ---
 #### <a name="applications"></a>[Aplicações](#tab/applications/)
@@ -21,7 +21,7 @@ ms.locfileid: "78183335"
 
 #### <a name="app-registrations-preview"></a>[Registos de aplicativos (Pré-visualização)](#tab/app-reg-preview/)
 
-1. Em **Gerir**, selecione **Certificados e segredos.**
+1. Under **Manage**, selecione **Certificados & segredos.**
 1. Selecione **Novo segredo do cliente**.
 1. Insira uma descrição para o segredo do cliente na caixa **descrição.** Por exemplo, *clientsecret1*.
 1. Em **Expirações,** selecione uma duração para a qual o segredo é válido e, em seguida, selecione **Adicionar**.

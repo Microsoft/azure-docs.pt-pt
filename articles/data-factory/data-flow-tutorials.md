@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 03/04/2020
-ms.openlocfilehash: bb996b0abc16a3d6171c8f7ab2ac0e64dd0c1075
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.date: 03/24/2020
+ms.openlocfilehash: cc0feff48e7da35535e30c6741994f48750d931a
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096793"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80293508"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Tutoriais de vídeo sobre fluxo de dados de mapeamento
 
@@ -97,7 +97,7 @@ Como as atualizações são constantemente feitas para o produto, algumas funcio
 
 [Linhagem de dados](https://www.youtube.com/watch?v=5KvqYF-y93s)
 
-[Dicas de otimização](https://www.youtube.com/watch?v=a2KtwUJngHo)
+[Sugestões de otimização](https://www.youtube.com/watch?v=a2KtwUJngHo)
 
 [Ficheiros de iterado com parâmetros](http://youtu.be/uEgz0ptYRDM?hd=1)
 
@@ -107,6 +107,8 @@ Como as atualizações são constantemente feitas para o produto, algumas funcio
 
 [Registo e auditoria](https://www.youtube.com/watch?v=UC__LOyuf8M)
 
+[Otimizar dinamicamente o tamanho do cluster de fluxo de dados no tempo de execução](https://www.youtube.com/watch?v=jWSkJdtiJNM)
+
 ## <a name="mapping-data-flow-scenarios"></a>Mapear cenários de fluxo de dados
 
 [Lookups fuzzy](http://youtu.be/7gdwExjHBbw)
@@ -115,7 +117,7 @@ Como as atualizações são constantemente feitas para o produto, algumas funcio
 
 [Padrão de endereços limpos](https://youtu.be/axEYbuU3lmw)
 
-[Desduplicação](https://www.youtube.com/watch?v=OLenvYwg__I)
+[Eliminação de duplicados](https://www.youtube.com/watch?v=OLenvYwg__I)
 
 [Fundir ficheiros](http://youtu.be/WbDTBAyYte8)
 
@@ -129,7 +131,7 @@ Como as atualizações são constantemente feitas para o produto, algumas funcio
 
 [Parametrização](https://www.youtube.com/watch?v=vpuuQcFojt8)
 
-[Contagem de linhas e linhas distintas](https://youtu.be/ryYo8UFUgTI)
+[Linha distinta & linhas conta](https://youtu.be/ryYo8UFUgTI)
 
 [Manipulação de erros de truncação](http://youtu.be/sPpcSiKQz34)
 
@@ -148,3 +150,5 @@ Como as atualizações são constantemente feitas para o produto, algumas funcio
 [Conjuntos de divisão e declaração de caso](https://www.youtube.com/watch?v=DHNH8ZO7YjI)
 
 [Diversão com interpolação de cordas e parâmetros](https://youtu.be/hb3-cn2CMgM)
+
+[Introdução do script de fluxo de dados: cópia, pasta, snippets](https://www.youtube.com/watch?v=3_1I4XdoBKQ)

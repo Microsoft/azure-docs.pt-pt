@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Diretório integração individual (SSO) com a InVision  Microsoft Docs'
+title: 'Tutorial: Azure Ative Diretório integração individual (SSO) com a InVision [ Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o InVision.
 services: active-directory
 documentationCenter: na
@@ -16,10 +16,10 @@ ms.date: 03/09/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 63ec58711c5dd142064e2d5cb29ccaa9eb9c0ed9
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79300656"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-invision"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com a InVision
@@ -50,7 +50,7 @@ Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
 
 Para configurar a integração do InVision em Azure AD, precisa de adicionar o InVision da galeria à sua lista de aplicações saaS geridas.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
 1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
@@ -70,7 +70,7 @@ Para configurar e testar o Azure AD SSO com o InVision, complete os seguintes bl
     * **[Create InVision test user](#create-invision-test-user)** - para ter uma contraparte de B.Simon no InVision que esteja ligada à representação azure AD do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-## <a name="configure-azure-ad-sso"></a>Configure Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
@@ -82,26 +82,26 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
 1. Na secção **Basic SAML Configuration,** caso deseje configurar a aplicação no modo iniciado do **IDP,** introduza os valores para os seguintes campos:
 
-    a. Na caixa de texto **identificador,** digite um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.invisionapp.com`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://<SUBDOMAIN>.invisionapp.com`
 
-    b. Na caixa de texto **URL de resposta,** escreva um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.invisionapp.com//sso/auth`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<SUBDOMAIN>.invisionapp.com//sso/auth`
 
 1. Clique em **Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação no modo iniciado **por SP:**
 
-    Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.invisionapp.com`
+    Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão:`https://<SUBDOMAIN>.invisionapp.com`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação, resposta real e URL de sinalização. Contacte a equipa de suporte do [Cliente InVision](mailto:support@invisionapp.com) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
 1. Na configuração de um único sessão com a página **SAML,** na secção Certificado de **Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
 
-    ![O link de download de certificado](common/certificatebase64.png)
+    ![O link de descarregamento do Certificado](common/certificatebase64.png)
 
 1. Na secção Configurar o **InVision,** copie os URL(s) adequados com base no seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
 Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
 
@@ -109,11 +109,11 @@ Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo **de nome do utilizador,** introduza o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
 Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, concedendo acesso ao InVision.
 
@@ -121,7 +121,7 @@ Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, conceden
 1. Na lista de aplicações, selecione **InVision**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
 
@@ -147,9 +147,9 @@ Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, conceden
 
     ![Configuração invision](./media/invision-tutorial/config4.png)
 
-    a. Alteração **Requer SSO para cada membro do < nome da conta >** para **On**.
+    a. Alteração **Requer SSO para cada membro do < nome de conta >** para **On**.
 
-    b. Na caixa de texto **em nome,** introduza o nome por exemplo como `azureadsso`.
+    b. Na **caixa** de texto em nome, `azureadsso`introduza o nome por exemplo.
 
     c. Introduza o valor url de entrada na caixa de texto **url sign-in.**
 
@@ -187,7 +187,7 @@ Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, conceden
 
 ## <a name="test-sso"></a>Teste SSO
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
 Quando clicar no azulejo InVision no Painel de Acesso, deve ser automaticamente inscrito no InVision para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
@@ -197,7 +197,7 @@ Quando clicar no azulejo InVision no Painel de Acesso, deve ser automaticamente 
 
 - [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [O que é o acesso condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimente inVision com Azure AD](https://aad.portal.azure.com/)
 

@@ -1,19 +1,19 @@
 ---
-title: Script do PowerShell para criar uma conta do Azure cosmos com o firewall de IP
-description: Azure PowerShell exemplo de script – criar uma conta do Azure cosmos com o firewall de IP
+title: PowerShell script para criar uma conta Azure Cosmos DB com IP Firewall
+description: Amostra de script Azure PowerShell - Crie uma conta Azure Cosmos DB com IP Firewall
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 09/20/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 6f018815bb8afd50bd9f21f8c088fd688ace1174
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f01e8e818a1b3cf4f999afa1e0801b2341ede2bf
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445079"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365675"
 ---
-# <a name="create-an-azure-cosmos-account-with-ip-firewall"></a>Criar uma conta do Azure cosmos com o firewall de IP
+# <a name="create-an-azure-cosmos-db-account-with-ip-firewall"></a>Crie uma conta Azure Cosmos DB com IP Firewall
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,7 +22,7 @@ ms.locfileid: "75445079"
 ## <a name="sample-script"></a>Script de exemplo
 
 > [!NOTE]
-> Este exemplo demonstra como usar uma conta de API do SQL (núcleo). Para usar este exemplo para outras APIs, copie as propriedades relacionadas e aplique-as ao script específico da API
+> Esta amostra demonstra a utilização de uma conta API SQL (Core). Para utilizar esta amostra para outras APIs, copie as propriedades relacionadas e aplique ao seu script específico da API
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-firewall-create.ps1 "Create an Azure Cosmos account with IP Firewall")]
 
@@ -40,10 +40,9 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-|**Recursos do Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Criar um recurso. |
-|**Grupos de recursos do Azure**| |
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+|**Azure Cosmos DB**| |
+| [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Cria uma nova Conta Cosmos DB. |
+|**Grupos de Recursos Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use uma máquina virtual Linux e uma aplicação Python para armazenar segredos no Cofre chave Azure  Microsoft Docs
+title: Tutorial - Use uma máquina virtual Linux e uma aplicação Python para armazenar segredos no Cofre chave Azure [ Microsoft Docs
 description: Neste tutorial, aprende-se a configurar uma aplicação Python para ler um segredo do Cofre chave azure.
 services: key-vault
 author: msmbaldwin
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 3c80a206af74eb370470c38a7af9c7f1fe840406
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 59b8abf59212d9cfb0719b6b76e9542249ee4c41
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78198155"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472695"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Tutorial: Use um Linux VM e uma app Python para armazenar segredos no Cofre de Chaves Azure
 
@@ -35,8 +35,8 @@ Antes de ir mais longe, certifique-se de entender os [conceitos básicos sobre o
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Git](https://git-scm.com/downloads).
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+* [Git.](https://git-scm.com/downloads)
+* Uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 * [Versão Azure CLI 2.0.4 ou posterior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ou Azure Cloud Shell.
 
 [!INCLUDE [Azure Cloud Shell](../../includes/cloud-shell-try-it.md)]
@@ -59,11 +59,11 @@ Para iniciar sessão no Azure utilizando o Azure CLI, introduza:
 az login
 ```
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
-Crie um grupo de recursos utilizando o comando `az group create` na localização dos EUA Ocidentais com o seguinte código. Substitua `YourResourceGroupName` por um nome à sua escolha.
+Crie um grupo `az group create` de recursos utilizando o comando na localização dos EUA Ocidentais com o seguinte código. Substitua-o `YourResourceGroupName` por um nome à sua escolha.
 
 ```azurecli-interactive
 # To list locations: az account list-locations --output table
@@ -98,9 +98,9 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 ## <a name="create-a-linux-virtual-machine"></a>Criar uma máquina virtual do Linux
 
-Crie um VM utilizando o comando `az vm create`.
+Crie um VM `az vm create` utilizando o comando.
 
-O seguinte exemplo cria uma VM com o nome **myVM** e adiciona uma conta de utilizador com o nome **azureuser**. O parâmetro `--generate-ssh-keys` gera automaticamente uma chave SSH e coloca-a na localização da chave predefinida **(~/.ssh**). Para criar um conjunto específico de teclas, utilize a opção `--ssh-key-value`.
+O seguinte exemplo cria uma VM com o nome **myVM** e adiciona uma conta de utilizador com o nome **azureuser**. O `--generate-ssh-keys` parâmetro gera automaticamente uma tecla SSH e coloca-a na localização da chave predefinida **(~/.ssh**). Para criar um conjunto específico de `--ssh-key-value` teclas, utilize a opção.
 
 ```azurecli-interactive
 az vm create \
@@ -113,7 +113,7 @@ az vm create \
 
 São necessários alguns minutos para criar a VM e os recursos de suporte. A saída de exemplo que se segue mostra que a criação de VM foi bem sucedida:
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -126,7 +126,7 @@ São necessários alguns minutos para criar a VM e os recursos de suporte. A sa�
 }
 ```
 
-Tome nota da sua própria `publicIpAddress` na saída do seu VM. Usará este endereço para aceder ao VM em etapas posteriores.
+Tome nota própria `publicIpAddress` na saída do seu VM. Usará este endereço para aceder ao VM em etapas posteriores.
 
 ## <a name="assign-an-identity-to-the-vm"></a>Atribuir uma identidade ao VM
 
@@ -138,14 +138,14 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 
 A saída do comando é a seguinte.
 
-```azurecli
+```output
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}
 }
 ```
 
-Tome nota do `systemAssignedIdentity`. Usa-o no próximo passo.
+Tome nota `systemAssignedIdentity`do . Usa-o no próximo passo.
 
 ## <a name="give-the-vm-identity-permission-to-key-vault"></a>Dê a autorização de identidade vM para o Cofre chave
 
@@ -198,7 +198,7 @@ O código anterior executa um processo em duas etapas:
    1. Pega um símbolo do ponto final local da MSI no VM. O ponto final, em seguida, pega um símbolo do Diretório Ativo Azure.
    1. Passa o símbolo para o cofre e pega o teu segredo.
 
-Executar o seguinte comando. Devia ver o valor secreto.
+Execute o seguinte comando. Devia ver o valor secreto.
 
 ```console
 python Sample.py
@@ -208,9 +208,9 @@ Neste tutorial, aprendeu a usar o Azure Key Vault com uma aplicação Python a f
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Elimine o grupo de recursos, a máquina virtual e todos os recursos relacionados quando já não precisar deles. Para isso, selecione o grupo de recursos para o VM e selecione **Eliminar**.
+Elimine o grupo de recursos, a máquina virtual e todos os recursos relacionados quando já não precisar deles. Para tal, selecione o grupo de recursos para a VM e selecione **Eliminar**.
 
-Elimine o cofre da chave utilizando o comando `az keyvault delete`:
+Elimine o cofre `az keyvault delete` da chave utilizando o comando:
 
 ```azurecli-interactive
 az keyvault delete --name

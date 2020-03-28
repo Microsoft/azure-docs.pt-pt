@@ -1,5 +1,5 @@
 ---
-title: Balancear a carga do tráfego para VMs para HA-CLI do Azure-Azure Load Balancer
+title: Tráfego de equilíbrio de carga para VMs para HA - Azure CLI - Equilíbrio de Carga Azure
 description: Este exemplo de script de CLI do Azure mostra como efetuar o balanceamento de carga de tráfego para VMs para elevada disponibilidade
 services: load-balancer
 documentationcenter: load-balancer
@@ -12,10 +12,10 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
 ms.openlocfilehash: c0bfb5705989c99d3626d6e728b764e94f83fffe
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74048918"
 ---
 # <a name="azure-cli-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Exemplo de script de CLI do Azure: balanceamento de carga de tráfego para VMs para elevada disponibilidade

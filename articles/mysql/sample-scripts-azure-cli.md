@@ -1,5 +1,5 @@
 ---
-title: Exemplos de CLI do Azure-banco de dados do Azure para MySQL
+title: Amostras Azure CLI - Base de Dados Azure para MySQL
 description: Este artigo lista os exemplos de código da CLI do Azure disponíveis para interagir com a Base de Dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
@@ -9,10 +9,10 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 12/02/2019
 ms.openlocfilehash: 18c52505ddf82cb29b13a9ee7621db5c3422eab6
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74769766"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mysql"></a>Exemplo da CLI do Azure para a Base de Dados do Azure para MySQL 

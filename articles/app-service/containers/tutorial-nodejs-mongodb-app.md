@@ -5,13 +5,13 @@ ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.custom: seodec18
-ms.openlocfilehash: a68392d003e4e2a81801a903302badd99c1e9e87
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.custom: mvc, cli-validate, seodec18
+ms.openlocfilehash: 940b49d29707a55bc5d63d6f49cdef19ba3f28e5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77523974"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80045719"
 ---
 # <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>Construa uma app Node.js e MongoDB no Azure App Service em Linux
 
@@ -19,7 +19,7 @@ ms.locfileid: "77523974"
 > Este artigo implementa uma aplicação para o Serviço de Aplicações no Linux. Para implementar no Serviço de Aplicações no _Windows,_ consulte [Construir uma aplicação Node.js e MongoDB em Azure](../app-service-web-tutorial-nodejs-mongodb-app.md).
 >
 
-O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este tutorial mostra como criar uma aplicação Node.js, ligá-la localmente a uma base de dados MongoDB, e depois implantá-la para uma base de dados na API da Azure Cosmos DB para MongoDB. Quando terminar, terá uma aplicação MEAN (MongoDB, Express, AngularJS e Node.js) em execução no Serviço de Aplicações no Linux. Para obter simplicidade, a aplicação de exemplo utiliza a [estrutura Web MEAN.js](https://meanjs.org/).
+[O Serviço de Aplicações no Linux](app-service-linux-intro.md) fornece um serviço de hospedagem web altamente escalável e auto-remendado utilizando o sistema operativo Linux. Este tutorial mostra como criar uma aplicação Node.js, ligá-la localmente a uma base de dados MongoDB, e depois implantá-la para uma base de dados na API da Azure Cosmos DB para MongoDB. Quando terminar, terá uma aplicação MEAN (MongoDB, Express, AngularJS e Node.js) em execução no Serviço de Aplicações no Linux. Para obter simplicidade, a aplicação de exemplo utiliza a [estrutura Web MEAN.js](https://meanjs.org/).
 
 ![Aplicação MEAN.js em execução no Serviço de Aplicações do Azure](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -39,9 +39,9 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial:
 
-1. [Instale o Git](https://git-scm.com/)
+1. [Instalar o Git](https://git-scm.com/)
 2. [Instalar o Node.js v6.0 ou posterior e NPM](https://nodejs.org/)
-3. [Instalar o Gulp.js](https://gulpjs.com/) (exigido pelo [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+3. [Instalar Gulp.js](https://gulpjs.com/) (exigido pelo [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
 4. [Instalar e executar a Edição de Comunidade do MongoDB](https://docs.mongodb.com/manual/administration/install-community/)
 
 ## <a name="test-local-mongodb"></a>Testar MongoDB local
@@ -114,15 +114,15 @@ Para parar o Node.js em qualquer altura, prima `Ctrl+C` no terminal.
 
 Neste passo, cria-se uma conta de base de dados utilizando a API do Azure Cosmos DB para o MongoDB. Quando a aplicação for implementada no Azure, utiliza esta base de dados na cloud.
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 [!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)]
 
 ### <a name="create-a-cosmos-db-account"></a>Criar uma conta do Cosmos DB
 
-No Cloud Shell, crie uma conta do Cosmos DB com o comando [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create).
+Na Cloud Shell, crie uma conta [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) Cosmos DB com o comando.
 
-No comando seguinte, substitua um nome único cosmos DB para o *\<cosmosdb-name>* espaço reservado. Este nome é utilizado como parte do ponto final do Cosmos DB, `https://<cosmosdb-name>.documents.azure.com/`, por isso, o nome tem de ser exclusivo em todas as contas Cosmos DB no Azure. O nome só pode conter letras minúsculas, números, o caráter hífen (-) e tem de ter entre três e 50 carateres.
+No comando seguinte, substitua um nome único cosmos DB para o * \<nome cosmosdb>* espaço reservado. Este nome é utilizado como parte do ponto final do Cosmos DB, `https://<cosmosdb-name>.documents.azure.com/`, por isso, o nome tem de ser exclusivo em todas as contas Cosmos DB no Azure. O nome só pode conter letras minúsculas, números, o caráter hífen (-) e tem de ter entre três e 50 carateres.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
@@ -154,7 +154,7 @@ Neste passo, vai ligar a aplicação de exemplo MEAN.js a uma base de dados do C
 
 ### <a name="retrieve-the-database-key"></a>Obter a chave de base de dados
 
-Para ligar à base de dados do Cosmos DB, precisa da chave da base de dados. No Cloud Shell, utilize o comando [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-keys) para obter a chave primária.
+Para ligar à base de dados do Cosmos DB, precisa da chave da base de dados. Na Cloud Shell, [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-keys) use o comando para recuperar a chave principal.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup
@@ -177,9 +177,9 @@ Copie o valor de `primaryMasterKey`. Estas informações são necessárias no pa
 
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Configurar a cadeia de ligação na aplicação Node.js
 
-No seu repositório do MEAN.js local, na pasta _config/env/_ , crie um ficheiro denominado _local-production.js_. O _.gitignore_ está configurado para manter este ficheiro fora do repositório.
+No seu repositório do MEAN.js local, na pasta _config/env/_, crie um ficheiro denominado _local-production.js_. O _.gitignore_ está configurado para manter este ficheiro fora do repositório.
 
-Copie o código seguinte para o mesmo. Certifique-se de substituir as duas *\<nome cosmosdb>* espaços reservados com o nome de base de dados Cosmos DB, e substituir o *\<master-key>* espaço reservado pela chave que copiou no passo anterior.
+Copie o código seguinte para o mesmo. Certifique-se de substituir os dois * \<espaços reservados de>de nome cosmosdb* pelo nome de base de dados Cosmos DB e substituir o * \<porta->principal-chave-mestre-chave* pela chave que copiou no passo anterior.
 
 ```javascript
 module.exports = {
@@ -248,15 +248,15 @@ Neste passo, implementa a sua aplicação Node.js para o Serviço de Aplicaçõe
 
 Por predefinição, o projeto do MEAN.js mantém o _config/env/local-production.js_ fora do repositório do Git. Assim, para a sua aplicação Azure, utiliza as definições de aplicativos para definir a sua cadeia de ligação MongoDB.
 
-Para configurar as definições da aplicação, utilize o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell.
+Para definir as definições da aplicação, utilize o [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando na Cloud Shell.
 
-O exemplo seguinte configura uma definição de aplicação `MONGODB_URI` na sua aplicação Azure. Substitua o *\<nome de aplicação>* *\<cosmosdb-name>* e *\<principal-master-key>* espaços reservados.
+O exemplo seguinte `MONGODB_URI` configura uma definição de aplicação na sua aplicação Azure. Substitua o * \<nome da aplicação>*, * \<nome cosmosdb>, *e * \<os espaços reservados>principal-chave-mestre.*
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb-name>:<primary-master-key>@<cosmosdb-name>.documents.azure.com:10250/mean?ssl=true"
 ```
 
-No código Node.js, [você acede a esta configuração de aplicação](configure-language-nodejs.md#access-environment-variables) com `process.env.MONGODB_URI`, assim como você teria acesso a qualquer variável ambiental.
+No código Node.js, [você acede a esta configuração de aplicações](configure-language-nodejs.md#access-environment-variables) com `process.env.MONGODB_URI`, assim como você teria acesso a qualquer variável ambiental.
 
 No seu repositório do MEAN.js local, abra _config/env/production.js_ (não _config/env/local-production.js_), que tem uma configuração específica de ambiente de produção. A aplicação do MEAN.js predefinida já está configurada para utilizar a variável de ambiente `MONGODB_URI` que criou.
 
@@ -381,7 +381,7 @@ Exatamente acima da etiqueta de fecho `</a>`, adicione a seguinte linha para apr
 
 Abra _módulos/artigos/cliente/vistas/administrador/list-articles.client.view.html_.
 
-No interior do elemento `<div class="list-group">` e imediatamente acima da etiqueta de fecho `</a>`, adicione a seguinte linha para apresentar `comment` juntamente com o resto dos dados do artigo:
+No interior do elemento `comment` e imediatamente acima da etiqueta de fecho `<div class="list-group">`, adicione a seguinte linha para apresentar `</a>` juntamente com o resto dos dados do artigo:
 
 ```HTML
 <p class="list-group-item-text" data-ng-bind="article.comment"></p>
@@ -419,7 +419,7 @@ NODE_ENV=production node server.js
 
 Navegue para `http://localhost:8443` num browser e certifique-se de que tem sessão iniciada.
 
-Selecione **Administrador > Gerir Artigos** e adicione um artigo ao selecionar o botão **+** .
+Selecione **Administrador > Gerir Artigos** e adicione um artigo ao selecionar o botão **+**.
 
 Pode ver a nova caixa de texto `Comment` agora.
 
@@ -436,13 +436,13 @@ git commit -am "added article comment"
 git push azure master
 ```
 
-Assim que o `git push` estiver completo, navegue para a sua aplicação Azure e experimente a nova funcionalidade.
+Uma `git push` vez que esteja completo, navegue para a sua aplicação Azure e experimente a nova funcionalidade.
 
 ![Alterações ao modelo e à base de dados publicadas no Azure](media/tutorial-nodejs-mongodb-app/added-comment-field-published.png)
 
 Se tiver adicionado quaisquer artigos anteriormente, ainda pode vê-los. Os dados existentes no Cosmos DB não se perdem. Além disso, atualiza o esquema de dados e mantém os dados existentes intactos.
 
-## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico
+## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico em fluxo
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 

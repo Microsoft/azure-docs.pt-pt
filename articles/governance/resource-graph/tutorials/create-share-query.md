@@ -1,40 +1,40 @@
 ---
-title: 'Tutorial: gerenciar consultas no portal do Azure'
-description: Neste tutorial, você cria uma consulta de grafo de recursos e compartilha a nova consulta com outras pessoas na portal do Azure.
+title: 'Tutorial: Gerir consultas no portal Azure'
+description: Neste tutorial, você cria uma Consulta de Gráfico de Recursos e partilha a nova consulta com outros no portal Azure.
 ms.date: 11/21/2019
 ms.topic: tutorial
 ms.openlocfilehash: 00cb3f95112804c81beb6bce6fc35891e6197e60
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74303953"
 ---
-# <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutorial: criar e compartilhar uma consulta do grafo de recursos do Azure no portal do Azure
+# <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutorial: Crie e partilhe uma consulta de gráfico de recursos azure no portal Azure
 
-O Gerenciador de gráficos de recursos do Azure permite salvar suas consultas de grafo de recursos diretamente no portal do Azure. Há dois tipos de consultas: _privado_ e _compartilhado_. Uma consulta privada é salva em suas configurações de portal do Azure. Enquanto uma consulta compartilhada é um recurso do Resource Manager que pode ser gerenciado com controles de acesso baseado em função (RBAC) e protegido com bloqueios de recursos. Os dois tipos de consultas são criptografados em repouso.
+O Azure Resource Graph Explorer permite-lhe guardar as suas consultas de Gráfico de Recursos diretamente no portal Azure. Existem dois tipos de consultas: _Privada_ e _Partilhada._ Uma consulta privada é guardada nas definições do portal Azure. Enquanto uma consulta partilhada é um recurso do Gestor de Recursos que pode ser gerido com controlos de acesso baseados em funções (RBAC) e protegido com fechaduras de recursos. Ambos os tipos de consultas são encriptados em repouso.
 
-Ao salvar consultas no portal do Azure, você economiza o tempo que, de outra forma, você pode gastar procurando suas consultas favoritas ou comumente usadas. Ao compartilhar consultas, você ajuda sua equipe a perceber as metas de consistência e eficiência por meio de repetição.
+Ao guardar consultas no portal Azure, economiza o tempo que de outra forma poderia passar à procura das suas consultas favoritas ou comumente usadas. Quando partilhas consultas, ajudas a tua equipa a concretizar objetivos de consistência e eficiência através da repetição.
 
-Neste tutorial, você concluirá as seguintes tarefas:
+Neste tutorial, completará as seguintes tarefas:
 
 > [!div class="checklist"]
-> - Criar e excluir uma consulta privada
-> - Criar uma consulta compartilhada
-> - Descobrir consultas compartilhadas
-> - Excluir uma consulta compartilhada
+> - Criar e eliminar uma consulta privada
+> - Criar uma consulta partilhada
+> - Descubra consultas partilhadas
+> - Eliminar uma consulta partilhada
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, precisa de uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="create-and-delete-a-private-query"></a>Criar e excluir uma consulta privada
+## <a name="create-and-delete-a-private-query"></a>Criar e eliminar uma consulta privada
 
-As consultas particulares são acessíveis e visíveis somente para a conta que as cria. À medida que são salvas nas configurações de portal do Azure de uma conta, elas podem ser criadas, usadas e excluídas somente de dentro do portal do Azure. Uma consulta privada não é um recurso do Resource Manager. Para criar uma nova consulta privada, siga estas etapas:
+As consultas privadas são acessíveis e visíveis apenas para a conta que as cria. Como são guardados nas definições do portal Azure de uma conta, podem ser criados, utilizados e apagados apenas a partir do interior do portal Azure. Uma consulta privada não é um recurso do Gestor de Recursos. Para criar uma nova consulta privada, siga estes passos:
 
-1. No menu do portal, selecione **todos os serviços** ou use a caixa Azure Search na parte superior de todas as páginas. Pesquise e selecione explorador de **grafo de recursos**.
+1. No menu do portal, selecione **Todos os serviços** ou utilize a caixa de pesquisa Azure no topo de todas as páginas. Procure e, em seguida, selecione **Resource Graph Explorer**.
 
-1. Na guia **consulta 1** da página do Gerenciador de gráficos de recursos do Azure, insira a seguinte consulta:
+1. No **separador Consulta 1** na página do Explorador de Gráficos de Recursos Azure, introduza a seguinte consulta:
 
    ```kusto
    Resources
@@ -42,31 +42,31 @@ As consultas particulares são acessíveis e visíveis somente para a conta que 
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
 
-   Selecione **Executar consulta** para ver os resultados da consulta no painel inferior.
+   Selecione **A consulta** de executar para ver os resultados da consulta no painel inferior.
 
-   Para obter mais informações sobre essa consulta, consulte [amostras – contagem de máquinas virtuais por tipo de so](../samples/starter.md#count-virtual-machines-by-os-type).
+   Para obter mais informações sobre esta consulta, consulte [Amostras – Conte máquinas virtuais por tipo OS](../samples/starter.md#count-virtual-machines-by-os-type).
 
 
-1. Selecione **salvar** ou **salvar como**, digite **contar VMs por sistema operacional** como o nome, deixe o tipo como **consulta privada**e, em seguida, selecione **salvar** na parte inferior do painel **Salvar consulta** . O título da guia muda de **consulta 1** para **contar VMs por sistema operacional**.
+1. Selecione **Guardar** ou **Guardar as ,** introduza os **VMs de Contagem por OS** como nome, deixe o tipo de consulta **privada**e, em seguida, selecione **Guardar** na parte inferior da placa de **consulta Save.** O título do separador muda de **Consulta 1** para **Contagem VMs por OS**.
 
-1. Afaste-se do Gerenciador de gráficos de recursos do Azure no portal do Azure e, em seguida, retorne a ele. Observe que a consulta salva não é mais exibida e a guia **consulta 1** foi retornada.
+1. Afaste-se do Azure Resource Graph Explorer no portal Azure e, em seguida, volte ao mesmo. Note que a consulta guardada já não está exposta e o **separador Consulta 1** voltou.
 
-1. Selecione **abrir uma consulta**. Verifique se o tipo é **consulta privada**. O nome salvo **VMs de contagem por so** agora aparece na lista **nome da consulta** . Quando você seleciona o link de título da consulta salva, ele é carregado em uma nova guia com o nome da consulta.
+1. **Selecione Abrir uma consulta**. Certifique-se de que o tipo é **consulta privada.** O nome guardado **Count VMs by OS** aparece agora na lista de **Nomes de Consulta.** Quando seleciona o link de título da consulta guardada, é carregado num novo separador com o nome dessa consulta.
 
    > [!NOTE] 
-   > Quando uma consulta salva é aberta e a guia mostra seu nome, selecionar o botão **salvar** atualiza-o com as alterações que foram feitas. Para criar uma nova consulta salva com base nessa consulta aberta, selecione **salvar como** e continue como se você estivesse salvando uma consulta totalmente nova.
+   > Quando uma consulta guardada está aberta e o separador mostra o seu nome, selecionando o botão **Guardar** atualiza-o com quaisquer alterações que tenham sido feitas. Para criar uma nova consulta guardada a partir desta consulta aberta, selecione **Save as** e proceda como se estivesse a guardar uma nova consulta.
 
-1. Para excluir a consulta salva, selecione **abrir uma consulta** novamente e verifique se o campo **tipo** está definido como **consulta privada**. Na linha da consulta de `Count VMs by OS` salva, selecione **excluir** (ícone de lixeira). Na caixa de diálogo de confirmação, selecione **Sim** para concluir a exclusão da consulta.
-   Em seguida, feche o painel **abrir uma consulta** .
+1. Para eliminar a consulta guardada, **selecione abrir novamente uma consulta** e verificar se o campo **Tipo** está definido para **consulta privada**. Na linha da `Count VMs by OS` consulta guardada, selecione **Eliminar** (ícone do recipiente de reciclagem). Na caixa de diálogo de confirmação, selecione **Sim** para terminar de apagar a consulta.
+   Em seguida, feche o **painel de consulta aberto.**
 
-## <a name="create-a-shared-query"></a>Criar uma consulta compartilhada
+## <a name="create-a-shared-query"></a>Criar uma consulta partilhada
 
-Ao contrário de uma consulta privada, uma consulta compartilhada é um recurso do Resource Manager. Esse fato significa que a consulta é salva em um grupo de recursos, pode ser gerenciada e controlada com o RBAC e pode até mesmo ser protegida com bloqueios de recursos. Como um recurso, qualquer pessoa que tenha as permissões apropriadas pode vê-lo e usá-lo.
-Para criar uma nova consulta compartilhada, siga estas etapas:
+Ao contrário de uma consulta privada, uma consulta partilhada é um recurso do Gestor de Recursos. Este facto significa que a consulta é guardada a um grupo de recursos, pode ser gerida e controlada com RBAC, e pode até ser protegida com fechaduras de recursos. Como recurso, qualquer pessoa que tenha as permissões apropriadas pode vê-lo e usá-lo.
+Para criar uma nova consulta partilhada, siga estes passos:
 
-1. No menu do portal, selecione **todos os serviços**ou use a caixa Azure Search na parte superior de todas as páginas para procurar e selecionar **Gerenciador de grafo de recursos**.
+1. No menu do portal, selecione **Todos os serviços,** ou utilize a caixa de pesquisa Azure no topo de todas as páginas para procurar e selecionar o **Resource Graph Explorer**.
 
-1. Na guia **consulta 1** da página do Gerenciador de gráficos de recursos do Azure, insira a seguinte consulta:
+1. No **separador Consulta 1** na página do Explorador de Gráficos de Recursos Azure, introduza a seguinte consulta:
 
    ```kusto
    Resources
@@ -74,62 +74,62 @@ Para criar uma nova consulta compartilhada, siga estas etapas:
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
     
-   Selecione **Executar consulta** para ver os resultados da consulta no painel inferior.
+   Selecione **A consulta** de executar para ver os resultados da consulta no painel inferior.
 
-   Para obter mais informações sobre essa consulta, consulte [amostras – contagem de máquinas virtuais por tipo de so](../samples/starter.md#count-virtual-machines-by-os-type).
+   Para obter mais informações sobre esta consulta, consulte [Amostras – Conte máquinas virtuais por tipo OS](../samples/starter.md#count-virtual-machines-by-os-type).
 
-1. Selecione **salvar** ou **salvar como**.
+1. Selecione **Guardar** ou **Guardar como**.
 
    
-   ![Salvar a nova consulta usando o botão salvar](../media/create-share-query/save-shared-query-buttons.png)
+   ![Guarde a nova consulta utilizando o botão de salvamento](../media/create-share-query/save-shared-query-buttons.png)
 
-1. No painel **Salvar consulta** , insira **contar VMs por sistema operacional** para o nome.
+1. Na placa de **consulta Save,** introduza **VMs de Conde por OS** para o nome.
 
-1. Altere o tipo para **consulta compartilhada**, defina a descrição como **contagem de máquinas virtuais por tipo de sistema operacional**e defina **assinatura** para especificar onde o recurso de consulta será criado.
+1. Altere o tipo para **consulta partilhada,** detete a descrição para **Contar de máquinas virtuais pelo tipo OS**e desloque a **Subscrição** para especificar onde o recurso de consulta é criado.
 
-1. Deixe a caixa de seleção **publicar no recurso-grafo-consultas** selecionada e o **local do grupo de recursos** definido como **(US) Oeste EUA Central**.
+1. Deixe a **Publicação para** a caixa de verificação de recursos do grupo de recursos de recursos de recursos de recursos selecionado e a localização do Grupo de **Recursos** definida para **(EUA) West Central US**.
 
-1. Selecione **salvar** na parte inferior do painel **Salvar consulta** . O título da guia muda de **consulta 1** para **contar VMs por sistema operacional**. Na primeira vez que o grupo de recursos **Resource-Graph-queries** é usado, o salvamento demora mais do que o esperado à medida que o grupo de recursos é criado.
+1. Selecione **Guardar** na parte inferior do painel de **consulta Save.** O título do separador muda de **Consulta 1** para **Contagem VMs por OS**. A primeira vez que o grupo de recursos de **consultas de gráfico** de recursos é usado, a poupança demora mais tempo do que o esperado à medida que o grupo de recursos é criado.
    
-   ![Salvar a nova consulta como uma consulta compartilhada](../media/create-share-query/save-shared-query-window.png)
+   ![Guarde a nova consulta como uma consulta partilhada](../media/create-share-query/save-shared-query-window.png)
 
    > [!NOTE] 
-   > Você pode desmarcar a caixa de seleção **publicar no recurso-grafo-consultas** se desejar fornecer o nome de um grupo de recursos existente para salvar a consulta compartilhada. Usar o grupo de recursos nomeado padrão para consultas torna as consultas compartilhadas mais fáceis de descobrir. Ele também torna a finalidade desse grupo de recursos mais aparente. No entanto, você pode optar por selecionar um grupo de recursos existente por motivos de segurança com base em permissões existentes.
+   > Pode limpar a Caixa de Verificação de Recursos do Grupo de Recursos do **Grupo de** Recursos de Recursos de Recursos de Recursos para obter um recurso de recursos se pretender fornecer o nome de um grupo de recursos existente para guardar a consulta partilhada. A utilização do grupo de recursos nomeado por padrão para consultas torna as consultas partilhadas mais fáceis de descobrir. Também torna o objetivo desse grupo de recursos mais evidente. No entanto, pode optar por selecionar um grupo de recursos existente por razões de segurança baseadas em permissões existentes.
 
-1. Afaste-se do Gerenciador de gráficos de recursos do Azure no portal do Azure e, em seguida, retorne a ele. Observe que a consulta salva não é mais exibida e a guia **consulta 1** foi retornada.
+1. Afaste-se do Azure Resource Graph Explorer no portal Azure e, em seguida, volte ao mesmo. Note que a consulta guardada já não está exposta e o **separador Consulta 1** voltou.
 
-1. Selecione **abrir uma consulta**. Verifique se o tipo está definido como **consulta compartilhada** e se a combinação de **assinatura** e **grupo de recursos** corresponde ao local em que você salvou a consulta. As VMs de contagem salvas por item do **sistema operacional** agora aparecem na lista **nome da consulta** . Selecione o link título da consulta salva para carregá-la em uma nova guia com o nome dessa consulta. Como uma consulta compartilhada, ela exibe um ícone na guia ao lado do título, denotando-o como compartilhado.
+1. **Selecione Abrir uma consulta**. Verifique se o tipo está definido para **consulta partilhada** e a combinação de partida de grupo **de Subscrição** e **Recurso** onde guardou a consulta. Os **VMs de Conde guardados por produto OS** aparecem agora na lista de **Nomes de Consulta.** Selecione o link de título da consulta guardada para carregá-lo num novo separador com o nome dessa consulta. Como uma consulta partilhada, exibe um ícone no separador ao lado do título, denotando-o como partilhado.
 
-   ![Mostrar a consulta compartilhada com o ícone](../media/create-share-query/show-saved-shared-query.png)
+   ![Mostre a Consulta Partilhada com ícone](../media/create-share-query/show-saved-shared-query.png)
 
    > [!NOTE] 
-   > Quando uma consulta salva é aberta e a guia mostra seu nome, o botão **salvar** o atualiza com as alterações feitas. Para criar uma nova consulta salva, selecione **salvar como** e continue como se você estivesse salvando uma consulta totalmente nova.
+   > Quando uma consulta guardada está aberta e o separador mostra o seu nome, o botão **Guardar** atualiza-o com quaisquer alterações que tenham sido feitas. Para criar uma nova consulta guardada, selecione **Save as** e proceda como se estivesse a guardar uma nova consulta.
 
-## <a name="discover-shared-queries"></a>Descobrir consultas compartilhadas
+## <a name="discover-shared-queries"></a>Descubra consultas partilhadas
 
-Como uma consulta compartilhada é um recurso do Resource Manager, há várias maneiras de encontrar uma:
+Como uma consulta partilhada é um recurso do Gestor de Recursos, existem várias maneiras de encontrar uma:
 
-- No Gerenciador de gráficos de recursos, selecione **abrir uma consulta** e defina o tipo como **consulta compartilhada**.
-- Na página do portal de consultas do grafo de recursos.
-- No grupo de recursos em que a consulta compartilhada foi salva.
-- Por meio de uma consulta ao grafo de recursos.
+- Do Resource Graph Explorer, **selecione Abra uma consulta** e desembare o tipo para consulta **partilhada**.
+- A partir da página do portal de consultas do Gráfico de Recursos.
+- Do grupo de recursos em que a consulta partilhada foi guardada.
+- Através de uma consulta ao Resource Graph.
 
-### <a name="view-resource-graph-queries"></a>Exibir consultas de grafo de recursos
+### <a name="view-resource-graph-queries"></a>Ver consultas de gráfico de recursos
 
-No portal do Azure, a página consultas do grafo de recursos exibe consultas compartilhadas às quais a conta conectada tem acesso. Esta página habilita a filtragem por nome, assinatura, grupo de recursos e outras propriedades da consulta do grafo de recursos. Você também pode marcar, exportar e excluir consultas de grafo de recursos usando essa interface.
+No portal Azure, a página de consultas do Graph de Recursos exibe consultas partilhadas a que a conta de login tem acesso. Esta página permite filtrar pelo nome, subscrição, grupo de recursos e outras propriedades da consulta do Graph de Recursos. Também pode marcar, exportar e eliminar consultas de Gráfico de Recursos utilizando esta interface.
 
-A seleção de uma das consultas abre a página de consulta do gráfico de recursos. Assim como outros recursos do Resource Manager, esta página oferece uma visão geral interativa juntamente com o log de atividades, o controle de acesso e as marcas. Você também pode aplicar um bloqueio de recurso diretamente desta página.
+Selecionando uma das consultas abre a página de consulta do Graph de Recursos. Tal como outros recursos do Gestor de Recursos, esta página oferece uma visão geral interativa juntamente com o registo de Atividades, controlo de acesso e tags. Também pode aplicar um bloqueio de recursos diretamente a partir desta página.
 
-Acesse a página consultas de grafo de recursos no menu do portal selecionando **todos os serviços** ou usando a caixa Azure Search na parte superior de todas as páginas. Pesquise e selecione **Explorador de grafo de recursos**.
+Chegar à página de consultas do Graph de Recursos a partir do menu do portal selecionando **Todos os serviços** ou utilizando a caixa de pesquisa Azure no topo de todas as páginas. Procure e selecione **Resource Graph Explorer**.
 
-### <a name="list-resource-groups-resources"></a>Listar recursos de grupos de recursos
+### <a name="list-resource-groups-resources"></a>Lista de recursos de grupos
 
-A consulta do grafo de recursos é listada junto com outros recursos que fazem parte de um grupo de recursos.
-Selecionar a consulta de grafo de recursos abre a página para essa consulta. As opções de menu de atalho e reticências (disparadas clicando com o botão direito do mouse) funcionam da mesma forma que na página consulta de grafo de recursos.
+A consulta do Graph de Recursos está listada ao lado de outros recursos que fazem parte de um grupo de recursos.
+A seleção da consulta do Graph de Recursos abre a página para essa consulta. As opções de elipse e menu de atalho (desencadeadas por cliques à direita) funcionam da mesma forma que na página de consulta do Graph de Recursos.
 
-### <a name="query-resource-graph"></a>Grafo de recursos de consulta
+### <a name="query-resource-graph"></a>Gráfico de recursos de consulta
 
-Você pode encontrar consultas de grafo de recursos por meio de uma consulta ao grafo de recursos. Os seguintes limites de consulta do grafo de recursos por tipo `Microsoft.ResourceGraph/queries`e, em seguida, usa `project` para listar apenas o nome, o tempo modificado e a própria consulta:
+Você pode encontrar consultas de Gráfico de Recursos através de uma consulta ao Graph de Recursos. Os seguintes limites de `Microsoft.ResourceGraph/queries`consulta do `project` Gráfico de Recursos por tipo, e depois usam para listar apenas o nome, o tempo modificado e a própria consulta:
 
 ```kusto
 Resources
@@ -137,23 +137,23 @@ Resources
 | project name, properties.timeModified, properties.query
 ```
 
-## <a name="delete-a-shared-query"></a>Excluir uma consulta compartilhada
+## <a name="delete-a-shared-query"></a>Eliminar uma consulta partilhada
 
-Se uma consulta compartilhada não for mais necessária, exclua-a. Ao excluir uma consulta compartilhada, você remove o recurso do Resource Manager correspondente. Todos os dashboards aos quais o gráfico de resultados foi fixado agora exibem uma mensagem de erro. Quando essa mensagem de erro for exibida, use o botão **remover do painel** para limpar seu painel.
+Se uma consulta partilhada já não for necessária, apague-a. Ao eliminar uma consulta partilhada, remove o recurso correspondente do Gestor de Recursos. Quaisquer painéis que o gráfico de resultados foi fixado para agora exibir uma mensagem de erro. Quando essa mensagem de erro for visualizada, utilize o **Botão Remover do painel de instrumentos** para limpar o painel de instrumentos.
 
-Você pode excluir uma consulta compartilhada por meio das seguintes interfaces:
-- Página consultas do grafo de recursos
-- Página de consulta do grafo de recursos
-- A página **abrir uma consulta** no Gerenciador de grafo de recursos
-- Página grupos de recursos
+Pode eliminar uma consulta partilhada através das seguintes interfaces:
+- Página de consultas de gráfico de recursos
+- Página de consulta de gráfico de recursos
+- A **página de abrir uma consulta** no Explorador de Gráficos de Recursos
+- Página de grupos de recursos
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando terminar este tutorial, exclua as consultas particulares e compartilhadas que você criou se não quiser mais.
+Quando terminar este tutorial, elimine as consultas privadas e partilhadas que criou se já não as quiser.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você criou consultas particulares e compartilhadas. Para saber mais sobre a linguagem de gráfico de recursos, continue na página de detalhes da linguagem de consulta.
+Neste tutorial, criou consultas privadas e partilhadas. Para saber mais sobre a linguagem do gráfico de recursos, continue na página de detalhes da linguagem da consulta.
 
 > [!div class="nextstepaction"]
-> [Obter mais informações sobre a linguagem de consulta](../concepts/query-language.md)
+> [Obtenha mais informações sobre a linguagem de consulta](../concepts/query-language.md)

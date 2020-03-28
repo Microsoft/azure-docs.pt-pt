@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: apimpm
 ms.openlocfilehash: 57803ec9889cb6a19dae6d6d1070d8381577aff0
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77468393"
 ---
 # <a name="import-an-openapi-specification"></a>Importar uma especificação de OpenAPI
@@ -30,16 +30,16 @@ Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Importar uma API de back-end de “especificação de OpenAPI”
-> * Testar a API no Portal do Azure
+> * Testar a API no portal do Azure
 > * Testar a API no portal do Programador
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Concluir o início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md)
+Complete o seguinte quickstart: Criar uma instância de [Gestão API Azure](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"> </a>Importar e publicar uma API de back-end
+## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importar e publicar uma API de back-end
 
 1. Selecione **APIs** em **GESTÃO DE API**.
 2. Selecione **Especificação de OpenAPI** na lista **Adicionar uma API nova**.

@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 01/09/2018
 ms.custom: mvc
 ms.openlocfilehash: 365275d291244d3c08f856d2d919c7ee7d79161a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239645"
 ---
 # <a name="azure-cli-samples"></a>Exemplos da CLI do Azure
@@ -19,7 +19,7 @@ A tabela seguinte inclui ligações para scripts bash de Funções do Azure que 
 
 <a id="create"></a>
 
-| Criar app | Descrição |
+| Criar aplicação | Descrição |
 |---|---|
 | [Criar uma aplicação de funções para execução sem servidor](scripts/functions-cli-create-serverless.md) | Cria uma aplicação de funções num plano de Consumo.  |
 | [Criar uma aplicação de função Python sem servidor](scripts/functions-cli-create-serverless-python.md) | Crie uma aplicação de funções num plano do Serviço de Aplicações dedicado. |

@@ -1,5 +1,5 @@
 ---
-title: Tutorial – implantar um aplicativo de malha Service Fabric
+title: Tutorial- Implementar uma aplicação de malha de tecido de serviço
 description: Saiba como utilizar o Visual Studio para publicar uma aplicação do Azure Service Fabric Mesh constituída por um site ASP.NET Core que comunica com um serviço Web de back-end.
 author: dkkapur
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: d2bb37252bc93c982dbc090a0c3f20aef842325f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75351853"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Tutorial: Implementar uma aplicação do Service Fabric Mesh
@@ -26,7 +26,7 @@ Neste tutorial, ficará a saber como:
 Nesta série de tutoriais, ficará a saber como:
 > [!div class="checklist"]
 > * [Criar uma aplicação do Service Fabric Mesh no Visual Studio](service-fabric-mesh-tutorial-create-dotnetcore.md)
-> * [Depurar uma aplicação do Azure Service Fabric Mesh em execução no cluster de desenvolvimento local](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [Depurar uma aplicação do Service Fabric Mesh em execução no seu cluster de desenvolvimento local](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
 > * Implementar uma aplicação do Service Fabric Mesh
 > * [Atualizar uma aplicação do Service Fabric Mesh](service-fabric-mesh-tutorial-upgrade.md)
 > * [Limpar os recursos do Service Fabric Mesh](service-fabric-mesh-tutorial-cleanup-resources.md)
@@ -111,9 +111,9 @@ O nome da aplicação do tutorial é `todolistapp`. Reúna os detalhes sobre a a
 az mesh app show --resource-group $rg --name todolistapp
 ```
 
-## <a name="get-the-ip-address-of-your-deployment"></a>Obter o endereço IP de sua implantação
+## <a name="get-the-ip-address-of-your-deployment"></a>Obtenha o endereço IP da sua implementação
 
-Se você quiser obter o endereço IP para seu aplicativo, use o seguinte comando:
+Se pretender obter o endereço IP para a sua aplicação, utilize o seguinte comando:
   
 ```azurecli-interactive
 az mesh gateway show --resource-group myResourceGroup --name todolistappGateway

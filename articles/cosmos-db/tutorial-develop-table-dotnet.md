@@ -9,13 +9,13 @@ ms.devlang: dotnet
 ms.topic: sample
 ms.date: 12/03/2019
 ms.openlocfilehash: f4d6e1bb0d5db0dbfc30e14abc58321bce8d0baf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79238455"
 ---
-# <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Inicie com o armazenamento da Mesa API e da Mesa Azure Azure azure azure com o .NET SDK
+# <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introdução ao armazenamento de API de Tabela do Azure Cosmos DB e Tabelas do Azure com o SDK .NET
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
@@ -23,7 +23,7 @@ ms.locfileid: "79238455"
 
 Pode utilizar o armazenamento de Mesa API ou Mesa Azure Azure Azure para armazenar dados estruturados no NoSQL na nuvem, fornecendo uma loja chave/atributo com um design sem esquemas. Como o Azure Cosmos DB Table API e o armazenamento de mesa são menos esquemas, é fácil adaptar os seus dados à medida que as necessidades da sua aplicação evoluem. Pode utilizar a API de Mesa DD Do Azure Cosmos ou o armazenamento da tabela para armazenar conjuntos de dados flexíveis, tais como dados de utilizadores para aplicações web, livros de endereços, informações do dispositivo ou outros tipos de metadados que o seu serviço necessita. 
 
-Este tutorial descreve uma amostra que mostra como usar a Biblioteca de [Mesa DB Microsoft Azure Cosmos para .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) com cenários de armazenamento de API e Mesa Azure Cosmos. Deve utilizar a ligação específica ao serviço Azure. Estes cenários são C# explorados utilizando exemplos que ilustram como criar tabelas, inserir/atualizar dados, consultar dados e apagar as tabelas.
+Este tutorial descreve uma amostra que mostra como usar a Biblioteca de [Mesa DB Microsoft Azure Cosmos para .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) com cenários de armazenamento de API e Mesa Azure Cosmos. Deve utilizar a ligação específica ao serviço Azure. Estes cenários são explorados utilizando exemplos de C# que ilustram como criar tabelas, inserir/atualizar dados, consultar dados e apagar as tabelas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,7 +43,7 @@ Para concluir este exemplo com êxito, precisa do seguinte:
 
 No Visual Studio, crie uma nova aplicação de consola .NET. Os seguintes passos mostram-lhe como criar uma aplicação de consola no Visual Studio 2019. Pode utilizar a Biblioteca de Mesa SB Do Azure Cosmos em qualquer tipo de aplicação .NET, incluindo um serviço de nuvem Azure ou aplicação web, e aplicações de desktop e mobile. Neste guia, utilizamos uma aplicação de consola pela simplicidade.
 
-1. Selecione **Ficheiro** > **Novo** > **Projeto**.
+1. Selecione **File** > **New** > **Project**.
 
 1. Escolha **a App consola (.NET Core)** e, em seguida, selecione **Next**.
 
@@ -59,7 +59,7 @@ Para obter o pacote NuGet, siga estes passos:
 
 1. Clique com o botão direito do rato no projeto no **Explorador de Soluções** e escolha **Gerir Pacotes NuGet**.
 
-1. Procure online por [`Microsoft.Azure.Cosmos.Table`](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), [`Microsoft.Extensions.Configuration`, ](https://www.nuget.org/packages/Microsoft.Extensions.Configuration) [`Microsoft.Extensions.Configuration.Json`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json), [`Microsoft.Extensions.Configuration.Binder`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder) e selecione **Instalar** para instalar a Microsoft Azure Cosmos DB Table Library.
+1. Procure online [`Microsoft.Azure.Cosmos.Table`](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) [`Microsoft.Extensions.Configuration`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration)por [`Microsoft.Extensions.Configuration.Json`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json) [`Microsoft.Extensions.Configuration.Binder`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder) , e selecione **Instalar** para instalar a Microsoft Azure Cosmos DB Table Library.
 
 ## <a name="configure-your-storage-connection-string"></a>Configurar a cadeia de ligação de armazenamento
 
@@ -108,7 +108,7 @@ Para obter o pacote NuGet, siga estes passos:
 
 1. Clique no seu projeto **CosmosTableSamples**. Selecione **Adicionar,** **Novo Item** e adicione uma classe chamada **Common.cs**. Escreverá código para validar os detalhes da ligação e criar uma tabela dentro desta classe.
 
-1. Defina um método `CreateStorageAccountFromConnectionString` como mostrado abaixo. Este método analisará os detalhes das cordas de ligação e validará que os dados do nome da conta e da chave da conta fornecidos no ficheiro "Definições.json" são válidos. 
+1. Defina `CreateStorageAccountFromConnectionString` um método como mostrado abaixo. Este método analisará os detalhes das cordas de ligação e validará que os dados do nome da conta e da chave da conta fornecidos no ficheiro "Definições.json" são válidos. 
 
  ```csharp
 using System;
@@ -149,7 +149,7 @@ namespace CosmosTableSamples
 
 ## <a name="create-a-table"></a>Criar uma Tabela 
 
-A classe [CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtableclient) permite-lhe obter tabelas e entidades armazenadas no Table Storage. Como não temos tabelas na conta Cosmos DB Table API, vamos adicionar o método `CreateTableAsync` à classe **Common.cs** para criar uma tabela:
+A classe [CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtableclient) permite-lhe obter tabelas e entidades armazenadas no Table Storage. Como não temos mesas na conta Cosmos DB Table API, `CreateTableAsync` vamos adicionar o método à **classe Common.cs** para criar uma tabela:
 
 ```csharp
 public static async Task<CloudTable> CreateTableAsync(string tableName)
@@ -214,7 +214,7 @@ namespace CosmosTableSamples.Model
 }
 ```
 
-Este código define uma classe de entidade que usa o primeiro nome do cliente como chave de linha e apelido como chave de partição. Em conjunto, a chave da fila e a partição da entidade identificam-na de forma exclusiva na tabela. As entidades com a mesma chave de partição podem ser consultadas mais rapidamente do que entidades com chaves de partição diferentes, mas a utilização de chaves de partição diversificadas permite uma maior escalabilidade de operações paralelas. As entidades a serem armazenadas em mesas devem ser de tipo suportado, por exemplo, derivados da classe [TableEntity.](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity) As propriedades de entidade que pretende armazenar numa tabela têm de ser propriedades públicas do tipo e suportar a introdução e a definição de valores. Além disso, o tipo de entidade deve expor um construtor sem parâmetros.
+Este código define uma classe de entidade que usa o primeiro nome do cliente como chave de linha e apelido como chave de partição. Em conjunto, a chave da fila e a partição da entidade identificam-na de forma exclusiva na tabela. As entidades com a mesma chave de partição podem ser consultadas mais rapidamente do que entidades com chaves de partição diferentes, mas a utilização de chaves de partição diversificadas permite uma maior escalabilidade de operações paralelas. As entidades a serem armazenadas em tabelas têm de ter um tipo suportado, por exemplo derivadas da classe [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity). As propriedades de entidade que pretende armazenar numa tabela têm de ser propriedades públicas do tipo e suportar a introdução e a definição de valores. Além disso, o tipo de entidade tem de expor um construtor sem parâmetros.
 
 ## <a name="insert-or-merge-an-entity"></a>Inserir ou fundir uma entidade
 
@@ -324,7 +324,7 @@ public static async Task DeleteEntityAsync(CloudTable table, CustomerEntity dele
 
 ## <a name="execute-the-crud-operations-on-sample-data"></a>Executar as operações do CRUD em dados de amostra
 
-Depois de definir os métodos para criar tabela, inserir ou fundir entidades, executar estes métodos nos dados da amostra. Para isso, clique no seu projeto **CosmosTableSamples**. Selecione **Adicionar**, **Novo Item** e adicione uma classe chamada **BasicSamples.cs** e adicione-lhe o seguinte código. Este código cria uma tabela, acrescenta-lhe entidades. Se desejar eliminar a entidade e a tabela no final do projeto, remova os comentários dos métodos `table.DeleteIfExistsAsync()` e `SamplesUtils.DeleteEntityAsync(table, customer)` do seguinte código:
+Depois de definir os métodos para criar tabela, inserir ou fundir entidades, executar estes métodos nos dados da amostra. Para isso, clique no seu projeto **CosmosTableSamples**. Selecione **Adicionar**, **Novo Item** e adicione uma classe chamada **BasicSamples.cs** e adicione-lhe o seguinte código. Este código cria uma tabela, acrescenta-lhe entidades. Se desejar eliminar a entidade e a tabela no final `table.DeleteIfExistsAsync()` do `SamplesUtils.DeleteEntityAsync(table, customer)` projeto, remova os comentários e métodos do seguinte código:
 
 ```csharp
 using System;
@@ -393,7 +393,7 @@ namespace CosmosTableSamples
 
 O código anterior cria uma tabela que começa com "demo" e o GUID gerado é anexado ao nome da tabela. Em seguida, adiciona uma entidade cliente com o primeiro e último nome como "Harp Walter" e posteriormente atualiza o número de telefone deste utilizador. 
 
-Neste tutorial, construiu código para realizar operações básicas de CRUD nos dados armazenados na conta API da Tabela. Também pode realizar operações avançadas como – inserir dados de lote, consultar todos os dados dentro de uma divisória, consultar uma série de dados dentro de uma divisória, listas na conta cujos nomes começam com o prefixo especificado. Você pode baixar o formulário completo de amostra [azure-cosmos-table-dotnet-core-getting-start-start-start-start](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started) GitHub repositório. A [](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started/blob/master/CosmosTableSamples/AdvancedSamples.cs) AdvancedSamples.cs classe tem mais operações que pode realizar nos dados.  
+Neste tutorial, construiu código para realizar operações básicas de CRUD nos dados armazenados na conta API da Tabela. Também pode realizar operações avançadas como – inserir dados de lote, consultar todos os dados dentro de uma divisória, consultar uma série de dados dentro de uma divisória, listas na conta cujos nomes começam com o prefixo especificado. Você pode baixar o formulário completo de amostra [azure-cosmos-table-dotnet-core-getting-start-start-start-start](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started) GitHub repositório. A [AdvancedSamples.cs](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started/blob/master/CosmosTableSamples/AdvancedSamples.cs) AdvancedSamples.cs classe tem mais operações que pode realizar nos dados.  
 
 ## <a name="run-the-project"></a>Executar o projeto
 

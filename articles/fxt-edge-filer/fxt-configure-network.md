@@ -7,10 +7,10 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.openlocfilehash: a40ff50dcb0934cbf1ea5222675bd75948ac1d03
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239799"
 ---
 # <a name="tutorial-configure-the-clusters-network-settings"></a>Tutorial: Configure as definições de rede do cluster
@@ -45,7 +45,7 @@ Para saber mais sobre as definições de rede para o cluster, leia os serviços 
 
 * Configure o Diretório Ativo e os downloads de nome de utilizador/nome de grupo (se necessário)
 
-  Se os anfitriões da rede utilizarem o Ative Directory ou outro tipo de serviço de diretório externo, deve modificar a configuração dos serviços de diretório do cluster para configurar como o cluster descarrega o nome de utilizador e as informações do grupo. Leia os **Serviços** de **Diretório** do Cluster > no Guia de Configuração do Cluster para mais detalhes.
+  Se os anfitriões da rede utilizarem o Ative Directory ou outro tipo de serviço de diretório externo, deve modificar a configuração dos serviços de diretório do cluster para configurar como o cluster descarrega o nome de utilizador e as informações do grupo. Leia**os Serviços** de Diretório de **Cluster** > no Guia de Configuração do Cluster para mais detalhes.
 
   É necessário um servidor AD se quiser suporte SMB. Configure o D.C. antes de começar a configurar o SMB.
 
@@ -58,7 +58,7 @@ Para saber mais sobre as definições de rede para o cluster, leia os serviços 
   Se o seu cluster utilizar um servidor proxy para alcançar endereços externos, siga estes passos para o configurar:
 
   1. Defina o servidor proxy na página de **configurações** proxy
-  1. Aplique a configuração do servidor proxy com a página de **Configuração Geral** do **Cluster** > ou a página de Detalhes do **Ficheiro Core.**
+  1. Aplique a configuração do servidor proxy com a página de**Configuração Geral** do **Cluster** > ou a página de Detalhes do **Ficheiro Core.**
   
   Para mais informações, leia [utilizando proxies web](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/proxy_overview.html) no Guia de Configuração do Cluster.
 
@@ -74,9 +74,9 @@ O cluster FXT Edge Filer utiliza certificados X.509 para estas funções:
 
 * Para verificar os certificados de servidor dos fornecedores de nuvem
 
-Se precisar de fazer o upload de certificados para o cluster, utilize a página de definições de **Certificados** de ** > cluster.** Os detalhes estão na página [cluster > Certificados](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_certificates.html) do Guia de Configuração do Cluster.
+Se precisar de fazer o upload de certificados para o cluster, utilize a página de definições de**Certificados** de **Cluster.** >  Os detalhes estão na página de [Certificados de >](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_certificates.html) cluster do Guia de Configuração do Cluster.
 
-Para encriptar a comunicação de gestão de clusters, utilize a página de definições de **Configuração** **geral** do Cluster > para selecionar qual o certificado a utilizar para o SSL administrativo.
+Para encriptar a comunicação de gestão de clusters, utilize a página de configurações de**Configuração Geral** do **Cluster** > para selecionar qual o certificado a utilizar para o SSL administrativo.
 
 > [!Note] 
 > As teclas de acesso ao serviço de nuvem são armazenadas utilizando a página de configuração **cloud Credentials.** A [secção de ficheiros de núcleo adicionar](fxt-add-storage.md#add-a-core-filer) acima mostra um exemplo; ler a secção de [credenciais](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) de nuvem do Guia de Configuração do Cluster para mais detalhes. 
@@ -105,14 +105,14 @@ Para um desempenho ótimo, configure o seu servidor DNS para lidar com os endere
 
 Um vserver de cluster é mostrado à esquerda, e os endereços IP aparecem no centro e na direita. Configure cada ponto de acesso a cada cliente com registos E indicações a ilustração.
 
-diagrama de DNS de ![Cluster - ligação de texto alt detalhada segue a imagem](media/fxt-cluster-config/fxt-rrdns-diagram.png) 
-[descrição detalhada do texto](https://azure.github.io/Avere/legacy/Azure-FXT-EdgeFilerDNSconfiguration-alt-text.html)
+![Diagrama de DNS redondo-robin cluster](media/fxt-cluster-config/fxt-rrdns-diagram.png) 
+- ligação de texto alt detalhada segue[descrição de texto detalhado](https://azure.github.io/Avere/legacy/Azure-FXT-EdgeFilerDNSconfiguration-alt-text.html) imagem
 
 Cada endereço IP virado para o cliente deve ter um nome único para uso interno pelo cluster. (Neste diagrama, os IPs do cliente são nomeados vs1-cliente-IP-* para clareza, mas na produção você provavelmente deve usar algo mais conciso, como cliente*.)
 
 Os clientes montam o cluster usando o nome do servidor como argumento do servidor. 
 
-Modifique o ficheiro ``named.conf`` do seu servidor DNS para definir a ordem cíclica de consultas ao seu vserver. Esta opção garante que todos os valores disponíveis sejam concluídos. Adicione uma declaração como a seguinte:
+Modifique o ficheiro ``named.conf`` do servidor DNS para definir a ordem cíclica para consultas ao seu servidor de vserver. Esta opção garante que todos os valores disponíveis sejam concluídos. Adicione uma declaração como a seguinte:
 
 ```
 options {
@@ -122,7 +122,7 @@ options {
 };
 ```
 
-Os seguintes comandos ``nsupdate`` fornecem um exemplo de configuração correta do DNS:
+Os ``nsupdate`` seguintes comandos fornecem um exemplo de configuração correta do DNS:
 
 ```
 update add vserver1.example.com. 86400 A 10.0.0.10
@@ -138,7 +138,7 @@ update add 12.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-12.example.com
 
 ### <a name="enable-dns-in-the-cluster"></a>Ativar DNS no cluster 
 
-Especifique o servidor DNS que o cluster utiliza na página de definições de Rede **Administrativa** do **Cluster** > . As definições nessa página incluem:
+Especifique o servidor DNS que o cluster utiliza na página **de** > definições da**Rede Administrativa** cluster. As definições nessa página incluem:
 
 * Endereço de servidor DNS
 * Nome de domínio DNS

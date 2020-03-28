@@ -1,35 +1,35 @@
 ---
-title: Tutorial – configurar a rede kubenet no AKS (serviço kubernetes do Azure) usando o Ansible
-description: Saiba como usar o Ansible para configurar a rede kubenet no cluster do AKS (serviço kubernetes do Azure)
-keywords: Ansible, Azure, DevOps, Bash, cloudshell, manual, AKs, contêiner, AKs, kubernetes
+title: Tutorial - Configure rede kubenet no Serviço Azure Kubernetes (AKS) usando Ansible
+description: Saiba como usar o Ansible para configurar a rede kubenet no cluster Azure Kubernetes Service (AKS)
+keywords: ansível, azul, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.openlocfilehash: bfb19371ad651439c087cebd03023d48852ee2df
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156887"
 ---
-# <a name="tutorial-configure-kubenet-networking-in-azure-kubernetes-service-aks-using-ansible"></a>Tutorial: configurar a rede kubenet no AKS (serviço kubernetes do Azure) usando o Ansible
+# <a name="tutorial-configure-kubenet-networking-in-azure-kubernetes-service-aks-using-ansible"></a>Tutorial: Configure a rede kubenet no Serviço Azure Kubernetes (AKS) usando Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
 [!INCLUDE [open-source-devops-intro-aks.md](../../includes/open-source-devops-intro-aks.md)]
 
-Usando o AKS, você pode implantar um cluster usando os seguintes modelos de rede:
+Utilizando aks, pode implantar um cluster utilizando os seguintes modelos de rede:
 
-- [Rede Kubenet](/azure/aks/configure-kubenet) – os recursos de rede normalmente são criados e configurados à medida que o cluster AKs é implantado.
-- [Rede CNI (interface de rede de contêiner do Azure)](/azure/aks/configure-azure-cni) -o cluster AKs está conectado a recursos e configurações de rede virtual existentes.
+- [Rede Kubenet](/azure/aks/configure-kubenet) - Os recursos de rede são tipicamente criados e configurados à medida que o cluster AKS é implantado.
+- Rede de rede de [contentores Azure (CNI) networking](/azure/aks/configure-azure-cni) - Cluster AKS está ligado aos recursos e configurações de rede virtuais existentes.
 
-Para obter mais informações sobre a rede para seus aplicativos no AKS, consulte [conceitos de rede para aplicativos em AKs](/azure/aks/concepts-network).
+Para obter mais informações sobre a ligação em rede às suas aplicações no AKS, consulte conceitos de [rede para aplicações no AKS](/azure/aks/concepts-network).
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
 > * Criar um cluster do AKS (Create an AKS cluster)
-> * Configurar a rede kubenet do Azure
+> * Configure rede de kubenet Azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,10 +39,10 @@ Para obter mais informações sobre a rede para seus aplicativos no AKS, consult
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Criar uma rede virtual e uma sub-rede
 
-O código do guia estratégico nesta seção cria os seguintes recursos do Azure:
+O código de jogadas nesta secção cria os seguintes recursos Azure:
 
 - Rede virtual
-- Sub-rede na rede virtual
+- Sub-rede dentro da rede virtual
 
 Guarde o manual de procedimentos seguinte como `vnet.yml`:
 
@@ -65,7 +65,7 @@ Guarde o manual de procedimentos seguinte como `vnet.yml`:
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Criar um cluster AKS na rede virtual
 
-O código do guia estratégico nesta seção cria um cluster AKS em uma rede virtual. 
+O código de jogadas nesta secção cria um cluster AKS dentro de uma rede virtual. 
 
 Guarde o manual de procedimentos seguinte como `aks.yml`:
 
@@ -101,29 +101,29 @@ Guarde o manual de procedimentos seguinte como `aks.yml`:
   register: aks
 ```
 
-Aqui estão algumas observações importantes a serem consideradas ao trabalhar com o guia estratégico de exemplo:
+Aqui estão algumas notas-chave a considerar ao trabalhar com o livro de jogadas da amostra:
 
-- Use `azure_rm_aks_version` módulo para localizar a versão com suporte.
-- O `vnet_subnet_id` é a sub-rede criada na seção anterior.
-- O `network_profile` define as propriedades do plug-in de rede kubenet.
-- O `service_cidr` é usado para atribuir serviços internos no cluster AKS a um endereço IP. Esse intervalo de endereços IP deve ser um espaço de endereço que não é usado em outro lugar na rede. 
-- O endereço de `dns_service_ip` deve ser o endereço ". 10" do intervalo de endereços IP do seu serviço.
-- O `pod_cidr` deve ser um espaço de endereço grande que não está em uso em outro lugar em seu ambiente de rede. O intervalo de endereços deve ser grande o suficiente para acomodar o número de nós que você espera escalar verticalmente. Você não pode alterar esse intervalo de endereços depois que o cluster é implantado.
-- O intervalo de endereços IP de Pod é usado para atribuir um espaço de endereço/24 a cada nó no cluster. No exemplo a seguir, o `pod_cidr` de 192.168.0.0/16 atribui o primeiro nó 192.168.0.0/24, o segundo nó 192.168.1.0/24 e o terceiro nó 192.168.2.0/24.
-- À medida que o cluster é dimensionado ou atualizado, o Azure continua a atribuir um intervalo de endereços IP de Pod a cada novo nó.
-- O guia estratégico carrega `ssh_key` de `~/.ssh/id_rsa.pub`. Se você modificá-lo, use o formato de linha única-começando com "ssh-RSA" (sem as aspas).
-- Os valores de `client_id` e `client_secret` são carregados de `~/.azure/credentials`, que é o arquivo de credencial padrão. Você pode definir esses valores para sua entidade de serviço ou carregar esses valores de variáveis de ambiente:
+- Utilize `azure_rm_aks_version` o módulo para encontrar a versão suportada.
+- A `vnet_subnet_id` é a sub-rede criada na secção anterior.
+- O `network_profile` define as propriedades para o plug-in da rede Kubenet.
+- O `service_cidr` é utilizado para atribuir serviços internos no cluster AKS a um endereço IP. Esta gama de endereços IP deve ser um espaço de endereço que não é utilizado em outros lugares da sua rede. 
+- O `dns_service_ip` endereço deve ser o endereço ".10" do seu endereço IP de serviço.
+- O `pod_cidr` deve ser um grande espaço de endereçoque não está a ser usado em outros lugares do ambiente da sua rede. O intervalo de endereços deve ser grande o suficiente para acomodar o número de nós que espera escalar. Não pode alterar esta gama de endereços uma vez que o cluster é implantado.
+- A gama de endereços IP da cápsula é utilizada para atribuir um espaço de endereço /24 a cada nó do cluster. No exemplo seguinte, `pod_cidr` o de 192.168.0.0/16 atribui o primeiro nó 192.168.0.0.0/24, o segundo nó 192.168.1.0/24 e o terceiro nó 192.168.2.0/24.
+- À medida que o cluster escala ou atualiza, o Azure continua a atribuir uma gama de endereços IP de pod a cada novo nó.
+- O livro `ssh_key` `~/.ssh/id_rsa.pub`de jogadas carrega de. Se o modificar, utilize o formato de linha única - começando com "ssh-rsa" (sem as cotações).
+- Os `client_id` `client_secret` valores e `~/.azure/credentials`valores são carregados de , que é o ficheiro credencial padrão. Pode definir estes valores para o seu principal de serviço ou carregar estes valores a partir de variáveis ambientais:
 
     ```yml
     client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
     client_secret: "{{ lookup('env', 'AZURE_SECRET') }}"
     ```
 
-## <a name="associate-the-network-resources"></a>Associar os recursos de rede
+## <a name="associate-the-network-resources"></a>Associar os recursos da rede
 
-Quando você cria um cluster AKS, um grupo de segurança de rede e uma tabela de rotas são criados. Esses recursos são gerenciados pelo AKS e atualizados quando você cria e expõe serviços. Associe o grupo de segurança de rede e a tabela de rotas à sua sub-rede de rede virtual da seguinte maneira. 
+Quando se cria um cluster AKS, é criado um grupo de segurança de rede e uma tabela de rotas. Estes recursos são geridos pela AKS e atualizados quando cria e expõe serviços. Associe o grupo de segurança da rede e a tabela de rotas com a sua subnet de rede virtual da seguinte forma. 
 
-Salve o guia estratégico a seguir como `associate.yml`.
+Guarde o `associate.yml`seguinte livro de jogadas como .
 
 ```yml
 - name: Get route table
@@ -155,15 +155,15 @@ Salve o guia estratégico a seguir como `associate.yml`.
       route_table: "{{ routetable.route_tables[0].id }}"
 ```
 
-Aqui estão algumas observações importantes a serem consideradas ao trabalhar com o guia estratégico de exemplo:
+Aqui estão algumas notas-chave a considerar ao trabalhar com o livro de jogadas da amostra:
 
-- O `node_resource_group` é o nome do grupo de recursos no qual os nós AKS são criados.
-- O `vnet_subnet_id` é a sub-rede criada na seção anterior.
+- É `node_resource_group` o nome do grupo de recursos em que os nódosos AKS são criados.
+- A `vnet_subnet_id` é a sub-rede criada na secção anterior.
 
 
-## <a name="run-the-sample-playbook"></a>Executar o guia estratégico de exemplo
+## <a name="run-the-sample-playbook"></a>Executar o livro de jogadas da amostra
 
-Esta seção lista o manual de exemplo completo que chama as tarefas que criam neste artigo. 
+Esta secção lista o manual completo da amostra que chama as tarefas que criam neste artigo. 
 
 Guarde o manual de procedimentos seguinte como `aks-kubenet.yml`:
 
@@ -206,19 +206,19 @@ Guarde o manual de procedimentos seguinte como `aks-kubenet.yml`:
            var: output.aks[0]
 ```
 
-Na seção `vars`, faça as seguintes alterações:
+Na `vars` secção, enumere as seguintes alterações:
 
-- Para a chave de `resource_group`, altere o valor de `aksansibletest` para o nome do grupo de recursos.
-- Para a chave de `name`, altere o valor de `aksansibletest` para o nome do AKS.
-- Para a chave de `Location`, altere o valor de `eastus` para o local do grupo de recursos.
+- Para `resource_group` a chave, `aksansibletest` altere o valor para o nome do seu grupo de recursos.
+- Para `name` a chave, `aksansibletest` altere o valor para o seu nome AKS.
+- Para `Location` a chave, `eastus` altere o valor para a localização do seu grupo de recursos.
 
-Execute o manual completo usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` completo usando o comando:
 
 ```bash
 ansible-playbook aks-kubenet.yml
 ```
 
-A execução do manual mostra resultados semelhantes à seguinte saída:
+Executar o livro de jogadas mostra resultados semelhantes aos seguintes resultados:
 
 ```Output
 PLAY [localhost] 
@@ -325,9 +325,9 @@ localhost                  : ok=15   changed=2    unreachable=0    failed=0    s
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, exclua os recursos criados neste artigo. 
+Quando já não for necessário, apague os recursos criados neste artigo. 
 
-Salve o código a seguir como `cleanup.yml`:
+Guarde o `cleanup.yml`seguinte código como:
 
 ```yml
 ---
@@ -342,9 +342,9 @@ Salve o código a seguir como `cleanup.yml`:
             force: yes
 ```
 
-Na seção `vars`, substitua o espaço reservado `{{ resource_group_name }}` pelo nome do seu grupo de recursos.
+Na `vars` secção, substitua o `{{ resource_group_name }}` espaço reservado pelo nome do seu grupo de recursos.
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook cleanup.yml
@@ -353,4 +353,4 @@ ansible-playbook cleanup.yml
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial – configurar a rede de CNI (interface de rede de contêiner do Azure) no AKS usando o Ansible](./ansible-aks-configure-cni-networking.md)
+> [Tutorial - Configure Azure Container Networking Interface (CNI) networking em AKS usando Ansible](./ansible-aks-configure-cni-networking.md)

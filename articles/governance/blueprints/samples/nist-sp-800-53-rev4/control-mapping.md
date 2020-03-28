@@ -1,343 +1,343 @@
 ---
-title: Controles de exemplo do Blueprint do NIST SP 800-53 R4
-description: Mapeamento de controle da amostra de Blueprint do NIST SP 800-53 R4. Cada controle é mapeado para uma ou mais políticas do Azure que auxiliam na avaliação.
+title: Controlos de amostras de plantas NIST SP 800-53 R4
+description: Mapeamento de controlo da amostra de plantas NIST SP 800-53 R4. Cada controlo é mapeado para uma ou mais Políticas Azure que ajudam na avaliação.
 ms.date: 11/18/2019
 ms.topic: sample
 ms.openlocfilehash: 104224ec96a5989a103f4d00310cf08b684b4d67
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74546615"
 ---
-# <a name="control-mapping-of-the-nist-sp-800-53-r4-blueprint-sample"></a>Mapeamento de controle da amostra de Blueprint do NIST SP 800-53 R4
+# <a name="control-mapping-of-the-nist-sp-800-53-r4-blueprint-sample"></a>Mapeamento de controlo da amostra de plantas NIST SP 800-53 R4
 
-O artigo a seguir fornece detalhes sobre como a amostra do Blueprint do NIST SP 800-53 R4 de plantas do Azure é mapeada para os controles NIST SP 800-53 R4. Para obter mais informações sobre os controles, consulte [NIST SP 800-53](https://nvd.nist.gov/800-53).
+O seguinte artigo detalha como os mapas da amostra de plantas Azure NIST SP 800-53 R4 para os controlos NIST SP 800-53 R4. Para obter mais informações sobre os controlos, consulte [NIST SP 800-53](https://nvd.nist.gov/800-53).
 
-Os seguintes mapeamentos são para os controles **NIST SP 800-53 (Rev. 4)** . Use a navegação à direita para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa de [Azure Policy](../../../policy/overview.md) . Para examinar a iniciativa completa, abra a **política** no portal do Azure e selecione a página **definições** . Em seguida, localize e selecione a **\[visualização\]: auditar os controles do NIST SP 800-53 R4 e implantar extensões de VM específicas para dar suporte** à iniciativa de política interna de requisitos de auditoria.
+Os seguintes mapeamentos são para os comandos **NIST SP 800-53 (Rev. 4).** Utilize a navegação à direita para saltar diretamente para um mapeamento de controlo específico. Muitos dos controlos mapeados são implementados com uma iniciativa da [Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra a **Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione os ** \[controlos\]Preview : Audit NIST SP 800-53 R4 e implemente extensões vm específicas para apoiar os requisitos** de auditoria iniciativa política incorporada.
 
 > [!IMPORTANT]
-> Cada controle abaixo é associado a uma ou mais definições de [Azure Policy](../../../policy/overview.md) . Essas políticas podem ajudá-lo a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle; no entanto, muitas vezes não há uma correspondência completa ou 1:1 entre um controle e uma ou mais políticas. Como tal, em **conformidade** com Azure Policy refere-se apenas às próprias políticas; Isso não garante que você esteja totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição de Azure Policy no momento. Portanto, a conformidade em Azure Policy é apenas uma visão parcial do seu status de conformidade geral. As associações entre controles e definições de Azure Policy para esta amostra do Blueprint de conformidade podem mudar ao longo do tempo. Para exibir o histórico de alterações, consulte o [histórico de confirmação do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/nist-sp-800-53-rev4/control-mapping.md).
+> Cada controlo abaixo está associado a uma ou mais definições de [Política Azure.](../../../policy/overview.md) Estas políticas podem ajudá-lo a avaliar o [cumprimento](../../../policy/how-to/get-compliance-data.md) do controlo; no entanto, muitas vezes não há um 1:1 ou um jogo completo entre um controlo e uma ou mais políticas. Como tal, **a política do** Azure refere-se apenas às próprias políticas; isto não garante que esteja totalmente em conformidade com todos os requisitos de um controlo. Além disso, a norma de conformidade inclui controlos que não são abordados por quaisquer definições de Política Azure neste momento. Portanto, o cumprimento na Política Azure é apenas uma visão parcial do seu estado de conformidade geral. As associações entre controlos e definições de Política Azure para esta amostra de plano de conformidade podem mudar ao longo do tempo. Para ver a história da mudança, consulte o [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/nist-sp-800-53-rev4/control-mapping.md).
 
-## <a name="ac-2-account-management"></a>Gerenciamento de conta AC-2
+## <a name="ac-2-account-management"></a>Gestão de Conta AC-2
 
-Este projeto ajuda você a examinar as contas que podem não estar em conformidade com os requisitos de gerenciamento de conta da sua organização. Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que auditam contas externas com permissões de leitura, gravação e proprietário em uma assinatura e contas preteridas. Ao examinar as contas auditadas por essas políticas, você pode tomar as medidas apropriadas para garantir que os requisitos de gerenciamento de conta sejam atendidos.
+Este plano ajuda-o a rever contas que podem não cumprir os requisitos de gestão de conta da sua organização. Este projeto atribui definições de [Política Azure](../../../policy/overview.md) que auditam contas externas com permissões de leitura, escrita e proprietário numa subscrição e contas depreciadas. Ao rever as contas auditadas por estas políticas, pode tomar as medidas adequadas para garantir que os requisitos de gestão de contas sejam cumpridos.
 
-- As contas preteridas devem ser removidas da sua assinatura
-- Contas preteridas com permissões de proprietário devem ser removidas da sua assinatura
-- Contas externas com permissões de proprietário devem ser removidas da sua assinatura
-- Contas externas com permissões de leitura devem ser removidas da sua assinatura
+- As contas depreciadas devem ser removidas da sua subscrição
+- Contas depreciadas com permissões do proprietário devem ser removidas da sua subscrição
+- As contas externas com permissões do proprietário devem ser removidas da sua subscrição
+- As contas externas com permissões de leitura devem ser removidas da sua subscrição
 - As contas externas com permissões de escrita devem ser removidas da sua subscrição
 
-## <a name="ac-2-7-account-management--role-based-schemes"></a>Gerenciamento de conta AC-2 (7) | Esquemas baseados em função
+## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) Gestão de Conta [ Esquemas baseados em papéis
 
-O Azure implementa o RBAC ( [controle de acesso baseado em função](../../../../role-based-access-control/overview.md) ) para ajudá-lo a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode revisar quem tem acesso aos recursos do Azure e suas permissões. Esse projeto também atribui definições de [Azure Policy](../../../policy/overview.md) para auditar o uso de autenticação de Azure Active Directory para SQL Servers e Service Fabric. Usar Azure Active Directory autenticação permite o gerenciamento de permissões simplificado e o gerenciamento centralizado de identidades de usuários de banco de dados e outros serviços da Microsoft. Além disso, esse plano gráfico atribui uma definição de Azure Policy para auditar o uso de regras personalizadas de RBAC. Entender onde as regras personalizadas de RBAC são implementadas pode ajudá-lo a verificar a necessidade e a implementação adequada, pois as regras personalizadas de RBAC são propensas a erros.
+O Azure implementa [o controlo de acesso baseado em funções](../../../../role-based-access-control/overview.md) (RBAC) para o ajudar a gerir quem tem acesso a recursos no Azure. Utilizando o portal Azure, pode rever quem tem acesso aos recursos do Azure e suas permissões. Esta planta atribui também definições de [Política Azure](../../../policy/overview.md) para auditar a autenticação do Diretório Ativo Azure para servidores SQL e Tecido de Serviço. A utilização da autenticação do Diretório Ativo Azure permite a gestão simplificada da permissão e a gestão centralizada da identidade dos utilizadores de bases de dados e de outros serviços da Microsoft. Além disso, este projeto atribui uma definição de Política Azure para auditar a utilização de regras rbac personalizadas. Compreender onde as regras personalizadas do RBAC são implementadas pode ajudá-lo a verificar necessidades e implementação adequada, uma vez que as regras personalizadas do RBAC são propensas a erros.
 
-- Um administrador de Azure Active Directory deve ser provisionado para servidores SQL
-- Auditar o uso de regras personalizadas de RBAC
-- Clusters de Service Fabric só devem usar Azure Active Directory para autenticação de cliente
+- Um administrador de Diretório Ativo Azure deve ser provisionado para servidores SQL
+- Utilização de auditoria de regras rbac personalizadas
+- Os clusters de tecido de serviço só devem utilizar o Diretório Ativo Azure para a autenticação do cliente
 
-## <a name="ac-2-12-account-management--account-monitoring--atypical-usage"></a>Gerenciamento de conta AC-2 (12) | Monitoramento de conta/uso de atípicos
+## <a name="ac-2-12-account-management--account-monitoring--atypical-usage"></a>AC-2 (12) Gestão de Contas [ Monitorização da Conta / Utilização Atípica
 
-O acesso à máquina virtual JIT (just-in-time) bloqueia o tráfego de entrada para as máquinas virtuais do Azure, reduzindo a exposição a ataques e, ao mesmo tempo, fornecendo acesso fácil para se conectar às VMs quando necessário. Todas as solicitações JIT para acessar máquinas virtuais são registradas no log de atividades, permitindo que você monitore o uso de atípicos. Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a monitorar máquinas virtuais que podem dar suporte ao acesso just-in-time, mas que ainda não foram configuradas.
+O acesso à máquina virtual just-in-time (JIT) bloqueia o tráfego de entrada para máquinas virtuais Azure, reduzindo a exposição a ataques, proporcionando um fácil acesso à ligação aos VMs quando necessário. Todos os pedidos de Acesso a Máquinas Virtuais do JIT estão registados no Registo de Atividade, permitindo-lhe monitorizar para utilização atípica. Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a monitorizar máquinas virtuais que podem suportar acesso just-in-time mas ainda não foram configuradas.
 
-- O controle de acesso à rede just-in-time deve ser aplicado em máquinas virtuais
+- O controlo de acesso à rede Just-In-Time deve ser aplicado em máquinas virtuais
 
-## <a name="ac-4-information-flow-enforcement"></a>Imposição de fluxo de informações AC-4
+## <a name="ac-4-information-flow-enforcement"></a>Execução do fluxo de informação AC-4
 
-O CORS (compartilhamento de recursos entre origens) pode permitir que os recursos dos serviços de aplicativos sejam solicitados de um domínio externo. A Microsoft recomenda que você permita que apenas os domínios necessários interajam com a API, a função e os aplicativos Web. Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) para ajudá-lo a monitorar as restrições de acesso de recursos CORS na central de segurança do Azure.
-Entender as implementações de CORS pode ajudá-lo a verificar se os controles de fluxo de informações são implementados.
+A partilha de recursos de origem cruzada (CORS) pode permitir que os recursos dos Serviços de Aplicações sejam solicitados a partir de um domínio externo. A Microsoft recomenda que permita que apenas os domínios necessários interajam com as suas aplicações API, função e web. Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) para ajudá-lo a monitorizar as restrições de acesso aos recursos cors no Centro de Segurança Azure.
+Compreender as implementações do CORS pode ajudá-lo a verificar se os controlos de fluxo de informação são implementados.
 
-- O CORS não deve permitir que todos os recursos acessem seu aplicativo Web
+- O CORS não deve permitir que todos os recursos acedam à sua Aplicação Web
 
-## <a name="ac-5-separation-of-duties"></a>Separação de tarefas AC-5
+## <a name="ac-5-separation-of-duties"></a>SEparação de direitos AC-5
 
-Ter apenas um proprietário de assinatura do Azure não permite redundância administrativa. Por outro lado, ter muitos proprietários de assinatura do Azure pode aumentar o potencial de uma violação por meio de uma conta de proprietário comprometida. Este projeto ajuda a manter um número apropriado de proprietários de assinatura do Azure atribuindo [Azure Policy](../../../policy/overview.md) definições que auditam o número de proprietários para assinaturas do Azure. Esse projeto também atribui definições de Azure Policy que ajudam a controlar a associação do grupo de administradores em máquinas virtuais do Windows. O gerenciamento de permissões de proprietário de assinatura e administrador de máquina virtual pode ajudá-lo a implementar a separação apropriada de tarefas.
+Ter apenas um proprietário de assinatura Azure não permite o despedimento administrativo. Inversamente, ter demasiados proprietários de subscrições do Azure pode aumentar o potencial de violação através de uma conta de proprietário comprometida. Este plano ajuda-o a manter um número adequado de proprietários de subscrições azure, atribuindo definições de [Política Azure](../../../policy/overview.md) que auditam o número de proprietários para subscrições do Azure. Esta planta também atribui definições de Política Azure que o ajudam a controlar a adesão do grupo de Administradores em máquinas virtuais Windows. Gerir o proprietário da subscrição e permissões de administrador de máquinas virtuais pode ajudá-lo a implementar a separação adequada de deveres.
 
-- Um máximo de 3 proprietários deve ser designado para sua assinatura
-- Auditar VMs do Windows nas quais o grupo de administradores contém qualquer um dos membros especificados
-- Auditar VMs do Windows nas quais o grupo de administradores não contém todos os membros especificados
-- Implantar requisitos para auditar VMs do Windows nas quais o grupo Administradores contém qualquer um dos membros especificados
-- Implantar requisitos para auditar VMs do Windows nas quais o grupo de administradores não contém todos os membros especificados
-- Deve haver mais de um proprietário atribuído à sua assinatura
+- Um máximo de 3 proprietários deve ser designado para a sua subscrição
+- Audite VMs windows em que o grupo administradores contém qualquer um dos membros especificados
+- Audite VMs windows em que o grupo administradores não contém todos os membros especificados
+- Implementar requisitos para auditar VMs do Windows em que o grupo administradores contém qualquer um dos membros especificados
+- Implementar requisitos para auditar VMs do Windows em que o grupo Administradores não contenha todos os membros especificados
+- Deve haver mais de um proprietário atribuído à sua subscrição
 
-## <a name="ac-6-7-least-privilege--review-of-user-privileges"></a>CA-6 (7) privilégios mínimos | Revisão de privilégios de usuário
+## <a name="ac-6-7-least-privilege--review-of-user-privileges"></a>AC-6 (7) Menos Privilégio [ Privilégio Mínimo] Revisão dos Privilégios do Utilizador
 
-O Azure implementa o RBAC ( [controle de acesso baseado em função](../../../../role-based-access-control/overview.md) ) para ajudá-lo a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode revisar quem tem acesso aos recursos do Azure e suas permissões. Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) para auditar contas que devem ser priorizadas para análise. A revisão desses indicadores de conta pode ajudá-lo a garantir que os controles de privilégios mínimos sejam implementados.
+O Azure implementa [o controlo de acesso baseado em funções](../../../../role-based-access-control/overview.md) (RBAC) para o ajudar a gerir quem tem acesso a recursos no Azure. Utilizando o portal Azure, pode rever quem tem acesso aos recursos do Azure e suas permissões. Este projeto atribui definições de [Política Azure](../../../policy/overview.md) a contas de auditoria que devem ser priorizadas para revisão. Rever estes indicadores de conta pode ajudá-lo a garantir que os controlos de menor privilégio sejam implementados.
 
-- Um máximo de 3 proprietários deve ser designado para sua assinatura
-- Auditar VMs do Windows nas quais o grupo de administradores contém qualquer um dos membros especificados
-- Auditar VMs do Windows nas quais o grupo de administradores não contém todos os membros especificados
-- Implantar requisitos para auditar VMs do Windows nas quais o grupo Administradores contém qualquer um dos membros especificados
-- Implantar requisitos para auditar VMs do Windows nas quais o grupo de administradores não contém todos os membros especificados
-- Deve haver mais de um proprietário atribuído à sua assinatura
+- Um máximo de 3 proprietários deve ser designado para a sua subscrição
+- Audite VMs windows em que o grupo administradores contém qualquer um dos membros especificados
+- Audite VMs windows em que o grupo administradores não contém todos os membros especificados
+- Implementar requisitos para auditar VMs do Windows em que o grupo administradores contém qualquer um dos membros especificados
+- Implementar requisitos para auditar VMs do Windows em que o grupo Administradores não contenha todos os membros especificados
+- Deve haver mais de um proprietário atribuído à sua subscrição
 
-## <a name="ac-16-security-attributes"></a>Atributos de segurança AC-16
+## <a name="ac-16-security-attributes"></a>Atributos de Segurança AC-16
 
-O recurso de classificação e descoberta de dados do Advanced Data Security para o banco de dados SQL do Azure fornece recursos para descobrir, classificar, rotular e proteger os dados confidenciais em seus bancos. Pode ser utilizada para oferecer visibilidade sobre o estado de classificação da base de dados e para controlar o acesso aos dados confidenciais na base de dados e além dos respetivos limites. A segurança de dados avançada pode ajudá-lo a garantir as informações associadas aos atributos de segurança apropriados para sua organização. Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) para monitorar e impor o uso da segurança de dados avançada no SQL Server. 
+A capacidade de descoberta e classificação de dados avançados para a Base de Dados Azure SQL fornece capacidades para descobrir, classificar, rotular e proteger os dados sensíveis nas suas bases de dados. Pode ser utilizada para oferecer visibilidade sobre o estado de classificação da base de dados e para controlar o acesso aos dados confidenciais na base de dados e além dos respetivos limites. A segurança avançada de dados pode ajudá-lo a garantir informações como associados aos atributos de segurança apropriados para a sua organização. Esta planta atribui definições de [Política Azure](../../../policy/overview.md) para monitorizar e impor a utilização da segurança avançada de dados no servidor SQL. 
 
-- A segurança de dados avançada deve ser habilitada em suas instâncias gerenciadas
-- A segurança de dados avançada deve estar ativada nos seus servidores SQL
-- Implantar a segurança de dados avançada em servidores SQL
+- A segurança avançada dos dados deve ser ativada nas suas instâncias geridas
+- A segurança avançada de dados deve ser ativada nos seus servidores SQL
+- Implementar segurança avançada de dados em servidores SQL
 
-## <a name="ac-17-1-remote-access--automated-monitoring--control"></a>AC-17 (1) acesso remoto | Monitoramento/controle automatizado
+## <a name="ac-17-1-remote-access--automated-monitoring--control"></a>AC-17 (1) Acesso Remoto / Monitorização/Controlo Automatizado
 
-Este projeto ajuda você a monitorar e controlar o acesso remoto atribuindo definições de [Azure Policy](../../../policy/overview.md) para monitorar que a depuração remota para o aplicativo de serviço Azure app está desativada. O Blueprint também atribui definições de política que auditam máquinas virtuais Linux que permitem conexões remotas de contas sem senhas. Além disso, o Blueprint atribui uma definição de Azure Policy que ajuda a monitorar o acesso irrestrito a contas de armazenamento. O monitoramento desses indicadores pode ajudá-lo a garantir que os métodos de acesso remoto estejam em conformidade com sua política de segurança.
+Esta planta ajuda-o a monitorizar e controlar o acesso remoto, atribuindo definições de [Política Azure](../../../policy/overview.md) para monitorizar que a depuração remota para aplicação do Serviço de Aplicações Azure está desligada. O projeto também atribui definições de política que auditam máquinas virtuais Linux que permitem ligações remotas a partir de contas sem senhas. Além disso, o projeto atribui uma definição de Política Azure que o ajuda a monitorizar o acesso ilimitado a contas de armazenamento. Monitorizar estes indicadores pode ajudá-lo a garantir que os métodos de acesso remoto satisfaçam a sua política de segurança.
 
-- \[\]de visualização: auditar VMs do Linux que permitem conexões remotas de contas sem senhas
-- \]de visualização do \[: implantar requisitos para auditar VMs do Linux que permitem conexões remotas de contas sem senhas
-- Auditar o acesso irrestrito à rede para contas de armazenamento
-- A depuração remota deve ser desativada para o aplicativo de API
-- A depuração remota deve ser desativada para Aplicativo de funções
-- A depuração remota deve ser desativada para o aplicativo Web
+- \[Pré-visualização\]: Audite VMs Linux que permitem ligações remotas a partir de contas sem senhas
+- \[Pré-visualização\]: Implementar requisitos para auditar VMs Linux que permitem ligações remotas a partir de contas sem senhas
+- Auditoria sem restrições ao acesso da rede às contas de armazenamento
+- Depuração remota deve ser desligada para App API
+- Depuração remota deve ser desligada para app de função
+- Depuração remota deve ser desligada para aplicação web
 
-## <a name="au-3-2-content-of-audit-records--centralized-management-of-planned-audit-record-content"></a>AU-3 (2) conteúdo dos registros de auditoria | Gerenciamento centralizado de conteúdo de registro de auditoria planejado
+## <a name="au-3-2-content-of-audit-records--centralized-management-of-planned-audit-record-content"></a>AU-3 (2) Conteúdo dos Registos de Auditoria / Gestão Centralizada de Conteúdos De Registo de Auditoria Planeada
 
-Os dados de log coletados pelo Azure Monitor são armazenados em um espaço de trabalho Log Analytics habilitando a configuração e o gerenciamento centralizados. Este projeto ajuda a garantir que os eventos sejam registrados por meio da atribuição de definições de [Azure Policy](../../../policy/overview.md) que auditam e impõem a implantação do agente de log Analytics em máquinas virtuais do Azure.
+Os dados de registo recolhidos pelo Azure Monitor são armazenados num espaço de trabalho de Log Analytics que permite a configuração e gestão centralizadas. Este plano ajuda-o a garantir que os eventos são registados atribuindo definições de [Política Azure](../../../policy/overview.md) que auditam e impõem a implementação do agente Log Analytics em máquinas virtuais Azure.
 
-- \[visualização\]: auditoria Log Analytics implantação do agente – imagem da VM (SO) não listada
-- \[visualização\]: auditoria Log Analytics implantação do agente em VMSS-imagem da VM (SO) não listada
-- \[visualização\]: Log Analytics do espaço de trabalho de auditoria para VM – relatar incompatibilidade
-- \]de visualização do \[: implantar o agente de Log Analytics para conjuntos de dimensionamento de VM do Linux (VMSS)
-- \]de visualização de \[: implantar o agente de Log Analytics para VMs Linux
-- \]de visualização de \[: implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows
-- \]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows
+- \[Pré-visualização\]: Implementação de agente de análise de registo de auditoria - Imagem VM (OS) não listada
+- \[Pré-visualização\]: Implementação de agente de análise de registo de auditoria em VMSS - Imagem VM (OS) não listada
+- \[Pré-visualização\]: Audit Log Analytics Workspace for VM - Report Mismatch
+- \[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala SM (VMSS)
+- \[Pré-visualização\]: Implementar o Agente de Análise de Registo para VMs Linux
+- \[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala seletivas VM Do Windows (VMSS)
+- \[Pré-visualização\]: Implementar o agente de análise de registo para VMs do Windows
 
-## <a name="au-5-response-to-audit-processing-failures"></a>Resposta AU-5 para falhas de processamento de auditoria
+## <a name="au-5-response-to-audit-processing-failures"></a>Resposta AU-5 às falhas no processamento de auditoria
 
-Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que monitoram as configurações de log de eventos e auditoria. O monitoramento dessas configurações pode fornecer um indicador de uma falha do sistema de auditoria ou configuração incorreta e ajudá-lo a tomar uma ação corretiva.
+Esta planta atribui definições de [Política Azure](../../../policy/overview.md) que monitorizam as configurações de auditoria e registo de eventos. Monitorizar estas configurações pode fornecer um indicador de uma falha ou configuração errada do sistema de auditoria e ajudá-lo a tomar medidas corretivas.
 
 - Definição de diagnóstico de auditoria
-- Auditar configurações de auditoria no nível do SQL Server
-- A segurança de dados avançada deve ser habilitada em suas instâncias gerenciadas
-- A segurança de dados avançada deve estar ativada nos seus servidores SQL
+- Audite as definições de auditoria ao nível do servidor SQL
+- A segurança avançada dos dados deve ser ativada nas suas instâncias geridas
+- A segurança avançada de dados deve ser ativada nos seus servidores SQL
 
-## <a name="au-6-4-audit-review-analysis-and-reporting--central-review-and-analysis"></a>AU-6 (4) revisão de auditoria, análise e relatórios | Revisão e análise central
+## <a name="au-6-4-audit-review-analysis-and-reporting--central-review-and-analysis"></a>AU-6 (4) Revisão, Análise e Relatório de Auditoria Análise e Análise Central
 
-Os dados de log coletados pelo Azure Monitor são armazenados em um espaço de trabalho Log Analytics habilitando a análise e relatórios centralizados. Este projeto ajuda a garantir que os eventos sejam registrados por meio da atribuição de definições de [Azure Policy](../../../policy/overview.md) que auditam e impõem a implantação do agente de log Analytics em máquinas virtuais do Azure.
+Os dados de registo recolhidos pelo Azure Monitor são armazenados num espaço de trabalho de Log Analytics que permite reportagens e análises centralizadas. Este plano ajuda-o a garantir que os eventos são registados atribuindo definições de [Política Azure](../../../policy/overview.md) que auditam e impõem a implementação do agente Log Analytics em máquinas virtuais Azure.
 
-- \[visualização\]: auditoria Log Analytics implantação do agente – imagem da VM (SO) não listada
-- \[visualização\]: auditoria Log Analytics implantação do agente em VMSS-imagem da VM (SO) não listada
-- \[visualização\]: Log Analytics do espaço de trabalho de auditoria para VM – relatar incompatibilidade
-- \]de visualização do \[: implantar o agente de Log Analytics para conjuntos de dimensionamento de VM do Linux (VMSS)
-- \]de visualização de \[: implantar o agente de Log Analytics para VMs Linux
-- \]de visualização de \[: implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows
-- \]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows
+- \[Pré-visualização\]: Implementação de agente de análise de registo de auditoria - Imagem VM (OS) não listada
+- \[Pré-visualização\]: Implementação de agente de análise de registo de auditoria em VMSS - Imagem VM (OS) não listada
+- \[Pré-visualização\]: Audit Log Analytics Workspace for VM - Report Mismatch
+- \[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala SM (VMSS)
+- \[Pré-visualização\]: Implementar o Agente de Análise de Registo para VMs Linux
+- \[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala seletivas VM Do Windows (VMSS)
+- \[Pré-visualização\]: Implementar o agente de análise de registo para VMs do Windows
 
-## <a name="au-12-audit-generation"></a>Geração de auditoria AU-12
+## <a name="au-12-audit-generation"></a>Geração de Auditoria AU-12
 
-Este projeto ajuda a garantir que os eventos do sistema sejam registrados por meio da atribuição de definições de [Azure Policy](../../../policy/overview.md) que auditam as configurações de log nos recursos do Azure. Essas definições de política auditam e impõem a implantação do agente de Log Analytics em máquinas virtuais do Azure e a configuração de configurações de auditoria para outros tipos de recursos do Azure. Essas definições de política também auditam a configuração dos logs de diagnóstico para fornecer informações sobre as operações executadas nos recursos do Azure. Além disso, a auditoria e a segurança avançada de dados são configuradas em servidores SQL.
+Este plano ajuda-o a garantir que os eventos do sistema são registados atribuindo definições de [Política Azure](../../../policy/overview.md) que auditam definições de registo nos recursos do Azure. Estas definições de políticas auditam e impõem a implantação do agente Log Analytics em máquinas virtuais Azure e configuração de definições de auditoria para outros tipos de recursos Azure. Estas definições de política também auditam a configuração de registos de diagnóstico para fornecer informações sobre as operações que são realizadas dentro dos recursos do Azure. Adicionalmente, a auditoria e a Segurança Avançada de Dados estão configuradas nos servidores SQL.
 
-- \[visualização\]: auditoria Log Analytics implantação do agente – imagem da VM (SO) não listada
-- \[visualização\]: auditoria Log Analytics implantação do agente em VMSS-imagem da VM (SO) não listada
-- \[visualização\]: Log Analytics do espaço de trabalho de auditoria para VM – relatar incompatibilidade
-- \]de visualização do \[: implantar o agente de Log Analytics para conjuntos de dimensionamento de VM do Linux (VMSS)
-- \]de visualização de \[: implantar o agente de Log Analytics para VMs Linux
-- \]de visualização de \[: implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows
-- \]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows
+- \[Pré-visualização\]: Implementação de agente de análise de registo de auditoria - Imagem VM (OS) não listada
+- \[Pré-visualização\]: Implementação de agente de análise de registo de auditoria em VMSS - Imagem VM (OS) não listada
+- \[Pré-visualização\]: Audit Log Analytics Workspace for VM - Report Mismatch
+- \[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala SM (VMSS)
+- \[Pré-visualização\]: Implementar o Agente de Análise de Registo para VMs Linux
+- \[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala seletivas VM Do Windows (VMSS)
+- \[Pré-visualização\]: Implementar o agente de análise de registo para VMs do Windows
 - Definição de diagnóstico de auditoria
-- Auditar configurações de auditoria no nível do SQL Server
-- A segurança de dados avançada deve ser habilitada em suas instâncias gerenciadas
-- A segurança de dados avançada deve estar ativada nos seus servidores SQL
-- Implantar a segurança de dados avançada em servidores SQL
-- Implantar a auditoria em servidores SQL
-- Implantar configurações de diagnóstico para grupos de segurança de rede
+- Audite as definições de auditoria ao nível do servidor SQL
+- A segurança avançada dos dados deve ser ativada nas suas instâncias geridas
+- A segurança avançada de dados deve ser ativada nos seus servidores SQL
+- Implementar segurança avançada de dados em servidores SQL
+- Implementar auditoria sql
+- Implementar definições de diagnóstico para grupos de segurança de rede
 
-## <a name="cm-7-2-least-functionality--prevent-program-execution"></a>Funcionalidade CM-7 (2) menos | Impedir a execução do programa
+## <a name="cm-7-2-least-functionality--prevent-program-execution"></a>CM-7 (2) Menos Funcionalidade [ Impedir a execução do programa
 
-O controle de aplicativo adaptável na central de segurança do Azure é uma solução de lista de permissões de aplicativos de ponta a ponta inteligente e automatizada que pode bloquear ou impedir que software específico seja executado em suas máquinas virtuais. O controle de aplicativo pode ser executado em um modo de imposição que proíbe a execução de aplicativos não aprovados. Este projeto atribui uma definição de Azure Policy que ajuda a monitorar máquinas virtuais em que uma lista de permissões de aplicativo é recomendada, mas ainda não foi configurada.
+O controlo adaptativo de aplicações no Azure Security Center é uma solução inteligente e automatizada de whitelisting de aplicação de ponta a ponta que pode bloquear ou impedir que software específico seja funcionado nas suas máquinas virtuais. O controlo da aplicação pode ser executado num modo de execução que proíbe a aplicação não aprovada de funcionar. Esta planta atribui uma definição de Política Azure que o ajuda a monitorizar máquinas virtuais onde uma lista branca de aplicação é recomendada, mas ainda não foi configurada.
 
-- Os controles de aplicativo adaptáveis devem ser habilitados em máquinas virtuais
+- Os controlos adaptáveis de aplicação devem ser ativados em máquinas virtuais
 
-## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>Funcionalidade do CM-7 (5) menos | Software autorizado/lista de permissões
+## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>CM-7 (5) Menos Funcionalidade [ Software autorizado / Whitelisting
 
-O controle de aplicativo adaptável na central de segurança do Azure é uma solução de lista de permissões de aplicativos de ponta a ponta inteligente e automatizada que pode bloquear ou impedir que software específico seja executado em suas máquinas virtuais. O controle de aplicativo ajuda a criar listas de aplicativos aprovados para suas máquinas virtuais. Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a monitorar máquinas virtuais em que uma lista de permissões de aplicativo é recomendada, mas ainda não foi configurada.
+O controlo adaptativo de aplicações no Azure Security Center é uma solução inteligente e automatizada de whitelisting de aplicação de ponta a ponta que pode bloquear ou impedir que software específico seja funcionado nas suas máquinas virtuais. O controlo de aplicações ajuda-o a criar listas de aplicações aprovadas para as suas máquinas virtuais. Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a monitorizar máquinas virtuais onde uma lista branca de aplicação é recomendada, mas ainda não foi configurada.
 
-- Os controles de aplicativo adaptáveis devem ser habilitados em máquinas virtuais
+- Os controlos adaptáveis de aplicação devem ser ativados em máquinas virtuais
 
-## <a name="cm-11-user-installed-software"></a>Software instalado pelo usuário do CM-11
+## <a name="cm-11-user-installed-software"></a>Software instalado pelo utilizador CM-11
 
-O controle de aplicativo adaptável na central de segurança do Azure é uma solução de lista de permissões de aplicativos de ponta a ponta inteligente e automatizada que pode bloquear ou impedir que software específico seja executado em suas máquinas virtuais. O controle de aplicativo pode ajudá-lo a impor e monitorar a conformidade com as políticas de restrição de software. Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a monitorar máquinas virtuais em que uma lista de permissões de aplicativo é recomendada, mas ainda não foi configurada.
+O controlo adaptativo de aplicações no Azure Security Center é uma solução inteligente e automatizada de whitelisting de aplicação de ponta a ponta que pode bloquear ou impedir que software específico seja funcionado nas suas máquinas virtuais. O controlo de aplicações pode ajudá-lo a impor e monitorizar o cumprimento das políticas de restrição de software. Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a monitorizar máquinas virtuais onde uma lista branca de aplicação é recomendada, mas ainda não foi configurada.
 
-- Os controles de aplicativo adaptáveis devem ser habilitados em máquinas virtuais
+- Os controlos adaptáveis de aplicação devem ser ativados em máquinas virtuais
 
-## <a name="cp-7-alternate-processing-site"></a>Site de processamento alternativo CP-7
+## <a name="cp-7-alternate-processing-site"></a>Cp-7 Local de Processamento Alternativo
 
-Azure Site Recovery Replica as cargas de trabalho em execução em máquinas virtuais de um local primário para um local secundário. Se ocorrer uma interrupção no site primário, a carga de trabalho falhará no local secundário. Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que audita as máquinas virtuais sem a recuperação de desastres configurada. O monitoramento desse indicador pode ajudá-lo a garantir que os controles de contingência necessários estejam em vigor.
+A Recuperação do Site Azure replica cargas de trabalho em máquinas virtuais desde um local primário até um local secundário. Se ocorrer uma paragem no local primário, a carga de trabalho falha na localização secundária. Este projeto atribui uma definição de [Política Azure](../../../policy/overview.md) que audita máquinas virtuais sem recuperação de desastres configurada. A monitorização deste indicador pode ajudá-lo a garantir que os controlos de contingência necessários estão em vigor.
 
-- Auditar máquinas virtuais sem recuperação de desastres configuradas
+- Auditar máquinas virtuais sem recuperação de desastres configurada
 
-## <a name="ia-2-1-identification-and-authentication-organizational-users--network-access-to-privileged-accounts"></a>Identificação e autenticação IA-2 (1) (usuários organizacionais) | Acesso à rede para contas com privilégios
+## <a name="ia-2-1-identification-and-authentication-organizational-users--network-access-to-privileged-accounts"></a>IA-2 (1) Identificação e Autenticação (Utilizadores Organizacionais) [ Utilizadores Organizacionais) [ Utilizadores Organizacionais) [ Acesso à Rede a Contas Privilegiadas
 
-Este projeto ajuda a restringir e controlar o acesso privilegiado atribuindo definições de [Azure Policy](../../../policy/overview.md) a contas de auditoria com permissões de proprietário e/ou gravação que não têm a autenticação multifator habilitada. A autenticação multifator ajuda a manter as contas seguras mesmo que uma parte das informações de autenticação seja comprometida. Ao monitorar contas sem a autenticação multifator habilitada, você pode identificar contas que podem ser mais prováveis de serem comprometidas.
+Este plano ajuda-o a restringir e controlar o acesso privilegiado através da atribuição de definições de [Política Azure](../../../policy/overview.md) para auditar contas com o proprietário e/ou escrever permissões que não tenham autenticação multifactor ativada. A autenticação de vários fatores ajuda a manter as contas seguras mesmo que uma peça de informação de autenticação seja comprometida. Ao monitorizar contas sem autenticação multifactor ativada, pode identificar contas que possam ser mais suscetíveis de serem comprometidas.
 
-- A MFA deve ser habilitada em contas com permissões de proprietário em sua assinatura
-- A MFA deve ser habilitada em contas com permissões de gravação em sua assinatura
+- MFA deve ser ativado em contas com permissões do proprietário na sua subscrição
+- MFA deve ser ativado em contas com permissões de escrita na sua subscrição
 
-## <a name="ia-2-2-identification-and-authentication-organizational-users--network-access-to-non-privileged-accounts"></a>Identificação e autenticação IA-2 (2) (usuários organizacionais) | Acesso à rede para contas sem privilégios
+## <a name="ia-2-2-identification-and-authentication-organizational-users--network-access-to-non-privileged-accounts"></a>IA-2 (2) Identificação e Autenticação (Utilizadores Organizacionais) [ Utilizadores Organizacionais) [ Utilizadores Organizacionais) [ Utilizadores Organizacionais) [ Utilizadores Organizacionais) [ Utilizadores Organizacionais Acesso à Rede a Contas Não Privilegiadas
 
-Este projeto ajuda a restringir e controlar o acesso atribuindo uma definição de [Azure Policy](../../../policy/overview.md) a contas de auditoria com permissões de leitura que não têm a autenticação multifator habilitada. A autenticação multifator ajuda a manter as contas seguras mesmo que uma parte das informações de autenticação seja comprometida. Ao monitorar contas sem a autenticação multifator habilitada, você pode identificar contas que podem ser mais prováveis de serem comprometidas.
+Este plano ajuda-o a restringir e controlar o acesso atribuindo uma definição de [Política Azure](../../../policy/overview.md) para auditar contas com permissões de leitura que não tenham autenticação multifactor ativada. A autenticação de vários fatores ajuda a manter as contas seguras mesmo que uma peça de informação de autenticação seja comprometida. Ao monitorizar contas sem autenticação multifactor ativada, pode identificar contas que possam ser mais suscetíveis de serem comprometidas.
 
-- A MFA deve ser habilitada em contas com permissões de leitura em sua assinatura
+- MFA deve ser ativado em contas com permissões de leitura na sua subscrição
 
-## <a name="ia-5-authenticator-management"></a>Gerenciamento de autenticador IA-5
+## <a name="ia-5-authenticator-management"></a>Gestão do Autenticador IA-5
 
-Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que auditam as máquinas virtuais Linux que permitem conexões remotas de contas sem senhas e/ou têm permissões incorretas definidas no arquivo passwd. Este projeto também atribui definições de política que auditam a configuração do tipo de criptografia de senha para máquinas virtuais do Windows. O monitoramento desses indicadores ajuda a garantir que os autenticadores de sistema estejam em conformidade com a política de identificação e autenticação da sua organização.
+Esta planta atribui definições [de Política Azure](../../../policy/overview.md) que auditam máquinas virtuais Linux que permitem ligações remotas a partir de contas sem senhas e/ou têm permissões incorretas definidas no ficheiro passwd. Esta planta também atribui definições de política que auditam a configuração do tipo de encriptação de palavra-passe para máquinas virtuais windows. Monitorizar estes indicadores ajuda-o a garantir que os autenticadores do sistema cumprem a política de identificação e autenticação da sua organização.
 
-- \[\]de visualização: auditar VMs Linux que não têm as permissões de arquivo passwd definidas como 0644
-- \[\]de visualização: auditar VMs do Linux que têm contas sem senhas
-- \[\]de visualização: auditar VMs do Windows que não armazenam senhas usando criptografia reversível
-- \]de visualização de \[: implantar requisitos para auditar VMs Linux que não têm as permissões de arquivo passwd definidas como 0644
-- \]de visualização do \[: implantar requisitos para auditar VMs do Linux que têm contas sem senhas
-- \]de visualização do \[: implantar requisitos para auditar VMs do Windows que não armazenam senhas usando criptografia reversível
+- \[Pré-visualização\]: Audite VMs Linux que não tenham as permissões de ficheiro sinuosas definidas para 0644
+- \[Pré-visualização\]: Audite VMs Linux que tenham contas sem senhas
+- \[Pré-visualização\]: Auditar VMs do Windows que não armazenam palavras-passe usando encriptação reversível
+- \[Pré-visualização\]: Implementar requisitos para auditar VMs Linux que não tenham as permissões de ficheiro sinuosas definidas para 0644
+- \[Pré-visualização\]: Implementar requisitos para auditar VMs Linux que tenham contas sem senhas
+- \[Pré-visualização\]: Implementar requisitos para auditar VMs do Windows que não armazenam palavras-passe usando encriptação reversível
 
-## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>Gerenciamento de autenticador IA-5 (1) | Autenticação baseada em senha
+## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) Gestão do Autenticador / Autenticação baseada em palavra-passe
 
-Este projeto ajuda a impor senhas fortes atribuindo definições de [Azure Policy](../../../policy/overview.md) que auditam as máquinas virtuais do Windows que não impõem a força mínima e outros requisitos de senha. A conscientização de máquinas virtuais em violação da política de força de senha ajuda você a tomar medidas corretivas para garantir que as senhas de todas as contas de usuário de máquina virtual estejam em conformidade com a política de senha da sua organização.
+Este plano ajuda-o a impor senhas fortes atribuindo definições de [Política Azure](../../../policy/overview.md) que auditam máquinas virtuais do Windows que não impõem a força mínima e outros requisitos de senha. A consciencialização das máquinas virtuais em violação da política de força da palavra-passe ajuda-o a tomar medidas corretivas para garantir que as palavras-passe de todas as contas de utilizadores de máquinas virtuais cumpram a política de passwords da sua organização.
 
-- \[\]de visualização: auditar VMs do Windows que permitem o reuso das 24 senhas anteriores
-- \[\]de visualização: auditar VMs do Windows que não têm uma duração máxima de senha de 70 dias
-- \]de visualização de \[: auditar VMs do Windows que não têm uma duração mínima de senha de 1 dia
-- \[\]de visualização: auditar VMs do Windows que não têm a configuração de complexidade de senha habilitada
-- \[\]de visualização: auditar VMs do Windows que não restringem o comprimento mínimo da senha a 14 caracteres
-- \[\]de visualização: auditar VMs do Windows que não armazenam senhas usando criptografia reversível
-- \]de visualização do \[: implantar requisitos para auditar VMs do Windows que permitem o reuso das 24 senhas anteriores
-- \]de visualização do \[: implantar requisitos para auditar VMs do Windows que não têm uma duração máxima de senha de 70 dias
-- \]de visualização do \[: implantar requisitos para auditar VMs do Windows que não têm uma duração mínima de senha de 1 dia
-- \]de visualização do \[: implantar requisitos para auditar VMs do Windows que não têm a configuração de complexidade de senha habilitada
-- \]de visualização do \[: implantar requisitos para auditar VMs do Windows que não restringem o comprimento mínimo da senha a 14 caracteres
-- \]de visualização do \[: implantar requisitos para auditar VMs do Windows que não armazenam senhas usando criptografia reversível
+- \[Pré-visualização\]: Auditar VMs do Windows que permitem a reutilização das 24 senhas anteriores
+- \[Pré-visualização\]: Auditar VMs do Windows que não tenham uma idade máxima de senha de 70 dias
+- \[Pré-visualização\]: Auditar VMs windows que não tenham uma idade mínima de senha de 1 dia
+- \[Pré-visualização\]: Audite VMs windows que não tenham a definição de complexidade da palavra-passe ativada
+- \[Pré-visualização\]: Auditar VMs do Windows que não restringem o comprimento mínimo da palavra-passe a 14 caracteres
+- \[Pré-visualização\]: Auditar VMs do Windows que não armazenam palavras-passe usando encriptação reversível
+- \[Pré-visualização\]: Implementar requisitos para auditar VMs do Windows que permitam a reutilização das 24 senhas anteriores
+- \[Pré-visualização\]: Implementar requisitos para auditar VMs do Windows que não tenham uma idade máxima de senha de 70 dias
+- \[Pré-visualização\]: Implementar requisitos para auditar VMs do Windows que não tenham uma idade mínima de senha de 1 dia
+- \[Pré-visualização\]: Implementar requisitos para auditar VMs do Windows que não tenham a definição de complexidade da palavra-passe ativada
+- \[Pré-visualização\]: Implementar requisitos para auditar VMs do Windows que não restringem o comprimento mínimo da palavra-passe a 14 caracteres
+- \[Pré-visualização\]: Implementar requisitos para auditar VMs do Windows que não armazenam palavras-passe usando encriptação reversível
 
-## <a name="ra-5-vulnerability-scanning"></a>Verificação de vulnerabilidades de RA-5
+## <a name="ra-5-vulnerability-scanning"></a>Digitalização de vulnerabilidadeRA-5
 
-Este projeto ajuda a gerenciar as vulnerabilidades do sistema de informações atribuindo definições de [Azure Policy](../../../policy/overview.md) que monitorem vulnerabilidades do sistema operacional, vulnerabilidades do SQL e vulnerabilidades de máquinas virtuais na central de segurança do Azure. A central de segurança do Azure fornece recursos de relatório que permitem que você tenha informações em tempo real sobre o estado de segurança dos recursos do Azure implantados. Este projeto também atribui definições de política que auditam e impõem a segurança de dados avançada em servidores SQL. A segurança avançada de dados inclui recursos de avaliação de vulnerabilidade e proteção avançada contra ameaças para ajudá-lo a entender as vulnerabilidades em seus recursos implantados.
+Esta planta ajuda-o a gerir as vulnerabilidades do sistema de informação atribuindo definições de [Política Azure](../../../policy/overview.md) que monitorizam vulnerabilidades do sistema operativo, vulnerabilidades SQL e vulnerabilidades de máquinas virtuais no Azure Security Center. O Azure Security Center fornece capacidades de reporte que lhe permitem ter informações em tempo real sobre o estado de segurança dos recursos azure implantados. Esta planta também atribui definições de política que auditam e impõem segurança avançada de dados em servidores SQL. A segurança avançada de dados incluiu avaliação de vulnerabilidade e capacidades avançadas de proteção contra ameaças para ajudá-lo a entender vulnerabilidades nos seus recursos implantados.
 
-- A segurança de dados avançada deve ser habilitada em suas instâncias gerenciadas
-- A segurança de dados avançada deve estar ativada nos seus servidores SQL
-- Implantar a segurança de dados avançada em servidores SQL
-- Vulnerabilidades na configuração de segurança em seus conjuntos de dimensionamento de máquinas virtuais devem ser corrigidas
-- Vulnerabilidades na configuração de segurança em suas máquinas virtuais devem ser corrigidas
-- Vulnerabilidades em seus bancos de dados SQL devem ser corrigidas
-- Vulnerabilidades devem ser corrigidas por uma solução de avaliação de vulnerabilidade
+- A segurança avançada dos dados deve ser ativada nas suas instâncias geridas
+- A segurança avançada de dados deve ser ativada nos seus servidores SQL
+- Implementar segurança avançada de dados em servidores SQL
+- As vulnerabilidades na configuração de segurança nos conjuntos de escala de máquinas virtuais devem ser remediadas
+- As vulnerabilidades na configuração de segurança das suas máquinas virtuais devem ser remediadas
+- As vulnerabilidades nas suas bases de dados SQL devem ser remediadas
+- Vulnerabilidades devem ser remediadas por uma solução de Avaliação de Vulnerabilidades
 
-## <a name="sc-5-denial-of-service-protection"></a>Proteção de negação de serviço SC-5
+## <a name="sc-5-denial-of-service-protection"></a>SC-5 Negação de Proteção de Serviços
 
-A camada padrão de DDoS (negação de serviço distribuído) do Azure fornece recursos adicionais e recursos de mitigação na camada de serviço básica. Esses recursos adicionais incluem a integração do Azure Monitor e a capacidade de revisar relatórios de mitigação após o ataque. Essa especificação técnica atribui uma definição de [Azure Policy](../../../policy/overview.md) que audita se a camada padrão de DDoS está habilitada. Entender a diferença de capacidade entre as camadas de serviço pode ajudá-lo a selecionar a melhor solução para tratar das proteções de negação de serviço para seu ambiente do Azure.
+O nível padrão de negação de serviço distribuído da Azure (DDoS) fornece funcionalidades adicionais e capacidades de mitigação sobre o nível de serviço básico. Estas funcionalidades adicionais incluem a integração do Monitor Azure e a capacidade de rever relatórios de mitigação pós-ataque. Este projeto atribui uma definição de [Política Azure](../../../policy/overview.md) que audita se o nível padrão DDoS estiver ativado. Compreender a diferença de capacidade entre os níveis de serviço pode ajudá-lo a selecionar a melhor solução para lidar com a negação das proteções de serviço para o seu ambiente Azure.
 
-- A proteção contra DDoS Standard deve ser habilitada
+- Norma de proteção DDoS deve ser ativada
 
-## <a name="sc-7-boundary-protection"></a>Proteção de limite SC-7
+## <a name="sc-7-boundary-protection"></a>Proteção de Fronteiras SC-7
 
-Este projeto ajuda você a gerenciar e controlar o limite do sistema atribuindo uma definição de [Azure Policy](../../../policy/overview.md) que monitora recomendações de proteção de grupo de segurança de rede na central de segurança do Azure. A central de segurança do Azure analisa os padrões de tráfego das máquinas virtuais voltadas para a Internet e fornece recomendações de regra de grupo de segurança de rede para reduzir a superfície potencial de ataque.
-Além disso, esse Blueprint também atribui definições de política que monitorem pontos de extremidade, aplicativos e contas de armazenamento desprotegidos. Pontos de extremidade e aplicativos que não são protegidos por um firewall e contas de armazenamento com acesso irrestrito podem permitir o acesso não intencional às informações contidas no sistema de informações.
+Este plano ajuda-o a gerir e controlar o limite do sistema atribuindo uma definição [de Política Azure](../../../policy/overview.md) que monitoriza as recomendações de endurecimento do grupo de segurança de rede no Azure Security Center. O Azure Security Center analisa os padrões de tráfego da Internet que enfrentam máquinas virtuais e fornece recomendações de regras do grupo de segurança da rede para reduzir a superfície de ataque potencial.
+Além disso, este projeto também atribui definições de políticas que monitorizam pontos finais, aplicações e contas de armazenamento desprotegidas. Pontos finais e aplicações que não estejam protegidas por uma firewall, e contas de armazenamento com acesso sem restrições podem permitir o acesso não intencional a informações contidas no sistema de informação.
 
-- As regras do grupo de segurança de rede para máquinas virtuais voltadas para a Internet devem ser protegidas
-- O acesso pelo ponto de extremidade voltado para a Internet deve ser restrito
-- As regras de NSGs para aplicativos Web em IaaS devem ser protegidas
-- Auditar o acesso irrestrito à rede para contas de armazenamento
+- As regras do Grupo de Segurança da Rede para as máquinas virtuais viradas para a Internet devem ser endurecidas
+- O acesso através da Internet virado para o ponto final deve ser restringido
+- As regras do NSGs para aplicações web em IaaS devem ser endurecidas
+- Auditoria sem restrições ao acesso da rede às contas de armazenamento
 
-## <a name="sc-7-3-boundary-protection--access-points"></a>Proteção de limite SC-7 (3) | Pontos de acesso
+## <a name="sc-7-3-boundary-protection--access-points"></a>SC-7 (3) Proteção de Fronteiras [ Pontos de Acesso
 
-O acesso à máquina virtual JIT (just-in-time) bloqueia o tráfego de entrada para as máquinas virtuais do Azure, reduzindo a exposição a ataques e, ao mesmo tempo, fornecendo acesso fácil para se conectar às VMs quando necessário. O acesso à máquina virtual JIT ajuda você a limitar o número de conexões externas com seus recursos no Azure. Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a monitorar máquinas virtuais que podem dar suporte ao acesso just-in-time, mas que ainda não foram configuradas.
+O acesso à máquina virtual just-in-time (JIT) bloqueia o tráfego de entrada para máquinas virtuais Azure, reduzindo a exposição a ataques, proporcionando um fácil acesso à ligação aos VMs quando necessário. O acesso à máquina virtual JIT ajuda-o a limitar o número de ligações externas aos seus recursos em Azure. Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a monitorizar máquinas virtuais que podem suportar acesso just-in-time mas ainda não foram configuradas.
 
-- O controle de acesso à rede just-in-time deve ser aplicado em máquinas virtuais
+- O controlo de acesso à rede Just-In-Time deve ser aplicado em máquinas virtuais
 
-## <a name="sc-7-4-boundary-protection--external-telecommunications-services"></a>Proteção de limite SC-7 (4) | Serviços de telecomunicações externos
+## <a name="sc-7-4-boundary-protection--external-telecommunications-services"></a>SC-7 (4) Proteção de Fronteiras [ Serviços Externos de Telecomunicações
 
-O acesso à máquina virtual JIT (just-in-time) bloqueia o tráfego de entrada para as máquinas virtuais do Azure, reduzindo a exposição a ataques e, ao mesmo tempo, fornecendo acesso fácil para se conectar às VMs quando necessário. O acesso à máquina virtual JIT ajuda você a gerenciar exceções em sua política de fluxo de tráfego facilitando os processos de solicitação e aprovação de acesso. Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a monitorar máquinas virtuais que podem dar suporte ao acesso just-in-time, mas que ainda não foram configuradas.
+O acesso à máquina virtual just-in-time (JIT) bloqueia o tráfego de entrada para máquinas virtuais Azure, reduzindo a exposição a ataques, proporcionando um fácil acesso à ligação aos VMs quando necessário. O acesso à máquina virtual JIT ajuda-o a gerir exceções à sua política de fluxo de tráfego facilitando os processos de pedido de acesso e aprovação. Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a monitorizar máquinas virtuais que podem suportar acesso just-in-time mas ainda não foram configuradas.
 
-- O controle de acesso à rede just-in-time deve ser aplicado em máquinas virtuais
+- O controlo de acesso à rede Just-In-Time deve ser aplicado em máquinas virtuais
 
-## <a name="sc-8-1-transmission-confidentiality-and-integrity--cryptographic-or-alternate-physical-protection"></a>Integridade e confidencialidade da transmissão do SC-8 (1) | Proteção física criptográfica ou alternativa
+## <a name="sc-8-1-transmission-confidentiality-and-integrity--cryptographic-or-alternate-physical-protection"></a>SC-8 (1) Confidencialidade e Integridade da Transmissão ; Proteção Física Criptográfica ou Alternativa
 
-Este projeto ajuda a proteger a confidencialidade e a integridade das informações transmitidas atribuindo definições de [Azure Policy](../../../policy/overview.md) que ajudam a monitorar o mecanismo criptográfico implementado para protocolos de comunicação. Garantir que as comunicações sejam criptografadas corretamente pode ajudá-lo a atender aos requisitos da sua organização ou a proteger as informações contra a divulgação e a modificação não autorizadas.
+Esta planta ajuda-o a proteger a confidencialidade e integridade das informações transmitidas, atribuindo definições de [Política Azure](../../../policy/overview.md) que o ajudam a monitorizar o mecanismo criptográfico implementado para protocolos de comunicações. Garantir que as comunicações estão devidamente encriptadas pode ajudá-lo a satisfazer os requisitos da sua organização ou proteger informações contra divulgação e modificação não autorizadas.
 
-- O aplicativo de API só deve ser acessível via HTTPS
-- Auditar servidores Web do Windows que não estão usando protocolos de comunicação segura
-- Implantar requisitos para auditar servidores Web do Windows que não usam protocolos de comunicação segura
-- Aplicativo de funções só deve ser acessível via HTTPS
-- Somente conexões seguras para o cache Redis devem ser habilitadas
-- A transferência segura para contas de armazenamento deve ser habilitada
-- O aplicativo Web só deve ser acessível via HTTPS
+- A Aplicação API só deve ser acessível em HTTPS
+- Audite servidores web do Windows que não estão a usar protocolos de comunicação seguros
+- Implementar requisitos para auditar servidores web do Windows que não estão a usar protocolos de comunicação seguros
+- App de funções só deve ser acessível através de HTTPS
+- Apenas ligações seguras ao seu Redis Cache devem ser ativadas
+- A transferência segura para contas de armazenamento deve ser ativada
+- Aplicação Web só deve ser acessível em HTTPS
 
-## <a name="sc-28-1-protection-of-information-at-rest--cryptographic-protection"></a>SC-28 (1) proteção de informações em repouso | Proteção criptográfica
+## <a name="sc-28-1-protection-of-information-at-rest--cryptographic-protection"></a>SC-28 (1) Proteção de Informação em Repouso [ Proteção Criptográfica
 
-Este projeto ajuda a reforçar a política sobre o uso de controles cryptograph para proteger as informações em repouso atribuindo definições de [Azure Policy](../../../policy/overview.md) que impõem controles cryptograph específicos e auditam o uso de configurações de criptografia fracas. Entender onde os recursos do Azure podem ter configurações criptográficas não ideais pode ajudá-lo a tomar medidas corretivas para garantir que os recursos sejam configurados de acordo com sua política de segurança de informações. Especificamente, as definições de política atribuídas por este projeto exigem criptografia para contas de armazenamento do data Lake; exigir Transparent Data Encryption em bancos de dados SQL; e auditar a criptografia ausente em bancos de dados SQL, discos de máquina virtual e variáveis de conta de automação.
+Esta planta ajuda-o a impor a sua política sobre a utilização de controlos criptógrafos para proteger a informação em repouso, atribuindo definições de [Política Azure](../../../policy/overview.md) que impõem controlos criptográficos específicos e uso de auditoria de configurações criptográficas fracas. Compreender onde os seus recursos Azure podem ter configurações criptográficas não ótimas pode ajudá-lo a tomar medidas corretivas para garantir que os recursos estão configurados de acordo com a sua política de segurança de informação. Especificamente, as definições de política atribuídas por esta planta requerem encriptação para contas de armazenamento de data lake; requerem encriptação transparente de dados nas bases de dados SQL; e auditar a encriptação em falta nas bases de dados SQL, discos de máquinas virtuais e variáveis de conta de automação.
 
-- A segurança de dados avançada deve ser habilitada em suas instâncias gerenciadas
-- A segurança de dados avançada deve estar ativada nos seus servidores SQL
-- Implantar a segurança de dados avançada em servidores SQL
-- Implantar a Transparent Data Encryption do banco de dados SQL
-- A criptografia de disco deve ser aplicada em máquinas virtuais
-- Exigir criptografia em contas de Data Lake Store
-- Transparent Data Encryption em bancos de dados SQL devem ser habilitadas
+- A segurança avançada dos dados deve ser ativada nas suas instâncias geridas
+- A segurança avançada de dados deve ser ativada nos seus servidores SQL
+- Implementar segurança avançada de dados em servidores SQL
+- Implementar encriptação transparente de dados SQL DB
+- A encriptação do disco deve ser aplicada em máquinas virtuais
+- Exigir encriptação nas contas da Data Lake Store
+- Encriptação transparente de dados nas bases de dados SQL deve ser ativada
 
-## <a name="si-2-flaw-remediation"></a>Correção de falha de SI-2
+## <a name="si-2-flaw-remediation"></a>Reparação de falhas SI-2
 
-Este projeto ajuda a gerenciar falhas do sistema de informações atribuindo definições de [Azure Policy](../../../policy/overview.md) que monitoram atualizações de sistema ausentes, vulnerabilidades de sistema operacional, vulnerabilidades de SQL e vulnerabilidades de máquina virtual na central de segurança do Azure. A central de segurança do Azure fornece recursos de relatório que permitem que você tenha informações em tempo real sobre o estado de segurança dos recursos do Azure implantados. Este projeto também atribui uma definição de política que garante a aplicação de patches do sistema operacional para conjuntos de dimensionamento de máquinas virtuais.
+Esta planta ajuda-o a gerir falhas no sistema de informação atribuindo definições de [Política Azure](../../../policy/overview.md) que monitorizam as atualizações do sistema em falta, vulnerabilidades do sistema operativo, vulnerabilidades SQL e vulnerabilidades de máquinas virtuais no Azure Security Center. O Azure Security Center fornece capacidades de reporte que lhe permitem ter informações em tempo real sobre o estado de segurança dos recursos azure implantados. Este projeto também atribui uma definição de política que garante a correção do sistema operativo para conjuntos de escala de máquinas virtuais.
 
-- Exigir aplicação automática de patch de imagem de sistema operacional em conjuntos de dimensionamento de máquinas virtuais
-- As atualizações do sistema em conjuntos de dimensionamento de máquinas virtuais devem ser instaladas
-- As atualizações do sistema devem ser instaladas em suas máquinas virtuais
-- Vulnerabilidades na configuração de segurança em seus conjuntos de dimensionamento de máquinas virtuais devem ser corrigidas
-- Vulnerabilidades na configuração de segurança em suas máquinas virtuais devem ser corrigidas
-- Vulnerabilidades em seus bancos de dados SQL devem ser corrigidas
-- Vulnerabilidades devem ser corrigidas por uma solução de avaliação de vulnerabilidade
+- Remendar a imagem automática do OS em conjuntos de escala de máquina virtual
+- As atualizações do sistema nos conjuntos de escala de máquinas virtuais devem ser instaladas
+- As atualizações do sistema devem ser instaladas nas suas máquinas virtuais
+- As vulnerabilidades na configuração de segurança nos conjuntos de escala de máquinas virtuais devem ser remediadas
+- As vulnerabilidades na configuração de segurança das suas máquinas virtuais devem ser remediadas
+- As vulnerabilidades nas suas bases de dados SQL devem ser remediadas
+- Vulnerabilidades devem ser remediadas por uma solução de Avaliação de Vulnerabilidades
 
-## <a name="si-3-malicious-code-protection"></a>Proteção de código mal-intencionado SI-3
+## <a name="si-3-malicious-code-protection"></a>Proteção de Código Malicioso SI-3
 
-Este projeto ajuda você a gerenciar o Endpoint Protection, incluindo a proteção de código mal-intencionado, atribuindo definições de [Azure Policy](../../../policy/overview.md) que monitorem a proteção de ponto de extremidade ausente em máquinas virtuais na central de segurança do Azure e impõem a solução antimalware da Microsoft em máquinas virtuais do Windows.
+Esta planta ajuda-o a gerir a proteção de pontos finais, incluindo proteção de código sucucionada, atribuindo definições de [Política Azure](../../../policy/overview.md) que monitorizam a falta de proteção de pontos finais em máquinas virtuais no Azure Security Center e aplicam a solução antimalware da Microsoft em máquinas virtuais windows.
 
-- Implantar a extensão padrão do Microsoft Iaasantimalware da para Windows Server
-- A solução Endpoint Protection deve ser instalada em conjuntos de dimensionamento de máquinas virtuais
-- Monitorar Endpoint Protection ausentes na central de segurança do Azure
+- Implementar extensão padrão microsoft IaaSAntimalware para Windows Server
+- A solução de proteção do ponto final deve ser instalada em conjuntos de escala de máquinavirtual
+- Monitor desaparecido Proteção de Ponto final no Centro de Segurança Azure
 
-## <a name="si-3-1-malicious-code-protection--central-management"></a>SI-3 (1) proteção de código mal-intencionado | Gerenciamento central
+## <a name="si-3-1-malicious-code-protection--central-management"></a>SI-3 (1) Proteção de Código Malicioso [ Gestão Central
 
-Este projeto ajuda a gerenciar o Endpoint Protection, incluindo a proteção de código mal-intencionado, atribuindo definições de [Azure Policy](../../../policy/overview.md) que monitorem a proteção de ponto de extremidade ausente em máquinas virtuais na central de segurança do Azure. A central de segurança do Azure fornece recursos centralizados de gerenciamento e relatórios que permitem que você tenha informações em tempo real sobre o estado de segurança dos recursos do Azure implantados.
+Esta planta ajuda-o a gerir a proteção de pontos finais, incluindo proteção de código sucucionada, atribuindo definições de [Política Azure](../../../policy/overview.md) que monitorizam a falta de proteção de pontos finais em máquinas virtuais no Azure Security Center. O Azure Security Center fornece capacidades centralizadas de gestão e reporte que lhe permitem ter uma visão em tempo real sobre o estado de segurança dos recursos azure implantados.
 
-- A solução Endpoint Protection deve ser instalada em conjuntos de dimensionamento de máquinas virtuais
-- Monitorar Endpoint Protection ausentes na central de segurança do Azure
+- A solução de proteção do ponto final deve ser instalada em conjuntos de escala de máquinavirtual
+- Monitor desaparecido Proteção de Ponto final no Centro de Segurança Azure
 
-## <a name="si-4-information-system-monitoring"></a>Monitoramento do sistema de informações do SI-4
+## <a name="si-4-information-system-monitoring"></a>Monitorização do sistema de informação SI-4
 
-Este projeto ajuda você a monitorar o sistema ao auditar e impor o registro em log e a segurança de dados nos recursos do Azure. Especificamente, as políticas atribuiram auditoria e impõem a implantação do agente de Log Analytics e configurações de segurança aprimoradas para bancos de dados SQL, contas de armazenamento e recursos de rede. Esses recursos podem ajudá-lo a detectar comportamento anormal e indicadores de ataques para que você possa tomar as medidas apropriadas.
+Esta planta ajuda-o a monitorizar o seu sistema auditando e aplicando a segurança de registos e dados através dos recursos do Azure. Especificamente, as políticas atribuídas auditoria e aplicação do agente Log Analytics, e definições de segurança melhoradas para bases de dados SQL, contas de armazenamento e recursos de rede. Estas capacidades podem ajudá-lo a detetar comportamentos anómalos e indicadores de ataques para que possa tomar as medidas adequadas.
 
-- \[visualização\]: auditoria Log Analytics implantação do agente – imagem da VM (SO) não listada
-- \[visualização\]: auditoria Log Analytics implantação do agente em VMSS-imagem da VM (SO) não listada
-- \[visualização\]: Log Analytics do espaço de trabalho de auditoria para VM – relatar incompatibilidade
-- \]de visualização do \[: implantar o agente de Log Analytics para conjuntos de dimensionamento de VM do Linux (VMSS)
-- \]de visualização de \[: implantar o agente de Log Analytics para VMs Linux
-- \]de visualização de \[: implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows
-- \]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows
-- A segurança de dados avançada deve ser habilitada em suas instâncias gerenciadas
-- A segurança de dados avançada deve estar ativada nos seus servidores SQL
-- Implantar a segurança de dados avançada em servidores SQL
-- Implantar a proteção avançada contra ameaças em contas de armazenamento
-- Implantar a auditoria em servidores SQL
-- Implantar o observador de rede quando redes virtuais forem criadas
-- Implantar a detecção de ameaças em servidores SQL
+- \[Pré-visualização\]: Implementação de agente de análise de registo de auditoria - Imagem VM (OS) não listada
+- \[Pré-visualização\]: Implementação de agente de análise de registo de auditoria em VMSS - Imagem VM (OS) não listada
+- \[Pré-visualização\]: Audit Log Analytics Workspace for VM - Report Mismatch
+- \[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala SM (VMSS)
+- \[Pré-visualização\]: Implementar o Agente de Análise de Registo para VMs Linux
+- \[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala seletivas VM Do Windows (VMSS)
+- \[Pré-visualização\]: Implementar o agente de análise de registo para VMs do Windows
+- A segurança avançada dos dados deve ser ativada nas suas instâncias geridas
+- A segurança avançada de dados deve ser ativada nos seus servidores SQL
+- Implementar segurança avançada de dados em servidores SQL
+- Implementar proteção avançada de ameaças em contas de armazenamento
+- Implementar auditoria sql
+- Implementar o observador da rede quando as redes virtuais são criadas
+- Implementar deteção de ameaças em servidores SQL
 
-## <a name="si-4-18-information-system-monitoring--analyze-traffic--covert-exfiltration"></a>Monitoramento do sistema de informações do SI-4 (18) | Analisar o tráfego/cobrir vazamento
+## <a name="si-4-18-information-system-monitoring--analyze-traffic--covert-exfiltration"></a>SI-4 (18) Monitorização do Sistema de Informação [ Analisar tráfego / exfiltração secreta
 
-A proteção avançada contra ameaças para o armazenamento do Azure detecta tentativas incomuns e potencialmente prejudiciais de acessar ou explorar contas de armazenamento. Os alertas de proteção incluem padrões de acesso anormal, extratos/carregamentos anormais e atividade de armazenamento suspeita. Esses indicadores podem ajudá-lo a detectar vazamento de informações.
+A Proteção Avançada de Ameaças para armazenamento azure deteta tentativas incomuns e potencialmente nocivas de acesso ou exploração de contas de armazenamento. Os alertas de proteção incluem padrões de acesso anómalos, extratos/uploads anómalos e atividade de armazenamento suspeito. Estes indicadores podem ajudá-lo a detetar a exfiltração secreta de informação.
 
-- Implantar a proteção avançada contra ameaças em contas de armazenamento
+- Implementar proteção avançada de ameaças em contas de armazenamento
 
 > [!NOTE]
-> A disponibilidade de definições de Azure Policy específicas pode variar no Azure governamental e em outras nuvens nacionais.
+> A disponibilidade de definições específicas da Política Azure pode variar no Governo de Azure e noutras nuvens nacionais.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você analisou o mapeamento de controle do especificações do NIST SP 800-53 R4, visite os artigos a seguir para saber mais sobre o plano gráfico e como implantar esse exemplo:
+Agora que reviu o mapeamento de controlo do projeto NIST SP 800-53 R4, visite os seguintes artigos para saber sobre a planta e como implementar esta amostra:
 
 > [!div class="nextstepaction"]
-> [NIST sp 800-53 R4 Blueprint-visão geral](./index.md)
-> [NIST SP 800-53 R4 Blueprint-etapas de implantação](./deploy.md)
+> [Plano NIST SP 800-53 R4 - Visão geral](./index.md)
+> [NIST SP 800-53 R4 - Desloque os passos](./deploy.md)
 
 Artigos adicionais sobre esquemas e como os utilizar:
 
-- Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
+- Conheça o ciclo de vida da [planta.](../../concepts/lifecycle.md)
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

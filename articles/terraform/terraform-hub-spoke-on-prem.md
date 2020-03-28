@@ -1,42 +1,42 @@
 ---
-title: Tutorial – criar rede virtual local no Azure usando o Terraform
-description: Tutorial ilustrando como implementar uma VNet local no Azure que hospeda recursos locais
+title: Tutorial - Criar rede virtual no local em Azure usando terraforma
+description: Tutorial ilustrando como implementar um VNet no local em Azure que abriga recursos locais
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 361f9919fdd406a1fef6bbf2b7512dbc20266a54
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74159215"
 ---
-# <a name="tutorial-create-on-premises-virtual-network-in-azure-using-terraform"></a>Tutorial: criar uma rede virtual local no Azure usando o Terraform
+# <a name="tutorial-create-on-premises-virtual-network-in-azure-using-terraform"></a>Tutorial: Criar rede virtual no local em Azure usando terrafora
 
-Este tutorial mostra como implementar uma rede local usando uma rede virtual (VNet) do Azure. Uma VNet do Azure pode ser substituída por sua própria rede virtual privada. Para fazer isso, mapeie os endereços IP apropriados nas sub-redes.
+Este tutorial mostra como implementar uma rede no local utilizando uma rede virtual Azure (VNet). Um Azure VNet pode ser substituído pela sua própria rede virtual privada. Para isso, mapeie os endereços IP apropriados nas subredes.
 
 As seguintes tarefas são explicadas:
 
 > [!div class="checklist"]
-> * Use a HCL (linguagem HashiCorp) para implementar uma VNet local na topologia hub-spoke
-> * Usar o Terraform para criar recursos de dispositivo de rede de Hub
-> * Usar o Terraform para criar uma máquina virtual local
-> * Usar o Terraform para criar um gateway de rede virtual privada local
+> * Use hCL (HashiCorp Language) para implementar um VNet no local em topologia centrada no hub
+> * Use terrafora para criar recursos de eletrodomésticos de rede hub
+> * Use terraforma para criar máquina virtual no local
+> * Use terrafora para criar gateway de rede privada virtual no local
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. [Crie uma topologia de rede híbrida de Hub e spoke com Terraform no Azure](./terraform-hub-spoke-introduction.md).
+1. [Crie um hub e falou de topologia híbrida com terraforma em Azure.](./terraform-hub-spoke-introduction.md)
 
 ## <a name="create-the-directory-structure"></a>Criar a estrutura de diretórios
 
-Para simular uma rede local, crie uma rede virtual do Azure. A VNet de demonstração assume o lugar de uma rede local privada real. Para fazer o mesmo com sua rede local existente, mapeie os endereços IP apropriados nas sub-redes.
+Para simular uma rede no local, crie uma rede virtual Azure. A demo VNet toma o lugar de uma rede privada no local. Para fazer o mesmo com a rede existente no local, mapeie os endereços IP apropriados nas subredes.
 
-1. Navegue para o [portal do Azure](https://portal.azure.com).
+1. Navegue pelo [portal Azure.](https://portal.azure.com)
 
-1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se não tiver selecionado um ambiente anteriormente, selecione **Bash** como o seu ambiente.
+1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se ainda não tiver selecionado um ambiente, selecione **Bash** como o seu ambiente.
 
-    ![Comandos do Cloud Shell](./media/terraform-common/azure-portal-cloud-shell-button-min.png)
+    ![Comando do Cloud Shell](./media/terraform-common/azure-portal-cloud-shell-button-min.png)
 
-1. Altere os diretórios para o diretório `clouddrive`.
+1. Mude para o diretório `clouddrive`.
 
     ```bash
     cd clouddrive
@@ -48,11 +48,11 @@ Para simular uma rede local, crie uma rede virtual do Azure. A VNet de demonstra
     cd hub-spoke
     ```
 
-## <a name="declare-the-on-premises-vnet"></a>Declarar a VNet local
+## <a name="declare-the-on-premises-vnet"></a>Declare o VNet no local
 
-Crie o arquivo de configuração Terraform que declara uma VNet local.
+Crie o ficheiro de configuração Terraform que declara um VNet no local.
 
-1. Em Cloud Shell, abra um novo arquivo chamado `on-prem.tf`.
+1. Na Cloud Shell, abra `on-prem.tf`um novo ficheiro chamado .
 
     ```bash
     code on-prem.tf
@@ -217,9 +217,9 @@ Crie o arquivo de configuração Terraform que declara uma VNet local.
     }
     ```
 
-1. Salve o arquivo e saia do editor.
+1. Guarde o ficheiro e saia do editor.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma rede virtual de Hub com o Terraform no Azure](./terraform-hub-spoke-hub-network.md)
+> [Criar uma rede virtual hub com terraforma em Azure](./terraform-hub-spoke-hub-network.md)

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure LDAPS para Serviços de Domínio de Diretório Ativo Azure  Microsoft Docs
+title: Tutorial - Configure LDAPS para Serviços de Domínio de Diretório Ativo Azure [ Microsoft Docs
 description: Neste tutorial, você aprende como configurar o protocolo de acesso seguro ao diretório leve (LDAPS) para um domínio gerido pelo Azure Ative Directory Domain Services.
 author: iainfoulds
 manager: daveba
@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: c9fc60549d895129af56f289c6247dcb377b973b
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: 6db2c907abc495ca3c88e1e73e885043a8f19997
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79298678"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79481539"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configure o LDAP seguro para um domínio gerido pelo Azure Ative Directory Domain Services
 
@@ -63,10 +63,10 @@ O certificado que solicita ou cria deve satisfazer os seguintes requisitos. O se
 
 * **Emitente fidedigno** - O certificado deve ser emitido por uma autoridade fidedigna por computadores que se ligam ao domínio gerido utilizando LDAP seguro. Esta autoridade pode ser uma CA pública ou uma Enterprise CA confiada por estes computadores.
 * **Vida útil** - O certificado deve ser válido pelo menos durante os próximos 3 a 6 meses. O acesso lDAP seguro ao seu domínio gerido é interrompido quando o certificado expirar.
-* **Nome** do assunto - O nome do assunto no certificado deve ser o seu domínio gerido. Por exemplo, se o seu domínio for nomeado *aaddscontoso.com,* o nome do certificado deve ser * *.aaddscontoso.com*.
+* **Nome** do assunto - O nome do assunto no certificado deve ser o seu domínio gerido. Por exemplo, se o seu domínio for nomeado *aaddscontoso.com,* o nome do certificado deve ser **.aaddscontoso.com*.
     * O nome DNS ou o nome alternativo do certificado devem ser um certificado wildcard para garantir que o LDAP seguro funcione corretamente com os Serviços de Domínio Azure AD. Os Controladores de Domínio utilizam nomes aleatórios e podem ser removidos ou adicionados para garantir que o serviço permanece disponível.
 * **Utilização da chave** - O certificado deve ser configurado para *assinaturas digitais* e chave de *precipherherment*.
-* **Final idade** do certificado - O certificado deve ser válido para autenticação do servidor SSL.
+* **Final idade** do certificado - O certificado deve ser válido para autenticação do servidor TLS.
 
 Existem várias ferramentas disponíveis para criar certificado auto-assinado, tais como OpenSSL, Keytool, MakeCert, [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet etc. Neste tutorial, vamos criar um certificado auto-assinado para LDAP seguro usando o cmdlet [New-SelfSignedCertificate.][New-SelfSignedCertificate] Abra uma janela PowerShell como **Administrador** e execute os seguintes comandos. Substitua a variável *$dnsName* pelo nome DNS utilizado pelo seu próprio domínio gerido, como *aaddscontoso.com:*
 
@@ -125,7 +125,7 @@ Antes de poder utilizar o certificado digital criado no passo anterior com o seu
 
     ![Abra a loja de certificados pessoais na Consola de Gestão da Microsoft](./media/tutorial-configure-ldaps/open-personal-store.png)
 
-1. O certificado auto-assinado criado no escalão anterior é apresentado, *como*aaddscontoso.com . Selecione este certificado à direita e, em seguida, escolha **Todas as Tarefas > Exportação...**
+1. O certificado auto-assinado criado no escalão anterior é apresentado, *como*aaddscontoso.com . Selecione este certificado e escolha **todas as tarefas > exportação...**
 
     ![Certificado de exportação na Consola de Gestão da Microsoft](./media/tutorial-configure-ldaps/export-cert.png)
 
@@ -150,7 +150,7 @@ Antes de poder utilizar o certificado digital criado no passo anterior com o seu
 
 Os computadores clientes devem confiar no emitente do certificado LDAP seguro para poder ligar com sucesso ao domínio gerido utilizando o LDAPS. Os computadores clientes precisam de um certificado para encriptar com sucesso dados que são desencriptados pelo Azure AD DS. Se utilizar um CA público, o computador deve confiar automaticamente nestes emitentes de certificados e ter um certificado correspondente. Neste tutorial você usa um certificado auto-assinado, e gerou um certificado que inclui a chave privada no passo anterior. Agora vamos exportar e, em seguida, instalar o certificado auto-assinado na loja de certificados fidedigna no computador cliente:
 
-1. Volte à loja de *Certificados MMC (Computador Local) > Personal > Certificates.* O certificado auto-assinado criado num passo anterior é mostrado, como *aaddscontoso.com*. Selecione este certificado à direita e, em seguida, escolha **Todas as Tarefas > Exportação...**
+1. Volte ao MMC para Certificados (Computador Local) > loja de *Certificados de > Pessoais.* O certificado auto-assinado criado num passo anterior é mostrado, como *aaddscontoso.com*. Selecione este certificado e escolha **todas as tarefas > exportação...**
 1. No **Certificado De Saque de Exportação,** selecione **Seguinte**.
 1. Como não precisa da chave privada para os clientes, na página **Chave Privada de Exportação** escolha **Não, não exporte a chave privada,** em seguida, selecione **Next**.
 1. Na página formato de formato de ficheiro de **exportação,** selecione **Base-64 codificada X.509 (. CER)** como formato de ficheiro para o certificado exportado:
@@ -160,7 +160,7 @@ Os computadores clientes devem confiar no emitente do certificado LDAP seguro pa
 1. Na página **De Registo para Exportação,** especifique o nome do ficheiro e a localização onde pretende exportar o certificado, como *C:\Users\accountname\azure-ad-ds-client.cer*.
 1. Na página de revisão, selecione **Terminar** para exportar o certificado para *a . Arquivo* de certificado cer. É apresentado um diálogo de confirmação quando o certificado tiver sido exportado com sucesso.
 
-*O.* O ficheiro de certificado CER pode agora ser distribuído para computadores clientes que precisam confiar na ligação LDAP segura ao domínio gerido pelo Azure AD DS. Vamos instalar o certificado no computador local.
+*O. *O ficheiro de certificado CER pode agora ser distribuído para computadores clientes que precisam confiar na ligação LDAP segura ao domínio gerido pelo Azure AD DS. Vamos instalar o certificado no computador local.
 
 1. Abra o Explorador de Ficheiros e navegue até ao local onde guardou o *. Ficheiro* de certificado CER, tal como *C:\Users\accountname\azure-ad-ds-client.cer*.
 1. Selecione à direita o *. Arquivo* de certificado CER, em seguida, escolha **Certificado de Instalação**.
@@ -208,19 +208,19 @@ Vamos criar uma regra que permita o acesso lDAP seguro de entrada sobre a porta 
 
 1. No portal Azure, selecione *Grupos de Recursos* na navegação lateral esquerda.
 1. Escolha o seu grupo de recursos, como o *myResourceGroup,* e selecione o seu grupo de segurança de rede, como *aaads-nsg*.
-1. A lista das regras de segurança de entrada e saída existentes é apresentada. No lado esquerdo das janelas do grupo de segurança da rede, escolha **Definições > Regras**de segurança de entrada .
+1. A lista das regras de segurança de entrada e saída existentes é apresentada. No lado esquerdo das janelas do grupo de segurança da rede, escolha **Definições > regras**de segurança de entrada .
 1. Selecione **Adicionar**e, em seguida, criar uma regra para permitir a porta *TCP* *636*. Para uma maior segurança, escolha a fonte como *Endereços IP* e, em seguida, especifique o seu próprio endereço IP válido ou intervalo para a sua organização.
 
     | Definição                           | Valor        |
     |-----------------------------------|--------------|
     | Origem                            | Endereços IP |
     | Endereços IP de origem / gamas CIDR | Um endereço IP válido ou intervalo para o seu ambiente |
-    | Source port ranges                | *            |
-    | Destination                       | Any          |
+    | Intervalo de portas de origem                | *            |
+    | Destino                       | Qualquer          |
     | Intervalos de portas de destino           | 636          |
-    | Protocol                          | TCP          |
+    | Protocolo                          | TCP          |
     | Ação                            | Permitir        |
-    | Priority                          | 401          |
+    | Prioridade                          | 401          |
     | Nome                              | AllowLDAPS   |
 
 1. Quando estiver pronto, selecione **Adicionar** para guardar e aplicar a regra.
@@ -245,13 +245,13 @@ O seguinte exemplo de entrada dNS, quer com o seu fornecedor externo de DNS quer
 
 Para ligar e ligar-se ao seu domínio gerido pelo Azure AD DS e pesquisar sobre o LDAP, utilize a ferramenta *LDP.exe.* Esta ferramenta está incluída no pacote Remote Server Administration Tools (RSAT). Para mais informações, consulte instalar ferramentas de administração do [servidor remoto.][rsat]
 
-1. Abra *o LDP.exe* e ligue-se ao domínio gerido. Selecione **Ligação**e, em seguida, escolha **Ligar...** .
+1. Abra *o LDP.exe* e ligue-se ao domínio gerido. Selecione **Ligação**e, em seguida, escolha **Ligar...**.
 1. Introduza o nome de domínio DNS LDAP seguro do seu domínio gerido criado no passo anterior, como *ldaps.aaddscontoso.com*. Para utilizar LDAP seguro, coloque a **Porta** para *636*e, em seguida, verifique a caixa para **SSL**.
 1. Selecione **OK** para ligar ao domínio gerido.
 
 Em seguida, ligue-se ao seu domínio gerido azure AD DS. Os utilizadores (e contas de serviço) não podem executar ligações simples LDAP se tiver desativado a sincronização de hash de senha NTLM na sua instância Azure AD DS. Para obter mais informações sobre a sincronização de hash de senha NTLM incapacitante, consulte [Secure your Azure AD DS managed domain][secure-domain].
 
-1. Selecione a opção de menu **Ligação** e, em seguida, escolha **Bind...** .
+1. Selecione a opção de menu **Ligação** e, em seguida, escolha **Bind...**.
 1. Fornecer as credenciais de uma conta de utilizador pertencente ao grupo de administradores da *AAD DC,* como *a contosoadmina.* Introduza a palavra-passe da conta de utilizador e introduza o seu domínio, como *aaddscontoso.com*.
 1. Para o **tipo Bind,** escolha a opção para *Ligar com credenciais*.
 1. Selecione **OK** para ligar ao seu domínio gerido azure AD DS.
@@ -273,9 +273,9 @@ Se tiver adicionado uma entrada DNS ao ficheiro de anfitriões locais do seu com
 
 1. Na sua máquina local, abra *o Bloco* de Notas como administrador
 1. Navegue e abra o ficheiro *C:\Windows\System32\drivers\etc*
-1. Elimine a linha para o registo que adicionou, como `40.121.19.239    ldaps.aaddscontoso.com`
+1. Apagar a linha para o registo que adicionou, como`40.121.19.239    ldaps.aaddscontoso.com`
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

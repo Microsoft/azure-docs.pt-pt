@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
 ms.openlocfilehash: a2bec6401ae3ac53f46e92e9be38abf57a92163d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74108096"
 ---
 # <a name="import-a-soap-api-and-convert-to-rest"></a>Importar uma API SOAP e converter em REST
@@ -27,16 +27,16 @@ Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Importar uma API SOAP e converter em REST
-> * Testar a API no Portal do Azure
+> * Testar a API no portal do Azure
 > * Testar a API no portal do Programador
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Concluir o início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md)
+Complete o seguinte quickstart: Criar uma instância de [Gestão API Azure](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"> </a>Importar e publicar uma API de back-end
+## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importar e publicar uma API de back-end
 
 1. Selecione **APIs** em **GESTÃO DE API**.
 2. Selecione **WSDL** na lista **Adicionar uma nova API**.
@@ -61,7 +61,7 @@ Concluir o início rápido seguinte: [Criar uma instância da Gestão de API do 
     * **Ilimitado**   
 10. Selecione **Criar**.
 
-## <a name="test-the-new-api-in-the-azure-portal"></a>Testar a nova API no portal do Azure
+## <a name="test-the-new-api-in-the-azure-portal"></a>Teste a nova API no portal Azure
 
 As operações podem ser chamadas diretamente a partir do Portal do Azure, que fornece um meio cómodo para ver e testar as operações de uma API.  
 

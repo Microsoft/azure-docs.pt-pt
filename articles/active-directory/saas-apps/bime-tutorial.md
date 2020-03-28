@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o Bime | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Bime.
+title: 'Tutorial: Integração do Diretório Ativo Azure com a Bime Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Bime.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,233 +17,233 @@ ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7774fd55a64df198a9b025a67ce377deebefe8fe
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74232078"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bime"></a>Tutorial: integração do Azure Active Directory com o Bime
+# <a name="tutorial-azure-active-directory-integration-with-bime"></a>Tutorial: Integração do Diretório Ativo Azure com a Bime
 
-Neste tutorial, você aprenderá a integrar o Bime com o Azure Active Directory (Azure AD).
-A integração do Bime ao Azure AD oferece os seguintes benefícios:
+Neste tutorial, aprende-se a integrar o Bime com o Azure Ative Directory (Azure AD).
+Integrar o Bime com a AD Azure proporciona-lhe os seguintes benefícios:
 
-* No Azure AD, é possível controlar quem tem acesso ao Bime.
-* Você pode permitir que seus usuários sejam conectados automaticamente ao Bime (logon único) com suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Pode controlar em Azure AD quem tem acesso a Bime.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos na Bime (Single Sign-On) com as suas contas Azure AD.
+* Você pode gerir suas contas em um local central - o portal Azure.
 
-Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único registo com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao Bime, você precisará dos seguintes itens:
+Para configurar a integração da AD Azure com a Bime, precisa dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se você não tiver um ambiente do Azure AD, poderá obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura habilitada para logon único do Bime
+* Uma subscrição da AD Azure. Se não tiver um ambiente de AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
+* Assinatura de inscrição única bime ativada
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
 
-* O Bime dá suporte ao SSO iniciado por **SP**
+* Bime apoia **SP** iniciado SSO
 
-## <a name="adding-bime-from-the-gallery"></a>Adicionando o Bime da Galeria
+## <a name="adding-bime-from-the-gallery"></a>Adicionando Bime da galeria
 
-Para configurar a integração do Bime ao Azure AD, você precisará adicionar o Bime da Galeria à sua lista de aplicativos SaaS gerenciados.
+Para configurar a integração do Bime em Azure AD, você precisa adicionar Bime da galeria à sua lista de aplicações saaS geridas.
 
-**Para adicionar o Bime da galeria, execute as seguintes etapas:**
+**Para adicionar Bime da galeria, execute os seguintes passos:**
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone de **Azure Active Directory** .
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+    ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Navegue até **aplicativos empresariais** e, em seguida, selecione a opção **todos os aplicativos** .
+2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, clique no botão **novo aplicativo** na parte superior da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em novo botão de **aplicação** na parte superior do diálogo.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Bime**, selecione **Bime** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, escreva **Bime,** selecione **Bime** do painel de resultados e, em seguida, clique em **Adicionar** o botão para adicionar a aplicação.
 
      ![Bime na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Bime, com base em um usuário de teste chamado **Brenda Simon**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Bime.
+Nesta secção, configura e testa o single sign-on azure com bime com base num utilizador de teste chamado **Britta Simon**.
+Para que o único início de sessão funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado em Bime.
 
-Para configurar e testar o logon único do Azure AD com o Bime, você precisa concluir os seguintes blocos de construção:
+Para configurar e testar o único sinal de Azure AD com bime, você precisa completar os seguintes blocos de construção:
 
-1. **[Configurar o logon único do Azure ad](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o logon único do Bime](#configure-bime-single-sign-on)** – para configurar as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com o Brenda Simon.
-4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para permitir que Brenda Simon use o logon único do Azure AD.
-5. **[Criar usuário de teste do Bime](#create-bime-test-user)** – para ter um equivalente de Brenda Simon no Bime que esteja vinculado à representação do usuário no Azure AD.
-6. **[Testar logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Configure O Único Sinal do Azure AD](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configure bime single sign-on](#configure-bime-single-sign-on)** - para configurar as definições de início de sessão simples no lado da aplicação.
+3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
+4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
+5. **[Crie um utilizador](#create-bime-test-user)** de teste Bime - para ter uma contrapartida de Britta Simon em Bime que esteja ligada à representação da AD Azure do utilizador.
+6. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
 
-Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
+Nesta secção, permite o único sinal de entrada do Azure AD no portal Azure.
 
-Para configurar o logon único do Azure AD com o Bime, execute as seguintes etapas:
+Para configurar o único signo da Azure AD com a Bime, execute os seguintes passos:
 
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Bime** , selecione **logon único**.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **Bime,** selecione **Single sign-on**.
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
+    ![Configurar um único link de sinalização](common/select-sso.png)
 
-2. Na caixa de diálogo **selecionar um método de logon único** , selecione o modo de **SAML/WS-enalimentado** para habilitar o logon único.
+2. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
 
-    ![Modo de seleção de logon único](common/select-saml-option.png)
+    ![Modo de seleção de sinal único](common/select-saml-option.png)
 
-3. Na página **Configurar logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **configuração básica de SAML** .
+3. No **set single sign-on com** a página SAML, clique no ícone **Editar** para abrir o diálogo básico de **configuração SAML.**
 
-    ![Editar configuração básica de SAML](common/edit-urls.png)
+    ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-4. Na seção **configuração básica do SAML** , execute as seguintes etapas:
+4. Na secção **Basic SAML Configuration,** execute os seguintes passos:
 
-    ![Informações de logon único de domínio e URLs do Bime](common/sp-identifier.png)
+    ![Bime Domain e URLs informações únicas de inscrição](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<tenant-name>.Bimeapp.com`
+    a. No **Sign on URL** text box, digite um URL utilizando o seguinte padrão:`https://<tenant-name>.Bimeapp.com`
 
-    b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL usando o seguinte padrão: `https://<tenant-name>.Bimeapp.com`
+    b. Na caixa de texto **identificador (Id da entidade),** digite um URL utilizando o seguinte padrão:`https://<tenant-name>.Bimeapp.com`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de entrada e o identificador reais. Contate a [equipe de suporte ao cliente do Bime](https://bime.zendesk.com/hc/categories/202604307-Support-tech-notes-and-tips-) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
+    > Estes valores não são reais. Atualize estes valores com o sinal real no URL e identificador. Contacte a equipa de suporte ao [Cliente Bime](https://bime.zendesk.com/hc/categories/202604307-Support-tech-notes-and-tips-) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-5. Na seção **certificado de autenticação SAML** , clique no botão **Editar** para abrir a caixa de diálogo **certificado de autenticação SAML** .
+5. Na secção Certificado de **Assinatura SAML,** clique no botão **Editar** para abrir o diálogo do Certificado de **Assinatura SAML.**
 
-    ![Editar certificado de autenticação SAML](common/edit-certificate.png)
+    ![Editar certificado de assinatura SAML](common/edit-certificate.png)
 
-6. Na seção **certificado de autenticação SAML** , copie a **impressão digital** e salve-a no computador.
+6. Na secção **Certificado de Assinatura SAML,** **copie** a IMPRESSÃO DIGITAL e guarde-a no seu computador.
 
     ![Copiar valor de impressão digital](common/copy-thumbprint.png)
 
-7. Na seção **Configurar Bime** , copie as URLs apropriadas de acordo com seu requisito.
+7. Na secção **Configurar Bime,** copie os URL(s) adequados de acordo com o seu requisito.
 
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+    a. URL de Inicio de Sessão
 
-    b. Identificador do Azure AD
+    b. Identificador de anúncio sinuoso
 
-    c. URL de fim de sessão
+    c. Logout URL
 
-### <a name="configure-bime-single-sign-on"></a>Configurar o logon único do Bime
+### <a name="configure-bime-single-sign-on"></a>Configure Bime Single Sign-On
 
-1. Em uma janela diferente do navegador da Web, faça logon em seu site de empresa do Bime como administrador.
+1. Numa janela diferente do navegador web, inicie sessão no site da sua empresa Bime como administrador.
 
-2. Na barra de ferramentas, clique em **admin**e, em seguida, em **conta**.
+2. Na barra de ferramentas, clique **em Administrador,** e depois **Conta**.
   
-    ![ADM](./media/bime-tutorial/ic775558.png "administrador")
+    ![Administração](./media/bime-tutorial/ic775558.png "Administrador")
 
-3. Na página configuração da conta, execute as seguintes etapas:
+3. Na página de configuração da conta, execute os seguintes passos:
   
-    ![Configurar logon único](./media/bime-tutorial/ic775559.png "Configurar o início de sessão único")
+    ![Configurar um único sinal](./media/bime-tutorial/ic775559.png "Configurar um único sinal")
 
-    a. Selecione **habilitar autenticação SAML**.
+    a. **Selecione ativar a autenticação SAML**.
 
-    b. Na caixa de texto **URL do acesso remoto** , Cole o valor da **URL de logon**copiado de portal do Azure.
+    b. Na caixa de texto URL **de Login Remoto,** colá o valor do URL de **Login,** que copiou do portal Azure.
 
-    c. Na caixa de texto **impressão digital do certificado** , Cole o valor da **impressão digital** copiado de portal do Azure.
+    c. Na caixa de texto **Impressões Digitais de Certificado,** cola o valor **THUMBPRINT** que copiou do portal Azure.
 
     d. Clique em **Guardar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
-2. Selecione **novo usuário** na parte superior da tela.
+2. Selecione **Novo utilizador** na parte superior do ecrã.
 
-    ![Botão novo usuário](common/new-user.png)
+    ![Novo botão de utilizador](common/new-user.png)
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+3. Nas propriedades do Utilizador, execute os seguintes passos.
 
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
+    ![A caixa de diálogo do Utilizador](common/user-properties.png)
 
-    a. No campo **nome** , insira **brendafernandes**.
+    a. No campo **Nome** entrar **BrittaSimon.**
   
-    b. No campo **nome de usuário** , digite **brendafernandes\@yourcompanydomain. Extension**  
+    b. No **tipo** de campo de nome utilizador **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa senha.
+    c. Selecione Mostrar a caixa de verificação de **palavra-passe** e, em seguida, anote o valor que está apresentado na caixa password.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta seção, você permitirá que Brenda Simon use o logon único do Azure concedendo acesso ao Bime.
+Nesta secção, permite que Britta Simon utilize um único sign-on Azure, concedendo acesso a Bime.
 
-1. Na portal do Azure, selecione **aplicativos empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **Bime**.
+1. No portal Azure, selecione **Aplicações Empresariais,** selecione **Todas as aplicações,** em seguida, selecione **Bime**.
 
-    ![Folha aplicativos empresariais](common/enterprise-applications.png)
+    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Bime**.
+2. Na lista de candidaturas, selecione **Bime**.
 
-    ![O link do Bime na lista de aplicativos](common/all-applications.png)
+    ![O link Bime na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **usuários e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique no botão **Adicionar usuário** e selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
+4. Clique no botão **adicionar** utilizador e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![O painel de atribuição adicionar](common/add-assign-user.png)
 
-5. Na caixa de diálogo **usuários e grupos** , selecione **Brenda Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+5. Nos **utilizadores e grupos** de diálogo selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-6. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+6. Se estiver à espera de algum valor de papel na afirmação do SAML, então no diálogo **Select Role** selecione a função apropriada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
+7. No diálogo **adicionar atribuição** clique no botão **Atribuir.**
 
-### <a name="create-bime-test-user"></a>Criar usuário de teste do Bime
+### <a name="create-bime-test-user"></a>Criar o utilizador de teste Bime
 
-Para permitir que os usuários do AD do Azure façam logon no Bime, eles devem ser provisionados no Bime. No caso do Bime, o provisionamento é uma tarefa manual.
+Para permitir que os utilizadores de Anúncios Azure entrem na Bime, devem ser aprovisionados na Bime. No caso do Bime, o provisionamento é uma tarefa manual.
 
-**Para configurar o provisionamento de usuário, execute as seguintes etapas:**
+**Para configurar o fornecimento do utilizador, execute os seguintes passos:**
 
-1. Faça logon no seu locatário do **Bime** .
+1. Faça login no seu inquilino **Bime.**
 
-2. Na barra de ferramentas, clique em **admin**e em **usuários**.
+2. Na barra de ferramentas, clique em **Admin,** e depois **utilizadores.**
 
-    ![ADM](./media/bime-tutorial/ic775561.png "administrador")
+    ![Administração](./media/bime-tutorial/ic775561.png "Administrador")
 
-3. Na **lista de usuários**, clique em **Adicionar novo usuário** ("+").
+3. Na Lista de **Utilizadores,** clique em **Adicionar Novo Utilizador** ("+").
 
     ![Utilizadores](./media/bime-tutorial/ic775562.png "Utilizadores")
 
-4. Na página da caixa de diálogo **detalhes do usuário** , execute as seguintes etapas:
+4. Na página de diálogo De dados do **Utilizador,** execute os seguintes passos:
 
-    ![Detalhes do usuário](./media/bime-tutorial/ic775563.png "Detalhes do usuário")
+    ![Detalhes do utilizador](./media/bime-tutorial/ic775563.png "Detalhes do utilizador")
 
-    a. Na caixa de texto **nome** , insira o nome do usuário, como **Brenda**.
+    a. Na caixa de texto **de primeiro nome,** introduza o primeiro nome de utilizador como **Britta**.
 
-    b. Na caixa de texto **sobrenome** , insira o sobrenome do usuário, como **Simon**.
+    b. Na caixa de texto **De apelido,** introduza o último nome de utilizador como **Simon**.
 
-    c. Na caixa de texto **email** , insira o email do usuário, como **brendafernandes\@contoso.com**.
+    c. Na caixa de texto **por e-mail,** introduza o e-mail de utilizador como **o\@brittasimon contoso.com**.
 
     d. Clique em **Guardar**.
 
 > [!NOTE]
-> Você pode usar qualquer outra ferramenta de criação de conta de usuário Bime ou APIs fornecidas pelo Bime para provisionar contas de usuário do Azure AD.
+> Pode utilizar quaisquer outras ferramentas de criação de conta de utilizador Bime ou APIs fornecidas pela Bime para fornecer contas de utilizador Azure AD.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
-Ao clicar no bloco do Bime no painel de acesso, você deverá ser conectado automaticamente ao Bime para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clicar no azulejo Bime no Painel de Acesso, deve ser automaticamente inscrito no Bime para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

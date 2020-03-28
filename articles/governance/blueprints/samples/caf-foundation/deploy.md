@@ -1,125 +1,125 @@
 ---
-title: Implantar exemplo do CAF Foundation Blueprint
-description: Implantar etapas para o exemplo do CAF Foundation Blueprint, incluindo detalhes do parâmetro de artefato do Blueprint.
+title: Implementar amostra de planta da Fundação CAF
+description: Desloque os passos para a amostra de plantas da Fundação CAF, incluindo detalhes do parâmetro de artefacto sinuoso.
 ms.date: 08/20/2019
 ms.topic: sample
 ms.openlocfilehash: df17f8c3f539e25635ea4718be9d51d5e5e3f708
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74545524"
 ---
-# <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Implantar a estrutura de adoção do Microsoft Cloud para a amostra do Azure Foundation Blueprint
+# <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Implemente o Quadro de Adoção em Nuvem da Microsoft para a amostra de plantas da Fundação Azure
 
-Para implantar Microsoft Cloud o exemplo de plano gráfico do CAF (estrutura de adoção do Azure) Foundation, as etapas a seguir devem ser executadas:
+Para implementar a amostra de plantas da Fundação Azure (CAF) da Microsoft Cloud, devem ser tomadas as seguintes medidas:
 
 > [!div class="checklist"]
-> - Criar um novo plano gráfico por meio do exemplo
-> - Marque sua cópia do exemplo como **publicado**
-> - Atribuir sua cópia do plano gráfico a uma assinatura existente
+> - Criar uma nova planta a partir da amostra
+> - Marque a sua cópia da amostra como **Publicado**
+> - Atribuir a sua cópia da planta a uma subscrição existente
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
-## <a name="create-blueprint-from-sample"></a>Criar plano gráfico por meio de exemplo
+## <a name="create-blueprint-from-sample"></a>Criar a planta a partir da amostra
 
-Primeiro, implemente o exemplo Blueprint criando uma nova especificação técnica em seu ambiente usando o exemplo como um início.
+Em primeiro lugar, implemente a amostra de planta criando uma nova planta no seu ambiente usando a amostra como entrada.
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas**.
 
-1. Na página **Guia de introdução** à esquerda, selecione o botão **criar** em _criar um plano gráfico_.
+1. A partir da página **iniciar** à esquerda, selecione o botão **Criar** _uma planta_.
 
-1. Encontre a amostra do **CAF Foundation** Blueprint em _outros exemplos_ e selecione **usar este exemplo**.
+1. Encontre a amostra da **fundação CAF** em _outras amostras_ e selecione **Utilize esta amostra**.
 
-1. Insira os _conceitos básicos_ do exemplo Blueprint:
+1. Introduza os _Fundamentos_ da amostra de plantas:
 
-   - **Nome do plano gráfico**: forneça um nome para sua cópia do exemplo do Caf Foundation Blueprint.
-   - **Local de definição**: Use as reticências e selecione o grupo de gerenciamento para salvar a cópia do exemplo.
+   - **Nome**da planta : Forneça um nome para a sua cópia da amostra de plantas da Fundação CAF.
+   - **Localização da definição**: Utilize a elipse e selecione o grupo de gestão para guardar a sua cópia da amostra para.
 
-1. Selecione a guia _artefatos_ na parte superior da página ou **próximo: artefatos** na parte inferior da página.
+1. Selecione o separador _Artefactos_ na parte superior da página ou **Seguinte: Artefactos** na parte inferior da página.
 
-1. Examine a lista de artefatos que compõem o exemplo Blueprint. Muitos dos artefatos têm parâmetros que vamos definir mais tarde. Selecione **salvar rascunho** ao concluir a revisão do exemplo Blueprint.
+1. Reveja a lista de artefactos que compõem a amostra da planta. Muitos dos artefactos têm parâmetros que definiremos mais tarde. Selecione **Guardar Rascunho** quando terminar de rever a amostra de plantas.
 
-## <a name="publish-the-sample-copy"></a>Publicar a cópia de exemplo
+## <a name="publish-the-sample-copy"></a>Publicar a cópia da amostra
 
-Sua cópia do exemplo Blueprint agora foi criada em seu ambiente. Ele é criado no modo de **rascunho** e deve ser **publicado** antes que possa ser atribuído e implantado. A cópia do exemplo do Blueprint pode ser personalizada para seu ambiente e necessidades, mas essa modificação pode movê-la para fora do plano gráfico do CAF Foundation.
+A sua cópia da amostra de plantas foi agora criada no seu ambiente. É criado em modo **Draft** e deve ser **publicado** antes de ser atribuído e implantado. A cópia da amostra de plantas pode ser personalizada para o seu ambiente e necessidades, mas essa modificação pode afastá-la do projeto da Fundação CAF.
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas**.
 
-1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
+1. Selecione a página de **definições** de Blueprint à esquerda. Utilize os filtros para encontrar a sua cópia da amostra de plantas e, em seguida, selecione-a.
 
-1. Selecione **publicar Blueprint** na parte superior da página. Na nova página à direita, forneça uma **versão** para sua cópia do exemplo Blueprint. Essa propriedade será útil se você fizer uma modificação posteriormente. Forneça **observações de alteração** , como "primeira versão publicada do exemplo de plantas do Caf Foundation". Em seguida, selecione **publicar** na parte inferior da página.
+1. Selecione **Publicar a planta** no topo da página. Na nova página à direita, forneça uma **Versão** para a sua cópia da amostra de plantas. Esta propriedade é útil para se fizer uma modificação mais tarde. Forneça notas de **alteração** como "Primeira versão publicada a partir da amostra de plantas da Fundação CAF." Em seguida, **selecione Publicar** na parte inferior da página.
 
-## <a name="assign-the-sample-copy"></a>Atribuir a cópia de exemplo
+## <a name="assign-the-sample-copy"></a>Atribuir a cópia da amostra
 
-Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela poderá ser atribuída a uma assinatura dentro do grupo de gerenciamento no qual foi salva. Esta etapa é onde os parâmetros são fornecidos para fazer com que cada implantação da cópia do exemplo de plano gráfico seja exclusiva.
+Uma vez que a cópia da amostra de plantas tenha sido **publicada**com sucesso, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. Este passo é onde são fornecidos parâmetros para tornar cada implantação da cópia da amostra de plantas única.
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas**.
 
-1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
+1. Selecione a página de **definições** de Blueprint à esquerda. Utilize os filtros para encontrar a sua cópia da amostra de plantas e, em seguida, selecione-a.
 
-1. Selecione **atribuir plano gráfico** na parte superior da página de definição do Blueprint.
+1. Selecione **a planta de atribuição** na parte superior da página de definição de planta.
 
-1. Forneça os valores de parâmetro para a atribuição Blueprint:
+1. Fornecer os valores do parâmetro para a atribuição do projeto:
 
    - Noções básicas
-       - **Assinaturas**: selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou sua cópia do exemplo Blueprint. Se você selecionar mais de uma assinatura, uma atribuição será criada para cada uma usando os parâmetros inseridos.
-     - **Nome da atribuição**: o nome é preenchido previamente para você com base no nome do plano gráfico.
-       Altere conforme necessário ou deixe como está.
-     - **Local**: selecione uma região na qual a identidade gerenciada deve ser criada.
+       - **Assinaturas**: Selecione uma ou mais das subscrições que estão no grupo de gestão para a qual guardou a sua cópia da amostra de projeto. Se selecionar mais do que uma subscrição, será criada uma atribuição para cada utilização dos parâmetros introduzidos.
+     - **Nome de atribuição**: O nome é pré-povoado para si com base no nome da planta.
+       Mude conforme necessário ou saia como está.
+     - **Localização**: Selecione uma região para a identidade gerida a criar.
      - O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído.
-       Para saber mais, veja [identidades geridas dos recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Versão de definição do Blueprint**: escolha uma versão **publicada** da sua cópia do exemplo Blueprint.
+       Para saber mais, consulte [identidades geridas para os recursos do Azure.](../../../../active-directory/managed-identities-azure-resources/overview.md)
+     - Versão de **definição**de planta : Escolha uma versão **publicada** da sua cópia da amostra de plantas.
 
    - Atribuição de bloqueio
 
-     Selecione a configuração de bloqueio Blueprint para o seu ambiente. Para obter mais informações, veja [bloqueio de recurso em esquemas](../../concepts/resource-locking.md).
+     Selecione a definição de bloqueio da planta para o seu ambiente. Para obter mais informações, veja [bloqueio de recurso em esquemas](../../concepts/resource-locking.md).
 
    - Identidade Gerida
 
-     Escolha a opção de identidade gerenciada _atribuída pelo sistema_ padrão ou a opção de identidade _atribuída pelo usuário_ .
+     Escolha o _sistema_ predefinido atribuído à opção de identidade gerida ou a opção de identidade atribuída pelo _utilizador._
 
    - Parâmetros de esquema
 
-     Os parâmetros definidos nesta seção são usados por muitos dos artefatos na definição do Blueprint para fornecer consistência.
+     Os parâmetros definidos nesta secção são utilizados por muitos dos artefactos na definição de planta para fornecer consistência.
 
-     - **Organização**: Insira o nome da sua organização, como contoso, deve ser exclusivo.
-     - **Região do Azure**: selecione a região do Azure para implantação.
-     - **Locais permitidos**: em quais regiões do Azure você permitirá que os recursos sejam incorporados?
+     - **Organização**: Insira o nome da sua organização, como Contoso, deve ser único.
+     - **Região azure**: Selecione a região azure para implantação.
+     - **Locais permitidos**: Quais regiões de Azure permitirá a construção de recursos?
      
-   - Parâmetros de artefato
+   - Parâmetros de artefacto
 
-     Os parâmetros definidos nesta seção se aplicam ao artefato sob o qual ele é definido. Esses parâmetros são [parâmetros dinâmicos](../../concepts/parameters.md#dynamic-parameters) , pois eles são definidos durante a atribuição do plano gráfico. Para obter uma lista completa ou parâmetros de artefato e suas descrições, consulte [tabela de parâmetros de artefato](#artifact-parameters-table).
+     Os parâmetros definidos nesta secção aplicam-se ao artefacto sob o qual é definido. Estes parâmetros são [parâmetros dinâmicos](../../concepts/parameters.md#dynamic-parameters) uma vez que são definidos durante a atribuição da planta. Para obter uma lista completa ou parâmetros de artefactos e suas descrições, consulte a [tabela de parâmetros do Artefacto](#artifact-parameters-table).
 
-1. Depois que todos os parâmetros forem inseridos, selecione **atribuir** na parte inferior da página. A atribuição Blueprint é criada e a implantação do artefato começa. A implantação leva aproximadamente uma hora. Para verificar o status da implantação, abra a atribuição Blueprint.
+1. Uma vez introduzidos todos os parâmetros, **selecione Atribuir** na parte inferior da página. A atribuição da planta é criada e a implantação de artefactos começa. O destacamento demora cerca de uma hora. Para verificar o estado da implantação, abra a atribuição da planta.
 
 > [!WARNING]
-> O serviço de plantas do Azure e os exemplos de plantas internas são **gratuitos**. Os recursos do Azure são [cobrados por produto](https://azure.microsoft.com/pricing/). Use a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para estimar o custo da execução de recursos implantados por este exemplo de Blueprint.
+> O serviço Azure Blueprints e as amostras de plantas incorporadas estão **isentos de custos.** Os recursos azure são [avaliados pelo produto.](https://azure.microsoft.com/pricing/) Utilize a [calculadora](https://azure.microsoft.com/pricing/calculator/) de preços para estimar o custo dos recursos de funcionamento implantados por esta amostra de plantas.
 
-## <a name="artifact-parameters-table"></a>Tabela de parâmetros de artefato
+## <a name="artifact-parameters-table"></a>Tabela de parâmetros de artefactos
 
-A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
+A tabela seguinte fornece uma lista dos parâmetros do artefacto da planta:
 
-|Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
+|Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|SKUs de contas de armazenamento permitidos|Atribuição de política|Policy_Allowed-StorageAccount-SKUs|SKU usado em contas de armazenamento de log de diagnóstico|
-|SKUs de máquina virtual permitidas|Atribuição de política|Policy_Allowed-VMs-SKUs|SKUs de máquina virtual permitidas|
-|Anexar marca CostCenter a grupos de recursos|Atribuição de política|Policy_CostCenter_Tag|Anexar a marca CostCenter e seu valor do grupo de recursos|
-|Tipos de recursos que você não deseja permitir em seu ambiente|Atribuição de política|_Allowed de política-tipos de recurso|Quais recursos do Azure você deseja permitir em seu ambiente|
-|Implantar Key Vault|Modelo do Resource Manager|KV-AccessPolicy|**Bloqueado** -o grupo ou usuário do Azure ad <Object ID> para conceder permissões ao no Key Vault|
-|Implantar Log Analytics|Modelo do Resource Manager|LogAnalytics_DataRetention|**Bloqueado** -número de dias que os dados serão retidos no log Analytics|
-|Implantar Log Analytics|Modelo do Resource Manager|LogAnalytics_Location|**Bloqueado** -região usada ao estabelecer o espaço de trabalho|
+|SKUs de contas de armazenamento permitidos|Atribuição de política|Policy_Allowed-StorageAccount-SKUs|SKU usado em contas de armazenamento de registo de diagnóstico|
+|Máquina virtual permitida SKUs|Atribuição de política|Policy_Allowed-VM-SKUs|Máquina virtual permitida SKUs|
+|Apêndice CostCenter TAG para grupos de recursos|Atribuição de política|Policy_CostCenter_Tag|Apêndice CostCenter TAG e seu valor do Grupo de Recursos|
+|Tipos de Recursos que não quer permitir no seu ambiente|Atribuição de política|Política _Allowed-Recursos-Tipos|Que Recursos Azure quer permitir no seu ambiente|
+|Implementar cofre de chaves|Modelo do Resource Manager|Política de Acesso KV|**Bloqueado** - Azure AD <Object ID> Group ou Utilizador para conceder permissões no Cofre chave|
+|Implementar log analytics|Modelo do Resource Manager|LogAnalytics_DataRetention|**Bloqueado** - Número de dias os dados serão retidos no Log Analytics|
+|Implementar log analytics|Modelo do Resource Manager|LogAnalytics_Location|**Bloqueado** - Região utilizada na criação do espaço de trabalho|
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você analisou as etapas para implantar a amostra do CAF Foundation Blueprint, visite o seguinte artigo para saber mais sobre a arquitetura:
+Agora que reviu os passos para implementar a amostra de plantas da Fundação CAF, visite o seguinte artigo para saber sobre a arquitetura:
 
 > [!div class="nextstepaction"]
-> [CAF Foundation Blueprint – visão geral](./index.md)
+> [Projeto da Fundação CAF - Visão geral](./index.md)
 
 Artigos adicionais sobre esquemas e como os utilizar:
 
-- Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
+- Conheça o ciclo de vida da [planta.](../../concepts/lifecycle.md)
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

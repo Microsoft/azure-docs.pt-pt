@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: criar um banco de dados do Azure para PostgreSQL-servidor único-CLI do Azure'
-description: Este tutorial mostra como criar, configurar e consultar seu primeiro banco de dados do Azure para PostgreSQL-servidor único usando o CLI do Azure.
+title: 'Tutorial: Designar uma Base de Dados Azure para PostgreSQL - Servidor Único - Azure CLI'
+description: Este tutorial mostra como criar, configurar e consultar a sua primeira Base de Dados Azure para PostgreSQL - Servidor Único usando o Azure CLI.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -9,19 +9,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.openlocfilehash: c79e64fddaf404b459dd2215e4a2e9236f1bc221
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75460003"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Tutorial: criar um banco de dados do Azure para PostgreSQL-servidor único usando CLI do Azure 
+# <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Tutorial: Designar uma Base de Dados Azure para PostgreSQL - Servidor Único utilizando o Azure CLI 
 Neste tutorial, utiliza a CLI do Azure (interface de linha de comandos) e outros utilitários para saber como:
 > [!div class="checklist"]
 > * Criar uma Base de Dados do Azure para o servidor PostgreSQL
 > * Configurar a firewall do servidor
 > * Utilize o utilitário [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) para criar uma base de dados
-> * Carregar dados de exemplo
+> * Carregar os dados de exemplo
 > * Consultar dados
 > * Atualizar dados
 > * Restaurar dados
@@ -30,7 +30,7 @@ Pode utilizar o Azure Cloud Shell no browser ou [instalar a CLI do Azure]( /cli/
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli). 
 
 Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso existe ou é cobrado. Selecione um ID de subscrição específica na sua conta com o comando [az account set](/cli/azure/account).
 ```azurecli-interactive
@@ -46,12 +46,12 @@ az group create --name myresourcegroup --location westus
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Criar uma Base de Dados do Azure para o servidor PostgreSQL
 Crie uma [Base de Dados do Azure para o servidor PostgreSQL](overview.md) com o comando [az postgres server create](/cli/azure/postgres/server). Os servidores contêm um grupo de bases de dados geridas como um grupo. 
 
-O exemplo seguinte cria um servidor com o nome `mydemoserver` no seu grupo de recursos `myresourcegroup` com o início de sessão `myadmin` de administrador do servidor. O nome de um servidor mapeia para o nome DNS e, por conseguinte, é necessário para ser globalmente exclusivo no Azure. Substitua `<server_admin_password>` pelo seu próprio valor. É um servidor Uso Geral, Gen 5 com 2 vCores.
+O exemplo seguinte cria um servidor com o nome `mydemoserver` no seu grupo de recursos `myresourcegroup` com o início de sessão `myadmin` de administrador do servidor. O nome de um servidor mapeia para o nome DNS e, por conseguinte, é necessário para ser globalmente exclusivo no Azure. Substitua `<server_admin_password>` pelo seu próprio valor. É um Propósito Geral, servidor Gen 5 com 2 vCores.
 ```azurecli-interactive
 az postgres server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 9.6
 ```
 O valor do parâmetro sku-name segue a convenção {escalão de preço} \_ {geração de computação} \_ {vCores}, conforme os exemplos abaixo:
-+ `--sku-name B_Gen5_2` mapeia para Basic, Gen 5 e 2 vCores.
++ `--sku-name B_Gen5_2`mapas para Basic, Gen 5 e 2 vCores.
 + `--sku-name GP_Gen5_32` mapeia para Fins Gerais, Ger 5 e 32 vCores.
 + `--sku-name MO_Gen5_2` mapeia para Otimizada para Memória, Ger 5 e 2 vCores.
 
@@ -132,7 +132,7 @@ Se o seu computador cliente tiver o PostgreSQL instalado, pode utilizar uma inst
    ```
 
    > [!TIP]
-   > Se você preferir usar um caminho de URL para se conectar ao Postgres, codifique a URL do @ Sign no nome de usuário com `%40`. Por exemplo, a cadeia de conexão para PSQL seria,
+   > Se preferir utilizar um caminho URL para ligar a Postgres, URL codificao o sinal @ no nome de utilizador com `%40`. Por exemplo, a corda de ligação para psql seria,
    > ```
    > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
    > ```
@@ -217,7 +217,7 @@ Neste tutorial, aprendeu a utilizar a CLI (interface de linha de comandos) do Az
 > * Criar uma Base de Dados do Azure para o servidor PostgreSQL
 > * Configurar a firewall do servidor
 > * Utilize o utilitário [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) para criar uma base de dados
-> * Carregar dados de exemplo
+> * Carregar os dados de exemplo
 > * Consultar dados
 > * Atualizar dados
 > * Restaurar dados

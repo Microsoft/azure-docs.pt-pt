@@ -1,19 +1,19 @@
 ---
-title: 'PowerShell: monitorar com logs do servidor Web'
-description: Saiba como usar Azure PowerShell para automatizar a implantação e o gerenciamento do serviço de aplicativo. Este exemplo mostra como monitorar um aplicativo com logs do servidor Web.
+title: 'PowerShell: Monitor com registos de servidores web'
+description: Aprenda a usar o Azure PowerShell para automatizar a implementação e gestão do App Service. Esta amostra mostra como monitorizar uma aplicação com registos de servidores web.
 tags: azure-service-management
 ms.assetid: 5805d7cd-9e56-4eba-bd85-75b013690ff5
 ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc
 ms.openlocfilehash: 79b5ef411abde3a4ef293516a43adaa1e669b6d9
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74684630"
 ---
-# <a name="monitor-a-web-appwith-web-server-logs"></a>Monitorar um aplicativo Web com logs do servidor Web
+# <a name="monitor-a-web-appwith-web-server-logs"></a>Monitorizar uma aplicação Web com os registos do servidor Web
 
 Neste cenário criará um grupo de recursos, o plano do serviço de aplicações, a aplicação Web e configura a aplicação Web para ativar os registos do servidor Web. Em seguida, transfira os ficheiros de registo para revisão.
 
@@ -40,8 +40,8 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | Comando | Notas |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Cria um plano do Serviço de Aplicações. |
-| [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria uma aplicação Web. |
+| [Novo AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Cria um plano do Serviço de Aplicações. |
+| [Novo AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria uma aplicação Web. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Modifica a configuração de uma aplicação web. |
 | [Get-AzWebAppMetric](/powershell/module/az.websites/get-azwebappmetric) | Obtém as métricas de uma aplicação Web. |
 

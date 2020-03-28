@@ -1,5 +1,5 @@
 ---
-title: Exemplos de script Azure PowerShell
+title: Exemplos de scripts Azure PowerShell
 description: Exemplos de scripts do Azure PowerShell para ajudar a criar e gerir servidores da Base de Dados SQL do Azure, conjuntos elásticos, bases de dados e firewalls.
 services: sql-database
 ms.service: sql-database
@@ -12,36 +12,36 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
 ms.openlocfilehash: dd16753a9b057e441884b0a6a019701766aaa321
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73821404"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Exemplos do Azure PowerShell para a Base de Dados SQL do Azure
 
-O banco de dados SQL do Azure permite que você configure seus bancos de dados, instâncias e pools usando Azure PowerShell.
+A Base de Dados Azure SQL permite-lhe configurar as suas bases de dados, instâncias e piscinas utilizando o Azure PowerShell.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá AZ PowerShell 1.4.0 ou posterior. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer AZ PowerShell 1.4.0 ou mais tarde. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
-## <a name="single-database-and-elastic-poolstabsingle-database"></a>[Pools elásticos e Banco de Dados Individual](#tab/single-database)
+## <a name="single-database-and-elastic-pools"></a>[Base de Dados Única e Piscinas Elásticas](#tab/single-database)
 
 A tabela seguinte inclui ligações para scripts de exemplo do Azure PowerShell para a Base de Dados SQL do Azure.
 
 | |  |
 |---|---|
-|**Criar e configurar bancos de dados individuais e pools elásticos**||
-| [Criar um banco de dados individual e configurar uma regra de firewall do servidor de banco de dados](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell cria uma base de dados SQL do Azure e configura uma regra de firewall ao nível do servidor. |
+|**Criar e configurar bases de dados individuais e piscinas elásticas**||
+| [Criar uma única base de dados e configurar uma regra de firewall do servidor de base de dados](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell cria uma base de dados SQL do Azure e configura uma regra de firewall ao nível do servidor. |
 | [Criar conjuntos elásticos e mover bases de dados de conjunto](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell cria conjuntos elásticos da Base de Dados SQL do Azure, move bases de dados agrupadas e altera os tamanhos da computação.|
 |**Configurar georreplicação e ativação pós-falha**||
 | [Configurar e efetuar a ativação pós-falha de uma base de dados através de georreplicação ativa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script do PowerShell configura a georreplicação ativa para uma base de dados SQL do Azure e realiza a ativação pós-falha para uma réplica secundária. |
 | [Configurar e efetuar a ativação pós-falha de uma base de dados de conjunto através de georreplicação ativa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script do PowerShell configura a georreplicação ativa para uma base de dados SQL do Azure num conjunto elástico SQL e realiza a ativação pós-falha para uma réplica secundária. |
-|**Configurar um grupo de failover**||
-| [Configurar um grupo de failover para um banco de dados individual](scripts/sql-database-add-single-db-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Esse script do PowerShell cria um banco de dados e um grupo de failover, adiciona o banco de dados ao grupo de failover e testa o failover para o servidor secundário. | 
-| [Configurar um grupo de failover para um pool elástico](scripts/sql-database-add-elastic-pool-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Esse script do PowerShell cria um banco de dados, adiciona-o a um pool elástico, adiciona o pool elástico ao grupo de failover e testa o failover para o servidor secundário. | 
+|**Configure um grupo de failover**||
+| [Configure um grupo de failover para uma única base de dados](scripts/sql-database-add-single-db-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script PowerShell cria uma base de dados e um grupo failover, adiciona a base de dados ao grupo failover e testa falha no servidor secundário. | 
+| [Configure um grupo de failover para uma piscina elástica](scripts/sql-database-add-elastic-pool-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script PowerShell cria uma base de dados, adiciona-a a uma piscina elástica, adiciona a piscina elástica ao grupo failover e testa falha no servidor secundário. | 
 |**Dimensionar uma base de dados e um conjunto elástico**||
 | [Dimensionar uma base de dados](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell monitoriza as métricas de desempenho de uma base de dados SQL do Azure, dimensiona-a para um tamanho da computação superior e cria uma regra de alerta numa das métricas de desempenho. |
 | [Dimensionar um conjunto elástico](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell monitoriza as métricas de desempenho de um conjunto elástico da Base de Dados SQL do Azure, dimensiona-o para um tamanho da computação superior e cria uma regra de alerta numa das métricas de desempenho. |
@@ -57,28 +57,28 @@ A tabela seguinte inclui ligações para scripts de exemplo do Azure PowerShell 
 | [Atualizar o esquema de Sincronização de Dados SQL](scripts/sql-database-sync-update-schema.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell adiciona ou remove itens do esquema de Sincronização de Dados. |
 |||
 
-Saiba mais sobre a [API de Azure PowerShell de banco de dados individual](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases).
+Saiba mais sobre a [Base de Dados Única Azure PowerShell API](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases).
 
-## <a name="managed-instancetabmanaged-instance"></a>[Instância Gerenciada](#tab/managed-instance)
+## <a name="managed-instance"></a>[Instância Gerida](#tab/managed-instance)
 
-A tabela a seguir inclui links para scripts de Azure PowerShell de exemplo para o banco de dados SQL do Azure-Instância Gerenciada.
+A tabela seguinte inclui links para a amostra de scripts Azure PowerShell para base de dados Azure SQL - Instância Gerida.
 
 | |  |
 |---|---|
-|**Criar e configurar instâncias gerenciadas**||
+|**Criar e configurar casos geridos**||
 | [Criar e gerir uma Instância Gerida](scripts/sql-database-create-configure-managed-instance-powershell.md) | Este script do PowerShell mostra como criar e gerir uma Instância Gerida com o Azure PowerShell |
-| [Criar e gerenciar um Instância Gerenciada usando o modelo Azure Resource Manager](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell mostra como criar e gerenciar um Instância Gerenciada usando o Azure PowerShell e o modelo de Azure Resource Manager.|
-| [Restaurar o banco de dados para um Instância Gerenciada em outra região geográfica](scripts/sql-managed-instance-restore-geo-backup.md) | Este script do PowerShell está fazendo um backup de um banco de dados e o restaura em outra região. Isso é conhecido como cenário de recuperação de desastre de restauração geográfica. |
-| **Configurar Transparent Data Encryption (TDE)**||
-| [Gerenciar Transparent Data Encryption em um Instância Gerenciada usando sua própria chave de Azure Key Vault](scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script do PowerShell configura o Transparent Data Encryption (TDE) no cenário Bring Your Own Key para Instância Gerenciada do SQL do Azure, usando uma chave de Azure Key Vault|
-|**Configurar um grupo de failover**||
-| [Configurar um grupo de failover para uma instância gerenciada](scripts/sql-database-add-managed-instance-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Esse script do PowerShell cria duas instâncias gerenciadas, adiciona-as a um grupo de failover e, em seguida, testa o failover da instância gerenciada primária para a instância gerenciada secundária. | 
+| [Criar e gerir uma instância gerida usando o modelo de Gestor de Recursos Azure](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script PowerShell mostra-lhe como criar e gerir uma Instância Gerida utilizando o modelo Azure PowerShell e Azure Resource Manager.|
+| [Restaurar a base de dados para um caso gerido em outra geo-região](scripts/sql-managed-instance-restore-geo-backup.md) | Este script PowerShell está a pegar numa cópia de segurança de uma base de dados e a restaurá-la para outra região. Isto é conhecido como cenário de recuperação de desastres geo-restaurado. |
+| **Configurar encriptação transparente de dados (TDE)**||
+| [Gerencie a encriptação de dados transparente sintetizado numa instância gerida utilizando a sua própria chave do Cofre de Chaves Azure](scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script PowerShell configura encriptação de dados transparentes (TDE) em Bring Your Own Key Scenario for Azure SQL Managed Instance, utilizando uma chave do Cofre de Chaves Azure|
+|**Configure um grupo de failover**||
+| [Configure um grupo de failover para uma instância gerida](scripts/sql-database-add-managed-instance-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script PowerShell cria duas instâncias geridas, adiciona-as a um grupo de failover, e depois testa a falha da instância gerida primária para a instância gerida secundária. | 
 |||
 
-Saiba mais sobre a [API de Azure PowerShell de instância gerenciada](sql-database-managed-instance-create-manage.md#powershell-create-and-manage-managed-instances).
+Saiba mais sobre a [Managed Instance Azure PowerShell API](sql-database-managed-instance-create-manage.md#powershell-create-and-manage-managed-instances).
 
 ---
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-Os exemplos listados nesta página usam os [cmdlets do banco de dados SQL do Azure](/powershell/module/az.sql/) para criar e gerenciar recursos do SQL do Azure. Os cmdlets adicionais para executar consultas e executar muitas tarefas de banco de dados estão localizados no módulo [SqlServer](/powershell/module/sqlserver/) . Para obter mais informações, consulte [SQL Server PowerShell](/sql/powershell/sql-server-powershell/).
+Os exemplos listados nesta página utilizam os cmdlets de base de [dados Azure SQL](/powershell/module/az.sql/) para a criação e gestão de recursos Azure SQL. Cmdlets adicionais para executar consultas, e executar muitas tarefas de base de dados estão localizados no módulo [sqlserver.](/powershell/module/sqlserver/) Para mais informações, consulte [o SQL Server PowerShell](/sql/powershell/sql-server-powershell/).

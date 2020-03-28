@@ -1,20 +1,20 @@
 ---
-title: Script do PowerShell para atualizar o RU/s para a API do Azure Cosmos DB para MongoDB
-description: Saiba como usar um script do PowerShell para atualizar a taxa de transferência de um banco de dados ou de um contêiner na API de Azure Cosmos DB para MongoDB
+title: PowerShell script para atualizar RU/s para API do Azure Cosmos DB para MongoDB
+description: Saiba como usar um script PowerShell para atualizar o suporte de uma base de dados ou um contentor na API do Azure Cosmos DB para o MongoDB
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 12/02/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 3e7064d9e6387b264b9b7134eb7dff5f988347a8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c0dba303a82fb39036b04198f835e4a1e71b6a1d
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441412"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365861"
 ---
-# <a name="update-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Atualizar RU/s para um banco de dados ou uma coleção para a API Azure Cosmos DB MongoDB
+# <a name="update-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Atualização RU/s para uma base de dados ou coleção para Azure Cosmos DB - MongoDB API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -38,9 +38,10 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-|**Recursos do Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Cria um recurso. |
-|**Grupos de recursos do Azure**| |
+|**Azure Cosmos DB**| |
+| [Set-AzCosmosDBMongoDBDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbmongodbdatabase) | Cria uma nova ou atualiza uma base de dados cosmos DB MongoDB API existente. |
+| [Set-AzCosmosDBMongoDBCollection](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbmongodbcollection) | Cria uma nova ou atualiza uma coleção Cosmos DB SQL existente. |
+|**Grupos de Recursos Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 

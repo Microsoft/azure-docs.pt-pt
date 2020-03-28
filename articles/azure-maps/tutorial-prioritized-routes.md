@@ -1,27 +1,27 @@
 ---
 title: 'Tutorial: Encontre várias rotas por modo de viagem Microsoft Azure Maps'
 description: Neste tutorial, você vai aprender a encontrar rotas para diferentes modos de viagem usando o Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 628a3003cec2cc2ca58f1b133cf3236417dfa94e
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: c7ed2421f468dfbb64c635683a7909b517105bc7
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209499"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80333796"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutorial: Encontre rotas para diferentes modos de viagem utilizando o Azure Maps
 
 Este tutorial mostra como usar a sua conta Azure Maps e o serviço de rota. O serviço de rotas pode encontrar a rota para o seu ponto de interesse, priorizada pelo seu modo de viagem. Pode exibir duas rotas diferentes no seu mapa, uma para carros e outra para camiões. O serviço de encaminhamento tem em conta as limitações devido à altura e peso do veículo, ou se o veículo transporta carga perigosa. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Criar uma nova página Web com a API de controlo de mapas
+> * Criar uma nova página Web com a API de Controlo de Mapas
 > * Visualizar o fluxo de tráfego no seu mapa
 > * Criar consultas de trajeto que declaram o modo de deslocação
 > * Apresentar vários trajetos no seu mapa
@@ -81,7 +81,7 @@ Os passos seguintes mostram como criar uma página HTML estática incorporada co
 
     Repare que o cabeçalho HTML inclui os ficheiros de recursos CSS e JavaScript alojados pela biblioteca de Controlo de Mapas do Azure. Observe o evento `onload` no corpo da página, que irá chamar a função `GetMap` quando o corpo da página for carregada. Esta função irá conter o código JavaScript inline para aceder às APIs do Azure Maps.
 
-3. Adicione o seguinte código JavaScript à função `GetMap`. Substitua a `<Your Azure Maps Key>` de cadeias com a chave primária que copiou da sua conta Maps.
+3. Adicione o seguinte código JavaScript à função `GetMap`. Substitua `<Your Azure Maps Key>` a cadeia pela chave principal que copiou da sua conta Maps.
 
     ```JavaScript
     //Instantiate a map object
@@ -94,7 +94,7 @@ Os passos seguintes mostram como criar uma página HTML estática incorporada co
     });
     ```
 
-    A classe `atlas.Map` fornece o controlo para um mapa web visual e interativo, e é um componente da API de Controlo de Mapas Azure.
+    A `atlas.Map` classe fornece o controlo para um mapa web visual e interativo, e é um componente da API de Controlo de Mapas Azure.
 
 4. Guarde o ficheiro e abra-o no browser. Neste momento, tem um mapa básico que pode aprimorar mais.
 
@@ -102,7 +102,7 @@ Os passos seguintes mostram como criar uma página HTML estática incorporada co
 
 ## <a name="visualize-traffic-flow"></a>Visualizar o fluxo do tráfego
 
-1. Adicione a apresentação do fluxo de tráfego ao mapa. Os mapas `ready` evento espera até que os recursos dos mapas estejam carregados e prontos para interagir com ele com segurança.
+1. Adicione a apresentação do fluxo de tráfego ao mapa. O `ready` evento maps aguarda até que os recursos dos mapas estejam carregados e prontos para interagir com segurança com ele.
 
     ```javascript
     map.events.add("ready", function() {
@@ -113,7 +113,7 @@ Os passos seguintes mostram como criar uma página HTML estática incorporada co
     });
     ```
 
-    No mapa `ready` manipulador de eventos, a regulação do fluxo de tráfego no mapa está definida para `relative`, que é a velocidade da estrada em relação ao fluxo livre. Também pode defini-lo como velocidade da estrada `absolute` ou `relative-delay`, o que apresenta a velocidade relativa onde difere do fluxo livre.
+    No manipulador `ready` de eventos do mapa, a `relative`regulação do fluxo de tráfego no mapa está definida para, que é a velocidade da estrada em relação ao fluxo livre. Também pode defini-lo como velocidade da estrada `absolute` ou `relative-delay`, o que apresenta a velocidade relativa onde difere do fluxo livre.
 
 2. Guarde o ficheiro **MapTruckRoute.html** e atualize a página no browser. Se interagir com o mapa e aproximar-se de Los Angeles, deve ver as ruas com os dados de tráfego atuais.
 
@@ -125,7 +125,7 @@ Os passos seguintes mostram como criar uma página HTML estática incorporada co
 
 Neste tutorial, dois trajetos serão calculados e processados no mapa. Um trajeto com estradas acessíveis a carros e o outro com estradas acessíveis a camiões. Quando renderizado, exibimos um ícone de símbolo para o início e fim do percurso, e diferentes linhas coloridas para cada percurso.
 
-1. Depois de inicializar o mapa, adicione o seguinte código JavaScript nos mapas `ready` manipulador de eventos.
+1. Depois de inicializar o mapa, adicione o `ready` seguinte código JavaScript no manipulador de eventos dos mapas.
 
     ```JavaScript
     //Wait until the map resources have fully loaded.
@@ -158,9 +158,9 @@ Neste tutorial, dois trajetos serão calculados e processados no mapa. Um trajet
     });
     ```
     
-    Nos mapas `ready` manipulador de eventos, é criada uma fonte de dados para armazenar as linhas de rota e os pontos de partida e fim. É criada uma camada de linhas e anexada à origem de dados para definir como será composta a linha de rotas. São utilizadas expressões para obter a largura e a cor da linha a partir das propriedades na funcionalidade de linha do trajeto. Ao adicionar a camada ao mapa, é passado um segundo parâmetro com o valor `'labels'`, no qual especifica a composição desta camada abaixo das etiquetas do mapa. Isto garante que a linha de rota não cobre as etiquetas da estrada. É criada e anexada uma camada de símbolo à origem de dados. Esta camada especifica como os pontos de partida e de fim serão renderizados. Neste caso, foram adicionadas expressões para recuperar a imagem do ícone e as informações da etiqueta de texto das propriedades de cada objeto de ponto. 
+    No manipulador `ready` de eventos de mapas, é criada uma fonte de dados para armazenar as linhas de rota e os pontos de partida e fim. É criada uma camada de linhas e anexada à origem de dados para definir como será composta a linha de rotas. São utilizadas expressões para obter a largura e a cor da linha a partir das propriedades na funcionalidade de linha do trajeto. Ao adicionar a camada ao mapa, é passado um segundo parâmetro com o valor `'labels'`, no qual especifica a composição desta camada abaixo das etiquetas do mapa. Isto garante que a linha de rota não cobre as etiquetas da estrada. É criada e anexada uma camada de símbolo à origem de dados. Esta camada especifica como os pontos de partida e de fim serão renderizados. Neste caso, foram adicionadas expressões para recuperar a imagem do ícone e as informações da etiqueta de texto das propriedades de cada objeto de ponto. 
     
-2. Neste tutorial, defina o ponto de partida como uma empresa fictícia em Seattle, chamada Fabrikam, e o ponto de chegada como um escritório da Microsoft. Nos mapas `ready` manipulador de eventos, adicione o seguinte código.
+2. Neste tutorial, defina o ponto de partida como uma empresa fictícia em Seattle, chamada Fabrikam, e o ponto de chegada como um escritório da Microsoft. No manipulador `ready` de eventos maps, adicione o seguinte código.
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end point of the route.
@@ -190,7 +190,7 @@ Neste tutorial, dois trajetos serão calculados e processados no mapa. Um trajet
     });
     ```
 
-    Os pontos de início e de fim são adicionados à origem de dados. A caixa delimitadora para os pontos de início e de fim é calculada com a função `atlas.data.BoundingBox.fromData`. Esta caixa de delimitação é usada para definir a visão das câmaras do mapa sobre toda a rota utilizando a função `map.setCamera`. É adicionado um preenchimento para compensar as dimensões de píxel dos ícones de símbolo.
+    Os pontos de início e de fim são adicionados à origem de dados. A caixa delimitadora para os pontos de início e de fim é calculada com a função `atlas.data.BoundingBox.fromData`. Esta caixa de delimitação é usada para definir `map.setCamera` a visão das câmaras do mapa sobre toda a rota utilizando a função. É adicionado um preenchimento para compensar as dimensões de píxel dos ícones de símbolo.
 
 4. Guarde o ficheiro e atualize o browser para ver os marcadores no seu mapa. Agora o mapa está centrado em Seattle. Pode ver o pino azul redondo marcando o ponto de partida e o pino azul marcando o ponto de chegada.
 
@@ -219,7 +219,7 @@ Todos os seguintes blocos de código devem ser adicionados dentro do evento de *
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   O `SubscriptionKeyCredential` cria uma `SubscriptionKeyCredentialPolicy` para autenticar pedidos DE HTTP para o Azure Maps com a chave de subscrição. O `atlas.service.MapsURL.newPipeline()` apodera-se da política `SubscriptionKeyCredential` e cria uma instância [de Pipeline.](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) O `routeURL` representa um URL para operações da [Rota](https://docs.microsoft.com/rest/api/maps/route) dos Mapas Azure.
+   O `SubscriptionKeyCredential` cria `SubscriptionKeyCredentialPolicy` um pedido de autenticação HTTP para o Azure Maps com a chave de subscrição. A `atlas.service.MapsURL.newPipeline()` política `SubscriptionKeyCredential` toma conta da política e cria uma instância [de Pipeline.](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) O `routeURL` representa um URL para operações da [Rota](https://docs.microsoft.com/rest/api/maps/route) dos Mapas Azure.
 
 2. Depois de configurar as credenciais e o URL, adicione o seguinte código JavaScript para construir uma rota do ponto de início ao fim para um caminhão que transporta carga classe USHazmatClass2 e mostrar os resultados.
 
@@ -248,7 +248,7 @@ Todos os seguintes blocos de código devem ser adicionados dentro do evento de *
     });
     ```
 
-    Este código de corte acima consultas o serviço de encaminhamento Azure Maps através do método [getRouteDirections.](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) A linha de rota é então extraída da coleção de recursos GeoJSON da resposta extraída utilizando o método `geojson.getFeatures()`. A linha de rota é adicionada à fonte de dados. Um índice de 0 garante que é renderizado antes de quaisquer outras linhas na fonte de dados. Isto é feito porque o cálculo da rota do caminhão será muitas vezes mais lento do que um cálculo da rota do carro. Se a linha de rota do caminhão for adicionada à fonte de dados após a rota do carro, irá sobrepor-se a ela. Duas propriedades são adicionadas à linha de rota do caminhão, uma cor de traçado que é um tom agradável de azul, e uma largura de traçado de nove pixels.
+    Este código de corte acima consultas o serviço de encaminhamento Azure Maps através do método [getRouteDirections.](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) A linha de rota é então extraída da coleção de recurso `geojson.getFeatures()` GeoJSON da resposta extraída utilizando o método. A linha de rota é adicionada à fonte de dados. Um índice de 0 garante que é renderizado antes de quaisquer outras linhas na fonte de dados. Isto é feito porque o cálculo da rota do caminhão será muitas vezes mais lento do que um cálculo da rota do carro. Se a linha de rota do caminhão for adicionada à fonte de dados após a rota do carro, irá sobrepor-se a ela. Duas propriedades são adicionadas à linha de rota do caminhão, uma cor de traçado que é um tom agradável de azul, e uma largura de traçado de nove pixels.
 
 3. Adicione o seguinte código JavaScript para construir uma rota para um carro e mostrar os resultados.
 
@@ -268,7 +268,7 @@ Todos os seguintes blocos de código devem ser adicionados dentro do evento de *
     });
     ```
 
-    Este código de corte acima consultas o serviço de encaminhamento Azure Maps através do método [getRouteDirections.](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) A linha de rota é então extraída da coleção de recursos GeoJSON da resposta extraída utilizando o método `geojson.getFeatures()`. A linha de rota é adicionada à fonte de dados. Duas propriedades são adicionadas à linha de percurso automóvel, uma cor de traçado que é um tom de roxo, e uma largura de traçado de cinco pixels.  
+    Este código de corte acima consultas o serviço de encaminhamento Azure Maps através do método [getRouteDirections.](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) A linha de rota é então extraída da coleção de recurso `geojson.getFeatures()` GeoJSON da resposta extraída utilizando o método. A linha de rota é adicionada à fonte de dados. Duas propriedades são adicionadas à linha de percurso automóvel, uma cor de traçado que é um tom de roxo, e uma largura de traçado de cinco pixels.  
 
 4. Guarde o ficheiro **MapTruckRoute.html** e atualize o browser para ver o resultado. Para uma ligação com êxito às APIs do Maps, deverá ver um mapa semelhante ao seguinte.
 
@@ -281,7 +281,7 @@ Todos os seguintes blocos de código devem ser adicionados dentro do evento de *
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Criar uma nova página Web com a API de controlo de mapas
+> * Criar uma nova página Web com a API de Controlo de Mapas
 > * Visualizar o fluxo de tráfego no seu mapa
 > * Criar consultas de trajeto que declaram o modo de deslocação
 > * Apresentar vários trajetos no seu mapa
@@ -298,4 +298,4 @@ O próximo tutorial demonstra o processo de criação de um simples localizador 
 > [Criar um localizador de loja usando o Azure Maps](./tutorial-create-store-locator.md)
 
 > [!div class="nextstepaction"]
-> [Utilize expressões de estilo baseadas em dados](data-driven-style-expressions-web-sdk.md)
+> [Utilizar expressões de estilo com base em dados](data-driven-style-expressions-web-sdk.md)

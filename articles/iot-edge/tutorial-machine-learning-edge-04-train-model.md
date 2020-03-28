@@ -4,16 +4,16 @@ description: Neste tutorial, você irá treinar um modelo de machine learning us
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 2/10/2020
+ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a5c754373ba9437c631e62acbb5d6d246db4c862
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 57630b789233dd23e61398f445b434e4ba08b48e
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79239477"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80236028"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutorial: Treine e implante um modelo de Aprendizagem automática Azure
 
@@ -62,7 +62,9 @@ Enviaremos ficheiros de cadernos de amostras para um novo projeto de Cadernos Az
 
 1. A partir da página de utilizador da sua nova conta, selecione **My Projects** a partir da barra de menu seletiva.
 
-1. Na caixa de diálogo **Create New Project,** forneça um Nome de **Projeto** que também forme automaticamente o ID do **Projeto**.
+1. Adicione um novo projeto **+** selecionando o botão.
+
+1. Na caixa de diálogo **Create New Project,** forneça um Nome de **Projeto**. 
 
 1. Deixe **o Público** e a **README** descontrolados, uma vez que não há necessidade de o projeto ser público ou ter um readme.
 
@@ -74,6 +76,8 @@ Enviaremos ficheiros de cadernos de amostras para um novo projeto de Cadernos Az
 
 1. Navegue para **C:\source\IoTEdgeAndMlSample\AzureNotebooks**. Selecione todos os ficheiros da lista e clique em **Abrir**.
 
+1. Verifique o **conteúdo destacaixa de ficheiros.**
+
 1. Selecione **Carregar** para começar a carregar e, em seguida, selecione **Feito** assim que o processo estiver concluído.
 
 ### <a name="azure-notebook-files"></a>Ficheiros de cadernos Azure
@@ -84,10 +88,10 @@ Vamos rever os ficheiros que fez no seu projeto Decadernos Azure. As atividades 
 
   1. Descarrega dados da conta De armazenamento azure que foi gerado pelo arnês do dispositivo.
   1. Explora e prepara os dados, depois utiliza os dados para treinar o modelo de classificação.
-  1. Avalie o modelo a partir da experiência utilizando um conjunto de dados de teste (Teste\_FD003.txt).
+  1. Avalie o modelo a partir da\_experiência utilizando um conjunto de dados de teste (Test FD003.txt).
   1. Publica o melhor modelo de classificação para o espaço de trabalho do serviço de Aprendizagem automática.
 
-* **02-turbofan\_implementar\_model.ipynb:** Este caderno pega no modelo criado no caderno anterior e usa-o para criar uma imagem de contentor pronta a ser implantada para um dispositivo Azure IoT Edge. O caderno executa os seguintes passos:
+* **02-turbofan\_\_deploy model.ipynb:** Este caderno pega no modelo criado no caderno anterior e usa-o para criar uma imagem de contentor pronta a ser implantada para um dispositivo Azure IoT Edge. O caderno executa os seguintes passos:
 
   1. Cria um roteiro de pontuação para o modelo.
   1. Produz uma imagem de recipiente utilizando o modelo de classificação que foi guardado no espaço de trabalho do serviço de Aprendizagem Automática.
@@ -96,7 +100,7 @@ Vamos rever os ficheiros que fez no seu projeto Decadernos Azure. As atividades 
 
 * **Teste\_FD003.txt:** Este ficheiro contém os dados que usaremos como o nosso conjunto de testes ao validar o nosso classificador treinado. Optámos por utilizar os dados do teste, conforme previsto para o concurso original, como o nosso teste definido para a sua simplicidade.
 
-* **RUL\_FD003.txt:** Este ficheiro contém o RUL para o último ciclo de cada dispositivo no ficheiro Test\_FD003.txt. Consulte os ficheiros readme.txt e da propagação de danos Modeling.pdf no C: fonte\\\\IoTEdgeAndMlSample\\dados\\Turbofan para obter uma explicação detalhada dos dados.
+* **RUL\_FD003.txt:** Este ficheiro contém a Vida Útil Remanescente (RUL)\_para o último ciclo de cada dispositivo no ficheiro FD003.txt test. Consulte os ficheiros readme.txt e da propagação de\\\\danos Modeling.pdf\\no\\C: fonte IoTEdgeAndMlSample dados Turbofan para obter uma explicação detalhada dos dados.
 
 * **Utils.py:** Contém um conjunto de funções de utilidade python para trabalhar com dados. O primeiro caderno contém uma explicação detalhada das funções.
 
@@ -106,28 +110,26 @@ Vamos rever os ficheiros que fez no seu projeto Decadernos Azure. As atividades 
 
 Agora que o projeto é criado, pode sondar os cadernos. 
 
-1. Na sua página do projeto, selecione **01-turbofan\_regressão.ipynb**.
+1. Na sua página do projeto, selecione **regressão de\_01-turbof.ipynb**.
 
     ![Selecione o primeiro caderno para executar](media/tutorial-machine-learning-edge-04-train-model/select-turbofan-regression-notebook.png)
 
-1. Se solicitado, escolha o Kernel Python 3.6 a partir do diálogo e selecione **set Kernel**.
-
 1. Se o caderno estiver listado como **Não Confiável,** clique no widget **Não Confiável** no direito superior do caderno. Quando o diálogo aparecer, selecione **Trust**.
 
-1. No caderno, desloque-se até à célula que segue as instruções **de propriedades globais definidas** e que começa com o código `AZURE_SUBSCRIPTION_ID =` e preencha os valores para a sua subscrição, configurações e recursos do Azure.
+1. Para obter os melhores resultados, leia a documentação para cada célula e execute-a individualmente. Selecione **Executar** na barra de ferramentas. Mais tarde, vai achar oportuno executar várias células. Pode ignorar avisos de atualização e depreciação.
 
-    ![Definir propriedades globais no caderno](media/tutorial-machine-learning-edge-04-train-model/set-global-properties.png)
+    Quando uma célula está em funcionamento, apresenta um asterisco entre os suportes quadrados ([]).\* Quando o funcionamento da célula estiver concluído, o asterisco é substituído por um número e pode aparecer uma saída relevante. As células de um caderno constroem sequencialmente e só uma pode estar a funcionar de cada vez.
 
-1. Executar a célula selecionando **Executar** na barra de ferramentas.
-
-    Quando uma célula está em funcionamento, apresenta um asterisco entre os suportes quadrados (\*]). Quando o funcionamento da célula estiver concluído, o asterisco é substituído por um número e pode aparecer uma saída relevante. As células de um caderno constroem sequencialmente e só uma pode estar a funcionar de cada vez.
-
-    Siga as instruções no caderno. Também pode usar opções de execução a partir do menu **Cell,** `Ctrl` + `Enter` para executar uma célula, e `Shift` + `Enter` para executar uma célula e avançar para a próxima célula.
+    Também pode usar opções de `Ctrl`  +  `Enter` execução a partir `Shift`  +  `Enter` do menu **Cell,** para executar uma célula, e para executar uma célula e avançar para a próxima célula.
 
     > [!TIP]
     > Para operações celulares consistentes, evite executar o mesmo caderno a partir de vários separadores no seu navegador.
 
-1. Desloque-se até à célula que segue imediatamente o texto de visão geral do espaço de **trabalho e** execute essa célula. Na saída da célula, procure o link que o instrua a iniciar sessão para autenticar. 
+1. Na célula que segue as instruções de **propriedades globais do set,** escreva nos valores para a sua subscrição Azure, configurações e recursos. Então, gerea cela.
+
+    ![Definir propriedades globais no caderno](media/tutorial-machine-learning-edge-04-train-model/set-global-properties.png)
+
+1. Na célula anterior aos detalhes do **Workspace,** depois de ter sido executada, procure o link que lhe instrua a iniciar sessão para autenticar:
 
     ![Inscreva-se em solicitação para autenticação do dispositivo](media/tutorial-machine-learning-edge-04-train-model/sign-in-prompt.png)
 
@@ -135,17 +137,17 @@ Agora que o projeto é criado, pode sondar os cadernos.
 
     ![Autenticar aplicação na confirmação do dispositivo](media/tutorial-machine-learning-edge-04-train-model/cross-platform-cli.png)
 
-1. Neste momento, pode supor o resto das células. É ideal executar todas as células para que o código nas células seja executado sequencialmente. Selecione **Executar Tudo** a partir do menu **Cell.** Volte a ler o caderno e reveja como as operações celulares estão concluídas.
+1. Na célula que precede **Explore os resultados,** copie o valor do ID de execução e cole-o para o ID de execução na célula que segue **Reconstituir uma execução**.
 
-    Na secção **De dados Explore,** pode rever as células nas **leituras do Sensor e** na subsecção RUL que tornam dispersos as medições dos sensores.
+   ![Copiar o ID de execução entre células](media/tutorial-machine-learning-edge-04-train-model/automl-id.png)
 
-    ![Dispersões de leituras de sensores](media/tutorial-machine-learning-edge-04-train-model/sensor-readings.png)
+1. Execute as células restantes no caderno.
 
-1. Guarde o caderno e volte à sua página do projeto clicando no nome do seu projeto no canto superior direito do caderno ou voltando ao seu navegador.
+1. Guarde o caderno e volte à sua página do projeto.
 
-1. Abra **o\_de 22 turbofans,\_modelo.ipynb** e repita os passos neste procedimento para executar o segundo caderno.
+1. Abra **o modelo.ipynb de\_implantação\_02-turbofan** e executar cada célula. Terá de iniciar sessão para autenticar na célula que segue o espaço de **trabalho configure**.
 
-1. Guarde o caderno e volte à sua página do projeto clicando no nome do seu projeto no canto superior direito do caderno ou voltando ao seu navegador.
+1. Guarde o caderno e volte à sua página do projeto.
 
 ### <a name="verify-success"></a>Verificar o sucesso
 
@@ -161,15 +163,25 @@ Para verificar se os cadernos foram concluídos com sucesso, verifique se foram 
     | ./aml_config/model_config.json | Ficheiro de configuração que teremos de implementar o modelo no espaço de trabalho **turbofanDemo** Machine Learning em Azure. |
     | myenv.yml| Fornece informações sobre as dependências do modelo de Machine Learning implantado.|
 
-1. Verifique no portal Azure que o espaço de trabalho **turboFanDemo** Machine Learning existe no seu grupo de recursos.
+1. Verifique se foram criados os seguintes recursos Azure. Alguns nomes de recursos são anexados com caracteres aleatórios.
+
+    | Recurso Azure | Nome |
+    | --- | --- |
+    | Espaço de trabalho de aprendizagem automática | turborfanDemo |
+    | Registo de Contentor | turbofandemoxxxxxxxx |
+    | Insights de Aplicações | turbofaninsightxxxxxxxxx |
+    | Cofre de Chaves | turbofankeyvaultbxxxxxxxx |
+    | Storage | turbofanstoragexxxxxxxxxxxx |
 
 ### <a name="debugging"></a>Depurar
 
-Pode inserir declarações de Python no caderno para depuração, principalmente o comando `print()`. Se vir variáveis ou objetos que não estejam definidos, corra as células onde são declaradas ou instantâneas.
+Pode inserir declarações de Python no caderno para `print()` depuração, como o comando para mostrar valores. Se vir variáveis ou objetos que não estejam definidos, corra as células onde são declaradas ou instantâneas.
+
+Poderá ter de eliminar ficheiros previamente criados e recursos Azure se precisar de refazer os cadernos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, usamos dois Cadernos Jupyter em execução em Cadernos Azure para usar os dados dos dispositivos turbofan para treinar uma vida útil restante (RUL) classificada, para salvar o classificador como modelo, para criar uma imagem de recipiente, e para implantar e testar a imagem como uma web se rvice.
+Neste artigo, usamos dois Cadernos Jupyter em execução em Cadernos Azure para usar os dados dos dispositivos turbofan para treinar uma vida útil restante (RUL) classificada, para salvar o classificador como modelo, para criar uma imagem de recipiente, e para implantar e testar a imagem como uma web serviço.
 
 Continue para o próximo artigo para criar um dispositivo IoT Edge.
 

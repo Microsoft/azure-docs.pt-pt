@@ -10,10 +10,10 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/26/2020
 ms.openlocfilehash: e7708b0043b7f5baf2c12e813306595cc358a01d
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78194059"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Use Python e IA para gerar conteúdo pesquisável a partir de blobs Azure
@@ -33,7 +33,7 @@ Se não tiver uma subscrição Azure, abra uma [conta gratuita](https://azure.mi
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ [Armazenamento do Azure](https://azure.microsoft.com/services/storage/)
++ [Storage do Azure](https://azure.microsoft.com/services/storage/)
 + [Anaconda 3.7](https://www.anaconda.com/distribution/#download-section)
 + [Criar](search-create-service-portal.md) ou [encontrar um serviço](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) de pesquisa existente 
 
@@ -68,7 +68,7 @@ Se possível, crie tanto na mesma região como grupo de recursos para proximidad
 
    + **Localização**. Se possível, escolha o mesmo local utilizado para a Pesquisa Cognitiva Azure e Serviços Cognitivos. Um único local anula as cargas de largura de banda.
 
-   + **Tipo de conta.** Escolha o predefinido, *StorageV2 (finalidade geral v2)* .
+   + **Tipo de conta.** Escolha o predefinido, *StorageV2 (finalidade geral v2)*.
 
 1. Clique em **Rever + Criar** para criar o serviço.
 
@@ -110,9 +110,9 @@ Tal como acontece com o armazenamento da Azure Blob, tire um momento para recolh
 
 ### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Obtenha uma chave de api-key e URL para pesquisa cognitiva azure
 
-1. [Faça sessão no portal Azure](https://portal.azure.com/), e na página **'Visão Geral** do serviço de pesquisa', obtenha o nome do seu serviço de pesquisa. Pode confirmar o seu nome de serviço revendo o URL do ponto final. Se o seu URL final fosse `https://mydemo.search.windows.net`, o seu nome de serviço seria `mydemo`.
+1. [Faça sessão no portal Azure](https://portal.azure.com/), e na página **'Visão Geral** do serviço de pesquisa', obtenha o nome do seu serviço de pesquisa. Pode confirmar o seu nome de serviço revendo o URL do ponto final. Se o seu `https://mydemo.search.windows.net`URL final fosse, `mydemo`o seu nome de serviço seria .
 
-2. Em **Definições** > **Teclas,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio no caso de precisar de rolar uma. Pode utilizar a chave primária ou secundária nos pedidos de adição, modificação e aparas de objetos.
+2. Em **Definições** > **Keys,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio no caso de precisar de rolar uma. Pode utilizar a chave primária ou secundária nos pedidos de adição, modificação e aparas de objetos.
 
    Pegue a chave de consulta também. É uma boa prática emitir pedidos de consulta com acesso só para leitura.
 
@@ -164,7 +164,7 @@ Na Pesquisa Cognitiva Azure, o processamento de IA ocorre durante a indexação 
 
 Um [objeto de origem](https://docs.microsoft.com/rest/api/searchservice/create-data-source) de dados fornece a cadeia de ligação ao recipiente Blob que contém os ficheiros.
 
-No seguinte script, substitua o espaço reservado YOUR-BLOB-RESOURCE-CONNECTION-STRING com a cadeia de ligação para a bolha que criou no passo anterior. Substitua o texto do espaço reservado para o recipiente. Em seguida, executar o script para criar uma fonte de dados chamada `cogsrch-py-datasource`.
+No seguinte script, substitua o espaço reservado YOUR-BLOB-RESOURCE-CONNECTION-STRING com a cadeia de ligação para a bolha que criou no passo anterior. Substitua o texto do espaço reservado para o recipiente. Em seguida, executar o script `cogsrch-py-datasource`para criar uma fonte de dados chamada .
 
 ```python
 # Create a data source
@@ -203,7 +203,7 @@ Neste passo, definirá um conjunto de passos de enriquecimento para aplicar aos 
 
 + [Extração de Expressões-Chave](cognitive-search-skill-keyphrases.md) para solicitar as principais expressões-chaves. 
 
-Execute o seguinte script para criar uma habilidade chamada `cogsrch-py-skillset`.
+Executar o seguinte script para `cogsrch-py-skillset`criar uma habilidade chamada .
 
 ```python
 # Create a skillset
@@ -291,9 +291,9 @@ print(r.status_code)
 
 O pedido deve devolver um código de estado de 201 confirmando o sucesso.
 
-A habilidade de extração da frase-chave é aplicada para cada página. Definindo o contexto para `"document/pages/*"`, executa este enriquecedor para cada membro da matriz de documento/páginas (para cada página do documento).
+A habilidade de extração da frase-chave é aplicada para cada página. Definindo o `"document/pages/*"`contexto para, executa este enriquecedor para cada membro da matriz de documento/páginas (para cada página do documento).
 
-Cada competência é executada no conteúdo do documento. Durante o processamento, a Pesquisa Cognitiva Azure quebra cada documento para ler conteúdo a partir de diferentes formatos de ficheiros. O texto encontrado no ficheiro fonte é colocado num campo `content`, um para cada documento. Por isso, coloque a entrada como `"/document/content"`.
+Cada competência é executada no conteúdo do documento. Durante o processamento, a Pesquisa Cognitiva Azure quebra cada documento para ler conteúdo a partir de diferentes formatos de ficheiros. O texto encontrado no ficheiro `content` fonte é colocado num campo, um para cada documento. Portanto, desloque `"/document/content"`a entrada como .
 
 Veja a seguir uma representação gráfica do conjunto de competências.
 
@@ -313,7 +313,7 @@ Neste exercício, utiliza os seguintes campos e tipos de campo:
 |--------------|----------|-------|----------|--------------------|-------------------|
 | tipos de campo: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
-Execute este script para criar o índice chamado `cogsrch-py-index`.
+Execute este script para `cogsrch-py-index`criar o índice nomeado .
 
 ```python
 # Create an index
@@ -383,7 +383,7 @@ Para ligar estes objetos num indexante, deve definir mapeamentos de campo.
 
 Além de ligar as inputs às saídas, também pode usar mapeamentos de campo para aplainar estruturas de dados. Para mais informações, consulte [Como mapear campos enriquecidos para um índice pesquisável](cognitive-search-output-field-mapping.md).
 
-Execute este script para criar um indexante chamado `cogsrch-py-indexer`.
+Execute este script para `cogsrch-py-indexer`criar um indexante chamado .
 
 ```python
 # Create an indexer
@@ -449,7 +449,7 @@ O script define `"maxFailedItems"` como -1, o que indica ao motor de indexação
 
 Observe também a instrução `"dataToExtract":"contentAndMetadata"` nos parâmetros de configuração. Esta declaração diz ao indexante para extrair o conteúdo de diferentes formatos de ficheiros e dos metadados relacionados com cada ficheiro.
 
-Quando o conteúdo é extraído, pode definir `imageAction` para extrair texto das imagens existentes na origem de dados. A configuração `"imageAction":"generateNormalizedImages"`, combinada com a Habilidade de Habilidade oCR e a Habilidade de Fusão de Texto, diz ao indexante para extrair texto das imagens (por exemplo, a palavra "parar" de um sinal de paragem de tráfego), e incorpora-o como parte do campo de conteúdo. Este comportamento aplica-se tanto às imagens incorporadas nos documentos (pense numa imagem dentro de um PDF) como às imagens encontradas na fonte de dados, por exemplo, a um ficheiro JPG.
+Quando o conteúdo é extraído, pode definir `imageAction` para extrair texto das imagens existentes na origem de dados. A `"imageAction":"generateNormalizedImages"` configuração, combinada com a Habilidade de Habilidade oCR e a Habilidade de Fusão de Texto, diz ao indexante para extrair texto das imagens (por exemplo, a palavra "parar" de um sinal de paragem de tráfego), e incorpora-o como parte do campo de conteúdo. Este comportamento aplica-se tanto às imagens incorporadas nos documentos (pense numa imagem dentro de um PDF) como às imagens encontradas na fonte de dados, por exemplo, a um ficheiro JPG.
 
 <a name="check-indexer-status"></a>
 
@@ -533,13 +533,13 @@ O código de estado 204 é devolvido após uma eliminação com êxito.
 
 Este tutorial demonstra os passos básicos para criar um pipeline de indexação melhorado através da criação de partes do componente: uma origem de dados, um conjunto de competências, um índice e um indexador.
 
-Foram introduzidas [competências incorporadas,](cognitive-search-predefined-skills.md) juntamente com definições de skillset e uma forma de cadeiar competências através de inputs e saídas. Também descobriu que `outputFieldMappings` na definição de indexante é necessário para encaminhar valores enriquecidos do oleoduto para um índice pesquisável num serviço de Pesquisa Cognitiva Azure.
+Foram introduzidas [competências incorporadas,](cognitive-search-predefined-skills.md) juntamente com definições de skillset e uma forma de cadeiar competências através de inputs e saídas. Também descobriu `outputFieldMappings` que na definição do indexador é necessário para encaminhar valores enriquecidos do oleoduto para um índice pesquisável num serviço de Pesquisa Cognitiva Azure.
 
 Finalmente, aprendeu a testar os resultados e a redefinir o sistema para mais iterações. Aprendeu que a emissão de consultas acerca do índice devolve o resultado criado pelo pipeline de indexação melhorado. Nesta versão, não há um mecanismo para visualizar as construções internas (documentos melhorados criados pelo sistema). Também aprendeu a verificar o estado do indexador e que objetos devem ser eliminados antes de reexecutar um gasoduto.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando se trabalha na sua própria subscrição, no final de um projeto, é uma boa ideia remover os recursos de que já não precisa. Os recursos deixados a funcionar podem custar-lhe dinheiro. Pode eliminar os recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
+Quando se trabalha na sua própria subscrição, no final de um projeto, é uma boa ideia remover os recursos de que já não precisa. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
 Pode encontrar e gerir recursos no portal, utilizando a ligação De Todos os recursos ou grupos de Recursos no painel de navegação à esquerda.
 

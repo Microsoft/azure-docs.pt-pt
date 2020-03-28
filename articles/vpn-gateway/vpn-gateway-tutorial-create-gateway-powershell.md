@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 03/11/2020
 ms.author: cherylmc
 ms.openlocfilehash: 66efa0f2922e70908616c7c447d782efee8f6b1b
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79137182"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Tutorial: Criar e gerir um gateway VPN usando powerShell
@@ -72,7 +72,7 @@ $GwIP1       = "VNet1GWIP"
 $GwIPConf1   = "gwipconf1"
 ```
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Crie um grupo de recursos com o comando [New-AzResourceGroup.](/powershell/module/az.resources/new-azresourcegroup) Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Primeiro, tem de ser criado um grupo de recursos. No exemplo seguinte, é criado um grupo de recursos com o nome *TestRG1* na região *E.U.A. Leste*:
 
@@ -188,5 +188,5 @@ Avance para os tutoriais seguintes para saber mais sobre ligações S2S, VNet a 
 
 > [!div class="nextstepaction"]
 > * [Criar ligações S2S](vpn-gateway-tutorial-vpnconnection-powershell.md)
-> * [Criar ligações VNet a VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Criar ligações VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Criar ligações P2S](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

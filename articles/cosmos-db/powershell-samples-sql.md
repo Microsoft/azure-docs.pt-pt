@@ -1,34 +1,38 @@
 ---
-title: Exemplos de Azure PowerShell para a API de Azure Cosmos DB-SQL (núcleo)
-description: Obtenha os exemplos de Azure PowerShell para executar várias tarefas comuns em contas da API do SQL Azure Cosmos DB
+title: Amostras Azure PowerShell para Azure Cosmos DB - SQL (Core) API
+description: Obtenha as amostras Azure PowerShell para executar várias tarefas comuns nas contas DaPi API Da Azure Cosmos DB SQL
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 09/20/2019
+ms.date: 03/26/2020
 ms.author: mjbrown
-ms.openlocfilehash: 29195ce141c29248840807b978cae3ecf79ccf34
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: efc0ff8e6c198071d3906a0e7e999510198f73bf
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871929"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366177"
 ---
-# <a name="azure-powershell-samples-for-azure-cosmos-db---sql-core-api"></a>Exemplos de Azure PowerShell para a API de Azure Cosmos DB-SQL (núcleo)
+# <a name="azure-powershell-samples-for-azure-cosmos-db---sql-core-api"></a>Amostras Azure PowerShell para Azure Cosmos DB - SQL (Core) API
 
-A tabela a seguir inclui links para scripts de Azure PowerShell comumente usados para a API do Azure Cosmos DB para SQL (Core). Se você quiser bifurcar esses exemplos do PowerShell para Cosmos DB de nosso repositório GitHub, visite [Cosmos DB exemplos do PowerShell no GitHub](https://github.com/Azure/azure-docs-powershell-samples/tree/master/cosmosdb).
+A tabela seguinte inclui links para scripts Azure PowerShell comumente usados para Azure Cosmos DB para API SQL (Core). Se quiser bifurcar estas amostras PowerShell para Cosmos DB do nosso repositório GitHub, visite [cosmos DB PowerShell Samples no GitHub](https://github.com/Azure/azure-docs-powershell-samples/tree/master/cosmosdb).
 
-Para obter Cosmos DB exemplos adicionais do PowerShell para a API do SQL (núcleo) e a documentação, consulte [gerenciar Azure Cosmos DB recursos da API do SQL usando o PowerShell](manage-with-powershell.md). Para obter Cosmos DB exemplos do PowerShell para outras APIs, consulte, [API do Cassandra](powershell-samples-cassandra.md), [API do MongoDB](powershell-samples-mongodb.md), [API do Gremlin](powershell-samples-gremlin.md)e [API de tabela](powershell-samples-table.md).
+Para obter amostras adicionais da Cosmos DB PowerShell para API SQL (Core) e documentação, consulte [manage Azure Cosmos DB SQL API recursos utilizando powerShell](manage-with-powershell.md). Para amostras cosmos DB PowerShell para outras APIs, consulte [Cassandra API,](powershell-samples-cassandra.md) [MongoDB API,](powershell-samples-mongodb.md) [Gremlin API](powershell-samples-gremlin.md)e [Table API](powershell-samples-table.md).
+
+> [!NOTE]
+> As amostras usam cmdlets de gestão [Az.CosmosDB.](https://docs.microsoft.com/powershell/module/az.cosmosdb) Por favor, `Az.CosmosDB` note que as cmdlets ainda estão na pré-visualização e podem mudar antes de serem libertadas. Por favor, verifique `Az.CosmosDB` se há atualizações regularmente.
 
 | | |
 |---|---|
-|[Criar uma conta, um banco de dados e um contêiner](scripts/powershell/sql/ps-sql-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crie uma conta, um banco de dados e um contêiner do Azure Cosmos. |
-|[Criar um contêiner com uma chave de partição grande](scripts/powershell/sql/ps-sql-container-create-large-partition-key.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crie um contêiner com uma chave de partição grande. |
-|[Listar ou obter bancos de dados ou contêineres](scripts/powershell/sql/ps-sql-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Listar ou obter banco de dados ou contêineres. |
-|[Obter RU/s](scripts/powershell/sql/ps-sql-ru-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obter RU/s para um banco de dados ou contêiner. |
-|[Atualizar RU/s](scripts/powershell/sql/ps-sql-ru-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Atualize RU/s para um banco de dados ou contêiner. |
-|[Criar um contêiner sem política de índice](scripts/powershell/sql/ps-sql-container-create-index-none.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crie um contêiner Cosmos do Azure com a política de índice desativada.|
-|[Atualizar uma conta ou adicionar uma região](scripts/powershell/common/ps-account-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Adicione uma região a uma conta do cosmos. Também pode ser usado para modificar outras propriedades de conta, mas elas devem ser separadas das alterações nas regiões. |
-|[Alterar prioridade de failover ou failover de gatilho](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Altere a prioridade de failover regional de uma conta do Azure Cosmos ou dispare um failover manual. |
-|[Chaves de conta ou cadeias de conexão](scripts/powershell/common/ps-account-keys-connection-strings.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenha chaves primárias e secundárias, cadeias de conexão ou gere novamente uma chave de conta de uma conta do Azure Cosmos. |
-|[Criar uma conta do cosmos com o firewall de IP](scripts/powershell/common/ps-account-firewall-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crie uma conta do Azure cosmos com o firewall de IP habilitado. |
+|[Criar uma conta, base de dados e um recipiente](scripts/powershell/sql/ps-sql-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crie uma conta Azure Cosmos DB, base de dados e recipiente. |
+|[Crie um recipiente com uma grande chave de partição](scripts/powershell/sql/ps-sql-container-create-large-partition-key.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crie um recipiente com uma grande chave de partição. |
+|[Lista ou obter bases de dados ou contentores](scripts/powershell/sql/ps-sql-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Lista ou obter base de dados ou contentores. |
+|[Obter RU/s](scripts/powershell/sql/ps-sql-ru-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Coma RU/s para uma base de dados ou recipiente. |
+|[Atualização RU/s](scripts/powershell/sql/ps-sql-ru-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Atualizar o RU/s para uma base de dados ou contentor. |
+|[Criar um recipiente sem política de índices](scripts/powershell/sql/ps-sql-container-create-index-none.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crie um contentor Azure Cosmos com a política de índices desligada.|
+|[Atualizar uma conta](scripts/powershell/common/ps-account-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Atualize o nível de consistência padrão da conta Cosmos DB. |
+|[Atualizar as regiões de uma conta](scripts/powershell/common/ps-account-update-region.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Atualize as regiões da conta Cosmos DB. |
+|[Alterar prioridade de failover ou desencadear falha](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Mude a prioridade regional de failover de uma conta Azure Cosmos ou desencadeie uma falha manual. |
+|[Chaves de conta ou cordas de ligação](scripts/powershell/common/ps-account-keys-connection-strings.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenha chaves primárias e secundárias, cordas de ligação ou regenerar uma chave de conta de uma conta Azure Cosmos DB. |
+|[Crie uma Conta Cosmos com firewall IP](scripts/powershell/common/ps-account-firewall-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crie uma conta Azure Cosmos DB com ip firewall ativado. |
 |||

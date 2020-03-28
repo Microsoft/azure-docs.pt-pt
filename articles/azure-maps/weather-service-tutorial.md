@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Junte dados de sensores com dados de previsão meteorológica utilizando Cadernos Azure (Python)  Python)  Microsoft Azure Maps'
+title: 'Tutorial: Junte dados de sensores com dados de previsão meteorológica utilizando Cadernos Azure (Python) [ Python) [ Microsoft Azure Maps'
 description: Este tutorial mostra-lhe como juntar dados de sensores com dados de previsão meteorológica do Microsoft Azure Maps Weather Service utilizando cadernos Azure (Python).
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 01/29/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d6b82ec0662745fd9c9a05db28595ff84f57f330
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: e5292f5166e739264e9cf969480b70f415fcc75a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208034"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80333486"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Tutorial: Junte dados de sensores com dados de previsão meteorológica utilizando cadernos Azure (Python)
 
@@ -153,7 +153,7 @@ grouped_weather_data.get_group(station_ids[0]).reset_index()
 
 <center>
 
-![](./media/weather-service-tutorial/grouped-data.png)</center> de dados agrupados
+![Dados agrupados](./media/weather-service-tutorial/grouped-data.png)</center>
 
 ## <a name="plot-forecast-data"></a>Dados de previsão do enredo
 
@@ -180,7 +180,7 @@ Os gráficos abaixo visualizam os dados da previsão. Para a mudança da velocid
 
 <center>
 
-![plano de velocidade do vento](./media/weather-service-tutorial/speed-date-plot.png) ![plano de direção do vento](./media/weather-service-tutorial/direction-date-plot.png)</center>
+![Plano de](./media/weather-service-tutorial/speed-date-plot.png) ![velocidade do vento Enredo de direção vento enredo](./media/weather-service-tutorial/direction-date-plot.png)</center>
 
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Criar uma geovedação e rastrear dispositivos num mapa Microsoft Azure Maps'
 description: Aprenda a configurar um geofence e rastrear dispositivos relativos à geoveda utilizando o Serviço Espacial Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e0e918a2508bb65de176b030a73598e221aff676
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 126829f12d71e40511c26e781cb191988c1d031e
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77370152"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80333872"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Criar uma geoveda através do Azure Maps
 
@@ -150,23 +150,24 @@ Assim que a aplicação Postman estiver instalada, siga estes passos para carreg
    }
    ```
 
-5. Clique em enviar e rever o cabeçalho de resposta. Após um pedido bem sucedido, o cabeçalho de **localização** conterá o estado URI. O estado URI é do seguinte formato. 
+5. Clique em enviar e rever o cabeçalho de resposta. Após um pedido bem sucedido, o cabeçalho de **localização** conterá o estado URI. O estado URI é do seguinte formato. O valor do uploadStatusId não está entre { }. É uma prática comum usar { } para mostrar valores que o utilizador deve introduzir, ou valores diferentes para diferentes utilizadores.
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-6. Copie o seu estado URI e apreenda a chave de subscrição. O formato URI de estatuto deve ser como o de baixo. Note que no formato abaixo, alteraria a {chave de subscrição}, incluindo a {}, com a sua chave de subscrição.
+6. Copie o seu estado URI e apreenda a chave de subscrição. O formato URI de estatuto deve ser como o de baixo. Note que no formato abaixo, alteraria a {subscrição-key}, não incluindo o {}, com a sua chave de subscrição.
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-7. Para obter o `udId`, abra um novo separador na aplicação Postman e selecione o método GET HTTP no separador construtor. Faça um pedido GET no estado URI do passo anterior. Se o seu upload de dados tiver sido bem sucedido, receberá o udId no corpo de resposta. Copie o udId para posterior utilização.
+7. Para obter `udId`o , abra um novo separador na aplicação Postman e selecione o método GET HTTP no separador construtor. Faça um pedido GET no estado URI do passo anterior. Se o seu upload de dados tiver sido bem sucedido, receberá o udId no corpo de resposta. Copie o udId para posterior utilização.
 
    ```JSON
    {
-    "udid" : "{udId}"
+    "status": "Succeeded",
+    "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udId}?api-version=1.0"
    }
    ```
 
@@ -265,7 +266,7 @@ Seguem-se cinco pedidos de API http get Geofencing, com diferentes coordenadas d
   
    ![Consulta geoveda 4](./media/tutorial-geofence/geofence-query4.png)
 
-   Observando cuidadosamente a resposta correspondente, pode notar que nenhum evento é publicado aqui, mesmo que o equipamento tenha saído da geovedação do sublocal. Se olhar para o tempo especificado do utilizador no pedido GET, pode ver que a geovedação do subsite expirou para este momento. O equipamento ainda está na geocerca principal. Também é possível ver a identificação de geometria do geosfence sublocal sob `expiredGeofenceGeometryId` no corpo de resposta.
+   Observando cuidadosamente a resposta correspondente, pode notar que nenhum evento é publicado aqui, mesmo que o equipamento tenha saído da geovedação do sublocal. Se olhar para o tempo especificado do utilizador no pedido GET, pode ver que a geovedação do subsite expirou para este momento. O equipamento ainda está na geocerca principal. Também pode ver a identificação de geometria do geoscerca sublocal no `expiredGeofenceGeometryId` corpo de resposta.
 
 
 5. Localização 5:

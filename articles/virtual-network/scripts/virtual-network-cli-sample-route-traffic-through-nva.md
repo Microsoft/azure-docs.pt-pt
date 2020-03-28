@@ -1,5 +1,5 @@
 ---
-title: Rotear o tráfego via solução de virtualização de rede – exemplo de script de CLI do Azure
+title: Tráfego de rota através de aparelho virtual de rede - amostra de script Azure CLI
 description: Exemplo de script da CLI do Azure - encaminhar o tráfego através de uma aplicação virtual de rede de firewall.
 services: virtual-network
 documentationcenter: virtual-network
@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
 ms.openlocfilehash: d8704c34d59a8f735d060a7c7ca6463034883714
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74083824"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance-script-sample"></a>Encaminhar o tráfego através de um exemplo de script da aplicação virtual de rede

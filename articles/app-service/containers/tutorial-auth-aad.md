@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: autenticar usuários E2E (Linux)'
-description: Saiba como usar a autenticação e a autorização do serviço de aplicativo para proteger seus aplicativos Linux do serviço de aplicativo de ponta a ponta, incluindo o acesso a APIs remotas.
+title: 'Tutorial: Utilizadores autenticados E2E (Linux)'
+description: Saiba como usar a autenticação e autorização do App Service para garantir as suas aplicações de serviço de aplicação Linux de ponta a ponta, incluindo acesso a APIs remotos.
 keywords: serviço de aplicações, serviço de aplicações do azure, authN, authZ, proteger, segurança, do azure, multicamadas, azure active directory, azure ad
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.custom: seodec18
 ms.openlocfilehash: 71aec33d5afe1a909f460ddae2d5cb0552857fee
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74688947"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Tutorial: Autenticar e autorizar utilizadores ponto a ponto no Serviço de Aplicações do Azure no Linux
 
-O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Além disso, o Serviço de Aplicações tem suporte incorporado para [autenticação e autorização de utilizadores](../overview-authentication-authorization.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). Este tutorial mostra como proteger as suas aplicações com a autenticação e autorização do Serviço de Aplicações. Utiliza uma aplicação ASP.NET Core com um front-end Angular.js, mas é apenas para exemplo. A autenticação e autorização do Serviço de Aplicações suportam todos os runtimes de linguagens e pode seguir o tutorial para aprender a aplicá-las na sua linguagem preferida.
+[O Serviço de Aplicações no Linux](app-service-linux-intro.md) fornece um serviço de hospedagem web altamente escalável e auto-remendado utilizando o sistema operativo Linux. Além disso, o Serviço de Aplicações tem suporte incorporado para [autenticação e autorização de utilizadores](../overview-authentication-authorization.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). Este tutorial mostra como proteger as suas aplicações com a autenticação e autorização do Serviço de Aplicações. Utiliza uma aplicação ASP.NET Core com um front-end Angular.js, mas é apenas para exemplo. A autenticação e autorização do Serviço de Aplicações suportam todos os runtimes de linguagens e pode seguir o tutorial para aprender a aplicá-las na sua linguagem preferida.
 
 O tutorial utiliza a aplicação de exemplo para lhe mostrar como proteger uma aplicação autónoma (em [Ativar a autenticação e autorização em aplicações de back-end](#enable-authentication-and-authorization-for-back-end-app)).
 
@@ -46,7 +46,7 @@ Pode seguir os passos neste tutorial em macOS, Linux e Windows.
 
 Para concluir este tutorial:
 
-* [Instalar o Git](https://git-scm.com/).
+* [Instale Git](https://git-scm.com/).
 * [Instale o .NET Core](https://www.microsoft.com/net/core/).
 
 ## <a name="create-local-net-core-app"></a>Criar uma aplicação .NET Core local
@@ -77,7 +77,7 @@ Neste passo, vai implementar o projeto em duas aplicações do Serviço de Aplic
 
 ### <a name="create-azure-resources"></a>Criar recursos do Azure
 
-No Cloud Shell, execute os seguintes comandos para criar duas aplicações Web. Substitua _\<> de nome de aplicativo front-end_ e _\<> de nome de aplicativo de back-end_ por dois nomes de aplicativo exclusivos globalmente (os caracteres válidos são `a-z`, `0-9`e `-`). Para obter mais informações sobre cada comando, consulte [criar um aplicativo .NET Core no serviço de Azure app no Linux](quickstart-dotnetcore.md).
+No Cloud Shell, execute os seguintes comandos para criar duas aplicações Web. Substitua `a-z` `0-9` `-` _ \<_ o nome da aplicação frontal>e _ \<o nome da aplicação de back-end>_ por dois nomes de aplicativos globalmente únicos (caracteres válidos são , e ). Para obter mais informações sobre cada comando, consulte [Criar uma aplicação .NET Core no Serviço de Aplicações Azure no Linux](quickstart-dotnetcore.md).
 
 ```azurecli-interactive
 az group create --name myAuthResourceGroup --location "West Europe"
@@ -92,21 +92,21 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### <a name="push-to-azure-from-git"></a>Enviar para o Azure a partir do Git
 
-Novamente na _janela de terminal local_, execute os seguintes comandos do Git para implementar na aplicação de back-end. Substitua _\<deploymentLocalGitUrl-of-back-end-app>_ pelo URL da instância remota do Git que guardou em [Criar recursos do Azure](#create-azure-resources). Quando solicitado a fornecer credenciais pelo Gerenciador de credenciais do git, certifique-se de inserir [suas credenciais de implantação](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), não as credenciais usadas para entrar no portal do Azure.
+Novamente na _janela de terminal local_, execute os seguintes comandos do Git para implementar na aplicação de back-end. Substitua _ \<a implementaçãoLocalGitUrl-of-back-end-app>_ pelo URL do comando Git que guardou dos [recursos Create Azure](#create-azure-resources). Quando solicitado para obter credenciais por Git Credential Manager, certifique-se de que introduz as [suas credenciais](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)de implantação , e não as credenciais que usa para iniciar sessão no portal Azure.
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>
 git push backend master
 ```
 
-Na janela de terminal do local, execute os seguintes comandos do Git para implementar o mesmo código na aplicação de front-end. Substitua _\<deploymentLocalGitUrl-of-front-end-app>_ pelo URL da instância remota do Git que guardou em [Criar recursos do Azure](#create-azure-resources).
+Na janela de terminal do local, execute os seguintes comandos do Git para implementar o mesmo código na aplicação de front-end. Substitua _ \<a implementaçãoLocalGitUrl-of-front-end-app>_ com o URL do comando Git que guardou dos [recursos Create Azure](#create-azure-resources).
 
 ```bash
 git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
 git push frontend master
 ```
 
-### <a name="browse-to-the-apps"></a>Navegue até os aplicativos
+### <a name="browse-to-the-apps"></a>Navegue nas aplicações
 
 Navegue para os seguintes URLs num browser e veja as duas aplicações a funcionar.
 
@@ -128,7 +128,7 @@ Neste passo, vai apontar o código do servidor da aplicação de front-end para 
 
 ### <a name="modify-front-end-code"></a>Modificar o código de front-end
 
-No repositório local, abra _Controllers/TodoController.cs_. No início da classe de `TodoController`, adicione as linhas a seguir e substitua _\<> de nome de aplicativo de back-end_ pelo nome do seu aplicativo de back-end:
+No repositório local, abra _Controllers/TodoController.cs_. No início da `TodoController` aula, adicione as seguintes linhas e substitua _ \<o nome_ da aplicação de back-end>com o nome da sua aplicação de back-end:
 
 ```cs
 private static readonly HttpClient _client = new HttpClient();
@@ -205,7 +205,7 @@ Vai utilizar o Azure Active Directory como o fornecedor de identidade. Para obte
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Ativar a autenticação e autorização na aplicação de back-end
 
-Na [portal do Azure](https://portal.azure.com), abra a página de gerenciamento do aplicativo de back-end clicando no menu à esquerda: **grupos de recursos** > **myAuthResourceGroup** >  **_\<back-end-app-Name >_** .
+No [portal Azure,](https://portal.azure.com)abra a página de gestão da sua aplicação back-end clicando a partir do menu esquerdo: **Grupos** > de recursos**myAuthResourceGroup** > **_\<back-end-app-name>_**.
 
 ![API ASP.NET Core em execução no Serviço de Aplicações do Azure](./media/tutorial-auth-aad/portal-navigate-back-end.png)
 
@@ -223,15 +223,15 @@ Na página **Autenticação / Autorização**, clique em **Guardar**.
 
 Quando vir a notificação com a mensagem `Successfully saved the Auth Settings for <back-end-app-name> App`, atualize a página.
 
-Clique em **Azure Active Directory** novamente e, em seguida, clique na **aplicativo Azure ad**.
+Clique novamente no **Diretório Ativo azure** e, em seguida, clique na **app Azure AD**.
 
-Copie a **ID do cliente** do aplicativo do Azure ad para um bloco de notas. Vai precisar deste valor mais à frente.
+Copie a **identificação** do cliente da aplicação Azure AD para um bloco de notas. Vai precisar deste valor mais à frente.
 
 ![API ASP.NET Core em execução no Serviço de Aplicações do Azure](./media/tutorial-auth-aad/get-application-id-back-end.png)
 
 ### <a name="enable-authentication-and-authorization-for-front-end-app"></a>Ativar a autenticação e autorização na aplicação de front-end
 
-Siga os mesmos passos para a aplicação de front-end, mas ignore o último. Você não precisa da ID do cliente para o aplicativo de front-end.
+Siga os mesmos passos para a aplicação de front-end, mas ignore o último. Não precisa da identificação do cliente para a aplicação frontal.
 
 Se preferir, navegue para `http://<front-end-app-name>.azurewebsites.net`. Deve ser agora direcionado para uma página de início de sessão segura. Depois de iniciar sessão, continua sem poder aceder aos dados da aplicação de back-end, porque ainda tem de fazer três coisas:
 
@@ -246,27 +246,27 @@ Se preferir, navegue para `http://<front-end-app-name>.azurewebsites.net`. Deve 
 
 Agora que ativou a autenticação e autorização em ambas as suas aplicações, cada uma destas está associada a uma aplicação do AD. Neste passo, vai conceder à aplicação de front-end as permissões para aceder ao back-end em nome do utilizador. (Tecnicamente, vai conceder à _aplicação do AD_ de front-end as permissões para aceder à _aplicação do AD_ de back-end em nome do utilizador.)
 
-No menu à esquerda no portal, selecione **Azure Active Directory** > **registros de aplicativo** aplicativos de **Propriedade** >  >  **\<front-end-app-Name >**  > **permissões de API**.
+A partir do menu esquerdo no portal, selecione**Registos** > de Aplicações de **Diretório** > Ativo Azure As aplicações de propriedade**aplicações** > **\<>**  >  **permissões API**.
 
 ![API ASP.NET Core em execução no Serviço de Aplicações do Azure](./media/tutorial-auth-aad/add-api-access-front-end.png)
 
-Selecione **Adicionar uma permissão**e, em seguida, selecione **minhas APIs** >  **\<> de nome de aplicativo de back-end**.
+Selecione **Adicionar uma permissão**e, em seguida, selecione **my APIs** > **\<back-end-app-name>**.
 
-Na página **solicitar permissões de API** para o aplicativo de back-end, **selecione permissões delegadas** e **user_impersonation**e, em seguida, selecione **adicionar permissões**.
+Na página de **permissões do Request API** para a aplicação back-end, selecione **permissões delegadas** e **user_impersonation,** em seguida, selecione **Adicionar permissões**.
 
 ![API ASP.NET Core em execução no Serviço de Aplicações do Azure](./media/tutorial-auth-aad/select-permission-front-end.png)
 
 ### <a name="configure-app-service-to-return-a-usable-access-token"></a>Configurar o Serviço de Aplicações para devolver um token de acesso utilizável
 
-O aplicativo de front-end agora tem as permissões necessárias para acessar o aplicativo de back-end como o usuário conectado. Neste passo, vai configurar a autenticação e autorização do Serviço de Aplicações para lhe dar um token de acesso utilizável para aceder ao back-end. Para esta etapa, você precisa da ID do cliente do back-end, que você copiou de [habilitar autenticação e autorização para o aplicativo de back-end](#enable-authentication-and-authorization-for-back-end-app).
+A aplicação frontal tem agora as permissões necessárias para aceder à aplicação back-end como utilizador inscrito. Neste passo, vai configurar a autenticação e autorização do Serviço de Aplicações para lhe dar um token de acesso utilizável para aceder ao back-end. Para este passo, precisa do ID do cliente do back end, que copiou da [autenticação Enable e autorização para aplicação back-end](#enable-authentication-and-authorization-for-back-end-app).
 
 Inicie sessão no [Azure Resource Explorer](https://resources.azure.com). Na parte superior da página, clique em **Leitura/Escrita** para ativar a edição dos seus recursos do Azure.
 
 ![API ASP.NET Core em execução no Serviço de Aplicações do Azure](./media/tutorial-auth-aad/resources-enable-write.png)
 
-No navegador esquerdo, clique em **assinaturas** >  **_\<sua assinatura >_**  > **resourceGroups** > **myAuthResourceGroup** > **provedores** > **Microsoft. Web** > **sites** >  **_\<front-end-app-Name >_**  > **config** > **authsettings**.
+No navegador esquerdo, clique em **subscrições** > **_\<da sua subscrição>_**  >  **recursosGroup** > **myAuthResourceGroup** > **fornecedores** > **Microsoft.Web** > **sites** > **_\<front-end-app-name>_**  >  **config** > **authsettings**.
 
-Na vista **authsettings**, clique em **Editar**. Defina `additionalLoginParams` para a cadeia de caracteres JSON a seguir, usando a ID do cliente que você copiou. 
+Na vista **authsettings**, clique em **Editar**. Desloque-se `additionalLoginParams` para a seguinte corda JSON, utilizando o ID do cliente copiado. 
 
 ```json
 "additionalLoginParams": ["response_type=code id_token","resource=<back-end-client-id>"],
@@ -278,13 +278,13 @@ Clique em **PUT** para guardar as definições.
 
 As suas aplicações estão agora configuradas. O front-end está agora pronto para aceder ao back-end com um token de acesso correto.
 
-Para obter informações sobre como configurar o token de acesso para outros provedores, consulte [Atualizar tokens do provedor de identidade](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#refresh-identity-provider-tokens).
+Para obter informações sobre como configurar o sinal de acesso para outros fornecedores, consulte [fichas](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#refresh-identity-provider-tokens)do fornecedor de identidade Refresh .
 
 ## <a name="call-api-securely-from-server-code"></a>Chamar a API de forma segura a partir do código de servidor
 
 Neste passo, vai ativar o código de servidor modificado anteriormente para fazer chamadas autenticadas para a API de back-end.
 
-Seu aplicativo de front-end agora tem a permissão necessária e também adiciona a ID do cliente back-end aos parâmetros de logon. Por conseguinte, pode obter um token de acesso para a autenticação na aplicação de back-end. O Serviço de Aplicações fornece este token ao código de servidor mediante a injeção de um cabeçalho `X-MS-TOKEN-AAD-ACCESS-TOKEN` em cada pedido autenticado (veja [Retrieve tokens in app code](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#retrieve-tokens-in-app-code) [Obter tokens no código da aplicação]).
+A sua aplicação frontal tem agora a permissão necessária e também adiciona o ID do cliente da parte de trás aos parâmetros de login. Por conseguinte, pode obter um token de acesso para a autenticação na aplicação de back-end. O Serviço de Aplicações fornece este token ao código de servidor mediante a injeção de um cabeçalho `X-MS-TOKEN-AAD-ACCESS-TOKEN` em cada pedido autenticado (veja [Retrieve tokens in app code](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#retrieve-tokens-in-app-code) [Obter tokens no código da aplicação]).
 
 > [!NOTE]
 > Estes cabeçalhos são injetados em todas as linguagens suportadas. Pode aceder aos mesmos através da norma padrão de cada linguagem.
@@ -330,7 +330,7 @@ Embora o código do servido tenha acesso aos cabeçalhos dos pedidos, o código 
 
 ### <a name="configure-cors"></a>Configurar o CORS
 
-No Cloud Shell, ative CORS no URL do seu cliente com o comando [`az resource update`](/cli/azure/resource#az-resource-update). Substitua os _\<> de nome de aplicativo de back-end_ e\<espaços reservados de _> de nome de aplicativo front-end_ .
+Na Cloud Shell, ative o CORS no URL [`az resource update`](/cli/azure/resource#az-resource-update) do seu cliente utilizando o comando. Substitua _ \<_ o nome da aplicação de trás para a frente>e _ \<_ o nome da aplicação frontal>espaços reservados.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back-end-app-name> --set properties.cors.allowedOrigins="['https://<front-end-app-name>.azurewebsites.net']" --api-version 2015-06-01
@@ -342,7 +342,7 @@ Este passo não está relacionado com a autenticação e autorização. No entan
 
 No repositório local, abra _wwwroot/index.html_.
 
-Na Linha 51, defina a variável `apiEndpoint` como o URL da aplicação de back-end (`https://<back-end-app-name>.azurewebsites.net`). Substitua _\<> de nome de aplicativo de back-end_ pelo nome do aplicativo no serviço de aplicativo.
+Na Linha 51, defina a variável `apiEndpoint` como o URL da aplicação de back-end (`https://<back-end-app-name>.azurewebsites.net`). Substitua>de nome de aplicação de _ \<back-end_ com o nome da aplicação no Serviço de Aplicações.
 
 No repositório local, abra _wwwroot/app/scripts/todoListSvc.js_ e verifique se `apiEndpoint` está anexado a todas as chamadas à API. A sua aplicação Angular.js está agora a chamar as APIs de back-end. 
 
@@ -402,7 +402,7 @@ Parabéns! O código do cliente está agora a aceder aos dados do back-end em no
 
 ## <a name="when-access-tokens-expire"></a>Quando o token de acesso expira
 
-O token de acesso expira ao fim de algum tempo. Para obter informações sobre como atualizar seus tokens de acesso sem exigir que os usuários se autentiquem novamente com seu aplicativo, consulte [Atualizar tokens do provedor de identidade](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#refresh-identity-provider-tokens).
+O token de acesso expira ao fim de algum tempo. Para obter informações sobre como atualizar os seus tokens de acesso sem exigir que os utilizadores se reatentam com a sua aplicação, consulte [fichas](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#refresh-identity-provider-tokens)do fornecedor de identidade Refresh .
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -428,7 +428,7 @@ O que aprendeu:
 > * Utilizar tokens de acesso a partir do código de servidor
 > * Utilizar tokens de acesso a partir do código de cliente (browser)
 
-Avance para o próximo tutorial para saber como mapear um nome DNS personalizado para seu aplicativo.
+Avance para o próximo tutorial para aprender a mapear um nome DNS personalizado para a sua aplicação.
 
 > [!div class="nextstepaction"]
-> [Mapear um nome DNS personalizado existente para Azure App serviço](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+> [Mapeie um nome dNS personalizado existente para o Serviço de Aplicações Azure](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)

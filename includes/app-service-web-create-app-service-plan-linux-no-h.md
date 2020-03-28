@@ -9,17 +9,17 @@ ms.date: 12/20/2019
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: c2711d102c9dfeb00394fa5b5b69065115ce235e
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75681058"
 ---
-No Cloud Shell, crie um plano do Serviço de Aplicações no grupo de recursos com o comando [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create).
+Na Cloud Shell, crie um plano de [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) Serviço de Aplicações no grupo de recursos com o comando.
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
-O exemplo a seguir cria um plano do serviço de aplicativo chamado `myAppServicePlan` no tipo de preço **gratuito** (`--sku F1`) e em um contêiner do Linux (`--is-linux`).
+O exemplo seguinte cria um `myAppServicePlan` plano de Serviço`--sku F1`de Aplicações denominado no`--is-linux`nível de preços **gratuitos** () e num recipiente Linux ( ).
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku F1 --is-linux

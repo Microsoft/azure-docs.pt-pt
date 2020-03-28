@@ -2,19 +2,19 @@
 title: Tutorial - adicionar funções de modelo
 description: Adicione funções de modelo ao seu modelo de Gestor de Recursos Azure para construir valores.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7e4282802c287becf9ccb036ba0063d3c48bc332
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 6bb95d5a8022c6ac94dd8b7c777c65ff5e20617a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79370768"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80369918"
 ---
-# <a name="tutorial-add-template-functions-to-your-resource-manager-template"></a>Tutorial: Adicionar funções de modelo ao seu modelo de Gestor de Recursos
+# <a name="tutorial-add-template-functions-to-your-arm-template"></a>Tutorial: Adicionar funções de modelo ao seu modelo ARM
 
-Neste tutorial, aprende-se a adicionar [funções](template-functions.md) de modelo ao seu modelo. Usa funções para construir valores dinâmicos. Além destas funções de modelo fornecidas pelo sistema, também pode criar [funções definidas pelo utilizador.](./template-user-defined-functions.md) Este tutorial leva **7 minutos** para ser concluído.
+Neste tutorial, aprende a adicionar [funções](template-functions.md) de modelo ao seu modelo De gestor de recursos (ARM) Azure. Usa funções para construir valores dinâmicos. Além destas funções de modelo fornecidas pelo sistema, também pode criar [funções definidas pelo utilizador.](./template-user-defined-functions.md) Este tutorial leva **7 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -58,7 +58,9 @@ New-AzResourceGroupDeployment `
   -storageName "{new-unique-name}"
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Para executar este comando de implantação, deve ter a [versão mais recente](/cli/azure/install-azure-cli) do Azure CLI.
 
 ```azurecli
 az deployment group create \
@@ -74,7 +76,7 @@ az deployment group create \
 
 Pode verificar a implantação explorando o grupo de recursos a partir do portal Azure.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. A partir do menu esquerdo, selecione **Grupos de Recursos**.
 1. Selecione o grupo de recursos para o quais foi implantado.
 1. Você vê que um recurso de conta de armazenamento foi implementado e tem a mesma localização que o grupo de recursos.
@@ -85,10 +87,10 @@ Se está saindo para o próximo tutorial, não precisa de apagar o grupo de recu
 
 Se estás a parar agora, talvez queiras limpar os recursos que implantaste ao apagar o grupo de recursos.
 
-1. No portal do Azure, selecione **Grupo de recursos** no menu à esquerda.
+1. A partir do portal Azure, selecione **Grupo Recurso** do menu esquerdo.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
 3. Selecione o nome do grupo de recursos.
-4. Selecione **Eliminar grupo de recursos** no menu superior.
+4. **Selecione Eliminar** o grupo de recursos do menu superior.
 
 ## <a name="next-steps"></a>Passos seguintes
 

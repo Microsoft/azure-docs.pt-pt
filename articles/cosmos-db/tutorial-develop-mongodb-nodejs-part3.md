@@ -1,5 +1,5 @@
 ---
-title: Criar a interface do usuário do aplicativo angular com a API do Azure Cosmos DB para MongoDB (parte 3)
+title: Crie a app Angular UI com a API do Azure Cosmos DB para MongoDB (Part3)
 description: Parte 3 da série do tutorial sobre como criar uma aplicação MongoDB com Angular e Node no Azure Cosmos DB mediante a utilização das mesmas APIs que são utilizadas para MongoDB.
 author: johnpapa
 ms.service: cosmos-db
@@ -11,15 +11,15 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 ms.openlocfilehash: c9467aef1dd7d28b41c2e05b5f157a158d7377ab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75444731"
 ---
-# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Criar um aplicativo angular com a API do Azure Cosmos DB para MongoDB-compilar a interface do usuário com angular
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Crie uma app Angular com API da Azure Cosmos DB para MongoDB - Construa o UI com Angular
 
-Este tutorial de várias partes demonstra como criar um novo aplicativo escrito em node. js com o Express e o angular e, em seguida, conectá-lo à sua [conta do cosmos configurada com a API do cosmos DB para MongoDB](mongodb-introduction.md).
+Este tutorial em várias partes demonstra como criar uma nova app escrita no Node.js com Express e Angular e, em seguida, conectá-la à sua [conta Cosmos configurada com a API da Cosmos DB para MongoDB](mongodb-introduction.md).
 
 A Parte 3 do tutorial é a continuação da [Parte 2](tutorial-develop-mongodb-nodejs-part2.md) e abrange as seguintes tarefas:
 
@@ -416,7 +416,7 @@ Agora que temos o componente, como podemos proceder para que apareça no ecrã? 
 
 2. No Visual Studio Code, regresse a **heroes.components.ts**. Repare que, na linha `constructor(private heroService: HeroService) {}` (linha 13), `HeroService` tem uma linha vermelha por baixo. Clique em `HeroService` e obterá a lâmpada no lado esquerdo do bloco de código. Clique na lâmpada e, em seguida, clique em **Import HeroService from "./hero.service ".** (Importar HeroService de "./hero.service ".) ou em **(Importar HeroService de "/app/hero.service".**
 
-    Clicar na lâmpada insere uma linha de código nova na linha 2. Se a linha 2 fizer referência à pasta/app/Hero.Service, modifique-a para que ela faça referência ao arquivo Hero da pasta local (./Hero.Service). A linha 2 deve ter o seguinte aspeto:
+    Clicar na lâmpada insere uma linha de código nova na linha 2. Se a linha 2 se referir à pasta /app/hero.service, modifique-a de modo a referir o ficheiro herói da pasta local (./hero.service). A linha 2 deve ter o seguinte aspeto:
     
     ```javascript
     import { HeroService } from "./hero.service"

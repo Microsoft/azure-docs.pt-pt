@@ -10,10 +10,10 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.openlocfilehash: aeccd604a4dae3b2ca83f5b599d9a6857acee34a
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79037170"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutorial: Implementar um modelo de machine learning com o designer (pré-visualização)
@@ -37,7 +37,7 @@ Para implantar o seu oleoduto, primeiro tem de converter o gasoduto de treino nu
 
 ### <a name="create-a-real-time-inference-pipeline"></a>Criar um oleoduto de inferência em tempo real
 
-1. Acima da tela do gasoduto, selecione Criar gasoduto de **inferência** > **gasoduto de inferência em tempo real**.
+1. Acima da tela do gasoduto, selecione Criar gasoduto > de **inferência**Em**tempo real**.
 
     ![Screenshot mostrando onde encontrar o botão de criar pipeline](./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png)
 
@@ -66,7 +66,7 @@ Na caixa de diálogo que aparece, pode selecionar entre quaisquer clusters de Se
 
 1. Selecione **Compute** na caixa de diálogo que parece ir para a página **Compute.**
 
-1. Na fita de navegação, selecione **Clusters de Inferência** >  **+ Novo**.
+1. Na fita de navegação, selecione **Clusters** > de Inferência **+ Novo**.
 
     ![Screenshot mostrando como chegar ao novo painel de cluster de inferência](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
 

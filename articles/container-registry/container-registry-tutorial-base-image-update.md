@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 01/22/2020
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 4797dd1f1fe19b98ab94c4743ad4af3c43ce0627
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78402866"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Tutorial: Automatiza imagem de contentor constrói-se quando uma imagem de base é atualizada num registo de contentores Do Azure 
@@ -28,7 +28,7 @@ Neste tutorial:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se quiser utilizar a CLI do Azure localmente, terá de ter a versão **2.0.46** ou posterior da CLI do Azure instalada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar o CLI, consulte [Instalar o Azure CLI][azure-cli].
+Se quiser utilizar a CLI do Azure localmente, terá de ter a versão **2.0.46** ou posterior da CLI do Azure instalada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar a CLI, veja [Instalar a CLI do Azure][azure-cli].
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -64,11 +64,11 @@ GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 
 Este tutorial acompanha-o através de um cenário de atualização de imagem base em que uma imagem base e uma imagem de aplicação são mantidas num único registo. 
 
-A [amostra de código][code-sample] inclui dois Dockerfiles: uma imagem de aplicação e uma imagem que especifica como base. Nas seguintes secções, cria-se uma tarefa ACR que desencadeia automaticamente uma construção da imagem de aplicação quando uma nova versão da imagem base é empurrada para o mesmo registo de contentores.
+O [exemplo de código][code-sample] inclui dois Dockerfiles: uma imagem da aplicação e uma imagem que é especificada como a sua base. Nas seguintes secções, cria-se uma tarefa ACR que desencadeia automaticamente uma construção da imagem de aplicação quando uma nova versão da imagem base é empurrada para o mesmo registo de contentores.
 
-* [Dockerfile-app][dockerfile-app]: Uma pequena aplicação web Node.js que torna uma página web estática exibindo a versão Node.js na qual se baseia. A cadeia de versão é simulada: apresenta o conteúdo de uma variável de ambiente, `NODE_VERSION`, definido na imagem de base.
+* [Dockerfile-app][dockerfile-app]: uma pequena aplicação Web Node.js que compõe uma página Web estática, que apresenta a versão do Node.js na qual se baseia. A cadeia de versão é simulada: apresenta o conteúdo de uma variável de ambiente, `NODE_VERSION`, definido na imagem de base.
 
-* [Dockerfile-base][dockerfile-base]: A imagem que `Dockerfile-app` especifica como base. É baseado numa imagem do [Nó,][base-node] e inclui a variável ambiente `NODE_VERSION`.
+* [Dockerfile-base][dockerfile-base]: a imagem que `Dockerfile-app` especifica como a sua base. A própria baseia-se numa imagem do [Nó][base-node] e inclui a variável de ambiente `NODE_VERSION`.
 
 Nas próximas secções, vai criar uma tarefa, atualizar o valor `NODE_VERSION` no Dockerfile da imagem de base e, em seguida, utilizar o ACR Tasks para compilar a imagem de base. Quando a tarefa do ACR envia a nova imagem de base para o registo, aciona automaticamente uma compilação da imagem da aplicação. Opcionalmente, pode executar a imagem de contentor da aplicação localmente para ver as diferentes cadeias de versão nas imagens da compilação.
 
@@ -84,7 +84,7 @@ az acr build --registry $ACR_NAME --image baseimages/node:9-alpine --file Docker
 
 ## <a name="create-a-task"></a>Criar uma tarefa
 
-Em seguida, criar uma tarefa com [az acr task criar:][az-acr-task-create]
+Em seguida, crie uma tarefa com [az acr task create][az-acr-task-create]:
 
 ```azurecli-interactive
 az acr task create \
@@ -97,7 +97,7 @@ az acr task create \
     --git-access-token $GIT_PAT
 ```
 
-Esta tarefa é semelhante à tarefa criada no [tutorial anterior.](container-registry-tutorial-build-task.md) Dá instruções ao ACR Tasks para acionar uma compilação da imagem quando as consolidações são enviadas por push para o repositório especificado por `--context`. Enquanto o Dockerfile usado para construir a imagem no tutorial anterior especifica uma imagem de base pública (`FROM node:9-alpine`), o Dockerfile nesta tarefa, [Dockerfile-app][dockerfile-app], especifica uma imagem base no mesmo registo:
+Esta tarefa é semelhante à tarefa criada no [tutorial anterior.](container-registry-tutorial-build-task.md) Dá instruções ao ACR Tasks para acionar uma compilação da imagem quando as consolidações são enviadas por push para o repositório especificado por `--context`. Enquanto o Dockerfile usado para construir a imagem no`FROM node:9-alpine`tutorial anterior especifica uma imagem de base pública (), o Dockerfile nesta tarefa, [Dockerfile-app,][dockerfile-app]especifica uma imagem base no mesmo registo:
 
 ```dockerfile
 FROM ${REGISTRY_NAME}/baseimages/node:9-alpine
@@ -125,7 +125,7 @@ Primeiro, autenticar o seu registo de contentores com [login az acr:][az-acr-log
 az acr login --name $ACR_NAME
 ```
 
-Agora, execute o contentor localmente com `docker run`. Substitua **\<run-id\>** pelo ID de Execução encontrado no resultado do passo anterior (por exemplo, "da6"). Este exemplo dá nome ao contentor `myapp` e inclui o parâmetro `--rm` para remover o recipiente quando o parar.
+Agora, execute o contentor localmente com `docker run`. Substitua ** \<o\> id de execução** pelo ID de execução encontrado na saída do passo anterior (por exemplo, "da6"). Este exemplo dá `myapp` nome `--rm` ao recipiente e inclui o parâmetro para remover o recipiente quando o parar.
 
 ```bash
 docker run -d -p 8080:80 --name myapp --rm $ACR_NAME.azurecr.io/helloworld:<run-id>
@@ -143,7 +143,7 @@ docker stop myapp
 
 ## <a name="list-the-builds"></a>Listar as compilações
 
-Em seguida, enumera risa a tarefa que as Tarefas ACR completaram para o seu registo utilizando o comando de funcionadores da lista de [tarefas az acr:][az-acr-task-list-runs]
+Em seguida, liste as execuções de tarefas que o ACR Tasks concluiu para o seu registo com o comando [az acr task list-runs][az-acr-task-list-runs]:
 
 ```azurecli-interactive
 az acr task list-runs --registry $ACR_NAME --output table

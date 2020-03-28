@@ -1,30 +1,33 @@
 ---
-title: Exemplos de Azure PowerShell para Azure Cosmos DB-API do Cassandra
-description: Obtenha os exemplos de Azure PowerShell para executar várias tarefas comuns em contas de Azure Cosmos DB API do Cassandra
+title: Amostras azure PowerShell para Azure Cosmos DB - Cassandra API
+description: Obtenha as amostras Azure PowerShell para executar várias tarefas comuns nas contas da API da Azure Cosmos DB Cassandra
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 3949894c19d49335063851a1d5f5c03a1f086d44
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: f09088fc001fd8c77a330938d261426528b214cd
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871972"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365743"
 ---
-# <a name="azure-powershell-samples-for-azure-cosmos-db---cassandra-api"></a>Exemplos de Azure PowerShell para Azure Cosmos DB-API do Cassandra
+# <a name="azure-powershell-samples-for-azure-cosmos-db---cassandra-api"></a>Amostras azure PowerShell para Azure Cosmos DB - Cassandra API
 
-A tabela a seguir inclui links para scripts de Azure PowerShell de exemplo para Azure Cosmos DB para API do Cassandra.
+A tabela seguinte inclui links para provar scripts Azure PowerShell para Azure Cosmos DB para Cassandra API.
+
+> [!NOTE]
+> As amostras usam cmdlets de gestão [Az.CosmosDB.](https://docs.microsoft.com/powershell/module/az.cosmosdb) Por favor, `Az.CosmosDB` note que as cmdlets ainda estão na pré-visualização e podem mudar antes de serem libertadas. Por favor, verifique `Az.CosmosDB` se há atualizações regularmente.
 
 | | |
 |---|---|
-|[Criar uma conta, um keyspace e uma tabela](scripts/powershell/cassandra/ps-cassandra-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta do Azure Cosmos, um keyspace e uma tabela. |
-|[Listar ou obter espaços ou tabelas](scripts/powershell/cassandra/ps-cassandra-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Listar ou obter espaços ou tabelas. |
-|[Obter RU/s](scripts/powershell/cassandra/ps-cassandra-ru-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obter RU/s para um keyspace ou uma tabela. |
-|[Atualizar RU/s](scripts/powershell/cassandra/ps-cassandra-ru-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Atualize RU/s para um keyspace ou uma tabela. |
-|[Atualizar uma conta ou adicionar uma região](scripts/powershell/common/ps-account-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Adicione uma região a uma conta do cosmos. Também pode ser usado para modificar outras propriedades de conta, mas elas devem ser separadas das alterações nas regiões. |
-|[Alterar prioridade de failover ou failover de gatilho](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Altere a prioridade de failover regional de uma conta do Azure Cosmos ou dispare um failover manual. |
-|[Chaves de conta ou cadeias de conexão](scripts/powershell/common/ps-account-keys-connection-strings.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenha chaves primárias e secundárias, cadeias de conexão ou gere novamente uma chave de conta de uma conta do Azure Cosmos. |
-|[Criar uma conta do cosmos com o firewall de IP](scripts/powershell/common/ps-account-firewall-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crie uma conta do Azure cosmos com o firewall de IP habilitado. |
+|[Criar uma conta, espaço de chave e mesa](scripts/powershell/cassandra/ps-cassandra-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta Azure Cosmos, espaço de chave e mesa. |
+|[Lista ou obter espaços-chave ou mesas](scripts/powershell/cassandra/ps-cassandra-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Lista ou obtenha espaços-chave ou mesas. |
+|[Obter RU/s](scripts/powershell/cassandra/ps-cassandra-ru-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Pegue RU/s para um espaço de chave ou mesa. |
+|[Atualização RU/s](scripts/powershell/cassandra/ps-cassandra-ru-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Atualizar RU/s para um espaço de chave ou mesa. |
+|[Atualizar uma conta ou adicionar uma região](scripts/powershell/common/ps-account-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Adicione uma região a uma conta cosmos. Também pode ser usado para modificar outras propriedades da conta, mas estas devem ser separadas das alterações às regiões. |
+|[Alterar prioridade de failover ou desencadear falha](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Mude a prioridade regional de failover de uma conta Azure Cosmos ou desencadeie uma falha manual. |
+|[Chaves de conta ou cordas de ligação](scripts/powershell/common/ps-account-keys-connection-strings.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenha chaves primárias e secundárias, cordas de ligação ou regenerar uma chave de conta de uma conta Azure Cosmos. |
+|[Crie uma Conta Cosmos com firewall IP](scripts/powershell/common/ps-account-firewall-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crie uma conta Azure Cosmos com ip firewall ativado. |
 |||

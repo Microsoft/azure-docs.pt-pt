@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
 ms.openlocfilehash: 359b90cc434dad04fc0296c54fcc762f3a75062d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74107653"
 ---
 # <a name="import-soap-api"></a>Importar uma API SOAP
@@ -27,16 +27,16 @@ Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Importar uma API SOAP
-> * Testar a API no Portal do Azure
+> * Testar a API no portal do Azure
 > * Testar a API no portal do Programador
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Concluir o início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md)
+Complete o seguinte quickstart: Criar uma instância de [Gestão API Azure](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"> </a>Importar e publicar uma API de back-end
+## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importar e publicar uma API de back-end
 
 1. Selecione **APIs** em **GESTÃO DE API**.
 2. Selecione **WSDL** na lista **Adicionar uma nova API**.

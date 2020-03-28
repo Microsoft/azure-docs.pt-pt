@@ -2,19 +2,19 @@
 title: Tutorial - adicione variável ao modelo
 description: Adicione variáveis ao seu modelo de Gestor de Recursos Azure para simplificar a sintaxe.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7b0ed16f95281fc793b2d350f3ed45386e52d407
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 7fa6c36b604d0e96b2192ceb6c5585afcade080b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79370669"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371721"
 ---
-# <a name="tutorial-add-variables-to-your-resource-manager-template"></a>Tutorial: Adicione variáveis ao seu modelo de Gestor de Recursos
+# <a name="tutorial-add-variables-to-your-arm-template"></a>Tutorial: Adicione variáveis ao seu modelo ARM
 
-Neste tutorial, aprende-se a adicionar uma variável ao seu modelo. As variáveis simplificam os seus modelos, permitindo-lhe escrever uma expressão uma vez e reutilizá-la ao longo do modelo. Este tutorial leva **7 minutos** para ser concluído.
+Neste tutorial, aprende a adicionar uma variável ao seu modelo de Gestor de Recursos Azure (ARM). As variáveis simplificam os seus modelos, permitindo-lhe escrever uma expressão uma vez e reutilizá-la ao longo do modelo. Este tutorial leva **7 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -67,7 +67,9 @@ New-AzResourceGroupDeployment `
   -storageSKU Standard_LRS
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Para executar este comando de implantação, deve ter a [versão mais recente](/cli/azure/install-azure-cli) do Azure CLI.
 
 ```azurecli
 az deployment group create \
@@ -83,7 +85,7 @@ az deployment group create \
 
 Pode verificar a implantação explorando o grupo de recursos a partir do portal Azure.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. A partir do menu esquerdo, selecione **Grupos de Recursos**.
 1. Selecione o grupo de recursos para o quais foi implantado.
 1. Sabe que foi implementado um recurso de conta de armazenamento. O nome da conta de armazenamento é **loja** mais uma série de caracteres aleatórios.
@@ -94,10 +96,10 @@ Se está saindo para o próximo tutorial, não precisa de apagar o grupo de recu
 
 Se estás a parar agora, talvez queiras limpar os recursos que implantaste ao apagar o grupo de recursos.
 
-1. No portal do Azure, selecione **Grupo de recursos** no menu à esquerda.
+1. A partir do portal Azure, selecione **Grupo Recurso** do menu esquerdo.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
 3. Selecione o nome do grupo de recursos.
-4. Selecione **Eliminar grupo de recursos** no menu superior.
+4. **Selecione Eliminar** o grupo de recursos do menu superior.
 
 ## <a name="next-steps"></a>Passos seguintes
 

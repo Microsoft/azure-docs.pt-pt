@@ -1,37 +1,37 @@
 ---
 title: Resolução de problemas de implementações
-description: Saiba como monitorar e solucionar problemas Azure Resource Manager implantações de modelo. Mostra os logs de atividade e o histórico de implantação.
+description: Aprenda a monitorizar e resolver problemas as implementações do modelo do Gestor de Recursos Azure. Mostra registos de atividade e histórico de implantação.
 author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ab12b206d5bb82956a8b607368af44ea0eaca40e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 30b66414e87f642bc72b8723ebff57f2e9009f17
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75472514"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239243"
 ---
-# <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>Tutorial: solucionar problemas de implantações de modelo do Resource Manager
+# <a name="tutorial-troubleshoot-arm-template-deployments"></a>Tutorial: Implementações do modelo ARM de resolução de problemas
 
-Saiba como solucionar problemas de erros de implantação de modelo do Resource Manager. Neste tutorial, você configura dois erros em um modelo e aprende a usar os logs de atividade e o histórico de implantação para resolver os problemas.
+Aprenda a resolver problemas com os erros de implementação do modelo Azure Resource Manager (ARM). Neste tutorial, você configura dois erros num modelo, e aprende como usar os registos de atividade e o histórico de implementação para resolver os problemas.
 
-Há dois tipos de erros relacionados à implantação de modelo:
+Existem dois tipos de erros relacionados com a implementação do modelo:
 
-- Os **erros de validação** surgem de cenários que podem ser determinados antes da implantação. Estes incluem erros de sintaxe no modelo ou tentativas de implementação de recursos que excederiam as quotas de subscrição.
-- Os **erros de implantação** surgem de condições que ocorrem durante o processo de implantação. Estes incluem a tentativa de acesso a um recurso que está a ser implementado em paralelo.
+- Os erros de **validação** surgem de cenários que podem ser determinados antes da implantação. Estes incluem erros de sintaxe no modelo ou tentativas de implementação de recursos que excederiam as quotas de subscrição.
+- Os erros de **implantação** surgem de condições que ocorrem durante o processo de implantação. Estes incluem a tentativa de acesso a um recurso que está a ser implementado em paralelo.
 
-Ambos os tipos de erros devolvem um código de erro que deverá utilizar para resolver os problemas da implementação. Os dois tipos de erros aparecem no log de atividades. No entanto, os erros de validação não aparecem no histórico de implementação porque a implementação não chegou a ser iniciada.
+Ambos os tipos de erros devolvem um código de erro que deverá utilizar para resolver os problemas da implementação. Ambos os tipos de erros são apresentados no registo de atividades. No entanto, os erros de validação não aparecem no histórico de implementação porque a implementação não chegou a ser iniciada.
 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Criar um modelo problemático
-> * Solucionar erros de validação
+> * Erros de validação de resolução de problemas
 > * Resolver erros de implementação
 > * Limpar recursos
 
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -39,48 +39,48 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para concluir este artigo, precisa de:
 
-* Visual Studio Code com a extensão de ferramentas do Resource Manager. Consulte [usar Visual Studio Code para criar modelos de Azure Resource Manager](use-vs-code-to-create-template.md).
+* Visual Studio Code com extensão Ferramentas do Resource Manager. Consulte [o Use Visual Studio Code para criar modelos ARM](use-vs-code-to-create-template.md).
 
 ## <a name="create-a-problematic-template"></a>Criar um modelo problemático
 
-Abra um modelo chamado [criar uma conta de armazenamento padrão](https://azure.microsoft.com/resources/templates/101-storage-account-create/) nos [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/)e configure dois problemas de modelo.
+Abra um modelo chamado [Criar uma conta de armazenamento padrão](https://azure.microsoft.com/resources/templates/101-storage-account-create/) a partir de [modelos De QuickStart Azure,](https://azure.microsoft.com/resources/templates/)e configurar dois problemas de modelo.
 
-1. No Visual Studio Code, selecione **Ficheiro**>**Abrir Ficheiro**.
+1. A partir do Código do Estúdio Visual, selecione **File**>**Open File**.
 2. em **Nome de ficheiro**, cole o seguinte URL:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
 3. Selecione **Abrir** para abrir o ficheiro.
-4. Altere a linha **apiVersion** para a seguinte linha:
+4. Alterar a linha **apiVersion** para a seguinte linha:
 
     ```json
     "apiVersion1": "2018-07-02",
     ```
     - **apiVersion1** é um nome de elemento inválido. É um erro de validação.
-    - A versão da API deve ser "2018-07-01".  É um erro de implantação.
+    - A versão DaPi será "2018-07-01".  É um erro de implantação.
 
-5. Selecione **Ficheiro**>**Guardar Como** para guardar o ficheiro como **azuredeploy.json** no computador local.
+5. Selecione **File**>**Save As** para guardar o ficheiro como **azuredeploy.json** para o seu computador local.
 
-## <a name="troubleshoot-the-validation-error"></a>Solucionar o erro de validação
+## <a name="troubleshoot-the-validation-error"></a>Resolução de problemas do erro de validação
 
-Consulte a seção [implantar o modelo](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) para implantar o modelo.
+Consulte a secção [de modelo de desdobre para](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) implementar o modelo.
 
-Você deverá receber um erro do Shell semelhante a:
+Terá um erro da concha semelhante a:
 
 ```
 New-AzResourceGroupDeployment : 4:29:24 PM - Error: Code=InvalidRequestContent; Message=The request content was invalid and could not be deserialized: 'Could not find member 'apiVersion1' on object of type 'TemplateResource'. Path 'properties.template.resources[0].apiVersion1', line 36, position 24.'.
 ```
 
-A mensagem de erro indica que o problema é com **apiVersion1**.
+A mensagem de erro indica que o problema está com **a apiVersion1**.
 
-Use Visual Studio Code para corrigir o problema alterando **apiVersion1** para **apiVersion**e, em seguida, salve o modelo.
+Utilize o Código do Estúdio Visual para corrigir o problema, alterando a **apiVersion1** para **apiVersão,** e, em seguida, guarde o modelo.
 
-## <a name="troubleshoot-the-deployment-error"></a>Solucionar problemas de erro de implantação
+## <a name="troubleshoot-the-deployment-error"></a>Resolução de problemas do erro de implantação
 
-Consulte a seção [implantar o modelo](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) para implantar o modelo.
+Consulte a secção [de modelo de desdobre para](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) implementar o modelo.
 
-Você deverá receber um erro do Shell semelhante a:
+Terá um erro da concha semelhante a:
 
 ```
 New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageAccounts 'storeqii7x2rce77dc' failed with message '{
@@ -91,41 +91,41 @@ New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageA
 }'
 ```
 
-O erro de implantação pode ser encontrado no portal do Azure usando o seguinte procedimento:
+O erro de implantação pode ser encontrado no portal Azure utilizando o seguinte procedimento:
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. Abra o grupo de recursos selecionando **grupos de recursos** e o nome do grupo de recursos. Você deverá ver **1 com falha** na **implantação**.
+2. Abra o grupo de recursos selecionando **grupos de recursos** e, em seguida, o nome do grupo de recursos. Verá **1 Falhado** sob **implantação**.
 
-    ![Solução de problemas do tutorial do Gerenciador de recursos](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
-3. Selecione os **detalhes do erro**.
+    ![Resolução de problemas tutoriais do Gestor de Recursos](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
+3. Selecione **detalhes de erro**.
 
-    ![Solução de problemas do tutorial do Gerenciador de recursos](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
+    ![Resolução de problemas tutoriais do Gestor de Recursos](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
 
-    A mensagem de erro é igual à mostrada anteriormente:
+    A mensagem de erro é a mesma que a mostrada anteriormente:
 
-    ![Solução de problemas do tutorial do Gerenciador de recursos](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
+    ![Resolução de problemas tutoriais do Gestor de Recursos](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
 
-Você também pode encontrar o erro nos logs de atividade:
+Também pode encontrar o erro dos registos de atividade:
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. Selecione **monitorar** > **log de atividades**.
-3. Use os filtros para localizar o log.
+2. Selecione**registo de atividade**de **monitor** > .
+3. Utilize os filtros para encontrar o tronco.
 
-    ![Solução de problemas do tutorial do Gerenciador de recursos](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-activity-log.png)
+    ![Resolução de problemas tutoriais do Gestor de Recursos](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-activity-log.png)
 
-Use Visual Studio Code para corrigir o problema e reimplante o modelo.
+Utilize o Código do Estúdio Visual para corrigir o problema e, em seguida, recolocar o modelo.
 
-Para obter uma lista de erros comuns, consulte [solucionar erros comuns de implantação do Azure com o Azure Resource Manager](common-deployment-errors.md).
+Para obter uma lista de erros comuns, consulte erros comuns de [implantação do Azure com o Azure Resource Manager](common-deployment-errors.md).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos.
 
-1. No portal do Azure, selecione **Grupo de recursos** no menu à esquerda.
+1. A partir do portal Azure, selecione **Grupo Recurso** do menu esquerdo.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
 3. Selecione o nome do grupo de recursos.  Verá um total de seis recursos no grupo de recursos.
-4. Selecione **Eliminar grupo de recursos** no menu superior.
+4. **Selecione Eliminar** o grupo de recursos do menu superior.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você aprendeu a solucionar problemas de erros de implantação de modelo do Resource Manager.  Para obter mais informações, consulte [solucionar erros comuns de implantação do Azure com o Azure Resource Manager](common-deployment-errors.md).
+Neste tutorial, aprendeu a resolver erros de implementação do modelo ARM.  Para mais informações, consulte os erros comuns de implantação do [Azure com o Azure Resource Manager](common-deployment-errors.md).

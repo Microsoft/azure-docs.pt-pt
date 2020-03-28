@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: d738868e0e4ca7599f4aaf8d6e09d22f26a8db92
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77016379"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Tutorial: Criar uma aplicação de monitorização da qualidade da água na Central Azure IoT
@@ -52,7 +52,7 @@ Nesta secção, utiliza o modelo de **monitorização** da qualidade da água ce
 
 1. Selecione o modelo de aplicação de monitorização da **qualidade da água.** Este modelo de aplicação inclui um modelo de dispositivo de qualidade da água, dispositivos simulados, um painel de instrumentos do operador e regras de monitorização pré-configuradas.
 
-1. Selecione **Criar app**. O novo painel de **aplicações** abre e mostra os seguintes elementos:
+1. Selecione **Criar aplicação**. O novo painel de **aplicações** abre e mostra os seguintes elementos:
 
     * Nome da **aplicação**: Por padrão, o nome da aplicação é **monitorização** da qualidade da água seguida de uma cadeia de ID única que o Azure IoT Central gera. Se quiser, pode introduzir um nome de exibição ou alterar o nome da aplicação mais tarde.
     * **URL**: Pode introduzir qualquer URL que queira ou alterar o valor url mais tarde.
@@ -108,7 +108,7 @@ O painel inclui os seguintes tipos de azulejos:
 
 * **Azulejos da lista**de propriedades : O painel tem vários azulejos de propriedade que representam informações de limiar, informações sobre saúde do dispositivo e informações de manutenção.
 
-### <a name="customize-the-dashboard"></a>Personalize o painel de instrumentos
+### <a name="customize-the-dashboard"></a>Personalizar o dashboard
 
 Como construtor, pode personalizar vistas no painel de instrumentos para utilização pelos operadores.
 
@@ -231,7 +231,7 @@ Com os trabalhos da Central Azure IoT, pode desencadear atualizações para disp
 
 Como construtor, pode alterar várias definições para personalizar a experiência do utilizador na sua aplicação.
 
-1. Selecione **Administração** > **Personalizar a sua aplicação**.
+1. Selecione **Administração** > **Personalize a sua aplicação.**
 1. No **logótipo da Aplicação,** selecione **Alterar** para escolher a imagem para carregar como logotipo.
 1. No **ícone do Browser,** selecione **Alterar** para escolher a imagem que aparece nos separadores do navegador.
 1. Sob as cores do **Browser,** pode substituir os valores predefinidos por códigos de cores hexadecimais HTML.
@@ -241,7 +241,7 @@ Como construtor, pode alterar várias definições para personalizar a experiên
 
 ### <a name="update-the-application-image"></a>Atualizar a imagem da aplicação
 
-1. Selecione **as definições**de aplicação ** > administração** .
+1. Selecione**as definições**de aplicação **de administração** > .
 
 1. Utilize o botão **de imagem Select** para escolher uma imagem para carregar como imagem de aplicação.
 

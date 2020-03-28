@@ -1,87 +1,87 @@
 ---
-title: Usando aplicativos no Azure Blockchain Workbench
-description: Tutorial sobre como usar contratos de aplicativo na visualização do Azure Blockchain Workbench.
+title: Utilização de aplicações na bancada azure blockchain
+description: Tutorial sobre como usar contratos de candidatura na Pré-visualização da bancada azure Blockchain.
 ms.date: 10/14/2019
 ms.topic: tutorial
 ms.reviewer: brendal
 ms.openlocfilehash: 5761bf1294691c2d50e0e389fe69ec286df4a06c
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74324047"
 ---
-# <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Tutorial: usando aplicativos no Azure Blockchain Workbench
+# <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Tutorial: Utilização de aplicações na bancada azure blockchain
 
-Você pode usar o Blockchain Workbench para criar e executar ações em contratos. Você também pode exibir detalhes do contrato, como status e histórico de transações.
+Você pode usar blockchain Workbench para criar e tomar ações em contratos. Também pode ver detalhes do contrato, como o estado e o histórico de transações.
 
 Vai aprender a:
 
 > [!div class="checklist"]
 > * Criar um novo contrato
-> * Executar uma ação em um contrato
+> * Tome uma ação sobre um contrato
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma implantação do Blockchain Workbench. Para obter mais informações, consulte [implantação do Azure Blockchain Workbench](deploy.md) para obter detalhes sobre a implantação
-* Um aplicativo blockchain implantado no Blockchain Workbench. Consulte [criar um aplicativo blockchain no Azure Blockchain Workbench](create-app.md)
+* Uma implantação da bancada blockchain. Para mais informações, consulte a implementação da [bancada de trabalho Azure Blockchain](deploy.md) para obter detalhes sobre a implementação
+* Uma aplicação blockchain implantada na Bancada de Trabalho blockchain. Ver [Criar uma aplicação blockchain na bancada azure blockchain](create-app.md)
 
-[Abra o Blockchain Workbench](deploy.md#blockchain-workbench-web-url) em seu navegador.
+[Abra a bancada blockchain](deploy.md#blockchain-workbench-web-url) no seu navegador.
 
 ![Blockchain Workbench](./media/use/workbench.png)
 
-Você precisa entrar como um membro do Blockchain Workbench. Se não houver nenhum aplicativo listado, você será membro do Blockchain Workbench, mas não membro de nenhum aplicativo. O administrador do Blockchain Workbench pode atribuir membros a aplicativos.
+Tens de te inscrever como membro da bancada blockchain. Se não houver candidaturas listadas, é membro da Blockchain Workbench, mas não membro de quaisquer aplicações. O administrador da bancada blockchain pode atribuir membros a candidaturas.
 
 ## <a name="create-new-contract"></a>Criar novo contrato
 
-Para criar um novo contrato, você precisa ser um membro especificado como um **iniciador**de contrato. Para obter informações sobre como definir funções de aplicativo e iniciadores para o contrato, consulte [fluxos de trabalho na visão geral de configuração](configuration.md#workflows). Para obter informações sobre como atribuir membros a funções de aplicativo, consulte [Adicionar um membro ao aplicativo](manage-users.md#add-member-to-application).
+Para criar um novo contrato, é necessário ser um membro especificado como **iniciador**de contratos. Para obter informações que definam as funções de aplicação e os iniciadores do contrato, consulte [fluxos de trabalho na visão geral da configuração](configuration.md#workflows). Para obter informações sobre a atribuição de membros às funções de inscrição, consulte [adicionar um membro à aplicação](manage-users.md#add-member-to-application).
 
-1. Na seção aplicativo do Blockchain Workbench, selecione o bloco do aplicativo que contém o contrato que você deseja criar. É exibida uma lista de contratos ativos.
+1. Na secção de aplicação blockchain Workbench, selecione o azulejo de aplicação que contém o contrato que pretende criar. É apresentada uma lista de contratos ativos.
 
-2. Para criar um novo contrato, selecione **novo contrato**.
+2. Para criar um novo contrato, selecione **Novo contrato.**
 
-    ![Botão novo contrato](./media/use/contract-list.png)
+    ![Novo botão de contrato](./media/use/contract-list.png)
 
-3. O painel **novo contrato** é exibido. Especifique os valores de parâmetros iniciais. Selecione **Criar**.
+3. O novo painel de **contrato** sou exibido. Especifique os valores dos parâmetros iniciais. Selecione **Criar**.
 
     ![Novo painel de contrato](./media/use/new-contract.png)
 
-    O contrato recém-criado é exibido na lista com os outros contratos ativos.
+    O contrato recém-criado é apresentado na lista com os outros contratos ativos.
 
     ![Lista de contratos ativos](./media/use/active-contracts.png)
 
-## <a name="take-action-on-contract"></a>Agir no contrato
+## <a name="take-action-on-contract"></a>Tomar medidas sobre contrato
 
-Dependendo do estado em que o contrato está, os membros podem executar ações para fazer a transição para o próximo estado do contrato. As ações são definidas como [transições](configuration.md#transitions) dentro de um [estado](configuration.md#states). Os membros que pertencem a uma função de aplicativo ou instância permitida para a transição podem executar a ação. 
+Dependendo do estado em que o contrato está, os membros podem tomar medidas para transitar para o próximo estado do contrato. As ações são definidas como [transições](configuration.md#transitions) dentro de um [estado.](configuration.md#states) Os membros pertencentes a uma aplicação ou papel, por exemplo, autorizados para a transição podem tomar a medida. 
 
-1. Na seção aplicativo do Blockchain Workbench, selecione o bloco do aplicativo que contém o contrato para executar a ação.
-2. Selecione o contrato na lista. Os detalhes sobre o contrato são exibidos em seções diferentes. 
+1. Na secção de aplicação blockchain Workbench, selecione o azulejo de aplicação que contém o contrato para tomar a ação.
+2. Selecione o contrato na lista. Os detalhes sobre o contrato são apresentados em diferentes secções. 
 
     ![Detalhes do contrato](./media/use/contract-details.png)
 
     | Section  | Descrição  |
     |---------|---------|
-    | Estado | Lista o progresso atual dentro dos estágios do contrato |
+    | Estado | Enumera os progressos atuais dentro das fases do contrato |
     | Detalhes | Os valores atuais do contrato |
     | Ação | Detalhes sobre a última ação |
     | Atividade | Histórico de transações do contrato |
     
-3. Na seção **ação** , selecione **executar ação**.
+3. Na secção **Ação,** selecione **Tomar medidas**.
 
-4. Os detalhes sobre o estado atual do contrato são exibidos em um painel. Escolha a ação que você deseja executar na lista suspensa. 
+4. Os detalhes sobre o estado atual do contrato são exibidos num painel. Escolha a ação que pretende tomar na entrega. 
 
-    ![Escolher ação](./media/use/choose-action.png)
+    ![Escolha ação](./media/use/choose-action.png)
 
-5. Selecione **executar ação** para iniciar a ação.
-6. Se forem necessários parâmetros para a ação, especifique os valores para a ação.
+5. Selecione **Tomar medidas** para iniciar a ação.
+6. Se forem necessários parâmetros para a ação, especifique os valores da ação.
 
-    ![Executar ação](./media/use/take-action.png)
+    ![Tomar medidas](./media/use/take-action.png)
 
-7. Selecione **executar ação** para executar a ação.
+7. Selecione **Tomar medidas** para executar a ação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Controle de versão do aplicativo Azure Blockchain Workbench](version-app.md)
+> [Versão da aplicação Azure Blockchain Workbench](version-app.md)

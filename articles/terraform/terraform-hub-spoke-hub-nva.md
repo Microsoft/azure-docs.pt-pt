@@ -1,44 +1,44 @@
 ---
-title: Tutorial-criar um dispositivo de rede virtual de Hub no Azure usando o Terraform
-description: O tutorial implementa a criação de VNet de Hub que atua como um ponto de conexão comum entre todas as outras redes
+title: Tutorial - Criar um aparelho de rede virtual hub em Azure usando terraforma
+description: Tutorial implementa criação do Hub VNet que funciona como um ponto de ligação comum entre todas as outras redes
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 28ccb89d237cbe21dd0433da5f7fbb32883f6550
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74159241"
 ---
-# <a name="tutorial-create-a-hub-virtual-network-appliance-in-azure-using-terraform"></a>Tutorial: criar um dispositivo de rede virtual de Hub no Azure usando o Terraform
+# <a name="tutorial-create-a-hub-virtual-network-appliance-in-azure-using-terraform"></a>Tutorial: Criar um aparelho de rede virtual hub em Azure usando terraforma
 
-Um **dispositivo VPN** é um dispositivo que fornece conectividade externa a uma rede local. O dispositivo VPN pode ser um dispositivo de hardware ou uma solução de software. Um exemplo de uma solução de software é o RRAS (serviço de roteamento e acesso remoto) no Windows Server 2012. Para obter mais informações sobre os dispositivos VPN, consulte [sobre dispositivos VPN para conexões de gateway de VPN site a site](/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
+Um **dispositivo VPN** é um dispositivo que fornece conectividade externa a uma rede no local. O dispositivo VPN pode ser um dispositivo de hardware ou uma solução de software. Um exemplo de uma solução de software é o Serviço de Encaminhamento e Acesso Remoto (RRAS) no Windows Server 2012. Para obter mais informações sobre os aparelhos VPN, consulte [os dispositivos VPN para ligações VPN Gateway site-to-site](/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
 
-O Azure dá suporte a uma ampla variedade de soluções de virtualização de rede a partir da qual selecionar. Para este tutorial, é usada uma imagem do Ubuntu. Para saber mais sobre a ampla variedade de soluções de dispositivo com suporte no Azure, consulte os [dispositivos de rede Home Page](https://azure.microsoft.com/solutions/network-appliances/).
+O Azure suporta uma ampla variedade de aparelhos virtuais de rede a partir dos quais selecionar. Para este tutorial, é utilizada uma imagem Ubuntu. Para saber mais sobre a ampla variedade de soluções de dispositivosuportadas no Azure, consulte a página inicial dos [Eletrodomésticos](https://azure.microsoft.com/solutions/network-appliances/)de Rede .
 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Use a HCL (linguagem HashiCorp) para implementar a VNet do Hub na topologia hub-spoke
-> * Use Terraform para criar uma máquina virtual de rede de Hub que atue como dispositivo
-> * Usar Terraform para habilitar rotas usando extensões CustomScript
-> * Usar Terraform para criar tabelas de rotas de Hub e de gateway de spoke
+> * Use hCL (HashiCorp Language) para implementar o Hub VNet em topologia centrada no hub
+> * Utilize terrafora para criar a Máquina Virtual da Rede Hub que funciona como aparelho
+> * Utilize terraforma para ativar rotas utilizando extensões CustomScript
+> * Use terrafora para criar mesas de rota hub e spoke gateway
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. [Crie uma topologia de rede híbrida de Hub e spoke com Terraform no Azure](./terraform-hub-spoke-introduction.md).
-1. [Crie uma rede virtual local com o Terraform no Azure](./terraform-hub-spoke-on-prem.md).
-1. [Crie uma rede virtual de Hub com Terraform no Azure](./terraform-hub-spoke-hub-network.md).
+1. [Crie um hub e falou de topologia híbrida com terraforma em Azure.](./terraform-hub-spoke-introduction.md)
+1. [Criar rede virtual no local com terraforma em Azure.](./terraform-hub-spoke-on-prem.md)
+1. [Crie uma rede virtual hub com terraforma em Azure.](./terraform-hub-spoke-hub-network.md)
 
 ## <a name="create-the-directory-structure"></a>Criar a estrutura de diretórios
 
-1. Navegue para o [portal do Azure](https://portal.azure.com).
+1. Navegue pelo [portal Azure.](https://portal.azure.com)
 
-1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se não tiver selecionado um ambiente anteriormente, selecione **Bash** como o seu ambiente.
+1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se ainda não tiver selecionado um ambiente, selecione **Bash** como o seu ambiente.
 
-    ![Comandos do Cloud Shell](./media/terraform-common/azure-portal-cloud-shell-button-min.png)
+    ![Comando do Cloud Shell](./media/terraform-common/azure-portal-cloud-shell-button-min.png)
 
-1. Altere os diretórios para o diretório `clouddrive`.
+1. Mude para o diretório `clouddrive`.
 
     ```bash
     cd clouddrive
@@ -50,11 +50,11 @@ Este tutorial abrange as seguintes tarefas:
     cd hub-spoke
     ```
 
-## <a name="declare-the-hub-network-appliance"></a>Declarar o dispositivo de rede de Hub
+## <a name="declare-the-hub-network-appliance"></a>Declare o aparelho da rede hub
 
-Crie o arquivo de configuração Terraform que declara uma rede virtual local.
+Crie o ficheiro de configuração Terraform que declara uma rede virtual no local.
 
-1. Em Cloud Shell, crie um novo arquivo chamado `hub-nva.tf`.
+1. Na Cloud Shell, crie `hub-nva.tf`um novo ficheiro chamado .
 
     ```bash
     code hub-nva.tf
@@ -266,9 +266,9 @@ Crie o arquivo de configuração Terraform que declara uma rede virtual local.
 
     ```
 
-1. Salve o arquivo e saia do editor.
+1. Guarde o ficheiro e saia do editor.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar redes virtuais spoke com Terraform no Azure](./terraform-hub-spoke-spoke-network.md)
+> [Criar uma rede virtual com terraforma em Azure](./terraform-hub-spoke-spoke-network.md)

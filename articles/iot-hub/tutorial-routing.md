@@ -1,6 +1,6 @@
 ---
-title: Configurar o roteamento de mensagens para o Hub IoT do Azure usando CLI do Azure
-description: Configurar o roteamento de mensagens para o Hub IoT do Azure usando o CLI do Azure e o portal do Azure
+title: Configure o encaminhamento de mensagens para o Hub Azure IoT usando o Azure CLI
+description: Configure o encaminhamento de mensagens para o Hub Azure IoT utilizando o Azure CLI e o portal Azure
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -10,28 +10,28 @@ ms.date: 03/12/2019
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 38a40d628b883c0e7ada824d47d3fdf3d29caf93
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74084373"
 ---
-# <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Tutorial: usar o CLI do Azure e portal do Azure para configurar o roteamento de mensagens do Hub IoT
+# <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Tutorial: Utilize o portal Azure CLI e Azure para configurar o encaminhamento de mensagens IoT Hub
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
 [!INCLUDE [iot-hub-include-routing-create-resources](../../includes/iot-hub-include-routing-create-resources.md)]
 
-## <a name="use-the-azure-cli-to-create-the-base-resources"></a>Usar o CLI do Azure para criar os recursos básicos
+## <a name="use-the-azure-cli-to-create-the-base-resources"></a>Utilize o Azure CLI para criar os recursos base
 
-Este tutorial usa o CLI do Azure para criar os recursos básicos e, em seguida, usa o [portal do Azure](https://portal.azure.com) para mostrar como configurar o roteamento de mensagens e configurar o dispositivo virtual para teste.
+Este tutorial utiliza o Azure CLI para criar os recursos base, depois utiliza o [portal Azure](https://portal.azure.com) para mostrar como configurar o encaminhamento de mensagens e configurar o dispositivo virtual para testes.
 
-Copie e cole o script abaixo em Cloud Shell e pressione Enter. Ele executa o script uma linha por vez. Isso criará os recursos base para este tutorial, incluindo a conta de armazenamento, o Hub IoT, o namespace do barramento de serviço e a fila do barramento de serviço.
+Copie e cole o script abaixo na Cloud Shell e prima Enter. Corre o guião uma linha de cada vez. Isto criará os recursos base para este tutorial, incluindo a conta de armazenamento, IoT Hub, Service Bus Namespace e service bus queue.
 
-Há vários nomes de recursos que devem ser globalmente exclusivos, como o nome do Hub IoT e o nome da conta de armazenamento. Para tornar isso mais fácil, esses nomes de recursos são anexados com um valor alfanumérico aleatório chamado *randomValue*. O randomValue é gerado uma vez na parte superior do script e acrescentado aos nomes de recursos conforme necessário em todo o script. Se você não quiser que ele seja aleatório, você pode defini-lo como uma cadeia de caracteres vazia ou como um valor específico.
+Existem vários nomes de recursos que devem ser globalmente únicos, como o nome IoT Hub e o nome da conta de armazenamento. Para facilitar isto, esses nomes de recursos são anexados com um valor alfanumérico aleatório chamado *RandomValue*. O RandomValue é gerado uma vez no topo do script e anexado aos nomes de recursos conforme necessário ao longo do script. Se não quiser que seja aleatório, pode defini-lo numa corda vazia ou num valor específico.
 
 > [!TIP]
-> Uma dica sobre a depuração: esse script usa o símbolo de continuação (a barra invertida `\`) para tornar o script mais legível. Se você tiver um problema ao executar o script, verifique se sua sessão de Cloud Shell está em execução `bash` e se não há espaços após qualquer uma das barras invertidas.
+> Uma dica sobre depuração: este script usa `\`o símbolo de continuação (o backslash ) para tornar o script mais legível. Se tiver algum problema em executar o script, `bash` certifique-se de que a sua sessão cloud Shell está a decorrer e que não há espaços depois de qualquer uma das pestanas.
 >
 
 ```azurecli-interactive
@@ -120,35 +120,35 @@ az servicebus queue create --name $sbQueueName \
 
 ```
 
-Agora que os recursos base estão configurados, você pode configurar o roteamento de mensagens no [portal do Azure](https://portal.azure.com).
+Agora que os recursos base estão configurados, pode configurar o encaminhamento de mensagens no [portal Azure](https://portal.azure.com).
 
 ## <a name="set-up-message-routing"></a>Configurar o encaminhamento de mensagens
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-### <a name="route-to-a-storage-account"></a>Rotear para uma conta de armazenamento
+### <a name="route-to-a-storage-account"></a>Rota para uma conta de armazenamento
 
-Agora configure o encaminhamento para a conta de armazenamento. Vá para o painel Encaminhamento de Mensagens e, em seguida, adicione uma rota. Ao adicionar a rota, defina um novo ponto final para a rota. Depois que esse roteamento é configurado, as mensagens em que a propriedade **Level** é definida como **armazenamento** são gravadas automaticamente em uma conta de armazenamento. 
+Agora configure o encaminhamento para a conta de armazenamento. Vá para o painel Encaminhamento de Mensagens e, em seguida, adicione uma rota. Ao adicionar a rota, defina um novo ponto final para a rota. Após a configuração deste encaminhamento, as mensagens onde a propriedade **nivelada** é definida para **armazenamento** são escritas automaticamente para uma conta de armazenamento. 
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
-1. No [portal do Azure](https://portal.azure.com), selecione **grupos de recursos**e, em seguida, selecione o grupo de recursos. Este tutorial utiliza **ContosoResources**.
+1. No [portal Azure](https://portal.azure.com), selecione **Grupos de Recursos**, e selecione o seu grupo de recursos. Este tutorial utiliza **ContosoResources**.
 
-2. Selecione o Hub IoT na lista de recursos. Este tutorial utiliza **ContosoTestHub**.
+2. Selecione o centro ioT sob a lista de recursos. Este tutorial utiliza **ContosoTestHub**.
 
-3. Selecione **Roteamento de mensagens**. No painel **Roteamento de mensagens** , selecione +**Adicionar**. No painel **Adicionar uma rota** , selecione +**Adicionar** ao lado do campo ponto de extremidade para mostrar os pontos de extremidades com suporte, conforme exibido na figura a seguir:
+3. Selecione **O Encaminhamento de Mensagens**. No painel de **encaminhamento de mensagens,** selecione +**Adicione**. No painel **Adicionar uma Rota,** selecione +**Adicione** ao lado do campo Endpoint para mostrar os pontos finais suportados, conforme mostrado na seguinte imagem:
 
-   ![Iniciar a adição de um ponto de extremidade para uma rota](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
+   ![Comece a adicionar um ponto final para uma rota](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
 
-4. Selecione **Armazenamento de blobs**. Você verá o painel **Adicionar um ponto de extremidade de armazenamento** .
+4. Selecione **Armazenamento de blobs**. Você vê o painel de ponto final de **armazenamento Adicionar.**
 
-   ![Adicionando um ponto de extremidade](./media/tutorial-routing/message-routing-add-storage-ep.png)
+   ![Adicionar um ponto final](./media/tutorial-routing/message-routing-add-storage-ep.png)
 
-5. Introduza um nome para o ponto final. Este tutorial usa **ContosoStorageEndpoint**.
+5. Introduza um nome para o ponto final. Este tutorial utiliza **ContosoStorageEndpoint**.
 
-6. Selecione **escolher um contêiner**. será apresentada a lista das suas contas de armazenamento. Selecione a que configurou nos passos de preparação. Este tutorial utiliza **contosostorage**. Mostra uma lista de contentores nessa conta de armazenamento. **Selecione** o contêiner que você configurou nas etapas de preparação. Este tutorial utiliza **contosoresults**. Você retorna ao painel **Adicionar um ponto de extremidade de armazenamento** e vê as seleções feitas.
+6. Selecione **Escolher um recipiente**. será apresentada a lista das suas contas de armazenamento. Selecione a que configurou nos passos de preparação. Este tutorial utiliza **contosostorage**. Mostra uma lista de contentores nessa conta de armazenamento. **Selecione** o recipiente que instalou nos passos de preparação. Este tutorial utiliza **contosoresults**. Volte ao **painel de pontofinal de armazenamento E** veja as seleções que fez.
 
-7. Defina a codificação como AVRO ou JSON. Para efeitos deste tutorial, utilize as predefinições no resto dos campos. Esse campo ficará esmaecido se a região selecionada não oferecer suporte à codificação JSON.
+7. Detete a codificação para AVRO ou JSON. Para efeitos deste tutorial, utilize as predefinições no resto dos campos. Este campo será acinzentado se a região selecionada não apoiar a codificação jSON.,
 
    > [!NOTE]
    > Pode definir o formato do nome de blob com o **Formato do nome de ficheiro blob**. A predefinição é `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`. O formato tem de conter {iothub}, {partition}, {YYYY}, {MM}, {DD}, {HH}, and {mm} por qualquer ordem.
@@ -158,49 +158,49 @@ Agora configure o encaminhamento para a conta de armazenamento. Vá para o paine
    > Os blobs são escritos no formato Avro.
    >
 
-8. Selecione **criar** para criar o ponto de extremidade de armazenamento e adicioná-lo à rota. Volta ao painel **Adicionar uma rota**.
+8. Selecione **Criar** para criar o ponto final de armazenamento e adicioná-lo à rota. Volta ao painel **Adicionar uma rota**.
 
 9. Agora, preencha o resto das informações da consulta de encaminhamento. Esta consulta especifica os critérios para enviar mensagens para o contentor de armazenamento que acabou de adicionar como ponto final. Preencha os campos no ecrã.
 
-   **Nome**: introduza um nome para a consulta de encaminhamento. Este tutorial usa **ContosoStorageRoute**.
+   **Nome**: introduza um nome para a consulta de encaminhamento. Este tutorial utiliza **ContosoStorageRoute**.
 
    **Ponto final**: mostra o ponto final que acabou de configurar.
 
    **Origem de dados**: selecione **Mensagens de Telemetria do Dispositivo** na lista pendente.
 
-   **Habilitar rota**: Certifique-se de que esse campo esteja definido como `enabled`.
+   **Via ativada**: Certifique-se `enabled`de que este campo está definido para .
    
    **Consulta de encaminhamento**: introduza `level="storage"` como a cadeia de consulta.
 
-   ![Criando uma consulta de roteamento para a conta de armazenamento](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
+   ![Criar uma consulta de encaminhamento para a conta de armazenamento](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
 
    Selecione **Guardar**. Quando terminar, volta ao painel Encaminhamento de Mensagens, onde pode ver a nova consulta de encaminhamento do armazenamento. Feche o painel Rotas para voltar para a página Grupo de recursos.
 
-### <a name="route-to-a-service-bus-queue"></a>Rotear para uma fila do barramento de serviço
+### <a name="route-to-a-service-bus-queue"></a>Rota para uma fila de ônibus de serviço
 
-Agora configure o encaminhamento para a fila do Service Bus. Vá para o painel Encaminhamento de Mensagens e, em seguida, adicione uma rota. Ao adicionar a rota, defina um novo ponto final para a rota. Depois que essa rota é configurada, as mensagens em que a propriedade **Level** é definida como **Critical** são gravadas na fila do barramento de serviço, que dispara um aplicativo lógico, que envia um email com as informações.
+Agora configure o encaminhamento para a fila do Service Bus. Vá para o painel Encaminhamento de Mensagens e, em seguida, adicione uma rota. Ao adicionar a rota, defina um novo ponto final para a rota. Após a configuração desta rota, as mensagens onde a propriedade **de nível** está definida para **crítico** são escritas para a fila service Bus, que desencadeia uma App Lógica, que depois envia um e-mail com a informação.
 
-1. Na página grupo de recursos, selecione o Hub IoT e, em seguida, selecione **Roteamento de mensagens**.
+1. Na página do grupo Recurso, selecione o seu hub IoT e, em seguida, selecione **Message Routing**.
 
-2. No painel **Roteamento de mensagens** , selecione +**Adicionar**.
+2. No painel de **encaminhamento de mensagens,** selecione +**Adicione**.
 
-3. No painel **Adicionar uma rota** , selecione +**Adicionar** ao lado do campo ponto de extremidade. Selecione **Fila do Service Bus**. Verá o painel **Adicionar Ponto Final do Service Bus**.
+3. No painel **Adicionar uma Rota,** Selecione +**Adicione** ao lado do campo Endpoint. Selecione **Fila do Service Bus**. Verá o painel **Adicionar Ponto Final do Service Bus**.
 
-   ![Adicionando um ponto de extremidade do barramento de serviço](./media/tutorial-routing/message-routing-add-sbqueue-ep.png)
+   ![Adicionar um ponto final de ônibus de serviço](./media/tutorial-routing/message-routing-add-sbqueue-ep.png)
 
 4. Preencha os campos:
 
-   **Nome do Ponto Final**: introduza um nome para o ponto final. Este tutorial usa **ContosoSBQueueEndpoint**.
+   **Nome do Ponto Final**: introduza um nome para o ponto final. Este tutorial utiliza **contosoSBQueueEndpoint**.
    
-   **Namespace do barramento de serviço**: Use a lista suspensa para selecionar o namespace do barramento de serviço que você configurou nas etapas de preparação. Este tutorial utiliza **ContosoSBNamespace**.
+   **Service Bus Namespace**: Utilize a lista de dropdown para selecionar o espaço de nome do autocarro de serviço que configura nos passos de preparação. Este tutorial utiliza **ContosoSBNamespace**.
 
-   **Fila do barramento de serviço**: Use a lista suspensa para selecionar a fila do barramento de serviço. Este tutorial utiliza **contososbqueue**.
+   **Fila de ônibus de serviço**: Utilize a lista de dropdown para selecionar a fila de ônibus de serviço. Este tutorial utiliza **contososbqueue**.
 
-5. Selecione **criar** para adicionar o ponto de extremidade de fila do barramento de serviço. Volta ao painel **Adicionar uma rota**.
+5. Selecione **Criar** para adicionar o ponto final da fila do Autocarro de Serviço. Volta ao painel **Adicionar uma rota**.
 
 6. Agora, preencha o resto das informações da consulta de encaminhamento. Esta consulta especifica os critérios para enviar mensagens para a fila do Service Bus que acabou de adicionar como ponto final. Preencha os campos no ecrã. 
 
-   **Nome**: introduza um nome para a consulta de encaminhamento. Este tutorial usa **ContosoSBQueueRoute**. 
+   **Nome**: introduza um nome para a consulta de encaminhamento. Este tutorial utiliza **ContosoSBQueueRoute**. 
 
    **Ponto final**: mostra o ponto final que acabou de configurar.
 
@@ -208,15 +208,15 @@ Agora configure o encaminhamento para a fila do Service Bus. Vá para o painel E
 
    **Consulta de encaminhamento**: introduza `level="critical"` como a cadeia de consulta. 
 
-   ![Criar uma consulta de roteamento para a fila do barramento de serviço](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
+   ![Crie uma consulta de encaminhamento para a fila de ônibus de serviço](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
 
 7. Selecione **Guardar**. Quando regressar ao painel Rotas, verá as duas novas rotas, tal como apresentado aqui.
 
-   ![As rotas que você acabou de configurar](./media/tutorial-routing/message-routing-show-both-routes.png)
+   ![As rotas que acabou de configurar](./media/tutorial-routing/message-routing-show-both-routes.png)
 
-8. Você pode ver os pontos de extremidade personalizados que você configurou selecionando a guia **pontos de extremidade personalizados** .
+8. Pode ver os pontos finais personalizados que configura, selecionando o separador **De pontos Finais Personalizados.**
 
-   ![O ponto de extremidade personalizado que você acabou de configurar](./media/tutorial-routing/message-routing-show-custom-endpoints.png)
+   ![O ponto final personalizado que acabaste de configurar](./media/tutorial-routing/message-routing-show-custom-endpoints.png)
 
 9. Feche o painel Encaminhamento de Mensagens para voltar ao painel Grupo de recursos.
 
@@ -226,7 +226,7 @@ Agora configure o encaminhamento para a fila do Service Bus. Vá para o painel E
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você tem os recursos configurados e as rotas de mensagens definidas, avance para o próximo tutorial para saber como enviar mensagens para o Hub IoT e vê-las roteadas para os diferentes destinos. 
+Agora que tem os recursos configurados e as rotas de mensagens configuradas, avance para o próximo tutorial para aprender a enviar mensagens para o centro ioT e vê-los ser encaminhados para os diferentes destinos. 
 
 > [!div class="nextstepaction"]
-> [Parte 2-exibir os resultados de roteamento de mensagens](tutorial-routing-view-message-routing-results.md)
+> [Parte 2 - Veja os resultados do encaminhamento da mensagem](tutorial-routing-view-message-routing-results.md)

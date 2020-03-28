@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Diretório integração individual (SSO) com signalFx  integração de diretório ativo azure) com signalFx  Microsoft Docs'
+title: 'Tutorial: Azure Ative Diretório integração individual (SSO) com signalFx [ integração de diretório ativo azure) com signalFx [ Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o SignalFx.
 services: active-directory
 documentationCenter: na
@@ -16,10 +16,10 @@ ms.date: 02/24/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 149718dcd325ef6bd6a6754ba100ffdc34be0a07
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79136419"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com a SignalFx
@@ -52,7 +52,7 @@ Neste tutorial, irá configurar e testar o Azure AD SSO num ambiente de teste.
 
 Utilize estas instruções para adicionar a aplicação SignalFx à sua lista de aplicações SaaS geridas.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal Azure.](https://portal.azure.com)
 1. Na janela de navegação do lado esquerdo, selecione **Azure Ative Directory**.
 1. Selecione **aplicações Enterprise**e, em seguida, selecione **Todas as aplicações**.
 1. Selecione **Nova aplicação**.
@@ -88,9 +88,9 @@ Utilize estas instruções para ativar o Azure AD SSO no portal Azure.
 
 1. No **set up single sign-on com** a página SAML, complete os seguintes campos: 
 
-    a. No **Identificador,** introduza o url seguinte `https://api.<realm>.signalfx.com/v1/saml/metadata` e substitua `<realm>` pelo seu reino SignalFx. 
+    a. No **Identificador,** introduza `https://api.<realm>.signalfx.com/v1/saml/metadata` o `<realm>` URL seguinte e substitua-o pelo seu reino SignalFx. 
 
-    b. No **URL de Resposta,** introduza o url seguinte `https://api.<realm>.signalfx.com/v1/saml/acs/<integration ID>` e substitua `<realm>` pelo seu reino SignalFx, bem como `<integration ID>` com o ID de **Integração** copiado anteriormente do SignalFx UI.
+    b. No **URL de Resposta,** introduza o URL seguinte `https://api.<realm>.signalfx.com/v1/saml/acs/<integration ID>` e substitua-o `<realm>` pelo seu reino SignalFx, bem como `<integration ID>` com o ID de **Integração** copiado anteriormente do SignalFx UI.
 
 1. A aplicação SignalFx espera as afirmações do SAML num formato específico, o que requer que adicione mapeamentos personalizados de atributos à configuração de atributos de token SAML. 
     
@@ -98,17 +98,17 @@ Utilize estas instruções para ativar o Azure AD SSO no portal Azure.
 
     | Nome |  Atributo fonte|
     | ------------------- | -------------------- |
-    | User.FirstName  | user.givenname |
-    | utilizador.email  | user.mail |
-    | PersonImmutableID       | user.userprincipalname    |
-    | User.LastName       | utilizador.sobrenome    |
+    | Utilizador.Primeiro Nome  | user.givenname |
+    | Utilizador.email  | utilizador.mail |
+    | Id personimmutável       | user.userprincipalname    |
+    | Utilizador.Apelido       | utilizador.sobrenome    |
 
     > [!NOTE]
     > Este processo requer que o seu Diretório Ativo esteja configurado com pelo menos um domínio personalizado verificado, bem como tem acesso às contas de e-mail neste domínio. Se não tiver a certeza ou precisar de assistência com esta configuração, contacte o suporte SignalFx.  
 
 1. No **set set single sign-on com** a página SAML, na secção Certificado de **Assinatura SAML,** encontre **certificado (Base64)** e, em seguida, selecione **Download**. Faça o download do certificado e guarde-o no seu computador. Em seguida, copiar o valor de url de **metadados da Federação de Aplicações;** necessitará desta informação num passo posterior no SignalFx UI. 
 
-    ![O link de download de certificado](common/certificatebase64.png)
+    ![O link de descarregamento do Certificado](common/certificatebase64.png)
 
 1. Na secção **'Set-Up SignalFx',** copie o valor do **identificador AD Azure.** Você precisará desta informação em um passo posterior no SignalFx UI. 
 
@@ -119,7 +119,7 @@ Utilize estas instruções para criar um utilizador de teste no portal Azure cha
 1. No portal Azure, na janela de navegação do lado esquerdo, selecione **O Diretório Ativo Azure**, depois selecione **Utilizadores,** e depois selecione **Todos os utilizadores**.
 1. No topo da página, selecione **Novo utilizador**.
 1. Nas propriedades do **Utilizador:**
-   1. No **nome do utilizador,** introduza `username@companydomain.extension`, como `b.simon@contoso.com`.
+   1. No **nome do utilizador,** introduza, `username@companydomain.extension`como `b.simon@contoso.com`.
    1. Em **Nome,** insira `B.Simon`.
    1. **Mark Mostrar palavra-passe**, e depois copiar o valor visualizado em **Password**. Necessitará desta informação mais tarde para testar esta integração. 
    1. Clique em **Criar**.
@@ -132,7 +132,7 @@ Utilize estas instruções para permitir ao utilizador do teste utilizar um úni
 1. Na lista de aplicações, selecione **SignalFx**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e, em seguida, selecione **Utilizadores e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar utilizador**, e, em seguida, na caixa de diálogo **Adicionar Assignment,** selecione Utilizadores e **grupos**.
 
@@ -163,7 +163,7 @@ Reveja as seguintes informações sobre como testar o SSO, bem como as expectati
         * Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 * A aplicação SignalFx pode ser acedida a partir do Painel de Acesso ou através de uma página de login personalizada atribuída à organização. O utilizador do teste deve testar a integração a partir de qualquer um destes locais.
-    * O utilizador do teste pode utilizar as credenciais criadas anteriormente neste processo para **b.simon@contoso.com** .
+    * O utilizador do teste pode utilizar as **b.simon@contoso.com**credenciais criadas anteriormente neste processo para .
 
 ### <a name="first-time-logins"></a>Logins pela primeira vez
 
@@ -177,7 +177,7 @@ Reveja as seguintes informações sobre como testar o SSO, bem como as expectati
 
 - [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [O que é o acesso condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 

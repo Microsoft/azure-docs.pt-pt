@@ -2,17 +2,17 @@
 title: Tutorial - Adicionar recurso ao modelo
 description: Descreve os passos para criar o seu primeiro modelo de Gestor de Recursos Azure. Você aprende sobre a sintaxe de ficheiro sintaxe do modelo e como implementar uma conta de armazenamento.
 author: mumian
-ms.date: 02/24/2020
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e533b70ba713b8c52a29cfbcc1cd8ccb99b8543f
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 79e337b411f9d115d93050ebeee346a526913d39
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79370700"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371741"
 ---
-# <a name="tutorial-add-a-resource-to-your-resource-manager-template"></a>Tutorial: Adicione um recurso ao seu modelo de Gestor de Recursos
+# <a name="tutorial-add-a-resource-to-your-arm-template"></a>Tutorial: Adicione um recurso ao seu modelo ARM
 
 No [tutorial anterior,](template-tutorial-create-first-template.md)aprendeu a criar um modelo em branco e a implantá-lo. Agora, estás pronto para usar um recurso real. Neste tutorial, você adiciona uma conta de armazenamento. Leva cerca de **9 minutos** para completar este tutorial.
 
@@ -37,7 +37,7 @@ Adivinhar um nome único para uma conta de armazenamento não é fácil e não f
 
 ## <a name="resource-properties"></a>Propriedades de recursos
 
-Pode estar a perguntar-se como encontrar as propriedades para cada tipo de recurso. Pode utilizar a referência do [modelo do Gestor](/azure/templates/) de Recursos para encontrar os tipos de recursos que pretende implementar.
+Pode estar a perguntar-se como encontrar as propriedades para cada tipo de recurso. Pode utilizar a referência do [modelo ARM](/azure/templates/) para encontrar os tipos de recursos que pretende implementar.
 
 Cada recurso que implementa tem pelo menos as seguintes três propriedades:
 
@@ -70,7 +70,9 @@ New-AzResourceGroupDeployment `
   -TemplateFile $templateFile
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Para executar este comando de implantação, deve ter a [versão mais recente](/cli/azure/install-azure-cli) do Azure CLI.
 
 ```azurecli
 az deployment group create \
@@ -97,7 +99,7 @@ Esta implementação demora mais tempo do que a implementação do modelo em bra
 
 Pode verificar a implantação explorando o grupo de recursos a partir do portal Azure.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. A partir do menu esquerdo, selecione **Grupos de Recursos**.
 1. Selecione o grupo de recursos para o quais foi implantado.
 1. Está a ver que foi implementada uma conta de armazenamento.
@@ -109,10 +111,10 @@ Se está saindo para o próximo tutorial, não precisa de apagar o grupo de recu
 
 Se estás a parar agora, talvez queiras limpar os recursos que implantaste ao apagar o grupo de recursos.
 
-1. No portal do Azure, selecione **Grupo de recursos** no menu à esquerda.
+1. A partir do portal Azure, selecione **Grupo Recurso** do menu esquerdo.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
 3. Selecione o nome do grupo de recursos.
-4. Selecione **Eliminar grupo de recursos** no menu superior.
+4. **Selecione Eliminar** o grupo de recursos do menu superior.
 
 ## <a name="next-steps"></a>Passos seguintes
 

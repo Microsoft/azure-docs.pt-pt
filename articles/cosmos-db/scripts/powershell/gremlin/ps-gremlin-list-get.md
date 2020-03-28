@@ -1,20 +1,20 @@
 ---
-title: Script do PowerShell para listar e obter operações para Azure Cosmos DB API Gremlin
-description: Azure PowerShell script – lista de Azure Cosmos DB e operações get para a API Gremlin
+title: PowerShell script para listar e obter operações para API DD DD DD DDD DDM DDM
+description: Script Azure PowerShell - Lista de DB Azure Cosmos e obtenha operações para a API Gremlin
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 7359a444884fb062405ee383ccff2c6b26f7dcb9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bd764dce0bc55582125bdb4e6ffd86dec924390b
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441471"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366043"
 ---
-# <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---gremlin-api"></a>Listar e obter bancos de dados e grafos para a API Azure Cosmos DB-Gremlin
+# <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---gremlin-api"></a>Liste e obtenha bases de dados e gráficos para Azure Cosmos DB - Gremlin API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -38,9 +38,11 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-|**Recursos do Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Cria um recurso. |
-|**Grupos de recursos do Azure**| |
+|**Azure Cosmos DB**| |
+| [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Lista as Contas DB da Cosmos ou obtém uma conta DB cosmos especificada. |
+| [Get-AzCosmosDBGremlinDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabase) | Lista as bases de dados Cosmos DB Gremlin API numa conta, ou obtém uma base de dados de API Cosmos DB Gremlin especificada numa conta. |
+| [Get-AzCosmosDBGremlinGraph](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraph) | Lista gráficos Cosmos DB Gremlin API numa base de dados, ou obtém uma tabela API Cosmos DB Gremlin especificada numa base de dados. |
+|**Grupos de Recursos Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 

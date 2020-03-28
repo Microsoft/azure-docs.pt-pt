@@ -1,51 +1,51 @@
 ---
-title: Tutorial – criar uma VM ou um conjunto de dimensionamento de máquinas virtuais da Galeria de imagens compartilhadas do Azure usando o Ansible
-description: Saiba como usar o Ansible para criar uma VM ou conjunto de dimensionamento de máquinas virtuais com base em uma imagem generalizada na Galeria de imagens compartilhadas.
-keywords: Ansible, Azure, DevOps, Bash, manual, máquina virtual, conjunto de dimensionamento de máquinas virtuais, Galeria de imagens compartilhadas
+title: Tutorial - Criar um conjunto de máquinas VM ou virtual a partir da Galeria de Imagem Partilhada Azure usando Ansible
+description: Aprenda a usar Ansible para criar vM ou conjunto de escala de máquina virtual com base numa imagem generalizada na Galeria de Imagem Partilhada.
+keywords: ansível, azul, devops, bash, playbook, máquina virtual, conjunto de escala de máquina virtual, galeria de imagem partilhada
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.openlocfilehash: f784419736854095cc1bc5da14f3867ac3f7eb12
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74155832"
 ---
-# <a name="tutorial-create-a-vm-or-virtual-machine-scale-set-from-the-azure-shared-image-gallery-using-ansible"></a>Tutorial: criar uma VM ou um conjunto de dimensionamento de máquinas virtuais da Galeria de imagens compartilhadas do Azure usando o Ansible
+# <a name="tutorial-create-a-vm-or-virtual-machine-scale-set-from-the-azure-shared-image-gallery-using-ansible"></a>Tutorial: Criar um conjunto de vm ou máquina virtual da Galeria de Imagem Partilhada Azure usando Ansible
 
 [!INCLUDE [ansible-29-note.md](../../includes/ansible-29-note.md)]
 
-A [Galeria de imagens compartilhadas](/azure/virtual-machines/windows/shared-image-galleries) é um serviço que permite que você gerencie, Compartilhe e organize facilmente imagens gerenciadas por personalizados. Esse recurso é benéfico para cenários em que muitas imagens são mantidas e compartilhadas. Imagens personalizadas podem ser compartilhadas entre assinaturas e entre Azure Active Directory locatários. As imagens também podem ser replicadas para várias regiões para um dimensionamento mais rápido da implantação.
+[A Shared Image Gallery](/azure/virtual-machines/windows/shared-image-galleries) é um serviço que lhe permite gerir, partilhar e organizar imagens geridas sob medida facilmente. Esta funcionalidade é benéfica para cenários onde muitas imagens são mantidas e partilhadas. Imagens personalizadas podem ser partilhadas através de subscrições e entre inquilinos do Azure Ative Directory. As imagens também podem ser replicadas em várias regiões para uma escala de implantação mais rápida.
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
-> * Criar uma VM generalizada e uma imagem personalizada
-> * Criar uma galeria de imagens compartilhadas
-> * Criar uma imagem compartilhada e uma versão de imagem
-> * Criar uma VM usando a imagem generalizada
-> * Criar um conjunto de dimensionamento de máquinas virtuais usando a imagem generalizada
-> * Obtenha informações sobre sua galeria de imagens, imagem e versão compartilhados.
+> * Criar um VM generalizado e imagem personalizada
+> * Criar uma Galeria de Imagem Partilhada
+> * Criar uma versão de imagem e imagem partilhada
+> * Criar um VM usando a imagem generalizada
+> * Criar um conjunto de escala de máquina virtual usando a imagem generalizada
+> * Obtenha informações sobre a sua Galeria de Imagem Partilhada, imagem e versão.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-## <a name="get-the-sample-playbooks"></a>Obter os guias estratégicos de exemplo
+## <a name="get-the-sample-playbooks"></a>Obtenha os livros de prostinções
 
-Há duas maneiras de obter o conjunto completo de guias estratégicos de exemplo:
+Há duas maneiras de obter o conjunto completo de playbooks de amostra:
 
-- [Baixe a pasta SIG](https://github.com/Azure-Samples/ansible-playbooks/tree/master/SIG_generalized_image) e salve-a em seu computador local.
-- Crie um novo arquivo para cada seção e copie o guia estratégico de exemplo nele.
+- [Descarregue a pasta SIG](https://github.com/Azure-Samples/ansible-playbooks/tree/master/SIG_generalized_image) e guarde-a para a sua máquina local.
+- Crie um novo ficheiro para cada secção e copie o livro de jogadas da amostra nele.
 
-O arquivo de `vars.yml` contém as variáveis usadas por todos os guias estratégicos de exemplo para este tutorial. Você pode editar o arquivo para fornecer nomes e valores exclusivos.
+O `vars.yml` ficheiro contém as variáveis utilizadas por todos os playbooks da amostra para este tutorial. Pode editar o ficheiro para fornecer nomes e valores únicos.
 
-O primeiro guia estratégico de exemplo `00-prerequisites.yml` cria o que é necessário para concluir este tutorial:
-- Um grupo de recursos, que é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
-- Uma rede virtual; redes Endereço IP público e placa de interface de rede para a VM.
-- Uma máquina virtual de origem, que é usada para criar a imagem generalizada.
+O primeiro `00-prerequisites.yml` livro de jogadas de amostra cria o que é necessário para completar este tutorial:
+- Um grupo de recursos, que é um recipiente lógico no qual os recursos azure são implantados e geridos.
+- Uma rede virtual; subnet; endereço IP público e cartão de interface de rede para o VM.
+- Uma fonte Máquina Virtual, que é usada para criar a imagem generalizada.
 
 ```yml
 - hosts: localhost
@@ -100,17 +100,17 @@ O primeiro guia estratégico de exemplo `00-prerequisites.yml` cria o que é nec
           version: latest
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook 00-prerequisites.yml
 ```
 
-No [portal do Azure](https://portal.azure.com), verifique o grupo de recursos especificado em `vars.yml` para ver a nova máquina virtual e vários recursos que você criou.
+No [portal Azure,](https://portal.azure.com)consulte o grupo `vars.yml` de recursos que especificou para ver a nova máquina virtual e vários recursos que criou.
 
-## <a name="generalize-the-vm-and-create-a-custom-image"></a>Generalizar a VM e criar uma imagem personalizada
+## <a name="generalize-the-vm-and-create-a-custom-image"></a>Generalize o VM e crie uma imagem personalizada
 
-O próximo guia estratégico, `01a-create-generalized-image.yml`, generaliza a VM de origem criada na etapa anterior e, em seguida, cria uma imagem personalizada com base nela.
+O próximo `01a-create-generalized-image.yml`livro de jogadas, generaliza a fonte VM criada em passo anterior e, em seguida, cria uma imagem personalizada com base nele.
 
 ```yml
 - hosts: localhost
@@ -132,17 +132,17 @@ O próximo guia estratégico, `01a-create-generalized-image.yml`, generaliza a V
         source: "{{ source_vm_name }}"
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook 01a-create-generalized-image.yml
 ```
 
-Verifique seu grupo de recursos e verifique se `testimagea` aparece.
+Verifique o seu grupo `testimagea` de recursos e certifique-se de que aparece.
 
-## <a name="create-the-shared-image-gallery"></a>Criar a Galeria de imagens compartilhadas
+## <a name="create-the-shared-image-gallery"></a>Criar a Galeria de Imagem Partilhada
 
-A Galeria de imagens é o repositório para compartilhar e gerenciar imagens. O código do guia estratégico de exemplo no `02-create-shared-image-gallery.yml` cria uma galeria de imagens compartilhada em seu grupo de recursos.
+A galeria de imagens é o repositório para a partilha e gestão de imagens. O código de `02-create-shared-image-gallery.yml` playbook da amostra cria uma Galeria de Imagem Partilhada no seu grupo de recursos.
 
 ```yml
 - hosts: localhost
@@ -159,19 +159,19 @@ A Galeria de imagens é o repositório para compartilhar e gerenciar imagens. O 
         description: This is the gallery description.
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook 02-create-shared-image-gallery.yml
 ```
 
-Agora você verá uma nova galeria, `myGallery`, em seu grupo de recursos.
+Agora vê uma nova `myGallery`galeria, no seu grupo de recursos.
 
-## <a name="create-a-shared-image-and-image-version"></a>Criar uma imagem compartilhada e uma versão de imagem
+## <a name="create-a-shared-image-and-image-version"></a>Criar uma versão de imagem e imagem partilhada
 
-O próximo guia estratégico, `03a-create-shared-image-generalized.yml` cria uma definição de imagem e uma versão de imagem.
+O próximo `03a-create-shared-image-generalized.yml` livro de jogadas, cria uma definição de imagem e uma versão de imagem.
 
-As definições de imagem incluem o tipo de imagem (Windows ou Linux), notas de versão e requisitos mínimos e máximos de memória. A versão da imagem é a versão da imagem. A Galeria, a definição de imagem e a versão de imagem ajudam a organizar imagens em grupos lógicos. 
+As definições de imagem incluem o tipo de imagem (Windows ou Linux), notas de lançamento e requisitos mínimos e máximos de memória. A versão de imagem é a versão da imagem. Galeria, definição de imagem e versão de imagem ajudam-no a organizar imagens em grupos lógicos. 
 
 ```yml
 - hosts: localhost
@@ -221,17 +221,17 @@ As definições de imagem incluem o tipo de imagem (Windows ou Linux), notas de 
         var: output
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook 03a-create-shared-image-generalized.yml
 ```
 
-Seu grupo de recursos agora tem uma definição de imagem e uma versão de imagem para sua galeria.
+O seu grupo de recursos tem agora uma definição de imagem e uma versão de imagem para a sua galeria.
 
-## <a name="create-a-vm-based-on-the-generalized-image"></a>Criar uma VM com base na imagem generalizada
+## <a name="create-a-vm-based-on-the-generalized-image"></a>Criar um VM baseado na imagem generalizada
 
-Por fim, execute `04a-create-vm-using-generalized-image.yml` para criar uma VM com base na imagem generalizada criada na etapa anterior.
+Finalmente, `04a-create-vm-using-generalized-image.yml` corra para criar um VM baseado na imagem generalizada que criou em passo anterior.
 
 ```yml
 - hosts: localhost
@@ -252,15 +252,15 @@ Por fim, execute `04a-create-vm-using-generalized-image.yml` para criar uma VM c
         id: "/subscriptions/{{ lookup('env', 'AZURE_SUBSCRIPTION_ID') }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Compute/galleries/{{ shared_gallery_name }}/images/{{ shared_image_name }}/versions/{{ shared_image_version }}"
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook 04a-create-vm-using-generalized-image.yml
 ```
 
-## <a name="create-a-virtual-machine-scale-sets-based-on-the-generalized-image"></a>Criar conjuntos de dimensionamento de máquinas virtuais com base na imagem generalizada
+## <a name="create-a-virtual-machine-scale-sets-based-on-the-generalized-image"></a>Criar um conjunto de escala de máquina virtual com base na imagem generalizada
 
-Você também pode criar um conjunto de dimensionamento de máquinas virtuais com base na imagem generalizada. Execute `05a-create-vmss-using-generalized-image.yml` para fazer isso.
+Também pode criar um conjunto de escala de máquina virtual baseado na imagem generalizada. Corra `05a-create-vmss-using-generalized-image.yml` para fazê-lo.
 
 ```yml
 - hosts: localhost
@@ -285,15 +285,15 @@ Você também pode criar um conjunto de dimensionamento de máquinas virtuais co
         id: "/subscriptions/{{ lookup('env', 'AZURE_SUBSCRIPTION_ID') }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Compute/galleries/{{ shared_gallery_name }}/images/{{ shared_image_name }}/versions/{{ shared_image_version }}"
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook 05a-create-vmss-using-generalized-image.yml
 ```
 
-## <a name="get-information-about-the-gallery"></a>Obter informações sobre a Galeria
+## <a name="get-information-about-the-gallery"></a>Obtenha informações sobre a galeria
 
-Você pode obter informações sobre a Galeria, a definição de imagem e a versão executando `06-get-info.yml`.
+Pode obter informações sobre a galeria, definição de imagem e versão executando `06-get-info.yml`.
 
 ```yml
 - hosts: localhost
@@ -319,15 +319,15 @@ Você pode obter informações sobre a Galeria, a definição de imagem e a vers
       name: "{{ shared_image_version }}"
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook 06-get-info.yml
 ```
 
-## <a name="delete-the-shared-image"></a>Excluir a imagem compartilhada
+## <a name="delete-the-shared-image"></a>Eliminar a imagem partilhada
 
-Para excluir os recursos da galeria, consulte o guia estratégico de exemplo `07-delete-gallery.yml`. Excluir recursos na ordem inversa. Comece excluindo a versão da imagem. Depois de excluir todas as versões da imagem, você pode excluir a definição da imagem. Depois de excluir todas as definições de imagem, você pode excluir a galeria.
+Para eliminar os recursos da `07-delete-gallery.yml`galeria, consulte o livro de imagens . Eliminar recursos por ordem inversa. Comece por apagar a versão de imagem. Depois de eliminar todas as versões de imagem, pode eliminar a definição de imagem. Depois de eliminar todas as definições de imagem, pode apagar a galeria.
 
 ```yml
 - hosts: localhost
@@ -358,7 +358,7 @@ Para excluir os recursos da galeria, consulte o guia estratégico de exemplo `07
       state: absent
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook 07-delete-gallery.yml
@@ -366,11 +366,11 @@ ansible-playbook 07-delete-gallery.yml
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, exclua os recursos criados neste artigo. 
+Quando já não for necessário, apague os recursos criados neste artigo. 
 
-O código do guia estratégico de exemplo nesta seção é usado para:
+O código de livro de amostras nesta secção é utilizado para:
 
-- Excluir os dois grupos de recursos criados anteriormente
+- Eliminar os dois grupos de recursos criados anteriormente
 
 Guarde o manual de procedimentos seguinte como `cleanup.yml`:
 
@@ -386,12 +386,12 @@ Guarde o manual de procedimentos seguinte como `cleanup.yml`:
         state: absent
 ```
 
-Aqui estão algumas observações importantes a serem consideradas ao trabalhar com o guia estratégico de exemplo:
+Aqui estão algumas notas-chave a considerar ao trabalhar com o livro de jogadas da amostra:
 
-- Substitua o espaço reservado `{{ resource_group_name }}` pelo nome do seu grupo de recursos.
-- Todos os recursos dentro dos dois grupos de recursos especificados serão excluídos.
+- Substitua `{{ resource_group_name }}` o espaço reservado pelo nome do seu grupo de recursos.
+- Todos os recursos dentro dos dois grupos de recursos especificados serão eliminados.
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook cleanup.yml

@@ -11,10 +11,10 @@ ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: 9e3c5c12157a007bcad59a78b4623ff4d5a0041f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79238833"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutorial: Proteja uma base de dados única ou reunida
@@ -46,11 +46,11 @@ Para saber mais, consulte a visão geral de segurança da Base de [Dados Azure S
 
 Para completar o tutorial, certifique-se de que tem os seguintes pré-requisitos:
 
-- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
+- [Estúdio de Gestão de Servidores SQL](/sql/ssms/download-sql-server-management-studio-ssms)
 - Um servidor E base de dados Azure SQL
   - Crie-os com [portal Azure,](sql-database-single-database-get-started.md) [CLI](sql-database-cli-samples.md)ou [PowerShell](sql-database-powershell-samples.md)
 
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -143,7 +143,7 @@ Para obter informações sobre a configuração da AD Azure, consulte:
 - [Integre as suas identidades no local com a Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md)
 - [Adicione o seu próprio nome de domínio ao Azure AD](../active-directory/active-directory-domains-add-azure-portal.md)
 - [Microsoft Azure agora suporta federação com AD Windows Server](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
-- [Administrar o seu diretório Azure AD](../active-directory/fundamentals/active-directory-administer.md)
+- [Administrar o diretório do Azure AD](../active-directory/fundamentals/active-directory-administer.md)
 - [Gerir o Azure AD usando powerShell](/powershell/azure/overview?view=azureadps-2.0)
 - [Identidade híbrida exigia portos e protocolos](../active-directory/hybrid/reference-connect-ports.md)
 
@@ -193,7 +193,7 @@ A autenticação do Diretório Ativo Azure requer que os utilizadores de bases d
 > Por exemplo, a função De Contribuinte do *Servidor SQL* não concede acesso à ligação a uma base de dados ou armazém de dados. Esta permissão deve ser concedida na base de dados utilizando declarações T-SQL.
 
 > [!IMPORTANT]
-> Personagens especiais como `:` do cólon ou `&` não são suportados em nomes de utilizadores nas declarações de `CREATE LOGIN` e `CREATE USER` Da T-SQL.
+> Caracteres especiais `:` como cólon `&` ou ampersand não são suportados `CREATE LOGIN` em `CREATE USER` nomes de utilizadores no T-SQL e declarações.
 
 Para adicionar um utilizador com autenticação Azure AD:
 
@@ -201,14 +201,14 @@ Para adicionar um utilizador com autenticação Azure AD:
 
 1. No **Object Explorer,** clique na base de dados e selecione **New Query**.
 
-1. Na janela de consulta, introduza o seguinte comando e modifique `<Azure_AD_principal_name>` para o nome principal do utilizador DaD Azure ou o nome de exibição do grupo Azure AD:
+1. Na janela de consulta, introduza `<Azure_AD_principal_name>` o seguinte comando e modifique para o nome principal do utilizador DaD Azure ou o nome de exibição do grupo Azure AD:
 
    ```sql
    CREATE USER <Azure_AD_principal_name> FROM EXTERNAL PROVIDER;
    ```
 
 > [!NOTE]
-> Os utilizadores de AD Azure estão marcados na base de dados de metadados com tipo `E (EXTERNAL_USER)` e tipo `X (EXTERNAL_GROUPS)` para grupos. Para mais informações, consulte [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql).
+> Os utilizadores de AD Azure estão `E (EXTERNAL_USER)` marcados na base de dados de metadados com tipo e tipo `X (EXTERNAL_GROUPS)` para grupos. Para mais informações, consulte [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql).
 
 ### <a name="secure-connection-strings"></a>Cordas de ligação seguras
 
@@ -334,7 +334,7 @@ Para ativar ou verificar a encriptação:
     ![Encriptação de Dados Transparente](./media/sql-database-security-tutorial/encryption-settings.png)
 
 > [!NOTE]
-> Para ver o estado de encriptação, ligue-se à base de dados utilizando [SSMS](./sql-database-connect-query-ssms.md) e consulte a coluna `encryption_state` da visão [sys.dm_database_encryption_keys.](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) Um estado de `3` indica que a base de dados está encriptada.
+> Para ver o estado de encriptação, ligue-se à `encryption_state` base de dados utilizando [SSMS](./sql-database-connect-query-ssms.md) e consulte a coluna do [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) vista. Um estado `3` indica que a base de dados está encriptada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

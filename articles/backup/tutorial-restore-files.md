@@ -1,14 +1,14 @@
 ---
-title: Tutorial – restaurar arquivos para uma VM com o backup do Azure
+title: Tutorial - Restaurar ficheiros para um VM com Backup Azure
 description: Saiba como realizar restauros ao nível do ficheiro numa VM do Azure com Serviços de Cópia de Segurança e de Recuperação.
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
 ms.openlocfilehash: 338c6b642076835132b75aa4259381791378577a
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74171726"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Restaurar ficheiros para uma máquina virtual no Azure
@@ -202,4 +202,4 @@ Neste tutorial, ligou um ponto de recuperação a uma VM e restaurou ficheiros p
 Avance para o próximo tutorial para saber mais sobre como fazer cópias de segurança do Windows Server para o Azure.
 
 > [!div class="nextstepaction"]
-> [Faça uma Cópia de Segurança do Windows Server para o Azure](tutorial-backup-windows-server-to-azure.md)
+> [Cópia de Segurança do Windows Server para o Azure](tutorial-backup-windows-server-to-azure.md)

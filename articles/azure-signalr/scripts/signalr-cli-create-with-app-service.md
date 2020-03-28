@@ -1,6 +1,6 @@
 ---
-title: Criar um serviço de Signalr com o serviço de aplicativo usando CLI do Azure
-description: Use CLI do Azure para criar um serviço de Signalr com o serviço de aplicativo. Conheça todos os comandos da CLI do serviço de Signaler do Azure.
+title: Criar serviço de sinalização com serviço de aplicações utilizando o Azure CLI
+description: Utilize o Azure CLI para criar o Serviço SignalR com o Serviço de Aplicações. Aprenda todos os comandos CLI para o Serviço De Sinalização Azure.
 author: sffamily
 ms.service: signalr
 ms.devlang: azurecli
@@ -9,10 +9,10 @@ ms.date: 11/13/2018
 ms.author: zhshang
 ms.custom: mvc
 ms.openlocfilehash: eb45adb699ef0f97782e6cdb8e141e254b3993f9
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74158020"
 ---
 # <a name="create-a-signalr-service-with-an-app-service"></a>Criar um Serviço SignalR com um Serviço de Aplicações

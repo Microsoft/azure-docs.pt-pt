@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
 ms.openlocfilehash: f5d3c1631e91eb7a131fbf0f5fb1934db6e28184
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184507"
 ---
 > [!div class="op_single_selector"]

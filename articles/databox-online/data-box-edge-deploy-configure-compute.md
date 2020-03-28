@@ -1,5 +1,5 @@
 ---
-title: Tutorial para filtrar, analisar dados com cálculo no Azure Data Box Edge  Microsoft Docs
+title: Tutorial para filtrar, analisar dados com cálculo no Azure Data Box Edge [ Microsoft Docs
 description: Saiba como configurar a função de computação no Data Box Edge e utilizá-la para transformar dados antes de os enviar para o Azure.
 services: databox
 author: alkohli
@@ -10,10 +10,10 @@ ms.date: 09/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: b641ae62ba6e0cdacaeb46b1ffee2f02c7544763
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239022"
 ---
 # <a name="tutorial-transform-data-with-azure-data-box-edge"></a>Tutorial: Transforme dados com borda de caixa de dados azure
@@ -73,7 +73,7 @@ Para a simples implantação neste tutorial, você precisará de duas ações: u
 
 1. Adicione uma parte Edge no dispositivo fazendo os seguintes passos:
 
-    1. No seu recurso Data Box Edge, vá ao **Edge compute > Get started**.
+    1. No seu recurso Data Box Edge, vá à **computação Edge > Começar**.
     2. No azulejo **adicionar partilha(s),** selecione **Adicionar**.
     3. Na lâmina **de partilha Add,** forneça o nome da partilha e selecione o tipo de partilha.
     4. Para montar a parte Edge, selecione a caixa de verificação para **utilizar a parte com a computação Edge**.
@@ -101,11 +101,11 @@ Para a simples implantação neste tutorial, você precisará de duas ações: u
 
 ## <a name="add-a-module"></a>Adicione um módulo
 
-Pode adicionar um módulo personalizado ou pré-construído. Não existem módulos personalizados neste dispositivo Edge. Para aprender a criar um módulo personalizado, vá desenvolver [um C# módulo para o seu dispositivo Data Box Edge](data-box-edge-create-iot-edge-module.md).
+Pode adicionar um módulo personalizado ou pré-construído. Não existem módulos personalizados neste dispositivo Edge. Para aprender a criar um módulo personalizado, vá desenvolver [um módulo C# para o seu dispositivo Data Box Edge](data-box-edge-create-iot-edge-module.md).
 
-Nesta secção, adicione um módulo personalizado ao dispositivo IoT Edge que criou em [Desenvolver um C# módulo para o seu Data Box Edge](data-box-edge-create-iot-edge-module.md). Este módulo personalizado retira ficheiros de uma parte local edge no dispositivo Edge e move-os para uma partilha edge (cloud) no dispositivo. A partilha de nuvem empurra os ficheiros para a conta de armazenamento Azure que está associada à partilha de nuvens.
+Nesta secção, adicione um módulo personalizado ao dispositivo IoT Edge que criou no [Desenvolver um módulo C# para o seu Data Box Edge](data-box-edge-create-iot-edge-module.md). Este módulo personalizado retira ficheiros de uma parte local edge no dispositivo Edge e move-os para uma partilha edge (cloud) no dispositivo. A partilha de nuvem empurra os ficheiros para a conta de armazenamento Azure que está associada à partilha de nuvens.
 
-1. Vá ao **Edge compute > Get started**. No azulejo **adicionar módulos,** selecione o tipo de cenário como **simples**. Selecione **Adicionar**.
+1. Vá ao **cálculo edge > Começar.** No azulejo **adicionar módulos,** selecione o tipo de cenário como **simples**. Selecione **Adicionar**.
 2. Na **Configuração e adicione** a lâmina do módulo, insera os seguintes valores:
 
     
@@ -116,7 +116,7 @@ Nesta secção, adicione um módulo personalizado ao dispositivo IoT Edge que cr
     |Credenciais necessárias     | Se verificado, o nome de utilizador e a palavra-passe são utilizados para recuperar módulos com um URL correspondente.        |
     |Parte de entrada     | Selecione uma parte de entrada. A parte local edge é a parte de entrada neste caso. O módulo aqui utilizado move ficheiros da partilha local edge para uma partilha edge onde são enviados para a nuvem.        |
     |Parte de saída     | Selecione uma parte de saída. A parte Edge é a parte de saída neste caso.        |
-    |Tipo de gatilho     | Selecione a partir **de Arquivo** ou **Agendar**. Um gatilho de ficheiro dispara sempre que ocorre um evento de ficheiro, como um ficheiro é escrito para a parte de entrada. Um gatilho programado dispara com base num horário definido por si.         |
+    |Tipo de acionador     | Selecione a partir **de Arquivo** ou **Agendar**. Um gatilho de ficheiro dispara sempre que ocorre um evento de ficheiro, como um ficheiro é escrito para a parte de entrada. Um gatilho programado dispara com base num horário definido por si.         |
     |Nome do gatilho     | Um nome único para o seu gatilho.         |
     |Variáveis de ambiente| Informações opcionais que ajudarão a definir o ambiente em que o seu módulo irá funcionar.   |
 

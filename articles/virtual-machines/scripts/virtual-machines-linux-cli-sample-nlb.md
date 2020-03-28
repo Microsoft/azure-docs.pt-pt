@@ -17,15 +17,15 @@ ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 858151a0803ba86aeca91f35e3e6f30394bf8ea8
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74040261"
 ---
 # <a name="create-a-highly-available-vm"></a>Criar uma VM de elevada disponibilidade
 
-Este exemplo de script cria tudo o que é preciso para executar várias máquinas virtuais Ubuntu configuradas numa configuração de elevada disponibilidade e com balanceamento de carga. Depois de executar o script, terá três máquinas virtuais, associadas a um Conjunto de Disponibilidade do Azure e acessíveis através de um Balanceador de Carga do Azure.
+Este exemplo de script cria tudo o que é necessário para executar várias máquinas virtuais Ubuntu configuradas numa configuração de elevada disponibilidade e com balanceamento de carga. Depois de executar o script, terá três máquinas virtuais, associadas a um Conjunto de Disponibilidade do Azure e acessíveis através de um Balanceador de Carga do Azure.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 

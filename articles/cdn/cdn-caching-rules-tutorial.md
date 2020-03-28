@@ -15,16 +15,16 @@ ms.date: 04/20/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 5330c99f4d42f591944ddc5c58ac98bea6387da5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74278152"
 ---
 # <a name="tutorial-set-azure-cdn-caching-rules"></a>Tutorial: Definir regras de colocação em cache da CDN do Azure
 
 > [!NOTE] 
-> As regras de cache estão disponíveis apenas para os perfis da **CDN standard do Azure da Verizon** e **da CDN standard do Azure da Akamai** . Para os perfis **da CDN do Azure da Microsoft** , você deve usar o [mecanismo de regras padrão](cdn-standard-rules-engine-reference.md) para perfis **da CDN Premium do Azure da Verizon** . você deve usar o [mecanismo de regras do Verizon Premium](cdn-rules-engine.md) no portal de **Gerenciamento** para funcionalidade semelhante.
+> As regras de cache estão disponíveis apenas para **o Azure CDN Standard da Verizon** e **Azure CDN Standard a partir dos** perfis da Akamai. Para o **Azure CDN a partir dos** perfis da Microsoft, tem de utilizar o motor [standard](cdn-standard-rules-engine-reference.md) rules For **Azure CDN Premium a partir dos** perfis Verizon, tem de utilizar o motor de regras [Verizon Premium](cdn-rules-engine.md) no portal **Manage** para funcionalidades semelhantes.
  
 
 Este tutorial descreve como pode utilizar regras de colocação em cache da Rede de Entrega de Conteúdos (CDN) do Azure para definir ou modificar o comportamento predefinido de expiração da cache globalmente e com condições personalizadas, tais como um caminho de URL e uma extensão de ficheiro. A CDN do Azure dispõe de dois tipos de regras de colocação em cache:

@@ -1,28 +1,28 @@
 ---
 title: Configurar definições personalizadas
-description: Defina as configurações que se aplicam a todo o ambiente de serviço de Azure App. Saiba como fazer isso com modelos de Azure Resource Manager.
+description: Configure as definições aplicáveis a todo o ambiente do Serviço de Aplicações Azure. Aprenda a fazê-lo com modelos de Gestor de Recursos Azure.
 author: stefsch
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
 ms.date: 12/19/2019
 ms.author: stefsch
-ms.custom: seodec18
-ms.openlocfilehash: 42a06724274288955b11c3daf9cbf33d72ddf75d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 25393007a3cc878737ea5927cb65bcf7ef945313
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430491"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80057573"
 ---
-# <a name="custom-configuration-settings-for-app-service-environments"></a>Definições de configuração personalizadas para ambientes do serviço de aplicativo
-## <a name="overview"></a>Visão geral
-Como os ambientes do serviço de aplicativo (ASEs) são isolados para um único cliente, há certas definições de configuração que podem ser aplicadas exclusivamente a ambientes do serviço de aplicativo. Este artigo documenta as várias personalizações específicas que estão disponíveis para ambientes do serviço de aplicativo.
+# <a name="custom-configuration-settings-for-app-service-environments"></a>Configurações de configuração personalizadas para ambientes de serviço de aplicações
+## <a name="overview"></a>Descrição geral
+Uma vez que os Ambientes de Serviço de Aplicações (ASE) estão isolados a um único cliente, existem certas configurações de configuração que podem ser aplicadas exclusivamente aos Ambientes de Serviço de Aplicações. Este artigo documenta as várias personalizações específicas que estão disponíveis para ambientes de serviço de aplicações.
 
-Se você não tiver um Ambiente do Serviço de Aplicativo, consulte [como criar um ambiente do serviço de aplicativo](app-service-web-how-to-create-an-app-service-environment.md).
+Se não tiver um Ambiente de Serviço de Aplicações, consulte como criar um ambiente de [serviço de aplicações.](app-service-web-how-to-create-an-app-service-environment.md)
 
-Você pode armazenar Ambiente do Serviço de Aplicativo personalizações usando uma matriz no novo atributo **clusterSettings** . Esse atributo é encontrado no dicionário "Properties" da entidade de Azure Resource Manager de *hostingenvironments* .
+Pode armazenar personalizações de ambiente de serviço de aplicação utilizando uma matriz no atributo de novas **clusterSettings.** Este atributo encontra-se no dicionário "Propriedades" da entidade gestora de recursos do *Ambientes* Azure.
 
-O seguinte trecho de modelo abreviado do Resource Manager mostra o atributo **clusterSettings** :
+O seguinte modelo abreviado do Gestor de Recursos mostra o atributo **clusterSettings:**
 
     "resources": [
     {
@@ -42,24 +42,24 @@ O seguinte trecho de modelo abreviado do Resource Manager mostra o atributo **cl
        }
     }
 
-O atributo **clusterSettings** pode ser incluído em um modelo do Resource Manager para atualizar o ambiente do serviço de aplicativo.
+O atributo **clusterSettings** pode ser incluído num modelo de Gestor de Recursos para atualizar o Ambiente do Serviço de Aplicações.
 
-## <a name="use-azure-resource-explorer-to-update-an-app-service-environment"></a>Usar Azure Resource Explorer para atualizar um Ambiente do Serviço de Aplicativo
-Como alternativa, você pode atualizar o Ambiente do Serviço de Aplicativo usando [Azure Resource Explorer](https://resources.azure.com).  
+## <a name="use-azure-resource-explorer-to-update-an-app-service-environment"></a>Use o Azure Resource Explorer para atualizar um Ambiente de Serviço de Aplicações
+Em alternativa, pode atualizar o Ambiente do Serviço de Aplicações utilizando o [Azure Resource Explorer](https://resources.azure.com).  
 
-1. No Gerenciador de recursos, vá para o nó da Ambiente do Serviço de Aplicativo (**assinaturas** > **provedores** de > de **resourceGroups** > **Microsoft. Web** > **hostingenvironments**). Em seguida, clique no Ambiente do Serviço de Aplicativo específico que você deseja atualizar.
-2. No painel direito, clique em **leitura/gravação** na barra de ferramentas superior para permitir a edição interativa no Gerenciador de recursos.  
-3. Clique no botão de **edição** azul para tornar o modelo do Resource Manager editável.
-4. Role até a parte inferior do painel direito. O atributo **clusterSettings** está na parte inferior, em que você pode inserir ou atualizar seu valor.
-5. Digite (ou copie e Cole) a matriz de valores de configuração que você deseja no atributo **clusterSettings** .  
-6. Clique no botão verde **Put** localizado na parte superior do painel direito para confirmar a alteração no ambiente do serviço de aplicativo.
+1. No Resource Explorer, vá ao nó para o Ambiente do Serviço > de Aplicações >  > **(recursos de****subscriçãoFornecedores** > **providers****Microsoft.Web****hostingEnvironments**). Em seguida, clique no ambiente específico do Serviço de Aplicações que pretende atualizar.
+2. No painel certo, clique em **Ler/Escrever** na barra superior para permitir a edição interativa no Resource Explorer.  
+3. Clique no botão **de Edição** azul para tornar o modelo de Gestor de Recursos editável.
+4. Percorra para o fundo do painel direito. O **atributo clusterSettings** está na parte inferior, onde pode entrar ou atualizar o seu valor.
+5. Digite (ou copie e cole) a matriz de valores de configuração que deseja no atributo **clusterSettings.**  
+6. Clique no botão **PUT** verde que está localizado na parte superior do painel direito para comprometer a alteração para o Ambiente de Serviço de Aplicações.
 
-No entanto, você envia a alteração, leva aproximadamente 30 minutos multiplicado pelo número de front-ends na Ambiente do Serviço de Aplicativo para que a alteração entre em vigor.
-Por exemplo, se um Ambiente do Serviço de Aplicativo tiver quatro front-ends, levará aproximadamente duas horas para que a atualização de configuração seja concluída. Enquanto a alteração de configuração está sendo distribuída, nenhuma outra operação de dimensionamento ou operação de alteração de configuração pode ocorrer na Ambiente do Serviço de Aplicativo.
+Seja como for que submeta a alteração, demora cerca de 30 minutos multiplicado pelo número de extremidades dianteiras no Ambiente de Serviço de Aplicações para que a alteração entre em vigor.
+Por exemplo, se um Ambiente de Serviço de Aplicações tiver quatro extremidades dianteiras, levará cerca de duas horas para que a atualização de configuração termine. Enquanto a mudança de configuração está a ser lançada, nenhuma outra operação de escala ou operações de alteração de configuração pode ocorrer no Ambiente de Serviço de Aplicações.
 
-## <a name="enable-internal-encryption"></a>Habilitar criptografia interna
+## <a name="enable-internal-encryption"></a>Ativar encriptação interna
 
-O Ambiente do Serviço de Aplicativo funciona como um sistema de caixa preta onde você não pode ver os componentes internos ou a comunicação dentro do sistema. Para habilitar uma taxa de transferência mais alta, a criptografia não é habilitada por padrão entre os componentes internos. O sistema é seguro, pois o tráfego está totalmente inacessível para ser monitorado ou acessado. Se você tiver um requisito de conformidade, embora exija a criptografia completa do caminho de dados de ponta a ponta, há uma maneira de habilitá-lo com um clusterSetting.  
+O App Service Environment funciona como um sistema de caixa preta onde não é possível ver os componentes internos ou a comunicação dentro do sistema. Para permitir uma maior entrada, a encriptação não é ativada por padrão entre componentes internos. O sistema é seguro, uma vez que o tráfego é completamente inacessível a ser monitorizado ou acedido. Se tiver um requisito de conformidade, embora isso exija uma encriptação completa do caminho dos dados de ponta a ponta, existe uma maneira de o ativar com um clusterSetting.  
 
         "clusterSettings": [
             {
@@ -68,13 +68,13 @@ O Ambiente do Serviço de Aplicativo funciona como um sistema de caixa preta ond
             }
         ],
  
-Depois que o InternalEncryption clusterSetting estiver habilitado, poderá haver um impacto no desempenho do sistema. Quando você faz a alteração para habilitar InternalEncryption, seu ASE estará em um estado instável até que a alteração seja totalmente propagada. A propagação completa da alteração pode levar algumas horas para ser concluída, dependendo de quantas instâncias você tem em seu ASE. É altamente recomendável que você não habilite isso em um ASE enquanto ele estiver em uso. Se você precisar habilitá-lo em um ASE usado ativamente, é altamente recomendável desviar o tráfego para um ambiente de backup até que a operação seja concluída. 
+Depois de ativado o clusterSystem InternalEncryption, pode haver um impacto no desempenho do seu sistema. Quando fizer a alteração para permitir a InternalEncryption, a sua ASE estará num estado instável até que a mudança seja totalmente propagada. A propagação completa da alteração pode demorar algumas horas a ser completada, dependendo do número de casos que tem na Sua ASE. Recomendamos vivamente que não o ative numa ASE enquanto estiver a ser utilizado. Se precisar de ativar isto numa ASE ativamente utilizada, recomendamos vivamente que desvie o tráfego para um ambiente de reserva até que a operação esteja concluída. 
 
-## <a name="disable-tls-10-and-tls-11"></a>Desabilitar TLS 1,0 e TLS 1,1
+## <a name="disable-tls-10-and-tls-11"></a>Desativar TLS 1.0 e TLS 1.1
 
-Se você quiser gerenciar as configurações de TLS em um aplicativo pela base do aplicativo, poderá usar as diretrizes fornecidas com a documentação [impor configurações de TLS](../configure-ssl-bindings.md#enforce-tls-versions) . 
+Se pretender gerir as definições de TLS numa aplicação por app, então pode utilizar a orientação fornecida com a documentação de [definições 'Enforce TLS'.](../configure-ssl-bindings.md#enforce-tls-versions) 
 
-Se você quiser desabilitar todos os tráfegos TLS 1,0 e TLS 1,1 de entrada para todos os aplicativos em um ASE, poderá definir a seguinte entrada **clusterSettings** :
+Se pretender desativar todo o tráfego TLS 1.0 e TLS 1.1 para todas as aplicações numa ASE, pode definir a seguinte entrada **clusterSettings:**
 
         "clusterSettings": [
             {
@@ -83,10 +83,10 @@ Se você quiser desabilitar todos os tráfegos TLS 1,0 e TLS 1,1 de entrada para
             }
         ],
 
-O nome da configuração diz 1,0, mas quando configurado, ele desabilita o TLS 1,0 e o TLS 1,1.
+O nome da definição diz 1.0 mas quando configurado, desativa tanto o TLS 1.0 como o TLS 1.1.
 
-## <a name="change-tls-cipher-suite-order"></a>Alterar a ordem do conjunto de codificação TLS
-Outra pergunta dos clientes é se eles podem modificar a lista de codificações negociadas pelo servidor e isso pode ser feito modificando o **clusterSettings** , conforme mostrado abaixo. A lista de conjuntos de codificação disponíveis pode ser recuperada [neste artigo do MSDN](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx).
+## <a name="change-tls-cipher-suite-order"></a>Alterar encomenda suíte de cifra TLS
+Outra questão dos clientes é se podem modificar a lista de cifras negociadas pelo seu servidor e isso pode ser alcançado modificando as **ClusterSettings** como mostrado abaixo. A lista de suítes cifra disponíveis pode ser recuperada a partir deste artigo da [MSDN](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx).
 
         "clusterSettings": [
             {
@@ -96,12 +96,12 @@ Outra pergunta dos clientes é se eles podem modificar a lista de codificações
         ],
 
 > [!WARNING]
-> Se os valores incorretos estiverem definidos para o conjunto de codificação que o SChannel não pode entender, toda a comunicação TLS para o servidor poderá parar de funcionar. Nesse caso, será necessário remover a entrada *FrontEndSSLCipherSuiteOrder* de **clusterSettings** e enviar o modelo do Resource Manager atualizado para reverter para as configurações padrão do pacote de codificação.  Use essa funcionalidade com cuidado.
+> Se forem definidos valores incorretos para o suite cifra que o SChannel não consegue compreender, toda a comunicação TLS para o seu servidor pode parar de funcionar. Neste caso, terá de remover a entrada *FrontEndSSLCipherSuiteOrder* do **clusterSettings** e submeter o modelo atualizado do Gestor de Recursos para voltar às definições padrão do pacote de cifra.  Por favor, utilize esta funcionalidade com cuidado.
 > 
 > 
 
-## <a name="get-started"></a>Começar
-O site do modelo de início rápido do Azure Resource Manager inclui um modelo com a definição de base para [criar um ambiente do serviço de aplicativo](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
+## <a name="get-started"></a>Introdução
+O site de modelo de gestor de recursos Azure Quickstart inclui um modelo com a definição base para criar um Ambiente de Serviço de [Aplicações.](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/)
 
 <!-- LINKS -->
 

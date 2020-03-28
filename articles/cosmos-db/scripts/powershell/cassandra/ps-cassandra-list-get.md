@@ -1,20 +1,20 @@
 ---
-title: Script do PowerShell para listar e obter Azure Cosmos DB API do Cassandra recursos
-description: Azure PowerShell script – lista de Azure Cosmos DB e operações get para API do Cassandra
+title: PowerShell script para listar e obter recursos da API da Azure Cosmos DB Cassandra
+description: Script Azure PowerShell - Lista de DB azure Cosmos e obtenha operações para Cassandra API
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: beff4e5732ddb22a29a2dd74c5c7393c8d932740
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cf29bae8b2aa011593e4d9acb45bad71a6ad0167
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445050"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365703"
 ---
-# <a name="list-and-get-keyspaces-and-tables-for-azure-cosmos-db---cassandra-api"></a>Listar e obter os espaços e as tabelas de keyspaces para Azure Cosmos DB API do Cassandra
+# <a name="list-and-get-keyspaces-and-tables-for-azure-cosmos-db---cassandra-api"></a>List e obtenha espaços e mesas chave para Azure Cosmos DB - Cassandra API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -38,9 +38,11 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-|**Recursos do Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Cria um recurso. |
-|**Grupos de recursos do Azure**| |
+|**Azure Cosmos DB**| |
+| [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Lista as Contas DB da Cosmos ou obtém uma conta DB cosmos especificada. |
+| [Get-AzCosmosDBCassandraKeyspace](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandrakeyspace) | Lista cosmos DB Cassandra API Keyspaces em uma conta, ou obtém um cosmos DB Cassandra API Keyspace em uma conta. |
+| [Get-AzCosmosDBCassandraTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandratable) | Lista as tabelas Cosmos DB Cassandra API em um Keyspace, ou obtém uma tabela API Cosmos DB Cassandra especificada em um keyspace. |
+|**Grupos de Recursos Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 

@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: b4c8e9b07905e954879e5b65adbaae765fc41c33
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73176483"
 ---
 > [!NOTE]
-> Este conteúdo de documentação é sobre o portal do desenvolvedor herdado. Consulte os seguintes artigos para obter conteúdo sobre o novo portal do desenvolvedor:
+> Este conteúdo documentação é sobre o portal de desenvolvimento legado. Consulte os seguintes artigos para conteúdos sobre o novo portal de desenvolvimento:
 > 
-> - [Visão geral do portal do desenvolvedor do gerenciamento de API do Azure](..\articles\api-management\api-management-howto-developer-portal.md)
-> - [Acessar e personalizar o portal do desenvolvedor gerenciado (tutorial)](..\articles\api-management\api-management-howto-developer-portal-customize.md)
+> - [Visão geral do portal de desenvolvimento da Azure API Management](..\articles\api-management\api-management-howto-developer-portal.md)
+> - [Aceda e personalize o portal de desenvolvimento gerido (tutorial)](..\articles\api-management\api-management-howto-developer-portal-customize.md)

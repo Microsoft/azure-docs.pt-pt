@@ -1,6 +1,6 @@
 ---
-title: 'CLI: criar ASP.NET Core aplicativo do ACR'
-description: Saiba como usar o CLI do Azure para automatizar a implantação e o gerenciamento do seu aplicativo do serviço de aplicativo. Este exemplo mostra como criar um aplicativo de ASP.NET Core do Linux do ACR.
+title: 'CLI: Criar ASP.NET aplicação Core a partir do ACR'
+description: Aprenda a utilizar o Azure CLI para automatizar a implementação e gestão da sua app App Service. Esta amostra mostra como criar uma aplicação Linux ASP.NET Core da ACR.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 3a2d1983-ff7b-476a-ac44-49ec2aabb31a
@@ -8,22 +8,22 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/13/2018
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 9733475753cb9d7fae5f452b33842602f56eff52
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 64177d00b302f9df8a0b28067031bd7cc1b3a156
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74685979"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80057777"
 ---
-# <a name="create-an-aspnet-core-app-in-a-docker-container-in-app-service-from-azure-container-registry"></a>Criar um aplicativo ASP.NET Core em um contêiner do Docker no serviço de aplicativo do registro de contêiner do Azure
+# <a name="create-an-aspnet-core-app-in-a-docker-container-in-app-service-from-azure-container-registry"></a>Crie uma app ASP.NET Core num contentor Dono em App Service do Registo de Contentores Azure
 
-Este script de exemplo cria um grupo de recursos, um plano do serviço de aplicativo do Linux e um aplicativo. Em seguida, implementa uma aplicação ASP.NET Core com um Contentor do Docker a partir do Azure Container Registry.
+Este script de amostra cria um grupo de recursos, um plano de Serviço de Aplicações Linux e uma aplicação. Em seguida, implementa uma aplicação ASP.NET Core com um Contentor do Docker a partir do Azure Container Registry.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Você precisa de CLI do Azure versão 2.0.52 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Precisa da versão Azure CLI 2.0.52 ou mais tarde. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -33,14 +33,14 @@ Você precisa de CLI do Azure versão 2.0.52 ou posterior. Para localizar a vers
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Esse script usa os comandos a seguir para criar um grupo de recursos, um aplicativo do serviço de aplicativo e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
+Este script utiliza os seguintes comandos para criar um grupo de recursos, app app App Service e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um plano do Serviço de Aplicações. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria um aplicativo do serviço de aplicativo. |
-| [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) | Define o contêiner do Docker para o aplicativo do serviço de aplicativo. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação de Serviço de Aplicações. |
+| [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) | Define o recipiente Docker para a aplicação App Service. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

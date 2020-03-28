@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
 ms.openlocfilehash: bf4039b661ac7e0ee9630b86b9e15d1388991431
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74108502"
 ---
 # <a name="import-an-api-app-as-an-api"></a>Importar uma Aplicação API como uma API
@@ -27,22 +27,22 @@ Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Importar uma Aplicação API como uma API
-> * Testar a API no Portal do Azure
+> * Testar a API no portal do Azure
 > * Testar a API no portal do Programador
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ Concluir o início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md)
-+ Certifique-se de que existe uma Aplicação API na sua subscrição. Para obter mais informações, consulte a [documentação do serviço de aplicativo](https://docs.microsoft.com/azure/app-service/)
++ Complete o seguinte quickstart: Criar uma instância de [Gestão API Azure](get-started-create-service-instance.md)
++ Certifique-se de que existe uma Aplicação API na sua subscrição. Para mais informações, consulte [documentação do serviço](https://docs.microsoft.com/azure/app-service/) de aplicações
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"> </a>Importar e publicar uma API de back-end
+## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importar e publicar uma API de back-end
 
 1. Selecione **APIs** em **GESTÃO DE API**.
 2. Selecione **Aplicação API** na lista **Adicionar uma nova API**.
 
-    ![Aplicação de API](./media/import-api-app-as-api/api-app.png)
+    ![App API](./media/import-api-app-as-api/api-app.png)
 3. Prima **Procurar** para ver a lista de Aplicações API na sua subscrição.
 4. Selecione a aplicação. O APIM localiza o swagger associado à aplicação selecionada, obtém-no e importa-o. 
 
@@ -58,7 +58,7 @@ Neste artigo, vai aprender a:
     * **Ilimitado**   
 7. Selecione **Criar**.
 
-## <a name="test-the-new-api-in-the-azure-portal"></a>Testar a nova API no portal do Azure
+## <a name="test-the-new-api-in-the-azure-portal"></a>Teste a nova API no portal Azure
 
 As operações podem ser chamadas diretamente a partir do Portal do Azure, que fornece um meio cómodo para ver e testar as operações de uma API.  
 

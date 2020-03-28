@@ -1,21 +1,21 @@
 ---
-title: Tutorial – configurar os laboratórios no Azure DevTest Labs usando o Ansible
-description: Saiba como configurar um laboratório no Azure DevTest Labs usando o Ansible
-keywords: Ansible, Azure, DevOps, Bash, manual, DevTest Labs
+title: Tutorial - Configure laboratórios em Laboratórios Azure DevTest usando Ansible
+description: Saiba como configurar um laboratório em Laboratórios Azure DevTest usando Ansible
+keywords: ansível, azul, devops, bash, playbook, laboratórios devtest
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: b6981ee94c4d82997c574db037befb9782465d08
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156271"
 ---
-# <a name="tutorial-configure-labs-in-azure-devtest-labs-using-ansible"></a>Tutorial: configurar os laboratórios no Azure DevTest Labs usando o Ansible
+# <a name="tutorial-configure-labs-in-azure-devtest-labs-using-ansible"></a>Tutorial: Configure laboratórios em Laboratórios Azure DevTest usando Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Azure DevTest Labs](/azure/lab-services/devtest-lab-overview) permite que os desenvolvedores automatizem a criação de ambientes de VM para seus aplicativos. Esses ambientes podem ser configurados para desenvolvimento, teste e treinamento de aplicativos. 
+[A Azure DevTest Labs](/azure/lab-services/devtest-lab-overview) permite aos desenvolvedores automatizar a criação de ambientes VM para as suas apps. Estes ambientes podem ser configurados para desenvolvimento de aplicações, testes e treino. 
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
@@ -23,15 +23,15 @@ ms.locfileid: "74156271"
 >
 > * Criar um laboratório
 > * Definir as políticas de laboratório
-> * Definir as agendas de laboratório
-> * Criar a rede virtual do laboratório
-> * Definir uma origem de artefato para o laboratório
-> * Criar uma VM no laboratório
-> * Listar as fontes e os artefatos do artefato do laboratório
-> * Obter Azure Resource Manager informações para as fontes de artefato
+> * Detete os horários do laboratório
+> * Criar a rede virtual de laboratório
+> * Defina uma fonte de artefacto para o laboratório
+> * Criar um VM dentro do laboratório
+> * Lista rindo as fontes e artefactos do laboratório
+> * Obtenha informações do Gestor de Recursos Azure para as fontes de artefactos
 > * Criar o ambiente de laboratório
-> * Criar a imagem do laboratório
-> * Excluir o laboratório
+> * Criar a imagem de laboratório
+> * Apague o laboratório
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,7 +41,7 @@ ms.locfileid: "74156271"
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-O trecho do guia estratégico de exemplo cria um grupo de recursos do Azure. Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos.
+O snippet de playbook da amostra cria um grupo de recursos Azure. Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
 ```yml
   - name: Create a resource group
@@ -52,7 +52,7 @@ O trecho do guia estratégico de exemplo cria um grupo de recursos do Azure. Um 
 
 ## <a name="create-the-lab"></a>Criar o laboratório
 
-A próxima tarefa cria o laboratório de exemplo.
+A próxima tarefa cria o laboratório de amostras.
 
 ```yml
 - name: Create the lab
@@ -67,16 +67,16 @@ A próxima tarefa cria o laboratório de exemplo.
 
 ## <a name="set-the-lab-policies"></a>Definir as políticas de laboratório
 
-Você pode definir configurações de política de laboratório. Os valores a seguir podem ser definidos:
+Pode configurar as definições de política de laboratório. Podem ser definidos os seguintes valores:
 
-- `user_owned_lab_vm_count` é o número de VMs que um usuário pode possuir
-- `user_owned_lab_premium_vm_count` é o número de VMs Premium que um usuário pode possuir
-- `lab_vm_count` é o número máximo de VMs de laboratório
-- `lab_premium_vm_count` é o número máximo de VMs do Lab Premium
-- `lab_vm_size` é o (s) tamanho (es) das VMs de laboratório permitidos
-- `gallery_image` é a imagem (ões) da Galeria permitida
-- `user_owned_lab_vm_count_in_subnet` é o número máximo de VMs do usuário em uma sub-rede
-- `lab_target_cost` é o custo de destino do laboratório
+- `user_owned_lab_vm_count`é o número de VMs que um utilizador pode possuir
+- `user_owned_lab_premium_vm_count`é o número de VMs premium que um utilizador pode possuir
+- `lab_vm_count`é o número máximo de VMs de laboratório
+- `lab_premium_vm_count`é o número máximo de VMs premium de laboratório
+- `lab_vm_size`é o tamanho de VMs de laboratório permitido
+- `gallery_image`é a imagem permitida da galeria
+- `user_owned_lab_vm_count_in_subnet`é o número máximo de VMs do utilizador numa subnet
+- `lab_target_cost`é o custo-alvo do laboratório
 
 ```yml
 - name: Set the lab policies
@@ -89,11 +89,11 @@ Você pode definir configurações de política de laboratório. Os valores a se
     threshold: 5
 ```
 
-## <a name="set-the-lab-schedules"></a>Definir as agendas de laboratório
+## <a name="set-the-lab-schedules"></a>Detete os horários do laboratório
 
-A tarefa de exemplo nesta seção configura o cronograma do laboratório. 
+A tarefa da amostra nesta secção configura o horário do laboratório. 
 
-No trecho de código a seguir, o valor `lab_vms_startup` é usado para especificar o tempo de inicialização da VM. Da mesma forma, definir o valor `lab_vms_shutdown` estabelece o tempo de desligamento da VM do laboratório.
+No seguinte código, o `lab_vms_startup` valor é utilizado para especificar o tempo de arranque do VM. Da mesma forma, definir o `lab_vms_shutdown` valor estabelece o tempo de paragem do Laboratório VM.
 
 ```yml
 - name: Set the lab schedule
@@ -106,9 +106,9 @@ No trecho de código a seguir, o valor `lab_vms_startup` é usado para especific
   register: output
 ```
 
-## <a name="create-the-lab-virtual-network"></a>Criar a rede virtual do laboratório
+## <a name="create-the-lab-virtual-network"></a>Criar a rede virtual de laboratório
 
-Esta tarefa a seguir cria a rede virtual do laboratório padrão.
+Esta seguinte tarefa cria a rede virtual padrão do laboratório.
 
 ```yml
 - name: Create the lab virtual network
@@ -121,9 +121,9 @@ Esta tarefa a seguir cria a rede virtual do laboratório padrão.
   register: output
 ```
 
-## <a name="define-an-artifact-source-for-the-lab"></a>Definir uma origem de artefato para o laboratório
+## <a name="define-an-artifact-source-for-the-lab"></a>Defina uma fonte de artefacto para o laboratório
 
-Uma fonte de artefatos é um repositório GitHub corretamente estruturado que contém definição de artefato e modelos de Azure Resource Manager. Cada laboratório vem com artefatos públicos predefinidos. As tarefas a seguir mostram como criar uma fonte de artefato para um laboratório.
+Uma fonte de artefactos é um repositório GitHub devidamente estruturado que contém definição de artefacto e modelos de Gestor de Recursos Azure. Todos os laboratórios vêm com artefactos públicos predefinidos. As tarefas seguintes mostram-lhe como criar uma fonte de artefacto para um laboratório.
 
 ```yml
 - name: Define the lab artifacts source
@@ -137,9 +137,9 @@ Uma fonte de artefatos é um repositório GitHub corretamente estruturado que co
     security_token: "{{ github_token }}"
 ```
 
-## <a name="create-a-vm-within-the-lab"></a>Criar uma VM no laboratório
+## <a name="create-a-vm-within-the-lab"></a>Criar um VM dentro do laboratório
 
-Crie uma VM no laboratório.
+Crie um VM dentro do laboratório.
 
 ```yml
 - name: Create a VM within the lab
@@ -169,9 +169,9 @@ Crie uma VM no laboratório.
     expiration_date: "2029-02-22T01:49:12.117974Z"
 ```
 
-## <a name="list-the-labs-artifact-sources-and-artifacts"></a>Listar as fontes e os artefatos do artefato do laboratório
+## <a name="list-the-labs-artifact-sources-and-artifacts"></a>Lista rindo as fontes e artefactos do laboratório
 
-Para listar todas as fontes de artefatos padrão e personalizadas no laboratório, use a seguinte tarefa:
+Para listar todas as fontes de artefactos padrão e personalizados no laboratório, utilize a seguinte tarefa:
 
 ```yml
 - name: List the artifact sources
@@ -183,7 +183,7 @@ Para listar todas as fontes de artefatos padrão e personalizadas no laboratóri
     var: output
 ```
 
-A tarefa a seguir lista todos os artefatos:
+A seguinte tarefa lista todos os artefactos:
 
 ```yml
 - name: List the artifact facts
@@ -196,9 +196,9 @@ A tarefa a seguir lista todos os artefatos:
     var: output
 ```
 
-## <a name="get-azure-resource-manager-information-for-the-artifact-sources"></a>Obter Azure Resource Manager informações para as fontes de artefato
+## <a name="get-azure-resource-manager-information-for-the-artifact-sources"></a>Obtenha informações do Gestor de Recursos Azure para as fontes de artefactos
 
-Para listar todos os modelos de Azure Resource Manager no `public environment repository`, o repositório predefinido com modelos:
+Para listar todos os modelos `public environment repository`do Gestor de Recursos Azure, o repositório predefinido com modelos:
 
 ```yml
 - name: List the Azure Resource Manager template facts
@@ -210,7 +210,7 @@ Para listar todos os modelos de Azure Resource Manager no `public environment re
     var: output
 ```
 
-E a tarefa a seguir recupera os detalhes de um modelo de Azure Resource Manager específico do repositório:
+E a seguinte tarefa recupera detalhes de um modelo específico do Gestor de Recursos Azure do repositório:
 
 ```yml
 - name: Get Azure Resource Manager template facts
@@ -226,7 +226,7 @@ E a tarefa a seguir recupera os detalhes de um modelo de Azure Resource Manager 
 
 ## <a name="create-the-lab-environment"></a>Criar o ambiente de laboratório
 
-A tarefa a seguir cria o ambiente de laboratório com base em um dos modelos do repositório de ambiente público.
+A seguinte tarefa cria o ambiente de laboratório baseado num dos modelos do repositório de ambiente público.
 
 ```yml
 - name: Create the lab environment
@@ -240,9 +240,9 @@ A tarefa a seguir cria o ambiente de laboratório com base em um dos modelos do 
       register: output
 ```
 
-## <a name="create-the-lab-image"></a>Criar a imagem do laboratório
+## <a name="create-the-lab-image"></a>Criar a imagem de laboratório
 
-A tarefa a seguir cria uma imagem de uma VM. A imagem permite que você crie VMs idênticas.
+A seguinte tarefa cria uma imagem de um VM. A imagem permite criar VMs idênticos.
 
 ```yml
 - name: Create the lab image
@@ -254,9 +254,9 @@ A tarefa a seguir cria uma imagem de uma VM. A imagem permite que você crie VMs
     linux_os_state: non_deprovisioned
 ```
 
-## <a name="delete-the-lab"></a>Excluir o laboratório
+## <a name="delete-the-lab"></a>Apague o laboratório
 
-Para excluir o laboratório, use a seguinte tarefa:
+Para eliminar o laboratório, utilize a seguinte tarefa:
 
 ```yml
 - name: Delete the lab
@@ -271,11 +271,11 @@ Para excluir o laboratório, use a seguinte tarefa:
       - output.changed
 ```
 
-## <a name="get-the-sample-playbook"></a>Obter o guia estratégico de exemplo
+## <a name="get-the-sample-playbook"></a>Obtenha o livro de jogadas da amostra
 
-Há duas maneiras de obter o guia estratégico de exemplo completo:
-- [Baixe o guia estratégico](https://github.com/Azure-Samples/ansible-playbooks/blob/master/devtestlab-create.yml) e salve-o em `devtestlab-create.yml`.
-- Crie um novo arquivo chamado `devtestlab-create.yml` e copie-o para ele no seguinte conteúdo:
+Há duas maneiras de obter o livro completo da amostra:
+- [Descarregue o](https://github.com/Azure-Samples/ansible-playbooks/blob/master/devtestlab-create.yml) livro `devtestlab-create.yml`de jogadas e guarde-o para .
+- Crie um `devtestlab-create.yml` novo ficheiro nomeado e copie-o nos seguintes conteúdos:
 
 ```yml
 ---
@@ -440,15 +440,15 @@ Há duas maneiras de obter o guia estratégico de exemplo completo:
         state: absent
 ```
 
-## <a name="run-the-playbook"></a>Executar o guia estratégico
+## <a name="run-the-playbook"></a>Executar o livro de jogadas
 
-Nesta seção, execute o guia estratégico para testar vários recursos mostrados neste artigo.
+Nesta secção, execute o livro de jogadas para testar várias funcionalidades mostradas neste artigo.
 
-Antes de executar o guia estratégico, faça as seguintes alterações:
-- Na seção `vars`, substitua o espaço reservado `{{ resource_group_name }}` pelo nome do seu grupo de recursos.
-- Armazene o token do GitHub como uma variável de ambiente chamada `GITHUB_ACCESS_TOKEN`.
+Antes de executar o livro de jogadas, faça as seguintes alterações:
+- Na `vars` secção, substitua o `{{ resource_group_name }}` espaço reservado pelo nome do seu grupo de recursos.
+- Guarde o símbolo GitHub como `GITHUB_ACCESS_TOKEN`uma variável ambiental chamada .
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook devtestlab-create.yml
@@ -456,9 +456,9 @@ ansible-playbook devtestlab-create.yml
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, exclua os recursos criados neste artigo. 
+Quando já não for necessário, apague os recursos criados neste artigo. 
 
-Salve o código a seguir como `cleanup.yml`:
+Guarde o `cleanup.yml`seguinte código como:
 
 ```yml
 - hosts: localhost
@@ -472,7 +472,7 @@ Salve o código a seguir como `cleanup.yml`:
         state: absent
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook cleanup.yml

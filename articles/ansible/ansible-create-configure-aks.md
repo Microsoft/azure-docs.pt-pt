@@ -1,30 +1,30 @@
 ---
-title: Tutorial – configurar clusters do AKS (serviço kubernetes do Azure) no Azure usando o Ansible
+title: Tutorial - Configure Azure Kubernetes Service (AKS) clusters em Azure usando Ansible
 description: Saiba como utilizar o Ansible para criar e gerir um cluster do Azure Kubernetes Service no Azure
-keywords: Ansible, Azure, DevOps, Bash, cloudshell, manual, AKs, contêiner, AKs, kubernetes
+keywords: ansível, azul, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.openlocfilehash: 6672c3fac1c5d546a61622e3fd6df6c5397f87a2
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156679"
 ---
-# <a name="tutorial-configure-azure-kubernetes-service-aks-clusters-in-azure-using-ansible"></a>Tutorial: configurar clusters do AKS (serviço kubernetes do Azure) no Azure usando o Ansible
+# <a name="tutorial-configure-azure-kubernetes-service-aks-clusters-in-azure-using-ansible"></a>Tutorial: Configure Azure Kubernetes Service (AKS) clusters em Azure usando Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
 [!INCLUDE [open-source-devops-intro-aks.md](../../includes/open-source-devops-intro-aks.md)]
 
-AKS pode ser configurado para usar o [Azure Active Directory (AD)](/azure/active-directory/) para autenticação de usuário. Uma vez configurado, você usa o token de autenticação do Azure AD para entrar no cluster AKS. O RBAC pode ser baseado na identidade de um usuário ou em uma associação de grupo de diretório.
+O AKS pode ser configurado para utilizar o [Diretório Ativo Azure (AD)](/azure/active-directory/) para autenticação do utilizador. Uma vez configurado, utilize o seu símbolo de autenticação Azure AD para assinar no cluster AKS. O RBAC pode basear-se na identidade de um utilizador ou na adesão ao grupo de diretórios.
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
 > * Criar um cluster do AKS (Create an AKS cluster)
-> * Configurar um cluster AKS
+> * Configure um cluster AKS
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,7 +34,7 @@ AKS pode ser configurado para usar o [Azure Active Directory (AD)](/azure/active
 
 ## <a name="create-a-managed-aks-cluster"></a>Criar um cluster do AKS gerido
 
-O guia estratégico de exemplo cria um grupo de recursos e um cluster AKS dentro do grupo de recursos.
+O livro de jogadas de amostra cria um grupo de recursos e um cluster AKS dentro do grupo de recursos.
 
 Guarde o manual de procedimentos seguinte como `azure_create_aks.yml`:
 
@@ -77,20 +77,20 @@ tasks:
         Environment: Production
 ```
 
-Antes de executar o guia estratégico, consulte as seguintes observações:
+Antes de executar o livro de jogadas, consulte as seguintes notas:
 
-- A primeira seção dentro de `tasks` define um grupo de recursos chamado `myResourceGroup` dentro do local `eastus`.
-- A segunda seção dentro de `tasks` define um cluster AKS chamado `myAKSCluster` dentro do grupo de recursos `myResourceGroup`.
-- Para o espaço reservado `your_ssh_key`, insira sua chave pública RSA no formato de linha única-começando com "ssh-RSA" (sem as aspas).
-- Para o espaço reservado `aks_version`, use o comando [AZ AKs Get-Versions](/cli/azure/aks?view=azure-cli-latest#az-aks-get-versions) .
+- A primeira `tasks` secção dentro define `myResourceGroup` um `eastus` grupo de recursos nomeado dentro do local.
+- A segunda `tasks` secção dentro define um `myAKSCluster` cluster `myResourceGroup` AKS nomeado dentro do grupo de recursos.
+- Para `your_ssh_key` o espaço reservado, introduza a sua chave pública RSA no formato de linha única - começando com "ssh-rsa" (sem as cotações).
+- Para `aks_version` o espaço reservado, utilize o comando [az aks get-versions.](/cli/azure/aks?view=azure-cli-latest#az-aks-get-versions)
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook azure_create_aks.yml
 ```
 
-A execução do manual mostra resultados semelhantes à seguinte saída:
+Executar o livro de jogadas mostra resultados semelhantes aos seguintes resultados:
 
 ```Output
 PLAY [Create AKS] 
@@ -110,7 +110,7 @@ localhost                  : ok=3    changed=2    unreachable=0    failed=0
 
 ## <a name="scale-aks-nodes"></a>Dimensionar nós do AKS
 
-O manual de procedimentos de exemplo na secção anterior define dois nós. Você ajusta o número de nós modificando o valor de `count` no bloco de `agent_pool_profiles`.
+O manual de procedimentos de exemplo na secção anterior define dois nós. Ajusta o número de nós `count` modificando `agent_pool_profiles` o valor do bloco.
 
 Guarde o manual de procedimentos seguinte como `azure_configure_aks.yml`:
 
@@ -145,17 +145,17 @@ Guarde o manual de procedimentos seguinte como `azure_configure_aks.yml`:
             vm_size: Standard_D2_v2
 ```
 
-Antes de executar o guia estratégico, consulte as seguintes observações:
+Antes de executar o livro de jogadas, consulte as seguintes notas:
 
-- Para o espaço reservado `your_ssh_key`, insira sua chave pública RSA no formato de linha única-começando com "ssh-RSA" (sem as aspas).
+- Para `your_ssh_key` o espaço reservado, introduza a sua chave pública RSA no formato de linha única - começando com "ssh-rsa" (sem as cotações).
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook azure_configure_aks.yml
 ```
 
-A execução do manual mostra resultados semelhantes à seguinte saída:
+Executar o livro de jogadas mostra resultados semelhantes aos seguintes resultados:
 
 ```Output
 PLAY [Scale AKS cluster] 
@@ -172,7 +172,7 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0
 
 ## <a name="delete-a-managed-aks-cluster"></a>Eliminar um cluster do AKS gerido
 
-O guia estratégico de exemplo exclui um cluster AKS.
+O livro de jogadas da amostra elimina um cluster AKS.
 
 Guarde o manual de procedimentos seguinte como `azure_delete_aks.yml`:
 
@@ -192,13 +192,13 @@ Guarde o manual de procedimentos seguinte como `azure_delete_aks.yml`:
       state: absent
   ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook azure_delete_aks.yml
 ```
 
-A execução do manual mostra resultados semelhantes à seguinte saída:
+Executar o livro de jogadas mostra resultados semelhantes aos seguintes resultados:
 
 ```Output
 PLAY [Delete a managed Azure Container Services (AKS) cluster] 
@@ -215,4 +215,4 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Dimensionar uma aplicação no Azure Kubernetes Service (AKS)](/azure/aks/tutorial-kubernetes-scale)
+> [Tutorial: Dimensionar uma aplicação no Serviço Kubernetes do Azure (AKS)](/azure/aks/tutorial-kubernetes-scale)

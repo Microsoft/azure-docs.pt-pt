@@ -1,6 +1,6 @@
 ---
-title: Exemplo de modelo – criar uma instância gerenciada no banco de dados SQL do Azure
-description: Azure PowerShell script de exemplo para criar uma instância gerenciada no banco de dados SQL do Azure
+title: Exemplo de modelo - crie uma instância gerida na Base de Dados Azure SQL
+description: Utilize este script de exemplo Azure PowerShell para criar uma instância gerida na Base de Dados Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,36 +11,36 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: be6aa73fe72568e9762e5b7249bedc2e8c7d3bf7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a349be9ada756742f5fd5ba4819caa1d2a2d3268
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691433"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80373155"
 ---
-# <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>Usar o PowerShell com Azure Resource Manager modelo para criar uma instância gerenciada no banco de dados SQL do Azure
+# <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>Use powerShell com modelo de Gestor de Recursos Azure para criar uma instância gerida na Base de Dados Azure SQL
 
-Instância Gerenciada do Banco de Dados SQL do Azure pode ser criado usando a biblioteca de Azure PowerShell e os modelos de Azure Resource Manager.
+A base de dados Azure SQL Managed Instance pode ser criada usando modelos de biblioteca Azure PowerShell e Azure Resource Manager.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá AZ PowerShell 1.4.0 ou posterior. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer AZ PowerShell 1.4.0 ou mais tarde. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
-Azure PowerShell comandos podem iniciar a implantação usando o modelo de Azure Resource Manager predefinido. As propriedades a seguir podem ser especificadas no modelo:
+Os comandos Azure PowerShell podem começar a ser implantados utilizando o modelo de Gestor de Recursos Azure predefinido. As seguintes propriedades podem ser especificadas no modelo:
 
-- Nome da Instância
-- Nome de usuário e senha do administrador do SQL.
+- Nome da instância
+- Nome de utilizador e senha do administrador SQL.
 - Tamanho da instância (número de núcleos e tamanho máximo de armazenamento).
-- VNet e sub-rede em que a instância será colocada.
-- Agrupamento de nível de servidor da instância (versão prévia).
+- VNet e subnet onde a instância será colocada.
+- Colagem ao nível do servidor da instância (Pré-visualização).
 
-O nome da instância, o nome de usuário do administrador do SQL, a VNet/sub-rede e o agrupamento não podem ser alterados posteriormente. Outras propriedades de instância podem ser alteradas.
+O nome da instância, nome de utilizador do Administrador SQL, VNet/subnet e colagem não podem ser alterados mais tarde. Outras propriedades podem ser alteradas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este exemplo pressupõe que você [criou um ambiente de rede válido](../sql-database-managed-instance-create-vnet-subnet.md) ou [modificou uma VNet existente](../sql-database-managed-instance-configure-vnet-subnet.md) para sua instância gerenciada. O exemplo usa os cmdlets [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) e [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) , portanto, certifique-se de ter instalado os seguintes módulos do PowerShell:
+Esta amostra pressupõe que [criou um ambiente](../sql-database-managed-instance-create-vnet-subnet.md) de rede válido ou [vNet existente modificado](../sql-database-managed-instance-configure-vnet-subnet.md) para a sua Instância Gerida. A amostra utiliza os cmdlets [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) e [Get-AzVirtualNetwork,](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) por isso certifique-se de que instalou os seguintes módulos PowerShell:
 
 ```powershell
 Install-Module Az.Network
@@ -49,7 +49,7 @@ Install-Module Az.Resources
 
 ## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
 
-O conteúdo a seguir deve ser colocado em um arquivo que representa um modelo que será usado para criar a instância:
+O seguinte conteúdo deve ser colocado num ficheiro que represente um modelo que será utilizado para criar a instância:
 
 ```json
 {
@@ -100,9 +100,9 @@ O conteúdo a seguir deve ser colocado em um arquivo que representa um modelo qu
 }
 ```
 
-Suposição que a VNet do Azure com a sub-rede configurada corretamente já exista. Se você não tiver uma sub-rede configurada corretamente, prepare o ambiente de rede usando o [modelo gerenciado de recursos do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) separado que pode ser executado de forma independente ou incluído neste modelo.
+Supõe-se que o Azure VNet com a subnet devidamente configurada já existe. Se não tiver uma sub-rede devidamente configurada, prepare o ambiente de rede utilizando um modelo separado de Gestão de [Recursos Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) que possa ser executado independentemente ou incluído neste modelo.
 
-Salve o conteúdo desse arquivo como arquivo. JSON, coloque o caminho do arquivo no seguinte script do PowerShell e altere os nomes dos objetos no script:
+Guarde o conteúdo deste ficheiro como ficheiro .json, coloque o caminho do ficheiro no seguinte script PowerShell e altere os nomes dos objetos no script:
 
 ```powershell
 $subscriptionId = "ed827499-xxxx-xxxx-xxxx-xxxxxxxxxx"
@@ -129,7 +129,7 @@ New-AzResourceGroupDeployment  -Name MyDeployment -ResourceGroupName $resourceGr
                                     -instance $name -user $user -pwd $secpasswd -subnetId $subnetId
 ```
 
-Assim que o script tiver sido executado com êxito, a Base de Dados SQL pode ser acedida a partir de todos os serviços do Azure e do endereço IP configurado.
+Uma vez que o script tenha sido executado com sucesso, a Base de Dados SQL pode ser acedida a partir de todos os serviços Azure e do endereço IP configurado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
