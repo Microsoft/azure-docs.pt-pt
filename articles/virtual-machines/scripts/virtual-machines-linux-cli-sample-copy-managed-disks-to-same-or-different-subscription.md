@@ -1,6 +1,6 @@
 ---
-title: Copiar discos gerenciados para a assinatura-exemplo da CLI
-description: Exemplo de script CLI do Azure – copiar (ou mover) discos gerenciados para o mesmo ou para uma assinatura diferente
+title: Copiar discos geridos para uma subscrição - Amostra CLI
+description: Amostra de script Azure CLI - Copiar (ou mover) discos geridos para a mesma ou uma subscrição diferente
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -17,15 +17,15 @@ ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
 ms.openlocfilehash: 7ccdec703781a4e48870d5b4c27ec9d23de71dd0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75458571"
 ---
 # <a name="copy-managed-disks-to-same-or-different-subscription-with-cli"></a>Copiar discos geridos para uma subscrição idêntica ou diferente com a CLI
 
-Este script copia um disco gerido para uma subscrição idêntica ou diferente na mesma região. A cópia funciona somente quando as assinaturas fazem parte do mesmo locatário do AAD.
+Este script copia um disco gerido para uma subscrição idêntica ou diferente na mesma região. A cópia só funciona quando as assinaturas fazem parte do mesmo inquilino da AAD.
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]

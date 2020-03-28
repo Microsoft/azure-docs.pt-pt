@@ -1,5 +1,5 @@
 ---
-title: Tutorial – implantar um aplicativo na malha de Service Fabric do Azure
+title: Tutorial- Implementar uma aplicação para malha de tecido de serviço Azure
 description: Neste tutorial, saiba como implementar uma aplicação no Service Fabric Mesh com um modelo.
 author: dkkapur
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 1ff1407400843fdb0f0ff997e2e0a3c1b7e67c7d
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75494933"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implementar uma aplicação no Service Fabric Mesh com um modelo
@@ -44,7 +44,7 @@ Antes de começar este tutorial:
 
 * [Instale a CLI do Azure e a CLI do Service Fabric Mesh localmente](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli).
 
-## <a name="create-a-container-registry"></a>Create a container registry (Criar um registo de contentores)
+## <a name="create-a-container-registry"></a>Criar um registo de contentores
 
 As imagens de contentor associadas aos serviços na sua aplicação Service Fabric Mesh têm de ser armazenadas num registo de contentor.  Este tutorial utiliza uma instância privada do Azure Container Registry (ACR). 
 
@@ -100,7 +100,7 @@ Quando o registo é criado, o resultado é semelhante ao seguinte:
 
 ## <a name="push-the-images-to-azure-container-registry"></a>Enviar as imagens para o Azure Container Registry
 
-Este tutorial utiliza a aplicação de Lista de Tarefas como um exemplo.  O contentor de imagens para os serviços [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) e [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) podem ser encontrados no Hub do Docker. Consulte [criar um aplicativo Web de malha Service Fabric](service-fabric-mesh-tutorial-create-dotnetcore.md) para obter informações sobre como criar o aplicativo no Visual Studio. O Service Fabric Mesh pode executar contentores do Docker do Windows ou Linux.  Se estiver a trabalhar com contentores do Linux, selecione **Mudar para contentores do Linux** no Docker.  Se estiver a trabalhar com contentores do Windows, selecione **Mudar para contentores do Windows** no Docker.
+Este tutorial utiliza a aplicação de Lista de Tarefas como um exemplo.  O contentor de imagens para os serviços [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) e [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) podem ser encontrados no Hub do Docker. Consulte [a Build a Service Fabric Mesh web para](service-fabric-mesh-tutorial-create-dotnetcore.md) obter informações sobre como construir a aplicação no Visual Studio. O Service Fabric Mesh pode executar contentores do Docker do Windows ou Linux.  Se estiver a trabalhar com contentores do Linux, selecione **Mudar para contentores do Linux** no Docker.  Se estiver a trabalhar com contentores do Windows, selecione **Mudar para contentores do Windows** no Docker.
 
 Para enviar uma imagem para uma instância do ACR, primeiro tem de ter uma imagem de contentor. Se ainda não tiver quaisquer imagens de contentor locais, utilize o comando [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para extrair as imagens do [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) e [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) do Hub do Docker.
 
@@ -130,7 +130,7 @@ docker tag seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709 mycontainer
 docker tag seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709 mycontainerregistry.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709
 ```
 
-Entre no registro de contêiner do Azure.
+Inscreva-se no Registo de Contentores Azure.
 
 ```azurecli
 az acr login -n myContainerRegistry
@@ -351,7 +351,7 @@ Para implementar a aplicação, execute o seguinte:
 az mesh deployment create --resource-group myResourceGroup --template-file c:\temp\mesh_rp.windows.json --parameters c:\temp\mesh_rp.windows.parameters.json
 ```
 
-Este comando irá produzir um fragmento JSON, que é mostrado abaixo. Sob o ```outputs``` seção da saída do JSON, copiar o ```publicIPAddress``` propriedade.
+Este comando produzirá um corte JSON que é mostrado abaixo. Sob ```outputs``` a secção da saída JSON, copie a ```publicIPAddress``` propriedade.
 
 ```json
 "outputs": {
@@ -362,7 +362,7 @@ Este comando irá produzir um fragmento JSON, que é mostrado abaixo. Sob o ```o
 }
 ```
 
-Estas informações provêm do ```outputs``` secção no modelo de ARM. Conforme mostrado abaixo, esta secção referencia o recurso de Gateway para obter o endereço IP público. 
+Esta informação ```outputs``` vem da secção do modelo ARM. Como mostrado abaixo, esta secção faz referência ao recurso Gateway para obter o endereço IP público. 
 
 ```json
   "outputs": {

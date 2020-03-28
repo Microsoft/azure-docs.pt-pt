@@ -1,5 +1,5 @@
 ---
-title: Script da CLI – alterar parâmetros do servidor-banco de dados do Azure para MariaDB
+title: Script CLI - Alterar parâmetros do servidor - Base de Dados Azure para MariaDB
 description: Este script de exemplo da CLI lista todas as configurações de servidor disponíveis e atualiza o valor de innodb_lock_wait_timeout.
 author: ajlam
 ms.author: andrela
@@ -9,14 +9,14 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 12/02/2019
 ms.openlocfilehash: 515eb7523c5a08d52ad5eb4f7bd261f3f4e03fc4
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74771825"
 ---
-# <a name="list-and-update-configurations-of-an-azure-database-for-mariadb-server-using-azure-cli"></a>Listar e atualizar as configurações de um banco de dados do Azure para servidor MariaDB usando CLI do Azure
-Este script de exemplo da CLI lista todos os parâmetros de configuração disponíveis, bem como seus valores permitidos para o banco de dados do Azure para MariaDB Server, e define o *innodb_lock_wait_timeout* com um valor diferente do padrão.
+# <a name="list-and-update-configurations-of-an-azure-database-for-mariadb-server-using-azure-cli"></a>Lista e configurações de atualização de uma Base de Dados Azure para servidor MariaDB utilizando o Azure CLI
+Esta amostra de script CLI lista todos os parâmetros de configuração disponíveis, bem como os seus valores admissíveis para a Base de Dados Azure para o servidor MariaDB, e define o *innodb_lock_wait_timeout* para um valor que não seja o padrão.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
@@ -36,13 +36,13 @@ Este script utiliza os comandos descritos na tabela seguinte:
 | **Comando** | **Notas** |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [AZ MariaDB Server CREATE](/cli/azure/mariadb/server#az-mariadb-server-create) | Cria um servidor MariaDB que hospeda os bancos de dados. |
-| [lista de configuração do servidor AZ MariaDB](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-list) | Listar as configurações de um banco de dados do Azure para o servidor MariaDB. |
-| [conjunto de configuração de servidor AZ MariaDB](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-set) | Atualize a configuração de um banco de dados do Azure para o servidor MariaDB. |
-| [AZ MariaDB Server Configuration show](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-show) | Mostra a configuração de um banco de dados do Azure para o servidor MariaDB. |
+| [az mariadb servidor criar](/cli/azure/mariadb/server#az-mariadb-server-create) | Cria um servidor MariaDB que acolhe as bases de dados. |
+| [lista de configuração do servidor az mariadb](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-list) | Enumera rindo as configurações de uma Base de Dados Azure para o servidor MariaDB. |
+| [conjunto de configuração de servidor az mariadb](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-set) | Atualize a configuração de uma Base de Dados Azure para o servidor MariaDB. |
+| [az mariadb programa de configuração servidor](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-show) | Mostre a configuração de uma Base de Dados Azure para o servidor MariaDB. |
 | [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 - Leia mais informações sobre a CLI do Azure: [Documentação da CLI do Azure](/cli/azure).
-- Experimente scripts adicionais: [exemplos de CLI do Azure para o banco de dados do Azure para MariaDB](../sample-scripts-azure-cli.md)
-- Para obter mais informações sobre parâmetros de servidor, consulte [como configurar parâmetros de servidor no banco de dados do Azure para MariaDB](../howto-server-parameters.md).
+- Experimente scripts adicionais: [Amostras azure CLI para Base de Dados Azure para MariaDB](../sample-scripts-azure-cli.md)
+- Para obter mais informações sobre os parâmetros do servidor, consulte Como Configurar parâmetros de servidor na Base de [Dados Azure para MariaDB](../howto-server-parameters.md).

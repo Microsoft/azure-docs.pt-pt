@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directory integração individual (SSO) com bizagi Studio for Digital Process Automation  Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração individual (SSO) com bizagi Studio for Digital Process Automation [ Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Bizagi Studio para automação de processos digitais.
 services: active-directory
 documentationCenter: na
@@ -16,10 +16,10 @@ ms.date: 02/27/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 85f7dd96bc2767b98174bee2cadaa93a6bfa1459
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78207513"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bizagi-studio-for-digital-process-automation"></a>Tutorial: Azure Ative Directory integração individual (SSO) com bizagi Studio para automação de processos digitais
@@ -50,7 +50,7 @@ Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
 
 Para configurar a integração do Bizagi Studio para automação de processos digitais em Azure AD, você precisa adicionar bizagi Studio para Automação de Processodigital da galeria para a sua lista de aplicações geridas saaS.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
 1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
@@ -70,7 +70,7 @@ Para configurar e testar o Azure AD SSO com o Bizagi Studio para automação de 
     1. **[Create Bizagi Studio for Digital Process Automation user](#create-bizagi-studio-for-digital-process-automation-test-user)** - para ter uma contrapartida de B.Simon no Bizagi Studio for Digital Process Automation que está ligado à representação do utilizador da AD Azure.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-## <a name="configure-azure-ad-sso"></a>Configure Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
@@ -82,18 +82,18 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
 1. Na secção **Basic SAML Configuration,** introduza os valores para os seguintes campos:
 
-    a. No **Sign on URL** text box, escreva um URL: `https://<COMPANYNAME>.bizagi.com/<PROJECTNAME>`
+    a. No **Sign on URL** text box, digite um URL:`https://<COMPANYNAME>.bizagi.com/<PROJECTNAME>`
 
-    b. Na caixa de texto **identificador (Id** da entidade), escreva um URL: `https://<COMPANYNAME>.bizagi.com/<PROJECTNAME>`
+    b. Na caixa de texto **identificador (Id da entidade),** digite um URL:`https://<COMPANYNAME>.bizagi.com/<PROJECTNAME>`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL e Identificador de Sinal real. Contacte [o Bizagi Studio para](mailto:jarvein.rivera@bizagi.com) a equipa de suporte de automação de processos digitais para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
 1. No **set single sign-on com** a página SAML, na secção Certificado de **Assinatura SAML,** clique no botão de cópia para copiar o Url de **Metadados da Federação** da Aplicação e guarde-o no seu computador.
 
-    ![O link de download de certificado](common/copy-metadataurl.png)
+    ![O link de descarregamento do Certificado](common/copy-metadataurl.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
 Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
 
@@ -101,11 +101,11 @@ Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo **de nome do utilizador,** introduza o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
 Nesta secção, permitirá que a B.Simon utilize um único sign-on azure, concedendo acesso ao Bizagi Studio para automação de processos digitais.
 
@@ -113,7 +113,7 @@ Nesta secção, permitirá que a B.Simon utilize um único sign-on azure, conced
 1. Na lista de aplicações, selecione **Bizagi Studio para Automação de Processos Digitais.**
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
 
@@ -125,15 +125,15 @@ Nesta secção, permitirá que a B.Simon utilize um único sign-on azure, conced
 
 ## <a name="configure-bizagi-studio-for-digital-process-automation-sso"></a>Configure Bizagi Studio para Automação de ProcessoDigital SSO
 
-Para configurar um único sign-on no **Bizagi Studio para** o lado de Automação de Processos Digitais, você precisa enviar o Url de **Metadados da Federação de Aplicações** para [bizagi Studio para equipa](mailto:jarvein.rivera@bizagi.com)de suporte de automação de processo digital . Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar um único sign-on no **Bizagi Studio para** o lado de Automação de Processos Digitais, você precisa enviar o Url de **Metadados da Federação de Aplicações** para [bizagi Studio para equipa](mailto:jarvein.rivera@bizagi.com)de suporte de automação de processo digital . Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
 
 ### <a name="create-bizagi-studio-for-digital-process-automation-test-user"></a>Criar o Bizagi Studio para o utilizador de testes de automação de processos digitais
 
-Nesta secção, cria-se uma utilizadora chamada Britta Simon no Bizagi Studio for Digital Process Automation. Trabalhe com a equipa de [suporte ao Bizagi Studio para a Automatização](mailto:jarvein.rivera@bizagi.com) de Processos Digitais para adicionar os utilizadores na plataforma Bizagi Studio for Digital Process Automation. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, cria-se uma utilizadora chamada Britta Simon no Bizagi Studio for Digital Process Automation. Trabalhe com a equipa de [suporte ao Bizagi Studio para a Automatização](mailto:jarvein.rivera@bizagi.com) de Processos Digitais para adicionar os utilizadores na plataforma Bizagi Studio for Digital Process Automation. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
 
 ## <a name="test-sso"></a>Teste SSO
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
 Quando clicar no estúdio Bizagi para automação de processos digitais no Painel de Acesso, deve ser automaticamente inscrito no Bizagi Studio for Digital Process Automation para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
@@ -143,7 +143,7 @@ Quando clicar no estúdio Bizagi para automação de processos digitais no Paine
 
 - [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimente o Bizagi Studio para automação de processos digitais com a AD Azure](https://aad.portal.azure.com/)
 

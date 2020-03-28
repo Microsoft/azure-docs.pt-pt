@@ -8,10 +8,10 @@ ms.author: bwren
 ms.date: 06/19/2019
 ms.custom: mvc
 ms.openlocfilehash: 76ba79561df4a75004369d24c4c6af82de9b1cfc
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77661537"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Criar e partilhar dashboards dos dados do Log Analytics
@@ -27,7 +27,7 @@ Os dashboards do Log Analytics podem visualizar todas as suas consultas de regis
 Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existente [ligada à área de trabalho do Log Analytics](quick-collect-azurevm.md).  
  
 ## <a name="sign-in-to-azure-portal"></a>Iniciar sessão no portal do Azure
-Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
+Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em . 
 
 ## <a name="create-a-shared-dashboard"></a>Criar um dashboard partilhado
 Selecione **Dashboard** para abrir o seu painel de [instrumentos](../../azure-portal/azure-portal-dashboards.md)predefinido . O seu painel de instrumentos será diferente do exemplo abaixo.
@@ -38,13 +38,13 @@ Aqui, pode reunir os dados operacionais mais importantes para as TI em todos os 
 
 Para criar um dashboard, selecione o botão **Novo dashboard** junto ao nome do dashboard atual.
 
-![Criar novo dashboard no portal Azure](media/tutorial-logs-dashboards/log-analytics-create-dashboard-01.png)
+![Criar novo dashboard no portal do Azure](media/tutorial-logs-dashboards/log-analytics-create-dashboard-01.png)
 
 Esta ação cria um dashboard novo, vazio e privado, e coloca-o no modo de personalização onde pode nomear o seu dashboard e adicionar ou reorganizar os mosaicos. Editar o nome do painel de instrumentos e especificar *sample dashboard* para este tutorial e, em seguida, selecionar **Feito personalizar**.<br><br> ![Guardar dashboard do Azure personalizado](media/tutorial-logs-dashboards/log-analytics-create-dashboard-02.png)
 
 Quando cria um dashboard, é privado por predefinição, o que significa que é o único utilizador que o pode ver. Para o tornar visível a outros utilizadores, utilize o botão **Partilhar** que se encontra junto aos outros comandos do dashboard.
 
-![Partilhe um novo dashboard no portal Azure](media/tutorial-logs-dashboards/log-analytics-share-dashboard.png) 
+![Partilhar um novo dashboard no portal do Azure](media/tutorial-logs-dashboards/log-analytics-share-dashboard.png) 
 
 É-lhe pedido para escolher uma subscrição e um grupo de recursos para o seu dashboard ser publicado. Para sua comodidade, a experiência de publicação do portal encaminha-o para um padrão onde coloca dashboards num grupo de recursos designado **dashboards**.  Verifique a subscrição selecionada e, em seguida, clique em **Publicar**.  O acesso às informações apresentadas no dashboard é controlado com o [Controlo de Acesso Baseado no Recurso do Azure](../../role-based-access-control/role-assignments-portal.md).   
 
@@ -72,7 +72,7 @@ No painel de controlo **Save Query,** forneça um nome como *VMs Azure - Utiliza
 
 Agora que temos uma consulta afixada ao dashboard, irá reparar que tem um título genérico e um comentário abaixo do mesmo.
 
-![Amostra de painel de instrumentos azure](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-01.png)
+![Exemplo de dashboard do Azure](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-01.png)
 
  Devemos alterar o nome para algo significativo que possa ser facilmente compreendido pelos utilizadores que o veem.  Clique no botão de edição para personalizar o título e a legenda para o azulejo e, em seguida, clique em **Atualizar**.  Será apresentada uma faixa a pedir-lhe para publicar ou eliminar as alterações.  Clique em **Guardar uma cópia**.  
 

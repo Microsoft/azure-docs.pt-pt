@@ -1,19 +1,19 @@
 ---
-title: Criar definição de aplicativo gerenciado-Azure PowerShell
-description: Fornece um exemplo de script Azure PowerShell que cria uma definição de aplicativo gerenciado na assinatura do Azure.
+title: Criar definição de aplicação gerida - Azure PowerShell
+description: Fornece uma amostra de script Azure PowerShell que cria uma definição de aplicação gerida na subscrição Azure.
 author: tfitzmac
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 10/27/2017
 ms.author: tomfitz
 ms.openlocfilehash: 09fe1455f0dba57fd23aeeb66acb1f99fc2513d4
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75650206"
 ---
-# <a name="create-a-managed-application-definition-with-powershell"></a>Criar uma definição de aplicativo gerenciado com o PowerShell
+# <a name="create-a-managed-application-definition-with-powershell"></a>Criar uma definição de aplicação gerida com a PowerShell
 
 Este script publica uma definição da aplicação gerida num catálogo de serviço.
 
@@ -32,7 +32,7 @@ Este script utiliza o seguinte comando para criar a definição da aplicação g
 
 | Comando | Notas |
 |---|---|
-| [New-AzManagedApplicationDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azmanagedapplicationdefinition) | Criar uma definição da aplicação gerida. Forneça o pacote que contém os ficheiros necessários. |
+| [Definição de aplicação nova-az-gerida](https://docs.microsoft.com/powershell/module/az.resources/new-azmanagedapplicationdefinition) | Criar uma definição da aplicação gerida. Forneça o pacote que contém os ficheiros necessários. |
 
 
 ## <a name="next-steps"></a>Passos seguintes

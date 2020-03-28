@@ -1,5 +1,5 @@
 ---
-title: Criar seu primeiro data factory (modelo do Resource Manager)
+title: Construa a sua primeira fábrica de dados (modelo de Gestor de Recursos)
 description: Neste tutorial, vai criar um exemplo de pipeline do Azure Data Factory com um modelo do Azure Resource Manager.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.openlocfilehash: db767a8d2f0452a9bedeaf8495152ef337255111
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75439027"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar a primeira fábrica de dados do Azure com o modelo Azure Resource Manager
@@ -24,7 +24,7 @@ ms.locfileid: "75439027"
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-> * [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 > 
  
 > [!NOTE]
@@ -59,7 +59,7 @@ O pipeline neste tutorial tem uma atividade: **atividade do HDInsight Hive**. Es
 
 Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline pode conter uma atividade ou mais. Existem dois tipos de atividades: [atividades de movimento de dados](data-factory-data-movement-activities.md) e [atividades de transformação de dados](data-factory-data-transformation-activities.md). Neste tutorial, pode criar um pipeline com uma atividade (atividade do Hive).
 
-A secção seguinte disponibiliza o modelo do Resource Manager completo para a definição de entidades do Data Factory, para que possa rapidamente dar uma vista de olhos pelo tutorial e testar o modelo. Para compreender como cada entidade do Data Factory está definida, consulte a secção [Data Factory entities in the template (Entidades do Data Factory no modelo)](#data-factory-entities-in-the-template). Para saber mais sobre a sintaxe JSON e as propriedades para Data Factory recursos em um modelo, consulte [tipos de recurso Microsoft. datafactory](/azure/templates/microsoft.datafactory/allversions).
+A secção seguinte disponibiliza o modelo do Resource Manager completo para a definição de entidades do Data Factory, para que possa rapidamente dar uma vista de olhos pelo tutorial e testar o modelo. Para compreender como cada entidade do Data Factory está definida, consulte a secção [Data Factory entities in the template (Entidades do Data Factory no modelo)](#data-factory-entities-in-the-template). Para conhecer a sintaxe jSON e propriedades para recursos da Fábrica de Dados num modelo, consulte os tipos de [recursos Microsoft.DataFactory](/azure/templates/microsoft.datafactory/allversions).
 
 ## <a name="data-factory-json-template"></a>Modelo JSON do Data Factory
 O modelo do Resource Manager de nível superior para definir uma fábrica de dados é: 
@@ -312,7 +312,7 @@ Crie um ficheiro JSON com o nome **ADFTutorialARM Parameters.json** que contém 
 > 
 
 ## <a name="create-data-factory"></a>Criar fábrica de dados
-1. Inicie o **Azure PowerShell** e execute o seguinte comando: 
+1. Inicie a **Azure PowerShell** e execute o seguinte comando: 
    * Execute o comando seguinte e introduza o nome de utilizador e a palavra-passe que utiliza para iniciar sessão no portal do Azure.
      ```PowerShell
      Connect-AzAccount
@@ -338,16 +338,16 @@ Crie um ficheiro JSON com o nome **ADFTutorialARM Parameters.json** que contém 
 3. No painel **Data Factory** da fábrica de dados, clique em **Diagrama**.
 
      ![Mosaico do Diagrama](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
-4. Na **Vista de Diagrama**, verá uma descrição geral dos pipelines e dos conjuntos de dados utilizados neste tutorial.
+4. Na vista do **diagrama,** você vê uma visão geral dos oleodutos, e conjuntos de dados usados neste tutorial.
    
    ![Vista de Diagrama](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
-5. Na Vista de Diagrama, faça duplo clique no conjunto de dados **AzureBlobOutput**. Verá o setor que está atualmente a ser processado.
+5. Na vista do diagrama, clique duas vezes no conjunto de dados **AzureBlobOutput**. Verá o setor que está atualmente a ser processado.
    
     ![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-6. Quando o processamento terminar, verá o setor no estado **Pronto**. A criação de um cluster do HDInsight a pedido demora, por norma, algum tempo (cerca de 20 minutos). Assim, prevê-se que o pipeline demore **aproximadamente 30 minutos** a processar o setor.
+6. Quando o processamento terminar, verá o setor no estado **Pronto**. A criação de um cluster do HDInsight a pedido demora, por norma, algum tempo (cerca de 20 minutos). Por isso, espere que o gasoduto leve **aproximadamente 30 minutos** para processar a fatia.
    
     ![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)    
-7. Quando o setor estiver no estado **Pronto**, verifique a pasta **partitioneddata** no contentor **adfgetstarted** do seu armazenamento de blobs para os dados de saída.  
+7. Quando a fatia estiver em estado **ready,** verifique a pasta de **dados divididono** no recipiente **adfgetiniciado** no seu armazenamento blob para obter os dados de saída.  
 
 Veja [Monitor datasets and pipeline (Monitorizar os conjuntos de dados e o pipeline)](data-factory-monitor-manage-pipelines.md) para obter instruções sobre como utilizar os painéis do Portal do Azure para monitorizar o pipeline e os conjuntos de dados que criou neste tutorial.
 
@@ -381,10 +381,10 @@ O dataFactoryName é definido como:
 ### <a name="defining-data-factory-entities"></a>Definir entidades do Data Factory
 As seguintes entidades do Data Factory são definidas no modelo JSON: 
 
-* [Serviço ligado do Armazenamento do Azure](#azure-storage-linked-service)
+* [Serviço ligado do Storage do Azure](#azure-storage-linked-service)
 * [Serviço ligado do HDInsight a pedido](#hdinsight-on-demand-linked-service)
 * [Conjunto de dados de entrada do blobs do Azure](#azure-blob-input-dataset)
-* [Conjunto de dados de saída do blob do Azure](#azure-blob-output-dataset)
+* [Conjunto de dados de saída de blob azure](#azure-blob-output-dataset)
 * [Pipeline de dados com uma atividade de cópia](#data-pipeline)
 
 #### <a name="azure-storage-linked-service"></a>Serviço ligado do Storage do Azure
@@ -407,7 +407,7 @@ Especifique o nome e a chave da sua conta de armazenamento do Azure nesta secç�
     }
 }
 ```
-A **connectionString** utiliza os parâmetros storageAccountName e storageAccountKey. Os valores para estes parâmetros foram transmitidos através da utilização de um ficheiro de configuração. A definição também usa variáveis: azureStorageLinkedService e datafactoryname definidos no modelo. 
+A **ligaçãoString** utiliza os parâmetros StorageAccountName e storageAccountKey. Os valores para estes parâmetros foram transmitidos através da utilização de um ficheiro de configuração. A definição também utiliza variáveis: azureStorageLinkedService e dataFactoryName definido no modelo. 
 
 #### <a name="hdinsight-on-demand-linked-service"></a>Serviço ligado do HDInsight a pedido
 Veja o artigo [Serviços ligados de computação](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes sobre as propriedades JSON utilizadas para definir um serviço ligado do HDInsight a pedido.  
@@ -435,10 +435,10 @@ Veja o artigo [Serviços ligados de computação](data-factory-compute-linked-se
 Tenha em atenção os seguintes pontos: 
 
 * O Data Factory cria um cluster do HDInsight **baseado no Linux** com o JSON anterior. Veja [On-demand HDInsight Linked Service (Serviço Ligado do HDInsight a Pedido)](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes. 
-* Também pode utilizar o **seu próprio cluster do HDInsight** em vez de utilizar um cluster do HDInsight a pedido. Veja [HDInsight Linked Service (Serviço Ligado do HDInsight)](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para obter detalhes.
-* O cluster do HDInsight cria um **contentor predefinido** no armazenamento de blobs especificado no JSON (**linkedServiceName**). Quando o cluster é eliminado, o HDInsight não é eliminado deste contentor. Este comportamento é propositado. Com o serviço ligado do HDInsight a pedido, é criado um cluster do HDInsight sempre que um setor tiver de ser processado, exceto se houver um cluster em direto (**timeToLive**) que será eliminado no fim do processamento.
+* Pode utilizar **o seu próprio cluster HDInsight** em vez de utilizar um cluster HDInsight a pedido. Veja [HDInsight Linked Service (Serviço Ligado do HDInsight)](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para obter detalhes.
+* O cluster HDInsight cria um **recipiente predefinido** no armazenamento blob especificado no JSON **(linkedServiceName**). Quando o cluster é eliminado, o HDInsight não é eliminado deste contentor. Este comportamento é propositado. Com o serviço ligado do HDInsight a pedido, é criado um cluster do HDInsight sempre que um setor tiver de ser processado, exceto se houver um cluster em direto (**timeToLive**) que será eliminado no fim do processamento.
   
-    À medida que são processados mais setores, verá muitos contentores no armazenamento de blobs do Azure. Se não precisar deles para a resolução de problemas das tarefas, poderá eliminá-los para reduzir o custo de armazenamento. Os nomes destes contentores seguem um padrão: "adf**nomedafábricadedados**-**nomedoserviçoligado**-carimbodedataehora". Utilize ferramentas como o [Explorador de Armazenamento do Microsoft](https://storageexplorer.com/) para eliminar contentores no armazenamento de blobs do Azure.
+    À medida que são processados mais setores, verá muitos contentores no armazenamento de blobs do Azure. Se não precisar deles para a resolução de problemas das tarefas, poderá eliminá-los para reduzir o custo de armazenamento. Os nomes destes contentores seguem um padrão: "adf**your datafactoryname**-**linkedname**-datetimestamp". Utilize ferramentas como o [Explorador de Armazenamento do Microsoft](https://storageexplorer.com/) para eliminar contentores no armazenamento de blobs do Azure.
 
 Veja [On-demand HDInsight Linked Service (Serviço Ligado do HDInsight a Pedido)](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes.
 

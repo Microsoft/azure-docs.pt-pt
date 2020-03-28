@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 02/14/2018
 ms.custom: mvc
 ms.openlocfilehash: c9258b7f95337330e4f1de36e389f6b8f2276976
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78672950"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Recuperar ficheiros do Azure para um Servidor Windows
@@ -21,7 +21,7 @@ O Azure Backup permite a recuperação dos itens individuais de cópias de segur
 > * Selecione um ponto de recuperação
 > * Restaurar itens a partir de um ponto de recuperação
 
-Este tutorial assume que já executou os passos para [Realizar a cópia de segurança um Servidor Windows](backup-windows-with-mars-agent.md){3}para o Azure{4} e tem, pelo menos, uma cópia de segurança dos ficheiros do Servidor Windows no Azure.
+Este tutorial assume que já executou os passos para Realizar a cópia de segurança um Servidor Windowspara o Azure e tem, pelo menos, uma cópia de segurança dos ficheiros do Servidor Windows no Azure.
 
 ## <a name="initiate-recovery-of-individual-items"></a>Iniciar recuperação de itens individuais
 

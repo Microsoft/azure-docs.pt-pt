@@ -9,10 +9,10 @@ ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: bf2596f5a8e287799285f97f3d1be9f3fe10f644
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77123138"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Gerar o ficheiro de pedido de assinatura de certificado
@@ -46,7 +46,7 @@ Em seguida, registe a sua aplicação com a Apple, ative notificações push e c
 
 Para enviar notificações push para uma aplicação iOS, registe a sua aplicação com a Apple e registe-se também para notificações push.  
 
-1. Se ainda não registou a sua aplicação, navegue para o portal de [provisionamento do iOS](https://go.microsoft.com/fwlink/p/?LinkId=272456) no Apple Developer Center. Inscreva-se no portal com o seu APPLE ID e selecione **Identificadores**. Em seguida, selecione **+** para registar uma nova aplicação.
+1. Se ainda não registou a sua aplicação, navegue para o portal de [provisionamento do iOS](https://go.microsoft.com/fwlink/p/?LinkId=272456) no Apple Developer Center. Inscreva-se no portal com o seu APPLE ID e selecione **Identificadores**. Em **+** seguida, selecione para registar uma nova aplicação.
 
     ![Página de IDs de Aplicação do Portal de Aprovisionamento do iOS](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
 
@@ -70,9 +70,9 @@ Para enviar notificações push para uma aplicação iOS, registe a sua aplicaç
 
       ![Confirme o novo ID da app](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-register.png)
 
-      Depois de selecionar **O Registo,** vê o novo ID da aplicação como um item de linha na página **Certificados, Identificadores e Perfis.**
+      Depois de selecionar **O Registo,** vê o novo ID da aplicação como um item de linha na página **Certificates, Identifiers & Perfis.**
 
-4. Na página **Certificados, Identificadores e Perfis,** em **'Identificadores',** localize o item da linha ID da Aplicação que acabou de criar e selecione a sua linha para exibir o ecrã de Configuração de ID da **Aplicação.**
+4. Nos **Certificados, os Identificadores & Página** de Perfis, em **Identificadores,** localizem o item da linha ID da Aplicação que acabou de criar e selecionem a sua linha para exibir o ecrã de Configuração de ID da **aplicação.**
 
 5. Desloque-se até à opção **Notificações** push verificadas e, em seguida, selecione **Configure** para criar o certificado.
 
@@ -118,7 +118,7 @@ Para enviar notificações push para uma aplicação iOS, registe a sua aplicaç
 
 ## <a name="create-a-provisioning-profile-for-the-app"></a>Criar um perfil de aprovisionamento para a aplicação
 
-1. Volte ao portal de [provisionamento do iOS,](https://go.microsoft.com/fwlink/p/?LinkId=272456)selecione **Certificados, Identificadores e Perfis,** selecione **Perfis** do menu esquerdo e, em seguida, selecione **+** para criar um novo perfil. Aparece **o ecrã Do Registo de Um Novo Perfil de Provisionamento.**
+1. Volte ao portal de [provisionamento do iOS,](https://go.microsoft.com/fwlink/p/?LinkId=272456)selecione **Certificados, Identificadores & Perfis,** selecione **Perfis** do menu esquerdo e, em seguida, selecione **+** para criar um novo perfil. Aparece **o ecrã Do Registo de Um Novo Perfil de Provisionamento.**
 
 1. Selecione o desenvolvimento de **aplicações iOS** em **Desenvolvimento** como o tipo de perfil de provisionamento e, em seguida, selecione **Continuar**.
 
@@ -137,7 +137,7 @@ Para enviar notificações push para uma aplicação iOS, registe a sua aplicaç
     5. Selecione **Continuar**.
     6. Descarregue o certificado de desenvolvimento e lembre-se do local onde está guardado.
 
-1. Volte à página **Certificados, Identificadores e Perfis,** selecione **Perfis** do menu esquerdo e, em seguida, selecione **+** para criar um novo perfil. Aparece **o ecrã Do Registo de Um Novo Perfil de Provisionamento.**
+1. Volte à página **Certificados, Identificadores & Perfis,** selecione **Perfis** **+** do menu esquerdo e, em seguida, selecione para criar um novo perfil. Aparece **o ecrã Do Registo de Um Novo Perfil de Provisionamento.**
 
 1. Na janela **de certificados Select,** selecione o certificado de desenvolvimento que acabou de criar. Em seguida, selecione **Continuar**.
 
@@ -159,11 +159,11 @@ Nesta secção, cria um centro de notificação e configura a autenticação com
 
 ## <a name="configure-your-notification-hub-with-apns-information"></a>Configure o seu centro de notificação com informações apns
 
-1. Em **Serviços de Notificação**, selecione **Apple (APNS)** .
+1. No âmbito **dos Serviços de Notificação,** selecione **Apple (APNS)**.
 
 1. Selecione **Certificado**.
 
-1. Selecione o ícone do ficheiro.
+1. Selecione o ícone de ficheiro.
 
 1. Selecione o ficheiro .p12 que exportou anteriormente e, em seguida, **selecione Open**.
 

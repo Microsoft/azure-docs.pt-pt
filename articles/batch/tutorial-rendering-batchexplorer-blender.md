@@ -8,13 +8,13 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
 ms.openlocfilehash: 8a512676ab0e56f51c0fb9c59f2e530cfcf73333
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "60617630"
 ---
-# <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Tutorial: Compor uma cena Blender com o Explorador do Batch
+# <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Tutorial: Compor uma cena do Blender com o Batch Explorer
 
 Este tutorial mostra como compor vários frames de uma cena de demonstração do Blender. O Blender é utilizado no tutorial porque é gratuito para o cliente e para as VMs de composição, mas o processo é muito semelhante se forem utilizadas outras aplicações, como Maya ou 3ds Max.
 
@@ -90,7 +90,7 @@ Crie um conjunto do Batch com a imagem da VM do Azure Marketplace de composiçã
 > [!WARNING]
 > Tenha em conta que, se houve VMs num conjunto, o custo das mesmas é cobrado na sua subscrição do Azure. Para parar esses custos, o conjunto tem de ser eliminado ou as VMs eliminadas. Elimine o conjunto no final do tutorial, para evitar custos contínuos.
 
-O estado do agrupamento e VMs pode ser monitorizado na vista de 'Conjuntos'; o exemplo seguinte mostra as três VMs teriam sido alocadas, dois foram iniciadas e estão inativos, ainda está a iniciar: ![Mapa térmico do conjunto](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_pool_heatmap.png)
+O estado do conjunto e das VMs pode ser monitorizado na vista “Pools” (“Conjuntos”). Os exemplos seguintes mostram as três VMs que foram alocadas, sendo que duas foram iniciadas e estão inativas e outra ainda está a iniciar: ![Pool heatmap](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_pool_heatmap.png)
 
 ## <a name="create-a-rendering-job"></a>Criar um trabalho de composição
 
@@ -109,25 +109,25 @@ Criar um trabalho de composição para compor alguns frames com o conjunto que f
 
 ![Modelo de trabalho para o Blender](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_job_template.png)
 
-Depois da tarefa e todas as tarefas foram criadas, a tarefa será apresentada juntamente com as tarefas da tarefa: ![Lista de tarefas da tarefa](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_task_list.png)
+Após a criação do trabalho e das tarefas, aquele é apresentado juntamente com as respetivas tarefas: ![Lista de tarefas do trabalho](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_task_list.png)
 
 Quando uma tarefa é executada pela primeira vez numa VM de conjunto, é executada uma tarefa de preparação do trabalho do Batch, a qual copia os ficheiros de cenas do grupo de ficheiros de armazenamento para a VM, de modo a que o Blender possa aceder aos mesmos.
 Pode determinar o estado da composição no ficheiro de registo stdout.txt que o Blender produz.  Selecione uma tarefa. Por predefinição, são apresentadas as “Task Outputs” (“Saídas da Tarefa”) e o ficheiro “stdout.txt” pode ser selecionado e visto.
 ![ficheiro stdout](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_stdout.png)
 
-Se o conjunto de "windows blender" estiver selecionado, o pool de VMs será visto no estado de execução: ![Mapa térmico do conjunto connosco de execução](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_pool_heatmap_running.png)
+Se o conjunto “blender-window” for selecionado, as VMs do conjunto estarão no estado de execução: ![Mapa térmico do conjunto com nós em execução](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_pool_heatmap_running.png)
 
 As imagens compostas demorarão vários minutos a ser produzidas, consoante o tamanho de VM escolhido.  Se for utilizada a VM F16 especificada acima, a composição dos frames demorará aproximadamente 16 minutos a ser concluída.
 
 ## <a name="view-the-rendering-output"></a>Ver a saída da composição
 
-Quando terminar composição de quadros, essas tarefas serão apresentadas como concluído: ![A conclusão de tarefas](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_tasks_complete.png)
+Após a conclusão da composição dos frames, essas tarefas serão mostradas como estando concluídas: ![Tarefas concluídas](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_tasks_complete.png)
 
-A imagem composta é escrita para a VM pela primeira vez e pode ser visualizada ao selecionar a pasta "wd": ![Composto de imagem no nó no conjunto](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_output_image.png)
+A imagem composta é escrita primeiro na VM e pode selecionar a pasta “wd” para vê-la: ![Imagem composta no nó do conjunto](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_output_image.png)
 
-O modelo do trabalho também especifica que o frame de saída e os ficheiros de registo são escritos primeiro no grupo de ficheiros da conta do Armazenamento do Azure que foi indicado durante a criação do trabalho.  Os "dados" da interface do Usuário podem ser utilizados para ver os registos; e ficheiros de saída pode ser também utilizado para transferir os ficheiros: ![Composto de imagem no grupo de ficheiros de armazenamento](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_output_image_storage.png)
+O modelo do trabalho também especifica que o frame de saída e os ficheiros de registo são escritos primeiro no grupo de ficheiros da conta do Armazenamento do Azure que foi indicado durante a criação do trabalho.  A IU “Data” (“Dados”) pode ser utilizada para ver os ficheiros e os registos de saída; também pode ser utilizada para transferir os ficheiros: ![Imagem composta no grupo de ficheiros de armazenamento](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_output_image_storage.png)
 
-Quando todas as tarefas estiverem concluídas, a tarefa será marcada como concluída: ![Tarefa e todas as tarefas concluídas](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_job_alltasks_complete.png)
+Após a conclusão de todas as tarefas, o trabalho é marcado como concluído: ![Trabalho e todas as tarefas concluídos](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_job_alltasks_complete.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -138,7 +138,7 @@ Quando todas as tarefas estiverem concluídas, a tarefa será marcada como concl
 * Selecione o conjunto “blender-windows”
 * Clique com o botão direito do rato e em “Delete” (“Eliminar”) ou selecione o ícone de caixote do lixo, acima do conjunto.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Na secção “Gallery” (“Galeria”), explore as aplicações de composição disponíveis através do Batch Explorer.
 * Há vários modelos disponíveis para cada aplicação, que vão aumentar ao longo do tempo.  Por exemplo, para os modelos do Blender, existe um que divide uma imagem em mosaicos, pelo que é possível compor partes de uma imagem em paralelo.
 * Para obter uma descrição completa das capacidades de composição, veja o conjunto de artigos [aqui](https://docs.microsoft.com/azure/batch/batch-rendering-service).

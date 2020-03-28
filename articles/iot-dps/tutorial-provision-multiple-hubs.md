@@ -1,6 +1,6 @@
 ---
-title: Tutorial-provisionar dispositivos entre hubs com balanceamento de carga usando o serviço de provisionamento de dispositivos no Hub IoT do Azure
-description: Este tutorial demonstra como o serviço de provisionamento de dispositivos (DPS) permite o provisionamento automático de dispositivos entre hubs IoT com balanceamento de carga no portal do Azure
+title: Tutorial - Dispositivos de provisão através de centros equilibrados de carga utilizando o Serviço de Provisionamento de Dispositivos Hub Azure IoT
+description: Este tutorial demonstra como o Serviço de Provisionamento de Dispositivos (DPS) permite o fornecimento automático de dispositivos através de hubs IoT equilibrados em carga no Portal Azure
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -9,13 +9,13 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: e1a66da52eea6d5da711fa6def58eba65d0960ed
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74976745"
 ---
-# <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Tutorial: provisionar dispositivos entre hubs IoT com balanceamento de carga
+# <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Tutorial: Dispositivos de provisão através de centros IoT equilibrados em carga
 
 Este tutorial mostra como aprovisionar dispositivos para vários hubs IoT com balanceamento de carga através do Serviço Aprovisionamento de Dispositivos. Neste tutorial, ficará a saber como:
 
@@ -25,7 +25,7 @@ Este tutorial mostra como aprovisionar dispositivos para vários hubs IoT com ba
 > * Definir a política de alocação do Serviço Aprovisionamento de Dispositivos para **distribuição uniforme**
 > * Ligar o novo hub IoT ao Serviço Aprovisionamento de Dispositivos
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

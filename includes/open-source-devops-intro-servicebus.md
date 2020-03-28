@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 04/22/2019
 ms.author: tarcher
 ms.openlocfilehash: eb96027351cf244e9cd4404f702544411130db5e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67184949"
 ---
-[O Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) é uma empresa [integração](https://azure.microsoft.com/product-categories/integration/) Mediador de mensagens. Service bus suporta dois tipos de comunicação: filas e tópicos. 
+[A Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) é um corretor de mensagens de [integração](https://azure.microsoft.com/product-categories/integration/) empresarial. O ônibus de serviço suporta dois tipos de comunicação: filas e tópicos. 
 
-Filas de suportam comunicações assíncronas entre aplicativos. Uma aplicação envia mensagens para uma fila, que armazena as mensagens. O aplicativo de recebimento, em seguida, liga a e lê as mensagens da fila.
+As filas suportam comunicações assíncronas entre aplicações. Uma aplicação envia mensagens para uma fila, que armazena as mensagens. A aplicação recetora liga-se então a e lê as mensagens da fila.
 
-Tópicos suportam a publicar-subscrever padrão, que permite uma relação um-para-muitos entre o emissor de mensagens e o receiver(s) messager.
+Os tópicos suportam o padrão de subscrição de publicações, que permite uma relação de um a muitos entre o autor da mensagem e o recetor(s) do messager.

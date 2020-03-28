@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c429648adeb0c81799bff2dca1650de965395a60
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77166445"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Tutorial: A granel convida utilizadores de colaboração Azure AD B2B (pré-visualização)
@@ -46,7 +46,7 @@ Precisa de duas ou mais contas de e-mail de teste para as quais possa enviar os 
 
 1. Inscreva-se no portal Azure com uma conta que é administradora do Utilizador na organização.
 2. No painel de navegação, selecione **Azure Ative Directory**.
-3. Em **'Gerir',** selecione **Utilizadores** > **convite a granel.**
+3. Em **'Gerir',** selecione **Users** > **Bulk invite**.
 4. Na página **de convidar os utilizadores (Pré-visualização)** a Granel, selecione **Download** para obter um ficheiro .csv válido com propriedades de convite.
 
     ![Botão de descarregamento de convite a granel](media/tutorial-bulk-invite/bulk-invite-button.png)
@@ -91,7 +91,7 @@ Execute o seguinte comando:
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
 
-Deve consultar os utilizadores que convidou listados, com o nome principal do utilizador (UPN) no endereço de *e-mail*do formato #EXT#\@*domínio*. Por exemplo, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com,* onde contoso.onmicrosoft.com é a organização de onde enviou os convites.
+Deve consultar os utilizadores que convidou listados, com um nome principal do utilizador\@(UPN) no endereço de *e-mail*do formato #EXT#*domínio*. Por exemplo, *\@lstokes_fabrikam.com#EXT# contoso.onmicrosoft.com,* onde contoso.onmicrosoft.com é a organização de onde enviou os convites.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

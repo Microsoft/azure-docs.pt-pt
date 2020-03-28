@@ -9,41 +9,41 @@ author: sgilley
 ms.author: sgilley
 ms.date: 11/06/2019
 ms.openlocfilehash: 754c9799ed4c2fd90cbcf1e9717b0be21edd54cb
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75659882"
 ---
 >[!IMPORTANT]
->Você pode usar os recursos que criou como pré-requisitos para outros tutoriais de Azure Machine Learning e artigos de instruções.
+>Pode utilizar os recursos que criou como pré-requisitos para outros tutoriais de Aprendizagem automática e artigos de como fazer.
 
-### <a name="delete-everything"></a>Excluir tudo
+### <a name="delete-everything"></a>Apagar tudo
 
-Se você não planeja usar nada que criou, exclua o grupo de recursos inteiro para não incorrer em encargos.
+Se não planeia usar nada do que criou, elimine todo o grupo de recursos para não incorrer em quaisquer encargos.
 
-1. No portal do Azure, selecione **grupos de recursos** no lado esquerdo da janela.
+1. No portal Azure, selecione **Grupos de Recursos** no lado esquerdo da janela.
  
    ![Eliminar grupo de recursos no portal do Azure](./media/aml-ui-cleanup/delete-resources.png)
 
-1. Na lista, selecione o grupo de recursos que você criou.
+1. Na lista, selecione o grupo de recursos que criou.
 
 1. Selecione **Eliminar grupo de recursos**.
 
-Excluir o grupo de recursos também exclui todos os recursos que você criou no designer. 
+A eliminação do grupo de recursos também elimina todos os recursos que criou no designer. 
 
-### <a name="delete-individual-assets"></a>Excluir ativos individuais
+### <a name="delete-individual-assets"></a>Eliminar ativos individuais
 
-No designer em que você criou o experimento, exclua ativos individuais selecionando-os e, em seguida, selecionando o botão **excluir** .
+No designer onde criou a sua experiência, elimine os ativos individuais selecionando-os e selecionando-os e selecionando o botão **Delete.**
 
-O destino de computação que você criou aqui é *automaticamente dimensionado* para zero nós quando ele não está sendo usado. Essa ação é executada para minimizar os encargos. Se você quiser excluir o destino de computação, siga estas etapas:
+The compute target that you created here *automatically autoscales* to zero nodes when it's not being used. Esta ação é tomada para minimizar as acusações.Se pretender eliminar o alvo do cálculo, tome estas medidas:
 
-![Eliminar recursos](./media/aml-ui-cleanup/delete-asset.png)
+![Eliminar ativos](./media/aml-ui-cleanup/delete-asset.png)
 
-Você pode cancelar o registro de conjuntos de registros de seu espaço de trabalho selecionando cada conjunto de registros e selecionando **Cancelar registro**.
+Pode desregistar conjuntos de dados do seu espaço de trabalho selecionando cada conjunto de dados e selecionando **Não registar**.
 
-![Cancelar registro do conjunto de registros](./media/aml-ui-cleanup/unregister-dataset1225.png)
+![Desregistar conjunto de dados](./media/aml-ui-cleanup/unregister-dataset1225.png)
 
-Para excluir um conjunto de um, vá para a conta de armazenamento usando o portal do Azure ou Gerenciador de Armazenamento do Azure e exclua manualmente esses ativos.
+Para eliminar um conjunto de dados, aceda à conta de armazenamento utilizando o portal Azure ou o Azure Storage Explorer e elimine manualmente esses ativos.
 
 

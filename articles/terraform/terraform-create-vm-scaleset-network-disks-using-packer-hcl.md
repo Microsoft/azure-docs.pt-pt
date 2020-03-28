@@ -4,10 +4,10 @@ description: Utilize o Terraform para configurar e criar a versão de um conjunt
 ms.topic: tutorial
 ms.date: 11/07/2019
 ms.openlocfilehash: 92a8221d625f8b6b73343f74b85fdfcf5e578b23
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77472214"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image-by-using-terraform"></a>Tutorial: Criar um conjunto de máquinas virtuais Azure a partir de uma imagem personalizada packer usando terrafora
@@ -24,7 +24,7 @@ Neste tutorial, ficará a saber como:
 > * Crie e implemente uma escala de máquina virtual utilizando a imagem personalizada.
 > * Crie e implante uma caixa de salto.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,7 +44,7 @@ Crie três novos ficheiros num diretório vazio com os seguintes nomes:
 
 Neste passo, irá definir as variáveis que personalizam os recursos criados pelo Terraform.
 
-Editar o ficheiro `variables.tf`, copiar o seguinte código e, em seguida, guardar as alterações.
+Editar `variables.tf` o ficheiro, copiar o seguinte código e, em seguida, guardar as alterações.
 
 ```hcl
 variable "location" {
@@ -139,7 +139,7 @@ Inicialize o ambiente do Terraform ao executar o seguinte comando no diretório 
 terraform init 
 ```
  
-Os plug-ins do fornecedor descarregam do registo Terraform para a pasta `.terraform` no diretório onde dirigia o comando.
+Os plug-ins do fornecedor descarregam do `.terraform` registo Terraform para a pasta no diretório onde dirigia o comando.
 
 Execute o seguinte comando para implementar a infraestrutura no Azure.
 
@@ -416,7 +416,7 @@ resource "azurerm_virtual_machine" "jumpbox" {
 }
 ```
 
-Editar `outputs.tf` adicionar o seguinte código que apresenta o nome de anfitrião da caixa de salto quando a implementação terminar:
+Editar `outputs.tf` para adicionar o seguinte código que exibe o nome de anfitrião da caixa de salto quando a implementação terminar:
 
 ```
 output "jumpbox_public_ip" {

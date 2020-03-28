@@ -9,10 +9,10 @@ ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
 ms.openlocfilehash: 85ae76d9dcb0b4a1f95992c2f5da48a81fb12677
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77661657"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Criar uma Definição de Dimensionamento Automático para recursos do Azure com base nos dados de desempenho ou numa agenda
@@ -21,19 +21,19 @@ As definições de dimensionamento automático permitem adicionar/remover instâ
 
 Neste tutorial, irá: 
 > [!div class="checklist"]
-> * Crie uma Aplicação Web e um Plano do Serviço de Aplicações
+> * Criar uma Aplicação Web e um Plano do Serviço de Aplicações
 > * Configurar regras de dimensionamento automático para aumentar e reduzir horizontalmente com base no número de pedidos recebidos por uma Aplicação Web
 > * Acionar uma ação de aumento horizontal e ver o número de instâncias aumentar
 > * Acionar uma ação de redução horizontal e ver o número de instâncias diminuir
 > * Apague os seus recursos
 
-Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Faça login no [portal Azure.](https://portal.azure.com/)
 
-## <a name="create-a-web-app-and-app-service-plan"></a>Crie uma Aplicação Web e um Plano do Serviço de Aplicações
+## <a name="create-a-web-app-and-app-service-plan"></a>Criar uma Aplicação Web e um Plano do Serviço de Aplicações
 1. Clique na opção **Criar um recurso** no painel de navegação esquerdo.
 2. Procure e selecione o item *Aplicação Web* e clique em **Criar**.
 3. Selecione um nome de aplicação, como *MyTestScaleWebApp*. Crie um novo grupo de recursos *myResourceGroup' ou coloque-o num grupo de recursos à sua escolha.
@@ -56,7 +56,7 @@ Os passos seguintes ajudam-no a preencher o ecrã de dimensionamento automático
 
 ## <a name="configure-default-profile"></a>Configurar o perfil predefinido
 1. Indique um **Nome** para a definição de dimensionamento automático.
-2. No perfil predefinido, certifique-se de que a opção **Modo de dimensionamento** está definida como "Dimensionar para uma contagem de instâncias específica".
+2. No perfil predefinido, certifique-se de que o **modo Escala** está definido para "Escala para uma contagem de instâncias específica".
 3. Defina a contagem de instâncias como **1**. Esta definição garante que, quando não estiver ativo ou em vigor nenhum outro perfil, o perfil predefinido devolve a contagem de instâncias como 1.
 
    ![Navegar para as definições de dimensionamento automático](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
@@ -72,7 +72,7 @@ Os passos seguintes ajudam-no a preencher o ecrã de dimensionamento automático
 
 4. Para **Limites de instância**, defina **Mínimo** como "1", **Máximo** como "2" e **Predefinição** como "1". Esta definição assegura que este perfil não dimensiona automaticamente o plano do serviço para ter menos de uma instância ou mais de duas. Se o perfil não tiver dados suficientes para tomar uma decisão, utiliza o número predefinido de instâncias (neste caso, 1).
 
-5. Para **Agendar**, selecione "Repetir dias específicos".
+5. Para **agendar,** selecione 'Repita dias específicos'.
 
 6. Defina o perfil para repetir de segunda a sexta, das 09:00 PST às 18:00 PST. Esta definição assegura que este perfil só está ativo e é aplicável das 09: 00 às 18:00, de segunda a sexta. Durante as restantes horas, o perfil "Predefinido" é o perfil utilizado pela definição de dimensionamento automático.
 
@@ -84,7 +84,7 @@ Os passos seguintes ajudam-no a preencher o ecrã de dimensionamento automático
 
 3. Defina **Origem da métrica** como "outros recursos". Defina **Tipo de recurso** como "Serviços de Aplicações" e **Recurso** como a Aplicação Web criada anteriormente neste tutorial.
 
-4. Defina **Agregação de tempo** como "Total", **Nome da métrica** como "Pedidos" e **Estatística de intervalo de agregação** como "Soma".
+4. Desloque a **agregação** do tempo como 'Total', o **nome métrico** como 'Pedidos', e a estatística dos **cereais** time como 'Soma'.
 
 5. Defina **Operador** como "Maior que", **Limiar** como "10" e **Duração** como "5 minutos".
 
@@ -109,13 +109,13 @@ Recomendamos que tenha sempre uma regra de redução horizontal a acompanhar uma
 
 5. Defina **Operador** como "Menor que", **Limiar** como "5" e **Duração** como "5 minutos".
 
-6. Selecione **Operação** como "Diminuir contagem em", **Contagem de instâncias** como "1" e **Repouso** como "5 minutos".
+6. Selecione a **operação** como 'Contagem de diminuição por', a **contagem de exemplo** como '1' e o **arrefecimento** como minutos '5'.
 
 7. Clique no botão **Adicionar**.
 
     ![Criar uma regra de redução horizontal](./media/tutorial-autoscale-performance-schedule/Scale-In-Rule.png)
 
-8. **Guardar** a definição de dimensionamento automático.
+8. **Guarde** a regulação da escala automática.
 
     ![Guardar a definição de dimensionamento automático](./media/tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
 
@@ -126,7 +126,7 @@ Para acionar a condição de aumento horizontal na definição de dimensionament
 
 2. Numa sucessão rápida, recarregue a página mais de 10 vezes.
 
-3. No painel de navegação esquerdo, selecione a opção **Monitorizar**. Depois de a página ser carregada, selecione o separador **Dimensionamento Automático**.
+3. No painel de navegação esquerdo, selecione a opção **Monitorizar**. Uma vez que as cargas da página selecione o separador **De escala Automática.**
 
 4. Na lista, selecione o Plano do Serviço de Aplicações utilizado neste tutorial.
 
@@ -145,7 +145,7 @@ A condição de redução horizontal na definição de dimensionamento automáti
 
 2. Carregar o Portal do Azure.
 
-3. No painel de navegação esquerdo, selecione a opção **Monitorizar**. Depois de a página ser carregada, selecione o separador **Dimensionamento Automático**.
+3. No painel de navegação esquerdo, selecione a opção **Monitorizar**. Uma vez que as cargas da página selecione o separador **De escala Automática.**
 
 4. Na lista, selecione o Plano do Serviço de Aplicações utilizado neste tutorial.
 
@@ -165,7 +165,7 @@ A condição de redução horizontal na definição de dimensionamento automáti
 
 2. Na página de recursos, clique em **Eliminar**, confirme a eliminação ao escrever **sim** na caixa de texto e, em seguida, clique em **Eliminar**.
 
-3. Em seguida, selecione o recurso do Plano do Serviço de Aplicações e clique em **Eliminar**.
+3. Em seguida, selecione o recurso do Plano de Serviço de Aplicações e clique em **Eliminar**.
 
 4. Confirme a eliminação ao escrever **sim** na caixa de texto e, em seguida, clique em **Eliminar**.
 

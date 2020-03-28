@@ -1,87 +1,87 @@
 ---
-title: Criar infraestrutura para um cluster em VMs do Azure
-description: Neste tutorial, você aprenderá a configurar a infraestrutura de VM do Azure para executar um Cluster Service Fabric.
+title: Criar infraestrutura para um cluster em VMs Azure
+description: Neste tutorial, aprende-se a instalar a infraestrutura Azure VM para gerir um cluster de Tecido de Serviço.
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 93a7e2507ab3a467ef83924479872694cae2dd5b
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75614014"
 ---
-# <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: criar uma infraestrutura de VM do Azure para hospedar um Cluster Service Fabric
+# <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: Criar infraestrutura VM Azure para acolher um cluster de Tecido de Serviço
 
-Os clusters autónomos do Service Fabric oferecem a opção de escolher o seu ambiente e criar um cluster como parte da abordagem "qualquer SO, qualquer cloud" que o Service Fabric está a realizar. Nesta série de tutoriais, você cria um cluster autônomo hospedado em VMs do Azure e instala um aplicativo nele.
+Os clusters autónomos do Service Fabric oferecem a opção de escolher o seu ambiente e criar um cluster como parte da abordagem "qualquer SO, qualquer cloud" que o Service Fabric está a realizar. Nesta série tutorial, você cria um cluster autónomo hospedado em VMs Azure e instala uma aplicação nele.
 
-Este tutorial é a primeira parte de uma série. Neste artigo, você gera os recursos de VM do Azure necessários para hospedar seu cluster autônomo do Service Fabric. Em artigos futuros, terá de instalar o conjunto autónomo do Service Fabric, instalar uma aplicação de exemplo no cluster e, por fim, limpar o cluster.
+Este tutorial é a primeira parte de uma série. Neste artigo, gera os recursos Azure VM necessários para acolher o seu cluster autónomo de Tecido de Serviço. Em artigos futuros, terá de instalar o conjunto autónomo do Service Fabric, instalar uma aplicação de exemplo no cluster e, por fim, limpar o cluster.
 
 Na primeira parte da série, saiba como:
 
 > [!div class="checklist"]
-> * Criar um conjunto de instâncias de AzureVM
+> * Criar um conjunto de instâncias AzureVM
 > * Modificar o grupo de segurança
 > * Iniciar sessão numa das instâncias
 > * Preparar a instância do Service Fabric
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, precisa de uma subscrição do Azure.  Se você ainda não tiver uma conta, vá para o [portal do Azure](https://portal.azure.com) para criar uma.
+Para concluir este tutorial, precisa de uma subscrição do Azure.  Se ainda não tem uma conta, vá ao [portal Azure](https://portal.azure.com) para criar uma.
 
-## <a name="create-azure-virtual-machine-instances"></a>Criar instâncias de máquina virtual do Azure
+## <a name="create-azure-virtual-machine-instances"></a>Criar instâncias de máquina virtual Azure
 
-1. Entre no portal do Azure e selecione **máquinas virtuais** (não máquinas virtuais (clássicas)).
+1. Inscreva-se no portal Azure e selecione **máquinas Virtuais** (não Máquinas Virtuais (clássicas)).
 
-   ![VM portal do Azure][az-console]
+   ![Azure portal VM][az-console]
 
-2. Selecione o botão **Adicionar** , que abrirá o formulário **criar uma máquina virtual** .
+2. Selecione o botão **Adicionar,** que abrirá o formulário **Criar uma máquina virtual.**
 
-3. Na guia **noções básicas** , certifique-se de escolher a assinatura e o grupo de recursos que deseja (o uso de um novo grupo de recursos é recomendado).
+3. No separador **Basics,** certifique-se de escolher o grupo de subscrição e recursos que deseja (recomenda-se a utilização de um novo grupo de recursos).
 
-4. Altere o tipo de **imagem** para **Windows Server 2016 datacenter**. 
+4. Altere o tipo **de imagem** para **o Datacenter do Windows Server 2016**. 
  
-5. Altere o **tamanho** da instância para **Standard DS2 v2**. Defina um **nome de usuário** e uma **senha**de administrador, observando o que eles são.
+5. Alterar a instância **Tamanho** para **Standard DS2 v2**. Detete um nome de **utilizador** e **palavra-passe**do administrador, observando o que são.
 
-6. Deixe as **regras de porta de entrada** bloqueadas por enquanto; Iremos configurá-los na próxima seção.
+6. Deixar as Regras do **Porto de Entrada** bloqueadas por enquanto; vamos configurar os que estão na próxima secção.
 
-7. Na guia **rede** , crie uma nova **rede virtual** e anote seu nome.
+7. No separador **Networking,** crie uma nova **Rede Virtual** e tome nota do seu nome.
 
-8. Em seguida, defina o **grupo de segurança de rede NIC** como **avançado**. Crie um novo grupo de segurança, observando seu nome e crie as regras a seguir para permitir o tráfego TCP de qualquer fonte:
+8. Em seguida, coloque o grupo de segurança da **rede NIC** para **Advanced**. Crie um novo grupo de segurança, observando o seu nome, e crie as seguintes regras para permitir o tráfego de TCP a partir de qualquer fonte:
 
    ![sf-inbound][sf-inbound]
 
-   * Porta `3389`, para RDP e ICMP (conectividade básica).
-   * Portas `19000-19003`, por Service Fabric.
-   * Portas `19080-19081`, por Service Fabric.
-   * Porta `8080`, para solicitações de navegador da Web.
+   * Porto, `3389`para RDP e ICMP (conectividade básica).
+   * `19000-19003`Portas, para tecido de serviço.
+   * `19080-19081`Portas, para tecido de serviço.
+   * Porta, `8080`para pedidos de navegador web.
 
    > [!TIP]
-   > Para ligar as suas máquinas virtuais entre si no Service Fabric, as VMs que alojam a infraestrutura precisam de ter as mesmas credenciais.  Existem duas formas comuns de obter credenciais consistentes: associá-las a todas ao mesmo domínio ou definir a mesma palavra-passe de administrador em cada VM. Felizmente, o Azure permite que todas as máquinas virtuais na mesma **rede virtual** se conectem facilmente, portanto, teremos certeza de ter todas as nossas instâncias na mesma rede.
+   > Para ligar as suas máquinas virtuais entre si no Service Fabric, as VMs que alojam a infraestrutura precisam de ter as mesmas credenciais.  Existem duas formas comuns de obter credenciais consistentes: associá-las a todas ao mesmo domínio ou definir a mesma palavra-passe de administrador em cada VM. Felizmente, o Azure permite que todas as máquinas virtuais da mesma **rede Virtual** se conectem facilmente, pelo que teremos a certeza de ter todas as nossas ocorrências na mesma rede.
 
-9. Adicione outra regra. Defina a marca origem como **serviço** e defina a marca serviço de origem como **VirtualNetwork**. Service Fabric requer que as seguintes portas sejam abertas para comunicação dentro do cluster: 135137-139, 445, 20001-20031, 20606-20861.
+9. Adicione outra regra. Detete a fonte para ser **etiqueta de serviço** e detete tea etiqueta de serviço de origem para **VirtualNetwork**. O Tecido de Serviço exige que as seguintes portas estejam abertas para comunicação dentro do cluster: 135.137-139.445.20001-20031.20606-20861.
 
-   ![vnet-inbound][vnet-inbound]
+   ![vnet-inina][vnet-inbound]
 
-10. O restante das opções é aceitável em seu estado padrão. Examine-os se desejar e, em seguida, inicie sua máquina virtual.
+10. O resto das opções são aceitáveis no seu estado padrão. Reveja-os se quiser, e depois lance a sua máquina virtual.
 
-## <a name="creating-more-instances-for-your-service-fabric-cluster"></a>Criando mais instâncias para o Cluster Service Fabric
+## <a name="creating-more-instances-for-your-service-fabric-cluster"></a>Criar mais instâncias para o seu cluster de Tecido de Serviço
 
-Inicie mais duas **máquinas virtuais**, certificando-se de manter as mesmas configurações descritas na seção anterior. Particularmente, mantenha o mesmo nome de usuário e senha de administrador. A **rede virtual** e o **grupo de segurança de rede NIC** não devem ser recriados; Selecione aqueles que você já criou no menu suspenso. Pode levar alguns minutos para que cada uma de suas instâncias seja implantada.
+Lançar mais duas **Máquinas Virtuais,** mantendo as mesmas definições descritas na secção anterior. Em particular, mantenha o mesmo nome de utilizador e senha do administrador. O grupo de segurança da **Rede Virtual** e da **rede NIC** não deve ser recriado; selecione os que já criou a partir do menu dropdown. Pode levar alguns minutos para que cada um dos seus casos seja implantado.
 
-## <a name="connect-to-your-instances"></a>Conectar-se às suas instâncias
+## <a name="connect-to-your-instances"></a>Conecte-se às suas instâncias
 
-1. Selecione uma das instâncias na seção **máquina virtual** .
+1. Selecione uma das suas instâncias na secção **Máquina Virtual.**
 
-2. Na guia **visão geral** , anote o endereço IP *privado* . Em seguida, clique em **conectar**.
+2. No separador **'Visão Geral',** tome nota do endereço IP *privado.* Em seguida, clique em **Ligar**.
 
-3. Na guia **RDP** , observe que estamos usando o endereço IP público e a porta 3389, que abrimos especificamente anteriormente. Baixe o arquivo RDP.
+3. No **separador RDP,** note que estamos a utilizar o endereço IP público e o porto 3389, que abrimos especificamente anteriormente. Descarregue o ficheiro RDP.
  
-4. Abra o arquivo RDP e, quando solicitado, insira o nome de usuário e a senha fornecidos na configuração da VM.
+4. Abra o ficheiro RDP e, quando solicitado, introduza o nome de utilizador e a palavra-passe que forneceu na configuração VM.
 
-5. Quando estiver conectado a uma instância do, você precisará validar se o registro remoto estava em execução, habilitar o SMB e abrir as portas de requisito para SMB e registro remoto.
+5. Uma vez ligado a uma instância, é necessário validar que o registo remoto estava em execução, ativar o SMB e abrir as portas necessárias para SMB e registo remoto.
 
-   Para habilitar o SMB, este é o comando do PowerShell:
+   Para ativar o SMB, este é o comando PowerShell:
 
    ```powershell
    netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
@@ -93,13 +93,13 @@ Inicie mais duas **máquinas virtuais**, certificando-se de manter as mesmas con
    New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139, 445
    ```
 
-7. Repita esse processo para suas outras instâncias, novamente observando os endereços IP privados.
+7. Repita este processo para os outros casos, voltando a notar os endereços IP privados.
 
-## <a name="verify-your-settings"></a>Verifique suas configurações
+## <a name="verify-your-settings"></a>Verifique as suas definições
 
-1. Para validar a conectividade básica, conecte-se a uma das VMs usando o RDP.
+1. Para validar a conectividade básica, ligue-se a um dos VMs utilizando RDP.
 
-2. Abra o **prompt de comando** de dentro dessa VM, em seguida, use o comando ping para se conectar de uma VM para outra, substituindo o endereço IP abaixo por um dos endereços IP privados que você anotou anteriormente (não o IP da VM à qual você está conectado já).
+2. Abra o Pedido de **Comando** a partir desse VM, então, use o comando de ping para ligar de um VM para outro, substituindo o endereço IP abaixo por um dos endereços IP privados que observou anteriormente (não o IP do VM a que já está ligado).
 
    ```
    ping 172.31.20.163
@@ -116,14 +116,14 @@ Inicie mais duas **máquinas virtuais**, certificando-se de manter as mesmas con
    Deverá devolver `Drive Z: is now connected to \\172.31.20.163\c$.` como resultado.
 
 
-   Agora suas instâncias estão adequadamente preparadas para Service Fabric.
+   Agora os seus casos estão devidamente preparados para o Tecido de Serviço.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Na parte um da série, você aprendeu a iniciar três instâncias de VM do Azure e a configurá-las para a instalação do Service Fabric:
+Na primeira parte da série, aprendeu a lançar três instâncias De VM Azure e configurá-las para a instalação do Tecido de Serviço:
 
 > [!div class="checklist"]
-> * Criar um conjunto de instâncias de VM do Azure
+> * Criar um conjunto de instâncias De VM Azure
 > * Modificar o grupo de segurança
 > * Iniciar sessão numa das instâncias
 > * Preparar a instância do Service Fabric

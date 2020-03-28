@@ -1,6 +1,6 @@
 ---
-title: Criar um Cluster Service Fabric no PowerShell
-description: Azure PowerShell exemplo de script – criar um Cluster Service Fabric protegido com um certificado X. 509.
+title: Criar um cluster de tecido de serviço em Powershell
+description: Amostra de script Azure PowerShell - Crie um cluster de tecido de serviço protegido com um certificado X.509.
 services: service-fabric
 documentationcenter: ''
 author: athinanthny
@@ -15,19 +15,19 @@ ms.date: 01/19/2018
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: f8e1a0ca86f9346cf07c87a738d48cb56f6d7d57
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75614779"
 ---
 # <a name="create-a-service-fabric-cluster"></a>Criar um cluster do Service Fabric
 
-Este script de exemplo cria um cluster do Service Fabric com cinco nós protegido por um certificado X.509.  O comando cria um certificado autoassinado e carrega-o para um novo cofre de chaves. O certificado é também copiado para um diretório local.  Defina o parâmetro *-OS* para escolher a versão do Windows ou Linux que é executada nos nós do cluster.  Personalize os parâmetros conforme necessário.
+Este script de exemplo cria um cluster do Service Fabric com cinco nós protegido por um certificado X.509.  O comando cria um certificado autoassinado e carrega-o para um novo cofre de chaves. O certificado é também copiado para um diretório local.  Defina o parâmetro *-OS* para escolher a versão do Windows ou do Linux que funciona nos nós do cluster.  Personalize os parâmetros conforme necessário.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzAccount` para criar uma ligação ao Azure. 
+Se necessário, instale o Azure PowerShell utilizando as instruções `Connect-AzAccount` encontradas no [guia Azure PowerShell](/powershell/azure/overview) e, em seguida, corra para criar uma ligação com o Azure. 
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -48,7 +48,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-| [New-AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) | Cria um novo cluster do Service Fabric. |
+| [Novo AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) | Cria um novo cluster do Service Fabric. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

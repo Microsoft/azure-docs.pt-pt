@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 59670cda68f54e4c0b20b361f0688e6766acba61
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78183393"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a uma API Web Node.js a partir de uma aplicação de ambiente de trabalho com o Azure Active Directory B2C
@@ -39,11 +39,11 @@ Complete os passos e pré-requisitos no [Tutorial: Autenticar os utilizadores nu
 
 ## <a name="configure-scopes"></a>Configurar os âmbitos
 
-Os âmbitos fornecem uma forma de governar o acesso aos recursos protegidos. São utilizados pela API Web para implementar o controlo de acesso baseado no âmbito. Por exemplo, alguns utilizadores podem ter o acesso de leitura e de escrita, ao passo que outros podem ter apenas permissões só de leitura. Neste tutorial, vai definir as permissões de leitura e escrita para a API Web.
+Os âmbitos proporcionam uma forma de reger o acesso a recursos protegidos. São utilizados pela API Web para implementar o controlo de acesso baseado no âmbito. Por exemplo, alguns utilizadores podem ter o acesso de leitura e de escrita, ao passo que outros podem ter apenas permissões só de leitura. Neste tutorial, vai definir as permissões de leitura e escrita para a API Web.
 
 [!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
-Registe o valor em **scopes** para que o âmbito `demo.read` possa utilizar num passo posterior quando configurar a aplicação de ambiente de trabalho. O valor total do âmbito é semelhante ao `https://contosob2c.onmicrosoft.com/api/demo.read`.
+Registe o valor em `demo.read` **SCOPES** para que o âmbito seja utilizado num passo posterior quando configurar a aplicação de ambiente de trabalho. O valor total do `https://contosob2c.onmicrosoft.com/api/demo.read`âmbito é semelhante a .
 
 ## <a name="grant-permissions"></a>Conceder permissões
 
@@ -68,14 +68,14 @@ No tutorial pré-requisito, registou uma aplicação de cliente nativo chamada *
 1. Selecione a API a que a aplicação do cliente nativo deve ter acesso. Por exemplo, *webapi1*.
 1. Sob **Permissão,** expanda a **demonstração**e, em seguida, selecione os âmbitos que definiu anteriormente. Por exemplo, *demo.read* e *demo.write*.
 1. **Selecione Adicionar permissões**. Como foi dirigido, aguarde alguns minutos antes de passar para o próximo passo.
-1. Selecione **Grant administrador consentimento para (o nome do seu inquilino)** .
+1. Selecione **Grant administrador consentimento para (o nome do seu inquilino)**.
 1. Selecione a sua conta de administrador atualmente assinada ou inscreva-se com uma conta no seu inquilino Azure AD B2C que tenha sido atribuída pelo menos a função de administrador de *aplicação Cloud.*
 1. Selecione **Aceitar**.
 1. Selecione **Refresh**, e, em seguida, verifique se "Granted for ..." aparece em **Status** para ambos os âmbitos. Pode levar alguns minutos para as permissões se propagarem.
 
 * * *
 
-Um utilizador autentica com Azure AD B2C para utilizar a aplicação de ambiente de trabalho WPF. A aplicação de ambiente de trabalho obtém uma autorização do Azure AD B2C para aceder à API web protegida.
+Para utilizar a aplicação de ambiente de trabalho WPF, os utilizadores autenticam-se com o Azure AD B2C. A aplicação de ambiente de trabalho obtém uma concessão de autorização do Azure AD B2C para aceder à API Web protegida.
 
 ## <a name="configure-the-samples"></a>Configure as amostras
 
@@ -85,10 +85,10 @@ Agora que a Web API está registada e tem âmbitos e permissões configurados, c
 
 Num pré-requisito para este artigo, modificou uma [aplicação de ambiente](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) de trabalho WPF para permitir o início de sessão com um fluxo de utilizador no seu inquilino Azure AD B2C. Nesta secção, atualiza essa mesma aplicação para fazer referência à Web API que registou anteriormente, *webapi1*.
 
-1. Abra a solução **active-directy-b2c-wpf** (`active-directory-b2c-wpf.sln`) no Visual Studio.
+1. Abra a solução **active-directy-b2c-wpf** ()`active-directory-b2c-wpf.sln`no Estúdio Visual.
 1. No projeto **active-directy-b2c-wpf,** abra o ficheiro *App.xaml.cs* e encontre as seguintes definições variáveis.
-    1. Substitua o valor da variável `ApiScopes` pelo valor que registou anteriormente quando definiu o âmbito **de demo.read.**
-    1. Substitua o valor da variável `ApiEndpoint` pelo **URI redirecionamento** que gravou anteriormente quando registou a Web API (por exemplo, *webapi1*) no seu inquilino.
+    1. Substitua o `ApiScopes` valor da variável pelo valor que registou anteriormente quando definiu o âmbito **de demo.read.**
+    1. Substitua o `ApiEndpoint` valor da variável pelo **URI redirecionamento** que gravou anteriormente quando registou a Web API (por exemplo, *webapi1*) no seu inquilino.
 
     Segue-se um exemplo:
 
@@ -110,7 +110,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 O exemplo de API Web Node.js utiliza a biblioteca Passport.js para ativar o Azure AD B2C no sentido de proteger as chamadas à API.
 
 1. Abra o ficheiro `index.js`.
-1. Atualize estas definições variáveis com os seguintes valores. Altere `<web-API-application-ID>` para o ID de **Aplicação (cliente)** da Web API que registou anteriormente *(webapi1*). Mude `<your-b2c-tenant>` nome do seu inquilino Azure AD B2C.
+1. Atualize estas definições variáveis com os seguintes valores. Alterar `<web-API-application-ID>` para a Identificação de **Aplicação (cliente)** da Web API que registou anteriormente *(webapi1*). Mude `<your-b2c-tenant>` para o nome do seu inquilino Azure AD B2C.
 
     ```nodejs
     var clientID = "<web-API-application-ID>";
@@ -118,7 +118,7 @@ O exemplo de API Web Node.js utiliza a biblioteca Passport.js para ativar o Azur
     var tenantIdGuid = "<your-b2c-tenant>.onmicrosoft.com";
     var policyName = "B2C_1_signupsignin1";
     ```
-1. Uma vez que está a executar a API localmente, atualize o caminho no percurso para que o método GET `/` em vez da localização da app de demonstração de `/hello`:
+1. Uma vez que está a executar a API localmente, `/` atualize o caminho na rota `/hello`para o método GET para, em vez da localização da aplicação de demonstração de:
 
     ```nodejs
     app.get("/",

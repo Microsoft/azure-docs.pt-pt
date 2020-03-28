@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do armazenamento de BLOBs do Azure para o banco de dados SQL do Azure
+title: Copiar dados do Armazenamento De Blob Azure para a Base de Dados SQL Azure
 description: Este tutorial fornece instruções passo a passo para copiar dados do Armazenamento de Blobs do Azure para a Base de Dados SQL do Azure.
 services: data-factory
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 93c4f71c762cff3e3f5a01f0e2595f3498f9d38d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75977319"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiar dados do Blob do Azure para a Base de Dados SQL do Azure utilizando o Azure Data Factory
 
-Neste tutorial, vai criar um pipeline do Data Factory que copia dados do Armazenamento de Blobs do Azure para a Base de Dados SQL do Azure. O padrão de configuração neste tutorial aplica-se à cópia a partir de um arquivo de dados baseado em ficheiros para um arquivo de dados relacional. Para obter uma lista de armazenamentos de dados com suporte como fontes e coletores, consulte [formatos e armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
+Neste tutorial, vai criar um pipeline do Data Factory que copia dados do Armazenamento de Blobs do Azure para a Base de Dados SQL do Azure. O padrão de configuração neste tutorial aplica-se à cópia a partir de um arquivo de dados baseado em ficheiros para um arquivo de dados relacional. Para obter uma lista de lojas de dados suportadas como fontes e pias, consulte [lojas e formatos de dados suportados.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-Você executará as seguintes etapas neste tutorial:
+Você toma os seguintes passos neste tutorial:
 
 > [!div class="checklist"]
 > * Criar uma fábrica de dados.
@@ -32,38 +32,38 @@ Você executará as seguintes etapas neste tutorial:
 > * Iniciar uma execução de pipeline.
 > * Monitorizar o pipeline e execuções de atividades.
 
-Este tutorial utiliza o .NET SDK. Você pode usar outros mecanismos para interagir com Azure Data Factory; consulte os exemplos em **início rápido**.
+Este tutorial utiliza o .NET SDK. Pode utilizar outros mecanismos para interagir com a Azure Data Factory; consulte as amostras em **Quickstarts**.
 
 Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* *Conta de Armazenamento do Azure*. Utilize o armazenamento de blobs como arquivo de dados de *origem*. Se você não tiver uma conta de armazenamento do Azure, consulte [criar uma conta de armazenamento de uso geral](../storage/common/storage-account-create.md).
-* *Base de Dados SQL do Azure*. Pode utilizar a base de dados como arquivo de dados *sink*. Se você não tiver um banco de dados SQL do Azure, consulte [criar um banco de dados SQL do Azure](../sql-database/sql-database-single-database-get-started.md).
-* *Visual Studio*. As instruções neste artigo usam o Visual Studio 2019.
-* *[SDK do Azure para .net](/dotnet/azure/dotnet-tools)* .
-* *Azure Active Directory aplicativo*. Se você não tiver um aplicativo Azure Active Directory, consulte a seção [criar um aplicativo Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) de [como: usar o portal para criar um aplicativo do Azure ad](../active-directory/develop/howto-create-service-principal-portal.md). Copie os seguintes valores para uso em etapas posteriores: **ID de aplicativo (cliente)** , **chave de autenticação**e **ID de diretório (locatário)** . Atribua o aplicativo à função **colaborador** seguindo as instruções no mesmo artigo.
+* *Conta de Armazenamento Azure.* Utilize o armazenamento de blobs como arquivo de dados de *origem*. Se não tiver uma conta de armazenamento Azure, consulte [Criar uma conta de armazenamento de uso geral](../storage/common/storage-account-create.md).
+* *Base de Dados Azure SQL*. Pode utilizar a base de dados como arquivo de dados *sink*. Se não tiver uma base de dados Azure SQL, consulte Criar uma base de [dados Azure SQL](../sql-database/sql-database-single-database-get-started.md).
+* *Estúdio Visual.* A passagem neste artigo utiliza o Visual Studio 2019.
+* *[Azure SDK para .NET](/dotnet/azure/dotnet-tools)*.
+* *Aplicação azure Ative Diretório.* Se não tiver uma aplicação azure Ative Diretório, consulte a secção de [aplicação Create a Azure Ative Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) de [Como: Utilize o portal para criar uma aplicação Azure AD](../active-directory/develop/howto-create-service-principal-portal.md). Copie os seguintes valores para utilização em etapas posteriores: **ID de aplicação (cliente),** **chave de autenticação**e **ID do Diretório (inquilino).** Atribuir o pedido ao **papel de Contribuinte** seguindo as instruções no mesmo artigo.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Criar um blob e uma tabela SQL
 
-Agora, prepare seu blob do Azure e o banco de dados SQL do Azure para o tutorial Criando um blog de origem e uma tabela SQL do coletor.
+Agora, prepare a sua Base de Dados Azure Blob e Azure SQL para o tutorial, criando um blog de origem e uma mesa SQL afundada.
 
 #### <a name="create-a-source-blob"></a>Criar um blob de origem
 
-Primeiro, crie um blob de origem criando um contêiner e carregando um arquivo de texto de entrada para ele:
+Em primeiro lugar, crie uma bolha de origem criando um recipiente e enviando-lhe um ficheiro de texto de entrada:
 
-1. Abra o Bloco de Notas. Copie o texto a seguir e salve-o localmente em um arquivo chamado *inputEmp. txt*.
+1. Abra o bloco de notas. Copie o seguinte texto e guarde-o localmente para um ficheiro chamado *inputEmp.txt*.
 
     ```inputEmp.txt
     John|Doe
     Jane|Doe
     ```
 
-2. Use uma ferramenta como [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para criar o contêiner *adfv2tutorial* e carregar o arquivo *inputEmp. txt* para o contêiner.
+2. Utilize uma ferramenta como o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) para criar o recipiente *adfv2tutorial* e para carregar o ficheiro *inputEmp.txt* para o recipiente.
 
 #### <a name="create-a-sink-sql-table"></a>Criar uma tabela SQL sink
 
-Em seguida, crie uma tabela SQL do coletor:
+Em seguida, crie uma tabela SQL afundada:
 
 1. Utilize o seguinte script SQL para criar a tabela *dbo.emp* na Base de Dados SQL do Azure.
 
@@ -79,31 +79,31 @@ Em seguida, crie uma tabela SQL do coletor:
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Permita que os serviços do Azure acedam ao servidor SQL. Certifique-se de permitir o acesso aos serviços do Azure no servidor SQL do Azure para que o serviço de Data Factory possa gravar dados em seu servidor SQL do Azure. Para verificar e ativar desta definição, execute os passos seguintes:
+2. Permita que os serviços do Azure acedam ao servidor SQL. Certifique-se de que permite o acesso aos serviços Azure no seu servidor Azure SQL para que o serviço Data Factory possa escrever dados para o seu servidor Azure SQL. Para verificar e ativar desta definição, execute os passos seguintes:
 
-    1. Vá para o [portal do Azure](https://portal.azure.com) para gerenciar o SQL Server. Pesquise e selecione **servidores SQL**.
+    1. Vá ao [portal Azure](https://portal.azure.com) para gerir o seu servidor SQL. Procure e selecione **servidores SQL**.
 
-    2. Selecione o servidor.
+    2. Selecione o seu servidor.
 
-    3. No título de **segurança** do menu do SQL Server, selecione **firewalls e redes virtuais**.
+    3. Sob a rubrica **de Segurança** do servidor SQL, selecione **Firewalls e redes virtuais**.
 
-    4. Na página **Firewall e redes virtuais** , em **permitir que serviços e recursos do Azure acessem este servidor**, selecione **ativado**.
+    4. Na página **Firewall e redes virtuais,** sob **os serviços e recursos do Allow Azure para aceder a este servidor,** selecione **ON**.
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
-Usando o Visual Studio, crie C# um aplicativo de console .net.
+Utilizando o Visual Studio, crie uma aplicação de consola C# .NET.
 
 1. Abra o Visual Studio.
-2. Na janela **Iniciar** , selecione **criar um novo projeto**.
-3. Na janela **criar um novo projeto** , escolha a C# versão do **aplicativo de console (.NET Framework)** na lista de tipos de projeto. Em seguida, selecione **Seguinte**.
-4. Na janela **configurar seu novo projeto** , insira um **nome de projeto** de *ADFv2Tutorial*. Para **local**, navegue até e/ou crie o diretório no qual salvar o projeto. Em seguida, selecione **Criar**. O novo projeto aparece no IDE do Visual Studio.
+2. Na janela **Iniciar,** selecione **Criar um novo projeto**.
+3. Na janela Criar uma nova janela de **projeto,** escolha a versão C# da **App consola (.NET Framework)** da lista de tipos de projeto. Em seguida, selecione **Seguinte**.
+4. Na **configuração** da sua nova janela de projeto, insira um nome de **Projeto** de *ADFv2Tutorial*. Para **localização,** navegue de e/ou crie o diretório para salvar o projeto. Em seguida, selecione **Criar**. O novo projeto aparece no Estúdio Visual IDE.
 
 ## <a name="install-nuget-packages"></a>Instalar pacotes NuGet
 
-Em seguida, instale os pacotes de biblioteca necessários usando o Gerenciador de pacotes NuGet.
+Em seguida, instale os pacotes de biblioteca necessários utilizando o gestor de pacotes NuGet.
 
-1. Na barra de menus, escolha **ferramentas** > **Gerenciador de pacotes NuGet** > **console do Gerenciador de pacotes**.
-2. No painel de **console do Gerenciador de pacotes** , execute os seguintes comandos para instalar pacotes. Para obter informações sobre o Azure Data Factory pacote NuGet, consulte [Microsoft. Azure. Management. datafactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
+1. Na barra de menus, escolha **ferramentas** > **NuGet Package Manager** > **Manager Console**.
+2. No painel de **consola sinuoso do gestor** de pacotes, execute os seguintes comandos para instalar pacotes. Para obter informações sobre o pacote NuGet da Fábrica de Dados Azure, consulte [Microsoft.Azure.Management.DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
 
     ```package manager console
     Install-Package Microsoft.Azure.Management.DataFactory
@@ -113,9 +113,9 @@ Em seguida, instale os pacotes de biblioteca necessários usando o Gerenciador d
 
 ## <a name="create-a-data-factory-client"></a>Criar um cliente de fábrica de dados
 
-Siga estas etapas para criar um cliente data factory.
+Siga estes passos para criar um cliente de fábrica de dados.
 
-1. Abra *Program.cs*e, em seguida, substitua as instruções de `using` existentes pelo código a seguir para adicionar referências a namespaces.
+1. Abra *Program.cs,* em seguida, `using` sobrepor as declarações existentes com o seguinte código para adicionar referências aos espaços de nome.
 
     ```csharp
     using System;
@@ -129,12 +129,12 @@ Siga estas etapas para criar um cliente data factory.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Adicione o código a seguir ao método `Main` que define variáveis. Substitua os 14 espaços reservados pelos seus próprios valores.
+2. Adicione o seguinte `Main` código ao método que define variáveis. Substitua os 14 espaços reservados com os seus próprios valores.
 
-    Para ver a lista de regiões do Azure nas quais Data Factory está disponível no momento, consulte [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Na lista suspensa **produtos** , escolha **procurar** > **Analytics** > **Data Factory**. Em seguida, na lista suspensa **regiões** , escolha as regiões que lhe interessam. Uma grade é exibida com o status de disponibilidade dos produtos Data Factory para suas regiões selecionadas.
+    Para ver a lista das regiões do Azure em que a Data Factory está atualmente disponível, consulte [produtos disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/) Na lista de **produtos,** escolha A**Fábrica**de Dados da **Browse** > **Analytics** > . Em seguida, nas **regiões** lista de abandono, escolha as regiões que lhe interessam. Uma grelha aparece com o estado de disponibilidade dos produtos data Factory para as suas regiões selecionadas.
 
     > [!NOTE]
-    > Os armazenamentos de dados, como o armazenamento do Azure e o Azure SQL Database, e as computações, como o HDInsight, que Data Factory usa podem estar em outras regiões do que o que você escolher para Data Factory.
+    > As lojas de dados, como o Azure Storage e o Azure SQL Database, e computagens, como o HDInsight, que a Data Factory utiliza podem estar noutras regiões do que o que escolhepara data Factory.
 
     ```csharp
     // Set variables
@@ -169,7 +169,7 @@ Siga estas etapas para criar um cliente data factory.
     string pipelineName = "Adfv2TutorialBlobToSqlCopy";
     ```
 
-3. Adicione o código a seguir ao método `Main` que cria uma instância de `DataFactoryManagementClient` classe. Utilize este objeto para criar uma fábrica de dados, um serviço ligado, os conjuntos de dados e um pipeline. Também pode utilizar este objeto para monitorizar os detalhes de execução do pipeline.
+3. Adicione o seguinte `Main` código ao método `DataFactoryManagementClient` que cria uma instância de classe. Utilize este objeto para criar uma fábrica de dados, um serviço ligado, os conjuntos de dados e um pipeline. Também pode utilizar este objeto para monitorizar os detalhes de execução do pipeline.
 
     ```csharp
     // Authenticate and create a data factory management client
@@ -184,7 +184,7 @@ Siga estas etapas para criar um cliente data factory.
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-Adicione o código a seguir ao método `Main` que cria um *Data Factory*.
+Adicione o seguinte `Main` código ao método que cria uma fábrica de *dados*.
 
 ```csharp
 // Create a data factory
@@ -212,11 +212,11 @@ while (
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
 
-Neste tutorial, você cria dois serviços vinculados para a origem e o coletor, respectivamente.
+Neste tutorial, cria-se dois serviços ligados para a fonte e afunda-se, respectivamente.
 
 ### <a name="create-an-azure-storage-linked-service"></a>Criar um serviço ligado do Armazenamento do Azure
 
-Adicione o código a seguir ao método `Main` que cria um *serviço vinculado do armazenamento do Azure*. Para obter informações sobre propriedades e detalhes com suporte, consulte [Propriedades do serviço vinculado de blob do Azure](connector-azure-blob-storage.md#linked-service-properties).
+Adicione o seguinte `Main` código ao método que cria um serviço ligado ao *Armazenamento Azure*. Para obter informações sobre propriedades e detalhes suportados, consulte propriedades de serviço ligadas a [Azure Blob.](connector-azure-blob-storage.md#linked-service-properties)
 
 ```csharp
 // Create an Azure Storage linked service
@@ -242,7 +242,7 @@ Console.WriteLine(
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Criar um serviço ligado da Base de Dados SQL do Azure
 
-Adicione o código a seguir ao método `Main` que cria um *serviço vinculado do banco de dados SQL do Azure*. Para obter informações sobre propriedades e detalhes com suporte, consulte [Propriedades do serviço vinculado do banco de dados SQL do Azure](connector-azure-sql-database.md#linked-service-properties).
+Adicione o seguinte `Main` código ao método que cria um serviço ligado à Base de *Dados Azure SQL*. Para obter informações sobre propriedades e detalhes suportados, consulte propriedades de serviço ligadas à Base de [Dados Azure SQL](connector-azure-sql-database.md#linked-service-properties).
 
 ```csharp
 // Create an Azure SQL Database linked service
@@ -265,17 +265,17 @@ Console.WriteLine(
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
 
-Nesta seção, você criará dois conjuntos de valores: um para a origem, o outro para o coletor.
+Nesta secção, cria-se dois conjuntos de dados: um para a fonte, outro para a pia.
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>Criar um conjunto de dados para o Blob do Azure de origem
 
-Adicione o código a seguir ao método de `Main` que cria um conjunto de um banco de uma *blob do Azure*. Para obter informações sobre propriedades e detalhes com suporte, consulte [Propriedades do conjunto de dados de blob do Azure](connector-azure-blob-storage.md#dataset-properties).
+Adicione o seguinte `Main` código ao método que cria um conjunto de *dados de blob Azure*. Para obter informações sobre propriedades e detalhes suportados, consulte propriedades de [conjunto de dados Azure Blob](connector-azure-blob-storage.md#dataset-properties).
 
 Defina um conjunto de dados que represente os dados de origem no Blob do Azure. Este conjunto de dados do Blob refere-se ao serviço ligado de Armazenamento do Microsoft Azure que criou no passo anterior e descreve:
 
-- O local do blob do qual copiar: `FolderPath` e `FileName`
-- O formato de BLOB que indica como analisar o conteúdo: `TextFormat` e suas configurações, como delimitador de coluna
-- A estrutura de dados, incluindo nomes de coluna e tipos de dados, que são mapeados neste exemplo para a tabela SQL do coletor
+- A localização da bolha para `FolderPath` copiar de: e`FileName`
+- O formato blob que indica `TextFormat` como analisar o conteúdo: e as suas definições, tais como delimitador de colunas
+- A estrutura de dados, incluindo nomes de colunas e tipos de dados, que mapeiam neste exemplo para a tabela SQL do lavatório
 
 ```csharp
 // Create an Azure Blob dataset
@@ -307,9 +307,9 @@ Console.WriteLine(
 
 ### <a name="create-a-dataset-for-sink-azure-sql-database"></a>Criar um conjunto de dados para o Base de Dados SQL do Azure
 
-Adicione o código a seguir ao método de `Main` que cria um *conjunto de dados do Azure SQL Database*. Para obter informações sobre as propriedades e os detalhes com suporte, consulte [Propriedades do conjunto de dados do Azure SQL Database](connector-azure-sql-database.md#dataset-properties).
+Adicione o seguinte `Main` código ao método que cria um conjunto de *dados azure SQL Database*. Para obter informações sobre propriedades e detalhes suportados, consulte as propriedades do conjunto de [dados Azure SQL](connector-azure-sql-database.md#dataset-properties)Database .
 
-Defina um conjunto de dados que representa os dados sink na Base de Dados SQL do Azure. Esse conjunto de dados refere-se ao serviço vinculado do banco de dados SQL do Azure que você criou na etapa anterior. Também especifica a tabela SQL que contém os dados copiados.
+Defina um conjunto de dados que representa os dados sink na Base de Dados SQL do Azure. Este conjunto de dados refere-se ao serviço ligado à Base de Dados Azure SQL que criou na etapa anterior. Também especifica a tabela SQL que contém os dados copiados.
 
 ```csharp
 // Create an Azure SQL Database dataset
@@ -335,7 +335,7 @@ Console.WriteLine(
 
 ## <a name="create-a-pipeline"></a>Criar um pipeline
 
-Adicione o código a seguir ao método `Main` que cria um *pipeline com uma atividade de cópia*. Neste tutorial, esse pipeline contém uma atividade: `CopyActivity`, que usa o conjunto de conjuntos de blob como fonte e o conjunto de conteúdo do SQL como coletor. Para obter informações sobre detalhes da atividade de cópia, consulte [atividade de cópia em Azure data Factory](copy-activity-overview.md).
+Adicione o seguinte `Main` código ao método que cria um *pipeline com uma atividade de cópia*. Neste tutorial, este pipeline contém `CopyActivity`uma atividade: , que toma como fonte o conjunto de dados blob e o conjunto de dados SQL. Para obter informações sobre detalhes da atividade de cópia, consulte a atividade de Copiar na Fábrica de [Dados Azure](copy-activity-overview.md).
 
 ```csharp
 // Create a pipeline with copy activity
@@ -369,7 +369,7 @@ Console.WriteLine(
 
 ## <a name="create-a-pipeline-run"></a>Criar uma execução de pipeline
 
-Adicione o código a seguir ao método `Main` que *dispara uma execução de pipeline*.
+Adicione o seguinte `Main` código ao método que *desencadeia uma execução*do gasoduto .
 
 ```csharp
 // Create a pipeline run
@@ -382,9 +382,9 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## <a name="monitor-a-pipeline-run"></a>Monitorizar uma execução de pipeline
 
-Agora, insira o código para verificar os Estados de execução do pipeline e obter detalhes sobre a execução da atividade de cópia.
+Agora insira o código para verificar os estados de execução do gasoduto e para obter detalhes sobre a execução da atividade da cópia.
 
-1. Adicione o código a seguir ao método `Main` para verificar continuamente os status da execução do pipeline até que ele termine de copiar os dados.
+1. Adicione o seguinte `Main` código ao método para verificar continuamente os estados do gasoduto até que termine de copiar os dados.
 
     ```csharp
     // Monitor the pipeline run
@@ -403,7 +403,7 @@ Agora, insira o código para verificar os Estados de execução do pipeline e ob
     }
     ```
 
-2. Adicione o código a seguir ao método `Main` que recupera os detalhes da execução da atividade de cópia, como o tamanho dos dados que foram lidos ou gravados.
+2. Adicione o seguinte `Main` código ao método que recupera detalhes de execução de atividade de cópia, como o tamanho dos dados que foram lidos ou escritos.
 
     ```csharp
     // Check the copy activity run details
@@ -430,9 +430,9 @@ Agora, insira o código para verificar os Estados de execução do pipeline e ob
 
 ## <a name="run-the-code"></a>Executar o código
 
-Compile o aplicativo escolhendo **compilar** > **Compilar solução**. Em seguida, inicie o aplicativo escolhendo **Debug** > **iniciar a depuração**e verificar a execução do pipeline.
+Construa a aplicação escolhendo **build build** > **solution**. Em seguida, inicie a aplicação escolhendo **Debug** > **Start Debugging**, e verifique a execução do gasoduto.
 
-A consola imprime o progresso da criação de uma fábrica de dados, do serviço ligado, dos conjuntos de dados, do pipeline e da execução de pipeline. Em seguida, verifica o estado de execução do pipeline. Aguarde até que você veja os detalhes da execução da atividade de cópia com o tamanho de leitura/gravação de dados. Em seguida, usando ferramentas como o SQL Server Management Studio (SSMS) ou o Visual Studio, você pode se conectar ao seu banco de dados SQL do Azure de destino e verificar se a tabela de destino que você especificou contém o dado copiado.
+A consola imprime o progresso da criação de uma fábrica de dados, do serviço ligado, dos conjuntos de dados, do pipeline e da execução de pipeline. Em seguida, verifica o estado de execução do pipeline. Aguarde até ver a atividade da cópia executar detalhes com o tamanho de leitura/escrita de dados. Em seguida, utilizando ferramentas como o SQL Server Management Studio (SSMS) ou o Visual Studio, pode ligar-se à base de dados Azure SQL do seu destino e verificar se a tabela de destino que especificou contém os dados copiados.
 
 ### <a name="sample-output"></a>Resultado da amostra
 
@@ -570,7 +570,7 @@ O pipeline neste exemplo copia dados de uma localização para outra localizaç�
 > * Criar uma fábrica de dados.
 > * Criar os serviços ligados Armazenamento do Microsoft Azure e Base de Dados SQL do Azure.
 > * Criar os conjuntos de dados Blob do Azure e Base de Dados SQL do Azure.
-> * Crie um pipeline que contém uma atividade de cópia.
+> * Criar um oleoduto contendo uma atividade de cópia.
 > * Iniciar uma execução de pipeline.
 > * Monitorizar o pipeline e execuções de atividades.
 

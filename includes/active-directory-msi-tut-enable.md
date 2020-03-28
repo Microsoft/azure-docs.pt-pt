@@ -9,19 +9,19 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.custom: include file
 ms.openlocfilehash: ab6e3426096f6fbaf7dfa44984a26c939f3b91fc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75971862"
 ---
-A habilitação de uma identidade gerenciada atribuída pelo sistema é uma experiência com um único clique. Você pode habilitá-lo durante a criação de uma VM ou nas propriedades de uma VM existente.
+Permitir uma identidade gerida atribuída ao sistema é uma experiência de um clique. Pode permitir durante a criação de um VM ou nas propriedades de um VM existente.
 
 ![Criar nova conta de armazenamento](./media/active-directory-msi-tut-enable/identity.png)
 
 
-**Para habilitar uma identidade gerenciada atribuída pelo sistema em uma nova VM:** 
+**Para permitir uma identidade gerida atribuída pelo sistema num novo VM:** 
 
-1. [Iniciar sessão no portal do Azure](https://portal.azure.com)
+1. [Inscreva-se no portal Azure](https://portal.azure.com)
 
-2. [Criar uma máquina virtual com a identidade atribuída pelo sistema habilitada](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity)
+2. [Criar uma máquina virtual com identidade ativada pelo sistema](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity)

@@ -1,5 +1,5 @@
 ---
-title: Usar revisões para fazer alterações sem interrupção com segurança no gerenciamento de API
+title: Utilize revisões para efazer alterações não-rupturas com segurança na Gestão da API
 titleSuffix: Azure API Management
 description: Siga os passos deste tutorial para aprender a efetuar alterações sem interrupções com revisões na Gestão de API.
 services: api-management
@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c91d42f3445bb2ffc02366e6cb9ae49ec2db1be4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75442755"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Utilizar revisões para efetuar alterações sem interrupções de forma segura
@@ -50,7 +50,7 @@ Neste tutorial, ficará a saber como:
 4. Selecione **+ Adicionar Revisão**
 
     > [!TIP]
-    > Também pode selecionar **Adicionar Revisão** no menu de contexto ( **...** ) da API.
+    > Também pode selecionar **Adicionar Revisão** no menu de contexto (**...**) da API.
 
 5. Forneça uma descrição da nova revisão, para ajudar a lembrar para que será utilizada.
 6. Selecione **Criar**
@@ -82,18 +82,18 @@ Neste tutorial, ficará a saber como:
 
     ![O menu de revisão no ecrã de revisão.](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
 
-2. Abra o menu de contexto ( **...** ) para **Revisão 2**.
+2. Abra o menu de contexto (**...**) para **Revisão 2**.
 3. Selecione **Tornar Atual**.
-4. Selecione **Publicar no Registo de Alterações Públicas para esta API**, se quiser publicar notas sobre esta alteração. Forneça uma descrição para a alteração que os desenvolvedores veem, por exemplo: **testando revisões. Adicionada nova operação de "teste".**
+4. Selecione **Publicar no Registo de Alterações Públicas para esta API**, se quiser publicar notas sobre esta alteração. Forneça uma descrição para a sua mudança que os desenvolvedores vêem, por exemplo: **Análises de testes. Acrescentou uma nova operação de "teste".**
 5. **Revisão 2** é agora atual.
 
 ## <a name="browse-the-developer-portal-to-see-changes-and-change-log"></a>Navegar até ao portal do programador para ver as alterações e o registo de alterações
 
-1. No portal do Azure, selecione **APIs**.
+1. No portal Azure, selecione **APIs**.
 2. Selecione **Portal do Programador** no menu superior.
 3. Selecione **APIs** e, em seguida, selecione **Demo Conference API**.
 4. Tenha em atenção que a nova operação **test** está agora disponível.
-5. Clique em **changelog** próximo ao nome da API.
+5. Clique no **Changelog** perto do nome API.
 6. Tenha em atenção que a entrada do registo de alterações é apresentada nesta lista.
 
 ## <a name="next-steps"></a>Passos seguintes

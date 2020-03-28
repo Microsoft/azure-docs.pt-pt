@@ -1,39 +1,39 @@
 ---
-title: Jupyter notebooks de exemplo para visualização Azure Notebooks
-description: Exemplos são uma excelente forma de experimentar os blocos de notas do Jupyter em blocos de notas gratuita do Azure a executar os serviços cloud.
+title: Amostra de cadernos Jupyter para pré-visualização de cadernos Azure
+description: As amostras são uma ótima maneira de experimentar os cadernos Jupyter que correm nos serviços gratuitos da nuvem azure Notebooks.
 ms.topic: sample
 ms.date: 01/11/2019
 ms.openlocfilehash: f67c37d0ffe0e90e13e05bb50ed6c523e0b3a14e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75646318"
 ---
-# <a name="discover-and-use-sample-notebooks-in-azure-notebooks-preview"></a>Descubra e use blocos de anotações de exemplo em Azure Notebooks visualização
+# <a name="discover-and-use-sample-notebooks-in-azure-notebooks-preview"></a>Descubra e use cadernos de amostra sintetizar em Cadernos Azure Preview
 
-A Internet tem muitas coleções de interessantes e úteis blocos de notas Jupyter que pode colocar facilmente em blocos de notas do Azure. Este artigo fornece uma lista de exemplos notáveis.
+A Internet tem muitas coleções de cadernos Jupyter interessantes e úteis que você pode facilmente trazer para os Cadernos Azure. Este artigo fornece uma lista de amostras notáveis.
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-Depois de identificar um bloco de notas que gostaria de explorar, aqui estão alguns detalhes que vai querer compreender:
+Depois de identificar um caderno que gostaria de explorar, aqui estão alguns detalhes que vai querer entender:
 
-- Se já for um bloco de notas em blocos de notas do Azure, utilize o **Clone** botão no seu dashboard do projeto para fazer uma cópia do projeto na sua própria conta.
-- Alguns notebooks requerem pacotes específicos para executar. Embora possa usar `!pip install` (Python) ou `install.packages` (R) para instalar pacotes a partir de um bloco de notas em si, pode também [configurar um projeto de blocos de notas do Azure com o ambiente apropriado](configure-manage-azure-notebooks-projects.md).
+- Se um caderno já estiver nos Cadernos Azure, utilize o botão **Clone** no seu painel de instrumentos de projeto para fazer uma cópia do projeto na sua própria conta.
+- Alguns cadernos requerem pacotes específicos para executar. Embora possa `!pip install` utilizar (Python) ou `install.packages` (R) para instalar pacotes a partir de um caderno em si, também pode [configurar um projeto de Cadernos Azure com o ambiente apropriado.](configure-manage-azure-notebooks-projects.md)
 
-## <a name="great-sample-notebooks"></a>Blocos de notas do exemplo excelente
+## <a name="great-sample-notebooks"></a>Grandes cadernos de amostras
 
-- [Azure notebooks conjunto de início](https://notebooks.azure.com/#sample-redirect) inclui introduções para Python, R e F#, juntamente com notebooks que demonstram acesso a dados, Azure Machine Learning e alguns exercícios de ciência de dados.
-- [Introdução aos blocos de notas do Jupyter](https://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb) (jupyter.org)
-- [Introdução à ciência de dados](https://github.com/jakevdp/PythonDataScienceHandbook/tree/master/notebooks) por Jake Vanderplas.
-- [Galeria de blocos de notas interessantes](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (Jupyter o projeto no GitHub)
+- O conjunto de [iniciadores dos Cadernos Azure](https://notebooks.azure.com/#sample-redirect) inclui apresentações a Python, R e F#, juntamente com cadernos que demonstram acesso a dados, Azure Machine Learning e alguns exercícios de ciência de dados.
+- [Introdução aos cadernos jupyter](https://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb) (jupyter.org)
+- [Introdução à Ciência dos Dados](https://github.com/jakevdp/PythonDataScienceHandbook/tree/master/notebooks) por Jake Vanderplas.
+- [Galeria de cadernos interessantes](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (projeto Jupyter no GitHub)
 - [nbviewer.jupyter.org](https://nbviewer.jupyter.org)
-- Física instrução do [departamento física na faculdade Imperial de Londres](https://notebooks.azure.com/cvanbreu/libraries)
-- [O Azure Machine Learning exemplos de introdução](https://notebooks.azure.com/azureml/projects/azureml-getting-started)
+- Instrução de Física do Departamento de [Física do Imperial College de Londres](https://notebooks.azure.com/cvanbreu/libraries)
+- [Aprendizagem automática azure começando a começar amostras](https://notebooks.azure.com/azureml/projects/azureml-getting-started)
 
 ## <a name="next-steps"></a>Passos seguintes  
 
-- [Como: configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
-- [Como: trabalhar com arquivos de dados](work-with-project-data-files.md)
-- [Como: aceder aos recursos de dados](access-data-resources-jupyter-notebooks.md)
-- [Como: usar Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [Como: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
+- [Como: Trabalhar com ficheiros de dados](work-with-project-data-files.md)
+- [Como: Aceder aos recursos de dados](access-data-resources-jupyter-notebooks.md)
+- [Como: Utilizar machine learning azure](use-machine-learning-services-jupyter-notebooks.md)

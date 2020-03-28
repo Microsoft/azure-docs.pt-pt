@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 12/30/2019
 ms.openlocfilehash: 478a7e03b432006b429c96e03307fd8e494c88ff
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77472320"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>Criar uma loja de conhecimentos usando REST e Carteiro
 
 > [!IMPORTANT] 
-> A loja de conhecimento está atualmente em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [versão REST API 2019-05-06-Preview](search-api-preview.md) fornece funcionalidades de pré-visualização. Existe atualmente um suporte de portal limitado e nenhum suporte sdk .NET.
+> A loja de conhecimento está atualmente em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure . A [versão REST API 2019-05-06-Preview](search-api-preview.md) fornece funcionalidades de pré-visualização. Existe atualmente um suporte de portal limitado e nenhum suporte sdk .NET.
 
 Uma loja de conhecimentos contém saída de um oleoduto de enriquecimento de pesquisa cognitiva Azure para análise posterior ou outro processamento a jusante. Um pipeline enriquecido pela IA aceita ficheiros de imagem ou ficheiros de texto não estruturados, indexa-os utilizando a Pesquisa Cognitiva Azure, aplica enriquecimentos de IA a partir de Serviços Cognitivos (como análise de imagem e processamento de linguagem natural), e depois guarda os resultados para um loja de conhecimento em Azure Storage. Pode utilizar ferramentas como o Power BI ou o Storage Explorer no portal Azure para explorar a loja de conhecimento.
 
@@ -26,7 +26,7 @@ Neste artigo, você usa a interface REST API para ingerir, indexar e aplicar enr
 
 Depois de criar a loja de conhecimentos, pode aprender como aceder à loja de conhecimentos utilizando o [Storage Explorer](knowledge-store-view-storage-explorer.md) ou o [Power BI](knowledge-store-connect-power-bi.md).
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 > [!TIP]
 > Recomendamos a aplicação de [desktop postman](https://www.getpostman.com/) para este artigo. O [código fonte](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store) deste artigo inclui uma coleção de carteiros contendo todos os pedidos. 
@@ -53,7 +53,7 @@ Como a carga de trabalho é tão pequena, os Serviços Cognitivos são aproveita
 
     ![Crie o recipiente Azure Blob](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Crie o recipiente Azure Blob")
 
-1. Está quase a acabar com este recurso, mas antes de sair destas páginas, use um link no painel de navegação esquerdo para abrir a página **Access Keys.** Obtenha uma cadeia de ligação para recuperar dados do armazenamento blob. Uma cadeia de ligação é semelhante ao seguinte exemplo: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
+1. Está quase a acabar com este recurso, mas antes de sair destas páginas, use um link no painel de navegação esquerdo para abrir a página **Access Keys.** Obtenha uma cadeia de ligação para recuperar dados do armazenamento blob. Uma cadeia de ligação é semelhante ao seguinte exemplo:`DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
 
 1. Ainda no portal, mude para A Pesquisa Cognitiva Azure. [Crie um novo serviço](search-create-service-portal.md) ou [encontre um serviço existente.](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) Pode utilizar um serviço gratuito para este exercício.
 
@@ -64,16 +64,16 @@ Instale e instale o Carteiro.
 ### <a name="download-and-install-postman"></a>Descarregue e instale o Carteiro
 
 1. Descarregue o código fonte da [coleção de carteiros.](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json)
-1. Selecione **File** > **Import** para importar o código fonte para o Carteiro.
+1. Selecione**A Importação** de **Ficheiros** > para importar o código fonte para o Carteiro.
 1. Selecione o separador **Coleções** e, em seguida, selecione o botão **...** (elipsis).
 1. Selecione **Editar**. 
    
    ![Aplicativo postman mostrando navegação](media/knowledge-store-create-rest/postman-edit-menu.png "Vá ao menu Editar no Carteiro")
 1. Na caixa de diálogo **Editar,** selecione o separador **Variáveis.** 
 
-No separador **Variáveis,** pode adicionar valores que o Carteiro troca sempre que encontra uma variável específica dentro de duplos aparelhos. Por exemplo, o Carteiro substitui o símbolo `{{admin-key}}` pelo valor atual que definiu para `admin-key`. O carteiro faz a substituição em URLs, cabeçalhos, o corpo de pedido, e assim por diante. 
+No separador **Variáveis,** pode adicionar valores que o Carteiro troca sempre que encontra uma variável específica dentro de duplos aparelhos. Por exemplo, o Carteiro `{{admin-key}}` substitui o símbolo pelo `admin-key`valor atual que definiu . O carteiro faz a substituição em URLs, cabeçalhos, o corpo de pedido, e assim por diante. 
 
-Para obter o valor para `admin-key`, vá ao serviço de Pesquisa Cognitiva Azure e selecione o separador **Keys.** Alterar `search-service-name` e `storage-account-name` aos valores que escolheu nos [serviços Create](#create-services-and-load-data). Descoloque `storage-connection-string` utilizando o valor no separador **Access Keys** da conta de armazenamento. Pode deixar os incumprimentos para os outros valores.
+Para obter o `admin-key`valor para , vá ao serviço de Pesquisa `search-service-name` `storage-account-name` Cognitiva Azure e selecione o separador **Keys.** Alterar e aos valores que escolheu nos [serviços Create](#create-services-and-load-data). Configurado `storage-connection-string` utilizando o valor no separador **Access Keys** da conta de armazenamento. Pode deixar os incumprimentos para os outros valores.
 
 ![Separador de variáveis de aplicativo sonérma](media/knowledge-store-create-rest/postman-variables-window.png "Janela de variáveis do carteiro")
 
@@ -85,10 +85,10 @@ Para obter o valor para `admin-key`, vá ao serviço de Pesquisa Cognitiva Azure
 | `datasource-name` | Saia como **avaliações de hotéis.** | 
 | `indexer-name` | Deixe **como hotel-reviews-ixr**. | 
 | `index-name` | Deixe **como hotel-reviews-ix**. | 
-| `search-service-name` | O nome do serviço de pesquisa cognitiva Azure. O URL é `https://{{search-service-name}}.search.windows.net`. | 
+| `search-service-name` | O nome do serviço de pesquisa cognitiva Azure. O URL `https://{{search-service-name}}.search.windows.net`é . | 
 | `skillset-name` | Saia como **hotéis-reviews-ss.** | 
 | `storage-account-name` | O nome da conta de armazenamento. | 
-| `storage-connection-string` | Na conta de armazenamento, no separador **Access Keys,** selecione **a tecla1** > **linha de ligação**. | 
+| `storage-connection-string` | Na conta de armazenamento, no separador **Access Keys,** selecione a cadeia **de ligação chave1** > **Connection string**. | 
 | `storage-container-name` | Deixe como **avaliação de hotel.** | 
 
 ### <a name="review-the-request-collection-in-postman"></a>Reveja a recolha de pedidos no Carteiro
@@ -100,19 +100,19 @@ Quando cria uma loja de conhecimentos, deve emitir quatro pedidos HTTP:
 - **PEDIDO PUT para criar o skillset**: O skillset especifica os enriquecimentos que são aplicados aos seus dados e a estrutura do knowledge store.
 - **Pedido DE PUT para criar o indexante**: Executar o indexador lê os dados, aplica o skillset e armazena os resultados. Tem de fazer este pedido por último.
 
-O [código fonte](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) contém uma coleção de carteiros que tem os quatro pedidos. Para emitir os pedidos, no Carteiro, selecione o separador para o pedido. Em seguida, adicione `api-key` e `Content-Type` pedir cabeçalhos. Detete o valor do `api-key` para `{{admin-key}}`. Detete o valor `Content-type` para `application/json`. 
+O [código fonte](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) contém uma coleção de carteiros que tem os quatro pedidos. Para emitir os pedidos, no Carteiro, selecione o separador para o pedido. Em seguida, adicione `api-key` e `Content-Type` peça cabeçalhos. Definir o `api-key` valor `{{admin-key}}`de . Desloque o valor `Content-type` para `application/json`. 
 
 ![Screenshot mostrando a interface do Carteiro para cabeçalhos](media/knowledge-store-create-rest/postman-headers-ui.png)
 
 > [!Note]
-> Deve colocar cabeçalhos `api-key` e `Content-type` em todos os seus pedidos. Se o Carteiro reconhecer uma variável, a variável aparece no texto laranja, como acontece com `{{admin-key}}` na imagem anterior. Se a variável for mal escrita, aparece em texto vermelho.
+> Deve definir `api-key` `Content-type` e cabeçalhos em todos os seus pedidos. Se o Carteiro reconhecer uma variável, a variável `{{admin-key}}` aparece no texto laranja, como na imagem anterior. Se a variável for mal escrita, aparece em texto vermelho.
 >
 
-## <a name="create-an-azure-cognitive-search-index"></a>Criar um índice de pesquisa cognitiva Azure
+## <a name="create-an-azure-cognitive-search-index"></a>Criar um índice do Azure Cognitive Search
 
-Crie um índice de Pesquisa Cognitiva Azure para representar os dados a que está interessado em pesquisar, filtrar e aplicar melhorias. Crie o índice emitindo um pedido DE PUT para `https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}`. O carteiro substitui os símbolos que são fechados em aparelhos duplos (como `{{search-service-name}}`, `{{index-name}}`e `{{api-version}}`) com os valores que definiu no [Configure Postman](#configure-postman). Se utilizar uma ferramenta diferente para emitir os comandos REST, deve substituir essas variáveis por si mesmo.
+Crie um índice de Pesquisa Cognitiva Azure para representar os dados a que está interessado em pesquisar, filtrar e aplicar melhorias. Crie o índice emitindo um pedido DE PUT para `https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}`. O carteiro substitui os símbolos que são fechados `{{search-service-name}}` `{{index-name}}`em `{{api-version}}`aparelhos duplos (tais como, e ) com os valores que definiu no [Configure Postman](#configure-postman). Se utilizar uma ferramenta diferente para emitir os comandos REST, deve substituir essas variáveis por si mesmo.
 
-Defino a estrutura do seu índice de Pesquisa Cognitiva Azure no corpo do pedido. No Carteiro, depois de definir os cabeçalhos `api-key` e `Content-type`, vá ao painel do **corpo** do pedido. Devia ver o seguinte JSON. Se não o fizer, selecione **Raw** > **JSON (aplicação/json)** e, em seguida, colhe o seguinte código como o corpo:
+Defino a estrutura do seu índice de Pesquisa Cognitiva Azure no corpo do pedido. No Carteiro, depois de `api-key` `Content-type` definir os cabeçalhos e cabeçadas, vá ao painel do **corpo** do pedido. Devia ver o seguinte JSON. Se não o fizer, selecione **Raw** > **JSON (aplicação/json)** e, em seguida, colhe o seguinte código como o corpo:
 
 ```JSON
 {
@@ -149,13 +149,13 @@ Defino a estrutura do seu índice de Pesquisa Cognitiva Azure no corpo do pedido
 
 Esta definição de índice é uma combinação de dados que gostaria de apresentar ao utilizador (o nome do hotel, conteúdo de revisão, data), metadados de pesquisa e dados de melhoria de IA (Sentimento, Frases-Chave e Idioma).
 
-Selecione **Enviar** para emitir o pedido DE PUT. Devia ver o estado `201 - Created`. Se vir um estado diferente, no painel **do corpo,** procure uma resposta JSON que contenha uma mensagem de erro. 
+Selecione **Enviar** para emitir o pedido DE PUT. Devia ver o `201 - Created`estado. Se vir um estado diferente, no painel **do corpo,** procure uma resposta JSON que contenha uma mensagem de erro. 
 
 ## <a name="create-the-datasource"></a>Criar o datasource
 
-Em seguida, ligue a Pesquisa Cognitiva Azure aos dados do hotel que armazenou no armazenamento blob. Para criar o datasource, envie um pedido de CORREIO para `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. Tens de definir os cabeçalhos `api-key` e `Content-Type` como discutido anteriormente. 
+Em seguida, ligue a Pesquisa Cognitiva Azure aos dados do hotel que armazenou no armazenamento blob. Para criar o datasource, envie `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`um pedido post para . Tens de `api-key` definir `Content-Type` os cabeçalhos e os cabeçalhos, como discutido anteriormente. 
 
-No Carteiro, vá ao pedido **de Criar Datasource** e, em seguida, ao painel **Body.** Deve ver o seguinte código:
+No Carteiro, vá ao pedido **de Criar Datasource** e, em seguida, ao painel **Body.** Deverá ver o seguinte código:
 
 ```json
 {
@@ -171,11 +171,11 @@ Selecione **Enviar** para emitir o pedido DE PUBLICAÇÃO.
 
 ## <a name="create-the-skillset"></a>Criar a habilidade 
 
-O próximo passo é especificar o skillset, que especifica tanto as melhorias a aplicar como a loja de conhecimentos onde os resultados serão armazenados. No Carteiro, selecione o separador **Criar o Skillset.** Este pedido envia um PUT para `https://{{search-service-name}}.search.windows.net/skillsets/{{skillset-name}}?api-version={{api-version}}`. Detete os cabeçalhos `api-key` e `Content-type` como fez anteriormente. 
+O próximo passo é especificar o skillset, que especifica tanto as melhorias a aplicar como a loja de conhecimentos onde os resultados serão armazenados. No Carteiro, selecione o separador **Criar o Skillset.** Este pedido envia `https://{{search-service-name}}.search.windows.net/skillsets/{{skillset-name}}?api-version={{api-version}}`um PUT para . Desloque os cabeçalhos e `api-key` `Content-type` os cabeçalhos como fez anteriormente. 
 
-Existem dois grandes objetos de topo: `skills` e `knowledgeStore`. Cada objeto dentro do objeto `skills` é um serviço de enriquecimento. Cada serviço de enriquecimento tem `inputs` e `outputs`. O `LanguageDetectionSkill` tem uma `targetName` de saída de `Language`. O valor deste nó é usado pela maioria das outras habilidades como entrada. A fonte está `document/Language`. A capacidade de utilizar a saída de um nó como entrada para outra é ainda mais evidente na `ShaperSkill`, que especifica como os dados fluem para as tabelas da loja de conhecimento.
+Existem dois grandes objetos `skills` `knowledgeStore`de topo: e . Cada objeto `skills` dentro do objeto é um serviço de enriquecimento. Cada serviço `inputs` de `outputs`enriquecimento tem e. Tem `LanguageDetectionSkill` uma `targetName` saída `Language`de . O valor deste nó é usado pela maioria das outras habilidades como entrada. A fonte `document/Language`é. A capacidade de utilizar a saída de um nó como entrada `ShaperSkill`para outra é ainda mais evidente, o que especifica como os dados fluem para as tabelas da loja de conhecimento.
 
-O `knowledge_store` objeto liga-se à conta de armazenamento através da variável `{{storage-connection-string}}` Carteiro. `knowledge_store` contém um conjunto de mapeamentos entre o documento melhorado e tabelas e colunas na loja de conhecimento. 
+O `knowledge_store` objeto liga-se à `{{storage-connection-string}}` conta de armazenamento através da variável Carteiro. `knowledge_store`contém um conjunto de mapeamentos entre o documento melhorado e tabelas e colunas na loja de conhecimentos. 
 
 Para gerar a habilidade, selecione o botão **Enviar** no Carteiro para COLOCAR o pedido:
 
@@ -309,9 +309,9 @@ Para gerar a habilidade, selecione o botão **Enviar** no Carteiro para COLOCAR 
 
 O passo final é criar o indexador. O indexante lê os dados e ativa a habilidade. No Carteiro, selecione o pedido **create indexer** e, em seguida, reveja o corpo. A definição do indexante refere-se a vários outros recursos que já criou: a fonte de dados, o índice e o skillset. 
 
-O `parameters/configuration` objeto controla a forma como o indexador ingere os dados. Neste caso, os dados de entrada estão num único documento que tem uma linha de cabeçalho e valores separados pela vírcula. A chave do documento é um identificador único para o documento. Antes de codificar, a chave do documento é o URL do documento de origem. Finalmente, os valores de saída de skillset, como código de linguagem, sentimento e frases-chave, são mapeados para as suas localizações no documento. Embora haja um único valor para `Language`, `Sentiment` é aplicada a cada elemento na matriz de `pages`. `Keyphrases` é uma matriz que também é aplicada a cada elemento da matriz `pages`.
+O `parameters/configuration` objeto controla a forma como o indexador ingere os dados. Neste caso, os dados de entrada estão num único documento que tem uma linha de cabeçalho e valores separados pela vírcula. A chave do documento é um identificador único para o documento. Antes de codificar, a chave do documento é o URL do documento de origem. Finalmente, os valores de saída de skillset, como código de linguagem, sentimento e frases-chave, são mapeados para as suas localizações no documento. Embora haja um único `Language`valor `Sentiment` para, é aplicado a `pages`cada elemento na matriz de . `Keyphrases`é uma matriz que também é `pages` aplicada a cada elemento da matriz.
 
-Depois de definir os cabeçalhos `api-key` e `Content-type` e confirmar que o corpo do pedido é semelhante ao seguinte código fonte, selecione **Enviar** no Carteiro. O carteiro envia um pedido de PUT para `https://{{search-service-name}}.search.windows.net/indexers/{{indexer-name}}?api-version={{api-version}}`. A Pesquisa Cognitiva Azure cria e executa o indexador. 
+Depois de `api-key` definir `Content-type` os cabeçalhos e os cabeçalhos e confirmar que o corpo do pedido é semelhante ao seguinte código fonte, selecione **Enviar** em Carteiro. O carteiro envia um `https://{{search-service-name}}.search.windows.net/indexers/{{indexer-name}}?api-version={{api-version}}`pedido de PUT para . A Pesquisa Cognitiva Azure cria e executa o indexador. 
 
 ```json
 {
@@ -353,7 +353,7 @@ Agora que enriqueceu os seus dados utilizando serviços cognitivos e projetou os
 Para aprender a explorar esta loja de conhecimento usando o Storage Explorer, veja este walkthrough:
 
 > [!div class="nextstepaction"]
-> [Vista com Explorador de Armazenamento](knowledge-store-view-storage-explorer.md)
+> [Ver com o Explorador de Armazenamento](knowledge-store-view-storage-explorer.md)
 
 Para aprender a ligar esta loja de conhecimento ao Power BI, veja esta passagem:
 
