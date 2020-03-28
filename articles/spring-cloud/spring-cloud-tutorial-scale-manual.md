@@ -1,67 +1,67 @@
 ---
-title: 'Tutorial: dimensionar um aplicativo no Azure Spring Cloud | Microsoft Docs'
-description: Neste tutorial, você aprenderá a dimensionar um aplicativo com o Azure Spring Cloud no portal do Azure
+title: 'Tutorial: Escala uma aplicação na Nuvem de primavera Azul [ Microsoft Docs'
+description: Neste tutorial, você aprende a escalar uma aplicação com Azure Spring Cloud no portal Azure
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
 ms.openlocfilehash: f08a3b5d0a03b0e898457bbb783dd5031c4b0f27
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76277481"
 ---
-# <a name="scale-an-application-in-azure-spring-cloud"></a>Dimensionar um aplicativo no Azure Spring Cloud
+# <a name="scale-an-application-in-azure-spring-cloud"></a>Escala uma aplicação em Azure Spring Cloud
 
-Este tutorial demonstra como dimensionar qualquer aplicativo de microserviço usando o painel do Azure Spring Cloud no portal do Azure.
+Este tutorial demonstra como escalar qualquer aplicação de microserviço utilizando o painel azure Spring Cloud no portal Azure.
 
-Dimensione seu aplicativo para cima e para baixo modificando seu número de CPUs virtuais (vCPUs) e quantidade de memória. Dimensione seu aplicativo para dentro e para fora modificando o número de instâncias do aplicativo.
+Escala a sua aplicação para cima e para baixo modificando o seu número de CPUs virtuais (vCPUs) e quantidade de memória. Escala a sua aplicação para dentro e para fora, modificando o número de instâncias de aplicação.
 
-Depois de concluir, você saberá como fazer alterações manuais rápidas em cada aplicativo em seu serviço. O dimensionamento entra em vigor em segundos e não requer nenhuma alteração de código ou reimplantação.
+Depois de terminar, saberá como fazer alterações manuais rápidas em cada aplicação no seu serviço. A escala faz efeito em segundos e não requer alterações de código ou redistribuição.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, precisa de:
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
-* Uma instância do serviço de nuvem do Azure Spring implantada.  Siga nosso [início rápido na implantação de um aplicativo por meio do CLI do Azure](spring-cloud-quickstart-launch-app-cli.md) para começar.
-* Pelo menos um aplicativo já criado em sua instância de serviço.
+* Uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+* Uma instância de serviço Azure Spring Cloud implantada.  Acompanhe o nosso arranque rápido na implementação de [uma aplicação através do Azure CLI](spring-cloud-quickstart-launch-app-cli.md) para começar.
+* Pelo menos uma aplicação já criada na sua instância de serviço.
 
-## <a name="navigate-to-the-scale-page-in-the-azure-portal"></a>Navegue até a página escala na portal do Azure
+## <a name="navigate-to-the-scale-page-in-the-azure-portal"></a>Navegue para a página Escala no portal Azure
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-1. Acesse sua página de **visão geral** do Azure Spring Cloud.
+1. Vá à sua página de **visão geral** da Nuvem de primavera Azure.
 
-1. Selecione o grupo de recursos que contém o serviço.
+1. Selecione o grupo de recursos que contém o seu serviço.
 
-1. Selecione a guia **aplicativos** em **configurações** no menu no lado esquerdo da página.
+1. Selecione o separador **Apps** em **Definições** no menu do lado esquerdo da página.
 
-1. Selecione o aplicativo que você deseja dimensionar. Neste exemplo, selecione o aplicativo chamado **Account-Service**. Em seguida, você verá a página **visão geral** do aplicativo.
+1. Selecione a aplicação que pretende escalar. Neste exemplo, selecione a aplicação denominada **serviço de conta**. Em seguida, deve ver a página **de visão geral** da aplicação.
 
-1. Vá para a guia **escala** em **configurações** no menu no lado esquerdo da página. Você deve ver as opções para o dimensionamento dos atributos mostrados na seção a seguir.
+1. Vá ao separador **Escala** em **Definições** no menu do lado esquerdo da página. Deve ver opções para a escala dos atributos mostrados na secção seguinte.
 
-## <a name="scale-your-application"></a>Dimensionar a sua aplicação
+## <a name="scale-your-application"></a>Escala a sua aplicação
 
-Se você modificar os atributos de dimensionamento, lembre-se das seguintes observações:
+Se modificar os atributos de escala, tenha em mente as seguintes notas:
 
-* **CPUs**: o número máximo de CPUs por instância de aplicativo é quatro. O número total de CPUs para um aplicativo é o valor definido aqui multiplicado pelo número de instâncias do aplicativo.
+* **CPUs**: O número máximo de CPUs por instância de candidatura é de quatro. O número total de CPUs para uma aplicação é o valor fixado aqui multiplicado pelo número de instâncias de aplicação.
 
-* **Memória/GB**: a quantidade máxima de memória por instância de aplicativo é de 8 GB. A quantidade total de memória para um aplicativo é o valor definido aqui multiplicado pelo número de instâncias do aplicativo.
+* **Memória/GB**: A quantidade máxima de memória por instância de aplicação é de 8 GB. A quantidade total de memória para uma aplicação é o valor fixado aqui multiplicado pelo número de instâncias de aplicação.
 
-* **Contagem de instâncias do aplicativo**: na camada Standard, você pode escalar horizontalmente para um máximo de 20 instâncias. Esse valor altera o número de instâncias em execução separadas do aplicativo de microserviço.
+* **Contagem de instâncias**de aplicações : No nível Standard, pode aumentar para um máximo de 20 instâncias. Este valor altera o número de instâncias de execução separadas da aplicação de microserviços.
 
-Certifique-se de selecionar **salvar** para aplicar as configurações de dimensionamento.
+Certifique-se de selecionar **Guardar** para aplicar as definições de escala.
 
-![O serviço de dimensionamento no portal do Azure](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
+![O serviço Scale no portal Azure](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
 
-Depois de alguns segundos, as alterações feitas são exibidas na página **visão geral** , com mais detalhes disponíveis na guia **instâncias do aplicativo** . o dimensionamento não exige nenhuma alteração de código ou reimplantação.
+Após alguns segundos, as alterações efetuadas são apresentadas na página **'Visão Geral',** com mais detalhes disponíveis no separador **de instâncias de Aplicação.**
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você aprendeu a dimensionar manualmente seus aplicativos de nuvem Spring do Azure. Para saber como monitorar seu aplicativo, prossiga para o próximo tutorial.
+Neste tutorial, aprendeu a escalar manualmente as suas aplicações Azure Spring Cloud. Para aprender a monitorizar a sua aplicação, continue para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Saiba como monitorar um aplicativo](spring-cloud-tutorial-distributed-tracing.md)
+> [Saiba como monitorizar uma aplicação](spring-cloud-tutorial-distributed-tracing.md)

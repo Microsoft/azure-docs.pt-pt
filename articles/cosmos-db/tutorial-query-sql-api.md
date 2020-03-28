@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: como consultar com o SQL no Azure Cosmos DB?'
-description: 'Tutorial: saiba como consultar com consultas SQL no Azure Cosmos DB usando o THW Query playground'
+title: 'Tutorial: Como consultar a SQL em Azure Cosmos DB?'
+description: 'Tutorial: Saiba consultar consultas com consultas SQL em Azure Cosmos DB usando o playground de consulta thw'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 7e83ed0f9e635ed24b7e6115eeaaa9057d422c69
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74870076"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutorial: consultar a Azure Cosmos DB utilizando a API do SQL

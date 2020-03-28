@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
 ms.openlocfilehash: 2b122a34cfd382a58f7680743d3a1cb1ae598fd1
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76939257"
 ---
 # <a name="tutorial-create-an-alias-record-to-refer-to-a-zone-resource-record"></a>Tutorial: Criar um registo de alias para fazer referência a um registo de recursos na zona
@@ -26,7 +26,7 @@ Neste tutorial, ficará a saber como:
 > * Testar o registo de alias.
 
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Deve ter um nome de domínio disponível que possa alojar no DNS do Azure para testar. Deve ter controlo total sobre este domínio. O controlo total inclui a capacidade de definir os registos do servidor de nomes (NS) do domínio.
@@ -57,8 +57,8 @@ Crie um registo de alias que esteja associado a um registo de recursos na zona.
 
 ## <a name="test-the-alias-record"></a>Testar o registo de alias
 
-1. Inicie a sua ferramenta nslookup favorita. Uma das opções consiste em navegar até [https://network-tools.com/nslook](https://network-tools.com/nslook).
-2. Defina o tipo de consulta para os registos A e procure **teste.\<o nome de domínio\>** . A resposta é **10.10.10.10**.
+1. Inicie a sua ferramenta nslookup favorita. Uma opção é [https://network-tools.com/nslook](https://network-tools.com/nslook)navegar para .
+2. Defina o tipo de consulta para os registos A e procure **teste.\<o nome de domínio\>**. A resposta é **10.10.10.10**.
 3. No portal do Azure, altere o registo A do **servidor** para **10.11.11.11**.
 4. Aguarde alguns minutos e, em seguida, utilize novamente nslookup para **testar** o registo. A resposta é **10.11.11.11**.
 

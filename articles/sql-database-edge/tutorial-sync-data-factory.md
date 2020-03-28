@@ -1,7 +1,7 @@
 ---
-title: Sincronizar dados do Azure SQL Database Edge usando o Azure Data Factory | Microsoft Docs
-description: Saiba mais sobre a sincronização de dados entre o Azure SQL Database Edge e o armazenamento de BLOBs do Azure
-keywords: borda do banco de dados SQL, sincronização de data do SQL Database Edge, banco de dados SQL data factory
+title: Sync dados da Azure SQL Database Edge utilizando a Azure Data Factory [ Microsoft Docs
+description: Saiba mais sobre sincronização de dados entre o Azure SQL Database Edge e o armazenamento de Blob Azure
+keywords: borda de base de dados sql,sync dados de borda de base de dados sql, base de dados de base de dados sql
 services: sql-database-edge
 ms.service: sql-database-edge
 ms.topic: tutorial
@@ -10,43 +10,43 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
 ms.openlocfilehash: e6fd9e6431137708ba93328a8ed1359b93b4ee1f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74851711"
 ---
-# <a name="tutorial-sync-data-from-sql-database-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Tutorial: sincronizar dados do SQL Database Edge para o armazenamento de BLOBs do Azure usando Azure Data Factory
+# <a name="tutorial-sync-data-from-sql-database-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Tutorial: Sincronizar dados da Base de Dados SQL Edge para o armazenamento de Blob Azure utilizando a Azure Data Factory
 
-Neste tutorial, você usará Azure Data Factory para sincronizar de forma incremental os dados para o armazenamento de BLOBs do Azure de uma tabela em uma instância do Edge do banco de dados SQL do Azure.
+Neste tutorial, utilizará a Azure Data Factory para sincronizar gradualmente os dados do armazenamento do Azure Blob a partir de uma tabela num caso de Borda de Base de Dados Azure SQL.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Se você ainda não criou um banco de dados ou uma tabela em sua implantação de borda do banco de dados SQL do Azure, use um destes métodos para criar um:
+Se ainda não criou uma base de dados ou uma tabela na sua implementação de Borda de Base de Dados Azure SQL, utilize um destes métodos para criar um:
 
-* Use [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/) ou [Azure Data Studio](/sql/azure-data-studio/download/) para se conectar à borda do banco de dados SQL. Execute um script SQL para criar o banco de dados e a tabela.
-* Crie um banco de dados SQL e uma tabela usando o [sqlcmd](/sql/tools/sqlcmd-utility/) conectando-se diretamente ao módulo de borda do banco de dados SQL. Para obter mais informações, consulte [conectar-se ao mecanismo de banco de dados usando sqlcmd](/sql/ssms/scripting/sqlcmd-connect-to-the-database-engine/).
-* Use SqlPackage. exe para implantar um arquivo de pacote de DAC no contêiner de borda do banco de dados SQL. Você pode automatizar esse processo especificando o URI do arquivo SqlPackage como parte da configuração de propriedades desejadas do módulo. Você também pode usar diretamente a ferramenta de cliente SqlPackage. exe para implantar um pacote de DAC na borda do banco de dados SQL.
+* Utilize o [Estúdio de Gestão de Servidores SQL](/sql/ssms/download-sql-server-management-studio-ssms/) ou [o Azure Data Studio](/sql/azure-data-studio/download/) para se ligar ao SQL Database Edge. Executar um script SQL para criar a base de dados e a tabela.
+* Crie uma base de dados e uma tabela SQL utilizando [o SQLCMD](/sql/tools/sqlcmd-utility/) ligando-se diretamente ao módulo SQL Database Edge. Para mais informações, consulte [A Ligação ao Motor de Base de Dados utilizando sqlcmd](/sql/ssms/scripting/sqlcmd-connect-to-the-database-engine/).
+* Utilize o SQLPackage.exe para implantar um ficheiro de pacote SQC no recipiente SQL Database Edge. Pode automatizar este processo especificando o ficheiro SqlPackage URI como parte da configuração de propriedades desejadas do módulo. Também pode utilizar diretamente a ferramenta cliente SqlPackage.exe para implementar um pacote DAC para o SQL Database Edge.
 
-    Para obter informações sobre como baixar o SqlPackage. exe, consulte [baixar e instalar o SqlPackage](/sql/tools/sqlpackage-download/). A seguir estão alguns comandos de exemplo para SqlPackage. exe. Para obter mais informações, consulte a documentação do SqlPackage. exe.
+    Para obter informações sobre como baixar SqlPackage.exe, consulte [Download e instale sqlpackage](/sql/tools/sqlpackage-download/). Seguem-se alguns comandos de amostra para SqlPackage.exe. Para mais informações, consulte a documentação SqlPackage.exe.
 
-    **Criar um pacote de DAC**
+    **Criar um pacote DAC**
 
     ```cmd
     sqlpackage /Action:Extract /SourceConnectionString:"Data Source=<Server_Name>,<port>;Initial Catalog=<DB_name>;User ID=<user>;Password=<password>" /TargetFile:<dacpac_file_name>
     ```
 
-    **Aplicar um pacote de DAC**
+    **Aplicar um pacote DAC**
 
     ```cmd
     sqlpackage /Action:Publish /Sourcefile:<dacpac_file_name> /TargetServerName:<Server_Name>,<port> /TargetDatabaseName:<DB_Name> /TargetUser:<user> /TargetPassword:<password>
     ```
 
-## <a name="create-a-sql-table-and-procedure-to-store-and-update-the-watermark-levels"></a>Criar uma tabela SQL e um procedimento para armazenar e atualizar os níveis de marca d' água
+## <a name="create-a-sql-table-and-procedure-to-store-and-update-the-watermark-levels"></a>Crie uma tabela E procedimento SQL para armazenar e atualizar os níveis de marca de água
 
-Uma tabela de marca d' água é usada para armazenar o último carimbo de data/hora até o qual os dados já foram sincronizados com o armazenamento do Azure. Um procedimento armazenado Transact-SQL (T-SQL) é usado para atualizar a tabela de marca d' água após cada sincronização.
+Um quadro de marca de água é usado para armazenar a última marca de tempo até que os dados já foram sincronizados com o Armazenamento Azure. Um procedimento armazenado Transact-SQL (T-SQL) é utilizado para atualizar a tabela de marca de água após cada sincronização.
 
-Execute estes comandos na instância de borda do banco de dados SQL:
+Executar estes comandos na instância SQL Database Edge:
 
 ```sql
     Create table [dbo].[watermarktable]
@@ -65,43 +65,43 @@ Execute estes comandos na instância de borda do banco de dados SQL:
     Go
 ```
 
-## <a name="create-a-data-factory-pipeline"></a>Criar um pipeline de Data Factory
+## <a name="create-a-data-factory-pipeline"></a>Criar um oleoduto data factory
 
-Nesta seção, você criará um pipeline de Azure Data Factory para sincronizar dados com o armazenamento de BLOBs do Azure de uma tabela na borda do banco de dados SQL do Azure.
+Nesta secção, irá criar um pipeline Azure Data Factory para sincronizar dados ao armazenamento da Azure Blob a partir de uma tabela em Azure SQL Database Edge.
 
-### <a name="create-a-data-factory-by-using-the-data-factory-ui"></a>Criar um data factory usando a interface do usuário do Data Factory
+### <a name="create-a-data-factory-by-using-the-data-factory-ui"></a>Criar uma fábrica de dados utilizando a UI da Fábrica de Dados
 
-Crie um data factory seguindo as instruções neste [tutorial](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory).
+Crie uma fábrica de dados seguindo as instruções [deste tutorial.](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory)
 
-### <a name="create-a-data-factory-pipeline"></a>Criar um pipeline de Data Factory
+### <a name="create-a-data-factory-pipeline"></a>Criar um oleoduto data factory
 
-1. Na página **de introdução da** interface do usuário do data Factory, selecione **criar pipeline**.
+1. Na página **Let's start** da Data Factory UI, selecione **Create pipeline**.
 
-    ![Criar um pipeline de Data Factory](media/tutorial-sync-data-factory/data-factory-get-started.png)
+    ![Criar um oleoduto data factory](media/tutorial-sync-data-factory/data-factory-get-started.png)
 
-2. Na página **geral** da janela **Propriedades** do pipeline, digite **PeriodicSync** para o nome.
+2. Na página **Geral** da janela **Propriedades** para o gasoduto, introduza **periodicSync** para o nome.
 
-3. Adicione a atividade de pesquisa para obter o valor antigo da marca d' água. No painel **atividades** , expanda **geral** e arraste a atividade de **pesquisa** para a superfície do designer de pipeline. Altere o nome da atividade para **OldWatermark**.
+3. Adicione a atividade de lookup para obter o valor de marca de água antiga. No painel **de Atividades,** expanda o **General** e arraste a atividade **de Lookup** para a superfície do designer de gasodutos. Mude o nome da atividade para **OldWatermark**.
 
-    ![Adicionar a pesquisa de marca d' água antiga](media/tutorial-sync-data-factory/create-old-watermark-lookup.png)
+    ![Adicione o velho lookup watermark](media/tutorial-sync-data-factory/create-old-watermark-lookup.png)
 
-4. Alterne para a guia **configurações** e selecione **novo** para o **conjunto de fonte de origem**. Agora, você criará um conjunto de dados para representar a tabela de marcas d' água. Esta tabela contém o limite de tamanho antigo que foi utilizado na operação de cópia anterior.
+4. Mude para o separador **Definições** e selecione **New** for **Source Dataset**. Agora vai criar um conjunto de dados para representar dados na tabela de marca de água. Esta tabela contém o limite de tamanho antigo que foi utilizado na operação de cópia anterior.
 
-5. Na janela **novo conjunto de novos DataSet** , selecione **Azure SQL Server**e, em seguida, selecione **continuar**.  
+5. Na janela **New Dataset,** selecione **Azure SQL Server**, e, em seguida, selecione **Continuar**.  
 
-6. Na janela **definir propriedades** do conjunto de um, em **nome**, insira **WatermarkDataset**.
+6. Na janela de **propriedades definidas** para o conjunto de dados, em **nome,** introduza **WatermarkDataset**.
 
-7. Para **serviço vinculado**, selecione **novo**e conclua estas etapas:
+7. Para **o Linked Service,** selecione **New**, e, em seguida, complete estes passos:
 
-    1. Em **nome**, insira **SQLDBEdgeLinkedService**.
+    1. Sob **nome,** introduza **SQLDBEdgeLinkedService**.
 
-    2. Em **nome do servidor**, insira os detalhes do servidor de borda do banco de dados SQL.
+    2. Sob **o nome do Servidor,** introduza os detalhes do servidor SQL Database Edge.
 
-    3. Selecione o **nome do banco de dados** na lista.
+    3. Selecione o nome base de **dados** da lista.
 
-    4. Insira seu **nome de usuário** e **senha**.
+    4. Introduza o **seu nome de utilizador** e **palavra-passe.**
 
-    5. Para testar a conexão com a instância de borda do banco de dados SQL, selecione **testar conexão**.
+    5. Para testar a ligação à instância SQL Database Edge, selecione a **ligação**de teste .
 
     6. Selecione **Criar**.
 
@@ -109,115 +109,115 @@ Crie um data factory seguindo as instruções neste [tutorial](../data-factory/q
 
     7. Selecione **OK**.
 
-8. Na guia **configurações** , selecione **Editar**.
+8. No separador **Definições,** **selecione Editar**.
 
-9. Na guia **conexão** , selecione **[dbo]. [ watermarktable]** para **tabela**. Se você quiser Visualizar dados na tabela, selecione **Visualizar dados**.
+9. No separador **Ligação,** **selecione [dbo].[ watermarktable]** para **Tabela**. Se pretender visualizar os dados na tabela, selecione **dados de Pré-visualização**.
 
-10. Alterne para o editor de pipeline selecionando a guia pipeline na parte superior ou selecionando o nome do pipeline no modo de exibição de árvore à esquerda. Na janela Propriedades da atividade de pesquisa, confirme se **WatermarkDataset** está selecionado na lista **conjunto de fontes de origem** .
+10. Mude para o editor do gasoduto selecionando o separador de gasoduto na parte superior ou selecionando o nome do gasoduto na vista da árvore à esquerda. Na janela de propriedades para a atividade de Lookup, confirme que **watermarkDataset** é selecionado na lista de **dados Source.**
 
-11. No painel **atividades** , expanda **geral** e arraste outra atividade de **pesquisa** para a superfície do designer de pipeline. Defina o nome como **NewWatermark** na guia **geral** da janela Propriedades. Essa atividade de pesquisa Obtém o novo valor de marca d' água da tabela que contém os dados de origem para que ele possa ser copiado para o destino.
+11. No painel **de Atividades,** expanda **o General** e arraste outra atividade de **Lookup** para a superfície do designer de gasodutos. Desloque o nome para **NewWatermark** no separador **geral** da janela de propriedades. Esta atividade de procuração obtém o novo valor da marca de água da tabela que contém os dados de origem para que possa ser copiado para o destino.
 
-12. Na janela Propriedades da segunda atividade de pesquisa, alterne para a guia **configurações** e selecione **novo** para criar um conjunto de um para apontar para a tabela de origem que contém o novo valor de marca d' água.
+12. Na janela de propriedades para a segunda atividade de Lookup, mude para o separador **Definições** e selecione **Novo** para criar um conjunto de dados para apontar para a tabela de origem que contém o novo valor da marca de água.
 
-13. Na janela **novo conjunto** de dados, selecione **instância de borda do banco de dados SQL**e, em seguida, selecione **continuar**.
+13. Na janela **New Dataset,** selecione **a instância SQL Database Edge**, e, em seguida, selecione **Continuar**.
 
-    1. Na janela **definir propriedades** , em **nome**, insira **SourceDataset**. Em **serviço vinculado**, selecione **SQLDBEdgeLinkedService**.
+    1. Na janela **'Propriedades definidas',** em **nome**, introduza **SourceDataset**. No **serviço Linked,** selecione **SQLDBEdgeLinkedService**.
 
-    2. Em **tabela**, selecione a tabela que você deseja sincronizar. Você também pode especificar uma consulta para esse conjunto de um, conforme descrito posteriormente neste tutorial. A consulta tem precedência sobre a tabela que você especificar nesta etapa.
+    2. Em **Tabela**, selecione a tabela que pretende sincronizar. Também pode especificar uma consulta para este conjunto de dados, como descrito mais tarde neste tutorial. A consulta tem precedência sobre a tabela que especifica neste passo.
 
     3. Selecione **OK**.
 
-14. Alterne para o editor de pipeline selecionando a guia pipeline na parte superior ou selecionando o nome do pipeline no modo de exibição de árvore à esquerda. Na janela Propriedades da atividade de pesquisa, confirme se **SourceDataset** está selecionado na lista **conjunto de fontes de origem** .
+14. Mude para o editor do gasoduto selecionando o separador de gasoduto na parte superior ou selecionando o nome do gasoduto na vista da árvore à esquerda. Na janela de propriedades para a atividade de Lookup, confirme que **o SourceDataset** é selecionado na lista de **dados Source.**
 
-15. Selecione **consulta** em **usar consulta**. Atualize o nome da tabela na consulta a seguir e, em seguida, insira a consulta. Você está selecionando apenas o valor máximo de `timestamp` da tabela. Certifique-se de selecionar a **primeira linha apenas**.
+15. **Selecione Consulta** sob **consulta de utilização**. Atualize o nome da tabela na seguinte consulta e, em seguida, introduza a consulta. Está selendo apenas o `timestamp` valor máximo da tabela. Certifique-se de selecionar **apenas**a primeira linha .
 
     ```sql
     select MAX(timestamp) as NewWatermarkvalue from [TableName]
     ```
 
-    ![Selecionar consulta](media/tutorial-sync-data-factory/select-query-data-factory.png)
+    ![selecionar consulta](media/tutorial-sync-data-factory/select-query-data-factory.png)
 
-16. No painel **atividades** , expanda **mover & transformar** e arraste a atividade de **cópia** do painel **atividades** para a superfície do designer. Defina o nome da atividade como **IncrementalCopy**.
+16. No painel **de Atividades,** expanda **o Move & Transform** e arraste a atividade **copy** do painel **de Atividades** para a superfície do designer. Delineie o nome da atividade para **IncrementalCopy**.
 
-17. Conecte ambas as atividades de pesquisa à atividade de cópia arrastando o botão verde anexado às atividades de pesquisa para a atividade de cópia. Solte o botão do mouse quando você vir a cor da borda da atividade de cópia mudar para azul.
+17. Ligue ambas as atividades Lookup à atividade Copy ao arrastar o botão verde associado às atividades Lookup para a atividade Copy. Desbloqueie o botão do rato quando vir a cor da fronteira da atividade copy mudar para azul.
 
-18. Selecione a atividade de cópia e confirme que você vê as propriedades da atividade na janela **Propriedades** .
+18. Selecione a atividade Copy e confirme que vê as propriedades da atividade na janela **Propriedades**.
 
-19. Alterne para a guia **origem** na janela **Propriedades** e conclua estas etapas:
+19. Mude para o separador **Fonte** na janela **Propriedades** e complete estes passos:
 
-    1. Na caixa **conjunto de fonte de origem** , selecione **SourceDataset**.
+    1. Na caixa source **dataset,** selecione **SourceDataset**.
 
-    2. Em **usar consulta**, selecione **consulta**.
+    2. Sob **consulta de utilização,** selecione **Consulta**.
 
-    3. Insira a consulta SQL na caixa **consulta** . Veja um exemplo de consulta:
+    3. Introduza a consulta SQL na caixa **de consulta.** Aqui está uma consulta de amostra:
 
     ```sql
     select * from TemperatureSensor where timestamp > '@{activity('OldWaterMark').output.firstRow.WatermarkValue}' and timestamp <= '@{activity('NewWaterMark').output.firstRow.NewWatermarkvalue}'
     ```
 
-20. Na guia **coletor** , selecione **novo** em **conjunto de banco de coleta**.
+20. No **separador Sink,** selecione **New** under **Sink Dataset**.
 
-21. Neste tutorial, o armazenamento de dados do coletor é um armazenamento de dados do Azure Blob Storage. Selecione **armazenamento de BLOBs do Azure**e, em seguida, selecione **continuar** na janela **novo conjunto de novas** .
+21. Neste tutorial, a loja de dados do lavatório é uma loja de dados de armazenamento Azure Blob. Selecione **o armazenamento Azure Blob**e, em seguida, selecione **Continue** na nova janela **Dataset.**
 
-22. Na janela **selecionar formato** , selecione o formato dos dados e, em seguida, selecione **continuar**.
+22. Na janela **Select Format,** selecione o formato dos seus dados e, em seguida, selecione **Continuar**.
 
-23. Na janela **definir propriedades** , em **nome**, insira **SinkDataset**. Em **serviço vinculado**, selecione **novo**. Agora você criará uma conexão (um serviço vinculado) para o armazenamento de BLOBs do Azure.
+23. Na janela **set Properties,** sob **nome,** **introduza SinkDataset**. No **serviço Linked,** selecione **New**. Agora vai criar uma ligação (um serviço ligado) ao seu armazenamento Azure Blob.
 
-24. Na janela **novo serviço vinculado (armazenamento de BLOBs do Azure)** , conclua estas etapas:
+24. Na janela **New Linked Service (armazenamento Azure Blob),** complete estes passos:
 
-    1. Na caixa **nome** , digite **AzureStorageLinkedService**.
+    1. Na caixa **Nome,** **introduza o AzureStorageLinkedService**.
 
-    2. Em **nome da conta de armazenamento**, selecione a conta de armazenamento do Azure para sua assinatura do Azure.
+    2. Sob **o nome da conta de armazenamento,** selecione a conta de armazenamento Azure para a sua subscrição Azure.
 
-    3. Teste a conexão e selecione **concluir**.
+    3. Teste a ligação e, em seguida, selecione **Terminar**.
 
-25. Na janela **definir propriedades** , confirme se **AzureStorageLinkedService** está selecionado em **serviço vinculado**. Selecione **criar** e **OK**.
+25. Na janela **set Properties,** confirme que **o AzureStorageLinkedService** é selecionado sob **o serviço Linked**. Selecione **Criar** e **OK**.
 
-26. Na guia **coletor** , selecione **Editar**.
+26. No **separador Sink,** selecione **Editar**.
 
-27. Vá para a guia **conexão** do SinkDataset e conclua estas etapas:
+27. Vá ao separador **de ligação** do SinkDataset e complete estes passos:
 
-    1. Em **caminho do arquivo**, insira *asdedatasync/incrementalcopy*, em que *asdedatasync* é o nome do contêiner de BLOB e *incrementalcopy* é o nome da pasta. Crie o contêiner se ele não existir, ou use o nome de um existente. Azure Data Factory criará automaticamente a pasta de saída *incrementalcopy* se ela não existir. Também pode utilizar o botão **Procurar** do **Caminho do ficheiro** para navegar para uma pasta num contentor de blobs.
+    1. No **caminho do Ficheiro,** introduza *asdedatasync/incrementalcopy,* onde *asdedatasync* é o nome do recipiente blob e *incrementalcopy* é o nome da pasta. Crie o recipiente se não existir, ou use o nome de um existente. A Azure Data Factory cria automaticamente a *incrementalcopy* da pasta de saída se não existir. Também pode utilizar o botão **Procurar** do **Caminho do ficheiro** para navegar para uma pasta num contentor de blobs.
 
-    2. Para a parte do **arquivo** do **caminho do arquivo**, selecione **adicionar conteúdo dinâmico [Alt + P]** e, em seguida, insira **@CONCAT(' incremental-', pipeline (). RunId, '. txt ')** na janela que é aberta. Selecione **Concluir**. O nome do arquivo é gerado dinamicamente pela expressão. Cada execução de pipeline tem um ID exclusivo. A atividade Copy utiliza o ID de execução para gerar o nome do ficheiro.
+    2. Para a parte **do Ficheiro** do caminho do **Ficheiro,** selecione **Adicionar conteúdo dinâmico [Alt+P]** e, em seguida, introduzir ** @CONCAT('Incremental-', pipeline(). RunId, '.txt')** na janela que se abre. Selecione **Concluir**. O nome do ficheiro é gerado dinamicamente pela expressão. Cada execução de pipeline tem um ID exclusivo. A atividade Copy utiliza o ID de execução para gerar o nome do ficheiro.
 
-28. Alterne para o editor de pipeline selecionando a guia pipeline na parte superior ou selecionando o nome do pipeline no modo de exibição de árvore à esquerda.
+28. Mude para o editor do gasoduto selecionando o separador de gasoduto na parte superior ou selecionando o nome do gasoduto na vista da árvore à esquerda.
 
-29. No painel **atividades** , expanda **geral** e arraste a atividade **procedimento armazenado** do painel **atividades** para a superfície do designer de pipeline. Conecte a saída verde (com êxito) da atividade de cópia à atividade de procedimento armazenado.
+29. No painel **de Atividades,** expandir a **Atividade Geral** e arrastar a atividade do **Procedimento Armazenado** do painel **de Atividades** para a superfície do pipeline designer. Ligue a saída verde (sucesso) da atividade Copy à atividade do Procedimento Armazenado.
 
-30. Selecione **atividade de procedimento armazenado** no designer de pipeline e altere seu nome para **SPtoUpdateWatermarkActivity**.
+30. Selecione **Atividade de Procedimento Armazenada** no designer de gasodutos e mude o seu nome para **SPtoUpdateWatermarkActivity**.
 
-31. Alterne para a guia **conta SQL** e selecione ***QLDBEdgeLinkedService** em **serviço vinculado**.
+31. Mude para o separador **Conta SQL** e selecione ***QLDBEdgeLinkedService** sob **o serviço Linked**.
 
-32. Alterne para a guia **procedimento armazenado** e conclua estas etapas:
+32. Mude para o separador **Procedimento Armazenado** e complete estes passos:
 
-    1. Em **nome do procedimento armazenado**, selecione **[dbo]. [ usp_write_watermark]** .
+    1. Sob **o nome do procedimento armazenado,** selecione **[dbo].[ usp_write_watermark]**.
 
-    2. Para especificar valores para os parâmetros de procedimento armazenado, selecione **importar parâmetro** e insira esses valores para os parâmetros:
+    2. Para especificar os valores dos parâmetros do procedimento armazenado, selecione parâmetro de **importação** e introduza estes valores para os parâmetros:
 
     |Nome|Tipo|Valor|
     |-----|----|-----|
-    |LastModifiedtime|DateTime|@ {atividade (' NewWaterMark '). Output. firstRow. NewWatermarkvalue}|
-    |TableName|String|@ {atividade (' OldWaterMark '). Output. firstRow. TableName}|
+    |LastModifiedtime|DateTime|@{activity('NewWaterMark').output.firstRow.NewWatermarkvalue}|
+    |TableName|Cadeia|@{activity('OldWaterMark').output.firstRow.TableName}|
 
-33. Para validar as configurações de pipeline, selecione **validar** na barra de ferramentas. Confirme que não há erros de validação. Para fechar a janela **relatório de validação de pipeline** , selecione **>>** .
+33. Para validar as definições do gasoduto, selecione **Validar** na barra de ferramentas. Confirme que não há erros de validação. Para fechar a janela do **>>** Relatório de Validação do **Gasoduto,** selecione .
 
-34. Publique as entidades (serviços vinculados, conjuntos de valores e pipelines) no serviço Azure Data Factory selecionando o botão **publicar tudo** . Aguarde até que você veja uma mensagem confirmando que a operação de publicação foi bem-sucedida.
+34. Publique as entidades (serviços ligados, conjuntos de dados e oleodutos) ao serviço Azure Data Factory selecionando o botão **Publicar Todos.** Espere até ver uma mensagem confirmando que a operação de publicação foi bem sucedida.
 
-## <a name="trigger-a-pipeline-based-on-a-schedule"></a>Disparar um pipeline com base em uma agenda
+## <a name="trigger-a-pipeline-based-on-a-schedule"></a>Desencadear um oleoduto com base num horário
 
-1. Na barra de ferramentas do pipeline, selecione **Adicionar gatilho**, selecione **novo/editar**e, em seguida, selecione **novo**.
+1. Na barra de ferramentas do gasoduto, selecione **Adicionar Gatilho,** selecione **New/Edit**, e, em seguida, selecione **New**.
 
-2. Nomeie o gatilho **HourlySync**. Em **tipo**, selecione **agenda**. Defina a **recorrência** para a cada 1 hora.
+2. Nomeie o gatilho **HoramenteSync**. Em **Tipo,** selecione **Agenda**. Desloque a **Recorrência** a cada 1 hora.
 
 3. Selecione **OK**.
 
 4. Selecione **Publicar Tudo**.
 
-5. Selecione **disparar agora**.
+5. Selecione **Gatilho agora**.
 
 6. Mude para o separador **Monitorizar**, no lado esquerdo. Pode ver o estado da execução do pipeline acionada pelo acionador manual. Selecione **Atualizar** para atualizar a lista.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O pipeline de Azure Data Factory neste tutorial copia dados de uma tabela em uma instância de borda do banco do dados SQL para um local no armazenamento de BLOBs do Azure uma vez a cada hora. Para saber mais sobre como usar Data Factory em outros cenários, consulte estes [tutoriais](../data-factory/tutorial-copy-data-portal.md).
+O oleoduto Azure Data Factory neste tutorial copia dados de uma tabela sobre uma instância de SQL Database Edge para uma localização no armazenamento Azure Blob uma vez por hora. Para aprender sobre a utilização da Fábrica de Dados noutros cenários, consulte estes [tutoriais.](../data-factory/tutorial-copy-data-portal.md)

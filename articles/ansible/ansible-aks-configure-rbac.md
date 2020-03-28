@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, ak
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 5fac42383ee56318cc4b8f39323c02d05853dbb6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76836971"
 ---
 # <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>Tutorial: Configure funções de controlo de acesso baseado em funções (RBAC) no Serviço Azure Kubernetes (AKS) utilizando ansible
@@ -31,7 +31,7 @@ O AKS pode ser configurado para utilizar o [Diretório Ativo Azure (AD)](/azure/
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
-- **Instale a biblioteca OpenShift RedHat** - `pip install openshift`
+- **Instale a biblioteca RedHat OpenShift** - `pip install openshift`
 
 ## <a name="configure-azure-ad-for-aks-authentication"></a>Configure Azure AD para autenticação AKS
 
@@ -52,8 +52,8 @@ Nesta secção, cria-se uma AKS com a [aplicação Azure AD](#configure-azure-ad
 
 Aqui estão algumas notas-chave a considerar ao trabalhar com o livro de jogadas da amostra:
 
-- O livro de jogadas carrega `ssh_key` de `~/.ssh/id_rsa.pub`. Se o modificar, utilize o formato de linha única - começando com "ssh-rsa" (sem as cotações).
-- Os valores `client_id` e `client_secret` são carregados a partir de `~/.azure/credentials`, que é o ficheiro credencial predefinido. Pode definir estes valores para o seu principal de serviço ou carregar estes valores a partir de variáveis ambientais:
+- O livro `ssh_key` `~/.ssh/id_rsa.pub`de jogadas carrega de. Se o modificar, utilize o formato de linha única - começando com "ssh-rsa" (sem as cotações).
+- Os `client_id` `client_secret` valores e `~/.azure/credentials`valores são carregados de , que é o ficheiro credencial padrão. Pode definir estes valores para o seu principal de serviço ou carregar estes valores a partir de variáveis ambientais:
 
     ```yml
     client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
@@ -121,7 +121,7 @@ Para criar uma ligação RBAC, primeiro precisa obter o ID de objeto AD Azure.
 
 1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. No campo de pesquisa no topo da página, introduza `Azure Active Directory`. 
+1. No campo de pesquisa no topo `Azure Active Directory`da página, introduza . 
 
 1. Clique em `Enter`.
 
@@ -156,9 +156,9 @@ subjects:
   name: <your-aad-account>
 ```
 
-Substitua o espaço reservado `<your-aad-account>` pelo seu Id de Objeto de [Objeto](#get-the-azure-ad-object-id)de Inquilino AD Azure .
+Substitua `<your-aad-account>` o espaço reservado pelo seu Id de Objeto de [Objeto](#get-the-azure-ad-object-id)de Inquilino AD Azure .
 
-Guarde o seguinte livro - que implementa o seu novo papel na AKS - como `aks-kube-deploy.yml`:
+Guarde o seguinte livro - que implementa `aks-kube-deploy.yml`o seu novo papel na AKS - como:
 
 ```yml
 - name: Apply role to AKS
@@ -198,20 +198,20 @@ Guarde o manual de procedimentos seguinte como `aks-rbac.yml`:
        include_tasks: aks-kube-deploy.yml
 ```
 
-Na secção `vars`, substitua os seguintes espaços reservados pela informação da AD Azure:
+Na `vars` secção, substitua os seguintes espaços reservados pela informação da AD Azure:
 
 - `<client id>`
 - `<server id>`
 - `<server secret>`
 - `<tenant id>`
 
-Executar o manual completo usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` completo usando o comando:
 
 ```bash
 ansible-playbook aks-rbac.yml
 ```
 
-## <a name="verify-the-results"></a>Verificar os resultados
+## <a name="verify-the-results"></a>Verifique os resultados
 
 Nesta secção, você usa a lista kubectl os nós criados neste artigo.
 
@@ -221,7 +221,7 @@ Introduza o seguinte comando num aviso terminal:
 kubectl --kubeconfig aks-aksansibletest-kubeconfig-user get nodes
 ```
 
-O comando irá direcioná-lo para uma página de autenticação. Entre com sua conta do Azure.
+O comando irá direcioná-lo para uma página de autenticação. Inscreva-se na sua conta Azure.
 
 Uma vez autenticado, kubectl lista os nós de forma semelhante aos seguintes resultados:
 
@@ -235,9 +235,9 @@ aks-nodepool1-33413200-2   Ready    agent   49m   v1.12.6
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, exclua os recursos criados neste artigo. 
+Quando já não for necessário, apague os recursos criados neste artigo. 
 
-Guarde o seguinte código `cleanup.yml`:
+Guarde o `cleanup.yml`seguinte código como:
 
 ```yml
 ---
@@ -257,7 +257,7 @@ Guarde o seguinte código `cleanup.yml`:
             path: "aks-{{ name }}-kubeconfig"
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook cleanup.yml

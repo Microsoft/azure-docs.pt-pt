@@ -5,10 +5,10 @@ keywords: ansível, azul, devops, bash, playbook, ônibus de serviço, fila
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 8ba4c2296d903c4f35aa36eb92dfbc3b56ec4b18
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76713234"
 ---
 # <a name="tutorial-configure-queues-in-azure-service-bus-using-ansible"></a>Tutorial: Configure as filas no ônibus de serviço azure usando Ansible
@@ -68,7 +68,7 @@ Guarde o manual de procedimentos seguinte como `servicebus_queue.yml`:
           var: queue
 ```
 
-Executar o manual usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook servicebus_queue.yml
@@ -102,10 +102,10 @@ Guarde o manual de procedimentos seguinte como `servicebus_queue_policy.yml`:
           var: policy
 ```
 
-Antes de executar o guia estratégico, consulte as seguintes observações:
-- O valor `rights` representa o privilégio que um utilizador tem com a fila. Especifique um dos seguintes valores: `manage`, `listen`, `send`ou `listen_send`.
+Antes de executar o livro de jogadas, consulte as seguintes notas:
+- O `rights` valor representa o privilégio que um utilizador tem com a fila. Especifique um `manage`dos `listen` `send`seguintes `listen_send`valores: , , ou .
 
-Executar o manual usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook servicebus_queue_policy.yml
@@ -135,10 +135,10 @@ Guarde o manual de procedimentos seguinte como `servicebus_namespace_info.yml`:
           var: ns
 ```
 
-Antes de executar o guia estratégico, consulte as seguintes observações:
-- O valor `show_sas_policies` indica se deve mostrar as políticas SAS no âmbito do espaço de nome especificado. Por predefinição, o valor é `False` para evitar sobrecargas adicionais da rede.
+Antes de executar o livro de jogadas, consulte as seguintes notas:
+- O `show_sas_policies` valor indica se deve mostrar as políticas SAS no espaço de nome especificado. Por predefinição, `False` o valor é evitar despesas adicionais de rede.
 
-Executar o manual usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook servicebus_namespace_info.yml
@@ -170,10 +170,10 @@ Guarde o manual de procedimentos seguinte como `servicebus_queue_info.yml`:
           var: queue
 ```
 
-Antes de executar o guia estratégico, consulte as seguintes observações:
-- O valor `show_sas_policies` indica se deve mostrar as políticas sas sob a fila especificada. Por predefinição, este valor está definido para `False` para evitar sobrecargas adicionais da rede.
+Antes de executar o livro de jogadas, consulte as seguintes notas:
+- O `show_sas_policies` valor indica se deve mostrar as políticas SAS sob a fila especificada. Por predefinição, este `False` valor está definido para evitar sobrecargas adicionais da rede.
 
-Executar o manual usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook servicebus_queue_info.yml
@@ -202,7 +202,7 @@ Guarde o manual de procedimentos seguinte como `servicebus_queue_policy_delete.y
           state: absent
 ```
 
-Executar o manual usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook servicebus_queue_policy_delete.yml
@@ -210,9 +210,9 @@ ansible-playbook servicebus_queue_policy_delete.yml
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, exclua os recursos criados neste artigo. 
+Quando já não for necessário, apague os recursos criados neste artigo. 
 
-Guarde o seguinte código `cleanup.yml`:
+Guarde o `cleanup.yml`seguinte código como:
 
 ```yml
 ---
@@ -240,12 +240,12 @@ Guarde o seguinte código `cleanup.yml`:
           force_delete_nonempty: yes
 ```
 
-Executar o manual usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook cleanup.yml
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"] 
 > [Tutorial: Configure um tópico no Ônibus de Serviço Azure usando Ansible](ansible-service-bus-topic-configure.md)

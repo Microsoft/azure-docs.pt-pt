@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Dados indexados das bases de dados Azure SQL emC# '
+title: 'Tutorial: Dados indexados das bases de dados Azure SQL em C # '
 titleSuffix: Azure Cognitive Search
-description: Neste C# tutorial, ligue-se à base de dados Azure SQL, extrai dados pesquisáveis e carregue-os num índice de Pesquisa Cognitiva Azure.
+description: Neste tutorial C#, ligue-se à base de dados Azure SQL, extrai dados pesquisáveis e carregue-os num índice de Pesquisa Cognitiva Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.openlocfilehash: 7660c89032ea3ef8371655b94b75c1f60603ee32
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78193973"
 ---
-# <a name="tutorial-use-c-to-index-data-from-sql-databases-in-azure-cognitive-search"></a>Tutorial: C# Utilização para indexar dados de bases de dados SQL em Pesquisa Cognitiva Azure
+# <a name="tutorial-use-c-to-index-data-from-sql-databases-in-azure-cognitive-search"></a>Tutorial: Use C# para indexar dados das bases de dados SQL em Pesquisa Cognitiva Azure
 
 Configure um [indexante](search-indexer-overview.md) para extrair dados pesquisáveis da base de dados Azure SQL, enviando-os para um índice de pesquisa em Pesquisa Cognitiva Azure. 
 
-Este tutorial C# utiliza e o [.NET SDK](https://aka.ms/search-sdk) para executar as seguintes tarefas:
+Este tutorial utiliza C# e o [.NET SDK](https://aka.ms/search-sdk) para executar as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Criar uma fonte de dados que se conecta à Base de Dados Azure SQL
@@ -27,7 +27,7 @@ Este tutorial C# utiliza e o [.NET SDK](https://aka.ms/search-sdk) para executar
 > * Executar um indexante para carregar dados em um índice
 > * Consulta de um índice como passo de verificação
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,7 +56,7 @@ Se você tem um recurso de base de dados Azure SQL existente, você pode adicion
 
 1. Encontre ou crie uma Base de **Dados SQL**. Pode utilizar as predefinições e o nível mais baixo do escalão de preço. Uma vantagem da criação de um servidor é que pode especificar um nome de utilizador e uma palavra-passe de administrador, que são necessários para criar e carregar tabelas num passo posterior.
 
-   ![Nova página de base de dados](./media/search-indexer-tutorial/indexer-new-sqldb.png "Página Nova base de dados")
+   ![Página Nova base de dados](./media/search-indexer-tutorial/indexer-new-sqldb.png "Página Nova base de dados")
 
 1. Clique em **Rever + criar** para implementar o novo servidor e base de dados. Aguarde que o servidor e a base de dados sejam implementados.
 
@@ -68,7 +68,7 @@ Se você tem um recurso de base de dados Azure SQL existente, você pode adicion
 
 1. Selecione o ficheiro e clique em **Abrir**. O script deverá ser parecido com o da captura de ecrã seguinte:
 
-   ![Script SQL](./media/search-indexer-tutorial/sql-script.png "Script de SQL")
+   ![Script de SQL](./media/search-indexer-tutorial/sql-script.png "Script de SQL")
 
 1. Clique em **Executar** para executar a consulta. No painel Resultados, deverá ver uma mensagem de consulta bem-sucedida para três linhas.
 
@@ -78,7 +78,7 @@ Se você tem um recurso de base de dados Azure SQL existente, você pode adicion
     SELECT * FROM Hotels
     ```
 
-1. Copie a cadeia de ligação ADO.NET para a base de dados. Em **Definições** > **Cordas de Ligação,** copie a cadeia de ligação ADO.NET, semelhante ao exemplo abaixo.
+1. Copie a cadeia de ligação ADO.NET para a base de dados. Em **Configurações,** > **Connection Strings**copie a cadeia de ligação ADO.NET, semelhante ao exemplo abaixo.
 
     ```sql
     Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
@@ -96,7 +96,7 @@ As chamadas API requerem o URL de serviço e uma chave de acesso. Um serviço de
 
 1. [Inscreva-se no portal Azure](https://portal.azure.com/), e na página de **visão geral** do seu serviço de pesquisa, obtenha o URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
-1. Em **Definições** > **Teclas,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio no caso de precisar de rolar uma. Pode utilizar a chave primária ou secundária nos pedidos de adição, modificação e aparas de objetos.
+1. Em **Definições** > **Keys,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio no caso de precisar de rolar uma. Pode utilizar a chave primária ou secundária nos pedidos de adição, modificação e aparas de objetos.
 
    ![Obtenha um ponto final http e chave de acesso](media/search-get-started-postman/get-url-key.png "Obtenha um ponto final http e chave de acesso")
 
@@ -106,9 +106,9 @@ As chamadas API requerem o URL de serviço e uma chave de acesso. Um serviço de
 
 1. No Solution Explorer, abra **as definições.json** para fornecer informações de ligação.
 
-1. Para `searchServiceName`, se o URL completo for "https://my-demo-service.search.windows.net", o nome de serviço a fornecer é "my-demo-service".
+1. Pois, `searchServiceName`se o URLhttps://my-demo-service.search.windows.netcompleto for " ", o nome de serviço a fornecer é "my-demo-service".
 
-1. Para `AzureSqlConnectionString`, o formato de cordas é semelhante ao seguinte: `"Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"`
+1. Para, `AzureSqlConnectionString`o formato de cordas é semelhante a este:`"Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"`
 
     ```json
     {
@@ -244,7 +244,7 @@ Também pode usar o portal para eliminar índices, indexadores e fontes de dados
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando se trabalha na sua própria subscrição, no final de um projeto, é uma boa ideia remover os recursos de que já não precisa. Os recursos deixados a funcionar podem custar-lhe dinheiro. Pode eliminar os recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
+Quando se trabalha na sua própria subscrição, no final de um projeto, é uma boa ideia remover os recursos de que já não precisa. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
 Pode encontrar e gerir recursos no portal, utilizando a ligação De Todos os recursos ou grupos de Recursos no painel de navegação à esquerda.
 

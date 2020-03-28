@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 05/21/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 8f31ace0045dad2f038a1eded52a41ffb1932f99
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76770492"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Tutorial: Consultar o Azure Cosmos DB através da API de Tabela
@@ -26,7 +26,7 @@ Este artigo abrange as seguintes tarefas:
 
 As consultas neste artigo utilizam a tabela `People` de exemplo seguinte:
 
-| PartitionKey | RowKey | E-mail | PhoneNumber |
+| PartitionKey | RowKey | Email | PhoneNumber |
 | --- | --- | --- | --- |
 | Harp | Walter | Walter@contoso.com| 425-555-0101 |
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
@@ -50,7 +50,7 @@ https://<mytableendpoint>/People(PartitionKey='Harp',RowKey='Walter')
 ```
 **Resultados**
 
-| PartitionKey | RowKey | E-mail | PhoneNumber |
+| PartitionKey | RowKey | Email | PhoneNumber |
 | --- | --- | --- | --- |
 | Harp | Walter | Walter@contoso.com| 425-555-0104 |
 
@@ -76,7 +76,7 @@ Para obter mais informações sobre como criar expressões de filtro para vário
 
 **Resultados**
 
-| PartitionKey | RowKey | E-mail | PhoneNumber |
+| PartitionKey | RowKey | Email | PhoneNumber |
 | --- | --- | --- | --- |
 | Smith |Ben | Ben@contoso.com| 425-555-0102 |
 
