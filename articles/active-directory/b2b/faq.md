@@ -5,23 +5,26 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 11/07/2019
+ms.date: 03/19/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d51359896b7a0d03626ead6843d3666f3ad3ef57
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 92c3e0d77a26db406e24d6d2fa07e96349613634
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368109"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050809"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>FaQs de colaboração azure Ative Directory B2B
 
 Estas perguntas frequentes (PERGUNTAS) sobre a colaboração azure Ative Directory (Azure AD) business-to-business (B2B) são periodicamente atualizadas para incluir novos tópicos.
+
+   > [!IMPORTANT]
+   > A partir de 31 de março de **2021,** a Microsoft deixará de apoiar o resgate de convites através da criação de contas AD Azure não geridas e inquilinos para cenários de colaboração B2B. Em preparação, encorajamos os clientes a optarem pela autenticação de código de acesso único por [e-mail.](one-time-passcode.md) Congratulamo-nos com o seu feedback sobre esta funcionalidade de pré-visualização pública e estamos entusiasmados por criar ainda mais formas de colaborar.
 
 ### <a name="can-we-customize-our-sign-in-page-so-its-more-intuitive-for-our-b2b-collaboration-guest-users"></a>Podemos personalizar a nossa página de sessão para que seja mais intuitivo para os nossos utilizadores convidados de colaboração B2B?
 Sem dúvida! Consulte a nossa publicação de [blog sobre esta funcionalidade.](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/) Para obter mais informações sobre como personalizar a página de acesso da sua organização, consulte adicionar marcas da [empresa para iniciar sessão e páginas do Painel](../fundamentals/customize-branding.md)de Acesso .
@@ -65,8 +68,8 @@ Sim! Pode criar uma política de Acesso Condicional que bloqueie todos os utiliz
 3. Under **Manage**, selecione **Security**.
 4. Sob **proteção,** selecione **Acesso Condicional**. Selecione **Nova política.**
 5. Na página **Nova,** na caixa de texto **Name,** insira um nome para a política (por exemplo, "Bloqueie os hóspedes de aceder ao portal").
-6. Em **Atribuições,** selecione **Utilizadores e grupos**.
-7. No separador **Incluir,** escolha **Utilizadores e grupos Selecionados**e, em seguida, selecione **Todos os utilizadores convidados e externos (Pré-visualização)** .
+6. Em **Atribuições**, selecione **Utilizadores e grupos**.
+7. No separador **Incluir,** escolha **Utilizadores e grupos Selecionados**e, em seguida, selecione **Todos os utilizadores convidados e externos (Pré-visualização)**.
 9. Selecione **Done** (Concluído).
 10. Na página **Nova,** na secção **Assignments,** selecione **aplicações ou ações cloud**.
 11. Na página **de aplicações ou ações da Cloud,** escolha **as aplicações Select,** e depois escolha **Select**.
@@ -79,9 +82,10 @@ Sim. A autenticação multifactor e as contas de email do consumidor são ambas 
 ### <a name="do-you-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>Suporta o reset de palavra-passe para utilizadores de colaboração Azure AD B2B?
 Se o seu inquilino Azure AD for o diretório inicial para um utilizador, pode [redefinir a palavra-passe do utilizador](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal) a partir do portal Azure. Mas não é possível redefinir diretamente uma palavra-passe para um utilizador convidado que se instinure com uma conta gerida por outro diretório da AD Azure ou fornecedor de identidade externa. Apenas o utilizador convidado ou um administrador no diretório inicial do utilizador podem redefinir a palavra-passe. Aqui estão alguns exemplos de como o reset de palavra-passe funciona para os utilizadores convidados:
  
-* Os utilizadores convidados que iniciarem sessão com uma conta Microsoft (por exemplo guestuser@live.com) podem redefinir as suas próprias palavras-passe utilizando o reset de palavra-passe de autosserviço da conta da Microsoft (SSPR). Ver [Como redefinir a sua palavra-passe da conta microsoft](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
-* Os utilizadores convidados que acedam a uma conta da Google ou a outro fornecedor de identidade externa podem redefinir as suas próprias palavras-passe utilizando o método SSPR do seu fornecedor de identidade. Por exemplo, um utilizador convidado com a conta da Google guestuser@gmail.com pode redefinir a sua palavra-passe seguindo as instruções em [Alterar ou redefinir a sua palavra-passe](https://support.google.com/accounts/answer/41078).
+* Os utilizadores convidados que iniciarem guestuser@live.comsessão com uma conta Microsoft (por exemplo) podem redefinir as suas próprias palavras-passe utilizando o reset de palavra-passe de autosserviço da conta da Microsoft (SSPR). Ver [Como redefinir a sua palavra-passe da conta microsoft](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
+* Os utilizadores convidados que acedam a uma conta da Google ou a outro fornecedor de identidade externa podem redefinir as suas próprias palavras-passe utilizando o método SSPR do seu fornecedor de identidade. Por exemplo, um utilizador convidado guestuser@gmail.com com a conta Google pode redefinir a sua palavra-passe seguindo as instruções em [Alterar ou redefinir a sua palavra-passe](https://support.google.com/accounts/answer/41078).
 * Se o inquilino de identidade for um inquilino justo (JIT) ou "viral" (o que significa que é um inquilino Azure separado e não gerido), apenas o utilizador hóspede pode redefinir a sua palavra-passe. Por vezes, uma organização assume a [gestão de inquilinos virais](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) que são criados quando os funcionários usam os seus endereços de e-mail de trabalho para se inscreverem para serviços. Depois de a organização assumir um inquilino viral, apenas um administrador dessa organização pode redefinir a palavra-passe do utilizador ou ativar o SSPR. Se necessário, como organização convidativa, pode remover a conta de utilizador convidado do seu diretório e reenviar um convite.
+
 * Se o diretório do utilizador convidado for o seu inquilino Azure AD, pode redefinir a palavra-passe do utilizador. Por exemplo, pode ter criado um utilizador ou sincronizado um utilizador a partir do seu Diretório Ativo no local e definir o seu UserType para O Convidado. Como este utilizador está alojado no seu diretório, pode redefinir a sua palavra-passe a partir do portal Azure.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>O Microsoft Dynamics 365 fornece suporte online para a colaboração Azure AD B2B?

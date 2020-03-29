@@ -4,10 +4,10 @@ description: Configure e veja relatórios para backup azure usando Log Analytics
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.openlocfilehash: 651d1383f0f292895ed95c91bafd5206d4f04c2c
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78161206"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
@@ -66,7 +66,7 @@ Abaixo está uma descrição dos vários separadores que o relatório contém:
 
 * **Resumo** - O separador Resumo fornece uma visão geral de alto nível da sua propriedade de reserva. Sob o separador Resumo, você pode obter uma olhada rápida do número total de itens de backup, armazenamento total em nuvem consumido, o número de instâncias protegidas e a taxa de sucesso de trabalho por tipo de carga de trabalho. Para obter informações mais detalhadas em torno de um tipo específico de artefacto de reserva, navegue para os respetivos separadores.
 
-![Separador resumo](./media/backup-azure-configure-backup-reports/summary.png)
+![Separador Resumo](./media/backup-azure-configure-backup-reports/summary.png)
 
 * **Itens de backup** - O separador 'Backup Itens' permite-lhe ver informações e tendências no armazenamento em nuvem consumidas a um nível de Backup Item. Por exemplo, se estiver a utilizar o SQL na cópia de segurança Azure VM, pode ver que o armazenamento em nuvem consumido por cada base de dados SQL está a ser apoiado. Também pode optar por ver dados para itens de backup de um determinado estado de proteção. Por exemplo, clicando no azulejo **de proteção parado** na parte superior do separador, filtra todos os widgets abaixo para mostrar dados apenas para itens de backup em estado de proteção parado.
 
@@ -78,7 +78,7 @@ Abaixo está uma descrição dos vários separadores que o relatório contém:
 
 * **Jobs** - O separador Jobs permite-lhe ver as tendências de longo prazo em matéria de emprego, como o número de empregos fracassados por dia e as principais causas de insuficiência de emprego. Pode ver esta informação tanto a um nível agregado como a um nível de item de reserva. Clicar num determinado item de backup numa grelha permite-lhe visualizar informações detalhadas sobre cada trabalho que foi desencadeado nesse item de backup no intervalo de tempo selecionado.
 
-![Separador Tarefas](./media/backup-azure-configure-backup-reports/jobs.png)
+![Separador de empregos](./media/backup-azure-configure-backup-reports/jobs.png)
 
 * **Políticas** - O separador Políticas permite-lhe visualizar informações sobre todas as suas políticas ativas, como o número de itens associados, e o armazenamento total em nuvem consumido por itens apoiados numa determinada política. Clicar numa determinada política permite-lhe visualizar informações sobre cada um dos seus itens de backup associados.
 

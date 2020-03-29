@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 3/6/2020
 ms.custom: seodec18
 ms.openlocfilehash: de2b99666dbed4eaec3db3e56800e9a7352e10e7
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898392"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Teste um trabalho de Azure Stream Analytics no portal
@@ -73,7 +73,7 @@ Em vez de utilizar dados ao vivo, pode utilizar dados de amostra saqueados de um
 
 1. Inicie sessão no Portal do Azure.
    
-2. Localize a tarefa de Stream Analytics existente e selecioná-lo.
+2. Localize o seu trabalho existente no Stream Analytics e selecione-o.
 
 3. Na página de trabalho do Stream Analytics, sob o título **Job Topology,** selecione **Consulta** para abrir a janela do editor da Consulta.
 

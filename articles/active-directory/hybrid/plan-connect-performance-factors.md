@@ -14,10 +14,10 @@ ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a5518d516848ba7c006827faa41ff76bbca35d0c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76897050"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Fatores a influenciar o desempenho do Azure AD Connect
@@ -27,7 +27,7 @@ O Azure AD Connect sincroniza o seu Diretório Ativo a Azure AD. Este servidor �
 | **Fator de design**| **Definição** |
 |:-|-|
 | Topologia| A distribuição dos pontos finais e componentes o Azure AD Connect deve ser gerida na rede. |
-| Escalabilidade| O número de objetos como os utilizadores, grupos e OUs, a ser gerido pelo Azure AD Connect. |
+| Dimensionamento| O número de objetos como os utilizadores, grupos e OUs, a ser gerido pelo Azure AD Connect. |
 | Hardware| O hardware (físico ou virtual) para o Azure AD Connect e a capacidade de desempenho dependente de cada componente de hardware, incluindo CPU, memória, rede e configuração de disco rígido. |
 | Configuração| Como o Azure AD Connect processa os diretórios e a informação. |
 | Carregar| A frequência das alterações do objeto. As cargas podem variar durante uma hora, dia ou semana. Dependendo do componente, poderá ter de conceber para carga máxima ou carga média. |

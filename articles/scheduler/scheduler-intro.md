@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: e851da0013cf3a9ff6bb1a0fc1c073b5b796c54d
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898543"
 ---
 # <a name="what-is-azure-scheduler"></a>O que é o Agendador do Azure?
@@ -29,9 +29,9 @@ Outras funcionalidades de agendamento do Azure também utilizam o Scheduler em s
 
 O Scheduler poderá ser útil nos seguintes cenários:
 
-* Executar ações de aplicações recorrentes: Por exemplo, recolher periodicamente dados do Twitter para um feed.
+* Executar ações de aplicação recorrentes: por exemplo, recolher periodicamente dados do Twitter num feed.
 
-* Realizar a manutenção diária: Como diários de poda, realização de cópias de segurança e outras tarefas de manutenção.
+* Efetuar a manutenção diária: tais como, eliminação diária de registos, realizar cópias de segurança e outras tarefas de manutenção.
 
   Por exemplo, como administrador, pode querer fazer cópias de segurança da base de dados à 1:00 todos os dias durante os próximos nove meses.
 
@@ -41,8 +41,8 @@ Para criar, agendar, gerir, atualizar ou eliminar empregos e recolhas de [empreg
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Conceitos, terminologia e hierarquia de entidades do Azure Scheduler](scheduler-concepts-terms.md)
+* [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
 * [Planos e faturação para O Scheduler Azure](scheduler-plans-billing.md)
 * [Construir horários complexos e recorrência avançada com o Programador Azure](scheduler-advanced-complexity.md)
 * [Referência da API REST do Azure Scheduler](/rest/api/scheduler)
-* [Referência de cmdlets do PowerShell do Azure Scheduler](scheduler-powershell-reference.md)
+* [Referência de cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md)

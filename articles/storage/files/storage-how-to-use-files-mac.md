@@ -8,10 +8,10 @@ ms.date: 09/19/2017
 ms.author: renash
 ms.subservice: files
 ms.openlocfilehash: 0e3420e469b117d90efb2949dab828021bfedcb6
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74924698"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montar uma partilha de ficheiros do Azure através de SMB com macOS
@@ -27,9 +27,9 @@ ms.locfileid: "74924698"
 >    ```
 
 ## <a name="prerequisites-for-mounting-an-azure-file-share-on-macos"></a>Pré-requisitos para montar uma partilha de ficheiros do Azure em macOS
-* **Nome da conta de armazenamento**: para montar uma partilha de ficheiros do Azure, precisa do nome da conta de armazenamento.
+* **Nome**da conta de armazenamento : Para montar uma partilha de ficheiros Azure, necessitará do nome da conta de armazenamento.
 
-* **Chave da conta de armazenamento**: para montar uma partilha de ficheiros do Azure, precisa da chave de armazenamento primária (ou secundária). Atualmente, não são suportadas chaves SAS para a montagem.
+* **Chave da conta**de armazenamento : Para montar uma partilha de ficheiros Azure, necessitará da chave de armazenamento primária (ou secundária). Atualmente, não são suportadas chaves SAS para a montagem.
 
 * **Confirme que a porta 445 está aberta**: o SMB comunica através da porta TCP 445. No computador cliente (o Mac), verifique se a firewall não está a bloquear a porta TCP 445.
 
@@ -37,11 +37,11 @@ ms.locfileid: "74924698"
 1. **Abra o Finder**: o Finder é aberto no macOS por predefinição, mas pode confirmar que é a aplicação que está selecionada ao clicar no “ícone de cara do macOS” no dock:  
     ![O ícone de cara do macOS](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **Selecione "conectar ao servidor" no menu "ir"** : usando o caminho UNC dos pré-requisitos, converta a barra invertida dupla de início (`\\`) para `smb://` e todas as barras invertidas (`\`) para encaminhar barras (`/`). A ligação deverá ter um aspeto semelhante ao seguinte: ![caixa de diálogo "Connect to Server"](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **Selecione "Connect to Server" a partir do menu "Go":** Utilizando o caminho`\\`UNC `smb://` a partir dos`\`pré-requisitos, converta o duplo backslash inicial () para e todas as outras costas () para a frente cortes ().`/` A ligação deverá ter um aspeto semelhante ao seguinte: ![caixa de diálogo "Connect to Server"](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
 3. **Utilize o nome e a chave da conta de armazenamento quando lhe for pedido o nome de utilizador e a palavra-passe**: quando clica em "Connect" (Ligar) na caixa de diálogo "Connect to Server" (Ligar ao Servidor), é-lhe pedido o nome de utilizador e a palavra-passe (que são preenchidos automaticamente com o seu nome de utilizador de macOS). Tem a opção de armazenar o nome/chave da conta de armazenamento no porta-chaves do macOS.
 
-4. **Utilize a partilha de ficheiros de Azure conforme pretendido**: depois de substituir o nome da partilha e a chave da conta de armazenamento pelo nome de utilizador e a palavra-passe, a partilha é montada. Pode utilizá-la tal como se fosse uma partilha pasta/ficheiro local normal, incluindo arrastar e largar ficheiros na partilha:
+4. **Utilize a partilha de ficheiros Azure conforme desejado**: Depois de substituir o nome de partilha e a chave da conta de armazenamento no nome de utilizador e na palavra-passe, a parte será montada. Pode utilizá-la tal como se fosse uma partilha pasta/ficheiro local normal, incluindo arrastar e largar ficheiros na partilha:
 
     ![Instantâneo de uma partilha de ficheiros do Azure montada](./media/storage-how-to-use-files-mac/mount-via-finder-3.png)
 
@@ -52,7 +52,7 @@ ms.locfileid: "74924698"
     mount_smbfs //<storage-account-name>@<storage-account-name>.file.core.windows.net/<share-name> <desired-mount-point>
     ```
 
-2. **Utilize a partilha de ficheiros do Azure conforme pretendido**: a partilha de ficheiros do Azure é montada no ponto de montagem especificado pelo comando anterior.  
+2. **Utilize a partilha de ficheiros Azure conforme desejado**: A parte de ficheiro Azure será montada no ponto de montagem especificado pelo comando anterior.  
 
     ![Instantâneo da partilha de ficheiros do Azure montada](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 

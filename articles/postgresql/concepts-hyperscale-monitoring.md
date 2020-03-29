@@ -1,45 +1,45 @@
 ---
-title: Monitore e ajuste-hiperescala (Citus)-banco de dados do Azure para PostgreSQL
-description: Este artigo descreve os recursos de monitoramento e ajuste no banco de dados do Azure para PostgreSQL-Citus (hiperescala)
+title: Monitor e sintonização - Hiperescala (Citus) - Base de Dados Azure para PostgreSQL
+description: Este artigo descreve funcionalidades de monitorização e afinação na Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: d2e9fcd6f6292c1da76e725e90deda4547b3682d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74975521"
 ---
-# <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Monitorar e ajustar o banco de dados do Azure para PostgreSQL-Citus (hiperescala)
+# <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Monitor e sintonize base de dados Azure para PostgreSQL - Hiperescala (Citus)
 
-O monitoramento de dados sobre seus servidores ajuda você a solucionar problemas e otimizar sua carga de trabalho. O Citus (hiperescala) fornece várias opções de monitoramento para fornecer informações sobre o comportamento de nós em um grupo de servidores.
+Monitorizar dados sobre os seus servidores ajuda-o a resolver problemas e a otimizar para a sua carga de trabalho. A Hyperscale (Citus) fornece várias opções de monitorização para fornecer informações sobre o comportamento dos nós num grupo de servidores.
 
 ## <a name="metrics"></a>Métricas
 
-O Citus (hiperescala) fornece métricas para cada nó em um grupo de servidores. As métricas fornecem informações sobre o comportamento dos recursos de suporte. Cada métrica é emitida a uma frequência de um minuto e tem até 30 dias de histórico.
+A hiperescala (Citus) fornece métricas para cada nó num grupo de servidores. As métricas dão uma visão do comportamento dos recursos de apoio. Cada métrica é emitida com uma frequência de um minuto, e tem até 30 dias de história.
 
-Além de exibir grafos das métricas, você pode configurar alertas. Para obter orientações passo a passo, consulte [como configurar alertas](howto-hyperscale-alert-on-metric.md).  Outras tarefas incluem a configuração de ações automatizadas, a execução de análises avançadas e o histórico de arquivamento. Para obter mais informações, consulte a [visão geral de métricas do Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Além de visualizar gráficos das métricas, pode configurar alertas. Para orientação passo a passo, consulte [como configurar alertas](howto-hyperscale-alert-on-metric.md).  Outras tarefas incluem a criação de ações automatizadas, a realização de análises avançadas e o histórico de arquivamento. Para mais informações, consulte a visão geral das [Métricas Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 ### <a name="list-of-metrics"></a>Lista de métricas
 
-Essas métricas estão disponíveis para nós de hiperescala (Citus):
+Estas métricas estão disponíveis para nós de hiperescala (Citus):
 
-|Métrica|Nome a apresentar de métrica|Unidade|Descrição|
+|Métrica|Nome de exibição métrica|Unidade|Descrição|
 |---|---|---|---|
-|active_connections|Conexões ativas|Contagem|O número de conexões ativas com o servidor.|
-|cpu_percent|Percentual de CPU|Percentagem|A porcentagem de CPU em uso.|
-|IOPS|IOPS|Contagem|Consulte a [definição de IOPS](../virtual-machines/linux/premium-storage-performance.md#iops) e a [taxa de transferência de hiperescala](concepts-hyperscale-configuration-options.md)|
-|memory_percent|Porcentagem de memória|Percentagem|A porcentagem de memória em uso.|
-|network_bytes_ingress|Entrada na Rede|Bytes|Rede entre conexões ativas.|
-|network_bytes_egress|Saída da Rede|Bytes|Saída de rede entre conexões ativas.|
-|storage_percent|Porcentagem de armazenamento|Percentagem|A porcentagem de armazenamento usada fora do máximo do servidor.|
-|storage_used|Armazenamento utilizado|Bytes|A quantidade de armazenamento em uso. O armazenamento usado pelo serviço pode incluir os arquivos de banco de dados, os logs de transações e os logs do servidor.|
+|active_connections|Conexões Ativas|Contagem|O número de ligações ativas ao servidor.|
+|cpu_percent|Por cento do CPU|Percentagem|A percentagem de CPU em uso.|
+|iops|IOPS|Contagem|Consulte a [definição iOPS](../virtual-machines/linux/premium-storage-performance.md#iops) e a entrada em [hiperescala](concepts-hyperscale-configuration-options.md)|
+|memory_percent|Por cento da memória|Percentagem|A percentagem de memória em uso.|
+|network_bytes_ingress|Entrada na Rede|Bytes|Rede Em todas as ligações ativas.|
+|network_bytes_egress|Saída da Rede|Bytes|Rede Para fora através de conexões ativas.|
+|storage_percent|Percentagem de armazenamento|Percentagem|A percentagem de armazenamento usado no máximo do servidor.|
+|storage_used|Armazenamento utilizado|Bytes|A quantidade de armazenamento em uso. O armazenamento utilizado pelo serviço pode incluir os ficheiros da base de dados, registos de transações e os registos do servidor.|
 
-O Azure não fornece métricas agregadas para o cluster como um todo, mas as métricas para vários nós podem ser colocadas no mesmo grafo.
+O Azure não fornece métricas agregadas para o cluster como um todo, mas as métricas para vários nós podem ser colocadas no mesmo gráfico.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte [como configurar alertas](howto-hyperscale-alert-on-metric.md) para obter orientação sobre como criar um alerta em uma métrica.
+- Veja [como configurar alertas](howto-hyperscale-alert-on-metric.md) para orientação sobre a criação de um alerta numa métrica.

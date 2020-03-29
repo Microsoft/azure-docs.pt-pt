@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 07/11/2018
 ms.author: cynthn
 ms.openlocfilehash: 0d3f0a61da3654c31c99cfac43c86b081876f700
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944581"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Instale o MySQL numa máquina virtual que executa o OpenSUSE Linux em Azure
@@ -22,7 +22,7 @@ ms.locfileid: "78944581"
 [MySQL](https://www.mysql.com) é uma base de dados SQL popular e de código aberto. Este tutorial mostra-lhe como criar uma máquina virtual que executa o OpenSUSE Linux e, em seguida, instalar o MySQL.
 
 
-Se optar por instalar e usar a CLI localmente, precisa da versão 2.0 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-virtual-machine-running-opensuse-linux"></a>Crie uma máquina virtual que execute o OpenSUSE Linux
 
@@ -89,7 +89,7 @@ systemctl is-enabled mysql
 
 Isto deve voltar: ativado.
 
-Reiniciar o servidor.
+Reinicie o servidor.
 
 ```bash
 sudo reboot
@@ -98,7 +98,7 @@ sudo reboot
 
 ## <a name="mysql-password"></a>Senha MySQL
 
-Após a instalação, a palavra-passe raiz MySQL está vazia por padrão. Executar o **mysql\_fixe\_** script de instalação para proteger o MySQL. O script pede-lhe que altere a palavra-passe da raiz MySQL, remova contas de utilizador anónimas, desative o sinal de raiz remota, remova as bases de dados de teste e recarregue a tabela de privilégios. 
+Após a instalação, a palavra-passe raiz MySQL está vazia por padrão. Executar o script de **instalação seguro\_\_mysql** para proteger o MySQL. O script pede-lhe que altere a palavra-passe da raiz MySQL, remova contas de utilizador anónimas, desative o sinal de raiz remota, remova as bases de dados de teste e recarregue a tabela de privilégios. 
 
 Assim que o servidor reiniciar, sSH para o VM novamente.
 
@@ -133,7 +133,7 @@ O ponto-e-vírgula (;) no final da linha é crucial para acabar com o comando.
 ## <a name="create-a-database"></a>Criar uma base de dados
 
 
-Crie uma base de dados e conceda as permissões do utilizador `mysqluser`.
+Crie uma base `mysqluser` de dados e conceda permissões ao utilizador.
 
 ```sql
 CREATE DATABASE testdatabase;
@@ -155,7 +155,7 @@ quit
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para mais detalhes sobre o MySQL, consulte a [Documentação MySQL](https://dev.mysql.com/doc).
 
 

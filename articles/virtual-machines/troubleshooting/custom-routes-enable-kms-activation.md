@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
 ms.openlocfilehash: 90034a56fcf5211059d37270e12391249f7a16b5
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77920166"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>Ativação do Windows falha no cenário de túnel forçado
@@ -40,7 +40,7 @@ O endereço IP do servidor KMS para a nuvem Azure Global é 23.102.135.246. O se
 
 |Plataforma| KMS DNS|KMS IP|
 |------|-------|-------|
-|Global do Azure|kms.core.windows.net|23.102.135.246|
+|Azure Global|kms.core.windows.net|23.102.135.246|
 |Azure Alemanha|kms.core.cloudapi.de|51.4.143.248|
 |Azure US Government|kms.core.usgovcloudapi.net|23.97.0.13|
 |Azure China 21Vianet|kms.core.chinacloudapi.cn|42.159.7.249|
@@ -113,7 +113,7 @@ Para adicionar a rota personalizada, siga estes passos:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Chaves de configuração do cliente KMS](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys
+- [Teclas de Configuração de Cliente KMS](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys
 )
 - [Rever e selecionar métodos de ativação](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134256(v=ws.11)
 )

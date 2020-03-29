@@ -1,5 +1,5 @@
 ---
-title: Configurar O IBM Db2 HADR em máquinas virtuais Azure (VMs)  Microsoft Docs
+title: Configurar O IBM Db2 HADR em máquinas virtuais Azure (VMs) [ Microsoft Docs
 description: Estabelecer uma elevada disponibilidade de IBM Db2 LUW em máquinas virtuais Azure (VMs).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,21 +15,21 @@ ms.workload: infrastructure
 ms.date: 03/06/2020
 ms.author: juergent
 ms.openlocfilehash: 614ac8b651224a3b6ec605a6bffd520449a1d793
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78926751"
 ---
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
-[1984787]: https://launchpad.support.sap.com/#/notes/1984787
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
-[2233094]: https://launchpad.support.sap.com/#/notes/2233094
-[1612105]: https://launchpad.support.sap.com/#/notes/1612105
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2233094]:https://launchpad.support.sap.com/#/notes/2233094
+[1612105]:https://launchpad.support.sap.com/#/notes/1612105
 
 [sles-for-sap-bp]:https://www.suse.com/documentation/sles-for-sap-12/
 [db2-hadr-11.1]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
@@ -147,7 +147,7 @@ O agente de recursos da IBM Db2 LUW está incluído no SUSE Linux Enterprise Ser
 Faça uma lista de todos os nomes de anfitriões, incluindo nomes de anfitriões virtuais, e atualize os seus servidores DNS para ativar o endereço IP adequado para a resolução de nomes de anfitrião. Se um servidor DNS não existir ou não conseguir atualizar e criar entradas de DNS, precisa de utilizar os ficheiros anfitriões locais dos VMs individuais que estão a participar neste cenário. Se estiver a utilizar as entradas de ficheiros do anfitrião, certifique-se de que as entradas são aplicadas a todos os VMs no ambiente do sistema SAP. No entanto, recomendamos que use o seu DNS que, idealmente, se estende até Azure
 
 
-### <a name="manual-deployment"></a>Implantação manual
+### <a name="manual-deployment"></a>Implementação manual
 
 Certifique-se de que o SISTEMA selecionado é suportado pela IBM/SAP para a IBM Db2 LUW. A lista de versões de OS suportadas para lançamentos de VMs E Db2 está disponível na nota SAP [1928533]. A lista de lançamentos de SO por versão individual do Db2 está disponível na Matriz de Disponibilidade de Produto SAP. Recomendamos vivamente um mínimo de SLES 12 SP4 devido a melhorias de desempenho relacionadas com o Azure nesta ou posterior versão SUSE Linux.
 
@@ -171,7 +171,7 @@ Para criar um cluster pacemaker básico para este servidor IBM Db2, consulte [C
 
 Antes de iniciar a instalação de um ambiente SAP baseado no IBM Db2 LUW, reveja a seguinte documentação:
 
-+ Documentação do Azure
++ Documentação azure
 + Documentação SAP
 + Documentação IBM
 
@@ -201,7 +201,7 @@ Para configurar a principal instância de base de dados IBM Db2 LUW:
 
 Para configurar o servidor de base de dados Standby utilizando o procedimento de cópia homogénea do sistema SAP, execute estas etapas:
 
-1. Selecione a opção **de cópia do Sistema** > **Sistemas-alvo** > instância de base de **dados**de > **distribuídas** .
+1. Selecione a opção **de cópia do Sistema** >**sistemas**de **dados distribuídos** > **Distributed** > .
 1. Como método de cópia, **selecione Sistema Homogéneo** para que possa utilizar a cópia de segurança para restaurar uma cópia de segurança na instância do servidor de espera.
 1. Quando chegar à etapa de saída para restaurar a base de dados para cópia homogénea do sistema, saia do instalador. Restaure a base de dados de uma cópia de segurança do hospedeiro principal. Todas as fases de instalação subsequentes já foram executadas no servidor de base de dados primário.
 1. Instale HADR para IBM Db2.
@@ -336,13 +336,13 @@ Quando utilizar o Pacemaker para uma falha automática em caso de falha no nó, 
 
 Os seguintes itens são pré-fixados com:
 
-- **[A]** : Aplicável a todos os nós
-- **[1]** : Aplicável apenas ao nó 1 
-- **[2]** : Aplicável apenas ao nó 2
+- **[A]**: Aplicável a todos os nós
+- **[1]**: Aplicável apenas ao nó 1 
+- **[2]**: Aplicável apenas ao nó 2
 
 **[A]** Pré-requisitos para a configuração do Pacemaker:
-1. Desligue ambos os servidores de base de dados com o utilizador db2\<sid> com db2stop.
-1. Altere o ambiente da concha para db2\<sid> utilizador para */bin/ksh*. Recomendamos que utilize a ferramenta Yast. 
+1. Desligue ambos os servidores de\<base de dados com o utilizador db2 sid> com db2stop.
+1. Altere o ambiente\<da concha para db2 sid> utilizador para */bin/ksh*. Recomendamos que utilize a ferramenta Yast. 
 
 
 ### <a name="pacemaker-configuration"></a>Configuração do pacemaker
@@ -413,7 +413,7 @@ sudo crm configure property maintenance-mode=false</pre></code>
 #  <a name="resource-group-g_ip_db2ptr_ptr"></a>Grupo de Recursos: g_ip_db2ptr_PTR
 #      <a name="rsc_ip_db2ptr_ptr--ocfheartbeatipaddr2-------started-azibmdb02"></a>rsc_ip_db2ptr_PTR (ocf::heartbeat:IPaddr2): Iniciado azibmdb02
 #      <a name="rsc_nc_db2ptr_ptr--ocfheartbeatazure-lb------started-azibmdb02"></a>rsc_nc_db2ptr_PTR (ocf::heartbeat:azure-lb): Iniciado azibmdb02
-#  <a name="masterslave-set-msl_db2_db2ptr_ptr-rsc_db2_db2ptr_ptr"></a>Conjunto de principal/secundário: msl_Db2_db2ptr_PTR [rsc_Db2_db2ptr_PTR]
+#  <a name="masterslave-set-msl_db2_db2ptr_ptr-rsc_db2_db2ptr_ptr"></a>Conjunto de Mestre/Escravo: msl_Db2_db2ptr_PTR [rsc_Db2_db2ptr_PTR]
 #      <a name="masters--azibmdb02-"></a>Masters: [azibmdb02]
 #      <a name="slaves--azibmdb01-"></a>Escravos: [azibmdb01]
 </pre>
@@ -484,7 +484,7 @@ Para configurar o Equilíbrio de Carga Azure, recomendamos que utilize o [Balanc
 ### <a name="make-changes-to-sap-profiles-to-use-virtual-ip-for-connection"></a>Faça alterações nos perfis SAP para utilizar IP virtual para ligação
 Para se ligar à instância primária da configuração HADR, a camada de aplicação SAP precisa de utilizar o endereço IP virtual que definiu e configurado para o Equilíbrio de Carga Azure. São necessárias as seguintes alterações:
 
-/sapmnt/\<SID>/profile/DEFAULT. PFL
+/sapmnt/\<SID>/perfil/DEFAULT. PFL
 <pre><code>SAPDBHOST = db-virt-hostname
 j2ee/dbhost = db-virt-hostname
 </code></pre>
@@ -505,7 +505,7 @@ Se realizou a instalação antes de criar a configuração DB2 HADR, faça as al
 
 Utilize a ferramenta J2EE Config para verificar ou atualizar o URL JDBC. Como a ferramenta J2EE Config é uma ferramenta gráfica, é necessário instalar o servidor X:
  
-1. Inscreva-se no servidor de aplicação principal da instância J2EE e execute: `sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
+1. Inscreva-se no servidor de aplicação principal da instância J2EE e execute:`sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
 1. No quadro esquerdo, escolha uma loja de **segurança.**
 1. No quadro certo, escolha a chave jdbc/pool/\<SAPSID>/url.
 1. Mude o nome do anfitrião no URL JDBC para o nome de anfitrião virtual.
@@ -554,7 +554,7 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb02
      Slaves: [ azibmdb02 ]
 </code></pre>
 
-O estado original num sistema SAP está documentado em Transaction DBACOCKPIT > Configuração > Visão Geral, como mostra a seguinte imagem:
+O estado original num sistema SAP está documentado na Configuração > Configuração de Transações DBACOCKPIT > >, como mostra a seguinte imagem:
 
 ![DBACockpit - Pré-Migração](./media/dbms-guide-ha-ibm/hadr-sap-mgr-org.png)
 
@@ -568,7 +568,7 @@ O estado original num sistema SAP está documentado em Transaction DBACOCKPIT > 
 > Antes de iniciar o teste, certifique-se de que:
 > * O pacemaker não tem nenhuma ação falhada (estado de crm).
 > * Não existem restrições de localização (restos de teste de migração)
-> * A sincronização IBM Db2 HADR está a funcionar. Consulte o utilizador db2\<sid> <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> * A sincronização IBM Db2 HADR está a funcionar. Consulte o utilizador\<db2 sid> <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 Migrar o nó que está a executar a base de dados primária do Db2 executando o seguinte comando:
@@ -591,7 +591,7 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb02
      Slaves: [ azibmdb01 ]
 </code></pre>
 
-O estado original num sistema SAP está documentado em Transaction DBACOCKPIT > Configuração > Visão Geral, como mostra a seguinte imagem:
+O estado original num sistema SAP está documentado na Configuração > Configuração de Transações DBACOCKPIT > >, como mostra a seguinte imagem:
 
 ![DBACockpit - Pós Migração](./media/dbms-guide-ha-ibm/hadr-sap-mgr-post.png)
 
@@ -602,9 +602,9 @@ Migrar o recurso de volta para *azibmdb01* e limpar os constrangimentos de local
 crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
-- **recurso crm migrar \<res_name> \<host>:** Cria constrangimentos de localização e pode causar problemas com a aquisição
-- **Recurso crm claro \<res_name>** : Limpa os constrangimentos de localização
-- **crm de limpeza de recursos \<res_name>** : Elimina todos os erros do recurso
+- **Recursos crm \<migram \<res_name> hospedeiro>:** Cria constrangimentos de localização e pode causar problemas com a aquisição
+- **recurso crm \<claro res_name>**: Elimina os constrangimentos de localização
+- **crm limpeza \< **de recursos res_name>: Elimina todos os erros do recurso
 
 ### <a name="test-the-fencing-agent"></a>Teste o agente de esgrima
 
@@ -777,7 +777,7 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb01
      Masters: [ azibmdb01 ]
      Slaves: [ azibmdb02 ]</code></pre>
 
-Como utilizador db2\<sid> execute a força de comando db2stop:
+Como utilizador\<db2 sid> executar força de comando db2stop:
 <pre><code>azibmdb01:~ # su - db2ptr
 azibmdb01:db2ptr> db2stop force</code></pre>
 

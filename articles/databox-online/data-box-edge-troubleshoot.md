@@ -1,6 +1,6 @@
 ---
-title: Utilizar o portal do Azure para resolver problemas de limite de caixa de dados do Azure | Documentos da Microsoft
-description: Descreve como resolver problemas de limite de caixa de dados do Azure.
+title: Utilize o portal Azure para resolver problemas com a Azure Data Box Edge [ Microsoft Docs
+description: Descreve como resolver problemas com problemas com os problemas da Caixa de Dados do Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: alkohli
 ms.openlocfilehash: 3a8d1f93930d2b298eeb7d10a73624b9a19bcc0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60756266"
 ---
-# <a name="troubleshoot-your-azure-data-box-edge-issues"></a>Resolver problemas do Edge de caixa de dados do Azure 
+# <a name="troubleshoot-your-azure-data-box-edge-issues"></a>Resolver problemas do Azure Data Box Edge 
 
-Este artigo descreve como resolver problemas no seu limite de caixa de dados do Azure. 
+Este artigo descreve como resolver problemas no seu Azure Data Box Edge. 
 
 Neste artigo, vai aprender a:
 
@@ -37,11 +37,11 @@ Para diagnosticar e resolver quaisquer erros do dispositivo, pode executar os te
  
 2. Depois de os testes estarem concluídos, os resultados são apresentados. 
 
-    ![Rever os resultados de teste](media/data-box-edge-troubleshoot/run-diag-2.png)
+    ![Analisar os resultados dos testes](media/data-box-edge-troubleshoot/run-diag-2.png)
 
     Se um teste falhar, é apresentado um URL para a ação recomendada. Pode clicar no URL para ver a ação recomendada.
  
-    ![Reveja os avisos de testes com falhas](media/data-box-edge-troubleshoot/run-diag-3.png)
+    ![Avisos de revisão para testes falhados](media/data-box-edge-troubleshoot/run-diag-3.png)
 
 
 ## <a name="collect-support-package"></a>Recolher pacote de Suporte
@@ -64,9 +64,9 @@ Quaisquer erros ocorridos durante os processos de carregamento e atualização s
 
 1. Para ver os ficheiros de erro, aceda à partilha e clique na partilha para ver o conteúdo. 
 
-      ![Ligar a e ver conteúdos da partilha](media/data-box-edge-troubleshoot/troubleshoot-logs-1.png)
+      ![Conecte e veja conteúdos de partilha](media/data-box-edge-troubleshoot/troubleshoot-logs-1.png)
 
-2. Clique nas _pasta Microsoft Data caixa Edge_. Esta pasta tem duas subpastas:
+2. Clique na _pasta Microsoft Data Box Edge_. Esta pasta tem duas subpastas:
 
     - A pasta de carregamentos, que inclui os ficheiros de registos com erros de carregamento.
     - A pasta de atualizações para os erros durante a atualização.
@@ -84,6 +84,6 @@ Quaisquer erros ocorridos durante os processos de carregamento e atualização s
     [!INCLUDE [data-box-edge-edge-upload-error-reference](../../includes/data-box-edge-gateway-upload-error-reference.md)]
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre os [problemas conhecidos nesta versão](data-box-gateway-release-notes.md).

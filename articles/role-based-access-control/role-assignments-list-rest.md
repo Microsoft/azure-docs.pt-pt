@@ -1,6 +1,6 @@
 ---
-title: Listar atribuições de função usando o RBAC do Azure e a API REST
-description: Saiba como determinar quais recursos os usuários, grupos, entidades de serviço ou identidades gerenciadas têm acesso ao uso do RBAC (controle de acesso baseado em função) do Azure e a API REST.
+title: Lista de atribuições de funções utilizando o Azure RBAC e a Rest API
+description: Saiba como determinar que recursos utilizadores, grupos, diretores de serviços ou identidades geridas têm acesso a usar o controlo de acesso baseado em funções azure (RBAC) e a API REST.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -12,53 +12,56 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0db3e1b222aad7d2a5aa9fc20663fc6e17ea4f8c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a494e7fd4c9fb79faa6a1d8cb2c3c871796ccdc5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981080"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062162"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-the-rest-api"></a>Listar atribuições de função usando o RBAC do Azure e a API REST
+# <a name="list-role-assignments-using-azure-rbac-and-the-rest-api"></a>Lista de atribuições de funções utilizando o Azure RBAC e a Rest API
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] este artigo descreve como listar atribuições de função usando a API REST.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]Este artigo descreve como listar atribuições de papéis usando a API REST.
 
 > [!NOTE]
-> Se sua organização tiver funções de gerenciamento terceirizadas para um provedor de serviços que usa o [Gerenciamento de recursos delegado do Azure](../lighthouse/concepts/azure-delegated-resource-management.md), as atribuições de função autorizadas por esse provedor de serviços não serão mostradas aqui.
+> Se a sua organização tiver funções de gestão subcontratadas a um prestador de serviços que utiliza a [gestão de recursos delegados do Azure,](../lighthouse/concepts/azure-delegated-resource-management.md)as atribuições de funções autorizadas por esse prestador de serviços não serão mostradas aqui.
 
 ## <a name="list-role-assignments"></a>Listar atribuições de função
 
-No RBAC, para listar o acesso, você lista as atribuições de função. Para listar as atribuições de função, use uma das [atribuições de função-listar](/rest/api/authorization/roleassignments/list) APIs REST. Para refinar os resultados, especifique um escopo e um filtro opcional.
+No RBAC, para listar o acesso, enumera as atribuições de funções. Para listar atribuições de papéis, utilize uma das Atribuições de [Funções - Lista](/rest/api/authorization/roleassignments/list) DE APIs REST. Para refinar os seus resultados, especifice um âmbito e um filtro opcional.
 
-1. Comece com a seguinte solicitação:
+1. Comece com o seguinte pedido:
 
     ```http
     GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter={filter}
     ```
 
-1. Dentro do URI, substitua *{Scope}* pelo escopo para o qual você deseja listar as atribuições de função.
+1. Dentro do URI, substitua *{scope}* com o âmbito para o qual pretende enumerar as atribuições de funções.
 
-    | Âmbito | Tipo |
-    | --- | --- |
-    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gestão |
-    | `subscriptions/{subscriptionId1}` | Subscrição |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    > [!div class="mx-tableFixed"]
+    > | Âmbito | Tipo |
+    > | --- | --- |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gestão |
+    > | `subscriptions/{subscriptionId1}` | Subscrição |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Grupo de recursos |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Recurso |
 
-    No exemplo anterior, Microsoft. Web é um provedor de recursos que se refere a uma instância do serviço de aplicativo. Da mesma forma, você pode usar qualquer outro provedor de recursos e especificar o escopo. Para obter mais informações, consulte [provedores de recursos do Azure e tipos](../azure-resource-manager/management/resource-providers-and-types.md) e [operações de provedor de recursos Azure Resource Manager](resource-provider-operations.md)com suporte.  
+    No exemplo anterior, o microsoft.web é um fornecedor de recursos que se refere a uma instância do Serviço de Aplicações. Da mesma forma, pode utilizar quaisquer outros fornecedores de recursos e especificar o âmbito. Para mais informações, consulte [os fornecedores e tipos de recursos da Azure](../azure-resource-manager/management/resource-providers-and-types.md) e apoiou as operações de fornecedor de recursos do Gestor de [Recursos Azure.](resource-provider-operations.md)  
      
-1. Substitua *{Filter}* pela condição que você deseja aplicar para filtrar a lista de atribuição de função.
+1. Substitua *{filter}* com a condição que pretende aplicar para filtrar a lista de atribuição de funções.
 
-    | Filtrar | Descrição |
-    | --- | --- |
-    | `$filter=atScope()` | Lista as atribuições de função somente para o escopo especificado, não incluindo as atribuições de função em Subescopos. |
-    | `$filter=principalId%20eq%20'{objectId}'` | Lista as atribuições de função para um usuário, grupo ou entidade de serviço especificado. |
-    | `$filter=assignedTo('{objectId}')` | Lista as atribuições de função para um usuário ou entidade de serviço especificada. Se o usuário for membro de um grupo que tem uma atribuição de função, essa atribuição de função também será listada. Esse filtro é transitivo para grupos, o que significa que, se o usuário for membro de um grupo e esse grupo for membro de outro grupo que tenha uma atribuição de função, essa atribuição de função também será listada. Esse filtro só aceita uma ID de objeto para um usuário ou uma entidade de serviço. Não é possível passar uma ID de objeto para um grupo. |
+    > [!div class="mx-tableFixed"]
+    > | Filtro | Descrição |
+    > | --- | --- |
+    > | `$filter=atScope()` | Lista as atribuições de funções apenas para o âmbito especificado, sem incluir as atribuições de funções nos subscópios. |
+    > | `$filter=assignedTo('{objectId}')` | Lista as atribuições de funções para um utilizador ou diretor de serviço especificado.<br/>Se o utilizador for membro de um grupo que tenha uma atribuição de funções, essa atribuição de funções também está listada. Este filtro é transitório para grupos, o que significa que se o utilizador for membro de um grupo e esse grupo for membro de outro grupo que tem uma atribuição de funções, essa atribuição de funções também está listada.<br/>Este filtro só aceita um ID de objeto para um utilizador ou um diretor de serviço. Não pode passar uma identificação de objeto para um grupo. |
+    > | `$filter=atScope()+and+assignedTo('{objectId}')` | Lista as atribuições de funções para o utilizador ou diretor de serviço especificado e no âmbito especificado. |
+    > | `$filter=principalId+eq+'{objectId}'` | Lista as atribuições de funções para um utilizador, grupo ou diretor de serviço especificado. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Adicionar ou remover atribuições de função usando o RBAC do Azure e a API REST](role-assignments-rest.md)
-- [Referência à API REST do Azure](/rest/api/azure/)
+- [Adicione ou remova tarefas de funções utilizando o Azure RBAC e a Rest API](role-assignments-rest.md)
+- [Referência da API do Rest Azure](/rest/api/azure/)

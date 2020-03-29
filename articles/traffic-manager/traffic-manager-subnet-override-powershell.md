@@ -1,5 +1,5 @@
 ---
-title: Subnet Azure Traffic Manager sobreposição usando Azure PowerShell  Microsoft Docs
+title: Subnet Azure Traffic Manager sobreposição usando Azure PowerShell [ Microsoft Docs
 description: Este artigo irá ajudá-lo a entender como a subposição da subnet do Gestor de Tráfego é usada para sobrepor o método de encaminhamento de um perfil do Gestor de Tráfego para direcionar o tráfego para um ponto final baseado no endereço IP do utilizador final através da gama IP pré-definida para mapeamentos de pontofinal usando O Azure PowerShell.
 services: traffic-manager
 documentationcenter: ''
@@ -10,10 +10,10 @@ ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: rohink
 ms.openlocfilehash: 323093ec78a9486d19496b0ee90e37cb42eea341
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938428"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-powershell"></a>Subnet do Gestor de Tráfego sobreposição usando Azure Powershell
@@ -39,7 +39,7 @@ Para criar uma subposição de sub-rede do Gestor de Tráfego, pode utilizar o A
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Você pode executar os comandos a seguir no [Azure cloud Shell](https://shell.azure.com/powershell)ou executando o PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se executar o PowerShell a partir do seu computador, precisa do módulo Azure PowerShell, 1.0.0 ou mais tarde. Pode executá`Get-Module -ListAvailable Az` para encontrar a versão instalada. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-az-ps)(Instalar o módulo do Azure PowerShell). Se estiver a executar a PowerShell localmente, também precisa de correr `Login-AzAccount` para iniciar sessão no Azure.
+Pode executar os comandos que se seguem na Casca de [Nuvem Azure,](https://shell.azure.com/powershell)ou executando a PowerShell a partir do seu computador. A Casca de Nuvem Azure é uma concha interativa gratuita. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se executar o PowerShell a partir do seu computador, precisa do módulo Azure PowerShell, 1.0.0 ou mais tarde. Pode correr `Get-Module -ListAvailable Az` para encontrar a versão instalada. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-az-ps)(Instalar o módulo do Azure PowerShell). Se estiver a executar a PowerShell `Login-AzAccount` localmente, também precisa de correr para iniciar sessão no Azure.
 
 
 1. **Recuperar o ponto final do Gestor de Tráfego:**
@@ -112,6 +112,6 @@ A remoção da gama de endereços IP pode ser concluída utilizando [remove-AzTr
     ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Saiba mais sobre os [métodos de roteamento de tráfego](traffic-manager-routing-methods.md)do Traffic Manager.
+Saiba mais sobre os métodos de [encaminhamento de tráfego](traffic-manager-routing-methods.md)do Gestor de Tráfego.
 
 Conheça o [método de encaminhamento de tráfego subnet](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method)

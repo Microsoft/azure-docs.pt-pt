@@ -1,6 +1,6 @@
 ---
-title: Gerenciar domínios de falha em conjuntos de dimensionamento de máquinas virtuais do Azure
-description: Saiba como escolher o número correto de FDs ao criar um conjunto de dimensionamento de máquinas virtuais.
+title: Gerir domínios de falha em conjuntos de escala de máquinas virtuais Azure
+description: Aprenda a escolher o número certo de FDs enquanto cria um conjunto de escala de máquina virtual.
 author: rajsqr
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: drewm
 ms.openlocfilehash: 297837354cea4bb5ccdcc03261810dcffd144243
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76275733"
 ---
-# <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Escolhendo o número correto de domínios de falha para o conjunto de dimensionamento de máquinas virtuais
-Os conjuntos de dimensionamento de máquinas virtuais são criados com cinco domínios de falha, por padrão, em regiões do Azure sem zonas. Para as regiões que dão suporte à implantação zonal de conjuntos de dimensionamento de máquinas virtuais e essa opção está selecionada, o valor padrão da contagem de domínios de falha é 1 para cada uma das zonas. FD = 1 nesse caso significa que as instâncias de VM que pertencem ao conjunto de dimensionamento serão distribuídas em vários racks de forma mais adequada.
+# <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Escolher o número certo de domínios de falha para conjuntos de dimensionamento de máquinas virtuais
+Os conjuntos de escala de máquinas virtuais são criados com cinco domínios de falha por padrão nas regiões de Azure sem zonas. Para as regiões que suportam a implantação zonal de conjuntos de escala de máquinas virtuais e esta opção é selecionada, o valor padrão da contagem de domínio de avaria é 1 para cada uma das zonas. FD=1 neste caso implica que os casos de VM pertencentes ao conjunto de escala serão distribuídos por muitas prateleiras com o melhor esforço.
 
-Você também pode considerar alinhar o número de domínios de falha do conjunto de dimensionamento com o número de domínios de falha Managed Disks. Esse alinhamento pode ajudar a evitar a perda de quorum se um domínio de falha Managed Disks inteiro falhar. A contagem FD pode ser definida como menor ou igual ao número de Managed Disks domínios de falha disponíveis em cada uma das regiões. Consulte este [documento](../virtual-machines/windows/manage-availability.md) para saber mais sobre o número de Managed disks domínios de falha por região.
+Também pode considerar alinhar o número de domínios de falha definidos em escala com o número de domínios de falha de Discos Geridos. Este alinhamento pode ajudar a prevenir a perda de quórum se um domínio de falha de discos geridos inteiro descer. A contagem de FD pode ser definida como inferior ou igual ao número de domínios de falha de discos geridos disponíveis em cada uma das regiões. Consulte este [documento](../virtual-machines/windows/manage-availability.md) para saber sobre o número de domínios de falha de Discos Geridos por região.
 
 ## <a name="rest-api"></a>API REST
-Você pode definir a propriedade `properties.platformFaultDomainCount` como 1, 2 ou 3 (o padrão de 5 se não for especificado). Consulte a documentação da API REST [aqui](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate).
+Pode definir a `properties.platformFaultDomainCount` propriedade para 1, 2 ou 3 (padrão de 5 se não especificado). Consulte a documentação para rest API [aqui](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 ## <a name="azure-cli"></a>CLI do Azure
-Você pode definir o parâmetro `--platform-fault-domain-count` como 1, 2 ou 3 (o padrão de 5, se não for especificado). Consulte a documentação para CLI do Azure [aqui](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-create).
+Pode definir o `--platform-fault-domain-count` parâmetro para 1, 2 ou 3 (padrão de 5, se não especificado). Consulte a documentação do Azure CLI [aqui](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-create).
 
 ```azurecli-interactive
 az vmss create \
@@ -39,4 +39,4 @@ az vmss create \
 A criação e configuração de todas as VMs e recursos do conjunto de dimensionamento demora alguns minutos.
 
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre [recursos de disponibilidade e redundância](../virtual-machines/windows/availability.md) para ambientes do Azure.
+- Saiba mais sobre disponibilidade e recursos de [redundância](../virtual-machines/windows/availability.md) para ambientes Azure.

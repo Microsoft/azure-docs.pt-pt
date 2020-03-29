@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: disks
 ms.openlocfilehash: 525a427bf10d3a9076abda278b74a54db4b0a4f0
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78970316"
 ---
 # <a name="use-azure-storage-explorer-to-manage-azure-managed-disks"></a>Use o Azure Storage Explorer para gerir discos geridos pelo Azure

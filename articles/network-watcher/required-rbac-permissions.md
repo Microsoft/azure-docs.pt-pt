@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: damendo
 ms.openlocfilehash: f8743f19d6cd262ad140659be55a4fc57e842564
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840558"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Permissões de controlo de acesso baseadas em funções necessárias para utilizar capacidades de Observador de Rede
@@ -31,19 +31,19 @@ O controlo de acesso baseado em funções azure (RBAC) permite-lhe atribuir apen
 | Microsoft.Network/networkWatchers/write                             | Criar ou atualizar um observador de rede                             |
 | Microsoft.Network/networkWatchers/delete                            | Eliminar um observador de rede                                       |
 
-## <a name="nsg-flow-logs"></a>Registos de fluxo NSG
+## <a name="nsg-flow-logs"></a>Registos do fluxo do NSG
 
 | Ação                                                              | Descrição                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/configureFlowLog/action           | Configure um registo de fluxo                                           |
-| Microsoft.Network/networkWatchers/queryFlowLogStatus/action         | Estado de consulta para um registo de fluxo                                    |
+| Microsoft.Network/networkWatchers/consultaFlowLogStatus/action         | Estado de consulta para um registo de fluxo                                    |
 
 ## <a name="connection-troubleshoot"></a>Resolução de problemas de ligação
 
 | Ação                                                              | Descrição                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/connectivityCheck/action          | Iniciar um teste de resolução de problemas de ligação
-| Microsoft.Network/networkWatchers/queryTroubleshootResult/action    | Resultados da consulta de um teste de resolução de problemas de ligação                |
+| Microsoft.Network/networkWatchers/consultaTroubleshootResult/action    | Resultados da consulta de um teste de resolução de problemas de ligação                |
 | Microsoft.Network/networkWatchers/troubleshoot/action               | Executar um teste de resolução de problemas de ligação                             |
 
 ## <a name="connection-monitor"></a>Monitor de ligação
@@ -52,16 +52,16 @@ O controlo de acesso baseado em funções azure (RBAC) permite-lhe atribuir apen
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/connectionMonitors/start/action   | Inicie um monitor de ligação                                     |
 | Microsoft.Network/networkWatchers/connectionMonitors/stop/action    | Parar um monitor de ligação                                      |
-| Microsoft.Network/networkWatchers/connectionMonitors/query/action   | Consulta de um monitor de ligação                                     |
+| Microsoft.Network/networkWatchers/connectionMonitors/consulta/ação   | Consulta de um monitor de ligação                                     |
 | Microsoft.Network/networkWatchers/connectionMonitors/read           | Obtenha um monitor de ligação                                       |
 | Microsoft.Network/networkWatchers/connectionMonitors/write          | Criar um monitor de ligação                                    |
-| Microsoft.Network/networkWatchers/connectionMonitors/delete         | Eliminar um monitor de ligação                                    |
+| Microsoft.Network/NetworkWatchers/connectionMonitors/delete         | Eliminar um monitor de ligação                                    |
 
 ## <a name="packet-capture"></a>Captura de pacotes
 
 | Ação                                                              | Descrição                                                           |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Network/networkWatchers/packetCaptures/queryStatus/action | Consulta do estado de uma captura de pacote                           |
+| Microsoft.Network/networkWatchers/packetCaptures/consultaStatus/action | Consulta do estado de uma captura de pacote                           |
 | Microsoft.Network/networkWatchers/packetCaptures/stop/action        | Parar uma captura de pacote                                          |
 | Microsoft.Network/networkWatchers/packetCaptures/read               | Obtenha uma captura de pacote                                           |
 | Microsoft.Network/networkWatchers/packetCaptures/write              | Criar uma captura de pacote                                        |
@@ -71,7 +71,7 @@ O controlo de acesso baseado em funções azure (RBAC) permite-lhe atribuir apen
 
 | Ação                                                              | Descrição                                                           |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Network/networkWatchers/ipFlowVerify/action               | Verifique um fluxo ip                                              |
+| Microsoft.Network/networkWatchers/ipFlowCheck/action               | Verifique um fluxo ip                                              |
 
 ## <a name="next-hop"></a>Próximo salto
 
@@ -89,7 +89,7 @@ O controlo de acesso baseado em funções azure (RBAC) permite-lhe atribuir apen
 
 | Ação                                                              | Descrição                                                           |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Network/networkWatchers/topology/action                   | Obter topologia                                                   |
+| Microsoft.Network/networkWatchers/topologia/ação                   | Obter topologia                                                   |
 
 ## <a name="reachability-report"></a>Relatório de alcance
 
@@ -105,12 +105,12 @@ As capacidades do Observador de Rede também requerem as seguintes ações:
 | Ação(s)                                                           | Descrição                                                    |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Authorization/\*/Read                                     | Usado para buscar atribuições de papel RBAC e definições políticas          |
-| Microsoft.Resources/subscriptions/resourceGroups/Read               | Usado para enumerar todos os grupos de recursos em uma subscrição    |
+| Microsoft.Recursos/subscrições/recursosGroups/Read               | Usado para enumerar todos os grupos de recursos em uma subscrição    |
 | Microsoft.Storage/storageAccounts/Read                              | Usado para obter as propriedades para a conta de armazenamento especificada   |
 | Microsoft.Storage/storageAccounts/listServiceSas/Action, </br> Microsoft.Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action| Usado para obter assinaturas de acesso partilhado (SAS) permitindo [o acesso seguro à conta](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) de armazenamento e escrever na conta de armazenamento |
 | Microsoft.Compute/virtualMachines/Read, </br> Microsoft.Compute/virtualMachines/Write| Usado para iniciar sessão no VM, fazer uma captura de pacote e carregá-lo para a conta de armazenamento|
 | Microsoft.Compute/virtualMachines/extensions/Read </br> Microsoft.Compute/virtualMachines/extensions/Write| Usado para verificar se a extensão do Observador de Rede está presente e instalar se necessário |
 | Microsoft.Compute/virtualMachineScaleSets/Read, </br> Microsoft.Compute/virtualMachineScaleSets/Write| Usado para aceder a conjuntos de escala de máquinas virtuais, fazer capturas de pacotes e carregá-los para conta de armazenamento|
-| Microsoft.Compute/virtualMachineScaleSets/extensões/Read, </br> Microsoft.Compute/virtualMachineScaleSets/extensions/Write| Usado para verificar se a extensão do Observador de Rede está presente e instalar se necessário |
+| Microsoft.Compute/virtualMachineScaleSets/extensões/Read, </br> Microsoft.Compute/virtualMachineScaleSets/extensões/Write| Usado para verificar se a extensão do Observador de Rede está presente e instalar se necessário |
 | Microsoft.Insights/alertRules/*                                     | Usado para configurar alertas métricos                                     |
 | Microsoft.Support/*                                                 | Usado para criar e atualizar bilhetes de suporte do Network Watcher |

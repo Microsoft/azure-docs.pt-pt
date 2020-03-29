@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: ccaca451ac4fb7b4301aca429a42baea91e5ed10
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773451"
 ---
 # <a name="service-bus-messaging-samples"></a>Amostras de mensagens de ônibus de serviço
@@ -37,6 +37,6 @@ Além disso, o [Service Bus Explorer](https://github.com/paolosalvatori/ServiceB
 
 Consulte os seguintes tópicos para vistas conceptuais do Service Bus.
 
-* [Descrição geral das mensagens do Service Bus](service-bus-messaging-overview.md)
+* [Descrição geral de mensagens do Service Bus](service-bus-messaging-overview.md)
 * [Arquitetura do Service Bus](service-bus-architecture.md)
 

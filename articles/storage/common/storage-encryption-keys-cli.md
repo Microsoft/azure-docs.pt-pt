@@ -1,7 +1,7 @@
 ---
 title: Utilize o Azure CLI para configurar as chaves geridas pelo cliente
 titleSuffix: Azure Storage
-description: Aprenda a usar o Azure CLI para configurar as chaves geridas pelo cliente com o Cofre de Chaves Azure para encriptação de Armazenamento Azure. As chaves geridas pelo cliente permitem criar, rodar, desativar e revogar os controlos de acesso.
+description: Aprenda a usar o Azure CLI para configurar as chaves geridas pelo cliente com o Cofre de Chaves Azure para encriptação de Armazenamento Azure.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.date: 03/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: fcb4636263843143e685de2e3d2a27bf87cc5a90
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: 6be15b3fdef94c07e70eba7c4234979b5ac62344
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79137412"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061164"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Configure as chaves geridas pelo cliente com o Cofre de Chave Azure utilizando o Azure CLI
 
@@ -76,7 +76,7 @@ az keyvault set-policy \
     --key-permissions get recover unwrapKey wrapKey
 ```
 
-## <a name="create-a-new-key"></a>Criar uma chave nova
+## <a name="create-a-new-key"></a>Criar uma nova chave
 
 Em seguida, crie uma chave no cofre da chave. Para criar uma chave, ligue para a [chave keyvault criar](/cli/azure/keyvault/key#az-keyvault-key-create). Lembre-se de substituir os valores do espaço reservado em parênteses por valores próprios.
 
@@ -90,7 +90,7 @@ az keyvault key create
 
 Por padrão, a encriptação do Armazenamento Azure utiliza chaves geridas pela Microsoft. Configure a sua conta de Armazenamento Azure para as chaves geridas pelo cliente e especifique a chave para associar à conta de armazenamento.
 
-Para atualizar as definições de encriptação da conta de armazenamento, ligue para a atualização da conta de [armazenamento az](/cli/azure/storage/account#az-storage-account-update), como mostra o exemplo seguinte. Inclua o parâmetro `--encryption-key-source` e defina-o para `Microsoft.Keyvault` para ativar as chaves geridas pelo cliente para a conta de armazenamento. O exemplo também questiona o cofre-chave URI e a versão chave mais recente, ambos os valores necessários para associar a chave à conta de armazenamento. Lembre-se de substituir os valores do espaço reservado em parênteses por valores próprios.
+Para atualizar as definições de encriptação da conta de armazenamento, ligue para a atualização da conta de [armazenamento az](/cli/azure/storage/account#az-storage-account-update), como mostra o exemplo seguinte. Inclua `--encryption-key-source` o parâmetro e `Microsoft.Keyvault` coloque-o para ativar as chaves geridas pelo cliente para a conta de armazenamento. O exemplo também questiona o cofre-chave URI e a versão chave mais recente, ambos os valores necessários para associar a chave à conta de armazenamento. Lembre-se de substituir os valores do espaço reservado em parênteses por valores próprios.
 
 ```azurecli-interactive
 key_vault_uri=$(az keyvault show \
@@ -132,7 +132,7 @@ az keyvault delete-policy \
 
 ## <a name="disable-customer-managed-keys"></a>Desativar as chaves geridas pelo cliente
 
-Quando desativa as chaves geridas pelo cliente, a sua conta de armazenamento é novamente encriptada com chaves geridas pela Microsoft. Para desativar as chaves geridas pelo cliente, ligue para a atualização da conta de [armazenamento az](/cli/azure/storage/account#az-storage-account-update) e desemque o `--encryption-key-source parameter` para `Microsoft.Storage`, como mostra o seguinte exemplo. Lembre-se de substituir os valores do espaço reservado em parênteses por valores próprios e utilizar as variáveis definidas nos exemplos anteriores.
+Quando desativa as chaves geridas pelo cliente, a sua conta de armazenamento é novamente encriptada com chaves geridas pela Microsoft. Para desativar as chaves geridas pelo cliente, `--encryption-key-source parameter` `Microsoft.Storage`ligue para a atualização da conta de [armazenamento az](/cli/azure/storage/account#az-storage-account-update) e delineie a , como mostra o seguinte exemplo. Lembre-se de substituir os valores do espaço reservado em parênteses por valores próprios e utilizar as variáveis definidas nos exemplos anteriores.
 
 ```azurecli-interactive
 az storage account update
@@ -141,7 +141,7 @@ az storage account update
     --encryption-key-source Microsoft.Storage
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Encriptação azure storage para dados em repouso](storage-service-encryption.md) 
 - [O que é o Cofre chave Azure?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

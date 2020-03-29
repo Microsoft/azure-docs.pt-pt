@@ -16,10 +16,10 @@ ms.date: 02/15/2020
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: 94ed936e619461a2dbf7ec837c2d80e21c01c88e
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919996"
 ---
 # <a name="detecting-and-handling-batch-service-errors"></a>Detetar e manipular erros de serviço do Lote

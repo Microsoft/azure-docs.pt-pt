@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 66461b23432a3e8b7ae4ad1fdc078fba9ca05646
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76960766"
 ---
 # <a name="412002-devicemessagelocklost"></a>412002 DeviceMessageLockLost
@@ -25,7 +25,7 @@ Ao tentar enviar uma mensagem cloud-to-device, o pedido falha com o erro **41200
 
 ## <a name="cause"></a>Causa
 
-Quando um dispositivo recebe uma mensagem cloud-to-device da fila (por exemplo, utilizando [`ReceiveAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet)) a mensagem é bloqueada pelo IoT Hub durante um tempo de paragem de um minuto. Se o dispositivo tentar completar a mensagem após o tempo de bloqueio expirar, o IoT Hub lança esta exceção.
+Quando um dispositivo recebe uma mensagem cloud-to-device da [`ReceiveAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet)fila (por exemplo, utilizando) a mensagem é bloqueada pelo IoT Hub durante um tempo de paragem de um minuto. Se o dispositivo tentar completar a mensagem após o tempo de bloqueio expirar, o IoT Hub lança esta exceção.
 
 ## <a name="solution"></a>Solução
 

@@ -9,17 +9,17 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: ff27ae0fd639316f03fe89ffc906561b3ef85f6f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.custom: seodec18
+ms.openlocfilehash: 2dea262fadb61adc9e219b76f9ac048c11e650d5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79251456"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065966"
 ---
-# <a name="get-a-signing-key-from-the-existing-policy"></a>Obtenha uma chave de assinatura da política existente
+# <a name="get-a-signing-key-from-the-existing-policy"></a>Obter uma chave de assinatura da política existente
 
 Um dos principais princípios de design da API v3 é tornar a API mais segura. v3 APIs não devolvem segredos ou credenciais nas operações **de Get** ou **List.** Consulte a explicação detalhada aqui: Para mais informações, consulte [as contas rBAC e Media Services](rbac-overview.md)
 
@@ -43,4 +43,4 @@ Para chegar à chave, utilize o **GetPolicyPropertiesWithSecretsAsync,** como mo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Design of a multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md) (Design de um sistema de proteção de conteúdo multi-DRM com controlo de acesso) 
+[Conceção de um sistema de proteção de conteúdos multi-DRM com controlo de acesso](design-multi-drm-system-with-access-control.md) 

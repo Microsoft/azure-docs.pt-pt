@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f9d8c0cd803424e117bd4dc7a3382b7b32df2d05
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672709"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Como a SSO para os recursos no local funciona em dispositivos ligados à Azure AD
@@ -57,7 +57,7 @@ Com o SSO, num dispositivo azure ad uniu-se:
 
 Se pretender gerir o seu AD no local a partir de um dispositivo Windows, instale as Ferramentas de Administração do [Servidor Remoto para o Windows 10](https://www.microsoft.com/download/details.aspx?id=45520).
 
-Pode usar:
+Pode utilizar:
 
 - Os Utilizadores e Computadores de Diretório Ativo (ADUC) encaixem para administrar todos os objetos AD. No entanto, tem de especificar o domínio a que pretende ligar manualmente.
 - O snap-in dHCP para administrar um servidor DHCP filiado em AD. No entanto, poderá ter de especificar o nome ou endereço do servidor DHCP.

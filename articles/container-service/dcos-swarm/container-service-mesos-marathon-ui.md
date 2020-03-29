@@ -1,5 +1,5 @@
 ---
-title: PRETERIDO Gerenciar o cluster de DC/so do Azure com a interface do usuário do Marathon
+title: (DEPRECIADO) Gerir o cluster Azure DC/OS com Maratona UI
 description: Implemente contentores num serviço de cluster do Serviço de Contentor do Azure utilizando a IU da Web do Marathon.
 author: iainfoulds
 ms.service: container-service
@@ -8,38 +8,38 @@ ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: b251096915506c3c7a4eebf45b6a03e24779a3d8
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277793"
 ---
-# <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>PRETERIDO Gerenciar um cluster DC/OS do serviço de contêiner do Azure por meio da interface do usuário da Web do amMarathon
+# <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(DEPRECIADO) Gerir um cluster de serviço de contentores Azure DC/OS através da UI web marathon
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 O DC/OS fornece um ambiente para implementação e dimensionamento de cargas de trabalho em cluster, abstraindo o hardware subjacente. Na parte superior do DC/OS, existe uma estrutura que gere o agendamento e a execução de cargas de trabalho de computação.
 
-Embora as estruturas estejam disponíveis para muitas cargas de trabalho populares, este documento descreve como começar a implantar contêineres com o Marathon. 
+Embora existam quadros disponíveis para muitas cargas de trabalho populares, este documento descreve como começar a implantar contentores com maratona. 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de avançarmos, necessita de um cluster DC/OS configurado no Serviço de Contentor do Azure. Também necessita de conectividade remota a este cluster. Para obter mais informações sobre estes itens, consulte os artigos seguintes:
 
-* [Implementar um cluster do Azure Container Service](container-service-deployment.md)
-* [Ligar a um cluster do Azure Container Service](../container-service-connect.md)
+* [Implementar um cluster do Serviço de Contentor do Azure](container-service-deployment.md)
+* [Ligar a um cluster do Serviço de Contentor Azure](../container-service-connect.md)
 
 > [!NOTE]
-> Este artigo pressupõe que você está encapsulando o cluster DC/OS por meio da porta local 80.
+> Este artigo assume que está a fazer um túnel para o aglomerado DC/OS através do seu porto local 80.
 >
 
 ## <a name="explore-the-dcos-ui"></a>Explorar a IU do DC/OS
-Com um túnel Secure Shell (SSH) [estabelecido](../container-service-connect.md), navegue até http:\//localhost/. Este procedimento permite carregar a IU da Web do DC/OS e mostrar as informações sobre o cluster, tais como recursos utilizados, agentes ativos e serviços em execução.
+Com um túnel Secure Shell (SSH)\/ [estabelecido,](../container-service-connect.md)navegue para http: /localhost/. Este procedimento permite carregar a IU da Web do DC/OS e mostrar as informações sobre o cluster, tais como recursos utilizados, agentes ativos e serviços em execução.
 
 ![IU do DC/OS](./media/container-service-mesos-marathon-ui/dcos2.png)
 
 ## <a name="explore-the-marathon-ui"></a>Explorar a IU do Marathon
-Para ver a interface do usuário do amMarathon, navegue até http:\//localhost/Marathon. Neste ecrã, pode iniciar um novo contentor ou outra aplicação no cluster do DC/OS do Serviço de Contentor do Azure. Também pode ver informações sobre contentores e aplicações em execução.  
+Para ver a Maratona UI,\/navegue para http: /localhost/maratona. Neste ecrã, pode iniciar um novo contentor ou outra aplicação no cluster do DC/OS do Serviço de Contentor do Azure. Também pode ver informações sobre contentores e aplicações em execução.  
 
 ![IU do Marathon](./media/container-service-mesos-marathon-ui/dcos3.png)
 
@@ -83,7 +83,7 @@ De voltar à página principal do Marathon, pode ver o estado de implementação
 
 ![IU da página principal do Marathon – estado de implementação do contentor](./media/container-service-mesos-marathon-ui/dcos7.png)
 
-Ao alternar de volta para a interface do usuário da Web do DC/so (http:\//localhost/), você verá que uma tarefa (nesse caso, um contêiner formatado pelo Docker) está em execução no cluster DC/OS.
+Quando volta a mudar para o UI\/web DC/OS (http: /localhost/), vê-se que uma tarefa (neste caso, um recipiente formado por Docker) está a funcionar no cluster DC/OS.
 
 ![IU da Web do DC/OS – tarefa em execução no cluster](./media/container-service-mesos-marathon-ui/dcos8.png)
 
@@ -91,9 +91,9 @@ Para ver que o nó de cluster que a tarefa está a executar, clique no separador
 
 ![IU da Web do DC/OS – nó de cluster da tarefa](./media/container-service-mesos-marathon-ui/dcos9.png)
 
-## <a name="reach-the-container"></a>Alcance o contêiner
+## <a name="reach-the-container"></a>Chegar ao recipiente
 
-Neste exemplo, o aplicativo está sendo executado em um nó de agente público. Você acessa o aplicativo da Internet navegando até o FQDN do agente do cluster: `http://[DNSPREFIX]agents.[REGION].cloudapp.azure.com`, em que:
+Neste exemplo, a aplicação está a decorrer num nó de agente público. Você chega à aplicação a partir da internet navegando para `http://[DNSPREFIX]agents.[REGION].cloudapp.azure.com`o agente FQDN do cluster: , onde:
 
 * **DNSPREFIX** é o prefixo DNS que forneceu quando implementou o cluster.
 * **REGION** é a região no qual o grupo de recursos está localizado.
@@ -104,7 +104,7 @@ Neste exemplo, o aplicativo está sendo executado em um nó de agente público. 
 ## <a name="next-steps"></a>Passos seguintes
 * [Trabalhar com o DC/OS e a API do Marathon](container-service-mesos-marathon-rest.md)
 
-* Aprofundar o Serviço de Contentor do Azure com o Mesos
+* Descrição aprofundada sobre o Azure Container Service com Mesos
 
     > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON203/player]
     > 

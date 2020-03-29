@@ -1,5 +1,5 @@
 ---
-title: PRETERIDO Aplicativo ou serviço Marathon específico do usuário
+title: (DEPRECIADO) Serviço de maratona específico de aplicação ou utilizador
 description: Criar um serviço Marathon específico para aplicações ou utilizadores
 author: rgardler
 ms.service: container-service
@@ -8,13 +8,13 @@ ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: 423dc7f62806f774a5ec4855faa8be9001292773
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277722"
 ---
-# <a name="deprecated-create-an-application-or-user-specific-marathon-service"></a>PRETERIDO Criar um aplicativo ou serviço Marathon específico do usuário
+# <a name="deprecated-create-an-application-or-user-specific-marathon-service"></a>(DEPRECIADO) Criar uma aplicação ou serviço de maratona específico do utilizador
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
@@ -25,7 +25,7 @@ Neste artigo, explicaremos como adicionar um serviço Marathon específico para 
 Visto que este serviço pertencerá a um utilizador único ou equipa, estes são livres de configurá-lo da forma que pretendam. Além disso, o Serviço de Contentor do Azure irá garantir que o serviço continua a ser executado. Se o serviço falhar, o Serviço de Contentor do Azure reiniciá-lo-á por si. Na maioria das vezes, nem se aperceberá de eventuais períodos de indisponibilidade.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-[Implemente uma instância do Serviço de Contentor do Azure](container-service-deployment.md) com o tipo de orquestrador DC/SO e [certifique-se de que o cliente pode ligar ao cluster](../container-service-connect.md). Além disso, execute os passos seguintes.
+[Implemente uma instância do Serviço de Contentores Azure](container-service-deployment.md) com o orquestrador tipo DC/OS e [certifique-se de que o seu cliente pode ligar-se ao seu cluster](../container-service-connect.md). Além disso, execute os passos seguintes.
 
 [!INCLUDE [install the DC/OS CLI](../../../includes/container-service-install-dcos-cli-include.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de dimensionamento automático com conjuntos de escala de máquina virtual
-description: Solucionar problemas de dimensionamento automático com conjuntos de escala de máquina virtual. Entenda os problemas típicos encontrados e como resolvê-los.
+title: Escala automática de resolução de problemas com conjuntos de escala de máquina virtual
+description: Escala automática de sessão de problemas com conjuntos de escala de máquina virtual. Compreender os problemas típicos encontrados e como resolvê-los.
 author: mayanknayar
 tags: azure-resource-manager
 ms.assetid: c7d87b72-ee24-4e52-9377-a42f337f76fa
@@ -10,71 +10,71 @@ ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: manayar
 ms.openlocfilehash: 923967a902f611ce845fbdc096fd2c02e681bb6e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76272437"
 ---
-# <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Solucionando problemas de dimensionamento automático com conjuntos de dimensionamento de máquinas virtuais
-**Problema** – você criou uma infraestrutura de dimensionamento automático em Azure Resource Manager usando conjuntos de dimensionamento de máquinas virtuais, por exemplo, implantando um modelo como este: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale – você tem suas regras de dimensionamento definidas e funciona muito bem, exceto que a carga que você colocou nas VMs não faz dimensionamento automático.
+# <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Resolver problemas de dimensionamento automático em Conjuntos de Dimensionamento de Máquinas Virtuais
+**Problema** – criou uma infraestrutura de autoscalcificação no Azure Resource Manager utilizando conjuntos de escala https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale de máquinas virtuais – por exemplo, ao implementar um modelo como este: – tem as suas regras de escala definidas e funciona muito bem, exceto por mais carga que coloque nos VMs, não faz escala automática.
 
 ## <a name="troubleshooting-steps"></a>Passos de resolução de problemas
-Alguns itens a serem considerados incluem:
+Algumas coisas a considerar incluem:
 
-* Quantas vCPUs cada VM tem, e você está carregando cada vCPU?
-  O modelo de início rápido do Azure de exemplo anterior tem um script do_work. php, que carrega um único vCPU. Se você estiver usando uma VM maior do que um tamanho de VM de vCPU único como Standard_A1 ou D1, precisará executar essa carga várias vezes. Verificar quantas vCPUs para suas VMs revisando [tamanhos das máquinas virtuais do Windows no Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* Quantas VMs no conjunto de dimensionamento de máquinas virtuais você está trabalhando em cada uma delas?
+* Quantos vCPUs cada VM tem, e está a carregar cada vCPU?
+  A amostra anterior do modelo Azure Quickstart tem um roteiro do_work.php, que carrega um único vCPU. Se estiver a usar um VM maior do que um VM de um único vCPU como Standard_A1 ou D1, terá de executar esta carga várias vezes. Verifique quantos vCPUs para os seus VMs, revendo [Tamanhos para máquinas virtuais Windows em Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* Quantos VMs no conjunto de máquinas virtuais, estás a trabalhar em cada um?
   
-    Um evento de expansão só ocorre quando a média de CPU em **todas** as VMs em um conjunto de dimensionamento excede o valor de limite, ao longo do tempo interno definido nas regras de dimensionamento automático.
-* Você perdeu algum evento de escala?
+    Um evento de escala só ocorre quando o CPU médio em **todos os** VMs numa escala definida excede o valor limiar, ao longo do tempo interno definido nas regras de escala automática.
+* Perdeu algum evento à escala?
   
-    Verifique os logs de auditoria no portal do Azure para eventos de escala. Talvez houvesse uma escala vertical e uma redução para baixo que foi perdida. Você pode filtrar por "escala".
+    Verifique os registos de auditoria no portal Azure para obter eventos de escala. Talvez tenha havido uma subida e uma descida que não foi perdida. Pode filtrar por "Escala".
   
     ![Registos de Auditoria][audit]
-* Os limites de redução e expansão são suficientemente diferentes?
+* Os seus limiares de escala e escala são suficientemente diferentes?
   
-    Suponha que você defina uma regra para escalar horizontalmente quando a média da CPU for maior que 50% em cinco minutos e para reduzir quando a média da CPU for menor que 50%. Essa configuração causaria um problema de "oscilação" quando o uso da CPU estiver perto do limite, com ações de escala constantemente aumentando e diminuindo o tamanho do conjunto. Devido a essa configuração, o serviço de dimensionamento automático tenta evitar "oscilação", que pode ser manifestado como não dimensionamento. Portanto, certifique-se de que os limites de escala e redução sejam suficientemente diferentes para permitir algum espaço entre o dimensionamento.
-* Você escreveu seu próprio modelo JSON?
+    Suponha que estabeleça uma regra para escalar quando a CPU média é superior a 50% em cinco minutos, e escalar quando a CPU média é inferior a 50%. Esta definição provocaria um problema de "bater palmas" quando a utilização do CPU está próxima do limiar, com as ações de escala a aumentarem constantemente e a diminuirem o tamanho do conjunto. Devido a esta configuração, o serviço de escala automática tenta evitar o "bater", que pode manifestar-se como não escalar. Por isso, certifique-se de que os seus limiares de escala e escala são suficientemente diferentes para permitir algum espaço entre a escala.
+* Escreveu o seu próprio modelo JSON?
   
-    É fácil cometer erros, portanto, comece com um modelo como aquele acima, que é comprovado para funcionar e faça pequenas alterações incrementais. 
-* Você pode reduzir ou reduzir manualmente?
+    É fácil cometer erros, por isso comece com um modelo como o acima que está provado funcionar, e faça pequenas mudanças incrementais. 
+* Pode entrar ou sair manualmente?
   
-    Tente reimplantar o recurso de conjunto de dimensionamento de máquinas virtuais com uma configuração de "capacidade" diferente para alterar o número de VMs manualmente. Um modelo de exemplo está aqui: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing – talvez seja necessário editar o modelo para verificar se ele tem o mesmo tamanho de máquina que o conjunto de dimensionamento usa. Se for possível alterar o número de VMs manualmente, você saberá que o problema está isolado no dimensionamento automático.
-* Verifique seus recursos Microsoft. Compute/virtualMachineScaleSet e Microsoft. insights no [Azure Resource Explorer](https://resources.azure.com/)
+    Tente recolocar o recurso conjunto de conjunto de máquinas virtuais com uma definição de "capacidade" diferente para alterar manualmente o número de VMs. Um modelo de https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing exemplo está aqui: – você pode precisar editar o modelo para se certificar de que tem o mesmo tamanho da máquina que o seu Conjunto de Escala saem. Se conseguir alterar manualmente o número de VMs, então sabe que o problema está isolado à escala automática.
+* Verifique os recursos Microsoft.Compute/virtualMachineScaleSet e Microsoft.Insights no [Azure Resource Explorer](https://resources.azure.com/)
   
-    O Azure Resource Explorer é uma ferramenta de solução de problemas indispensável que mostra o estado de seus recursos de Azure Resource Manager. Clique em sua assinatura e examine o grupo de recursos que você está solucionando. No provedor de recursos de computação, examine o conjunto de dimensionamento de máquinas virtuais que você criou e verifique o modo de exibição de instância, que mostra o estado de uma implantação. Além disso, verifique a exibição de instância das VMs no conjunto de dimensionamento de máquinas virtuais. Em seguida, vá para o provedor de recursos Microsoft. insights e verifique se as regras de dimensionamento automático parecem corretas.
-* A extensão de diagnóstico está funcionando e emitindo dados de desempenho?
+    O Azure Resource Explorer é uma ferramenta indispensável de resolução de problemas que lhe mostra o estado dos seus recursos do Gestor de Recursos Azure. Clique na sua subscrição e veja o Grupo de Recursos que está a resolver problemas. Sob o fornecedor de recursos Compute, olhe para o conjunto de escala de máquina virtual que criou e verifique a Vista de Instância, que mostra o estado de uma implementação. Além disso, verifique a visão de exemplo dos VMs no conjunto de escala de máquina virtual. Em seguida, entre no fornecedor de recursos Microsoft.Insights e verifique se as regras de escala automática parecem certas.
+* A extensão de diagnóstico está a funcionar e a emitir dados de desempenho?
   
-    **Atualização:** O dimensionamento automático do Azure foi aprimorado para usar um pipeline de métricas baseado em host, que não requer mais uma extensão de diagnóstico para ser instalada. Os próximos parágrafos não se aplicarão mais se você criar um aplicativo de dimensionamento automático usando o novo pipeline. Um exemplo de modelos do Azure que foram convertidos para usar o pipeline de host está disponível aqui: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
+    **Atualização:** A escala automática Azure foi melhorada para utilizar um gasoduto de métricas baseado no hospedeiro, que já não requer uma extensão de diagnóstico para ser instalado. Os próximos parágrafos já não se aplicam se criar uma aplicação autoscalcificante utilizando o novo pipeline. Um exemplo de modelos Azure que foram convertidos para https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscaleutilizar o gasoduto hospedeiro está disponível aqui: . 
   
-    O uso de métricas baseadas em host para dimensionamento automático é melhor pelos seguintes motivos:
+    A utilização de métricas baseadas em hospedeiros para escala automática é melhor para as seguintes razões:
   
-  * Menos partes móveis como nenhuma extensão de diagnóstico precisam ser instaladas.
-  * Modelos mais simples. Basta adicionar Insight regras de dimensionamento automático a um modelo de conjunto de dimensionamento existente.
-  * Relatórios mais confiáveis e lançamento mais rápido de novas VMs.
+  * Menos peças móveis, uma vez que não é necessário instalar extensões de diagnóstico.
+  * Modelos mais simples. Basta adicionar insights regras de escala automática a um modelo de conjunto de escala existente.
+  * Relatórios mais fiáveis e lançamento mais rápido de novos VMs.
     
-    Os únicos motivos que você pode querer manter usando uma extensão de diagnóstico é se você precisar de relatórios/dimensionamento de diagnóstico de memória. As métricas baseadas em host não relatam memória.
+    A única razão pela qual pode continuar a utilizar uma extensão de diagnóstico é se precisar de relatórios/escalas de diagnóstico de memória. As métricas baseadas no hospedeiro não reportam a memória.
     
-    Com isso em mente, só siga o restante deste artigo se você estiver usando as extensões de diagnóstico para o dimensionamento automático.
+    Com isso em mente, basta seguir o resto deste artigo se estiver a usar extensões de diagnóstico para a sua autoscalcificação.
     
-    O dimensionamento automático no Azure Resource Manager pode funcionar (mas não precisa mais) por meio de uma extensão de VM chamada de extensão de diagnóstico. Ele emite dados de desempenho para uma conta de armazenamento que você define no modelo. Esses dados são então agregados pelo serviço de Azure Monitor.
+    A escala automática em Azure Resource Manager pode funcionar (mas já não tem de o fazer) através de uma extensão VM chamada Extensão de Diagnósticos. Emite dados de desempenho para uma conta de armazenamento que define no modelo. Estes dados são então agregados pelo serviço Azure Monitor.
     
-    Se o serviço de informações não conseguir ler os dados das VMs, ele deverá enviar um email para você. Por exemplo, você receberá um email se as VMs estiverem inativas. Certifique-se de verificar seu email, no endereço de email especificado quando você criou sua conta do Azure.
+    Se o serviço Insights não conseguir ler os dados dos VMs, é suposto enviar-lhe um e-mail. Por exemplo, recebe um e-mail se os VMs estiverem em baixo. Certifique-se de verificar o seu e-mail, no endereço de e-mail que especificou quando criou a sua conta Azure.
     
-    Você também pode examinar os dados por conta própria. Examine a conta de armazenamento do Azure usando um Cloud Explorer. Por exemplo, usando o [Visual Studio Cloud Explorer](https://visualstudiogallery.msdn.microsoft.com/aaef6e67-4d99-40bc-aacf-662237db85a2), faça logon e escolha a assinatura do Azure que você está usando. Em seguida, examine o nome da conta de armazenamento de diagnóstico referenciada na definição de extensão de diagnóstico em seu modelo de implantação.
+    Também pode olhar para os dados. Veja a conta de armazenamento do Azure usando um explorador de nuvens. Por exemplo, utilizando o [Visual Studio Cloud Explorer,](https://visualstudiogallery.msdn.microsoft.com/aaef6e67-4d99-40bc-aacf-662237db85a2)faça login e escolha a subscrição Azure que está a utilizar. Em seguida, veja o nome da conta de armazenamento de Diagnóstico referenciado na definição de extensão de Diagnóstico no seu modelo de implementação.
     
     ![Cloud Explorer][explorer]
     
-    Você vê um monte de tabelas em que os dados de cada VM estão sendo armazenados. Usando o Linux e a métrica de CPU como exemplo, examine as linhas mais recentes. O Visual Studio Cloud Explorer dá suporte a uma linguagem de consulta para que você possa executar uma consulta. Por exemplo, você pode executar uma consulta para "timestamp gt DateTime ' 2016-02-02T21:20:00Z '" para certificar-se de obter os eventos mais recentes. O fuso horário corresponde ao UTC. Os dados que você vê ali correspondem às regras de dimensionamento que você configurou? No exemplo a seguir, a CPU para o computador 20 começou a aumentar para 100% nos últimos cinco minutos.
+    Você vê um monte de tabelas onde os dados de cada VM estão sendo armazenados. Tomando linux e a métrica do CPU como exemplo, olhe para as linhas mais recentes. O explorador de nuvem do Estúdio Visual suporta uma linguagem de consulta para que possa fazer uma consulta. Por exemplo, pode fazer uma consulta para "Timestamp gt datetime'2016-02-02T21:20:00Z'" para garantir que obtém os eventos mais recentes. O fuso horário corresponde à UTC. Os dados que vê lá dentro correspondem às regras de escala que criou? No exemplo seguinte, o CPU da máquina 20 começou a aumentar para 100% nos últimos cinco minutos.
     
-    ![Tabelas de Armazenamento][tables]
+    ![Mesas de Armazenamento][tables]
     
-    Se os dados não estiverem lá, isso implicará que o problema está na extensão de diagnóstico em execução nas VMs. Se os dados estiverem lá, isso implica que há um problema com as regras de dimensionamento ou com o serviço insights. Verifique o [status do Azure](https://azure.microsoft.com/status/).
+    Se os dados não estiverem lá, implica que o problema está com a extensão de diagnóstico em execução nos VMs. Se os dados estiverem lá, implica que há um problema com as suas regras de escala, ou com o serviço Insights. Verifique o [estado do Azure](https://azure.microsoft.com/status/).
     
-    Depois de seguir essas etapas, se você ainda tiver problemas de dimensionamento automático, poderá experimentar os seguintes recursos: 
-    * Leia os fóruns no [msdn](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows)ou [Stack Overflow](https://stackoverflow.com/questions/tagged/azure) 
-    * Registre uma chamada de suporte. Esteja preparado para compartilhar o modelo e uma exibição de seus dados de desempenho.
+    Depois de passar por estes degraus, se ainda tiver problemas de escala automática, pode experimentar os seguintes recursos: 
+    * Leia os fóruns na [MSDN,](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows)ou [Stack transbordar](https://stackoverflow.com/questions/tagged/azure) 
+    * Faça uma chamada de apoio. Esteja preparado para partilhar o modelo e uma visão dos seus dados de desempenho.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png
 [explorer]: ./media/virtual-machine-scale-sets-troubleshoot/image1.png

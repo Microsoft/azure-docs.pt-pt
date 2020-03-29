@@ -1,5 +1,5 @@
 ---
-title: Compreender um reboot do sistema para um Azure VM  Microsoft Docs
+title: Compreender um reboot do sistema para um Azure VM [ Microsoft Docs
 description: Lista os eventos que podem fazer com que um VM reinicie
 services: virtual-machines
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: e94ffb3d34082745c3d7ca86cfda2b93c0ed08da
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919418"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Compreenda um reboot do sistema para O VM Azure
@@ -62,7 +62,7 @@ As atualizações de várias instâncias (para VMs num conjunto de disponibilida
 > [!NOTE]
 > As máquinas linux que têm versões antigas de kernel são afetadas por um pânico de kernel durante este método de atualização. Para evitar este problema, atualize para a versão kernel 3.10.0-327.10.1 ou posterior. Para mais informações, consulte [an Azure Linux VM num kernel 3.10 baseado em pânicoapós um upgrade](https://support.microsoft.com/help/3212236)do nó anfitrião .
 
-### <a name="user-initiated-reboot-or-shutdown-actions"></a>Ações de reinício ou de encerramento iniciadas pelo utilizador
+### <a name="user-initiated-reboot-or-shutdown-actions"></a>Ações de reinício ou encerramento iniciadas pelo utilizador
 
 Se efetuar um reboot a partir do portal Azure, Azure PowerShell, interface de linha de comando ou REST API, pode encontrar o evento no Registo de [Atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md).
 
@@ -80,7 +80,7 @@ Tal como os servidores no local, o Azure não empurra as atualizações do Windo
 
 Há outros casos em que o Azure pode suspender ativamente a utilização de um VM. Receberá notificações por e-mail antes de esta ação ser tomada, para que tenha a oportunidade de resolver os problemas subjacentes. Exemplos de questões que afetam a disponibilidade de VM incluem violações de segurança e a expiração dos métodos de pagamento.
 
-### <a name="host-server-faults"></a>Falhas no servidor de anfitriões
+### <a name="host-server-faults"></a>Falhas do servidor anfitrião
 
 O VM está hospedado num servidor físico que está a funcionar dentro de um centro de dados Azure. O servidor físico executa um agente chamado Agente Anfitrião, além de alguns outros componentes Do Azure. Quando estes componentes de software Azure no servidor físico ficam sem resposta, o sistema de monitorização desencadeia um reboot do servidor hospedeiro para tentar a recuperação. O VM está geralmente disponível novamente dentro de cinco minutos e continua a viver no mesmo hospedeiro que anteriormente.
 
@@ -107,7 +107,7 @@ A manutenção não planeada inclui o seguinte:
 
 As VMs podem reiniciar devido a problemas dentro do próprio VM. A carga de trabalho ou função que está a decorrer no VM pode desencadear uma verificação de bugs dentro do sistema operativo convidado. Para ajudar a determinar o motivo do acidente, veja o sistema e os registos de aplicações para VMs do Windows e os registos em série para VMs Linux.
 
-### <a name="storage-related-forced-shutdowns"></a>Paralisações forçadas relacionadas com armazenamento
+### <a name="storage-related-forced-shutdowns"></a>Encerramentos forçados relacionados com o armazenamento
 
 Os VMs em Azure dependem de discos virtuais para sistema operativo e armazenamento de dados que está alojado na infraestrutura de armazenamento Azure. Sempre que a disponibilidade ou conectividade entre o VM e os discos virtuais associados seja afetado por mais de 120 segundos, a plataforma Azure realiza uma paragem forçada dos VMs para evitar a corrupção de dados. Os VMs são automaticamente ligados de volta após a conectividade de armazenamento ter sido restaurada. 
 

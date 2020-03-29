@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.openlocfilehash: bf1dca61ec6b39e52d4f76c1c77cd3def6973ab8
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78945026"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Pré-visualização: Crie uma imagem Linux e distribua-a para uma Galeria de Imagem Partilhada 
@@ -21,11 +21,11 @@ Este artigo mostra-lhe como pode usar o Azure Image Builder, e o Azure CLI, para
 
 Vamos usar um modelo de amostra .json para configurar a imagem. O ficheiro .json que estamos a usar está aqui: [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
 
-Para distribuir a imagem para uma Galeria de Imagem Partilhada, o modelo utiliza a [sharedImage](image-builder-json.md#distribute-sharedimage) como o valor para a secção `distribute` do modelo.
+Para distribuir a imagem para uma Galeria de Imagem Partilhada, `distribute` o modelo utiliza a [SharedImage](image-builder-json.md#distribute-sharedimage) como o valor para a secção do modelo.
 
 > [!IMPORTANT]
 > O Azure Image Builder está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 ## <a name="register-the-features"></a>Registe as características
 Para utilizar o Azure Image Builder durante a pré-visualização, é necessário registar a nova funcionalidade.
@@ -77,7 +77,7 @@ imageDefName=myIbImageDef
 runOutputName=aibLinuxSIG
 ```
 
-Crie uma variável para o seu ID de subscrição. Pode obter isto usando `az account show | grep id`.
+Crie uma variável para o seu ID de subscrição. Pode obter isto `az account show | grep id`usando.
 
 ```azurecli-interactive
 subscriptionID=<Subscription ID>
@@ -90,7 +90,7 @@ az group create -n $sigResourceGroup -l $location
 ```
 
 
-Dê permissão ao Azure Image Builder para criar recursos nesse grupo de recursos. O valor `--assignee` é o ID de registo de aplicações para o serviço Image Builder. 
+Dê permissão ao Azure Image Builder para criar recursos nesse grupo de recursos. O `--assignee` valor é o ID de registo de aplicações para o serviço Image Builder. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -172,7 +172,7 @@ az resource invoke-action \
 Criar a imagem e replicá-la a ambas as regiões pode demorar algum tempo. Espere até que esta peça esteja terminada antes de passar para a criação de um VM.
 
 
-## <a name="create-the-vm"></a>Criar a VM
+## <a name="create-the-vm"></a>Crie a VM
 
 Crie um VM a partir da versão de imagem que foi criada pelo Azure Image Builder.
 
@@ -186,7 +186,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-SSH no VM.
+SSH na VM.
 
 ```azurecli-interactive
 ssh aibuser@<publicIpAddress>
@@ -220,7 +220,7 @@ az resource delete \
     -n helloImageTemplateforSIG01
 ```
 
-Obtenha a versão de imagem criada pelo construtor de imagens, isto começa sempre com `0.`, e depois apagar a versão de imagem
+Obtenha a versão de imagem criada pelo `0.`construtor de imagens, isto sempre começa com, e depois eliminar a versão de imagem
 
 ```azurecli-interactive
 sigDefImgVersion=$(az sig image-version list \
@@ -259,6 +259,6 @@ Elimine o grupo de recursos.
 az group delete -n $sigResourceGroup -y
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as Galerias de [Imagem Partilhada azure.](shared-image-galleries.md)

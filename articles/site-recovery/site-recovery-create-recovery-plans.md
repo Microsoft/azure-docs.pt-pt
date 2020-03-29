@@ -4,10 +4,10 @@ description: Saiba como criar e personalizar planos de recuperação para recupe
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.openlocfilehash: 6540317324a9f0d9bccc046ecf95824d4128bd09
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76705841"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Criar e personalizar planos de recuperação
@@ -16,7 +16,7 @@ Este artigo descreve como criar e personalizar um plano de recuperação para fa
 
 ## <a name="create-a-recovery-plan"></a>Criar um plano de recuperação
 
-1. No cofre dos Serviços de Recuperação, selecione Planos de **Recuperação (Recuperação do Local)**  > +Plano de **Recuperação**.
+1. No cofre dos Serviços de Recuperação, selecione Planos de **Recuperação (Recuperação do Local)** > +Plano de**Recuperação**.
 2. No **plano de recuperação Create,** especifique um nome para o plano.
 3. Escolha uma fonte e um alvo com base nas máquinas do plano e selecione **Gestor de Recursos** para o modelo de implementação. A localização de origem deve ter máquinas habilitadas para a falha e recuperação. 
 
@@ -44,9 +44,9 @@ Este artigo descreve como criar e personalizar um plano de recuperação para fa
 
 Cria grupos adicionais e adiciona máquinas a diferentes grupos para que possa especificar comportamentos diferentes numa base de grupo a grupo. Por exemplo, pode especificar quando as máquinas de um grupo devem começar após a falha, ou especificar ações personalizadas por grupo.
 
-1. Em Planos de **Recuperação,** clique à direita no plano > **Personalizar**. Por padrão, depois de criar um plano, todas as máquinas que adicionou estão localizadas no Grupo 1 predefinido.
+1. Nos Planos de **Recuperação,** clique no plano > **Personalizar.** Por padrão, depois de criar um plano, todas as máquinas que adicionou estão localizadas no Grupo 1 predefinido.
 2. Clique em **+Grupo**. Por defeito, um novo grupo é numerado na ordem em que é adicionado. Pode ter até sete grupos.
-3. Selecione a máquina que pretende mover para o novo grupo, clique em mudar de **grupo**e, em seguida, selecione o novo grupo. Em alternativa, clique à direita no nome do grupo > **artigo protegido,** e adicione máquinas ao grupo. Uma máquina ou grupo de replicação só pode pertencer a um grupo num plano de recuperação.
+3. Selecione a máquina que pretende mover para o novo grupo, clique em mudar de **grupo**e, em seguida, selecione o novo grupo. Em alternativa, clique no nome do grupo > **artigo protegido**e adicione máquinas ao grupo. Uma máquina ou grupo de replicação só pode pertencer a um grupo num plano de recuperação.
 
 
 ## <a name="add-a-script-or-manual-action"></a>Adicione um script ou ação manual
@@ -60,12 +60,12 @@ Pode personalizar um plano de recuperação adicionando um script ou ação manu
 - Para criar um script no servidor VMM, siga as instruções [deste artigo](hyper-v-vmm-recovery-script.md).
 - Os scripts podem ser aplicados durante a falha no local secundário, e durante o failback do local secundário para o primário. O suporte depende do seu cenário de replicação:
     
-    **Cenário** | **Ativação pós-falha** | **Reativação pós-falha**
+    **Cenário** | **Ativação pós-falha** | **Recuo**
     --- | --- | --- 
     Azure para o Azure  | Runbook | Runbook
-    VMware para o Azure | Runbook | N/D 
+    VMware para o Azure | Runbook | ND 
     Hiper-V com VMM para Azure | Runbook | Script
-    Site do Hyper-V para o Azure | Runbook | N/D
+    Site Hyper-V para o Azure | Runbook | ND
     VMM para VMM secundário | Script | Script
 
 1. No plano de recuperação, clique no passo a que a ação deve ser adicionada e especifique quando deve ocorrer a ação:
@@ -76,11 +76,11 @@ Pode personalizar um plano de recuperação adicionando um script ou ação manu
     1. Digite um nome para a ação e escreva instruções de ação. A pessoa que executa o failover verá estas instruções.
     1. Especifique se pretende adicionar a ação manual para todos os tipos de failover (Teste, Failover, Failover Planeado (se for relevante)). Em seguida, clique em **OK**.
 4. Se quiser adicionar um guião, faça o seguinte:
-    1. Se estiver a adicionar um script VMM, selecione **Failover para vMM script**, e no **Script Path** escreva o caminho relativo para a partilha. Por exemplo, se a parte estiver localizada em \\\<VMMServerName>\MSSCVMMLibrary\RPScripts, especifique o caminho: \RPScripts\RPScripts.PS1.
+    1. Se estiver a adicionar um script VMM, selecione **Failover para vMM script**, e no **Script Path** escreva o caminho relativo para a partilha. Por exemplo, se a \\ \<parte estiver localizada no VMMServerName>\MSSCVMMLibrary\RPScripts, especifique o caminho: \RPScripts\RPScript.PS1.
     1. Se estiver a adicionar um livro de execução de automação Azure, especifique a **Conta de Automação Azure** na qual o livro de execução está localizado e selecione o script de **runbook azure**apropriado .
 5. Execute uma falha de teste do plano de recuperação para garantir que o script funcione como esperado.
 
-## <a name="watch-a-video"></a>Ver um vídeo
+## <a name="watch-a-video"></a>Veja um vídeo
 
 Veja um vídeo que demonstre como construir um plano de recuperação.
 

@@ -1,6 +1,6 @@
 ---
 title: SERVIÇO CRÍTICO FALHOU ao arrancar um Azure VM / Microsoft Docs
-description: Saiba como resolver o erro "0x00000005A-CRITICAL SERVICE FAILED" que ocorre ao iniciar o arranque  serviço crítico de 000000005" que ocorre ao iniciar o arranque  serviço crítico que ocorre ao iniciar o arranque  serviço crítico Microsoft Docs
+description: Saiba como resolver o erro "0x00000005A-CRITICAL SERVICE FAILED" que ocorre ao iniciar o arranque [ serviço crítico de 000000005" que ocorre ao iniciar o arranque [ serviço crítico] que ocorre ao iniciar o arranque [ serviço crítico] Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
 ms.openlocfilehash: 54ba87b681a055bb46b81ca81d2bcdd103491f27
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921458"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows mostra "SERVIÇO CRÍTICO FALHADO" no ecrã azul ao arrancar um VM Azure
@@ -27,7 +27,7 @@ Este artigo descreve o erro "CRITICAL SERVICE FAILED" que poderá experimentar a
 
 Um VM windows não começa. Quando verificar as imagens da bota nos [diagnósticos da Bota,](./boot-diagnostics.md)vê uma das seguintes mensagens de erro num ecrã azul:
 
-- "O seu PC teve um problema e precisa de recomeçar. Pode recomeçar. Para mais informações sobre este assunto e possíveis correções, visite https://windows.com/stopcode. Se ligar para uma pessoa de apoio, dê-lhes esta informação: Stop code: CRITICAL SERVICE FAILED" 
+- "O seu PC teve um problema e precisa de recomeçar. Pode recomeçar. Para mais informações sobre este assunto https://windows.com/stopcodee possíveis correções, visite . Se ligar para uma pessoa de apoio, dê-lhes esta informação: Stop code: CRITICAL SERVICE FAILED" 
 - "O seu PC teve um problema e precisa de recomeçar. Estamos apenas a recolher informações de erros, e depois recomeçamos para ti. Se quiser saber mais, pode pesquisar online mais tarde por este erro: CRITICAL_SERVICE_FAILED"
 
 ## <a name="cause"></a>Causa
@@ -41,7 +41,7 @@ Há várias causas para erros de paragem. As causas mais comuns são:
 
 Para resolver este problema, contacte o [suporte e submeta um ficheiro](./troubleshoot-common-blue-screen-error.md#collect-memory-dump-file)de despejo , que nos ajudará a diagnosticar o problema mais rapidamente, ou tente a seguinte solução de autoajuda.
 
-### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Anexar o disco do SO a uma VM de recuperação
+### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Fixe o disco OS a um VM de recuperação
 
 1. Tire uma foto do disco operativo do VM afetado como cópia de segurança. Para mais informações, consulte [snapshot um disco](../windows/snapshot-copy-managed-disk.md).
 2. [Fixe o disco OS a um VM](./troubleshoot-recovery-disks-portal-windows.md)de recuperação . 
@@ -115,7 +115,7 @@ Para analisar os troncos de despejo, siga estes passos:
     Autoreboot = 0
 
     CrashDumpEnabled = 2
-7.  Selecione **BrokenSYSTEM**. No menu, selecione **File** > **Descarregar Colmeia**.
+7.  Selecione **BrokenSYSTEM**. No menu, selecione **File** > **Unload Hive**.
 8.  Modifique a configuração BCD para iniciar o modo de depuração. Executar os seguintes comandos a partir de um pedido de comando elevado:
 
     ```cmd

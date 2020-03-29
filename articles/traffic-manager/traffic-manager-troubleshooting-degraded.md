@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: rohink
 ms.openlocfilehash: c398763405472c9018a5c30d34fbd3963ecb93b7
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938371"
 ---
-# <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Resolução de problemas degradou estado em Azure Traffic Manager
+# <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Resolução de problemas do estado degradado no Gestor de Tráfego do Azure
 
 Este artigo descreve como resolver um perfil do Gestor de Tráfego Azure que mostra um estado degradado. Como um primeiro passo na resolução de problemas um estado dedegradado do Gestor de Tráfego Azure é permitir a exploração de diagnóstico.  Consulte os [registos de diagnóstico enable](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) para obter mais informações. Para este cenário, considere que configura um perfil de Gestor de Tráfego apontando para alguns dos seus serviços cloudapp.net hospedados. Se a saúde do seu Gestor de Tráfego apresentar um estado **degradado,** então o estado de um ou mais pontos finais pode ser **degradado:**
 
@@ -43,12 +43,12 @@ Se a saúde do seu Gestor de Tráfego apresentar um estado **inativo,** então a
 Para resolver uma falha na sonda, precisa de uma ferramenta que mostre o retorno do código de estado HTTP do URL da sonda. Existem muitas ferramentas disponíveis que mostram a resposta http crua.
 
 * [Fiddler](https://www.telerik.com/fiddler)
-* [curl](https://curl.haxx.se/)
+* [caracol](https://curl.haxx.se/)
 * [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
 
 Além disso, pode utilizar o separador Rede das Ferramentas de Depuração F12 no Internet Explorer para visualizar as respostas HTTP.
 
-Para este exemplo queremos ver a resposta do nosso URL da sonda: http:\//watestsdp2008r2.cloudapp.net:80/Probe. O exemplo da PowerShell ilustra o problema.
+Para este exemplo queremos ver a resposta do\/nosso URL da sonda: http: /watestsdp2008r2.cloudapp.net:80/Probe. O exemplo da PowerShell ilustra o problema.
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription
@@ -79,17 +79,17 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 [System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
 ```
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 [Sobre os métodos de encaminhamento de tráfego do Gestor de Tráfego](traffic-manager-routing-methods.md)
 
 [O que é Gestor de Tráfego](traffic-manager-overview.md)
 
-[Serviços Cloud](https://go.microsoft.com/fwlink/?LinkId=314074)
+[Serviços em Nuvem](https://go.microsoft.com/fwlink/?LinkId=314074)
 
 [Serviço de Aplicações do Azure](https://azure.microsoft.com/documentation/services/app-service/web/)
 
-[Operações do Gestor de Tráfego (Referência da API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Operações do Traffic Manager (Referência da API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Cmdlets do Gestor de Tráfego Azure][1]
 

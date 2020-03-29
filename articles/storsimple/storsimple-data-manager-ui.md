@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 85be49ad88ac62d90235c3da6b89b0da6a11487c
-ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78933757"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Gerir o serviço StorSimple Data Manager no portal Azure
@@ -60,7 +60,7 @@ Dentro de um serviço StorSimple Data Manager, você precisa criar uma definiç�
 
 Execute os seguintes passos para criar uma definição de trabalho.
 
-1. Navegue para o serviço que criou. Ir para Definições de **Gestão > Emprego.**
+1. Navegue para o serviço que criou. Vá para **a Gestão > Definições**de Emprego.
 
 2. Clique **+ Definição de trabalho**.
 
@@ -113,7 +113,7 @@ Execute os seguintes passos para criar uma definição de trabalho.
 9. Selecione o tipo de repositório-alvo que pretende adicionar e os outros parâmetros associados ao repositório.
 
     Se selecionar um alvo do tipo de conta de Armazenamento, pode especificar um nome amigável, subscrição (escolha o mesmo que o do serviço ou outro) e uma conta de armazenamento.
-        ![Configurar dados-alvo repo 1](./media/storsimple-data-manager-ui/create-job-definition-10.png)
+        ![Configurar o repo de dados-alvo 1](./media/storsimple-data-manager-ui/create-job-definition-10.png)
 
     Uma fila de armazenamento é criada quando o trabalho corre. Esta fila é preenchida com mensagens sobre os blobs transformados, à medida que ficam prontos. O nome desta fila é igual ao nome da definição da tarefa.
     
@@ -135,7 +135,7 @@ Execute os seguintes passos para criar uma definição de trabalho.
 
 Sempre que precisa de transferir dados do StorSimple para a conta de armazenamento que especificou na definição de trabalho, tem de os executar. No tempo de execução, alguns parâmetros podem ser especificados de forma diferente. Os passos são os seguintes:
 
-1. Selecione o seu serviço StorSimple Data Manager e vá para as definições de **Gestão > Job**. Selecione e clique na definição de trabalho que pretende executar.
+1. Selecione o seu serviço StorSimple Data Manager e vá às **definições de Gestão > Emprego**. Selecione e clique na definição de trabalho que pretende executar.
      
      ![Iniciar a corrida de trabalho 1](./media/storsimple-data-manager-ui/start-job-run1.png)
 
@@ -157,6 +157,6 @@ Após a conclusão de um trabalho, pode ver o estado do trabalho. O estatuto de 
 Existem 2 conjuntos de ficheiros CSV que irá ver nesta pasta. Todos os ficheiros que começam com a lista de **ficheiros copiados...** contêm a lista de ficheiros copiados com sucesso. Todos os ficheiros que começam com a lista de **ficheiros falhadas...** contêm ficheiros que não foram capazes de ser copiados, juntamente com uma mensagem de erro.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Utilize o SDK .NET para lançar empregos de Gestor de Dados StorSimple](storsimple-data-manager-dotnet-jobs.md).

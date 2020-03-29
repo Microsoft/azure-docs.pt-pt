@@ -1,6 +1,6 @@
 ---
 title: Existe transformação no fluxo de dados de mapeamento
-description: Verificar as linhas existentes usando a transformação Exists no fluxo de dados de mapeamento Azure Data Factory
+description: Verifique se existem linhas existentes utilizando a transformação existente no fluxo de dados de mapeamento da Fábrica de Dados da Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,36 +9,36 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/16/2019
 ms.openlocfilehash: efcc45dcf3565b70305323701810c49c4a720394
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930414"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>Existe transformação no fluxo de dados de mapeamento
 
-A transformação Exists é uma transformação de filtragem de linha que verifica se os dados existem em outra fonte ou fluxo. O fluxo de saída inclui todas as linhas no fluxo à esquerda que existem ou não existem no fluxo correto. A transformação Exists é semelhante a ```SQL WHERE EXISTS``` e ```SQL WHERE NOT EXISTS```.
+A transformação existente é uma transformação de filtragem de linha que verifica se os seus dados existem em outra fonte ou fluxo. O fluxo de saída inclui todas as linhas no fluxo esquerdo que existem ou não existem no fluxo certo. A transformação existente ```SQL WHERE EXISTS``` ```SQL WHERE NOT EXISTS```é semelhante a e.
 
 ## <a name="configuration"></a>Configuração
 
-1. Escolha qual fluxo de dados você está verificando a existência no menu suspenso de **fluxo à direita** .
-1. Especifique se você está procurando os dados existentes ou não existentes na configuração de **tipo exist** .
-1. Selecione se deseja ou não uma **expressão personalizada**.
-1. Escolha quais colunas de chave você deseja comparar como suas condições de existência. Por padrão, o fluxo de dados procura igualdade entre uma coluna em cada fluxo. Para comparar por meio de um valor calculado, passe o mouse sobre a lista suspensa coluna e selecione **coluna computada**.
+1. Escolha qual o fluxo de dados que está a verificar para a existência no **fluxo certo.**
+1. Especifique se está à procura de que os dados existam ou não na definição do **tipo Exista.**
+1. Selecione se quer ou não uma **expressão personalizada.**
+1. Escolha quais as colunas-chave que pretende comparar como as suas condições existentes. Por padrão, o fluxo de dados procura a igualdade entre uma coluna em cada fluxo. Para comparar através de um valor computado, paire sobre a coluna dropdown e **selecione coluna Computed**.
 
-![Configurações existentes](media/data-flow/exists.png "existe 1")
+![Existe definições](media/data-flow/exists.png "existe 1")
 
-### <a name="multiple-exists-conditions"></a>Várias condições existentes
+### <a name="multiple-exists-conditions"></a>Múltiplas existem condições
 
-Para comparar várias colunas de cada fluxo, adicione uma nova condição EXISTS clicando no ícone de adição ao lado de uma linha existente. Cada condição adicional é unida por uma instrução "and". Comparar duas colunas é o mesmo que a seguinte expressão:
+Para comparar várias colunas de cada fluxo, adicione uma nova condição existente clicando no ícone plus ao lado de uma linha existente. Cada condição adicional é acompanhada por uma declaração de "e". Comparar duas colunas é a mesma expressão que a seguinte expressão:
 
 `source1@column1 == source2@column1 && source1@column2 == source2@column2`
 
 ### <a name="custom-expression"></a>Expressão personalizada
 
-Para criar uma expressão de forma livre que contenha operadores diferentes de "and" e "Equals to", selecione o campo **expressão personalizada** . Insira uma expressão personalizada por meio do construtor de expressões de fluxo de dados clicando na caixa azul.
+Para criar uma expressão de forma livre que contenha operadores que não "e" e "iguais", selecione o campo de **expressão Personalizado.** Introduza uma expressão personalizada através do construtor de expressão de fluxo de dados clicando na caixa azul.
 
-![Existe configurações personalizadas](media/data-flow/exists1.png "existe personalizado")
+![Existe definições personalizadas](media/data-flow/exists1.png "existe costume")
 
 ## <a name="data-flow-script"></a>Script de fluxo de dados
 
@@ -55,13 +55,13 @@ Para criar uma expressão de forma livre que contenha operadores diferentes de "
 
 ### <a name="example"></a>Exemplo
 
-O exemplo abaixo é uma transformação Exists chamada `checkForChanges` que usa o fluxo à esquerda `NameNorm2` e o `TypeConversions`de fluxo à direita.  A condição EXISTS é a `NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region` de expressão que retorna true se as colunas `EMPID` e `Region` em cada fluxo correspondem. Como estamos verificando a existência, `negate` é false. Não habilitamos nenhuma difusão na guia otimizar para que `broadcast` tenha valor `'none'`.
+O exemplo abaixo é `checkForChanges` uma transformação `NameNorm2` existente `TypeConversions`chamada que toma fluxo esquerdo e fluxo direito .  A condição existente `NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region` é a expressão `EMPID` que `Region` retorna verdadeira se as colunas e colunas de cada fluxo corresponderem. Como estamos à procura de `negate` existência, é falso. Não estamos a permitir qualquer transmissão no `broadcast` separador `'none'`otimizador, por isso tem valor.
 
-No Data Factory UX, essa transformação é semelhante à imagem abaixo:
+Na Fábrica de Dados UX, esta transformação parece a imagem abaixo:
 
-![Exemplo de Exists](media/data-flow/exists-script.png "Exemplo de Exists")
+![Existe exemplo](media/data-flow/exists-script.png "Existe exemplo")
 
-O script de fluxo de dados para essa transformação está no trecho de código abaixo:
+O script de fluxo de dados para esta transformação está no corte abaixo:
 
 ```
 NameNorm2, TypeConversions
@@ -74,4 +74,4 @@ NameNorm2, TypeConversions
 
 ## <a name="next-steps"></a>Passos seguintes
 
-As transformações semelhantes são [Lookup](data-flow-lookup.md) e [Join](data-flow-join.md).
+Transformações semelhantes são [Lookup](data-flow-lookup.md) e [Join](data-flow-join.md).

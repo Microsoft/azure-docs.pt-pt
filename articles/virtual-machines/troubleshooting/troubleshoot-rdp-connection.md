@@ -1,5 +1,5 @@
 ---
-title: Não é possível ligar-se ao RDP a um Windows VM em Azure  Microsoft Docs
+title: Não é possível ligar-se ao RDP a um Windows VM em Azure [ Microsoft Docs
 description: Problemas de resolução de problemas quando não é possível ligar-se à sua máquina virtual Windows em Azure usando o Remote Desktop
 keywords: Erro remoto no ambiente de trabalho,erro de ligação remota de ambiente de trabalho,não pode ligar-se a VM,resolução remota de problemas no ambiente de trabalho
 services: virtual-machines-windows
@@ -16,16 +16,16 @@ ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.openlocfilehash: cbca8e631da8b99aa0ea4bdc6d099f3dbd2ed9b1
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77916613"
 ---
-# <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Ligações de ambiente de trabalho remoto de resolução de problemas a uma máquina virtual Azure
-A ligação RDP (Remote Desktop Protocol) à sua máquina virtual (VM) do Azure baseada em Windows pode falhar por várias razões, impedindo o seu acesso à VM. O problema poderá estar no serviço Ambiente de Trabalho Remoto na VM, na ligação de rede ou no cliente do Ambiente de Trabalho Remoto no computador anfitrião. Este artigo guia-o através de alguns dos métodos mais comuns para resolver problemas de ligação rdp. 
+# <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Resolver problemas de ligações de Ambiente de Trabalho Remoto a máquinas virtuais do Azure
+A ligação RDP (Remote Desktop Protocol) à sua máquina virtual (VM) do Azure baseada em Windows pode falhar por várias razões, impedindo o seu acesso à VM. O problema poderá estar no serviço Ambiente de Trabalho Remoto na VM, na ligação de rede ou no cliente do Ambiente de Trabalho Remoto no computador anfitrião. Este artigo serve de orientação ao longo de alguns dos métodos mais comuns para resolver problemas de ligação RDP. 
 
-Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.
+Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode apresentar um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.
 
  
 
@@ -103,19 +103,19 @@ Depois de cada passo de resolução de problemas, tente ligar-se novamente ao se
 
 Se ainda estiver a encontrar problemas de PDR, pode [abrir um pedido](https://azure.microsoft.com/support/options/) de apoio ou ler [conceitos e passos mais detalhados do RDP.](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## <a name="troubleshoot-using-azure-powershell"></a>Resolução de problemas usando Azure PowerShell
+## <a name="troubleshoot-using-azure-powershell"></a>Resolver problemas com o Azure PowerShell
 Se ainda não o fez, [instale e configure o mais recente Azure PowerShell](/powershell/azure/overview).
 
-Os exemplos seguintes utilizam variáveis como `myResourceGroup`, `myVM`e `myVMAccessExtension`. Substitua estes nomes e locais variáveis pelos seus próprios valores.
+Os exemplos seguintes utilizam `myResourceGroup` `myVM`variáveis `myVMAccessExtension`como, e . Substitua estes nomes e locais variáveis pelos seus próprios valores.
 
 > [!NOTE]
-> Redefinir as credenciais de utilizador e a configuração RDP utilizando o cmdlet [Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) PowerShell. Nos exemplos seguintes, `myVMAccessExtension` é um nome que especifica como parte do processo. Se já trabalhou com o VMAccessAgent, pode obter o nome da extensão existente utilizando `Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"` para verificar as propriedades do VM. Para ver o nome, consulte na secção 'Extensões' da saída.
+> Redefinir as credenciais de utilizador e a configuração RDP utilizando o cmdlet [Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) PowerShell. Nos exemplos seguintes, `myVMAccessExtension` é um nome que especifica como parte do processo. Se já trabalhou com o VMAccessAgent, pode obter o nome `Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"` da extensão existente utilizando para verificar as propriedades do VM. Para ver o nome, consulte na secção 'Extensões' da saída.
 
 Depois de cada passo de resolução de problemas, tente ligar-se novamente ao seu VM. Se ainda não consegue ligar, tente o próximo passo.
 
 1. **Redefinir a sua ligação RDP**. Este passo de resolução de problemas repõe a configuração RDP quando as Ligações Remotas são desativadas ou as regras do Windows Firewall estão a bloquear rdp, por exemplo.
    
-    O exemplo seguinte repõe a ligação RDP num VM denominado `myVM` na localização `WestUS` e no grupo de recursos denominado `myResourceGroup`:
+    O exemplo seguinte repõe a ligação RDP num VM nomeado `myVM` no `WestUS` local e no grupo de recursos denominado: `myResourceGroup`
    
     ```powershell
     Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" `
@@ -123,7 +123,7 @@ Depois de cada passo de resolução de problemas, tente ligar-se novamente ao se
     ```
 2. **Verifique as regras do Grupo**de Segurança da Rede . Este passo de resolução de problemas verifica que tem uma regra no seu Grupo de Segurança de Rede para permitir o tráfego de RDP. A porta padrão para RDP é a porta TCP 3389. Uma regra para permitir o tráfego de RDP pode não ser criada automaticamente quando criar o seu VM.
    
-    Em primeiro lugar, atribua todos os dados de configuração do seu Grupo de Segurança de Rede à variável `$rules`. O exemplo seguinte obtém informações sobre o Grupo de Segurança da Rede nomeado `myNetworkSecurityGroup` no grupo de recursos denominado `myResourceGroup`:
+    Em primeiro lugar, atribua todos os `$rules` dados de configuração do seu Grupo de Segurança de Rede à variável. O exemplo seguinte obtém informações `myNetworkSecurityGroup` sobre o Grupo `myResourceGroup`de Segurança da Rede nomeado no grupo de recursos denominado:
    
     ```powershell
     $rules = Get-AzNetworkSecurityGroup -ResourceGroupName "myResourceGroup" `
@@ -136,7 +136,7 @@ Depois de cada passo de resolução de problemas, tente ligar-se novamente ao se
     $rules.SecurityRules
     ```
    
-    O exemplo que se segue mostra uma regra de segurança válida que permite o tráfego de RDP. Pode ver `Protocol`, `DestinationPortRange`, `Access`e `Direction` estão configurados corretamente:
+    O exemplo que se segue mostra uma regra de segurança válida que permite o tráfego de RDP. Pode `Protocol`ver, `DestinationPortRange` `Access`e `Direction` estão configurados corretamente:
    
     ```powershell
     Name                     : default-allow-rdp
@@ -157,13 +157,13 @@ Depois de cada passo de resolução de problemas, tente ligar-se novamente ao se
     Se não tiver uma regra que permita o tráfego de RDP, [crie uma regra do Grupo](../windows/nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)de Segurança da Rede . Permita a porta TCP 3389.
 3. **Redefinir as credenciais de utilizador**. Este passo de resolução de problemas repõe a palavra-passe na conta do administrador local que especifica quando não tem a certeza ou esqueceu as credenciais.
    
-    Em primeiro lugar, especifique o nome de utilizador e uma nova palavra-passe atribuindo credenciais à variável `$cred` da seguinte forma:
+    Em primeiro lugar, especifique o nome `$cred` de utilizador e uma nova palavra-passe atribuindo credenciais à variável da seguinte forma:
    
     ```powershell
     $cred=Get-Credential
     ```
    
-    Agora, atualize as credenciais no seu VM. O exemplo seguinte atualiza as credenciais de um VM chamado `myVM` na localização `WestUS` e no grupo de recursos chamado `myResourceGroup`:
+    Agora, atualize as credenciais no seu VM. O exemplo seguinte atualiza as credenciais `myVM` de `WestUS` um VM nomeado `myResourceGroup`no local e no grupo de recursos denominado:
    
     ```powershell
     Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" `
@@ -173,14 +173,14 @@ Depois de cada passo de resolução de problemas, tente ligar-se novamente ao se
     ```
 4. **Reinicie o seu VM**. Este passo de resolução de problemas pode corrigir quaisquer problemas subjacentes que o próprio VM está a ter.
    
-    O exemplo seguinte reinicia o VM denominado `myVM` no grupo de recursos denominado `myResourceGroup`:
+    O exemplo seguinte reinicia `myVM` o VM `myResourceGroup`nomeado no grupo de recursos denominado:
    
     ```powershell
     Restart-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
     ```
 5. **Reutilizar o seu VM**. Este passo de resolução de problemas reimplanta o seu VM para outro anfitrião dentro do Azure para corrigir quaisquer problemas subjacentes à plataforma ou à rede.
    
-    O exemplo seguinte reimplanta o VM denominado `myVM` no local `WestUS` e no grupo de recursos denominado `myResourceGroup`:
+    O exemplo seguinte reimplanta `myVM` o `WestUS` VM nomeado no `myResourceGroup`local e no grupo de recursos denominado:
    
     ```powershell
     Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
@@ -236,7 +236,7 @@ Depois de cada passo de resolução de problemas, tente voltar a ligar-se ao VM.
 
 Se ainda estiver a encontrar problemas de PDR, pode [abrir um pedido](https://azure.microsoft.com/support/options/) de apoio ou ler [conceitos e passos mais detalhados do RDP.](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## <a name="troubleshoot-specific-rdp-errors"></a>Erros específicos de RDP de resolução de problemas
+## <a name="troubleshoot-specific-rdp-errors"></a>Resolver problemas de erros específicos do RDP
 Pode encontrar uma mensagem de erro específica ao tentar ligar-se ao seu VM via RDP. Seguem-se as mensagens de erro mais comuns:
 
 * [A sessão remota foi desligada porque não existem servidores](troubleshoot-specific-rdp-errors.md#rdplicense)de licença de ambiente de trabalho remoto disponíveis para fornecer uma licença .

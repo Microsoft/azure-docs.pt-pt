@@ -8,10 +8,10 @@ ms.date: 05/30/2019
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: e8f2753ac9062803a2d6252eca1829cb0b168f02
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921356"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>VMs azure migratórios para discos geridos em Azure
@@ -19,7 +19,7 @@ ms.locfileid: "77921356"
 A Azure Managed Disks simplifica a sua gestão de armazenamento removendo a necessidade de gerir separadamente as contas de armazenamento.  Também pode migrar os seus VMs Azure existentes para Discos Geridos para beneficiar de uma melhor fiabilidade dos VMs num Conjunto de Disponibilidade. Garante que os discos de diferentes VMs num Conjunto de Disponibilidade estão suficientemente isolados uns dos outros para evitar um único ponto de avarias. Coloca automaticamente discos de diferentes VMs num Conjunto de Disponibilidade em diferentes unidades de escala de armazenamento (selos) que limita o impacto das falhas da unidade de armazenamento único causadas devido a falhas de hardware e software.
 Com base nas suas necessidades, pode escolher entre quatro tipos de opções de armazenamento. Para saber mais sobre os tipos de disco disponíveis, consulte o nosso artigo [Selecione um tipo](disks-types.md) de disco
 
-## <a name="migration-scenarios"></a>Cenários de migração
+## <a name="migration-scenarios"></a> Cenários de migração
 
 Pode migrar para Discos Geridos em seguintes cenários:
 

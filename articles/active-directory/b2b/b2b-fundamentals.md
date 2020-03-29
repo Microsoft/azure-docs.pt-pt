@@ -12,15 +12,18 @@ manager: celestedg
 ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e17e0f1f01e836a7a240100c1c0e1f015da5f00
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 54f5721ef606b6ea916f5a00031c58f5e2adeb0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368145"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050853"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Boas práticas do Diretório Ativo Azure B2B
 Este artigo contém recomendações e boas práticas para a colaboração entre empresas (B2B) na Azure Ative Directory (Azure AD).
+
+   > [!IMPORTANT]
+   > A partir de 31 de março de **2021,** a Microsoft deixará de apoiar o resgate de convites através da criação de contas AD Azure não geridas e inquilinos para cenários de colaboração B2B. Em preparação, encorajamos os clientes a optarem pela autenticação de código de acesso único por [e-mail.](one-time-passcode.md) Congratulamo-nos com o seu feedback sobre esta funcionalidade de pré-visualização pública e estamos entusiasmados por criar ainda mais formas de colaborar.
 
 ## <a name="b2b-recommendations"></a>Recomendações B2B
 | Recomendação | Comentários |
@@ -38,4 +41,4 @@ Este artigo contém recomendações e boas práticas para a colaboração entre 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Gerir a partilha b2B](delegate-invitations.md)
+[Gerir a partilha de B2B](delegate-invitations.md)

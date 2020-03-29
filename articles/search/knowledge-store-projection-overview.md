@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.openlocfilehash: d264768bf27967d1a778400ae4e9e6f2e054d746
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78942978"
 ---
 # <a name="projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Projeções em uma loja de conhecimento em Azure Cognitive Search
 
 > [!IMPORTANT] 
-> A loja de conhecimento está atualmente em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [versão REST API 2019-05-06-Preview](search-api-preview.md) fornece funcionalidades de pré-visualização. Existe atualmente um suporte de portal limitado e nenhum suporte sdk .NET.
+> A loja de conhecimento está atualmente em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure . A [versão REST API 2019-05-06-Preview](search-api-preview.md) fornece funcionalidades de pré-visualização. Existe atualmente um suporte de portal limitado e nenhum suporte sdk .NET.
 
 A Pesquisa Cognitiva Azure permite o enriquecimento de conteúdo através de habilidades cognitivas incorporadas e habilidades personalizadas como parte da indexação. Os enriquecimentos criam novas informações onde nenhuma existia anteriormente: extrair informação de imagens, detetar sentimentos, frases-chave e entidades de texto, para citar alguns. Os enriquecimentos também adicionam estrutura ao texto indiferenciado. Todos estes processos resultam em documentos que tornam a procura completa de texto mais eficaz. Em muitos casos, documentos enriquecidos são úteis para cenários que não a pesquisa, como a mineração de conhecimento.
 
@@ -69,7 +69,7 @@ Pode projetar um único documento no seu índice em várias tabelas, preservando
 
 ### <a name="defining-a-table-projection"></a>Definindo uma projeção de tabela
 
-Ao definir uma projeção de tabela dentro do elemento `knowledgeStore` da sua habilidade, comece por mapear um nó na árvore de enriquecimento até à fonte da mesa. Tipicamente este nó é a saída de uma habilidade **Shaper** que você adicionou à lista de habilidades para produzir uma forma específica que você precisa projetar em tabelas. O nó que você escolher projetar pode ser cortado para projetar em várias tabelas. A definição de tabelas é uma lista de tabelas que pretende projetar.
+Ao definir uma projeção `knowledgeStore` de tabela dentro do elemento da sua habilidade, comece por mapear um nó na árvore de enriquecimento para a fonte da mesa. Tipicamente este nó é a saída de uma habilidade **Shaper** que você adicionou à lista de habilidades para produzir uma forma específica que você precisa projetar em tabelas. O nó que você escolher projetar pode ser cortado para projetar em várias tabelas. A definição de tabelas é uma lista de tabelas que pretende projetar.
 
 Cada tabela requer três propriedades:
 
@@ -157,7 +157,7 @@ Gerar uma projeção de objectorequer alguns atributos específicos do objeto:
 
 ## <a name="file-projection"></a>Projeção de ficheiros
 
-As projeções de ficheiros são semelhantes às projeções de objetos e apenas atuam na coleção `normalized_images`. Semelhante supõe-se às projeções de objetos, as projeções de ficheiros são guardadas no recipiente blob com prefixo de pasta do valor codificado base64 do ID do documento. As projeções de ficheiros não podem partilhar o mesmo recipiente que as projeções de objetos e precisam de ser projetadas num recipiente diferente.
+As projeções de ficheiros são semelhantes `normalized_images` às projeções de objetos e apenas agem na coleção. Semelhante supõe-se às projeções de objetos, as projeções de ficheiros são guardadas no recipiente blob com prefixo de pasta do valor codificado base64 do ID do documento. As projeções de ficheiros não podem partilhar o mesmo recipiente que as projeções de objetos e precisam de ser projetadas num recipiente diferente.
 
 ```json
 {
@@ -205,7 +205,7 @@ Em alternativa, se precisar de utilizar os dados enriquecidos num pipeline de ci
 
 Finalmente, se precisar de exportar os seus dados da loja de conhecimentos, a Azure Data Factory dispõe de conectores para exportar os dados e aterrar na base de dados à sua escolha. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Como próximo passo, crie a sua primeira loja de conhecimentos utilizando dados e instruções de amostra.
 

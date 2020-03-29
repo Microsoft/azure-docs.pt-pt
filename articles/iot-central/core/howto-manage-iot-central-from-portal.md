@@ -1,19 +1,19 @@
 ---
-title: Gerir a IoT Central a partir do portal Azure  Microsoft Docs
+title: Gerir a IoT Central a partir do portal Azure [ Microsoft Docs
 description: Este artigo descreve como criar e gerir as suas aplicações IoT Central a partir do portal Azure.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 02/11/2020
-ms.topic: conceptual
+ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: 27517c375265b552d2e1dec4d8c167d1bc86549d
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: e7efda8efa27044168386e3ebbc557bf7fb74e8c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137665"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80157930"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gerir a IoT Central a partir do portal Azure
 
@@ -41,8 +41,7 @@ Preencha todos os campos no formulário. Este formulário é semelhante ao formu
 
 ![Criar forma central iot](media/howto-manage-iot-central-from-portal/image6a.png)
 
-**Localização** é a [geografia](https://azure.microsoft.com/global-infrastructure/geographies/) onde você gostaria de criar a sua aplicação. Normalmente, deve escolher o local fisicamente mais próximo dos seus dispositivos para obter um desempenho ideal. A Azure IoT Central está atualmente disponível nos **Estados Unidos**, **Austrália,** **Ásia-Pacífico,** ou na **Europa.**  Uma vez que você escolhe um local, você não pode mover a sua aplicação para um local diferente mais tarde.
-
+**Localização** é a [geografia](https://azure.microsoft.com/global-infrastructure/geographies/) onde você gostaria de criar a sua aplicação. Normalmente, deve escolher o local fisicamente mais próximo dos seus dispositivos para obter um desempenho ideal. A Azure IoT Central está atualmente disponível nas geografias **da Austrália**, **Ásia-Pacífico,** **Europa,** **Estados Unidos,** **Reino Unido**e **Japão.** Uma vez que você escolhe um local, você não pode mover a sua aplicação para um local diferente mais tarde.
 
 Depois de preencher todos os campos, selecione **Criar**.
 

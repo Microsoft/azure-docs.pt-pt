@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: lbosq
 ms.openlocfilehash: dc9a5616aa2bb1f7e09045b9cfe4f4d7e9c69be2
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898314"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelação de dados de gráficos para API Azure Cosmos DB Gremlin
@@ -45,15 +45,15 @@ O padrão de gráfico de [propriedade Apache Tinkerpop](https://tinkerpop.apache
 
 Seguem-se as melhores práticas para as propriedades nos objetos gráficos:
 
-| Object | Propriedade | Tipo | Notas |
+| Objeto | Propriedade | Tipo | Notas |
 | --- | --- | --- |  --- |
-| Vértice | ID | String | Aplicada exclusivamente por partição. Se um valor não for fornecido após a inserção, será armazenado um GUID gerado automaticamente. |
-| Vértice | label | String | Esta propriedade é usada para definir o tipo de entidade que o vértice representa. Se um valor não for fornecido, será utilizado um "vértice" de valor predefinido. |
+| Vértice | ID | Cadeia | Aplicada exclusivamente por partição. Se um valor não for fornecido após a inserção, será armazenado um GUID gerado automaticamente. |
+| Vértice | label | Cadeia | Esta propriedade é usada para definir o tipo de entidade que o vértice representa. Se um valor não for fornecido, será utilizado um "vértice" de valor predefinido. |
 | Vértice | propriedades | String, Boolean, Numeric | Uma lista de propriedades separadas armazenadas como pares de valor-chave em cada vértice. |
 | Vértice | chave de partição | String, Boolean, Numeric | Esta propriedade define onde o vértice e as suas bordas de saída serão armazenadas. Leia mais sobre [a partilha de gráficos](graph-partitioning.md). |
-| Edge | ID | String | Aplicada exclusivamente por partição. Gerado automaticamente por padrão. As bordas geralmente não têm a necessidade de ser recuperadas exclusivamente por um ID. |
-| Edge | label | String | Esta propriedade é usada para definir o tipo de relação que dois vértices têm. |
-| Edge | propriedades | String, Boolean, Numeric | Uma lista de propriedades separadas armazenadas como pares de valor-chave em cada borda. |
+| Microsoft Edge | ID | Cadeia | Aplicada exclusivamente por partição. Gerado automaticamente por padrão. As bordas geralmente não têm a necessidade de ser recuperadas exclusivamente por um ID. |
+| Microsoft Edge | label | Cadeia | Esta propriedade é usada para definir o tipo de relação que dois vértices têm. |
+| Microsoft Edge | propriedades | String, Boolean, Numeric | Uma lista de propriedades separadas armazenadas como pares de valor-chave em cada borda. |
 
 > [!NOTE]
 > As bordas não requerem um valor-chave de divisória, uma vez que o seu valor é automaticamente atribuído com base no seu vértice de origem. Saiba mais no artigo de partilha de [gráficos.](graph-partitioning.md)
@@ -90,11 +90,11 @@ No entanto, existem cenários em que a referência a uma propriedade pode propor
 
 Após a modelação dos vértices, as bordas podem ser adicionadas para denotar as relações entre eles. O primeiro aspeto que precisa de ser avaliado é a **direção da relação.** 
 
-Os objetos de borda têm uma direção predefinida que é seguida por uma travessia quando se utiliza a função `out()` ou `outE()`. A utilização desta direção natural resulta numa operação eficiente, uma vez que todos os vértices são armazenados com as suas bordas de saída. 
+Os objetos de borda têm uma direção `out()` predefinida que é seguida por uma travessia quando se utiliza a função ou `outE()` função. A utilização desta direção natural resulta numa operação eficiente, uma vez que todos os vértices são armazenados com as suas bordas de saída. 
 
-No entanto, atravessar na direção oposta de uma borda, utilizando a função `in()`, resultará sempre numa consulta de divisória cruzada. Saiba mais sobre [a partilha de gráficos.](graph-partitioning.md) Se houver necessidade de atravessar constantemente usando a função `in()`, é aconselhável adicionar arestas em ambas as direções.
+No entanto, atravessar na direção oposta `in()` de uma borda, utilizando a função, resultará sempre numa consulta de divisória cruzada. Saiba mais sobre [a partilha de gráficos.](graph-partitioning.md) Se houver necessidade de atravessar constantemente `in()` usando a função, é aconselhável adicionar arestas em ambas as direções.
 
-Pode determinar a direção da borda utilizando os predicados `.to()` ou `.from()` para o `.addE()` passo Gremlin. Ou usando a biblioteca de [executor a granel para gremlin API](bulk-executor-graph-dotnet.md).
+Pode determinar a direção `.to()` da `.from()` borda utilizando os `.addE()` predicados ou predicados para o passo Gremlin. Ou usando a biblioteca de [executor a granel para gremlin API](bulk-executor-graph-dotnet.md).
 
 > [!NOTE]
 > Os objetos de borda têm uma direção por defeito.

@@ -1,5 +1,5 @@
 ---
-title: Utilize modelos do Gestor de Recursos Azure para a Gestão de Atualização a bordo  Microsoft Docs
+title: Utilize modelos do Gestor de Recursos Azure para a Gestão de Atualização a bordo [ Microsoft Docs
 description: Pode utilizar um modelo de Gestor de Recursos Azure para embarcar na solução azure Automation Update Management.
 ms.service: automation
 ms.subservice: update-management
@@ -8,10 +8,10 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/27/2020
 ms.openlocfilehash: a8b382663b56d7481da876979e33194fb0ac533d
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77925803"
 ---
 # <a name="onboard-update-management-solution-using-azure-resource-manager-template"></a>Solução de Gestão de Atualização de Bordo utilizando o modelo de Gestor de Recursos Azure
@@ -33,7 +33,7 @@ A tabela seguinte lista a versão API pelos recursos utilizados neste exemplo.
 
 | Recurso | Tipo de recurso | Versão API |
 |:---|:---|:---|
-| Área de trabalho | espaços de trabalho | Antevisão 2017-03-15 |
+| Área de trabalho | áreas de trabalho | Antevisão 2017-03-15 |
 | Conta de automatização | automation | 2015-10-31 | 
 | Solução | soluções | Antevisão 2015-11-01 |
 
@@ -41,7 +41,7 @@ A tabela seguinte lista a versão API pelos recursos utilizados neste exemplo.
 
 Se optar por instalar e utilizar o PowerShell localmente, este artigo requer o módulo Azure PowerShell Az. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure. Com o Azure PowerShell, a implementação utiliza a [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
-Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão 2.1.0 do Azure CLI ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Com o Azure CLI, esta implementação utiliza a criação de implementação do [grupo Az](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
+Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão 2.1.0 do Azure CLI ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Com o Azure CLI, esta implementação utiliza a criação de implementação do [grupo Az](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
 
 O modelo JSON está configurado para o solicitar:
 
@@ -54,7 +54,7 @@ O modelo JSON especifica um valor predefinido para os outros parâmetros que pro
 
 Os seguintes parâmetros no modelo são definidos com um valor predefinido para o espaço de trabalho log Analytics:
 
-* SKU - é predefinido para o escalão de preço por GB novo lançado no modelo de preços de Abril de 2018
+* sku - incumprimentos ao novo nível de preços Per-GB lançado no modelo de preços de abril de 2018
 * retenção de dados - incumprimentos a trinta dias
 
 >[!WARNING]
@@ -231,7 +231,7 @@ Os seguintes parâmetros no modelo são definidos com um valor predefinido para 
     }
     ```
 
-2. Edite o modelo para satisfazer os seus requisitos.
+2. Editar o modelo para satisfazer os seus requisitos.
 
 3. Guarde este ficheiro como deployUMSolutiontemplate.json para uma pasta local.
 
@@ -243,15 +243,15 @@ Os seguintes parâmetros no modelo são definidos com um valor predefinido para 
     New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deployUMSolutiontemplate.json
     ```
 
-    **CLI do Azure**
+    **Azure CLI**
 
     ```cli
     az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json
     ```
 
-    A implementação pode demorar alguns minutos a concluir. Quando terminar, verá uma mensagem semelhante ao seguinte, que inclui o resultado:
+    A implementação pode demorar alguns minutos a concluir. Quando termina, vê-se uma mensagem semelhante à seguinte que inclui o resultado:
 
-    ![Exemplo de resultado quando a implementação estiver concluída](media/automation-update-management-deploy-template/template-output.png)
+    ![Resultado do exemplo quando a implementação está completa](media/automation-update-management-deploy-template/template-output.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

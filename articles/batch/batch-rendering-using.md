@@ -8,10 +8,10 @@ ms.author: markscu
 ms.date: 03/05/2020
 ms.topic: conceptual
 ms.openlocfilehash: f3b2e641ab187514a7900b2ab7cc75068df00252
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78671998"
 ---
 # <a name="using-azure-batch-rendering"></a>Utilização da renderização do Lote Azure
@@ -68,4 +68,4 @@ Os plug-ins estão disponíveis para algumas das aplicações do cliente.  Os pl
 Por exemplo, a renderização do Lote experimente os dois tutoriais:
 
 * [Renderização utilizando o Azure CLI](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
-* [Renderização usando O Explorador de Lote](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
+* [Compor com o Batch Explorer](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)

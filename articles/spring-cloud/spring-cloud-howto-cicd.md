@@ -1,31 +1,31 @@
 ---
-title: CI/CD para o Azure Spring Cloud
-description: CI/CD para o Azure Spring Cloud
+title: CI/CD para Nuvem de primavera Azure
+description: CI/CD para Nuvem de primavera Azure
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: brendm
 ms.openlocfilehash: f329fb5472c5a2eab6f22a2e81b19d90e7045330
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278519"
 ---
-# <a name="cicd-for-azure-spring-cloud"></a>CI/CD para o Azure Spring Cloud
+# <a name="cicd-for-azure-spring-cloud"></a>CI/CD para Nuvem de primavera Azure
 
-As ferramentas de integração contínua e entrega contínua permitem que os desenvolvedores implantem atualizações rapidamente em aplicativos existentes com esforço e risco mínimos. O Azure DevOps ajuda a organizar e controlar esses trabalhos importantes. Atualmente, o Azure Spring Cloud não oferece um plug-in do Azure DevOps específico.  No entanto, você pode integrar seus aplicativos Spring Cloud ao DevOps usando uma [tarefa CLI do Azure](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli?view=azure-devops). Este artigo mostrará como usar uma tarefa de CLI do Azure com o Azure Spring Cloud para integrar com o Azure DevOps.
+A integração contínua e as ferramentas de entrega contínua supor em rápido aos desenvolvedores a implementação rápida de atualizações para aplicações existentes com o mínimo de esforço e risco. A Azure DevOps ajuda-o a organizar e a controlar estes trabalhos-chave. Atualmente, a Azure Spring Cloud não oferece um plugin Azure DevOps específico.  No entanto, pode integrar as suas aplicações Spring Cloud com DevOps utilizando uma [tarefa Azure CLI](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli?view=azure-devops). Este artigo irá mostrar-lhe como usar uma tarefa Azure CLI com a Azure Spring Cloud para integrar com o Azure DevOps.
 
-## <a name="create-an-azure-resource-manager-service-connection"></a>Criar uma conexão de serviço Azure Resource Manager
+## <a name="create-an-azure-resource-manager-service-connection"></a>Criar uma ligação de serviço do Gestor de Recursos Azure
 
-Leia [Este artigo](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) para saber como criar uma conexão de serviço Azure Resource Manager para seu projeto DevOps do Azure. Certifique-se de selecionar a mesma assinatura que você está usando para sua instância do serviço de nuvem do Azure Spring.
+Leia [este artigo](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) para aprender a criar uma ligação de serviço do Gestor de Recursos Azure ao seu projeto Azure DevOps. Certifique-se de selecionar a mesma subscrição que está a utilizar para a sua instância de serviço Azure Spring Cloud.
 
-## <a name="azure-cli-task-templates"></a>Modelos de tarefa CLI do Azure
+## <a name="azure-cli-task-templates"></a>Modelos de tarefa sintetizar
 
-### <a name="deploy-artifacts"></a>Implantar artefatos
+### <a name="deploy-artifacts"></a>Implementar artefactos
 
-Você pode criar e implantar seus projetos usando uma série de `tasks`. Esse trecho de código define primeiro uma tarefa Maven para compilar o aplicativo, seguido por uma segunda tarefa que implanta o arquivo JAR usando a extensão de CLI do Azure de nuvem do Azure Spring.
+Pode construir e implementar os seus `tasks`projetos usando uma série de . Este corte define primeiro uma tarefa Maven para construir a aplicação, seguida de uma segunda tarefa que implementa o ficheiro JAR utilizando a extensão Azure Spring Cloud Azure CLI.
 
 ```yaml
 steps:
@@ -42,9 +42,9 @@ steps:
       # deploy other app
 ```
 
-### <a name="deploy-from-source"></a>Implantar da origem
+### <a name="deploy-from-source"></a>Implantação a partir da fonte
 
-É possível implantar diretamente no Azure sem uma etapa de compilação separada.
+É possível implantar diretamente em Azure sem um passo de construção separado.
 
 ```yaml
 - task: AzureCLI@1

@@ -12,10 +12,10 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 6cc0508a63f26b955ac5e0ebf3ef58a184a35997
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78671639"
 ---
 # <a name="custom-email-verification-in-azure-active-directory-b2c"></a>Verificação personalizada de e-mail no Diretório Ativo Azure B2C
@@ -36,12 +36,12 @@ Certifique-se de que completa a secção em que [cria uma tecla API SendGrid](..
 
 Em seguida, guarde a tecla SendGrid API numa chave de política Azure AD B2C para as suas políticas de referência.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C. Selecione o filtro de **subscrição Diretório +** no menu superior e escolha o seu diretório Azure AD B2C.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 1. Na página 'Visão Geral', selecione Quadro de **Experiência de Identidade**.
 1. Selecione **Teclas de política** e, em seguida, selecione **Adicionar**.
-1. Para **opções,** escolha `Manual`.
+1. Para **Opções,** escolha. `Manual`
 1. Introduza um **nome** para a chave política. Por exemplo, `SendGridSecret`. O prefixo `B2C_1A_` é adicionado automaticamente ao nome da sua chave.
 1. Em **Segredo,** insira o seu segredo de cliente que gravou anteriormente.
 1. Para **a utilização da chave,** selecione `Signature`.
@@ -52,10 +52,10 @@ Em seguida, guarde a tecla SendGrid API numa chave de política Azure AD B2C par
 Com uma conta SendGrid criada e chave SendGrid API armazenada numa chave política Azure AD B2C, crie um [modelo de transação dinâmico](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/)SendGrid .
 
 1. No site SendGrid, abra a página de [modelos transacionais](https://sendgrid.com/dynamic_templates) e selecione **Criar Modelo**.
-1. Introduza um nome de modelo único como `Verification email` e, em seguida, selecione **Guardar**.
+1. Introduza um nome `Verification email` de modelo único como e, em seguida, selecione **Guardar**.
 1. Para começar a editar o seu novo modelo, selecione **Adicionar Versão**.
 1. Selecione Editor de **Código** **e,** em seguida, Continue .
-1. No editor HTML, cola o modelo HTML ou usa o teu próprio. Os parâmetros `{{otp}}` e `{{email}}` serão substituídos dinamicamente pelo valor de senha única e pelo endereço de e-mail do utilizador.
+1. No editor HTML, cola o modelo HTML ou usa o teu próprio. Os `{{otp}}` `{{email}}` parâmetros e parâmetros serão substituídos dinamicamente pelo valor de senha única e pelo endereço de e-mail do utilizador.
 
     ```HTML
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -151,14 +151,14 @@ Com uma conta SendGrid criada e chave SendGrid API armazenada numa chave políti
     </html>
     ```
 
-1. Expandir **Definições** à esquerda e, para O Assunto do **E-mail,** insira `{{subject}}`.
+1. Expandir **Definições** à esquerda e para `{{subject}}`O Assunto do **E-mail,** introduza .
 1. Selecione **modelo de guardar**.
 1. Volte à página de **Modelos Transacionais** selecionando a seta traseira.
 1. Grave a **identificação** do modelo que criou para ser usada num passo posterior. Por exemplo, `d-989077fbba9746e89f3f6411f596fb96`. Especifica este ID quando [adiciona a transformação de sinistros.](#add-the-claims-transformation)
 
 ## <a name="add-azure-ad-b2c-claim-types"></a>Adicione tipos de reclamação Azure AD B2C
 
-Na sua política, adicione os seguintes tipos de reclamação ao elemento `<ClaimsSchema>` dentro `<BuildingBlocks>`.
+Na sua política, adicione os `<ClaimsSchema>` seguintes `<BuildingBlocks>`tipos de reclamação ao elemento interior .
 
 Estes tipos de reclamações são necessários para gerar e verificar o endereço de e-mail usando um código de senha única (OTP).
 
@@ -185,11 +185,11 @@ Em seguida, você precisa de uma transformação de reclamações para obter uma
 
 A estrutura do objeto JSON é definida pelos IDs na notação de pontos dos InputParameters e pelos Tipos de Reclamações de Transformação das InputClaims. Os números na notação do ponto implicam matrizes. Os valores provêm dos valores dos InputClaims e das propriedades "Valor" dos InputParameters. Para obter mais informações sobre as transformações da JSON, consulte a [JSON alega transformações](json-transformations.md).
 
-Adicione a seguinte transformação de reclamações ao elemento `<ClaimsTransformations>` dentro `<BuildingBlocks>`. Faça as seguintes atualizações para a transformação de sinistros XML:
+Adicione a seguinte transformação de sinistros ao `<ClaimsTransformations>` elemento interior `<BuildingBlocks>`. Faça as seguintes atualizações para a transformação de sinistros XML:
 
-* Atualize o valor `template_id` InputParameter com o ID do modelo transacional SendGrid que criou anteriormente no [modelo Create SendGrid](#create-sendgrid-template).
-* Atualize o valor de endereço `from.email`. Utilize um endereço de e-mail válido para evitar que o e-mail de verificação seja marcado como spam.
-* Atualize o valor do parâmetro de entrada da linha de assunto `personalizations.0.dynamic_template_data.subject` com uma linha de assunto adequada para a sua organização.
+* Atualize `template_id` o valor InputParameter com o ID do modelo transacional SendGrid que criou anteriormente no [modelo Create SendGrid](#create-sendgrid-template).
+* Atualize `from.email` o valor do endereço. Utilize um endereço de e-mail válido para evitar que o e-mail de verificação seja marcado como spam.
+* Atualize o `personalizations.0.dynamic_template_data.subject` valor do parâmetro de entrada da linha de assunto com uma linha de assunto adequada para a sua organização.
 
 ```XML
 <ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">
@@ -213,7 +213,7 @@ Adicione a seguinte transformação de reclamações ao elemento `<ClaimsTransfo
 
 ## <a name="add-datauri-content-definition"></a>Adicionar definição de conteúdo DataUri
 
-Abaixo das transformações de sinistros dentro de `<BuildingBlocks>`, adicione o seguinte [ContentDefinition](contentdefinitions.md) para fazer referência aos dados URI da versão 2.0.0:
+Abaixo das transformações `<BuildingBlocks>`de sinistros no interior , adicione a seguinte [Definição de Conteúdo](contentdefinitions.md) para fazer referência aos dados URI da versão 2.0.0:
 
 ```XML
 <ContentDefinitions>
@@ -229,14 +229,14 @@ Um controlo de visualização é utilizado para verificar o endereço de e-mail 
 
 Este controlo de exibição de exemplo está configurado para:
 
-1. Recolher o tipo de reclamação de endereço `email` do utilizador.
-1. Aguarde que o utilizador forneça o `verificationCode` tipo de reclamação com o código enviado ao utilizador.
-1. Volte a colocar o `email` ao perfil técnico autoafirmado que tem uma referência a este controlo de exibição.
-1. Utilizando a `SendCode` ação, gere um código OTP e envie um e-mail com o código OTP para o utilizador.
+1. Recolher `email` o tipo de reclamação de endereço do utilizador.
+1. Aguarde que o `verificationCode` utilizador forneça o tipo de reclamação com o código enviado ao utilizador.
+1. Volte `email` a colocar a volta ao perfil técnico autoafirmado que tem uma referência a este controlo de exibição.
+1. Utilizando `SendCode` a ação, gere um código OTP e envie um e-mail com o código OTP para o utilizador.
 
 ![Enviar ação de e-mail código de verificação](media/custom-email/display-control-verification-email-action-01.png)
 
-De acordo com as definições de conteúdo, ainda dentro `<BuildingBlocks>`, adicione o seguinte [DisplayControl](display-controls.md) do tipo [VerificationControl](display-control-verification.md) à sua política.
+De acordo com as `<BuildingBlocks>`definições de conteúdo, ainda dentro, adicione o seguinte [DisplayControl](display-controls.md) do tipo [Verificacontrol](display-control-verification.md) à sua política.
 
 ```XML
 <DisplayControls>
@@ -267,9 +267,9 @@ De acordo com as definições de conteúdo, ainda dentro `<BuildingBlocks>`, adi
 
 ## <a name="add-otp-technical-profiles"></a>Adicionar perfis técnicos OTP
 
-O perfil técnico `GenerateOtp` gera um código para o endereço de e-mail. O perfil técnico `VerifyOtp` verifica o código associado ao endereço de e-mail. Pode alterar a configuração do formato e a expiração da senha única. Para obter mais informações sobre os perfis técnicos da OTP, consulte [Definir um perfil técnico de senha única](one-time-password-technical-profile.md).
+O `GenerateOtp` perfil técnico gera um código para o endereço de e-mail. O `VerifyOtp` perfil técnico verifica o código associado ao endereço de e-mail. Pode alterar a configuração do formato e a expiração da senha única. Para obter mais informações sobre os perfis técnicos da OTP, consulte [Definir um perfil técnico de senha única](one-time-password-technical-profile.md).
 
-Adicione os seguintes perfis técnicos ao elemento `<ClaimsProviders>`.
+Adicione os seguintes perfis `<ClaimsProviders>` técnicos ao elemento.
 
 ```XML
 <ClaimsProvider>
@@ -313,7 +313,7 @@ Adicione os seguintes perfis técnicos ao elemento `<ClaimsProviders>`.
 
 Este perfil técnico REST API gera o conteúdo de e-mail (utilizando o formato SendGrid). Para obter mais informações sobre perfis técnicos RESTful, consulte [Definir um perfil técnico RESTful](restful-technical-profile.md).
 
-Tal como acontece com os perfis técnicos da OTP, adicione os seguintes perfis técnicos ao elemento `<ClaimsProviders>`.
+Tal como acontece com os perfis técnicos da OTP, adicione ao `<ClaimsProviders>` elemento os seguintes perfis técnicos.
 
 ```XML
 <ClaimsProvider>
@@ -344,7 +344,7 @@ Tal como acontece com os perfis técnicos da OTP, adicione os seguintes perfis t
 
 ## <a name="make-a-reference-to-the-displaycontrol"></a>Faça uma referência ao DisplayControl
 
-No passo final, adicione uma referência ao DisplayControl que criou. Substitua o seu perfil técnico `LocalAccountSignUpWithLogonEmail` autoafirmado com o seguinte se tiver utilizado uma versão anterior da política Azure AD B2C. Este perfil técnico utiliza `DisplayClaims` com referência ao DisplayControl.
+No passo final, adicione uma referência ao DisplayControl que criou. Substitua o `LocalAccountSignUpWithLogonEmail` seu perfil técnico autoafirmado existente com o seguinte se tiver usado uma versão anterior da política Azure AD B2C. Este perfil `DisplayClaims` técnico utiliza-se com uma referência ao DisplayControl.
 
 Para mais informações, consulte o [perfil técnico autoafirmado](restful-technical-profile.md) e o [DisplayControl](display-controls.md).
 
@@ -395,11 +395,11 @@ Para mais informações, consulte o [perfil técnico autoafirmado](restful-techn
 
 ## <a name="optional-localize-your-email"></a>[Opcional] Localize o seu e-mail
 
-Para localizar o e-mail, tem de enviar cordas localizadas para a SendGrid ou para o seu fornecedor de e-mail. Por exemplo, localizar o sujeito de e-mail, corpo, sua mensagem de código ou assinatura do e-mail. Para isso, pode utilizar a Transformação de [StringsTransformation GetLocalized](string-transformations.md) para copiar cordas localizadas em tipos de reclamação. No `GenerateSendGridRequestBody` a transformação de reivindicações, que gera a carga útil JSON, utiliza alegações de entrada que contêm as cordas localizadas.
+Para localizar o e-mail, tem de enviar cordas localizadas para a SendGrid ou para o seu fornecedor de e-mail. Por exemplo, localizar o sujeito de e-mail, corpo, sua mensagem de código ou assinatura do e-mail. Para isso, pode utilizar a Transformação de [StringsTransformation GetLocalized](string-transformations.md) para copiar cordas localizadas em tipos de reclamação. Na `GenerateSendGridRequestBody` transformação de sinistros, que gera a carga útil JSON, utiliza alegações de entrada que contêm as cordas localizadas.
 
 1. Na sua política, defina as seguintes reclamações de cordas: sujeito, mensagem, codeIntro e assinatura.
 1. Defina uma [GetLocalizedStringsTransformation](string-transformations.md) reclama transformação para substituir valores de cordas localizados nas reclamações a partir do passo 1.
-1. Altere a transformação de `GenerateSendGridRequestBody` alega que utilize reclamações de entrada com o seguinte corte XML.
+1. Altere `GenerateSendGridRequestBody` a transformação de sinistros para utilizar pedidos de entrada com o seguinte corte XML.
 1. Atualize o seu modelo SendGrind para utilizar parâmetros dinâmicos no lugar de todas as cordas que serão localizadas pelo Azure AD B2C.
 
 ```XML

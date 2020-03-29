@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
 ms.openlocfilehash: ef7d06dfb074a3453f5589284cbdaf079c48d111
-ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78933774"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Provisão para uma base de dados em Azure Cosmos DB
@@ -19,9 +19,9 @@ Este artigo explica como fornecer o resultado numa base de dados em Azure Cosmos
 
 ## <a name="provision-throughput-using-azure-portal"></a>Aprovisionar débito com o portal do Azure
 
-### <a id="portal-sql"></a>API de SQL (Core)
+### <a name="sql-core-api"></a><a id="portal-sql"></a>API de SQL (Core)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma nova conta Azure Cosmos,](create-sql-api-dotnet.md#create-account)ou selecione uma conta Azure Cosmos existente.
 
@@ -46,7 +46,7 @@ Para criar uma base de dados com a ver de entrada partilhada,
 > [!Note]
 > Você pode usar SDKs Cosmos para SQL API para fornecer entrada para todas as APIs. Também pode utilizar opcionalmente o seguinte exemplo para a Cassandra API.
 
-### <a id="dotnet-all"></a>Todas as APIs
+### <a name="all-apis"></a><a id="dotnet-all"></a>Todas as APIs
 
 ### <a name="net-v2-sdk"></a>.net V2 SDK
 
@@ -67,18 +67,18 @@ await client.CreateDatabaseIfNotExistsAsync(
 
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/DatabaseDocsSampleCode.cs?name=DatabaseCreateWithThroughput)]
 
-### <a id="dotnet-cassandra"></a>API para Cassandra
+### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>API de Cassandra
 Um comando semelhante pode ser executado através de qualquer controlador compatível com cql. 
 ```csharp
 // Create a Cassandra keyspace and provision throughput of 400 RU/s
 session.Execute("CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=400");
 ```
  
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos para conhecer sobre a provisão disponibilizada em Azure Cosmos DB:
 
-* [Produção a nível global provisionada](scaling-throughput.md)
-* [Aprovisionar débito em contentores e bases de dados](set-throughput.md)
+* [Dimensionamento global de débito aprovisionado](scaling-throughput.md)
+* [Aprovisionar o débito em contentores e bases de dados](set-throughput.md)
 * [Como aprovisionar o débito para um contentor](how-to-provision-container-throughput.md)
 * [Unidades de pedido e débito no Azure Cosmos DB](request-units.md)

@@ -1,6 +1,6 @@
 ---
-title: Usar um bloco de redução personalizada nos painéis do Azure
-description: Saiba como adicionar um bloco de redução a um painel do Azure para exibir conteúdo estático
+title: Use um azulejo de marcação personalizado nos tabliers Azure
+description: Aprenda a adicionar um azulejo de marcação a um dashboard Azure para exibir conteúdo estático
 services: azure-portal
 keywords: ''
 author: mgblythe
@@ -10,57 +10,57 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: 74102423461a56bb6fc19c2eb9874f96a76e34e0
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76310718"
 ---
-# <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Use um bloco de redução nos painéis do Azure para mostrar conteúdo personalizado
+# <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Use um azulejo de marcação nos dashboards do Azure para mostrar conteúdo personalizado
 
-Você pode adicionar um bloco de redução aos painéis do Azure para exibir conteúdo estático e personalizado. Por exemplo, você pode mostrar instruções básicas, uma imagem ou um conjunto de hiperlinks em um bloco de redução.
+Pode adicionar um azulejo de marcação aos seus painéis Azure para exibir conteúdo personalizado e estático. Por exemplo, pode mostrar instruções básicas, uma imagem ou um conjunto de hiperligações num azulejo de marcação.
 
-## <a name="add-a-markdown-tile-to-your-dashboard"></a>Adicionar um bloco de redução ao seu painel
+## <a name="add-a-markdown-tile-to-your-dashboard"></a>Adicione um azulejo de marcação ao seu painel de instrumentos
 
-1. Selecione **painel** na barra lateral portal do Azure.
+1. Selecione **Dashboard** a partir da barra lateral do portal Azure.
 
-   ![Captura de tela mostrando a barra lateral do portal](./media/azure-portal-markdown-tile/azure-portal-nav.png)
+   ![Screenshot mostrando barra lateral do portal](./media/azure-portal-markdown-tile/azure-portal-nav.png)
 
-1. Se você criou painéis personalizados, na exibição painel, use a lista suspensa para selecionar o painel em que o bloco de redução personalizada deve aparecer. Selecione o ícone Editar para abrir a **Galeria de blocos**.
+1. Se criou algum dashboard personalizado, na vista do painel de instrumentos, utilize a queda para selecionar o painel onde deve aparecer o azulejo de marcação personalizado. Selecione o ícone de edição para abrir a **Tile Gallery**.
 
-   ![Captura de tela mostrando exibição de edição do painel](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
+   ![Screenshot mostrando vista de edição do painel de instrumentos](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
-1. Na **Galeria de blocos**, localize o bloco chamado **redução** e selecione **Adicionar**. O bloco é adicionado ao painel e o painel **Editar redução** é aberto.
+1. Na **Tile Gallery,** localize o azulejo chamado **Markdown** e selecione **Adicionar**. O azulejo é adicionado ao painel de instrumentos e abre o painel **Edit Markdown.**
 
-1. Insira valores para **título** e **subtítulo**, que são exibidos no bloco depois de você passar para outro campo.
+1. Introduza valores para **Título** e **Legenda,** que exibem no azulejo depois de se mudar para outro campo.
 
-   ![Captura de tela mostrando os resultados da inserção do título e do subtítulo](./media/azure-portal-markdown-tile/azure-portal-dashboard-enter-title.png)
+   ![Screenshot mostrando resultados de entrada no título e legenda](./media/azure-portal-markdown-tile/azure-portal-dashboard-enter-title.png)
 
-1. Selecione uma das opções para incluir o conteúdo de redução: **edição embutida** ou **Inserir conteúdo usando a URL**.
+1. Selecione uma das opções para incluir o conteúdo de marcação: **Edição inline** ou **inserção de conteúdo utilizando URL**.
 
-   - Selecione **edição embutida** se desejar inserir a redução diretamente.
+   - Selecione **edição Inline** se quiser introduzir o markdown diretamente.
 
-      ![Captura de tela mostrando a inserção de conteúdo embutido](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-inline-content.png)
+      ![Screenshot mostrando entrar em conteúdo inline](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-inline-content.png)
 
-   - Selecione **Inserir conteúdo usando a URL** se você quiser usar o conteúdo de redução existente que está hospedado online.
+   - Selecione **inserir conteúdo utilizando URL** se pretender utilizar o conteúdo de marcação existente que está hospedado online.
 
-      ![Captura de tela mostrando a inserção da URL](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
+      ![Screenshot mostrando a entrada de URL](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
 
       > [!NOTE]
-      > Para maior segurança, você pode criar um arquivo de redução e armazená-lo em um [BLOB da conta de armazenamento do Azure em que a criptografia está habilitada](../storage/common/storage-service-encryption.md)e, em seguida, apontar para o arquivo usando a opção URL. O conteúdo de redução é criptografado por meio das opções de criptografia da conta de armazenamento. Somente os usuários com permissões para o arquivo podem ver o conteúdo de redução no painel.
+      > Para maior segurança, pode criar um ficheiro de marcação e armazená-lo numa conta de [armazenamento Azure onde a encriptação está ativada](../storage/common/storage-service-encryption.md)e, em seguida, apontar para o ficheiro utilizando a opção URL. O conteúdo de marcação é encriptado através das opções de encriptação da conta de armazenamento. Apenas os utilizadores com permissões no ficheiro podem ver o conteúdo de marcação no painel de instrumentos.
 
-1. Selecione **concluído** para ignorar o painel de **redução de edição** . Seu conteúdo aparece no bloco de redução, que você pode redimensionar arrastando a alça no canto inferior direito.
+1. Selecione **Feito** para descartar o painel **de edição markdown.** O seu conteúdo aparece no azulejo Markdown, que pode redimensionar arrastando a pega no canto inferior direito.
 
-   ![Captura de tela mostrando o bloco de redução personalizada](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
+   ![Screenshot mostrando azulejo de marcação personalizado](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
 
-## <a name="markdown-content-capabilities-and-limitations"></a>Redução de limitações e recursos de conteúdo
+## <a name="markdown-content-capabilities-and-limitations"></a>Capacidades e limitações de conteúdo de redução
 
-Você pode usar qualquer combinação de texto sem formatação, sintaxe de redução e conteúdo HTML no bloco de redução. O portal do Azure usa uma biblioteca de software livre chamada _marcada_ para transformar o conteúdo em HTML que é mostrado no bloco. O HTML produzido por _marcado_ é previamente processado pelo portal antes de ser renderizado. Essa etapa ajuda a garantir que sua personalização não afetará a segurança ou o layout do Portal. Durante esse pré-processamento, qualquer parte do HTML que representa uma possível ameaça é removida. Os seguintes tipos de conteúdo não são permitidos pelo portal:
+Pode utilizar qualquer combinação de texto simples, sintaxe de Markdown e conteúdo HTML no azulejo de marcação. O portal Azure utiliza uma biblioteca de código aberto _chamada marcada_ para transformar o seu conteúdo em HTML que é mostrado no azulejo. O HTML produzido por _marca_ é pré-processado pelo portal antes de ser renderizado. Este passo ajuda a garantir que a sua personalização não afetará a segurança ou o layout do portal. Durante esse pré-processamento, qualquer parte do HTML que represente uma ameaça potencial é removida. Os seguintes tipos de conteúdo não são permitidos pelo portal:
 
-* As marcas JavaScript – `<script>` e as avaliações de JavaScript embutidas serão removidas.
-* iframes-`<iframe>` marcações serão removidas.
-* As marcas de `<style>` de estilo serão removidas. Atributos de estilo embutidos em elementos HTML não são oficialmente suportados. Você pode achar que alguns elementos de estilo embutidos funcionam para você, mas se interferem no layout do portal, eles podem parar de funcionar a qualquer momento. O bloco de redução destina-se a conteúdo básico e estático que usa os estilos padrão do Portal.
+* JavaScript `<script>` – etiquetas e avaliações javaScript inline serão removidos.
+* iframes `<iframe>` - as etiquetas serão removidas.
+* Estilo `<style>` - as etiquetas serão removidas. Os atributos de estilo inline em elementos HTML não são suportados oficialmente. Pode descobrir que alguns elementos de estilo inline funcionam para si, mas se interferirem com o layout do portal, podem deixar de trabalhar a qualquer momento. O azulejo Markdown destina-se a conteúdo básico e estático que utiliza os estilos padrão do portal.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para criar um painel personalizado, consulte [criar e compartilhar painéis no portal do Azure](../azure-portal/azure-portal-dashboards.md)
+* Para criar um dashboard personalizado, consulte [Criar e partilhar dashboards no portal Azure](../azure-portal/azure-portal-dashboards.md)

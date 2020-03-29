@@ -1,6 +1,6 @@
 ---
-title: Copiar dados da tabela da Web usando Azure Data Factory
-description: Saiba mais sobre o conector de tabela da Web de Azure Data Factory que permite copiar dados de uma tabela da Web para armazenamentos de dados com suporte do Data Factory como coletores.
+title: Copiar dados da Web Table utilizando a Azure Data Factory
+description: Saiba mais sobre o Conector de Mesa Web da Azure Data Factory que permite copiar dados de uma tabela web para lojas de dados suportadas pela Data Factory como pias.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,56 +12,56 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 76f0dbb48ca5e250a383e8427ce2dd0c9dd618c9
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930935"
 ---
-# <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copiar dados da tabela da Web usando Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
+# <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copiar dados da tabela Web utilizando a Azure Data Factory
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-web-table-connector.md)
 > * [Versão atual](connector-web-table.md)
 
-Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de um banco de dado de tabela da Web. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de uma base de dados de tabelaweb. Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
-A diferença entre esse conector de tabela da Web, o [conector REST](connector-rest.md) e o [conector http](connector-http.md) são:
+A diferença entre este conector de tabela Web, o [conector REST](connector-rest.md) e o [conector HTTP](connector-http.md) são:
 
-- O **conector de tabela da Web** extrai o conteúdo da tabela de uma página HTML.
-- O **conector REST** especificamente dá suporte à cópia de dados de APIs RESTful.
-- O **conector http** é genérico para recuperar dados de qualquer ponto de extremidade http, por exemplo, para baixar o arquivo. 
+- **O conector** de mesa web extrai o conteúdo da tabela a partir de uma página web HTML.
+- **O conector REST** suporta especificamente a cópia de dados de APIs RESTful.
+- **O conector HTTP** é genérico para recuperar dados de qualquer ponto final http, por exemplo, para descarregar ficheiros. 
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Este conector de tabela da Web tem suporte para as seguintes atividades:
+Este conector de tabela Web é suportado para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
-- [Atividade de Pesquisa](control-flow-lookup-activity.md)
+- [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
+- [Atividade de procura](control-flow-lookup-activity.md)
 
-Você pode copiar dados de um banco de dado de tabela da Web para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados da base de dados da web table para qualquer loja de dados de sink suportado. Para obter uma lista de lojas de dados que são suportadas como fontes/pias pela atividade de cópia, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-Especificamente, esse conector de tabela da Web dá suporte à **extração de conteúdo de tabela de uma página HTML**.
+Especificamente, este conector de tabela Web suporta **a extração do conteúdo da tabela a partir de uma página HTML**.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para usar esse conector de tabela da Web, você precisa configurar um Integration Runtime auto-hospedado. Ver [Integration Runtime autoalojado](create-self-hosted-integration-runtime.md) artigo para obter detalhes.
+Para utilizar este conector de mesa Web, precisa de configurar um Tempo de Integração Auto-hospedado. Consulte o artigo [De Integração Autónoma](create-self-hosted-integration-runtime.md) para obter mais detalhes.
 
 ## <a name="getting-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As seções a seguir fornecem detalhes sobre as propriedades que são usadas para definir Data Factory entidades específicas ao conector de tabela da Web.
+As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades data Factory específicas ao conector de tabela Web.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 
-As propriedades a seguir têm suporte para o serviço vinculado de tabela da Web:
+As seguintes propriedades são suportadas para o serviço ligado à tabela Web:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade Type deve ser definida como: **Web** |Sim |
-| url | URL para a origem da Web |Sim |
-| authenticationType | O valor permitido é: **anônimo**. |Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Um Integration Runtime auto-hospedado é necessário conforme mencionado em [pré-requisitos](#prerequisites). |Sim |
+| tipo | A propriedade tipo deve ser definida para: **Web** |Sim |
+| url | URL para a fonte web |Sim |
+| authenticationType | O valor permitido é: **Anónimo.** |Sim |
+| connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. É necessário um tempo de execução de integração auto-hospedado, tal como mencionado nos [pré-requisitos.](#prerequisites) |Sim |
 
 **Exemplo:**
 
@@ -82,17 +82,17 @@ As propriedades a seguir têm suporte para o serviço vinculado de tabela da Web
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de tabelas da Web.
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo conjuntos de [dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados da tabela Web.
 
-Para copiar dados de uma tabela da Web, defina a propriedade Type do DataSet para **webtable**. São suportadas as seguintes propriedades:
+Para copiar dados da tabela Web, detete a propriedade do tipo do conjunto de dados para **WebTable**. As seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade Type do conjunto de conjuntos deve ser definida como: **Webtable** | Sim |
-| Caminho |Uma URL relativa para o recurso que contém a tabela. |Não. Quando o caminho não for especificado, somente a URL especificada na definição de serviço vinculado será usada. |
-| index |O índice da tabela no recurso. Consulte a seção [obter índice de uma tabela em uma página HTML](#get-index-of-a-table-in-an-html-page) para obter as etapas para obter o índice de uma tabela em uma página HTML. |Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **WebTable** | Sim |
+| path |Um URL relativo ao recurso que contém a tabela. |Não. Quando o caminho não é especificado, apenas é utilizado o URL especificado na definição de serviço ligado. |
+| índice |O índice da tabela no recurso. Consulte [o índice de uma tabela numa](#get-index-of-a-table-in-an-html-page) página HTML para obter passos para obter o índice de uma tabela numa página HTML. |Sim |
 
 **Exemplo:**
 
@@ -116,11 +116,11 @@ Para copiar dados de uma tabela da Web, defina a propriedade Type do DataSet par
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista das propriedades com suporte pela origem da tabela da Web.
+Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas por fonte de tabela Web.
 
-### <a name="web-table-as-source"></a>Tabela da Web como fonte
+### <a name="web-table-as-source"></a>Tabela web como fonte
 
-Para copiar dados da tabela da Web, defina o tipo de fonte na atividade de cópia como **websource**, não há suporte para nenhuma propriedade adicional.
+Para copiar dados da tabela Web, delineie o tipo de origem na atividade de cópia para **webSource**, não são suportadas propriedades adicionais.
 
 **Exemplo:**
 
@@ -153,38 +153,38 @@ Para copiar dados da tabela da Web, defina o tipo de fonte na atividade de cópi
 ]
 ```
 
-## <a name="get-index-of-a-table-in-an-html-page"></a>Obter o índice de uma tabela em uma página HTML
+## <a name="get-index-of-a-table-in-an-html-page"></a>Obtenha índice de uma tabela numa página HTML
 
-Para obter o índice de uma tabela que você precisa configurar nas [Propriedades do conjunto](#dataset-properties)de ferramentas, você pode usar, por exemplo, o Excel 2016 como a ferramenta da seguinte maneira:
+Para obter o índice de uma tabela que precisa configurar em propriedades de conjunto de [dados,](#dataset-properties)pode utilizar, por exemplo, o Excel 2016 como a ferramenta seguinte:
 
-1. Inicie o **Excel 2016** e alterne para a guia **dados** .
-2. Clique em **nova consulta** na barra de ferramentas, aponte para **de outras fontes** e clique em **da Web**.
+1. Lançar **Excel 2016** e mudar para o separador **Dados.**
+2. Clique em **Nova Consulta** na barra de ferramentas, aponte para From **Other Sources** e clique na **Web**.
 
-    ![Menu de Power Query](./media/copy-data-from-web-table/PowerQuery-Menu.png)
-3. Na caixa **de** diálogo da Web, insira a **URL** que você USARIA no serviço vinculado JSON (por exemplo: https://en.wikipedia.org/wiki/) juntamente com o caminho que você especificaria para o conjunto de os (por exemplo: AFI% 27s_100_Years... 100_Movies) e clique em **OK**.
+    ![Menu de consulta de poder](./media/copy-data-from-web-table/PowerQuery-Menu.png)
+3. Na caixa de diálogo **From Web,** introduza **URL** que utilizaria https://en.wikipedia.org/wiki/) no serviço ligado JSON (por exemplo: juntamente com o caminho que especificaria para o conjunto de dados (por exemplo: AFI%27s_100_Years... 100_Movies), e **clique**OK .
 
-    ![Da caixa de diálogo da Web](./media/copy-data-from-web-table/FromWeb-DialogBox.png)
+    ![Do diálogo da Web](./media/copy-data-from-web-table/FromWeb-DialogBox.png)
 
-    URL usada neste exemplo: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
-4. Se você vir a caixa de diálogo **acessar conteúdo da Web** , selecione a **URL**correta, a **autenticação**e clique em **conectar**.
+    URL utilizado neste exemplo:https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
+4. Se vir a caixa de diálogo de **conteúdo web access,** selecione o **URL**certo, **a autenticação,** e clique em **Ligar**.
 
-   ![Caixa de diálogo acessar conteúdo da Web](./media/copy-data-from-web-table/AccessWebContentDialog.png)
-5. Clique em um item de **tabela** no modo de exibição de árvore para ver o conteúdo da tabela e, em seguida, clique no botão **Editar** na parte inferior.  
+   ![Aceder à caixa de diálogo de conteúdo web](./media/copy-data-from-web-table/AccessWebContentDialog.png)
+5. Clique num item de **tabela** na vista da árvore para ver o conteúdo da tabela e, em seguida, clique no botão **Editar** na parte inferior.  
 
    ![caixa de diálogo Navegador](./media/copy-data-from-web-table/Navigator-DialogBox.png)
-6. Na janela **Editor de consultas** , clique no botão **Editor avançado** na barra de ferramentas.
+6. Na janela **Do Editor de Consulta,** clique no botão **Advanced Editor** na barra de ferramentas.
 
-    ![Botão de Editor Avançado](./media/copy-data-from-web-table/QueryEditor-AdvancedEditorButton.png)
-7. Na caixa de diálogo Editor Avançado, o número ao lado de "origem" é o índice.
+    ![Botão Editor Avançado](./media/copy-data-from-web-table/QueryEditor-AdvancedEditorButton.png)
+7. Na caixa de diálogo do Editor Avançado, o número ao lado de "Source" é o índice.
 
-    ![Editor Avançado-índice](./media/copy-data-from-web-table/AdvancedEditor-Index.png)
+    ![Editor Avançado - Índice](./media/copy-data-from-web-table/AdvancedEditor-Index.png)
 
-Se você estiver usando o Excel 2013, use [Microsoft Power Query para Excel](https://www.microsoft.com/download/details.aspx?id=39379) para obter o índice. Consulte [o artigo conectar-se a uma página da Web](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) para obter detalhes. As etapas são semelhantes se você estiver usando [o Microsoft Power bi para desktop](https://powerbi.microsoft.com/desktop/).
+Se estiver a utilizar o Excel 2013, utilize o [Microsoft Power Query para](https://www.microsoft.com/download/details.aspx?id=39379) o Excel obter o índice. Consulte [o Connect para um](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) artigo de página web para obter detalhes. Os passos são semelhantes se estiver a utilizar o [Microsoft Power BI para desktop](https://powerbi.microsoft.com/desktop/).
 
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber mais detalhes sobre as propriedades, consulte a [atividade de Lookup.](control-flow-lookup-activity.md)
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Azure Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).

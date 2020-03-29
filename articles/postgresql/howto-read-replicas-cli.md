@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.openlocfilehash: b10ac3b4bc9dacd723b8b1265911df721b781189
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76774794"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Criar e gerir réplicas de leitura do Azure CLI, REST API
@@ -29,9 +29,9 @@ Pode criar e gerir réplicas de leitura utilizando o Azure CLI.
 ### <a name="prepare-the-master-server"></a>Preparar o servidor principal
 Estes passos devem ser utilizados para preparar um servidor principal nos níveis Geral de Propósito ou Memória Otimizados.
 
-O parâmetro `azure.replication_support` deve ser definido para **RÉPLICA** no servidor principal. Quando este parâmetro estático é alterado, é necessário reiniciar o servidor para que a alteração faça efeito.
+O `azure.replication_support` parâmetro deve ser definido para **RÉPLICA** no servidor principal. Quando este parâmetro estático é alterado, é necessário reiniciar o servidor para que a alteração faça efeito.
 
-1. Coloque `azure.replication_support` para A RÉPLICA.
+1. Pronto `azure.replication_support` para RÉPLICA.
 
    ```azurecli-interactive
    az postgres server configuration set --resource-group myresourcegroup --server-name mydemoserver --name azure.replication_support --value REPLICA
@@ -42,7 +42,7 @@ O parâmetro `azure.replication_support` deve ser definido para **RÉPLICA** no 
 > Pode saltar os passos principais de preparação e ir criar a réplica. <br><br>
 > Se quiser confirmar que o seu servidor está nesta categoria, visite a página de replicação do servidor no portal Azure. A "replicação desativação" será cinzenta e "Adicionar réplica" estará ativa na barra de ferramentas.
 
-2. Reinicie o servidor para aplicar a alteração.
+2. Reiniciar o servidor para aplicar a alteração.
 
    ```azurecli-interactive
    az postgres server restart --name mydemoserver --resource-group myresourcegroup
@@ -55,7 +55,7 @@ A réplica do [servidor az postgres criar](/cli/azure/postgres/server/replica?vi
 | Definição | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | resource-group | myResourceGroup |  O grupo de recursos onde o servidor de réplica será criado.  |
-| nome | mydemoserver-replica | O nome do novo servidor de réplica, que é criado. |
+| nome | mydemoserver-réplica | O nome do novo servidor de réplicas que é criado. |
 | source-server | mydemoserver | O nome ou identificação de recursos do servidor principal existente para replicar. |
 
 No exemplo cli abaixo, a réplica é criada na mesma região que o mestre.
@@ -64,7 +64,7 @@ No exemplo cli abaixo, a réplica é criada na mesma região que o mestre.
 az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup
 ```
 
-Para criar uma réplica de leitura de região transversal, use o parâmetro `--location`. O exemplo cli abaixo cria a réplica nos EUA Ocidentais.
+Para criar uma réplica de `--location` leitura de região transversal, use o parâmetro. O exemplo cli abaixo cria a réplica nos EUA Ocidentais.
 
 ```azurecli-interactive
 az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup --location westus
@@ -73,9 +73,9 @@ az postgres server replica create --name mydemoserver-replica --source-server my
 > [!NOTE]
 > Para saber mais sobre quais as regiões em que pode criar uma réplica, visite o artigo da [réplica de leitura.](concepts-read-replicas.md) 
 
-Se não tiver definido o parâmetro `azure.replication_support` para **REPLICAR** num servidor master otimizado de Propósito Geral ou Memória e reiniciado o servidor, recebe um erro. Complete esses dois passos antes de criar uma réplica.
+Se não tiver definido `azure.replication_support` o parâmetro para **replicar** num servidor master otimizado de Propósito Geral ou Memória e reiniciado o servidor, receberá um erro. Complete esses dois passos antes de criar uma réplica.
 
-Uma réplica é criada usando as mesmas definições de cálculo e armazenamento que o mestre. Após a criação de uma réplica, várias definições podem ser alteradas independentemente do servidor principal: geração de computação, vCores, armazenamento e período de retenção de back-up. O tipo de preço também pode ser alterado de forma independente, exceto para ou da camada básica.
+Uma réplica é criada usando as mesmas definições de cálculo e armazenamento que o mestre. Após a criação de uma réplica, várias definições podem ser alteradas independentemente do servidor principal: geração de computação, vCores, armazenamento e período de retenção de back-up. O nível de preços também pode ser alterado de forma independente, exceto para ou a partir do nível Básico.
 
 > [!IMPORTANT]
 > Antes de uma definição de servidor principal ser atualizada para um novo valor, atualize a definição de réplica para um valor igual ou maior. Esta ação ajuda a réplica a acompanhar quaisquer alterações feitas ao mestre.
@@ -87,10 +87,10 @@ Pode ver a lista de réplicas de um servidor principal utilizando o comando da l
 az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
-### <a name="stop-replication-to-a-replica-server"></a>Parar a replicação para um servidor de réplica
+### <a name="stop-replication-to-a-replica-server"></a>Pare a replicação a um servidor de réplicas
 Pode parar a replicação entre um servidor principal e uma réplica de leitura utilizando o comando de paragem de [réplica do servidor az postgres.](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop)
 
-Depois de parar a replicação a um servidor principal e de uma réplica de leitura, não pode ser desfeita. A réplica de leitura torna-se um servidor autónomo que suporta tanto as leituras como as escritas. O servidor autônomo não pode ser tornado novamente em uma réplica.
+Depois de parar a replicação a um servidor principal e de uma réplica de leitura, não pode ser desfeita. A réplica de leitura torna-se um servidor autónomo que suporta tanto as leituras como as escritas. O servidor autónomo não pode voltar a ser transformado numa réplica.
 
 ```azurecli-interactive
 az postgres server replica stop --name mydemoserver-replica --resource-group myresourcegroup 
@@ -111,9 +111,9 @@ Pode criar e gerir réplicas de leitura utilizando a [API Azure REST](/rest/api/
 ### <a name="prepare-the-master-server"></a>Preparar o servidor principal
 Estes passos devem ser utilizados para preparar um servidor principal nos níveis Geral de Propósito ou Memória Otimizados.
 
-O parâmetro `azure.replication_support` deve ser definido para **RÉPLICA** no servidor principal. Quando este parâmetro estático é alterado, é necessário reiniciar o servidor para que a alteração faça efeito.
+O `azure.replication_support` parâmetro deve ser definido para **RÉPLICA** no servidor principal. Quando este parâmetro estático é alterado, é necessário reiniciar o servidor para que a alteração faça efeito.
 
-1. Coloque `azure.replication_support` para A RÉPLICA.
+1. Pronto `azure.replication_support` para RÉPLICA.
 
    ```http
    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/configurations/azure.replication_support?api-version=2017-12-01
@@ -153,9 +153,9 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 > [!NOTE]
 > Para saber mais sobre quais as regiões em que pode criar uma réplica, visite o artigo da [réplica de leitura.](concepts-read-replicas.md) 
 
-Se não tiver definido o parâmetro `azure.replication_support` para **REPLICAR** num servidor master otimizado de Propósito Geral ou Memória e reiniciado o servidor, recebe um erro. Complete esses dois passos antes de criar uma réplica.
+Se não tiver definido `azure.replication_support` o parâmetro para **replicar** num servidor master otimizado de Propósito Geral ou Memória e reiniciado o servidor, receberá um erro. Complete esses dois passos antes de criar uma réplica.
 
-Uma réplica é criada usando as mesmas definições de cálculo e armazenamento que o mestre. Após a criação de uma réplica, várias definições podem ser alteradas independentemente do servidor principal: geração de computação, vCores, armazenamento e período de retenção de back-up. O tipo de preço também pode ser alterado de forma independente, exceto para ou da camada básica.
+Uma réplica é criada usando as mesmas definições de cálculo e armazenamento que o mestre. Após a criação de uma réplica, várias definições podem ser alteradas independentemente do servidor principal: geração de computação, vCores, armazenamento e período de retenção de back-up. O nível de preços também pode ser alterado de forma independente, exceto para ou a partir do nível Básico.
 
 
 > [!IMPORTANT]
@@ -168,10 +168,10 @@ Pode ver a lista de réplicas de um servidor principal utilizando a [lista de r�
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/Replicas?api-version=2017-12-01
 ```
 
-### <a name="stop-replication-to-a-replica-server"></a>Parar a replicação para um servidor de réplica
+### <a name="stop-replication-to-a-replica-server"></a>Pare a replicação a um servidor de réplicas
 Pode parar a replicação entre um servidor principal e uma réplica de leitura utilizando a [atualização API](/rest/api/postgresql/servers/update).
 
-Depois de parar a replicação a um servidor principal e de uma réplica de leitura, não pode ser desfeita. A réplica de leitura torna-se um servidor autónomo que suporta tanto as leituras como as escritas. O servidor autônomo não pode ser tornado novamente em uma réplica.
+Depois de parar a replicação a um servidor principal e de uma réplica de leitura, não pode ser desfeita. A réplica de leitura torna-se um servidor autónomo que suporta tanto as leituras como as escritas. O servidor autónomo não pode voltar a ser transformado numa réplica.
 
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}?api-version=2017-12-01

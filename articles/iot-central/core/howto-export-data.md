@@ -5,15 +5,15 @@ services: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 01/30/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 0386897b6cecc27781626cfecd6f1f5f8a3752e4
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 725c5acf961fffb1fd4cf9bc17e37a5940f871cc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524388"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80157913"
 ---
 # <a name="export-iot-data-to-destinations-in-azure"></a>Exportar dados de IoT para destinos em Azure
 
@@ -35,7 +35,7 @@ Deve ser administrador na sua aplicação IoT Central, ou ter permissões de exp
 
 O seu destino de exportação deve existir antes de configurar a sua exportação contínua de dados.
 
-### <a name="create-event-hubs-namespace"></a>Criar espaço de nome sinuosos do Event Hubs
+### <a name="create-event-hubs-namespace"></a>Criar o espaço de nomes dos Hubs de Eventos
 
 Se não tiver um espaço de nome existente para os Hubs de Eventos para exportar, siga estes passos:
 
@@ -66,7 +66,7 @@ Se não tiver uma conta de Armazenamento Azure existente para exportar, siga est
     |-|-|
     |Standard|Propósito Geral V2|
     |Standard|Propósito Geral V1|
-    |Standard|Armazenamento de Blobs|
+    |Standard|Blob Storage|
     |Premium|Armazenamento blob bloco|
 
 2. Crie um recipiente na sua conta de armazenamento. Vá para a sua conta de armazenamento. No **serviço Blob,** selecione **Browse Blobs**. Selecione **+ Recipiente** na parte superior para criar um novo recipiente.
@@ -132,7 +132,7 @@ Para os Hubs de Eventos e autocarros de serviço, uma nova mensagem é exportada
 Para o Armazenamento blob, as mensagens são lotadas e exportadas uma vez por minuto. Os ficheiros exportados utilizam o mesmo formato que os ficheiros de mensagens exportados pela [mensagem IoT Hub, encaminhamento](../../iot-hub/tutorial-routing.md) para armazenamento de bolhas. 
 
 > [!NOTE]
-> Para o Armazenamento Blob, certifique-se de que os seus dispositivos estão a enviar mensagens que tenham `contentType: application/JSON` e `contentEncoding:utf-8` (ou `utf-16`, `utf-32`). Consulte a documentação do [IoT Hub,](../../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body) por exemplo.
+> Para o Armazenamento Blob, certifique-se de `contentType: application/JSON` `contentEncoding:utf-8` que `utf-16`os `utf-32`seus dispositivos estão a enviar mensagens que têm e (ou . ). Consulte a documentação do [IoT Hub,](../../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body) por exemplo.
 
 O dispositivo que enviou a telemetria é representado pelo ID do dispositivo (ver as seguintes secções). Para obter os nomes dos dispositivos, exportar dados do dispositivo e correlacionar cada mensagem utilizando a **ligaçãoDeviceId** que corresponde ao **dispositivoId** da mensagem do dispositivo.
 
@@ -193,14 +193,14 @@ Este é um exemplo de registo exportado para armazenamento de bolhas:
 
 Cada mensagem ou registo num instantâneo representa uma ou mais alterações num dispositivo e nas suas propriedades de dispositivo e nuvem desde a última mensagem exportada. Isto inclui:
 
-- `id` do dispositivo na IoT Central
-- `displayName` do dispositivo
-- Id do modelo do dispositivo em `instanceOf`
-- `simulated` bandeira, verdade se o dispositivo for um dispositivo simulado
-- `provisioned` bandeira, verdade se o dispositivo foi provisionado
-- `approved` bandeira, verdadeira se o dispositivo tiver sido aprovado para enviar dados
-- Valores de propriedade
-- `properties` incluindo valores de propriedades de dispositivo e nuvem
+- `id`do dispositivo em IoT Central
+- `displayName`do dispositivo
+- Id do modelo do dispositivo`instanceOf`
+- `simulated`bandeira, verdade se o dispositivo é um dispositivo simulado
+- `provisioned`bandeira, verdade se o dispositivo foi provisionado
+- `approved`bandeira, verdade se o dispositivo foi aprovado para enviar dados
+- Valores patrimoniais
+- `properties`incluindo valores de propriedades de dispositivo e nuvem
 
 Os dispositivos apagados não são exportados. Atualmente, não existem indicadores em mensagens exportadas para dispositivos apagados.
 
@@ -307,11 +307,11 @@ Este é um instantâneo de exemplo contendo dispositivos e propriedades dados no
 
 Cada mensagem ou registo instantâneo representa uma ou mais alterações a um modelo de dispositivo publicado desde a última mensagem exportada. As informações enviadas em cada mensagem ou registo incluem:
 
-- `id` do modelo do dispositivo que corresponde ao `instanceOf` do fluxo de dispositivos acima
-- `displayName` do modelo do dispositivo
-- O dispositivo `capabilityModel` incluindo o seu `interfaces`, e a telemetria, propriedades e definições de comandos
-- definições `cloudProperties`
-- Sobreposições e valores iniciais, em linha com o `capabilityModel`
+- `id`do modelo de dispositivo `instanceOf` que corresponde ao fluxo de dispositivos acima
+- `displayName`do modelo do dispositivo
+- O `capabilityModel` dispositivo `interfaces`incluindo as suas definições de telemetria, propriedades e comandos
+- `cloudProperties`definições
+- Sobreposições e valores iniciais, em linha com o`capabilityModel`
 
 Os modelos de dispositivos apagados não são exportados. Atualmente, não existem indicadores em mensagens exportadas para modelos de dispositivos eliminados.
 
@@ -564,15 +564,15 @@ Se tiver uma exportação de dados existente na sua aplicação de pré-visualiz
 A partir de 3 de fevereiro de 2020, todas as novas exportações em aplicações com modelos de Dispositivos e Dispositivos ativados terão o formato de dados descrito acima. Todas as exportações criadas antes desta situação permanecerão no antigo formato de dados até 30 de junho de 2020, altura após o qual estas exportações serão automaticamente migradas para o novo formato de dados. O novo formato de dados corresponde ao [dispositivo,](https://docs.microsoft.com/rest/api/iotcentral/devices/get)propriedade do [dispositivo,](https://docs.microsoft.com/rest/api/iotcentral/devices/getproperties) [propriedade da nuvem](https://docs.microsoft.com/rest/api/iotcentral/devices/getcloudproperties) do dispositivo e objetos de modelo de [dispositivo](https://docs.microsoft.com/rest/api/iotcentral/devicetemplates/get) na IoT Central Public API. 
  
 Para **dispositivos,** diferenças notáveis entre o formato de dados antigo e o novo formato de dados incluem:
-- `@id` para dispositivo é removido, `deviceId` é renomeado para `id` 
-- `provisioned` bandeira é adicionada para descrever o estado de provisionamento do dispositivo
-- `approved` bandeira é adicionada para descrever o estado de aprovação do dispositivo
-- `properties` incluindo propriedades de dispositivos e nuvem, corresponde a entidades na API pública
+- `@id`para dispositivo é `deviceId` removido, é renomeado para`id` 
+- `provisioned`bandeira é adicionada para descrever o estado de provisionamento do dispositivo
+- `approved`bandeira é adicionada para descrever o estado de aprovação do dispositivo
+- `properties`incluindo propriedades de dispositivos e nuvem, corresponde a entidades na API pública
 
 Para **os modelos do Dispositivo,** diferenças notáveis entre o formato de dados antigo e o novo formato de dados incluem:
 
-- `@id` para o modelo do dispositivo é renomeado para `id`
-- `@type` para o modelo do dispositivo é renomeado para `types`, e agora é uma matriz
+- `@id`para o modelo de dispositivo é renomeado para`id`
+- `@type`para o modelo do `types`dispositivo é renomeado para , e agora é uma matriz
 
 ### <a name="devices-format-deprecated-as-of-3-february-2020"></a>Dispositivos (formato depreciado a partir de 3 de fevereiro de 2020)
 ```json

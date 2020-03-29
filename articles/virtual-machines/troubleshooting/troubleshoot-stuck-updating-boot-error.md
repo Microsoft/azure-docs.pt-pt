@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
 ms.openlocfilehash: 8a47131cb4f19cce1664eafa50c67ab1a1171e67
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919435"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Startup Azure VM está presa na atualização do Windows
@@ -32,8 +32,8 @@ Este artigo ajuda a resolver o problema quando a sua Máquina Virtual (VM) está
 - Mantenha o seu PC ligado até que isto esteja feito. Atualização de instalação # de #... 
 - Não conseguimos completar as atualizações Desfazer as alterações Não desligue o computador
 - Falha configurar atualizações do Windows Reverter alterações Não desligue o computador
-- Error < error code > aplicação de operações de atualização ##### de ##### (\Regist...)
-- Erro Fatal < error code > aplicação de operações de atualização ##### de ##### ($...)
+- Error < error code > aplicando operações de atualização ##### de ###############
+- Erro fatal < código de erro > aplicando operações de atualização ##### de ##### ($...)
 
 
 ## <a name="solution"></a>Solução

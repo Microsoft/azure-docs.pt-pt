@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e2024bd14241184338195ed635039bae774da816
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78161796"
 ---
 # <a name="view-activity-logs-for-azure-rbac-changes"></a>Ver registos de atividade para alterações do RBAC do Azure
@@ -37,7 +37,7 @@ Aqui estão as operações relacionadas com o Azure RBAC que estão registadas n
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-A maneira mais fácil de começar é ver os registos de atividade com o portal Azure. A imagem seguinte mostra um exemplo de operações de atribuição de papéis no registo de atividade. Também inclui uma opção para descarregar os registos como um ficheiro CSV.
+A forma mais fácil de dar início a este processo é ver os registos de atividades com recurso ao portal do Azure. A imagem seguinte mostra um exemplo de operações de atribuição de papéis no registo de atividade. Também inclui uma opção para descarregar os registos como um ficheiro CSV.
 
 ![Registos de atividade usando o portal - screenshot](./media/change-history-report/activity-log-portal.png)
 

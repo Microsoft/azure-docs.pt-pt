@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 04/02/2019
 ms.author: wesmc
 ms.openlocfilehash: 498a7ee28b9404d0733e4615f4df635a8c904b51
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184068"
 ---
 ### <a name="cacheskuname"></a>cacheSKUName
 
-O escalão de preço da Cache do Azure nova para Redis.
+O nível de preços do novo Azure Cache para redis.
 
 ```json
     "cacheSKUName": {
@@ -30,7 +30,7 @@ O escalão de preço da Cache do Azure nova para Redis.
     },
 ```
 
-O modelo define os valores que são permitidos para este parâmetro (Basic, Standard ou Premium) e atribui um valor predefinido (básico), se for especificado nenhum valor. Basic fornece um único nó com vários tamanhos disponíveis se a 53 GB. Standard fornece dois nós primário/réplica com vários tamanhos disponíveis de cópia de segurança para o SLA de 53 GB e 99,9%.
+O modelo define os valores que são permitidos para este parâmetro (Básico, Standard ou Premium), e atribui um valor predefinido (Básico) se não for especificado qualquer valor. Basic fornece um único nó com vários tamanhos disponíveis até 53 GB. A Standard fornece dois nós Primário/Réplica com vários tamanhos disponíveis até 53 GB e 99,9% SLA.
 
 ### <a name="cacheskufamily"></a>cacheSKUFamily
 
@@ -52,9 +52,9 @@ A família para o sku.
 
 ### <a name="cacheskucapacity"></a>cacheSKUCapacity
 
-O tamanho da Cache do Azure nova para a instância de Redis.
+O tamanho do novo Azure Cache para o caso Redis.
 
-Para as famílias de básico e Standard:
+Para as famílias Básicas e Standard:
 
 ```json
     "cacheSKUCapacity": {
@@ -75,16 +75,16 @@ Para as famílias de básico e Standard:
     }
 ```
 
-A capacidade de cache do valor de Premium é definida a mesma, exceto os valores permitidos executar a partir de 1 a 5 em vez de 0 a 6.
+A capacidade de cache de valor Premium é definida da mesma forma, com exceção dos valores permitidos que vão de 1 a 5 em vez de 0 a 6.
 
-O modelo define os valores de número inteiro que têm permissão para este parâmetro (0 a 6 para as famílias de básico e Standard; 1 a 5 para a família de Premium). Se for especificado nenhum valor, o modelo atribui um valor padrão de 0 para básico e Standard, 1 para Premium.
+O modelo define os valores inteiros que são permitidos para este parâmetro (0 a 6 para as famílias Básicas e Standard; 1 a 5 para a família Premium). Se não for especificado qualquer valor, o modelo atribui um valor predefinido de 0 para Básico e Standard, 1 para Premium.
 
 Os valores correspondem aos seguintes tamanhos de cache:
 
-| Value | Básico e Standard<br>Tamanho da cache | Premium<br>Tamanho da cache |
+| Valor | Básico e Standard<br>tamanho cache | Premium<br>tamanho cache |
 | :---: | :------------------------------: | :-------------------: |
-| 0     | 250 MB (predefinição)                 | n/d                   |
-| 1     | 1 GB                             | 6 GB (predefinição)        |
+| 0     | 250 MB (padrão)                 | n/d                   |
+| 1     | 1 GB                             | 6 GB (padrão)        |
 | 2     | 2,5 GB                           | 13 GB                 |
 | 3     | 6 GB                             | 26 GB                 |
 | 4     | 13 GB                            | 53 GB                 |

@@ -1,6 +1,6 @@
 ---
-title: Monitorar programaticamente uma data factory do Azure
-description: Saiba como monitorar um pipeline em um data factory usando SDKs (Software Development Kits) diferentes.
+title: Monitorize programáticamente uma fábrica de dados azure
+description: Aprenda a monitorizar um oleoduto numa fábrica de dados utilizando diferentes kits de desenvolvimento de software (SDKs).
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,27 +11,27 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 43a31d588ff6616d7200d9773883ce5da570b100
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74927362"
 ---
-# <a name="programmatically-monitor-an-azure-data-factory"></a>Monitorar programaticamente uma data factory do Azure
-Este artigo descreve como monitorar um pipeline em um data factory usando SDKs (Software Development Kits) diferentes. 
+# <a name="programmatically-monitor-an-azure-data-factory"></a>Monitorize programáticamente uma fábrica de dados azure
+Este artigo descreve como monitorizar um oleoduto numa fábrica de dados utilizando diferentes kits de desenvolvimento de software (SDKs). 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="data-range"></a>Intervalo de dados
 
-Data Factory só armazena dados de execução de pipeline por 45 dias. Quando você consulta programaticamente dados sobre execuções de pipeline Data Factory-por exemplo, com o comando do PowerShell `Get-AzDataFactoryV2PipelineRun`-não há nenhuma data máxima para os parâmetros opcionais `LastUpdatedAfter` e `LastUpdatedBefore`. Mas se você consultar dados para o ano passado, por exemplo, a consulta não retornará um erro, mas somente retornará dados de execução de pipeline dos últimos 45 dias.
+A Fábrica de Dados só armazena dados de gasodutos durante 45 dias. Quando se consulta programaticamente por dados sobre o pipeline data Factory `Get-AzDataFactoryV2PipelineRun` - por exemplo, com `LastUpdatedAfter` o `LastUpdatedBefore` comando PowerShell - não existem datas máximas para os parâmetros opcionais e parâmetros. Mas se consultar dados relativos ao ano passado, por exemplo, a consulta não devolve um erro, mas apenas devolve dados de execução de gasodutos dos últimos 45 dias.
 
-Se você quiser manter os dados de execução do pipeline por mais de 45 dias, configure seu próprio log de diagnóstico com [Azure monitor](monitor-using-azure-monitor.md).
+Se pretender persistir os dados de execução do gasoduto por mais de 45 dias, instale o seu próprio registo de diagnóstico com o [Monitor Azure](monitor-using-azure-monitor.md).
 
 ## <a name="net"></a>.NET
-Para obter uma explicação completa de como criar e monitorar um pipeline usando o SDK do .NET, consulte [criar um data Factory e um pipeline usando o .net](quickstart-create-data-factory-dot-net.md).
+Para uma passagem completa de criação e monitorização de um gasoduto utilizando o .NET SDK, consulte [Criar uma fábrica de dados e um gasoduto utilizando .NET](quickstart-create-data-factory-dot-net.md).
 
-1. Adicione o código a seguir para verificar continuamente o status da execução do pipeline até que ele termine de copiar os dados.
+1. Adicione o seguinte código para verificar continuamente o estado do gasoduto até que termine de copiar os dados.
 
     ```csharp
     // Monitor the pipeline run
@@ -48,7 +48,7 @@ Para obter uma explicação completa de como criar e monitorar um pipeline usand
     }
     ```
 
-2. Adicione o código a seguir a que recupera os detalhes da execução da atividade de cópia, por exemplo, o tamanho dos dados lidos/gravados.
+2. Adicione o seguinte código a que recupera os detalhes de execução da atividade da cópia, por exemplo, o tamanho dos dados lidos/escritos.
 
     ```csharp
     // Check the copy activity run details
@@ -64,12 +64,12 @@ Para obter uma explicação completa de como criar e monitorar um pipeline usand
     Console.ReadKey();
     ```
 
-Para obter a documentação completa sobre o SDK do .NET, consulte [Data Factory referência do SDK do .net](/dotnet/api/microsoft.azure.management.datafactory?view=azure-dotnet).
+Para obter documentação completa em .NET SDK, consulte [data factory .NET SDK referência](/dotnet/api/microsoft.azure.management.datafactory?view=azure-dotnet).
 
 ## <a name="python"></a>Python
-Para obter uma explicação completa de como criar e monitorar um pipeline usando o SDK do Python, consulte [criar um data Factory e um pipeline usando o Python](quickstart-create-data-factory-python.md).
+Para uma completa passagem pela criação e monitorização de um oleoduto utilizando o Python SDK, consulte [Criar uma fábrica de dados e um oleoduto utilizando python](quickstart-create-data-factory-python.md).
 
-Para monitorar a execução do pipeline, adicione o seguinte código:
+Para monitorizar o gasoduto, adicione o seguinte código:
 
 ```python
 # Monitor the pipeline run
@@ -82,10 +82,10 @@ activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(
 print_activity_run_details(activity_runs_paged[0])
 ```
 
-Para obter a documentação completa sobre o SDK do Python, consulte [Data Factory referência do SDK do Python](/python/api/overview/azure/datafactory?view=azure-python).
+Para obter documentação completa sobre python SDK, consulte [data factory Python SDK referência](/python/api/overview/azure/datafactory?view=azure-python).
 
 ## <a name="rest-api"></a>API REST
-Para obter uma explicação completa de como criar e monitorar um pipeline usando a API REST, consulte [criar um data Factory e um pipeline usando a API REST](quickstart-create-data-factory-rest-api.md).
+Para uma passagem completa pela criação e monitorização de um gasoduto utilizando a API REST, consulte [Criar uma fábrica de dados e um gasoduto utilizando a Rest API](quickstart-create-data-factory-rest-api.md).
  
 1. Execute o script seguinte para verificar continuamente o estado de execução do pipeline até que este termine de copiar os dados.
 
@@ -112,10 +112,10 @@ Para obter uma explicação completa de como criar e monitorar um pipeline usand
     $response | ConvertTo-Json
     ```
 
-Para obter a documentação completa sobre a API REST, consulte [Data Factory referência da API REST](/rest/api/datafactory/).
+Para obter documentação completa sobre a API REST, consulte data [factory REST API referência](/rest/api/datafactory/).
 
 ## <a name="powershell"></a>PowerShell
-Para obter uma explicação completa de como criar e monitorar um pipeline usando o PowerShell, consulte [criar um data Factory e um pipeline usando o PowerShell](quickstart-create-data-factory-powershell.md).
+Para uma passagem completa pela criação e monitorização de um oleoduto utilizando o PowerShell, consulte Criar uma fábrica de dados e um oleoduto utilizando o [PowerShell](quickstart-create-data-factory-powershell.md).
 
 1. Execute o script seguinte para verificar continuamente o estado de execução do pipeline até que este termine de copiar os dados.
 
@@ -149,8 +149,8 @@ Para obter uma explicação completa de como criar e monitorar um pipeline usand
     $result.Error -join "`r`n"
     ```
 
-Para obter a documentação completa sobre os cmdlets do PowerShell, consulte [Data Factory referência de cmdlet do PowerShell](/powershell/module/az.datafactory).
+Para obter documentação completa sobre os cmdlets PowerShell, consulte a [referência de cmdlet da Fábrica](/powershell/module/az.datafactory)de Dados PowerShell .
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte [monitorar pipelines usando Azure monitor](monitor-using-azure-monitor.md) artigo para saber mais sobre como usar Azure monitor para monitorar data Factory pipelines. 
+Consulte [os gasodutos Monitor utilizando](monitor-using-azure-monitor.md) o artigo do Azure Monitor para aprender sobre a utilização do Monitor Azure para monitorizar os gasodutos data Factory. 
 

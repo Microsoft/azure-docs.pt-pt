@@ -1,6 +1,6 @@
 ---
-title: Criar fluxos de trabalho de aplicativo lógico mais rapidamente usando modelos predefinidos
-description: Crie rapidamente fluxos de trabalho de aplicativo lógico usando modelos predefinidos fornecidos pelos aplicativos lógicos do Azure
+title: Criar fluxos de trabalho de aplicações lógicas mais rapidamente usando modelos pré-construídos
+description: Construa rapidamente fluxos de trabalho de aplicações lógicas utilizando modelos pré-construídos fornecidos por Aplicações Lógicas Azure
 services: logic-apps
 ms.suite: integration
 author: kevinlam1
@@ -9,34 +9,34 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
 ms.openlocfilehash: aac0060527af7b7d880f971e7608be3fa44a2d15
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76905111"
 ---
-# <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Criar fluxos de trabalho de aplicativo lógico a partir de modelos predefinidos
+# <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Create logic app workflows from prebuilt templates (Criar fluxos de trabalho de aplicações lógicas a partir de modelos pré-criados)
 
-Para começar a criar fluxos de trabalho com mais rapidez, os aplicativos lógicos fornecem modelos, que são aplicativos lógicos pré-criados que seguem os padrões mais usados. Use esses modelos conforme fornecido ou edite-os de acordo com seu cenário.
+Para começar a criar fluxos de trabalho mais rapidamente, as Aplicações Lógicas fornecem modelos, que são aplicações lógicas pré-construídas que seguem padrões comumente usados. Use estes modelos conforme fornecido ou edite-os para se adaptar ao seu cenário.
 
-Aqui estão algumas categorias de modelo:
+Aqui estão algumas categorias de modelos:
 
 | Tipo de modelo | Descrição | 
 | ------------- | ----------- | 
-| Modelos de nuvem corporativa | Para integrar o blob do Azure, Dynamics CRM, Salesforce, Box e inclui outros conectores para suas necessidades de nuvem corporativa. Por exemplo, você pode usar esses modelos para organizar clientes potenciais de negócios ou fazer backup de seus dados de arquivo corporativo. | 
-| Modelos de produtividade pessoal | Melhore a produtividade pessoal definindo lembretes diários, transformando itens de trabalho importantes em listas de tarefas pendentes e automatizando tarefa demorada para uma única etapa de aprovação de usuário. | 
-| Modelos de nuvem do consumidor | Para integrar serviços de mídia social, como Twitter, margem de atraso e email. Útil para reforçar iniciativas de marketing de mídia social. Esses modelos também incluem tarefas como cópia em nuvem, o que aumenta a produtividade, economizando tempo em tarefas tradicionalmente repetitivas. | 
-| Modelos do Enterprise Integration Pack | Para configurar pipelines VETER (validar, extrair, transformar, enriquecer, rotear), receber um documento EDI X12 sobre AS2 e transformar em XML e manipular mensagens X12, EDIFACT e AS2. | 
-| Modelos de padrão de protocolo | Para implementar padrões de protocolo, como solicitação-resposta sobre HTTP e integrações em FTP e SFTP. Use esses modelos como fornecidos ou crie-os para padrões complexos de protocolo. | 
+| Modelos de nuvem empresarial | Para integrar o Azure Blob, Dynamics CRM, Salesforce, Box e inclui outros conectores para as necessidades da sua nuvem empresarial. Por exemplo, pode usar estes modelos para organizar leads de negócio ou fazer o back-up dos seus dados de ficheiros corporativos. | 
+| Modelos de produtividade pessoal | Melhorar a produtividade pessoal, definindo lembretes diários, transformando itens de trabalho importantes em listas de tarefas a fazer, e automatizando tarefas longas até um único passo de aprovação do utilizador. | 
+| Modelos de nuvem de consumo | Para integrar serviços de redes sociais como Twitter, Slack e e-mail. Útil para fortalecer as iniciativas de marketing das redes sociais. Estes modelos também incluem tarefas como a cópia em nuvem, o que aumenta a produtividade poupando tempo em tarefas tradicionalmente repetitivas. | 
+| Modelos de pacotede integração empresarial | Para configurar os gasodutos VETER (validar, extrair, transformar, enriquecer, rota) recebendo um documento X12 EDI sobre as AS2 e transformando-se em XML, e manuseando mensagens X12, EDIFACT e AS2. | 
+| Modelos de padrão de protocolo | Para implementar padrões de protocolo, tais como a resposta de pedido sobre http e integrações em FTP e SFTP. Use estes modelos conforme fornecido, ou baseie-os para padrões de protocolo complexos. | 
 ||| 
 
-Se não tiver uma subscrição do Azure, [inscreva-se numa conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar. Para obter mais informações sobre como criar um aplicativo lógico, consulte [criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Se não tiver uma subscrição do Azure, [inscreva-se numa conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar. Para obter mais informações sobre a construção de uma aplicação lógica, consulte [Criar uma aplicação lógica.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-## <a name="create-logic-apps-from-templates"></a>Criar aplicativos lógicos a partir de modelos
+## <a name="create-logic-apps-from-templates"></a>Criar aplicações lógicas a partir de modelos
 
-1. Se você ainda não fez isso, entre no [portal do Azure](https://portal.azure.com "Portal do Azure").
+1. Se ainda não o fez, inscreva-se no [portal Azure.](https://portal.azure.com "Portal do Azure")
 
-2. No menu principal do Azure, escolha **Criar um recurso** > **Enterprise Integration** > **Aplicação Lógica**.
+2. A partir do menu principal do Azure, escolha Criar uma**aplicação lógica**de**integração** > empresarial de **recursos.** > 
 
    ![Portal do Azure, Novo, Integração Empresarial, Aplicação Lógica](./media/logic-apps-create-logic-apps-from-templates/azure-portal-create-logic-app.png)
 
@@ -46,11 +46,11 @@ Se não tiver uma subscrição do Azure, [inscreva-se numa conta do Azure gratui
 
    | Definição | Valor | Descrição | 
    | ------- | ----- | ----------- | 
-   | **Nome** | *nome-da-sua-aplicação-lógica* | Indique um nome exclusivo para a aplicação lógica. | 
-   | **Subscrição** | *o-nome-da-sua-subscrição-do-Azure* | Selecione a subscrição do Azure que pretende utilizar. | 
-   | **Grupo de recursos** | *o-nome-do-seu-grupo-de-recursos-do-Azure* | Crie ou selecione um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) para este aplicativo lógico e organize todos os recursos associados a este aplicativo. | 
+   | **Nome** | *seu nome lógica-app* | Indique um nome exclusivo para a aplicação lógica. | 
+   | **Assinatura** | *o-nome-da-sua-subscrição-do-Azure* | Selecione a subscrição do Azure que pretende utilizar. | 
+   | **Grupo de recursos** | *o-nome-do-seu-grupo-de-recursos-do-Azure* | Crie ou selecione um grupo de [recursos Azure](../azure-resource-manager/management/overview.md) para esta aplicação lógica e organize todos os recursos associados a esta app. | 
    | **Localização** | *a-região-do-seu-datacenter-do-Azure* | Selecione a região do datacenter para implementar a sua aplicação lógica, como, por exemplo, E.U.A. Oeste. | 
-   | **Log Analytics** | **Desativado** (padrão) ou **ativado** | Instale [o registo de diagnóstico](../logic-apps/monitor-logic-apps-log-analytics.md) para a sua aplicação lógica utilizando [registos do Monitor Azure](../log-analytics/log-analytics-overview.md). Requer que você já tenha um espaço de trabalho Log Analytics. | 
+   | **Log Analytics** | **Desligado** (padrão) ou **Ligado** | Instale [o registo de diagnóstico](../logic-apps/monitor-logic-apps-log-analytics.md) para a sua aplicação lógica utilizando [registos do Monitor Azure](../log-analytics/log-analytics-overview.md). Requer que já tenha um espaço de trabalho log Analytics. | 
    |||| 
 
 4. Quando estiver pronto, selecione **Afixar ao dashboard**. Desta forma, a aplicação lógica aparece automaticamente no seu dashboard do Azure e abre-se após a implementação. Escolha **Criar**.
@@ -61,88 +61,88 @@ Se não tiver uma subscrição do Azure, [inscreva-se numa conta do Azure gratui
    Após o Azure implementar a aplicação lógica, abre-se o Estruturador de Aplicações Lógicas, que mostra uma página com um vídeo de introdução. 
    Abaixo do vídeo, estão disponíveis modelos para padrões de aplicações lógicas comuns. 
 
-5. Vá além do vídeo de introdução e dos gatilhos comuns para **modelos**. Escolha um modelo predefinido. Por exemplo:
+5. Percorra o vídeo de introdução e os gatilhos comuns para **os modelos**. Escolha um modelo pré-construído. Por exemplo:
 
-   ![Escolher um modelo de aplicativo lógico](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
+   ![Escolha um modelo de aplicativo lógico](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
    > [!TIP]
-   > Para criar seu aplicativo lógico do zero, escolha **aplicativo lógico em branco**.
+   > Para criar a sua aplicação lógica do zero, escolha **a App Lógica Em Branco.**
 
-   Ao selecionar um modelo predefinido, você pode exibir mais informações sobre esse modelo. 
+   Quando selecionar um modelo pré-construído, pode ver mais informações sobre esse modelo. 
    Por exemplo:
 
-   ![Escolher um modelo predefinido](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
+   ![Escolha um modelo pré-construído](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
-6. Para continuar com o modelo selecionado, escolha **usar este modelo**. 
+6. Para continuar com o modelo selecionado, escolha **Utilizar este modelo**. 
 
-7. Com base nos conectores no modelo, você será solicitado a executar qualquer uma destas etapas:
+7. Com base nos conectores do modelo, é-lhe solicitado que execute qualquer um destes passos:
 
-   * Entre com suas credenciais para sistemas ou serviços que são referenciados pelo modelo.
+   * Inscreva-se com as suas credenciais para sistemas ou serviços referenciados pelo modelo.
 
-   * Crie conexões para quaisquer serviços ou sistemas referenciados pelo modelo. Para criar uma conexão, forneça um nome para a conexão e, se necessário, selecione o recurso que você deseja usar. 
+   * Criar ligações para quaisquer serviços ou sistemas referenciados pelo modelo. Para criar uma ligação, forneça um nome para a sua ligação e, se necessário, selecione o recurso que pretende utilizar. 
 
-   * Se você já configurou essas conexões, escolha **continuar**.
+   * Se já configurar estas ligações, escolha **Continuar**.
 
    Por exemplo:
 
    ![Criar ligações](./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png)
 
-   Quando você terminar, seu aplicativo lógico será aberto e aparecerá no designer de aplicativos lógicos.
+   Quando terminar, a sua aplicação lógica abre e aparece no Logic Apps Designer.
 
    > [!TIP]
-   > Para retornar ao Visualizador de modelos, escolha **modelos** na barra de ferramentas do designer. Essa ação descarta as alterações não salvas, portanto, uma mensagem de aviso é exibida para confirmar sua solicitação.
+   > Para voltar ao visualizador do modelo, escolha Modelos na barra de **ferramentas** de design. Esta ação descarta quaisquer alterações não guardadas, pelo que uma mensagem de aviso parece confirmar o seu pedido.
 
-8. Continue criando seu aplicativo lógico.
+8. Continue a construir a sua aplicação lógica.
 
    > [!NOTE] 
-   > Muitos modelos incluem conectores que podem já ter propriedades obrigatórias preenchidas previamente. No entanto, alguns modelos ainda podem exigir que você forneça valores antes de poder implantar o aplicativo lógico corretamente. Se você tentar implantar sem concluir os campos de propriedade ausentes, receberá uma mensagem de erro. 
+   > Muitos modelos incluem conectores que podem já ter propriedades necessárias pré-povoadas. No entanto, alguns modelos podem ainda exigir que forneça valores antes de poder implementar corretamente a aplicação lógica. Se tentar implantar sem completar os campos de propriedade em falta, obtém uma mensagem de erro. 
 
 ## <a name="update-logic-apps-with-templates"></a>Atualizar aplicativos lógicos com modelos
 
-1. Na [portal do Azure](https://portal.azure.com "Portal do Azure"), localize e abra seu aplicativo lógico no designer de aplicativo lógico.
+1. No [portal Azure,](https://portal.azure.com "Portal do Azure")encontre e abra a sua aplicação lógica no Th Logic App Designer.
 
-2. Na barra de ferramentas do designer, escolha **modelos**. Essa ação descarta as alterações não salvas, portanto, uma mensagem de aviso é exibida para que você possa confirmar que deseja continuar. Para confirmar, escolha **OK**. Por exemplo:
+2. Na barra de ferramentas de design, escolha **Modelos**. Esta ação descarta quaisquer alterações não guardadas, pelo que aparece uma mensagem de aviso para que possa confirmar que pretende continuar. Para confirmar, escolha **OK**. Por exemplo:
 
-   ![Escolha "modelos"](./media/logic-apps-create-logic-apps-from-templates/logic-app-update-existing-with-template.png)
+   ![Escolha "Modelos"](./media/logic-apps-create-logic-apps-from-templates/logic-app-update-existing-with-template.png)
 
-3. Vá além do vídeo de introdução e dos gatilhos comuns para **modelos**. Escolha um modelo predefinido. Por exemplo:
+3. Percorra o vídeo de introdução e os gatilhos comuns para **os modelos**. Escolha um modelo pré-construído. Por exemplo:
 
-   ![Escolher um modelo de aplicativo lógico](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
+   ![Escolha um modelo de aplicativo lógico](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
-   Ao selecionar um modelo predefinido, você pode exibir mais informações sobre esse modelo. 
+   Quando selecionar um modelo pré-construído, pode ver mais informações sobre esse modelo. 
    Por exemplo:
 
-   ![Escolher um modelo predefinido](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
+   ![Escolha um modelo pré-construído](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
-4. Para continuar com o modelo selecionado, escolha **usar este modelo**. 
+4. Para continuar com o modelo selecionado, escolha **Utilizar este modelo**. 
 
-5. Com base nos conectores no modelo, você será solicitado a executar qualquer uma destas etapas:
+5. Com base nos conectores do modelo, é-lhe solicitado que execute qualquer um destes passos:
 
-   * Entre com suas credenciais para sistemas ou serviços que são referenciados pelo modelo.
+   * Inscreva-se com as suas credenciais para sistemas ou serviços referenciados pelo modelo.
 
-   * Crie conexões para quaisquer serviços ou sistemas referenciados pelo modelo. Para criar uma conexão, forneça um nome para a conexão e, se necessário, selecione o recurso que você deseja usar. 
+   * Criar ligações para quaisquer serviços ou sistemas referenciados pelo modelo. Para criar uma ligação, forneça um nome para a sua ligação e, se necessário, selecione o recurso que pretende utilizar. 
 
-   * Se você já configurou essas conexões, escolha **continuar**.
+   * Se já configurar estas ligações, escolha **Continuar**.
 
    ![Criar ligações](./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png)
 
-   Seu aplicativo lógico agora é aberto e aparece no designer de aplicativos lógicos.
+   A sua aplicação lógica abre e aparece no Logic Apps Designer.
 
-8. Continue criando seu aplicativo lógico. 
+8. Continue a construir a sua aplicação lógica. 
 
    > [!TIP]
-   > Se você não tiver salvo suas alterações, poderá descartar seu trabalho e retornar ao aplicativo lógico anterior. Na barra de ferramentas do designer, escolha **descartar**.
+   > Se não guardou as suas alterações, pode descartar o seu trabalho e voltar à sua aplicação lógica anterior. Na barra de ferramentas de design, escolha **'Descartar'.**
 
 > [!NOTE] 
-> Muitos modelos incluem conectores que talvez já tenham preenchido previamente as propriedades necessárias. No entanto, alguns modelos ainda podem exigir que você forneça valores antes de poder implantar o aplicativo lógico corretamente. Se você tentar implantar sem concluir os campos de propriedade ausentes, receberá uma mensagem de erro.
+> Muitos modelos incluem conectores que podem já ter propriedades necessárias pré-povoadas. No entanto, alguns modelos podem ainda exigir que forneça valores antes de poder implementar corretamente a aplicação lógica. Se tentar implantar sem completar os campos de propriedade em falta, obtém uma mensagem de erro.
 
-## <a name="deploy-logic-apps-built-from-templates"></a>Implantar aplicativos lógicos criados a partir de modelos
+## <a name="deploy-logic-apps-built-from-templates"></a>Implementar aplicativos lógicos construídos a partir de modelos
 
-Depois de fazer as alterações no modelo, você pode salvar suas alterações. Essa ação também publica automaticamente seu aplicativo lógico.
+Depois de fazer as alterações no modelo, pode guardar as suas alterações. Esta ação também publica automaticamente a sua aplicação lógica.
 
 Na barra de ferramentas do estruturador, escolha **Guardar**.
 
-![Salvar e publicar seu aplicativo lógico](./media/logic-apps-create-logic-apps-from-templates/logic-app-save.png)  
+![Poupe e publique a sua aplicação lógica](./media/logic-apps-create-logic-apps-from-templates/logic-app-save.png)  
 
 ## <a name="get-support"></a>Obter suporte
 
@@ -151,7 +151,7 @@ Na barra de ferramentas do estruturador, escolha **Guardar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre a criação de aplicativos lógicos por meio de exemplos, cenários, histórias de clientes e orientações.
+Saiba sobre a construção de aplicações lógicas através de exemplos, cenários, histórias de clientes e walkthroughs.
 
 > [!div class="nextstepaction"]
-> [Examinar exemplos, cenários e instruções do aplicativo lógico](../logic-apps/logic-apps-examples-and-scenarios.md)
+> [Reveja exemplos de aplicações lógicas, cenários e walkthroughs](../logic-apps/logic-apps-examples-and-scenarios.md)

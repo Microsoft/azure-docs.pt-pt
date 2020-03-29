@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 74c9f44ff5fbbbb50bba1594d371633fd49857eb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76845035"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitor de portais VPN com resolução de problemas do Observador de Rede
@@ -33,7 +33,7 @@ Um livro de execução é criado com um script para verificar o estado de ligaç
 
 Este cenário irá:
 
-- Crie um livro de corridas chamando o `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet para o estado de ligação de resolução de problemas
+- Crie um livro `Start-AzureRmNetworkWatcherResourceTroubleshooting` de corridas chamando o cmdlet para o estado de ligação de resolução de problemas
 - Ligue um horário ao livro de corridas
 
 ## <a name="before-you-begin"></a>Antes de começar
@@ -49,23 +49,23 @@ Antes de iniciar este cenário, deve ter os seguintes pré-requisitos:
 > [!NOTE]
 > A infraestrutura retratada na imagem anterior é para fins de ilustração e não são criadas com os passos contidos neste artigo.
 
-### <a name="create-the-runbook"></a>Criar o runbook
+### <a name="create-the-runbook"></a>Criar o livro de corridas
 
 O primeiro passo para configurar o exemplo é criar o livro de execução. Este exemplo usa uma conta executada. Para saber sobre contas executadas, visite [AAuthenticate Runbooks com Azure Run Como conta](../automation/automation-create-runas-account.md)
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 Navegue para a Automação Azure no [portal Azure](https://portal.azure.com) e clique em **Runbooks**
 
 ![visão geral da conta de automação][1]
 
-### <a name="step-2"></a>Passo 2
+### <a name="step-2"></a>Passo 2
 
 Clique **em Adicionar um livro de execução** para iniciar o processo de criação do livro de execução.
 
 ![lâmina de livros de corridas][2]
 
-### <a name="step-3"></a>Passo 3
+### <a name="step-3"></a>Passo 3
 
 Em **Quick Create,** clique em **Criar um novo livro de execução** para criar o livro de corridas.
 
@@ -79,7 +79,7 @@ Neste passo, damos um nome ao livro de execução, no exemplo em que se chama **
 
 ### <a name="step-5"></a>Passo 5
 
-Neste passo é criado o livro de execução, o seguinte exemplo de código fornece todo o código necessário para o exemplo. Os itens do código que contêm \<valor\> precisam de ser substituídos com os valores da sua subscrição.
+Neste passo é criado o livro de execução, o seguinte exemplo de código fornece todo o código necessário para o exemplo. Os itens do código que \<\> contêm valor precisam de ser substituídos com os valores da sua subscrição.
 
 Use o seguinte código como clique em **Guardar**
 
@@ -155,13 +155,13 @@ Deve ser criado um novo horário. Clique em Link um horário para o seu livro de
 
 ![Passo 7][7]
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 Na lâmina **de Agenda,** clique em **Criar um novo horário**
 
 ![Passo 8][8]
 
-### <a name="step-2"></a>Passo 2
+### <a name="step-2"></a>Passo 2
 
 Na **lâmina new schedule** preencha a informação do horário. Os valores que podem ser definidos estão na seguinte lista:
 
@@ -177,11 +177,11 @@ Na **lâmina new schedule** preencha a informação do horário. Os valores que 
 
 ![Passo 9][9]
 
-### <a name="step-3"></a>Passo 3
+### <a name="step-3"></a>Passo 3
 
 Clique em Guardar para guardar o horário para o livro de execução.
 
-![Etapa 10][10]
+![Passo 10][10]
 
 ## <a name="next-steps"></a>Passos seguintes
 

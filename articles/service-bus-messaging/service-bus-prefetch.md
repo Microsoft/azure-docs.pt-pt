@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 80717ab940d27e9bf108b3740309bcd7d71668fd
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76760662"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Mensagens de ônibus de serviço Prefetch Azure
@@ -32,7 +32,7 @@ Com .NET, ativa a funcionalidade Prefetch definindo a propriedade [PrefetchCount
 
 Pode facilmente adicionar esta definição ao lado recebido das definições das [amostras QueuesGettingStarted](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/QueuesGettingStarted) ou [ReceiveLoop](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ReceiveLoop) para ver o efeito nesses contextos.
 
-Enquanto as mensagens estão disponíveis no tampão de pré-busca, quaisquer chamadas subsequentes **receber**/**ReceberAsync** são imediatamente cumpridas a partir do tampão, e o tampão é reabastecido em segundo plano à medida que o espaço fica disponível. Se não houver mensagens disponíveis para entrega, a operação de receção esvazia o tampão e, em seguida, espera ou bloqueia, como esperado.
+Enquanto as mensagens estão disponíveis no tampão de pré-busca, quaisquer**chamadas** **recebidas**/subsequentes são imediatamente preenchidas a partir do tampão, e o tampão é reabastecido em segundo plano à medida que o espaço fica disponível. Se não houver mensagens disponíveis para entrega, a operação de receção esvazia o tampão e, em seguida, espera ou bloqueia, como esperado.
 
 A Prefetch também funciona da mesma forma com as APIs [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) e [OnMessageAsync.](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessageasync)
 
@@ -40,7 +40,7 @@ A Prefetch também funciona da mesma forma com as APIs [OnMessage](/dotnet/api/m
 
 A Prefetch acelera o fluxo de mensagens, tendo uma mensagem prontamente disponível para a recuperação local quando e antes da aplicação pedir uma. Este ganho de entrada é o resultado de uma compensação que o autor da aplicação deve fazer explicitamente:
 
-Com o modo de receção [E Exclusão,](/dotnet/api/microsoft.servicebus.messaging.receivemode) todas as mensagens adquiridas no tampão de pré-busca deixaram de estar disponíveis na fila e só residem no tampão de pré-rebusca na memória até serem recebidas na aplicação através do Receive/**ReceiveAsync** ou OnMessage/ **ONMessageAsync** APIs. Se o pedido terminar antes de as mensagens serem recebidas na aplicação, essas mensagens perder-se-ão irremediávelmente.
+Com o modo de receção [E Exclusão,](/dotnet/api/microsoft.servicebus.messaging.receivemode) todas as mensagens adquiridas no tampão de pré-busca já não estão disponíveis na fila e só residem no tampão de pré-rebusca na memória até serem recebidas na aplicação através **das**/APIs**ReceiveAsync** ou**OnMessage OnMessageAsync.** **OnMessage**/ Se o pedido terminar antes de as mensagens serem recebidas na aplicação, essas mensagens perder-se-ão irremediávelmente.
 
 No modo de receção [PeekLock,](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) as mensagens recolhidas no tampão Prefetch são adquiridas no tampão em estado fechado e têm o relógio de tempo limite para o tique-taque do bloqueio. Se o tampão de pré-fetch for grande, e o processamento demorar tanto tempo que os bloqueios de mensagens expiram enquanto residem no tampão de pré-busca ou mesmo enquanto a aplicação está a processar a mensagem, pode haver alguns eventos confusos para a aplicação manusear.
 
@@ -56,8 +56,8 @@ A contagem máxima de prefetch e a duração do bloqueio configurada na fila ou 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre as mensagens do barramento de serviço, consulte os seguintes tópicos:
+Para saber mais sobre as mensagens de ônibus de serviço, consulte os seguintes tópicos:
 
 * [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)
-* [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
+* [Começar com as filas de ônibus de serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Como utilizar os tópicos e as subscrições do Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)

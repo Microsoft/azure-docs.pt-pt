@@ -1,6 +1,6 @@
 ---
-title: Dimensionando a taxa de transferência em Azure Cosmos DB
-description: Este artigo descreve como Azure Cosmos DB a taxa de transferência de escala em diferentes regiões em que a conta do Azure cosmos é provisionada.
+title: Salcação de entrada em Azure Cosmos DB
+description: Este artigo descreve como o Azure Cosmos DB escala a entrada em diferentes regiões onde a conta Azure Cosmos é aprovisionada.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,37 +8,37 @@ ms.date: 12/02/2019
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: 440f23afcd08326261be30432ad1f0ecb16f55fd
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74873510"
 ---
 # <a name="globally-scale-provisioned-throughput"></a>Dimensionamento global de débito aprovisionado 
 
-Em Azure Cosmos DB, a taxa de transferência provisionada é representada como unidades de solicitação/segundo (RU/s ou o formato plural de RUs). RUs mede o custo de operações de leitura e gravação em seu contêiner Cosmos, conforme mostrado na imagem a seguir:
+Em Azure Cosmos DB, a provisão é representada como unidades de pedido/segundo (RU/s ou a forma plural RUs). As RUs medem o custo das operações de leitura e escrita contra o seu contentor Cosmos, como mostra a seguinte imagem:
 
 ![Unidades de Pedido](./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png)
 
-Você pode provisionar RUs em um contêiner Cosmos ou um banco de dados Cosmos. O RUs provisionado em um contêiner está exclusivamente disponível para as operações executadas nesse contêiner. O RUs provisionado em um banco de dados é compartilhado entre todos os contêineres dentro desse banco de dados (exceto para todos os contêineres com RUs atribuído exclusivamente).
+Você pode fornecer RUs em um recipiente Cosmos ou uma base de dados Cosmos. As RUs aprovisionadas num contentor estão exclusivamente disponíveis para as operações realizadas nesse contentor. As RUs disponibilizadas numa base de dados são partilhadas entre todos os contentores dessa base de dados (exceto quaisquer contentores com RUs exclusivamente atribuídos).
 
-Para o dimensionamento elástico da taxa de transferência provisionada, você pode aumentar ou diminuir as RU/s provisionadas a qualquer momento. Para obter mais informações, consulte [como provisionar a taxa de transferência](set-throughput.md) e para dimensionar de forma elástica contêineres e bancos de dados do cosmos. Para uma taxa de transferência de dimensionamento global, você pode adicionar ou remover regiões da sua conta do cosmos a qualquer momento. Para obter mais informações, consulte [Adicionar/remover regiões de sua conta de banco de dados](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Associar várias regiões a uma conta do cosmos é importante em muitos cenários – para atingir baixa latência e [alta disponibilidade](high-availability.md) em todo o mundo.
+Para uma escala elástica prevista, pode aumentar ou diminuir o RU/s aqualquer momento. Para mais informações, consulte [como fornecer a entrada](set-throughput.md) e para escalar elástico contentores e bases de dados cosmos. Para uma produção global de escala, pode adicionar ou remover regiões da sua conta Cosmos a qualquer momento. Para mais informações, consulte [Adicionar/remover regiões da sua conta](how-to-manage-database-account.md#addremove-regions-from-your-database-account)de base de dados . Associar várias regiões a uma conta Cosmos é importante em muitos cenários - para alcançar baixa latência e [alta disponibilidade](high-availability.md) em todo o mundo.
 
-## <a name="how-provisioned-throughput-is-distributed-across-regions"></a>Como a taxa de transferência provisionada é distribuída entre regiões
+## <a name="how-provisioned-throughput-is-distributed-across-regions"></a>Como a entrada é distribuída por regiões
 
-Se você provisionar RUs *' r '* em um contêiner Cosmos (ou banco de dados), o cosmos DB garantirá que o RUS *' r '* esteja disponível em *cada* região associada à sua conta do cosmos. Cada vez que você adiciona uma nova região à sua conta, Cosmos DB automaticamente provisiona RUs *' R '* na região recém-adicionada. As operações executadas em seu contêiner Cosmos têm a garantia de obter RUs *' R '* em cada região. Você não pode atribuir RUs seletivamente a uma região específica. O RUs provisionado em um contêiner Cosmos (ou banco de dados) é provisionado em todas as regiões associadas à sua conta do cosmos.
+Se fornecer *RUs 'R'* num contentor Cosmos (ou base de dados), a Cosmos DB garante que as RUs *'R'* estão disponíveis em *cada* região associada à sua conta Cosmos. Cada vez que adiciona uma nova região à sua conta, cosmos DB provisões automáticas *de* RUs na região recém-adicionada. As operações realizadas contra o seu contentor Cosmos são garantidas para obter *RUs 'R'* em cada região. Não se pode atribuir rUs seletivamente a uma região específica. As RUs aprovisionadas num contentor Cosmos (ou base de dados) estão aprovisionadas em todas as regiões associadas à sua conta Cosmos.
 
-Supondo que um contêiner Cosmos esteja configurado com RUs *' R '* e que existam *' n'* regiões associadas à conta Cosmos, então:
+Assumindo que um contentor Cosmos está configurado com RUs *'R'* e existem regiões *'N'* associadas à conta Cosmos, então:
 
-- Se a conta Cosmos estiver configurada com uma única região de gravação, o RUs total disponível globalmente no contêiner = *R* x *N*.
+- Se a conta Cosmos estiver configurada com uma única região de escrita, o total de RUs disponíveis globalmente no recipiente = *R* x *N*.
 
-- Se a conta Cosmos estiver configurada com várias regiões de gravação, o RUs total disponível globalmente no contêiner = *R* x (*N*+ 1). O RUs de *R* adicional é provisionado automaticamente para processar conflitos de atualização e tráfego de antientropia em todas as regiões.
+- Se a conta Cosmos estiver configurada com várias regiões de escrita, o total de RUs disponíveis globalmente no recipiente = *R* x (*N*+1). As *RUs* adicionais são automaticamente previstas para processar conflitos de atualização e tráfego anti-entropia em todas as regiões.
 
-Sua escolha de [modelo de consistência](consistency-levels.md) também afeta a taxa de transferência. Você pode obter aproximadamente 2x de taxa de transferência de leitura para os níveis de consistência mais relaxados (por exemplo, *sessão*, *prefixo consistente* e consistência *eventual* ) em comparação com níveis de consistência mais fortes (por exemplo, desatualização *limitada* ou consistência *forte* ).
+A sua escolha de modelo de [consistência](consistency-levels.md) também afeta a entrada. Pode obter aproximadamente 2x de leitura de entrada para os níveis de consistência mais descontraídos (por exemplo, *sessão,* *prefixo consistente* e *eventual* consistência) em comparação com níveis de consistência mais fortes (por exemplo, *estagnação limitada* ou *forte* consistência).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Em seguida, você pode aprender a configurar a taxa de transferência em um contêiner ou banco de dados:
+Em seguida, poderá aprender a configurar a entrada num recipiente ou base de dados:
 
-* [Obter e definir a taxa de transferência para contêineres e bancos de dados](set-throughput.md) 
+* [Obtenha e coloque a entrada para recipientes e bases de dados](set-throughput.md) 
 

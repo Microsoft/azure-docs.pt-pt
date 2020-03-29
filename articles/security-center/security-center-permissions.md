@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: memildin
 ms.openlocfilehash: 0e60e782fa65cd5868bebe081673f9a158e07799
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921322"
 ---
-# <a name="permissions-in-azure-security-center"></a>Permissões no Centro de Segurança Azure
+# <a name="permissions-in-azure-security-center"></a>Permissions in Azure Security Center (Permissões no Centro de Segurança do Azure)
 
 O Centro de Segurança do Azure utiliza o [Controlo de Acesso Baseado em Funções (RBAC)](../role-based-access-control/role-assignments-portal.md), que fornece [funções incorporadas](../role-based-access-control/built-in-roles.md) que podem ser atribuídas a utilizadores, grupos e serviços no Azure.
 
-Centro de segurança avalia a configuração dos seus recursos para identificar problemas de segurança e vulnerabilidades. No Centro de segurança, apenas verá informações relacionadas com a um recurso quando for atribuída a função de proprietário, contribuinte ou leitor para a subscrição ou grupo de recursos que um recurso pertence.
+O Security Center avalia a configuração dos seus recursos para identificar problemas de segurança e vulnerabilidades. No Centro de Segurança, só se vê informações relacionadas com um recurso quando lhe é atribuído o papel de Proprietário, Colaborador ou Leitor para a subscrição ou grupo de recursos a que pertence um recurso.
 
 Além destas funções, há duas funções específicas do Centro de Segurança:
 
@@ -33,11 +33,11 @@ Além destas funções, há duas funções específicas do Centro de Segurança:
 * **Administrador de Segurança**: Um utilizador que pertença a esta função tem os mesmos direitos que o Leitor de Segurança e também pode atualizar a política de segurança e rejeitar alertas e recomendações.
 
 > [!NOTE]
-> As funções de segurança, Leitor de Segurança e Administrador de Segurança, têm acesso apenas no Centro de Segurança. As funções de segurança não têm acesso a outras áreas de serviço do Azure, tais como Armazenamento, Web & Mobile ou Internet das Coisas.
+> As funções de segurança, Leitor de Segurança e Administrador de Segurança, têm acesso apenas no Centro de Segurança. As funções de segurança não têm acesso a outras áreas de serviço do Azure, tais como Armazenamento, Web & Mobile ou Internet of Things.
 >
 >
 
-## <a name="roles-and-allowed-actions"></a>Papéis e ações permitidas
+## <a name="roles-and-allowed-actions"></a>Funções e ações permitidas
 
 A tabela seguinte exibe funções e permitiu ações no Centro de Segurança.
 

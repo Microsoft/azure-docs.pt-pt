@@ -2,14 +2,14 @@
 title: Matriz de suporte de migração Azure
 description: Fornece um resumo das definições de suporte e limitações para o serviço Azure Migrate.
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 03/22/2020
 ms.author: raynew
-ms.openlocfilehash: 5c3adecf62f9bd15c820baf116dbc01e5d3542fa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: bf719f9179384ec3dca99d2429f569ef209b5daa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79245801"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80127707"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte de migração Azure
 
@@ -19,7 +19,7 @@ Pode utilizar o [serviço Azure Migrate](migrate-overview.md) para avaliar e mig
 
 A tabela resume cenários de descoberta, avaliação e migração.
 
-**Implementação** | **Detalhes** 
+**Implantação** | **Detalhes** 
 --- | --- 
 **Descoberta específica da aplicação** | Pode descobrir aplicações, papéis e funcionalidades em VMware VMs. Atualmente esta funcionalidade limita-se apenas à descoberta. A avaliação está atualmente ao nível da máquina. Ainda não oferecemos app, role ou avaliação específica de funcionalidades. 
 **Avaliação no local** | Avaliar as cargas de trabalho no local e os dados em execução em VMware VMs, VMs Hiper-V e servidores físicos. Avaliar utilizando a Avaliação do Servidor Migratório Azure e o Microsoft Data Migration Assistant (DMA), bem como outras ferramentas e ofertas ISV.
@@ -33,17 +33,17 @@ O suporte específico da ferramenta é resumido na tabela.
 **Ferramenta** | **Avaliar** | **Migrar** 
 --- | --- | ---
 Avaliação do servidor migratório Azure | Avaliar [VMs VMware,](tutorial-prepare-vmware.md) [Hiper-V VMs](tutorial-prepare-hyper-v.md)e [servidores físicos.](tutorial-prepare-physical.md) |  Não disponível (NA)
-Migração do servidor migratório Azure Migrate | ND | [VMs migratórios,](tutorial-migrate-vmware.md) [VMs hiper-V](tutorial-migrate-hyper-v.md)e [servidores físicos.](tutorial-migrate-physical-virtual-machines.md)
+Migração do Servidor do Azure Migrate | ND | [VMs migratórios,](tutorial-migrate-vmware.md) [VMs hiper-V](tutorial-migrate-hyper-v.md)e [servidores físicos.](tutorial-migrate-physical-virtual-machines.md)
 [Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | ND | VMs migratórios, VMs Hiper-V, servidores físicos, cargas de trabalho em nuvem pública. 
 [Cloudamize](https://www.cloudamize.com/platform#tab-0)| Avaliar VMs VMware, VMs Hiper-V, servidores físicos, cargas de trabalho em nuvem pública. | ND
-[Tecnologia Corent](https://go.microsoft.com/fwlink/?linkid=2084928) | Avaliar e migrar VMware VMs, VMs Hiper-V, servidores físicos, cargas de trabalho em nuvem pública. |  VMs migratórios, VMs Hiper-V, servidores físicos, cargas de trabalho em nuvem pública.
+[Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | Avaliar e migrar VMware VMs, VMs Hiper-V, servidores físicos, cargas de trabalho em nuvem pública. |  VMs migratórios, VMs Hiper-V, servidores físicos, cargas de trabalho em nuvem pública.
 [Dispositivo 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Avaliar VMs VMware, VMs Hiper-V, servidores físicos, cargas de trabalho em nuvem pública.| ND
 [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | Avaliar as bases de dados do SQL Server no local. | ND
 [DMS](https://docs.microsoft.com/azure/dms/dms-overview) | ND | Migrar SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Avaliar a infraestrutura virtual de ambiente de trabalho (VDI) | ND
 [Movere](https://go.microsoft.com/fwlink/?linkid=2109528) | Avaliar VMs VMs, Hiper-VMs, VMs Xen, máquinas físicas, estações de trabalho (incluindo VDI), cargas de trabalho em nuvem pública | ND
 [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | ND | VMs migratórios VMWare, VMs Hiper-V, VMs Xen, VMs KVM, máquinas físicas, cargas de trabalho em nuvem pública 
-[Turbonómico](https://go.microsoft.com/fwlink/?linkid=2094295)  | Avaliar VMs VMware, VMs Hiper-V, servidores físicos, cargas de trabalho em nuvem pública. | ND
+[Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Avaliar VMs VMware, VMs Hiper-V, servidores físicos, cargas de trabalho em nuvem pública. | ND
 [UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Avaliar VMs VMware, VMs Hiper-V, servidores físicos, cargas de trabalho em nuvem pública e bases de dados do Servidor SQL. | ND
 [Assistente de Migração webapp](https://appmigration.microsoft.com/) | Avaliar aplicações web | Migrar aplicativos web.
 
@@ -55,7 +55,7 @@ Migração do servidor migratório Azure Migrate | ND | [VMs migratórios,](tuto
 Subscrição | Você pode ter vários projetos Azure Migrate em uma subscrição.
 Permissões azure | Você precisa de permissões de Colaborador ou Proprietário na subscrição para criar um projeto Azure Migrate.
 VMs VMware  | Avalie até 35.000 VMware VMs num único projeto.
-VMs Hyper-V | Avalie até 35.000 VMs hiper-V num único projeto.
+VMs Hyper-V    | Avalie até 35.000 VMs hiper-V num único projeto.
 
 Um projeto pode incluir vMs VMware e VMs Hiper-V, até os limites de avaliação.
 
@@ -108,7 +108,7 @@ Estados Unidos | Centro dos EUA ou Oeste DOS EUA 2
 
 Existem duas versões do serviço Azure Migrate:
 
-- **Versão atual**: Utilizando esta versão pode criar novos projetos Azure Migrate, descobrir avaliações no local e orquestrar avaliações e migrações. [Saiba mais](whats-new.md#release-version-july-2019).
+- **Versão atual**: Utilizando esta versão pode criar novos projetos Azure Migrate, descobrir avaliações no local e orquestrar avaliações e migrações. [Saiba mais](whats-new.md).
 - **Versão anterior**: Para o cliente que utiliza a versão anterior do Azure Migrate (apenas foi suportada a avaliação dos VMs no local), deverá agora utilizar a versão atual. Na versão anterior, não é possível criar novos projetos da Azure Migrate ou realizar novas descobertas.
 
 ## <a name="next-steps"></a>Passos seguintes

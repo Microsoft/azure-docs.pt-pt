@@ -1,6 +1,6 @@
 ---
-title: Alterar e Reimplementar um microsserviço - Azure | Documentos da Microsoft
-description: Este tutorial mostra como alterar e Reimplementar um microsserviço na monitorização remota
+title: Alterar e reimplantar um microserviço - Azure [ Microsoft Docs
+description: Este tutorial mostra-lhe como mudar e reimplantar um microserviço em Monitorização Remota
 author: dominicbetts
 ms.author: dobett
 ms.service: iot-accelerators
@@ -8,25 +8,25 @@ services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1552c54afe2195d58a032e9cc7bfa5aa70c844b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61447646"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalizar e reimplementar um microsserviço
 
-Este tutorial mostra como editar uma da [microsserviços](https://azure.com/microservices) na solução de monitorização remota, crie uma imagem de sua microsserviços, implantar a imagem ao seu hub do docker e, em seguida, utilizá-lo na solução de monitorização remota. Para apresentar esse conceito, o tutorial utiliza um cenário básico em que chama um API de microsserviços e alterar a mensagem de estado de "Ativo e bem" para "New edita Made aqui!"
+Este tutorial mostra-lhe como editar um dos [microserviços](https://azure.com/microservices) na solução de Monitorização Remota, construir uma imagem do seu microserviço, implementar a imagem para o seu centro de estivadores e depois usá-la na solução de Monitorização Remota. Para introduzir este conceito, o tutorial usa um cenário básico onde você chama uma API microserviço e muda a mensagem de estado de "Alive and Well" para "New Edits Made Here!"
 
-Solução de monitorização remota utiliza microsserviços que são criados através de imagens do docker que são obtidas a partir de um hub do docker. 
+A solução de monitorização remota utiliza microserviços que são construídos utilizando imagens de estivadores que são retiradas de um centro de estivadores. 
 
 Neste tutorial, ficará a saber como:
 
 >[!div class="checklist"]
-> * Editar e criar um microsserviço na solução de monitorização remota
-> * Criar uma imagem do docker
-> * Enviar uma imagem do docker para o docker hub
-> * Extraia a imagem do docker nova
+> * Editar e construir um microserviço na solução de Monitorização Remota
+> * Construa uma imagem de estivador
+> * Empurre uma imagem de estivador para o seu centro de estivadores
+> * Puxe a nova imagem do estivador
 > * Visualizar as alterações 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -34,42 +34,42 @@ Neste tutorial, ficará a saber como:
 Para seguir este tutorial, precisa de:
 
 >[!div class="checklist"]
-> * [Implementar localmente a acelerador de soluções de monitorização remota](iot-accelerators-remote-monitoring-deploy-local.md)
-> * [Uma conta do Docker](https://hub.docker.com/)
-> * [Postman](https://www.getpostman.com/) - necessário para ver a resposta de API
+> * [Implementar o acelerador de solução de monitorização remota localmente](iot-accelerators-remote-monitoring-deploy-local.md)
+> * [Uma conta docker](https://hub.docker.com/)
+> * [Carteiro](https://www.getpostman.com/) - Necessário para ver a resposta da API
 
-## <a name="call-the-api-and-view-response-status"></a>Chamar o estado de resposta de API e da vista
+## <a name="call-the-api-and-view-response-status"></a>Ligue para a API e veja o estado de resposta
 
-Nesta parte, chama o padrão IoT hub manager microsserviços API. A API devolve uma mensagem de estado que alterar mais tarde ao personalizar os microsserviços.
+Nesta parte, você chama o gestor de hub padrão IoT microservice API. A API devolve uma mensagem de estado que muda mais tarde, personalizando o microserviço.
 
-1. Certifique-se de que a solução de monitorização remota é executada localmente no seu computador.
-2. Localize onde transferiu o Postman e abri-lo.
-3. No Postman, introduza o seguinte no GET: `http://localhost:8080/iothubmanager/v1/status`.
-4. Ver o retorno, e verá, "Status": "OK: ativo e bem".
+1. Certifique-se de que a solução de monitorização remota está a funcionar localmente na sua máquina.
+2. Localize onde descarregou o Carteiro e abra-o.
+3. No Carteiro, insira o `http://localhost:8080/iothubmanager/v1/status`seguinte no GET: .
+4. Veja o retorno e deve ver, "Status": "OK:Alive and Well".
 
-    ![Mensagem de ativo e bem Postman](./media/iot-accelerators-microservices-example/postman-alive-well.png)
+    ![Mensagem viva e bem carteiro](./media/iot-accelerators-microservices-example/postman-alive-well.png)
 
-## <a name="change-the-status-and-build-the-image"></a>Alterar o estado e criar a imagem
+## <a name="change-the-status-and-build-the-image"></a>Alterar o estado e construir a imagem
 
-Agora, altere a mensagem de estado de microsserviços o Gestor do Hub Iot "Novas edições feitas aqui!" e, em seguida, recriar a imagem do docker com este novo Estado. Caso se depare com problemas aqui, consulte a nossa [resolução de problemas](#Troubleshoot) secção.
+Agora mude a mensagem de estado do microserviço do Iot Hub Manager para "New Edits Made Here!" e, em seguida, reconstruir a imagem do estivador com este novo estatuto. Se tiver problemas aqui, consulte a nossa secção de [resolução](#Troubleshoot) de problemas.
 
-1. Certifique-se de que o seu terminal está aberto e altere o diretório em que tem um clone a solução de monitorização remota. 
-1. Altere o diretório para "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/Services".
-1. Abra StatusService.cs em qualquer editor de texto ou IDE que quiser. 
+1. Certifique-se de que o seu terminal está aberto e mude para o diretório onde clonou a solução de Monitorização Remota. 
+1. Mude o seu diretório para "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/Services".
+1. Abra StatusService.cs em qualquer editor de texto ou IDE que você goste. 
 1. Localize o seguinte código:
 
     ```csharp
     var result = new StatusServiceModel(true, "Alive and well!");
     ```
 
-    e alterá-lo para o código abaixo e guarde-o.
+    e mudá-lo para o código abaixo e guardá-lo.
 
     ```csharp
     var result = new StatusServiceModel(true, "New Edits Made Here!");
     ```
 
-5. Voltar para o seu terminal, mas agora, altere ao diretório seguinte: "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/scripts/docker".
-6. Para criar a imagem do docker nova, escreva
+5. Volte ao seu terminal mas agora mude para o seguinte diretório: "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/scripts/docker".
+6. Para construir a sua nova imagem de estivador, escreva
 
     ```sh
     sh build
@@ -81,7 +81,7 @@ Agora, altere a mensagem de estado de microsserviços o Gestor do Hub Iot "Novas
     ./build.cmd
     ```
 
-7. Para verificar a que sua nova imagem foi criada com êxito, escreva
+7. Para verificar se a sua nova imagem foi criada com sucesso, escreva
 
     ```cmd/sh
     docker images 
@@ -89,113 +89,113 @@ Agora, altere a mensagem de estado de microsserviços o Gestor do Hub Iot "Novas
 
 O repositório deve ser "azureiotpcs/iothub-manager-dotnet".
 
-![Imagem do docker com êxito](./media/iot-accelerators-microservices-example/successful-docker-image.png)
+![Imagem de estivador bem sucedida](./media/iot-accelerators-microservices-example/successful-docker-image.png)
 
 ## <a name="tag-and-push-the-image"></a>Etiquetar e enviar a imagem
-Antes de poder enviar a nova imagem do docker para um hub do docker, Docker espera que as imagens sejam marcadas. Caso se depare com problemas aqui, consulte a nossa [resolução de problemas](#Troubleshoot) secção.
+Antes de poder empurrar a sua nova imagem para um centro de estivadores, o Docker espera que as suas imagens sejam marcadas. Se tiver problemas aqui, consulte a nossa secção de [resolução](#Troubleshoot) de problemas.
 
-1. Localize o ID da imagem da imagem do docker que criou ao escrever:
+1. Localize o ID de imagem da imagem do estivador que criou digitando:
 
     ```cmd/sh
     docker images
     ```
 
-2. Etiquetar a imagem com o tipo de "teste"
+2. Para marcar a sua imagem com o tipo de "teste"
 
     ```cmd/sh
     docker tag [Image ID] [docker ID]/iothub-manager-dotnet:testing 
     ```
 
-3. Para enviar a sua imagem recentemente marcada ao seu hub do docker, escreva
+3. Para empurrar a sua imagem recém-marcada para o seu centro de estivadores, escreva
 
     ```cmd/sh
     docker push [docker ID]/iothub-manager-dotnet:testing
     ```
 
-4. Abra o browser de internet e aceda ao seu [hub do docker](https://hub.docker.com/) e iniciar sessão.
-5. Agora, deve ver a imagem do docker recentemente enviada por push no seu hub do docker.
-![Imagem do docker no docker hub](./media/iot-accelerators-microservices-example/docker-image-in-docker-hub.png)
+4. Abra o seu navegador de internet e vá ao seu centro de [estivadores](https://hub.docker.com/) e inscreva-se.
+5. Agora devias ver a tua nova imagem de estiva no teu centro de estivadores.
+![Imagem de estivador no centro de estivadores](./media/iot-accelerators-microservices-example/docker-image-in-docker-hub.png)
 
-## <a name="update-your-remote-monitoring-solution"></a>Atualizar a sua solução de monitorização remota
-Agora tem de atualizar o docker-Compose local para extrair a imagem do docker nova do seu hub do docker. Caso se depare com problemas aqui, consulte a nossa [resolução de problemas](#Troubleshoot) secção.
+## <a name="update-your-remote-monitoring-solution"></a>Atualize a sua solução de monitorização remota
+Agora precisa atualizar o seu docker-compose.yml local para tirar a sua nova imagem de estivador do seu centro de estivadores. Se tiver problemas aqui, consulte a nossa secção de [resolução](#Troubleshoot) de problemas.
 
-1. Volte para o terminal e mude para o diretório seguinte: "azure-iot-pcs-remote-monitoring-dotnet/services/scripts/local".
-2. Abra o docker-Compose em qualquer editor de texto ou IDE que quiser.
+1. Volte ao terminal e mude para o seguinte diretório: "azure-iot-pcs-remote-monitoring-dotnet/services/scripts/local".
+2. Abra docker-compose.yml em qualquer editor de texto ou IDE que você gosta.
 3. Localize o seguinte código:
 
     ```yml
     image: azureiotpcs/iothub-manager-dotnet:testing
     ```
 
-    e altere-o para ser semelhante à imagem abaixo e guarde-o.
+    e mudá-la para parecer a imagem abaixo e salvá-la.
 
     ```yml
     image: [docker ID]/iothub-manager-dotnet:testing
     ```
 
 ## <a name="view-the-new-response-status"></a>Ver o novo estado de resposta
-Concluir voltar a implementar uma instância local da solução de monitorização remota e visualizar a nova resposta de estado no Postman.
+Termine reimplantando uma instância local da solução de Monitorização Remota e visualizando a nova resposta de estado no Carteiro.
 
-1. Volte para o seu terminal e mude para o seguinte diretório: "azure-iot-pcs-remote-monitoring-dotnet/scripts/local".
-2. Comece a sua instância local da solução de monitorização remota escrevendo o seguinte comando num terminal:
+1. Volte ao seu terminal e mude para o seguinte diretório: "azure-iot-pcs-remote-monitoring-dotnet/scripts/local".
+2. Inicie a sua instância local da solução de monitorização remota digitando o seguinte comando no terminal:
 
     ```cmd/sh
     docker-compose up
     ```
 
-3. Localize onde transferiu o Postman e abri-lo.
-4. No Postman, introduza o seguinte pedido no GET: `http://localhost:8080/iothubmanager/v1/status`. Deverá ver agora, "Status": "OK: Novas edições feitas aqui! ".
+3. Localize onde descarregou o Carteiro e abra-o.
+4. No Carteiro, insira o seguinte `http://localhost:8080/iothubmanager/v1/status`pedido no GET: . Deve agora ver, "Status": "OK: Novas Editits Made Here!".
 
-![Nova edita feita aqui postman mensagem](./media/iot-accelerators-microservices-example/new-postman-message.png)
+![Nova mensagem de carteiro made here](./media/iot-accelerators-microservices-example/new-postman-message.png)
 
-## <a name="Troubleshoot"></a>Resolução de problemas
+## <a name="troubleshoot"></a><a name="Troubleshoot"></a>Resolução de problemas
 
-Se estiver a executar com problemas, tente remover as imagens do docker e contentores no computador local.
+Se estiver com problemas, tente remover as imagens e contentores da máquina local.
 
-1. Para remover todos os contentores, primeiro terá de parar todos os contentores em execução. Abra o terminal e introduza
+1. Para remover todos os recipientes, primeiro terá de parar todos os recipientes de funcionamento. Abra o seu terminal e escreva
 
     ```cmd/sh
     docker stop $(docker ps -aq)
     docker rm $(docker ps -aq)
     ```
     
-2. Para remover todas as imagens, abra o terminal e o tipo 
+2. Para remover todas as imagens, abra o seu terminal e escreva 
 
     ```cmd/sh
     docker rmi $(docker images -q)
     ```
 
-3. Pode verificar se existem quaisquer contentores na máquina, escrevendo
+3. Pode verificar se existem recipientes na máquina digitando
 
     ```cmd/sh
     docker ps -aq 
     ```
 
-    Se removeu com êxito todos os contentores, nada deverão aparecer no.
+    Se removeu com sucesso todos os contentores, nada deve aparecer.
 
-4. Pode verificar se existem quaisquer imagens na máquina, escrevendo
+4. Pode verificar se existem imagens na máquina digitando
 
     ```cmd/sh
     docker images
     ```
 
-    Se removeu com êxito todos os contentores, nada deverão aparecer no.
+    Se removeu com sucesso todos os contentores, nada deve aparecer.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, viu como:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
-> * Editar e criar um microsserviço na solução de monitorização remota
-> * Criar uma imagem do docker
-> * Enviar uma imagem do docker para o docker hub
-> * Extraia a imagem do docker nova
+> * Editar e construir um microserviço na solução de Monitorização Remota
+> * Construa uma imagem de estivador
+> * Empurre uma imagem de estivador para o seu centro de estivadores
+> * Puxe a nova imagem do estivador
 > * Visualizar as alterações 
 
-A próxima coisa para experimentar é [personalizando os microsserviços de simulador de dispositivo na solução de monitorização remota](iot-accelerators-microservices-example.md)
+A próxima coisa a tentar é [personalizar o microserviço simulador de dispositivo na solução](iot-accelerators-microservices-example.md) de Monitorização Remota
 
-Para obter mais informações para desenvolvedores sobre a solução de monitorização remota, consulte:
+Para obter mais informações sobre a solução de Monitorização Remota, consulte:
 
 * [Guia de Referência para Programadores](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 <!-- Next tutorials in the sequence -->

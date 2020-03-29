@@ -1,5 +1,5 @@
 ---
-title: Identidade configurada - Azure Event Grid IoT Edge  Microsoft Docs
+title: Identidade configurada - Azure Event Grid IoT Edge [ Microsoft Docs
 description: Configurar a identidade do módulo de grelha de eventos
 author: VidyaKukke
 manager: rajarv
@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 0aedeea2a6ad08e1627c2d1a6ebde6c91a4d02d9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76841770"
 ---
 # <a name="configure-identity-for-the-event-grid-module"></a>Configure a identidade para o módulo De Rede de Eventos

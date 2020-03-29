@@ -1,6 +1,6 @@
 ---
-title: UNH 2,5 segmentos em mensagens EDIFACT
-description: Resolver mensagens EDIFACT com segmentos do UNH 2.5 em aplicativos lógicos do Azure com Enterprise Integration Pack
+title: Segmentos UNH 2.5 em mensagens EDIFACT
+description: Resolver mensagens EDIFACT com segmentos UNH2.5 em Aplicações Lógicas Azure com Pacote de Integração Empresarial
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -9,60 +9,60 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/27/2017
 ms.openlocfilehash: ad50cbb423f8c60f1caad159bc1a20cf96ed98aa
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792535"
 ---
-# <a name="handle-edifact-documents-with-unh25-segments-in-azure-logic-apps"></a>Manipular documentos do EDIFACT com segmentos do UNH 2.5 no aplicativo lógico do Azure
+# <a name="handle-edifact-documents-with-unh25-segments-in-azure-logic-apps"></a>Lidar com documentos EDIFACT com segmentos UNH2.5 em Aplicações Lógicas Azure
 
-Se existir um segmento UNH 2.5 em um documento EDIFACT, o segmento será usado para pesquisa de esquema. Por exemplo, neste exemplo de mensagem EDIFACT, o campo UNH é `EAN008`:
+Se existe um segmento UNH2.5 num documento EDIFACT, o segmento é utilizado para a procura de esquemas. Por exemplo, nesta mensagem EDIFACT da amostra, o campo UNH é: `EAN008`
 
 `UNH+SSDD1+ORDERS:D:03B:UN:EAN008`
 
-Para lidar com essa mensagem, siga estas etapas descritas abaixo:
+Para lidar com esta mensagem, siga estes passos descritos abaixo:
 
 1. Atualize o esquema.
 
-1. Verifique as configurações do contrato.
+1. Verifique as definições do contrato.
 
 ## <a name="update-the-schema"></a>Atualizar o esquema
 
-Para processar a mensagem, você precisa implantar um esquema que tenha o nome do nó raiz do UNH 2.5. Por exemplo, o nome da raiz do esquema para o campo UNH de exemplo é `EFACT_D03B_ORDERS_EAN008`. Para cada `D03B_ORDERS` que tem um segmento UNH 2.5 diferente, você precisa implantar um esquema individual.
+Para processar a mensagem, é necessário implementar um esquema que tenha o nome do nó raiz UNH2.5. Por exemplo, o nome raiz do esquema para `EFACT_D03B_ORDERS_EAN008`o campo UNH da amostra é . Para `D03B_ORDERS` cada um que tem um segmento UNH2.5 diferente, você tem que implementar um esquema individual.
 
-## <a name="add-schema-to-edifact-agreement"></a>Adicionar esquema ao contrato EDIFACT
+## <a name="add-schema-to-edifact-agreement"></a>Adicione esquema ao acordo EDIFACT
 
-### <a name="edifact-decode"></a>Decodificação EDIFACT
+### <a name="edifact-decode"></a>Descodificação EDIFACT
 
-Para decodificar a mensagem de entrada, configure o esquema nas configurações de recebimento do contrato de EDIFACT:
+Para descodificar a mensagem de entrada, configurar o esquema nas definições de receção do acordo EDIFACT:
 
-1. Na [portal do Azure](https://portal.azure.com), abra sua conta de integração.
-
-1. Adicione o esquema à sua conta de integração.
-
-1. Configure o esquema nas configurações de recebimento do contrato de EDIFACT.
-
-1. Selecione o contrato EDIFACT e selecione **Editar como JSON**. Adicione o valor de UNH 2,5 à seção `schemaReferences` do contrato de recebimento:
-
-   ![Adicionar o UNH 2.5 ao contrato de recebimento](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image1.png)
-
-### <a name="edifact-encode"></a>Codificação EDIFACT
-
-Para codificar a mensagem de entrada, configure o esquema nas configurações de envio do contrato de EDIFACT
-
-1. Na [portal do Azure](https://portal.azure.com), abra sua conta de integração.
+1. No [portal Azure,](https://portal.azure.com)abra a sua conta de integração.
 
 1. Adicione o esquema à sua conta de integração.
 
-1. Configure o esquema nas configurações de envio do contrato de EDIFACT.
+1. Configure o esquema nas definições de receção do acordo EDIFACT.
 
-1. Selecione contrato de EDIFACT e clique em **Editar como JSON**.  Adicionar o valor de UNH 2,5 no **schemaReferences** do contrato de envio
+1. Selecione o acordo EDIFACT e selecione **Editar como JSON**. Adicione o valor UNH2.5 à `schemaReferences` secção do Acordo de Receção:
 
-1. Selecione o contrato EDIFACT e selecione **Editar como JSON**. Adicione o valor de UNH 2.5 à seção `schemaReferences` do contrato de envio:
+   ![Adicione UNH2.5 para receber acordo](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image1.png)
 
-   ![Adicionar o UNH 2.5 ao contrato de envio](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image2.png)
+### <a name="edifact-encode"></a>EDIFACT Encode
+
+Para codificar a mensagem de entrada, configure o esquema no acordo EDIFACT enviar definições
+
+1. No [portal Azure,](https://portal.azure.com)abra a sua conta de integração.
+
+1. Adicione o esquema à sua conta de integração.
+
+1. Configure o esquema nas definições de envio do acordo EDIFACT.
+
+1. Selecione o acordo EDIFACT e clique em **Editar como JSON**.  Adicione o valor UNH2.5 nos **esquemas** do Acordo de Envio
+
+1. Selecione o acordo EDIFACT e selecione **Editar como JSON**. Adicione o valor UNH2.5 à `schemaReferences` secção do Acordo de Envio:
+
+   ![Adicione UNH2.5 para enviar acordo](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image2.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [contratos de conta de integração](../logic-apps/logic-apps-enterprise-integration-agreements.md)
+* Saiba mais sobre [os acordos](../logic-apps/logic-apps-enterprise-integration-agreements.md) de conta de integração

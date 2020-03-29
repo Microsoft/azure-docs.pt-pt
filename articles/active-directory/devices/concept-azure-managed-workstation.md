@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 05a3a8cf14a591dd3037175e4eed5b5bd8d3096c
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672665"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Compreender estações de trabalho seguras e geridas pelo Azure
@@ -82,7 +82,7 @@ As estratégias de contenção reforçam a segurança aumentando o número e o t
 Essencial para uma estação de trabalho segura é uma solução de cadeia de abastecimento onde se utiliza uma estação de trabalho de confiança chamada "raiz de confiança". A tecnologia que deve ser considerada na seleção da raiz do hardware trust deve incluir as seguintes tecnologias incluídas nos portáteis modernos: 
 
 * [Módulo de Plataforma Fidedigna (TPM) 2.0](/windows-hardware/design/device-experiences/oem-tpm)
-* [Encriptação bitLocker drive](/windows-hardware/design/device-experiences/oem-bitlocker)
+* [Encriptação de Unidade BitLocker](/windows-hardware/design/device-experiences/oem-bitlocker)
 * [Bota Segura UEFI](/windows-hardware/design/device-experiences/oem-secure-boot)
 * [Controladores e Firmware distribuídos através da Atualização do Windows](/windows-hardware/drivers/dashboard/understanding-windows-update-automatic-and-optional-rules-for-driver-distribution)
 * [Virtualização e HVCI habilitados](/windows-hardware/design/device-experiences/oem-vbs)
@@ -99,7 +99,7 @@ Para esta solução, a raiz de confiança será implementada utilizando a tecnol
 ## <a name="device-roles-and-profiles"></a>Funções e perfis do dispositivo
 
 Esta orientação refere vários perfis de segurança e funções que podem ajudá-lo a criar soluções mais seguras para utilizadores, desenvolvedores e pessoal de TI. Estes perfis equilibram a usabilidade e os riscos para os utilizadores comuns que podem beneficiar de uma estação de trabalho melhorada ou segura. As configurações aqui fornecidas baseiam-se em padrões aceites pela indústria. Esta orientação mostra como endurecer o Windows 10 e reduzir os riscos associados ao compromisso do dispositivo ou do utilizador. Para tirar partido da tecnologia moderna de hardware e raiz do dispositivo trust, usaremos o [Attestation de Saúde](https://techcommunity.microsoft.com/t5/Intune-Customer-Success/Support-Tip-Using-Device-Health-Attestation-Settings-as-Part-of/ba-p/282643)do Dispositivo , que está habilitado a partir do perfil de **Alta Segurança.** Esta capacidade está presente para garantir que os atacantes não podem ser persistentes durante a arranque inicial de um dispositivo. Fá-lo utilizando políticas e tecnologias para ajudar a gerir as funcionalidades e riscos de segurança.
-![Seguros níveis de estação de trabalho](./media/concept-azure-managed-workstation/seccon-levels.png)
+![Níveis seguros de estação de trabalho](./media/concept-azure-managed-workstation/seccon-levels.png)
 
 * **Segurança Básica** – Uma estação de trabalho gerida e standard proporciona um bom ponto de partida para a maioria das casas e pequenas empresas. Estes dispositivos estão registados em Azure AD e geridos com intune. Este perfil permite que os utilizadores executem quaisquer aplicações e naveguem em qualquer website. Deve ser ativada uma solução anti-malware como o [Microsoft Defender.](https://www.microsoft.com/windows/comprehensive-security)
 

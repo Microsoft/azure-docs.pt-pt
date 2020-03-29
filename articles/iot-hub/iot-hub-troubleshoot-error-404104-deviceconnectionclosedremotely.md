@@ -9,13 +9,13 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 686946b65b4b7540f404a291c87c5ad9c7b7a0ca
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76960805"
 ---
-# <a name="404104-deviceconnectionclosedremotely"></a>404104 DispositivoConnectionClosedRemotely
+# <a name="404104-deviceconnectionclosedremotely"></a>404104 DeviceConnectionClosedRemotely
 
 Este artigo descreve as causas e soluções para **erros 404104 DeviceConnectionClosedRemotely.**
 
@@ -47,7 +47,7 @@ Algumas possibilidades incluem:
 
 - O dispositivo perdeu a conectividade subjacente à rede por mais tempo do que o [mQTT manter-vivo,](iot-hub-mqtt-support.md#default-keep-alive-timeout)resultando num tempo de paragem remoto. A definição de manutenção do MQTT pode ser diferente por dispositivo.
 
-- O dispositivo enviou um reset de nível TCP/IP, mas não enviou um `MQTT DISCONNECT`de nível de aplicação . Basicamente, o dispositivo fechou abruptamente a ligação da tomada subjacente. Por vezes, este problema é causado por bugs em versões mais antigas do Azure IoT SDK.
+- O dispositivo enviou um reset de nível TCP/IP, `MQTT DISCONNECT`mas não enviou um nível de aplicação . Basicamente, o dispositivo fechou abruptamente a ligação da tomada subjacente. Por vezes, este problema é causado por bugs em versões mais antigas do Azure IoT SDK.
 
 - A aplicação lateral do dispositivo despenhou-se.
 

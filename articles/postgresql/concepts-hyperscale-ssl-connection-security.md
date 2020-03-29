@@ -1,41 +1,41 @@
 ---
-title: SSL-hiperescala (Citus)-banco de dados do Azure para PostgreSQL
-description: Instruções e informações para configurar o banco de dados do Azure para PostgreSQL-Citus (hiperescala) e aplicativos associados para usar corretamente as conexões SSL.
+title: SSL - Hiperescala (Citus) - Base de Dados Azure para PostgreSQL
+description: Instruções e informações para configurar a Base de Dados Azure para PostgreSQL - Hiperescala (Citus) e aplicações associadas para utilizar corretamente as ligações SSL.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.openlocfilehash: 3e4ef5d2d6db3a3d4f8923f47079f2484639a751
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74973990"
 ---
-# <a name="configure-ssl-in-azure-database-for-postgresql---hyperscale-citus"></a>Configurar SSL no banco de dados do Azure para PostgreSQL-Citus (hiperescala)
-As conexões de aplicativo cliente com o nó de coordenador de hiperescala (Citus) exigem protocolo SSL (SSL). A imposição de conexões SSL entre o servidor de banco de dados e os aplicativos cliente ajuda a proteger contra ataques "Man-in-the-middle" criptografando o fluxo de dados entre o servidor e seu aplicativo.
+# <a name="configure-ssl-in-azure-database-for-postgresql---hyperscale-citus"></a>Configure SSL em Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
+As ligações de aplicação do cliente ao nó coordenador de Hiperescala (Citus) requerem camada de tomadas seguras (SSL). A aplicação de ligações SSL entre o seu servidor de base de dados e as aplicações do seu cliente ajuda a proteger contra ataques "man-in-the-middle", encriptando o fluxo de dados entre o servidor e a sua aplicação.
 
-## <a name="enforcing-ssl-connections"></a>Impondo conexões SSL
-Para todos os servidores do banco de dados do Azure para PostgreSQL provisionados por meio do portal do Azure, a imposição de conexões SSL é habilitada por padrão. 
+## <a name="enforcing-ssl-connections"></a>Aplicação de ligações SSL
+Para toda a Base de Dados Azure para servidores PostgreSQL aprovisionados através do portal Azure, a aplicação das ligações SSL é ativada por padrão. 
 
-Da mesma forma, cadeias de conexão predefinidas nas configurações de "cadeias de conexão" em seu servidor no portal do Azure incluem os parâmetros necessários para linguagens comuns para se conectar ao servidor de banco de dados usando SSL. O parâmetro SSL varia de acordo com o conector, por exemplo, "SSL = true" ou "sslmode = require" ou "sslmode = required" e outras variações.
+Da mesma forma, as cordas de ligação que são pré-definidas nas definições "Cordas de Ligação" sob o seu servidor no portal Azure incluem os parâmetros necessários para que as línguas comuns se conectem ao servidor de base de dados utilizando o SSL. O parâmetro SSL varia em função do conector, por exemplo "ssl=true" ou "sslmode=require" ou "sslmode=required" e outras variações.
 
-## <a name="ensure-your-application-or-framework-supports-ssl-connections"></a>Verifique se seu aplicativo ou estrutura dá suporte a conexões SSL
-Algumas estruturas de aplicativo que usam o PostgreSQL para seus serviços de banco de dados não habilitam o SSL por padrão durante a instalação. Se o seu servidor PostgreSQL impõe conexões SSL, mas o aplicativo não está configurado para SSL, o aplicativo pode falhar ao se conectar ao seu servidor de banco de dados. Consulte a documentação do aplicativo para saber como habilitar conexões SSL.
+## <a name="ensure-your-application-or-framework-supports-ssl-connections"></a>Certifique-se de que a sua aplicação ou enquadramento suporta as ligações SSL
+Alguns quadros de aplicação que utilizam o PostgreSQL para os seus serviços de base de dados não permitem o SSL por defeito durante a instalação. Se o seu servidor PostgreSQL impor ligações SSL mas a aplicação não estiver configurada para o SSL, a aplicação pode não conseguir ligar-se ao servidor da base de dados. Consulte a documentação da sua aplicação para saber como ativar as ligações SSL.
 
-## <a name="applications-that-require-certificate-verification-for-ssl-connectivity"></a>Aplicativos que exigem verificação de certificado para conectividade SSL
-Em alguns casos, os aplicativos exigem um arquivo de certificado local gerado por meio de um arquivo de certificado de AC (autoridade de certificação) confiável (. cer) para se conectar com segurança. O certificado para se conectar a um banco de dados do Azure para PostgreSQL-Citus (hiperescala) está localizado em https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem. Baixe o arquivo de certificado e salve-o em seu local preferido.
+## <a name="applications-that-require-certificate-verification-for-ssl-connectivity"></a>Pedidos que requerem verificação de certificado para conectividade SSL
+Em alguns casos, os pedidos requerem um ficheiro de certificado local gerado a partir de um ficheiro de certificado de certificado confiável da Autoridade de Certificados (CA) para se ligar em segurança. O certificado de ligação a uma Base de Dados Azure para PostgreSQL - Hyperscale (Citus) está localizado em https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem. Faça o download do ficheiro de certificado e guarde-o para a sua localização preferida.
 
-### <a name="connect-using-psql"></a>Conectar usando psql
-O exemplo a seguir mostra como se conectar ao seu nó de coordenador de hiperescala (Citus) usando o utilitário de linha de comando psql. Use a configuração `sslmode=verify-full` cadeia de conexão para impor a verificação de certificado SSL. Passe o caminho do arquivo de certificado local para o parâmetro `sslrootcert`.
+### <a name="connect-using-psql"></a>Conecte-se usando psql
+O exemplo seguinte mostra como ligar-se ao seu nó coordenador de Hiperescala (Citus) utilizando o utilitário de linha de comando psql. Utilize `sslmode=verify-full` a definição de corda de ligação para impor a verificação do certificado SSL. Passe o caminho do `sslrootcert` arquivo de certificado local para o parâmetro.
 
-Abaixo está um exemplo da cadeia de conexão do psql:
+Abaixo está um exemplo da cadeia de ligação psql:
 ```
 psql "sslmode=verify-full sslrootcert=DigiCertGlobalRootCA.crt.pem host=mydemoserver.postgres.database.azure.com dbname=citus user=citus password=your_pass"
 ```
 > [!TIP]
-> Confirme se o valor passado para `sslrootcert` corresponde ao caminho do arquivo para o certificado que você salvou.
+> Confirme que o `sslrootcert` valor passado corresponde ao caminho do ficheiro para o certificado que guardou.
 
 ## <a name="next-steps"></a>Passos seguintes
-Aumente ainda mais a segurança com [as regras de firewall no banco de dados do Azure para PostgreSQL-Citus (hiperescala)](concepts-hyperscale-firewall-rules.md).
+Aumente ainda mais a segurança com as regras da Firewall na Base de [Dados Azure para PostgreSQL - Hyperscale (Citus)](concepts-hyperscale-firewall-rules.md).

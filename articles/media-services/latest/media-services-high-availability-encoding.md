@@ -14,10 +14,10 @@ ms.custom: ''
 ms.date: 02/24/2020
 ms.author: juliako
 ms.openlocfilehash: afaa7545fbcbab016249e73a2247817310c5cdfc
-ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78934199"
 ---
 # <a name="media-services-high-availability-encoding"></a>Codificação de alta disponibilidade dos Serviços de Media 
@@ -60,7 +60,7 @@ Seguindo as orientações e as melhores práticas descritas no artigo, reduzirá
     
 Se descobrir que a contagem de MRU está a bater muito, mova a lógica de decreção para a tarefa periódica. Fazer com que a lógica de submissão pré-trabalho compare a contagem de voo com a contagem atual de MRU para ver se precisa de atualizar as MrUs.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Construir streaming de região transversal a vídeo-on-demand](media-services-high-availability-streaming.md)
 * Confira [amostras de código](https://docs.microsoft.com/samples/browse/?products=azure-media-services)

@@ -1,5 +1,5 @@
 ---
-title: Não é possível ligar a VMs Azure porque a porta RDP não está ativada no NSG  Microsoft Docs
+title: Não é possível ligar a VMs Azure porque a porta RDP não está ativada no NSG [ Microsoft Docs
 description: Saiba como resolver um problema em que o PDR falha devido à configuração do NSG no portal Azure . Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
 ms.openlocfilehash: 6c877690cf27edd73f1d828b8a1dda6f4f34e780
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77918177"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Não é possível ligar remotamente a um VM porque a porta RDP não está ativada no NSG

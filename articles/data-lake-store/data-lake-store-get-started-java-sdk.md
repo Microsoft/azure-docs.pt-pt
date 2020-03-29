@@ -1,6 +1,6 @@
 ---
-title: 'Java SDK: Operações de sistema de ficheiros em Gen1 de armazenamento do Azure Data Lake | Documentos da Microsoft'
-description: Utilização do Azure Storage Gen1 Java SDK do Data Lake para executar operações de sistema de ficheiros no Data Lake Storage Gen1, como criar pastas, etc.
+title: 'Java SDK: Operações do sistema de ficheiros no Azure Data Lake Storage Gen1 [ Microsoft Docs'
+description: Utilize o Armazenamento de Lagos Azure Gen1 Java SDK para realizar operações de sistema de ficheiros em Data Lake Storage Gen1, tais como criar pastas, etc.
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -13,29 +13,29 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: bc6e0718cdc4ccb18480dc760279da9c177db4cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60877469"
 ---
-# <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Operações do sistema de ficheiros em Gen1 de armazenamento do Azure Data Lake com o SDK de Java
+# <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Operações do sistema de ficheiros no Azure Data Lake Storage Gen1 utilizando java SDK
 > [!div class="op_single_selector"]
-> * [SDK do .NET](data-lake-store-data-operations-net-sdk.md)
-> * [SDK Java](data-lake-store-get-started-java-sdk.md)
-> * [API REST](data-lake-store-data-operations-rest-api.md)
-> * [Python](data-lake-store-data-operations-python.md)
+> * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
+> * [Java SDK](data-lake-store-get-started-java-sdk.md)
+> * [REST API](data-lake-store-data-operations-rest-api.md)
+> * [Pitão](data-lake-store-data-operations-python.md)
 >
 > 
 
-Saiba como utilizar o SDK de Java de geração 1 de armazenamento do Azure Data Lake para executar operações básicas, tais como criar pastas, carregar e transferir ficheiros de dados, etc. Para obter mais informações sobre a geração 1 de armazenamento do Data Lake, veja [Gen1 de armazenamento do Azure Data Lake](data-lake-store-overview.md).
+Saiba como utilizar o Azure Data Lake Storage Gen1 Java SDK para realizar operações básicas, tais como criar pastas, carregar e descarregar ficheiros de dados, etc. Para mais informações sobre data Lake Storage Gen1, consulte [Azure Data Lake Storage Gen1](data-lake-store-overview.md).
 
-Pode acessar os documentos de API do SDK Java para geração 1 de armazenamento do Data Lake na [documentos da API de Java do Azure Data Lake armazenamento Gen1](https://azure.github.io/azure-data-lake-store-java/javadoc/).
+Você pode aceder aos docs da API Java SDK para data lake storage Gen1 at [Azure Data Lake Storage Gen1 Java API docs](https://azure.github.io/azure-data-lake-store-java/javadoc/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Kit de Desenvolvimento do Java (JDK 7 ou superior, com Java versão 1.7 ou superior)
-* Conta do Data Lake Gen1 de armazenamento. Siga as instruções em [introdução à geração 1 de armazenamento do Azure Data Lake com o portal do Azure](data-lake-store-get-started-portal.md).
-* [Maven](https://maven.apache.org/install.html). Este tutorial utiliza o Maven para dependências de compilação e do projeto. Embora seja possível compilar sem utilizar um sistema de compilação como Maven ou Gradle, estes sistemas facilitam muito a gestão das dependências.
+* Conta Gen1 de Armazenamento de Data Lake. Siga as instruções no [Get started com Azure Data Lake Storage Gen1 utilizando o portal Azure](data-lake-store-get-started-portal.md).
+* [Maven.](https://maven.apache.org/install.html) Este tutorial utiliza o Maven para dependências de compilação e do projeto. Embora seja possível compilar sem utilizar um sistema de compilação como Maven ou Gradle, estes sistemas facilitam muito a gestão das dependências.
 * (Opcional) E IDE como [IntelliJ IDEIA](https://www.jetbrains.com/idea/download/), [Eclipse](https://www.eclipse.org/downloads/) ou semelhante.
 
 ## <a name="create-a-java-application"></a>Criar uma aplicação Java
@@ -43,7 +43,7 @@ O exemplo de código disponível no [GitHub](https://azure.microsoft.com/documen
 
 1. Crie um projeto Maven com o [arquétipo mvn](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) a partir da linha de comandos ou com um IDE. Para obter instruções sobre como criar um projeto Java com IntelliJ, veja [aqui](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html). Para obter instruções sobre como criar um projeto com Eclipse, clique [aqui](https://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm). 
 
-2. Adicione as seguintes dependências ao ficheiro **pom.xml** do Maven. Adicione o seguinte fragmento antes da etiqueta **\</project>** :
+2. Adicione as seguintes dependências ao ficheiro **pom.xml** do Maven. Adicione o seguinte corte antes da ** \<etiqueta>/projeto:**
    
         <dependencies>
           <dependency>
@@ -58,7 +58,7 @@ O exemplo de código disponível no [GitHub](https://azure.microsoft.com/documen
           </dependency>
         </dependencies>
    
-    A primeira dependência é para utilizar o SDK de geração 1 do Data Lake Storage (`azure-data-lake-store-sdk`) do repositório maven. A segunda dependência é para especificar a arquitetura de registo (`slf4j-nop`) a utilizar para esta aplicação. Utiliza o SDK de geração 1 de armazenamento do Data Lake [slf4j](https://www.slf4j.org/) fachada de Registro em log, que permite que escolha a partir de um número de arquiteturas de registo mais populares, como log4j, registo Java, logback, etc., ou nenhum registo. Neste exemplo, vamos desativar o registo e, por conseguinte, utilizar o enlace **slf4j-nop**. Para utilizar outras opções de registo na sua aplicação, clique [aqui](https://www.slf4j.org/manual.html#projectDep).
+    A primeira dependência é usar o Data Lake Storage`azure-data-lake-store-sdk`Gen1 SDK () do repositório maven. A segunda dependência é para especificar a arquitetura de registo (`slf4j-nop`) a utilizar para esta aplicação. O Data Lake Storage Gen1 SDK utiliza fachada de exploração madeireira [slf4j,](https://www.slf4j.org/) que permite escolher entre uma série de estruturas de exploração madeireira populares, como log4j, java logging, logback, etc., ou sem registo. Neste exemplo, vamos desativar o registo e, por conseguinte, utilizar o enlace **slf4j-nop**. Para utilizar outras opções de registo na sua aplicação, clique [aqui](https://www.slf4j.org/manual.html#projectDep).
 
 3. Adicione as seguintes declarações de importação à aplicação.
 
@@ -75,20 +75,20 @@ O exemplo de código disponível no [GitHub](https://azure.microsoft.com/documen
 
 ## <a name="authentication"></a>Autenticação
 
-* Para a autenticação de utilizador final para a sua aplicação, veja [finais autenticação de utilizador com a geração 1 de armazenamento do Data Lake com o Java](data-lake-store-end-user-authenticate-java-sdk.md).
-* Para a autenticação de serviço a serviço para a sua aplicação, veja [autenticação do serviço a serviço com geração 1 de armazenamento do Data Lake com o Java](data-lake-store-service-to-service-authenticate-java.md).
+* Para autenticação de utilizador final para a sua aplicação, consulte a [autenticação de utilizador final com data lake storage Gen1 utilizando Java](data-lake-store-end-user-authenticate-java-sdk.md).
+* Para autenticação de serviço a serviço para a sua aplicação, consulte [a autenticação serviço-a-serviço com data Lake Storage Gen1 usando Java](data-lake-store-service-to-service-authenticate-java.md).
 
-## <a name="create-a-data-lake-storage-gen1-client"></a>Criar um cliente de geração 1 de armazenamento do Data Lake
-Criar uma [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) objeto requer que especifique o nome da conta de geração 1 do Data Lake Storage e o fornecedor do token que gerou durante a autenticação com a geração 1 de armazenamento do Data Lake (consulte [autenticação](#authentication) secção). O nome da conta de geração 1 de armazenamento do Data Lake tem de ser um nome de domínio completamente qualificado. Por exemplo, substitua **FILL-IN-HERE** com algo como **mydatalakestoragegen1.azuredatalakestore.net**.
+## <a name="create-a-data-lake-storage-gen1-client"></a>Criar um cliente Gen1 de Armazenamento de Data Lake
+A criação de um objeto [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) requer que especifique o nome da conta Gen1 de Armazenamento de Data Lake e o fornecedor simbólico que gerou quando autenticou com data Lake Storage Gen1 (ver secção [de autenticação).](#authentication) O nome da conta Data Lake Storage Gen1 tem de ser um nome de domínio totalmente qualificado. Por exemplo, substitua **o FILL-IN-HERE** por algo como **mydatalakestoragegen1.azuredatalakestore.net**.
 
     private static String accountFQDN = "FILL-IN-HERE";  // full account FQDN, not just the account name
     ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, provider);
 
-Os fragmentos de código nas secções seguintes contêm exemplos de algumas operações comuns do sistema de ficheiros. Pode ver o completo [documentos da API de SDK do Java do Data Lake armazenamento Gen1](https://azure.github.io/azure-data-lake-store-java/javadoc/) da **ADLStoreClient** objeto para ver outras operações.
+Os fragmentos de código nas secções seguintes contêm exemplos de algumas operações comuns do sistema de ficheiros. Pode ver os [docs completos de Data Lake Storage Gen1 Java SDK API](https://azure.github.io/azure-data-lake-store-java/javadoc/) do objeto **ADLStoreClient** para ver outras operações.
 
 ## <a name="create-a-directory"></a>Criar um diretório
 
-O fragmento seguinte cria uma estrutura de diretórios na raiz da conta do Data Lake Storage Gen1 que especificou.
+O seguinte corte cria uma estrutura de diretório na raiz da conta Data Lake Storage Gen1 que especificou.
 
     // create directory
     client.createDirectory("/a/b/w");
@@ -134,7 +134,7 @@ A definição da função `getSampleContent` utilizada no fragmento anterior est
 
 ## <a name="read-a-file"></a>Ler um ficheiro
 
-O fragmento seguinte lê o conteúdo de um ficheiro numa conta de geração 1 de armazenamento do Data Lake.
+O seguinte corte lê o conteúdo de um ficheiro numa conta gen1 de armazenamento de data lake.
 
     // Read File
     InputStream in = client.getReadStream(filename);
@@ -149,7 +149,7 @@ O fragmento seguinte lê o conteúdo de um ficheiro numa conta de geração 1 de
 
 ## <a name="concatenate-files"></a>Concatenar ficheiros
 
-O fragmento seguinte concatena dois ficheiros numa conta de geração 1 de armazenamento do Data Lake. Se for efetuado com êxito, o ficheiro concatenado substitui os dois ficheiros existentes.
+O seguinte corte concatena dois ficheiros numa conta de Data Lake Storage Gen1. Se for efetuado com êxito, o ficheiro concatenado substitui os dois ficheiros existentes.
 
     // concatenate the two files into one
     List<String> fileList = Arrays.asList("/a/b/c.txt", "/a/b/d.txt");
@@ -158,7 +158,7 @@ O fragmento seguinte concatena dois ficheiros numa conta de geração 1 de armaz
 
 ## <a name="rename-a-file"></a>Mudar o nome de um ficheiro
 
-O fragmento seguinte muda o nome de um ficheiro numa conta de geração 1 de armazenamento do Data Lake.
+O seguinte corte renomea um ficheiro numa conta gen1 de armazenamento de data lake.
 
     //rename the file
     client.rename("/a/b/f.txt", "/a/b/g.txt");
@@ -166,7 +166,7 @@ O fragmento seguinte muda o nome de um ficheiro numa conta de geração 1 de arm
 
 ## <a name="get-metadata-for-a-file"></a>Obter metadados para um ficheiro
 
-O fragmento seguinte obtém os metadados para um ficheiro numa conta de geração 1 de armazenamento do Data Lake.
+O seguinte fragmento recupera os metadados para um ficheiro numa conta gen1 de armazenamento de data lake.
 
     // get file metadata
     DirectoryEntry ent = client.getDirectoryEntry(filename);
@@ -197,7 +197,7 @@ A definição da função `printDirectoryInfo` utilizada no fragmento anterior e
 
 ## <a name="delete-files-and-folders"></a>Eliminar ficheiros e pastas
 
-O fragmento seguinte elimina os ficheiros e pastas especificados numa conta do Data Lake Storage Gen1, recursivamente.
+O seguinte corte elimina os ficheiros e pastas especificados numa conta Gen1 de Armazenamento de Data Lake, recursivamente.
 
     // delete directory along with all the subdirectories and files in it
     client.deleteRecursive("/a");
@@ -206,9 +206,9 @@ O fragmento seguinte elimina os ficheiros e pastas especificados numa conta do D
 
 ## <a name="build-and-run-the-application"></a>Compilar e executar a aplicação
 1. Para executar a partir de um IDE, localize e prima o botão **Executar**. Para executar a partir do Maven, utilize [exec:exec](https://www.mojohaus.org/exec-maven-plugin/exec-mojo.html).
-2. Para produzir um jar autónomo que pode executar a partir da linha de comandos, compile um jar com todas as dependências incluídas com o [plug-in de montagem do Maven](https://maven.apache.org/plugins/maven-assembly-plugin/usage.html). O pom. XML no [código de fonte de exemplo no GitHub](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) tem um exemplo.
+2. Para produzir um jar autónomo que pode executar a partir da linha de comandos, compile um jar com todas as dependências incluídas com o [plug-in de montagem do Maven](https://maven.apache.org/plugins/maven-assembly-plugin/usage.html). O pom.xml no código fonte de [exemplo no GitHub](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) tem um exemplo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Explorar JavaDoc para o SDK Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
 * [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)
 

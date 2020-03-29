@@ -13,10 +13,10 @@ ms.date: 02/20/2020
 ms.author: curtand
 ms.reviewer: kexia
 ms.openlocfilehash: c28b63749cfdbcd16b94cbd3ca7dd4023f46a351
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78897733"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problemas comuns com verificação de dois fatores e sua conta de trabalho ou escola
@@ -25,14 +25,14 @@ Quando a sua organização Azure Ative Directory (Azure AD) ativa a verificaçã
 
 <center>
 
-![métodos de autenticação conceptual imagem](../authentication/media/concept-mfa-howitworks/methods.png)</center>
+![Imagem de métodos de autenticação conceptual](../authentication/media/concept-mfa-howitworks/methods.png)</center>
 
 Existem alguns problemas comuns de verificação de dois fatores que parecem acontecer com mais frequência do que qualquer um de nós gostaria. Reunimos este artigo para resolver os problemas mais comuns e algumas possíveis correções.
 
 >[!Important]
 >Se for administrador, pode encontrar mais informações sobre como configurar e gerir o seu ambiente Azure AD na [documentação da AD Azure](https://docs.microsoft.com/azure/active-directory).
 >
->Este conteúdo destina-se também apenas a ser utilizado com o seu trabalho ou conta escolar, que é a conta que lhe é prestada pela sua organização (por exemplo, alain@contoso.com). Se estiver a ter problemas com a verificação de dois fatores e a sua conta pessoal da Microsoft, que é uma conta que configura para si (por exemplo, danielle@outlook.com), consulte [A verificação de dois fatores para a sua conta Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+>Este conteúdo destina-se também apenas a ser utilizado com o seu trabalho ou alain@contoso.comconta escolar, que é a conta que lhe é prestada pela sua organização (por exemplo). Se tiver problemas com a verificação de dois fatores e a sua conta pessoal danielle@outlook.comda Microsoft, que é uma conta que configura para si (por exemplo, por exemplo), consulte [a verificação de dois fatores para a sua conta Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
 ## <a name="i-dont-have-my-mobile-device-with-me"></a>Não tenho o meu dispositivo móvel comigo.
 
@@ -82,7 +82,7 @@ Se tiver um novo dispositivo móvel, terá de o configurar para funcionar com ve
 
 1. Atualize as informações da sua conta e do dispositivo na página adicional de verificação de **segurança,** apagando o seu antigo dispositivo e adicionando o seu novo. Para mais informações, consulte o artigo de [definições do método de verificação de dois fatores.](multi-factor-authentication-end-user-manage-settings.md)
 
-Etapas opcionais:
+Passos opcionais:
 
 - Descarregue, instale e instale a aplicação Microsoft Authenticator no seu dispositivo móvel seguindo os passos no Download e instale o artigo [da aplicação Microsoft Authenticator.](user-help-auth-app-download-install.md)
 
@@ -98,7 +98,7 @@ As palavras-passe da aplicação substituem a sua senha normal por aplicações 
 
 ## <a name="i-cant-turn-two-factor-verification-off"></a>Não posso desligar a verificação de dois fatores.
 
-Se estiver a usar a verificação de dois fatores com o seu trabalho ou conta escolar (por exemplo, alain@contoso.com), o mais provável significa que a sua organização decidiu que deve usar esta funcionalidade de segurança adicional. Como a sua organização decidiu que deve usar esta funcionalidade, não há como desligá-la individualmente. Se, no entanto, estiver a utilizar a verificação de dois fatores com uma conta pessoal, como alain@outlook.com, tem a capacidade de ligar e desligar a funcionalidade. Para obter instruções sobre como controlar a verificação de dois fatores para as suas contas pessoais, consulte [a verificação de dois fatores ligado ou desligado para](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)a sua conta Microsoft .
+Se estiver a usar a verificação de dois fatores alain@contoso.comcom o seu trabalho ou conta escolar (por exemplo), o mais provável significa que a sua organização decidiu que deve usar esta funcionalidade de segurança adicional. Como a sua organização decidiu que deve usar esta funcionalidade, não há como desligá-la individualmente. Se, no entanto, estiver a utilizar a verificação de dois fatores com uma conta pessoal, como, alain@outlook.comtem a capacidade de ligar e desligar a funcionalidade. Para obter instruções sobre como controlar a verificação de dois fatores para as suas contas pessoais, consulte [a verificação de dois fatores ligado ou desligado para](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)a sua conta Microsoft .
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Não encontrei uma resposta para o meu problema.
 

@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: dc50f94ae9b207961a71480c2fc172e88db79cf4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184292"
 ---
-#### <a name="to-install-regular-updates-via-windows-powershell-for-storsimple"></a>Para instalar atualizações regulares através do Windows PowerShell para StorSimple
-1. Abra a consola de série do dispositivo e selecione opção 1, **iniciar sessão com acesso total**. Escreva a palavra-passe. A palavra-passe predefinido é *Password1*. 
+#### <a name="to-install-regular-updates-via-windows-powershell-for-storsimple"></a>Para instalar atualizações regulares via Windows PowerShell para StorSimple
+1. Abra a consola em série do dispositivo e selecione a opção 1, **inicie sessão com acesso total**. Digite a senha. A palavra-passe padrão é *Password1*. 
 2. Na linha de comandos, escreva:
    
      `Get-HcsUpdateAvailability`
@@ -22,11 +22,11 @@ ms.locfileid: "67184292"
    
      `Start-HcsUpdate`
    
-    Será iniciado o processo de atualização.
+    O processo de atualização começará.
 
 > [!IMPORTANT]
-> * Este comando aplica-se apenas a atualizações regulares. Execute este comando num controlador de apenas uma, mas ambos os controladores serão atualizadas. 
-> * Pode observar uma ativação pós-falha de controlador durante o processo de atualização; No entanto, a ativação pós-falha não irá afetar a disponibilidade de sistema ou a operação.
+> * Este comando aplica-se apenas a atualizações regulares. Manere este comando num único controlador, mas ambos os controladores serão atualizados. 
+> * Pode notar uma falha no controlador durante o processo de atualização; no entanto, a falha não afetará a disponibilidade ou operação do sistema.
 > 
 > 
 

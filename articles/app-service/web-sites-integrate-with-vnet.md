@@ -8,13 +8,13 @@ ms.date: 02/27/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 89aa78e0d26598eacf436ca88cc6c5549f91d2fc
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78673212"
 ---
-# <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integre a sua app com uma Rede Virtual Azure
+# <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar uma aplicação Web com uma Rede Virtual do Azure
 Este documento descreve a funcionalidade de integração de redes virtuais do Azure App Service e como configurar com aplicações no Serviço de [Aplicações Azure.](https://go.microsoft.com/fwlink/?LinkId=529714) As [Redes Virtuais Azure][VNETOverview] (VNets) permitem colocar muitos dos seus recursos Azure numa rede não-internet de saída.  
 
 O Serviço de Aplicações Azure tem duas variações.
@@ -23,7 +23,7 @@ O Serviço de Aplicações Azure tem duas variações.
 
 ## <a name="enable-vnet-integration"></a>Ativar a Integração VNet 
 
-1. Vá ao Networking UI no portal do Serviço de Aplicações. Em Integração VNet, selecione *"Clique aqui para configurar"* . 
+1. Vá ao Networking UI no portal do Serviço de Aplicações. Em Integração VNet, selecione *"Clique aqui para configurar"*. 
 
 1. **Selecione Adicionar VNet**.  
 
@@ -97,7 +97,7 @@ Gateway exigiu a Integração VNet construída em cima do ponto para a tecnologi
 
 ![Como funciona a Integração VNet necessária][6]
 
-### <a name="accessing-on-premises-resources"></a>Acesso aos recursos no local
+### <a name="accessing-on-premises-resources"></a>Accessing on-premises resources (Aceder a recursos no local)
 
 As aplicações podem aceder aos recursos no local integrando-se com VNets que têm ligações site-to-site. Se estiver a utilizar o gateway necessário para a Integração VNet, precisa de atualizar as suas rotas de gateway VPN no local com os seus blocos de endereços ponto-a-local. Quando o VPN site-to-site é configurado pela primeira vez, os scripts utilizados para configurar devem configurar as rotas corretamente. Se adicionar os endereços ponto-a-site depois de criar o seu VPN site-to-site, precisa de atualizar as rotas manualmente. Detalhes sobre como fazê-lo variam por porta de entrada e não são descritos aqui. Não é possível configurar o BGP com uma ligação VPN site-to-site.
 
@@ -116,11 +116,11 @@ Se estiver a utilizar o gateway necessário para a Integração VNet com o peeri
 
 1. Adicione uma ligação de observação no VNet a que a sua aplicação se liga. Ao adicionar a ligação de peering, ative **permitir o acesso** à rede virtual e verificar Permitir tráfego **encaminhada** e permitir o trânsito de **gateway**.
 1. Adicione uma ligação de observação no VNet que está a ser espreitado para o VNet a que está ligado. Ao adicionar a ligação de observação no destino VNet, ative **permitir o acesso** à rede virtual e verificar Permitir tráfego **reencaminhado** e **permitir gateways remotos**.
-1. Vá ao plano de Serviço de Aplicações > Networking > VNet Integration UI no portal.  Selecione o VNet a que a sua aplicação se liga. Na secção de encaminhamento, adicione a gama de endereços do VNet que é analisado com o VNet a que a sua aplicação está ligada.  
+1. Vá ao plano de serviço de aplicações > Networking > VNet Integration UI no portal.  Selecione o VNet a que a sua aplicação se liga. Na secção de encaminhamento, adicione a gama de endereços do VNet que é analisado com o VNet a que a sua aplicação está ligada.  
 
 ## <a name="managing-vnet-integration"></a>Gestão da Integração VNet 
 
-A ligação e desconexão com um VNet está a um nível de aplicação. As operações que podem afetar a Integração VNet em várias aplicações estão ao nível do plano do App Service. A partir do portal de integração de aplicativos > Networking > VNet, pode obter detalhes no seu VNet. Pode ver informações semelhantes ao nível ASP no portal ASP > Networking > VNet Integration.
+A ligação e desconexão com um VNet está a um nível de aplicação. As operações que podem afetar a Integração VNet em várias aplicações estão ao nível do plano do App Service. A partir da aplicação > Networking > portal de Integração VNet, pode obter detalhes no seu VNet. Pode ver informações semelhantes ao nível asp no asp > portal de integra >ção VNet.
 
 A única operação que pode tomar na visão da aplicação da sua Integração VNet é desligar a sua aplicação do VNet a que está atualmente ligada. Para desligar a sua aplicação de um VNet, selecione **Desligar**. A sua aplicação será reiniciada quando desligar de um VNet. Desligar não muda o seu VNet. A sub-rede ou porta de entrada não é removida. Se pretender eliminar o seu VNet, tem primeiro de desligar a sua aplicação do VNet e eliminar os recursos que nele se advoquem, como gateways. 
 

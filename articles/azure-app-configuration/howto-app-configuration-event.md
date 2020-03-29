@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 02/25/2020
 ms.author: lcozzens
 ms.openlocfilehash: da64f22981cc33772783093cfe75daa3eac5cef1
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672144"
 ---
 # <a name="route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Eventos de configuração de aplicações Route Azure para um ponto final web com O ClI Azure
@@ -26,17 +26,17 @@ Neste artigo, aprende a configurar subscrições de eventos de configuração de
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão mais recente do Azure CLI (2.0.70 ou mais tarde). Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão mais recente do Azure CLI (2.0.70 ou mais tarde). Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
 Se não estiver a utilizar o Cloud Shell, primeiro tem de iniciar sessão com `az login`.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Os tópicos do Event Grid são recursos do Azure e têm de ser colocados num grupo de recursos do Azure. Um grupo de recursos é uma coleção lógica na qual os recursos do Azure são implementados e geridos.
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group). 
 
-O exemplo seguinte cria um grupo de recursos chamado `<resource_group_name>` na localização *westus.*  Substitua `<resource_group_name>` por um nome exclusivo para o seu grupo de recursos.
+O exemplo seguinte cria `<resource_group_name>` um grupo de recursos nomeado na localização *westus.*  Substitua `<resource_group_name>` por um nome exclusivo para o seu grupo de recursos.
 
 ```azurecli-interactive
 az group create --name <resource_group_name> --location westus
@@ -44,7 +44,7 @@ az group create --name <resource_group_name> --location westus
 
 ## <a name="create-an-app-configuration-store"></a>Criar uma loja de configuração de aplicações
 
-Substitua `<appconfig_name>` por um nome único para a sua loja de configuração e `<resource_group_name>` com o grupo de recursos que criou anteriormente. O nome deve ser único porque é usado como um nome DNS.
+Substitua-o `<appconfig_name>` por um nome `<resource_group_name>` único para a sua loja de configuração e com o grupo de recursos que criou anteriormente. O nome deve ser único porque é usado como um nome DNS.
 
 ```azurecli-interactive
 az appconfig create \
@@ -97,7 +97,7 @@ Verifique a aplicação Web novamente e repare que um evento de validação de s
 
 ## <a name="trigger-an-app-configuration-event"></a>Desencadear um evento de configuração de aplicações
 
-Agora, vamos acionar um evento para ver como o Event Grid distribui a mensagem para o ponto final. Crie um valor-chave usando o `<appconfig_name>` de antes.
+Agora, vamos acionar um evento para ver como o Event Grid distribui a mensagem para o ponto final. Crie um valor-chave usando o `<appconfig_name>` anterior.
 
 ```azurecli-interactive
 az appconfig kv set --name <appconfig_name> --key Foo --value Bar --yes

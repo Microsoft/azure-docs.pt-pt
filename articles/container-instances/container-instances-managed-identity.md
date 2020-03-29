@@ -4,10 +4,10 @@ description: Saiba como permitir uma identidade gerida em Instâncias de Content
 ms.topic: article
 ms.date: 01/29/2020
 ms.openlocfilehash: 003055d5021dd8ad7c3bab6d2900298ffd13b222
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76901940"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Como usar identidades geridas com instâncias de contentores Azure
@@ -26,12 +26,12 @@ Adaptar os exemplos para permitir e utilizar identidades em Casos de Contentores
 > [!NOTE]
 > Atualmente não é possível utilizar uma identidade gerida num grupo de contentores implantado numa rede virtual.
 
-## <a name="why-use-a-managed-identity"></a>Por que usar uma identidade gerenciada?
+## <a name="why-use-a-managed-identity"></a>Por que usar uma identidade gerida?
 
 Utilize uma identidade gerida num contentor de corrida para autenticar qualquer serviço que suporte a [autenticação DaD Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) sem gerir credenciais no seu código de contentor. Para serviços que não suportam a autenticação de AD, você pode armazenar segredos em um cofre chave Azure e usar a identidade gerida para aceder ao cofre chave para obter credenciais. Para obter mais informações sobre o uso de uma identidade gerida, consulte [as identidades geridas para os recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!IMPORTANT]
-> Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA). Atualmente, as identidades geridas em Casos de Contentores Azure, são suportadas apenas com contentores Linux e ainda não com contentores Windows.
+> Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações são disponibilizadas a si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA). Atualmente, as identidades geridas em Casos de Contentores Azure, são suportadas apenas com contentores Linux e ainda não com contentores Windows.
 >  
 
 ### <a name="enable-a-managed-identity"></a>Ativar uma identidade gerida
@@ -52,13 +52,13 @@ A utilização de uma identidade gerida num contentor de corrida é essencialmen
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão Azure CLI 2.0.49 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão Azure CLI 2.0.49 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="create-an-azure-key-vault"></a>Criar um cofre chave Azure
 
 Os exemplos deste artigo usam uma identidade gerida em Casos de Contentores Azure para aceder a um segredo de cofre chave Azure. 
 
-Primeiro, crie um grupo de recursos chamado *myResourceGroup* no local *leste* com o seguinte [grupo az criar](/cli/azure/group?view=azure-cli-latest#az-group-create) comando:
+Primeiro, crie um grupo de recursos com o nome *myResourceGroup* na localização *eualeste* através do comando seguinte [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create):
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -108,9 +108,9 @@ resourceID=$(az identity show --resource-group myResourceGroup --name myACIId --
 
 ### <a name="enable-a-user-assigned-identity-on-a-container-group"></a>Ativar uma identidade atribuída ao utilizador num grupo de contentores
 
-Executar o [seguinte recipiente az criar](/cli/azure/container?view=azure-cli-latest#az-container-create) comando para criar uma instância de recipiente com base na imagem `azure-cli` da Microsoft. Este exemplo fornece um grupo de contentores únicos que você pode usar interativamente para executar o Azure CLI para aceder a outros serviços Azure. Nesta secção, apenas é utilizado o sistema operativo base Ubuntu. 
+Executar o [seguinte recipiente az criar](/cli/azure/container?view=azure-cli-latest#az-container-create) comando para criar `azure-cli` uma instância de recipiente com base na imagem da Microsoft. Este exemplo fornece um grupo de contentores únicos que você pode usar interativamente para executar o Azure CLI para aceder a outros serviços Azure. Nesta secção, apenas é utilizado o sistema operativo base Ubuntu. 
 
-O parâmetro `--assign-identity` passa a sua identidade gerida atribuída ao grupo. O comando de longa duração mantém o contentor a funcionar. Este exemplo usa o mesmo grupo de recursos usado para criar o cofre chave, mas você pode especificar um diferente.
+O `--assign-identity` parâmetro passa a sua identidade gerida atribuída ao grupo. O comando de longa duração mantém o contentor a funcionar. Este exemplo usa o mesmo grupo de recursos usado para criar o cofre chave, mas você pode especificar um diferente.
 
 ```azurecli-interactive
 az container create \
@@ -129,7 +129,7 @@ az container show \
   --name mycontainer
 ```
 
-A secção `identity` na saída é semelhante à seguinte, mostrando que a identidade está definida no grupo de contentores. O `principalID` sob `userAssignedIdentities` é o principal de serviço da identidade que criou no Diretório Ativo azure:
+A `identity` secção da saída é semelhante à seguinte, mostrando que a identidade está definida no grupo de contentores. O `principalID` `userAssignedIdentities` under é o principal de serviço da identidade que criou no Diretório Ativo Azure:
 
 ```console
 [...]
@@ -189,7 +189,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-Agora use o sinal de acesso para autenticar o cofre e leia um segredo. Certifique-se de substituir o nome do seu cofre chave no URL *(https://mykeyvault.vault.azure.net/...*
+Agora use o sinal de acesso para autenticar o cofre e leia um segredo. Certifique-se de substituir o nome do*https://mykeyvault.vault.azure.net/..* seu cofre chave no URL ( . ):
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"
@@ -205,9 +205,9 @@ A resposta parece semelhante à seguinte, mostrando o segredo. No seu código, a
 
 ### <a name="enable-a-system-assigned-identity-on-a-container-group"></a>Permitir uma identidade atribuída ao sistema num grupo de contentores
 
-Executar o [seguinte recipiente az criar](/cli/azure/container?view=azure-cli-latest#az-container-create) comando para criar uma instância de recipiente com base na imagem `azure-cli` da Microsoft. Este exemplo fornece um grupo de contentores únicos que você pode usar interativamente para executar o Azure CLI para aceder a outros serviços Azure. 
+Executar o [seguinte recipiente az criar](/cli/azure/container?view=azure-cli-latest#az-container-create) comando para criar `azure-cli` uma instância de recipiente com base na imagem da Microsoft. Este exemplo fornece um grupo de contentores únicos que você pode usar interativamente para executar o Azure CLI para aceder a outros serviços Azure. 
 
-O parâmetro `--assign-identity` sem valor adicional permite uma identidade gerida atribuída pelo sistema no grupo. A identidade é remeto para o grupo de recursos do grupo de contentores. O comando de longa duração mantém o contentor a funcionar. Este exemplo usa o mesmo grupo de recursos usado para criar o cofre chave, mas você pode especificar um diferente.
+O `--assign-identity` parâmetro sem valor adicional permite uma identidade gerida atribuída pelo sistema no grupo. A identidade é remeto para o grupo de recursos do grupo de contentores. O comando de longa duração mantém o contentor a funcionar. Este exemplo usa o mesmo grupo de recursos usado para criar o cofre chave, mas você pode especificar um diferente.
 
 ```azurecli-interactive
 # Get the resource ID of the resource group
@@ -230,7 +230,7 @@ az container show \
   --name mycontainer
 ```
 
-A secção `identity` na saída é semelhante à seguinte, mostrando que uma identidade atribuída ao sistema é criada no Diretório Ativo Azure:
+A `identity` secção da saída é semelhante à seguinte, mostrando que uma identidade atribuída ao sistema é criada no Diretório Ativo Azure:
 
 ```console
 [...]
@@ -243,7 +243,7 @@ A secção `identity` na saída é semelhante à seguinte, mostrando que uma ide
 [...]
 ```
 
-Detete uma variável ao valor de `principalId` (o principal de serviço ID) da identidade, para utilizar em etapas posteriores.
+Desdefinir uma variável ao valor de `principalId` (o principal de identificação do serviço) da identidade, para utilizar em etapas posteriores.
 
 ```azurecli-interactive
 spID=$(az container show --resource-group myResourceGroup --name mycontainer --query identity.principalId --out tsv)
@@ -294,7 +294,7 @@ O valor do segredo é recuperado:
 
 ## <a name="enable-managed-identity-using-resource-manager-template"></a>Ativar identidade gerida usando modelo de Gestor de Recursos
 
-Para permitir uma identidade gerida num grupo de contentores utilizando um modelo de Gestor de [Recursos,](container-instances-multi-container-group.md)detete a propriedade `identity` do objeto `Microsoft.ContainerInstance/containerGroups` com um objeto `ContainerGroupIdentity`. Os seguintes cortes mostram a propriedade `identity` configurada para diferentes cenários. Consulte a referência do [modelo do Gestor](/azure/templates/microsoft.containerinstance/containergroups)de Recursos . Especifique um mínimo `apiVersion` de `2018-10-01`.
+Para permitir uma identidade gerida num grupo de contentores `identity` utilizando `Microsoft.ContainerInstance/containerGroups` um modelo `ContainerGroupIdentity` de Gestor de [Recursos,](container-instances-multi-container-group.md)detete a propriedade do objeto com um objeto. Os seguintes cortes `identity` mostram a propriedade configurada para diferentes cenários. Consulte a referência do [modelo do Gestor](/azure/templates/microsoft.containerinstance/containergroups)de Recursos . Especifique um mínimo `apiVersion` de `2018-10-01`.
 
 ### <a name="user-assigned-identity"></a>Identidade atribuída ao utilizador
 

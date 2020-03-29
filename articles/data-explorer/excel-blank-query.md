@@ -1,6 +1,6 @@
 ---
-title: Visualizar dados usando uma consulta do Azure Data Explorer Kusto importada para o Microsoft Excel
-description: Neste artigo, você aprenderá a importar uma consulta do Azure Data Explorer Kusto para o Microsoft Excel.
+title: Visualizar dados utilizando uma consulta do Azure Data Explorer Kusto importada para o Microsoft Excel
+description: Neste artigo, aprende-se a importar uma consulta do Azure Data Explorer Kusto para o Microsoft Excel.
 author: orspod
 ms.author: orspodek
 ms.reviewer: rkarlin
@@ -8,67 +8,67 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: 4999000e2084922b43b8085034f545d4b5c644a9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74849093"
 ---
-# <a name="visualize-data-using-an-azure-data-explorer-kusto-query-imported-into-microsoft-excel"></a>Visualizar dados usando uma consulta do Azure Data Explorer Kusto importada para o Microsoft Excel
+# <a name="visualize-data-using-an-azure-data-explorer-kusto-query-imported-into-microsoft-excel"></a>Visualizar dados utilizando uma consulta do Azure Data Explorer Kusto importada para o Microsoft Excel
 
-O Azure Data Explorer fornece duas opções para se conectar a dados no Excel: Use o conector nativo ou importe uma consulta do Data Explorer do Azure. Este artigo mostra como importar uma consulta do Azure Data Explorer para o Excel para visualizar dados. Adicione a consulta Kusto como uma fonte de dados do Excel para fazer cálculos ou visualizações adicionais nos dados.
+O Azure Data Explorer fornece duas opções para a ligação aos dados do Excel: utilize o conector nativo ou importe uma consulta do Azure Data Explorer. Este artigo mostra-lhe como importar uma consulta do Azure Data Explorer para o Excel para visualizar dados. Adicione a consulta de Kusto como uma fonte de dados do Excel para fazer cálculos adicionais ou visualizações nos dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
-* Uma conta de email organizacional que seja membro do Azure Active Directory, para que você possa se conectar ao [cluster de ajuda do azure Data Explorer](https://dataexplorer.azure.com/clusters/help/databases/Samples) 
+* Uma conta de e-mail organizacional que é membro do diretório Azure Ative, para que possa ligar-se ao cluster de ajuda do [Azure Data Explorer](https://dataexplorer.azure.com/clusters/help/databases/Samples) 
 <br>ou</br>
-* Crie [um cluster de teste e um banco de dados](create-cluster-database-portal.md) e entre no [aplicativo de interface do usuário da Web do Azure data Explorer](https://dataexplorer.azure.com/).
+* Crie um cluster de [teste e base](create-cluster-database-portal.md) de dados e inscreva-se na [aplicação Azure Data Explorer Web UI](https://dataexplorer.azure.com/).
 
-## <a name="define-kusto-query-as-an-excel-data-source"></a>Definir a consulta Kusto como uma fonte de dados do Excel
+## <a name="define-kusto-query-as-an-excel-data-source"></a>Defina a consulta de Kusto como uma fonte de dados do Excel
 
-1. No [Azure data Explorer interface do usuário da Web](https://dataexplorer.azure.com/clusters/help/databases/Samples), execute a consulta e verifique os resultados.
+1. No [Azure Data Explorer Web UI,](https://dataexplorer.azure.com/clusters/help/databases/Samples)faça a consulta e verifique os resultados.
 
-1. Selecione a guia **compartilhar** e selecione **consulta para Power bi**.
+1. Selecione o separador **Partilhar** e selecione **Consulta para Power BI**.
 
-    ![Consulta de interface do usuário da Web para Power BI](media/excel-blank-query/web-ui-query-to-powerbi.png)
+    ![Consulta de UI web para Power BI](media/excel-blank-query/web-ui-query-to-powerbi.png)
 
-1. Uma janela é exibida com a seguinte notificação:
+1. Uma janela aparece com a seguinte notificação:
 
-    ![exportar consulta para área de transferência](media/excel-blank-query/query-exported-to-clipboard.png)
+    ![consulta de exportação para clipboard](media/excel-blank-query/query-exported-to-clipboard.png)
 
-1. Abra **o Microsoft Excel**.
+1. Abra o **Microsoft Excel.**
 
-1. Na guia **dados** , selecione **obter dados** > **de outras fontes** > **consulta em branco**.
+1. No separador **Dados,** selecione **Obter Dados** > **de Outras Fontes** > **Consulta em branco**.
 
-    ![Obter dados e Selecionar consulta em branco](media/excel-blank-query/get-data-blank-query.png)
+    ![Obtenha dados e selecione consulta em branco](media/excel-blank-query/get-data-blank-query.png)
 
-1. A janela do **Editor de Power Query** é aberta. Na janela, selecione **Editor avançado**.
+1. A janela do Editor de **Consulta de Energia** abre. Na janela, selecione **Advanced Editor**.
 
-    ![Janela do editor do Power Query](media/excel-blank-query/power-query-editor.png)
+    ![Janela do editor de consulta de poder](media/excel-blank-query/power-query-editor.png)
 
-1. Na janela **Editor avançado** , Cole a consulta exportada na área de transferência e selecione **concluído**.
+1. Na janela **Do Editor Avançado,** colhe a consulta que exportou para a pasta e selecione **Done**.
 
     ![Consulta de editor avançado](media/excel-blank-query/advanced-editor-query.png)    
 
-1. Para autenticar, selecione **Editar credenciais**.
+1. Para autenticar, selecione **Editar Credenciais**.
 
     ![Editar credenciais](media/excel-blank-query/edit-credentials.png)
 
-1. Selecione **conta organizacional** e **entre**. Conclua o processo de entrada e, em seguida, selecione **conectar**.
+1. **Selecione conta organizacional** e **inscreva-se**. Complete o processo de iniciar sessão e, em seguida, selecione **Ligar**.
 
-    ![Concluir a entrada](media/excel-blank-query/complete-sign-in.png)
+    ![Iniciar a inscrição](media/excel-blank-query/complete-sign-in.png)
 
-    Repita as etapas anteriores para adicionar mais consultas. Você pode renomear as consultas para nomes mais significativos.
+    Repita os passos anteriores para adicionar mais consultas. Pode mudar o nome das consultas para nomes mais significativos.
 
-1. Selecione o botão **fechar & carregar** para colocar seus dados no Excel.
+1. Selecione o botão **Close & Carregar** para obter os seus dados no Excel.
 
     ![Selecione fechar e carregar](media/excel-blank-query/close-and-load.png)
 
-1. Agora, seus dados estão no Excel. Selecione o botão **Atualizar** para atualizar a consulta.
+1. Agora os seus dados estão em Excel. Selecione o botão **Refresh** para refrescar a consulta.
 
-    ![Exibir dados no Excel](media/excel-blank-query/data-in-excel.png)
+    ![Ver dados em excel](media/excel-blank-query/data-in-excel.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Visualizar dados usando o conector do Data Explorer do Azure para Excel](excel-connector.md)
+[Visualizar dados utilizando o conector Azure Data Explorer para excel](excel-connector.md)

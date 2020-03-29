@@ -1,8 +1,8 @@
 ---
-title: Criar uma revisão de acesso de grupos e aplicações - Azure AD
+title: Criar uma revisão de acesso de grupos & aplicações - Azure AD
 description: Saiba como criar uma revisão de acesso aos membros do grupo ou ao acesso a aplicações nas avaliações de acesso ao Diretório Ativo do Azure.
 services: active-directory
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/06/2020
-ms.author: ajburnle
+ms.date: 03/22/2020
+ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e769df186597a88247601f4fc70c48263edc88b
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: d3b8f2cf7db474f2a67ebaed818a0a440a195326
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77483912"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128846"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Criar uma revisão de acesso de grupos e aplicações em avaliações de acesso a AD Azure
 
@@ -132,10 +132,10 @@ Se você atribuiu os hóspedes como revisores e eles não aceitaram o convite, e
 
 | Estado | Definição |
 |--------|------------|
-|NotStarted | A revisão foi criada, a descoberta do utilizador está à espera de começar. |
-|Inicialização   | A descoberta do utilizador está em andamento para identificar todos os utilizadores que fazem parte da revisão. |
+|Não Iniciado | A revisão foi criada, a descoberta do utilizador está à espera de começar. |
+|A inicializar   | A descoberta do utilizador está em andamento para identificar todos os utilizadores que fazem parte da revisão. |
 |A iniciar | A revisão está a começar. Se as notificações de e-mail estiverem ativadas, os e-mails serão enviados para os revisores. |
-|Em curso | A revisão já começou. Se as notificações de e-mail estiverem ativadas, os e-mails foram enviados aos revisores. Os revisores podem submeter decisões até à data de vencimento. |
+|Inprogress | A revisão já começou. Se as notificações de e-mail estiverem ativadas, os e-mails foram enviados aos revisores. Os revisores podem submeter decisões até à data de vencimento. |
 |Conclusão | A revisão está a ser concluída e os e-mails estão a ser enviados para o dono da revisão. |
 |Revisão automática | A revisão está numa fase de revisão do sistema. O sistema está a registar decisões para utilizadores que não foram revistos com base em recomendações ou decisões pré-configuradas. |
 |Autorevisto | As decisões foram registadas pelo sistema para todos os utilizadores que não foram revistos. A revisão está pronta para proceder à aplicação se estiver ativada a **aplicação** automática. |
@@ -146,7 +146,7 @@ Se você atribuiu os hóspedes como revisores e eles não aceitaram o convite, e
 
 Também pode criar avaliações de acesso utilizando APIs. O que faz para gerir as análises de acesso de grupos e utilizadores de aplicações no portal Azure também pode ser feito usando APIs do Microsoft Graph. Para mais informações, consulte o [acesso da AD Azure à referência da API](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta). Para obter uma amostra de código, consulte [Exemplo de recuperação de avaliações de acesso a Anúncio saqueadas através do Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Rever o acesso a grupos ou aplicações](perform-access-review.md)
 - [Reveja o acesso a grupos ou aplicações](review-your-access.md)

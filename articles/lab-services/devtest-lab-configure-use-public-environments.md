@@ -1,5 +1,5 @@
 ---
-title: Configure e use ambientes públicos em Azure DevTest Labs  Microsoft Docs
+title: Configure e use ambientes públicos em Azure DevTest Labs [ Microsoft Docs
 description: Este artigo descreve como configurar e usar ambientes públicos (modelos do Gestor de Recursos Azure num repo Git) em Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 127a6986e04cf90f69b2a8ec70b90b877e534708
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721698"
 ---
 # <a name="configure-and-use-public-environments-in-azure-devtest-labs"></a>Configure e use ambientes públicos em Azure DevTest Labs
@@ -36,7 +36,7 @@ Pode ativar/desativar ambientes públicos para o seu laboratório, e também dis
 
 1. Selecione **Configuração e políticas** para o seu laboratório. 
 2. Na secção BASES DE **MÁQUINAVirtual,** selecione **ambientes públicos.**
-3. Para permitir ambientes públicos para o laboratório, selecione **Sim**. Caso contrário, selecione **Nº**. 
+3. Para permitir ambientes públicos para o laboratório, selecione **Sim**. Caso contrário, selecione **Não**. 
 4. Se habilitasse ambientes públicos, todos os ambientes do repositório são ativados por incumprimentos. Pode desseleccionar um ambiente para que não esteja disponível para os utilizadores do laboratório. 
 
 ![Página de ambientes públicos](media/devtest-lab-configure-use-public-environments/public-environments-page.png)
@@ -46,5 +46,5 @@ Como utilizador de laboratório, pode criar um novo ambiente a partir da lista a
 
 ![Modelos de ambiente público](media/devtest-lab-configure-use-public-environments/public-environment-templates.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Este repositório é um repositório de código aberto que pode contribuir para adicionar modelos de Gestor de Recursos frequentemente utilizados e úteis. Para contribuir, basta apresentar um pedido de retirada contra o repositório.  

@@ -1,6 +1,6 @@
 ---
-title: Testar dados em direto com o Azure Stream Analytics para Visual Studio
-description: Saiba como testar a tarefa do Azure Stream Analytics localmente, utilizando dados de transmissão em fluxo em direto.
+title: Teste dados ao vivo com Azure Stream Analytics para Estúdio Visual
+description: Saiba como testar o seu trabalho de Azure Stream Analytics localmente utilizando dados de streaming ao vivo.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -9,60 +9,60 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: f2876ea32bdcd900a454ae6b7ac58c11b8ec67c3
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840490"
 ---
-# <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Dados em direto de teste localmente, utilizando ferramentas do Azure Stream Analytics para Visual Studio (pré-visualização)
+# <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Teste dados ao vivo localmente utilizando ferramentas Azure Stream Analytics para Estúdio Visual (Pré-visualização)
 
-Ferramentas do Stream Analytics do Azure para Visual Studio permite-lhe testar tarefas localmente a partir do IDE com fluxos de eventos em direto do Hub de eventos do Azure, o IoT Hub e o armazenamento de Blobs. Dados não é possível substituir a realização de testes locais dinâmicos a [escalabilidade testar o desempenho e](stream-analytics-streaming-unit-consumption.md) pode realizar na cloud, mas pode poupar tempo durante o teste funcional ao não ter de enviar para a cloud sempre que quiser testar seu Stream Tarefa de análise. Esta funcionalidade está em pré-visualização e não deve ser usada para cargas de trabalho de produção.
+As ferramentas Azure Stream Analytics para O Estúdio Visual permitem-lhe testar trabalhos localmente a partir do IDE utilizando streams de eventos ao vivo do Azure Event Hub, IoT Hub e Blob Storage. Os testes locais de dados ao vivo não podem substituir o desempenho e os testes de [escalabilidade](stream-analytics-streaming-unit-consumption.md) que pode realizar na nuvem, mas pode economizar tempo durante os testes funcionais por não ter de se submeter à nuvem sempre que quiser testar o seu trabalho de Streaming Analytics. Esta funcionalidade encontra-se em pré-visualização e não deve ser utilizada para cargas de trabalho de produção.
 
 ## <a name="testing-options"></a>Opções de teste
 
-São suportadas as seguintes opções de testes locais:
+São apoiadas as seguintes opções de teste locais:
 
-|**Input (Entrada)**  |**Saída**  |**Tipo de tarefa**  |
+|**Entrada**  |**Saída**  |**Tipo de trabalho**  |
 |---------|---------|---------|
-|Dados estáticos locais   |  Dados estáticos locais   |   Edge/na cloud |
-|Dados de entrada em direto   |  Dados estáticos locais   |   Nuvem |
-|Dados de entrada em direto   |  Dados de saída em direto   |   Nuvem |
+|Dados estáticos locais   |  Dados estáticos locais   |   Nuvem/Borda |
+|Dados de entrada ao vivo   |  Dados estáticos locais   |   Nuvem |
+|Dados de entrada ao vivo   |  Dados de saída ao vivo   |   Nuvem |
 
-## <a name="local-testing-with-live-data"></a>Realização de testes locais com dados dinâmicos
+## <a name="local-testing-with-live-data"></a>Testes locais com dados ao vivo
 
-1. Depois de criar uma [projeto de cloud do Azure Stream Analytics no Visual Studio](stream-analytics-quick-create-vs.md), abra **script.asaql**. A realização de testes locais usa entrada local e de saída local por padrão.
+1. Depois de ter criado um [projeto de nuvem Azure Stream Analytics no Estúdio Visual,](stream-analytics-quick-create-vs.md)open **script.asaql**. Os testes locais utilizam a entrada local e a saída local por padrão.
 
-   ![O Azure Stream Analytics para Visual Studio local de entrada e saída local](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-local-input-output.png)
+   ![Entrada local do Azure Stream Analytics Studio e saída local](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-local-input-output.png)
 
-2. Para testar dados em direto, escolha **entrada de Cloud de utilização** na caixa pendente.
+2. Para testar dados ao vivo, escolha a Utilização de **Cloud Input** a partir da caixa de dropdown.
 
-   ![Entrada de na cloud em direto do Azure Stream Analytics para Visual Studio](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input.png)
+   ![Entrada em nuvem ao vivo do Azure Stream Analytics Studio](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input.png)
 
-3. Definir o **Start Time** para definir quando a tarefa começar a processar dados de entrada. A tarefa poderá ter de ler dados de entrada antes do tempo para garantir resultados precisos. O tempo predefinido está definido como 30 minutos antes da hora atual.
+3. Defina o **Tempo de Início** para definir quando o trabalho começará a processar os dados de entrada. O trabalho pode precisar de ler os dados de entrada com antecedência para garantir resultados precisos. O tempo de predefinição é definido para 30 minutos antes do tempo atual.
 
-   ![Hora de início de dados em direto do Stream Analytics para Visual Studio do Azure](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-start-time.png)
+   ![Azure Stream Analytics Visual Studio data live start time](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-start-time.png)
 
-4. Clique em **executar localmente**. Será apresentada uma janela de consola com as métricas de progresso e o trabalho em execução. Se desejar interromper o processo, pode fazer isso manualmente. 
+4. Clique em **Executar Localmente**. Uma janela de consola aparecerá com o progresso em execução e métricas de trabalho. Se quiser parar o processo, pode fazê-lo manualmente. 
 
-   ![Janela de processo de dados dinâmicos do Azure Stream Analytics para Visual Studio](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-process-window.png)
+   ![Janela de processo de processo de dados ao vivo do Azure Stream Analytics Studio](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-process-window.png)
 
-   Os resultados de saída são atualizados a cada três segundos com as primeiras linhas de 500 saída na janela do resultado de execução local e os ficheiros de saída são colocados no caminho do projeto **ASALocalRun** pasta. Também pode abrir os ficheiros de saída ao clicar **Abrir pasta de resultados** botão da janela de resultados de execução local.
+   Os resultados de saída são atualizados a cada três segundos com as primeiras 500 linhas de saída na janela de resultados de execução local, e os ficheiros de saída são colocados na sua pasta **ASALocalRun.** Também pode abrir os ficheiros de saída clicando no botão **da pasta de resultados abertos** na janela de resultados de execução local.
 
-   ![Dados em direto do Azure do Stream Analytics para Visual Studio abra a pasta de resultados](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-open-results-folder.png)
+   ![Azure Stream Analytics Visual Studio live data open results folder](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-open-results-folder.png)
 
-5. Se pretender enviar os resultados para os sinks de saída na cloud, escolha **de saída para a Cloud** na segunda caixa pendente. O Power BI e o armazenamento do Azure Data Lake não são sinks de saída suportados.
+5. Se pretender obter os resultados para os seus asinks de saída em nuvem, escolha **Output to Cloud** a partir da segunda caixa de dropdown. O Power BI e o Azure Data Lake Storage não são sumidouros de saída suportados.
 
-   ![Dados dinâmicos do Azure do Stream Analytics para Visual Studio, de saída para a cloud](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-output.png)
+   ![Saída de dados ao vivo do Azure Stream Analytics Studio para a nuvem](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-output.png)
  
 ## <a name="limitations"></a>Limitações
 
-* O Power BI e o armazenamento do Azure Data Lake não são sinks de saída suportadas devido a limitações de modelo de autenticação.
+* O Power BI e o Azure Data Lake Storage não são sumidouros de saída suportados devido a limitações do modelo de autenticação.
 
-* Apenas as opções de entrada nuvem têm [políticas de tempo](stream-analytics-out-of-order-and-late-events.md) suportar, ao contrário opções de entrada locais.
+* Apenas as opções de entrada em nuvem têm apoio de políticas de [tempo,](stream-analytics-out-of-order-and-late-events.md) enquanto as opções locais de entrada não.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Criar uma tarefa de Stream Analytics, utilizando as ferramentas do Azure Stream Analytics para Visual Studio](stream-analytics-quick-create-vs.md)
-* [Testar consultas do Stream Analytics localmente com o Visual Studio](stream-analytics-vs-tools-local-run.md)
-* [Use o Visual Studio para ver tarefas do Azure Stream Analytics](stream-analytics-vs-tools.md)
+* [Crie um trabalho de Stream Analytics utilizando as ferramentas Azure Stream Analytics para Estúdio Visual](stream-analytics-quick-create-vs.md)
+* [Test Stream Analytics consultas localmente com Estúdio Visual](stream-analytics-vs-tools-local-run.md)
+* [Use o Estúdio Visual para ver empregos da Azure Stream Analytics](stream-analytics-vs-tools.md)

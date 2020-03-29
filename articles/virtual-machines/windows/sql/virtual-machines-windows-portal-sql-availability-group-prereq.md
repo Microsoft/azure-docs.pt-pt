@@ -9,18 +9,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
 ms.service: virtual-machines-sql
-ms.custom: seo-lt-2019
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 4c89489964410104726b65e1b1fc3577945ce14a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.custom: seo-lt-2019
+ms.openlocfilehash: c80a4c07e0649612b4c024cac79833c4b730f55e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79249883"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060175"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Pré-requisitos para criar sempre em grupos de disponibilidade em SQL Server em máquinas virtuais Azure
 
@@ -37,12 +37,12 @@ O diagrama que se segue ilustra o que se constrói no tutorial.
 Este tutorial assume que você tem uma compreensão básica de SQL Server Sempre em grupos de disponibilidade. Se não estiver familiarizado com esta tecnologia, consulte a [visão geral dos grupos always on availability (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
 
-## <a name="create-an-azure-account"></a>Criar uma conta Azure
+## <a name="create-an-azure-account"></a>Criar uma conta do Azure
 Precisa de uma conta do Azure. Pode [abrir uma conta Azure gratuita](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic&redirectURL=https:%2F%2Fazure.microsoft.com%2Fget-started%2Fwelcome-to-azure%2F&correlationId=24f9d452-1909-40d7-b609-2245aa7351a6&l=en-US) ou ativar benefícios de subscrição do [Visual Studio.](https://docs.microsoft.com/visualstudio/subscriptions/subscriber-benefits)
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Clique em **+** para criar um novo objeto no portal.
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+2. Clique **+** para criar um novo objeto no portal.
 
    ![Novo objeto](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
 
@@ -83,10 +83,10 @@ Para criar a rede virtual:
    | **Campo** | Valor |
    | --- | --- |
    | **Nome** |autoHAVNET |
-   | **Espaço de endereços** |10.33.0.0/24 |
-   | **Nome da sub-rede** |Admin |
-   | **Intervalo de endereços da sub-rede** |10.33.0.0/29 |
-   | **Subscrição** |Especifique a subscrição que pretende utilizar. **A subscrição** fica em branco se tiver apenas uma subscrição. |
+   | **Espaço de endereço** |10.33.0.0/24 |
+   | **Nome da sub-rede** |Administrador |
+   | **Intervalo de endereços subnet** |10.33.0.0/29 |
+   | **Assinatura** |Especifique a subscrição que pretende utilizar. **A subscrição** fica em branco se tiver apenas uma subscrição. |
    | **Grupo de recursos** |Escolha **utilizar o uso existente** e escolha o nome do grupo de recursos. |
    | **Localização** |Especifique a localização Azure. |
 
@@ -123,18 +123,18 @@ A tabela que se segue resume as definições de configuração da rede:
 | **Campo** | Valor |
 | --- | --- |
 | **Nome** |**autoHAVNET** |
-| **Espaço de endereços** |Este valor depende dos espaços de endereço disponíveis na sua subscrição. Um valor típico é 10.0.0.0/16. |
-| **Nome da sub-rede** |**administrador** |
-| **Intervalo de endereços da sub-rede** |Este valor depende das gamas de endereços disponíveis na sua subscrição. Um valor típico é 10.0.0.0/24. |
+| **Espaço de endereço** |Este valor depende dos espaços de endereço disponíveis na sua subscrição. Um valor típico é 10.0.0.0/16. |
+| **Nome da sub-rede** |**admin** |
+| **Intervalo de endereços subnet** |Este valor depende das gamas de endereços disponíveis na sua subscrição. Um valor típico é 10.0.0.0/24. |
 | **Nome da sub-rede** |**sqlsubnet** |
-| **Intervalo de endereços da sub-rede** |Este valor depende das gamas de endereços disponíveis na sua subscrição. Um valor típico é 10.0.1.0/24. |
-| **Subscrição** |Especifique a subscrição que pretende utilizar. |
+| **Intervalo de endereços subnet** |Este valor depende das gamas de endereços disponíveis na sua subscrição. Um valor típico é 10.0.1.0/24. |
+| **Assinatura** |Especifique a subscrição que pretende utilizar. |
 | **Grupo de Recursos** |**SQL-HA-RG** |
 | **Localização** |Especifique a mesma localização que escolheu para o grupo de recursos. |
 
 ## <a name="create-availability-sets"></a>Criar conjuntos de disponibilidade
 
-Antes de criar máquinas virtuais, precisa de criar conjuntos de disponibilidade. Os conjuntos de disponibilidade reduzem o tempo de inatividade para eventos de manutenção planeados ou não planeados. Um conjunto de disponibilidade azure é um grupo lógico de recursos que o Azure coloca nos domínios de falhas físicas e nos domínios de atualização. Um domínio de falha garante que os membros do conjunto de disponibilidade têm recursos de energia e rede separados. Um domínio de atualização garante que os membros do conjunto de disponibilidade não são reduzidos para manutenção ao mesmo tempo. Para mais informações, consulte [Gerir a disponibilidade de máquinas virtuais](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Antes de criar máquinas virtuais, precisa de criar conjuntos de disponibilidade. Os conjuntos de disponibilidade reduzem o tempo de inatividade para eventos de manutenção planeados ou não planeados. Um conjunto de disponibilidade azure é um grupo lógico de recursos que o Azure coloca nos domínios de falhas físicas e nos domínios de atualização. Um domínio de falha garante que os membros do conjunto de disponibilidade têm recursos de energia e rede separados. Um domínio de atualização garante que os membros do conjunto de disponibilidade não são reduzidos para manutenção ao mesmo tempo. Para obter mais informações, veja [Gerir a disponibilidade das máquinas virtuais](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Precisa de dois conjuntos de disponibilidade. Uma é para os controladores de domínio. A segunda é para os VMs do Servidor SQL.
 
@@ -147,7 +147,7 @@ Configure dois conjuntos de disponibilidade de acordo com os parâmetros na tabe
 | **Nome** |adavailabilityset |sqlavailabilityset |
 | **Grupo de recursos** |SQL-HA-RG |SQL-HA-RG |
 | **Domínios de falha** |3 |3 |
-| **Atualizar domínios** |5 |3 |
+| **Domínios de atualização** |5 |3 |
 
 Depois de criar os conjuntos de disponibilidade, volte ao grupo de recursos no portal Azure.
 
@@ -163,8 +163,8 @@ Para criar e configurar os controladores de domínio, volte ao grupo de recursos
 
 Repita os passos anteriores para criar duas máquinas virtuais. Nomeie as duas máquinas virtuais:
 
-* ad-primary-dc
-* ad-secondary-dc
+* ad-primário-dc
+* ad-secundário-dc
 
   > [!NOTE]
   > A máquina virtual **ad-secondary-dc** é opcional, para fornecer alta disponibilidade para Serviços de Domínio de Diretório Ativo.
@@ -179,15 +179,15 @@ A tabela que se segue mostra as definições para estas duas máquinas:
 | **Tipo de disco da VM** |SSD |
 | **Nome de utilizador** |DomainAdmin |
 | **Palavra-passe** |Contoso!0000 |
-| **Subscrição** |*A sua subscrição* |
+| **Assinatura** |*A sua subscrição* |
 | **Grupo de recursos** |SQL-HA-RG |
 | **Localização** |*A sua localização* |
 | **Tamanho** |DS1_V2 |
 | **Armazenamento** | **Use discos geridos** - **Sim** |
 | **Rede virtual** |autoHAVNET |
-| **Sub-rede** |administrador |
+| **Sub-rede** |admin |
 | **Endereço IP público** |*O mesmo nome que o VM* |
-| **Grupo de segurança de rede** |*O mesmo nome que o VM* |
+| **Grupo de segurança da rede** |*O mesmo nome que o VM* |
 | **Conjunto de disponibilidade** |adavailabilityset </br>**Domínios de avaria**:2 </br>**Domínios de atualização**:2|
 | **Diagnóstico** |Ativado |
 | **Conta de armazenamento de diagnóstico** |*Criado automaticamente* |
@@ -231,8 +231,8 @@ Nos seguintes passos, configure a máquina **ad-primary-dc** como controlador de
 
     | **Página** | Definição |
     | --- | --- |
-    | **Configuração de implementação** |**Adicione uma nova floresta**<br/> **Nome** de domínio raiz = corp.contoso.com |
-    | **Opções do Controlador de Domínio** |**DSRM Password** = Contoso!0000<br/>**Confirmar Palavra-passe** = Contoso!0000 |
+    | **Configuração da Implementação** |**Adicione uma nova floresta**<br/> **Nome** de domínio raiz = corp.contoso.com |
+    | **Opções de Controlador de Domínio** |**DSRM Password** = Contoso!0000<br/>**Confirmar Palavra-passe** = Contoso!0000 |
 14. Clique em **Next** para ver as outras páginas do assistente. Na página **pré-requisitos Verifique** se vê a seguinte mensagem: **Todas as verificações pré-requisitos passadas com sucesso**. Pode rever quaisquer mensagens de aviso aplicáveis, mas é possível continuar com a instalação.
 15. Clique em **Instalar**. A máquina virtual **ad-primary-dc** reinicia automaticamente.
 
@@ -291,7 +291,7 @@ Depois de o controlador de domínio primário reiniciar, pode configurar o segun
 15. Clique no link **Mais** na barra de aviso amarela.
 16. Na coluna **de ação** do diálogo de detalhes de **tarefas de todos os servidores,** clique em Promover este servidor para um controlador de **domínio**.
 17. Sob configuração de **implementação,** selecione **Adicionar um controlador de domínio a um domínio existente**.
-    ![configuração de implantação](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
+    ![Configuração de implementação](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
 18. Clique em **Selecionar**.
 19. Conecte-se utilizando a conta do administrador **(CORP. CONTOSO.COM\domainadmin**) e palavra-passe **(Contoso!0000**).
 20. Em **Selecione um domínio da floresta,** clique no seu domínio e, em seguida, clique em **OK**.
@@ -307,7 +307,7 @@ Depois de o servidor terminar as alterações de configuração, reinicie o serv
 
 No portal Azure, em rede virtual, altere o Servidor DNS para incluir o endereço IP do controlador de domínio secundário. Esta definição permite o despedimento do serviço DNS.
 
-### <a name="DomainAccounts"></a>Configure as contas de domínio
+### <a name="configure-the-domain-accounts"></a><a name="DomainAccounts"></a>Configure as contas de domínio
 
 Nos próximos passos, configura as contas do Diretório Ativo. O quadro seguinte mostra as contas:
 
@@ -322,7 +322,7 @@ Utilize os seguintes passos para criar cada conta.
 2. No **Gestor do Servidor,** selecione **Ferramentas,** clique em **Ative Directory Administrative Center**.   
 3. Selecione **o corpo (local)** a partir do painel esquerdo.
 4. No painel de **tarefas** certos, selecione **New**, e, em seguida, clique em **Utilizador**.
-   ![Centro Administrativo de Diretório Ativo](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/29-addcnewuser.png)
+   ![Centro de Administração do Active Directory](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/29-addcnewuser.png)
 
    >[!TIP]
    >Detete uma senha complexa para cada conta.<br/> Para ambientes não produtivos, detete a conta de utilizador para nunca expirar.
@@ -381,7 +381,7 @@ Em seguida, crie três VMs-- dois VMs sQL Server e um VM para um nó de cluster 
 
 Depois de os três VMs estarem totalmente provisionados, você precisa se juntar a eles ao domínio **corp.contoso.com** e conceder CORP\Instale direitos administrativos às máquinas.
 
-### <a name="joinDomain"></a>Junte-se aos servidores para o domínio
+### <a name="join-the-servers-to-the-domain"></a><a name="joinDomain"></a>Junte-se aos servidores para o domínio
 
 Agora pode juntar-se aos VMs para **corp.contoso.com.** Faça os seguintes passos tanto para os VMs do Servidor SQL como para o servidor de testemunhas de partilha de ficheiros:
 
@@ -400,7 +400,7 @@ Depois de cada máquina virtual recomeçar como membro do domínio, adicione **o
 
 1. Aguarde até que o VM seja reiniciado e, em seguida, volte a lançar o ficheiro RDP a partir do controlador de domínio primário para iniciar o **sqlserver-0** utilizando a conta **CORP\DomainAdmin.**
    >[!TIP]
-   >Certifique-se de que faz o insessão com a conta de administrador de domínio. Nos passos anteriores, estava a utilizar a conta de administrador built IN. Agora que o servidor está no domínio, use a conta de domínio. Na sua sessão de RDP, especifique *o DOMÍNIO*\\nome *de utilizador*.
+   >Certifique-se de que faz o insessão com a conta de administrador de domínio. Nos passos anteriores, estava a utilizar a conta de administrador built IN. Agora que o servidor está no domínio, use a conta de domínio. Na sua sessão de RDP, especifique o*nome de utilizador* *DOM*\\.
 
 2. No **Gestor do Servidor,** selecione **Ferramentas**e, em seguida, clique em **Gestão de Computadores**.
 3. Na janela **de Gestão** de Computadores, expanda **os Utilizadores e Grupos Locais**e, em seguida, selecione **Grupos**.
@@ -410,11 +410,11 @@ Depois de cada máquina virtual recomeçar como membro do domínio, adicione **o
 7. Clique **em OK** para fechar o diálogo **'Propriedades do Administrador'.**
 8. Repita os passos anteriores no **sqlserver-1** e **no cluster-fsw**.
 
-### <a name="setServiceAccount"></a>Definir as contas de serviço do Servidor SQL
+### <a name="set-the-sql-server-service-accounts"></a><a name="setServiceAccount"></a>Definir as contas de serviço do Servidor SQL
 
 Em cada VM do Servidor SQL, detete a conta de serviço SQL Server. Utilize as contas que criou quando configuraas as contas de domínio.
 
-1. Abrir o gestor de configuração do **servidor SQL**.
+1. Abra o **Gestor de Configuração do SQL Server**.
 2. Clique no serviço SQL Server e, em seguida, clique em **Propriedades**.
 3. Desloque a conta e a senha.
 4. Repita estes passos no outro VM do Servidor SQL.  
@@ -425,7 +425,7 @@ Para os grupos de disponibilidade do Servidor SQL, cada VM do Servidor SQL preci
 
 Utilize a conta de instalação (instalação CORP\) para configurar o grupo de disponibilidade. Esta conta tem de ser um membro da função de servidor fixo **sysadmin** em cada VM do Servidor SQL. Os seguintes passos criam um sessão para a conta de instalação:
 
-1. Ligue-se ao servidor através do Protocolo de Ambiente de Trabalho Remoto (RDP) utilizando o\<Nome do \>conta *\DomainAdmin.*
+1. Ligue-se ao servidor através do Protocolo de Ambiente de Trabalho Remoto (RDP) utilizando a * \<conta MachineName\>\DomainAdmin.*
 
 1. Abra o Estúdio de Gestão de Servidores SQL e ligue-se à instância local do Servidor SQL.
 
@@ -466,7 +466,7 @@ Repita os passos no outro VM do Servidor SQL.
   > Este passo, juntamente com a adesão dos VMs do Servidor SQL ao cluster failover, pode agora ser automatizado com modelos [Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) e [Azure Quickstart.](virtual-machines-windows-sql-availability-group-quickstart-template.md)
 
 
-## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"> Configurar a firewall em cada VM do servidor SQL
+## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall">Configure a firewall em cada VM do servidor SQL
 
 A solução requer que as seguintes portas TCP sejam abertas na firewall:
 
@@ -501,7 +501,7 @@ Repita estes passos no segundo VM do Servidor SQL.
 
 Para criar uma conta para a conta do sistema e conceder permissões apropriadas, complete os seguintes passos em cada instância do Servidor SQL:
 
-1. Crie uma conta para `[NT AUTHORITY\SYSTEM]` em cada instância do Servidor SQL. O seguinte script cria esta conta:
+1. Crie uma `[NT AUTHORITY\SYSTEM]` conta em cada instância do Servidor SQL. O seguinte script cria esta conta:
 
    ```sql
    USE [master]
@@ -510,7 +510,7 @@ Para criar uma conta para a conta do sistema e conceder permissões apropriadas,
    GO 
    ```
 
-1. Conceda as seguintes permissões para `[NT AUTHORITY\SYSTEM]` em cada instância do Servidor SQL:
+1. Conceda as seguintes permissões em `[NT AUTHORITY\SYSTEM]` cada instância do Servidor SQL:
 
    - `ALTER ANY AVAILABILITY GROUP`
    - `CONNECT SQL`

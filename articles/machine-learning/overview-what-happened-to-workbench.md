@@ -11,10 +11,10 @@ author: j-martens
 ms.author: jmartens
 ms.date: 03/05/2020
 ms.openlocfilehash: 9b49eb6237346a76903202a118331383c5a8f623
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944260"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>O que aconteceu ao Azure Machine Learning Workbench?
@@ -28,7 +28,7 @@ A maioria dos artefactos que foram criados na versão anterior do Azure Machine 
 Neste artigo, você aprende sobre o que mudou e como isso afeta o seu trabalho pré-existente com a bancada de trabalho de aprendizagem automática Azure e suas APIs.
 
 >[!Warning]
->Este artigo não é para os utilizadores do Azure Machine Learning Studio. Destina-se aos clientes da Azure Machine Learning que instalaram a aplicação Workbench (pré-visualização) e/ou têm contas de experimentação e gestão de modelos.
+>Este artigo não é para utilizadores do Azure Machine Learning Studio. Destina-se aos clientes da Azure Machine Learning que instalaram a aplicação Workbench (pré-visualização) e/ou têm contas de experimentação e gestão de modelos.
 
 
 ## <a name="what-changed"></a>O que mudou?
@@ -59,15 +59,15 @@ As histórias de execução são agora chamadas **de experiências.** Pode recol
 
 O painel de instrumentos do espaço de trabalho do portal é suportado apenas nos navegadores Microsoft Edge, Chrome e Firefox:
 
-[portal online ![](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
+[![Portal online](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
-Inicie seus modelos de treinamento e ao controlar os históricos de execução usando a nova CLI e SDK. Pode aprender com o [Tutorial: treine modelos com Azure Machine Learning.](tutorial-train-models-with-aml.md)
+Comece a treinar os seus modelos e a rastrear as histórias de execução utilizando os novos CLI e SDK. Pode aprender com o [Tutorial: treine modelos com Azure Machine Learning.](tutorial-train-models-with-aml.md)
 
 ## <a name="will-projects-persist"></a>Os projetos serão mantidos?
 
 Não irá perder qualquer código ou trabalho. Na versão mais antiga, os projetos são entidades na cloud com um diretório local. Na versão mais recente, anexa os diretórios locais ao espaço de trabalho azure machine learning utilizando um ficheiro config local. Veja um [diagrama da arquitetura mais recente.](concept-azure-machine-learning-architecture.md)
 
-Grande parte do conteúdo do projeto já estava na sua máquina local. Por isso, basta criar um ficheiro config nesse diretório e remectá-lo no seu código para se ligar ao seu espaço de trabalho. Para continuar a utilizar o diretório local que contém os seus ficheiros e scripts, especifique o nome do diretório no comando [Python 'experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) ou utilizando o comando `az ml project attach` CLI.  Por exemplo:
+Grande parte do conteúdo do projeto já estava na sua máquina local. Por isso, basta criar um ficheiro config nesse diretório e remectá-lo no seu código para se ligar ao seu espaço de trabalho. Para continuar a utilizar o diretório local que contém os seus ficheiros e scripts, especifique o nome do diretório no comando [Python 'experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) ou utilizando o `az ml project attach` comando CLI.  Por exemplo:
 ```python
 run = exp.submit(source_directory=script_folder,
                  script='train.py', run_config=run_config_system_managed)
@@ -77,21 +77,21 @@ run = exp.submit(source_directory=script_folder,
 
 ## <a name="what-about-my-registered-models-and-images"></a>E os meus modelos e imagens registados?
 
-Os modelos que registou no seu registo do modelo antigo devem ser migrados para nova área de trabalho, se quiser continuar a utilizá-los. Para migrar os seus modelos, descarregue os modelos e registe-os novamente no seu novo espaço de trabalho.
+Os modelos que registou no seu antigo registo de modelos devem ser migrados para o seu novo espaço de trabalho se quiser continuar a utilizá-los. Para migrar os seus modelos, descarregue os modelos e registe-os novamente no seu novo espaço de trabalho.
 
 As imagens que criou no seu antigo registo de imagem não podem ser diretamente migradas para o novo espaço de trabalho. Na maioria dos casos, o modelo pode ser implantado sem ter de criar uma imagem. Se necessário, pode criar uma imagem para o modelo no novo espaço de trabalho. Para mais informações, consulte [Gerir, registar, implementar e monitorizar modelos de aprendizagem automática.](concept-model-management-and-deployment.md)
 
 ## <a name="what-about-deployed-web-services"></a>E em relação aos serviços Web implementados?
 
-Agora que o suporte para o antigo CLI terminou, já não pode reimplantar modelos ou gerir os serviços web que implementou originalmente com a sua conta de Gestão de Modelos. No entanto, esses serviços web vão continuar a funcionar para, desde que o Azure Container Service (ACS) ainda é suportado.
+Agora que o suporte para o antigo CLI terminou, já não pode reimplantar modelos ou gerir os serviços web que implementou originalmente com a sua conta de Gestão de Modelos. No entanto, esses serviços web continuarão a funcionar enquanto o Serviço de Contentores Azure (ACS) ainda for suportado.
 
-Na versão mais recente, os modelos são implementados como serviços da web para clusters do Azure Container Instances (ACI) ou Azure Kubernetes Service (AKS). Também pode ser implantado para FPGAs e Para Azure IoT Edge.
+Na versão mais recente, os modelos são implantados como serviços web para os clusters Azure Container Instances (ACI) ou Azure Kubernetes Service (AKS). Também pode ser implantado para FPGAs e Para Azure IoT Edge.
 
 Saiba mais nestes artigos:
 + [Onde e como implementar modelos](how-to-deploy-and-where.md)
 + [Tutorial: Implementar modelos com Aprendizagem automática Azure](tutorial-deploy-models-with-aml.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Conheça a [mais recente arquitetura para Azure Machine Learning.](concept-azure-machine-learning-architecture.md)
 
@@ -101,5 +101,5 @@ Crie a sua primeira experiência com o seu método preferido:
   + [Use cadernos Python](tutorial-1st-experiment-sdk-setup.md)
   + [Utilizar R Markdown](tutorial-1st-r-experiment.md) 
   + [Utilize aprendizagem automática de máquinas](tutorial-designer-automobile-price-train-score.md) 
-  + [Use as capacidades de arrastar e largar do designer](tutorial-first-experiment-automated-ml.md) 
+  + [Use as capacidades de queda & arrastar do designer](tutorial-first-experiment-automated-ml.md) 
   + [Utilize a extensão ML do CLI](tutorial-train-deploy-model-cli.md)

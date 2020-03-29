@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a7abc402f1fc2e449e7aac5effdb01b6b941100
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672633"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referência das definições de roaming do Windows 10
@@ -49,7 +49,7 @@ Os seguintes grupos de definições estão disponíveis para os utilizadores fin
 * Outras Definições do Windows: consulte os detalhes das Definições do Windows
 * Definição do navegador Microsoft Edge: favoritos do Microsoft Edge, lista de leitura e outras definições
 
-![Sincronizar as definições](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
+![Sincronizar as suas definições](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 > [!NOTE]
 > Este artigo aplica-se ao navegador baseado no Microsoft Edge Legacy HTML lançado com o Windows 10 em julho de 2015. O artigo não se aplica ao novo navegador baseado em Crómio microsoft Edge, lançado a 15 de janeiro de 2020. Para obter mais informações sobre o comportamento do Sync para o novo Microsoft Edge, consulte o artigo [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
@@ -64,7 +64,7 @@ Para a versão 1803 do Windows 1803 ou posterior, a sincronização do grupo de 
 
 ## <a name="windows-settings-details"></a>Detalhes das Definições do Windows
 
-Na tabela a seguir, Outras entradas na coluna do Grupo Definições referem-se a definições que podem ser desativadas indo para Definições > Contas > Sincronize as definições > Outras definições do Windows. 
+Na tabela a seguir, Outras entradas na coluna do Grupo Definições referem-se a definições que podem ser desativadas indo para Definições > Contas > Sincronizar as definições > Outras definições do Windows. 
 
 As entradas internas na coluna do Grupo Definições referem-se a definições e aplicações que só podem ser desativadas de sincronização dentro da própria app ou desativando a sincronização de todo o dispositivo utilizando as definições de gestão de dispositivos móveis (MDM) ou Política de Grupo.
 As configurações que não vagueiam ou sincronizam não pertencerão a um grupo.
@@ -147,25 +147,25 @@ As configurações que não vagueiam ou sincronizam não pertencerão a um grupo
 | **Idioma**: spellcheck - correção automática e destacar erros ortográficos |sincronizar |cópia de segurança |Idioma |
 | **Idioma**: lista de teclados |sincronizar |cópia de segurança |Idioma |
 | **Ecrã de bloqueio**: todas as definições do ecrã de bloqueio |X |X | |
-| **Magnifier:** dentro ou fora (alternar mestre) |X |X |facilidade de acesso |
-| **Magnifier:** ligue ou desligue a cor da inversão (desligada por defeito) |sincronizar |X |facilidade de acesso |
-| **Magnifier**: tracking - siga o foco do teclado |sincronizar |X |facilidade de acesso |
-| **Magnifier**: rastreio - siga o cursor do rato |sincronizar |X |facilidade de acesso |
-| **Amplificador**: comece quando os utilizadores iniciarem o início (desligado por padrão) |sincronizar |X |facilidade de acesso |
+| **Magnifier:** dentro ou fora (alternar mestre) |X |X |Facilidade de acesso |
+| **Magnifier:** ligue ou desligue a cor da inversão (desligada por defeito) |sincronizar |X |Facilidade de acesso |
+| **Magnifier**: tracking - siga o foco do teclado |sincronizar |X |Facilidade de acesso |
+| **Magnifier**: rastreio - siga o cursor do rato |sincronizar |X |Facilidade de acesso |
+| **Amplificador**: comece quando os utilizadores iniciarem o início (desligado por padrão) |sincronizar |X |Facilidade de acesso |
 | **Rato**: alterar o tamanho do cursor de rato |sincronizar |X |outro |
 | **Rato**: mude a cor do cursor do rato |sincronizar |X |outro |
 | **Rato**: todas as outras definições |X |X | |
-| **Narrador**: lançamento rápido |sincronizar |X |facilidade de acesso |
-| **Narrador:** os utilizadores podem mudar o pitch de fala do Narrador |sincronizar |X |facilidade de acesso |
-| **Narrador:** os utilizadores podem ligar ou desligar dicas de leitura do Narrador para itens comuns (por padrão) |sincronizar |X |facilidade de acesso |
-| **Narrador**: os utilizadores podem ligar ou desligar se podem ouvir caracteres dactilografados (por padrão) |sincronizar |X |facilidade de acesso |
-| **Narrador**: os utilizadores podem ligar ou desligar se podem ouvir palavras dactilografadas (por padrão) |sincronizar |X |facilidade de acesso |
-| **Narrador:** insira o cursor seguindo o Narrador (por defeito) |sincronizar |X |facilidade de acesso |
-| **Narrador**: ativar o realce visual do cursor narrador (por padrão) |sincronizar |X |facilidade de acesso |
-| **Narrador:** reproduzir pistas de áudio (por defeito) |sincronizar |X |facilidade de acesso |
-| **Narrador:** ativar as teclas no teclado touch quando levantar o dedo (desligado por defeito) |sincronizar |X |facilidade de acesso |
-| **Facilidade de acesso**: definir a espessura do cursor intermitente |sincronizar |X |facilidade de acesso |
-| **Facilidade de acesso**: remover imagens de fundo (desligadas por padrão) |sincronizar |X |facilidade de acesso |
+| **Narrador**: lançamento rápido |sincronizar |X |Facilidade de acesso |
+| **Narrador:** os utilizadores podem mudar o pitch de fala do Narrador |sincronizar |X |Facilidade de acesso |
+| **Narrador:** os utilizadores podem ligar ou desligar dicas de leitura do Narrador para itens comuns (por padrão) |sincronizar |X |Facilidade de acesso |
+| **Narrador**: os utilizadores podem ligar ou desligar se podem ouvir caracteres dactilografados (por padrão) |sincronizar |X |Facilidade de acesso |
+| **Narrador**: os utilizadores podem ligar ou desligar se podem ouvir palavras dactilografadas (por padrão) |sincronizar |X |Facilidade de acesso |
+| **Narrador:** insira o cursor seguindo o Narrador (por defeito) |sincronizar |X |Facilidade de acesso |
+| **Narrador**: ativar o realce visual do cursor narrador (por padrão) |sincronizar |X |Facilidade de acesso |
+| **Narrador:** reproduzir pistas de áudio (por defeito) |sincronizar |X |Facilidade de acesso |
+| **Narrador:** ativar as teclas no teclado touch quando levantar o dedo (desligado por defeito) |sincronizar |X |Facilidade de acesso |
+| **Facilidade de acesso**: definir a espessura do cursor intermitente |sincronizar |X |Facilidade de acesso |
+| **Facilidade de acesso**: remover imagens de fundo (desligadas por padrão) |sincronizar |X |Facilidade de acesso |
 | **Power and Sleep**: todas as configurações |X |X | |
 | **Visualização do ecrã inicial**: cor de sotaque (apenas telefone) |X |sincronizar |Tema |
 | **Dactilografia**: dicionário de ortografia |sincronizar |cópia de segurança |Idioma |

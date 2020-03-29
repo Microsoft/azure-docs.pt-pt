@@ -12,12 +12,13 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: b91cc5249b386a465ea98b5e81b199323481a733
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: c290cbf36fd53d5afb5fd805cda896fb6879bb4b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77165153"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154955"
 ---
 # <a name="application-types-in-v10"></a>Tipos de aplicação em v1.0
 
@@ -31,11 +32,11 @@ O diagrama que se segue ilustra os cenários e os tipos de aplicação e como po
 
 Estes são os cinco cenários de candidatura primária suportados pela Azure AD:
 
-- **[Aplicação de página única (SPA)](single-page-application.md)** : Um utilizador precisa de iniciar sessão numa aplicação de uma única página que é protegida pela Azure AD.
-- **[Navegador web para aplicação web](web-app.md)** : Um utilizador precisa de iniciar sessão numa aplicação web que é protegida pela Azure AD.
-- **[Aplicação nativa para web API](native-app.md)** : Uma aplicação nativa que funciona num telefone, tablet ou PC precisa de autenticar um utilizador para obter recursos de uma API web que é protegida pela Azure AD.
-- **[Aplicação web para Web API](web-api.md)** : Uma aplicação web precisa de obter recursos de uma API web protegida pela Azure AD.
-- **[Aplicação da ememon ou servidor para web API](service-to-service.md)** : Uma aplicação daemon ou uma aplicação de servidor sem interface de utilizador web precisa de obter recursos de uma API web protegida por Azure AD.
+- **[Aplicação de página única (SPA)](single-page-application.md)**: Um utilizador precisa de iniciar sessão numa aplicação de uma única página que é protegida pela Azure AD.
+- **[Navegador web para aplicação web](web-app.md)**: Um utilizador precisa de iniciar sessão numa aplicação web que é protegida pela Azure AD.
+- **[Aplicação nativa para web API](native-app.md)**: Uma aplicação nativa que funciona num telefone, tablet ou PC precisa de autenticar um utilizador para obter recursos de uma API web que é protegida pela Azure AD.
+- **[Aplicação web para Web API](web-api.md)**: Uma aplicação web precisa de obter recursos de uma API web protegida pela Azure AD.
+- **[Aplicação da ememon ou servidor para web API](service-to-service.md)**: Uma aplicação daemon ou uma aplicação de servidor sem interface de utilizador web precisa de obter recursos de uma API web protegida por Azure AD.
 
 Siga os links para saber mais sobre cada tipo de app e compreenda os cenários de alto nível antes de começar a trabalhar com o código. Também pode aprender sobre as diferenças que precisa de saber ao escrever uma determinada aplicação que funciona com o ponto final v1.0 ou v2.0 endpoint.
 
@@ -71,7 +72,7 @@ O provisionamento torna-se mais claro quando se compreende que existem duas cate
 
 ### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>Considerações adicionais ao desenvolver aplicações individuais de inquilinoou multi-inquilinos
 
-Algumas considerações adicionais surgem no desenvolvimento de um pedido de multi-inquilinoem de um único pedido de inquilino. Por exemplo, se estiver a disponibilizar a sua aplicação aos utilizadores em vários diretórios, precisa de um mecanismo para determinar em que inquilino estão. Uma única aplicação de inquilino só precisa de olhar para um utilizador no seu próprio diretório, enquanto uma aplicação multi-arrendatária precisa identificar um utilizador específico de todos os diretórios da AD Azure. Para realizar esta tarefa, a Azure AD fornece um ponto final de autenticação comum onde qualquer aplicação multi-arrendatária pode dirigir pedidos de inscrição, em vez de um ponto final específico do inquilino. Este ponto final é https://login.microsoftonline.com/common para todos os diretórios em Azure AD, enquanto um ponto final específico do arrendatário pode ser https://login.microsoftonline.com/contoso.onmicrosoft.com. O ponto final comum é especialmente importante a considerar ao desenvolver a sua aplicação porque você precisará da lógica necessária para lidar com vários inquilinos durante a inscrição, inscrição e validação de fichas.
+Algumas considerações adicionais surgem no desenvolvimento de um pedido de multi-inquilinoem de um único pedido de inquilino. Por exemplo, se estiver a disponibilizar a sua aplicação aos utilizadores em vários diretórios, precisa de um mecanismo para determinar em que inquilino estão. Uma única aplicação de inquilino só precisa de olhar para um utilizador no seu próprio diretório, enquanto uma aplicação multi-arrendatária precisa identificar um utilizador específico de todos os diretórios da AD Azure. Para realizar esta tarefa, a Azure AD fornece um ponto final de autenticação comum onde qualquer aplicação multi-arrendatária pode dirigir pedidos de inscrição, em vez de um ponto final específico do inquilino. Este ponto `https://login.microsoftonline.com/common` final é para todos os diretórios em Azure AD, enquanto um ponto final específico do inquilino pode ser `https://login.microsoftonline.com/contoso.onmicrosoft.com`. O ponto final comum é especialmente importante a considerar ao desenvolver a sua aplicação porque você precisará da lógica necessária para lidar com vários inquilinos durante a inscrição, inscrição e validação de fichas.
 
 Se está atualmente a desenvolver uma única aplicação de inquilino, mas quer disponibilizá-la a muitas organizações, pode facilmente fazer alterações na aplicação e na sua configuração em Azure AD para torná-la multi-arrendatária capaz. Além disso, a Azure AD utiliza a mesma chave de assinatura para todos os tokens em todos os diretórios, quer esteja a fornecer autenticação num único pedido de inquilino ou multi-inquilino.
 

@@ -1,6 +1,6 @@
 ---
-title: Não é possível ligar às máquinas de virtuais do Azure remotamente uma vez que a VM arranca no modo de segurança | Documentos da Microsoft
-description: Saiba como resolver um problema em que não é possível RDP para uma VM porque a VM arranca no modo seguro. | Documentos da Microsoft
+title: Não é possível ligar-se remotamente a Máquinas Virtuais Azure porque as botas VM entram em modo seguro [ Microsoft Docs
+description: Aprenda a resolver um problema em que não pode rdp para um VM porque o VM entra em Modo Seguro.[ Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -13,51 +13,51 @@ ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
 ms.openlocfilehash: 7bc2c0f472a03c3f069a889c360bea9017a780f2
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77918211"
 ---
-#  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Não é possível RDP para uma VM porque a VM arranca no modo de segurança
+#  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Não é possível rdp para um VM porque as botas VM em modo seguro
 
-Este artigo mostra como resolver um problema em que não é possível ligar às máquinas de virtuais de Windows do Azure (VMs), porque a VM está configurada para efetuar o arranque no modo seguro.
+Este artigo mostra como resolver um problema em que não é possível ligar-se a Máquinas Virtuais Do Windows (VMs) porque o VM está configurado para iniciar em Modo Seguro.
 
 
 ## <a name="symptoms"></a>Sintomas
 
-Não é possível efetuar uma ligação RDP ou de outras ligações (por exemplo, HTTP) para uma VM no Azure porque a VM está configurada para efetuar o arranque no modo seguro. Quando verificar a imagem nos [diagnósticos](../troubleshooting/boot-diagnostics.md) boot no portal Azure, poderá ver que as botas VM normalmente, mas a interface de rede não está disponível:
+Não é possível efetuar uma ligação RDP ou outras ligações (como HTTP) a um VM em Azure porque o VM está configurado para iniciar em Modo Seguro. Quando verificar a imagem nos [diagnósticos](../troubleshooting/boot-diagnostics.md) boot no portal Azure, poderá ver que as botas VM normalmente, mas a interface de rede não está disponível:
 
-![Imagem sobre inferce de rede em modo de segurança](./media/troubleshoot-rdp-safe-mode/network-safe-mode.png)
+![Imagem sobre inferência de rede em Modo Seguro](./media/troubleshoot-rdp-safe-mode/network-safe-mode.png)
 
 ## <a name="cause"></a>Causa
 
-O serviço RDP não está disponível no modo de segurança. Apenas serviços e programas essenciais do sistema são carregados quando a VM arranca no modo de segurança. Isto aplica-se para as duas versões diferentes do modo de segurança que são "Mínimo de arranque seguro" e "Arranque seguro com a conectividade".
+O serviço RDP não está disponível no Modo Seguro. Apenas programas e serviços essenciais do sistema são carregados quando as botas VM entram em Modo Seguro. Isto aplica-se às duas versões diferentes do Modo Seguro que são "Safe Boot minimal" e "Safe Boot with connectivity".
 
 
 ## <a name="solution"></a>Solução
 
-Antes de seguir estes passos, tire um instantâneo do disco do SO da VM afetado como uma cópia de segurança. Para mais informações, consulte [snapshot um disco](../windows/snapshot-copy-managed-disk.md).
+Antes de seguir estes passos, tire uma foto do disco osso do VM afetado como cópia de segurança. Para mais informações, consulte [snapshot um disco](../windows/snapshot-copy-managed-disk.md).
 
 Para resolver este problema, utilize o controlo de série para configurar o VM para iniciar o modo normal ou [reparar o VM offline](#repair-the-vm-offline) utilizando um VM de recuperação.
 
-### <a name="use-serial-control"></a>Utilizar o controlo de série
+### <a name="use-serial-control"></a>Utilizar o controlo em série
 
 1. Ligue-se à consola em série e abra a [instância CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
    ). Se a Consola em Série não estiver ativada no seu VM, consulte [a reparação do VM offline](#repair-the-vm-offline).
-2. Verifique os dados de configuração de arranque:
+2. Verifique os dados de configuração do arranque:
 
         bcdedit /enum
 
-    Se o VM estiver configurado para iniciar o Modo Seguro, verá uma bandeira extra sob a secção de carregador de **botas do Windows** chamada **safeboot**. Se não vir a bandeira do **safeboot,** o VM não está em modo de segurança. Este artigo não é aplicável ao seu cenário.
+    Se o VM estiver configurado para iniciar o Modo Seguro, verá uma bandeira extra sob a secção de carregador de **botas do Windows** chamada **safeboot**. Se não vir a bandeira do **safeboot,** o VM não está em modo de segurança. Este artigo não se aplica ao seu cenário.
 
     A bandeira **safeboot** pode aparecer com os seguintes valores:
    - Mínimo
    - Rede
 
-     Em qualquer um desses dois modos, RDP não será iniciado. Por conseguinte, a correção permanece igual.
+     Em qualquer um destes dois modos, o RDP não será iniciado. Portanto, a correção permanece a mesma.
 
-     ![Imagem sobre o sinalizador do modo de segurança](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
+     ![Imagem sobre a bandeira do Modo Seguro](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
 
 3. Elimine a bandeira **de safemoade,** para que o VM arranque em modo normal:
 
@@ -67,26 +67,26 @@ Para resolver este problema, utilize o controlo de série para configurar o VM p
 
         bcdedit /enum
 
-5. Reinicie a VM e, em seguida, verifique se o problema está resolvido.
+5. Reinicie o VM e verifique se a questão está resolvida.
 
-### <a name="repair-the-vm-offline"></a>Repare a VM offline
+### <a name="repair-the-vm-offline"></a>Reparar o VM offline
 
-#### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Anexar o disco do SO a uma VM de recuperação
+#### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Fixe o disco OS a um VM de recuperação
 
 1. [Fixe o disco OS a um VM](../windows/troubleshoot-recovery-disks-portal.md)de recuperação .
-2. Inicie uma ligação de ambiente de trabalho remoto para a VM de recuperação.
-3. Certifique-se de que o disco está sinalizado como **Online** na consola de Gestão de Discos. Tenha em atenção a letra de unidade que está atribuída ao disco do SO anexado.
+2. Inicie uma ligação remote Desktop ao VM de recuperação.
+3. Certifique-se de que o disco está sinalizado como **Online** na consola de Gestão de Discos. Note a letra de unidade que é atribuída ao disco osso anexado.
 
-#### <a name="enable-dump-log-and-serial-console-optional"></a>Ativar o registo de informação e a consola de série (opcional)
+#### <a name="enable-dump-log-and-serial-console-optional"></a>Ativar o registo de despejo e a consola em série (opcional)
 
-O registo de informação e a consola de série irão ajudar-nos fazer ainda mais de resolução de problemas se não conseguir resolver o problema a solução neste artigo.
+O registo de despejo e a Consola em Série ajudar-nos-ão a resolver mais problemas se o problema não puder ser resolvido pela solução neste artigo.
 
-Para ativar o registo de despejo e consola de série, execute o seguinte script.
+Para ativar o registo de despejo e a Consola em Série, execute o seguinte script.
 
 1. Abra uma sessão de solicitação de comando elevada **(Executar como administrador).**
 2. Execute o seguintes script:
 
-    Nesse script, partimos do princípio de que a letra de unidade que está atribuída ao disco do SO anexado é F. Substitua esta letra de unidade com o valor apropriado para a sua VM.
+    Neste script, assumimos que a letra de unidade atribuída ao disco OS anexado é F. Substitua esta carta de unidade com o valor adequado para o seu VM.
 
     ```powershell
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM

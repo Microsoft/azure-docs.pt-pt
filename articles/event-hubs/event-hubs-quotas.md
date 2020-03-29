@@ -1,6 +1,6 @@
 ---
-title: Quotas e limites - Event Hubs do Azure | Documentos da Microsoft
-description: Este artigo fornece limites e cotas para os hubs de eventos do Azure. Por exemplo, número de namespaces por assinatura, número de hubs de eventos por namespace.
+title: Quotas e limites - Hubs de Eventos Azure [ Hubs de Eventos Azure ] Microsoft Docs
+description: Este artigo fornece limites e quotas para os Hubs de Eventos Azure. Por exemplo, número de espaços de nome por subscrição, número de centros de eventos por espaço de nome.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: bbe747228fa2f587bc1369c3cb1fbbc91d1817e2
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76309545"
 ---
-# <a name="azure-event-hubs-quotas-and-limits"></a>Limites e quotas de Hubs de eventos do Azure
+# <a name="azure-event-hubs-quotas-and-limits"></a>Quotas e limites dos Hubs de Eventos do Azure
 
-Esta secção lista básicas quotas e limites em Hubs de eventos do Azure.
+Esta secção lista quotas e limites básicos em Hubs de Eventos Azure.
 
 [!INCLUDE [event-hubs-limits](../../includes/event-hubs-limits.md)]
 
@@ -32,6 +32,6 @@ Esta secção lista básicas quotas e limites em Hubs de eventos do Azure.
 
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
-* [Event Hubs Overview (Descrição Geral dos Hubs de Eventos)](event-hubs-what-is-event-hubs.md)
-* [Event Hubs a ampliação automática](event-hubs-auto-inflate.md)
+* [Descrição geral dos Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Hubs de eventos auto-inflação](event-hubs-auto-inflate.md)
 * [FAQ dos Hubs de Eventos](event-hubs-faq.md)

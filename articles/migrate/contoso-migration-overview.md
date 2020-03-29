@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/09/2020
 ms.author: raynew
 ms.openlocfilehash: d37bee589eb7ee2e6e30c8dcea2531dd1f063481
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78939190"
 ---
 # <a name="contoso-migration-series"></a>Série de migração do Contoso
@@ -42,7 +42,7 @@ Os artigos da série são resumidos na tabela abaixo.
 [Artigo 13.º: Reconstruir uma aplicação em Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rebuild) | A Contoso reconstrói a sua aplicação SmartHotel utilizando uma gama de capacidades e serviços Azure, incluindo o Azure App Service, o Azure Kubernetes Service (AKS), o Azure Functions, o Azure Cognitive Services e o Azure Cosmos DB.
 [Artigo 14º: Escala de uma migração para Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-scale) | Depois de experimentar combinações de migração, Contoso prepara-se para escalar para uma migração completa para Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais sobre](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/) migração em nuvem.
 - Conheça as estratégias de migração para outros cenários (par de origem/alvo) no Guia de [Migração](https://datamigration.microsoft.com/)da Base de Dados .

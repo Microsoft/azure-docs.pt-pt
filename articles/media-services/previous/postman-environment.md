@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 8254d121c62a20de0a1593920b7793195f8eb50e
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78926718"
 ---
 # <a name="import-the-postman-environment"></a>Importar o ambiente do Carteiro  
@@ -25,7 +25,7 @@ ms.locfileid: "78926718"
 Este artigo contém uma definição das variáveis ambientais **do Carteiro** que são usadas na coleção [do Carteiro](postman-collection.md) que contém pedidos http agrupados que chamam media services REST APIs. O ambiente e os ficheiros de recolha são utilizados pelo [Configure Postman for Media Services REST API chama tutorial.](media-rest-apis-with-postman.md)
 
 > [!NOTE]
-> O valor da `AzureADSTSEndpoint ``https://login.microsoftonline.com/{{TenantId}}/oauth2/token` = . Para obter o seu ID de inquilino, pode pairar sobre o seu rato sobre o seu nome de utilizador no portal (no canto superior direito) e estará no "Diretório: Microsoft ({{TENANTID}} ) .
+> O valor `AzureADSTSEndpoint `  =  `https://login.microsoftonline.com/{{TenantId}}/oauth2/token`de . Para obter o seu ID de inquilino, pode pairar sobre o seu rato sobre o seu nome de utilizador no portal (no canto superior direito) e estará no "Diretório: Microsoft ({{TENANTID}} ) .
 
 ```
 {

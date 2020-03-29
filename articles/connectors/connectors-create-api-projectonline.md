@@ -1,6 +1,6 @@
 ---
-title: Conectar-se ao Project online por meio de aplicativos lógicos do Azure
-description: Automatizar fluxos de trabalho que monitoram, criam e gerenciam projetos, tarefas e recursos do Project online usando aplicativos lógicos do Azure
+title: Ligue-se ao Projeto Online a partir de Aplicações Lógicas Azure
+description: Automatizar fluxos de trabalho que monitorizam, criam e gerem projetos online, tarefas e recursos através da utilização de Apps Lógicas Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,57 +8,57 @@ ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
 ms.openlocfilehash: 116922e018410f260b33f4dfd76e5983fbbcc0a5
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789329"
 ---
-# <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>Gerenciar projetos, tarefas e recursos do Project online usando os aplicativos lógicos do Azure
+# <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>Gerir projetos online, tarefas e recursos utilizando aplicações lógicas azure
 
-Com os aplicativos lógicos do Azure e o conector do Project online, você pode criar tarefas e fluxos de trabalho automatizados para seus projetos, tarefas e recursos no Project online por meio do Office 365. Seus fluxos de trabalho podem executar essas ações e outros, por exemplo:
+Com as Aplicações Lógicas Azur e o conector Project Online, pode criar tarefas e fluxos de trabalho automatizados para os seus projetos, tarefas e recursos no Project Online através do Office 365. Os seus fluxos de trabalho podem realizar estas ações e outras, por exemplo:
 
-* Monitore quando novos projetos, tarefas ou recursos são criados. Ou então, monitore quando novos projetos são publicados.
-* Crie novos projetos, tarefas ou recursos.
-* Listar projetos ou tarefas existentes.
-* Faça check-out, faça check-in ou publique projetos.
+* Monitorize quando novos projetos, tarefas ou recursos forem criados. Ou monitorizar quando novos projetos forem publicados.
+* Criar novos projetos, tarefas ou recursos.
+* Enumerar os projetos ou tarefas existentes.
+* Check-out, check-in ou publicar projetos.
 
-O Project online ajuda você a planejar, priorizar e gerenciar projetos e investimentos de portfólio de projetos de praticamente qualquer lugar em praticamente qualquer dispositivo, fornecendo poderosos recursos de gerenciamento de projetos. Você pode usar gatilhos do Project online que obtêm respostas do Project online e disponibilizam a saída para outras ações. Você pode usar ações em seus aplicativos lógicos para executar várias tarefas no Project online. Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md)
+O Project Online ajuda-o a planear, priorizar e gerir projetos e investimentos de portfólio de projetos de quase qualquer lugar em quase qualquer dispositivo, fornecendo poderosas capacidades de gestão de projetos. Pode utilizar os gatilhos do Project Online que obtêm respostas do Project Online e disponibilizar a saída a outras ações. Pode utilizar ações nas suas aplicações lógicas para executar várias tarefas no Project Online. Se é novo em aplicações lógicas, reveja [o que são as Aplicações Lógicas Azure?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/). 
 
-* Project online, disponível por meio de uma [conta do Office 365](https://www.office.com/), 
+* Projeto Online, disponível através de uma [conta office 365,](https://www.office.com/) 
 
-* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* O aplicativo lógico no qual você deseja acessar os dados do seu projeto online. Para começar com um gatilho do Project online, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar ações do Project online, inicie seu aplicativo lógico com outro gatilho, por exemplo, o gatilho de **recorrência** .
+* A aplicação lógica onde pretende aceder aos seus dados do Project Online. Para começar com um gatilho Project Online, [crie uma aplicação lógica em branco.](../logic-apps/quickstart-create-first-logic-app-workflow.md) Para utilizar as ações do Project Online, inicie a sua aplicação lógica com outro gatilho, por exemplo, o gatilho **Recurrence.**
 
-## <a name="connect-to-project-online"></a>Conectar-se ao Project online
+## <a name="connect-to-project-online"></a>Ligue-se ao Projeto Online
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Entre no [portal do Azure](https://portal.azure.com)e abra seu aplicativo lógico no designer de aplicativo lógico, se ainda não estiver aberto.
+1. Inscreva-se no [portal Azure](https://portal.azure.com)e abra a sua aplicação lógica no Logic App Designer, se ainda não estiver aberta.
 
 1. Escolha um caminho: 
 
-   * Para aplicativos lógicos em branco, na caixa de pesquisa, digite "Project online" como filtro. 
-   Na lista de gatilhos, selecione o gatilho desejado. 
+   * Para aplicações lógicas em branco, na caixa de pesquisa, insira "Project Online" como filtro. 
+   Na lista de gatilhos, selecione o gatilho que deseja. 
 
      -ou-
 
-   * Para aplicativos lógicos existentes, na etapa em que você deseja adicionar uma ação, escolha **nova etapa**. Na caixa de pesquisa, digite "Project online" como seu filtro. Na lista ações, selecione a ação desejada.
+   * Para aplicações lógicas existentes, sob o passo em que pretende adicionar uma ação, escolha **Novo passo**. Na caixa de pesquisa, introduza "Project Online" como filtro. Na lista de ações, selecione a ação que deseja.
 
-1. Se você for solicitado a entrar no Project online, entre agora.
+1. Se for solicitado que inscreva-se no Project Online, inscreva-se agora.
 
-   Suas credenciais autorizam seu aplicativo lógico a criar uma conexão com o Project online e acessar seus dados.
+   As suas credenciais autorizam a sua aplicação lógica para criar uma ligação ao Project Online e aceder aos seus dados.
 
-1. Forneça os detalhes necessários para o gatilho ou ação selecionado e continue criando o fluxo de trabalho do aplicativo lógico.
+1. Forneça os detalhes necessários para o seu gatilho ou ação selecionados e continue a construir o fluxo de trabalho da sua aplicação lógica.
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descritos pela descrição de OpenAPI (anteriormente, Swagger) do conector, examine a [página de referência](/connectors/projectonline/)do conector.
+Para detalhes técnicos sobre gatilhos, ações e limites, descritos pela descrição OpenAPI (ex-Swagger) do conector, reveja a página de [referência](/connectors/projectonline/)do conector .
 
 ## <a name="get-support"></a>Obter suporte
 
@@ -67,4 +67,4 @@ Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descri
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)
+* Saiba mais sobre outros [conectores de Aplicações Lógicas](../connectors/apis-list.md)

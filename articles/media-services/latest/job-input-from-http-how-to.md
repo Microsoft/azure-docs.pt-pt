@@ -1,6 +1,6 @@
 ---
-title: Criar uma entrada de trabalho dos serviços de mídia do Azure de uma URL HTTPS | Microsoft Docs
-description: Este tópico demonstra como criar uma entrada de trabalho dos serviços de mídia do Azure de uma URL HTTPS.
+title: Criar uma entrada de Trabalho de Serviços de Mídia Azure a partir de um URL HTTPS [ Microsoft Docs
+description: Este tópico demonstra como criar uma entrada azure Media Services Job a partir de um URL HTTPS.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,29 +12,29 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: juliako
 ms.openlocfilehash: a3d4568dd237491f28ae2880bdd78dd236870c3f
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74899835"
 ---
-# <a name="create-a-job-input-from-an-https-url"></a>Criar uma entrada de trabalho de uma URL HTTPS
+# <a name="create-a-job-input-from-an-https-url"></a>Criar uma entrada de trabalho a partir de um URL HTTPS
 
-Nos Serviços de Multimédia do Azure v3, quando submete tarefas para processar os seus vídeos, terá de informar os Serviços de Multimédia do Azure sobre onde se encontra o vídeo de entrada. Uma das opções é especificar uma URL HTTPS como uma entrada de trabalho (como mostrado neste exemplo). Note que, atualmente, o AMS v3 não suporta a codificação de transferência segmentada através de URLs HTTPS. Para obter um exemplo completo, consulte este [exemplo do GitHub](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
+Nos Serviços de Multimédia do Azure v3, quando submete tarefas para processar os seus vídeos, terá de informar os Serviços de Multimédia do Azure sobre onde se encontra o vídeo de entrada. Uma das opções é especificar um URL HTTPS como entrada de trabalho (como mostra este exemplo). Note que, atualmente, o AMS v3 não suporta a codificação de transferência segmentada através de URLs HTTPS. Para um exemplo completo, consulte esta [amostra GitHub](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
 
 > [!TIP]
-> Antes de começar a desenvolver, examine o [desenvolvimento com as APIs dos serviços de mídia v3](media-services-apis-overview.md) (inclui informações sobre como acessar APIs, convenções de nomenclatura, etc.)
+> Antes de começar a desenvolver, reveja [o Desenvolvimento com Os Serviços de Media v3 APIs](media-services-apis-overview.md) (inclui informações sobre o acesso a APIs, convenções de nomeação, etc.)
 
-## <a name="net-sample"></a>Exemplo do .NET
+## <a name="net-sample"></a>amostra .NET
 
-O código a seguir mostra como criar um trabalho com uma entrada de URL HTTPS.
+O código seguinte mostra como criar um trabalho com uma entrada DE URL HTTPS.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-quickstarts/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs#SubmitJob)]
 
 ## <a name="job-error-codes"></a>Códigos de erro das tarefas
 
-Consulte [códigos de erro](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Ver [Códigos de Erro](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Crie uma entrada de trabalho de um arquivo local](job-input-from-local-file-how-to.md).
+[Crie uma entrada de trabalho a partir de um ficheiro local](job-input-from-local-file-how-to.md).

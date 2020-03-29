@@ -1,5 +1,5 @@
 ---
-title: Digitar texto com Azure Media Analytics OCR  Microsoft Docs
+title: Digitar texto com Azure Media Analytics OCR [ Microsoft Docs
 description: O Azure Media Analytics OCR (reconhecimento ótico de caracteres) permite converter conteúdo de texto em ficheiros de vídeo em texto digital editável e pesquisável.  Isto permite automatizar a extração de metadados significativos a partir do sinal de vídeo dos seus meios de comunicação.
 services: media-services
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 11889bd6df0bcc9564c17fdaacc333df1d418660
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77918347"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Utilize o Azure Media Analytics para converter conteúdos de texto em ficheiros de vídeo em texto digital  
@@ -112,7 +112,7 @@ A saída contém os seguintes atributos:
 | Escala temporal |"tiques" por segundo do vídeo |
 | Desvio |tempo compensado para selos de tempo. Na versão 1.0 das APIs de Vídeo, este será sempre 0. |
 | Taxa de fotogramas |Quadros por segundo do vídeo |
-| Largura |largura do vídeo em pixels |
+| largura |largura do vídeo em pixels |
 | altura |altura do vídeo em pixels |
 | Fragmentos |conjunto de pedaços baseados no tempo de vídeo em que os metadados é pedaços |
 | start |início da hora de um fragmento em "carrapatos" |
@@ -122,7 +122,7 @@ A saída contém os seguintes atributos:
 | . |objeto representando palavras ou frases detetadas |
 | language |linguagem do texto detetado dentro de uma região |
 | orientação |orientação do texto detetado dentro de uma região |
-| Linhas |conjunto de linhas de texto detetados dentro de uma região |
+| linhas |conjunto de linhas de texto detetados dentro de uma região |
 | texto |o texto real |
 
 ### <a name="json-output-example"></a>Exemplo de saída jSON

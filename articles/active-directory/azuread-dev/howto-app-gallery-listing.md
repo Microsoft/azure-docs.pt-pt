@@ -1,10 +1,9 @@
 ---
-title: Lista a sua aplicação na galeria de aplicações da AD Azure  Microsoft Docs
+title: Lista a sua aplicação na galeria de aplicações da AD Azure [ Microsoft Docs
 description: Saiba como listar uma aplicação que suporta um único sign-on na galeria de aplicações do Azure Ative Directory
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.topic: conceptual
@@ -12,13 +11,14 @@ ms.workload: identity
 ms.date: 12/06/2019
 ms.author: ryanwi
 ms.reviewer: jeedes
-ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: 99c7d7fccf674fe8cda9d1f64cdf303f1e7764fd
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+ms.custom: aaddev
+ROBOTS: NOINDEX
+ms.openlocfilehash: 969193b2c0843c4eb217d2bdb9f9ad9a40ccf9af
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164841"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154972"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Listar a aplicação na galeria de aplicações do Azure Active Directory
 
@@ -43,9 +43,9 @@ Este artigo mostra como listar uma aplicação na galeria de aplicações Azure 
 - Para obter uma senha SSO, certifique-se de que o suporte da sua aplicação é autenticação para que a abóbada de senha possa ser feita para obter um único sinal para funcionar como esperado.
 - Precisa de uma conta permanente para testes com pelo menos dois utilizadores registados.
 
-**Como obter anúncio do Azure para programadores?**
+**Como obter anúncio sacana do Azure para programadores?**
 
-Você pode obter uma conta de teste gratuita com todas as funcionalidades premium Azure AD - 90 dias grátis e pode ser estendida desde que trabalhe com ele: https://docs.microsoft.com/office/developer-program/office-365-developer-program
+Você pode obter uma conta de teste gratuita com todas as funcionalidades premium Azure AD - 90 dias grátis e pode ser estendida desde que trabalhe com ele:https://docs.microsoft.com/office/developer-program/office-365-developer-program
 
 ## <a name="submit-the-request-in-the-portal"></a>Submeter o pedido no portal
 
@@ -79,11 +79,11 @@ O utilizador convidado é federado a um inquilino doméstico que também é um A
  
 **Soluções seguras:**
 
-* Os utilizadores de hóspedes registados pela MFA remediam o seu próprio risco de utilizador. Isto pode ser feito pelo utilizador convidado que executa uma alteração ou reset de senha segura (https://aka.ms/sspr) no seu inquilino doméstico (isto precisa de MFA e SSPR no inquilino da casa). A alteração ou reset de palavra-passe segura deve ser iniciada em Azure AD e não on-prem.
+* Os utilizadores de hóspedes registados pela MFA remediam o seu próprio risco de utilizador. Isto pode ser feito pelo utilizador convidado que executahttps://aka.ms/sspr) uma alteração ou reset de senha segura (no seu inquilino doméstico (isto precisa de MFA e SSPR no inquilino da casa). A alteração ou reset de palavra-passe segura deve ser iniciada em Azure AD e não on-prem.
 
-* Os utilizadores convidados têm os seus administradores a remediar o seu risco. Neste caso, o administrador realizará um reset de palavra-passe (geração temporária de passwords). Isto não precisa de proteção contra a identidade. O administrador do utilizador convidado pode ir para https://aka.ms/RiskyUsers e clicar em 'Reset password'.
+* Os utilizadores convidados têm os seus administradores a remediar o seu risco. Neste caso, o administrador realizará um reset de palavra-passe (geração temporária de passwords). Isto não precisa de proteção contra a identidade. O administrador do utilizador convidado https://aka.ms/RiskyUsers pode ir e clicar em 'Reset password'.
 
-* Os utilizadores convidados têm os seus administradores próximos / descartam o seu risco. Mais uma vez, isto não precisa de proteção contra a identidade. O administrador pode ir para https://aka.ms/RiskyUsers e clicar em 'Descartar o risco do utilizador'. No entanto, o administrador deve fazer as devidas diligências para garantir que se tratava de uma falsa avaliação de risco positiva antes de fechar o risco do utilizador. Caso contrário, estão a colocar em risco os seus recursos e os recursos da Microsoft, suprimindo uma avaliação de risco sem investigação.
+* Os utilizadores convidados têm os seus administradores próximos / descartam o seu risco. Mais uma vez, isto não precisa de proteção contra a identidade. O administrador pode https://aka.ms/RiskyUsers ir e clicar em 'Descartar o risco do utilizador'. No entanto, o administrador deve fazer as devidas diligências para garantir que se tratava de uma falsa avaliação de risco positiva antes de fechar o risco do utilizador. Caso contrário, estão a colocar em risco os seus recursos e os recursos da Microsoft, suprimindo uma avaliação de risco sem investigação.
 
 > [!NOTE]
 > Se tiver algum problema com acesso, contacte a Equipa de [Integração SSO da AD Azure](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
@@ -96,7 +96,7 @@ Para listar uma aplicação na galeria de aplicações Azure AD, primeiro é nec
 
     ![Listando uma aplicação OpenID Connect na galeria](./media/howto-app-gallery-listing/openid.png)
 
-    * Se pretender adicionar a sua aplicação à lista na galeria utilizando o OpenID Connect, selecione **OpenID Connect & OAuth 2.0** como mostrado.
+    * Se pretender adicionar a sua aplicação à lista na galeria utilizando o OpenID Connect, selecione **OpenID Connect & OAuth 2.0,** como mostrado.
     * Se tiver algum problema com acesso, contacte a Equipa de [Integração SSO da AD Azure](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 - **SAML 2.0** ou **WS-Fed**: Se a sua aplicação suportar o SAML 2.0, pode integrá-la diretamente com um inquilino DaD Azure seguindo as [instruções para adicionar uma aplicação personalizada](../active-directory-saas-custom-apps.md).
@@ -136,7 +136,7 @@ Para atualizar ou remover uma aplicação existente na galeria de aplicações A
 
 ## <a name="list-requests-by-customers"></a>Pedidos de lista por clientes
 
-Os clientes podem submeter um pedido de lista de uma aplicação selecionando pedidos de **App por Clientes** > Enviar novo **pedido.**
+Os clientes podem submeter um pedido de lista de uma aplicação selecionando pedidos de **App por Clientes** > **Enviar novo pedido**.
 
 ![Mostra o azulejo de apps solicitado pelo cliente](./media/howto-app-gallery-listing/customer-submit-request.png)
 
@@ -144,7 +144,7 @@ Aqui está o fluxo de aplicações solicitadas pelo cliente.
 
 ![Mostra o fluxo de aplicações solicitadas pelo cliente](./media/howto-app-gallery-listing/customerrequest.png)
 
-## <a name="timelines"></a>Cronologias
+## <a name="timelines"></a>Linhas cronológicas
 
 A cronologia do processo de listagem de uma aplicação SAML 2.0 ou WS-Fed na galeria é de 7 a 10 dias úteis.
 
@@ -156,4 +156,4 @@ A cronologia do processo de listagem de uma aplicação OpenID Connect na galeri
 
 ## <a name="escalations"></a>Escaladas
 
-Para eventuais escaladas, envie e-mail para a Equipa de [Integração SSO da AD Azure](mailto:SaaSApplicationIntegrations@service.microsoft.com) na SaaSApplicationIntegrations@service.microsoft.com, e responderemos o mais rapidamente possível.
+Para quaisquer escaladas, envie e-mail para a SaaSApplicationIntegrations@service.microsoft.comEquipa de [Integração SSO da AD Azure](mailto:SaaSApplicationIntegrations@service.microsoft.com) em , e responderemos o mais rápido possível.

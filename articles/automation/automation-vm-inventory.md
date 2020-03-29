@@ -7,10 +7,10 @@ keywords: inventário, automatização,alteração, controlo
 ms.date: 01/28/2020
 ms.topic: conceptual
 ms.openlocfilehash: d0324038b8a38d7eba84e5472b8f90439b0322c1
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76844824"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gerir uma máquina virtual do Azure com a recolha de inventário
@@ -24,9 +24,9 @@ Este método fornece uma interface de utilizador baseada no browser para definir
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/).
+Se não tiver uma subscrição Azure, [crie uma conta gratuita.](https://azure.microsoft.com/free/)
 
-Este artigo pressupõe que você tenha uma VM para configurar a solução no. Se não tiver uma máquina virtual do Azure, [crie uma máquina virtual](../virtual-machines/windows/quick-create-portal.md).
+Este artigo assume que tem um VM para configurar a solução. Se não tiver uma máquina virtual do Azure, [crie uma máquina virtual](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -36,14 +36,14 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 1. No painel esquerdo do portal do Azure, selecione **Máquinas virtuais**.
 2. Na lista de máquinas virtuais, selecione uma máquina virtual.
-3. No menu de **recursos** , em **operações**, selecione **inventário**.
-4. Selecione um espaço de trabalho Log Analytics para armazenar seus logs de dados.
+3. No menu **Recurso,** em **Operações,** selecione **Inventário**.
+4. Selecione um espaço de trabalho de Log Analytics para armazenar os seus registos de dados.
     Se não existir uma área de trabalho disponível para essa região, é-lhe pedido para criar uma área de trabalho predefinida e uma conta de automatização.
 5. Para iniciar a inclusão do seu computador, selecione **Ativar**.
 
    ![Ver opções de inclusão](./media/automation-vm-inventory/inventory-onboarding-options.png)
 
-    Uma barra de estado notifica-o de que a solução está a ser ativada. Este processo pode demorar até 15 minutos a concluir. Durante esse tempo, você pode fechar a janela ou pode mantê-la aberta e notificá-lo quando a solução estiver habilitada. Pode monitorizar o estado da implementação a partir do painel de notificações.
+    Uma barra de estado notifica-o de que a solução está a ser ativada. Este processo pode demorar até 15 minutos a concluir. Durante este tempo, pode fechar a janela, ou pode mantê-la aberta e anota quando a solução está ativada. Pode monitorizar o estado da implementação a partir do painel de notificações.
 
    ![Ver a solução de inventário imediatamente após a inclusão](./media/automation-vm-inventory/inventory-onboarded.png)
 
@@ -53,11 +53,11 @@ Quando a implementação estiver concluída, a barra de estado desaparece. O sis
 
 Por predefinição, o software, os serviços do Windows e os daemons Linux estão configurados para a recolha. Para recolher o registo do Windows e o inventário de ficheiros, configure as definições de recolha do inventário.
 
-1. Na exibição de **inventário** , selecione o botão **Editar configurações** na parte superior da janela.
+1. Na vista **Inventário,** selecione o botão Definições de **Edição** na parte superior da janela.
 2. Para adicionar uma nova definição de recolha, navegue para a categoria de definição que quer adicionar através dos separadores **Registo do Windows**, **Ficheiros do Windows** e **Ficheiros do Linux**.
 3. Selecione a categoria apropriada e clique em **Adicionar** na parte superior da janela.
 
-As tabelas a seguir fornecem informações sobre cada propriedade que pode ser configurada para as várias categorias.
+As tabelas seguintes fornecem informações sobre cada imóvel que podem ser configuradas para as várias categorias.
 
 ### <a name="windows-registry"></a>Registo do Windows
 
@@ -77,7 +77,7 @@ As tabelas a seguir fornecem informações sobre cada propriedade que pode ser c
 |Grupo     | Um nome de grupo para agrupar ficheiros logicamente        |
 |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo: "c:\temp\myfile.txt"
 
-### <a name="linux-files"></a>Arquivos do Linux
+### <a name="linux-files"></a>Ficheiros Linux
 
 |Propriedade  |Descrição  |
 |---------|---------|
@@ -90,25 +90,25 @@ As tabelas a seguir fornecem informações sobre cada propriedade que pode ser c
 |Utilizar o Sudo     | Esta definição determina se o sudo é utilizado ao verificar o item.         |
 |Ligações     | Esta definição determina como as ligações simbólicas são processadas ao atravessar diretórios.<br> **Ignorar** - ignora as ligações simbólicas e não inclui os ficheiros/diretórios referenciados<br>**Seguir** - segue as ligações simbólicas durante a recursão e também inclui os ficheiros/diretórios referenciados<br>**Gerir** - segue as ligações simbólicas e permite alterar o tratamento do conteúdo devolvido      |
 
-## <a name="manage-machine-groups"></a>Gerenciar grupos de computadores
+## <a name="manage-machine-groups"></a>Gerir grupos de máquinas
 
-O inventário permite criar e exibir grupos de computadores em logs de Azure Monitor. Grupos de computadores são coleções de computadores definidos por uma consulta em logs de Azure Monitor.
+O inventário permite-lhe criar e visualizar grupos de máquinas em registos do Monitor Azure. Os grupos de máquinas são coleções de máquinas definidas por uma consulta nos registos do Monitor Azure.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Para exibir os grupos de computadores, selecione a guia **grupos de computadores** na página inventário.
+Para ver os grupos de máquinas, selecione o separador **grupos máquinas** na página Inventário.
 
-![Exibir grupos de computadores na página de inventário](./media/automation-vm-inventory/inventory-machine-groups.png)
+![Ver grupos de máquinas na página de inventário](./media/automation-vm-inventory/inventory-machine-groups.png)
 
-A seleção de um grupo de computadores na lista abre a página grupos de computadores. Esta página mostra detalhes sobre o grupo de computadores. Esses detalhes incluem a consulta do log Analytics que é usada para definir o grupo. Na parte inferior da página, é uma lista paginável de computadores que fazem parte desse grupo.
+Selecionando um grupo de máquinas da lista abre a página dos grupos máquinas. Esta página mostra detalhes sobre o grupo de máquinas. Estes detalhes incluem a consulta de log analytics que é usada para definir o grupo. Na parte inferior da página, está uma lista páginada das máquinas que fazem parte desse grupo.
 
-![Página exibir grupo de computadores](./media/automation-vm-inventory/machine-group-page.png)
+![Ver página de grupo de máquinas](./media/automation-vm-inventory/machine-group-page.png)
 
-Clique no botão **+ clone** para clonar o grupo de computadores. Aqui você deve dar ao grupo um novo nome e alias para o grupo. A definição pode ser alterada no momento. Depois de alterar a consulta, pressione **validar consulta** para visualizar os computadores que seriam selecionados. Quando estiver satisfeito com o grupo, clique em **criar** para criar o grupo de computadores
+Clique no botão **+ Clone** para clonar o grupo da máquina. Aqui deve dar ao grupo um novo nome e pseudónimo para o grupo. A definição pode ser alterada neste momento. Depois de alterar a consulta, **valide a consulta** para pré-visualizar as máquinas que seriam selecionadas. Quando estiver feliz com o grupo clique **Em criar** o grupo de máquinas
 
-Se você quiser criar um novo grupo de computadores, selecione **+ criar um grupo de computadores**. Esse botão abre a **página criar um grupo de computadores** , na qual você pode definir o novo grupo. Clique em **Criar** para criar o grupo.
+Se quiser criar um novo grupo de máquinas, **selecione + Crie um grupo de máquinas**. Este botão abre a **página criar uma máquina** de grupo onde pode definir o seu novo grupo. Clique em **Criar** para criar o grupo.
 
-![Criar novo grupo de computadores](./media/automation-vm-inventory/create-new-group.png)
+![Criar novo grupo de máquinas](./media/automation-vm-inventory/create-new-group.png)
 
 ## <a name="disconnect-your-virtual-machine-from-management"></a>Desligar a máquina virtual da gestão
 
@@ -119,7 +119,7 @@ Para remover a máquina virtual da gestão de inventário:
 3. Na lista, selecione a máquina virtual que quer desligar. A máquina virtual tem uma marca de verificação verde junto a **Esta área de trabalho** na coluna **Ligação OMS**.
 
    >[!NOTE]
-   >O OMS agora é conhecido como logs de Azure Monitor.
+   >O OMS é agora referido como registos do Monitor Azure.
    
 4. Na parte superior da página seguinte, selecione **Desligar**.
 5. Na janela de confirmação, selecione **Sim**.
@@ -128,5 +128,5 @@ Para remover a máquina virtual da gestão de inventário:
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre a gestão de alterações nas definições de ficheiros e do registo nas suas máquinas virtuais, veja [Controlar as alterações de software com a solução Controlo de Alterações](../log-analytics/log-analytics-change-tracking.md).
-* Para saber mais sobre como gerenciar atualizações de pacote e do Windows em suas máquinas virtuais, consulte [a solução gerenciamento de atualizações no Azure](../operations-management-suite/oms-solution-update-management.md).
+* Para saber como gerir o Windows e atualizações de pacotes nas suas máquinas virtuais, consulte a [solução De Gestão de Atualizações no Azure](../operations-management-suite/oms-solution-update-management.md).
 

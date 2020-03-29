@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e99b9b87f939d614679fdecf24c9d36d99bf2938
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78671892"
 ---
 # <a name="conditional-access-session"></a>Acesso Condicional: Sessão
@@ -37,12 +37,12 @@ Para obter mais informações sobre a utilização e configuração de restriç�
 
 O Controlo de Aplicações de Acesso Condicional utiliza uma arquitetura de procuração inversa e está exclusivamente integrado com o Azure AD Conditional Access. O Azure AD Conditional Access permite-lhe impor controlos de acesso nas aplicações da sua organização com base em determinadas condições. As condições definem quem (utilizador ou grupo de utilizadores) e o que (quais aplicações na nuvem) e onde (quais localizações e redes) é aplicada uma política de Acesso Condicional. Depois de ter determinado as condições, pode direcionar os utilizadores para o [Microsoft Cloud App Security,](/cloud-app-security/what-is-cloud-app-security) onde pode proteger dados com controlo de aplicações de acesso condicional aplicando controlos de acesso e sessão.
 
-Controlo de aplicação de acesso condicional permite acesso de aplicação do utilizador e as sessões a ser monitorizados e controlados em tempo real com base nas políticas de acesso e de sessão. Políticas de acesso e de sessão são utilizadas no portal do Cloud App Security para refinar os filtros e definir ações a executar num utilizador. Com as políticas de acesso e de sessão, pode:
+O Controlo de Aplicações de Acesso Condicional permite que o acesso e as sessões de aplicações ao utilizador sejam monitorizados e controlados em tempo real com base nas políticas de acesso e sessão. As políticas de acesso e sessão são utilizadas dentro do portal Cloud App Security para aperfeiçoar filtros e definir ações a tomar sobre um utilizador. Com as políticas de acesso e sessão, pode:
 
 - Evitar a exfiltração de dados: Pode bloquear o download, corte, cópia e impressão de documentos sensíveis em, por exemplo, dispositivos não geridos.
 - Proteja no download: Em vez de bloquear o download de documentos sensíveis, pode exigir que os documentos sejam rotulados e protegidos com proteção de informação Azure. Esta ação garante que o documento está protegido e o acesso ao utilizador é restrito numa sessão potencialmente arriscada.
 - Evite o upload de ficheiros não rotulados: Antes de um ficheiro sensível ser carregado, distribuído e utilizado por outros, é importante certificar-se de que o ficheiro tem a etiqueta e a proteção adequadas. Pode garantir que os ficheiros não rotulados com conteúdo sensível estão bloqueados de serem carregados até que o utilizador classifique o conteúdo.
-- Monitorize as sessões de utilizador para o cumprimento: Os utilizadores de risco são monitorizados quando iniciam o seu login nas aplicações e as suas ações são registadas a partir de dentro da sessão. Pode investigar e analisar o comportamento dos utilizadores a compreender onde e em quais condições, as políticas de sessão devem ser aplicadas no futuro.
+- Monitorize as sessões de utilizador para o cumprimento: Os utilizadores de risco são monitorizados quando iniciam o seu login nas aplicações e as suas ações são registadas a partir de dentro da sessão. Pode investigar e analisar o comportamento do utilizador para perceber onde, e em que condições, as políticas de sessão devem ser aplicadas no futuro.
 - Acesso ao bloco: Pode bloquear granularmente o acesso a aplicações específicas e utilizadores dependendo de vários fatores de risco. Por exemplo, pode bloqueá-los se estiverem a usar certificados de cliente como forma de gestão do dispositivo.
 - Atividades personalizadas de bloco: Algumas aplicações têm cenários únicos que carregam risco, por exemplo, enviando mensagens com conteúdo sensível em apps como Microsoft Teams ou Slack. Neste tipo de cenários, pode digitalizar mensagens para conteúdos sensíveis e bloqueá-las em tempo real.
 
@@ -61,7 +61,7 @@ A definição de frequência sessão funciona com aplicações que implementaram
 - Exchange Online
 - SharePoint e OneDrive
 - Clientes web de equipas
-- Dinâmica CRM Online
+- Dynamics CRM Online
 - Portal do Azure
 
 Para mais informações, consulte o artigo [Configure gestão](howto-conditional-access-session-lifetime.md#user-sign-in-frequency)da sessão de autenticação com Acesso Condicional .
@@ -76,4 +76,4 @@ Para mais informações, consulte o artigo [Configure gestão](howto-conditional
 
 - [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 
-- [Modo apenas de relatório](concept-conditional-access-report-only.md)
+- [Modo só de relatório](concept-conditional-access-report-only.md)

@@ -1,89 +1,89 @@
 ---
-title: Nova autenticação para matrizes virtuais StorSimple
-description: Explica como usar a autenticação baseada no AAD para seu serviço, gerar uma nova chave de registro e executar o registro manual dos dispositivos.
+title: Nova autenticação para Matrizes Virtuais StorSimple
+description: Explica como utilizar a autenticação baseada em AAD para o seu serviço, gerar nova chave de registo e realizar o registo manual dos dispositivos.
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 89f367e866c1a794f4359c76b8b8a8a9cfefd50d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76273812"
 ---
-# <a name="use-the-new-authentication-for-your-storsimple"></a>Usar a nova autenticação para o StorSimple
+# <a name="use-the-new-authentication-for-your-storsimple"></a>Utilize a nova autenticação para o seu StorSimple
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
-O serviço StorSimple Device Manager é executado em Microsoft Azure e se conecta a várias matrizes virtuais StorSimple. Até o momento, o serviço StorSimple Device Manager usou um serviço de controle de acesso (ACS) para autenticar o serviço em seu dispositivo StorSimple. O mecanismo ACS será preterido em breve e substituído por uma autenticação Azure Active Directory (AAD).
+O serviço StorSimple Device Manager funciona no Microsoft Azure e conecta-se a várias Matrizes Virtuais StorSimple. Até à data, o serviço StorSimple Device Manager utilizou um serviço de Controlo de Acesso (ACS) para autenticar o serviço ao seu dispositivo StorSimple. O mecanismo ACS será depreciado em breve e substituído por uma autenticação de Diretório Ativo Azure (AAD).
 
-As informações contidas neste artigo são aplicáveis somente às matrizes virtuais do StorSimple 1200 Series. Este artigo descreve os detalhes da autenticação do AAD e a nova chave de registro do serviço associada e as modificações nas regras de firewall, conforme aplicável aos dispositivos StorSimple.
+As informações contidas neste artigo aplicam-se apenas a ambos os Arrays Virtuais da Série StorSimple 1200. Este artigo descreve os detalhes da autenticação AAD e a nova chave de registo de serviço sitia associada e alterações às regras de firewall conforme aplicável aos dispositivos StorSimple.
 
-A autenticação do AAD ocorre em matrizes virtuais StorSimple (modelo 1200) executando a atualização 1 ou posterior.
+A autenticação AAD ocorre em StorSimple Virtual Arrays (modelo 1200) executando Update 1 ou posterior.
 
-Devido à introdução da autenticação do AAD, as alterações ocorrem em:
+Devido à introdução da autenticação AAD, as alterações ocorrem em:
 
 - Padrões de URL para regras de firewall.
-- Chave de registro do serviço.
+- Chave de registo de serviço.
 
-Essas alterações são discutidas em detalhes nas seções a seguir.
+Estas alterações são discutidas em pormenor nas seguintes secções.
 
-## <a name="url-changes-for-aad-authentication"></a>Alterações de URL para autenticação do AAD
+## <a name="url-changes-for-aad-authentication"></a>Alterações de URL para autenticação AAD
 
-Para garantir que o serviço use a autenticação baseada em AAD, todos os usuários devem incluir as novas URLs de autenticação em suas regras de firewall.
+Para garantir que o serviço utiliza a autenticação baseada em AAD, todos os utilizadores devem incluir os novos URLs de autenticação nas suas regras de firewall.
 
-Se estiver usando o StorSimple virtual array, verifique se a seguinte URL está incluída nas regras de firewall:
+Se utilizar o StorSimple Virtual Array, certifique-se de que o seguinte URL está incluído nas regras de firewall:
 
-| Padrão de URL                         | Nuvem | Componente/funcionalidade         |
+| Padrão URL                         | Nuvem | Componente/Funcionalidade         |
 |------------------------------------|-------|---------------------------------|
-| `https://login.windows.net`        | Azure Público |Serviço de autenticação do AAD      |
-| `https://login.microsoftonline.us` | Governo dos Estados Unidos da América |Serviço de autenticação do AAD      |
+| `https://login.windows.net`        | Azure Público |Serviço de autenticação AAD      |
+| `https://login.microsoftonline.us` | Governo dos Estados Unidos |Serviço de autenticação AAD      |
 
-Para obter uma lista completa de padrões de URL para matrizes virtuais StorSimple, acesse [padrões de URL para regras de firewall](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).
+Para obter uma lista completa de padrões de URL para StorSimple Virtual Arrays, vá aos [padrões de URL para regras de firewall](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).
 
-Se a URL de autenticação não estiver incluída nas regras de firewall além da data de reprovação, os usuários verão um alerta crítico de que seu dispositivo StorSimple não pôde autenticar com o serviço. O serviço não poderá se comunicar com o dispositivo. Se os usuários veem esse alerta, eles precisam incluir a nova URL de autenticação. Para obter mais informações sobre o alerta, acesse [usar alertas para monitorar seu dispositivo StorSimple](storsimple-virtual-array-manage-alerts.md#networking-alerts).
+Se o URL de autenticação não estiver incluído nas regras de firewall para além da data de depreciação, os utilizadores vêem um alerta crítico de que o seu dispositivo StorSimple não poderia autenticar com o serviço. O serviço não poderá comunicar com o dispositivo. Se os utilizadores virem este alerta, têm de incluir o novo URL de autenticação. Para mais informações sobre o alerta, vá a [Utilizar alertas para monitorizar o seu dispositivo StorSimple](storsimple-virtual-array-manage-alerts.md#networking-alerts).
 
-## <a name="device-version-and-authentication-changes"></a>Alteração de versão do dispositivo e de autenticação
+## <a name="device-version-and-authentication-changes"></a>Versão do dispositivo e alterações de autenticação
 
-Se estiver usando uma matriz virtual StorSimple, use a tabela a seguir para determinar a ação que você precisa tomar com base na versão do software do dispositivo que você está executando.
+Se utilizar um StorSimple Virtual Array, utilize a tabela seguinte para determinar que medidas precisa de tomar com base na versão do software do dispositivo que está a executar.
 
-| Se o dispositivo estiver em execução  | Execute a seguinte ação                                    |
+| Se o seu dispositivo estiver em execução  | Tome as seguintes medidas                                    |
 |----------------------------|--------------------------------------------------------------|
-| Atualize o 1,0 ou posterior e esteja offline. <br> Você verá um alerta de que a URL não está na lista de permissões.| 1. modifique as regras de firewall para incluir a URL de autenticação. Consulte [URLs de autenticação](#url-changes-for-aad-authentication). <br> 2. [obtenha a chave de registro do AAD do serviço](#aad-based-registration-keys). <br> 3. Execute as etapas 1-5 para [se conectar à interface do Windows PowerShell da matriz virtual](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> 4. Use `Invoke-HcsReRegister` cmdlet para registrar o dispositivo por meio do Windows PowerShell. Forneça a chave que você obteve na etapa anterior.|
-| Atualize o 1,0 ou posterior e o dispositivo está online.| Não é necessário realizar qualquer ação.                                       |
-| Atualize o 0,6 ou anterior e o dispositivo está offline. | 1. [Baixe a atualização 1,0 por meio do servidor de catálogo](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>2. [aplique a atualização 1,0 por meio da interface do usuário da Web local](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix).<br>3. [obtenha a chave de registro do AAD do serviço](#aad-based-registration-keys). <br>4. Execute as etapas 1-5 para [se conectar à interface do Windows PowerShell da matriz virtual](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br>5. Use `Invoke-HcsReRegister` cmdlet para registrar o dispositivo por meio do Windows PowerShell. Forneça a chave que você obteve na etapa anterior.|
-| Atualização 0,6 ou anterior e o dispositivo está online | Modifique as regras de firewall para incluir a URL de autenticação.<br> Instale a atualização 1,0 por meio do portal do Azure. |
+| Atualização 1.0 ou mais tarde e está offline. <br> Vê-se um alerta de que a URL não está na lista branca.| 1. Modificar as regras de firewall para incluir o URL de autenticação. Ver [URLs](#url-changes-for-aad-authentication)de autenticação . <br> 2. [Obtenha a chave de registo AAD do serviço](#aad-based-registration-keys). <br> 3. Execute os passos 1-5 para [ligar à interface Do Windows PowerShell da matriz virtual](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> 4. `Invoke-HcsReRegister` Utilize o cmdlet para registar o dispositivo através do Windows PowerShell. Forneça a chave que obteve no passo anterior.|
+| Atualização 1.0 ou mais tarde e o dispositivo está online.| nenhuma ação necessária.                                       |
+| Atualização 0.6 ou mais cedo e o dispositivo está offline. | 1. [Descarregue a Atualização 1.0 através do servidor](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix)de catálogo .<br>2. [Aplicar a atualização 1.0 através da UI web local](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix).<br>3. [Obtenha a chave de registo AAD do serviço](#aad-based-registration-keys). <br>4. Execute os passos 1-5 para [ligar à interface Windows PowerShell da matriz virtual](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br>5. `Invoke-HcsReRegister` Utilize o cmdlet para registar o dispositivo através do Windows PowerShell. Forneça a chave que obteve no passo anterior.|
+| Atualização 0.6 ou mais cedo e o dispositivo está online | Modifique as regras de firewall para incluir o URL de autenticação.<br> Instale a Atualização 1.0 através do portal Azure. |
 
-## <a name="aad-based-registration-keys"></a>Chaves de registro baseadas no AAD
+## <a name="aad-based-registration-keys"></a>Chaves de registo baseadas em AAD
 
-A partir da atualização 1,0 para matrizes virtuais do StorSimple, são usadas novas chaves de registro baseadas no AAD. Você usa as chaves de registro para registrar o serviço de Device Manager do StorSimple com o dispositivo.
+Atualização inicial 1.0 para Matrizes Virtuais StorSimple, são utilizadas novas teclas de registo baseadas em AAD. Utiliza as chaves de registo para registar o serviço StorSimple Device Manager com o dispositivo.
 
-Você não poderá usar as novas chaves de registro do serviço do AAD se estiver usando uma matriz virtual do StorSimple executando a atualização 0,6 ou anterior. Você precisa regenerar a chave de registro do serviço. Depois de regenerar a chave, a nova chave é usada para registrar todos os dispositivos subsequentes. A chave antiga não é mais válida.
+Não é possível utilizar as novas teclas de registo do serviço AAD se estiver a utilizar um StorSimple Virtual Arrays a executar o Update 0.6 ou mais cedo. Precisa regenerar a chave de registo de serviço. Uma vez regenerado a chave, a nova chave é utilizada para registar todos os dispositivos subsequentes. A velha chave já não é válida.
 
-- A nova chave de registro do AAD expira após 3 dias.
-- As chaves de registro do AAD funcionam somente com matrizes virtuais do StorSimple série 1200 executando a atualização 1 ou posterior. A chave de registro do AAD de um dispositivo StorSimple da série 8000 não funcionará.
-- As chaves de registro do AAD são maiores do que as chaves de registro do ACS correspondentes.
+- A nova chave de registo aAD expira após 3 dias.
+- As teclas de registo AAD funcionam apenas com matrizes virtuais da série StorSimple 1200 a executar o Update 1 ou mais tarde. A chave de registo AAD de um dispositivo da série StorSimple 8000 não funcionará.
+- As chaves de registo AAD são mais compridas do que as respetivas chaves de registo ACS.
 
-Execute as etapas a seguir para gerar uma chave de registro do serviço do AAD.
+Execute os seguintes passos para gerar uma chave de registo de serviço AAD.
 
-#### <a name="to-generate-the-aad-service-registration-key"></a>Para gerar a chave de registro do serviço do AAD
+#### <a name="to-generate-the-aad-service-registration-key"></a>Para gerar a chave de registo de serviço AAD
 
-1. No **StorSimple Device Manager**, vá para **Gerenciamento &gt;** **chaves**.
+1. No **StorSimple Device Manager,** vá a **Chaves**de **Gestão. &gt; **
     
-    ![Ir para chaves](./media/storsimple-virtual-array-aad-registration-key/aad-registration-key1.png)
+    ![Ir a Keys](./media/storsimple-virtual-array-aad-registration-key/aad-registration-key1.png)
 
-2. Clique em **gerar chave**.
+2. Clique na **tecla Generate**.
 
     ![Clique em regenerar](./media/storsimple-virtual-array-aad-registration-key/aad-click-generate-registration-key.png)
 
-3. Copie a nova chave. A chave mais antiga não funciona mais.
+3. Copie a nova chave. A chave mais velha já não funciona.
 
     ![Confirmar regeneração](./media/storsimple-virtual-array-aad-registration-key/aad-registration-key2.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre como implantar o [StorSimple virtual array](storsimple-virtual-array-deploy1-portal-prep.md)
+* Saiba mais sobre como implementar [o StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)

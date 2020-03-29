@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b29f84931c169ffe1c2c81d5e32201cbc63fc88
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78942881"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Ativar o acesso à chave de segurança sem palavras-passe para os recursos no local com o Diretório Ativo Azure (pré-visualização)
@@ -52,8 +52,8 @@ As organizações também devem satisfazer os seguintes requisitos de software.
 - Deve ter a versão 1.4.32.0 ou mais tarde do [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
   - Para obter mais informações sobre as opções de autenticação híbrida Azure AD disponíveis, consulte [Escolha o método de autenticação certo para a sua solução de identidade híbrida Azure Ative Directory](../../security/fundamentals/choose-ad-authn.md) e [selecione qual o tipo de instalação a utilizar para o Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
 - Os controladores de domínio do Windows Server devem ter as seguintes correções instaladas:
-    - Para windows server 2016 - https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
-    - Para windows Server 2019 - https://support.microsoft.com/help/4534321/windows-10-update-kb4534321
+    - Para o Windows Server 2016 -https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
+    - Para windows Server 2019 -https://support.microsoft.com/help/4534321/windows-10-update-kb4534321
 
 ### <a name="supported-scenarios"></a>Cenários suportados
 
@@ -62,7 +62,7 @@ O cenário suporta uma única inscrição (SSO) em ambos os seguintes cenários:
 - Para recursos na nuvem como o Office 365 e outras aplicações ativadas pela SAML.
 - Para recursos no local e autenticação integrada no Windows para sites web. Os recursos podem incluir web sites e sites SharePoint que requerem autenticação IIS, e/ou recursos que usam a autenticação NTLM.
 
-### <a name="unsupported-scenarios"></a>Cenários não apoiados
+### <a name="unsupported-scenarios"></a>Cenários não suportados
 
 Os seguintes cenários não são suportados:
 
@@ -77,11 +77,11 @@ Os seguintes cenários não são suportados:
 Os administradores utilizam ferramentas PowerShell do seu servidor Azure AD Connect para criar um objeto Azure AD Kerberos Server no seu diretório no local. Execute os seguintes passos em cada domínio e floresta na sua organização que contenham utilizadores de AD Azure:
 
 1. Atualize para a versão mais recente do Azure AD Connect. As instruções assumem que já configuraram o Azure AD Connect para suportar o seu ambiente híbrido.
-1. No Azure AD Connect Server, abra um pedido de PowerShell elevado e navegue para `C:\Program Files\Microsoft Azure Active Directory Connect\AzureADKerberos\`
+1. No Azure AD Connect Server, abra um pedido de PowerShell elevado e navegue para`C:\Program Files\Microsoft Azure Active Directory Connect\AzureADKerberos\`
 1. Execute os seguintes comandos PowerShell para criar um novo objeto de servidor Azure AD Kerberos em ambos os seus domínios de Diretório Ativo no local e inquilino do Diretório Ativo Azure.
 
 > [!NOTE]
-> Substitua `contoso.corp.com` no seguinte exemplo com o seu nome de domínio ative diretório no local.
+> Substitua `contoso.corp.com` no seguinte exemplo o nome de domínio ative diretório no local.
 
 ```powerShell
 Import-Module ".\AzureAdKerberos.psd1"
@@ -116,7 +116,7 @@ Este comando produz as propriedades do Servidor Azure AD Kerberos. Pode rever as
 | ID | A identificação única do objeto AD DS DC. Esta identificação é por vezes referida como "slot" ou "ID da filial". |
 | DomainDnsName | O nome de domínio DNS do Domínio do Diretório Ativo. |
 | Conta informática | O objeto da conta do computador do objeto do Servidor Azure AD Kerberos (o DC). |
-| Conta de utilizador | O objeto de conta de utilizador desativado que detém a chave de encriptação TGT do Azure AD AD Kerberos Server. O DN desta conta está `CN=krbtgt_AzureAD,CN=Users,<Domain-DN>` |
+| Conta de utilizador | O objeto de conta de utilizador desativado que detém a chave de encriptação TGT do Azure AD AD Kerberos Server. O DN desta conta é`CN=krbtgt_AzureAD,CN=Users,<Domain-DN>` |
 | Versão-chave | A versão chave da chave de encriptação Azure AD Kerberos Server TGT. A versão é atribuída quando a chave é criada. A versão é então incrementada cada vez que a chave é girada. Os incrementos baseiam-se em meta-dados de replicação e provavelmente maiores do que um. Por exemplo, a versão inicial da *KeyVersion* pode ser *192272*. A primeira vez que a chave é girada, a versão pode avançar para *212621*. O importante a verificar é que a *Versão Chave* para o objeto no local e a *CloudKeyVersion* para o objeto de nuvem são as mesmas. |
 | Keyupdatedon | A data e hora em que a chave de encriptação Azure AD Kerberos Server TGT foi atualizada ou criada. |
 | KeyUpdated From | O DC onde a chave de encriptação Azure AD Kerberos Server TGT foi atualizada pela última vez. |
@@ -148,7 +148,7 @@ Remove-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -Domain
 
 O objeto do servidor Azure AD Kerberos está representado em Azure AD como um objeto *KerberosDomain.* Cada domínio de Diretório Ativo no local é representado como um único objeto *KerberosDomain* em Azure AD.
 
-Por exemplo, a sua organização tem uma floresta de Diretório Ativo com dois domínios, `contoso.com` e `fabrikam.com`. Se optar por permitir que a AD Azure emita TGTs Kerberos para toda a floresta, existem dois objetos *KerberosDomain* em Azure AD. Um objeto *KerberosDomain* para `contoso.com`, e outro para `fabrikam.com`. Se tiver várias florestas de Diretório Ativo, existe um objeto *KerberosDomain* para cada domínio em cada floresta.
+Por exemplo, a sua organização tem uma floresta `contoso.com` `fabrikam.com`de Diretório Ativo com dois domínios, e . Se optar por permitir que a AD Azure emita TGTs Kerberos para toda a floresta, existem dois objetos *KerberosDomain* em Azure AD. Um objeto *KerberosDomain* `contoso.com`para, `fabrikam.com`e um para . Se tiver várias florestas de Diretório Ativo, existe um objeto *KerberosDomain* para cada domínio em cada floresta.
 
 Você precisa executar os passos para criar objeto de [servidor Kerberos](#create-kerberos-server-object) em cada domínio e floresta na sua organização que contenha utilizadores de Anúncios Azure.
 
@@ -192,13 +192,13 @@ Pode remover as chaves do portal Azure navegando para a página de **informaçõ
 
 Se instalar uma máquina híbrida Azure AD, depois de o processo de adesão e reinício do domínio, deve iniciar sessão com uma palavra-passe e esperar que a política se sincronize antes de poder utilizar o FIDO para iniciar sessão.
 
-- Verifique o seu estado atual digitando `dsregcmd /status` numa janela de comando e verifique se tanto *azureAdJoined* como *DomainJoined* estão mostrando *SIM*.
+- Verifique o estado `dsregcmd /status` atual digitando uma janela de comando e verifique se tanto *azureAdJoined* como *DomainJoined* estão mostrando *SIM*.
 - Este atraso é uma limitação conhecida para dispositivos de domínio e não é específico do FIDO.
 
 ### <a name="im-unable-to-get-sso-to-my-ntlm-network-resource-after-signing-in-with-fido-and-get-a-credential-prompt"></a>Não consigo levar o SSO ao meu recurso de rede NTLM depois de assinar com a FIDO e obter um pedido de credencial.
 
-Certifique-se de que os controladores de domínio suficientes são remendados para responder a tempo de atender o seu pedido de recursos. Para verificar se consegue ver um controlador de domínio que está a executar a funcionalidade, reveja a saída de `nltest /dsgetdc:contoso /keylist /kdc`.
+Certifique-se de que os controladores de domínio suficientes são remendados para responder a tempo de atender o seu pedido de recursos. Para verificar se consegue ver um controlador de domínio que `nltest /dsgetdc:contoso /keylist /kdc`está a executar a funcionalidade, reveja a saída de .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre sem palavras-passe](concept-authentication-passwordless.md)

@@ -4,13 +4,13 @@ description: Descreve como resolver problemas o Erro Não Disponível do SKU ao 
 ms.topic: troubleshooting
 ms.date: 02/18/2020
 ms.openlocfilehash: 3dcc26f2d74799a6d282ee4bd733d36bec7b05e4
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78942715"
 ---
-# <a name="resolve-errors-for-sku-not-available"></a>Resolver erros de SKUs não disponíveis
+# <a name="resolve-errors-for-sku-not-available"></a>Resolve errors for SKU not available (Resolver erros de SKUs não disponíveis)
 
 Este artigo descreve como resolver o erro **SkuNotDisponível.** Se não conseguir encontrar um SKU adequado nessa região/zona ou numa região/zona alternativa que satisfaça as suas necessidades de negócio, envie um [pedido de SKU](https://aka.ms/skurestriction) ao Suporte Azure.
 
@@ -40,7 +40,7 @@ Para determinar quais as SKUs disponíveis numa região/zona, utilize o comando 
 Get-AzComputeResourceSku | where {$_.Locations -icontains "centralus"}
 ```
 
-Os resultados incluem uma lista de SKUs para a localização e quaisquer restrições para esse SKU. Note que um SKU pode ser listado como `NotAvailableForSubscription`.
+Os resultados incluem uma lista de SKUs para a localização e quaisquer restrições para esse SKU. Note que um SKU `NotAvailableForSubscription`pode ser listado como .
 
 ```output
 ResourceType          Name           Locations   Zone      Restriction                      Capability           Value
@@ -60,9 +60,9 @@ Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.Res
 
 A despesa "fc" no final devolve mais detalhes.
 
-## <a name="solution-2---azure-cli"></a>Solução 2 - CLI do Azure
+## <a name="solution-2---azure-cli"></a>Solução 2 - Azure CLI
 
-Para determinar quais as UsS KK estão disponíveis numa região, utilize o comando `az vm list-skus`. Utilize o parâmetro `--location` para filtrar a saída para o local que está a utilizar. Utilize o parâmetro `--size` para procurar por um nome de tamanho parcial.
+Para determinar quais as UsS KK `az vm list-skus` estão disponíveis numa região, utilize o comando. Utilize `--location` o parâmetro para filtrar a saída para o local que está a utilizar. Utilize `--size` o parâmetro para procurar por um nome de tamanho parcial.
 
 ```azurecli-interactive
 az vm list-skus --location southcentralus --size Standard_F --output table
@@ -80,7 +80,7 @@ virtualMachines  southcentralus  Standard_F4                ...             None
 ```
 
 
-## <a name="solution-3---azure-portal"></a>Solução de 3 - portal do Azure
+## <a name="solution-3---azure-portal"></a>Solução 3 - Portal Azure
 
 Para determinar quais as UsC disponíveis numa região, utilize o [portal](https://portal.azure.com). Inscreva-se no portal e adicione um recurso através da interface. Ao definir os valores, vê as SKUs disponíveis para esse recurso. Não precisas de completar o destacamento.
 
@@ -90,7 +90,7 @@ Por exemplo, inicie o processo de criação de uma máquina virtual. Para ver ou
 
 Pode filtrar e percorrer os tamanhos disponíveis.
 
-![SKUs disponível](./media/error-sku-not-available/available-sizes.png)
+![SKUs Disponíveis](./media/error-sku-not-available/available-sizes.png)
 
 ## <a name="solution-4---rest"></a>Solução 4 - REST
 

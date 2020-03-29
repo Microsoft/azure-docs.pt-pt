@@ -1,6 +1,6 @@
 ---
-title: Como configurar a retenção em seu ambiente-Azure Time Series Insights | Microsoft Docs
-description: Saiba como configurar a retenção em seu ambiente de Azure Time Series Insights.
+title: Como configurar a retenção no seu ambiente - Azure Time Series Insights [ Microsoft Docs
+description: Aprenda a configurar a retenção no seu ambiente Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,51 +11,51 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.custom: seodec18
 ms.openlocfilehash: 3fdc007caaa4cb79f6083599a5bc176bc022fb03
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278598"
 ---
-# <a name="configuring-retention-in-time-series-insights"></a>Configurando a retenção no Time Series Insights
+# <a name="configuring-retention-in-time-series-insights"></a>Configurar a retenção em Insights da Série Tempo
 
-Este artigo descreve como configurar o **tempo de retenção de dados** e o **comportamento de limite de armazenamento excedido** no Azure Time Series insights.
+Este artigo descreve como configurar o tempo de **retenção** de dados e o limite de **armazenamento excedeu** o comportamento em Insights da Série De Tempo Azure.
 
 ## <a name="summary"></a>Resumo
 
-Cada ambiente de Azure Time Series Insights tem uma configuração para configurar o **tempo de retenção de dados**. O valor se estende de 1 a 400 dias. Os dados são excluídos com base na capacidade de armazenamento do ambiente ou na duração da retenção (1-400), o que vier primeiro.
+Cada ambiente de Insights da Série de Tempo Azure tem uma definição para configurar o tempo de **retenção**de dados . O valor estende-se de 1 a 400 dias. Os dados são eliminados com base na capacidade de armazenamento do ambiente ou duração de retenção (1-400), o que vier em primeiro lugar.
 
-Cada ambiente de Time Series Insights tem um comportamento de limite de armazenamento de configuração adicional **excedido**. Essa configuração controla o comportamento de entrada e limpeza quando a capacidade máxima de um ambiente é atingida. Há dois comportamentos para escolher:
+Cada ambiente de Insights da Série Time tem um limite adicional de definição **De armazenamento excedido**comportamento . Esta definição controla o comportamento de ingresso e purga quando a capacidade máxima de um ambiente é alcançada. Há dois comportamentos para escolher:
 
-- **Limpar dados antigos** (padrão)
-- **Pausar entrada**
+- **Expurgar dados antigos** (padrão)
+- **Pausa ingresso**
 
-Para obter informações detalhadas para entender melhor essas configurações, consulte [noções básicas sobre retenção em time Series insights](time-series-insights-concepts-retention.md).  
+Para obter informações detalhadas para entender melhor estas configurações, reveja [a retenção compreensiva em Insights da Série De Tempo](time-series-insights-concepts-retention.md).  
 
 ## <a name="configure-data-retention"></a>Configurar a retenção de dados
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-1. Localize o seu ambiente do Time Series Insights existente. Selecione **todos os recursos** no menu no lado esquerdo do portal do Azure. Selecione o seu ambiente do Time Series Insights.
+1. Localize o ambiente de Insights da Série Do Tempo existente. Selecione **Todos os recursos** no menu do lado esquerdo do portal Azure. Selecione o seu ambiente do Time Series Insights.
 
-1. No título **configurações** , selecione **configuração de armazenamento**.
+1. Sob a rubrica **Definições,** selecione **Configuração de Armazenamento**.
 
-    [![em configurações, selecione configuração de armazenamento](media/data-retention/configure-data-retention.png)](media/data-retention/configure-data-retention.png#lightbox)
+    [![Em Definições, selecione Configuração de Armazenamento](media/data-retention/configure-data-retention.png)](media/data-retention/configure-data-retention.png#lightbox)
 
-1. Selecione o **tempo de retenção de dados (em dias)** para configurar a retenção usando a barra deslizante ou digite um número na caixa de texto.
+1. Selecione o tempo de **retenção de dados (em dias)** para configurar a retenção utilizando a barra de slider ou digite um número na caixa de texto.
 
-1. Observe a configuração de **capacidade** , pois essa configuração afeta a quantidade máxima de eventos de dados e a capacidade de armazenamento total para armazenar dados.
+1. Note a definição **de capacidade,** uma vez que esta configuração afeta a quantidade máxima de eventos de dados e capacidade total de armazenamento para armazenar dados.
 
-1. Alterne a configuração de **comportamento de limite de armazenamento excedido** . Selecione **limpar dados antigos** ou **Pausar** comportamento de entrada.
+1. Alternar o limite de **armazenamento excedeu** a definição de comportamento. **Selecione Purgar dados antigos** ou pausa no comportamento da **entrada.**
 
-    [![pausar a entrada-aceitar e salvar.](media/data-retention/pause-ingress-accept-and-save.png)](media/data-retention/pause-ingress-accept-and-save.png#lightbox)
+    [![Pausa ingresso - aceite e poupe.](media/data-retention/pause-ingress-accept-and-save.png)](media/data-retention/pause-ingress-accept-and-save.png#lightbox)
 
-1. Examine a documentação para entender os possíveis riscos de perda de dados. Selecione **salvar** para configurar as alterações.
+1. Reveja a documentação para compreender os riscos potenciais da perda de dados. Selecione **Guardar** para configurar as alterações.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter mais informações, consulte [noções básicas sobre retenção em time Series insights](time-series-insights-concepts-retention.md).
+- Para mais informações, reveja [a retenção compreensiva em Insights](time-series-insights-concepts-retention.md)da Série Time .
 
-- Saiba [como dimensionar seu ambiente de time Series insights](time-series-insights-how-to-scale-your-environment.md).
+- Aprenda [a escalar o seu ambiente Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
 
-- Saiba mais sobre como [planejar o seu ambiente](time-series-insights-environment-planning.md).
+- Saiba mais sobre [como planear o seu ambiente.](time-series-insights-environment-planning.md)

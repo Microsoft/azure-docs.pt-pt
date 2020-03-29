@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: ayshak
 ms.openlocfilehash: 5121ef8eb3123d830233e91968c69b331d255bd0
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78161085"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamanhos de máquina virtual de série B
@@ -90,7 +90,7 @@ Linha de base: 270%
 
 Para um D16s_v3 que tem 16 vCPUs e 64 GiB de memória, a taxa horária é de $0,936 por hora ($673,92 mensais) e para B16ms com 16 vCPUs e 64 GiB de memória a taxa é de $0,794 por hora ($547,86 mensal). <b>Isto resulta em poupanças de 15%!</b>
 
-## <a name="q--a"></a>Q e A
+## <a name="q--a"></a>Perguntas e Respostas
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>P: Como obtém um desempenho de base de 135% de um VM?
 

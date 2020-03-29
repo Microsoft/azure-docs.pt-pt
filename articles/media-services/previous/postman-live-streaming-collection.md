@@ -1,6 +1,6 @@
 ---
-title: Importar a coleção do Postman para chamadas REST de transmissão em fluxo em direto da Azure
-description: Este artigo fornece uma definição de coleção do Postman para chamadas REST de serviços de multimédia do Azure.
+title: Importar a coleção de carteiros para chamadas Azure Live Streaming REST
+description: Este artigo fornece uma definição da coleção postman para chamadas DE REST Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 897513abcc9f829f1cbdc315208e4451ae4dbc41
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60637595"
 ---
-# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importar uma coleção do Postman com operações de transmissão em direto 
+# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importar uma coleção de carteiros com operações de streaming ao vivo 
 
-Este artigo contém uma definição do **Postman** coleção que contenha HTTP agrupado solicita essa chamada **transmissão em direto** APIs de REST de serviços de multimédia do Azure. Para obter informações sobre como configurar **Postman** para que possa ser utilizada para chamar as APIs de REST de serviços de multimédia, veja [chama de configurar o Postman para a API de REST dos serviços de multimédia](media-rest-apis-with-postman.md) tutorial.
+Este artigo contém uma definição da coleção **Postman** que contém pedidos http agrupados que chamam **live streaming** Azure Media Services REST APIs. Para obter informações sobre como configurar o **Carteiro** para que possa ser usado para ligar para media services REST APIs, consulte [Configure Postman for Media Services REST API calls](media-rest-apis-with-postman.md) tutorial.
 
 ```
 {

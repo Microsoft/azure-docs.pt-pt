@@ -1,6 +1,6 @@
 ---
 title: Migrar dados do Amazon S3 para o Armazenamento do Azure
-description: Use Azure Data Factory para migrar dados do Amazon S3 para o armazenamento do Azure.
+description: Utilize a Azure Data Factory para migrar dados da Amazon S3 para o Armazenamento Azure.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -12,146 +12,146 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
 ms.openlocfilehash: 6f2db91a35573bc2cbdd0df2cb1ac09914cc956b
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76122649"
 ---
-# <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Use Azure Data Factory para migrar dados do Amazon S3 para o armazenamento do Azure 
+# <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Utilize a Fábrica de Dados Azure para migrar dados da Amazon S3 para o Armazenamento Azure 
 
-O Azure Data Factory fornece um mecanismo de desempenho, robusto e econômico para migrar dados em escala do Amazon S3 para o armazenamento de BLOBs do Azure ou Azure Data Lake Storage Gen2.  Este artigo fornece as seguintes informações para desenvolvedores e engenheiros de dados: 
+A Azure Data Factory fornece um mecanismo performativo, robusto e rentável para migrar dados em escala da Amazon S3 para o Azure Blob Storage ou Azure Data Lake Storage Gen2.  Este artigo fornece as seguintes informações para engenheiros de dados e desenvolvedores: 
 
 > [!div class="checklist"]
 > * Desempenho 
-> * Resiliência de cópia
+> * Copiar resiliência
 > * Segurança da rede
 > * Arquitetura de solução de alto nível 
-> * Práticas recomendadas de implementação  
+> * Implementação de boas práticas  
 
 ## <a name="performance"></a>Desempenho
 
-O ADF oferece uma arquitetura sem servidor que permite paralelismo em diferentes níveis, o que permite aos desenvolvedores criar pipelines para utilizar totalmente a largura de banda da rede, bem como IOPS de armazenamento e largura de banda para maximizar a taxa de transferência de movimentação de dados para o seu ambiente. 
+A ADF oferece uma arquitetura sem servidores que permite o paralelismo a diferentes níveis, o que permite que os desenvolvedores construam oleodutos para utilizar totalmente a largura de banda da sua rede, bem como o armazenamento de IOPS e largura de banda para maximizar a produção de movimento de dados para o seu ambiente. 
 
-Os clientes migraram com êxito petabytes de dados consistindo em centenas de milhões de arquivos do Amazon S3 para o armazenamento de BLOBs do Azure, com uma taxa de transferência sustentada de 2 GBps e mais. 
+Os clientes migraram com sucesso petabytes de dados constituídos por centenas de milhões de ficheiros da Amazon S3 para o Azure Blob Storage, com uma entrada sustentada de 2 GBps e superior. 
 
 ![desempenho](media/data-migration-guidance-s3-to-azure-storage/performance.png)
 
-A figura acima ilustra como você pode obter grandes velocidades de movimentação de dados por meio de diferentes níveis de paralelismo:
+A imagem acima ilustra como você pode alcançar grandes velocidades de movimento de dados através de diferentes níveis de paralelismo:
  
-- Uma única atividade de cópia pode aproveitar os recursos de computação escalonáveis: ao usar Azure Integration Runtime, você pode especificar [até 256 DIUs](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units) para cada atividade de cópia de maneira sem servidor; ao usar o Integration Runtime auto-hospedado, você pode escalar verticalmente o computador manualmente ou escalar horizontalmente para vários computadores ([até 4 nós](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)) e uma única atividade de cópia particionará seu conjunto de arquivos em todos os nós. 
-- Uma única atividade de cópia lê e grava no armazenamento de dados usando vários threads. 
-- O fluxo de controle do ADF pode iniciar várias atividades de cópia em paralelo, por exemplo, usando [loop for each](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity). 
+- Uma única atividade de cópia pode tirar partido dos recursos de computação escaláveis: ao utilizar o Tempo de Execução de Integração Azure, pode especificar [até 256 DIUs](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units) para cada atividade de cópia de forma sem servidores; ao utilizar o tempo de funcionamento de integração auto-hospedado, pode aumentar manualmente a máquina ou escalar para várias máquinas[(até 4 nós](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)), e uma única atividade de cópia irá dividir o seu ficheiro definido em todos os nós. 
+- Uma única atividade de cópia lê e escreve para a loja de dados usando vários fios. 
+- O fluxo de controlo ADF pode iniciar múltiplas atividades de cópia em paralelo, por exemplo, utilizando [Para cada loop](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity). 
 
 ## <a name="resilience"></a>Resiliência
 
-Dentro de uma única execução da atividade de cópia, o ADF tem um mecanismo de repetição interno para que possa lidar com um certo nível de falhas transitórias nos armazenamentos de dados ou na rede subjacente. 
+No âmbito de uma única execução de atividade de cópia, a ADF tem um mecanismo de retry incorporado para que possa lidar com um determinado nível de falhas transitórias nas lojas de dados ou na rede subjacente. 
 
-Ao fazer cópias binárias de S3 para BLOB e de S3 para ADLS Gen2, o ADF executa automaticamente o ponto de verificação.  Se uma execução da atividade de cópia tiver falhado ou expirar, em uma nova tentativa subsequente, a cópia será retomada do último ponto de falha em vez de começar do início. 
+Ao fazer cópias binárias de S3 a Blob e de S3 a ADLS Gen2, a ADF executa automaticamente o checkpointing.  Se uma execução de atividade de cópia tiver falhado ou cronometrado, numa retentativa subsequente, a cópia retoma a partir do último ponto de falha em vez de começar desde o início. 
 
 ## <a name="network-security"></a>Segurança da rede 
 
-Por padrão, o ADF transfere dados do Amazon S3 para o armazenamento de BLOBs do Azure ou Azure Data Lake Storage Gen2 usando a conexão criptografada via protocolo HTTPS.  O HTTPS fornece criptografia de dados em trânsito e impede ataques de interceptação e Man-in-the-Middle. 
+Por padrão, a ADF transfere dados da Amazon S3 para o Azure Blob Storage ou o Azure Data Lake Storage Gen2 utilizando uma ligação encriptada através do protocolo HTTPS.  HTTPS fornece encriptação de dados em trânsito e evita escutas e ataques man-in-the-middle. 
 
-Como alternativa, se você não quiser que os dados sejam transferidos pela Internet pública, poderá obter maior segurança transferindo dados por um link de emparelhamento privado entre o AWS Direct Connect e o Azure Express Route.  Consulte a arquitetura da solução abaixo sobre como isso pode ser feito. 
+Em alternativa, se não quiser que os dados sejam transferidos através da Internet pública, pode obter uma maior segurança transferindo dados através de uma ligação de pares privado seletiva entre a AWS Direct Connect e a Azure Express Route.  Consulte a arquitetura de solução abaixo sobre como isso pode ser alcançado. 
 
 ## <a name="solution-architecture"></a>Arquitetura de soluções
 
-Migrar dados pela Internet pública:
+Migrar dados através da Internet pública:
 
-![solução-arquitetura-pública-rede](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-public-network.png)
+![solução-arquitetura-rede pública](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-public-network.png)
 
-- Nessa arquitetura, os dados são transferidos com segurança usando HTTPS pela Internet pública. 
-- O Amazon S3 de origem, bem como o armazenamento de BLOBs do Azure de destino ou Azure Data Lake Storage Gen2 estão configurados para permitir o tráfego de todos os endereços IP de rede.  Consulte a segunda arquitetura abaixo sobre como você pode restringir o acesso à rede para um intervalo de IP específico. 
-- Você pode escalar verticalmente facilmente a quantidade de potência em maneira sem servidor para utilizar totalmente sua rede e largura de banda de armazenamento para que você possa obter a melhor taxa de transferência para seu ambiente. 
-- A migração de instantâneo inicial e a migração de dados Delta podem ser obtidas usando essa arquitetura. 
+- Nesta arquitetura, os dados são transferidos de forma segura usando HTTPS através da Internet pública. 
+- Tanto a fonte Amazon S3 como o destino Azure Blob Storage ou Azure Data Lake Storage Gen2 estão configurados para permitir o tráfego de todos os endereços IP da rede.  Consulte a segunda arquitetura abaixo sobre como pode restringir o acesso à rede a uma gama IP específica. 
+- Pode facilmente aumentar a quantidade de potência de cavalo de forma sem servidores para utilizar totalmente a sua rede e largura de banda de armazenamento para que possa obter a melhor entrada para o seu ambiente. 
+- Tanto a migração instantânea inicial como a migração de dados delta podem ser alcançadas usando esta arquitetura. 
 
-Migrar dados por link privado: 
+Migrar dados através de ligações privadas: 
 
-![solução-arquitetura-privada-rede](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-private-network.png)
+![solução-arquitetura-rede privada](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-private-network.png)
 
-- Nessa arquitetura, a migração de dados é feita por meio de um link de emparelhamento privado entre o AWS Direct Connect e o Azure Express Route, de modo que os dados nunca percorram pela Internet pública.  Ele requer o uso do VPC AWS e da rede virtual do Azure. 
-- Você precisa instalar o tempo de execução de integração auto-hospedado do ADF em uma VM do Windows em sua rede virtual do Azure para obter essa arquitetura.  Você pode escalar verticalmente suas VMs de IR hospedadas automaticamente ou escalar horizontalmente para várias VMs (até 4 nós) para utilizar totalmente sua rede e IOPS/largura de banda de armazenamento. 
-- Se for aceitável transferir dados por HTTPS, mas você quiser bloquear o acesso à rede S3 para um intervalo de IP específico, você pode adotar uma variação dessa arquitetura removendo o VPC AWS e substituindo o link privado por HTTPS.  Convém manter o IR do Azure virtual e auto-Hosted na VM do Azure para que você possa ter um IP roteável publicamente estático para fins de lista de permissões. 
-- A migração de dados de instantâneo inicial e a migração de dados Delta podem ser obtidas usando essa arquitetura. 
+- Nesta arquitetura, a migração de dados é feita através de uma ligação privada entre a AWS Direct Connect e a Azure Express Route de tal forma que os dados nunca atravessam a Internet pública.  Requer a utilização da rede AWS VPC e Azure Virtual. 
+- Você precisa instalar o tempo de execução de integração auto-hospedado a ADF em um Windows VM dentro da sua rede virtual Azure para alcançar esta arquitetura.  Pode aumentar manualmente os seus VMs de INFRAVERMELHOS auto-hospedados ou escalar para vários VMs (até 4 nós) para utilizar totalmente a sua rede e armazenamento IOPS/largura de banda. 
+- Se for aceitável transferir dados através de HTTPS mas pretender bloquear o acesso à rede à fonte S3 para uma gama IP específica, pode adotar uma variação desta arquitetura removendo AWS VPC e substituindo o link privado por HTTPS.  Você vai querer manter O Iv-Virtual e o IR auto-hospedado no Azure VM para que você possa ter um IP estática publicamente routable para finalidade de whitelisting. 
+- Tanto a migração inicial de dados instantâneos como a migração de dados delta podem ser alcançadas usando esta arquitetura. 
 
-## <a name="implementation-best-practices"></a>Práticas recomendadas de implementação 
+## <a name="implementation-best-practices"></a>Implementação de boas práticas 
 
-### <a name="authentication-and-credential-management"></a>Autenticação e gerenciamento de credenciais 
+### <a name="authentication-and-credential-management"></a>Autenticação e gestão da credencial 
 
-- Para autenticar a conta do Amazon S3, você deve usar a [chave de acesso para a conta iam](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service#linked-service-properties). 
-- Há suporte para vários tipos de autenticação para se conectar ao armazenamento de BLOBs do Azure.  O uso de [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity) é altamente recomendável: criado com base em um ADF gerenciado automaticamente no Azure AD, ele permite que você configure pipelines sem fornecer credenciais na definição de serviço vinculado.  Como alternativa, você pode autenticar no armazenamento de BLOBs do Azure usando a [entidade de serviço](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication), a [assinatura de acesso compartilhado](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication)ou a [chave da conta de armazenamento](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication). 
-- Também há suporte para vários tipos de autenticação para se conectar ao Azure Data Lake Storage Gen2.  O uso de [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity) é altamente recomendado, embora a [entidade de serviço](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) ou a chave de conta de [armazenamento](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication) também possa ser usada. 
-- Quando você não estiver usando identidades gerenciadas para recursos do Azure, [o armazenamento das credenciais em Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) é altamente recomendável para facilitar o gerenciamento e a rotação centralizado das chaves sem modificar os serviços vinculados do ADF.  Essa também é uma das [práticas recomendadas para CI/CD](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd). 
+- Para autenticar a conta Amazon S3, deve utilizar a chave de [acesso para a conta IAM](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service#linked-service-properties). 
+- Vários tipos de autenticação são suportados para ligar ao Armazenamento De Blob Azure.  A utilização de [identidades geridas para recursos Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity) é altamente recomendada: construída em cima de uma identificação ADF gerida automaticamente em Azure AD, permite configurar gasodutos sem fornecer credenciais na definição de Serviço Linked.  Em alternativa, pode autenticar o Armazenamento De Blob Azure utilizando [o Diretor de Serviço,](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication) [a assinatura de acesso partilhado](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication)ou a chave da conta de [armazenamento.](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication) 
+- Vários tipos de autenticação também são suportados para ligar ao Azure Data Lake Storage Gen2.  A utilização de [identidades geridas para recursos Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity) é altamente recomendada, embora o principal de [serviço](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) ou a [chave da conta](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication) de armazenamento também possam ser usados. 
+- Quando não está a utilizar identidades geridas para os recursos Do Azure, [armazenar as credenciais no Cofre chave azure](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) é altamente recomendado para facilitar a gestão central e rotação de chaves sem modificar os serviços ligados à ADF.  Esta é também uma das [melhores práticas para ci/CD](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd). 
 
-### <a name="initial-snapshot-data-migration"></a>Migração de dados de instantâneo inicial 
+### <a name="initial-snapshot-data-migration"></a>Migração inicial de dados instantâneos 
 
-A partição de dados é recomendada especialmente ao migrar mais de 100 TB de dados.  Para particionar os dados, aproveite a configuração ' prefix ' para filtrar as pastas e os arquivos no Amazon S3 por nome e, em seguida, cada trabalho de cópia do ADF pode copiar uma partição de cada vez.  Você pode executar vários trabalhos de cópia do ADF simultaneamente para obter uma melhor taxa de transferência. 
+A partilha de dados é recomendada especialmente quando migra mais de 100 TB de dados.  Para dividir os dados, aproveite a definição de 'prefixo' para filtrar as pastas e ficheiros no Amazon S3 pelo nome, e em seguida, cada trabalho de cópia ADF pode copiar uma partição de cada vez.  Pode executar vários trabalhos de cópia ADF simultaneamente para uma melhor utilização. 
 
-Se qualquer um dos trabalhos de cópia falhar devido a um problema transitório de rede ou de armazenamento de dados, você poderá executar novamente o trabalho de cópia com falha para recarregar essa partição específica novamente do AWS S3.  Todos os outros trabalhos de cópia que carregam outras partições não serão afetados. 
+Se algum dos trabalhos de cópia falhar devido a problema transitório de rede ou loja de dados, pode reexecutar o trabalho de cópia falhado para recarregar essa partição específica novamente da AWS S3.  Todos os outros trabalhos de cópia que carregam outras divisórias não serão afetados. 
 
-### <a name="delta-data-migration"></a>Migração de dados Delta 
+### <a name="delta-data-migration"></a>Migração de dados delta 
 
-A maneira mais eficaz de identificar arquivos novos ou alterados do AWS S3 é usar a Convenção de nomenclatura com particionamento de tempo – quando os dados no AWS S3 tiverem sido particionados com informações de fatia de tempo no nome do arquivo ou da pasta (por exemplo,/yyyy/mm/dd/File.csv), o pipeline poderá identificar facilmente quais arquivos/pastas serão copiados incrementalmente. 
+A forma mais performativa de identificar ficheiros novos ou alterados da AWS S3 é utilizando a convenção de nomeação com divisórias – quando os seus dados no AWS S3 foram divididos com informações de fatias de tempo no ficheiro ou nome da pasta (por exemplo, /yyyy/mm/dd/file.csv), então o seu pipeline pode facilmente identificar quais ficheiros/pastas para copiar incrementalmente. 
 
-Como alternativa, se seus dados no AWS S3 não estiverem com o tempo particionado, o ADF poderá identificar arquivos novos ou alterados por seu LastModifiedDate.   A maneira como ele funciona é que o ADF examinará todos os arquivos do AWS S3 e copiará apenas o arquivo novo e atualizado cujo carimbo de data/hora da última modificação seja maior que um determinado valor.  Lembre-se de que, se você tiver um grande número de arquivos no S3, a verificação de arquivo inicial poderá demorar muito tempo, independentemente de quantos arquivos corresponderem à condição do filtro.  Nesse caso, é recomendável particionar os dados primeiro, usando a mesma configuração de "prefixo" para a migração de instantâneo inicial, para que a verificação de arquivo possa ocorrer em paralelo.  
+Em alternativa, se os seus dados no AWS S3 não estiverem divididos no tempo, a ADF pode identificar novos ou alterados ficheiros pelo seu LastModifiedDate.   A forma como funciona é que a ADF irá digitalizar todos os ficheiros da AWS S3, e apenas copiar o novo e atualizado ficheiro cujo último carimbo de tempo modificado é superior a um determinado valor.  Esteja ciente de que se tiver um grande número de ficheiros no S3, a verificação inicial de ficheiros pode demorar muito tempo, independentemente de quantos ficheiros correspondem à condição do filtro.  Neste caso, sugere-se que partiparta os dados primeiro, utilizando a mesma definição de 'prefixo' para a migração instantânea inicial, para que a verificação de ficheiros possa acontecer em paralelo.  
 
-### <a name="for-scenarios-that-require-self-hosted-integration-runtime-on-azure-vm"></a>Para cenários que exigem o tempo de execução de integração auto-hospedado na VM do Azure 
+### <a name="for-scenarios-that-require-self-hosted-integration-runtime-on-azure-vm"></a>Para cenários que requerem tempo de integração auto-hospedado no Azure VM 
 
-Se você estiver migrando dados sobre o link privado ou se quiser permitir um intervalo IP específico no firewall do Amazon S3, será necessário instalar o tempo de execução de integração auto-hospedado na VM do Windows do Azure. 
+Quer esteja a migrar dados através de link privado ou se pretende permitir uma gama IP específica na firewall Amazon S3, precisa de instalar o tempo de execução de integração auto-hospedado no Azure Windows VM. 
 
-- A configuração recomendada para começar com o para cada VM do Azure é Standard_D32s_v3 com 32 vCPU e 128 GB de memória.  Você pode continuar monitorando a utilização de CPU e de memória da VM IR durante a migração de dados para ver se você precisa escalar verticalmente a VM para melhorar o desempenho ou reduzir verticalmente a VM para economizar custo. 
-- Você também pode escalar horizontalmente associando até quatro nós de VM com um único IR de hospedagem interna.  Um único trabalho de cópia em execução em um IR de hospedagem interna particionará automaticamente o conjunto de arquivos e utilizará todos os nós de VM para copiar os arquivos em paralelo.  Para alta disponibilidade, é recomendável começar com 2 nós de VM para evitar um único ponto de falha durante a migração de dados. 
+- A configuração recomendada para começar para cada VM Azure é Standard_D32s_v3 com 32 vCPU e memória de 128 GB.  Pode continuar a monitorizar a CPU e a utilização da memória do VM de IR durante a migração de dados para ver se precisa de aumentar ainda mais o VM para um melhor desempenho ou reduzir o VM para economizar custos. 
+- Você também pode escalar associando até 4 vM nodes com um único IR auto-hospedado.  Uma única cópia que corre contra um IR auto-hospedado irá automaticamente dividir o conjunto de ficheiros e alavancar todos os nós VM para copiar os ficheiros em paralelo.  Para uma elevada disponibilidade, recomenda-se que comece com 2 nós vM para evitar um único ponto de falha durante a migração de dados. 
 
-### <a name="rate-limiting"></a>Limitação de taxa 
+### <a name="rate-limiting"></a>Rate limiting (Limitação de taxa) 
 
-Como prática recomendada, realize uma POC de desempenho com um conjunto de exemplo representativo, para que você possa determinar um tamanho de partição apropriado. 
+Como uma boa prática, conduza um POC de desempenho com um conjunto de dados representativo da amostra, para que possa determinar um tamanho apropriado da partição. 
 
-Comece com uma única partição e uma única atividade de cópia com a configuração padrão DIU.  Aumente gradualmente a configuração de DIU até atingir o limite de largura de banda de sua rede ou o limite de IOPS/largura de banda dos armazenamentos de dados, ou se você tiver atingido o máximo de 256 DIU permitido em uma única atividade de cópia. 
+Comece com uma única partição e uma única atividade de cópia com a definição padrão de DIU.  Aumente gradualmente a definição de DIU até atingir o limite de largura de banda da sua rede ou limite de largura de banda iOPS/largura de banda das lojas de dados, ou atingiu o max 256 DIU permitido numa única atividade de cópia. 
 
-Em seguida, Aumente gradualmente o número de atividades de cópia simultâneas até atingir os limites do seu ambiente. 
+Em seguida, aumente gradualmente o número de atividades de cópia simultânea até atingir limites do seu ambiente. 
 
-Quando você encontrar erros de limitação relatados pela atividade de cópia do ADF, reduza a configuração de simultaneidade ou DIU no ADF ou considere aumentar os limites de largura de banda/IOPS da rede e dos armazenamentos de dados.  
+Quando se deparacom erros de estrangulamento reportados pela atividade de cópia ADF, reduza a regulação da moeda ou do DIU na ADF, ou considere aumentar os limites de largura de banda/IOPS da rede e das lojas de dados.  
 
-### <a name="estimating-price"></a>Estimando o preço 
+### <a name="estimating-price"></a>Preço estimado 
 
 > [!NOTE]
-> Este é um exemplo de preço hipotético.  Seu preço real depende da taxa de transferência real em seu ambiente.
+> Este é um exemplo hipotético de preços.  O seu preço real depende da produção real no seu ambiente.
 
-Considere o pipeline a seguir construído para migrar dados do S3 para o armazenamento de BLOBs do Azure: 
+Considere o seguinte gasoduto construído para dados migratórios de S3 para O Armazenamento de Blob Azure: 
 
-![preço-pipeline](media/data-migration-guidance-s3-to-azure-storage/pricing-pipeline.png)
+![pipeline de preços](media/data-migration-guidance-s3-to-azure-storage/pricing-pipeline.png)
 
-Vamos supor o seguinte: 
+Assumamos o seguinte: 
 
-- O volume de dados total é 2 PB 
-- Migrando dados por HTTPS usando a primeira arquitetura da solução 
-- 2 PB são divididos em partições de 1 K e cada cópia move uma partição 
-- Cada cópia é configurada com DIU = 256 e atinge uma taxa de transferência de 1 GBps 
-- A simultaneidade ForEach está definida como 2 e a taxa de transferência agregada é de 2 GBps 
-- No total, leva 292 horas para concluir a migração 
+- O volume total de dados é de 2 PB 
+- Dados migratórios sobre HTTPS usando a arquitetura de primeira solução 
+- 2 PB é dividido em divisórias de 1 K e cada cópia move uma divisória 
+- Cada cópia é configurada com DIU=256 e obtém 1 gBps de entrada 
+- ForEach concurrency é definido para 2 e a produção agregada é de 2 GBps 
+- No total, leva 292 horas para completar a migração 
 
-Este é o preço estimado com base nas suposições acima: 
+Aqui está o preço estimado com base nos pressupostos acima referidos: 
 
-![preço-tabela](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
+![tabela de preços](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
 
 ### <a name="additional-references"></a>Referências adicionais 
-- [Conector de serviço de armazenamento simples da Amazon](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service)
-- [Conector de armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-- [Conector de Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-- [Guia de ajuste de desempenho da atividade de cópia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
-- [Criando e configurando Integration Runtime auto-hospedados](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
-- [Escalabilidade e alta disponibilidade do tempo de execução de integração auto-hospedado](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
-- [Considerações de segurança de movimentação de dados](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
+- [Conector do Serviço de Armazenamento Simples da Amazon](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service)
+- [Conector de armazenamento Azure Blob](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
+- [Conector do Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
+- [Guia de afinação de desempenho da atividade de cópia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
+- [Criação e configuração do tempo de execução de integração auto-hospedado](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
+- [Auto-hospedado integração tempo de execução HA e escalabilidade](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
+- [Considerações de segurança sobre movimento de dados](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
 - [Armazenar credenciais no Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
-- [Copiar arquivo incrementalmente com base no nome do arquivo particionado](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-partitioned-file-name-copy-data-tool)
-- [Copiar arquivos novos e alterados com base em LastModifiedDate](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
-- [Página de preços do ADF](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
+- [Copiar ficheiro incrementalmente com base no nome de ficheiro dividido pelo tempo](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-partitioned-file-name-copy-data-tool)
+- [Copiar ficheiros novos e alterados com base no LastModifiedDate](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
+- [Página de preços ADF](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
 ## <a name="template"></a>Modelo
 
-Aqui está o [modelo](solution-template-migration-s3-azure.md) para começar a migrar petabytes de dados que consistem em centenas de milhões de arquivos do Amazon S3 para Azure data Lake Storage Gen2.
+Aqui está o [modelo](solution-template-migration-s3-azure.md) para começar a migrar petabytes de dados que consistem em centenas de milhões de ficheiros da Amazon S3 para o Azure Data Lake Storage Gen2.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Copiar arquivos de vários contêineres com Azure Data Factory](solution-template-copy-files-multiple-containers.md)
+- [Copiar ficheiros de vários contentores com fábrica de dados Azure](solution-template-copy-files-multiple-containers.md)

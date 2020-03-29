@@ -1,30 +1,30 @@
 ---
-title: Status de orquestração personalizado no Durable Functions-Azure
-description: Saiba como configurar e usar o status de orquestração personalizado para Durable Functions.
+title: Estatuto de orquestração personalizada em Funções Duráveis - Azure
+description: Aprenda a configurar e a utilizar o estatuto de orquestração personalizada para funções duráveis.
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 31b7d51293878c9d0e8567b6b4bd58c48d75ec63
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76766262"
 ---
-# <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Status de orquestração personalizado no Durable Functions (Azure Functions)
+# <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Estatuto de orquestração personalizada em Funções Duráveis (Funções Azure)
 
-O status de orquestração personalizado permite definir um valor de status personalizado para a função de orquestrador. Esse status é fornecido por meio da [API http GetStatus](durable-functions-http-api.md#get-instance-status) ou da [API de`GetStatusAsync`](durable-functions-instance-management.md#query-instances) no cliente de orquestração.
+O estatuto de orquestração personalizada permite definir um valor de estado personalizado para a sua função de orquestrador. Este estatuto é fornecido através da [HTTP GetStatus API](durable-functions-http-api.md#get-instance-status) ou da [ `GetStatusAsync` API](durable-functions-instance-management.md#query-instances) no cliente de orquestração.
 
-## <a name="sample-use-cases"></a>Casos de uso de exemplo
+## <a name="sample-use-cases"></a>Casos de utilização de amostras
 
 > [!NOTE]
-> Os exemplos a seguir mostram como usar o recurso de status C# personalizado no e o JavaScript. Os C# exemplos são gravados para Durable Functions 2. x e não são compatíveis com Durable Functions 1. x. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> As seguintes amostras mostram como usar a funcionalidade de estado personalizado em C# e JavaScript. Os exemplos C# são escritos para Funções Duráveis 2.x e não são compatíveis com funções duráveis 1.x. Para obter mais informações sobre as diferenças entre versões, consulte o artigo de [versões De Funções Duráveis.](durable-functions-versions.md)
 
 ### <a name="visualize-progress"></a>Visualizar o progresso
 
-Os clientes podem sondar o ponto de extremidade de status e exibir uma interface do usuário de progresso que visualize o estágio de execução atual. O exemplo a seguir demonstra o compartilhamento de progresso:
+Os clientes podem sondar o ponto final do estado e mostrar um UI de progresso que visualiza a fase de execução atual. A amostra seguinte demonstra a partilha de progressos:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -51,9 +51,9 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-`E1_HelloSequence` função orquestradora:
+`E1_HelloSequence`função orquestradora:
 
 ```javascript
 const df = require("durable-functions");
@@ -73,7 +73,7 @@ module.exports = df.orchestrator(function*(context){
 });
 ```
 
-`E1_SayHello` função de atividade:
+`E1_SayHello`função de atividade:
 
 ```javascript
 module.exports = async function(context, name) {
@@ -83,9 +83,9 @@ module.exports = async function(context, name) {
 
 ---
 
-E, em seguida, o cliente receberá a saída da orquestração somente quando `CustomStatus` campo for definido como "Londres":
+E então o cliente receberá a saída `CustomStatus` da orquestração apenas quando o campo estiver definido para "Londres":
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -118,7 +118,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -148,15 +148,15 @@ module.exports = async function(context, req) {
 ```
 
 > [!NOTE]
-> No JavaScript, o campo `customStatus` será definido quando a próxima `yield` ou `return` ação for agendada.
+> No JavaScript, `customStatus` o campo será `yield` definido `return` quando a próxima ou ação estiver agendada.
 
 ---
 
 ### <a name="output-customization"></a>Personalização de saída
 
-Outro cenário interessante é segmentar os usuários retornando uma saída personalizada com base em características ou interações exclusivas. Com a ajuda de status de orquestração personalizada, o código do lado do cliente permanecerá genérico. Todas as principais modificações ocorrerão no lado do servidor, conforme mostrado no exemplo a seguir:
+Outro cenário interessante é segmentar os utilizadores devolvendo a saída personalizada com base em características ou interações únicas. Com a ajuda do estatuto de orquestração personalizada, o código do lado do cliente permanecerá genérico. Todas as modificações principais ocorrerão no lado do servidor, como mostrado na seguinte amostra:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("CityRecommender")]
@@ -194,7 +194,7 @@ public static void Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -231,9 +231,9 @@ module.exports = df.orchestrator(function*(context) {
 
 ### <a name="instruction-specification"></a>Especificação de instrução
 
-O Orchestrator pode fornecer instruções exclusivas aos clientes por meio do estado personalizado. As instruções de status personalizado serão mapeadas para as etapas no código de orquestração:
+O orquestrador pode fornecer instruções únicas aos clientes através do estado personalizado. As instruções de estado personalizados serão mapeadas para os passos do código de orquestração:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("ReserveTicket")]
@@ -261,7 +261,7 @@ public static async Task<bool> Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -290,11 +290,11 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-## <a name="sample"></a>Exemplo
+## <a name="sample"></a>Sample
 
-No exemplo a seguir, o status personalizado é definido primeiro;
+Na amostra seguinte, o estado personalizado é definido em primeiro lugar;
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrationContext context)
@@ -309,7 +309,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -327,7 +327,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-Enquanto a orquestração está em execução, os clientes externos podem buscar esse status personalizado:
+Enquanto a orquestração está em execução, os clientes externos podem obter este estatuto personalizado:
 
 ```http
 GET /runtime/webhooks/durabletask/instances/instance123
@@ -347,9 +347,9 @@ Os clientes receberão a seguinte resposta:
 ```
 
 > [!WARNING]
-> A carga de status personalizada é limitada a 16 KB de texto JSON UTF-16 porque ele precisa ser capaz de se ajustar em uma coluna de armazenamento de tabelas do Azure. Recomendamos que você use o armazenamento externo se precisar de uma carga maior.
+> A carga de estado personalizado está limitada a 16 KB de texto JSON UTF-16 porque precisa de ser capaz de caber numa coluna de armazenamento de mesa Azure. Recomendamos que utilize armazenamento externo se precisar de uma carga útil maior.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre temporizadores duráveis](durable-functions-timers.md)
+> [Saiba mais sobre os tempos duráveis](durable-functions-timers.md)

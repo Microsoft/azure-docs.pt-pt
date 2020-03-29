@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8c44d6266f5ea8cdd4f75d0449cb49852e71c905
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672401"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Ativar o Roaming de Estado Empresarial no Azure Active Directory
@@ -55,7 +55,7 @@ O valor país/região é definido como parte do processo de criação de diretó
 Siga estes passos para visualizar um relatório de estado de sincronização do dispositivo por utilizador.
 
 1. Inscreva-se no [centro de administração da Azure AD](https://aad.portal.azure.com/).
-1. Selecione **Diretório Ativo azure** &gt; **utilizadores** &gt; **todos os utilizadores**.
+1. Selecione **Utilizadores de Diretório** &gt; **Users** &gt; Ativo Azure **Todos os utilizadores**.
 1. Selecione o utilizador e, em seguida, selecione **Dispositivos**.
 1. Em **'Show',** selecione **Dispositivos sincronizando definições e dados** de aplicações para mostrar o estado de sincronização.
   
@@ -91,8 +91,8 @@ A política de retenção de dados não é configurável. Uma vez eliminados per
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Visão geral do roaming do Estado da Empresa](enterprise-state-roaming-overview.md)
-* [Definições e dados que roamingFA](enterprise-state-roaming-faqs.md)
+* [Descrição geral do Roaming de Estado Empresarial](enterprise-state-roaming-overview.md)
+* [FAQ de definições e roaming de dados](enterprise-state-roaming-faqs.md)
 * [Política de Grupo e definições de MDM para sincronização de configurações](enterprise-state-roaming-group-policy-settings.md)
-* [Referência de definições de roaming do Windows 10](enterprise-state-roaming-windows-settings-reference.md)
+* [Referência das definições de roaming do Windows 10](enterprise-state-roaming-windows-settings-reference.md)
 * [Resolução de problemas](enterprise-state-roaming-troubleshooting.md)

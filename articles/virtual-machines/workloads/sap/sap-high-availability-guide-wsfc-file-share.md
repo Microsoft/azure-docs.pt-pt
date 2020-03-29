@@ -1,5 +1,5 @@
 ---
-title: Cluster SAP ASCS/SCS na WSFC utilizando a quota de ficheiros no Azure  Microsoft Docs
+title: Cluster SAP ASCS/SCS na WSFC utilizando a quota de ficheiros no Azure [ Microsoft Docs
 description: Aprenda a agrupar uma instância SAP ASCS/SCS num cluster de falhas do Windows utilizando uma quota de ficheiro sintetizá-lo no Azure.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -17,10 +17,10 @@ ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 545bcd1fa521b945d822b7eb69945cf381bf480a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77918670"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -250,10 +250,10 @@ Esta arquitetura é específica das seguintes formas:
 
 * Os serviços centrais SAP (com a sua própria estrutura de ficheiros e processos de mensagem e enfila) estão separados dos ficheiros de acolhimento globais da SAP.
 * Os serviços centrais SAP funcionam sob uma instância SAP ASCS/SCS.
-* A instância SAP ASCS/SCS está agrupada e é acessível utilizando o nome de hospedeiro virtual ASCS/SCS \<\> nome de hospedeiro virtual.
-* Os ficheiros globais da SAP são colocados na parte de ficheiroS SMB e são acedidos utilizando o \<nome de anfitrião global do SAP\>: \\\\&lt;anfitrião global da SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\...
+* A instância SAP ASCS/SCS está agrupada e é acessível utilizando o \<nome\> de anfitrião virtual ASCS/SCS.
+* Os ficheiros globais da SAP são colocados na \<partilha de\> ficheiros \\ \\ &lt;SMB e&gt;são acedidos utilizando o nome de anfitrião global SAP: SAP global host \sapmnt\\&lt;SID&gt;\SYS\...
 * A instância SAP ASCS/SCS está instalada num disco local em ambos os nós do cluster.
-* O nome de anfitrião virtual ascs/SCS \<\> nome de rede é diferente do &lt;&gt;global de anfitriões SAP.
+* O \<nome de rede de nome\> virtual ascs/scs é diferente do &lt;hospedeiro&gt;global SAP .
 
 ![Figura 2: Arquitetura SAP ASCS/SCS HA com partilha de ficheiros SMB][sap-ha-guide-figure-8004]
 
@@ -262,17 +262,17 @@ _**Figura 2:** Nova arquitetura SAP ASCS/SCS HA com uma partilha de ficheiroS SM
 Pré-requisitos para uma partilha de ficheiroS SMB:
 
 * Protocolo SMB 3.0 (ou posterior).
-* Capacidade de definir listas de controlo de acesso ao Diretório Ativo (ACLs) para grupos de utilizadores de Diretório Ativo e o `computer$` objeto de computador.
+* Capacidade de definir listas de controlo de acesso ao Diretório `computer$` Ativo (ACLs) para grupos de utilizadores de Diretório Ativo e o objeto de computador.
 * A parte do ficheiro deve ser ativada por HA:
     * Os discos utilizados para armazenar ficheiros não devem ser um único ponto de falha.
     * O tempo de inatividade do servidor ou do VM não causa tempo de inatividade na partilha de ficheiros.
 
-O SAP \<a função de cluster\> SID não contém discos partilhados de cluster ou um recurso genérico de partilha de ficheiros.
+A função de cluster SAP \<SID\> não contém discos partilhados de cluster ou um recurso genérico de partilha de ficheiros.
 
 
-![Figura 3: SAP \<SID\> recursos de papel de cluster para a utilização de uma parte de ficheiro][sap-ha-guide-figure-8005]
+![Figura 3: \<Recursos\> de cluster SAP SID para a utilização de uma parte de ficheiro][sap-ha-guide-figure-8005]
 
-_**Figura 3:** SAP &lt;SID&gt; recursos de papel de cluster para usar uma parte de arquivo_
+_**Figura 3:** Recursos &lt;de&gt; papel de cluster SAP SID para usar uma parte de arquivo_
 
 
 ## <a name="scale-out-file-shares-with-storage-spaces-direct-in-azure-as-an-sapmnt-file-share"></a>Partilhas de ficheiros scale-out com Espaços de Armazenamento Direto em Azure como uma partilha de ficheiros SAPMNT
@@ -317,20 +317,20 @@ Para utilizar uma partilha de ficheiros scale-out, o seu sistema deve satisfazer
 * Para um bom desempenho de rede entre VMs, que é necessário para a sincronização do disco De armazenamento Spaces Direct, utilize um tipo VM que tenha pelo menos uma largura de banda de rede "alta".
     Para mais informações, consulte as especificações [dSv2-Series][dv2-series] e [DS-Series.][ds-series]
 * Recomendamos que reserve alguma capacidade não atribuída no depósito. Deixar alguma capacidade não atribuída na piscina de armazenamento dá espaço aos volumes para reparar "no lugar" se uma unidade falhar. Isto melhora a segurança e o desempenho dos dados.  Para mais informações, consulte [Escolher o tamanho do volume][choosing-the-size-of-volumes-s2d].
-* Não é necessário configurar o equilíbrio interno de carga azure para o nome da rede de partilha de ficheiros à escala, como para \<\>global de anfitriões SAP. Isto é feito para o \<nome de hospedeiro virtual ASCS/SCS\> da instância SAP ASCS/SCS ou para o DBMS. Uma partilha de ficheiros scale-out escala a carga em todos os nós do cluster. \<anfitrião global da SAP\> usa o endereço IP local para todos os nós de cluster.
+* Não é necessário configurar o equilíbrio interno de carga azure para o nome \<da rede\>de partilha de ficheiros à escala, como para o anfitrião global SAP . Isto é feito \<para o nome\> de hospedeiro virtual ASCS/SCS da instância SAP ASCS/SCS ou para o DBMS. Uma partilha de ficheiros scale-out escala a carga em todos os nós do cluster. \<O anfitrião\> global da SAP usa o endereço IP local para todos os nós do cluster.
 
 
 > [!IMPORTANT]
-> Não é possível renomear a parte de ficheiro SAPMNT, que aponta para \<\>global de anfitriões da SAP. A SAP apoia apenas o nome de partilha "sapmnt".
+> Não é possível renomear a parte de \<ficheiro SAPMNT, que aponta para o anfitrião\>global da SAP. A SAP apoia apenas o nome de partilha "sapmnt".
 >
 > Para mais informações, consulte [SAP Nota 2492395 - O nome da partilha pode ser alterado?][2492395]
 
 ### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>Configure as instâncias SAP ASCS/SCS e uma quota de ficheiro supérbio em dois clusters
 
-Pode implementar instâncias SAP ASCS/SCS num só cluster, com o seu próprio SAP \<SID\> função de cluster. Neste caso, configura a quota de ficheiros scale-out noutro cluster, com outra função de cluster.
+Pode implantar instâncias SAP ASCS/SCS num só cluster, com a sua própria função de cluster SAP \<SID.\> Neste caso, configura a quota de ficheiros scale-out noutro cluster, com outra função de cluster.
 
 > [!IMPORTANT]
->Neste cenário, a instância SAP ASCS/SCS está configurada para aceder ao anfitrião global SAP, utilizando o caminho do CNU \\\\&lt;anfitrião global da SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\.
+>Neste cenário, a instância SAP ASCS/SCS está configurada para aceder ao \\ \\ &lt;hospedeiro global&gt;SAP utilizando\\&lt;&gt;o caminho cNU SAP global host \sapmnt SID \SYS\.
 >
 
 ![Figura 5: Instância SAP ASCS/SCS e uma quota de ficheiro sitia implantada em dois clusters][sap-ha-guide-figure-8007]

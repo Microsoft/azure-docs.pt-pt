@@ -17,10 +17,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: defdf8118f1b07f8d6ddc4d232cda0fc423ef9f6
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76897251"
 ---
 # <a name="risky-ip-report-public-preview"></a>Relatório IP arriscado (pré-visualização pública)
@@ -98,21 +98,21 @@ O limiar de alerta pode ser atualizado a partir das Definições do Limiar. Para
 >
 
 ## <a name="faq"></a>FAQ
-**Porque é que estou a ver endereços IP privados no relatório?**  <br />
+**Por que razão estou a ver intervalos de endereços IP privados no relatório?**  <br />
 Os endereços IP privados (<i>10.x.x.x, 172.x.x.x e 192.168.x.x</i>) e os endereços IP do Exchange são filtrados e marcados como Verdadeiros na lista de permissões. Se vir intervalos de endereços IP privados, é altamente provável que o seu balanceador de carga externo não esteja a enviar o endereço IP cliente quando transmite o pedido para o servidor Proxy de Aplicação Web.
 
-**Porque é que estou a ver endereços IP do equilibrador de carga no relatório?**  <br />
+**Porque estou a ver endereços IP do balanceador de carga no relatório?**  <br />
 Se vir endereços IP do balanceador de carga, é altamente provável que o seu balanceador de carga externo não esteja a enviar o endereço IP cliente quando transmite o pedido para o servidor Proxy de Aplicação Web. Configure o seu balanceador de carga corretamente para o reencaminhamento do endereço IP do cliente. 
 
-**O que faço para bloquear o endereço IP?**  <br />
+**Como posso bloquear o endereço IP?**  <br />
 Deve adicionar um endereço IP malicioso identificado à firewall ou bloqueá-lo no Exchange.   <br />
 
-**Porque é que não estou a ver nenhum objeto neste relatório?** <br />
+**Por que razão não vejo nenhum item neste relatório?** <br />
 - As atividades de início de sessão falhadas não estão a exceder as definições de limiar.
 - Confirme que não tem nenhum alerta “O serviço de estado de funcionamento não está atualizado” ativo na sua lista de servidores do AD FS.  Leia mais sobre [como resolver problemas com este alerta](how-to-connect-health-data-freshness.md).
 - As auditorias não estão ativadas nos farms do AD FS.
 
-**Porque é que não vejo acesso ao relatório?**  <br />
+**Por que razão não estou a ver o acesso ao relatório?**  <br />
 É necessária a permissão Administrador Global ou [Leitor de Segurança](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader). Contacte o administrador global para obter acesso.
 
 

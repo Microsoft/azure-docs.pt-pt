@@ -1,109 +1,109 @@
 ---
-title: Consultas do SQL JOIN para Azure Cosmos DB
-description: Saiba como unir várias tabelas em Azure Cosmos DB para consultar os dados
+title: SQL JOIN consultas para Azure Cosmos DB
+description: Saiba como juntar várias tabelas no Azure Cosmos DB para consultar os dados
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
 ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74871147"
 ---
-# <a name="joins-in-azure-cosmos-db"></a>Junções no Azure Cosmos DB
+# <a name="joins-in-azure-cosmos-db"></a>Junta-se ao Azure Cosmos DB
 
-Em um banco de dados relacional, as junções entre as tabelas são o registro lógico da criação de esquemas normalizados. Por outro lado, a API do SQL usa o modelo de dados desnormalizado de itens sem esquema, que é o equivalente lógico de uma *auto-associação*.
+Numa base de dados relacional, as juntas entre mesas são o corolário lógico para conceber esquemas normalizados. Em contrapartida, a API SQL utiliza o modelo de dados desnormalizado de itens isentos de esquemas, que é o equivalente lógico de uma *auto-adesão*.
 
-Associações internas resultam num produto cruzado completo dos conjuntos de participar na União. O resultado de uma junção N-vias é um conjunto de cadeias de identificação de elemento de N, onde cada valor na cadeia de identificação é associado o alias definido a participar na União e pode ser acedido ao consultar esse alias em outras cláusulas.
+Juntas interiores resultam num produto cruzado completo dos conjuntos participantes na adesão. O resultado de uma adesão n-way é um conjunto de tuples de elemento N, onde cada valor na tuple está associado ao conjunto pseudónimo que participa na adesão e pode ser acedido referindo esse pseudónimo em outras cláusulas.
 
 ## <a name="syntax"></a>Sintaxe
 
-O idioma dá suporte à sintaxe `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`. Essa consulta retorna um conjunto de tuplas com `N` valores. Cada tupla tem valores produzidos por fazendo a iteração de todos os aliases de contentor através de seus respectivos conjuntos. 
+A linguagem suporta a `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`sintaxe. Esta consulta devolve um conjunto de `N` tupículos com valores. Cada tuple tem valores produzidos por iterar todos os pseudónimos de contentores sobre os respetivos conjuntos. 
 
-Vejamos o seguinte cláusula FROM: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
+Vamos ver a seguinte cláusula FROM:`<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
- Permitir que cada origem de definir `input_alias1, input_alias2, …, input_aliasN`. Essa cláusula FROM devolve um conjunto de tuplas de N (cadeia de identificação com valores de N). Cada tupla tem valores produzidos por fazendo a iteração de todos os aliases de contentor através de seus respectivos conjuntos.  
+ Deixe que `input_alias1, input_alias2, …, input_aliasN`cada fonte defina . Esta cláusula FROM devolve um conjunto de N-tuples (tuple com valores N). Cada tuple tem valores produzidos por iterar todos os pseudónimos de contentores sobre os respetivos conjuntos.  
   
-**Exemplo 1** -2 origens  
+**Exemplo 1** - 2 fontes  
   
-- Permitir que `<from_source1>` ser contentor no âmbito e representam o conjunto {A, B, C}.  
+- Deixe-o `<from_source1>` ser remeto e represente o conjunto {A, B, C}.  
   
-- Permitir que `<from_source2>` ser documentos no âmbito referenciar input_alias1 e representam conjuntos:  
+- Deixe-se `<from_source2>` fazer referência seleto ao documento input_alias1 e representar conjuntos:  
   
-    {1, 2} para `input_alias1 = A,`  
+    {1, 2} para`input_alias1 = A,`  
   
-    {3} para `input_alias1 = B,`  
+    {3}para`input_alias1 = B,`  
   
-    {4, 5} para `input_alias1 = C,`  
+    {4, 5} para`input_alias1 = C,`  
   
-- A cláusula FROM `<from_source1> JOIN <from_source2>` resultará em cadeias de identificação seguintes:  
+- A cláusula `<from_source1> JOIN <from_source2>` FROM resultará nos seguintes tuples:  
   
     (`input_alias1, input_alias2`):  
   
     `(A, 1), (A, 2), (B, 3), (C, 4), (C, 5)`  
   
-**Exemplo 2** -3 origens  
+**Exemplo 2** - 3 fontes  
   
-- Permitir que `<from_source1>` ser contentor no âmbito e representam o conjunto {A, B, C}.  
+- Deixe-o `<from_source1>` ser remeto e represente o conjunto {A, B, C}.  
   
-- Permitem `<from_source2>` ser no âmbito do documento referenciar `input_alias1` e representam conjuntos:  
+- Deixe-se `<from_source2>` fazer referência `input_alias1` seleto ao documento e representar conjuntos:  
   
-    {1, 2} para `input_alias1 = A,`  
+    {1, 2} para`input_alias1 = A,`  
   
-    {3} para `input_alias1 = B,`  
+    {3}para`input_alias1 = B,`  
   
-    {4, 5} para `input_alias1 = C,`  
+    {4, 5} para`input_alias1 = C,`  
   
-- Permitem `<from_source3>` ser no âmbito do documento referenciar `input_alias2` e representam conjuntos:  
+- Deixe-se `<from_source3>` fazer referência `input_alias2` seleto ao documento e representar conjuntos:  
   
-    {100, 200} para `input_alias2 = 1,`  
+    {100, 200} para`input_alias2 = 1,`  
   
-    {300} para `input_alias2 = 3,`  
+    {300}para`input_alias2 = 3,`  
   
-- A cláusula FROM `<from_source1> JOIN <from_source2> JOIN <from_source3>` resultará em cadeias de identificação seguintes:  
+- A cláusula `<from_source1> JOIN <from_source2> JOIN <from_source3>` FROM resultará nos seguintes tuples:  
   
     (input_alias1, input_alias2, input_alias3):  
   
-    (A, 1, 100), (A, 1, 200), (B, 3, 300)  
+    A, 1,100), A, 1,200), B, 3.300)  
   
   > [!NOTE]
-  > Falta de cadeias de identificação de outros valores de `input_alias1`, `input_alias2`, para o qual o `<from_source3>` não devolveu quaisquer valores.  
+  > Falta de tuples para `input_alias1` `input_alias2`outros valores `<from_source3>` de, para os quais os não devolveram quaisquer valores.  
   
-**Exemplo 3** -3 origens  
+**Exemplo 3** - 3 fontes  
   
-- Permitir que < from_source1 > ser no âmbito do contentor e representam conjunto {A, B, C}.  
+- Deixe <from_source1> ser de alcance de contentores e representar o conjunto {A, B, C}.  
   
-- Permitir que `<from_source1>` ser contentor no âmbito e representam o conjunto {A, B, C}.  
+- Deixe-o `<from_source1>` ser remeto e represente o conjunto {A, B, C}.  
   
-- Permitir que < from_source2 > ser input_alias1 de referência no âmbito do documento e representam conjuntos:  
+- Que <from_source2> ser referenciado por documentos input_alias1 e represente conjuntos:  
   
-    {1, 2} para `input_alias1 = A,`  
+    {1, 2} para`input_alias1 = A,`  
   
-    {3} para `input_alias1 = B,`  
+    {3}para`input_alias1 = B,`  
   
-    {4, 5} para `input_alias1 = C,`  
+    {4, 5} para`input_alias1 = C,`  
   
-- Permitem `<from_source3>` confinados `input_alias1` e representam conjuntos:  
+- Vamos `<from_source3>` ser examinados `input_alias1` e representar conjuntos:  
   
-    {100, 200} para `input_alias2 = A,`  
+    {100, 200} para`input_alias2 = A,`  
   
-    {300} para `input_alias2 = C,`  
+    {300}para`input_alias2 = C,`  
   
-- A cláusula FROM `<from_source1> JOIN <from_source2> JOIN <from_source3>` resultará em cadeias de identificação seguintes:  
+- A cláusula `<from_source1> JOIN <from_source2> JOIN <from_source3>` FROM resultará nos seguintes tuples:  
   
     (`input_alias1, input_alias2, input_alias3`):  
   
-    (A, 1, 100), (A, 1, 200), (A, 2, 100), (A, 2, 200),  (C, 4, 300) ,  (C, 5, 300)  
+    A, 1,100), A, 1, 200), A, 2, 100), A, 2, 200), C, 4, 300, C, 5, 300)  
   
   > [!NOTE]
-  > Isso resultou em produto cruzado entre `<from_source2>` e `<from_source3>` uma vez que ambos estão no âmbito da mesma `<from_source1>`.  Isso resultou em 4 (2 x 2) as tuplas ter valor A, as tuplas 0 ter valor B (1 x 0) e 2 (2 x 1) as tuplas ter valor C.  
+  > Isto resultou num `<from_source2>` produto `<from_source3>` cruzado entre e porque `<from_source1>`ambos são orientados para o mesmo .  Isto resultou em tuples de 4 (2x2) com valor A, 0 tuples com valor B (1x0) e 2 (2x1) tuples com valor C.  
   
 ## <a name="examples"></a>Exemplos
 
-Os exemplos seguintes mostram como funciona a cláusula JOIN. Antes de executar esses exemplos, carregue os [dados da família](sql-query-getting-started.md#upload-sample-data)de exemplo. No exemplo a seguir, o resultado está vazio, pois o produto cruzado de cada item da origem e um conjunto vazio está vazio:
+Os exemplos seguintes mostram como funciona a cláusula JOIN. Antes de executar estes exemplos, faça upload dos [dados da família](sql-query-getting-started.md#upload-sample-data)da amostra . No exemplo seguinte, o resultado está vazio, uma vez que o produto transversal de cada item de origem e um conjunto vazio está vazio:
 
 ```sql
     SELECT f.id
@@ -118,7 +118,7 @@ O resultado é:
     }]
 ```
 
-No exemplo a seguir, a junção é um produto cruzado entre dois objetos JSON, a raiz do item `id` e a subraiz `children`. O fato de que `children` é uma matriz não é eficaz na junção, pois lida com uma única raiz que é a matriz de `children`. O resultado contém apenas dois resultados, porque o produto cruzado de cada item com a matriz produz exatamente apenas um item.
+No exemplo seguinte, a união é um produto cruzado entre `id` dois `children` objetos JSON, a raiz do item e a subraiza. O facto `children` de ser uma matriz não é eficaz na união, `children` porque lida com uma única raiz que é a matriz. O resultado contém apenas dois resultados, porque o produto transversal de cada item com a matriz produz exatamente apenas um item.
 
 ```sql
     SELECT f.id
@@ -139,7 +139,7 @@ Os resultados são:
     ]
 ```
 
-O exemplo seguinte mostra uma junção mais convencional:
+O exemplo que se segue mostra uma adesão mais convencional:
 
 ```sql
     SELECT f.id
@@ -163,15 +163,15 @@ Os resultados são:
     ]
 ```
 
-A origem da cláusula de junção é um iterador. Portanto, o fluxo no exemplo anterior é:  
+A fonte da cláusula JOIN é um iterator. Assim, o fluxo no exemplo anterior é:  
 
-1. Expanda cada elemento filho `c` na matriz.
-2. Aplique um produto cruzado com a raiz do item `f` com cada elemento filho `c` que a primeira etapa seja nivelada.
-3. Por fim, projeto o objeto raiz `f` `id` Propriedade sozinha.
+1. Expanda cada `c` elemento infantil na matriz.
+2. Aplique um produto transversal com a `f` raiz do `c` item com cada elemento infantil que o primeiro passo achatado.
+3. Finalmente, projete `f` `id` a propriedade do objeto raiz sozinho.
 
-O primeiro item, `AndersenFamily`, contém apenas um elemento `children`, portanto, o conjunto de resultados contém apenas um único objeto. O segundo item, `WakefieldFamily`, contém dois `children`, portanto, o produto cruzado produz dois objetos, um para cada elemento `children`. Os campos de raiz em ambos os esses itens são iguais, tal como se poderia esperar num produto cruzado.
+O primeiro item, `AndersenFamily`contém `children` apenas um elemento, pelo que o conjunto de resultados contém apenas um único objeto. O segundo item, `WakefieldFamily` `children`contém dois, assim o produto transversal produz `children` dois objetos, um para cada elemento. Os campos de raiz em ambos os itens são os mesmos, tal como seria de esperar num produto transversal.
 
-O verdadeiro utilitário da cláusula JOIN é formar tuplas do produto cruzado em uma forma que seja difícil de projetar. O exemplo a seguir filtra na combinação de uma tupla que permite que o usuário escolha uma condição satisfeita pelas tuplas como um todo.
+A verdadeira utilidade da cláusula JOIN é formar tuples do produto transversal numa forma que de outra forma é difícil de projetar. O exemplo abaixo filtra a combinação de uma tuple que permite ao utilizador escolher uma condição satisfeita pelas tupículas em geral.
 
 ```sql
     SELECT 
@@ -206,7 +206,7 @@ Os resultados são:
     ]
 ```
 
-A seguinte extensão do exemplo anterior executa uma junção dupla. Você pode exibir o produto cruzado como o seguinte pseudocódigo:
+A seguinte extensão do exemplo anterior executa uma dupla adesão. Pode ver o produto transversal como o seguinte pseudo-código:
 
 ```
     for-each(Family f in Families)
@@ -224,9 +224,9 @@ A seguinte extensão do exemplo anterior executa uma junção dupla. Você pode 
     }
 ```
 
-`AndersenFamily` tem um filho que tem um animal de estimação, portanto, o produto cruzado produz uma linha (1\*1\*1) desta família. `WakefieldFamily` tem dois filhos, apenas um deles tem animais de estimação, mas esse filho tem dois animais de estimação. O produto cruzado para esta família gera 1\*1\*2 = 2 linhas.
+`AndersenFamily`tem um filho que tem um animal de estimação, por isso o produto cruzado produz uma linha (1\*1 1\*1) desta família. `WakefieldFamily`tem dois filhos, apenas um dos quais tem animais de estimação, mas essa criança tem dois animais de estimação. O produto transversal para\*esta\*família produz 1 12 = 2 linhas.
 
-No próximo exemplo, há um filtro adicional em `pet`, que exclui todas as tuplas em que o nome do animal de estimação não é `Shadow`. Você pode criar tuplas de matrizes, filtrar em qualquer um dos elementos da tupla e projetar qualquer combinação dos elementos.
+No exemplo seguinte, há um `pet`filtro adicional, que exclui todos os tuples onde o nome do animal de estimação não `Shadow`está . Pode construir tuples a partir de matrizes, filtrar qualquer um dos elementos da tuple, e projetar qualquer combinação dos elementos.
 
 ```sql
     SELECT 
@@ -254,6 +254,6 @@ Os resultados são:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Introdução](sql-query-getting-started.md)
-- [Exemplos do Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Subconsultas](sql-query-subquery.md)
+- [Começar](sql-query-getting-started.md)
+- [Amostras Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Subqueides](sql-query-subquery.md)

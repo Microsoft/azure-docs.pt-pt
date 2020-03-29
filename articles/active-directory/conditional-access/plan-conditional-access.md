@@ -1,5 +1,5 @@
 ---
-title: Plan Conditional Access policies in Azure Ative Directory  Microsoft Docs
+title: Plan Conditional Access policies in Azure Ative Directory [ Microsoft Docs
 description: Neste artigo, aprende-se a planear políticas de Acesso Condicional para o Diretório Ativo Azure.
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e1c75d5022432a9a57b30aabec4dd2c4f76f2f29
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78671820"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Como: Planear a sua implantação de Acesso Condicional no Diretório Ativo Azure
@@ -52,9 +52,9 @@ Utilize o seguinte modelo de exemplo para criar políticas de Acesso Condicional
 
 |Quando *isto* acontecer:|Então faça *isto:*|
 |-|-|
-|É feita uma tentativa de acesso:<br>- Para uma aplicação na nuvem *<br>- Por utilizadores e grupos*<br>Utilização:<br>- Condição 1 (por exemplo, fora da rede Corp)<br>- Condição 2 (por exemplo, plataformas de dispositivos)|Bloquear o acesso à aplicação|
-|É feita uma tentativa de acesso:<br>- Para uma aplicação na nuvem *<br>- Por utilizadores e grupos*<br>Utilização:<br>- Condição 1 (por exemplo, fora da rede Corp)<br>- Condição 2 (por exemplo, plataformas de dispositivos)|Acesso de concessão com (E):<br>- Requisito 1 (por exemplo, MFA)<br>- Requisito 2 (por exemplo, conformidade com o dispositivo)|
-|É feita uma tentativa de acesso:<br>- Para uma aplicação na nuvem *<br>- Por utilizadores e grupos*<br>Utilização:<br>- Condição 1 (por exemplo, fora da rede Corp)<br>- Condição 2 (por exemplo, plataformas de dispositivos)|Acesso de concessão com (OR):<br>- Requisito 1 (por exemplo, MFA)<br>- Requisito 2 (por exemplo, conformidade com o dispositivo)|
+|É feita uma tentativa de acesso:<br>- Para uma aplicação*<br>na nuvem - Por utilizadores e grupos*<br>Utilização:<br>- Condição 1 (por exemplo, fora da rede Corp)<br>- Condição 2 (por exemplo, plataformas de dispositivos)|Bloquear o acesso à aplicação|
+|É feita uma tentativa de acesso:<br>- Para uma aplicação*<br>na nuvem - Por utilizadores e grupos*<br>Utilização:<br>- Condição 1 (por exemplo, fora da rede Corp)<br>- Condição 2 (por exemplo, plataformas de dispositivos)|Acesso de concessão com (E):<br>- Requisito 1 (por exemplo, MFA)<br>- Requisito 2 (por exemplo, conformidade com o dispositivo)|
+|É feita uma tentativa de acesso:<br>- Para uma aplicação*<br>na nuvem - Por utilizadores e grupos*<br>Utilização:<br>- Condição 1 (por exemplo, fora da rede Corp)<br>- Condição 2 (por exemplo, plataformas de dispositivos)|Acesso de concessão com (OR):<br>- Requisito 1 (por exemplo, MFA)<br>- Requisito 2 (por exemplo, conformidade com o dispositivo)|
 
 No mínimo, **quando isso acontece** define o principal (**que**) que tenta aceder a uma aplicação em nuvem (**o quê).** Se necessário, também pode incluir **como** uma tentativa de acesso é realizada. No Acesso Condicional, os elementos que definem quem, o quê e como são conhecidos como condições. Para mais informações, consulte Quais são as condições no Acesso Condicional do [Diretório Ativo do Azure?](concept-conditional-access-conditions.md) 
 
@@ -84,7 +84,7 @@ Por exemplo, o seguinte nome afirma que a política requer MFA para utilizadores
 
 Para além das suas políticas ativas, é aconselhável também implementar políticas de desativação que atuam como controlos de [acesso resilientes secundários em cenários de paragem/emergência.](../authentication/concept-resilient-controls.md) O seu padrão de nomeação para as políticas de contingência deve incluir mais alguns itens: 
 
-- `ENABLE IN EMERGENCY` no início para fazer com que o nome se destaque entre as outras políticas.
+- `ENABLE IN EMERGENCY`no início para fazer o nome destacar-se entre as outras políticas.
 - O nome da perturbação deve aplicar-se.
 - Um número de sequência de ordenação para ajudar o administrador a saber em que políticas de ordem devem ser ativadas. 
 
@@ -96,7 +96,7 @@ Por exemplo, o seguinte nome indica que esta política é a primeira em quatro q
 
 Ao planear a sua solução política de Acesso Condicional, avalie se precisa de criar políticas para alcançar os seguintes resultados. 
 
-### <a name="block-access"></a>Acesso ao bloco
+### <a name="block-access"></a>Bloquear acesso
 
 A opção de bloquear o acesso é poderosa porque:
 
@@ -161,14 +161,14 @@ Algumas organizações têm inquilinos de teste para este fim. No entanto, pode 
 
 O plano de teste é importante para ter uma comparação entre os resultados esperados e os resultados reais. Deve ter sempre uma expectativa antes de testar algo. A tabela que se segue descreve casos de teste exemplo. Ajuste os cenários e resultados esperados com base na configuração das suas políticas ca.
 
-|Política |Cenário |Resultado esperado | Resultado |
+|Política |Cenário |Resultado Esperado | Resultado |
 |---|---|---|---|
 |[Exigir MFA quando não estiver no trabalho](/azure/active-directory/conditional-access/untrusted-networks)|Utilizador autorizado assina na *App* enquanto está numa localização/trabalho confiável|Utilizador não é solicitado ao MFA| |
 |[Exigir MFA quando não estiver no trabalho](/azure/active-directory/conditional-access/untrusted-networks)|Utilizador autorizado assina na *App* sem localização/trabalho confiável|O utilizador é solicitado ao MFA e pode iniciar sessão com sucesso| |
 |[Exigir MFA (para administrador)](/azure/active-directory/conditional-access/howto-baseline-protect-administrators)|Global Admin assina na *App*|Administrador é solicitado ao MFA| |
 |[Inícios de sessão de risco](/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|User assina na *App* usando um [navegador Tor](/azure/active-directory/active-directory-identityprotection-playbook)|Administrador é solicitado ao MFA| |
-|[Gestão de Dispositivos](/azure/active-directory/conditional-access/require-managed-devices)|Utilizador autorizado tenta iniciar sessão a partir de um dispositivo autorizado|Acesso Concedido| |
-|[Gestão de Dispositivos](/azure/active-directory/conditional-access/require-managed-devices)|Utilizador autorizado tenta iniciar sessão a partir de um dispositivo não autorizado|Acesso bloqueado| |
+|[Gestão de dispositivos](/azure/active-directory/conditional-access/require-managed-devices)|Utilizador autorizado tenta iniciar sessão a partir de um dispositivo autorizado|Acesso Concedido| |
+|[Gestão de dispositivos](/azure/active-directory/conditional-access/require-managed-devices)|Utilizador autorizado tenta iniciar sessão a partir de um dispositivo não autorizado|Acesso bloqueado| |
 |[Alteração de palavra-passe para utilizadores de risco](/azure/active-directory/identity-protection/howto-user-risk-policy)|Utilizador autorizado tenta iniciar sessão com credenciais comprometidas (sinal de alto risco)|O utilizador é solicitado a alterar a palavra-passe ou o acesso é bloqueado com base na sua política| |
 
 ### <a name="configure-the-policy"></a>Configurar a política

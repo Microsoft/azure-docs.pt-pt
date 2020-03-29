@@ -1,35 +1,35 @@
 ---
-title: Constantes do SQL no Azure Cosmos DB
-description: Saiba mais sobre como as constantes de consulta SQL no Azure Cosmos DB são usadas para representar um valor de dados específico
+title: SQL constantes em Azure Cosmos DB
+description: Saiba como as constantes de consulta SQL em Azure Cosmos DB são usadas para representar um valor específico de dados
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
 ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74873425"
 ---
-# <a name="azure-cosmos-db-sql-query-constants"></a>Constantes de consulta do Azure Cosmos DB SQL  
+# <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB SQL constantes de consulta  
 
- Uma constante, também conhecido como um literal ou um valor escalar, é um símbolo que representa um valor de dados específicos. O formato de uma constante depende do valor representa o tipo de dados.  
+ Uma constante, também conhecida como literal ou um valor escalar, é um símbolo que representa um valor específico de dados. O formato de uma constante depende do tipo de dados do valor que representa.  
   
- **Tipos de dados escalares suportados:**  
+ **Tipos de dados scalar suportados:**  
   
 |**Tipo**|**Ordem de valores**|  
 |-|-|  
-|**Não definido**|Único valor: **indefinido**|  
-|**Nulo**|Único valor: **nulo**|  
-|**valor booleano**|Valores: **false**, **verdadeiro**.|  
-|**Número**|Um precisão dupla número de vírgula flutuante, padrão IEEE 754.|  
-|**Cadeia de caracteres**|Uma seqüência de caracteres Unicode de zero ou mais. Cadeias de caracteres devem estar entre aspas simples ou duplas.|  
-|**Matriz**|Uma seqüência de elementos de zero ou mais. Cada elemento pode ser um valor de qualquer tipo de dados escalar, exceto **indefinido**.|  
-|**Objeto**|Um conjunto fora de ordem de zero ou mais pares de nome/valor. Nome é uma cadeia de caracteres Unicode, o valor pode ser de qualquer tipo de dados escalares, exceto **indefinido**.|  
+|**Indefinido**|Valor único: **indefinido**|  
+|**Nulo**|Valor único: **nulo**|  
+|**Boolean**|**Valores: falso,** **verdadeiro.**|  
+|**Número**|Um número de ponto flutuante de dupla precisão, padrão IEEE 754.|  
+|**String**|Uma sequência de zero ou mais caracteres Unicode. As cordas devem ser fechadas em cotações simples ou duplas.|  
+|**Matriz**|Uma sequência de zero ou mais elementos. Cada elemento pode ser um valor de qualquer tipo de dados escalar, exceto **Indefinido**.|  
+|**Objeto**|Um conjunto de pares de zero ou mais nomes/valor não ordenados. O nome é uma cadeia Unicode, o valor pode ser de qualquer tipo de dados escalar, exceto **Indefinido**.|  
   
-## <a name="bk_syntax"></a>Sintaxe
+## <a name="syntax"></a><a name="bk_syntax"></a>Sintaxe
   
 ```sql  
 <constant> ::=  
@@ -59,27 +59,27 @@ ms.locfileid: "74873425"
   
 ```  
   
-##  <a name="bk_arguments"></a>Argumentos
+##  <a name="arguments"></a><a name="bk_arguments"></a>Argumentos
   
 * `<undefined_constant>; Undefined`  
   
-  Valor de representa não definida do tipo indefinido.  
+  Representa um valor indefinido do tipo Indefinido.  
   
 * `<null_constant>; null`  
   
-  Representa **nulo** valor do tipo **nulo**.  
+  Representa **um** valor nulo do tipo **Nulo.**  
   
 * `<boolean_constant>`  
   
-  Representa a constante de tipo Booleano.  
+  Representa constante de tipo Boolean.  
   
 * `false`  
   
-  Representa **false** valor do tipo Booleano.  
+  Representa **um** valor falso do tipo Boolean.  
   
 * `true`  
   
-  Representa **true** valor do tipo Booleano.  
+  Representa **o verdadeiro** valor do tipo Boolean.  
   
 * `<number_constant>`  
   
@@ -87,36 +87,36 @@ ms.locfileid: "74873425"
   
 * `decimal_literal`  
   
-  Literais decimais são números representados através de notação decimal ou notação científica.  
+  Os literais decimais são números representados usando notação decimal ou notação científica.  
   
 * `hexadecimal_literal`  
   
-  Hexadecimal literais são números apresentados com o prefixo "0x" seguido de um ou mais dígitos hexadecimais.  
+  Os literais hexadecimais são números representados usando o prefixo '0x' seguido de um ou mais dígitos hexadecimais.  
   
 * `<string_constant>`  
   
-  Representa uma constante do tipo cadeia.  
+  Representa uma constante de tipo String.  
   
 * `string _literal`  
   
-  Literais de cadeia de caracteres são cadeias de caracteres Unicode representadas por uma seqüência de zero ou mais carateres Unicode ou seqüências de escape. Literais de cadeia de caracteres são inseridos entre aspas (apóstrofe: ") ou as aspas duplas (aspas de fecho:").  
+  Os literais de cordas são cordas Unicode representadas por uma sequência de caracteres Zero ou mais Unicode ou sequências de fuga. Os literais de cordas são incluídos em citações únicas (apóstrofe: ' ) ou citações duplas (marca de citação: ").  
   
-  São permitidas os seguintes sequências de escape:  
+  São permitidas sequências de fuga seguintes:  
   
-|**Sequência de escape**|**Descrição**|**Caráter Unicode**|  
+|**Sequência de fuga**|**Descrição**|**Personagem unicódigo**|  
 |-|-|-|  
-|\\'|apóstrofe (')|U+0027|  
-|\\"|aspas (")|U+0022|  
-|\\\ |barra invertida (\\)|U+0B95 + 005C|  
-|\\/|solidus (/)|U+0B95 + 002F|  
-|\b|RETROCESSO|U+0008|  
-|\f|formulário de feed|U+000C|  
-|\n|avanço de linha|U+000A|  
-|\r|retorno de carro|U+0B95 + 000D|  
-|\t|tabulação|U+0009|  
-|\uXXXX|Um caráter Unicode definido por 4 dígitos hexadecimais.|U+XXXX|  
+|\\'|apóstrofo (')|U+0027|  
+|\\"|marca de citação (")|U+0022|  
+|\\\ |inverso sólido\\()|U+005C|  
+|\\/|solidus (/)|U+002F|  
+|\b|backspace|U+0008|  
+|\f|alimentação de formulário|U+000C|  
+|\n|feed de linha|U+000A|  
+|\r|retorno de transporte|U+000D|  
+|\t|separador|U+0009|  
+|\uXXXX|Um caracteres Unicode definidopor 4 dígitos hexadecimais.|U+XXXX|  
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Exemplos do Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Dados de documento de modelo](modeling-data.md)
+- [Amostras Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [Dados de documento do modelo](modeling-data.md)

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: a1b0e9a4aed475f04ec8dcffa9bc95b7c7c713e1
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76760470"
 ---
 # <a name="use-powershell-to-set-allowed-vm-sizes-in-azure-lab-services"></a>Use powerShell para definir tamanhos de VM permitidos em Serviços de Laboratório Azure
@@ -28,7 +28,7 @@ Esta amostra de conjuntos de scripts PowerShell permitiu tamanhos de máquina vi
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Um laboratório**. O script exige que você tenha um laboratório existente. 
+* **Um laboratório.** O guião requer que tenhas um laboratório existente. 
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -40,13 +40,13 @@ Este script utiliza os seguintes comandos:
 
 | Comando | Notas |
 |---|---|
-| Find-AzResource | Pesquisa recursos com base em parâmetros especificados. |
-| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Obtém recursos. |
+| Find-AzResource | Pesquisas de recursos com base em parâmetros especificados. |
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Recebe recursos. |
 | [Set-AzResource](/powershell/module/az.resources/set-azresource) | Modifica um recurso. |
-| [New-AzResource](/powershell/module/az.resources/new-azresource) | Criar um recurso. |
+| [Novo AzResource](/powershell/module/az.resources/new-azresource) | Criar um recurso. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 
-Exemplos adicionais de script Azure Lab Services PowerShell podem ser encontrados nos [exemplos do Azure Lab Services PowerShell](../samples-powershell.md).
+Amostras adicionais de script seletiva de serviços do Laboratório Azure PowerShell podem ser encontradas nas [amostras powerShell dos Serviços de Laboratório Azure](../samples-powershell.md).

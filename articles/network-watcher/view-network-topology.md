@@ -1,5 +1,5 @@
 ---
-title: Ver topologia de rede virtual Azure  Microsoft Docs
+title: Ver topologia de rede virtual Azure [ Microsoft Docs
 description: Aprenda a ver os recursos numa rede virtual e as relações entre os recursos.
 services: network-watcher
 documentationcenter: na
@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: damendo
 ms.openlocfilehash: 675919db55932d3ccc04fd5397f6f673832b4900
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840575"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Veja a topologia de uma rede virtual Azure
@@ -26,7 +26,7 @@ Pode utilizar o [portal Azure,](#azure-portal)o [Azure CLI](#azure-cli)ou [power
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name = "azure-portal"></a>Ver topologia - Portal Azure
+## <a name="view-topology---azure-portal"></a><a name = "azure-portal"></a>Ver topologia - Portal Azure
 
 1. Inicie sessão no [portal Azure](https://portal.azure.com) com uma conta que tenha as [permissões necessárias](required-rbac-permissions.md).
 2. No topo, canto esquerdo do portal, selecione **Todos os serviços.**
@@ -47,11 +47,11 @@ Pode utilizar o [portal Azure,](#azure-portal)o [Azure CLI](#azure-cli)ou [power
 
 Os recursos mostrados no diagrama são um subconjunto dos componentes de rede na rede virtual. Por exemplo, enquanto um grupo de segurança de rede é mostrado, as regras de segurança dentro dele não são mostradas no diagrama. Embora não diferenciadas no diagrama, as linhas representam uma de duas relações: *contenção* ou *associado*. Para ver a lista completa de recursos na rede virtual, e o tipo de relação entre os recursos, gere a topologia com a [PowerShell](#powershell) ou o [Azure CLI.](#azure-cli)
 
-## <a name = "azure-cli"></a>Ver topologia - Azure CLI
+## <a name="view-topology---azure-cli"></a><a name = "azure-cli"></a>Ver topologia - Azure CLI
 
 Pode executar os comandos nos passos que se seguem:
 - Na Casca de Nuvem Azure, **selecionando-o** na parte superior direita de qualquer comando. O Azure Cloud Shell é uma concha interativa gratuita que tem ferramentas Azure comuns pré-instaladas e configuradas para usar com a sua conta.
-- Executando o CLI do seu computador. Se executar o CLI a partir do seu computador, os passos neste artigo requerem a versão Azure CLI 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se você estiver executando o CLI do Azure localmente, também precisará executar `az login` para criar uma conexão com o Azure.
+- Executando o CLI do seu computador. Se executar o CLI a partir do seu computador, os passos neste artigo requerem a versão Azure CLI 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver a executar o Azure CLI `az login` localmente, também precisa de correr para criar uma ligação com o Azure.
 
 A conta que utiliza deve ter as [permissões necessárias.](required-rbac-permissions.md)
 
@@ -80,11 +80,11 @@ A conta que utiliza deve ter as [permissões necessárias.](required-rbac-permis
 
    Saiba mais sobre as relações e [propriedades](#properties) na saída devolvida. Se não tiver uma rede virtual existente para ver uma topologia, pode criar uma utilizando o tráfego da Rota através de uma amostra de script de aparelhovirtual de [rede.](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) Para ver um diagrama da topologia e descarregá-lo num ficheiro editável, utilize o [portal](#azure-portal).
 
-## <a name = "powershell"></a>Ver topologia - PowerShell
+## <a name="view-topology---powershell"></a><a name = "powershell"></a>Ver topologia - PowerShell
 
 Pode executar os comandos nos passos que se seguem:
 - Na Casca de Nuvem Azure, **selecionando-o** na parte superior direita de qualquer comando. O Azure Cloud Shell é uma concha interativa gratuita que tem ferramentas Azure comuns pré-instaladas e configuradas para usar com a sua conta.
-- Executando powerShell do seu computador. Se executar o PowerShell a partir do seu computador, este artigo requer o módulo de `Az` Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
+- Executando powerShell do seu computador. Se executar o PowerShell a partir do seu computador, este artigo requer o módulo PowerShell `Az` Azure. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
 A conta que utiliza deve ter as [permissões necessárias.](required-rbac-permissions.md)
 
@@ -131,7 +131,7 @@ Todos os recursos devolvidos numa topologia têm um dos seguintes tipos de rela�
 | Tipo de relação | Exemplo                                                                                                |
 | ---               | ---                                                                                                    |
 | Contenção       | Uma rede virtual contém uma sub-rede. Uma sub-rede contém uma interface de rede.                            |
-| Associado        | Uma interface de rede está associada a um VM. Um endereço IP público está associado a uma interface de rede. |
+| Associada        | Uma interface de rede está associada a um VM. Um endereço IP público está associado a uma interface de rede. |
 
 ## <a name="properties"></a>Propriedades
 

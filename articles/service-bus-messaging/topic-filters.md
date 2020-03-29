@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/27/2020
 ms.author: spelluru
 ms.openlocfilehash: b8ffbb16763bfe6485ebf2ab770f4537ddbc8569
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76774503"
 ---
 # <a name="topic-filters-and-actions"></a>Filtros de tópico e ações
 
-Os subscritores podem definir as mensagens que pretendem receber de um tópico. Estas mensagens são especificadas sob a forma de uma ou mais regras de subscrição nomeadas. Cada regra consiste numa condição que seleciona mensagens específicas e uma ação que anota a mensagem selecionada. Para cada condição de regra correspondente, a subscrição produz uma cópia da mensagem, que pode ser anotada de forma diferente para cada regra correspondente.
+Os subscritores podem definir as mensagens que pretendem receber de um tópico. Estas mensagens são especificadas na forma de uma ou mais regras de subscrição denominadas. Cada regra consiste numa condição que seleciona mensagens específicas e uma ação que anota a mensagem selecionada. Para cada condição de regra correspondente, a subscrição produz uma cópia da mensagem, que pode ser anotada de forma diferente para cada regra correspondente.
 
 Cada subscrição de tópico recém-criada tem uma regra inicial de subscrição padrão. Se não especificar explicitamente uma condição de filtro para a regra, o filtro aplicado é o **verdadeiro** filtro que permite que todas as mensagens sejam selecionadas para a subscrição. A regra padrão não tem nenhuma ação de anotação associada.
 
@@ -30,7 +30,7 @@ O Ônibus de serviço suporta três condições de filtro:
 
 -   *Filtros booleanos* - O **TrueFilter** e **o FalseFilter** ou fazem com que todas as mensagens que chegam **(verdadeiras)** ou nenhuma das mensagens que chegam **(falsas**) sejam selecionadas para a subscrição.
 
--   *Filtros SQL* - Um **SqlFilter** contém uma expressão condicional semelhante a SQL que é avaliada no corretor contra as propriedades e propriedades do sistema definidas pelo utilizador das mensagens que chegam. Todas as propriedades do sistema devem ser pré-fixadas com `sys.` na expressão condicional. O [subconjunto em língua SQL para](service-bus-messaging-sql-filter.md) os testes de condições de filtro para a existência de propriedades (`EXISTS`), bem como para valores nulos (`IS NULL`), operadores lógicos NÃO/AND/OR, operadores relacionais, aritmética numérica simples e padrão de texto simples que corresponda a `LIKE`.
+-   *Filtros SQL* - Um **SqlFilter** contém uma expressão condicional semelhante a SQL que é avaliada no corretor contra as propriedades e propriedades do sistema definidas pelo utilizador das mensagens que chegam. Todas as propriedades do `sys.` sistema devem ser pré-fixadas na expressão condicional. O [subconjunto em língua SQL para](service-bus-messaging-sql-filter.md) os ensaios de condições de filtro para a existência de propriedades ,`EXISTS`bem como para valores nulos (),`IS NULL`not/AND/OR lógicos, operadores relacionais, aritmética numérica simples e padrão de texto simples que corresponda a `LIKE`.
 
 -   *Filtros* de Correlação - Um **CorrelationFilter** contém um conjunto de condições que são correspondidas a uma ou mais propriedades do utilizador e do sistema de uma mensagem que chega. Uma utilização comum é combinar com a propriedade **CorrelationId,** mas a aplicação também pode optar por combinar com **contentType**, **Label**, **MessageId,** **AnswerTo**, **AnswerToSessionId,** **SessionId,** **To**, e quaisquer propriedades definidas pelo utilizador. Existe uma correspondência quando o valor de uma mensagem de chegada para uma propriedade é igual ao valor especificado no filtro de correlação. Para expressões de cordas, a comparação é sensível ao caso. Ao especificar várias propriedades de correspondência, o filtro combina-as como uma condição lógica e condição, o que significa que para o filtro corresponder, todas as condições devem coincidir.
 
@@ -54,7 +54,7 @@ O encaminhamento utiliza filtros para distribuir mensagens através de subscriç
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre as mensagens do barramento de serviço, consulte os seguintes tópicos:
+Para saber mais sobre as mensagens de ônibus de serviço, consulte os seguintes tópicos:
 
 * [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)
 * [Sintaxe de SQLFilter](service-bus-messaging-sql-filter.md)

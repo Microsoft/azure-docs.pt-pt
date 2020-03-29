@@ -1,32 +1,32 @@
 ---
-title: Solução alternativa de não-proprietário do avere vFXT – Azure
-description: Solução alternativa para permitir que os usuários sem permissão de proprietário da assinatura implantem o avere vFXT para o Azure
+title: Sem dono da Avere vFXT - Azure
+description: Seleção para permitir aos utilizadores sem autorização do proprietário de subscrição para implementar Avere vFXT para o Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.openlocfilehash: 1b411fe465a67f8ea5421ac0dc93348b4e92e8ec
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76153280"
 ---
 # <a name="authorize-non-owners-to-deploy-avere-vfxt"></a>Autorizar não proprietários a implementar o Avere vFXT
 
-Estas instruções são uma solução alternativa que permite que um usuário sem privilégios de proprietário da assinatura crie um avere vFXT para o sistema do Azure.
+Estas instruções são uma suposição que permite a um utilizador sem privilégios do proprietário de subscrição criar um Sistema Avere vFXT para o sistema Azure.
 
-(A maneira recomendada de implantar o sistema avere vFXT é fazer com que um usuário com privilégios de proprietário faça as etapas de criação, conforme explicado em [preparar para criar o avere vFXT](avere-vfxt-prereqs.md).)  
+(A forma recomendada de implementar o sistema Avere vFXT é ter um utilizador com privilégios do proprietário a fazer os passos de criação, como explicado na [Prepare para criar o Avere vFXT](avere-vfxt-prereqs.md).)  
 
-A solução alternativa envolve a criação de uma função de acesso adicional que concede a seus usuários permissões suficientes para instalar o cluster. A função deve ser criada por um proprietário de assinatura e um proprietário deve atribuí-la aos usuários apropriados.
+A solução de solução envolve a criação de uma função de acesso adicional que dê aos seus utilizadores permissões suficientes para instalar o cluster. A função deve ser criada por um proprietário de subscrição, e um proprietário deve atribuí-la aos utilizadores apropriados.
 
-Um proprietário de assinatura também deve [aceitar os termos de uso](avere-vfxt-prereqs.md) da imagem do avere vFXT Marketplace.
+Um proprietário de subscrição também deve [aceitar os termos de uso](avere-vfxt-prereqs.md) para a imagem de mercado Avere vFXT.
 
 > [!IMPORTANT]
-> Todas essas etapas devem ser tomadas por um usuário com privilégios de proprietário na assinatura que será usada para o cluster.
+> Todas estas medidas devem ser tomadas por um utilizador com privilégios do proprietário na subscrição que será utilizada para o cluster.
 
-1. Copie essas linhas e salve-as em um arquivo (por exemplo, `averecreatecluster.json`). Use sua ID de assinatura na instrução `AssignableScopes`.
+1. Copie estas linhas e guarde-as `averecreatecluster.json`num ficheiro (por exemplo, ). Use o seu `AssignableScopes` ID de subscrição no comunicado.
 
    ```json
    {
@@ -58,7 +58,7 @@ Um proprietário de assinatura também deve [aceitar os termos de uso](avere-vfx
    }
    ```
 
-1. Execute este comando para criar a função:
+1. Executar este comando para criar o papel:
 
    `az role definition create --role-definition <PATH_TO_FILE>`
 
@@ -68,12 +68,12 @@ Um proprietário de assinatura também deve [aceitar os termos de uso](avere-vfx
     az role definition create --role-definition ./averecreatecluster.json
     ```
 
-1. Atribua essa função ao usuário que criará o cluster:
+1. Atribuir esta função ao utilizador que irá criar o cluster:
 
    `az role assignment create --assignee <USERNAME> --scope /subscriptions/<SUBSCRIPTION_ID> --role 'avere-create-cluster'`
 
-Depois de concluir esse processo, a função concede a qualquer usuário as seguintes permissões para a assinatura:
+Após a conclusão deste processo, a função confere a qualquer utilizador que lhe tenha atribuído as seguintes permissões para a subscrição:
 
 * Criar e configurar a infraestrutura de rede
 * Criar o controlador de cluster
-* Executar scripts de criação de cluster do controlador de cluster para criar o cluster
+* Executar scripts de criação de cluster do controlador cluster para criar o cluster

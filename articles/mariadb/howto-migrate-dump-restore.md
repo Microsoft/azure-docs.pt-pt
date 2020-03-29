@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 2/27/2020
 ms.openlocfilehash: 72735e83af97fde8377e27daa45501704ef5a3c8
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78164547"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Migrar a sua base de dados MariaDB para a Base de Dados Azure para MariaDB utilizando lixeira e restauro
@@ -34,23 +34,23 @@ Pode utilizar utilitários MySQL, como mysqldump e mysqlpump, para despejar e ca
 
 - Utilize lixeiras de base de dados quando estiver a migrar toda a base de dados. Esta recomendação mantém-se ao mover uma grande quantidade de dados, ou quando pretende minimizar a interrupção do serviço para sites ou aplicações ao vivo. 
 -  Confirme que todas as tabelas na base de dados utilizam o motor de armazenamento InnoDB ao carregar os dados no Azure Database for MariaDB. A Base de Dados Azure para MariaDB suporta apenas o motor de armazenamento InnoDB, pelo que não suporta motores de armazenamento alternativos. Se as suas tabelas estiverem configuradas com outros motores de armazenamento, converta-as no formato do motor InnoDB antes da migração para a Base de Dados Azure para o MariaDB.
-   Por exemplo, se tiver um WordPress ou WebApp utilizando as tabelas MyISAM, converta primeiro essas tabelas migrando para o formato InnoDB antes de restaurar para a Base de Dados Azure para O DND. Utilize a cláusula `ENGINE=InnoDB` para definir o motor utilizado ao criar uma nova tabela e, em seguida, transfira os dados para a tabela compatível antes da restauração. 
+   Por exemplo, se tiver um WordPress ou WebApp utilizando as tabelas MyISAM, converta primeiro essas tabelas migrando para o formato InnoDB antes de restaurar para a Base de Dados Azure para O DND. Utilize a `ENGINE=InnoDB` cláusula para definir o motor utilizado ao criar uma nova tabela e, em seguida, transfira os dados para a tabela compatível antes da restauração. 
 
    ```sql
    INSERT INTO innodb_table SELECT * FROM myisam_table ORDER BY primary_key_columns
    ```
-- Para evitar problemas de compatibilidade, confirme que utiliza a mesma versão do MariaDB nos sistemas de origem e de destino ao capturar as bases de dados. Por exemplo, se o seu servidor MariaDB existente for a versão 10.2, então deve migrar para a Base de Dados Azure para MariaDB configurado para executar a versão 10.2. O comando `mysql_upgrade` não funciona numa Base de Dados Azure para o servidor MariaDB, e não é suportado. Se precisar de fazer upgrade em versões MariaDB, primeiro despejar ou exportar a sua base de dados de versão inferior para uma versão mais alta do MariaDB no seu próprio ambiente. Em seguida, executar `mysql_upgrade`, antes de tentar a migração para uma Base de Dados Azure para MariaDB.
+- Para evitar problemas de compatibilidade, confirme que utiliza a mesma versão do MariaDB nos sistemas de origem e de destino ao capturar as bases de dados. Por exemplo, se o seu servidor MariaDB existente for a versão 10.2, então deve migrar para a Base de Dados Azure para MariaDB configurado para executar a versão 10.2. O `mysql_upgrade` comando não funciona numa Base de Dados Azure para o servidor MariaDB, e não é suportado. Se precisar de fazer upgrade em versões MariaDB, primeiro despejar ou exportar a sua base de dados de versão inferior para uma versão mais alta do MariaDB no seu próprio ambiente. Em `mysql_upgrade`seguida, corra , antes de tentar migrar para uma Base de Dados Azure para MariaDB.
 
 ## <a name="performance-considerations"></a>Considerações de desempenho
 Para otimizar o desempenho, tome nota destas considerações ao despejar grandes bases de dados:
--   Utilize a opção `exclude-triggers` em mysqldump ao despejar bases de dados. Exclua os gatilhos dos ficheiros de despejo para evitar que os comandos do gatilho disparem durante a restauração dos dados. 
--   Utilize a `single-transaction` opção de definir o modo de isolamento de transações para READ REPETIVEL e enviar uma declaração sQL START TRANSACTION para o servidor antes de despejar dados. Despejar muitas tabelas numa única transação faz com que algum armazenamento extra seja consumido durante a restauração. A opção `single-transaction` e a opção `lock-tables` são mutuamente exclusivas porque o LOCK TABLES faz com que quaisquer transações pendentes sejam cometidas implicitamente. Para despejar mesas grandes, combine a opção `single-transaction` com a opção `quick`. 
--   Utilize a `extended-insert` sintaxe de várias linhas que inclui várias listas VALUE. Isto resulta num ficheiro de despejo mais pequeno e acelera as inserções quando o ficheiro é recarregado.
--  Utilize a opção `order-by-primary` em mysqldump ao despejar bases de dados, de modo a que os dados sejam escritos em ordem principal.
--   Utilize a opção `disable-keys` em mysqldump ao despejar dados, para desativar os constrangimentos das chaves estrangeiras antes da carga. Desativar os controlos de chaves estrangeiras proporciona ganhos de desempenho. Ative os constrangimentos e verifique os dados após a carga para garantir a integridade referencial.
+-   Use `exclude-triggers` a opção em mysqldump ao despejar bases de dados. Exclua os gatilhos dos ficheiros de despejo para evitar que os comandos do gatilho disparem durante a restauração dos dados. 
+-   Utilize `single-transaction` a opção de definir o modo de isolamento de transações para READ REPETIVEL e enviar uma declaração sQL START TRANSACTION para o servidor antes de despejar dados. Despejar muitas tabelas numa única transação faz com que algum armazenamento extra seja consumido durante a restauração. A `single-transaction` opção `lock-tables` e a opção são mutuamente exclusivas porque o LOCK TABLES faz com que quaisquer transações pendentes sejam cometidas implicitamente. Para despejar mesas `single-transaction` grandes, `quick` combine a opção com a opção. 
+-   Utilize `extended-insert` a sintaxe de várias linhas que inclui várias listas VALUE. Isto resulta num ficheiro de despejo mais pequeno e acelera as inserções quando o ficheiro é recarregado.
+-  Utilize `order-by-primary` a opção em mysqldump ao despejar bases de dados, de modo a que os dados sejam escritos em ordem principal.
+-   Utilize `disable-keys` a opção em mysqldump ao despejar dados, para desativar os constrangimentos das chaves estrangeiras antes da carga. Desativar os controlos de chaves estrangeiras proporciona ganhos de desempenho. Ative os constrangimentos e verifique os dados após a carga para garantir a integridade referencial.
 -   Utilize mesas divididas quando apropriado.
 -   Carregue os dados em paralelo. Evite demasiado paralelismo que o faça atingir um limite de recursos e monitorize os recursos utilizando as métricas disponíveis no portal Azure. 
--   Utilize a opção `defer-table-indexes` na misqlpump ao despejar bases de dados, para que a criação de índices ocorra após a carga dos dados das tabelas.
+-   Utilize `defer-table-indexes` a opção na misqlpump ao despejar bases de dados, para que a criação de índices ocorra após a carga dos dados das tabelas.
 -   Copie os ficheiros de backup para uma bolha/loja Azure e execute o restauro a partir daí, que deve ser muito mais rápido do que realizar o restauro através da Internet.
 
 ## <a name="create-a-backup-file"></a>Criar um ficheiro de backup
@@ -66,7 +66,7 @@ Os parâmetros a fornecer são:
 - [backupfile.sql] O nome de ficheiro para a sua cópia de segurança da base de dados 
 - [--opt] A opção mysqldump 
 
-Por exemplo, para fazer o backup a uma base de dados denominada 'testdb' no seu servidor MariaDB com o nome de utilizador 'testuser' e sem palavra-passe para um ficheiro testdb_backup.sql, utilize o seguinte comando. O comando recoloca a base de dados `testdb` num ficheiro chamado `testdb_backup.sql`, que contém todas as declarações SQL necessárias para recriar a base de dados. 
+Por exemplo, para fazer o backup a uma base de dados denominada 'testdb' no seu servidor MariaDB com o nome de utilizador 'testuser' e sem palavra-passe para um ficheiro testdb_backup.sql, utilize o seguinte comando. O comando recoloca `testdb` a base `testdb_backup.sql`de dados num ficheiro chamado , que contém todas as declarações SQL necessárias para recriar a base de dados. 
 
 ```bash
 $ mysqldump -u root -p testdb > testdb_backup.sql

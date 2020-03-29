@@ -1,5 +1,5 @@
 ---
-title: Começar com a entrega de conteúdos a pedido usando o REST  Microsoft Docs
+title: Começar com a entrega de conteúdos a pedido usando o REST [ Microsoft Docs
 description: Este tutorial acompanha-o através dos passos de implementação de uma aplicação de entrega de conteúdo sonoro com a Azure Media Services utilizando a REST API.
 services: media-services
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 8989acc6d21a3c53be9d97c74ed7fbf03ba54819
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773673"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Começar com a entrega de conteúdo a pedido usando o REST  
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Este quickstart acompanha-o através dos passos de implementação de uma aplicação de entrega de conteúdos video-on-demand (VoD) utilizando a Azure Media Services (AMS) REST APIs.
 
@@ -54,7 +54,7 @@ As seguintes tarefas são mostradas neste arranque rápido.
 6. Reproduzir os conteúdos.
 
 >[!NOTE]
->Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Utilize o mesmo ID de política se estiver sempre a utilizar as mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que se destinam a permanecer no lugar por muito tempo (políticas de não upload). Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
+>Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Utilize o mesmo ID de política se estiver sempre a utilizar as mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que se destinam a permanecer no lugar por muito tempo (políticas de não upload). Para mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
 Para mais detalhes sobre as entidades AMS REST utilizadas neste artigo, consulte [a Referência aPi da Azure Media Services REST API](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference). Consulte também os [conceitos azure Media Services.](media-services-concepts.md)
 
@@ -79,11 +79,11 @@ Para iniciar o ponto final de transmissão em fluxo, faça o seguinte:
 4. Clique no ícone Início.
 5. Clique no botão Guardar para guardar as alterações.
 
-## <a id="connect"></a>Ligue-se à conta de Serviços de Media com a REST API
+## <a name="connect-to-the-media-services-account-with-rest-api"></a><a id="connect"></a>Ligue-se à conta de Serviços de Media com a REST API
 
 Para obter informações sobre como se conectar à AMS API, consulte [Aceda à API dos Serviços de Mídia Azure com autenticação Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
-## <a id="upload"></a>Crie um novo ativo e carregue um ficheiro de vídeo com a REST API
+## <a name="create-a-new-asset-and-upload-a-video-file-with-rest-api"></a><a id="upload"></a>Crie um novo ativo e carregue um ficheiro de vídeo com a REST API
 
 Nos Serviços de Multimédia, os ficheiros digitais são carregados para um elemento. A entidade **Asset** pode conter vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e ficheiros de legendas fechados (e os metadados sobre estes ficheiros.)  Uma vez que os ficheiros são enviados para o ativo, o seu conteúdo é armazenado de forma segura na nuvem para posterior processamento e streaming.
 
@@ -100,7 +100,7 @@ Um ativo é um recipiente para vários tipos ou conjuntos de objetos em Media Se
 
 O exemplo que se segue mostra como criar um ativo.
 
-**Pedido http**
+**Pedido de HTTP**
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/Assets HTTP/1.1
     Content-Type: application/json
@@ -154,7 +154,7 @@ A entidade [AssetFile](https://docs.microsoft.com/rest/api/media/operations/asse
 
 Depois de enviar o seu ficheiro de mídia digital para um recipiente blob, utiliza o pedido **MERGE** HTTP para atualizar o AssetFile com informações sobre o seu ficheiro de mídia (como mostrado mais tarde no tópico).
 
-**Pedido http**
+**Pedido de HTTP**
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/Files HTTP/1.1
     Content-Type: application/json
@@ -216,7 +216,7 @@ Antes de enviar quaisquer ficheiros para o armazenamento de blob, delineie os di
 
 O exemplo que se segue mostra como criar uma Política de Acesso:
 
-**Pedido http**
+**Pedido de HTTP**
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/AccessPolicies HTTP/1.1
     Content-Type: application/json
@@ -275,7 +275,7 @@ São aplicáveis algumas considerações:
 
 O exemplo seguinte mostra como criar um localizador de URL SAS, tal como definido pela propriedade Tipo no organismo de pedido ("1" para um localizador SAS e "2" para um localizador de origem a pedido). A propriedade **Path** devolvida contém o URL que deve utilizar para fazer o upload do seu ficheiro.
 
-**Pedido http**
+**Pedido de HTTP**
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/Locators HTTP/1.1
     Content-Type: application/json
@@ -368,7 +368,7 @@ Se for bem sucedido, o seguinte é devolvido:
     ...
 
 ## <a name="delete-the-locator-and-accesspolicy"></a>Eliminar o Localizador e a Política de Acesso
-**Pedido http**
+**Pedido de HTTP**
 
     DELETE https://wamsbayclus001rest-hs.cloudapp.net/api/Locators('nb%3Alid%3AUUID%3Aaf57bdd8-6751-4e84-b403-f3c140444b54') HTTP/1.1
     DataServiceVersion: 1.0;NetFx
@@ -387,7 +387,7 @@ Se for bem sucedido, o seguinte é devolvido:
     HTTP/1.1 204 No Content
     ...
 
-**Pedido http**
+**Pedido de HTTP**
 
     DELETE https://wamsbayclus001rest-hs.cloudapp.net/api/AccessPolicies('nb%3Apid%3AUUID%3Abe0ac48d-af7d-4877-9d60-1805d68bffae') HTTP/1.1
     DataServiceVersion: 1.0;NetFx
@@ -405,9 +405,9 @@ Se for bem sucedido, o seguinte é devolvido:
     HTTP/1.1 204 No Content
     ...
 
-## <a id="encode"></a>Codificar o ficheiro fonte num conjunto de ficheiros MP4 bitrate adaptativo
+## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a><a id="encode"></a>Codificar o ficheiro de origem para um conjunto de ficheiros MP4 de velocidade de transmissão adaptável
 
-Depois de ingerir ativos nos Serviços de Media, os meios de comunicação podem ser codificados, transmuxados, marcados com água, e assim por diante, antes de serem entregues aos clientes. Estas atividades são agendadas e executadas em várias instâncias de função de segundo plano para assegurar um elevado desempenho e disponibilidade. Estas atividades são chamadas Jobs e cada Trabalho é composto por Tarefas atómicas que [](https://docs.microsoft.com/rest/api/media/operations/task) fazem o trabalho real no ficheiro Ativo (para mais informações, ver [Descrições de Tarefas, Trabalho).](https://docs.microsoft.com/rest/api/media/operations/job)
+Depois de ingerir ativos nos Serviços de Media, os meios de comunicação podem ser codificados, transmuxados, marcados com água, e assim por diante, antes de serem entregues aos clientes. Estas atividades são agendadas e executadas em várias instâncias de função de segundo plano para assegurar um elevado desempenho e disponibilidade. Estas atividades são chamadas Jobs e cada Trabalho é composto por Tarefas atómicas que [Task](https://docs.microsoft.com/rest/api/media/operations/task) fazem o trabalho real no ficheiro Ativo (para mais informações, ver [Descrições de Tarefas, Trabalho).](https://docs.microsoft.com/rest/api/media/operations/job)
 
 Como já foi referido, ao trabalhar com a Azure Media Services um dos cenários mais comuns é entregar streaming de bitrate adaptativo aos seus clientes. Os Serviços de Media podem embalar dinamicamente um conjunto de ficheiros MP4 bitrate adaptativo num dos seguintes formatos: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
 
@@ -418,7 +418,7 @@ Nos Serviços de Media, um processador de mídia é um componente que lida com u
 
 O código seguinte solicita a identificação do codificador.
 
-**Pedido http**
+**Pedido de HTTP**
 
     GET https://wamsbayclus001rest-hs.cloudapp.net/api/MediaProcessors()?$filter=Name%20eq%20'Media%20Encoder%20Standard' HTTP/1.1
     DataServiceVersion: 1.0;NetFx
@@ -464,7 +464,7 @@ Cada Trabalho pode ter uma ou mais Tarefas dependendo do tipo de processamento q
 
 O exemplo que se segue mostra-lhe como criar e publicar um Trabalho com uma Tarefa definida para codificar um vídeo numa resolução e qualidade específicas. A seguinte secção de documentação contém a lista de todas as [predefinições](https://msdn.microsoft.com/library/mt269960) de tarefa suportadas pelo processador Media Encoder Standard.  
 
-**Pedido http**
+**Pedido de HTTP**
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/Jobs HTTP/1.1
     DataServiceVersion: 1.0;NetFx
@@ -561,7 +561,7 @@ Se for bem sucedido, devolve-se a seguinte resposta:
 Há algumas coisas importantes a notar em qualquer pedido de emprego:
 
 * As propriedades do TaskBody DEVEM utilizar o XML literal para definir o número de ativos de entrada ou de saída utilizados pela Tarefa. O artigo task contém a Definição De Schema XML para o XML.
-* Na definição TaskBody, cada valor interno para `<inputAsset>` e `<outputAsset>` deve ser definido como JobInputAsset(valor) ou JobOutputAsset (valor).
+* Na definição TaskBody, cada `<inputAsset>` `<outputAsset>` valor interior para e deve ser definido como JobInputAsset(valor) ou JobOutputAsset (valor).
 * Uma tarefa pode ter vários ativos de produção. Um JobOutputAsset(x) só pode ser usado uma vez como uma saída de uma tarefa num trabalho.
 * Pode especificar JobInputAsset ou JobOutputAsset como um ativo de entrada de uma tarefa.
 * As tarefas não devem formar um ciclo.
@@ -573,7 +573,7 @@ Há algumas coisas importantes a notar em qualquer pedido de emprego:
 >
 
 * O InputMediaAssets mapeia um ou mais Ativos que criou nos Serviços de Media. OutputMediaAssets são criados pelo sistema. Não referem um ativo existente.
-* OutputMediaAssets pode ser nomeado usando o atributo assetName. Se este atributo não estiver presente, então o nome do OutputMediaAsset é qualquer que seja o valor de texto interno do elemento `<outputAsset>` com um sufixo do valor do Nome de Trabalho, ou o valor do Id de Trabalho (no caso em que a propriedade Nome não está definida). Por exemplo, se definir um valor para o nome do ativo para "Sample", então a propriedade OutputMediaAsset Name será definida para "Sample". No entanto, se não definisse um valor para o assetName, mas definisse o nome de trabalho para "NewJob", então o nome OutputMediaAsset seria "JobOutputAsset(valor)_NewJob".
+* OutputMediaAssets pode ser nomeado usando o atributo assetName. Se este atributo não estiver presente, então o nome do OutputMediaAsset é qualquer que seja o valor de texto interno do `<outputAsset>` elemento com um sufixo do valor do Nome de Trabalho, ou o valor do Id de Trabalho (no caso em que a propriedade Nome não está definida). Por exemplo, se definir um valor para o nome do ativo para "Sample", então a propriedade OutputMediaAsset Name será definida para "Sample". No entanto, se não definisse um valor para o assetName, mas definisse o nome de trabalho para "NewJob", então o nome OutputMediaAsset seria "JobOutputAsset(valor)_NewJob".
 
     O exemplo que se segue mostra como definir o atributo do nome do ativo:
 
@@ -588,7 +588,7 @@ Para mais informações consulte, [Criar um Trabalho de Codificação com os Ser
 ### <a name="monitor-processing-progress"></a>Monitorizar o progresso do processamento
 Pode recuperar o estatuto de Trabalho utilizando a propriedade do Estado, como mostra o seguinte exemplo:
 
-**Pedido http**
+**Pedido de HTTP**
 
     GET https://wamsbayclus001rest-hs.net/api/Jobs('nb%3Ajid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')/State HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -625,7 +625,7 @@ A Media Services permite-lhe cancelar trabalhos de funcionamento através da fun
 
 O exemplo que se segue mostra como ligar para o CancelJob.
 
-**Pedido http**
+**Pedido de HTTP**
 
     GET https://wamsbayclus001rest-hs.net/API/CancelJob?jobid='nb%3ajid%3aUUID%3a71d2dd33-efdf-ec43-8ea1-136a110bd42c' HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -647,7 +647,7 @@ Se for bem sucedido, um código de resposta 204 é devolvido sem corpo de mensag
 ### <a name="get-the-output-asset"></a>Obtenha o ativo de saída
 O código seguinte mostra como solicitar o ativo de saída Id.
 
-**Pedido http**
+**Pedido de HTTP**
 
     GET https://wamsbayclus001rest-hs.cloudapp.net/api/Jobs('nb%3Ajid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')/OutputMediaAssets() HTTP/1.1
     DataServiceVersion: 1.0;NetFx
@@ -692,7 +692,7 @@ O código seguinte mostra como solicitar o ativo de saída Id.
        ]
     }
 
-## <a id="publish_get_urls"></a>Publique o ativo e obtenha URLs de streaming e descarregamento progressivo com REST API
+## <a name="publish-the-asset-and-get-streaming-and-progressive-download-urls-with-rest-api"></a><a id="publish_get_urls"></a>Publique o ativo e obtenha URLs de streaming e descarregamento progressivo com REST API
 
 Para transmitir ou transferir um elemento, primeiro tem de o "publicar" através da criação de um localizador. Os localizadores fornecem acesso aos ficheiros contidos no elemento. Os Media Services suportam dois tipos de localizadores: localizadores OnDemandOrigin, utilizados para transmitir multimédia (por exemplo, MPEG DASH, HLS ou Transmissão em Fluxo Uniforme) e localizadores de Assinatura de Acesso (SAS), utilizados para transferir ficheiros de multimédia. 
 
@@ -910,7 +910,7 @@ Para transmitir mPEG DASH, apêndice (formato=mpd-time-csf) após o "/manifesto"
     http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
 
-## <a id="play"></a>Jogue o seu conteúdo
+## <a name="play-your-content"></a><a id="play"></a>Jogue o seu conteúdo
 Para transmitir o seu vídeo, utilize o [Leitor dos Media Services do Azure](https://aka.ms/azuremediaplayer).
 
 Para testar o download progressivo, colhe um URL num browser (por exemplo, IE, Chrome, Safari).

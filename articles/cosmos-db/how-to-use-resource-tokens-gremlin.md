@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 42f3c7f3351bddab429489dccf28587549d76e18
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78897838"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Use fichas de recurso Azure Cosmos DB com o Gremlin SDK
@@ -24,13 +24,13 @@ O Apache TinkerPop Gremlin SDK não tem uma API para usar para criar tokens de r
 
 A hierarquia do modelo de objeto acima das fichas de recurso é ilustrada no seguinte esboço:
 
-- **Conta Azure Cosmos DB** - A entidade de alto nível que tem um DNS associado a ele (por exemplo, `contoso.gremlin.cosmos.azure.com`).
+- **Conta Azure Cosmos DB** - A entidade de alto nível que `contoso.gremlin.cosmos.azure.com`tem um DNS associado a ele (por exemplo, ).
   - **Base de dados Azure Cosmos DB**
     - **Utilizador**
       - **Permissão**
         - **Token** - Uma propriedade de objeto de permissão que denota que ações são permitidas ou negadas.
 
-Um token de recurso utiliza o seguinte formato: `"type=resource&ver=1&sig=<base64 string>;<base64 string>;"`. Esta cadeia é opaca para os clientes e deve ser usada como está, sem modificação ou interpretação.
+Um token de recurso `"type=resource&ver=1&sig=<base64 string>;<base64 string>;"`utiliza o seguinte formato: . Esta cadeia é opaca para os clientes e deve ser usada como está, sem modificação ou interpretação.
 
 ```csharp
 // Notice that document client is created against .NET SDK endpoint, rather than Gremlin.
@@ -99,7 +99,7 @@ Com uma única conta Gremlin, pode emitir um número ilimitado de fichas. No ent
 
 ## <a name="permission"></a>Permissão
 
-Um erro comum que as aplicações encontram enquanto usam fichas de recurso é: "Permissões insuficientes fornecidas no cabeçalho de autorização para o pedido correspondente. Por favor, tente novamente com outro cabeçalho de autorização. Este erro é devolvido quando um Gremlin tenta escrever uma borda ou um vértice, mas o recurso *concede* apenas permissões. Inspecione a sua travessia para ver se contém algum dos seguintes passos: *.addV()* *.addE()* , *.drop() ou* *.property()* .
+Um erro comum que as aplicações encontram enquanto usam fichas de recurso é: "Permissões insuficientes fornecidas no cabeçalho de autorização para o pedido correspondente. Por favor, tente novamente com outro cabeçalho de autorização. Este erro é devolvido quando um Gremlin tenta escrever uma borda ou um vértice, mas o recurso *concede* apenas permissões. Inspecione a sua travessia para ver se contém algum dos seguintes passos: *.addV()* *.addE()*, *.drop() ou* *.property()*.
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Controlo de acesso baseado em funções](role-based-access-control.md) em Azure Cosmos DB

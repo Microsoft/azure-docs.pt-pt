@@ -1,6 +1,6 @@
 ---
-title: Transformar dados usando a atividade Pig do Hadoop
-description: Saiba como você pode usar a atividade Pig em uma data factory do Azure para executar scripts do Pig em um cluster do HDInsight sob demanda/seu próprio.
+title: Transforme dados utilizando a atividade do Porco Hadoop
+description: Saiba como pode usar a Atividade do Porco numa fábrica de dados Azure para executar scripts de porco num cluster HDInsight a pedido/seu próprio HDInsight.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -12,21 +12,21 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 01/16/2018
 ms.openlocfilehash: 4064d62a6dc826b23ff1f51e9f61e48d362ae695
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74912940"
 ---
-# <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Transformar dados usando a atividade Pig do Hadoop no Azure Data Factory
+# <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Transforme dados utilizando a atividade do Porco Hadoop na Fábrica de Dados Azure
 
-> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-pig-activity.md)
 > * [Versão atual](transform-data-using-hadoop-pig.md)
 
-A atividade Pig do HDInsight em um [pipeline](concepts-pipelines-activities.md) data Factory executa consultas Pig em [seu próprio](compute-linked-services.md#azure-hdinsight-linked-service) cluster HDInsight ou [sob demanda](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) . Este artigo se baseia no artigo [atividades de transformação de dados](transform-data.md) , que apresenta uma visão geral da transformação de dados e das atividades de transformação com suporte.
+A atividade do Suíno HDInsight num [gasoduto](concepts-pipelines-activities.md) data factory executa consultas de porco por [si só](compute-linked-services.md#azure-hdinsight-linked-service) ou a [pedido](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) do cluster HDInsight. Este artigo baseia-se no artigo sobre atividades de transformação de [dados,](transform-data.md) que apresenta uma visão geral da transformação de dados e das atividades de transformação apoiadas.
 
-Se você for novo no Azure Data Factory, leia a [introdução ao Azure data Factory](introduction.md) e faça o [tutorial: transformar dados](tutorial-transform-data-spark-powershell.md) antes de ler este artigo. 
+Se é novo na Azure Data Factory, leia através da [Introdução à Azure Data Factory](introduction.md) e faça o [Tutorial: transforme os dados](tutorial-transform-data-spark-powershell.md) antes de ler este artigo. 
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -57,26 +57,26 @@ Se você for novo no Azure Data Factory, leia a [introdução ao Azure data Fact
 ```
 ## <a name="syntax-details"></a>Detalhes da sintaxe
 
-| Propriedade            | Descrição                              | Obrigatório |
+| Propriedade            | Descrição                              | Necessário |
 | ------------------- | ---------------------------------------- | -------- |
 | nome                | Nome da atividade                     | Sim      |
-| descrição         | Texto que descreve para que a atividade é usada | Não       |
-| tipo                | Para a atividade Hive, o tipo de atividade é HDinsightPig | Sim      |
-| linkedServiceName   | Referência ao cluster HDInsight registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Serviços vinculados de computação](compute-linked-services.md) . | Sim      |
-| scriptLinkedService | Referência a um serviço vinculado do armazenamento do Azure usado para armazenar o script Pig a ser executado. Se você não especificar esse serviço vinculado, o serviço vinculado do armazenamento do Azure definido no serviço vinculado do HDInsight será usado. | Não       |
-| scriptPath          | Forneça o caminho para o arquivo de script armazenado no armazenamento do Azure referenciado por scriptLinkedService. O nome do arquivo diferencia maiúsculas de minúsculas. | Não       |
-| getDebugInfo        | Especifica quando os arquivos de log são copiados para o armazenamento do Azure usado pelo cluster HDInsight (ou) especificado por scriptLinkedService. Valores permitidos: nenhum, sempre ou falha. Valor padrão: nenhum. | Não       |
-| arguments           | Especifica uma matriz de argumentos para um trabalho do Hadoop. Os argumentos são passados como argumentos de linha de comando para cada tarefa. | Não       |
-| defines             | Especifique parâmetros como pares de chave/valor para referência no script Pig. | Não       |
+| descrição         | Texto descrevendo para que a atividade é usada | Não       |
+| tipo                | Para a Atividade da Colmeia, o tipo de atividade é HDinsightPig | Sim      |
+| linkedServiceName   | Referência ao cluster HDInsight registado como um serviço ligado na Data Factory. Para conhecer este serviço ligado, consulte o artigo de [serviços ligados à Compute.](compute-linked-services.md) | Sim      |
+| scriptLinkedService | Referência a um Serviço Ligado ao Armazenamento Azure usado para armazenar o script Pig a ser executado. Se não especificar este Serviço Linked, o Serviço Ligado ao Armazenamento Azure definido no Serviço Ligado ao HDInsight é utilizado. | Não       |
+| scriptPath          | Forneça o caminho para o ficheiro script armazenado no Armazenamento Azure referido pelo scriptLinkedService. O nome do ficheiro é sensível ao caso. | Não       |
+| getDebugInfo        | Especifica quando os ficheiros de registo são copiados para o Armazenamento Azure utilizado pelo cluster HDInsight (ou) especificado pelo scriptLinkedService. Valores permitidos: Nenhum, sempre ou falha. Valor predefinido: Nenhum. | Não       |
+| argumentos           | Especifica uma série de argumentos para um trabalho de Hadoop. Os argumentos são passados como argumentos de linha de comando para cada tarefa. | Não       |
+| define             | Especifique os parâmetros como par de chaves/valor para referência dentro do script Pig. | Não       |
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte os seguintes artigos que explicam como transformar dados de outras maneiras: 
+Consulte os seguintes artigos que explicam como transformar dados de outras formas: 
 
-* [Atividade de U-SQL](transform-data-using-data-lake-analytics.md)
-* [Atividade do hive](transform-data-using-hadoop-hive.md)
-* [Atividade MapReduce](transform-data-using-hadoop-map-reduce.md)
-* [Atividade de streaming do Hadoop](transform-data-using-hadoop-streaming.md)
-* [Atividade do Spark](transform-data-using-spark.md)
+* [Atividade U-SQL](transform-data-using-data-lake-analytics.md)
+* [Atividade da colmeia](transform-data-using-hadoop-hive.md)
+* [MapReduzir a atividade](transform-data-using-hadoop-map-reduce.md)
+* [Atividade de streaming de hadoop](transform-data-using-hadoop-streaming.md)
+* [Atividade de faísca](transform-data-using-spark.md)
 * [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
-* [Atividade de execução de Machine Learning lote](transform-data-using-machine-learning.md)
+* [Atividade de execução de lote de aprendizagem automática](transform-data-using-machine-learning.md)
 * [Atividade de procedimento armazenado](transform-data-using-stored-procedure.md)

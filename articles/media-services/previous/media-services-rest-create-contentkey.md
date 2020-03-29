@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: d256f417fb3bacbf3f363fc2a9f8701a1bb49d71
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773631"
 ---
 # <a name="create-content-keys-with-rest"></a>Criar chaves de conteúdo com REST
@@ -75,7 +75,7 @@ Este artigo não mostra como gerar uma chave AES, encriptar a chave e calcular a
 > 
 > Ao aceder a entidades em Serviços de Media, deve definir campos e valores específicos nos seus pedidos HTTP. Para mais informações, consulte [Configuração para Media Services REST API Development](media-services-rest-how-to-use.md).
 
-## <a name="connect-to-media-services"></a>Ligue-se aos Serviços Multimédia
+## <a name="connect-to-media-services"></a>Ligar aos Media Services
 
 Para obter informações sobre como se conectar à AMS API, consulte [Aceda à API dos Serviços de Mídia Azure com autenticação Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
@@ -150,7 +150,7 @@ Resposta:
 ## <a name="create-the-contentkey"></a>Criar o ContentKey
 Depois de ter recuperado o certificado X.509 e ter usado a sua chave pública para encriptar a chave de conteúdo, criar uma entidade **ContentKey** e definir os seus valores de propriedade em conformidade.
 
-Um dos valores que deve definir quando criar a chave de conteúdo é o tipo. Escolha entre um dos seguintes valores:
+Um dos valores que deve definir quando criar a chave de conteúdo é o tipo. Escolha um dos seguintes valores:
 
     public enum ContentKeyType
     {

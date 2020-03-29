@@ -1,6 +1,6 @@
 ---
-title: Como monitorar e reduzir a limitação-Azure Time Series Insights | Microsoft Docs
-description: Saiba como monitorar, diagnosticar e atenuar problemas de desempenho que causam latência e limitação no Azure Time Series Insights.
+title: Como monitorizar e reduzir a aceleração - Azure Time Series Insights [ Microsoft Docs
+description: Aprenda a monitorizar, diagnosticar e mitigar problemas de desempenho que causam latência e estrangulamento em Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -13,87 +13,87 @@ ms.topic: troubleshooting
 ms.date: 01/21/2020
 ms.custom: seodec18
 ms.openlocfilehash: 245a0b18187ff1c1b226e94b03374f2c071e51c0
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76314832"
 ---
-# <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorar e mitigar a limitação para reduzir a latência no Azure Time Series Insights
+# <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitore e mitigate a aceleração para reduzir a latência em Azure Time Series Insights
 
-Quando a quantidade de dados de entrada excede a configuração do seu ambiente, você pode enfrentar latência ou limitação em Azure Time Series Insights.
+Quando a quantidade de dados de entrada exceder a configuração do seu ambiente, poderá experimentar latência ou estrangulamento em Insights da Série Temporal Azure.
 
-Você pode evitar a latência e a limitação configurando corretamente seu ambiente para a quantidade de dados que deseja analisar.
+Pode evitar a latência e o estrangulamento configurando corretamente o seu ambiente para a quantidade de dados que pretende analisar.
 
-É mais provável que haja latência e limitação quando você:
+É mais provável que experimente latência e estrangulamento quando:
 
-- Adicione uma origem de evento que contenha dados antigos que possam exceder sua taxa de entrada alocada (Time Series Insights precisará ser atualizada).
-- Adicione mais fontes de eventos a um ambiente, resultando em um pico de eventos adicionais (o que pode exceder a capacidade do seu ambiente).
-- Envie grandes quantidades de eventos históricos para uma origem de evento, resultando em um atraso (Time Series Insights precisará ser atualizado).
-- Unir dados de referência com telemetria, resultando em maior tamanho de evento. Do ponto de vista da limitação, um pacote de dados de entrada com um tamanho de pacote de 32 KB é tratado como 32 eventos, cada um com o tamanho de 1 KB. O tamanho máximo de evento permitido é 32 KB; pacotes de dados maiores que 32 KB são truncados.
+- Adicione uma fonte de evento que contenha dados antigos que possam exceder a sua taxa de ingresso atribuída (Time Series Insights terá de recuperar).
+- Adicione mais fontes de eventos a um ambiente, resultando num pico de eventos adicionais (que podem exceder a capacidade do seu ambiente).
+- Empurre grandes quantidades de eventos históricos para uma fonte de evento, resultando num atraso (Time Series Insights terá de recuperar).
+- Junte dados de referência com telemetria, resultando em maior tamanho de evento. De uma perspetiva de estrangulamento, um pacote de dados ingressado com um pacote de 32 KB é tratado como 32 eventos, cada um do tamanho 1 KB. O tamanho máximo permitido do evento é de 32 KB; os pacotes de dados superiores a 32 KB são truncados.
 
 ## <a name="video"></a>Vídeo
 
-### <a name="learn-about-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Saiba mais sobre o comportamento de entrada de dados Time Series Insights e como planejar para ele.</br>
+### <a name="learn-about-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Saiba mais sobre o comportamento de ingresso de dados da Time Series Insights e como planeá-lo.</br>
 
 > [!VIDEO https://www.youtube.com/embed/npeZLAd9lxo]
 
-## <a name="monitor-latency-and-throttling-with-alerts"></a>Monitorar a latência e a limitação com alertas
+## <a name="monitor-latency-and-throttling-with-alerts"></a>Monitorizar a latência e a pulsação com alertas
 
-Os alertas podem ajudá-lo a diagnosticar e atenuar problemas de latência que ocorrem em seu ambiente.
+Os alertas podem ajudá-lo a diagnosticar e mitigar problemas de latência que ocorrem no seu ambiente.
 
-1. Na portal do Azure, selecione seu ambiente de Time Series Insights. Em seguida, selecione **alertas**.
+1. No portal Azure, selecione o seu ambiente Time Series Insights. Em seguida, selecione **Alertas**.
 
-   [![adicionar um alerta ao seu ambiente de Time Series Insights](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
+   [![Adicione um alerta ao seu ambiente time series insights](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
 
-1. Selecione **+ Nova regra de alerta**. O painel **criar regra** será exibido. Selecione **Adicionar** em **condição**.
+1. Selecione **+ Nova regra de alerta**. Em seguida, será apresentado o painel de **regras Create.** **Selecione Adicionar** sob **CONDIÇÃO**.
 
-   [![adicionar painel de alerta](media/environment-mitigate-latency/mitigate-latency-add-pane.png)](media/environment-mitigate-latency/mitigate-latency-add-pane.png#lightbox)
+   [![Adicione painel de alerta](media/environment-mitigate-latency/mitigate-latency-add-pane.png)](media/environment-mitigate-latency/mitigate-latency-add-pane.png#lightbox)
 
-1. Em seguida, configure as condições exatas para a lógica de sinal.
+1. Em seguida, configure as condições exatas para a lógica do sinal.
 
-   [![configurar a lógica de sinal](media/environment-mitigate-latency/configure-alert-rule.png)](media/environment-mitigate-latency/configure-alert-rule.png#lightbox)
+   [![Configurar lógica de sinal](media/environment-mitigate-latency/configure-alert-rule.png)](media/environment-mitigate-latency/configure-alert-rule.png#lightbox)
 
-   A partir daí, você pode configurar alertas usando algumas das seguintes condições:
+   A partir daí, pode configurar alertas utilizando algumas das seguintes condições:
 
    |Métrica  |Descrição  |
    |---------|---------|
-   |**Bytes de entrada recebidos**     | Contagem de bytes brutos lidos de origens de evento. A contagem bruta geralmente inclui o nome e o valor da propriedade.  |  
-   |**A entrada recebeu mensagens inválidas**     | Contagem de mensagens inválidas lidas de todos os hubs de eventos do Azure ou origens de evento do Hub IoT do Azure.      |
-   |**Mensagens de entrada recebidas**   | Contagem de mensagens lidas de todos os hubs de eventos ou origens de eventos de hubs IoT.        |
-   |**Bytes de entrada armazenados**     | Tamanho total de eventos armazenados e disponíveis para consulta. O tamanho é calculado somente no valor da propriedade.        |
-   |**Eventos de entrada armazenados**     |   Contagem de eventos mesclados armazenados e disponíveis para consulta.      |
-   |**Intervalo de tempo de mensagem de entrada recebida**    |  Diferença em segundos entre a hora em que a mensagem é enfileirada na origem do evento e a hora em que ela é processada na entrada.      |
-   |**Atraso na contagem de mensagens de entrada recebidas**    |  Diferença entre o número de sequência da última mensagem enfileirada na partição de origem do evento e o número de sequência de mensagens que estão sendo processadas na entrada.      |
+   |**Ingress recebido bytes**     | Contagem de bytes crus lidos a partir de fontes de eventos. A contagem bruta geralmente inclui o nome e o valor da propriedade.  |  
+   |**Ingress recebeu mensagens inválidas**     | Contagem de mensagens inválidas lidas de todos os Hubs de Eventos Azure ou fontes de eventos Azure IoT Hub.      |
+   |**Mensagens Recebidas de Ingress**   | Contagem de mensagens lidas de todos os Hubs de Eventos ou fontes de eventos ioT Hubs.        |
+   |**Ingress Stored Bytes**     | Tamanho total dos eventos armazenados e disponíveis para consulta. O tamanho é calculado apenas sobre o valor da propriedade.        |
+   |**Eventos Armazenados de Ingress**    |   Contagem de eventos achatados armazenados e disponíveis para consulta.      |
+   |**Ingress recebeu o tempo de mensagem lag**   |  Diferença de segundos entre o tempo em que a mensagem é gravada na fonte do evento e o tempo que é processado em Ingress.      |
+   |**Ingress Recebeu Contagem de Mensagens Lag**   |  Diferença entre o número de sequência da última mensagem enqueuada na partição da fonte do evento e o número de sequência da mensagem a ser processada em Ingress.      |
 
    Selecione **Done** (Concluído).
 
-1. Depois de configurar a lógica de sinal desejada, examine visualmente a regra de alerta escolhida.
+1. Depois de configurar a lógica de sinal desejada, reveja visualmente a regra de alerta escolhida.
 
-   [exibição de latência ![e gráfico](media/environment-mitigate-latency/mitigate-latency-view-and-charting.png)](media/environment-mitigate-latency/mitigate-latency-view-and-charting.png#lightbox)
+   [![Vista de latência e gráfico](media/environment-mitigate-latency/mitigate-latency-view-and-charting.png)](media/environment-mitigate-latency/mitigate-latency-view-and-charting.png#lightbox)
 
-## <a name="throttling-and-ingress-management"></a>Limitação e gerenciamento de entrada
+## <a name="throttling-and-ingress-management"></a>Gestão de estrangulamento e ingresso
 
-* Se você estiver sendo limitado, um valor para o *intervalo de tempo de mensagens recebidas de entrada* será registrado informando a você sobre quantos segundos por trás do ambiente de análise de séries temporais são do tempo real em que a mensagem atinge a origem do evento (excluindo o tempo de indexação do Appx. 30-60 segundos).  
+* Se estiver a ser estrangulado, será registado um valor para o *Tempo de Mensagem Recebida* ingresso, informando-o sobre quantos segundos atrás do seu ambiente TIme Series Insights estão a partir do momento em que a mensagem atinge a fonte do evento (excluindo o tempo de indexação do appx. 30-60 segundos).  
 
-  O *retardo de contagem de mensagens recebidas de entrada* também deve ter um valor, permitindo que você determine quantas mensagens atrás você está.  A maneira mais fácil de se familiarizar é aumentar a capacidade do seu ambiente para um tamanho que lhe permitirá superar a diferença.  
+  *Ingress Received Message Count Lag* também deve ter um valor, permitindo-lhe determinar quantas mensagens estão por trás de si.  A maneira mais fácil de ser apanhado é aumentar a capacidade do seu ambiente para um tamanho que lhe permitirá superar a diferença.  
 
-  Por exemplo, se o seu ambiente S1 estiver demonstrando o atraso de 5 milhões mensagens, você poderá aumentar o tamanho do seu ambiente para seis unidades por cerca de um dia para ser pego.  Você pode aumentar ainda mais para acompanhar mais rapidamente. O período de atualização é uma ocorrência comum ao provisionar inicialmente um ambiente, especialmente quando você o conecta a uma fonte de eventos que já tem eventos ou quando você carrega em massa muitos dados históricos.
+  Por exemplo, se o seu ambiente S1 estiver demonstrando um atraso de 5.000.000 mensagens, pode aumentar o tamanho do seu ambiente para seis unidades durante cerca de um dia para ser apanhado.  Pode aumentar ainda mais para recuperar mais rapidamente. O período de recuperação é uma ocorrência comum quando inicialmente se aprovisiona um ambiente, especialmente quando o liga a uma fonte de evento que já tem eventos ou quando carrega a granel muitos dados históricos.
 
-* Outra técnica é definir um alerta de **eventos armazenados de entrada** > = um limite um pouco abaixo da capacidade total do ambiente por um período de 2 horas.  Esse alerta pode ajudá-lo a entender se você está constantemente na capacidade, o que indica uma alta probabilidade de latência. 
+* Outra técnica é definir um alerta **de Eventos Armazenados Ingress** >= um limiar ligeiramente inferior à sua capacidade total de ambiente por um período de 2 horas.  Este alerta pode ajudá-lo a entender se está constantemente na capacidade, o que indica uma alta probabilidade de latência. 
 
-  Por exemplo, se você tiver três unidades S1 provisionadas (ou 2100 eventos de entrada por minuto), poderá definir um alerta de **eventos armazenados de entrada** para > = 1900 eventos por 2 horas. Se você estiver constantemente excedendo esse limite e, portanto, disparando o alerta, provavelmente estará subvisionado.  
+  Por exemplo, se tiver três unidades S1 aprovisionadas (ou 2100 eventos por capacidade de entrada de minutos), pode definir um alerta de **Eventos Armazenados ingressos** para >= 1900 eventos durante 2 horas. Se estiver constantemente a exceder este limiar e, portanto, desencadeando o seu alerta, é provável que esteja sub-provisionado.  
 
-* Se você suspeitar que está sendo limitado, poderá comparar as **mensagens de entrada recebidas** com as mensagens de saída da origem do evento.  Se a entrada no Hub de eventos for maior do que as **mensagens de entrada recebidas**, suas Time Series insights provavelmente estão sendo limitadas.
+* Se suspeitar que está a ser estrangulado, pode comparar as suas **Mensagens Recebidas** ingressos com as mensagens de origem do evento.  Se entrar no seu Centro de Eventos for maior do que as suas **Mensagens Recebidas**de Ingress, é provável que os seus Insights da Série De Tempo estejam a ser estrangulados.
 
 ## <a name="improving-performance"></a>Melhorar o desempenho
 
-Para reduzir a limitação ou experimentar a latência, a melhor maneira de corrigi-la é aumentar a capacidade do seu ambiente.
+Para reduzir a estrangulamento ou a latência, a melhor maneira de corrigi-la é aumentar a capacidade do seu ambiente.
 
-Você pode evitar a latência e a limitação configurando corretamente seu ambiente para a quantidade de dados que deseja analisar. Para obter mais informações sobre como adicionar capacidade ao seu ambiente, leia [dimensionar seu ambiente](time-series-insights-how-to-scale-your-environment.md).
+Pode evitar a latência e o estrangulamento configurando corretamente o seu ambiente para a quantidade de dados que pretende analisar. Para obter mais informações sobre como adicionar capacidade ao seu ambiente, leia [Escala do seu ambiente.](time-series-insights-how-to-scale-your-environment.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Leia sobre como [diagnosticar e resolver problemas em seu ambiente de time Series insights](time-series-insights-diagnose-and-solve-problems.md).
+- Leia sobre [diagnosticar e resolver problemas no seu ambiente Time Series Insights](time-series-insights-diagnose-and-solve-problems.md).
 
-- Saiba [como dimensionar seu ambiente de time Series insights](time-series-insights-how-to-scale-your-environment.md).
+- Aprenda [a escalar o seu ambiente Time Series Insights](time-series-insights-how-to-scale-your-environment.md).

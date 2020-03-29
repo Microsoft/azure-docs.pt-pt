@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 3af18eb09fd9906a0caaebda0b786795400467f3
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78164935"
 ---
 # <a name="migrate-applications-to-microsoft-authentication-library-msal"></a>Migrar aplicações para a Microsoft Authentication Library (MSAL)
@@ -34,8 +34,8 @@ Tanto a Microsoft Authentication Library (MSAL) como a Azure AD Authentication L
 Os seguintes artigos descrevem as diferenças entre as bibliotecas MSAL e ADAL e ajudam-no a migrar para a MSAL:
 - [Migrar para MSAL.NET](msal-net-migration.md)
 - [Migrar para MSAL.js](msal-compare-msal-js-and-adal-js.md)
-- [Migrar para a MSAL. Android](migrate-android-adal-msal.md)
+- [Migrar para MSAL.Android](migrate-android-adal-msal.md)
 - [Migrar para MSAL.iOS / macOS](migrate-objc-adal-msal.md)
-- [Migrar para mSAL Python](migrate-python-adal-msal.md)
-- [Migrar para a MSAL para Java](migrate-adal-msal-java.md)
-- [Migrar aplicativos Xamarin usando corretores para MSAL.NET](msal-net-migration-ios-broker.md)
+- [Migrar para MSAL Python](migrate-python-adal-msal.md)
+- [Migrar para MSAL para Java](migrate-adal-msal-java.md)
+- [Migrar aplicações Xamarin com mediadores para o MSAL.NET](msal-net-migration-ios-broker.md)

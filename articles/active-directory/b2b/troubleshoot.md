@@ -5,26 +5,28 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 11/12/2019
+ms.date: 03/19/2020
 tags: active-directory
 ms.author: mimart
-author: v-miegge
-manager: dcscontentpm
+author: msmimart
 ms.reviewer: mal
 ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7c0a4567da11b10b9a0571656103ef2f17c7da4
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 5f8bafb04d0a5d9c6d25a7ed7e155888d492e9fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78399052"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050788"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Resolução de problemas Azure Ative Directory B2B colaboração
 
 Aqui estão alguns remédios para problemas comuns com a colaboração do Azure Ative Directory (Azure AD) B2B.
+
+   > [!IMPORTANT]
+   > A partir de 31 de março de **2021,** a Microsoft deixará de apoiar o resgate de convites através da criação de contas AD Azure não geridas e inquilinos para cenários de colaboração B2B. Em preparação, encorajamos os clientes a optarem pela autenticação de código de acesso único por [e-mail.](one-time-passcode.md) Congratulamo-nos com o seu feedback sobre esta funcionalidade de pré-visualização pública e estamos entusiasmados por criar ainda mais formas de colaborar.
 
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>Adicionei um utilizador externo, mas não os vejo no meu Livro de Endereços Global ou no selecionador de pessoas.
 
@@ -38,7 +40,7 @@ Pode ativar esta funcionalidade utilizando a definição 'ShowPeoplePickerSugges
 
 ## <a name="invitations-have-been-disabled-for-directory"></a>Convites foram desativados para diretório
 
-Se for notificado de que não tem permissões para convidar utilizadores, verifique se a sua conta de utilizador está autorizada a convidar utilizadores externos ao abrigo do Azure Ative Directory > Configurações de utilizador > Utilizadores externos > Gerir as definições de colaboração externa:
+Se for notificado de que não tem permissões para convidar utilizadores, verifique se a sua conta de utilizador está autorizada a convidar utilizadores externos ao abrigo das definições do Utilizador > Do Utilizador > Utilizadores Externos > Gerir as definições de colaboração externa:
 
 ![Screenshot mostrando as definições de Utilizadores Externos](media/troubleshoot/external-user-settings.png)
 
@@ -46,7 +48,7 @@ Se modificou recentemente estas definições ou atribuiu a função de Convidado
 
 ## <a name="the-user-that-i-invited-is-receiving-an-error-during-redemption"></a>O utilizador que convidei está a receber um erro durante a redenção.
 
-Erros comuns incluem:
+Os erros comuns incluem:
 
 ### <a name="invitees-admin-has-disallowed-emailverified-users-from-being-created-in-their-tenant"></a>A Administração do Convite repudiou os utilizadores verificados por email de serem criados no seu inquilino
 
@@ -60,9 +62,9 @@ Se estiver a utilizar a autenticação da federação e o utilizador já não ex
 
 Para resolver este problema, o administrador do utilizador externo deve sincronizar a conta do utilizador ao Diretório Ativo Azure.
 
-## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Como é que '\#', que normalmente não é um personagem válido, sincroniza com o Azure AD?
+## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Como é\#que ' ', que normalmente não é um personagem válido, sincroniza com o Azure AD?
 
-"\#" é um personagem reservado em UPNs para colaboração Azure AD B2B ou utilizadores externos, porque a conta convidada user@contoso.com torna-se user_contoso.com#EXT#@fabrikam.onmicrosoft.com. Portanto, \# nas UPNs provenientes do local não estão autorizados a entrar no portal Azure. 
+"\#" é um personagem reservado em UPNs para colaboração Azure AD B2B ou utilizadores externos, porque a conta user@contoso.com convidada torna-se user_contoso.com#EXT#@fabrikam.onmicrosoft.com. Portanto, \# nas UPNs provenientes do local não estão autorizados a entrar no portal Azure. 
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>Recebo um erro ao adicionar utilizadores externos a um grupo sincronizado
 
@@ -70,7 +72,7 @@ Os utilizadores externos só podem ser adicionados a grupos "atribuídos" ou "se
 
 ## <a name="my-external-user-did-not-receive-an-email-to-redeem"></a>O meu utilizador externo não recebeu um e-mail para resgatar
 
-O convidado deve consultar com o seu isp ou filtro de spam para garantir que o seguinte endereço é permitido: Invites@microsoft.com
+O convidado deve consultar com o seu isp ou filtro de spam para garantir que o seguinte endereço é permitido:Invites@microsoft.com
 
 ## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Noto que a mensagem personalizada não é incluída com mensagens de convite às vezes
 

@@ -5,40 +5,40 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: b2dec95e0258933b50d4437f1cb317639b62883d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184302"
 ---
-### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>Atualizar o SharePoint 2010 para SharePoint 2013 e, em seguida, instalar o adaptador de StorSomple para SharePoint
+### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>Atualize o SharePoint 2010 para o SharePoint 2013 e, em seguida, instale o Adaptador StorSomple para SharePoint
 > [!IMPORTANT]
-> Todos os ficheiros que anteriormente foram movidos para o armazenamento externo através de RBS não estarão disponíveis até que a atualização estiver concluída e a funcionalidade RBS é ativada novamente. Para limitar o impacto no utilizador, execute qualquer atualização ou reinstalação durante uma janela de manutenção planeada.
+> Quaisquer ficheiros que tenham sido previamente transferidos para armazenamento externo através do RBS não estarão disponíveis até que a atualização esteja concluída e a funcionalidade RBS esteja novamente ativada. Para limitar o impacto do utilizador, efetue qualquer atualização ou reinstalação durante uma janela de manutenção planeada.
 > 
 > 
 
-#### <a name="to-upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-adapter"></a>Para atualizar o SharePoint 2010 para SharePoint 2013 e, em seguida, instalar o adaptador
-1. No farm do SharePoint 2010, tenha em atenção o caminho de armazenamento de BLOBS para os BLOBs externalized e as bases de dados de conteúdo para o qual RBS está ativada. 
-2. Instale e configure a nova farm do SharePoint 2013. 
-3. Mova bases de dados, aplicativos e conjuntos de sites do farm do SharePoint 2010 para a nova farm do SharePoint 2013. Para obter instruções, aceda a [descrição geral do processo de atualização para o SharePoint 2013](https://technet.microsoft.com/library/cc262483.aspx).
-4. Instale o adaptador do StorSimple para SharePoint no farm de novo. Aceda a [instalar o adaptador do StorSimple para SharePoint](#install-the-storsimple-adapter-for-sharepoint) para obter os procedimentos.
-5. Usando as informações que anotou no passo 1, ativar o RBS para o mesmo conjunto de bases de dados de conteúdo e fornecer o mesmo caminho de armazenamento de BLOBS que utilizou na instalação do SharePoint 2010. Aceda a [RBS configurar](#configure-rbs) para obter os procedimentos. Depois de concluir este passo, os ficheiros anteriormente externalized devem ser acessíveis a partir do novo farm. 
+#### <a name="to-upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-adapter"></a>Para atualizar o SharePoint 2010 para o SharePoint 2013 e, em seguida, instalar o adaptador
+1. Na quinta SharePoint 2010, note o caminho da loja BLOB para os BLOBs externos e as bases de dados de conteúdos para as quais o RBS está ativado. 
+2. Instale e configure a nova quinta SharePoint 2013. 
+3. Mova bases de dados, aplicações e coleções de sites da quinta SharePoint 2010 para a nova quinta SharePoint 2013. Para obter instruções, vá ao [Resumo do processo de atualização para SharePoint 2013](https://technet.microsoft.com/library/cc262483.aspx).
+4. Instale o Adaptador StorSimple para O SharePoint na nova quinta. Vá instalar [o Adaptador StorSimple para o SharePoint](#install-the-storsimple-adapter-for-sharepoint) para procedimentos.
+5. Utilizando as informações que observou no passo 1, ative o RBS para o mesmo conjunto de bases de dados de conteúdo e forneça o mesmo caminho de loja BLOB que foi utilizado na instalação sharePoint 2010. Vá ao [Configure RBS](#configure-rbs) para procedimentos. Depois de completar este passo, os ficheiros previamente externos devem estar acessíveis a partir da nova quinta. 
 
-### <a name="upgrade-the-storsimple-adapter-for-sharepoint"></a>Atualizar o adaptador do StorSimple para SharePoint
+### <a name="upgrade-the-storsimple-adapter-for-sharepoint"></a>Atualize o Adaptador StorSimple para SharePoint
 > [!IMPORTANT]
-> Deve agendar esta atualização para ocorrer durante uma janela de manutenção planeada pelos seguintes motivos:
+> Deve agendar esta atualização durante uma janela de manutenção planeada pelas seguintes razões:
 > 
-> * Anteriormente conteúdo externalized não estarão disponível até que o adaptador é reinstalado.
-> * Qualquer conteúdo carregado para o site depois de desinstalar a versão anterior do StorSimple Adapter para SharePoint, mas antes de instalar a nova versão, será armazenado na base de dados do conteúdo. Precisará mover esse conteúdo para o dispositivo StorSimple, depois de instalar o novo adaptador. Pode utilizar o Microsoft `RBS Migrate()` cmdlet do PowerShell incluído com o SharePoint para migrar o conteúdo. Para obter mais informações, consulte [migrar o conteúdo dentro ou fora do RBS](https://technet.microsoft.com/library/ff628255.aspx). 
+> * O conteúdo anteriormente externo não estará disponível até que o adaptador seja reinstalado.
+> * Qualquer conteúdo enviado para o site depois de desinstalar a versão anterior do Adaptador StorSimple para o SharePoint, mas antes de instalar a nova versão, será armazenado na base de dados de conteúdos. Terá de mover esse conteúdo para o dispositivo StorSimple depois de instalar o novo adaptador. Pode utilizar o `RBS Migrate()` cmdlet Microsoft PowerShell incluído com o SharePoint para migrar o conteúdo. Para mais informações, consulte o [conteúdo migrate para dentro ou para fora do RBS](https://technet.microsoft.com/library/ff628255.aspx). 
 > 
 > 
 
-#### <a name="to-upgrade-the-storsimple-adapter-for-sharepoint"></a>Para atualizar o adaptador do StorSimple para SharePoint
-1. Desinstale a versão anterior do StorSimple Adapter para SharePoint.
+#### <a name="to-upgrade-the-storsimple-adapter-for-sharepoint"></a>Para atualizar o Adaptador StorSimple para O SharePoint
+1. Desinstale a versão anterior do Adaptador StorSimple para o SharePoint.
    
    > [!NOTE]
-   > Isto desativará RBS automaticamente nas bases de dados de conteúdo. No entanto, os BLOBs existentes permanecerão no dispositivo StorSimple. Uma vez RBS está desativada e os BLOBs não tiverem sido migrados para as bases de dados de conteúdo, todos os pedidos para os BLOBs irão falhar. 
+   > Isto irá automaticamente desativar o RBS nas bases de dados de conteúdos. No entanto, os BLOBs existentes permanecerão no dispositivo StorSimple. Uma vez que o RBS está desativado e os BLOBs não foram migrados de volta para as bases de dados de conteúdos, quaisquer pedidos para esses BLOBs falharão. 
    > 
    > 
-2. Instale o novo adaptador do StorSimple para SharePoint. O novo adaptador reconhecerá automaticamente as bases de dados de conteúdos que foram anteriormente ativadas ou desativadas para RBS e irá utilizar as definições anteriores.
+2. Instale o novo Adaptador StorSimple para o SharePoint. O novo adaptador reconhecerá automaticamente as bases de dados de conteúdos anteriormente ativadas ou desativadas para o RBS e utilizará as definições anteriores.
 

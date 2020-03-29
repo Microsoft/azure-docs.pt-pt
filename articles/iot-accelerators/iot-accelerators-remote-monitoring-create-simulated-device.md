@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: 8babacfede6e13fde629492e1cd9f80af7f0e53f
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78943058"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Criar e testar um novo dispositivo simulado
@@ -33,7 +33,7 @@ No segundo cenário, Contoso quer testar um novo dispositivo de lâmpada intelig
 | Nome                     | Valores                      |
 | ------------------------ | --------------------------- |
 | Cor                    | Branco, Vermelho, Azul            |
-| Brilho               | 0 a 100                    |
+| Luminosidade               | 0 a 100                    |
 | Vida remanescente estimada | Contagem regressiva de 10.000 horas |
 
 *Telemetria*
@@ -44,7 +44,7 @@ A tabela que se segue mostra os dados que a lâmpada reporta à nuvem como um fl
 | ------ | ----------- |
 | Estado | "on", "off" |
 | Temperatura | Graus F |
-| Online | VERDADEIRO, FALSO |
+| online | TRUE, false |
 
 > [!NOTE]
 > O valor da telemetria **online** é obrigatório para todos os tipos simulados.
@@ -72,7 +72,7 @@ O quadro seguinte mostra o estado inicial do dispositivo:
 
 Para completar os passos neste guia de como guiar, precisa de uma subscrição azure ativa.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -109,9 +109,9 @@ Abra a pasta de adaptação de armazenamento de **serviços de monitorização r
 
 Abra o **adaptador de armazenamento/WebService/appsettings.ini** e atribua a sua cadeia de ligação Cosmos DB à variável **documentDBConnectionString.**
 
-Para executar o microserviço localmente, clique em **Debug > Start Debugging**.
+Para executar o microserviço localmente, clique em **Debug > Começar Depuração**.
 
-A janela **Terminal** em Código de Estúdio Visual mostra saída do microserviço em execução, incluindo um URL para a verificação de saúde do serviço web: [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status). Quando navegar para este endereço, o estado deve ser "OK: Vivo e bem".
+A janela **Terminal** em Código de Estúdio Visual mostra saída do microserviço [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status)em execução, incluindo um URL para a verificação de saúde do serviço web: . Quando navegar para este endereço, o estado deve ser "OK: Vivo e bem".
 
 Deixe o microserviço adaptador de armazenamento em funcionamento neste caso de Visual Studio Code enquanto completa os próximos passos.
 
@@ -123,13 +123,13 @@ Nesta secção, adicione um novo tipo de telemetria **de temperatura interna** a
 
 1. Copie os seguintes ficheiros para a sua nova pasta a partir da cópia descarregada do microserviço de simulação do dispositivo:
 
-    | Origem | Destination |
+    | Origem | Destino |
     | ------ | ----------- |
     | Serviços\data\devicemodels\chiller-01.json | C:\temp\devicemodels\chiller-01.json |
     | Serviços\data\devicemodels\scripts\chiller-01-state.js | C:\temp\devicemodels\scripts\chiller-01-state.js |
     | Serviços\data\devicemodels\scripts\Reboot-method.js | C:\temp\devicemodels\scripts\Reboot-method.js |
-    | Services\data\devicemodels\scripts\FirmwareUpdate-method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-method.js |
-    | Services\data\devicemodels\scripts\EmergencyValveRelease-method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-method.js |
+    | Serviços\data\devicemodels\scripts\FirmwareUpdate-method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-method.js |
+    | Serviços\data\devicemodels\scripts\EmergencyValveRelease-method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-method.js |
     | Serviços\data\devicemodels\scripts\IncreasePressure-method.js | C:\temp\devicemodels\scripts\IncreasePressure-method.js |
 
 1. Abra o ficheiro **C:\temp\devicemodels\chiller-01.json.**
@@ -432,7 +432,7 @@ device_models_folder = C:\temp\devicemodels\
 device_models_scripts_folder = C:\temp\devicemodels\scripts\
 ```
 
-Para executar o microserviço localmente, clique em **Debug > Start Debugging**.
+Para executar o microserviço localmente, clique em **Debug > Começar Depuração**.
 
 A janela **Terminal** em Código de Estúdio Visual mostra saída do microserviço em execução.
 
@@ -494,11 +494,11 @@ Para parar a simulação, selecione o pedido de **simulação Stop** no Carteiro
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Pode parar os dois microserviços de funcionamento local nas suas instâncias de Código de Estúdio Visual (**Debug > Stop Debugging**).
+Pode parar os dois microserviços de funcionamento local nas suas instâncias de Código de Estúdio Visual (**Debug > Stop Debugging).**
 
 Se já não necessitar dos casos IoT Hub e Cosmos DB, elimine-os da subscrição do Azure para evitar quaisquer encargos desnecessários.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este guia mostrou-lhe como criar um dispositivo simulado personalizado e testá-los executando o microserviço de simulação do dispositivo localmente.
 

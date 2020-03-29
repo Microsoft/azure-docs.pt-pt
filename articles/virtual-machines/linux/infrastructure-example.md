@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: 6040bf8862131f5a8a5564cd2f5d845fa0490a95
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944894"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Exemplo de passagem de infraestrutura Azure para VMs Linux
@@ -39,20 +39,20 @@ O desenho resultante deve incorporar:
 * Managed Disks do Azure
 * Uma rede virtual com duas subredes
 * Conjuntos de disponibilidade para os VMs com um papel semelhante
-* Máquinas virtuais
+* Virtual Machines
 
 Todas estas convenções de nomeação:
 
 * Adventure Works Cycles usa [carga de **trabalho de TI]-[recurso Azure]** como prefixo
   * Para este exemplo, "**azos**" (Azure On-line Store) é o nome da carga de trabalho de TI e "**use**" (East US 2) é o local
 * As redes virtuais utilizam a AZOS-USE-VN<strong>[número]</strong>
-* Os conjuntos de disponibilidade usam azos-use-as-[função]
-* Os nomes das máquinas virtuais usam azos-use-vm- **[vmname]**
+* Os conjuntos de disponibilidade usam azos-use-as-[função]**[role]**
+* Os nomes das máquinas virtuais usam azos-use-vm-**[vmname]**
 
 ## <a name="azure-subscriptions-and-accounts"></a>Assinaturas e contas azure
 A Adventure Works Cycles está a usar a sua subscrição enterprise, chamada Adventure Works Enterprise Subscription, para fornecer faturação para esta carga de trabalho de TI.
 
-## <a name="storage"></a>Armazenamento
+## <a name="storage"></a>Storage
 A Adventure Works Cycles determinou que deveriam utilizar discos geridos azure. Ao criar VMs, ambos os níveis de armazenamento disponíveis são utilizados:
 
 * **Armazenamento padrão** para os servidores web, servidores de aplicações e controladores de domínio e seus discos de dados.
@@ -81,7 +81,7 @@ Para manter a elevada disponibilidade dos quatro níveis da sua loja on-line, a 
 * **azos-use-as-db** para os servidores do cluster mongoDB fragmentado
 * **azos-use-as-dc** para os controladores de domínio
 
-## <a name="virtual-machines"></a>Máquinas virtuais
+## <a name="virtual-machines"></a>Virtual Machines
 A Adventure Works Cycles decidiu sobre os seguintes nomes para os seus VMs Azure:
 
 * **azos-use-vm-web01** para o primeiro servidor web

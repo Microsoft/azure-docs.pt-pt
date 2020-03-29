@@ -5,10 +5,10 @@ ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 141bb8825e47eb2309f9f551990a2976e8f4e209
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78943193"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Implementar pré-visualização da bancada azure blockchain
@@ -36,7 +36,7 @@ Blockchain Workbench permite-lhe implementar um livro de blockchain juntamente c
 
 Segue-se um exemplo de implantação criado no grupo de recursos **myblockchain.**
 
-![Implementação de exemplo](media/deploy/example-deployment.png)
+![Implantação de exemplo](media/deploy/example-deployment.png)
 
 O custo da Bancada de Trabalho blockchain é um agregado do custo dos serviços Azure subjacentes. As informações sobre preços dos serviços Azure podem ser calculadas utilizando a [calculadora](https://azure.microsoft.com/pricing/calculator/)de preços .
 
@@ -51,10 +51,10 @@ A bancada azure Blockchain requer a configuração da AD Azure e os registos de 
 
 Uma vez concluídos os passos pré-requisitos, está pronto para implantar a bancada de trabalho blockchain. As seguintes secções descrevem como implementar o quadro.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Selecione a sua conta no canto superior direito e mude para o inquilino AD Azure desejado onde pretende implementar a Bancada de Trabalho Azure Blockchain.
 1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.
-1. Selecione **Blockchain** > Bancada de **Trabalho Azure Blockchain (pré-visualização)** .
+1. Selecione **Blockchain** > **Azure Blockchain Workbench (pré-visualização)**.
 
     ![Criar bancada de trabalho Azure Blockchain](media/deploy/blockchain-workbench-settings-basic.png)
 
@@ -64,8 +64,8 @@ Uma vez concluídos os passos pré-requisitos, está pronto para implantar a ban
     | Nome de utilizador VM | O nome do utilizador é utilizado como administrador para todas as máquinas virtuais (VM). |
     | Tipo de autenticação | Selecione se pretender utilizar uma palavra-passe ou chave para ligar aos VMs. |
     | Palavra-passe | A palavra-passe é usada para ligar a VMs. |
-    | SSH | Utilize uma chave pública RSA no formato de linha única a partir de **ssh-rsa** ou utilize o formato PEM multi-line. Pode gerar chaves SSH utilizando `ssh-keygen` no Linux e NO OS X, ou utilizando o PuTTYGen no Windows. Mais informações sobre as teclas SSH, consulte [como utilizar as teclas SSH com windows on Azure](../../virtual-machines/linux/ssh-from-windows.md). |
-    | Base de dados e senha blockchain | Especifique a palavra-passe a utilizar para acesso à base de dados criada como parte da implementação. A palavra-passe deve satisfazer três dos seguintes quatro requisitos: comprimento deve ser entre 12 e 72 caracteres, 1 caracteres minúsculos, 1 personagem superior, 1 número e 1 personagem especial que não seja sinal de número(#), por cento (%), vírem(,), estrela(*), citação de volta(\`), citação dupla('), traço (-) e semicoluna(;) |
+    | SSH | Utilize uma chave pública RSA no formato de linha única a partir de **ssh-rsa** ou utilize o formato PEM multi-line. Pode gerar chaves SSH utilizando `ssh-keygen` em Linux e OS X, ou utilizando o PuTTYGen no Windows. Mais informações sobre as teclas SSH, consulte [como utilizar as teclas SSH com windows on Azure](../../virtual-machines/linux/ssh-from-windows.md). |
+    | Base de dados e senha blockchain | Especifique a palavra-passe a utilizar para acesso à base de dados criada como parte da implementação. A palavra-passe deve satisfazer três dos seguintes quatro requisitos: comprimento deve ser entre 12 & 72 caracteres, 1 carácter inferior, 1 caracteres maiúsculos, 1 número e\`1 personagem especial que não seja sinal de número(#), por cento (%), vírem(*), estrela(*), citação dupla(), citação única('), traço (-) e semicoluna (;) |
     | Região de implantação | Especifique onde implementar recursos da bancada blockchain. Para uma melhor disponibilidade, isto deve corresponder à definição de **Localização.** |
     | Subscrição | Especifique a Subscrição Azure que deseja utilizar para a sua implementação. |
     | Grupos de recursos | Crie um novo grupo de Recursos selecionando **Criar novo** e especificar um nome único de grupo de recursos. |
@@ -84,7 +84,7 @@ Uma vez concluídos os passos pré-requisitos, está pronto para implantar a ban
     | Definição | Descrição  |
     |---------|--------------|
     | Nível de preços do Serviço Azure Blockchain | Escolha o nível de serviço **Basic** ou **Standard** Azure Blockchain que é usado para blockchain Workbench |
-    | Definições de Diretório Ativo Azure | Escolha **adicionar mais tarde**.</br>Nota: Se escolheu [pré-configurar o Azure AD](#azure-ad-configuration) ou está a recolocar-se, opte por *Adicionar Agora*. |
+    | Definições do Azure Active Directory | Escolha **adicionar mais tarde**.</br>Nota: Se escolheu [pré-configurar o Azure AD](#azure-ad-configuration) ou está a recolocar-se, opte por *Adicionar Agora*. |
     | Seleção VM | Selecione o desempenho de armazenamento preferido e o tamanho vm para a sua rede blockchain. Escolha um tamanho VM menor, como o *Standard DS1 v2,* se estiver numa subscrição com limites de serviço baixos, como o nível livre de Azure. |
 
     Para **utilização existente:**
@@ -103,7 +103,7 @@ Uma vez concluídos os passos pré-requisitos, está pronto para implantar a ban
      | Definição | Descrição  |
      |---------|--------------|
      | Ethereum RPC Endpoint | Forneça o ponto final rPC de uma rede de blockchain PoA existente. O ponto final começa com https:// ou http:// e termina com um número de porta. Por exemplo, `http<s>://<network-url>:<port>` |
-     | Definições de Diretório Ativo Azure | Escolha **adicionar mais tarde**.</br>Nota: Se escolheu [pré-configurar o Azure AD](#azure-ad-configuration) ou está a recolocar-se, opte por *Adicionar Agora*. |
+     | Definições do Azure Active Directory | Escolha **adicionar mais tarde**.</br>Nota: Se escolheu [pré-configurar o Azure AD](#azure-ad-configuration) ou está a recolocar-se, opte por *Adicionar Agora*. |
      | Seleção VM | Selecione o desempenho de armazenamento preferido e o tamanho vm para a sua rede blockchain. Escolha um tamanho VM menor, como o *Standard DS1 v2,* se estiver numa subscrição com limites de serviço baixos, como o nível livre de Azure. |
 
 1. Selecione **OK** para terminar Definições Avançadas.
@@ -114,7 +114,7 @@ Uma vez concluídos os passos pré-requisitos, está pronto para implantar a ban
 
 1. Selecione **Criar** para concordar com os termos e implementar a sua bancada de trabalho Azure Blockchain.
 
-O destacamento pode demorar até 90 minutos. Pode utilizar o portal Azure para monitorizar o progresso. No grupo de recursos recém-criado, selecione **Deployments > Visão geral** para ver o estado dos artefactos implantados.
+O destacamento pode demorar até 90 minutos. Pode utilizar o portal Azure para monitorizar o progresso. No grupo de recursos recém-criado, selecione **Deployments > visão geral** para ver o estado dos artefactos implantados.
 
 > [!IMPORTANT]
 > Pós-implantação, é necessário completar as definições de Diretório Ativo. Se escolheu **Add Later,** tem de executar o script de [configuração Azure AD](#azure-ad-configuration-script).  Se escolheu **Adicionar agora,** precisa [configurar o URL de resposta](#configuring-the-reply-url).
@@ -123,7 +123,7 @@ O destacamento pode demorar até 90 minutos. Pode utilizar o portal Azure para m
 
 Uma vez concluída a implantação da bancada blockchain, um novo grupo de recursos contém os seus recursos blockchain Workbench. Os serviços blockchain Workbench são acedidos através de um URL web. Os seguintes passos mostram-lhe como recuperar o URL web da estrutura implantada.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. No painel de navegação à esquerda, selecione **Grupos de Recursos**.
 1. Escolha o nome do grupo de recursos especificado ao implementar a bancada blockchain Workbench.
 1. Selecione a direção da coluna **TYPE** para classificar a lista alfabeticamente por tipo.
@@ -178,15 +178,15 @@ Se optar por configurar manualmente ou verificar as definições de AD Azure ant
 A implementação da bancada blockchain requer o registo de uma aplicação Azure AD. Você precisa de um inquilino azure Ative Directory (Azure AD) para registar a app. Você pode usar um inquilino existente ou criar um novo inquilino. Se estiver a utilizar um inquilino Azure AD existente, precisa de permissões suficientes para registar candidaturas, conceder permissões de API graph e permitir o acesso dos hóspedes dentro de um inquilino da AD Azure. Se não tiver permissões suficientes num inquilino da AD Azure existente, crie um novo inquilino.
 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Selecione a sua conta no canto superior direito e mude para o inquilino AD Azure desejado. O inquilino deve ser o inquilino da subscrição da subscrição onde a Bancada de Trabalho azure Blockchain está implantada e você tem permissões suficientes para registar candidaturas.
-1. No painel de navegação do lado esquerdo, selecione o serviço do **Azure Active Directory**. Selecione **registos** de aplicações > **Novo registo.**
+1. No painel de navegação do lado esquerdo, selecione o serviço do **Azure Active Directory**. Selecione **registos de aplicações** > **Nova inscrição**.
 
     ![Registo da aplicação](media/deploy/app-registration.png)
 
 1. Forneça um **nome** de exibição e escolha **contas apenas neste diretório organizacional**.
 
-    ![Criar registo de aplicativos](media/deploy/app-registration-create.png)
+    ![Criar um registo de aplicações](media/deploy/app-registration-create.png)
 
 1. Selecione **Registar** para registar a aplicação Azure AD.
 
@@ -195,9 +195,9 @@ A implementação da bancada blockchain requer o registo de uma aplicação Azur
 Em seguida, é necessário modificar o manifesto para utilizar funções de aplicação dentro da AD Azure para especificar os administradores da bancada de trabalho blockchain.  Para obter mais informações sobre os manifestos de candidatura, consulte o manifesto de candidatura do [Azure Ative Directory](../../active-directory/develop/reference-app-manifest.md).
 
 
-1. É necessário um GUID para o manifesto. Pode gerar um GUID utilizando o comando PowerShell `[guid]::NewGuid()` ou `New-GUID` cmdlet. Outra opção é usar um site de gerador GUIA.
+1. É necessário um GUID para o manifesto. Pode gerar um GUID utilizando `[guid]::NewGuid()` o `New-GUID` comando PowerShell ou cmdlet. Outra opção é usar um site de gerador GUIA.
 1. Para a aplicação que registou, selecione **Manifesto** na secção **Gerir.**
-1. Em seguida, atualize a secção **appRoles** do manifesto. Substitua `"appRoles": []` pelo JSON fornecido. Certifique-se de substituir o valor do campo **id** pelo GUID gerado. 
+1. Em seguida, atualize a secção **appRoles** do manifesto. Substitua-a `"appRoles": []` pelo JSON fornecido. Certifique-se de substituir o valor do campo **id** pelo GUID gerado. 
 
     ![Editar manifesto](media/deploy/edit-manifest.png)
 
@@ -258,7 +258,7 @@ A identificação da aplicação e a informação do inquilino são necessárias
 
     | Definição para armazenar  | Utilização na implantação |
     |------------------|-------------------|
-    | Id de aplicação (cliente) | Configuração de Diretório Ativo Azure > Id de aplicação |
+    | ID da Aplicação (cliente) | Azure Ative Directory configura o ID > Aplicação |
 
 ### <a name="get-tenant-domain-name"></a>Obtenha o nome do domínio do inquilino
 
@@ -272,7 +272,7 @@ No painel de navegação do lado esquerdo, selecione o serviço do **Azure Activ
 
 Se tiver utilizadores convidados no seu inquilino Azure AD, siga os passos adicionais para garantir que a atribuição e gestão do utilizador da Bancada de Trabalho blockchain funcione corretamente.
 
-1. Troque-lhe o seu inquilino Azure AD e selecione **Azure Ative Directory > Configurações de utilizador > Gerencie as definições**de colaboração externa .
+1. Troque-lhe o seu inquilino Azure AD e selecione as definições de **> de diretório ativo do Azure > gerir as definições**de colaboração externa .
 1. Definir As **permissões do utilizador do Hóspede estão limitadas** a **Nº**.
     ![Definições de colaboração externa](media/deploy/user-collaboration-settings.png)
 
@@ -280,12 +280,12 @@ Se tiver utilizadores convidados no seu inquilino Azure AD, siga os passos adici
 
 Uma vez implantada a bancada de trabalho Azure Blockchain, tem de configurar a aplicação de cliente Azure Ative Directory (Azure AD) **Resposta URL** do URL web da bancada de trabalho blockchain implantado.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Verifique se está no inquilino onde registou o pedido de cliente da Azure AD.
 1. No painel de navegação do lado esquerdo, selecione o serviço do **Azure Active Directory**. Selecione **Registos das aplicações**.
 1. Selecione a aplicação do cliente Azure AD que registou na secção pré-requisito.
-1. **Selecione Autenticação**.
-1. Especifique o URL web principal da implementação da bancada azure blockchain que recuperou na secção URL web blockchain [Workbench.](#blockchain-workbench-web-url) O URL de resposta é pré-fixado com `https://`. Por exemplo, `https://myblockchain2-7v75.azurewebsites.net`
+1. Selecione **Autenticação**.
+1. Especifique o URL web principal da implementação da bancada azure blockchain que recuperou na secção URL web blockchain [Workbench.](#blockchain-workbench-web-url) O URL de resposta `https://`é pré-fixado com . Por exemplo, `https://myblockchain2-7v75.azurewebsites.net`
 
     ![URLs de resposta à autenticação](media/deploy/configure-reply-url.png)
 
@@ -304,7 +304,7 @@ Quando uma implementação já não é necessária, pode remover uma implementa�
 
     ![Eliminar grupo de recursos](media/deploy/delete-resource-group.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo de "como fazer", implantou a bancada azure blockchain. Para aprender a criar uma aplicação blockchain, continue para o próximo artigo como fazer.
 

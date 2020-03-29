@@ -3,14 +3,14 @@ title: Definir ordem de implantação de recursos
 description: Descreve como definir um recurso como dependente de outro recurso durante a implantação para garantir que os recursos são implantados na ordem correta.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: ffd6d6c65a1cbe9578b5f9162d29f3238e27ea71
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: f11f79df875492a568a76f494dfffb4a163f64cb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207694"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153289"
 ---
-# <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Defina a ordem para a implantação de recursos em modelos de Gestor de Recursos Azure
+# <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Defina a ordem para a implantação de recursos em modelos ARM
 
 Ao implantar um recurso, poderá ter de se certificar de que existem outros recursos antes de ser implantado. Por exemplo, precisa de um servidor SQL antes de implementar uma base de dados SQL. Define esta relação marcando um recurso como dependente do outro recurso. Define uma dependência com o elemento **dependeon,** ou utilizando a função de **referência.**
 

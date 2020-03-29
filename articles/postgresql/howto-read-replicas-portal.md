@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/24/2020
 ms.openlocfilehash: dd79618b8d9f016c92166edb9ecdb0bfb113947e
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76768954"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Criar e gerir réplicas de leitura na Base de Dados Azure para PostgreSQL - Servidor Único a partir do portal Azure
@@ -67,14 +67,14 @@ Para criar uma réplica de leitura, siga estes passos:
 
 5. Selecione um local para a réplica. A localização padrão é a mesma do servidor principal.
 
-    ![Selecione uma localização](./media/howto-read-replicas-portal/location-replica.png)
+    ![Selecionar uma localização](./media/howto-read-replicas-portal/location-replica.png)
 
    > [!NOTE]
    > Para saber mais sobre quais as regiões em que pode criar uma réplica, visite o artigo da [réplica de leitura.](concepts-read-replicas.md) 
 
 6. Selecione **OK** para confirmar a criação da réplica.
 
-Uma réplica é criada usando as mesmas definições de cálculo e armazenamento que o mestre. Após a criação de uma réplica, várias definições podem ser alteradas independentemente do servidor principal: geração de computação, vCores, armazenamento e período de retenção de back-up. O tipo de preço também pode ser alterado de forma independente, exceto para ou da camada básica.
+Uma réplica é criada usando as mesmas definições de cálculo e armazenamento que o mestre. Após a criação de uma réplica, várias definições podem ser alteradas independentemente do servidor principal: geração de computação, vCores, armazenamento e período de retenção de back-up. O nível de preços também pode ser alterado de forma independente, exceto para ou a partir do nível Básico.
 
 > [!IMPORTANT]
 > Antes de uma definição de servidor principal ser atualizada para um novo valor, atualize a definição de réplica para um valor igual ou maior. Esta ação ajuda a réplica a acompanhar quaisquer alterações feitas ao mestre.
@@ -88,7 +88,7 @@ Após a criação da réplica de leitura, pode ser vista a partir da janela **de
 Pode parar a replicação entre um servidor principal e uma réplica de leitura.
 
 > [!IMPORTANT]
-> Depois de parar a replicação a um servidor principal e de uma réplica de leitura, não pode ser desfeita. A réplica de leitura torna-se um servidor autónomo que suporta tanto as leituras como as escritas. O servidor autônomo não pode ser tornado novamente em uma réplica.
+> Depois de parar a replicação a um servidor principal e de uma réplica de leitura, não pode ser desfeita. A réplica de leitura torna-se um servidor autónomo que suporta tanto as leituras como as escritas. O servidor autónomo não pode voltar a ser transformado numa réplica.
 
 Para parar a replicação entre um servidor principal e uma réplica de leitura do portal Azure, siga estes passos:
 
@@ -128,7 +128,7 @@ Para eliminar um servidor do portal Azure, siga estes passos:
    ![Confirme para eliminar o servidor principal](./media/howto-read-replicas-portal/confirm-delete.png)
  
 
-## <a name="delete-a-replica"></a>Apagar uma réplica
+## <a name="delete-a-replica"></a>Eliminar réplicas
 Pode eliminar uma réplica de leitura semelhante à forma como elimina um servidor principal.
 
 - No portal Azure, abra a página **de visão geral** para a réplica de leitura. Selecione **Eliminar**.

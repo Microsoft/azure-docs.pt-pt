@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 300294f37c809b01fe8fba7e627d6bc5bdc9903a
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78942941"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Configuração e gestão de FAQs para Web Apps em Azure
@@ -61,7 +61,7 @@ Para definir o fuso horário do servidor para a sua aplicação web:
 
 1. No portal Azure, na subscrição do Serviço de Aplicações, vá ao menu de definições de **Aplicações.**
 2. Em termos de definições de **Aplicações,** adicione esta definição:
-    * Key = WEBSITE_TIME_ZONE
+    * Chave = WEBSITE_TIME_ZONE
     * Valor = *O fuso horário que deseja*
 3. Selecione **Guardar**.
 
@@ -250,7 +250,7 @@ Para efetuar testes de penetração, [submeta um pedido](https://portal.msrc.mic
 
 Para aprender a usar um nome de domínio personalizado com uma aplicação de Serviço de Aplicações que utiliza o Gestor de Tráfego Azure para equilibrar a carga, consulte configurar um nome de [domínio personalizado para uma aplicação web Azure com traffic Manager](configure-domain-traffic-manager.md).
 
-## <a name="my-app-service-certificate-is-flagged-for-fraud-how-do-i-resolve-this"></a>O meu certificado de serviço de aplicações está marcado por fraude. Como posso resolver isto?
+## <a name="my-app-service-certificate-is-flagged-for-fraud-how-do-i-resolve-this"></a>O meu certificado do Serviço de Aplicações está sinalizado por fraude. Como posso resolver isto?
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

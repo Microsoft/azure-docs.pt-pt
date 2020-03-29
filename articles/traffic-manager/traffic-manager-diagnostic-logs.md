@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: rohink
 ms.openlocfilehash: 0ed2ecef86795f62aa3fe5798dcd0d07adbaf9cc
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938680"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Ativar a exploração de diagnóstico em Azure Traffic Manager
@@ -28,7 +28,7 @@ Os registos de diagnóstico do Gestor de Tráfego Azure podem fornecer informaç
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Você pode executar os comandos a seguir no [Azure cloud Shell](https://shell.azure.com/powershell)ou executando o PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se executar o PowerShell a partir do seu computador, precisa do módulo Azure PowerShell, 1.0.0 ou mais tarde. Pode executá`Get-Module -ListAvailable Az` para encontrar a versão instalada. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-az-ps)(Instalar o módulo do Azure PowerShell). Se estiver a executar a PowerShell localmente, também precisa de correr `Login-AzAccount` para iniciar sessão no Azure.
+Pode executar os comandos que se seguem na Casca de [Nuvem Azure,](https://shell.azure.com/powershell)ou executando a PowerShell a partir do seu computador. A Casca de Nuvem Azure é uma concha interativa gratuita. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se executar o PowerShell a partir do seu computador, precisa do módulo Azure PowerShell, 1.0.0 ou mais tarde. Pode correr `Get-Module -ListAvailable Az` para encontrar a versão instalada. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-az-ps)(Instalar o módulo do Azure PowerShell). Se estiver a executar a PowerShell `Login-AzAccount` localmente, também precisa de correr para iniciar sessão no Azure.
 
 1. **Recuperar o perfil do Gestor de Tráfego:**
 
@@ -54,7 +54,7 @@ Você pode executar os comandos a seguir no [Azure cloud Shell](https://shell.az
      ```  
       Certifique-se de que todas as categorias de registo associadas ao ecrã de recursos do Gestor de Tráfego estão ativadas. Além disso, verifique se a conta de armazenamento está corretamente definida.
 
-## <a name="access-log-files"></a>Acessar arquivos de log
+## <a name="access-log-files"></a>Aceder a ficheiros de registo
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
 1. Navegue para a sua conta de Armazenamento Azure no portal.
 2. Na página **de visão geral** da sua conta de armazenamento Azure, em **Serviços** selecione **Blobs**.
@@ -71,9 +71,9 @@ A tabela seguinte inclui logs schema específico para o recurso de perfil do Ges
 
 |||||
 |----|----|---|---|
-|**Nome do campo**|**Tipo de campo**|**Definição**|**Exemplo**|
-|EndpointName|Cadeia|O nome do ponto final do Gestor de Tráfego cujo estado de saúde está a ser registado.|*myPrimaryEndpoint*|
-|Estado|Cadeia|O estado de saúde do ponto final do Gestor de Tráfego que foi sondado. O estado pode ser **para cima** ou **para baixo.**|**Para cima**|
+|**Nome de campo**|**Tipo de campo**|**Definição**|**Exemplo**|
+|Nome final|Cadeia|O nome do ponto final do Gestor de Tráfego cujo estado de saúde está a ser registado.|*myPrimaryEndpoint*|
+|Estado|Cadeia|O estado de saúde do ponto final do Gestor de Tráfego que foi sondado. O estado pode ser **para cima** ou **para baixo.**|**Cima**|
 |||||
 
 ## <a name="next-steps"></a>Passos seguintes

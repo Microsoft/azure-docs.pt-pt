@@ -1,5 +1,5 @@
 ---
-title: Referência do portal de registo de aplicações  Azure
+title: Referência do portal de registo de aplicações [ Azure
 titleSuffix: Microsoft identity platform
 description: Uma descrição das funcionalidades no portal de registo de aplicações da Microsoft.
 services: active-directory
@@ -15,10 +15,10 @@ ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.openlocfilehash: 26ebee446523c138569b9d5379c9a5e1b9e93e7d
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76698446"
 ---
 # <a name="app-registration-reference"></a>Referência de registo de aplicação
@@ -27,7 +27,7 @@ Este documento fornece contexto e descrições de várias funcionalidades encont
 
 ## <a name="my-applications-or-converged-applications"></a>Minhas aplicações ou aplicações convergentes
 
-Esta lista contém todas as suas aplicações registadas para utilização com a plataforma de identidade da Microsoft (v2.0) ponto final. Estas aplicações têm a capacidade de contratar utilizadores com contas pessoais da Microsoft e contas de trabalho/escola do Azure Ative Directory. Para saber mais sobre o ponto final da plataforma de identidade, consulte a visão geral do [v2.0.](active-directory-appmodel-v2-overview.md) Estas aplicações também podem ser utilizadas para integrar com o ponto final de autenticação da conta Microsoft, `https://login.live.com`.
+Esta lista contém todas as suas aplicações registadas para utilização com a plataforma de identidade da Microsoft (v2.0) ponto final. Estas aplicações têm a capacidade de contratar utilizadores com contas pessoais da Microsoft e contas de trabalho/escola do Azure Ative Directory. Para saber mais sobre o ponto final da plataforma de identidade, consulte a visão geral do [v2.0.](active-directory-appmodel-v2-overview.md) Estas aplicações também podem ser utilizadas para integrar `https://login.live.com`com o ponto final de autenticação da conta Microsoft, .
 
 ## <a name="azure-ad-only-applications"></a>Apenas aplicações da Azure AD
 
@@ -35,11 +35,11 @@ Esta lista contém todas as suas aplicações registadas para utilização com o
 
 ## <a name="live-sdk-applications"></a>Aplicações SDK ao vivo
 
-Esta lista contém todas as suas aplicações registadas para utilização exclusivamente com a conta microsoft. Não estão habilitados para utilização com o Azure Ative Directory. É aqui que encontra quaisquer aplicações que tenham sido previamente registadas no portal de desenvolvimento da MSA em `https://account.live.com/developers/applications`. Todas as funções que desempenhou anteriormente no `https://account.live.com/developers/applications` podem agora ser executadas em registos de [Aplicações.](https://aka.ms/appregistrations)
+Esta lista contém todas as suas aplicações registadas para utilização exclusivamente com a conta microsoft. Não estão habilitados para utilização com o Azure Ative Directory. É aqui que encontra quaisquer aplicações que tenham sido previamente registadas no portal de desenvolvimento da MSA em `https://account.live.com/developers/applications`. Todas as funções que `https://account.live.com/developers/applications` desempenhou anteriormente podem agora ser executadas em registos de [Aplicações.](https://aka.ms/appregistrations)
 
-## <a name="application-secrets"></a>Segredos da Aplicação
+## <a name="application-secrets"></a>Segredos de Aplicação
 
-Os segredos da aplicação são credenciais que permitem à sua aplicação realizar [autenticação](https://tools.ietf.org/html/rfc6749#section-2.3) fiável do cliente com a AD Azure. Em OAuth & OpenID Connect, um segredo de aplicação é comumente referido como um `client_secret`. No protocolo v2.0, qualquer aplicação que receba um símbolo de segurança num local web endereçado (utilizando um esquema `https`) deve utilizar um segredo de aplicação para se identificar com a AD Azure após o resgate desse token de segurança. Além disso, qualquer cliente nativo que receba fichas num dispositivo será proibido de usar um segredo de aplicação para realizar a autenticação do cliente. Isto desencoraja o armazenamento de segredos em ambientes inseguros.
+Os segredos da aplicação são credenciais que permitem à sua aplicação realizar [autenticação](https://tools.ietf.org/html/rfc6749#section-2.3) fiável do cliente com a AD Azure. Em OAuth & OpenID Connect, um segredo de `client_secret`aplicação é comumente referido como a . No protocolo v2.0, qualquer aplicação que receba um símbolo de segurança `https` num local web endereçado (utilizando um esquema) deve utilizar um segredo de aplicação para se identificar com a AD Azure após o resgate desse token de segurança. Além disso, qualquer cliente nativo que receba fichas num dispositivo será proibido de usar um segredo de aplicação para realizar a autenticação do cliente. Isto desencoraja o armazenamento de segredos em ambientes inseguros.
 
 Cada aplicação pode conter dois segredos de aplicação válidos a qualquer momento. Ao manter dois segredos, tem a capacidade de realizar a caducidade periódica de chaves em todo o ambiente da sua aplicação. Uma vez migrado a totalidade da sua aplicação para um novo segredo, pode apagar o velho segredo e fornecer um novo.
 

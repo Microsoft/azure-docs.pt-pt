@@ -1,17 +1,17 @@
 ---
-title: Recolher registos da Atividade Azure num espaço de trabalho de Log Analytics entre os inquilinos do Azure  Microsoft Docs
+title: Registos de atividades do Azure cross-tenant no Azure Monitor
 description: Utilize Hubs de eventos e aplicações lógicas para recolher dados do Registo de Atividades do Azure e enviá-lo para um espaço de trabalho de Log Analytics no Azure Monitor em um inquilino diferente.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: 52bf8b955ef4dc9cfae7fd74fbad0df744609196
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: d2f794365e15768dbf47647f2d9a8d08d5e8ba3f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669272"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80055745"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Colete sessão de atividade azure no Azure Monitor através de inquilinos do Diretório Ativo Azure (legado)
 
@@ -51,7 +51,7 @@ Seguem-se os requisitos para os recursos do Azure utilizados neste cenário.
 
 <!-- Follow the steps in [how to create an Event Hubs namespace and Event Hub](../../event-hubs/event-hubs-create.md) to create your event hub. -->
 
-1. No portal do Azure, selecione **Criar um recurso** > **Internet das Coisas** > **Hubs de Eventos**.
+1. No portal Azure, selecione **Criar um recurso** > **Internet of Things** > **Event Hubs**.
 
    ![Novo hub de eventos do Marketplace](media/collect-activity-logs-subscriptions/marketplace-new-event-hub.png)
 
@@ -59,13 +59,13 @@ Seguem-se os requisitos para os recursos do Azure utilizados neste cenário.
 
    ![imagem da caixa de diálogo “criar hub de eventos”](media/collect-activity-logs-subscriptions/create-event-hub1.png)
 
-4. Escolha o escalão de preço (Básico ou Standard) e uma subscrição, um grupo de recursos e uma localização do Azure para o recurso novo.  Clique em **Criar** para criar o espaço de nomes. Poderá ter de aguardar alguns minutos para que o sistema aprovisione totalmente os recursos.
+4. Escolha o escalão de preço (Básico ou Standard) e uma subscrição, um grupo de recursos e uma localização do Azure para o recurso novo.  Clique em **Criar** para criar o espaço de nome. Poderá ter de aguardar alguns minutos para que o sistema aprovisione totalmente os recursos.
 6. Clique no nome do espaço de nomes que acabou de criar na lista.
 7. Selecione **Políticas de acesso partilhado** e clique em **RootManageSharedAccessKey**.
 
    ![Imagem das políticas de acesso partilhado do hub de eventos](media/collect-activity-logs-subscriptions/create-event-hub7.png)
    
-8. Clique no botão Copiar para copiar a cadeia de ligação **RootManageSharedAccessKey** para a área de transferência. 
+8. Clique no botão copiar para copiar a cadeia de ligação **RootManageSharedAccessKey** para a área de transferência. 
 
    ![imagem da chave de acesso partilhado do hub de eventos](media/collect-activity-logs-subscriptions/create-event-hub8.png)
 
@@ -78,7 +78,7 @@ Para ativar a transmissão em fluxo do Registo de Atividade, escolha um Espaço 
 
 Pode utilizar um espaço de nomes de hub de eventos que não esteja na mesma subscrição que a subscrição que emite os registos. No entanto, as subscrições têm de estar no mesmo Azure Active Directory. O utilizador que configura a definição tem de ter o RBAC adequado para aceder a ambas as subscrições. 
 
-1. No portal do Azure, selecione **Monitorizar** > **Registo de Atividades**.
+1. No portal Azure, selecione **Monitor** > **Activity Log**.
 3. Clique no botão **Exportar**, na parte superior da página.
 
    ![imagem da monitorização do azure na navegação](media/collect-activity-logs-subscriptions/activity-log-blade.png)
@@ -116,7 +116,7 @@ Para obter o nome e a cadeia de ligação do Hub de Eventos, siga os passos em [
 
 ### <a name="create-a-new-blank-logic-app"></a>Criar uma aplicação lógica em branco nova
 
-1. No portal do Azure, escolha **Criar um recurso** > **Enterprise Integration** > **Aplicação Lógica**.
+1. No portal Azure, escolha Criar uma**app lógica**de**integração** > empresarial de **recursos.** > 
 
     ![Nova aplicação lógica do Marketplace](media/collect-activity-logs-subscriptions/marketplace-new-logic-app.png)
 
@@ -163,7 +163,7 @@ O Estruturador de Aplicações Lógicas mostra-lhe agora os conectores disponív
 
 A saída do hub de eventos contém um payload JSON com uma matriz de registos. A ação [Parse JSON](../../logic-apps/logic-apps-content-type.md) é usada para extrair apenas o conjunto de registos para envio para log analytics espaço de trabalho.
 
-1. Clique em **New step** (Novo passo)  > **Add an action** (Adicionar uma ação)
+1. Clique em **novo passo** > **Adicionar uma ação**
 2. Na caixa de pesquisa, escreva *parse json* como o filtro. Selecione a ação **Data Operations - Parse JSON** (Operações de Dados - Analisar JSON).
 
    ![Adicionar ação parse json na aplicação lógica](media/collect-activity-logs-subscriptions/logic-apps-add-parse-json-action.png)
@@ -275,7 +275,7 @@ A saída do hub de eventos contém um payload JSON com uma matriz de registos. A
 ### <a name="add-compose-action"></a>Adicionar ação compor
 A ação [Compose](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action) utiliza a saída JSON e cria um objeto que pode ser utilizado pela ação do Log Analytics.
 
-1. Clique em **New step** (Novo passo)  > **Add an action** (Adicionar uma ação)
+1. Clique em **novo passo** > **Adicionar uma ação**
 2. Escreva *compor* como o filtro e, em seguida, selecione a ação **Data Operations - Compose** (Operações de Dados - Compor).
 
     ![Adicionar ação compor](media/collect-activity-logs-subscriptions/logic-apps-add-compose-action.png)
@@ -286,7 +286,7 @@ A ação [Compose](../../logic-apps/logic-apps-workflow-actions-triggers.md#comp
 ### <a name="add-log-analytics-send-data-action"></a>Adicionar ação Send Data do Log Analytics
 A ação de Colecionador de [Dados Azure Log Analytics](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) retira o objeto da ação Compor e envia-o para um espaço de trabalho de Log Analytics.
 
-1. Clique em **New step** (Novo passo)  > **Add an action** (Adicionar uma ação)
+1. Clique em **novo passo** > **Adicionar uma ação**
 2. Escreva *log analytics* como o filtro e selecione a ação **Azure Log Analytics Data Collector - Send Data** (Recoletor de Dados do Azure Log Analytics - Enviar Dados).
 
    ![Adicionar a ação “log analytics send data” nas aplicações lógicas](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-connector.png)

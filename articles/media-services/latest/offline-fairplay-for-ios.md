@@ -1,5 +1,5 @@
 ---
-title: Streaming FairPlay offline para iOS com os serviços de mídia do Azure v3
+title: Offline FairPlay Streaming para iOS com Azure Media Services v3
 description: Este tópico apresenta uma visão geral e mostra como usar os Serviços De Mídia Azure para encriptar dinamicamente o seu conteúdo http Live Streaming (HLS) com o Apple FairPlay em modo offline.
 services: media-services
 keywords: HLS, DRM, FairPlay Streaming (FPS), Offline, iOS 10
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
 ms.openlocfilehash: 70256046089a59df1de79b78124c5d60fde77080
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76705943"
 ---
 # <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>Offline FairPlay Streaming para iOS com Media Services v3
@@ -29,7 +29,7 @@ ms.locfileid: "76705943"
 - Microsoft PlayReady
 - Google Widevine
     
-    O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+    A Widevine é um serviço prestado pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 - Apple FairPlay
 - Encriptação de AES-128
 
@@ -44,7 +44,7 @@ Além de proteger conteúdos para streaming online através de vários protocolo
 Este artigo abrange o suporte de modo offline FairPlay Streaming (FPS) que visa dispositivos que executam o iOS 10 ou mais tarde. Esta funcionalidade não é suportada para outras plataformas da Apple, como watchOS, tvOS ou Safari no macOS.
 
 > [!NOTE]
-> O DRM offline é cobrado apenas para fazer uma única solicitação de licença quando você baixa o conteúdo. Quaisquer erros não são cobrados.
+> A DRM offline só é cobrada por fazer um único pedido de licença quando descarrega o conteúdo. Quaisquer erros não são contabilizados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,17 +53,17 @@ Antes de implementar o DRM offline para FairPlay num dispositivo iOS 10+:
 * Reveja a proteção de conteúdos online para fairPlay: 
 
     - [Requisitos de licença e configuração do Apple FairPlay](fairplay-license-overview.md)
-    - [Use DRM dynamic encryption and license delivery service](protect-with-drm.md) (Procedimentos: utilizar a encriptação dinâmica e o serviço de entrega de licenças do DRM)
+    - [Utilize encriptação dinâmica DRM e serviço de entrega de licenças](protect-with-drm.md)
     - Uma amostra .NET que inclui a configuração do streaming de FPS on-line: [ConfigureFairPlayPolicyOptions](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L505)
 * Obtenha o FPS SDK da Rede de Desenvolvedores da Apple. O FPS SDK contém dois componentes:
 
     - O FPS Server SDK, que contém o Módulo de Segurança Chave (KSM), amostras de clientes, uma especificação e um conjunto de vetores de teste.
     - O Pacote de Implementação fps, que contém a especificação de função D, juntamente com instruções sobre como gerar o Certificado FPS, a chave privada específica do cliente e a chave secreta da aplicação. A Apple emite o Pacote de Implementação fps apenas a fornecedores de conteúdos licenciados.
-* Clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git. 
+* Clone. https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git 
 
     Terá de modificar o código em [Encrypt com DRM utilizando .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM) para adicionar configurações fairPlay.  
 
-## <a name="configure-content-protection-in-azure-media-services"></a>Configurar a proteção de conteúdo nos serviços de mídia do Azure
+## <a name="configure-content-protection-in-azure-media-services"></a>Configure a proteção de conteúdos nos Serviços De Mídia Azure
 
 No método [GetOrCreateContentKeyPolicyAsync,](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L189) faça o seguinte:
 
@@ -85,7 +85,7 @@ options.Add(
     });
 ```
 
-## <a name="enable-offline-mode"></a>Habilitar o modo offline
+## <a name="enable-offline-mode"></a>Ativar o modo offline
 
 Para ativar o modo offline, crie uma Política de Streaming personalizada e use o seu nome ao criar um StreamingLocator em [CreateStreamingLocatorAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L563).
  
@@ -209,7 +209,7 @@ As seguintes perguntas frequentemente colocadas fornecem assistência com resolu
 - **Porque é que ainda reprodução áudio sem vídeo durante o modo offline depois de eu adicionar áudio-only=falso?** Dependendo do design da chave cache da rede de entrega de conteúdos (CDN), o conteúdo pode ser cached. Purgue a cache.
 - **O modo offline FPS também é suportado no iOS 11 para além do iOS 10?** Sim. O modo offline FPS é suportado para iOS 10 e iOS 11.
 - **Por que não encontro o documento "Offline Playback with FairPlay Streaming e HTTP Live Streaming" no FPS Server SDK?** Desde a versão 4 do FPS Server SDK, este documento foi fundido no "FairPlay Streaming Programming Guide".
-- **Qual é a estrutura de ficheiros descarregado/offline nos dispositivos iOS?** A estrutura de ficheiros descarregada num dispositivo iOS parece ser a seguinte imagem. As lojas de pastas `_keys` descarregaram licenças FPS, com um ficheiro de loja para cada anfitrião do serviço de licença. A pasta `.movpkg` armazena conteúdo sonoro e vídeo. A primeira pasta com um nome que termina com um traço seguido de um numérico contém conteúdo de vídeo. O valor numérico é a largura de PeakBand das representações em vídeo. A segunda pasta com um nome que termina com um traço seguido de 0 contém conteúdo áudio. A terceira pasta denominada "Data" contém a lista de reprodução principal do conteúdo do FPS. Finalmente, boot.xml fornece uma descrição completa do conteúdo da pasta `.movpkg`. 
+- **Qual é a estrutura de ficheiros descarregado/offline nos dispositivos iOS?** A estrutura de ficheiros descarregada num dispositivo iOS parece ser a seguinte imagem. As `_keys` lojas de pastas descarregaram licenças fps, com um ficheiro de loja para cada anfitrião do serviço de licença. A `.movpkg` pasta armazena conteúdo sonoro e vídeo. A primeira pasta com um nome que termina com um traço seguido de um numérico contém conteúdo de vídeo. O valor numérico é a largura de PeakBand das representações em vídeo. A segunda pasta com um nome que termina com um traço seguido de 0 contém conteúdo áudio. A terceira pasta denominada "Data" contém a lista de reprodução principal do conteúdo do FPS. Finalmente, boot.xml fornece uma descrição completa do conteúdo da `.movpkg` pasta. 
 
 ![Estrutura de ficheiros de amostra seleções iOS da FairPlay offline](media/offline-fairplay-for-ios/offline-fairplay-file-structure.png)
 

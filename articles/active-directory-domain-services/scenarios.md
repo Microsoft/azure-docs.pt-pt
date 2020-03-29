@@ -1,5 +1,5 @@
 ---
-title: Cenários comuns de implantação para serviços de domínio da AD Azure  Microsoft Docs
+title: Cenários comuns de implantação para serviços de domínio da AD Azure [ Microsoft Docs
 description: Conheça alguns dos cenários comuns e casos de utilização dos Serviços de Domínio de Diretório Ativo Azure para fornecer valor e satisfazer as necessidades do negócio.
 services: active-directory-ds
 author: iainfoulds
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
 ms.openlocfilehash: ac67ef64ca4850c6e805b5314ace856114d889a7
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77917235"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Casos e cenários comuns para serviços de domínio de diretório ativo Azure
@@ -48,7 +48,7 @@ As seguintes considerações de implantação aplicam-se a este caso de utiliza�
 
 Como cenário de amostragem, O Contoso tem uma aplicação no local que foi comprada a um ISV há muitos anos. A aplicação encontra-se atualmente em modo de manutenção pelo ISV e solicitar alterações à aplicação é proibitivamente cara. Esta aplicação tem um frontend baseado na Web que recolhe credenciais de utilizador usando um formulário web e depois autentica os utilizadores executando um lDAP ligado ao ambiente AD DS no local.
 
-![Enlace LDAP](./media/active-directory-domain-services-scenarios/ldap-bind.png)
+![Ligação LDAP](./media/active-directory-domain-services-scenarios/ldap-bind.png)
 
 Contoso gostaria de migrar esta aplicação para Azure. A aplicação deve continuar a funcionar como está, sem necessidade de alterações. Além disso, os utilizadores devem poder autenticar usando as suas credenciais corporativas existentes e sem formação adicional. Deve ser transparente para os utilizadores finais onde a aplicação está em execução.
 

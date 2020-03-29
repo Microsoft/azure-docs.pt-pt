@@ -10,16 +10,17 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ryanwi
-ms.reviewer: saeeda, jmprieur, andret
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e65a31192be8b79720ea15d1721fbf37908a8cbe
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9ecf711f5442b6f21de53d2735ad1c94d7cb6223
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164425"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154802"
 ---
-# <a name="native-apps"></a>Aplicativos nativos
+# <a name="native-apps"></a>Aplicações nativas
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 

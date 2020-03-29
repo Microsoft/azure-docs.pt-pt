@@ -1,6 +1,6 @@
 ---
 title: Anexar um disco de dados gerido a um Windows VM - Azure
-description: Como anexar um disco de dados geridos para uma VM do Windows com o portal do Azure.
+description: Como anexar um disco de dados gerido a um VM do Windows utilizando o portal Azure.
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: conceptual
@@ -8,21 +8,21 @@ ms.date: 02/06/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 0fe04941821de2ac6e4e873e8d073c3e9b9d9508
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919384"
 ---
-# <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Anexar um disco de dados geridos para uma VM do Windows com o portal do Azure
+# <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Fixe um disco de dados gerido a um VM do Windows utilizando o portal Azure
 
-Este artigo mostra-lhe como anexar um novo disco de dados geridos para uma máquina virtual de Windows (VM) com o portal do Azure. O tamanho da VM determina quantos discos de dados, pode anexar. Para mais informações, consulte [Tamanhos para máquinas virtuais](sizes.md).
+Este artigo mostra-lhe como anexar um novo disco de dados gerido a uma máquina virtual do Windows (VM) utilizando o portal Azure. O tamanho do VM determina quantos discos de dados pode anexar. Para mais informações, consulte [Tamanhos para máquinas virtuais](sizes.md).
 
 
-## <a name="add-a-data-disk"></a>Adicionar um disco de dados
+## <a name="add-a-data-disk"></a>Adicione um disco de dados
 
 1. Vá ao [portal Azure](https://portal.azure.com) para adicionar um disco de dados. Procure e selecione **máquinas Virtuais**.
-2. Selecione uma máquina virtual a partir da lista.
+2. Selecione uma máquina virtual da lista.
 3. Na página da **máquina Virtual,** selecione **Discos**.
 4. Na página **De Discos,** selecione **Adicionar disco de dados**.
 5. Na gota para o novo disco, selecione **Criar disco**.
@@ -40,9 +40,9 @@ Este artigo mostra-lhe como anexar um novo disco de dados geridos para uma máqu
 4. O novo disco aparece como **não atribuído**. Clique à direita em qualquer lugar do disco e selecione **Novo volume simples**. A janela **do Novo Assistente** de Volume Simples abre.
 5. Proceda através do assistente, mantendo todos os predefinições, e quando terminar, selecione **Finish**.
 6. Fechar **a Gestão do Disco.**
-7. É apresentada uma janela de pop-up a notificá-lo de que precisa de formatar o disco novo antes de poder utilizá-lo. Selecione **o disco de formato**.
+7. Uma janela pop-up aparece notificando-o de que precisa de formatar o novo disco antes de o poder utilizar. Selecione **o disco de formato**.
 8. Na nova janela do **formato,** verifique as definições e, em seguida, selecione **Iniciar**.
-9. É apresentado um aviso a informar de que os discos de formatação apague todos os dados. Selecione **OK**.
+9. Aparece um aviso a notificá-lo de que a formatação dos discos apaga todos os dados. Selecione **OK**.
 10. Quando a formatação estiver completa, selecione **OK**.
 
 ## <a name="next-steps"></a>Passos seguintes

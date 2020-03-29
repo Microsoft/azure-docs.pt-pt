@@ -11,26 +11,26 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bd538529756270053351e4c2d85f5761b198eeff
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 62a283efb93987d3c4a6564c9b25d2031c269559
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78187887"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80051455"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configurar e iniciar sessão com uma conta no Twitter utilizando o Diretório Ativo Azure B2C
 
 ## <a name="create-an-application"></a>Criar uma aplicação
 
-Para utilizar o Twitter como fornecedor de identidade no Azure AD B2C, é necessário criar uma aplicação no Twitter. Se ainda não tem uma conta no Twitter, pode inscrever-se no [https://twitter.com/signup](https://twitter.com/signup).
+Para utilizar o Twitter como fornecedor de identidade no Azure AD B2C, é necessário criar uma aplicação no Twitter. Se ainda não tem uma conta no Twitter, [https://twitter.com/signup](https://twitter.com/signup)pode inscrever-se em .
 
 1. Inscreva-se no site do [Twitter Developers](https://developer.twitter.com/en/apps) com as credenciais da sua conta do Twitter.
 1. Selecione **Criar uma aplicação**.
 1. Introduza um **nome de aplicação** e uma descrição da **Aplicação.**
-1. No **URL do Site,** introduza `https://your-tenant.b2clogin.com`. Substitua `your-tenant` pelo nome do seu inquilino. Por exemplo, https://contosob2c.b2clogin.com.
-1. Para o **URL de chamada,** introduza `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Substitua `your-tenant` pelo nome do seu nome de inquilino e `your-user-flow-Id` pelo identificador do fluxo do utilizador. Por exemplo, `b2c_1A_signup_signin_twitter`. Você precisa usar todas as letras minúsculas ao introduzir o nome do seu inquilino e id de fluxo do utilizador mesmo que sejam definidos com letras maiúsculas em Azure AD B2C.
+1. No URL do `https://your-tenant.b2clogin.com` **Site,** introduza . Substitua `your-tenant` pelo nome do seu inquilino. Por exemplo, `https://contosob2c.b2clogin.com`.
+1. Para o URL de `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` **chamada,** introduza . Substitua-o `your-tenant` pelo nome `your-user-flow-Id` do seu nome de inquilino e pelo identificador do fluxo do utilizador. Por exemplo, `b2c_1A_signup_signin_twitter`. Você precisa usar todas as letras minúsculas ao introduzir o nome do seu inquilino e id de fluxo do utilizador mesmo que sejam definidos com letras maiúsculas em Azure AD B2C.
 1. Na parte inferior da página, leia e aceite os termos e, em seguida, selecione **Criar**.
-1. Na página de detalhes da **App,** selecione **Editar > Editar detalhes,** verifique a caixa para **ativar o 'Iniciar sessão' com**o Twitter , e depois selecione **Guardar**.
+1. Na página de detalhes da **App,** selecione **Editar > Editar detalhes,** verifique a caixa para **ativar o 'Iniciar sessão' com**o Twitter e, em seguida, selecione **Guardar**.
 1. Selecione **Teclas e fichas** e grave a **Chave API** do Consumidor e os valores-chave secretos da **API** do consumidor a utilizar mais tarde.
 
 ## <a name="configure-twitter-as-an-identity-provider-in-your-tenant"></a>Configure o Twitter como fornecedor de identidade no seu inquilino

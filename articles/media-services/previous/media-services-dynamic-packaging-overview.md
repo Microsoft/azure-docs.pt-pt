@@ -1,6 +1,6 @@
 ---
-title: Visão geral do empacotamento dinâmico dos serviços de mídia do Azure | Microsoft Docs
-description: Este artigo fornece uma visão geral de Serviços de Mídia do Microsoft Azure empacotamento dinâmico.
+title: Visão geral dinâmica da embalagem da Azure Media Services Microsoft Docs
+description: Estes artigos dão uma visão geral da embalagem dinâmica da Microsoft Azure Media Services.
 author: Juliako
 manager: femila
 editor: ''
@@ -14,54 +14,54 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: juliako
 ms.openlocfilehash: 079094965775c140c0343da98e40fd008995d45a
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74901193"
 ---
 # <a name="dynamic-packaging"></a>Empacotamento dinâmico
 
-> [!div class="op_single_selector" title1="Selecione a versão dos serviços de mídia que você está usando:"]
+> [!div class="op_single_selector" title1="Selecione a versão dos Serviços de Media que está a utilizar:"]
 > * [Versão 3](../latest/dynamic-packaging-overview.md)
 > * [Versão 2](media-services-dynamic-packaging-overview.md)
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
-Serviços de Mídia do Microsoft Azure pode ser usado para fornecer vários formatos de arquivo de origem de mídia, formatos de streaming de mídia e formatos de proteção de conteúdo para uma variedade de tecnologias de cliente (por exemplo, iOS, XBOX, Silverlight, Windows 8). Esses clientes entendem protocolos diferentes, por exemplo, o iOS requer um formato de HTTP Live Streaming (HLS) v4 e o Silverlight e o Xbox exigem Smooth Streaming. Se você tiver um conjunto de arquivos MP4 (mídia base ISO 14496-12) de taxa de bits adaptável (múltiplas taxas de bits) ou um conjunto de arquivos de Smooth Streaming de taxa de bits adaptável que você deseja fornecer aos clientes que entendem MPEG DASH, HLS ou Smooth Streaming, você deverá aproveitar a mídia Empacotamento dinâmico de serviços.
+O Microsoft Azure Media Services pode ser utilizado para fornecer muitos formatos de ficheiros de fonte de mídia, formatos de streaming de mídia e formatos de proteção de conteúdos para uma variedade de tecnologias de cliente (por exemplo, iOS, XBOX, Silverlight, Windows 8). Estes clientes entendem diferentes protocolos, por exemplo o iOS requer um formato V4 de Streaming AO Vivo (HLS) http e Silverlight e Xbox requerem Smooth Streaming. Se tiver um conjunto de ficheiros MP4 (multibituados) de bitrate adaptativo (multibitado) (ISO Base Media 14496-12) ou um conjunto de ficheiros adaptativo de streaming liso que pretende servir a clientes que compreendam mPEG DASH, HLS ou Smooth Streaming, deve aproveitar os Media Serviços de embalagem dinâmica.
 
-Com o empacotamento dinâmico, é necessário criar um ativo que contenha um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos de Smooth Streaming de taxa de bits adaptável. Em seguida, com base no formato especificado no manifesto ou na solicitação de fragmento, o servidor de streaming sob demanda garantirá que você receba o fluxo no protocolo escolhido. Como resultado, só tem de armazenar e pagar pelos ficheiros num único formato de armazenamento e os Media Services irão compilar e disponibilizar a resposta adequada com base nos pedidos de um cliente.
+Com a embalagem dinâmica tudo o que precisa é criar um ativo que contenha um conjunto de ficheiros MP4 bitrate adaptativos ou ficheiros de streaming de bitrate adaptativo. Em seguida, com base no formato especificado no pedido de manifesto ou fragmento, o servidor de Streaming On-Demand irá garantir que recebe o fluxo no protocolo que escolheu. Como resultado, só tem de armazenar e pagar pelos ficheiros num único formato de armazenamento e os Media Services irão compilar e disponibilizar a resposta adequada com base nos pedidos de um cliente.
 
-O diagrama a seguir mostra a codificação tradicional e o fluxo de trabalho de empacotamento estático.
+O diagrama que se segue mostra o fluxo de trabalho tradicional de codificação e embalagem estática.
 
 ![Codificação estática](./media/media-services-dynamic-packaging-overview/media-services-static-packaging.png)
 
-O diagrama a seguir mostra o fluxo de trabalho de empacotamento dinâmico.
+O diagrama seguinte mostra o fluxo de trabalho dinâmico da embalagem.
 
 ![Codificação dinâmica](./media/media-services-dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 ## <a name="common-scenario"></a>Cenário comum
 
-1. Carregue um arquivo de entrada (chamado de arquivo de mezanino). Por exemplo, H. 264, MP4 ou WMV (para obter a lista de formatos com suporte, consulte [formatos com suporte pelo Media Encoder Standard](media-services-media-encoder-standard-formats.md).
-2. Codifique seu arquivo de mezanino para conjuntos de taxa de bits adaptável MP4 H. 264.
-3. Publique o ativo que contém o conjunto de MP4 de taxa de bits adaptável criando o localizador sob demanda.
-4. Crie as URLs de streaming para acessar e transmitir seu conteúdo.
+1. Faça upload de um ficheiro de entrada (chamado ficheiro mezanino). Por exemplo, H.264, MP4 ou WMV (para a lista de formatos suportados ver [Formatos Suportados pela Norma Media Encoder](media-services-media-encoder-standard-formats.md).
+2. Codifique o seu ficheiro mezanino a conjuntos de bitrate adaptativo H.264 MP4.
+3. Publique o ativo que contém o BITRATE BIT4 adaptativo definido pela criação do Localizador On-Demand.
+4. Construa os URLs de streaming para aceder e transmitir o seu conteúdo.
 
-## <a name="preparing-assets-for-dynamic-streaming"></a>Preparando ativos para streaming dinâmico
+## <a name="preparing-assets-for-dynamic-streaming"></a>Preparação de ativos para streaming dinâmico
 
-Para preparar seu ativo para streaming dinâmico, você tem as seguintes opções:
+Para preparar o seu ativo para o streaming dinâmico, tem as seguintes opções:
 
-- [Carregar um arquivo mestre](media-services-dotnet-upload-files.md).
-- [Use o codificador Media Encoder Standard para produzir conjuntos de taxa de bits adaptável MP4 H. 264](media-services-dotnet-encode-with-media-encoder-standard.md).
-- [Transmita seu conteúdo](media-services-deliver-content-overview.md).
+- [Faça upload de um ficheiro principal.](media-services-dotnet-upload-files.md)
+- [Utilize o codificador De código Media Encoder Standard para produzir conjuntos de bitrate adaptativo H.264 MP4](media-services-dotnet-encode-with-media-encoder-standard.md).
+- [Transmita o seu conteúdo.](media-services-deliver-content-overview.md)
 
-## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Codecs de áudio com suporte do empacotamento dinâmico
+## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Codificadores de áudio suportados por embalagens dinâmicas
 
-O empacotamento dinâmico dá suporte a arquivos MP4, que contêm áudio codificado com [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(Enhanced AC-3 ou e-AC3), Dolby Atmos ou [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express, DTS LBR, DTS HD, DTS HD lossless). O streaming do conteúdo Dolby Atmos tem suporte para padrões como o protocolo MPEG-DASH com o formato de streaming comum (CSF) ou o MP4 fragmentado do CMAF (formato de aplicativo de mídia comum) e via HTTP Live Streaming (HLS) com CMAF.
+A Dynamic Packaging suporta ficheiros MP4, que contêm áudio codificado com [AAC (AAC-LC,](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) HE-AAC v1, HE-AAC v2), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(Enhanced AC-3 ou E-AC3), Dolby Atmos, ou [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express, DTS LBR, DTS HD, DTS HD Lossless). O streaming de conteúdo do Dolby Atmos é suportado para normas como o protocolo MPEG-DASH com formato de streaming comum (CSF) ou formato de aplicação de mídia comum (CMAF) fragmentado MP4, e via HTTP Live Streaming (HLS) com CMAF.
 
 > [!NOTE]
-> O empacotamento dinâmico não dá suporte a arquivos que contêm áudio [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) (é um codec herdado).
+> A Dynamic Packaging não suporta ficheiros que contenham áudio [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) (é um codec legado).
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 

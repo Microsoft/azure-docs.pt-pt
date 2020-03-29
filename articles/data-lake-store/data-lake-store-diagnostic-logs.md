@@ -1,6 +1,6 @@
 ---
-title: Visualizar registos de diagnóstico para a geração 1 de armazenamento do Azure Data Lake | Documentos da Microsoft
-description: 'Aprenda a configurar e aceder aos registos de diagnóstico para a geração 1 de armazenamento do Azure Data Lake '
+title: Visualização de registos de diagnóstico para Azure Data Lake Storage Gen1 [ Microsoft Docs
+description: 'Entenda como configurar e aceder a registos de diagnóstico para Azure Data Lake Storage Gen1 '
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -13,83 +13,83 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: d200f72b3c0e5634c3dca8f60a4754a14351110a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60878756"
 ---
-# <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Aceder a registos de diagnóstico para a geração 1 de armazenamento do Azure Data Lake
-Aprenda a ativar o diagnóstico de registo para a sua conta de geração 1 de armazenamento do Azure Data Lake e ver os registos recolhidos para a sua conta.
+# <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Acesso a registos de diagnóstico para Azure Data Lake Storage Gen1
+Aprenda a permitir o registo de diagnóstico para a sua conta Azure Data Lake Storage Gen1 e como visualizar os registos recolhidos para a sua conta.
 
-As organizações podem ativar o registo de diagnóstico para a respetiva conta de geração 1 de armazenamento do Azure Data Lake recolher registos de auditoria de acesso de dados que fornece informações sobre como lista de utilizadores que acedem aos dados, a frequência com que os dados são acedidos, a quantidade de dados é armazenado no conta, entre outras. Quando ativada, o diagnóstico e/ou os pedidos são registados numa base de melhor esforço. Entradas de registo de pedidos e de diagnóstico são criadas apenas se existirem pedidos feitos contra o ponto final de serviço.
+As organizações podem permitir o registo de diagnóstico para a sua conta Azure Data Lake Storage Gen1 para recolher pistas de auditoria de acesso a dados que fornecem informações como a lista de utilizadores que acedem aos dados, a frequência com que os dados são acedidos, quanto saem os dados armazenados na conta, etc. Quando ativados, os diagnósticos e/ou pedidos são registados com o melhor esforço. Tanto as entradas de registo de Pedidos como de Diagnóstico só são criadas se houver pedidos contra o ponto final do serviço.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Conta do Azure de geração 1 de armazenamento do Data Lake**. Siga as instruções em [introdução ao Azure Data Lake Storage Gen1 através do Portal do Azure](data-lake-store-get-started-portal.md).
+* **Uma subscrição Azure.** Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Conta Azure Data Lake Storage Gen1.** Siga as instruções no [Get started com Azure Data Lake Storage Gen1 utilizando o Portal Azure](data-lake-store-get-started-portal.md).
 
-## <a name="enable-diagnostic-logging-for-your-data-lake-storage-gen1-account"></a>Ativar o registo de diagnóstico para a sua conta de geração 1 de armazenamento do Data Lake
+## <a name="enable-diagnostic-logging-for-your-data-lake-storage-gen1-account"></a>Ativar o registo de diagnóstico para a sua conta Gen1 de Armazenamento de Lago de Dados
 1. Inicie sessão no novo [portal do Azure](https://portal.azure.com).
-2. Abra a sua conta do Data Lake Storage Gen1 e, no painel da conta do Data Lake Storage Gen1, clique em **das definições de diagnóstico**.
-3. Na **as definições de diagnóstico** painel, clique em **ativar diagnósticos**.
+2. Abra a sua conta Data Lake Storage Gen1 e a partir da sua lâmina de conta Data Lake Storage Gen1, clique em **definições de diagnóstico**.
+3. Na lâmina de **definições** de Diagnóstico, clique **em ligar diagnósticos**.
 
-    ![Ativar o registo de diagnóstico](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "ativar registos de diagnóstico")
+    ![Ativar o registo de diagnósticos](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "Ativar registos de diagnóstico")
 
-3. Na **as definições de diagnóstico** painel, faça as alterações seguintes para configurar o registo de diagnóstico.
+3. Na lâmina de definições de Diagnóstico, faça as **seguintes** alterações para configurar o registo de diagnóstico.
    
-    ![Ativar o registo de diagnóstico](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "ativar registos de diagnóstico")
+    ![Ativar o registo de diagnósticos](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Ativar registos de diagnóstico")
    
-   * Para **nome**, introduza um valor para a configuração de registo de diagnóstico.
-   * Pode optar por loja/processar os dados de formas diferentes.
+   * Para **Nome,** introduza um valor para a configuração do registo de diagnóstico.
+   * Pode optar por armazenar/processar os dados de diferentes formas.
      
-        * Selecione a opção para **arquivo para uma conta de armazenamento** para armazenar os registos para uma conta de armazenamento do Azure. Utilize esta opção se pretende arquivar os dados que serão processados em lote numa data posterior. Se selecionar esta opção tem de fornecer uma conta de armazenamento do Azure para guardar os registos para.
+        * Selecione a opção de **Arquivar para uma conta** de armazenamento para armazenar registos numa conta de Armazenamento Azure. Utiliza esta opção se pretender arquivar os dados que serão processados em lote mais tarde. Se selecionar esta opção, deve fornecer uma conta de Armazenamento Azure para guardar os registos.
         
-        * Selecione a opção para **Stream para um hub de eventos** para transmitir dados de registo para um Hub de eventos do Azure. É muito provável que irá utilizar esta opção se tiver um pipeline de processamento a jusante para analisar os registos recebidos em tempo real. Se selecionar esta opção, tem de fornecer os detalhes para o Hub de eventos do Azure que pretende utilizar.
+        * Selecione a opção **de Transmitir para um centro de eventos** para transmitir dados de registo para um Hub de Eventos Azure. O mais provável é que utilize esta opção se tiver um pipeline de processamento a jusante para analisar os registos de entrada em tempo real. Se selecionar esta opção, deve fornecer os detalhes para o Azure Event Hub que pretende utilizar.
 
-        * Selecione a opção para **enviar para o Log Analytics** para utilizar o serviço do Azure Monitor para analisar os dados de registo gerado. Se selecionar esta opção, tem de fornecer os detalhes para a área de trabalho do Log Analytics que poderá utilizar a análise de registos de executar. Ver [ver ou analisar os dados recolhidos com a pesquisa de registos do Azure Monitor](../azure-monitor/learn/tutorial-viewdata.md) para obter detalhes sobre como utilizar o Azure Monitor registos.
+        * Selecione a opção **de Enviar para O Log Analytics** para utilizar o serviço Azure Monitor para analisar os dados de registo gerados. Se selecionar esta opção, deve fornecer os detalhes para o espaço de trabalho do Log Analytics que utilizaria a análise de registo de realização. Ver [Ver ou analisar os dados recolhidos com os registos do Monitor Azure procura](../azure-monitor/learn/tutorial-viewdata.md) detalhes sobre a utilização de registos do Monitor Azure.
      
-   * Especifique se pretende obter registos de auditoria, registos de pedidos ou ambas.
-   * Especifique o número de dias para o qual os dados devem ser mantidos. Retenção só é aplicável se estiver a utilizar a conta de armazenamento do Azure para arquivar dados de registo.
+   * Especifique se pretende obter registos de auditoria ou solicitar registos ou ambos.
+   * Especifique o número de dias para os quais os dados devem ser conservados. A retenção só é aplicável se estiver a utilizar a conta de armazenamento Azure para arquivar dados de registo.
    * Clique em **Guardar**.
 
-Assim que tiver ativado as definições de diagnóstico, pode ver os registos no **registos de diagnóstico** separador.
+Depois de ativar as definições de diagnóstico, pode observar os registos no separador **Registos de Diagnóstico.**
 
-## <a name="view-diagnostic-logs-for-your-data-lake-storage-gen1-account"></a>Ver registos de diagnóstico para a sua conta de geração 1 de armazenamento do Data Lake
-Existem duas formas de ver os dados de registo para a sua conta de geração 1 de armazenamento do Data Lake.
+## <a name="view-diagnostic-logs-for-your-data-lake-storage-gen1-account"></a>Consulte os registos de diagnóstico da sua conta Data Lake Storage Gen1
+Existem duas formas de visualizar os dados de registo da sua conta Data Lake Storage Gen1.
 
-* De que a geração de 1 de armazenamento do Data Lake ver as definições da conta
-* Da conta de armazenamento do Azure, onde os dados são armazenados
+* A partir da vista de definições de conta Data Lake Storage Gen1
+* Da conta de Armazenamento Azure onde os dados são armazenados
 
-### <a name="using-the-data-lake-storage-gen1-settings-view"></a>Utilizar a vista de definições de geração 1 de armazenamento do Data Lake
-1. Da sua conta do Data Lake Storage Gen1 **configurações** painel, clique em **registos de diagnóstico**.
+### <a name="using-the-data-lake-storage-gen1-settings-view"></a>Usando a vista de configurações de Gen1 de armazenamento de lago de dados
+1. A partir da sua conta Data Lake Storage Gen1 **Configurações,** clique em **Registos de Diagnóstico**.
    
-    ![Ver registos de diagnóstico](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "ver registos de diagnóstico") 
-2. Na **registos de diagnóstico** painel, deverá ver os registos categorizados pelo **registos de auditoria** e **pedir registos**.
+    ![Ver registos de diagnóstico](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "Ver registos de diagnóstico") 
+2. Na lâmina de registos de **diagnóstico,** deve ver os registos categorizados por **Registos** de Auditoria e **Registos de Pedidos**.
    
-   * Registos de pedidos capturam todos os pedidos de API feitos na conta de geração 1 de armazenamento do Data Lake.
-   * Registos de auditoria são semelhantes aos registos do pedido, mas fornecem uma divisão muito mais detalhada das operações que está a ser executadas na conta de geração 1 de armazenamento do Data Lake. Por exemplo, uma chamada de API de envio único nos logs de solicitação pode resultar em várias operações de "Anexar" nos registos de auditoria.
-3. Para transferir os registos, clique nas **transferir** link em relação a cada entrada de log.
+   * Os registos de pedidos captam todos os pedidos da API feitos na conta Data Lake Storage Gen1.
+   * Os Registos de Auditoria são semelhantes aos registos de pedidos, mas fornecem uma desagregação muito mais detalhada das operações que estão a ser realizadas na conta Data Lake Storage Gen1. Por exemplo, uma única chamada de API de upload em registos de pedidos pode resultar em múltiplas operações de "apêndice" nos registos de auditoria.
+3. Para fazer o download dos registos, clique no link **Download** em cada entrada de registo.
 
-### <a name="from-the-azure-storage-account-that-contains-log-data"></a>A partir da conta de armazenamento do Azure que contém dados de registo
-1. Abrir o painel de conta de armazenamento do Azure associado a geração 1 de armazenamento do Data Lake para o registo e, em seguida, clique em Blobs. O **serviço Blob** painel apresenta uma lista de dois contentores.
+### <a name="from-the-azure-storage-account-that-contains-log-data"></a>Da conta de Armazenamento Azure que contém dados de registo
+1. Abra a lâmina da conta de armazenamento Azure associada ao Data Lake Storage Gen1 para abate e, em seguida, clique em Blobs. A lâmina de **serviço Blob** lista dois recipientes.
    
-    ![Registo de diagnósticos do modo de exibição](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "ver registos de diagnóstico")
+    ![Ver registo de diagnóstico](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Ver registos de diagnóstico")
    
-   * O contentor **insights-logs-auditoria** contém os registos de auditoria.
-   * O contentor **insights-logs-pedidos** contém os registos de pedido.
-2. Dentro desses contêineres, os registos são armazenados na seguinte estrutura.
+   * O recipiente **insights-logs-audit contém** os registos de auditoria.
+   * Os **pedidos de informação de informação do** recipiente contém os registos de pedidos.
+2. Dentro destes recipientes, os troncos são armazenados sob a seguinte estrutura.
    
-    ![Registo de diagnósticos do modo de exibição](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "ver registos de diagnóstico")
+    ![Ver registo de diagnóstico](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "Ver registos de diagnóstico")
    
-    Por exemplo, poderia ser o caminho completo para um registo de auditoria `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestorage/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
+    Como exemplo, o caminho completo para um registo de auditoria pode ser`https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestorage/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
    
-    Da mesma forma, pode ser o caminho completo para um registo de pedido `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestorage/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
+    Da mesma forma, o caminho completo para um registo de pedido pode ser`https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestorage/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
 
-## <a name="understand-the-structure-of-the-log-data"></a>Compreender a estrutura de dados de registo
-Os registos de auditoria e pedido são em formato JSON. Nesta secção, vamos examinar a estrutura do JSON de pedido e registos de auditoria.
+## <a name="understand-the-structure-of-the-log-data"></a>Compreender a estrutura dos dados de registo
+Os registos de auditoria e pedido estão em formato JSON. Nesta secção, olhamos para a estrutura da JSON para registos de pedidos e auditorias.
 
 ### <a name="request-logs"></a>Registos de pedidos
-Aqui está uma entrada de exemplo no registo de pedido de formato JSON. Cada blob tem um objeto de raiz chamado **registos** que contém uma matriz de objetos de registo.
+Aqui está uma amostra no registo de pedidos formado pela JSON. Cada bolha tem um objeto de raiz chamado **registos** que contém uma série de objetos de madeira.
 
     {
     "records": 
@@ -112,31 +112,31 @@ Aqui está uma entrada de exemplo no registo de pedido de formato JSON. Cada blo
       ]
     }
 
-#### <a name="request-log-schema"></a>Esquema de registo de pedido
-| Name | Tipo | Descrição |
+#### <a name="request-log-schema"></a>Solicitar esquema de log
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
-| time |String |O período de tempo (em UTC) do registo |
-| resourceId |String |O ID do recurso que demorou a operação de colocar em |
-| category |String |A categoria de registo. Por exemplo, **pedidos**. |
-| operationName |String |Nome da operação que é registado. Por exemplo, getfilestatus. |
-| resultType |String |O estado da operação, por exemplo, 200. |
-| callerIpAddress |String |O endereço IP do cliente que efetua o pedido |
-| correlationId |String |O ID do registo que podem utilizado para agrupar um conjunto de entradas de registo relacionados |
-| identidade |Object |A identidade que gerou o registo |
-| properties |JSON |Veja abaixo para obter detalhes |
+| hora |Cadeia |A marca de tempo (em UTC) do tronco |
+| resourceId |Cadeia |A identificação do recurso que a operação ocorreu em |
+| categoria |Cadeia |A categoria de registo. Por exemplo, **Pedidos**. |
+| operationName |Cadeia |Nome da operação que está registada. Por exemplo, obter estatuto de ficheiro. |
+| resultType |Cadeia |O estado da operação, por exemplo, 200. |
+| callerIpAddress |Cadeia |O endereço IP do cliente que faz o pedido |
+| correlationId |Cadeia |A identificação do registo que pode ser usado para agrupar um conjunto de entradas de registo relacionadas |
+| identidade |Objeto |A identidade que gerou o registo |
+| propriedades |JSON |Veja abaixo para mais detalhes |
 
-#### <a name="request-log-properties-schema"></a>Esquema de propriedades de registo de pedido
-| Name | Tipo | Descrição |
+#### <a name="request-log-properties-schema"></a>Solicitar propriedades de log
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
-| HttpMethod |String |O método HTTP utilizado para a operação. Por exemplo, obter. |
-| Caminho |String |O caminho a operação foi realizado em |
-| RequestContentLength |int |O comprimento do conteúdo da solicitação HTTP |
-| ClientRequestId |String |O ID que identifica exclusivamente este pedido |
-| StartTime |String |O tempo em que o servidor recebeu o pedido |
-| EndTime |String |O tempo em que o servidor enviou uma resposta |
+| HttpMethod |Cadeia |O método HTTP utilizado para a operação. Por exemplo, GET. |
+| Caminho |Cadeia |O caminho em que a operação foi realizada |
+| RequestContentLength |int |A duração do conteúdo do pedido HTTP |
+| ClientRequestid |Cadeia |O ID que identifica exclusivamente este pedido |
+| StartTime |Cadeia |O momento em que o servidor recebeu o pedido |
+| EndTime |Cadeia |O momento em que o servidor enviou uma resposta |
 
 ### <a name="audit-logs"></a>Registos de auditoria
-Aqui está uma entrada de exemplo no log de auditoria de formato JSON. Cada blob tem um objeto de raiz chamado **registos** que contém uma matriz de objetos de registo
+Aqui está uma amostra no registo de auditoria formatado pela JSON. Cada bolha tem um objeto de raiz chamado **registos** que contém uma variedade de objetos de log
 
     {
     "records": 
@@ -160,25 +160,25 @@ Aqui está uma entrada de exemplo no log de auditoria de formato JSON. Cada blob
     }
 
 #### <a name="audit-log-schema"></a>Esquema de registo de auditoria
-| Name | Tipo | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
-| time |String |O período de tempo (em UTC) do registo |
-| resourceId |String |O ID do recurso que demorou a operação de colocar em |
-| category |String |A categoria de registo. Por exemplo, **auditoria**. |
-| operationName |String |Nome da operação que é registado. Por exemplo, getfilestatus. |
-| resultType |String |O estado da operação, por exemplo, 200. |
-| resultSignature |String |Detalhes adicionais sobre a operação. |
-| correlationId |String |O ID do registo que podem utilizado para agrupar um conjunto de entradas de registo relacionados |
-| identidade |Object |A identidade que gerou o registo |
-| properties |JSON |Veja abaixo para obter detalhes |
+| hora |Cadeia |A marca de tempo (em UTC) do tronco |
+| resourceId |Cadeia |A identificação do recurso que a operação ocorreu em |
+| categoria |Cadeia |A categoria de registo. Por exemplo, **Auditoria**. |
+| operationName |Cadeia |Nome da operação que está registada. Por exemplo, obter estatuto de ficheiro. |
+| resultType |Cadeia |O estado da operação, por exemplo, 200. |
+| resultSignature |Cadeia |Detalhes adicionais sobre a operação. |
+| correlationId |Cadeia |A identificação do registo que pode ser usado para agrupar um conjunto de entradas de registo relacionadas |
+| identidade |Objeto |A identidade que gerou o registo |
+| propriedades |JSON |Veja abaixo para mais detalhes |
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades de registo de auditoria
-| Name | Tipo | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
-| StreamName |String |O caminho a operação foi realizado em |
+| Nome de fluxo |Cadeia |O caminho em que a operação foi realizada |
 
-## <a name="samples-to-process-the-log-data"></a>Exemplos para processar os dados de registo
-Ao enviar registos de geração 1 de armazenamento do Azure Data Lake para registos do Azure Monitor (veja [ver ou analisar os dados recolhidos com a pesquisa de registos do Azure Monitor](../azure-monitor/learn/tutorial-viewdata.md) para obter detalhes sobre como utilizar o Azure Monitor registos), a seguinte consulta devolve uma tabela que contém um lista de utilizador nomes a apresentar, a hora dos eventos e a contagem de eventos para a hora do evento, juntamente com o gráfico visual. Pode ser facilmente modificado para mostrar o GUID de utilizador ou outros atributos:
+## <a name="samples-to-process-the-log-data"></a>Amostras para processar os dados de registo
+Ao enviar registos do Azure Data Lake Storage Gen1 para os registos do Azure Monitor (ver [Ver ou analisar dados recolhidos com registos](../azure-monitor/learn/tutorial-viewdata.md) do Monitor Azure procura detalhes sobre a utilização de registos do Monitor Azure), a seguinte consulta devolverá uma tabela contendo uma lista de nomes de visualização do utilizador, a hora dos eventos e a contagem de eventos para a hora do evento, juntamente com um gráfico visual. Pode ser facilmente modificado para mostrar ao utilizador GUID ou outros atributos:
 
 ```
 search *
@@ -187,9 +187,9 @@ search *
 ```
 
 
-Geração de armazenamento 1 do Azure Data Lake fornece um exemplo sobre como processar e analisar os dados de registo. Pode encontrar o exemplo na [ https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample ](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
+Azure Data Lake Storage Gen1 fornece uma amostra sobre como processar e analisar os dados de registo. Pode encontrar a [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample)amostra em . 
 
 ## <a name="see-also"></a>Consulte também
-* [Descrição geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
+* [Visão geral do Armazenamento de Lagos De Dados Azure Gen1](data-lake-store-overview.md)
 * [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)
 

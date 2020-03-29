@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: avverma
 ms.openlocfilehash: ffcdaf76bdd08ee5505ddbeff6a6698e231b6171
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919843"
 ---
 # <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Utilize políticas personalizadas de escala com conjuntos de escala virtual Azure
@@ -139,7 +139,7 @@ Pode modificar a política de escala de uma escala existente definida através d
 1. Num conjunto de escala de máquina virtual existente, **selecione Escalar** a partir do menu à esquerda.
 1. Selecione o separador **Política Scale-In.**
 1. Selecione uma política de escala a partir da queda.
-1. Quando terminar, selecione **Guardar**. 
+1. Quando tiver terminado, selecione **Guardar**. 
 
 ### <a name="using-api"></a>Utilizar a API
 
@@ -211,7 +211,7 @@ Os exemplos abaixo demonstram como um conjunto de escala de máquina virtual ir�
 
 | Evento                 | IDs de instância na Zona1  | IDs de instância na Zona2  | IDs de instância na Zona 3  | Seleção scale-in                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
-| Inicial               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
+| Initial (Inicial)               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
 | Escala              | 3, 4, 5, 10            | ***2,*** 6, 9, 11      | 1, 7, 8                | Escolha entre a Zona 1 e 2, embora a Zona 3 tenha o VM mais antigo. Elimine o VM2 da Zona 2, uma vez que é o VM mais antigo daquela zona.   |
 | Escala              | ***3,*** 4, 5, 10      | 6, 9, 11               | 1, 7, 8                | Escolha a Zona 1, embora a Zona 3 tenha o VM mais antigo. Elimine o VM3 da Zona 1, uma vez que é o VM mais antigo daquela zona.                  |
 | Escala              | 4, 5, 10               | 6, 9, 11               | ***1,*** 7, 8          | As zonas estão equilibradas. Elimine o VM1 na Zona 3, uma vez que é o VM mais antigo do conjunto de escala.                                               |
@@ -225,7 +225,7 @@ Para conjuntos de escala de máquinas virtuais não zonais, a política selecion
 
 | Evento                 | IDs de instância na Zona1  | IDs de instância na Zona2  | IDs de instância na Zona 3  | Seleção scale-in                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
-| Inicial               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
+| Initial (Inicial)               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
 | Escala              | 3, 4, 5, 10            | 2, 6, 9, ***11***      | 1, 7, 8                | Escolha entre a Zona 1 e 2. Elimine o VM11 da Zona 2, uma vez que é o vM mais recente nas duas zonas.                                |
 | Escala              | 3, 4, 5, ***10***      | 2, 6, 9                | 1, 7, 8                | Escolha a Zona 1 porque tem mais VMs do que as outras duas zonas. Elimine o VM10 da Zona 1, uma vez que é o vM mais recente dessa Zona.          |
 | Escala              | 3, 4, 5                | 2, 6, ***9***          | 1, 7, 8                | As zonas estão equilibradas. Elimine o VM9 na Zona 2, uma vez que é o vM mais recente no conjunto de escala.                                                |

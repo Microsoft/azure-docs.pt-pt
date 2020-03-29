@@ -1,6 +1,6 @@
 ---
-title: Armazenar segredos em um cofre de chaves no Azure DevTest Labs | Microsoft Docs
-description: Saiba como armazenar segredos em um Azure Key Vault e usá-los ao criar uma VM, fórmula ou um ambiente.
+title: Guarde segredos num cofre chave em Azure DevTest Labs Microsoft Docs
+description: Aprenda a armazenar segredos num Cofre de Chaves Azure e use-os enquanto cria um VM, fórmula ou um ambiente.
 services: devtest-lab
 documentationcenter: na
 author: spelluru
@@ -15,43 +15,43 @@ ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 29a4d20390575778ccdecde390c257ccf6a48eb1
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76720933"
 ---
-# <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Armazenar segredos em um cofre de chaves no Azure DevTest Labs
-Talvez seja necessário inserir um segredo complexo ao usar Azure DevTest Labs: senha para sua VM do Windows, chave SSH pública para sua VM Linux ou token de acesso pessoal para clonar seu repositório git por meio de um artefato. Os segredos são geralmente longos e têm caracteres aleatórios. Portanto, inseri-los pode ser complicado e inconveniente, especialmente se você usar o mesmo segredo várias vezes.
+# <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Guarde segredos em um cofre chave em Azure DevTest Labs
+Poderá ter de introduzir um segredo complexo ao utilizar o Azure DevTest Labs: palavra-passe para o seu Windows VM, chave SSH pública para o seu VM Linux ou ficha de acesso pessoal para clonar o seu repo Git através de um artefacto. Os segredos são geralmente longos e têm personagens aleatórios. Portanto, entrar neles pode ser complicado e inconveniente, especialmente se você usar o mesmo segredo várias vezes.
 
-Para resolver este problema e também manter os seus segredos num local seguro, a DevTest Labs suporta guardar segredos num [cofre de chaves Azure.](../key-vault/key-vault-overview.md) Quando um usuário salva um segredo pela primeira vez, o serviço do DevTest Labs cria automaticamente um cofre de chaves no mesmo grupo de recursos que contém o laboratório e armazena o segredo no cofre de chaves. O DevTest Labs cria um cofre de chaves separado para cada usuário. 
+Para resolver este problema e também manter os seus segredos num local seguro, a DevTest Labs suporta guardar segredos num [cofre de chaves Azure.](../key-vault/key-vault-overview.md) Quando um utilizador guarda um segredo pela primeira vez, o serviço DevTest Labs cria automaticamente um cofre chave no mesmo grupo de recursos que contém o laboratório e armazena o segredo no cofre chave. A DevTest Labs cria um cofre de chave separado para cada utilizador. 
 
-Observe que o usuário do laboratório precisará primeiro criar uma máquina virtual de laboratório antes de poder criar um segredo no cofre de chaves. Isto porque o serviço DevTest Lab precisa de associar o utilizador do laboratório a um documento de utilizador válido antes de poderem criar e armazenar segredos no seu cofre chave. 
+Por favor, note que o utilizador do laboratório terá primeiro de criar uma máquina virtual de laboratório antes de criar um segredo no cofre da chave. Isto porque o serviço DevTest Lab precisa de associar o utilizador do laboratório a um documento de utilizador válido antes de poderem criar e armazenar segredos no seu cofre chave. 
 
 
-## <a name="save-a-secret-in-azure-key-vault"></a>Salvar um segredo no Azure Key Vault
-Para salvar seu segredo em Azure Key Vault, execute as seguintes etapas:
+## <a name="save-a-secret-in-azure-key-vault"></a>Salve um segredo no Cofre de Chaves Azure
+Para guardar o seu segredo no Cofre de Chaves Azure, faça os seguintes passos:
 
 1. Selecione **os meus segredos** no menu esquerdo.
-2. Insira um **nome** para o segredo. Você vê esse nome na lista suspensa ao criar uma VM, fórmula ou um ambiente. 
+2. Insira um **nome** para o segredo. Você vê este nome na lista de drop-down ao criar um VM, fórmula ou um ambiente. 
 3. Insira o segredo como o **valor.**
 
-    ![Segredo do repositório](media/devtest-lab-store-secrets-in-key-vault/store-secret.png)
+    ![Guardar segredo](media/devtest-lab-store-secrets-in-key-vault/store-secret.png)
 
-## <a name="use-a-secret-from-azure-key-vault"></a>Usar um segredo de Azure Key Vault
-Quando precisar inserir um segredo para criar uma VM, fórmula ou um ambiente, você pode inserir um segredo manualmente ou selecionar um segredo salvo no cofre de chaves. Para usar um segredo armazenado em seu cofre de chaves, execute as seguintes ações:
+## <a name="use-a-secret-from-azure-key-vault"></a>Use um segredo do Cofre de Chaves Azure
+Quando precisa de introduzir um segredo para criar um VM, fórmula ou um ambiente, pode introduzir um segredo manualmente ou selecionar um segredo guardado do cofre da chave. Para utilizar um segredo armazenado no seu cofre chave, faça as seguintes ações:
 
 1. Selecione **Utilize um segredo guardado**. 
 2. Selecione o seu segredo na lista de lançamentos para **Escolher um segredo**. 
 
-    ![Usar segredo na VM](media/devtest-lab-store-secrets-in-key-vault/secret-store-pick-a-secret.png)
+    ![Use o segredo em VM](media/devtest-lab-store-secrets-in-key-vault/secret-store-pick-a-secret.png)
 
-## <a name="use-a-secret-in-an-azure-resource-manager-template"></a>Usar um segredo em um modelo de Azure Resource Manager
-Você pode especificar o nome do segredo em um modelo de Azure Resource Manager que é usado para criar uma VM, conforme mostrado no exemplo a seguir:
+## <a name="use-a-secret-in-an-azure-resource-manager-template"></a>Use um segredo em um modelo de Gestor de Recursos Azure
+Pode especificar o seu nome secreto num modelo de Gestor de Recursos Azure que é usado para criar um VM, como mostra o seguinte exemplo:
 
-![Usar segredo em fórmula ou ambiente](media/devtest-lab-store-secrets-in-key-vault/secret-store-arm-template.png)
+![Use segredo em fórmula ou ambiente](media/devtest-lab-store-secrets-in-key-vault/secret-store-arm-template.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar um VM usando o segredo](devtest-lab-add-vm.md) 
 - [Criar uma fórmula usando o segredo](devtest-lab-manage-formulas.md)

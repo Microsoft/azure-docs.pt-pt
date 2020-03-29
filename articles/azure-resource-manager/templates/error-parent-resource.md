@@ -1,22 +1,22 @@
 ---
-title: Erros de recurso pai
-description: Descreve como resolver erros ao trabalhar com um recurso pai em um modelo de Azure Resource Manager.
+title: Erros de recursos parentais
+description: Descreve como resolver erros ao trabalhar com um recurso-mãe num modelo de Gestor de Recursos Azure.
 ms.topic: troubleshooting
 ms.date: 08/01/2018
 ms.openlocfilehash: f1847389d60ddf3c6abc70bc3309940c2246084e
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76154045"
 ---
-# <a name="resolve-errors-for-parent-resources"></a>Resolver erros de recursos pai
+# <a name="resolve-errors-for-parent-resources"></a>Resolver erros para os recursos parentais
 
-Este artigo descreve os erros que você pode obter ao implantar um recurso que é dependente de um recurso pai.
+Este artigo descreve os erros que pode obter ao implementar um recurso que está dependente de um recurso-mãe.
 
 ## <a name="symptom"></a>Sintoma
 
-Ao implantar um recurso que seja filho de outro recurso, você pode receber o seguinte erro:
+Ao utilizar um recurso que seja uma criança para outro recurso, poderá receber o seguinte erro:
 
 ```
 Code=ParentResourceNotFound;
@@ -25,7 +25,7 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 
 ## <a name="cause"></a>Causa
 
-Quando um recurso é filho para outro recurso, o recurso pai deve existir antes de criar o recurso filho. O nome do recurso filho define a conexão com o recurso pai. O nome do recurso filho está no formato `<parent-resource-name>/<child-resource-name>`. Por exemplo, um banco de dados SQL pode ser definido como:
+Quando um recurso é uma criança para outro recurso, o recurso-mãe deve existir antes de criar o recurso para crianças. O nome do recurso infantil define a ligação com o recurso-mãe. O nome do recurso para `<parent-resource-name>/<child-resource-name>`crianças está no formato . Por exemplo, uma base de dados SQL pode ser definida como:
 
 ```json
 {
@@ -34,13 +34,13 @@ Quando um recurso é filho para outro recurso, o recurso pai deve existir antes 
   ...
 ```
 
-Se você implantar o servidor e o banco de dados no mesmo modelo, mas não especificar uma dependência no servidor, a implantação do banco de dados poderá ser iniciada antes da implantação do servidor.
+Se implementar o servidor e a base de dados no mesmo modelo, mas não especificar uma dependência do servidor, a implementação da base de dados poderá começar antes de o servidor ser implementado.
 
-Se o recurso pai já existir e não estiver implantado no mesmo modelo, você receberá esse erro quando o Gerenciador de recursos não puder associar o recurso filho ao pai. Esse erro pode ocorrer quando o recurso filho não está no formato correto ou o recurso filho é implantado em um grupo de recursos diferente do grupo de recursos para o recurso pai.
+Se o recurso-mãe já existe e não está implantado no mesmo modelo, obtém-se este erro quando o Gestor de Recursos não pode associar o recurso à criança com o progenitor. Este erro pode acontecer quando o recurso da criança não está no formato correto, ou o recurso infantil é implantado para um grupo de recursos que é diferente do grupo de recursos para o recurso principal.
 
 ## <a name="solution"></a>Solução
 
-Para resolver esse erro quando os recursos pai e filho são implantados no mesmo modelo, inclua uma dependência.
+Para resolver este erro quando os recursos dos pais e das crianças são implantados no mesmo modelo, inclua uma dependência.
 
 ```json
 "dependsOn": [
@@ -48,7 +48,7 @@ Para resolver esse erro quando os recursos pai e filho são implantados no mesmo
 ]
 ```
 
-Para resolver esse erro quando o recurso pai foi implantado anteriormente em um modelo diferente, você não define uma dependência. Em vez disso, implante o filho no mesmo grupo de recursos e forneça o nome do recurso pai.
+Para resolver este erro quando o recurso-mãe foi previamente implantado num modelo diferente, não se define uma dependência. Em vez disso, desloque a criança para o mesmo grupo de recursos e forneça o nome do recurso-mãe.
 
 ```json
 {
@@ -78,4 +78,4 @@ Para resolver esse erro quando o recurso pai foi implantado anteriormente em um 
 }
 ```
 
-Para obter mais informações, consulte [definir a ordem de implantação de recursos em modelos de Azure Resource Manager](define-resource-dependency.md).
+Para mais informações, consulte [Definir a ordem de implantação de recursos nos modelos do Gestor](define-resource-dependency.md)de Recursos Azure .
