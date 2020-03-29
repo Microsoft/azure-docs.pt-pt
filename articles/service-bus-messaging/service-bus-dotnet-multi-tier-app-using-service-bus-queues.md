@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: d4d837bb49e4ce80340d59f8a01334f3c80ff413
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60403377"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicação .NET multicamadas que utiliza as filas do Service Bus do Azure
@@ -33,7 +33,7 @@ Aprenderá o seguinte:
 
 Neste tutorial, compilará e executará a aplicação multicamadas num serviço em nuvem do Azure. O front-end é uma função da Web de MVC do ASP.NET e o back-end é uma função de trabalho que utiliza uma fila do Service Bus. Pode criar a mesma aplicação multicamadas com o front-end como um projeto Web implementado num site do Azure em vez de num serviço cloud. Pode também experimentar o tutorial [Aplicação .NET híbrida no local/nuvem](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
-Captura de ecrã seguinte mostra o aplicativo concluído.
+A imagem seguinte mostra a aplicação completa.
 
 ![][0]
 
@@ -50,7 +50,7 @@ Este mecanismo de comunicação tem várias vantagens em relação às mensagens
 
 * **Desacoplamento temporal.** Com o padrão de mensagens assíncronas, os produtores e os consumidores não necessitam de estar online em simultâneo. O Service Bus armazena de forma fiável as mensagens até a parte consumidora estar preparada para a respetiva receção. Isto permite que os componentes da aplicação distribuída estejam desligados, quer voluntariamente, por exemplo, para manutenção, quer devido a uma falha de componente, sem afetar o sistema como um todo. Além disso, a aplicação de consumo poderá apenas precisar de ficar online durante determinadas horas do dia.
 * **Nivelamento de carga.** Em muitas aplicações, a carga do sistema varia ao longo do tempo, enquanto o tempo de processamento necessário para cada unidade de trabalho é geralmente constante. A intermediação de produtores e consumidores de mensagens através de uma fila significa que a aplicação de consumo (o trabalho) apenas precisa de ser aprovisionada para acomodar uma carga média em vez de um pico de carga. A profundidade da fila aumenta e contrai à medida que a carga a receber varia. Tal poupa diretamente dinheiro em termos de quantidade de infraestrutura necessária para a manutenção da carga da aplicação.
-* **Balanceamento de carga.** À medida que a carga aumenta, podem ser adicionados mais processos de trabalho para a leitura a partir da fila. Cada mensagem é processada apenas por um dos processos de trabalho. Além disso, este balanceamento de carga baseado na solicitação permite a utilização otimizada das máquinas de trabalho mesmo se as máquinas de trabalho diferirem em termos de poder de processamento, uma vez que transmitirão as mensagens à sua própria taxa máxima. Este padrão é frequentemente denominado padrão de *consumidor concorrente*.
+* **Equilíbrio de carga.** À medida que a carga aumenta, podem ser adicionados mais processos de trabalho para a leitura a partir da fila. Cada mensagem é processada apenas por um dos processos de trabalho. Além disso, este balanceamento de carga baseado na solicitação permite a utilização otimizada das máquinas de trabalho mesmo se as máquinas de trabalho diferirem em termos de poder de processamento, uma vez que transmitirão as mensagens à sua própria taxa máxima. Este padrão é frequentemente denominado padrão de *consumidor concorrente*.
   
   ![][2]
 
@@ -58,7 +58,7 @@ As secções seguintes abordam o código que implementa esta arquitetura.
 
 ## <a name="create-a-namespace"></a>Criar um espaço de nomes
 
-A primeira etapa é criar um *espaço de nomes*e obter um [assinatura de acesso partilhado (SAS)](service-bus-sas.md) chave desse Namespace. Um espaço de nomes proporciona um limite de aplicação para cada aplicação exposta através do Service Bus. O sistema gera uma chave SAS quando um espaço de nomes é criado. A combinação do nome do espaço de nomes e da chave SAS fornece as credenciais do Service Bus para autenticar o acesso a uma aplicação.
+O primeiro passo é criar um espaço de *nome,* e obter uma chave [De Acesso Partilhado (SAS)](service-bus-sas.md) para esse espaço de nome. Um espaço de nomes proporciona um limite de aplicação para cada aplicação exposta através do Service Bus. O sistema gera uma chave SAS quando um espaço de nomes é criado. A combinação do nome do espaço de nomes e da chave SAS fornece as credenciais do Service Bus para autenticar o acesso a uma aplicação.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -72,7 +72,7 @@ Em seguida, adicione o código que submete itens para a fila do Service Bus e mo
 1. Com os privilégios de administrador, inicie o Visual Studio: clique com o botão direito no ícone do programa **Visual Studio** e, em seguida, clique em **Executar como administrador**. O emulador de computação do Azure, abordado posteriormente neste artigo, necessita que o Visual Studio seja iniciado com privilégios de administrador.
    
    No Visual Studio, no menu **Ficheiro**, clique em **Novo** e, de seguida, em **Projeto**.
-2. A partir de **Modelos Instalados**, em **Visual C#** , clique em **Nuvem** e, de seguida, em **Serviço em Nuvem do Azure**. Atribua o nome **MultiTierApp** ao projeto. Em seguida, clique em **OK**.
+2. A partir de **Modelos Instalados**, em **Visual C#**, clique em **Nuvem** e, de seguida, em **Serviço em Nuvem do Azure**. Atribua o nome **MultiTierApp** ao projeto. Em seguida, clique em **OK**.
    
    ![][9]
 3. No painel **Funções**, faça duplo clique em **Função da Web ASP.NET**.
@@ -350,7 +350,7 @@ Agora criará a função de trabalho que processa as submissões de pedidos. Est
     
     ![][20]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre o Service Bus, consulte os seguintes recursos:  
 
 * [Introdução às filas do Service Bus][sbacomqhowto]

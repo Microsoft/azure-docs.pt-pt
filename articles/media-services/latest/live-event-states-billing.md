@@ -1,6 +1,6 @@
 ---
-title: Estados e cobrança do LiveEvent nos serviços de mídia do Azure | Microsoft Docs
-description: Este tópico fornece uma visão geral dos Estados de LiveEvent e da cobrança dos serviços de mídia do Azure.
+title: LiveEvent afirma e faturação nos Serviços De Mídia Azure [ Microsoft Docs
+description: Este tema dá uma visão geral dos estados do Azure Media Services LiveEvent e da faturação.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,36 +14,36 @@ ms.topic: article
 ms.date: 10/24/2019
 ms.author: juliako
 ms.openlocfilehash: e4eee3b9f3f97bf7cd7a7b61425ec5c9a3a198ef
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76543080"
 ---
-# <a name="live-event-states-and-billing"></a>Estados e cobrança de eventos ao vivo
+# <a name="live-event-states-and-billing"></a>Estados do Evento Ao Vivo e faturação
 
-Nos serviços de mídia do Azure, um evento ao vivo começa a cobrança assim que sua transição de estado para **em execução**. Você será cobrado mesmo se não houver vídeo fluindo pelo serviço. Para interromper o evento ao vivo da cobrança, você precisa parar o evento ao vivo. A transcrição ao vivo é cobrada da mesma maneira que o evento ao vivo.
+No Azure Media Services, um Evento Ao Vivo começa a faturar assim que o seu estado transita para **Running**. Será cobrado mesmo que não haja vídeo a fluir pelo serviço. Para impedir que o Evento Ao Vivo faça faturação, tem de parar o Evento Ao Vivo. A Transcrição ao Vivo é cobrada da mesma forma que o Evento Ao Vivo.
 
-Quando o **LiveEventEncodingType** em seu [evento ao vivo](https://docs.microsoft.com/rest/api/media/liveevents) é definido como Standard ou Premium1080p, os serviços de mídia desligam automaticamente qualquer evento ao vivo que ainda esteja no estado de **execução** 12 horas após o feed de entrada ser perdido e não há nenhum s de **saída ao vivo**em execução. No entanto, você ainda será cobrado pelo tempo em que o evento ao vivo estava no estado de **execução** .
+Quando o **LiveEventEncodingType** no seu [Evento Ao Vivo](https://docs.microsoft.com/rest/api/media/liveevents) está definido para Standard ou Premium1080p, o Media Services desliga automaticamente qualquer Evento Ao Vivo que ainda se encontra no estado de **Execução** 12 horas após a perda do feed de entrada, e não há saída sem saída ao **vivo.** No entanto, ainda será cobrado pelo tempo em que o Evento Ao Vivo esteve no estado **de Corrida.**
 
 > [!NOTE]
-> Eventos ao vivo de passagem não são desligados automaticamente e devem ser explicitamente interrompidos por meio da API para evitar uma cobrança excessiva. 
+> Os Eventos Ao Vivo pass-through não são desligados automaticamente e devem ser explicitamente interrompidos através da API para evitar faturações excessivas. 
 
 ## <a name="states"></a>Estados
 
-O evento ao vivo pode estar em um dos Estados a seguir.
+O Evento Ao Vivo pode estar num dos seguintes estados.
 
 |Estado|Descrição|
 |---|---|
-|**Interrompido**| Esse é o estado inicial do evento ao vivo após a criação (a menos que AutoStart tenha sido definido como true). Nenhuma cobrança ocorre nesse estado. Neste estado, as propriedades do Evento em Direto podem ser atualizadas, mas a transmissão em fluxo não é permitida.|
-|**Comece**| O evento ao vivo está sendo iniciado e os recursos estão sendo alocados. Nenhuma cobrança ocorre nesse estado. Não são permitidas atualizações ou streaming durante esse estado. Se ocorrer um erro, o evento ao vivo retornará ao estado parado.|
-|**Executado**| Os recursos de evento ao vivo foram alocados, as URLs de ingestão e de visualização foram geradas e são capazes de receber fluxos ao vivo. Neste ponto, a cobrança está ativa. Você deve chamar Stop explicitamente no recurso de evento ao vivo para interromper mais cobranças.|
-|**Impedir**| O evento ao vivo está sendo interrompido e os recursos estão sendo desprovisionados. Nenhuma cobrança ocorre nesse estado transitório. Não são permitidas atualizações ou streaming durante esse estado.|
-|**Excluído**| O Evento em Direto está a ser eliminado. Nenhuma cobrança ocorre nesse estado transitório. Não são permitidas atualizações ou streaming durante esse estado.|
+|**Parada**| Este é o estado inicial do Evento Ao Vivo após a criação (a menos que o autoarranque tenha sido definido para verdade.) Não há faturação neste estado. Neste estado, as propriedades do Live Event podem ser atualizadas, mas o streaming não é permitido.|
+|**Início**| O Evento Ao Vivo está a ser iniciado e os recursos estão a ser atribuídos. Não há faturação neste estado. Não são permitidas atualizações ou streaming durante este estado. Se ocorrer um erro, o Evento Ao Vivo regressa ao estado de parada.|
+|**A executar**| Os recursos do Live Event foram atribuídos, ingerir e pré-visualizar URLs, e é capaz de receber streams ao vivo. Neste momento, a faturação está ativa. Deve ligar explicitamente para parar o recurso Stop on the Live Event para parar a faturação adicional.|
+|**A parar**| O Evento Ao Vivo está a ser interrompido e os recursos estão a ser desprovisionados. Não ocorre nenhuma faturação neste estado transitório. Não são permitidas atualizações ou streaming durante este estado.|
+|**Apagando**| O Evento Ao Vivo está a ser apagado. Não ocorre nenhuma faturação neste estado transitório. Não são permitidas atualizações ou streaming durante este estado.|
 
-Você pode optar por habilitar transcrições dinâmicas ao criar o evento ao vivo. Se você fizer isso, será cobrado pelas transcrições dinâmicas sempre que o evento ao vivo estiver no estado **executando** . Observe que você será cobrado mesmo se não houver áudio fluindo pelo evento ao vivo.
+Pode optar por ativar transcrições ao vivo quando criar o Live Event. Se o fizer, será cobrado para Transcrições ao Vivo sempre que o Evento Ao Vivo estiver no estado **de Corrida.** Note que será cobrado mesmo que não haja áudio fluindo através do Live Event.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Visão geral da transmissão ao vivo](live-streaming-overview.md)
-- [Tutorial de transmissão ao vivo](stream-live-tutorial-with-api.md)
+- [Visão geral do streaming ao vivo](live-streaming-overview.md)
+- [Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)

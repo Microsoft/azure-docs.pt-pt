@@ -1,19 +1,19 @@
 ---
-title: Monitorar runbooks de automação do Azure com alertas de métrica
-description: Este artigo orienta você durante o monitoramento de runbooks de automação do Azure com base nas métricas
+title: Monitor Azure Automation runbooks com alertas métricos
+description: Este artigo acompanha-o através da monitorização de livros de execução da Azure Automation baseados em métricas
 services: automation
 ms.date: 11/01/2018
 ms.topic: article
 ms.openlocfilehash: 9bd028157b33817898ef69f9e47cb8b5d9b8f381
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75367098"
 ---
-# <a name="monitoring-runbooks-with-metric-alerts"></a>Monitoramento de runbooks com alertas de métricas
+# <a name="monitoring-runbooks-with-metric-alerts"></a>Monitorização de livros de execução com alertas métricos
 
-Neste artigo, você aprenderá a criar alertas com base no status de conclusão de runbooks.
+Neste artigo, aprende-se a criar alertas com base no estado de conclusão dos livros de execução.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -21,63 +21,63 @@ Inicie sessão no Azure a https://portal.azure.com
 
 ## <a name="create-alert"></a>Criar alerta
 
-Os alertas permitem que você defina uma condição a ser monitorada e uma ação a ser tomada quando essa condição for atendida.
+Os alertas permitem definir uma condição para monitorizar e uma ação a tomar quando essa condição é satisfeita.
 
-Na portal do Azure, navegue até sua conta de automação. Em **monitoramento**, selecione **alertas** e clique em **+ nova regra de alerta**. O escopo do destino já está definido para sua conta de automação.
+No portal Azure, navegue para a sua Conta de Automação. Em **monitorização,** selecione **Alertas** e clique **+ Nova Regra de Alerta**. A margem para o alvo já está definida na sua Conta de Automação.
 
 ### <a name="configure-alert-criteria"></a>Configurar critérios de alerta
 
-1. Clique em **+ Adicionar critérios**. Selecione **métricas** para o **tipo de sinal**e escolha **total de trabalhos** da tabela.
+1. Clique **+ Adicionar critérios.** Selecione **Métricas** para o **tipo de sinal,** e escolha **O Trabalho Total** da tabela.
 
-2. A página **Configurar lógica de sinal** é onde você define a lógica que dispara o alerta. No gráfico histórico, você verá duas dimensões, nome do **runbook** e **status**. As dimensões são propriedades diferentes para uma métrica que pode ser usada para filtrar os resultados. Para **nome do runbook**, selecione o runbook no qual você deseja alertar ou deixe em branco para alertar sobre todos os runbooks. Para **status**, selecione um status na lista suspensa que você deseja monitorar. Os valores de nome e status do runbook que aparecem na lista suspensa são apenas para trabalhos que foram executados na última semana.
+2. A página lógica do **sinal Configurar** é onde define a lógica que desencadeia o alerta. Sob o gráfico histórico é-lhe apresentada duas dimensões, Nome do Livro de **Execução** e **Estado**. As dimensões são propriedades diferentes para uma métrica que pode ser usada para filtrar resultados. Para **'Nome do Livro de Execução',** selecione o livro de execução que pretende alertar ou deixe em branco para alertar em todos os livros de execução. Para **o Estado**, selecione um estado a partir da queda que pretende monitorizar. O nome do livro de corridas e os valores de estatuto que aparecem no abandono são apenas para empregos que correram na última semana.
 
-   Se você quiser alertar sobre um status ou runbook que não é mostrado no menu suspenso, clique no **\+** ao lado da dimensão. Essa ação abre uma caixa de diálogo que permite que você insira um valor personalizado que não tenha sido emitido recentemente para essa dimensão. Se você inserir um valor que não existe para uma propriedade, seu alerta não será disparado.
+   Se quiser alertar sobre um estado ou um livro de execução que **\+** não seja mostrado no dropdown, clique no próximo à dimensão. Esta ação abre um diálogo que lhe permite entrar num valor personalizado, que não emitiu para essa dimensão recentemente. Se introduzir um valor que não existe para uma propriedade, o seu alerta não será desencadeado.
 
    > [!NOTE]
-   > Se você não aplicar um nome para a dimensão **RunbookName** , se houver algum runbook que atenda aos critérios de status, que inclui runbooks de sistema ocultos, você receberá um alerta.
+   > Se não aplicar um nome para a dimensão **RunbookName,** se existirem livros de execução que satisfaçam os critérios de estado, que incluam livros de execução do sistema oculto, receberá um alerta.
 
-3. Em **lógica de alerta**, defina a condição e o limite para o alerta. Uma visualização de sua condição definida é mostrada abaixo.
+3. Sob **a lógica de Alerta,** defina a condição e o limiar para o seu alerta. Uma pré-visualização da sua condição definida é mostrada por baixo.
 
-4. Em **avaliado com base em**, selecione o período para a consulta e a frequência com que você deseja que a consulta seja executada. Por exemplo, se você escolher **nos últimos 5 minutos** para o **período** e a **cada 1 minuto** para a **frequência**, o alerta procurará o número de runbooks que atenderam aos seus critérios nos últimos 5 minutos. Essa consulta é executada a cada minuto e, depois que os critérios de alerta definidos não são mais encontrados em uma janela de 5 minutos, o alerta é resolvido. Quando terminar, clique em **Concluído**.
+4. Em **avaliação com base em**, selecione a hora de tempo para a consulta e quantas vezes quer que a consulta seja realizada. Por exemplo, se escolher **Ao longo dos últimos 5 minutos** para **period** e a cada **1 minutos** para **frequência,** o alerta procura o número de livros que cumpriram os seus critérios nos últimos 5 minutos. Esta consulta é executada a cada minuto, e uma vez que os critérios de alerta que definiu já não são encontrados numa janela de 5 minutos, o alerta resolve-se sozinho. Quando terminar, clique em **Concluído**.
 
-   ![Selecionar um recurso para o alerta](./media/automation-alert-activity-log/configure-signal-logic.png)
+   ![Selecione um recurso para o alerta](./media/automation-alert-activity-log/configure-signal-logic.png)
 
 ### <a name="define-alert-details"></a>Definir detalhes do alerta
 
-1. Em **2. Definir detalhes do alerta**, dê ao alerta um nome amigável e uma descrição. Defina a **severidade** para corresponder à sua condição de alerta. Há cinco severidades que variam de 0 a 5. Os alertas são tratados da mesma forma independente da severidade, você pode corresponder à severidade para corresponder à lógica de negócios.
+1. Abaixo de **2. Defina detalhes**de alerta, dê ao alerta um nome e descrição amigáveis. Desloque a **Severity** para corresponder à sua condição de alerta. Há cinco severidades que variam de 0 a 5. Os alertas são tratados da mesma forma independente da gravidade, pode corresponder à gravidade para corresponder à sua lógica de negócio.
 
-1. Na parte inferior da seção, há um botão que permite habilitar a regra após a conclusão. Por padrão, as regras são habilitadas na criação. Se você selecionar Não, poderá criar o alerta e ele será criado em um estado **desabilitado** . Na página **regras** no Azure monitor, você pode selecioná-lo e clicar em **habilitar** para habilitar o alerta quando estiver pronto.
+1. Na parte inferior da secção, encontra-se um botão que lhe permite ativar a regra após a conclusão. Por predefinição, as regras são ativadas na criação. Se selecionar Não, pode criar o alerta e é criado num estado **de desativação.** A partir da página **Regras** no Monitor Azure, pode selecioná-lo e clicar **em Ativar** para ativar o alerta quando estiver pronto.
 
-### <a name="define-the-action-to-take"></a>Definir a ação a ser tomada
+### <a name="define-the-action-to-take"></a>Definir a ação a tomar
 
-1. Menos de **3. Definir grupo de ações**, clique em **+ novo grupo de ações**. Um grupo de ações é um grupo de ações que você pode usar em mais de um alerta. Eles podem incluir, mas não se limitam a, notificações por email, runbooks, WebHooks e muito mais. Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ação](../azure-monitor/platform/action-groups.md)
+1. Abaixo dos **3. Defina grupo de ação,** clique **+ Novo grupo de ação**. Um grupo de ação é um grupo de ações que você pode usar em mais de um alerta. Estes podem incluir, mas não se limitam a. notificações de e-mail, livros de execução, webhooks, e muito mais. Para saber mais sobre grupos de ação, consulte [Criar e gerir grupos](../azure-monitor/platform/action-groups.md) de ação
 
 1. Na caixa **Nome do grupo de ação**, atribua um nome amigável e um nome abreviado ao grupo de ação. O nome abreviado é utilizado em vez de um nome de grupo de ação completo quando as notificações são enviadas através deste grupo.
 
-1. Na seção **ações** , em **tipo de ação**, selecione **email/SMS/Push/voz**.
+1. Na secção **Ações** em ÂMBITO DO TIPO DE **AÇÃO,** selecione **Email/SMS/Push/Voice**.
 
 1. Na página **E-mail/SMS/Push/Voz**, atribua um nome. Assinale a caixa **E-mail** e introduza um endereço de e-mail válido a utilizar.
 
    ![Configurar o grupo de ação de e-mail](./media/automation-alert-activity-log/add-action-group.png)
 
-1. Clique em **OK** na página **E-mail/SMS/Push/Voz** para fechá-la e clique em **OK** para fechar a página **Adicionar grupo de ação**. O nome especificado nesta página é salvo como o **nome da ação**.
+1. Clique em **OK** na página **E-mail/SMS/Push/Voz** para fechá-la e clique em **OK** para fechar a página **Adicionar grupo de ação**. O nome especificado nesta página é guardado como NOME DE **AÇÃO**.
 
-1. Quando terminar, clique em **Guardar**. Essa ação cria a regra que o alerta quando um runbook é concluído com um determinado status.
+1. Quando terminar, clique em **Guardar**. Esta ação cria a regra que o alerta quando um livro de execução concluído com um determinado estatuto.
 
 > [!NOTE]
-> Ao adicionar um endereço de email a um grupo de ações, um email de notificação é enviado informando que o endereço foi adicionado a um grupo de ações.
+> Ao adicionar um endereço de e-mail a um Grupo de Ação, é enviado um e-mail de notificação indicando que o endereço foi adicionado a um Grupo de Ação.
 
 ## <a name="notification"></a>Notificação
 
-Quando os critérios de alerta são atendidos, o grupo de ações executa a ação definida. No exemplo deste artigo, um email é enviado. A imagem a seguir é um exemplo de um email que você recebe depois que o alerta é disparado:
+Quando os critérios de alerta são cumpridos, o grupo de ação executa a ação definida. No exemplo deste artigo, é enviado um e-mail. A imagem que se segue é um exemplo de um e-mail que recebe sem aviso:
 
-![Alerta de email](./media/automation-alert-activity-log/alert-email.png)
+![Alerta de e-mail](./media/automation-alert-activity-log/alert-email.png)
 
-Depois que a métrica não estiver mais fora do limite definido, o alerta será desativado e o grupo de ações executará a ação definida. Se um tipo de ação de email for selecionado, um email de resolução será enviado informando que ele foi resolvido.
+Uma vez que a métrica já não esteja fora do limiar definido, o alerta é desativado e o grupo de ação executa a ação definida. Se for selecionado um tipo de ação de e-mail, é enviado um e-mail de resolução indicando que foi resolvido.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Continue no seguinte artigo para saber mais sobre outras maneiras de integrar alertas em sua conta de automação.
+Continue a conhecer o seguinte artigo para saber sobre outras formas de integrar alertas na sua Conta de Automação.
 
 > [!div class="nextstepaction"]
-> [Usar um alerta para disparar um runbook de automação do Azure](automation-create-alert-triggered-runbook.md)
+> [Use um alerta para desencadear um livro de execução da Automação Azure](automation-create-alert-triggered-runbook.md)

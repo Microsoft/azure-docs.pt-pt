@@ -1,6 +1,6 @@
 ---
-title: Operações do IoT Hub do Azure (preterido) de monitorização | Documentos da Microsoft
-description: Como utilizar a monitorização para monitorizar o estado das operações no hub IoT em tempo real de operações do IoT Hub do Azure.
+title: Monitorização de operações do Hub Azure IoT (depreciada) / Microsoft Docs
+description: Como utilizar a monitorização de operações do Hub Azure IoT para monitorizar o estado das operações no seu hub IoT em tempo real.
 author: nberdy
 manager: briz
 ms.service: iot-hub
@@ -9,53 +9,53 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.openlocfilehash: 84f28a1cb411e7df156fc08fa683efe7f83eda64
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60345725"
 ---
-# <a name="iot-hub-operations-monitoring-deprecated"></a>Operações do IoT Hub monitorização (preterido)
+# <a name="iot-hub-operations-monitoring-deprecated"></a>Monitorização de operações do IoT Hub (depreciada)
 
-Monitorização de operações do IoT Hub permite-lhe monitorizar o estado das operações no hub IoT em tempo real. IoT Hub regista os eventos em várias categorias de operações. Pode participar no envio de eventos de um ou mais categorias para um ponto final do hub IoT para processamento. Pode monitorizar os dados de erros ou configurar o processamento mais complexo com base nos padrões de dados.
+A monitorização das operações do IoT Hub permite-lhe monitorizar o estado das operações no seu hub IoT em tempo real. O IoT Hub acompanha eventos em várias categorias de operações. Pode optar por enviar eventos de uma ou mais categorias para um ponto final do seu hub IoT para processamento. Pode monitorizar os dados para erros ou configurar um processamento mais complexo com base em padrões de dados.
 
 >[!NOTE]
->IoT Hub **operações de monitorização foi preteridas e foi removidas do IoT Hub, 10 de Março de 2019**. Para monitorizar as operações e o estado de funcionamento do IoT Hub, veja [monitorizar o estado de funcionamento do IoT Hub do Azure e diagnosticar problemas rapidamente](iot-hub-monitor-resource-health.md). Para obter mais informações sobre a linha cronológica de preterição, consulte [monitorizar as soluções de IoT do Azure com o Azure Monitor e o Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
+>A monitorização das operações do IoT Hub **é depreciada e foi removida do IoT Hub em 10 de março de 2019**. Para monitorizar as operações e a saúde do IoT Hub, consulte [Monitorize a saúde do Hub Azure IoT e diagnostice rapidamente os problemas](iot-hub-monitor-resource-health.md). Para obter mais informações sobre a linha temporal de depreciação, consulte [Monitor as soluções Azure IoT com o Azure Monitor e a Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
 
-IoT Hub monitoriza seis categorias de eventos:
+O IoT Hub monitoriza seis categorias de eventos:
 
-* Operações de identidade de dispositivo
+* Operações de identidade do dispositivo
 * Telemetria do dispositivo
-* Mensagens da cloud para dispositivo
+* Mensagens cloud-to-device
 * Ligações
-* Carrega o ficheiro
-* Roteamento de mensagens
+* Uploads de ficheiros
+* Encaminhamento de mensagens
 
 > [!IMPORTANT]
-> Monitorização de operações do IoT Hub não garante a entrega fiável ou ordenada de eventos. Dependendo da infraestrutura subjacente do IoT Hub, alguns eventos podem ser perdidos ou entregues fora de ordem. Utilize operações de monitorização para gerar alertas com base em sinais de erro, como as tentativas de ligação com falhas ou interrupções de ligação de elevada frequência para dispositivos específicos. Não deverá confiar nas operações de monitorização de eventos para criar um armazenamento consistente para o estado do dispositivo, por exemplo, um arquivo de controle ligado ou desligado o estado de um dispositivo. 
+> A monitorização das operações do IoT Hub não garante a entrega fiável ou ordenada de eventos. Dependendo da infraestrutura subjacente ao IoT Hub, alguns eventos podem ser perdidos ou entregues fora de ordem. Utilize a monitorização de operações para gerar alertas com base em sinais de erro, tais como tentativas de ligação falhadas ou desconexões de alta frequência para dispositivos específicos. Não deve contar com eventos de monitorização de operações para criar uma loja consistente para o estado do dispositivo, por exemplo, um estado de rastreio de loja conectado ou desligado de um dispositivo. 
 
-## <a name="how-to-enable-operations-monitoring"></a>Como ativar a monitorização de operações
+## <a name="how-to-enable-operations-monitoring"></a>Como permitir a monitorização das operações
 
-1. Crie um hub IoT. Pode encontrar instruções sobre como criar um hub IoT a [começar](quickstart-send-telemetry-dotnet.md) guia.
+1. Criar um centro de ioT. Pode encontrar instruções sobre como criar um hub IoT no guia [Get Started.](quickstart-send-telemetry-dotnet.md)
 
-2. Abra o painel do IoT hub. A partir daí, clique em **monitorização de operações**.
+2. Abra a lâmina do seu centro de IoT. A partir daí, clique na **monitorização de operações**.
 
-    ![Monitorização de configuração no portal de operações de acesso](./media/iot-hub-operations-monitoring/enable-OM-1.png)
+    ![Configuração de monitorização de operações de acesso no portal](./media/iot-hub-operations-monitoring/enable-OM-1.png)
 
-3. Selecione as categorias de monitorização que pretende monitorizar e, em seguida, clique em **guardar**. Os eventos estão disponíveis para leitura a partir do ponto final compatível com o Event Hub listado na **definições de monitorização**. O ponto de final do IoT Hub é chamado `messages/operationsmonitoringevents`.
+3. Selecione as categorias de monitorização que pretende monitorizar e, em seguida, clique em **Guardar**. Os eventos estão disponíveis para leitura a partir do ponto final compatível com o Event Hub listado nas **definições de Monitorização**. O ponto final do Hub `messages/operationsmonitoringevents`IoT chama-se .
 
-    ![Configurar operações de monitorização no seu hub IoT](./media/iot-hub-operations-monitoring/enable-OM-2.png)
+    ![Configure a monitorização de operações no seu hub IoT](./media/iot-hub-operations-monitoring/enable-OM-2.png)
 
 > [!NOTE]
-> Selecionando **verboso** de monitorização para o **ligações** categoria faz com que o IoT Hub gerar mensagens de diagnóstico adicionais. Para todas as outras categorias, o **verboso** definição alterações a quantidade de informações do IoT Hub inclui em cada mensagem de erro.
+> A seleção da monitorização **verbose** para a categoria **Connections** faz com que o IoT Hub gere mensagens de diagnóstico adicionais. Para todas as outras categorias, a definição **verbose** altera a quantidade de informação que o IoT Hub inclui em cada mensagem de erro.
 
-## <a name="event-categories-and-how-to-use-them"></a>Categorias de eventos e como utilizá-los
+## <a name="event-categories-and-how-to-use-them"></a>Categorias de eventos e como usá-los
 
-Cada categoria faixas de monitorização de operações um tipo diferente de interação com o IoT Hub e cada categoria de monitorização tem um esquema que define a forma como são estruturados eventos nessa categoria.
+Cada categoria de monitorização de operações rastreia um tipo diferente de interação com o IoT Hub, e cada categoria de monitorização tem um esquema que define como os eventos nessa categoria são estruturados.
 
-### <a name="device-identity-operations"></a>Operações de identidade de dispositivo
+### <a name="device-identity-operations"></a>Operações de identidade do dispositivo
 
-A categoria de operações de identidade de dispositivo rastreia erros que ocorrem quando está tentando criar, atualizar ou eliminar uma entrada no registo de identidade do hub IoT. Esta categoria de controlo é útil para cenários de aprovisionamento.
+A categoria de operações de identidade do dispositivo rastreia erros que ocorrem quando tenta criar, atualizar ou apagar uma entrada no registo de identidade do seu hub IoT. O acompanhamento desta categoria é útil para o fornecimento de cenários.
 
 ```json
 {
@@ -74,7 +74,7 @@ A categoria de operações de identidade de dispositivo rastreia erros que ocorr
 
 ### <a name="device-telemetry"></a>Telemetria do dispositivo
 
-A categoria de telemetria do dispositivo rastreia erros ocorridos no IoT hub e estão relacionadas com o pipeline de telemetria. Esta categoria inclui erros que ocorrem quando o envio de eventos de telemetria (por exemplo, a limitação) e a receção de eventos de telemetria (por exemplo, o leitor não autorizado). Esta categoria não pode detetar erros causados por código em execução no próprio dispositivo.
+A categoria de telemetria do dispositivo rastreia erros que ocorrem no hub IoT e estão relacionados com o gasoduto de telemetria. Esta categoria inclui erros que ocorrem ao enviar eventos de telemetria (como estrangulamento) e receber eventos de telemetria (como leitor não autorizado). Esta categoria não pode apanhar erros causados pelo código em funcionamento no próprio dispositivo.
 
 ```json
 {
@@ -96,9 +96,9 @@ A categoria de telemetria do dispositivo rastreia erros ocorridos no IoT hub e e
 }
 ```
 
-### <a name="cloud-to-device-commands"></a>Comandos do cloud-para-dispositivo
+### <a name="cloud-to-device-commands"></a>Comandos cloud-to-device
 
-A categoria de comandos do cloud-para-dispositivo rastreia erros ocorridos no IoT hub e estão relacionadas com o pipeline de mensagens da cloud para o dispositivo. Esta categoria inclui erros que ocorrem quando enviar mensagens da cloud para o dispositivo (por exemplo, o remetente não autenticado), receber mensagens da cloud para o dispositivo (por exemplo, a contagem de entrega excedida) e receber comentários de mensagem de cloud-para-dispositivo (como comentários expiraram). Esta categoria não detectar erros de um dispositivo que trata incorretamente uma mensagem de cloud para o dispositivo se a mensagem de cloud para o dispositivo foi entregue com êxito.
+A categoria de comandos cloud-to-device rastreia erros que ocorrem no hub IoT e estão relacionados com o gasoduto de mensagens cloud-to-device. Esta categoria inclui erros que ocorrem ao enviar mensagens cloud-to-device (como remetente não autorizado), receber mensagens cloud-to-device (como a contagem de entregas excedida), e receber feedback de mensagem cloud-to-device (como o feedback expirado). Esta categoria não apanha erros de um dispositivo que lida indevidamente com uma mensagem cloud-to-device se a mensagem cloud-to-device foi entregue com sucesso.
 
 ```json
 {
@@ -122,7 +122,7 @@ A categoria de comandos do cloud-para-dispositivo rastreia erros ocorridos no Io
 
 ### <a name="connections"></a>Ligações
 
-A categoria de ligações rastreia erros que ocorrem quando os dispositivos ligarem ou desligar de um hub IoT. Esta categoria de controlo é útil para identificar as tentativas de ligação não autorizado e para controlar quando uma conexão está perdida para dispositivos em áreas de conectividade ruim.
+A categoria de ligações rastreia erros que ocorrem quando os dispositivos se conectam ou se desligam de um hub IoT. O rastreio desta categoria é útil para identificar tentativas de ligação não autorizadas e para rastrear quando uma ligação é perdida para dispositivos em áreas de fraca conectividade.
 
 ```json
 {
@@ -140,17 +140,17 @@ A categoria de ligações rastreia erros que ocorrem quando os dispositivos liga
 }
 ```
 
-### <a name="file-uploads"></a>Carrega o ficheiro
+### <a name="file-uploads"></a>Uploads de ficheiros
 
-A categoria de carregamento do ficheiro rastreia erros ocorridos no IoT hub e estão relacionadas com a funcionalidade de carregamento do ficheiro. Esta categoria inclui:
+A categoria de upload de ficheiros rastreia erros que ocorrem no hub IoT e estão relacionados com a funcionalidade de upload de ficheiros. Esta categoria inclui:
 
-* Erros que ocorrem ao URI de SAS, por exemplo, quando este expirar antes de um dispositivo notifica o hub de um carregamento concluído.
+* Erros que ocorrem com o SAS URI, como quando expira antes de um dispositivo notar o centro de um upload concluído.
 
-* Não foi possível carregamentos comunicados pelo dispositivo.
+* Os uploads falhados reportados pelo dispositivo.
 
-* Erros que ocorrem quando um ficheiro não foi encontrado no armazenamento durante a criação de mensagem de notificação do IoT Hub.
+* Erros que ocorrem quando um ficheiro não é encontrado no armazenamento durante a criação de mensagens de notificação do IoT Hub.
 
-Esta categoria não pode detetar erros que ocorram diretamente enquanto o dispositivo está a carregar um ficheiro para o armazenamento.
+Esta categoria não pode apanhar erros que ocorram diretamente enquanto o dispositivo está a enviar um ficheiro para armazenamento.
 
 ```json
 {
@@ -169,9 +169,9 @@ Esta categoria não pode detetar erros que ocorram diretamente enquanto o dispos
 }
 ```
 
-### <a name="message-routing"></a>Roteamento de mensagens
+### <a name="message-routing"></a>Encaminhamento de mensagens
 
-A categoria de roteamento de mensagem rastreia erros que ocorrem durante a avaliação de rota de mensagem e o estado de funcionamento do ponto de extremidade como percebido pelo IoT Hub. Esta categoria inclui eventos, como quando uma regra avalia como "undefined", quando o IoT Hub marca um ponto de extremidade como morto e outros erros recebidos de um ponto de extremidade. Esta categoria não inclui erros específicos sobre as mensagens propriamente ditos (por exemplo, o dispositivo erros de limitação), que são apresentadas na categoria "telemetria do dispositivo".
+A categoria de encaminhamento de mensagens rastreia erros que ocorrem durante a avaliação da rota da mensagem e a saúde do ponto final, como percebido pelo IoT Hub. Esta categoria inclui eventos como quando uma regra avalia "indefinida", quando o IoT Hub marca um ponto final como morto, e quaisquer outros erros recebidos de um ponto final. Esta categoria não inclui erros específicos sobre as próprias mensagens (tais como erros de estrangulamento do dispositivo), que são reportados na categoria "telemetria do dispositivo".
 
 ```json
 {
@@ -188,31 +188,31 @@ A categoria de roteamento de mensagem rastreia erros que ocorrem durante a avali
 }
 ```
 
-## <a name="connect-to-the-monitoring-endpoint"></a>Ligar para o ponto final de monitorização
+## <a name="connect-to-the-monitoring-endpoint"></a>Ligue-se ao ponto final de monitorização
 
-O ponto final de monitorização no seu hub IoT é um ponto de extremidade compatível com o Event Hub. Pode usar qualquer mecanismo que funciona com os Hubs de eventos para ler mensagens de monitorização a partir deste ponto final. O exemplo seguinte cria um leitor básico que não é adequado para uma implementação de alto débito. Para obter mais informações sobre como processar mensagens dos Hubs de eventos, consulte a [introdução aos Hubs de eventos](../event-hubs/event-hubs-csharp-ephcs-getstarted.md) tutorial.
+O ponto final de monitorização do seu hub IoT é um ponto final compatível com o Event Hub. Pode utilizar qualquer mecanismo que funcione com os Centros de Eventos para ler mensagens de monitorização a partir deste ponto final. A amostra seguinte cria um leitor básico que não é adequado para uma implementação de alta saída. Para obter mais informações sobre como processar mensagens a partir do Event Hubs, veja o tutorial [Introdução ao Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
-Para ligar ao ponto final de monitorização, terá de uma cadeia de ligação e o nome do ponto final. Os passos seguintes mostram como encontrar os valores necessários no portal do:
+Para se ligar ao ponto final de monitorização, precisa de uma corda de ligação e do nome final. Os seguintes passos mostram-lhe como encontrar os valores necessários no portal:
 
-1. No portal, navegue para o painel de recursos do IoT Hub.
+1. No portal, navegue até à sua lâmina de recursos IoT Hub.
 
-2. Escolher **monitorização de operações**e anote o **nome compatível com o Event Hub** e **endpoint compatível com o Event Hub** valores:
+2. Escolha **a monitorização**de Operações e tome nota do **nome compatível com** o Event Hub e valores de ponto **final compatíveis com o Event Hub:**
 
-    ![Valores de ponto final compatível com o Hub de eventos](./media/iot-hub-operations-monitoring/monitoring-endpoint.png)
+    ![Valores finais compatíveis com o Hub de Eventos](./media/iot-hub-operations-monitoring/monitoring-endpoint.png)
 
-3. Escolher **políticas de acesso partilhado**, em seguida, escolha **serviço**. Anote o **chave primária** valor:
+3. Escolha as políticas de **acesso partilhados**e, em seguida, escolha **o serviço**. Tome nota do **valor-chave primário:**
 
-    ![Chave de principal de política de acesso partilhado de serviço](./media/iot-hub-operations-monitoring/service-key.png)
+    ![Chave primária da política de acesso partilhado do serviço](./media/iot-hub-operations-monitoring/service-key.png)
 
-O seguinte exemplo de código do c# está a ser utilizado a partir de um Visual Studio **ambiente de trabalho clássico do Windows** aplicação de consola c#. O projeto tem o **windowsazure. Servicebus** pacote NuGet instalado.
+A seguinte amostra de código C# é retirada de uma aplicação de consola Visual Studio **Windows Classic Desktop** C#. O projeto tem o pacote **WindowsAzure.ServiceBus** NuGet instalado.
 
-* Substitua o marcador de posição de cadeia de ligação uma cadeia de ligação que utiliza a **ponto final de compatível com o Event Hub** e o serviço **chave primária** valores que apontou anteriormente, conforme mostrado no exemplo a seguir:
+* Substitua o espaço reservado da cadeia de ligação por uma cadeia de ligação que utiliza o **ponto final compatível com** o Event Hub e os valores-chave **primários** que observou anteriormente, como mostrado no seguinte exemplo:
 
     ```csharp
     "Endpoint={your Event Hub-compatible endpoint};SharedAccessKeyName=service;SharedAccessKey={your service primary key value}"
     ```
 
-* Substitua o marcador de nome de ponto final monitorização com o **nome compatível com o Event Hub** valor que apontou anteriormente.
+* Substitua o espaço reservado de ponto final de monitorização pelo valor **de nome compatível com** o Event Hub que tenha anotado anteriormente.
 
 ```csharp
 class Program
@@ -264,10 +264,10 @@ class Program
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para explorar ainda mais os recursos do IoT Hub, veja:
+Para explorar ainda mais as capacidades do IoT Hub, consulte:
 
-* [guia para programadores do IoT Hub](iot-hub-devguide.md)
+* [Guia de desenvolvimento do IoT Hub](iot-hub-devguide.md)
 
 * [Implementar o AI em dispositivos de ponta com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

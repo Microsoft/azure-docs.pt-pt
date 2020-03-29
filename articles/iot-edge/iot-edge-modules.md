@@ -1,6 +1,6 @@
 ---
-title: Saiba como módulos de executar a lógica nos seus dispositivos - Azure IoT Edge | Documentos da Microsoft
-description: Os módulos do Azure IoT Edge são unidades em contentores de lógica que podem ser implementados e geridos remotamente para que possam executar lógica de negócios do IoT Edge dispositivos
+title: Saiba como os módulos executam a lógica nos seus dispositivos - Azure IoT Edge [ Microsoft Docs
+description: Os módulos Azure IoT Edge são unidades de lógica contentorizadas que podem ser implantadas e geridas remotamente para que possa executar a lógica do negócio em dispositivos IoT Edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,31 +9,31 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 1c625e628f53d156ad56a1c69df1c23aec9120ac
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76548718"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Compreender os módulos do Azure IoT Edge
 
-O Azure IoT Edge permite-lhe implementar e gerir a lógica de negócios na borda sob a forma de *módulos*. Módulos do IoT Edge do Azure são a menor unidade de computação gerenciada pelo IoT Edge e podem conter os serviços do Azure (por exemplo, o Azure Stream Analytics) ou o seu próprio código específico da solução. Para entender como os módulos são desenvolvidos, implantados e mantidos, considere os quatro elementos conceituais de um módulo:
+O Azure IoT Edge permite-lhe implementar e gerir a lógica do negócio na borda sob a forma de *módulos.* Os módulos Azure IoT Edge são a menor unidade de computação gerida pelo IoT Edge, e podem conter serviços Azure (como o Azure Stream Analytics) ou o seu próprio código específico de solução. Para entender como os módulos são desenvolvidos, implantados e mantidos, considere os quatro elementos conceptuais de um módulo:
 
-* R **imagem módulo** é um pacote que contém o software que define um módulo.
-* R **instância de módulo** é a unidade específica de computação em execução a imagem de módulo num dispositivo IoT Edge. A instância de módulo é iniciada pelo runtime do IoT Edge.
-* R **identidade do módulo** é uma parte da informação (incluindo credenciais de segurança) armazenada num IoT Hub, que está associado a cada instância de módulo.
-* R **módulo duplo** são documentos JSON armazenados num IoT Hub, que contém informações de estado para uma instância de módulo, incluindo os metadados, configurações e condições.
+* Uma imagem de **módulo** é um pacote que contém o software que define um módulo.
+* Uma instância de **módulo** é a unidade específica de computação que executa a imagem do módulo num dispositivo IoT Edge. A instância do módulo é iniciada pelo tempo de funcionação do IoT Edge.
+* Uma identidade de **módulo** é uma peça de informação (incluindo credenciais de segurança) armazenada no IoT Hub, que está associada a cada instância de módulo.
+* Um **módulo twin** é um documento JSON armazenado no IoT Hub, que contém informações estatais para uma instância de módulo, incluindo metadados, configurações e condições.
 
-## <a name="module-images-and-instances"></a>Imagens de módulo e instâncias
+## <a name="module-images-and-instances"></a>Imagens e instâncias do módulo
 
-Imagens de módulo do IoT Edge contêm aplicações que tiram partido da gestão, segurança e recursos de comunicação do runtime do IoT Edge. Pode desenvolver suas próprias imagens de módulo ou exportar um a partir de um serviço do Azure suportado, como o Azure Stream Analytics.
-As imagens de existem na nuvem e podem ser atualizadas, alteradas e implementadas em soluções diferentes. Por exemplo, existe um módulo que utiliza machine learning para prever a saída da linha de produção como uma imagem separada que um módulo que utiliza a imagem digitalizada para controlar um drone.
+As imagens do módulo IoT Edge contêm aplicações que aproveitam as funcionalidades de gestão, segurança e comunicação do tempo de funcionamento do IoT Edge. Pode desenvolver as suas próprias imagens de módulos ou exportar uma de um serviço Azure suportado, como o Azure Stream Analytics.
+As imagens existem na nuvem e podem ser atualizadas, alteradas e implantadas em diferentes soluções. Por exemplo, um módulo que usa machine learning para prever a produção da produção existe como uma imagem separada do que um módulo que usa a visão do computador para controlar um drone.
 
-Sempre que uma imagem do módulo é implementada num dispositivo e iniciada pelo runtime do IoT Edge, é criada uma nova instância desse módulo. Dois dispositivos em diferentes partes do mundo poderiam usar a mesma imagem de módulo. No entanto, cada dispositivo teria sua própria instância de módulo quando o módulo for iniciado no dispositivo.
+Cada vez que uma imagem de módulo é implantada para um dispositivo e iniciada pelo tempo de funcionação do IoT Edge, é criada uma nova instância desse módulo. Dois dispositivos em diferentes partes do mundo poderiam usar a mesma imagem de módulo. No entanto, cada dispositivo teria a sua própria instância de módulo quando o módulo é iniciado no dispositivo.
 
-![Diagrama - imagens de módulo na cloud, instâncias de módulo em dispositivos](./media/iot-edge-modules/image_instance.png)
+![Diagrama - Imagens de módulos na nuvem, instâncias de módulos em dispositivos](./media/iot-edge-modules/image_instance.png)
 
-Na implementação, as imagens de módulos existam como imagens de contentor num repositório e instâncias de módulo são contentores em dispositivos.
+Na implementação, as imagens dos módulos existem como imagens de contentores num repositório, e as instâncias dos módulos são contentores nos dispositivos.
 
 <!--
 As use cases for Azure IoT Edge grow, new types of module images and instances will be created. For example, resource constrained devices cannot run containers so may require module images that exist as dynamic link libraries and instances that are executables. 
@@ -41,19 +41,19 @@ As use cases for Azure IoT Edge grow, new types of module images and instances w
 
 ## <a name="module-identities"></a>Identidades do módulo
 
-Quando uma nova instância de módulo é criada pelo IoT Edge Runtime, ela obtém uma identidade de módulo correspondente. A identidade do módulo é armazenada no Hub IoT e é usada como o escopo de endereçamento e segurança para todas as comunicações locais e na nuvem para essa instância do módulo.
+Quando uma nova instância de módulo é criada pelo tempo de funcionação do IoT Edge, obtém uma identidade de módulo correspondente. A identidade do módulo é armazenada no IoT Hub, e é usada como a área de endereçamento e segurança para todas as comunicações locais e em nuvem para esse módulo.
 
-A identidade associada uma instância de módulo depende da identidade do dispositivo no qual a instância está em execução e o nome fornecidos para esse módulo na sua solução. Por exemplo, se chamar `insight` um módulo que utiliza um Azure Stream Analytics e implementá-la num dispositivo chamado `Hannover01`, o runtime do IoT Edge cria uma identidade de módulo correspondente, chamada `/devices/Hannover01/modules/insight`.
+A identidade associada a uma instância de módulo depende da identidade do dispositivo em que a instância está em execução e do nome que fornece a esse módulo na sua solução. Por exemplo, se `insight` ligar para um módulo que utiliza um Azure `Hannover01`Stream Analytics, e o implementar num dispositivo `/devices/Hannover01/modules/insight`chamado , o tempo de funcionamento do IoT Edge cria uma identidade de módulo correspondente chamada .
 
-Sem dúvida, em cenários quando precisa implantar uma imagem de módulo várias vezes no mesmo dispositivo, pode implementar a mesma imagem várias vezes com nomes diferentes.
+Claramente, em cenários em que é necessário implementar uma imagem de módulo várias vezes no mesmo dispositivo, pode implementar a mesma imagem várias vezes com nomes diferentes.
 
-![Diagrama - identidades do módulo são exclusivas dentro de dispositivos e em todos os dispositivos](./media/iot-edge-modules/identity.png)
+![Diagrama - As identidades do módulo são únicas dentro de dispositivos e entre dispositivos](./media/iot-edge-modules/identity.png)
 
-## <a name="module-twins"></a>Duplos de módulo
+## <a name="module-twins"></a>Gémeos módulo
 
-Cada instância de módulo também tem um módulo duplo correspondente que pode utilizar para configurar a instância de módulo. A instância e o duplo estão associados entre si através de identidade do módulo.
+Cada instância do módulo também tem um módulo twin correspondente que pode usar para configurar a instância do módulo. A instância e o gémeo estão associados uns aos outros através da identidade do módulo.
 
-Um módulo duplo é um documento JSON que armazena as propriedades de informações e a configuração do módulo. Esse conceito faz um paralelo com o [dispositivo duplo](../iot-hub/iot-hub-devguide-device-twins.md) conceito do IoT Hub. A estrutura de um módulo ' r ' é igual a um dispositivo. As APIs usadas para interagir com os dois tipos de duplos também são os mesmos. A única diferença entre as duas é a identidade utilizada para instanciar o SDK do cliente.
+Um módulo twin é um documento JSON que armazena propriedades de informação e configuração de módulos. Este conceito paralelo ao conceito gémeo do [dispositivo](../iot-hub/iot-hub-devguide-device-twins.md) do IoT Hub. A estrutura de um módulo gémeo é a mesma que um dispositivo gémeo. As APIs usadas para interagir com ambos os tipos de gémeos também são as mesmas. A única diferença entre os dois é a identidade usada para instantaneamente o SDK cliente.
 
 ```csharp
 // Create a ModuleClient object. This ModuleClient will act on behalf of a
@@ -68,9 +68,9 @@ Twin twin = await client.GetTwinAsync();
 
 ## <a name="offline-capabilities"></a>Funcionalidades offline
 
-Azure IoT Edge módulos podem operar offline indefinidamente após a sincronização com o Hub IoT pelo menos uma vez. IoT Edge dispositivos também podem estender esse recurso offline para outros dispositivos IoT. Para obter mais informações, consulte [compreender estendido recursos offline para o IoT Edge, dispositivos, módulos e dispositivos de subordinados](offline-capabilities.md).
+Os módulos Azure IoT Edge podem funcionar offline indefinidamente após sincronização com o IoT Hub pelo menos uma vez. Os dispositivos IoT Edge também podem estender esta capacidade offline a outros dispositivos IoT. Para mais informações, consulte [Compreender capacidades offline estendidas para dispositivos, módulos e dispositivos infantis IoT Edge](offline-capabilities.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Compreender os requisitos e as ferramentas para desenvolver módulos do IoT Edge](module-development.md)
-* [Compreender o tempo de execução do Azure IoT Edge e respetiva arquitetura](iot-edge-runtime.md)
+* [Compreender os requisitos e ferramentas para o desenvolvimento de módulos IoT Edge](module-development.md)
+* [Compreenda o tempo de funcionao do Azure IoT Edge e a sua arquitetura](iot-edge-runtime.md)

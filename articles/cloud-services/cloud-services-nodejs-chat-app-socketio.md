@@ -1,6 +1,6 @@
 ---
-title: Aplicativo node. js usando Socket.io-Azure
-description: Saiba como usar o socket.io em um aplicativo node. js hospedado no Azure.
+title: Aplicação Node.js usando Socket.io - Azure
+description: Aprenda a usar socket.io numa aplicação nó.js alojada no Azure.
 services: cloud-services
 documentationcenter: nodejs
 author: tgore03
@@ -10,66 +10,66 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: tagore
 ms.openlocfilehash: 0b515c630d8a3539cdab1df64b1925e9fcaf206e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75360774"
 ---
-# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Criar um aplicativo de chat do node. js com Socket.IO em um serviço de nuvem do Azure
+# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Construa uma aplicação de chat Node.js com Socket.IO num Serviço Azure Cloud
 
-O Socket.IO fornece comunicação em tempo real entre o servidor node. js e os clientes. Este tutorial orienta você pela hospedagem de um soquete. Aplicativo de chat baseado em e/s no Azure. Para obter mais informações sobre o Socket.IO, consulte [Socket.Io](https://socket.io).
+Socket.IO fornece comunicação em tempo real entre o seu servidor nó.js e clientes. Este tutorial leva-o através de uma tomada. Aplicação de chat baseada em IO no Azure. Para mais informações sobre Socket.IO, consulte [socket.io](https://socket.io).
 
-Uma captura de tela do aplicativo concluído está abaixo:
+Uma imagem da aplicação concluída é a seguir:
 
-![Uma janela do navegador exibindo o serviço hospedado no Azure][completed-app]  
+![Uma janela de navegador que exibe o serviço hospedado no Azure][completed-app]  
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Verifique se os seguintes produtos e versões estão instalados para concluir com êxito o exemplo neste artigo:
+Certifique-se de que os seguintes produtos e versões estão instalados para completar com sucesso o exemplo neste artigo:
 
-* Instalar o [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
+* Instalar [Estúdio Visual](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
 * Instalar o [Node. js](https://nodejs.org/download/)
-* Instalar o [Python versão 2.7.10](https://www.python.org/)
+* Instalar [a versão Python 2.7.10](https://www.python.org/)
 
-## <a name="create-a-cloud-service-project"></a>Criar um projeto de serviço de nuvem
-As etapas a seguir criam o projeto de serviço de nuvem que hospedará o aplicativo Socket.IO.
+## <a name="create-a-cloud-service-project"></a>Criar um Projeto de Serviço na Nuvem
+Os seguintes passos criam o projeto de serviço na nuvem que acolherá a aplicação Socket.IO.
 
-1. No **menu iniciar** ou na **tela iniciar**, pesquise pelo **Windows PowerShell**. Por fim, clique com o botão direito do mouse em **Windows PowerShell** e selecione **Executar como administrador**.
+1. A partir do **Menu Iniciar** ou Ecrã **de Início,** procure o **Windows PowerShell**. Finalmente, clique no **Windows PowerShell** e selecione **Executar Como Administrador**.
    
-    ![Ícone de Azure PowerShell][powershell-menu]
-2. Crie um diretório chamado **nó c:\\** . 
+    ![Ícone Azure PowerShell][powershell-menu]
+2. Crie um diretório chamado **c:\\nó**. 
    
         PS C:\> md node
-3. Alterar os diretórios para o diretório do **nó c:\\**
+3. Mudar diretórios para o **c:\\** diretório de nó
    
         PS C:\> cd node
-4. Insira os seguintes comandos para criar uma nova solução chamada **chatapp** e uma função de trabalho denominada **WorkerRole1**:
+4. Insira os seguintes comandos para criar uma nova solução chamada **chatapp** e um papel de trabalhador chamado **WorkerRole1**:
    
         PS C:\node> New-AzureServiceProject chatapp
         PS C:\Node> Add-AzureNodeWorkerRole
    
-    Você verá a seguinte resposta:
+    Verá a seguinte resposta:
    
-    ![A saída de New-azureservice e Add-azurenodeworkerrolecmdlets](./media/cloud-services-nodejs-chat-app-socketio/socketio-1.png)
+    ![A saída do serviço de novos azureservices e add-azurenodeworkerrolecmdlets](./media/cloud-services-nodejs-chat-app-socketio/socketio-1.png)
 
-## <a name="download-the-chat-example"></a>Baixar o exemplo de chat
-Para este projeto, usaremos o exemplo de chat do [repositório GitHub do Socket.Io]. Execute as etapas a seguir para baixar o exemplo e adicioná-lo ao projeto que você criou anteriormente.
+## <a name="download-the-chat-example"></a>Descarregue o Exemplo do Chat
+Para este projeto, usaremos o exemplo de chat do [repositório Socket.IO GitHub.] Execute os seguintes passos para descarregar o exemplo e adicioná-lo ao projeto que criou anteriormente.
 
-1. Crie uma cópia local do repositório usando o botão **clonar** . Você também pode usar o botão **zip** para baixar o projeto.
+1. Crie uma cópia local do repositório utilizando o botão **Clone.** Também pode utilizar o botão **ZIP** para descarregar o projeto.
    
-   ![Uma janela do navegador exibindo https://github.com/LearnBoost/socket.io/tree/master/examples/chat, com o ícone de download do ZIP realçado](./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png)
-2. Navegue pela estrutura de diretório do repositório local até chegar aos **exemplos\\** diretório de chat. Copie o conteúdo desse diretório para o **nó C:\\\\chatapp\\diretório WorkerRole1** criado anteriormente.
+   ![Uma visualização https://github.com/LearnBoost/socket.io/tree/master/examples/chatda janela do navegador, com o ícone de descarregamento ZIP em destaque](./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png)
+2. Navegue na estrutura diretório do repositório local até chegar ao diretório de **exemplos\\** de chat. Copie o conteúdo deste diretório para o diretório **\\C: diretório de\\chatapp\\de nós WorkerRole1** criado anteriormente.
    
-   ![Explorer, exibindo o conteúdo dos exemplos\\diretório de chat extraído do arquivo morto][chat-contents]
+   ![Explorer, exibindo o conteúdo\\dos exemplos de diretório de chat extraídos do arquivo][chat-contents]
    
-   Os itens realçados na captura de tela acima são os arquivos copiados dos **exemplos\\** diretório de chat
-3. No **nó C:\\\\chatapp\\diretório WorkerRole1** , exclua o arquivo **Server. js** e renomeie o arquivo **app. js** para **Server. js**. Isso remove o arquivo **Server. js** padrão criado anteriormente pelo cmdlet **Add-AzureNodeWorkerRole** e o substitui pelo arquivo de aplicativo do exemplo de chat.
+   Os itens destacados na imagem acima são os ficheiros copiados do diretório de **chat exemplos\\**
+3. No **c:\\\\diretório\\do chatapp do nó WorkerRole1,** elimine o ficheiro **server.js** e, em seguida, mude o nome do ficheiro **app.js** para **server.js**. Isto remove o ficheiro predefinido **do servidor.js** criado anteriormente pelo **Add-AzureNodeWorkerRole** cmdlet e substitui-o pelo ficheiro de aplicação do exemplo do chat.
 
-### <a name="modify-serverjs-and-install-modules"></a>Modificar Server. js e instalar módulos
-Antes de testar o aplicativo no emulador do Azure, devemos fazer algumas pequenas modificações. Execute as seguintes etapas para o arquivo Server. js:
+### <a name="modify-serverjs-and-install-modules"></a>Modificar server.js e instalar módulos
+Antes de testar a aplicação no emulador Azure, temos de fazer algumas pequenas modificações. Execute os seguintes passos no ficheiro server.js:
 
-1. Abra o arquivo **Server. js** no Visual Studio ou em qualquer editor de texto.
-2. Localize a seção de **dependências do módulo** no início do Server. js e altere a linha que contém **sio = require ('.. //.. lib//Socket. Io ')** para **sio = require (' Socket. Io ')** , conforme mostrado abaixo:
+1. Abra o ficheiro **server.js** no Visual Studio ou em qualquer editor de texto.
+2. Encontre a secção de **dependências** do Módulo no início do server.js e altere a linha que contém **sio = exija('.. //.. lib//socket.io')** para **sio = exigir ('socket.io')** como mostrado abaixo:
    
        var express = require('express')
          , stylus = require('stylus')
@@ -77,7 +77,7 @@ Antes de testar o aplicativo no emulador do Azure, devemos fazer algumas pequena
        //, sio = require('..//..//lib//socket.io'); //Original
          , sio = require('socket.io');                //Updated
          var port = process.env.PORT || 3000;         //Updated
-3. Para garantir que o aplicativo escute na porta correta, abra Server. js no bloco de notas ou seu editor favorito e, em seguida, altere a linha a seguir, substituindo **3000** por **Process. env. Port** , conforme mostrado abaixo:
+3. Para garantir que a aplicação ouve a porta correta, abra o servidor.js no Notepad ou no seu editor favorito e, em seguida, altere a seguinte linha substituindo **3000** por **process.env.port,** conforme mostrado abaixo:
    
        //app.listen(3000, function () {            //Original
        app.listen(process.env.port, function () {  //Updated
@@ -85,66 +85,66 @@ Antes de testar o aplicativo no emulador do Azure, devemos fazer algumas pequena
          console.log('   app listening on http://' + addr.address + ':' + addr.port);
        });
 
-Depois de salvar as alterações no **Server. js**, use as seguintes etapas para instalar os módulos necessários e, em seguida, teste o aplicativo no emulador do Azure:
+Depois de guardar as alterações para **server.js,** utilize os seguintes passos para instalar os módulos necessários e, em seguida, teste a aplicação no emulador Azure:
 
-1. Usando **Azure PowerShell**, altere os diretórios para o **nó C:\\\\Chatapp\\diretório WorkerRole1** e use o seguinte comando para instalar os módulos exigidos por este aplicativo:
+1. Utilizando o **Azure PowerShell**, altere os diretórios para o diretório **\\C:\\diretório de chatapp\\de nós WorkerRole1** e utilize o seguinte comando para instalar os módulos exigidos por esta aplicação:
    
        PS C:\node\chatapp\WorkerRole1> npm install
    
-   Isso instalará os módulos listados no arquivo Package. JSON. Após o comando ser concluído, deverá ver um resultado semelhante ao seguinte:
+   Isto irá instalar os módulos listados no ficheiro package.json. Após o comando ser concluído, deverá ver um resultado semelhante ao seguinte:
    
-   ![A saída do comando de instalação NPM][The-output-of-the-npm-install-command]
-2. Como esse exemplo era originalmente uma parte do repositório GitHub Socket.IO e referenciou diretamente a biblioteca Socket.IO por caminho relativo, o Socket.IO não foi referenciado no arquivo Package. JSON, portanto, devemos instalá-lo emitindo o seguinte comando:
+   ![A saída do comando de instalação npm][The-output-of-the-npm-install-command]
+2. Uma vez que este exemplo fazia originalmente parte do repositório Socket.IO GitHub, e referenciado diretamente a biblioteca Socket.IO por caminho relativo, Socket.IO não foi referenciado no ficheiro package.json, pelo que devemos instalá-lo emitindo o seguinte comando:
    
        PS C:\node\chatapp\WorkerRole1> npm install socket.io --save
 
-### <a name="test-and-deploy"></a>Teste e implantação
-1. Inicie o emulador emitindo o seguinte comando:
+### <a name="test-and-deploy"></a>Teste e Implantação
+1. Lançar o emulador emitindo o seguinte comando:
    
        PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
    
    > [!NOTE]
-   > Se você encontrar problemas ao iniciar o emulador, por exemplo: Start-AzureEmulator: ocorreu uma falha inesperada.  Detalhes: encontrado um erro inesperado o objeto de comunicação, System. ServiceModel. Channels. antichannel, não pode ser usado para comunicação porque está no estado com falha.
+   > Se encontrar problemas com o emulador de lançamento, por exemplo: Start-AzureEmulator : Ocorreu uma falha inesperada.  Detalhes: Encontrou um erro inesperado O objeto de comunicação, System.ServiceModel.Channels.ServiceChannel, não pode ser utilizado para comunicação porque se encontra no estado defeituoso.
    > 
-   > Reinstale o AzureAuthoringTools v 2.7.1 e o AzureComputeEmulator v 2,7-Verifique se a versão corresponde.
+   > Reinstalar as Ferramentas de AutoreTa v 2.7.1 e AzureComputeEmulator v 2.7 - certifique-se de que a versão corresponde.
 
-2. Abra um navegador e navegue até **http://127.0.0.1** .
-3. Quando a janela do navegador for aberta, insira um apelido e pressione Enter.
-   Isso permitirá que você poste mensagens como um apelido específico. Para testar a funcionalidade de vários usuários, abra janelas de navegador adicionais usando a mesma URL e insira apelidos diferentes.
+2. Abra um navegador **http://127.0.0.1**e navegue para .
+3. Quando a janela do navegador abrir, introduza uma alcunha e, em seguida, entre.
+   Isto permitir-lhe-á publicar mensagens como um apelido específico. Para testar a funcionalidade multiutilizador, abra janelas adicionais de navegador utilizando o mesmo URL e introduza diferentes apelidos.
    
-   ![Duas janelas de navegador exibindo mensagens de chat do Usuário1 e do Usuário2](./media/cloud-services-nodejs-chat-app-socketio/socketio-8.png)
-4. Depois de testar o aplicativo, interrompa o emulador emitindo o seguinte comando:
+   ![Duas janelas do navegador que exibem mensagens de chat do User1 e do User2](./media/cloud-services-nodejs-chat-app-socketio/socketio-8.png)
+4. Depois de testar a aplicação, pare o emulador emitindo o seguinte comando:
    
        PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
-5. Para implantar o aplicativo no Azure, use o cmdlet **Publish-AzureServiceProject** . Por exemplo:
+5. Para implementar a aplicação para o Azure, utilize o cmdlet **Publish-AzureServiceProject.** Por exemplo:
    
        PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
    
    > [!IMPORTANT]
-   > Certifique-se de usar um nome exclusivo, caso contrário, o processo de publicação falhará. Após a conclusão da implantação, o navegador será aberto e navegará até o serviço implantado.
+   > Certifique-se de que utiliza um nome único, caso contrário o processo de publicação falhará. Após a implementação concluída, o navegador será aberto e navegará para o serviço implementado.
    > 
-   > Se você receber um erro informando que o nome de assinatura fornecido não existe no perfil de publicação importado, você deverá baixar e importar o perfil de publicação para sua assinatura antes de implantar no Azure. Consulte a seção **implantando o aplicativo no Azure** de [Compilar e implantar um aplicativo node. js em um serviço de nuvem do Azure](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
+   > Se receber um erro indicando que o nome de subscrição fornecido não existe no perfil de publicação importado, deve transferir e importar o perfil de publicação para a sua subscrição antes de ser lançado para o Azure. Consulte a **implementação da secção de Implementação de** Construção e [implemente uma aplicação Node.js para um Serviço Azure Cloud](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
    > 
    > 
    
-   ![Uma janela do navegador exibindo o serviço hospedado no Azure][completed-app]
+   ![Uma janela de navegador que exibe o serviço hospedado no Azure][completed-app]
    
    > [!NOTE]
-   > Se você receber um erro informando que o nome de assinatura fornecido não existe no perfil de publicação importado, você deverá baixar e importar o perfil de publicação para sua assinatura antes de implantar no Azure. Consulte a seção **implantando o aplicativo no Azure** de [Compilar e implantar um aplicativo node. js em um serviço de nuvem do Azure](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
+   > Se receber um erro indicando que o nome de subscrição fornecido não existe no perfil de publicação importado, deve transferir e importar o perfil de publicação para a sua subscrição antes de ser lançado para o Azure. Consulte a **implementação da secção de Implementação de** Construção e [implemente uma aplicação Node.js para um Serviço Azure Cloud](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
    > 
    > 
 
-Seu aplicativo agora está em execução no Azure e pode retransmitir mensagens de chat entre diferentes clientes usando o Socket.IO.
+A sua aplicação está agora a ser recorrida no Azure, e pode transmitir mensagens de chat entre diferentes clientes usando Socket.IO.
 
 > [!NOTE]
-> Para simplificar, este exemplo é limitado ao bate-papo entre os usuários conectados à mesma instância. Isso significa que, se o serviço de nuvem Criar duas instâncias de função de trabalho, os usuários poderão apenas bater papo com outras pessoas conectadas à mesma instância de função de trabalho. Para dimensionar o aplicativo para trabalhar com várias instâncias de função, você pode usar uma tecnologia como o barramento de serviço para compartilhar o estado da Socket.IO Store entre instâncias. Para obter exemplos, consulte os exemplos de uso de tópicos e filas do barramento de serviço no [SDK do Azure para o repositório GitHub do node. js](https://github.com/WindowsAzure/azure-sdk-for-node).
+> Para a simplicidade, esta amostra limita-se a conversas entre utilizadores ligados à mesma instância. Isto significa que se o serviço na nuvem criar duas instâncias de função de trabalhador, os utilizadores só poderão conversar com outros ligados à mesma instância de função do trabalhador. Para escalar a aplicação para trabalhar com múltiplas instâncias de papel, você poderia usar uma tecnologia como Service Bus para compartilhar o estado de loja Socket.IO em instâncias. Por exemplo, consulte as filas de ônibus de serviço e as amostras de utilização de tópicos no [SDK Azure para o repositório Node.js GitHub](https://github.com/WindowsAzure/azure-sdk-for-node).
 > 
 > 
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste tutorial, você aprendeu a criar um aplicativo de chat básico hospedado em um serviço de nuvem do Azure. Para saber como hospedar esse aplicativo em um site do Azure, consulte [criar um aplicativo de chat do node. js com o Socket.Io em um site do Azure][chatwebsite].
+Neste tutorial aprendeu a criar uma aplicação básica de chat hospedada num Serviço Azure Cloud. Para aprender a hospedar esta aplicação num Site Azure, consulte [Build a Node.js Chat Application com Socket.IO num Web Site Azure][chatwebsite].
 
-Para obter mais informações, consulte também o [centro de desenvolvedores do node. js](https://docs.microsoft.com/azure/javascript/).
+Para mais informações, consulte também o Centro de Desenvolvimento do [Nó.js.](https://docs.microsoft.com/azure/javascript/)
 
 [chatwebsite]: https://docs.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
 
@@ -153,7 +153,7 @@ Para obter mais informações, consulte também o [centro de desenvolvedores do 
 [completed-app]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png
 [Azure SDK for Node.js]: https://www.windowsazure.com/develop/nodejs/
 [Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
-[Repositório GitHub do Socket.IO]: https://github.com/LearnBoost/socket.io/tree/0.9.14
+[repositório Socket.IO GitHub]: https://github.com/LearnBoost/socket.io/tree/0.9.14
 [Azure Considerations]: #windowsazureconsiderations
 [Hosting the Chat Example in a Worker Role]: #hostingthechatexampleinawebrole
 [Summary and Next Steps]: #summary

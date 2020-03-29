@@ -1,28 +1,28 @@
 ---
-title: Noções básicas sobre configurações de dimensionamento automático no Azure Monitor
-description: Uma análise detalhada das configurações de dimensionamento automático e como elas funcionam. Aplica-se a máquinas virtuais, serviços de nuvem, aplicativos Web
+title: Compreender as definições de escala automática no Monitor Azure
+description: Uma desagregação detalhada das definições de escala automática e como funcionam. Aplica-se a Máquinas Virtuais, Serviços cloud, Web Apps
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 9a2b94208de7ce490a0e7acfbb71175b4a7c846e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75364310"
 ---
 # <a name="understand-autoscale-settings"></a>Compreender as definições de Dimensionamento Automático
-As configurações de dimensionamento automático ajudam a garantir que você tenha a quantidade certa de recursos em execução para lidar com a carga flutuante do seu aplicativo. Você pode definir as configurações de AutoEscala para serem disparadas com base em métricas que indicam carga ou desempenho, ou disparadas em uma data e hora agendadas. Este artigo faz uma visão detalhada da anatomia de uma configuração de dimensionamento automático. O artigo começa com o esquema e as propriedades de uma configuração e percorre os diferentes tipos de perfil que podem ser configurados. Por fim, o artigo discute como o recurso de dimensionamento automático no Azure avalia qual perfil deve ser executado em um determinado momento.
+As definições de escala automática ajudam a garantir que tem a quantidade certa de recursos em execução para lidar com a carga flutuante da sua aplicação. Pode configurar as definições de escala automática a serem ativadas com base em métricas que indiquem carga ou desempenho, ou desencadeadas numa data e hora programadas. Este artigo dá uma olhada detalhada na anatomia de um cenário de escala automática. O artigo começa com o esquema e propriedades de um cenário, e depois percorre os diferentes tipos de perfil que podem ser configurados. Por fim, o artigo discute como a funcionalidade De Escala Automática no Azure avalia qual o perfil a executar a qualquer momento.
 
-## <a name="autoscale-setting-schema"></a>Esquema de configuração de dimensionamento automático
-Para ilustrar o esquema de configuração de dimensionamento automático, a seguinte configuração de dimensionamento automático é usada. É importante observar que essa configuração de dimensionamento automático tem:
+## <a name="autoscale-setting-schema"></a>Esquema de definição de escala automática
+Para ilustrar o esquema de definição de escala automática, é utilizada a seguinte definição de escala automática. É importante notar que esta definição de escala automática tem:
 - Um perfil. 
-- Duas regras de métrica neste perfil: uma para expansão e outra para reduzir horizontalmente.
-  - A regra de expansão é disparada quando a métrica média da CPU do conjunto de dimensionamento de máquinas virtuais é maior que 85% nos últimos 10 minutos.
-  - A regra de redução horizontal é disparada quando a média do conjunto de dimensionamento de máquinas virtuais é menor que 60% para o último minuto.
+- Duas regras métricas neste perfil: uma para escala para fora, e outra para escala dentro
+  - A regra de escala é desencadeada quando a métrica média de CPU da escala de máquina virtual é superior a 85% nos últimos 10 minutos.
+  - A regra da escala é desencadeada quando a média da escala de máquinas virtuais é inferior a 60% no último minuto.
 
 > [!NOTE]
-> Uma configuração pode ter vários perfis. Para saber mais, consulte a seção de [perfis](#autoscale-profiles) . Um perfil também pode ter várias regras de expansão e regras de redução horizontal definidas. Para ver como eles são avaliados, consulte a seção [avaliação](#autoscale-evaluation) .
+> Uma definição pode ter vários perfis. Para saber mais, consulte a secção [de perfis.](#autoscale-profiles) Um perfil também pode ter várias regras de escala e regras de escala definidas. Para ver como são avaliados, consulte a secção de [avaliação.](#autoscale-evaluation)
 
 ```JSON
 {
@@ -87,37 +87,37 @@ Para ilustrar o esquema de configuração de dimensionamento automático, a segu
 
 | Section | Nome do elemento | Descrição |
 | --- | --- | --- |
-| Definição | ID | A ID de recurso da configuração de dimensionamento automático. As configurações de autoescala são um recurso Azure Resource Manager. |
-| Definição | nome | O nome da configuração de dimensionamento automático. |
-| Definição | localização | O local da configuração de dimensionamento automático. Esse local pode ser diferente do local do recurso que está sendo dimensionado. |
-| propriedades | targetResourceUri | A ID de recurso do recurso que está sendo dimensionado. Você só pode ter uma configuração de dimensionamento automático por recurso. |
-| propriedades | profiles | Uma configuração de dimensionamento automático é composta de um ou mais perfis. Cada vez que o mecanismo de dimensionamento automático é executado, ele executa um perfil. |
-| profile | nome | O nome do perfil. Você pode escolher qualquer nome que ajude a identificar o perfil. |
-| profile | Capacidade. máxima | A capacidade máxima permitida. Ele garante que o dimensionamento automático, ao executar esse perfil, não dimensione o recurso acima desse número. |
-| profile | Capacidade. mínimo | A capacidade mínima permitida. Ele garante que o dimensionamento automático, ao executar este perfil, não dimensione o recurso abaixo desse número. |
-| profile | Capacity.default | Se houver um problema ao ler a métrica de recurso (nesse caso, a CPU de "vmss1") e a capacidade atual estiver abaixo do padrão, o dimensionamento automático escalará horizontalmente para o padrão. Isso é para garantir a disponibilidade do recurso. Se a capacidade atual já for maior que a capacidade padrão, o dimensionamento automático não será dimensionado horizontalmente. |
-| profile | regras | O dimensionamento automático é dimensionado automaticamente entre as capacidades máxima e mínima, usando as regras no perfil. Você pode ter várias regras em um perfil. Normalmente, há duas regras: uma para determinar quando escalar horizontalmente e a outra para determinar quando dimensionar horizontalmente. |
-| rule | Metrictrigger incluiria | Define a condição de métrica da regra. |
-| Metrictrigger incluiria | MetricName | O nome da métrica. |
-| Metrictrigger incluiria |  metricResourceUri | A ID de recurso do recurso que emite a métrica. Na maioria dos casos, é o mesmo que o recurso que está sendo dimensionado. Em alguns casos, ele pode ser diferente. Por exemplo, você pode dimensionar um conjunto de dimensionamento de máquinas virtuais com base no número de mensagens em uma fila de armazenamento. |
-| Metrictrigger incluiria | timeGrain | A duração da amostragem da métrica. Por exemplo, **Timegranular = "PT1M"** significa que as métricas devem ser agregadas a cada 1 minuto, usando o método de agregação especificado no elemento Statistic. |
-| Metrictrigger incluiria | Estatísticas | O método de agregação dentro do período de intervalo. Por exemplo, **estatística = "Average"** e **timegranular = "PT1M"** significa que as métricas devem ser agregadas a cada 1 minuto, considerando a média. Essa propriedade determina como a métrica é amostrada. |
-| Metrictrigger incluiria | timeWindow | A quantidade de tempo para voltar para as métricas. Por exemplo, **TimeWindow = "PT10M"** significa que toda vez que o dimensionamento automático é executado, ele consulta as métricas dos últimos 10 minutos. A janela de tempo permite que suas métricas sejam normalizadas e evite reagir a picos transitórios. |
-| Metrictrigger incluiria | timeAggregation | O método de agregação usado para agregar as métricas de amostra. Por exemplo, **timeaggregation = "Average"** deve agregar as métricas de amostra, considerando a média. No caso anterior, siga as dez amostras de 1 minuto e faça a média delas. |
-| rule | scaleAction | A ação a ser tomada quando o Metrictrigger incluiria da regra for disparado. |
-| scaleAction | direção | "Aumentar" para escalar horizontalmente ou "diminuir" para reduzir horizontalmente.|
-| scaleAction | valor | Quanto aumentar ou diminuir a capacidade do recurso. |
-| scaleAction | cooldown | A quantidade de tempo de espera após uma operação de dimensionamento antes de escalar novamente. Por exemplo, se **cooldown = "PT10M"** , o dimensionamento automático não tentará dimensionar novamente por mais 10 minutos. O cooldown é permitir que as métricas se Estabilizam após a adição ou remoção de instâncias. |
+| Definição | ID | O ID de recurso da definição de autoescala. As definições de escala automática são um recurso do Gestor de Recursos Azure. |
+| Definição | nome | O nome de definição de escala automática. |
+| Definição | localização | A localização da definição de escala automática. Esta localização pode ser diferente da localização do recurso que está a ser dimensionado. |
+| propriedades | targetResourceUri | A identificação do recurso que está a ser dimensionada. Só pode ter uma definição de escala automática por recurso. |
+| propriedades | perfis | Uma definição de escala automática é composta por um ou mais perfis. Cada vez que o motor de escala automática funciona, executa um perfil. |
+| perfil | nome | O nome do perfil. Pode escolher qualquer nome que o ajude a identificar o perfil. |
+| perfil | Capacidade.máxima | A capacidade máxima permitida. Garante que a Escala Automática, ao executar este perfil, não dimensiona o seu recurso acima deste número. |
+| perfil | Capacidade.mínima | A capacidade mínima permitida. Garante que a Escala Automática, ao executar este perfil, não dimensiona o seu recurso abaixo deste número. |
+| perfil | Capacidade.padrão | Se houver algum problema em ler a métrica do recurso (neste caso, o CPU de "vmss1"), e a capacidade atual for inferior ao padrão, a escala automática escorre para o padrão. Isto é para garantir a disponibilidade do recurso. Se a capacidade atual já for superior à capacidade padrão, a escala automática não escala. |
+| perfil | regras | A escala automática escala automaticamente entre as capacidades máximas e mínimas, utilizando as regras do perfil. Pode ter várias regras num perfil. Normalmente existem duas regras: uma para determinar quando escalar, e outra para determinar quando escalar. |
+| regra | métricaTrigger | Define a condição métrica da regra. |
+| métricaTrigger | nome métrico | O nome da métrica. |
+| métricaTrigger |  metricResourceUri | A identificação do recurso que emite a métrica. Na maioria dos casos, é o mesmo que o recurso que está a ser dimensionado. Em alguns casos, pode ser diferente. Por exemplo, pode escalar um conjunto de escala de máquina virtual com base no número de mensagens numa fila de armazenamento. |
+| métricaTrigger | timeGrain | A duração da amostragem métrica. Por exemplo, **TimeGrain = "PT1M"** significa que as métricas devem ser agregadas a cada 1 minuto, utilizando o método de agregação especificado no elemento estatístico. |
+| métricaTrigger | estatística | O método de agregação dentro do período timeGrain. Por exemplo, **estatística = "Média"** e **tempoGrain = "PT1M"** significa que as métricas devem ser agregadas a cada 1 minuto, tomando a média. Esta propriedade dita como a métrica é amostrada. |
+| métricaTrigger | timeWindow | A quantidade de tempo para olhar para trás para as métricas. Por exemplo, **timeWindow = "PT10M"** significa que sempre que a escala automática corre, consulta métricas nos últimos 10 minutos. A janela do tempo permite que as suas métricas sejam normalizadas e evita reagir a picos transitórios. |
+| métricaTrigger | timeAggregation | O método de agregação usado para agregar as métricas amostradas. Por exemplo, a **timeAggregation = "Average"** deve agregar as métricas amostradas tomando a média. No caso anterior, pegue as dez amostras de 1 minuto, e faça uma média delas. |
+| regra | escalaAction | A ação a tomar quando a métrica Trigger da regra é desencadeada. |
+| escalaAction | direção | "Aumentar" para escalar, ou "Diminuir" para escalar.|
+| escalaAction | valor | Quanto para aumentar ou diminuir a capacidade do recurso. |
+| escalaAction | tempo de arrefecimento | O tempo de espera após uma operação à escala antes de voltar a escalonar. Por exemplo, se **o arrefecimento = "PT10M"**, a escala automática não tentar escalar novamente por mais 10 minutos. O arrefecimento é permitir que as métricas se estabilizem após a adição ou remoção de instâncias. |
 
-## <a name="autoscale-profiles"></a>Perfis de dimensionamento automático
+## <a name="autoscale-profiles"></a>Perfis de escala automática
 
-Há três tipos de perfis de dimensionamento automático:
+Existem três tipos de perfis de escala automática:
 
-- **Perfil regular:** O perfil mais comum. Se você não precisar dimensionar seu recurso com base no dia da semana ou em um dia específico, poderá usar um perfil regular. Esse perfil pode então ser configurado com regras de métrica que determinam quando escalar horizontalmente e quando dimensionar horizontalmente. Você deve ter apenas um perfil regular definido.
+- **Perfil regular:** O perfil mais comum. Se não precisar de escalar o seu recurso com base no dia da semana, ou num determinado dia, pode utilizar um perfil regular. Este perfil pode então ser configurado com regras métricas que ditam quando escalar e quando escalar. Só deve ter um perfil regular definido.
 
-    O perfil de exemplo usado anteriormente neste artigo é um exemplo de um perfil regular. Observe que também é possível definir um perfil para ser dimensionado para uma contagem de instâncias estática para seu recurso.
+    O perfil de exemplo usado anteriormente neste artigo é um exemplo de um perfil regular. Note que também é possível definir um perfil à escala para uma contagem de exemplos estáticos para o seu recurso.
 
-- **Perfil de data fixa:** Esse perfil é para casos especiais. Por exemplo, digamos que você tenha um evento importante chegando em 26 de dezembro de 2017 (PST). Você deseja que as capacidades mínima e máxima do recurso sejam diferentes nesse dia, mas que ainda sejam dimensionadas nas mesmas métricas. Nesse caso, você deve adicionar um perfil de data fixa à lista de perfis de sua configuração. O perfil é configurado para ser executado somente no dia do evento. Para qualquer outro dia, o dimensionamento automático usa o perfil regular.
+- **Perfil de data fixa:** Este perfil é para casos especiais. Por exemplo, digamos que tem um evento importante a chegar a 26 de dezembro de 2017 (PST). Quer que as capacidades mínimas e máximas do seu recurso sejam diferentes nesse dia, mas ainda assim escalam nas mesmas métricas. Neste caso, deverá adicionar um perfil de data fixa à lista de perfis da sua definição. O perfil está configurado para ser executado apenas no dia do evento. Para qualquer outro dia, a Escala Automática utiliza o perfil regular.
 
     ``` JSON
     "profiles": [{
@@ -150,12 +150,12 @@ Há três tipos de perfis de dimensionamento automático:
     ]
     ```
     
-- **Perfil de recorrência:** Esse tipo de perfil permite que você verifique se esse perfil é sempre usado em um determinado dia da semana. Os perfis de recorrência têm apenas uma hora de início. Eles são executados até que o próximo perfil de recorrência ou perfil de data fixa seja definido como iniciar. Uma configuração de dimensionamento automático com apenas um perfil de recorrência executa esse perfil, mesmo se houver um perfil regular definido na mesma configuração. Os dois exemplos a seguir ilustram como esse perfil é usado:
+- Perfil de **recorrência:** Este tipo de perfil permite-lhe garantir que este perfil é sempre utilizado num determinado dia da semana. Os perfis de recorrência só têm uma hora de início. Funcionam até que o próximo perfil de recorrência ou perfil de data fixa esteja definido para começar. Uma definição de escala automática com apenas um perfil de recorrência executa esse perfil, mesmo que exista um perfil regular definido na mesma configuração. Os dois exemplos seguintes ilustram como este perfil é utilizado:
 
-    **Exemplo 1: dias da semana versus finais de semana**
+    **Exemplo 1: Dias úteis vs fins de semana**
     
-    Digamos que, nos finais de semana, você queira que a capacidade máxima seja 4. Em dias da semana, como você espera mais carga, você deseja que a capacidade máxima seja 10. Nesse caso, sua configuração conteria dois perfis de recorrência, um para ser executado nos finais de semana e o outro em dias da semana.
-    A configuração é parecida com esta:
+    Digamos que nos fins de semana, quer que a sua capacidade máxima seja de 4. Nos dias úteis, porque espera mais carga, quer que a sua capacidade máxima seja de 10. Neste caso, a sua configuração conteria dois perfis de recorrência, um para correr aos fins de semana e outro nos dias úteis.
+    A definição é assim:
 
     ``` JSON
     "profiles": [
@@ -209,13 +209,13 @@ Há três tipos de perfis de dimensionamento automático:
     }]
     ```
 
-    A configuração anterior mostra que cada perfil de recorrência tem uma agenda. Essa agenda determina quando o perfil começa a ser executado. O perfil é interrompido quando é hora de executar outro perfil.
+    A definição anterior mostra que cada perfil de recorrência tem um horário. Este horário determina quando o perfil começa a funcionar. O perfil para quando é hora de fazer outro perfil.
 
-    Por exemplo, na configuração anterior, "weekdayProfile" é definido para iniciar na segunda-feira às 12:00. Isso significa que esse perfil começa a ser executado na segunda-feira às 12:00. Ele continua até sábado às 12:00, quando "weekendProfile" está agendado para iniciar a execução.
+    Por exemplo, na definição anterior, o "WeekdayProfile" tem início na segunda-feira às 00:00. Isso significa que este perfil começa a funcionar na segunda-feira às 00:00. Continua até sábado às 00:00, quando o "weekendProfile" está agendado para começar a funcionar.
 
-    **Exemplo 2: horário comercial**
+    **Exemplo 2: Horário de trabalho**
     
-    Digamos que você deseja ter um limite de métrica durante o horário comercial (9:00 às 5:00 PM) e outro para todos os outros horários. A configuração ficaria assim:
+    Digamos que quer ter um limiar métrico durante o horário comercial (das 9:00 às 17:00 horas), e um diferente para todos os outros tempos. A definição seria assim:
     
     ``` JSON
     "profiles": [
@@ -269,41 +269,41 @@ Há três tipos de perfis de dimensionamento automático:
     }]
     ```
     
-    A configuração anterior mostra que "businessHoursProfile" começa a ser executada na segunda-feira às 9:00 AM e continua a 5:00 PM. É quando "nonBusinessHoursProfile" começa a ser executado. O "nonBusinessHoursProfile" é executado até 9:00 da terça-feira e, em seguida, o "businessHoursProfile" assumirá novamente. Isso se repete até sexta-feira às 5:00 PM. Nesse ponto, "nonBusinessHoursProfile" é executado até segunda-feira às 9:00.
+    A definição anterior mostra que o "businessHoursProfile" começa a decorrer na segunda-feira às 9:00 da manhã, e continua às 17:00. É quando o "não BusinessHoursProfile" começa a funcionar. O "não BusinessHoursProfile" decorre até às 9:00 de terça-feira e, em seguida, o "businessHoursProfile" retoma. Isto repete-se até sexta-feira às 17h. Nessa altura, o "não BusinessHoursProfile" decorre até segunda-feira às 9:00.
     
 > [!Note]
-> A interface do usuário de dimensionamento automático no portal do Azure impõe horários de término para perfis de recorrência e começa a executar o perfil padrão da configuração de dimensionamento automático entre perfis de recorrência.
+> A interface de utilizador de escala automática no portal Azure aplica os tempos finais para perfis de recorrência e começa a executar o perfil padrão da definição de escala automática entre perfis de recorrência.
     
-## <a name="autoscale-evaluation"></a>Avaliação de dimensionamento automático
-Considerando que as configurações de autoescala podem ter vários perfis, e cada perfil pode ter várias regras de métrica, é importante entender como uma configuração de dimensionamento automático é avaliada. Cada vez que o trabalho de dimensionamento automático é executado, ele começa escolhendo o perfil aplicável. Em seguida, o dimensionamento automático avalia os valores mínimo e máximo, bem como as regras de métrica no perfil, e decide se uma ação de escala é necessária.
+## <a name="autoscale-evaluation"></a>Avaliação à escala automática
+Dado que as configurações de escala automática podem ter múltiplos perfis, e cada perfil pode ter múltiplas regras métricas, é importante entender como uma definição de escala automática é avaliada. Cada vez que o trabalho em Escala Automática corre, começa por escolher o perfil que é aplicável. Em seguida, a Escala Automática avalia os valores mínimos e máximos, e quaisquer regras métricas no perfil, e decide se uma ação de escala é necessária.
 
-### <a name="which-profile-will-autoscale-pick"></a>Qual perfil será escolhido pelo dimensionamento automático?
+### <a name="which-profile-will-autoscale-pick"></a>Que perfil escolherá a Escala Automática?
 
-O dimensionamento automático usa a seguinte sequência para escolher o perfil:
-1. Primeiro, ele procura qualquer perfil de data fixa que esteja configurado para ser executado agora. Se houver, o dimensionamento automático o executará. Se houver vários perfis de datas fixas que devam ser executados, o dimensionamento automático selecionará o primeiro.
-2. Se não houver nenhum perfil de data fixa, o dimensionamento automático examinará os perfis de recorrência. Se um perfil de recorrência for encontrado, ele o executará.
-3. Se não houver nenhuma data fixa ou perfis de recorrência, o dimensionamento automático executará o perfil regular.
+A escala automática utiliza a seguinte sequência para escolher o perfil:
+1. Procura primeiro qualquer perfil de data fixa que esteja configurado para ser executado agora. Se houver, a escala automática executa-o. Se houver vários perfis de data fixa que devem ser executados, a Escala Automática seleciona a primeira.
+2. Se não houver perfis de data fixa, a Autoscale analisa os perfis de recorrência. Se for encontrado um perfil de recorrência, executa-o.
+3. Se não houver uma data fixa ou perfis de recorrência, a Escala Automática executa o perfil regular.
 
-### <a name="how-does-autoscale-evaluate-multiple-rules"></a>Como o dimensionamento automático avalia várias regras?
+### <a name="how-does-autoscale-evaluate-multiple-rules"></a>Como é que a Autoscale avalia várias regras?
 
-Depois que o dimensionamento automático determina qual perfil deve ser executado, ele avalia todas as regras de expansão no perfil (elas são regras com **Direction = "aumentar"** ).
+Depois de a Autoscale determinar qual o perfil a executar, avalia todas as regras de escala no perfil (estas são regras com **direção = "Aumentar").**
 
-Se uma ou mais regras de escala horizontal forem disparadas, o dimensionamento automático calculará a nova capacidade determinada pela **scaleaction** de cada uma dessas regras. Em seguida, ele é dimensionado para o máximo dessas capacidades, para garantir a disponibilidade do serviço.
+Se forem desencadeadas uma ou mais regras de escala, a Escala Automática calcula a nova capacidade determinada pela **escalaAction** de cada uma dessas regras. Em seguida, eleva-se ao máximo dessas capacidades, para garantir a disponibilidade do serviço.
 
-Por exemplo, digamos que haja um conjunto de dimensionamento de máquinas virtuais com uma capacidade atual de 10. Há duas regras de expansão: uma que aumenta a capacidade em 10% e outra que aumenta a capacidade em 3 contagens. A primeira regra resultaria em uma nova capacidade de 11, e a segunda regra resultaria em uma capacidade de 13. Para garantir a disponibilidade do serviço, o dimensionamento automático escolhe a ação que resulta na capacidade máxima, portanto, a segunda regra é escolhida.
+Por exemplo, digamos que há uma escala de máquina virtual com uma capacidade atual de 10. Há duas regras de escala: uma que aumenta a capacidade em 10 por cento, e outra que aumenta a capacidade em 3 contagens. A primeira regra resultaria numa nova capacidade de 11, e a segunda regra resultaria numa capacidade de 13. Para garantir a disponibilidade do serviço, a Escala Automática escolhe a ação que resulta na capacidade máxima, pelo que a segunda regra é escolhida.
 
-Se nenhuma regra de expansão for disparada, o dimensionamento automático avaliará todas as regras de redução horizontal (regras com **Direction = "diminuir"** ). O dimensionamento automático só levará uma ação de redução se todas as regras de dimensionamento forem disparadas.
+Se não forem desencadeadas regras de escala, a Escala Automática avalia todas as regras de escala (regras com **direção = "Diminuição").** A escala automática só toma uma ação de escala se todas as regras de escala forem desencadeadas.
 
-O dimensionamento automático calcula a nova capacidade determinada pela **scaleaction** de cada uma dessas regras. Em seguida, ele escolhe a ação de dimensionamento que resulta no máximo dessas capacidades para garantir a disponibilidade do serviço.
+A escala automática calcula a nova capacidade determinada pela **escalaAction** de cada uma dessas regras. Em seguida, escolhe a ação de escala que resulta no máximo dessas capacidades para garantir a disponibilidade do serviço.
 
-Por exemplo, digamos que haja um conjunto de dimensionamento de máquinas virtuais com uma capacidade atual de 10. Há duas regras de redução horizontal: uma que diminui a capacidade em 50% e outra que diminui a capacidade em 3 contagens. A primeira regra resultaria em uma nova capacidade de 5, e a segunda regra resultaria em uma capacidade de 7. Para garantir a disponibilidade do serviço, o dimensionamento automático escolhe a ação que resulta na capacidade máxima, portanto, a segunda regra é escolhida.
+Por exemplo, digamos que há uma escala de máquina virtual com uma capacidade atual de 10. Há duas regras de escala: uma que diminui a capacidade em 50 por cento, e outra que diminui a capacidade em 3 contagens. A primeira regra resultaria numa nova capacidade de 5, e a segunda regra resultaria numa capacidade de 7. Para garantir a disponibilidade do serviço, a Escala Automática escolhe a ação que resulta na capacidade máxima, pelo que a segunda regra é escolhida.
 
 ## <a name="next-steps"></a>Passos seguintes
-Saiba mais sobre o dimensionamento automático fazendo referência ao seguinte:
+Saiba mais sobre a Escala Automática referindo-se ao seguinte:
 
 * [Descrição geral do dimensionamento automático](../../azure-monitor/platform/autoscale-overview.md)
-* [Azure Monitor métricas comuns de dimensionamento automático](../../azure-monitor/platform/autoscale-common-metrics.md)
-* [Práticas recomendadas para Azure Monitor dimensionamento automático](../../azure-monitor/platform/autoscale-best-practices.md)
-* [Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook](../../azure-monitor/platform/autoscale-webhook-email.md)
-* [API REST de dimensionamento automático](https://msdn.microsoft.com/library/dn931953.aspx)
+* [Métricas comuns de escala automática Azure Monitor](../../azure-monitor/platform/autoscale-common-metrics.md)
+* [Melhores práticas para o dimensionamento automático do Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
+* [Utilize ações de escala automática para enviar notificações de alerta de e-mail e webhook](../../azure-monitor/platform/autoscale-webhook-email.md)
+* [API REST DE Escala Automática](https://msdn.microsoft.com/library/dn931953.aspx)
 
