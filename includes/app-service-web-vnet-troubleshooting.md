@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
 ms.openlocfilehash: 2d2a82552a846cedfa5da3bb6ec6df8a40b67732
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78671498"
 ---
-Embora a funcionalidade seja fácil de configurar, isso não significa que a sua experiência será livre de problemas. Caso encontre problemas de acesso ao ponto final pretendido, existem alguns utilitários que pode utilizar para testar a conectividade a partir da consola de aplicações. Há duas consolas que podes usar. Uma é a consola Kudu e a outra é a consola no portal Azure. Para chegar à consola Kudu a partir da sua aplicação, vá a Tools -> Kudu. Você também pode chegar à consola Kudo em [sitename].scm.azurewebsites.net. Assim que o site estiver cheio, vá ao separador de consola Debug. Para chegar ao portal Azure hospedado consola então da sua aplicação vá para Tools -> Console. 
+Embora a funcionalidade seja fácil de configurar, isso não significa que a sua experiência será livre de problemas. Caso encontre problemas de acesso ao ponto final pretendido, existem alguns utilitários que pode utilizar para testar a conectividade a partir da consola de aplicações. Há duas consolas que podes usar. Uma é a consola Kudu e a outra é a consola no portal Azure. Para chegar à consola Kudu a partir da sua aplicação, vá ao Tools -> Kudu. Você também pode chegar à consola Kudo em [sitename].scm.azurewebsites.net. Assim que o site estiver cheio, vá ao separador de consola Debug. Para chegar à consola hospedada pelo portal Azure, a partir da sua aplicação vá para Tools -> Console. 
 
 #### <a name="tools"></a>Ferramentas
 As ferramentas **ping**, **nslookup**, e **tracert** não funcionarão através da consola devido a restrições de segurança. Para preencher o vazio, duas ferramentas separadas adicionadas. Para testar a funcionalidade DNS, adicionámos uma ferramenta chamada nameresolver.exe. A sintaxe é:
@@ -44,8 +44,8 @@ Se esses itens não responderem aos seus problemas, procure primeiro coisas como
 * é a gama de endereços ponto-a-local nas gamas RFC 1918 (10.0.0.0.0.0.10.255.255.255 / 172.16.0.0-172.31.255.255 / 192.168.0.0-192.168.255.255)?
 * O Gateway mostra como estando no portal? Se o seu portal está para baixo, então traga-o de volta para cima.
 * Os certificados mostram estar sincronizado ou suspeita que a configuração da rede foi alterada?  Se os seus certificados estiverem dessincronizados ou suspeitar que houve uma alteração na configuração vNet que não foi sincronizada com os seus ASPs, então acerte em "Sync Network".
-* se atravessar uma VPN, a porta de entrada no local está configurada para encaminhar o tráfego de volta para Azure? Se conseguir chegar a pontos finais no seu VNet mas não no local, verifique as suas rotas.
-* Está a tentar usar um portal de coexistência que suporta tanto o ponto para o site como o ExpressRoute? Os gateways de coexistência não são suportados com a Integração VNet.
+* Se atravessar uma VPN, a porta de entrada no local está configurada para encaminhar o tráfego de volta para Azure? Se conseguir chegar a pontos finais no seu VNet mas não no local, verifique as suas rotas.
+* Está a tentar usar um portal de coexistência que suporta tanto o ponto de ponta como o ExpressRoute? Os gateways de coexistência não são suportados com a Integração VNet.
 
 Depurar problemas de networking é um desafio porque não se consegue ver o que está a bloquear o acesso a uma combinação específica de hospedeiro:porta. Algumas das causas incluem:
 
@@ -64,7 +64,7 @@ Os passos adicionais de depuração incluem:
 
       test-netconnection hostname [optional: -Port]
 
-* apresentar uma aplicação num VM e testar o acesso a esse anfitrião e porta a partir da consola a partir da sua aplicação utilizando **tcpping**
+* Traga uma aplicação num VM e teste o acesso a esse anfitrião e porta a partir da consola a partir da sua app usando **tcpping**
 
 #### <a name="on-premises-resources"></a>Recursos no local ####
 

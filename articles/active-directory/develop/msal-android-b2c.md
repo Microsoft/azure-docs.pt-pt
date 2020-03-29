@@ -14,10 +14,10 @@ ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
 ms.openlocfilehash: 0998bb04b0dfc69db4696f2e390cfe259eba6718
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76696526"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Use MSAL para Android com B2C
@@ -30,11 +30,11 @@ Em MSAL para Android, as políticas B2C (viagens de utilizador) são configurada
 
 Dada uma aplicação B2C que tem duas políticas:
 - Inscrição / Inscrição
-    * Chamado `B2C_1_SISOPolicy`
+    * Chamado`B2C_1_SISOPolicy`
 - Editar Perfil
-    * Chamado `B2C_1_EditProfile`
+    * Chamado`B2C_1_EditProfile`
 
-O ficheiro de configuração da aplicação declararia dois `authorities`. Um para cada apólice. A propriedade `type` de cada autoridade é `B2C`.
+O ficheiro de configuração `authorities`da aplicação declararia dois . Um para cada apólice. A `type` propriedade de cada `B2C`autoridade é.
 
 ### `app/src/main/res/raw/msal_config.json`
 ```json
@@ -54,11 +54,11 @@ O ficheiro de configuração da aplicação declararia dois `authorities`. Um pa
 }
 ```
 
-O `redirect_uri` deve ser registado na configuração da aplicação, e também em `AndroidManifest.xml` para apoiar a reorientação durante o fluxo de concessão do código de [autorização.](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code)
+A `redirect_uri` configuração da aplicação deve `AndroidManifest.xml` ser registada e também para apoiar a reorientação durante o fluxo de [concessão](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code)do código de autorização .
 
 ## <a name="initialize-ipublicclientapplication"></a>Inicializar a Aplicação IPublicClientApplication
 
-`IPublicClientApplication` é construído por um método de fábrica para permitir que a configuração da aplicação seja analisada de forma assíncrona.
+`IPublicClientApplication`é construído por um método de fábrica para permitir que a configuração da aplicação seja analisada de forma assíncrona.
 
 ```java
 PublicClientApplication.createMultipleAccountPublicClientApplication(
@@ -81,7 +81,7 @@ PublicClientApplication.createMultipleAccountPublicClientApplication(
 
 ## <a name="interactively-acquire-a-token"></a>Adquirir interativamente um símbolo
 
-Para adquirir um símbolo interactivamente com a MSAL, construa uma instância `AcquireTokenParameters` e forneça-a ao método `acquireToken`. O pedido simbólico abaixo utiliza a autoridade `default`.
+Para adquirir um símbolo interactivamente com `AcquireTokenParameters` a MSAL, `acquireToken` construa uma instância e forneça-a ao método. O pedido simbólico abaixo `default` utiliza a autoridade.
 
 ```java
 IMultipleAccountPublicClientApplication pca = ...; // Initialization not shown
@@ -112,7 +112,7 @@ pca.acquireToken(parameters);
 
 ## <a name="silently-renew-a-token"></a>Renovar silenciosamente um símbolo
 
-Para adquirir um símbolo silenciosamente com a MSAL, construa uma instância `AcquireTokenSilentParameters` e forneça-a ao método `acquireTokenSilentAsync`. Ao contrário do método `acquireToken`, o `authority` deve ser especificado para adquirir um símbolo silenciosamente.
+Para adquirir um símbolo silenciosamente com a `AcquireTokenSilentParameters` MSAL, `acquireTokenSilentAsync` construa uma instância e forneça-a ao método. Ao `acquireToken` contrário do `authority` método, o deve ser especificado para adquirir um símbolo silenciosamente.
 
 ```java
 IMultilpeAccountPublicClientApplication pca = ...; // Initialization not shown
@@ -139,7 +139,7 @@ pca.acquireTokenSilentAsync(parameters);
 
 ## <a name="specify-a-policy"></a>Especificar uma política
 
-Dado que as políticas em B2C são representadas como autoridades separadas, invocar uma política diferente do incumprimento é alcançada especificando uma cláusula `fromAuthority` na construção de parâmetros `acquireToken` ou `acquireTokenSilent`.  Por exemplo:
+Dado que as políticas em B2C são representadas como autoridades separadas, `fromAuthority` invocar uma `acquireToken` política `acquireTokenSilent` diferente do incumprimento é alcançada especificando uma cláusula na construção ou parâmetros.  Por exemplo:
 
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
@@ -153,11 +153,11 @@ AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
 
 ## <a name="handle-password-change-policies"></a>Lidar com as políticas de mudança de palavra-passe
 
-O sinal de inscrição ou fluxo de utilizador de entrada de conta local mostra uma**palavra-passe esquecida?** criar. Clicar neste link não despoleta automaticamente um fluxo de utilizador de redefinição de palavra-passe.
+O sinal de inscrição ou fluxo de utilizador de entrada de conta local mostra uma**palavra-passe esquecida?** link. Clicar neste link não despoleta automaticamente um fluxo de utilizador de redefinição de palavra-passe.
 
-Em vez disso, o código de erro `AADB2C90118` é devolvido à sua aplicação. A sua aplicação deve lidar com este código de erro executando um fluxo específico do utilizador que redefine a palavra-passe.
+Em vez disso, o código `AADB2C90118` de erro é devolvido à sua aplicação. A sua aplicação deve lidar com este código de erro executando um fluxo específico do utilizador que redefine a palavra-passe.
 
-Para capturar um código de erro de redefinição de palavra-passe, a seguinte implementação pode ser utilizada no seu `AuthenticationCallback`:
+Para capturar um código de erro de redefinição `AuthenticationCallback`de palavra-passe, a seguinte implementação pode ser utilizada no interior do seu:
 
 ```java
 new AuthenticationCallback() {
@@ -185,7 +185,7 @@ new AuthenticationCallback() {
 
 ## <a name="use-iauthenticationresult"></a>Utilizar iAuthenticationResult
 
-Uma aquisição simbólica bem sucedida resulta num objeto `IAuthenticationResult`. Contém o sinal de acesso, reclamações de utilizadores e metadados.
+Uma aquisição simbólica bem `IAuthenticationResult` sucedida resulta num objeto. Contém o sinal de acesso, reclamações de utilizadores e metadados.
 
 ### <a name="get-the-access-token-and-related-properties"></a>Obtenha o token de acesso e propriedades relacionadas
 
@@ -227,15 +227,15 @@ String tenantId = account.getTenantId();
 
 ### <a name="idtoken-claims"></a>Reclamações idToken
 
-As reclamações devolvidas no IdToken são povoadas pelo Serviço de Token de Segurança (STS), e não pela MSAL. Dependendo do fornecedor de identidade (IdP) utilizado, algumas reclamações podem estar ausentes. Alguns idPs não fornecem atualmente a reivindicação `preferred_username`. Uma vez que esta alegação é utilizada pela MSAL para o cache, um valor de espaço reservado, `MISSING FROM THE TOKEN RESPONSE`, é utilizado no seu lugar. Para obter mais informações sobre as alegações do IdToken b2C, consulte a [visão geral das fichas no Diretório Ativo Azure B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
+As reclamações devolvidas no IdToken são povoadas pelo Serviço de Token de Segurança (STS), e não pela MSAL. Dependendo do fornecedor de identidade (IdP) utilizado, algumas reclamações podem estar ausentes. Alguns idPs não fornecem `preferred_username` atualmente a reclamação. Porque esta alegação é usada pela MSAL para `MISSING FROM THE TOKEN RESPONSE`o cache, um valor de espaço reservado, é usada no seu lugar. Para obter mais informações sobre as alegações do IdToken b2C, consulte a [visão geral das fichas no Diretório Ativo Azure B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
 
 ## <a name="managing-accounts-and-policies"></a>Gestão de contas e políticas
 
-B2C trata cada política como uma autoridade separada. Assim, os tokens de acesso, fichas de atualização e fichas de identificação devolvidas de cada apólice não são permutáveis. Isto significa que cada política devolve um objeto separado `IAccount` cujos tokens não podem ser usados para invocar outras políticas.
+B2C trata cada política como uma autoridade separada. Assim, os tokens de acesso, fichas de atualização e fichas de identificação devolvidas de cada apólice não são permutáveis. Isto significa que cada `IAccount` política devolve um objeto separado cujos tokens não podem ser usados para invocar outras políticas.
 
-Cada política adiciona um `IAccount` à cache para cada utilizador. Se um utilizador assinar uma aplicação e invocar duas políticas, terá dois `IAccount`. Para remover este utilizador da cache, deve pedir `removeAccount()` para cada apólice.
+Cada apólice `IAccount` adiciona uma cache para cada utilizador. Se um utilizador assinar uma aplicação e invocar duas `IAccount`políticas, terá dois s. Para remover este utilizador da cache, deve solicitar `removeAccount()` cada apólice.
 
-Quando renovar os símbolos para uma política com `acquireTokenSilent`, forneça o mesmo `IAccount` que foi devolvido de invocações anteriores da política para `AcquireTokenSilentParameters`. O fornecimento de uma conta devolvida por outra política resultará num erro.
+Quando renovar os símbolos para `acquireTokenSilent`uma política `IAccount` com , fornecer o mesmo que `AcquireTokenSilentParameters`foi devolvido de invocações anteriores da política para . O fornecimento de uma conta devolvida por outra política resultará num erro.
 
 ## <a name="next-steps"></a>Passos seguintes
 

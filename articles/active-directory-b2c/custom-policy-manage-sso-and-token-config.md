@@ -12,10 +12,10 @@ ms.date: 10/09/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ff9f57af92c50c0df6f628113bd9490ca83e1310
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189298"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gerir a personalização SSO e simbólica utilizando políticas personalizadas no Diretório Ativo Azure B2C
@@ -55,9 +55,9 @@ Os seguintes valores são definidos no exemplo anterior:
 - **Acesso a token lifetimes** - O valor de vida token de acesso é definido com **token_lifetime_secs** item de metadados. O valor predefinido é de 3600 segundos (60 minutos).
 - **ID token lifetime** - O valor de vida token id é definido com o **id_token_lifetime_secs** item metadados. O valor predefinido é de 3600 segundos (60 minutos).
 - Refrescar a **vida útil do token** - O valor de vida token de atualização é definido com **o** refresh_token_lifetime_secs item metadados. O valor predefinido é de 1209600 segundos (14 dias).
-- **Refresque** a vida útil da janela deslizante do token - Se quiser definir uma janela deslizante para o seu token de atualização, detete o valor do **rolling_refresh_token_lifetime_secs** item de metadados. O valor predefinido é de 7776000 (90 dias). Se não quiser impor uma vida útil deslizante da janela, substitua o item por `<Item Key="allow_infinite_rolling_refresh_token">True</Item>`.
-- **Reclamação do emitente (iss)** - A alegação do Emitente (iss) é definida com o item de metadados **IssuanceClaimPattern.** Os valores aplicáveis são `AuthorityAndTenantGuid` e `AuthorityWithTfp`.
-- **Definição de reclamação que represente id de política** - As opções para definir este valor são `TFP` (política-quadro de confiança) e `ACR` (referência de contexto de autenticação). `TFP` é o valor recomendado. Definir **AutenticaçãoContextoReferênciaReclamação** com o valor de `None`.
+- **Refresque** a vida útil da janela deslizante do token - Se quiser definir uma janela deslizante para o seu token de atualização, detete o valor do **rolling_refresh_token_lifetime_secs** item de metadados. O valor predefinido é de 7776000 (90 dias). Se não quiser impor uma vida útil deslizante da `<Item Key="allow_infinite_rolling_refresh_token">True</Item>`janela, substitua o item por .
+- **Reclamação do emitente (iss)** - A alegação do Emitente (iss) é definida com o item de metadados **IssuanceClaimPattern.** Os valores `AuthorityAndTenantGuid` aplicáveis são e `AuthorityWithTfp`.
+- **Definição** de reclamação representando ID de `TFP` política - As `ACR` opções para definir este valor são (política de quadro de confiança) e (referência de contexto de autenticação). `TFP`é o valor recomendado. Definir **AutenticaçãoContextoReferênciaReclamação** com `None`o valor de .
 
     No elemento **ClaimsSchema,** adicione este elemento:
 
@@ -102,6 +102,6 @@ Para alterar o comportamento da sua sessão e as configurações SSO, adicione u
 
 Os seguintes valores são configurados no exemplo anterior:
 
-- **Sinal único ligado (SSO)** - O único sinal é configurado com o **SingleSignOn**. Os valores aplicáveis são `Tenant`, `Application`, `Policy`e `Suppressed`.
-- **Tempo de saída da sessão** da web - O timeout da sessão da web app é definido com o elemento **SessionExpiryType.** Os valores aplicáveis são `Absolute` e `Rolling`.
+- **Sinal único ligado (SSO)** - O único sinal é configurado com o **SingleSignOn**. Os valores `Tenant`aplicáveis são, `Application`e `Policy` `Suppressed`.
+- **Tempo de saída da sessão** da web - O timeout da sessão da web app é definido com o elemento **SessionExpiryType.** Os valores `Absolute` aplicáveis são e `Rolling`.
 - Vida útil da sessão de **aplicações web** - O tempo de vida da sessão da web app é definido com o elemento **SessionExpireyInSeconds.** O valor predefinido é de 86400 segundos (1440 minutos).

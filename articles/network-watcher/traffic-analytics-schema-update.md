@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/06/2020
 ms.author: vinigam
 ms.openlocfilehash: 0e9d37e3a89473e59b94168f8f8c80e7a6621107
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969066"
 ---
 # <a name="sample-queries-with-new-fields-in-traffic-analytics-schema-august-2019-schema-update"></a>Consultas de amostra com novos campos em esquema de Análise de Tráfego (atualização de esquemade agosto de 2019)
@@ -74,7 +74,7 @@ DestPublicIPsAggregated = iif(isnotempty(DestPublicIPs_s), DestPublicIPs_s, "N/A
 
 ## <a name="example-2---nsgrules_s"></a>Exemplo 2 - NSGRules_s
 
-O campo anterior era de formato: <Index value 0)><NSG_RULENAME>;<Flow Direction>|<Flow Status> |<FlowCount ProcessedByRule>
+Campo anterior era de formato: <Index value 0)>[ ]<NSG_RULENAME><Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>
 
 Anteriormente, agregamos dados através do NSG e do NSGRules. Agora não agregamos. Assim, NSGList_s contém apenas um NSG e NSGRules_s também usado para conter apenas uma regra. Assim, removemos a formatação complicada aqui e o mesmo pode ser encontrado em outros campos como mencionado abaixo:
 
@@ -107,7 +107,7 @@ Uma vez que não temos dados de clubes em toda a NSG, o FlowCount_d é simplesme
 Apenas 1 dos 4 acima será não-zero e o descanso três será 0. E indicaria o estado e a contagem no NIC onde o fluxo foi capturado.
 
 Se o fluxo for permitido, um dos campos pré-fixados com "Permitido" será povoado. Outros campos pré-fixados com "Negado" serão povoados.
-Se o fluxo foi de entrada, um dos campos sufixo com "\_d" como "InFlows_d" campo sufixo será povoado. Caso contrário, "OutFlows_d" será povoado.
+Se o fluxo foi de entrada, um dos\_campos sufixo com "d" como "InFlows_d" campo sufixo será povoado. Caso contrário, "OutFlows_d" será povoado.
 
 Dependendo de mais de 2 condições, sabemos qual das 4 será povoada.
 

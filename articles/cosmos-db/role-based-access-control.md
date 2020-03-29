@@ -1,49 +1,49 @@
 ---
-title: Controle de acesso baseado em função no Azure Cosmos DB
-description: Saiba como Azure Cosmos DB fornece proteção de banco de dados com RBAC (integração do Active Directory).
+title: Controlo de acesso baseado em funções no Azure Cosmos DB
+description: Saiba como o Azure Cosmos DB fornece proteção de base de dados com integração de diretórios Ativos (RBAC).
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
 ms.openlocfilehash: 0c7332a42751b35b6ad8ec3f88afb7bc78cc85e3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75445090"
 ---
-# <a name="role-based-access-control-in-azure-cosmos-db"></a>Controle de acesso baseado em função no Azure Cosmos DB
+# <a name="role-based-access-control-in-azure-cosmos-db"></a>Controlo de acesso baseado em funções no Azure Cosmos DB
 
-O Azure Cosmos DB fornece RBAC (controle de acesso baseado em função) interno para cenários comuns de gerenciamento no Azure Cosmos DB. Um indivíduo que tem um perfil no Azure Active Directory pode atribuir essas funções de RBAC a usuários, grupos, entidades de serviço ou identidades gerenciadas para conceder ou negar acesso a recursos e operações em Azure Cosmos DB recursos. As atribuições de função têm como escopo o acesso ao plano de controle, que inclui acesso a contas, bancos de dados, contêineres e ofertas (taxa de transferência) do Azure Cosmos.
+A Azure Cosmos DB fornece um controlo de acesso baseado em funções (RBAC) para cenários comuns de gestão em Azure Cosmos DB. Um indivíduo que tenha um perfil no Azure Ative Directory pode atribuir estas funções rBAC a utilizadores, grupos, diretores de serviços ou identidades geridas para conceder ou negar o acesso a recursos e operações em recursos DB da Azure Cosmos. As atribuições de funções são orientadas apenas para o acesso ao plano de controlo, que inclui acesso a contas, bases de dados, contentores e ofertas da Azure Cosmos (entrada).
 
 ## <a name="built-in-roles"></a>Funções incorporadas
 
-A seguir estão as funções internas com suporte pelo Azure Cosmos DB:
+Seguem-se as funções incorporadas apoiadas pela Azure Cosmos DB:
 
-|**Função interna**  |**Descrição**  |
+|**Papel incorporado**  |**Descrição**  |
 |---------|---------|
-|[Colaborador de conta do DocumentDB](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Pode gerenciar contas de Azure Cosmos DB.|
-|[Cosmos DB leitor de conta](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Pode ler Azure Cosmos DB dados da conta.|
-|[Operador de backup Cosmos](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)|Pode enviar solicitação de restauração para um banco de dados Cosmos do Azure ou um contêiner.|
-|[Operador de Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|O pode provisionar contas, bancos de dados e contêineres do Azure Cosmos, mas não pode acessar as chaves necessárias para acessar os dados.|
+|[Contribuinte de Conta DocumentDB](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Pode gerir as contas da Azure Cosmos DB.|
+|[Leitor de Conta Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Pode ler os dados da conta Azure Cosmos DB.|
+|[Operador de backup Cosmos](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)|Pode submeter o pedido de restauro de uma base de dados Azure Cosmos ou um recipiente.|
+|[Operador DB cosmos](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Pode fornecer contas, bases de dados e contentores da Azure Cosmos, mas não consegue aceder às chaves que são necessárias para aceder aos dados.|
 
 > [!IMPORTANT]
-> O suporte a RBAC no Azure Cosmos DB se aplica somente às operações do plano de controle. As operações do plano de dados são protegidas usando chaves mestras ou tokens de recurso. Para saber mais, confira [proteger o acesso aos dados no Azure Cosmos DB](secure-access-to-data.md)
+> O suporte rBAC no Azure Cosmos DB aplica-se apenas ao controlo das operações de aviões. As operações de avião de dados são asseguradas utilizando chaves-me-mestre ou fichas de recursos. Para saber mais, consulte [Acesso seguro aos dados em Azure Cosmos DB](secure-access-to-data.md)
 
-## <a name="identity-and-access-management-iam"></a>Gestão de identidades e acessos (IAM)
+## <a name="identity-and-access-management-iam"></a>Gestão de identidade e acesso (IAM)
 
-O painel de **controle de acesso (iam)** no portal do Azure é usado para configurar o controle de acesso baseado em função nos recursos de Cosmos do Azure. As funções são aplicadas a usuários, grupos, entidades de serviço e identidades gerenciadas no Active Directory. Você pode usar funções internas ou funções personalizadas para indivíduos e grupos. A captura de tela a seguir mostra o RBAC (integração de Active Directory) usando IAM (controle de acesso) no portal do Azure:
+O painel de controlo de **acesso (IAM)** no portal Azure é utilizado para configurar o controlo de acesso baseado em papéis nos recursos da Azure Cosmos. As funções são aplicadas a utilizadores, grupos, diretores de serviços e identidades geridas no Diretório Ativo. Você pode usar papéis incorporados ou papéis personalizados para indivíduos e grupos. A seguinte imagem mostra integração de Diretório Ativo (RBAC) utilizando o controlo de acesso (IAM) no portal Azure:
 
-![IAM (controle de acesso) no portal do Azure-demonstrando a segurança do banco de dados](./media/role-based-access-control/database-security-identity-access-management-rbac.png)
+![Controlo de acesso (IAM) no portal Azure - demonstrando segurança na base de dados](./media/role-based-access-control/database-security-identity-access-management-rbac.png)
 
 ## <a name="custom-roles"></a>Funções personalizadas
 
-Além das funções internas, os usuários também podem criar [funções personalizadas](../role-based-access-control/custom-roles.md) no Azure e aplicar essas funções a entidades de serviço em todas as assinaturas em seu locatário Active Directory. As funções personalizadas fornecem aos usuários uma maneira de criar definições de função RBAC com um conjunto personalizado de operações de provedor de recursos. Para saber quais operações estão disponíveis para a criação de funções personalizadas para Azure Cosmos DB consulte, [Azure Cosmos DB operações do provedor de recursos](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
+Além das funções incorporadas, os utilizadores também podem criar [funções personalizadas](../role-based-access-control/custom-roles.md) no Azure e aplicar estas funções aos principais de serviço em todas as subscrições dentro do seu inquilino Ative Directory. As funções personalizadas fornecem aos utilizadores uma forma de criar definições de função RBAC com um conjunto personalizado de operações de fornecedor de recursos. Para saber que operações estão disponíveis para construir funções personalizadas para a Azure Cosmos DB ver, operações de fornecedor de [recursos Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
 
-## <a name="preventing-changes-from-cosmos-sdk"></a>Impedindo alterações do SDK do cosmos
+## <a name="preventing-changes-from-cosmos-sdk"></a>Prevenção de alterações da Cosmos SDK
 
-O provedor de recursos Cosmos pode ser bloqueado para evitar qualquer alteração nos recursos, incluindo conta do cosmos, bancos de dados, contêineres e taxa de transferência de qualquer cliente que se conecte por meio de chaves de conta (ou seja, aplicativos que se conectam via SDK do cosmos). Quando definido, as alterações em qualquer recurso devem ser de um usuário com a função e as credenciais de RBAC adequadas. Esse recurso é definido com `disableKeyBasedMetadataWriteAccess` valor da propriedade no provedor de recursos Cosmos. Veja abaixo um exemplo de um modelo de Azure Resource Manager com essa configuração de propriedade.
+O fornecedor de recursos da Cosmos pode ser bloqueado para evitar quaisquer alterações nos recursos, incluindo a conta Cosmos, bases de dados, contentores e entrada de qualquer cliente que ligue através de chaves de conta (ou seja, aplicações que liguem através da Cosmos SDK). Quando definido, as alterações a qualquer recurso devem ser de um utilizador com a função e credenciais RBAC adequadas. Esta capacidade é `disableKeyBasedMetadataWriteAccess` definida com o valor imobiliário no fornecedor de recursos da Cosmos. Um exemplo de um modelo de Gestor de Recursos Azure com esta definição de propriedade está abaixo.
 
 ```json
 {
@@ -65,6 +65,6 @@ O provedor de recursos Cosmos pode ser bloqueado para evitar qualquer alteraçã
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [O que é o RBAC (controle de acesso baseado em função) para recursos do Azure](../role-based-access-control/overview.md)
+- [O que é o controlo de acesso baseado em papéis (RBAC) para os recursos do Azure](../role-based-access-control/overview.md)
 - [Custom roles for Azure resources](../role-based-access-control/custom-roles.md) (Funções personalizadas para recursos do Azure)
-- [Operações do provedor de recursos Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
+- [Operações de prestadorde de recursos Da Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)

@@ -1,61 +1,61 @@
 ---
 title: Controlos de segurança
-description: Uma lista de verificação de controles de segurança internos para avaliar o serviço de Azure Resource Manager.
+description: Uma lista de controlos de segurança incorporados para avaliar o serviço de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.openlocfilehash: d0a0625153e428a0d261e52d40b31ef5142eddfd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75485627"
 ---
-# <a name="security-controls-for-azure-resource-manager"></a>Controles de segurança para Azure Resource Manager
+# <a name="security-controls-for-azure-resource-manager"></a>Controlos de segurança para O Gestor de Recursos Azure
 
-Este artigo documenta os controles de segurança internos do Azure Resource Manager.
+Este artigo documenta os controlos de segurança incorporados no Gestor de Recursos Azure.
 
 [!INCLUDE [Security controls Header](../../../includes/security-controls-header.md)]
 
 ## <a name="data-protection"></a>Proteção de dados
 
-| Controle de segurança | Sim/Não | Notas |
+| Controlo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft | Sim |  |
-| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | HTTPS/TLS. |
-| Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | N/A | O Azure Resource Manager não armazena nenhum conteúdo do cliente, só controla os dados. |
-| Criptografia em nível de coluna (serviços de dados do Azure)| Sim | |
-| Chamadas de API criptografadas| Sim | |
+| Encriptação do lado do servidor em repouso: Chaves geridas pela Microsoft | Sim |  |
+| Encriptação em trânsito (como encriptação ExpressRoute, encriptação VNet e encriptação VNet-VNet)| Sim | HTTPS/TLS. |
+| Encriptação do lado do servidor em repouso: chaves geridas pelo cliente (BYOK) | N/D | O Azure Resource Manager não armazena conteúdos de clientes, apenas dados de controlo. |
+| Encriptação de nível de coluna (Serviços de Dados Azure)| Sim | |
+| Chamadas api encriptadas| Sim | |
 
 ## <a name="network"></a>Rede
 
-| Controle de segurança | Sim/Não | Notas |
+| Controlo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Suporte ao ponto de extremidade de serviço| Não | |
-| Suporte à injeção de VNet| Sim | |
-| Isolamento de rede e suporte de firewall| Não |  |
-| Suporte a túnel forçado| Não |  |
+| Suporte final de serviço| Não | |
+| Suporte à injeção VNet| Sim | |
+| Isolamento da rede e suporte de firewalling| Não |  |
+| Apoio de túnel forçado| Não |  |
 
-## <a name="monitoring--logging"></a>Monitorando & log
+## <a name="monitoring--logging"></a>Monitorização & exploração madeireira
 
-| Controle de segurança | Sim/Não | Notas|
+| Controlo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Não | |
-| Registro e auditoria do plano de gerenciamento e controle| Sim | Os logs de atividades expõem todas as operações de gravação (PUT, POST e DELETE) executadas em seus recursos; consulte [Exibir logs de atividades para auditar ações em recursos](view-activity-logs.md). |
-| Log e auditoria do plano de dados| N/A | |
+| Suporte de monitorização Azure (Análise de registo, insights de aplicações, etc.)| Não | |
+| Registo e auditoria de planos de controlo e gestão| Sim | Os registos de atividade expõem todas as operações de escrita (PUT, POST, DELETE) realizadas nos seus recursos; ver [Ver registos de atividade para auditar ações sobre recursos](view-activity-logs.md). |
+| Registo e auditoria de planos de dados| N/D | |
 
 ## <a name="identity"></a>Identidade
 
-| Controle de segurança | Sim/Não | Notas|
+| Controlo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Autenticação| Sim | Baseado em [Azure Active Directory](/azure/active-directory) .|
+| Autenticação| Sim | [Azure Ative Directory](/azure/active-directory) baseado.|
 | Autorização| Sim | |
 
-## <a name="configuration-management"></a>Gestão de configurações
+## <a name="configuration-management"></a>Gestão da configuração
 
-| Controle de segurança | Sim/Não | Notas|
+| Controlo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Suporte ao gerenciamento de configuração (controle de versão de configuração, etc.)| Sim |  |
+| Suporte de gestão de configuração (versão de configuração, etc.)| Sim |  |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre os [controles de segurança internos nos serviços do Azure](../../security/fundamentals/security-controls.md).
+- Saiba mais sobre os [controlos de segurança incorporados em todos os serviços do Azure.](../../security/fundamentals/security-controls.md)

@@ -10,21 +10,21 @@ ms.topic: include
 ms.date: 01/15/2020
 ms.custom: include file
 ms.openlocfilehash: cb43c8b8c952d8db6cf450a7015c22c85e7fe4b5
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76268302"
 ---
-O `objectIdType` (ou o **tipo de identificador de objeto**) refere-se ao tipo de identidade que é fornecido a uma função. Além dos tipos `DeviceId` e `UserDefinedFunctionId`, os tipos de identificadores de objetos correspondem às propriedades de objetos Azure Active Directory.
+O `objectIdType` (ou tipo de identificador de **objeto)** refere-se ao tipo de identidade que é dado a um papel. Além `DeviceId` dos `UserDefinedFunctionId` tipos e tipos, os tipos de identificador de objetos correspondem a propriedades de objetos do Diretório Ativo Azure.
 
-A tabela a seguir contém os tipos de identificadores de objeto com suporte no gêmeos digital do Azure:
+A tabela seguinte contém os tipos de identificador de objetos suportados em Gémeos Digitais Azure:
 
 | Tipo | Descrição |
 | --- | --- |
-| UserId | Atribui uma função a um usuário. |
-| DeviceId | Atribui uma função a um dispositivo. |
-| DomainName | Atribui uma função a um nome de domínio. Cada usuário com o nome de domínio especificado tem os direitos de acesso da função correspondente. |
-| TenantId | Atribui uma função a um locatário. Cada usuário que pertence à ID de locatário do Azure AD especificado tem os direitos de acesso da função correspondente. |
-| ServicePrincipalId | Atribui uma função a uma ID de objeto de entidade de serviço. |
-| UserDefinedFunctionId | Atribui uma função a uma UDF (função definida pelo usuário). |
+| IDUtilizador | Atribui um papel a um utilizador. |
+| DeviceId | Atribui um papel a um dispositivo. |
+| DomainName | Atribui um papel a um nome de domínio. Cada utilizador com o nome de domínio especificado tem os direitos de acesso da função correspondente. |
+| TenantId | Atribui um papel a um inquilino. Cada utilizador que pertença ao ID de inquilino azure especificado tem os direitos de acesso da função correspondente. |
+| Serviço Principado | Atribui uma função a um id de objeto principal de serviço. |
+| Funtida definida pelo utilizador | Atribui uma função a uma função definida pelo utilizador (UDF). |

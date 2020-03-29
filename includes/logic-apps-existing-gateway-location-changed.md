@@ -5,11 +5,11 @@ author: ecfan
 ms.author: estfan
 ms.date: 11/09/2018
 ms.openlocfilehash: 01f9a3c74c555338e99776490ceb4828503cef23
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792049"
 ---
-**P**: por que o local para meu gateway existente foi alterado? <br/>
-**R**: os recursos de gateway criados antes de 3 de maio de 2017 foram movidos para os locais originais do locatário do Azure ad para a conta corporativa ou de estudante que criou esses gateways. No entanto, essas alterações não devem afetar os aplicativos lógicos em execução no momento, o que deve continuar funcionando normalmente. Com a disponibilidade geral do gateway em maio, os locais de recursos do gateway podem diferir dos locais dos aplicativos lógicos.
+**P:** Por que a localização para a minha mudança de gateway existente? <br/>
+**R**: Os recursos gateway criados antes de 3 de maio de 2017 foram transferidos para as localizações originais do inquilino da AD Azure para a obra ou conta escolar que criou esses gateways. No entanto, estas alterações não devem afetar atualmente aplicações lógicas de execução, que devem continuar a funcionar como de costume. Com a disponibilidade geral do gateway em maio, as localizações de recursos gateway podem diferir das localizações lógicas das aplicações.

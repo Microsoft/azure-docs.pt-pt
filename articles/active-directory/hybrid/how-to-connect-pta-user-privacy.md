@@ -18,18 +18,18 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0af1c42e7e2c163e7f9e7407d0236e35bfacf8e8
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76931012"
 ---
-# <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Privacidade do utilizador e autenticação de passe de diretório ativo Azure
+# <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Privacidade do Utilizador e Autenticação Pass-through do Azure Active Directory
 
 
 [!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 A Autenticação pass-through Azure AD cria o seguinte tipo de registo, que pode conter Dados Pessoais:
 
@@ -46,7 +46,7 @@ Recomendamos vivamente a segunda opção, uma vez que é mais fácil implementar
 
 ### <a name="delete-azure-ad-connect-trace-log-files"></a>Eliminar ficheiros de registo de rastreio de ligação ad ad azure
 
-Verifique o conteúdo da pasta **%ProgramData\AADConnect** e elimine o conteúdo do registo de rastreios **(ficheiros de** registo de rastreios\*.log) desta pasta no prazo de 48 horas após a instalação ou atualização do Azure AD Connect ou modificando a configuração de autenticação pass-through, uma vez que esta ação pode criar dados cobertos pelo RGPD.
+Verifique o conteúdo da pasta **%ProgramData\AADConnect** e elimine o conteúdo do registo de rastreios **(ficheiros de\*** rastreio- .log) desta pasta no prazo de 48 horas após a instalação ou atualização do Azure AD Connect ou modificando a configuração de autenticação pass-through, uma vez que esta ação pode criar dados cobertos pelo RGPD.
 
 >[!IMPORTANT]
 >Não elimine o ficheiro **PersistedState.xml** nesta pasta, uma vez que este ficheiro é utilizado para manter o estado da instalação anterior do Azure AD Connect e é utilizado quando uma instalação de atualização é feita. Este ficheiro nunca conterá quaisquer dados sobre uma pessoa e nunca deve ser eliminado.
@@ -93,12 +93,12 @@ Para agendar este guião a cada 48 horas siga estes passos:
 1.  Guarde o guião num ficheiro com ". Extensão PS1".
 2.  Abra **o Painel** de Controlo e clique no Sistema e **Segurança.**
 3.  Sob a rubrica **Ferramentas Administrativas,** clique em "**Tarefas**de Agenda ".
-4.  No **Agendador**de Tarefas, clique à direita em "**Task Schedule Library**" e clique em " Criar tarefa**básica...** ".
+4.  No **Agendador**de Tarefas, clique à direita em "**Task Schedule Library**" e clique em " Criar tarefa**básica...**".
 5.  Introduza o nome para a nova tarefa e clique em **Next**.
 6.  Selecione "**Daily**" para o Gatilho de **Tarefa** e clique **em Seguinte**.
 7.  Detete a recorrência para dois dias e clique **em Seguinte**.
 8.  Selecione "**Iniciar um programa**" como ação e clicar em **Seguinte**.
-9.  Digite "**PowerShell**" na caixa para o Programa/script, e na caixa com o rótulo "**Adicione argumentos (opcional)** ", insira o caminho completo para o script que criou anteriormente, em seguida, clique em **Seguinte**.
+9.  Digite "**PowerShell**" na caixa para o Programa/script, e na caixa com o rótulo "**Adicione argumentos (opcional)**", insira o caminho completo para o script que criou anteriormente, em seguida, clique em **Seguinte**.
 10. O ecrã seguinte mostra um resumo da tarefa que está prestes a criar. Verifique os valores e clique **em Terminar** para criar a tarefa:
  
 ### <a name="note-about-domain-controller-logs"></a>Nota sobre registos de controladores de domínio

@@ -12,10 +12,10 @@ ms.date: 07/31/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5daf88e746ea803f345c79bd31d656f2615b6754
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78184099"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migrar uma API web baseada em OWIN para b2clogin.com
@@ -27,7 +27,7 @@ Adicionando suporte na sua API para aceitar fichas emitidas tanto por b2clogin.c
 As seguintes secções apresentam um exemplo de como ativar vários emitentes numa API web que utiliza os componentes do middleware [Microsoft OWIN][katana] (Katana). Embora os exemplos de código sejam específicos do middleware Microsoft OWIN, a técnica geral deve ser aplicável a outras bibliotecas OWIN.
 
 > [!NOTE]
-> Este artigo destina-se a clientes Azure AD B2C com APIs e aplicações atualmente implantadas que referem `login.microsoftonline.com` e que queiram migrar para o ponto final recomendado `b2clogin.com`. Se estiver a configurar uma nova aplicação, utilize [b2clogin.com](b2clogin.md) conforme direcionado.
+> Este artigo destina-se a clientes Azure AD B2C com APIs e aplicações atualmente implantadas que referenciam `login.microsoftonline.com` e que queiram migrar para o ponto final recomendado. `b2clogin.com` Se estiver a configurar uma nova aplicação, utilize [b2clogin.com](b2clogin.md) conforme direcionado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,11 +48,11 @@ Comece por selecionar um dos fluxos de utilizador existentes:
 
     ![Hiperligação URI bem conhecida na página Run agora do portal Azure](media/multi-token-endpoints/portal-01-policy-link.png)
 
-1. Na página que abre no seu navegador, registe o valor `issuer`, por exemplo:
+1. Na página que abre no seu `issuer` navegador, registe o valor, por exemplo:
 
     `https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/`
 
-1. Utilize a redução do **domínio Select** para selecionar o outro domínio e, em seguida, execute os dois passos anteriores mais uma vez e grave o seu valor `issuer`.
+1. Utilize a queda de **domínio Select** para selecionar o outro domínio e, em seguida, execute os dois passos anteriores mais uma vez e grave o seu `issuer` valor.
 
 Deve agora ter dois URIs gravados que são semelhantes a:
 
@@ -70,7 +70,7 @@ Se tiver políticas personalizadas em vez de fluxos de utilizador, pode utilizar
 1. Selecione uma das suas políticas partidárias, por exemplo, *B2C_1A_signup_signin*
 1. Utilize a gota de **domínio Select** para selecionar um domínio, por *exemplo, yourtenant.b2clogin.com*
 1. Selecione a hiperligação exibida sob o ponto final da **descoberta OpenID Connect**
-1. Grave o valor `issuer`
+1. Grave `issuer` o valor
 1. Execute os passos 4-6 para o outro domínio, por *exemplo, login.microsoftonline.com*
 
 ## <a name="get-the-sample-code"></a>Obter o código de exemplo
@@ -88,11 +88,11 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 Nesta secção, atualiza o código para especificar que ambos os pontos finais do emitente simbólico são válidos.
 
 1. Abra a solução **B2C-WebAPI-DotNet.sln** no Estúdio Visual
-1. No projeto **TaskService,** abra o ficheiro *taskService\\App_Start \\**Startup.Auth.cs*** no seu editor
-1. Adicione a seguinte diretiva `using` ao topo do ficheiro:
+1. No projeto **TaskService,** abra o ficheiro *\\TaskService App_Start\\**Startup.Auth.cs*** no seu editor
+1. Adicione a `using` seguinte diretiva ao topo do ficheiro:
 
     `using System.Collections.Generic;`
-1. Adicione a [propriedade`ValidIssuers`][validissuers] à definição [`TokenValidationParameters`][tokenvalidationparameters] e especifique ambas as URIs que registou na secção anterior:
+1. Adicione [`ValidIssuers`][validissuers] a propriedade [`TokenValidationParameters`][tokenvalidationparameters] à definição e especifique ambas as URIs que registou na secção anterior:
 
     ```csharp
     TokenValidationParameters tvps = new TokenValidationParameters
@@ -107,7 +107,7 @@ Nesta secção, atualiza o código para especificar que ambos os pontos finais d
     };
     ```
 
-`TokenValidationParameters` é fornecida por MSAL.NET e é consumida pelo middleware OWIN na próxima secção de código em *Startup.Auth.cs*. Com vários emitentes válidos especificados, o pipeline de aplicação OWIN é informado de que ambos os pontos finais simbólicos são emitentes válidos.
+`TokenValidationParameters`é fornecido por MSAL.NET e é consumido pelo middleware OWIN na próxima secção de código em *Startup.Auth.cs*. Com vários emitentes válidos especificados, o pipeline de aplicação OWIN é informado de que ambos os pontos finais simbólicos são emitentes válidos.
 
 ```csharp
 app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
@@ -123,9 +123,9 @@ Como mencionado anteriormente, outras bibliotecas OWIN normalmente fornecem uma 
 
 Com ambas as URIs agora suportadas pela sua Web API, agora precisa de atualizar a sua aplicação web para que recupere tokens do b2clogin.com ponto final.
 
-Por exemplo, pode configurar a aplicação web da amostra para utilizar o novo ponto final modificando o valor `ida:AadInstance` no ficheiro *TaskWebApp\\**Web.config*** do projeto **TaskWebApp.**
+Por exemplo, pode configurar a aplicação web da amostra `ida:AadInstance` para utilizar o novo ponto final modificando o valor no ficheiro *TaskWebApp\\**Web.config*** do projeto **TaskWebApp.**
 
-Altere o valor `ida:AadInstance` no *Web.config* do TaskWebApp de modo a que se refira `{your-b2c-tenant-name}.b2clogin.com` em vez de `login.microsoftonline.com`.
+Altere `ida:AadInstance` o valor no *Web.config* do TaskWebApp `{your-b2c-tenant-name}.b2clogin.com` de `login.microsoftonline.com`modo a que se refira em vez de .
 
 Antes:
 
@@ -134,7 +134,7 @@ Antes:
 <add key="ida:AadInstance" value="https://login.microsoftonline.com/tfp/{0}/{1}" />
 ```
 
-Depois (substitua `{your-b2c-tenant}` pelo nome do seu inquilino B2C):
+Depois (substitua-o `{your-b2c-tenant}` pelo nome do seu inquilino B2C):
 
 ```xml
 <!-- New value -->

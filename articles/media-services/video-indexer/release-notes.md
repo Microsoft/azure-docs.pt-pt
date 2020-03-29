@@ -1,6 +1,6 @@
 ---
-title: Notas de versão do Video Indexer de serviços de mídia do Azure | Microsoft Docs
-description: Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece as atualizações mais recentes sobre os serviços de mídia do Azure Video Indexer.
+title: Notas de lançamento do Azure Media Services Video Indexer Microsoft Docs
+description: Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece-lhe as mais recentes atualizações sobre o Indexante de Vídeo dos Serviços de Mídia Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,28 +13,28 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: juliako
 ms.openlocfilehash: f1387273f9736fea70682177d5d48dc2f141bbad
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76933851"
 ---
-# <a name="azure-media-services-video-indexer-release-notes"></a>Notas de versão do Video Indexer de serviços de mídia do Azure
+# <a name="azure-media-services-video-indexer-release-notes"></a>Notas de lançamento do Indexer de Vídeo dos Serviços De Mídia Azure
 
->Seja notificado sobre quando revisitar esta página para atualizações copiando e colando este URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` no leitor de feed RSS.
+>Seja notificado sobre quando revisitar esta página para atualizações copiando e colando este URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` no seu leitor de feed RSS.
 
-Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece informações sobre:
+Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece-lhe informações sobre:
 
-* Versões mais recentes
+* Os últimos lançamentos
 * Problemas conhecidos
 * Correções de erros
-* Funcionalidades preteridas
+* Funcionalidade preterida
 
 ## <a name="january-2020"></a>Janeiro de 2020
  
 ### <a name="custom-language-support-for-additional-languages"></a>Suporte de linguagem personalizada para idiomas adicionais
 
-O Indexer de vídeo suporta agora modelos de linguagem personalizada para `ar-SY`, `en-UK`e `en-AU` (apenas API).
+O Indexer de vídeo suporta `ar-SY` `en-UK`agora `en-AU` modelos de linguagem personalizada para, e (apenas API).
  
 ### <a name="delete-account-timeframe-action-update"></a>Eliminar a atualização de ação do prazo da conta
 
@@ -42,7 +42,7 @@ A eliminação da ação da conta agora elimina a conta no prazo de 90 dias em v
  
 ### <a name="new-video-indexer-github-repository"></a>Novo repositório do Indexer de Vídeo GitHub
 
-Um novo Índice de Vídeo GitHub com diferentes projetos, iniciando guias e amostras de código está agora disponível: https://github.com/Azure-Samples/media-services-video-indexer
+Um novo Índice de Vídeo GitHub com diferentes projetos, iniciando guias e amostras de código está agora disponível:https://github.com/Azure-Samples/media-services-video-indexer
  
 ### <a name="swagger-update"></a>Atualização swagger
 
@@ -52,155 +52,155 @@ Autenticações e **operações** **unificadas** do Indexer de Vídeo numa únic
 
 ### <a name="update-transcript-with-the-new-api"></a>Atualizar transcrição com a nova API
 
-Atualize uma seção específica na transcrição usando a API [Update-Video-index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?&pattern=update) .
+Atualize uma secção específica na transcrição utilizando a API do [Índice de Vídeo-Actualização.](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?&pattern=update)
 
-### <a name="fix-account-configuration-from-the-video-indexer-portal"></a>Corrigir a configuração da conta no portal de Video Indexer
+### <a name="fix-account-configuration-from-the-video-indexer-portal"></a>Corrigir a configuração da conta a partir do portal Do Indexante de Vídeo
 
-Agora você pode atualizar a configuração de conexão dos serviços de mídia para autoajudar com problemas como: 
+Agora pode atualizar a configuração de ligação dos Serviços de Media para auto-ajudar com questões como: 
 
-* recurso incorreto dos serviços de mídia do Azure
-* alterações de senha
-* Os recursos dos serviços de mídia foram movidos entre assinaturas  
+* recurso incorreto dos Serviços de Mídia Azure
+* alterações na palavra-passe
+* Os recursos dos Serviços de Media foram movidos entre assinaturas  
 
-Para corrigir a configuração da conta, no portal do Video Indexer, navegue até Configurações > guia conta (como proprietário).
+Para corrigir a configuração da conta, no portal do Indexante de Vídeo navegar para Definições > separador conta (como proprietário).
 
-### <a name="configure-the-custom-vision-account"></a>Configurar a conta de visão personalizada
+### <a name="configure-the-custom-vision-account"></a>Configure a conta de visão personalizada
 
-Configurar a conta de visão personalizada em contas pagas usando o portal de Video Indexer (anteriormente, isso só era suportado pela API). Para fazer isso, entre no portal de Video Indexer, escolha personalização de modelo > caracteres animados > Configurar. 
+Configure a conta de visão personalizada em contas pagas utilizando o portal Indexer de Vídeo (anteriormente, este só foi suportado pela API). Para isso, inscreva-se no portal do Indexer de Vídeo, escolha model personalizização > personagens animados > Configurar. 
 
-### <a name="scenes-shots-and-keyframes--now-in-one-insight-pane"></a>Cenas, capturas e quadros-chave – agora em um painel de insights
+### <a name="scenes-shots-and-keyframes--now-in-one-insight-pane"></a>Cenas, fotos e quadros-chave - agora em um painel de insights
 
-Os bastidores, as capturas e os quadros-chave agora são mesclados em uma percepção para facilitar o consumo e a navegação. Ao selecionar a cena desejada, você pode ver quais capturas e quadros-chave são consistentes. 
+Cenas, tiros e quadros-chave são agora fundidos numa única visão para um consumo e navegação mais fáceis. Quando seleciona a cena desejada, pode ver em que imagens e quadros de chaves é composto. 
 
-### <a name="notification-about-a-long-video-name"></a>Notificação sobre um nome de vídeo longo
+### <a name="notification-about-a-long-video-name"></a>Notificação sobre um longo nome de vídeo
 
-Quando um nome de vídeo tem mais de 80 caracteres, Video Indexer mostra um erro descritivo no carregamento.
+Quando um nome de vídeo é superior a 80 caracteres, o Indexer de vídeo mostra um erro descritivo no upload.
 
-### <a name="streaming-endpoint-is-disabled-notification"></a>A notificação de ponto de extremidade de streaming está desabilitada
+### <a name="streaming-endpoint-is-disabled-notification"></a>O ponto final de streaming é uma notificação desativada
 
-Quando o ponto de extremidade de streaming estiver desabilitado, Video Indexer mostrará um erro descritivo na página do Player.
+Quando o ponto final de streaming é desativado, o Indexer de vídeo mostrará um erro descritivo na página do leitor.
 
-### <a name="error-handling-improvement"></a>Aprimoramento do tratamento de erros
+### <a name="error-handling-improvement"></a>Melhoria do tratamento de erros
 
-O código de status 409 agora será retornado de [reindexação de vídeo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video? https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?) e atualização de APIs de [índice de vídeo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?) caso um vídeo esteja ativamente indexado, para evitar a substituição das alterações de reindexação atuais por acidente.
+O código de estado 409 será agora devolvido das APIs do [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?) e [do Update Video Index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?) no caso de um vídeo estar ativamente indexado, para evitar que se sobrepôs às atuais alterações do índice de reindexem por acidente.
 
 ## <a name="november-2019"></a>Novembro de 2019
  
-* Suporte aos modelos de idioma personalizado coreano
+* Suporte de modelos de idioma personalizado coreano
 
-    O video indexer agora dá suporte a modelos de linguagem personalizados em coreano (`ko-KR`) tanto na API quanto no Portal. 
-* Novos idiomas com suporte para conversão de fala em texto (STT)
+    O indexador de vídeo agora`ko-KR`suporta modelos de linguagem personalizada em coreano ( ) tanto na API como no portal. 
+* Novas línguas apoiadas para o discurso-a-texto (STT)
 
-    Video Indexer APIs agora dão suporte a STT em árabe Levantine (ar-SY), dialeto inglês do Reino Unido (en-GB) e dialeto australiano inglês (en-AU).
+    ApIs indexador de vídeo agora suportaM STT em Levantine árabe (ar-SY), dialeto inglês do Reino Unido (en-GB) e dialeto australiano inglês (en-UA).
     
-    Para carregamento de vídeo, substituimos zh-HANS a zh-CN, ambos têm suporte, mas o zh-CN é recomendado e mais preciso.
+    Para o upload de vídeo, substituímos zh-HANS para zh-CN, ambos são suportados, mas zh-CN é recomendado e mais preciso.
     
 ## <a name="october-2019"></a>Outubro de 2019
  
-* Pesquisar caracteres animados na Galeria
+* Pesquisa de personagens animados na galeria
 
-    Ao indexar caracteres animados, agora você pode pesquisá-los na galé de vídeo da conta. Para obter mais informações, consulte [manuscrito de caracteres animados](animated-characters-recognition.md).
+    Ao indexar personagens animados, pode agora procurá-los na cozinha de vídeo da conta. Para mais informações, consulte o reconhecimento de [personagens animados.](animated-characters-recognition.md)
 
 ## <a name="september-2019"></a>Setembro de 2019
  
-Vários avanços anunciados em IBC 2019:
+Múltiplos avanços anunciados no IBC 2019:
  
-* Reconhecimento de caracteres animados (visualização pública)
+* Reconhecimento de personagens animados (pré-visualização pública)
 
-    Capacidade de detectar os caracteres do grupo do AD Recognize no conteúdo animado, por meio da integração com visão personalizada. Para obter mais informações, consulte a [detecção de caracteres animados](animated-characters-recognition.md).
-* Identificação de vários idiomas (visualização pública)
+    Capacidade de detetar ad si reconhece personagens em conteúdo animado, através da integração com visão personalizada. Para mais informações, consulte a [deteção de caracteres animados.](animated-characters-recognition.md)
+* Identificação multi-linguística (pré-visualização pública)
 
-    Detecte segmentos em vários idiomas na faixa de áudio e crie uma transcrição multilíngue com base neles. Suporte inicial: Inglês, espanhol, alemão e francês. Para obter mais informações, consulte [identificar e transcrever automaticamente o conteúdo em vários idiomas](multi-language-identification-transcription.md).
-* Extração de entidade nomeada para pessoas e local
+    Detete segmentos em várias línguas na faixa de áudio e crie uma transcrição multilingual com base neles. Apoio inicial: Inglês, Espanhol, Alemão e Francês. Para mais informações, consulte [Automaticamente identificar e transcrever conteúdo multilingues.](multi-language-identification-transcription.md)
+* Extração de entidade nomeada para Pessoas e Localização
 
-    Extrai marcas, locais e pessoas de fala e texto visual por meio do NLP (processamento de idioma natural).
-* Classificação do tipo editorial shot
+    Extrai marcas, locais e pessoas da fala e texto visual através do processamento de linguagem natural (NLP).
+* Classificação do tipo de tiro editorial
 
-    Marcação de capturas com tipos editoriais como close up, Medium, two shot, interno, externamente, etc. Para obter mais informações, consulte [detecção do tipo editorial shot](scenes-shots-keyframes.md#editorial-shot-type-detection).
-* Aprimoramento do tópico inferência – agora cobrindo o nível 2
+    Marcação de fotos com tipos editoriais como close-up, tiro médio, dois tiros, interior, exterior etc. Para mais informações, consulte a deteção do [tipo editorial de tiro.](scenes-shots-keyframes.md#editorial-shot-type-detection)
+* Melhoria da inferência do tópico - agora cobrindo o nível 2
     
-    O tópico inferência Model Agora dá suporte à granularidade mais profunda da taxonomia IPTC. Leia os detalhes completos nos [serviços de mídia do Azure nova inovação com alimentação de ia](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
+    O modelo de inferência do tema suporta agora uma granularidade mais profunda da taxonomia do IPTC. Leia todos os detalhes na [Azure Media Services nova inovação alimentada por IA.](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/)
 
 ## <a name="august-2019"></a>Agosto de 2019
  
-### <a name="video-indexer-deployed-in-uk-south"></a>Video Indexer implantado no Sul do Reino Unido
+### <a name="video-indexer-deployed-in-uk-south"></a>Indexer de vídeo implantado no Reino Unido Sul
 
-Agora você pode criar uma conta paga Video Indexer na região do Sul do Reino Unido.
+Pode agora criar uma conta paga por Video Indexer na região sul do Reino Unido.
 
-### <a name="new-editorial-shot-type-insights-available"></a>Novas informações de tipo de captura editorial disponíveis
+### <a name="new-editorial-shot-type-insights-available"></a>Novos insights do tipo de tiro editorial disponíveis
 
-As novas marcas adicionadas às capturas de vídeo fornecem "tipos de captura" editoriais para identificá-las com as frases editoriais comuns usadas no fluxo de trabalho de criação de conteúdo, como: Extreme closeup, closeup, Wide, Medium, two shot, externamente, interno, face esquerda e direita (disponível no JSON).
+Novas tags adicionadas a imagens de vídeo fornecem "tipos de tiro" editoriais para identificá-los com frases editoriais comuns usadas no fluxo de trabalho de criação de conteúdo, tais como: closeup extremo, closeup, wide, medium, two shot, outdoor, indoor, left face e right face (Disponível no JSON).
 
-### <a name="new-people-and-locations-entities-extraction-available"></a>Extração de entidades de novas pessoas e locais disponíveis
+### <a name="new-people-and-locations-entities-extraction-available"></a>Extração de novas entidades pessoas e locais disponíveis
 
-Video Indexer identifica locais nomeados e pessoas por meio do NLP (processamento de idioma natural) do OCR e da transcrição do vídeo. Video Indexer usa o algoritmo de aprendizado de máquina para reconhecer quando locais específicos (por exemplo, a torre de Eiffel) ou pessoas (por exemplo, João da Silva) estão sendo chamados em um vídeo.
+O Indexer de vídeo identifica locais e pessoas nomeados através do processamento de linguagem natural (NLP) a partir do OCR e transcrição do vídeo. O Indexer de vídeo usa algoritmo de aprendizagem automática para reconhecer quando locais específicos (por exemplo, a Torre Eiffel) ou pessoas (por exemplo, John Doe) estão a ser chamados num vídeo.
 
-### <a name="keyframes-extraction-in-native-resolution"></a>Extração de quadros-chave na resolução nativa
+### <a name="keyframes-extraction-in-native-resolution"></a>Extração de quadros-chave em resolução nativa
 
-Os quadros-chave extraídos por Video Indexer estão disponíveis na resolução original do vídeo.
+Os quadros-chave extraídos pelo Indexer de Vídeo estão disponíveis na resolução original do vídeo.
  
-### <a name="ga-for-training-custom-face-models-from-images"></a>GA para treinamento de modelos de face personalizados de imagens
+### <a name="ga-for-training-custom-face-models-from-images"></a>GA para treinar modelos de rosto personalizados a partir de imagens
 
-Rostos de treinamento de imagens movidas do modo de visualização para GA (disponível via API e no Portal).
+Rostos de treino de imagens transferidas do modo Preview para GA (disponíveis via API e no portal).
 
 > [!NOTE]
-> Não há impacto de preço relacionado à transição de "visualização para GA".
+> Não existe qualquer impacto de preços relacionados com a transição "Preview to GA".
 
-### <a name="hide-gallery-toggle-option"></a>Ocultar opção de alternância da Galeria
+### <a name="hide-gallery-toggle-option"></a>Ocultar a opção de alternância da galeria
 
-O usuário pode optar por ocultar a guia Galeria do portal (semelhante a ocultar a guia amostras).
+O utilizador pode optar por ocultar o separador da galeria do portal (semelhante ao ocultar o separador de amostras).
  
-### <a name="maximum-url-size-increased"></a>Tamanho máximo de URL aumentado
+### <a name="maximum-url-size-increased"></a>Tamanho máximo do URL aumentado
 
-Suporte para cadeia de caracteres de consulta de URL 4096 (em vez de 2048) na indexação de um vídeo.
+Suporte para cadeia de consulta de URL de 4096 (em vez de 2048) na indexação de um vídeo.
  
-### <a name="support-for-multi-lingual-projects"></a>Suporte para projetos multilíngues
+### <a name="support-for-multi-lingual-projects"></a>Apoio a projetos multilingues
 
-Agora, os projetos podem ser criados com base em vídeos indexados em diferentes idiomas (somente API).
+Os projetos podem agora ser criados com base em vídeos indexados em diferentes línguas (apenas API).
 
 ## <a name="july-2019"></a>Julho de 2019
 
-### <a name="editor-as-a-widget"></a>Editor como um widget
+### <a name="editor-as-a-widget"></a>Editor como widget
 
-O Video Indexer AI-Editor agora está disponível como um widget a ser inserido nos aplicativos do cliente.
+O editor de IA do Indexer de Vídeo está agora disponível como um widget para ser incorporado nas aplicações do cliente.
 
-### <a name="update-custom-language-model-from-closed-caption-file-from-the-portal"></a>Atualizar o modelo de idioma personalizado do arquivo de legenda oculta no portal
+### <a name="update-custom-language-model-from-closed-caption-file-from-the-portal"></a>Atualizar modelo de idioma personalizado a partir de ficheiro de legenda fechada a partir do portal
 
-Os clientes podem fornecer os formatos de arquivo VTT, SRT e TTML como entrada para modelos de linguagem na página personalização do Portal.
+Os clientes podem fornecer formatos de ficheiroS VTT, SRT e TTML como entrada para modelos de idiomas na página de personalização do portal.
 
 ## <a name="june-2019"></a>Junho de 2019
 
-### <a name="video-indexer-deployed-to-japan-east"></a>Video Indexer implantado no leste do Japão
+### <a name="video-indexer-deployed-to-japan-east"></a>Indexer de vídeo implantado no Japão Leste
 
-Agora você pode criar uma conta paga Video Indexer na região leste do Japão.
+Agora pode criar uma conta paga por Video Indexer na região do Leste do Japão.
 
-### <a name="create-and-repair-account-api-preview"></a>Criar e reparar a API da conta (versão prévia)
+### <a name="create-and-repair-account-api-preview"></a>Criar e reparar a conta API (Pré-visualização)
 
-Adicionada uma nova API que permite que você [atualize a chave ou o ponto de extremidade de conexão do serviço de mídia do Azure](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Paid-Account-Azure-Media-Services?&groupBy=tag).
+Adicione um novo API que lhe permite atualizar o ponto final ou chave de ligação do [Azure Media Service](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Paid-Account-Azure-Media-Services?&groupBy=tag).
 
-### <a name="improve-error-handling-on-upload"></a>Melhorar o tratamento de erros ao carregar 
+### <a name="improve-error-handling-on-upload"></a>Melhorar o manuseamento de erros no upload 
 
-Uma mensagem descritiva é retornada em caso de configuração incorreta da conta subjacente dos serviços de mídia do Azure.
+Uma mensagem descritiva é devolvida em caso de configuração errada da conta de Serviços De Mídia Azure subjacente.
 
-### <a name="player-timeline-keyframes-preview"></a>Linha do tempo do Player-visualização de quadros principais 
+### <a name="player-timeline-keyframes-preview"></a>Pré-visualização de keyframes de linha de tempo do jogador 
 
-Agora você pode ver uma visualização de imagem para cada vez na linha do tempo do jogador.
+Pode agora ver uma pré-visualização de imagem para cada vez na linha temporal do jogador.
 
-### <a name="editor-semi-select"></a>Seleção semi do editor
+### <a name="editor-semi-select"></a>Editor semi-selecionado
 
-Agora você pode ver uma visualização de todas as informações que são selecionadas como resultado da escolha de um período de insight específico no editor.
+Pode agora ver uma pré-visualização de todas as informações que são selecionadas como resultado da escolha de um prazo específico de insight no editor.
 
 ## <a name="may-2019"></a>Maio de 2019
 
-### <a name="update-custom-language-model-from-closed-caption-file"></a>Atualizar o modelo de idioma personalizado do arquivo de legenda oculta
+### <a name="update-custom-language-model-from-closed-caption-file"></a>Atualizar modelo de idioma personalizado a partir de ficheiro de legenda fechado
 
-[Criar um modelo de linguagem personalizado](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?&groupBy=tag) e atualizar as APIs de [modelos de linguagem personalizados](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Language-Model?&groupBy=tag) agora dão suporte aos formatos de arquivo VTT, Srt e TTML como entrada para modelos de linguagem.
+[Crie modelos de idiomas personalizados](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?&groupBy=tag) e [atualize modelos de idiomas personalizados](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Language-Model?&groupBy=tag) APIs agora suportam formatos de ficheiros VTT, SRT e TTML como entrada para modelos de idiomas.
 
-Ao chamar a [API Update transcrição de vídeo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Transcript?&pattern=transcript), a transcrição é adicionada automaticamente. O modelo de treinamento associado ao vídeo também é atualizado automaticamente. Para obter informações sobre como personalizar e treinar seus modelos de idioma, consulte [Personalizar um modelo de linguagem com Video indexer](customize-language-model-overview.md).
+Ao ligar para a API da transcrição do [Vídeo de Atualização,](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Transcript?&pattern=transcript)a transcrição é adicionada automaticamente. O modelo de treino associado ao vídeo também é atualizado automaticamente. Para obter informações sobre como personalizar e treinar os seus modelos linguísticos, consulte [Personalizar um modelo de Idioma com O Indexante](customize-language-model-overview.md)de Vídeo .
 
-### <a name="new-download-transcript-formats--txt-and-csv"></a>Novos formatos de transcrição de download – TXT e CSV
+### <a name="new-download-transcript-formats--txt-and-csv"></a>Novos formatos de transcrição de download - TXT e CSV
 
-Além do formato de legenda oculta já suportado (SRT, VTT e TTML), Video Indexer agora dá suporte ao download da transcrição nos formatos TXT e CSV.
+Além do formato de legendagem fechado já suportado (SRT, VTT e TTML), o Video Indexer suporta agora o download da transcrição em formatos TXT e CSV.
 
 ## <a name="next-steps"></a>Passos seguintes
 

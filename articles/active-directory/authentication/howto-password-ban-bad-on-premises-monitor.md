@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fbb533d5565009fb22d686e4082c9b4bfaae6dc1
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78671661"
 ---
 # <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>Monitor e registos de revisão para ambientes de proteção de senhas azure ad no local
@@ -96,7 +96,7 @@ PasswordSetErrors               : 1
 
 O âmbito do relatório do cmdlet pode ser influenciado utilizando um dos parâmetros -Floresta, Domínio ou – DomainController. Não especificar um parâmetro implica - Floresta.
 
-O `Get-AzureADPasswordProtectionSummaryReport` cmdlet funciona consultando o registo de eventos do agente dc e, em seguida, contando o número total de eventos que correspondem a cada categoria de resultados exibidos. A tabela seguinte contém os mapeamentos entre cada resultado e o respetivo ID do evento:
+O `Get-AzureADPasswordProtectionSummaryReport` cmdlet funciona consultando o registo de eventos do agente DC e, em seguida, contando o número total de eventos que correspondem a cada categoria de resultados exibidos. A tabela seguinte contém os mapeamentos entre cada resultado e o respetivo ID do evento:
 
 |Get-AzureADPasswordProtectionSummaryReport |ID do evento correspondente|
 | :---: | :---: |
@@ -106,10 +106,10 @@ O `Get-AzureADPasswordProtectionSummaryReport` cmdlet funciona consultando o reg
 |PasswordSetsRejeitado |10017|
 |PasswordChangeAuditOnlyFailures |10024|
 |PasswordSetAuditOnlyFailures |10025|
-|PasswordChangeErrors |10012|
-|PasswordSetErrors |10013|
+|Erros de mudança de palavras-passe |10012|
+|Erros de Definição de Passwords |10013|
 
-Note que o `Get-AzureADPasswordProtectionSummaryReport` cmdlet é enviado no formulário de script PowerShell e, se necessário, pode ser referenciado diretamente no seguinte local:
+Note que `Get-AzureADPasswordProtectionSummaryReport` o cmdlet é enviado no formulário de script PowerShell e, se necessário, pode ser referenciado diretamente no seguinte local:
 
 `%ProgramFiles%\WindowsPowerShell\Modules\AzureADPasswordProtection\Get-AzureADPasswordProtectionSummaryReport.ps1`
 
@@ -250,7 +250,7 @@ O software de serviço do agente DC instala um objeto de contra-ataque de desemp
 
 ## <a name="dc-agent-discovery"></a>Descoberta do Agente DC
 
-A `Get-AzureADPasswordProtectionDCAgent` cmdlet pode ser usada para mostrar informações básicas sobre os vários agentes de DC que correm num domínio ou floresta. Estas informações são obtidas a partir do(s) objeto(s) de serviçoConnectionPoint registado pelo(s) serviço(s) de agente em execução dc.
+O `Get-AzureADPasswordProtectionDCAgent` cmdlet pode ser utilizado para apresentar informações básicas sobre os vários agentes de DC que correm num domínio ou floresta. Estas informações são obtidas a partir do(s) objeto(s) de serviçoConnectionPoint registado pelo(s) serviço(s) de agente em execução dc.
 
 Uma saída exemplo deste cmdlet é a seguinte:
 
@@ -319,7 +319,7 @@ Os eventos são registados pelos vários componentes proxy utilizando as seguint
 
 O serviço Proxy pode ser configurado para escrever para um registo de texto, definindo o seguinte valor de registo:
 
-HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters!EnableTextLogging = 1 (REG_DWORD value)
+HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters! EnableTextLogging = 1 (REG_DWORD valor)
 
 A exploração de sms é desativada por defeito. É necessário reiniciar o serviço Proxy para que as alterações a este valor entrem em vigor. Quando ativado, o serviço Proxy escreverá para um ficheiro de registo localizado em:
 
@@ -343,7 +343,7 @@ Se ocorrer um erro de cmdlet e a causa e a solução não forem facilmente apare
 
 ## <a name="proxy-discovery"></a>Descoberta por procuração
 
-O `Get-AzureADPasswordProtectionProxy` cmdlet pode ser utilizado para exibir informações básicas sobre os vários serviços de procuração de passwords Azure AD que estão em execução num domínio ou floresta. Estas informações são obtidas a partir do(s) objeto(s) de serviçoConnectionPoint registado pelo ou serviço s Proxy em execução.
+O `Get-AzureADPasswordProtectionProxy` cmdlet pode ser utilizado para apresentar informações básicas sobre os vários serviços de procuração de passwords Azure AD que estão em execução num domínio ou floresta. Estas informações são obtidas a partir do(s) objeto(s) de serviçoConnectionPoint registado pelo ou serviço s Proxy em execução.
 
 Uma saída exemplo deste cmdlet é a seguinte:
 

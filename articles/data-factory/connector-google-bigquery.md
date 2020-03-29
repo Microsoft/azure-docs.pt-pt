@@ -1,6 +1,6 @@
 ---
-title: Copiar dados do Google BigQuery com o Azure Data Factory
-description: Saiba como copiar dados do Google BigQuery para arquivos de dados de sink suportado através de uma atividade de cópia num pipeline de fábrica de dados.
+title: Copiar dados do Google BigQuery utilizando a Fábrica de Dados Azure
+description: Saiba como copiar dados do Google BigQuery para lojas de dados de sink suportadas utilizando uma atividade de cópia num pipeline de fábrica de dados.
 services: data-factory
 documentationcenter: ''
 ms.author: jingwang
@@ -13,57 +13,57 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: c0eb043ce040f154050ef4c3675f165dad326e32
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74929429"
 ---
-# <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Copiar dados do Google BigQuery com o Azure Data Factory
+# <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Copiar dados do Google BigQuery utilizando a Fábrica de Dados Azure
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados do Google BigQuery. Ele se baseia no [descrição geral da atividade de cópia](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados do Google BigQuery. Baseia-se no artigo de visão geral da [Copy Activity](copy-activity-overview.md) que apresenta uma visão geral da atividade da cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Este conector do Google BigQuery tem suporte para as seguintes atividades:
+Este conector Google BigQuery é suportado para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
-- [Atividade de Pesquisa](control-flow-lookup-activity.md)
+- [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
+- [Atividade de procura](control-flow-lookup-activity.md)
 
-Pode copiar dados do Google BigQuery para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens ou sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados do Google BigQuery para qualquer loja de dados suportada. Para obter uma lista de lojas de dados que sejam suportadas como fontes ou afunda-se pela atividade de cópia, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-Data Factory fornece um driver incorporado para permitir a conectividade. Portanto, não precisa de instalar manualmente um driver para utilizar este conector.
+A Data Factory fornece um condutor incorporado para permitir a conectividade. Por isso, não é necessário instalar manualmente um controlador para utilizar este conector.
 
 >[!NOTE]
->Este conector Google BigQuery é criada sobre as APIs de BigQuery. Lembre-se de que os limites de BigQuery a velocidade máxima de entrada de pedidos e impõe quotas adequadas numa base por projeto, consulte [Quotas e limites - solicitações da API](https://cloud.google.com/bigquery/quotas#api_requests). Certifique-se de que não acionam demasiados pedidos simultâneos para a conta.
+>Este conector Google BigQuery é construído em cima das APIs BigQuery. Esteja ciente de que o BigQuery limita a taxa máxima dos pedidos de entrada e aplica quotas adequadas por projeto, consulte quotas [& limites - pedidos](https://cloud.google.com/bigquery/quotas#api_requests)de API . Certifique-se de que não desencadeia muitos pedidos simultâneos para a conta.
 
 ## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Data Factory específicas para o conector do Google BigQuery.
+As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades data Factory específicas do conector Google BigQuery.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 
-As seguintes propriedades são suportadas para o Google BigQuery de serviço ligado.
+As seguintes propriedades são suportadas para o serviço ligado ao Google BigQuery.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como **GoogleBigQuery**. | Sim |
-| project | O ID de projeto do projeto BigQuery padrão para consultas.  | Sim |
-| additionalProjects | Uma lista separada por vírgulas de IDs de projeto do público BigQuery projetos para o acesso.  | Não |
-| requestGoogleDriveScope | Se pedir acesso para o Google Drive. Permitir o acesso do Google Drive ativa o suporte para tabelas federadas que combinam dados BigQuery com dados do Google Drive. O valor predefinido é **false**.  | Não |
-| authenticationType | O mecanismo de autenticação OAuth 2.0 utilizado para autenticação. ServiceAuthentication pode ser utilizado apenas no Runtime de integração autoalojado. <br/>Valores permitidos são **UserAuthentication** e **ServiceAuthentication**. Consulte a secções abaixo desta tabela em mais propriedades e exemplos JSON para esses tipos de autenticação, respetivamente. | Sim |
+| tipo | A propriedade tipo deve ser definida para **o GoogleBigQuery**. | Sim |
+| project | A identificação do projeto padrão BigQuery para consultar.  | Sim |
+| projetos adicionais | Uma lista separada de iDs de projetos públicos de bigquery para aceder.  | Não |
+| solicitar GoogleDriveScope | Se solicitar acesso ao Google Drive. Permitir o acesso ao Google Drive permite suporte para tabelas federadas que combinam dados bigQuery com dados do Google Drive. O valor predefinido é **falso**.  | Não |
+| authenticationType | O mecanismo de autenticação OAuth 2.0 utilizado para autenticação. ServiceAuthentication só pode ser usado em Tempo de Integração Auto-hospedado. <br/>Os valores permitidos são **a Autenticação do Utilizador** e a **Autenticação do Serviço.** Consulte as secções abaixo desta tabela sobre mais propriedades e amostras JSON para esses tipos de autenticação, respectivamente. | Sim |
 
-### <a name="using-user-authentication"></a>Utilizar a autenticação de utilizador
+### <a name="using-user-authentication"></a>Utilização da autenticação do utilizador
 
-Defina a propriedade de "authenticationType" como **UserAuthentication**e especifique as seguintes propriedades, juntamente com as propriedades genéricas descritas na secção anterior:
+Detete a propriedade "autenticaçãoType" para **a Autenticação**do Utilizador, e especifique as seguintes propriedades juntamente com as propriedades genéricas descritas na secção anterior:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| clientId | ID do aplicativo usado para gerar o token de atualização. | Não |
-| clientSecret | Segredo do aplicativo usado para gerar o token de atualização. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
-| refreshToken | O token de atualização obtido a partir do Google utilizado para autorizar o acesso a BigQuery. Saiba como obter um em [tokens de acesso de obtenção de OAuth 2.0](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens) e [este blogue da Comunidade](https://jpd.ms/getting-your-bigquery-refresh-token-for-azure-datafactory-f884ff815a59). Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
+| clientId | Id da aplicação usada para gerar o token de atualização. | Não |
+| clienteSecret | Segredo da aplicação usada para gerar o token de atualização. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Não |
+| refreshToken | O token de atualização obtido pela Google usado para autorizar o acesso ao BigQuery. Saiba como obter um da Obtenção de Fichas de [Acesso OAuth 2.0](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens) e [este blog comunitário](https://jpd.ms/getting-your-bigquery-refresh-token-for-azure-datafactory-f884ff815a59). Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Não |
 
 **Exemplo:**
 
@@ -91,16 +91,16 @@ Defina a propriedade de "authenticationType" como **UserAuthentication**e especi
 }
 ```
 
-### <a name="using-service-authentication"></a>Utilizar a autenticação de serviço
+### <a name="using-service-authentication"></a>Utilização da autenticação do serviço
 
-Defina a propriedade de "authenticationType" como **ServiceAuthentication**e especifique as seguintes propriedades, juntamente com as propriedades genéricas descritas na secção anterior. Este tipo de autenticação pode ser utilizado apenas no Runtime de integração autoalojado.
+Detete a propriedade "autenticaçãoType" para **a Autenticação**do Serviço, e especifique as seguintes propriedades juntamente com as propriedades genéricas descritas na secção anterior. Este tipo de autenticação só pode ser utilizado no Tempo de Integração Auto-hospedado.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| e-mail | O ID de e-mail de conta do serviço é utilizado para ServiceAuthentication. Ele pode ser usado apenas em Runtime de integração autoalojado.  | Não |
-| keyFilePath | O caminho completo para o ficheiro de chave. p12 que é utilizado para autenticar o endereço de e-mail da conta de serviço. | Não |
-| trustedCertPath | O caminho completo do ficheiro. pem que contém os certificados de AC fidedigna, utilizados para verificar se o servidor quando se liga através de SSL. Esta propriedade pode ser definida apenas se utilizar o SSL no Integration Runtime autoalojado. O valor predefinido é o arquivo de cacerts.pem instalado com o runtime de integração.  | Não |
-| useSystemTrustStore | Especifica se pretende utilizar um certificado de AC a partir da loja de confiança do sistema ou de um ficheiro. pem especificado. O valor predefinido é **false**.  | Não |
+| e-mail | O id de e-mail da conta de serviço que é usado para A Autenticação de Serviços. Só pode ser utilizado em Tempo de Funcionação de Integração Auto-hospedado.  | Não |
+| keyFilePath | O caminho completo para o ficheiro chave .p12 que é usado para autenticar o endereço de e-mail da conta de serviço. | Não |
+| trustedCertPath | O caminho completo do ficheiro .pem que contém certificados CA fidedignos utilizados para verificar o servidor quando se conecta através do SSL. Esta propriedade só pode ser definida quando utilizar o SSL no Tempo de Execução de Integração Auto-hospedado. O valor predefinido é o ficheiro cacerts.pem instalado com o tempo de execução da integração.  | Não |
+| useSystemTrustStore | Especifica se utilizará um certificado CA a partir da loja fiduciário do sistema ou de um ficheiro .pem especificado. O valor predefinido é **falso**.  | Não |
 
 **Exemplo:**
 
@@ -124,18 +124,18 @@ Defina a propriedade de "authenticationType" como **ServiceAuthentication**e esp
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta secção fornece uma lista das propriedades compatíveis com o conjunto de dados do Google BigQuery.
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Datasets.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados do Google BigQuery.
 
-Para copiar dados do Google BigQuery, defina a propriedade de tipo de conjunto de dados para **GoogleBigQueryObject**. São suportadas as seguintes propriedades:
+Para copiar dados do Google BigQuery, detete a propriedade do tipo do conjunto de dados para **o GoogleBigQueryObject**. As seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **GoogleBigQueryObject** | Sim |
-| DataSet | Nome do conjunto de BigQuery do Google. |Não (se for especificada "query" na origem de atividade)  |
-| table | Nome da tabela. |Não (se for especificada "query" na origem de atividade)  |
-| tableName | Nome da tabela. Essa propriedade tem suporte para compatibilidade com versões anteriores. Para uma nova carga de trabalho, use `dataset` e `table`. | Não (se for especificada "query" na origem de atividade) |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **GoogleBigQueryObject** | Sim |
+| conjunto de dados | Nome do conjunto de dados do Google BigQuery. |Não (se for especificada a "consulta" na fonte de atividade)  |
+| tabela | Nome da mesa. |Não (se for especificada a "consulta" na fonte de atividade)  |
+| tableName | Nome da mesa. Esta propriedade é suportada para retrocompatibilidade. Para uma nova `dataset` `table`carga de trabalho, use e . | Não (se for especificada a "consulta" na fonte de atividade) |
 
 **Exemplo**
 
@@ -156,16 +156,16 @@ Para copiar dados do Google BigQuery, defina a propriedade de tipo de conjunto d
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista das propriedades compatíveis com o tipo de origem do Google BigQuery.
+Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas pelo tipo de fonte do Google BigQuery.
 
-### <a name="googlebigquerysource-as-a-source-type"></a>GoogleBigQuerySource como um tipo de origem
+### <a name="googlebigquerysource-as-a-source-type"></a>GoogleBigQuerySource como um tipo de fonte
 
-Para copiar dados do Google BigQuery, defina o tipo de origem na atividade de cópia para **GoogleBigQuerySource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção.
+Para copiar dados do Google BigQuery, delineie o tipo de origem na atividade de cópia para **o GoogleBigQuerySource**. As seguintes propriedades são suportadas na secção de **origem** da atividade de cópia.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida **GoogleBigQuerySource**. | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
+| tipo | A propriedade do tipo da fonte de atividade de cópia deve ser definida para **o GoogleBigQuerySource**. | Sim |
+| consulta | Utilize a consulta SQL personalizada para ler dados. Um exemplo é `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 
@@ -199,9 +199,9 @@ Para copiar dados do Google BigQuery, defina o tipo de origem na atividade de c�
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber mais detalhes sobre as propriedades, consulte a [atividade de Lookup.](control-flow-lookup-activity.md)
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).

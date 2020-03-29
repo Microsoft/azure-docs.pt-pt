@@ -4,10 +4,10 @@ description: Saiba como configurar uma sonda para garantir que os contentores em
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 64bb4a3e429ce820835abbf8e235600e592f7868
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76935683"
 ---
 # <a name="configure-readiness-probes"></a>Configurar pesquisas readiness
@@ -23,7 +23,7 @@ As instâncias de contentores Azure também suportam sondas de [vivacidade,](con
 
 ## <a name="yaml-configuration"></a>Configuração YAML
 
-Como exemplo, crie um ficheiro `readiness-probe.yaml` com o seguinte corte que inclua uma sonda de prontidão. Este ficheiro define um grupo de contentores que consiste num contentor que executa uma pequena aplicação web. A aplicação é implantada a partir do público `mcr.microsoft.com/azuredocs/aci-helloworld` imagem. Esta aplicação contentorizada também é demonstrada na [implantação de um contentor em Azure utilizando o Azure CLI](container-instances-quickstart.md) e outros quickstarts.
+Como exemplo, crie um `readiness-probe.yaml` ficheiro com o seguinte corte que inclua uma sonda de prontidão. Este ficheiro define um grupo de contentores que consiste num contentor que executa uma pequena aplicação web. A aplicação é implantada a partir da imagem pública. `mcr.microsoft.com/azuredocs/aci-helloworld` Esta aplicação contentorizada também é demonstrada na [implantação de um contentor em Azure utilizando o Azure CLI](container-instances-quickstart.md) e outros quickstarts.
 
 ```yaml
 apiVersion: 2018-10-01
@@ -63,9 +63,9 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### <a name="start-command"></a>Iniciar o comando
 
-A implantação inclui uma propriedade `command` que define um comando inicial que funciona quando o contentor começa a funcionar. Esta propriedade aceita uma variedade de cordas. Este comando simula uma época em que a aplicação web funciona, mas o recipiente não está pronto. 
+A implementação `command` inclui uma propriedade que define um comando inicial que funciona quando o recipiente começa a funcionar. Esta propriedade aceita uma variedade de cordas. Este comando simula uma época em que a aplicação web funciona, mas o recipiente não está pronto. 
 
-Primeiro, inicia uma sessão de conchas e executa um comando `node` para iniciar a aplicação web. Também inicia um comando para dormir durante 240 segundos, após o qual cria um ficheiro chamado `ready` dentro do diretório `/tmp`:
+Primeiro, inicia uma sessão `node` de conchas e executa um comando para iniciar a aplicação web. Também inicia um comando para dormir durante 240 segundos, após o qual cria um ficheiro chamado `ready` dentro do `/tmp` diretório:
 
 ```console
 node /usr/src/app/index.js & (sleep 240; touch /tmp/ready); wait
@@ -73,11 +73,11 @@ node /usr/src/app/index.js & (sleep 240; touch /tmp/ready); wait
 
 ### <a name="readiness-command"></a>Comando de prontidão
 
-Este ficheiro YAML define um `readinessProbe` que suporta um comando de prontidão `exec` que funciona como verificação de prontidão. Este exemplo de testes de comando de prontidão para a existência do ficheiro `ready` no diretório `/tmp`.
+Este ficheiro YAML `readinessProbe` define um `exec` que suporta um comando de prontidão que funciona como a verificação de prontidão. Este exemplo de comando de prontidão testa para a existência do `ready` ficheiro no `/tmp` diretório.
 
-Quando o ficheiro `ready` não existe, o comando de prontidão sai com um valor não zero; o recipiente continua a funcionar, mas não pode ser acedido. Quando o comando sai com sucesso com o código de saída 0, o recipiente está pronto para ser acedido. 
+Quando `ready` o ficheiro não existe, o comando de prontidão sai com um valor não zero; o recipiente continua a funcionar, mas não pode ser acedido. Quando o comando sai com sucesso com o código de saída 0, o recipiente está pronto para ser acedido. 
 
-A propriedade `periodSeconds` designa o comando de prontidão deve executar a cada 5 segundos. A sonda de prontidão funciona durante toda a vida do grupo de contentores.
+A `periodSeconds` propriedade designa o comando de prontidão deve executar a cada 5 segundos. A sonda de prontidão funciona durante toda a vida do grupo de contentores.
 
 ## <a name="example-deployment"></a>Implantação de exemplo
 
@@ -89,9 +89,9 @@ az container create --resource-group myResourceGroup --file readiness-probe.yaml
 
 ## <a name="view-readiness-checks"></a>Ver verificações de prontidão
 
-Neste exemplo, durante os primeiros 240 segundos, o comando de prontidão falha quando verifica a existência do ficheiro `ready`. O código de estado devolveu sinais de que o contentor não está pronto.
+Neste exemplo, durante os primeiros 240 segundos, o comando `ready` de prontidão falha quando verifica a existência do ficheiro. O código de estado devolveu sinais de que o contentor não está pronto.
 
-Estes eventos podem ser vistos a partir do portal Azure ou Do CLI Azure. Por exemplo, o portal mostra eventos de tipo `Unhealthy` são desencadeados após a falha do comando de prontidão. 
+Estes eventos podem ser vistos a partir do portal Azure ou Do CLI Azure. Por exemplo, o portal `Unhealthy` mostra que os eventos de tipo são desencadeados após a falha do comando de prontidão. 
 
 ![Portal evento pouco saudável][portal-unhealthy]
 
@@ -117,7 +117,7 @@ Connecting to 192.0.2.1... connected.
 HTTP request sent, awaiting response... 
 ```
 
-Após 240 segundos, o comando de prontidão é bem sucedido, sinalizando que o recipiente está pronto. Agora, quando dirige o comando `wget`, tem sucesso:
+Após 240 segundos, o comando de prontidão é bem sucedido, sinalizando que o recipiente está pronto. Agora, quando dirige `wget` o comando, tem sucesso:
 
 ```
 $ wget 192.0.2.1

@@ -15,10 +15,10 @@ ms.date: 04/18/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: a5d34ac7eea50b67bd679d8cb8ddecf7ca277abd
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773390"
 ---
 ## <a name="register-secrets-or-certificates"></a>Registar segredos ou certificados
@@ -27,14 +27,14 @@ Quanto a qualquer pedido confidencial de cliente, precisa registar um segredo ou
 
 ### <a name="register-client-secrets-by-using-the-application-registration-portal"></a>Registar segredos de cliente utilizando o portal de registo de candidaturas
 
-A gestão das credenciais de cliente ocorre na página **certificados e segredos** para uma aplicação:
+A gestão das credenciais de cliente ocorre na página **de Certificados & segredos** para uma aplicação:
 
-![Página de certificados e segredos](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets.png)
+![Página de certificados & segredos](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets.png)
 
 - O segredo da aplicação (também nomeado o segredo do cliente) é gerado pela Azure AD durante o registo da aplicação confidencial do cliente. Esta geração acontece quando se leciona novo segredo de **cliente.** Nessa altura, tem de copiar a cadeia secreta para a área de sobre-a-bordo para ser utilizada na sua aplicação, antes de selecionar **Guardar**. Esta corda não será apresentada mais.
 - Durante o registo da candidatura, utiliza o botão **de certificado upload** para fazer o upload do certificado. A Azure AD suporta apenas certificados que estejam diretamente registados no pedido e não seguem cadeias de certificados.
 
-Para mais detalhes, consulte [Quickstart: Configure uma aplicação de cliente para aceder a APIs web  Adicione credenciais à sua aplicação](../articles/active-directory/develop/quickstart-configure-app-access-web-apis.md#add-credentials-to-your-web-application).
+Para mais detalhes, consulte [Quickstart: Configure uma aplicação de cliente para aceder a APIs web [ Adicione credenciais à sua aplicação](../articles/active-directory/develop/quickstart-configure-app-access-web-apis.md#add-credentials-to-your-web-application).
 
 
 

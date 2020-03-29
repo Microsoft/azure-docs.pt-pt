@@ -10,10 +10,10 @@ ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
 ms.openlocfilehash: aa0b789b31f50c8b1ccf5450700874a02ad4664c
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78304527"
 ---
 # <a name="plan-and-manage-costs-for-azure-storage"></a>Planear e gerir custos para o Armazenamento Azure
@@ -46,7 +46,7 @@ Utilize a calculadora de [preços Azure](https://azure.microsoft.com/pricing/cal
 
 ## <a name="use-budgets-and-cost-alerts"></a>Utilizar orçamentos e alertas de custo
 
-Pode criar [orçamentos](../../cost-management-billing/costs/tutorial-acm-create-budgets.md) para gerir custos e criar alertas que notificam automaticamente as partes interessadas de gastar anomalias e riscos de gastos excessivos. Os alertas são baseados nos gastos em comparação com os orçamentos e os limites de custos. Orçamentos e alertas são criados para subscrições do Azure e grupos de recursos, por isso são úteis como parte de uma estratégia global de monitorização de custos. No entanto, podem ter uma funcionalidade limitada para gerir custos individuais de serviço Azure, como o custo do Armazenamento Azure, porque são projetados para rastrear custos a um nível mais elevado.
+Pode criar [orçamentos](../../cost-management-billing/costs/tutorial-acm-create-budgets.md) para gerir custos e criar alertas que notifiquem automaticamente as partes interessadas das anomalias nos gastos e do risco em fazer gastos excessivos. Os alertas são baseados nos gastos em comparação com os orçamentos e os limites de custos. Orçamentos e alertas são criados para subscrições do Azure e grupos de recursos, por isso são úteis como parte de uma estratégia global de monitorização de custos. No entanto, podem ter uma funcionalidade limitada para gerir custos individuais de serviço Azure, como o custo do Armazenamento Azure, porque são projetados para rastrear custos a um nível mais elevado.
 
 ## <a name="monitor-costs"></a>Monitorizar os custos
 
@@ -56,7 +56,7 @@ Quando utilizar a análise de custos, pode ver os custos de Armazenamento Azure 
 
 Para ver os custos de armazenamento do Azure na análise de custos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Assine no [portal Azure.](https://portal.azure.com)
 
 2. Abra a janela **Cost Management + Billing,** selecione Gestão de **Custos** do menu e, em seguida, selecione **análise de custos**. Em seguida, pode alterar a margem de manobra para uma subscrição específica a partir do **dropdown** scope.
 

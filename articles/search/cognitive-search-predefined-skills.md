@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 9e1f62dcdb122726fc1c08b7bea4e4c214ce7906
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76933372"
 ---
 # <a name="built-in-cognitive-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>Competências cognitivas incorporadas para processamento de texto e imagem durante a indexação (Pesquisa Cognitiva Azure)
@@ -20,9 +20,9 @@ ms.locfileid: "76933372"
 Neste artigo, você aprende sobre as habilidades cognitivas fornecidas com Pesquisa Cognitiva Azure que você pode incluir em um skillset para extrair conteúdo e estrutura. Uma *habilidade cognitiva* é um módulo ou operação que transforma o conteúdo de alguma forma. Muitas vezes, é um componente que extrai dados ou infere a estrutura, e por isso aumenta a nossa compreensão dos dados de entrada. Quase sempre, a saída é baseada em texto. Uma *habilidade* é a coleção de habilidades que definem o gasoduto de enriquecimento. 
 
 > [!NOTE]
-> Ao expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de ia, você precisará [anexar um recurso de serviços cognitivas cobráveis](cognitive-search-attach-cognitive-services.md). As cobranças são acumuladas ao chamar APIs em serviços cognitivas e para extração de imagem como parte do estágio de quebra de documento no Azure Pesquisa Cognitiva. Não há encargos para a extração de texto de documentos.
+> À medida que expande o âmbito aumentando a frequência do processamento, adicionando mais documentos, ou adicionando mais algoritmos de IA, terá de [anexar um recurso de Serviços Cognitivos faturados.](cognitive-search-attach-cognitive-services.md) As acusações acumulam-se quando se ligam para apis em Serviços Cognitivos, e para extração de imagem como parte da fase de quebra de documentos na Pesquisa Cognitiva Azure. Não há encargos para a extração de texto de documentos.
 >
-> A execução de habilidades internas é cobrada pelo [preço pago pelo uso dos serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. O preço de extração de imagem é descrito na [página de preços do Azure pesquisa cognitiva](https://go.microsoft.com/fwlink/?linkid=2042400).
+> A execução de competências incorporadas é cobrada pelo preço de pagamento dos [Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. Os preços de extração de imagem são descritos na página de preços da [Pesquisa Cognitiva Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="built-in-skills"></a>Competências incorporadas
@@ -50,8 +50,8 @@ Várias competências são flexíveis naquilo que consomem ou produzem. Em geral
 
 Para obter orientações sobre a criação de uma [habilidade personalizada,](cognitive-search-custom-skill-web-api.md)consulte [Como definir uma interface personalizada](cognitive-search-custom-skill-interface.md) e exemplo: Criar uma habilidade personalizada para enriquecimento de [IA](cognitive-search-create-custom-skill-example.md).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-+ [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
++ [Como definir um conjunto de habilidades](cognitive-search-defining-skillset.md)
 + [Definição de interface de habilidades personalizadas](cognitive-search-custom-skill-interface.md)
 + [Tutorial: Indexação enriquecida com IA](cognitive-search-tutorial-blob.md)

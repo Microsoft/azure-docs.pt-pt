@@ -1,6 +1,6 @@
 ---
-title: Cancelar o registro de dispositivo do serviço de provisionamento de dispositivos no Hub IoT do Azure
-description: Como cancelar o registro de um dispositivo para impedir o provisionamento por meio do DPS (serviço de provisionamento de dispositivos) do Hub IoT do Azure
+title: Dispositivo de desinscrição do Serviço de Provisionamento de Dispositivos Azure IoT Hub
+description: Como desinscrever um dispositivo para evitar o fornecimento através do Serviço de Provisionamento de Dispositivos Hub Azure IoT (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/05/2018
@@ -9,106 +9,106 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: af883da67f4e1bc819514e88ff480526e16124db
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74974926"
 ---
-# <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Como cancelar o registro de um dispositivo do serviço de provisionamento de dispositivos no Hub IoT do Azure
+# <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Como desinscrever um dispositivo do Serviço de Provisionamento de Dispositivos Do Hub Azure IoT
 
-O gerenciamento adequado de credenciais de dispositivo é crucial para sistemas de alto perfil como soluções de IoT. Uma prática recomendada para esses sistemas é ter um plano claro de como revogar o acesso para dispositivos quando suas credenciais, se um token SAS (assinaturas de acesso compartilhado) ou um certificado X. 509, puderem ser comprometidos. 
+A gestão adequada das credenciais do dispositivo é crucial para sistemas de alto perfil como soluções IoT. Uma boa prática para estes sistemas é ter um plano claro de como revogar o acesso aos dispositivos quando as suas credenciais, quer um símbolo de acesso partilhado (SAS) ou um certificado X.509, possam ser comprometidos. 
 
-O registro no serviço de provisionamento de dispositivos permite que um dispositivo seja [provisionado automaticamente](concepts-auto-provisioning.md). Um dispositivo provisionado é aquele que foi registrado com o Hub IoT, permitindo que ele receba seu estado inicial de [dispositivo](~/articles/iot-hub/iot-hub-devguide-device-twins.md) de 1 e comece a relatar dados de telemetria. Este artigo descreve como cancelar o registro de um dispositivo de sua instância do serviço de provisionamento, impedindo que ele seja provisionado novamente no futuro.
+A inscrição no Serviço de Provisionamento de Dispositivos permite que um dispositivo seja [aprovisionado automaticamente.](concepts-auto-provisioning.md) Um dispositivo provisionado é um dispositivo que foi registado no IoT Hub, permitindo-lhe receber o seu dispositivo inicial [de estado gémeo](~/articles/iot-hub/iot-hub-devguide-device-twins.md) e começar a reportar dados de telemetria. Este artigo descreve como desinscrever um dispositivo da sua instância de serviço de provisionamento, impedindo-o de ser novamente provisionado no futuro.
 
 > [!NOTE] 
-> Lembre-se da política de repetição de dispositivos para os quais você revoga o acesso. Por exemplo, um dispositivo que tem uma política de repetição infinita pode tentar se registrar continuamente no serviço de provisionamento. Essa situação consome recursos de serviço e possivelmente afeta o desempenho.
+> Esteja atento à política de retry dos dispositivos para os quais revoga o acesso. Por exemplo, um dispositivo que tenha uma política de retry infinita pode continuar a tentar registar-se com o serviço de provisionamento. Esta situação consome recursos de serviço e possivelmente afeta o desempenho.
 
-## <a name="blacklist-devices-by-using-an-individual-enrollment-entry"></a>Dispositivos de lista de bloqueios usando uma entrada de registro individual
+## <a name="blacklist-devices-by-using-an-individual-enrollment-entry"></a>Dispositivos da lista negra utilizando uma entrada individual de inscrição
 
-Os registros individuais se aplicam a um único dispositivo e podem usar certificados X. 509 ou tokens SAS (em um TPM real ou virtual) como o mecanismo de atestado. (Os dispositivos que usam tokens SAS como seu mecanismo de atestado podem ser provisionados apenas por meio de um registro individual.) Para adicionar um dispositivo que tenha um registro individual à lista de bloqueios, você pode desabilitar ou excluir sua entrada de registro. 
+As matrículas individuais aplicam-se a um único dispositivo e podem utilizar certificados X.509 ou tokens SAS (num TPM real ou virtual) como mecanismo de atestado. (Os dispositivos que utilizam tokens SAS como mecanismo de atestado só podem ser provisionados através de uma matrícula individual.) Para colocar na lista negra um dispositivo que tenha uma matrícula individual, pode desativar ou apagar a sua inscrição. 
 
-Para adicionar temporariamente o dispositivo à lista de bloqueios desabilitando sua entrada de registro: 
+Para colocar temporariamente na lista negra o dispositivo, desativando a sua entrada de matrícula: 
 
-1. Entre no portal do Azure e selecione **todos os recursos** no menu à esquerda.
-2. Na lista de recursos, selecione o serviço de provisionamento do qual você deseja adicionar seu dispositivo.
-3. No serviço de provisionamento, selecione **gerenciar registros**e, em seguida, selecione a guia **registros individuais** .
-4. Selecione a entrada de registro para o dispositivo que você deseja adicionar à lista de bloqueios. 
+1. Inscreva-se no portal Azure e selecione **Todos os recursos** do menu esquerdo.
+2. Na lista de recursos, selecione o serviço de fornecimento a que pretende colocar na lista negra o seu dispositivo.
+3. No seu serviço de provisionamento, selecione **Gerir as matrículas**e, em seguida, selecione o separador **Individual Registrations.**
+4. Selecione a entrada de inscrição do dispositivo que pretende colocar na lista negra. 
 
-    ![Selecione seu registro individual](./media/how-to-revoke-device-access-portal/select-individual-enrollment.png)
+    ![Selecione a sua inscrição individual](./media/how-to-revoke-device-access-portal/select-individual-enrollment.png)
 
-5. Na página de registro, role até a parte inferior e selecione **desabilitar** para a opção **Habilitar entrada** e, em seguida, selecione **salvar**.  
+5. Na sua página de inscrição, percorra para baixo e selecione **Desativar** para o interruptor de **entrada Ativar** e, em seguida, selecione **Guardar**.  
 
-   ![Desabilitar a entrada de registro individual no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
+   ![Desativar a inscrição individual no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
 
-Para adicionar o dispositivo à lista de bloqueios permanentemente excluindo sua entrada de registro:
+Para colocar a lista negra permanente do dispositivo, apagando a sua inscrição:
 
-1. Entre no portal do Azure e selecione **todos os recursos** no menu à esquerda.
-2. Na lista de recursos, selecione o serviço de provisionamento do qual você deseja adicionar seu dispositivo.
-3. No serviço de provisionamento, selecione **gerenciar registros**e, em seguida, selecione a guia **registros individuais** .
-4. Marque a caixa de seleção ao lado da entrada de registro do dispositivo que você deseja adicionar à lista de bloqueios. 
-5. Selecione **excluir** na parte superior da janela e, em seguida, selecione **Sim** para confirmar que deseja remover o registro. 
+1. Inscreva-se no portal Azure e selecione **Todos os recursos** do menu esquerdo.
+2. Na lista de recursos, selecione o serviço de fornecimento a que pretende colocar na lista negra o seu dispositivo.
+3. No seu serviço de provisionamento, selecione **Gerir as matrículas**e, em seguida, selecione o separador **Individual Registrations.**
+4. Selecione a caixa de verificação junto à entrada de inscrição do dispositivo que pretende colocar na lista negra. 
+5. **Selecione Apagar** na parte superior da janela e, em seguida, selecione **Sim** para confirmar que pretende remover a matrícula. 
 
-   ![Excluir entrada de registro individual no portal](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png)
+   ![Excluir entrada individual de inscrição no portal](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png)
 
 
-Depois de concluir o procedimento, você deverá ver sua entrada removida da lista de registros individuais.  
+Depois de terminar o procedimento, deverá ver a sua inscrição removida da lista de matrículas individuais.  
 
-## <a name="blacklist-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Lista de bloqueios de um certificado de autoridade de certificação X. 509 intermediário ou raiz usando um grupo de registro
+## <a name="blacklist-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Lista negra de um certificado de CA intermédio ou raiz X.509 através de um grupo de inscrições
 
-Os certificados X. 509 normalmente são organizados em uma cadeia de certificados de confiança. Se um certificado em qualquer estágio de uma cadeia for comprometido, a confiança será interrompida. O certificado deve estar na lista de bloqueios para impedir que o serviço de provisionamento de dispositivos provisione dispositivos downstream em qualquer cadeia que contenha esse certificado. Para saber mais sobre os certificados X. 509 e como eles são usados com o serviço de provisionamento, consulte [certificados x. 509](./concepts-security.md#x509-certificates). 
+Os certificados X.509 são normalmente organizados numa cadeia de fidedignidade de certificados. Se um certificado em qualquer fase de uma cadeia ficar comprometido, a confiança é quebrada. O certificado deve ser colocado na lista negra para evitar que o Serviço de Provisionamento de Dispositivos aprovisione dispositivos a jusante em qualquer cadeia que contenha esse certificado. Para saber mais sobre os certificados X.509 e como são utilizados com o serviço de provisionamento, consulte [os certificados X.509](./concepts-security.md#x509-certificates). 
 
-Um grupo de registro é uma entrada para dispositivos que compartilham um mecanismo de atestado comum de certificados X. 509 assinados pela mesma AC intermediária ou raiz. A entrada do grupo de registros é configurada com o certificado X. 509 associado à AC intermediária ou raiz. A entrada também é configurada com quaisquer valores de configuração, como conexão de estado de conexões e Hub IoT, que são compartilhados por dispositivos com esse certificado em sua cadeia de certificados. Para adicionar o certificado à lista de bloqueios, você pode desabilitar ou excluir seu grupo de registro.
+Um grupo de inscrições é uma entrada para dispositivos que partilham um mecanismo comum de atestado de certificados X.509 assinados pelo mesmo CA intermédio ou raiz. A entrada do grupo de matrículas está configurada com o certificado X.509 associado ao CA intermédio ou raiz. A entrada também é configurada com quaisquer valores de configuração, tais como twin state e ioT hub connection, que são partilhados por dispositivos com esse certificado na sua cadeia de certificados. Para colocar o certificado na lista negra, pode desativar ou eliminar o seu grupo de matrículas.
 
-Para adicionar temporariamente o certificado à lista de bloqueios desabilitando seu grupo de registro: 
+Para colocar temporariamente na lista negra o certificado, desativando o seu grupo de matrículas: 
 
-1. Entre no portal do Azure e selecione **todos os recursos** no menu à esquerda.
-2. Na lista de recursos, selecione o serviço de provisionamento do qual você deseja adicionar o certificado de autenticação.
-3. No serviço de provisionamento, selecione **gerenciar registros**e, em seguida, selecione a guia **grupos de registro** .
-4. Selecione o grupo de registros usando o certificado que você deseja adicionar à lista de bloqueios.
-5. Selecione **desabilitar** na opção **Habilitar entrada** e, em seguida, selecione **salvar**.  
+1. Inscreva-se no portal Azure e selecione **Todos os recursos** do menu esquerdo.
+2. Na lista de recursos, selecione o serviço de fornecimento a que pretende colocar na lista negra o certificado de assinatura.
+3. No seu serviço de provisionamento, selecione **Gerir as matrículas**e, em seguida, selecione o separador **Grupos de Matrícula.**
+4. Selecione o grupo de inscrições utilizando o certificado que pretende colocar na lista negra.
+5. Selecione **Desativar** o interruptor de **entrada Ativar** e, em seguida, selecione **Save**.  
 
-   ![Desabilitar a entrada do grupo de registros no portal](./media/how-to-revoke-device-access-portal/disable-enrollment-group.png)
+   ![Desativar a entrada do grupo de matrículas no portal](./media/how-to-revoke-device-access-portal/disable-enrollment-group.png)
 
     
-Para colocar o certificado em lista de bloqueios permanentemente excluindo seu grupo de registro:
+Para colocar permanentemente na lista negra o certificado, apagando o seu grupo de matrículas:
 
-1. Entre no portal do Azure e selecione **todos os recursos** no menu à esquerda.
-2. Na lista de recursos, selecione o serviço de provisionamento do qual você deseja adicionar seu dispositivo.
-3. No serviço de provisionamento, selecione **gerenciar registros**e, em seguida, selecione a guia **grupos de registro** .
-4. Marque a caixa de seleção ao lado do grupo de registros do certificado que você deseja adicionar à lista de bloqueios. 
-5. Selecione **excluir** na parte superior da janela e, em seguida, selecione **Sim** para confirmar que deseja remover o grupo de registros. 
+1. Inscreva-se no portal Azure e selecione **Todos os recursos** do menu esquerdo.
+2. Na lista de recursos, selecione o serviço de fornecimento a que pretende colocar na lista negra o seu dispositivo.
+3. No seu serviço de provisionamento, selecione **Gerir as matrículas**e, em seguida, selecione o separador **Grupos de Matrícula.**
+4. Selecione a caixa de verificação ao lado do grupo de matrículas para o certificado que pretende colocar na lista negra. 
+5. **Selecione Eliminar** na parte superior da janela e, em seguida, selecione **Sim** para confirmar que pretende remover o grupo de matrículas. 
 
-   ![Excluir a entrada do grupo de registros no portal](./media/how-to-revoke-device-access-portal/delete-enrollment-group.png)
+   ![Excluir a entrada do grupo de matrículas no portal](./media/how-to-revoke-device-access-portal/delete-enrollment-group.png)
 
-Depois de concluir o procedimento, você deverá ver sua entrada removida da lista de grupos de registro.  
+Depois de terminar o procedimento, deverá ver a sua inscrição removida da lista de grupos de matrículas.  
 
 > [!NOTE]
-> Se você excluir um grupo de registros de um certificado, os dispositivos que têm o certificado em sua cadeia de certificados ainda poderão se registrar se um grupo de registro habilitado para o certificado raiz ou outro certificado intermediário for superior em seu certificado cadeia existente.
+> Se eliminar um grupo de inscrição para um certificado, os dispositivos que possuam o certificado na sua cadeia de certificados poderão ainda inscrever-se se um grupo de inscrição habilitado para o certificado raiz ou outro certificado intermédio superior no seu certificado cadeia existe.
 
-## <a name="blacklist-specific-devices-in-an-enrollment-group"></a>Dispositivos de lista de bloqueios específicos em um grupo de registros
+## <a name="blacklist-specific-devices-in-an-enrollment-group"></a>Dispositivos específicos da lista negra num grupo de matrículas
 
-Os dispositivos que implementam o mecanismo de atestado X. 509 usam a cadeia de certificados do dispositivo e a chave privada para autenticação. Quando um dispositivo se conecta e autentica com o serviço de provisionamento de dispositivos, o serviço primeiro procura um registro individual que corresponda às credenciais do dispositivo. Em seguida, o serviço pesquisa grupos de registro para determinar se o dispositivo pode ser provisionado. Se o serviço encontrar um registro individual desabilitado para o dispositivo, ele impedirá que o dispositivo se conecte. O serviço impede a conexão mesmo se um grupo de registro habilitado para uma AC intermediária ou raiz na cadeia de certificados do dispositivo existir. 
+Os dispositivos que implementam o mecanismo de atesta X.509 utilizam a cadeia de certificados do dispositivo e a chave privada para autenticar. Quando um dispositivo se conecta e autentica com o Serviço de Provisionamento de Dispositivos, o serviço procura primeiro uma inscrição individual que corresponda às credenciais do dispositivo. O serviço procura então grupos de matrícula para determinar se o dispositivo pode ser aprovisionado. Se o serviço encontrar uma matrícula individual desativada para o dispositivo, impede a ligação do dispositivo. O serviço impede a ligação mesmo que exista um grupo de inscrição ativado para um CA intermédio ou de raiz na cadeia de certificados do dispositivo. 
 
-Para lista de bloqueios de um dispositivo individual em um grupo de registro, siga estas etapas:
+Para colocar na lista negra um dispositivo individual num grupo de matrículas, siga estes passos:
 
-1. Entre no portal do Azure e selecione **todos os recursos** no menu à esquerda.
-2. Na lista de recursos, selecione o serviço de provisionamento que contém o grupo de registros para o dispositivo em que você deseja adicionar a listagem negra.
-3. No serviço de provisionamento, selecione **gerenciar registros**e, em seguida, selecione a guia **registros individuais** .
-4. Selecione o botão **adicionar registro individual** na parte superior. 
-5. Na página **adicionar registro** , selecione **X. 509** como o **mecanismo** de atestado para o dispositivo.
+1. Inscreva-se no portal Azure e selecione **Todos os recursos** do menu esquerdo.
+2. A partir da lista de recursos, selecione o serviço de provisionamento que contém o grupo de inscrição para o dispositivo que pretende colocar na lista negra.
+3. No seu serviço de provisionamento, selecione **Gerir as matrículas**e, em seguida, selecione o separador **Individual Registrations.**
+4. Selecione o botão **de inscrição individual Adicionar** na parte superior. 
+5. Na página **Adicionar Inscrições,** selecione **X.509** como mecanismo de **atestado** para o dispositivo.
 
-    Carregue o certificado do dispositivo e insira a ID do dispositivo a ser listada na lista de bloqueios. Para o certificado, use o certificado de entidade final assinado instalado no dispositivo. O dispositivo usa o certificado de entidade final assinada para autenticação.
+    Faça o upload do certificado do dispositivo e introduza a identificação do dispositivo na lista negra. Para o certificado, utilize o certificado de entidade final assinado instalado no dispositivo. O dispositivo utiliza o certificado de entidade final assinado para autenticação.
 
-    ![Definir propriedades de dispositivo para o dispositivo na lista de bloqueios](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group-1.png)
+    ![Definir propriedades do dispositivo para o dispositivo na lista negra](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group-1.png)
 
-6. Role até a parte inferior da página **adicionar registro** e selecione **desabilitar** na opção **Habilitar entrada** e, em seguida, selecione **salvar**. 
+6. Desloque-se para a parte inferior da página **'Adicionar'** e selecione **Desativar** o interruptor de **entrada Ativar** e, em seguida, selecione **Guardar**. 
 
-    [![usar a entrada de registro individual desabilitada para desabilitar o dispositivo do registro de grupo, no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
+    [![Utilize a inscrição individual desativada para desativar o dispositivo a partir da inscrição em grupo, no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
-Quando você criar o registro com êxito, você deverá ver o registro de dispositivo desabilitado listado na guia **registros individuais** . 
+Quando criar com sucesso a sua inscrição, deve ver a inscrição do seu dispositivo desativado listado no separador **Individual Registrations.** 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O cancelamento do registro também faz parte do processo maior de desprovisionamento. O desprovisionamento de um dispositivo inclui o cancelamento do registro do serviço de provisionamento e o cancelamento do registro do Hub IoT. Para saber mais sobre o processo completo, consulte [como desprovisionar dispositivos que foram previamente provisionados automaticamente](how-to-unprovision-devices.md) 
+A desinscrição também faz parte do maior processo de desprovisionamento. A desprovisionamento de um dispositivo inclui a desinscrição do serviço de provisionamento e o desregisto do hub IoT. Para conhecer o processo completo, consulte [como desprovisionar dispositivos que foram previamente aprovisionados automaticamente](how-to-unprovision-devices.md) 
 

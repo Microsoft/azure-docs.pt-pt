@@ -1,5 +1,5 @@
 ---
-title: Excel & Apache Hadoop com ODBC Driver - Azure HDInsight
+title: Excel & Apache Hadoop com o condutor da ODBC - Azure HDInsight
 description: Aprenda a configurar e utilizar o controlador Microsoft Hive ODBC para o Excel consultar dados em clusters HDInsight do Microsoft Excel.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/02/2020
 ms.openlocfilehash: f356009197c0446efa2ea2d7f0e90040229df47b
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78251073"
 ---
-# <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Ligue excel a Apache Hadoop em Azure HDInsight com o condutor da Microsoft Hive ODBC
+# <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Ligar o Excel ao Apache Hadoop no Azure HDInsight com o controlador ODBC Hive da Microsoft
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
@@ -38,7 +38,7 @@ Descarregue e instale a versão [Microsoft Hive ODBC Driver](https://www.microso
 
 Os seguintes passos mostram-lhe como criar uma Hive ODBC Data Source.
 
-1. Do Windows, navegue para Start > Windows Administrative Tools > ODBC Data Sources (32 bits)/(64-bit).  Isto abre a janela do Administrador de Fonte de **Dados da ODBC.**
+1. A partir do Windows, navegue para iniciar > Ferramentas Administrativas do Windows > Fontes de Dados ODBC (32 bits)/(64-bit).  Isto abre a janela do Administrador de Fonte de **Dados da ODBC.**
 
     ![Administrador de fonte de dados da OBDC](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-datasourceadmin1.png "Configure um DSN usando o Administrador de Fonte de Dados da ODBC")
 
@@ -56,7 +56,7 @@ Os seguintes passos mostram-lhe como criar uma Hive ODBC Data Source.
    |  Base de Dados |Utilize o **padrão**. |
    |  Mecanismo |Selecione **serviço HDInsight Windows Azure** |
    |  Nome de Utilizador |Introduza o nome de utilizador do utilizador http do cluster HDInsight. O nome de utilizador predefinido é **admin**. |
-   |  Palavra-passe |Introduza a palavra-passe do utilizador do cluster HDInsight. Selecione a caixa de verificação **Guardar palavra-passe (encriptada)** .|
+   |  Palavra-passe |Introduza a palavra-passe do utilizador do cluster HDInsight. Selecione a caixa de verificação **Guardar palavra-passe (encriptada)**.|
 
 1. Opcional: Selecione **Opções Avançadas...**  
 
@@ -82,7 +82,7 @@ Os seguintes passos descrevem a forma de importar dados de uma tabela da Hive pa
 
 1. Abra um livro novo ou existente no Excel.
 
-2. A partir do separador **Dados,** navegue para **obter dados** > **de outras fontes** > da **ODBC** para lançar a janela **A partir da ODBC.**
+2. A partir do separador **Dados,** navegue para **obter dados** > **de outras fontes** > da**ODBC** para lançar a janela **ODBC.**
 
     ![Assistente de ligação de dados Open Excel](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-excel-dataconnection1.png "Assistente de ligação de dados Open Excel")
 
@@ -90,7 +90,7 @@ Os seguintes passos descrevem a forma de importar dados de uma tabela da Hive pa
 
 4. Para a primeira utilização, abrir-se-á um diálogo do **condutor DaDBC.** Selecione **Windows** a partir do menu esquerdo. Em seguida, selecione **Ligar** para abrir a janela **Navigator.**
 
-5. Do **Navigator,** navegue até à **HIVE** >  ** > ** **colmeia,** e, em seguida, selecione **Load**. Leva alguns momentos até que os dados sejam importados para o Excel.
+5. Do **Navigator,** navegue até à colmeia**padrão da** >  **HIVE,** > e, em seguida, selecione **Load**.**hivesampletable** Leva alguns momentos até que os dados sejam importados para o Excel.
 
     ![Navegador HDInsight Excel Hive ODBC](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png "Navegador HDInsight Excel Hive ODBC")
 

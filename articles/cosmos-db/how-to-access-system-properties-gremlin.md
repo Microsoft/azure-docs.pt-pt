@@ -8,21 +8,21 @@ ms.date: 09/10/2019
 author: luisbosquez
 ms.author: lbosq
 ms.openlocfilehash: 4ed7e67ae0ef027b260d0e0f0407e4e05ed5a8f4
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898310"
 ---
 # <a name="system-document-properties"></a>Propriedades de documentos do sistema
 
-A Azure Cosmos DB tem propriedades do [sistema](https://docs.microsoft.com/rest/api/cosmos-db/databases) como ```_ts```, ```_self```, ```_attachments```, ```_rid```e ```_etag``` em todos os documentos. Além disso, o motor do Gremlin adiciona as propriedades ```inVPartition``` e ```outVPartition``` nas margens. Por padrão, estas propriedades estão disponíveis para traversal. No entanto, é possível incluir propriedades específicas, ou todas elas, em Gremlin traversal.
+A Azure Cosmos DB ```_ts```tem ```_self``` ```_attachments```propriedades ```_rid```do ```_etag``` [sistema](https://docs.microsoft.com/rest/api/cosmos-db/databases) como, e em todos os documentos. Além disso, o motor do Gremlin adiciona as propriedades ```inVPartition``` e ```outVPartition``` nas margens. Por padrão, estas propriedades estão disponíveis para traversal. No entanto, é possível incluir propriedades específicas, ou todas elas, em Gremlin traversal.
 
 ```
 g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_ts').create())
 ```
 
-## <a name="e-tag"></a>Etiqueta e-tag
+## <a name="e-tag"></a>E-Tag
 
 Esta propriedade é utilizada para controlo da simultaneidade otimista. Se a aplicação precisar de quebrar a operação em alguns traversals separados, pode usar propriedade eTag para evitar a perda de dados em escritos simultâneos.
 
@@ -32,7 +32,7 @@ g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_etag').cre
 
 ## <a name="time-to-live-ttl"></a>TTL
 
-Se a recolha tiver expiração de documento sativada e os documentos tiverem ```ttl``` propriedade definida sobre eles, então esta propriedade estará disponível em Gremlin traversal como um vértice regular ou propriedade de borda. ```ProjectionStrategy``` não é necessário para permitir a exposição de propriedades de tempo para viver.
+Se a recolha tiver expiração ```ttl``` de documento satisfeituto e os documentos tiverem propriedades definidas sobre eles, então esta propriedade estará disponível em Gremlin traversal como um vértice regular ou propriedade de borda. ```ProjectionStrategy```não é necessário para permitir a exposição de propriedades de tempo para viver.
 
 O vértice criado com o percurso abaixo será eliminado automaticamente em **123 segundos**.
 

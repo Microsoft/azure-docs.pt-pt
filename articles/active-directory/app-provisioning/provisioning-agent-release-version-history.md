@@ -17,10 +17,10 @@ ms.subservice: app-provisioning
 ms.author: chmutali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 559bca4f5020cebe06be7f24f7af5ec2e94bec0e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78183249"
 ---
 # <a name="azure-ad-connect-provisioning-agent-version-release-history"></a>Agente de provisionamento de ligação Azure AD: histórico de lançamento de versão
@@ -30,7 +30,7 @@ A Microsoft fornece suporte direto para a versão mais recente do agente e uma v
 
 ## <a name="11960"></a>1.1.96.0
 
-### <a name="release-status"></a>Estado de libertação
+### <a name="release-status"></a>Estado de lançamento
 
 4 de dezembro de 2019: Lançado para download
 
@@ -41,7 +41,7 @@ A Microsoft fornece suporte direto para a versão mais recente do agente e uma v
 
 ## <a name="11670"></a>1.1.67.0
 
-### <a name="release-status"></a>Estado de libertação
+### <a name="release-status"></a>Estado de lançamento
 
 9 de setembro de 2019: Lançado para atualização automática
 
@@ -58,7 +58,7 @@ A Microsoft fornece suporte direto para a versão mais recente do agente e uma v
 
 ## <a name="11300"></a>1.1.30.0
 
-### <a name="release-status"></a>Estado de libertação
+### <a name="release-status"></a>Estado de lançamento
 
 23 de janeiro de 2019: Lançado para download
 

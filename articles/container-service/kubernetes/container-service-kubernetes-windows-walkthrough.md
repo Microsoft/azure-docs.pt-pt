@@ -1,5 +1,5 @@
 ---
-title: PRETERIDO Início rápido-cluster kubernetes do Azure para Windows
+title: (DEPRECIADO) Quickstart - Cluster Azure Kubernetes para Windows
 description: Aprenda rapidamente a criar um cluster do Kubernetes para contentores do Windows no Azure Container Service com a CLI do Azure.
 author: dlepow
 ms.service: container-service
@@ -8,19 +8,19 @@ ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ms.openlocfilehash: 2e36de9f2a6af3643b6f609339d413968f6a8d6e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277649"
 ---
-# <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>PRETERIDO Implantar o cluster kubernetes para contêineres do Windows
+# <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>(DEPRECIADO) Implementar cluster Kubernetes para contentores Windows
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este guia explica detalhadamente como deve utilizar a CLI do Azure para implementar um cluster do [Kubernetes](https://kubernetes.io/docs/home/) no [Azure Container Service](../container-service-intro.md). Depois de o cluster ser implementado, ligue-se à ferramenta da linha de comandos do Kubernetes `kubectl` e implemente o seu primeiro contentor do Windows.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -61,7 +61,7 @@ Após alguns minutos, o comando é concluído e apresenta informações sobre a 
 
 ## <a name="install-kubectl"></a>Instalar o kubectl
 
-Para ligar ao cluster de Kubernetes a partir do computador cliente, utilize [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), o cliente de linha de comandos do Kubernetes. 
+Para ligar ao cluster Kubernetes a [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/)partir do seu computador cliente, utilize o cliente da linha de comando Kubernetes. 
 
 Se estiver a utilizar o Azure CloudShell, `kubectl` já está instalado. Se pretender instalá-lo localmente, pode utilizar o comando [az acs kubernetes install-cli](/cli/azure/acs/kubernetes).
 
@@ -160,7 +160,7 @@ Para expor o pod ao mundo com um endereço IP público, introduza o seguinte com
 kubectl expose pods iis --port=80 --type=LoadBalancer
 ```
 
-Com esse comando, o kubernetes cria um serviço e uma regra do Azure Load Balancer com um endereço IP público para o serviço. 
+Com este comando, o Kubernetes cria um serviço e uma regra do balanceador de carga do Azure com um endereço IP público para o serviço. 
 
 Execute o seguinte comando para ver o estado do serviço.
 

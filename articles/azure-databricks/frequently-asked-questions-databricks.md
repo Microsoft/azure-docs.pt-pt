@@ -10,10 +10,10 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.openlocfilehash: 8d7aab43641c6c594ff60368ccb3810e0c060dd7
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78671570"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Perguntas frequentes sobre os Tijolos de Dados Azure
@@ -44,11 +44,11 @@ Aqui estão alguns problemas que pode encontrar com databricks.
 
 #### <a name="error-message"></a>Mensagem de erro
 
-"Esta subscrição não está registada para usar o espaço de nome 'Microsoft.Databricks'. Consulte https://aka.ms/rps-not-found para saber como registar subscrições. (Código: Falta de registo de subscrições)"
+"Esta subscrição não está registada para usar o espaço de nome 'Microsoft.Databricks'. Veja https://aka.ms/rps-not-found como registar subscrições. (Código: Falta de registo de subscrições)"
 
 #### <a name="solution"></a>Solução
 
-1. Aceda ao [Portal do Azure](https://portal.azure.com).
+1. Vá ao [portal Azure.](https://portal.azure.com)
 1. Selecione **Subscrições,** a subscrição que está a utilizar e, em seguida, **os fornecedores**de Recursos. 
 1. Na lista de fornecedores de recursos, contra **microsoft.Databricks,** **selecione Register**. Deve ter a função de contribuinte ou proprietário na subscrição para registar o fornecedor de recursos.
 
@@ -69,7 +69,7 @@ Seguem-se algumas soluções para esta questão:
 
     a. No portal Azure, vá ao Azure AD. Selecione **Utilizadores e Grupos** > **Adicionar um utilizador**.
 
-    b. Adicione um utilizador com um e-mail `@<tenant_name>.onmicrosoft.com` em vez de `@<your_domain>` e-mail. Pode encontrar esta opção em **Domínios Personalizados,** em Azure AD no portal Azure.
+    b. Adicione um utilizador `@<tenant_name>.onmicrosoft.com` com `@<your_domain>` um e-mail em vez de e-mail. Pode encontrar esta opção em **Domínios Personalizados,** em Azure AD no portal Azure.
     
     c. Conceda a este novo utilizador o papel de **Colaborador** no recurso espaço de trabalho Databricks.
     
@@ -94,7 +94,7 @@ Se não criou o espaço de trabalho, e é adicionado como utilizador, contacte a
 
 Os clusters de tijolos de dados utilizam um endereço IP público por nó (incluindo o nó do condutor). As assinaturas Azure têm [limites de endereços IP públicos](/azure/azure-resource-manager/management/azure-subscription-service-limits#publicip-address) por região. Assim, a criação de clusters e as operações de escala podem falhar se fizerem com que o número de endereços IP públicos atribuídos a essa subscrição nessa região exceda o limite. Este limite também inclui endereços IP públicos atribuídos para uso não databricks, tais como VMs definidos pelo utilizador personalizados.
 
-Em geral, os clusters consomem apenas endereços IP públicos enquanto estão ativos. No entanto, `PublicIPCountLimitReached` erros podem continuar a ocorrer por um curto período de tempo, mesmo após o fim de outros clusters. Isto porque os Databricks caches temporariamente os recursos Azure quando um cluster é terminado. O caching de recursos é por design, uma vez que reduz significativamente a latência do arranque do cluster e autoscalcificação em muitos cenários comuns.
+Em geral, os clusters consomem apenas endereços IP públicos enquanto estão ativos. No `PublicIPCountLimitReached` entanto, os erros podem continuar a ocorrer por um curto período de tempo, mesmo após o fim de outros clusters. Isto porque os Databricks caches temporariamente os recursos Azure quando um cluster é terminado. O caching de recursos é por design, uma vez que reduz significativamente a latência do arranque do cluster e autoscalcificação em muitos cenários comuns.
 
 #### <a name="solution"></a>Solução
 
@@ -108,11 +108,11 @@ Se a sua subscrição já atingiu o seu limite de endereço IP público para uma
 #### <a name="error-message"></a>Mensagem de erro
 
 "Falha de lançamento do fornecedor de nuvem: Foi encontrado um erro do fornecedor de nuvem durante a instalação do cluster. Para mais informações, consulte o guia Databricks.
-Código de erro Azure: Mensagem de erro Do Registo de Registo sem querer: A subscrição não está registada para utilizar o espaço de nome 'Microsoft.Compute'. Veja https://aka.ms/rps-not-found como registar subscrições."
+Código de erro Azure: Mensagem de erro Do Registo de Registo sem querer: A subscrição não está registada para utilizar o espaço de nome 'Microsoft.Compute'. Veja https://aka.ms/rps-not-found como registar assinaturas."
 
 #### <a name="solution"></a>Solução
 
-1. Aceda ao [Portal do Azure](https://portal.azure.com).
+1. Vá ao [portal Azure.](https://portal.azure.com)
 1. Selecione **Subscrições,** a subscrição que está a utilizar e, em seguida, **os fornecedores**de Recursos. 
 1. Na lista de fornecedores de recursos, contra **microsoft.Compute,** **selecione Register**. Deve ter a função de contribuinte ou proprietário na subscrição para registar o fornecedor de recursos.
 
@@ -131,4 +131,4 @@ Inicie sessão como administrador global do portal Azure. Para o Diretório Ativ
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Quickstart: Comece com os Tijolos de Dados Azure](quickstart-create-databricks-workspace-portal.md)
-- [O que é Azure Databricks?](what-is-azure-databricks.md)
+- [O que é o Azure Databricks?](what-is-azure-databricks.md)

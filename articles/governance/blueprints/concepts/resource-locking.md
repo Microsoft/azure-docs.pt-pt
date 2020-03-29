@@ -4,10 +4,10 @@ description: Conheça as opções de bloqueio em Plantas Azure para proteger os 
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.openlocfilehash: b810e8d4ddd263f9e651704d1bf9b785ce0202db
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78199704"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Compreenda o bloqueio de recursos em Plantas Azure
@@ -44,7 +44,7 @@ Para atribuir o projeto a um grupo de gestão em vez de uma subscrição, a cham
 PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{assignmentMG}/providers/Microsoft.Blueprint/blueprintAssignments/{assignmentName}?api-version=2018-11-01-preview
 ```
 
-O grupo de gestão definido por `{assignmentMG}` deve estar dentro da hierarquia do grupo de gestão ou ser o mesmo grupo de gestão onde a definição de projeto é guardada.
+O grupo de `{assignmentMG}` gestão definido deve estar dentro da hierarquia do grupo de gestão ou ser o mesmo grupo de gestão onde a definição de projeto é guardada.
 
 O corpo de pedido da atribuição da planta é assim:
 
@@ -82,7 +82,7 @@ O corpo de pedido da atribuição da planta é assim:
 }
 ```
 
-A diferença fundamental neste órgão de pedido e uma a ser atribuída a uma subscrição é a propriedade `properties.scope`. Este imóvel necessário deve ser definido para a subscrição a que a atribuição do projeto se aplica. A subscrição deve ser uma criança direta da hierarquia do grupo de gestão onde a atribuição do projeto está armazenada.
+A diferença fundamental neste órgão de pedido e uma `properties.scope` a ser atribuída a uma subscrição é a propriedade. Este imóvel necessário deve ser definido para a subscrição a que a atribuição do projeto se aplica. A subscrição deve ser uma criança direta da hierarquia do grupo de gestão onde a atribuição do projeto está armazenada.
 
 > [!NOTE]
 > Um projeto atribuído ao âmbito do grupo de gestão ainda funciona como uma atribuição de modelo de nível de subscrição. A única diferença é onde a atribuição do projeto é armazenada para impedir que os proprietários de subscrições removam a atribuição e fechaduras associadas.
@@ -174,12 +174,12 @@ Semelhante a [excluir um principal](#exclude-a-principal-from-a-deny-assignment)
 },
 ```
 
-Embora **os Diretores excluídos sejam explícitos,** as entradas **excluídas podem** utilizar `*` para a correspondência de wildcard das operações RBAC.
+Embora **os Diretores excluídos sejam explícitos,** as entradas **excluídas podem** utilizar para a correspondência wildcard `*` das operações RBAC.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Siga o tutorial [de novos recursos protegidos.](../tutorials/protect-new-resources.md)
-- Saiba mais sobre o [ciclo de vida do esquema](lifecycle.md).
+- Conheça o ciclo de vida da [planta.](lifecycle.md)
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](sequencing-order.md).
 - Saiba como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md).

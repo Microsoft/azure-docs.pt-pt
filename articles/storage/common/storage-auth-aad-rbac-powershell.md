@@ -1,7 +1,7 @@
 ---
-title: Usar o PowerShell para atribuir uma função de RBAC para acesso a dados
+title: Use powerShell para atribuir uma função RBAC para acesso a dados
 titleSuffix: Azure Storage
-description: Saiba como usar o PowerShell para atribuir permissões a uma entidade de segurança Azure Active Directory com RBAC (controle de acesso baseado em função). O armazenamento do Azure dá suporte a funções RBAC personalizadas e internas para autenticação por meio do Azure AD.
+description: Aprenda a usar o PowerShell para atribuir permissões a um diretor de segurança do Azure Ative Directory com controlo de acesso baseado em funções (RBAC). O Azure Storage suporta funções RBAC incorporadas e personalizadas para autenticação via Azure AD.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,39 +11,39 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 1413035c879198cf333aeeb5d8fe993162939172
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75460577"
 ---
-# <a name="use-powershell-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Usar o PowerShell para atribuir uma função de RBAC para acesso a dados de BLOB e de fila
+# <a name="use-powershell-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Use powerShell para atribuir uma função RBAC para acesso a dados de blob e fila
 
-O Azure Active Directory (AD do Azure) autoriza os direitos de acesso a recursos protegidos por meio [do RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md). O armazenamento do Azure define um conjunto de funções RBAC internas que abrangem conjuntos comuns de permissões usadas para acessar contêineres ou filas.
+O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos garantidos através do [controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md). O Azure Storage define um conjunto de funções RBAC incorporadas que englobam conjuntos comuns de permissões usadas para aceder a recipientes ou filas.
 
-Quando uma função RBAC é atribuída a uma entidade de segurança do Azure AD, o Azure concede acesso a esses recursos para essa entidade de segurança. O acesso pode ser definido para o nível da assinatura, o grupo de recursos, a conta de armazenamento ou um contêiner ou fila individual. Uma entidade de segurança do Azure AD pode ser um usuário, um grupo, uma entidade de serviço de aplicativo ou uma [identidade gerenciada para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+Quando uma função RBAC é atribuída a um diretor de segurança da AD Azure, o Azure concede acesso a esses recursos para esse diretor de segurança. O acesso pode ser consultado ao nível da subscrição, do grupo de recursos, da conta de armazenamento ou de um recipiente ou fila individual. Um diretor de segurança da AD Azure pode ser um utilizador, um grupo, um diretor de serviço de aplicação ou uma [identidade gerida para os recursos Azure.](../../active-directory/managed-identities-azure-resources/overview.md)
 
-Este artigo descreve como usar Azure PowerShell para listar funções RBAC internas e atribuí-las aos usuários. Para obter mais informações sobre como usar Azure PowerShell, consulte [visão geral do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+Este artigo descreve como usar o Azure PowerShell para listar as funções RBAC incorporadas e atribuí-las aos utilizadores. Para mais informações sobre a utilização do Azure PowerShell, consulte a [visão geral do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="rbac-roles-for-blobs-and-queues"></a>Funções de RBAC para BLOBs e filas
+## <a name="rbac-roles-for-blobs-and-queues"></a>Funções RBAC para bolhas e filas
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>Determinar o escopo do recurso
+## <a name="determine-resource-scope"></a>Determinar o âmbito dos recursos
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
-## <a name="list-available-rbac-roles"></a>Listar funções RBAC disponíveis
+## <a name="list-available-rbac-roles"></a>Lista de funções RBAC disponíveis
 
-Para listar as funções RBAC internas disponíveis com Azure PowerShell, use o comando [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) :
+Para listar as funções RBAC incorporadas disponíveis com a Azure PowerShell, utilize o comando [Get-AzRoleDefinition:](/powershell/module/az.resources/get-azroledefinition)
 
 ```powershell
 Get-AzRoleDefinition | FT Name, Description
 ```
 
-Você verá as funções de dados de armazenamento do Azure internas listadas, junto com outras funções internas do Azure:
+Você verá as funções de dados de Armazenamento Azure incorporados listados, juntamente com outras funções incorporadas para O Azure:
 
 ```Example
 Storage Blob Data Contributor             Allows for read, write and delete access to Azure Storage blob containers and data
@@ -55,19 +55,19 @@ Storage Queue Data Message Sender         Allows for sending of Azure Storage qu
 Storage Queue Data Reader                 Allows for read access to Azure Storage queues and queue messages
 ```
 
-## <a name="assign-an-rbac-role-to-a-security-principal"></a>Atribuir uma função de RBAC a uma entidade de segurança
+## <a name="assign-an-rbac-role-to-a-security-principal"></a>Atribuir uma função RBAC a um diretor de segurança
 
-Para atribuir uma função de RBAC a uma entidade de segurança, use o comando [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) . O formato do comando pode diferir com base no escopo da atribuição. Para executar o comando, você precisa ter a função de proprietário ou colaborador atribuída no escopo correspondente. Os exemplos a seguir mostram como atribuir uma função a um usuário em vários escopos, mas você pode usar o mesmo comando para atribuir uma função a qualquer entidade de segurança.
+Para atribuir uma função RBAC a um diretor de segurança, utilize o comando [New-AzRoleAssignment.](/powershell/module/az.resources/new-azroleassignment) O formato do comando pode diferir com base no âmbito da atribuição. Para executar o comando, é necessário atribuir o papel de Proprietário ou Colaborador no âmbito correspondente. Os exemplos seguintes mostram como atribuir uma função a um utilizador em vários âmbitos, mas pode usar o mesmo comando para atribuir uma função a qualquer diretor de segurança.
 
-### <a name="container-scope"></a>Escopo do contêiner
+### <a name="container-scope"></a>Âmbito do contentor
 
-Para atribuir uma função com escopo a um contêiner, especifique uma cadeia de caracteres que contenha o escopo do contêiner para o parâmetro `--scope`. O escopo de um contêiner está no formato:
+Para atribuir uma função a um recipiente, especifique uma `--scope` cadeia que contenha o alcance do recipiente para o parâmetro. A margem de manobra para um recipiente está na forma:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
 ```
 
-O exemplo a seguir atribui a função de **colaborador de dados de blob de armazenamento** a um usuário, cujo escopo é um contêiner chamado *de contêiner de exemplo*. Certifique-se de substituir os valores de exemplo e os valores de espaço reservado entre colchetes pelos seus próprios valores: 
+O exemplo seguinte atribui a função de Contribuinte de **Dados blob** de armazenamento a um utilizador, remeto para um recipiente chamado *recipiente de amostras*. Certifique-se de substituir os valores da amostra e os valores do espaço reservado nos parênteses por valores próprios: 
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -75,15 +75,15 @@ New-AzRoleAssignment -SignInName <email> `
     -Scope  "/subscriptions/<subscription>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/sample-container"
 ```
 
-### <a name="queue-scope"></a>Escopo da fila
+### <a name="queue-scope"></a>Âmbito da fila
 
-Para atribuir uma função com escopo a uma fila, especifique uma cadeia de caracteres que contenha o escopo da fila para o parâmetro `--scope`. O escopo de uma fila está no formato:
+Para atribuir uma função de função a uma fila, especifique uma cadeia que contenha o âmbito da fila para o `--scope` parâmetro. A margem para uma fila está na forma:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue-name>
 ```
 
-O exemplo a seguir atribui a função de **colaborador de dados da fila de armazenamento** a um usuário, com escopo para uma fila chamada *Sample-Queue*. Certifique-se de substituir os valores de exemplo e os valores de espaço reservado entre colchetes pelos seus próprios valores: 
+O exemplo seguinte atribui a função de Colaborador de Dados da Fila de **Armazenamento** a um utilizador, com o objetivo de uma fila chamada *sample-queue*. Certifique-se de substituir os valores da amostra e os valores do espaço reservado nos parênteses por valores próprios: 
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -91,15 +91,15 @@ New-AzRoleAssignment -SignInName <email> `
     -Scope  "/subscriptions/<subscription>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/sample-queue"
 ```
 
-### <a name="storage-account-scope"></a>Escopo da conta de armazenamento
+### <a name="storage-account-scope"></a>Âmbito da conta de armazenamento
 
-Para atribuir uma função com escopo à conta de armazenamento, especifique o escopo do recurso de conta de armazenamento para o parâmetro `--scope`. O escopo de uma conta de armazenamento está no formato:
+Para atribuir uma função à conta de armazenamento, especifique `--scope` o âmbito do recurso da conta de armazenamento para o parâmetro. A margem para uma conta de armazenamento está na forma:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
-O exemplo a seguir mostra como fazer o escopo da função de **leitor de dados de blob de armazenamento** para um usuário no nível da conta de armazenamento. Certifique-se de substituir os valores de exemplo pelos seus próprios valores: 
+O exemplo seguinte mostra como analisar a função de Leitor de **Dados de Armazenamento Blob** para um utilizador ao nível da conta de armazenamento. Certifique-se de substituir os valores da amostra por valores próprios: 
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -107,9 +107,9 @@ New-AzRoleAssignment -SignInName <email> `
     -Scope  "/subscriptions/<subscription>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
-### <a name="resource-group-scope"></a>Escopo do grupo de recursos
+### <a name="resource-group-scope"></a>Âmbito do grupo de recursos
 
-Para atribuir uma função com escopo ao grupo de recursos, especifique o nome ou a ID do grupo de recursos para o parâmetro `--resource-group`. O exemplo a seguir atribui a função de **leitor de dados de fila de armazenamento** a um usuário no nível do grupo de recursos. Certifique-se de substituir os valores de exemplo e os valores de espaço reservado entre colchetes por seus próprios valores: 
+Para atribuir uma função ao grupo de recursos, especifique o nome do grupo de recursos ou o ID para o `--resource-group` parâmetro. O exemplo seguinte atribui a função de Leitor de Dados de Fila de **Armazenamento** a um utilizador ao nível do grupo de recursos. Certifique-se de substituir os valores da amostra e os valores dos suportes por parênteses por valores próprios: 
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -117,15 +117,15 @@ New-AzRoleAssignment -SignInName <email> `
     -ResourceGroupName "sample-resource-group"
 ```
 
-### <a name="subscription-scope"></a>Escopo da assinatura
+### <a name="subscription-scope"></a>Âmbito de subscrição
 
-Para atribuir uma função com escopo à assinatura, especifique o escopo da assinatura para o parâmetro `--scope`. O escopo de uma assinatura está no formato:
+Para atribuir uma função à subscrição, especifique `--scope` o âmbito para a subscrição do parâmetro. A margem para uma subscrição está no formulário:
 
 ```
 /subscriptions/<subscription>
 ```
 
-O exemplo a seguir mostra como atribuir a função de **leitor de dados de blob de armazenamento** a um usuário no nível da conta de armazenamento. Certifique-se de substituir os valores de exemplo pelos seus próprios valores: 
+O exemplo seguinte mostra como atribuir a função de Leitor de **Dados blob** de armazenamento a um utilizador ao nível da conta de armazenamento. Certifique-se de substituir os valores da amostra por valores próprios: 
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -135,6 +135,6 @@ New-AzRoleAssignment -SignInName <email> `
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Gerenciar o acesso aos recursos do Azure usando RBAC e Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Gerir o acesso aos recursos azure utilizando o RBAC e o Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 - [Grant access to Azure blob and queue data with RBAC using Azure CLI](storage-auth-aad-rbac-cli.md) (Conceder acesso a dados de blobs e filas do Azure com RBAC através da CLI do Azure)
 - [Grant access to Azure blob and queue data with RBAC in the Azure portal](storage-auth-aad-rbac-portal.md) (Conceder acesso a dados de blobs e filas do Azure com RBAC no portal do Azure)

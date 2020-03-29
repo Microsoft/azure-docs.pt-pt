@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
 ms.openlocfilehash: fe64418e254289a29aafd155b92396082bff5b6a
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78945091"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Introdução ao FreeBSD no Azure
@@ -52,9 +52,9 @@ sudo rm /usr/local/bin/python 
 sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
 ```
 
-Durante a instalação, é-lhe pedido `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)`. Se responder `y` e entrar `/etc/rc.conf` como `a path to an rc file to update`, poderá enfrentar o problema `ERROR: [Errno 13] Permission denied`. Para resolver este problema, deve conceder o direito de escrita ao utilizador atual contra o ficheiro `etc/rc.conf`.
+Durante a instalação, `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)`é-lhe pedido . Se responder `y` e `/etc/rc.conf` `a path to an rc file to update`introduzir como, pode `ERROR: [Errno 13] Permission denied`encontrar o problema. Para resolver este problema, deve conceder o direito `etc/rc.conf`de escrita ao utilizador atual contra o ficheiro .
 
-Agora pode iniciar sessão no Azure e criar o seu VM FreeBSD. Abaixo está um exemplo para criar um FreeBSD 11.0 VM. Você também pode adicionar o parâmetro `--public-ip-address-dns-name` com um nome DNS globalmente único para um IP público recém-criado. 
+Agora pode iniciar sessão no Azure e criar o seu VM FreeBSD. Abaixo está um exemplo para criar um FreeBSD 11.0 VM. Você também pode adicionar `--public-ip-address-dns-name` o parâmetro com um nome DNS globalmente único para um IP público recém-criado. 
 
 ```azurecli
 az login 
@@ -83,7 +83,7 @@ A extensão [VMAccess](https://github.com/Azure/azure-linux-extensions/tree/mast
 * Desloque a chave do anfitrião público com a chave dada.
 * Redefinir a chave de acolhimento pública fornecida durante o fornecimento de VM se a chave hospedeira não for fornecida.
 * Abra a porta SSH (22) e restaure a sshd_config se reset_ssh for em realidade.
-* Remova o utilizador existente.
+* Remover o utilizador existente.
 * Verifique os discos.
 * Repare um disco adicionado.
 
@@ -113,10 +113,10 @@ Depois de iniciar sessão através desta conta de utilizador, pode executar coma
 $ sudo <COMMAND>
 ```
 
-Pode obter opcionalmente uma casca de raiz utilizando `sudo -s`.
+Pode obter opcionalmente uma casca `sudo -s`de raiz utilizando .
 
 ## <a name="known-issues"></a>Problemas conhecidos
 A versão 2.2.2 do [Agente Convidado Azure VM](https://github.com/Azure/WALinuxAgent/) tem uma [emissão conhecida](https://github.com/Azure/WALinuxAgent/pull/517) que causa a falha de provisionamento do FreeBSD VM no Azure. A correção foi captada pela versão 2.2.3 do [Agente Convidado Azure VM](https://github.com/Azure/WALinuxAgent/) e posteriormente lançada. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Vá ao [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD112) para criar um VM FreeBSD.

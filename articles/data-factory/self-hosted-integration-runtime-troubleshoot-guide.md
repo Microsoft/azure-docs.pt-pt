@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de tempo de execução de integração auto-hospedado no Azure Data Factory
-description: Saiba como solucionar problemas de tempo de execução de integração auto-hospedados no Azure Data Factory.
+title: Tempo de integração auto-hospedado em Azure Data Factory
+description: Saiba como resolver problemas de integração auto-hospedada problemas de tempo de funcionação na Azure Data Factory.
 services: data-factory
 author: nabhishek
 ms.service: data-factory
@@ -8,54 +8,54 @@ ms.topic: troubleshooting
 ms.date: 11/07/2019
 ms.author: abnarain
 ms.openlocfilehash: b8492e8934c782451fb77d5a0ff56b96c34c9a00
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75439876"
 ---
-# <a name="troubleshoot-self-hosted-integration-runtime"></a>Solucionar problemas de tempo de execução de integração auto-hospedado
+# <a name="troubleshoot-self-hosted-integration-runtime"></a>Tempo de execução de integração auto-anfitriã
 
-Este artigo explora métodos comuns de solução de problemas para o tempo de execução de integração auto-hospedado no Azure Data Factory.
+Este artigo explora métodos comuns de resolução de problemas para o tempo de execução da integração auto-hospedada na Azure Data Factory.
 
-## <a name="common-errors-and-resolutions"></a>Erros e resoluções comuns
+## <a name="common-errors-and-resolutions"></a>Erros comuns e resoluções
 
-### <a name="error-message-self-hosted-integration-runtime-cant-connect-to-cloud-service"></a>Mensagem de erro: o tempo de execução de integração auto-hospedado não pode se conectar ao serviço de nuvem
+### <a name="error-message-self-hosted-integration-runtime-cant-connect-to-cloud-service"></a>Mensagem de erro: O tempo de execução de integração auto-hospedado não pode ligar-se ao serviço de nuvem
 
-![Problema de conexão de IR via hospedagem interna](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
+![Problema de conexão de INFRAVERMELHOS auto-hospedado](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
 
 #### <a name="cause"></a>Causa 
 
-O tempo de execução de integração auto-hospedado não pode se conectar ao serviço de Data Factory (backend). Esse problema é normalmente causado pelas configurações de rede no firewall.
+O tempo de execução de integração auto-hospedado não pode ligar-se ao serviço data Factory (backend). Este problema é normalmente causado por definições de rede na firewall.
 
 #### <a name="resolution"></a>Resolução
 
-1. Verifique se o serviço de tempo de execução de integração está em execução.
+1. Verifique se o serviço de tempo de funcionamento da integração está em execução.
     
-   ![Status de execução do serviço IR auto-hospedado](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-running-status.png)
+   ![Estatuto de funcionamento do serviço de infravermelhos auto-hospedado](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-running-status.png)
     
-1. Se o serviço estiver em execução, vá para a etapa 3.
+1. Se o serviço estiver em execução, vá para o passo 3.
 
-1. Se não houver nenhum proxy configurado no tempo de execução de integração auto-hospedado (que é a configuração padrão), execute o seguinte comando do PowerShell no computador em que o tempo de execução de integração auto-hospedado está instalado:
+1. Se não houver procuração configurada no tempo de execução de integração auto-hospedado (que é a definição padrão), execute o seguinte comando PowerShell na máquina onde o tempo de execução de integração auto-hospedado é instalado:
 
     ```powershell
     (New-Object System.Net.WebClient).DownloadString("https://wu2.frontend.clouddatahub.net/")
     ```
         
    > [!NOTE]     
-   > A URL do serviço pode variar, dependendo de seu local de Data Factory. Você pode encontrar a URL do serviço **na interface do usuário do ADF** > **conexões** > **tempos de execução de integração** > editar os **nós** **de > ir hospedados internamente** > **exibir URLs de serviço**.
+   > O URL de serviço pode variar, dependendo da localização da Sua Fábrica de Dados. Pode encontrar o URL de serviço em **Ligações ADF UI** > **Tempos** > de**integração** > Editar**urLs**de serviço de visualização de**nóes** > de > **infravermelhos auto-hospedados**.
             
-    A seguir está a resposta esperada:
+    Segue-se a resposta esperada:
             
-    ![Resposta de comando do PowerShell](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
+    ![Resposta de comando PowerShell](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
             
-1. Se você não receber a resposta esperada, use um dos seguintes métodos conforme apropriado para sua situação:
+1. Se não receber a resposta esperada, utilize um dos seguintes métodos conforme adequado à sua situação:
             
-    * Se você receber uma mensagem "o nome remoto não pôde ser resolvido", há um problema de DNS (sistema de nomes de domínio). Entre em contato com sua equipe de rede para corrigir esse problema.
-    * Se você receber uma mensagem "certificado SSL/TLS não confiável", verifique se o certificado para https://wu2.frontend.clouddatahub.net/ é confiável no computador e, em seguida, instale o certificado público usando o Gerenciador de certificados. Essa ação deve mitigar o problema.
-    * Vá para o Visualizador de eventos do **Windows** >  **(logs)**  > **logs de aplicativos e serviços** > **Integration Runtime** e verifique se há falhas causadas pelo DNS, por uma regra de firewall ou por configurações de rede da empresa. (Se você encontrar uma falha, feche a conexão forçosamente.) Como cada empresa tem configurações de rede personalizadas, entre em contato com sua equipe de rede para solucionar esses problemas.
+    * Se receber uma mensagem de "nome remoto não poderia ser resolvido", existe um problema do Sistema de Nome de Domínio (DNS). Contacte a sua equipa de rede para corrigir este problema.
+    * Se receber uma mensagem "ssl/tls cert não é de https://wu2.frontend.clouddatahub.net/ confiança", verifique se o certificado é de confiança na máquina e, em seguida, instale o certificado público utilizando o Certificate Manager. Esta ação deve atenuar a questão.
+    * Vá ao visualizador **do Windows** > **Event (logs)** > **Aplicações e Serviços Logs** > **Integração Prazo** de Integração e verifique se há qualquer falha causada por DNS, uma regra de firewall ou definições de rede da empresa. (Se encontrar tal falha, feche à força a ligação.) Como todas as empresas têm configurações de rede personalizadas, contacte a sua equipa de rede para resolver estes problemas.
 
-1. Se "proxy" tiver sido configurado no tempo de execução de integração auto-hospedado, verifique se o servidor proxy pode acessar o ponto de extremidade de serviço. Para obter um comando de exemplo, consulte [PowerShell, solicitações da Web e proxies](https://stackoverflow.com/questions/571429/powershell-web-requests-and-proxies).    
+1. Se o "proxy" tiver sido configurado no tempo de execução de integração auto-hospedado, verifique se o seu servidor proxy pode aceder ao ponto final do serviço. Para um comando de amostra, consulte [PowerShell, web requests e proxies](https://stackoverflow.com/questions/571429/powershell-web-requests-and-proxies).    
                 
     ```powershell
     $user = $env:username
@@ -74,31 +74,31 @@ O tempo de execução de integração auto-hospedado não pode se conectar ao se
     $string
     ```
 
-A seguir está a resposta esperada:
+Segue-se a resposta esperada:
             
-![Resposta do comando do PowerShell 2](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
+![Resposta de comando Powershell 2](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
 
 > [!NOTE] 
-> Considerações sobre proxy:
-> * Verifique se o servidor proxy precisa ser colocado na lista de destinatários seguros. Nesse caso, verifique se [esses domínios](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) estão na lista de destinatários seguros.
-> * Verifique se o certificado TLS/SSL "wu2.frontend.clouddatahub.net/" é confiável no servidor proxy.
-> * Se você estiver usando Active Directory autenticação no proxy, altere a conta de serviço para a conta de usuário que pode acessar o proxy como "serviço Integration Runtime".
+> Considerações de procuração:
+> * Verifique se o servidor proxy precisa de ser colocado na lista de Destinatários Seguros. Em caso afirmativo, certifique-se de que [estes domínios](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) estão na lista de Destinatários Seguros.
+> * Verifique se o certificado TLS/SSL "wu2.frontend.clouddatahub.net/" é confiado no servidor proxy.
+> * Se estiver a utilizar a autenticação do Diretório Ativo no proxy, altere a conta de serviço para a conta de utilizador que pode aceder ao proxy como "Serviço de Tempo de Execução de Integração".
 
-### <a name="error-message-self-hosted-integration-runtime-node-logical-shir-is-in-inactive-running-limited-state"></a>Mensagem de erro: o nó do tempo de execução de integração auto-hospedado/SHIR lógico está no estado inativo/"em execução (limitado)"
+### <a name="error-message-self-hosted-integration-runtime-node-logical-shir-is-in-inactive-running-limited-state"></a>Mensagem de erro: O nó de tempo de funcionamento da integração auto-hospedada/ sHIR lógico está em estado Inativo/ "Running (Limited)"
 
 #### <a name="cause"></a>Causa 
 
-O nó de tempo de execução integrado auto-hospedado pode ter um status **inativo** , conforme mostrado na seguinte captura de tela:
+O nó de tempo de execução integrado auto-hospedado pode ter um estatuto **inativo,** como mostra a seguinte imagem:
 
-![Nó IR para hospedagem interna inativa](media/self-hosted-integration-runtime-troubleshoot-guide/inactive-self-hosted-ir-node.png)
+![Nó inativo auto-hospedado ir](media/self-hosted-integration-runtime-troubleshoot-guide/inactive-self-hosted-ir-node.png)
 
-Esse comportamento ocorre quando os nós não podem se comunicar entre si.
+Este comportamento ocorre quando os nós não conseguem comunicar uns com os outros.
 
 #### <a name="resolution"></a>Resolução
 
-1. Faça logon na VM hospedada em nó. Em **logs de aplicativos e serviços** > **Integration Runtime**, abra Visualizador de eventos e filtre todos os logs de erros.
+1. Inicie sessão no VM hospedado no nó. No âmbito de **Aplicações e Serviços,** > **integração**de registos, abra o Espectador de Eventos e filtre todos os registos de erro.
 
-1. Verifique se um log de erros contém o seguinte erro: 
+1. Verifique se um registo de erro contém o seguinte erro: 
     
     ```System.ServiceModel.EndpointNotFoundException: Could not connect to net.tcp://xxxxxxx.bwld.com:8060/ExternalService.svc/WorkerManager. The connection attempt lasted for a time span of 00:00:00.9940994. TCP error code 10061: No connection could be made because the target machine actively refused it 10.2.4.10:8060. 
     System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it. 

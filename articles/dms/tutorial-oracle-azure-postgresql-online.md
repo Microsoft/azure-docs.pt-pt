@@ -3,8 +3,8 @@ title: 'Tutorial: Migrar o Oracle on-line para a Base de Dados Azure para Postgr
 titleSuffix: Azure Database Migration Service
 description: Aprenda a realizar uma migração on-line da Oracle no local ou em máquinas virtuais para a Base de Dados Azure para PostgreSQL utilizando o Serviço de Migração de Bases de Dados Azure.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/24/2020
-ms.openlocfilehash: 14db95adccf5118321bc763cbe599e19febc7eac
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 956523e2b51795a4bc97c653dab8b408b06061f4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255569"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Tutorial: Migrar o Oráculo para a Base de Dados Azure para PostgreSQL online usando DMS (Pré-visualização)
@@ -28,7 +28,7 @@ Neste tutorial, ficará a saber como:
 >
 > * Avalie o esforço de migração utilizando a ferramenta ora2pg.
 > * Migrar o esquema da amostra utilizando a ferramenta ora2pg.
-> * Crie uma instância do Serviço de Migração de Bases de Dados Azure.
+> * Crie uma instância do Azure Database Migration Service.
 > * Crie um projeto de migração utilizando o Serviço de Migração de Bases de Dados Azure.
 > * Executar a migração.
 > * Monitorizar a migração.
@@ -86,7 +86,7 @@ Para concluir este tutorial, precisa de:
       SHUTDOWN IMMEDIATE;
       ```
 
-      Aguarde a confirmação `'ORACLE instance shut down'`.
+      Aguarde `'ORACLE instance shut down'`a confirmação.
 
     * Inicie a nova instância e monte (mas não abra) a base de dados para ativar ou desativar o bu de arquivamento com o seguinte comando:
 
@@ -116,12 +116,12 @@ Para concluir este tutorial, precisa de:
       SELECT log_mode FROM v$database;
       ```
 
-      Deve receber uma resposta `'ARCHIVELOG'`. Se a resposta for `'NOARCHIVELOG'`, então o requisito não é cumprido.
+      Deve receber uma `'ARCHIVELOG'`resposta. Se a `'NOARCHIVELOG'`resposta for, então o requisito não é cumprido.
 
   * Ativar o registo suplementar para a replicação utilizando uma das seguintes opções.
 
     * **Opção 1**.
-      Altere o nível de registo suplementar do nível da base de dados para cobrir todas as tabelas com PK e índice único. A consulta de deteção devolverá `'IMPLICIT'`.
+      Altere o nível de registo suplementar do nível da base de dados para cobrir todas as tabelas com PK e índice único. A consulta de `'IMPLICIT'`deteção voltará.
 
       ```
       ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY, UNIQUE) COLUMNS;
@@ -134,7 +134,7 @@ Para concluir este tutorial, precisa de:
       ```
 
     * **Opção 2**.
-      Altere o nível de registo suplementar do nível da base de dados para cobrir todas as tabelas e a consulta de deteção retorna `'YES'`.
+      Altere o nível de registo suplementar do nível `'YES'`da base de dados para cobrir todas as tabelas e a consulta de deteção retorna .
 
       ```
       ALTER DATABASE ADD SUPPLEMENTAL LOG DATA;
@@ -166,11 +166,11 @@ Para concluir este tutorial, precisa de:
       SELECT supplemental_log_data_min FROM v$database;
       ```
 
-    Deve receber uma resposta `'YES'`.
+    Deve receber uma `'YES'`resposta.
 
 ## <a name="assess-the-effort-for-an-oracle-to-azure-database-for-postgresql-migration"></a>Avaliar o esforço de uma Base de Dados Oráculo para Azure para migração postgresQL
 
-Recomendamos a utilização do ora2pg para avaliar o esforço necessário para migrar da Oracle para a Base de Dados Azure para postgreSQL. Utilize a diretiva `ora2pg -t SHOW_REPORT` para criar um relatório que enumera todos os objetos oráculo, o custo estimado de migração (em dias de desenvolvimento) e certos objetos de base de dados que possam necessitar de uma atenção especial como parte da conversão.
+Recomendamos a utilização do ora2pg para avaliar o esforço necessário para migrar da Oracle para a Base de Dados Azure para postgreSQL. Utilize `ora2pg -t SHOW_REPORT` a diretiva para criar um relatório que enumera todos os objetos oráculo, o custo estimado de migração (em dias de desenvolvimento) e certos objetos de base de dados que possam necessitar de uma atenção especial como parte da conversão.
 
 A maioria dos clientes passará um tempo considerável a rever o relatório de avaliação e a considerar o esforço de conversão automática e manual.
 
@@ -178,7 +178,7 @@ Para configurar e executar o ora2pg para criar um relatório de avaliação, con
 
 ## <a name="export-the-oracle-schema"></a>Exportar o esquema oráculo
 
-Recomendamos que utilize o ora2pg para converter o esquema Oracle e outros objetos Oracle (tipos, procedimentos, funções, etc.) para um esquema compatível com a Base de Dados Azure para PostgreSQL. o ora2pg inclui muitas diretivas para ajudá-lo a pré-definir certos tipos de dados. Por exemplo, pode utilizar a diretiva `DATA_TYPE` para substituir todos os NÚMERO (*,0) por mais grandes do que numeric(38).
+Recomendamos que utilize o ora2pg para converter o esquema Oracle e outros objetos Oracle (tipos, procedimentos, funções, etc.) para um esquema compatível com a Base de Dados Azure para PostgreSQL. o ora2pg inclui muitas diretivas para ajudá-lo a pré-definir certos tipos de dados. Por exemplo, pode `DATA_TYPE` utilizar a diretiva para substituir todos os NÚMERO (*,0) por mais grandes do que numeric(38).
 
 Pode executar o ora2pg para exportar cada um dos objetos da base de dados em ficheiros .sql. Em seguida, pode rever os ficheiros .sql antes de os importar para a Base de Dados Azure para postgreSQL utilizando o psql ou pode executar o . Script SQL em PgAdmin.
 
@@ -204,7 +204,7 @@ Pode optar por converter esquemas de mesa Oracle, procedimentos armazenados, pac
 O Serviço de Migração de Bases de Dados Azure também pode criar o esquema de mesa PostgreSQL. O serviço acede ao esquema de mesa na fonte oráculo conectada e cria um esquema de mesa compatível na Base de Dados Azure para PostgreSQL. Certifique-se de validar e verificar o formato de esquema na Base de Dados Azure para PostgreSQL após o Serviço de Migração da Base de Dados Azure terminar de criar o esquema e mover os dados.
 
 > [!IMPORTANT]
-> O Serviço de Migração da Base de Dados Azure só cria o esquema de mesa; não são criados outros objetos de base de dados, tais como procedimentos armazenados, pacotes, índices, etc.
+> O Serviço de Migração da Base de Dados Azure só cria o esquema de mesa; não são criados outros objetos de base de dados, tais como procedimentos armazenados, pacotes, índices, etc..
 
 Certifique-se também de que deixa cair a chave estrangeira na base de dados do alvo para que a carga completa seja executada. Consulte a secção de **esquemas** de amostra da amostra do artigo [aqui](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online) para obter um script que pode usar para deixar cair a chave estrangeira. Utilize o Serviço de Migração de Bases de Dados Azure para funcionar para a carga completa e sincronização.
 
@@ -221,7 +221,7 @@ Se criar um esquema PostgreSQL utilizando ferramentas como o ora2pg antes de ini
     ![Mostrar subscrições no portal](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
 
 > [!NOTE]
-> Se precisar de mapear nomes de tabelas de origem para tabelas com nomes diferentes, [envie um](mailto:dmsfeedbac@microsoft.com) e-maildmsfeedback@microsoft.come podemos fornecer um script para automatizar o processo.
+> Se precisar de mapear nomes de tabelas [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com) de origem para tabelas com nomes diferentes, e-mail e podemos fornecer um script para automatizar o processo.
 
 ### <a name="when-the-postgresql-table-schema-doesnt-exist"></a>Quando o esquema da mesa PostgreSQL não existe
 
@@ -249,7 +249,7 @@ Para começar:
     | HR | targetHR.HR | "HR". PAÍSES". COUNTRY_ID" |
     | HR | targetHR.Hr | *Incapaz de mapear casos mistos |
 
-    *Para criar esquemas mistos e nomes de mesa no target PostgreSQL, contacte [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com). Podemos fornecer um script para configurar esquemas de mesa mistos na base de dados postgresQL alvo.
+    *Para criar esquemas mistos e nomes de mesa [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com)no target PostgreSQL, contacte . Podemos fornecer um script para configurar esquemas de mesa mistos na base de dados postgresQL alvo.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registar o fornecedor de recursos Microsoft.DataMigration
 
@@ -351,7 +351,7 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
 * Selecione **Executar a migração**.
 
-  É apresentada a janela da atividade de migração e o **Estado** da atividade é **a inicializar**.
+  A janela da atividade migratória aparece, e o **Estado** da atividade está **a rubricar.**
 
 ## <a name="monitor-the-migration"></a>Monitorizar a migração
 

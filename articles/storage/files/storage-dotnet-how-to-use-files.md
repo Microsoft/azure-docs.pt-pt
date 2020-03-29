@@ -9,10 +9,10 @@ ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 4d8be13a75e276d5be6ec71141a13f95601869f0
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78301442"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Programar para os Ficheiros do Azure com .NET
@@ -34,22 +34,22 @@ Para saber mais sobre ficheiros Azure, veja [o que é ficheiros Azure?](storage-
 
 ## <a name="understanding-the-net-apis"></a>Noções sobre as APIs de .NET
 
-O serviço Ficheiros do Azure fornece duas abordagens abrangentes no que se refere às aplicações cliente: SMB (Server Message Block) e REST. Dentro da .NET, os `System.IO` e `WindowsAzure.Storage` APIs abstraem estas abordagens.
+O serviço Ficheiros do Azure fornece duas abordagens abrangentes no que se refere às aplicações cliente: SMB (Server Message Block) e REST. Dentro de .NET, as `System.IO` APIs abstraem `WindowsAzure.Storage` estas abordagens.
 
 API | Quando utilizar | Notas
 ----|-------------|------
 [System.IO](https://docs.microsoft.com/dotnet/api/system.io) | A sua aplicação: <ul><li>Precisa de ler/escrever ficheiros utilizando SMB</li><li>Está em execução num dispositivo que tem acesso à sua conta do serviço Ficheiros do Azure através da porta 445</li><li>Não precisa de gerir qualquer definição administrativa da partilha de ficheiros</li></ul> | O ficheiro I/O implementado com Ficheiros Azure sobre SMB é geralmente o mesmo que I/O com qualquer partilha de ficheiros de rede ou dispositivo de armazenamento local. Para uma introdução a uma série de funcionalidades em .NET, incluindo ficheiro S/O, consulte o tutorial da Aplicação da [Consola.](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter)
-[Microsoft.Azure.Storage.File](/dotnet/api/overview/azure/storage?view=azure-dotnet#version-11x) | A sua aplicação: <ul><li>Não é possível aceder a Ficheiros Azure utilizando SMB na porta 445 devido a restrições de firewall ou ISP</li><li>Precisa de funcionalidade administrativa, como a capacidade de definir a quota de uma partilha de ficheiros ou criar uma assinatura de acesso partilhado</li></ul> | Este artigo demonstra a utilização de `Microsoft.Azure.Storage.File` para ficheiros I/O utilizando o REST em vez de SMB e a gestão da parte do ficheiro.
+[Microsoft.Azure.Storage.File](/dotnet/api/overview/azure/storage?view=azure-dotnet#version-11x) | A sua aplicação: <ul><li>Não é possível aceder a Ficheiros Azure utilizando SMB na porta 445 devido a restrições de firewall ou ISP</li><li>Precisa de funcionalidade administrativa, como a capacidade de definir a quota de uma partilha de ficheiros ou criar uma assinatura de acesso partilhado</li></ul> | Este artigo demonstra o `Microsoft.Azure.Storage.File` uso de ficheiros I/O utilizando O REST em vez de SMB e a gestão da parte do ficheiro.
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Criar a aplicação de consola e obter a assemblagem
 
 No Visual Studio, crie uma nova aplicação de consola do Windows. Os seguintes passos mostram-lhe como criar uma aplicação de consola no Visual Studio 2019. Os passos são semelhantes aos de outras versões do Visual Studio.
 
 1. Inicie o Estúdio Visual e selecione **Criar um novo projeto.**
-1. Em **Criar um novo projeto,** escolha a App consola **(.NET Framework)** para C#, e, em seguida, selecione **Next**.
+1. Em **Criar um novo projeto,** escolha a App consola **(.NET Framework)** para C#e, em seguida, selecione **Next**.
 1. No **Configure o seu novo projeto,** insira um nome para a app e selecione **Criar**.
 
-Pode adicionar todos os exemplos de código neste tutorial ao método `Main()` do ficheiro `Program.cs` da sua aplicação de consola.
+Pode adicionar todos os exemplos de `Main()` código neste tutorial ao `Program.cs` método do ficheiro da sua aplicação de consola.
 
 Pode utilizar a biblioteca de clientes do Azure Storage em qualquer tipo de aplicação .NET. Estes tipos incluem um serviço de nuvem Azure ou web app, e aplicações de desktop e mobile. Neste guia, utilizamos uma aplicação de consola pela simplicidade.
 
@@ -84,7 +84,7 @@ Pode utilizar o NuGet para obter ambos os pacotes. Siga estes passos.
 
 ## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Guarde as credenciais da sua conta de armazenamento para o ficheiro App.config
 
-Em seguida, guarde as suas credenciais no ficheiro `App.config` do seu projeto. No **Solution Explorer,** clique duas vezes `App.config` e edite o ficheiro de modo a que seja semelhante ao seguinte exemplo. Substitua `myaccount` pelo nome da sua conta de armazenamento e `mykey` com a chave da sua conta de armazenamento.
+Em seguida, guarde as `App.config` suas credenciais no ficheiro do seu projeto. No **Solution Explorer,** `App.config` clique duas vezes e edite o ficheiro de modo a que seja semelhante ao seguinte exemplo. Substitua-a `myaccount` pelo `mykey` nome da sua conta de armazenamento e pela chave da sua conta de armazenamento.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -103,7 +103,7 @@ Em seguida, guarde as suas credenciais no ficheiro `App.config` do seu projeto. 
 
 ## <a name="add-using-directives"></a>Adicionar com diretivas
 
-No **Solution Explorer,** abra o ficheiro `Program.cs` e adicione as seguintes diretivas utilizando as diretivas no topo do ficheiro.
+No **Solution Explorer,** abra o `Program.cs` ficheiro e adicione as seguintes diretivas utilizando as diretivas no topo do ficheiro.
 
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
@@ -116,7 +116,7 @@ using Microsoft.Azure.Storage.File; // Namespace for Azure Files
 
 ## <a name="access-the-file-share-programmatically"></a>Aceder à partilha de ficheiros programaticamente
 
-Em seguida, adicione o seguinte conteúdo ao método `Main()`, após o código acima indicado, para recuperar a cadeia de ligação. Este código recebe uma referência ao ficheiro que criamos anteriormente e produz o seu conteúdo.
+Em seguida, adicione o `Main()` seguinte conteúdo ao método, após o código acima indicado, para recuperar a cadeia de ligação. Este código recebe uma referência ao ficheiro que criamos anteriormente e produz o seu conteúdo.
 
 ```csharp
 // Create a CloudFileClient object for credentialed access to Azure Files.
@@ -300,7 +300,7 @@ if (share.Exists())
 
 ### <a name="copy-a-file-to-a-blob"></a>Copiar um ficheiro para um blob
 
-O exemplo seguinte cria um ficheiro e copia-o para um blob na mesma conta do Storage. O exemplo cria um SAS para o ficheiro de origem, que o serviço utiliza para autorizar o acesso ao ficheiro de origem durante a operação de cópia.
+O exemplo seguinte cria um ficheiro e copia-o para um blob na mesma conta de armazenamento. O exemplo cria um SAS para o ficheiro de origem, que o serviço utiliza para autorizar o acesso ao ficheiro de origem durante a operação de cópia.
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -373,7 +373,7 @@ O exemplo seguinte lista os instantâneos de partilha numa partilha.
 var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
 ```
 
-### <a name="browse-files-and-directories-within-share-snapshots"></a>Navegue em ficheiros e diretórios dentro de instantâneos de partilha
+### <a name="browse-files-and-directories-within-share-snapshots"></a>Procurar ficheiros e diretórios nos instantâneos de partilha
 
 O exemplo seguinte procura ficheiros e diretórios nos instantâneos de partilha.
 
@@ -383,7 +383,7 @@ var rootDirectory = mySnapshot.GetRootDirectoryReference();
 var items = rootDirectory.ListFilesAndDirectories();
 ```
 
-### <a name="list-shares-and-share-snapshots-and-restore-file-shares-or-files-from-share-snapshots"></a>Liste ações e partilhe instantâneos e restaure as partilhas de ficheiros ou ficheiros a partir de instantâneos de ações
+### <a name="list-shares-and-share-snapshots-and-restore-file-shares-or-files-from-share-snapshots"></a>Listar partilhas e instantâneos de partilha e restaurar partilhas de ficheiros ou ficheiros de instantâneos de partilha
 
 Um instantâneo de uma partilha de ficheiros permite-lhe recuperar ficheiros individuais ou toda a partilha de ficheiros no futuro.
 
@@ -420,7 +420,7 @@ O exemplo seguinte elimina um instantâneo de partilha de ficheiros.
 CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); mySnapshot.Delete(null, null, null);
 ```
 
-## Troubleshoot Azure Files usando métricas<a name="troubleshooting-azure-files-using-metrics"></a>
+## <a name="troubleshoot-azure-files-by-using-metrics"></a>Troubleshoot Azure Files usando métricas<a name="troubleshooting-azure-files-using-metrics"></a>
 
 Agora, a Análise de Armazenamento do Azure suporta métricas para os Ficheiros do Azure. Com os dados de métricas, pode rastrear pedidos e diagnosticar problemas.
 
@@ -428,14 +428,14 @@ Pode ativar métricas para Ficheiros Azure a partir do [portal Azure](https://po
 
 O exemplo de código seguinte mostra como utilizar a Biblioteca de Clientes de Armazenamento para .NET, para ativar as métricas para os Ficheiros do Azure.
 
-Em primeiro lugar, adicione as seguintes diretivas `using` ao seu ficheiro `Program.cs`, juntamente com as que acrescentou acima:
+Em primeiro lugar, adicione as seguintes `using` diretivas ao seu `Program.cs` ficheiro, juntamente com as que acrescentou acima:
 
 ```csharp
 using Microsoft.Azure.Storage.File.Protocol;
 using Microsoft.Azure.Storage.Shared.Protocol;
 ```
 
-Embora as filas Azure Blobs, Azure e Azure utilizem o tipo de `ServiceProperties` partilhado no espaço de `Microsoft.Azure.Storage.Shared.Protocol`, o Azure Files usa o seu próprio tipo, o tipo `FileServiceProperties` no espaço de nome `Microsoft.Azure.Storage.File.Protocol`. No entanto, deve referir ambos os espaços de nome do seu código para que o seguinte código seja compilado.
+Embora as filas Azure Blobs, Azure e `ServiceProperties` Azure `Microsoft.Azure.Storage.Shared.Protocol` utilizem o tipo partilhado no espaço `FileServiceProperties` de nome, o Azure Files usa o seu próprio tipo, o tipo no espaço de `Microsoft.Azure.Storage.File.Protocol` nome. No entanto, deve referir ambos os espaços de nome do seu código para que o seguinte código seja compilado.
 
 ```csharp
 // Parse your storage connection string from your application's configuration file.
@@ -487,17 +487,17 @@ Para mais informações sobre os Ficheiros Azure, consulte os seguintes recursos
 ### <a name="conceptual-articles-and-videos"></a>Artigos e vídeos concetuais
 
 * [Azure Files: a frictionless cloud SMB file system for Windows and Linux (Ficheiros do Azure: um sistema de ficheiros SMB na cloud sem incómodos para Windows e Linux)](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [Use ficheiros Azure com Linux](storage-how-to-use-files-linux.md)
+* [Utilizar os Ficheiros do Azure com o Linux](storage-how-to-use-files-linux.md)
 
-### <a name="tooling-support-for-file-storage"></a>Suporte de ferramentas para o File Storage
+### <a name="tooling-support-for-file-storage"></a>Suporte de ferramentas para o Armazenamento de ficheiros
 
-* [Começar com a AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+* [Introdução ao AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Resolver problemas de Ficheiros do Azure no Windows](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Referência
 
-* [APIs de armazenamento azure para .NET](/dotnet/api/overview/azure/storage)
-* [Serviço de Arquivo REST API](/rest/api/storageservices/File-Service-REST-API)
+* [APIs de Armazenamento do Microsoft Azure para .NET](/dotnet/api/overview/azure/storage)
+* [API REST de Serviço de Ficheiros](/rest/api/storageservices/File-Service-REST-API)
 
 ### <a name="blog-posts"></a>Publicações no blogue
 

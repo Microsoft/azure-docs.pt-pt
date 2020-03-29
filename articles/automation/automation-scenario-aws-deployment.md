@@ -1,65 +1,65 @@
 ---
-title: Automatizando a implantação de uma VM no Amazon Web Services
-description: Este artigo demonstra como usar a automação do Azure para automatizar a criação de uma VM do Amazon Web Service
+title: Automatização da implantação de um VM nos Serviços Web da Amazon
+description: Este artigo demonstra como usar a Automação Azure para automatizar a criação de um VM amazon Web Service
 services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: b149a21ef60b22c2e549c91007265ce99babdbe4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75420930"
 ---
-# <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Cenário de automação do Azure-provisionar uma máquina virtual AWS
-Neste artigo, você aprende como é possível aproveitar a automação do Azure para provisionar uma máquina virtual em sua assinatura do AWS (Amazon Web Service) e dar a essa VM um nome específico – que AWS se refere à "marcação" da VM.
+# <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Cenário de Automação Azure - fornecimento de uma máquina virtual AWS
+Neste artigo, aprende como pode aproveitar a Automatização Azure para fornecer uma máquina virtual na subscrição do Amazon Web Service (AWS) e dar a esse VM um nome específico – a que a AWS se refere como "marcação" do VM.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para os fins deste artigo, você precisa ter uma conta de automação do Azure e uma assinatura do AWS. Para obter mais informações sobre como configurar uma conta de automação do Azure e configurá-la com suas credenciais de assinatura do AWS, examine [Configurar a autenticação com o Amazon Web Services](automation-config-aws-account.md). Essa conta deve ser criada ou atualizada com suas credenciais de assinatura do AWS antes de continuar, conforme você faz referência a essa conta nas etapas abaixo.
+Para efeitos deste artigo, é necessário ter uma conta Azure Automation e uma subscrição AWS. Para obter mais informações sobre a criação de uma conta Azure Automation e configurá-la com as suas credenciais de subscrição AWS, reveja a [Autenticação Configurada com os Serviços Web da Amazon](automation-config-aws-account.md). Esta conta deve ser criada ou atualizada com as suas credenciais de subscrição AWS antes de proceder, uma vez que refere esta conta nos passos abaixo.
 
-## <a name="deploy-amazon-web-services-powershell-module"></a>Implantar Amazon Web Services módulo do PowerShell
-Seu runbook de provisionamento de VM aproveita o módulo do PowerShell do AWS para fazer seu trabalho. Execute as etapas a seguir para adicionar o módulo à sua conta de automação configurada com suas credenciais de assinatura do AWS.  
+## <a name="deploy-amazon-web-services-powershell-module"></a>Implementar módulo PowerShell de serviços web da Amazon
+O seu livro de execução de fornecimento vM aproveita o módulo AWS PowerShell para fazer o seu trabalho. Execute os seguintes passos para adicionar o módulo à sua conta Automation que está configurado com as suas credenciais de subscrição AWS.  
 
-1. Abra o navegador da Web e navegue até a [Galeria do PowerShell](https://www.powershellgallery.com/packages/AWSPowerShell/) e clique no **botão implantar na automação do Azure**.<br><br> ![](./media/automation-scenario-aws-deployment/powershell-gallery-download-awsmodule.png) de importação do módulo AWS PS
-2. Você é levado para a página de logon do Azure e, após a autenticação, será encaminhado para a portal do Azure e apresentada na página a seguir:<br><br> ![Página Importar módulo](./media/automation-scenario-aws-deployment/deploy-aws-powershell-module-parameters.png)
-3. Selecione a conta de automação a ser usada e clique em **OK** para iniciar a implantação.
+1. Abra o seu navegador web e navegue para a [PowerShell Gallery](https://www.powershellgallery.com/packages/AWSPowerShell/) e clique no **botão Deploy to Azure Automation**.<br><br> ![Importação de módulo sPs AWS](./media/automation-scenario-aws-deployment/powershell-gallery-download-awsmodule.png)
+2. Você é levado para a página de login Azure e após a autenticação, você será encaminhado para o portal Azure e apresentado com a seguinte página:<br><br> ![Página do Módulo de Importação](./media/automation-scenario-aws-deployment/deploy-aws-powershell-module-parameters.png)
+3. Selecione a Conta de Automação para utilizar e clique **em OK** para iniciar a implementação.
 
    > [!NOTE]
-   > Ao importar um módulo do PowerShell para a automação do Azure, ele também está extraindo os cmdlets e essas atividades não aparecem até que o módulo tenha concluído a importação e extração completa dos cmdlets. Esse processo pode levar alguns minutos.  
+   > Ao importar um módulo PowerShell para a Automação Azure, está também a extrair os cmdlets e estas atividades não aparecem até que o módulo tenha terminado completamente a importação e extração dos cmdlets. Este processo pode demorar alguns minutos.  
    > <br>
 
-1. Na portal do Azure, abra sua conta de automação referenciada na etapa 3.
-2. Clique no bloco **ativos** e, no painel **ativos** , selecione o bloco **módulos** .
-3. Na página **módulos** , você vê o módulo **AWSPowerShell** na lista.
+1. No portal Azure, abra a sua conta De automação referenciada no passo 3.
+2. Clique no azulejo **Assets** e no painel **Assets,** selecione o azulejo **módulos.**
+3. Na página **Módulos,** vê-se o módulo **AWSPowerShell** na lista.
 
-## <a name="create-aws-deploy-vm-runbook"></a>Criar AWS implantar runbook de VM
-Depois que o módulo do AWS PowerShell tiver sido implantado, agora você poderá criar um runbook para automatizar o provisionamento de uma máquina virtual no AWS usando um script do PowerShell. As etapas a seguir demonstram como aproveitar o script nativo do PowerShell na automação do Azure.  
+## <a name="create-aws-deploy-vm-runbook"></a>Criar o livro de execução VM da AWS
+Uma vez implementado o Módulo AWS PowerShell, pode agora ser autor de um livro de execução para automatizar o fornecimento de uma máquina virtual em AWS utilizando um script PowerShell. Os passos abaixo demonstram como alavancar o script nativo PowerShell na Automação Azure.  
 
 > [!NOTE]
-> Para obter mais opções e informações sobre esse script, visite a [Galeria do PowerShell](https://www.powershellgallery.com/packages/New-AwsVM/).
+> Para mais opções e informações sobre este script, visite a [Galeria PowerShell.](https://www.powershellgallery.com/packages/New-AwsVM/)
 > 
 
-1. Baixe o script New-AwsVM do PowerShell no Galeria do PowerShell abrindo uma sessão do PowerShell e digitando o seguinte:<br>
+1. Descarregue o script PowerShell New-AwsVM da PowerShell Gallery abrindo uma sessão powerShell e digitando o seguinte:<br>
    ```powershell
    Save-Script -Name New-AwsVM -Path <path>
    ```
    <br>
-2. No portal do Azure, abra sua conta de automação e selecione **Runbooks** na seção **automação do processo** à esquerda.  
-3. Na página **Runbooks** , selecione **Adicionar um runbook**.
-4. No painel **Adicionar um runbook** , selecione **criação rápida** (criar um novo runbook).
-5. No painel Propriedades do **runbook** , digite um nome na caixa nome do runbook e, na lista suspensa **tipo de runbook** , selecione **PowerShell**e, em seguida, clique em **criar**.<br><br> ![criar o painel de runbook](./media/automation-scenario-aws-deployment/runbook-quickcreate-properties.png)
-6. Quando a página Editar runbook do PowerShell for exibida, copie e cole o script do PowerShell na tela de criação do runbook.<br><br> ![Script do PowerShell do runbook](./media/automation-scenario-aws-deployment/runbook-powershell-script.png)<br>
+2. A partir do portal Azure, abra a sua conta De automação e selecione **Runbooks** sob a secção **Automation** process à esquerda.  
+3. A partir da página **Runbooks,** selecione **Adicionar um livro de execução**.
+4. No painel **Adicionar um livro** de corridas, selecione **Quick Create** (Criar um novo livro de corridas).
+5. No painel de propriedades **do Livro de Execução,** digite um nome na caixa de nome para o seu livro de execução e a partir da lista de drop-down **do tipo Runbook** selecione **PowerShell,** e, em seguida, clique em **Criar**.<br><br> ![Criar painel de livro de corridas](./media/automation-scenario-aws-deployment/runbook-quickcreate-properties.png)
+6. Quando a página editPowerShell Runbook aparecer, copie e cole o script PowerShell na tela de autor do livro de execução.<br><br> ![Script PowerShell do livro de execução](./media/automation-scenario-aws-deployment/runbook-powershell-script.png)<br>
    
     > [!NOTE]
-    > Observe o seguinte ao trabalhar com o script do PowerShell de exemplo:
+    > Note o seguinte ao trabalhar com o exemplo do script PowerShell:
     > 
-    > * O runbook contém vários valores de parâmetro padrão. Avalie todos os valores padrão e atualize quando necessário.
-    > * Se você armazenou suas credenciais do AWS como um ativo de credencial chamado de forma diferente de **AWScred**, precisará atualizar o script na linha 57 para que ele seja correspondente.  
-    > * Ao trabalhar com os comandos da CLI do AWS no PowerShell, especialmente com este runbook de exemplo, você deve especificar a região AWS. Caso contrário, os cmdlets falharão. Exibir tópico AWS [especifique a região AWS](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) no documento AWS Tools for PowerShell para obter mais detalhes.  
+    > * O livro de execução contém uma série de valores de parâmetros padrão. Avalie todos os valores predefinidos e atualize sempre que necessário.
+    > * Se guardou as suas credenciais AWS como um ativo credencial nomeado de forma diferente da **AWScred,** precisa de atualizar o script na linha 57 para corresponder em conformidade.  
+    > * Ao trabalhar com os comandos AWS CLI na PowerShell, especialmente com este livro de execução exemplo, deve especificar a região AWS. Caso contrário, os cmdlets falham. Consulte o tópico AWS [Especifique a região AWS](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) no documento AWS Tools for PowerShell para mais detalhes.  
     >
 
-7. Para recuperar uma lista de nomes de imagem de sua assinatura do AWS, inicie o ISE do PowerShell e importe o módulo AWS PowerShell. Autentique no AWS substituindo **Get-AutomationPSCredential** no ambiente do ISE por **AWScred = Get-Credential**. Isso solicitará suas credenciais e você poderá fornecer sua ID de **chave de acesso** para o nome de usuário e a **chave de acesso de segredo** para a senha. Veja o exemplo abaixo:  
+7. Para obter uma lista de nomes de imagem da sua subscrição AWS, lance powerShell ISE e importe o Módulo AWS PowerShell. Autenticar contra a AWS substituindo **get-AutomationPSCredential** no seu ambiente ISE por **AWScred = Get-Credential**. Isto solicita-lhe as suas credenciais e pode fornecer o seu **ID de chave** de acesso para o nome de utilizador e chave de acesso **secreto** para a palavra-passe. Veja o exemplo abaixo:  
 
         ```powershell
         #Sample to get the AWS VM available images
@@ -77,28 +77,28 @@ Depois que o módulo do AWS PowerShell tiver sido implantado, agora você poder�
         Get-EC2ImageByName -ProfileName AWSProfile
         ```
         
-    A seguinte saída é retornada:<br><br>
-   ![obter imagens AWS](./media/automation-scenario-aws-deployment/powershell-ise-output.png)<br>  
-8. Copie e cole um dos nomes de imagem em uma variável de automação como referenciado no runbook como **$InstanceType**. Como neste exemplo você está usando a assinatura em camadas gratuita do AWS, use **T2. micro** para seu exemplo de runbook.  
-9. Salve o runbook e clique em **publicar** para publicar o runbook e, em seguida, em **Sim** quando solicitado.
+    A seguinte saída é devolvida:<br><br>
+   ![Obtenha imagens AWS](./media/automation-scenario-aws-deployment/powershell-ise-output.png)<br>  
+8. Copie e cole o nome de uma variável de Automação como referenciado no livro de execução como **$InstanceType**. Uma vez que neste exemplo está a utilizar a subscrição gratuita de nível AWS, utiliza **t2.micro** para o seu exemplo de livro de execução.  
+9. Guarde o livro de recortes e, em seguida, clique em **Publicar** para publicar o livro de execução e, em seguida, **sim** quando solicitado.
 
-### <a name="testing-the-aws-vm-runbook"></a>Testando o runbook de VM AWS
-Antes de prosseguir com o teste do runbook, você precisa verificar algumas coisas. Especificamente:  
+### <a name="testing-the-aws-vm-runbook"></a>Testar o livro de execução DaWS VM
+Antes de continuar a testar o livro de corridas, precisa verificar algumas coisas. Mais concretamente:  
 
-* Um ativo para autenticação no AWS foi criado chamado **AWScred** ou o script foi atualizado para referenciar o nome do seu ativo de credencial.    
-* O módulo do PowerShell do AWS foi importado na automação do Azure  
-* Um novo runbook foi criado e os valores de parâmetro foram verificados e atualizados quando necessário  
-* **Registros detalhados de log** e, opcionalmente, **registros de progresso de log** na configuração do runbook **log e rastreamento** foram definidos como **on**.<br><br> ![log e rastreamento de runbook](./media/automation-scenario-aws-deployment/runbook-settings-logging-and-tracing.png)  
+* Foi criado um ativo para autenticação contra a AWS **ou** o script foi atualizado para referência ao nome do seu ativo credencial.    
+* O módulo AWS PowerShell foi importado na Automação Azure  
+* Foi criado um novo livro de ensaios e os valores dos parâmetros foram verificados e atualizados sempre que necessário  
+* **Registar registos verbosos** e, opcionalmente, **registar registos** de progresso sob a definição do livro **de execução A exploração e** o rastreio foram definidos para **On**.<br><br> ![Registo e rastreio do livro de corridas](./media/automation-scenario-aws-deployment/runbook-settings-logging-and-tracing.png)  
 
-1. Você deseja iniciar o runbook, portanto, clique em **Iniciar** e, em seguida, clique em **OK** quando o painel Iniciar runbook for aberto.
-2. No painel Iniciar runbook, forneça um **VMname**. Aceite os valores padrão para os outros parâmetros pré-configurados anteriormente no script. Clique em **OK** para iniciar o trabalho de runbook.<br><br> ![iniciar o runbook New-AwsVM](./media/automation-scenario-aws-deployment/runbook-start-job-parameters.png)
-3. Um painel de trabalho é aberto para o trabalho de runbook que você criou. Feche este painel.
-4. Você pode exibir o progresso do trabalho e exibir os **fluxos** de saída selecionando o bloco **todos os logs** na página de trabalho do runbook.<br><br> ](./media/automation-scenario-aws-deployment/runbook-job-streams-output.png) de saída do fluxo de ![
-5. Para confirmar se a VM está sendo provisionada, faça logon no console de gerenciamento do AWS se você não estiver conectado no momento.<br><br> ![VM implantada pelo console do AWS](./media/automation-scenario-aws-deployment/aws-instances-status.png)
+1. Se pretender iniciar o livro de execução, clique em **Iniciar** e, em seguida, clique em **OK** quando o painel Start Runbook abrir.
+2. No painel Start Runbook, forneça um **Nome VMname**. Aceite os valores predefinidos para os outros parâmetros que preconfigurou no script anteriormente. Clique **em OK** para iniciar o trabalho do livro de corridas.<br><br> ![Iniciar o livro de corridas New-AwsVM](./media/automation-scenario-aws-deployment/runbook-start-job-parameters.png)
+3. Está aberta uma vidraça para o trabalho de livro que criou. Feche este painel.
+4. Pode visualizar o progresso do trabalho e ver **fluxos** de saída selecionando o azulejo **All Logs** a partir da página de trabalho do livro de executores.<br><br> ![Saída de fluxo](./media/automation-scenario-aws-deployment/runbook-job-streams-output.png)
+5. Para confirmar que o VM está a ser provisionado, inicie sessão na Consola de Gestão AWS se não estiver atualmente registado.<br><br> ![Consola AWS implantada VM](./media/automation-scenario-aws-deployment/aws-instances-status.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 * Para começar com runbooks Gráficos, consulte o artigo [O meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
-* Para começar com runbooks do fluxo de trabalho do PowerShell, consulte o artigo [O meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md)
+* Para começar com os livros de workflow powerShell, consulte o meu primeiro livro de corridas de fluxo de [trabalho PowerShell](automation-first-runbook-textual.md)
 * Para saber mais sobre os tipos de runbook, as vantagens e limitações, consulte o artigo [Tipos de runbook da Automatização do Azure](automation-runbook-types.md)
 * Para mais informações sobre a funcionalidade de suporte de scripts do PowerShell, consulte o artigo [Suporte de scripts do PowerShell Nativo na Automatização do Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 

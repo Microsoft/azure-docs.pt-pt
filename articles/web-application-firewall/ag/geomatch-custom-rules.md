@@ -8,15 +8,15 @@ ms.service: web-application-firewall
 ms.date: 01/31/2020
 ms.author: victorh
 ms.openlocfilehash: 6725e1de21dbd103850071f7511e2800c6bd7b69
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76961091"
 ---
-# <a name="geomatch-custom-rules-preview"></a>Regras personalizadas de correspondência geocombinadas (versão prévia)
+# <a name="geomatch-custom-rules-preview"></a>Regras personalizadas de Geomatch (pré-visualização)
 
-As regras personalizadas permitem-lhe criar regras personalizadas de acordo com as necessidades exatas das suas aplicações e políticas de segurança. Agora, pode restringir o acesso às suas aplicações web por país/região. Assim como acontece com todas as regras personalizadas, essa lógica pode ser composta por outras regras para atender às necessidades do seu aplicativo.
+As regras personalizadas permitem-lhe criar regras personalizadas de acordo com as necessidades exatas das suas aplicações e políticas de segurança. Agora, pode restringir o acesso às suas aplicações web por país/região. Como em todas as regras personalizadas, esta lógica pode ser agravada com outras regras para atender às necessidades da sua aplicação.
 
 Para criar uma regra personalizada de geofiltração, basta selecionar a *Geo-localização* como o Match Type e, em seguida, selecionar o país ou países que pretende permitir/bloquear da sua aplicação. Veja [como criar regras personalizadas em Powershell](configure-waf-custom-rules.md) e mais exemplos de regras personalizadas (create-custom-waf-rules.md) para mais informações.
 
@@ -25,9 +25,9 @@ Para criar uma regra personalizada de geofiltração, basta selecionar a *Geo-lo
 
 ## <a name="country-codes"></a>Códigos do país
 
-Se você estiver usando o operador geomatch, os seletores podem ser qualquer um dos seguintes códigos de país de dois dígitos. 
+Se estiver a utilizar o operador Geomatch, os selecionadores podem ser qualquer um dos seguintes códigos de dois dígitos do país. 
 
-|Indicativo do país | Nome do país |
+|Código de país | Nome do país |
 | ----- | ----- |
 | AD | Andorra |
 | AE | Emirados Árabes Unidos|
@@ -47,10 +47,10 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | BE | Bélgica|
 | BF | Burkina Faso|
 | BG | Bulgária|
-| BH | Bahrain|
+| BH | Barém|
 | BI | Burundi|
 | BJ | Benim|
-| BL | São Bartolomeu|
+| BL | São Barthélemy|
 | BN | Brunei Darussalam|
 | BO | Bolívia|
 | BR | Brasil|
@@ -97,7 +97,7 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | GY | Guiana|
 | HK | RAE de Hong Kong|
 | HN | Honduras|
-| RH | Croácia|
+| HR | Croácia|
 | HT | Haiti|
 | HU | Hungria|
 | ID | Indonésia|
@@ -112,7 +112,7 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | JO | Jordânia|
 | JP | Japão|
 | KE | Quénia|
-| KG | Quirguizistão|
+| KG | Quirguistão|
 | KH | Camboja|
 | KI | Kiribati|
 | KN | São Cristóvão e Neves|
@@ -123,7 +123,7 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | KZ | Cazaquistão|
 | LA | República Democrática Popular do Laos|
 | LB | Líbano|
-| LI | Listenstaine|
+| LI | Liechtenstein|
 | LK | Sri Lanka|
 | LR | Libéria|
 | LS | Lesoto|
@@ -147,7 +147,7 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | MX | México|
 | MY | Malásia|
 | MZ | Moçambique|
-| N/D | Namíbia|
+| ND | Namíbia|
 | NE | Níger|
 | NG | Nigéria|
 | NI | Nicarágua|
@@ -190,14 +190,14 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | TH | Tailândia|
 | TN | Tunísia|
 | TR | Turquia|
-| TT | Trinidad e Tobago|
+| TT | Trindade e Tobago|
 | TW | Taiwan|
 | TZ | Tanzânia, República Unida da|
 | UA | Ucrânia|
 | UG | Uganda|
 | EUA | Estados Unidos|
 | UY | Uruguai|
-| UZ | Usbequistão|
+| UZ | Uzbequistão|
 | VC | São Vicente e Granadinas|
 | VE | Venezuela|
 | VG | Ilhas Virgens Britânicas|
@@ -209,4 +209,4 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de aprender sobre regras personalizadas, [crie suas próprias regras personalizadas](create-custom-waf-rules.md).
+Depois de aprender sobre regras personalizadas, [crie as suas próprias regras personalizadas.](create-custom-waf-rules.md)

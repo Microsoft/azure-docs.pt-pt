@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
 ms.openlocfilehash: c41292a05e5c857cd0b1c120784a400f2f5410ab
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78945346"
 ---
-# <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrar recursos IaaS do clássico para o Gestor de Recursos Azure usando o Azure CLI
+# <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI (Migrar recursos IaaS de clássica para Azure Resource Manager com a CLI do Azure)
 
 > [!IMPORTANT]
 > Hoje, cerca de 90% dos VMs iaas estão usando O Gestor de [Recursos Azure.](https://azure.microsoft.com/features/resource-manager/) A partir de 28 de fevereiro de 2020, os VMs clássicos foram depreciados e serão totalmente aposentados a 1 de março de 2023. [Saiba mais]( https://aka.ms/classicvmretirement) sobre esta depreciação e [como isso o afeta.](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me)
@@ -67,16 +67,16 @@ Registe-se no fornecedor de recursos migratórios utilizando o seguinte comando.
 
     azure provider register Microsoft.ClassicInfrastructureMigrate
 
-Por favor, espere cinco minutos para a inscrição terminar. Pode verificar o estado da aprovação utilizando o seguinte comando. Certifique-se de que o Estado de Registo está `Registered` antes de prosseguir.
+Por favor, espere cinco minutos para a inscrição terminar. Pode verificar o estado da aprovação utilizando o seguinte comando. Certifique-se de `Registered` que o Estado de Registo está antes de prosseguir.
 
     azure provider show Microsoft.ClassicInfrastructureMigrate
 
-Agora mude o CLI para o modo `asm`.
+Agora mude o `asm` CLI para o modo.
 
     azure config mode asm
 
 ## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Passo 3: Certifique-se de que tem vCPUs de Máquina Virtual do Gestor de Recursos Azure suficiente seleções na região Azure da sua atual implantação ou VNET
-Para este passo, terá de mudar para `arm` modo. Faça isto com o seguinte comando.
+Para este passo, terá de `arm` mudar para o modo. Faça isto com o seguinte comando.
 
 ```
 azure config mode arm
@@ -88,7 +88,7 @@ Pode utilizar o seguinte comando CLI para verificar o número atual de vCPUs que
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"
 ```
 
-Uma vez feito o check-in, pode voltar a `asm` modo.
+Uma vez feito o check-in, pode `asm` voltar ao modo.
 
     azure config mode asm
 
@@ -118,7 +118,7 @@ Se pretender migrar para uma rede virtual existente no modelo de implementação
 
     azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> <subnetName> <vnetName>
 
-Depois de a operação de preparação ser bem sucedida, pode olhar através da produção verbosa para obter o estado de migração dos VMs e garantir que estão no estado `Prepared`.
+Depois de a operação de preparação ser bem sucedida, pode olhar através da produção verbosa para obter o estado de migração dos VMs e garantir que estão no `Prepared` estado.
 
     azure vm show <vmName> -vv
 
@@ -139,11 +139,11 @@ Obtenha todas as redes virtuais na subscrição utilizando o seguinte comando.
 
     azure network vnet list
 
-A saída será mais ou menos assim:
+A saída será semelhante à seguinte:
 
 ![Screenshot da linha de comando com todo o nome da rede virtual realçado.](../media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 
-No exemplo acima, o **virtualNetworkName** é o nome completo **"Grupo classicubuntu16"** .
+No exemplo acima, o **virtualNetworkName** é o nome completo **"Grupo classicubuntu16"**.
 
 Primeiro, valide se conseguir migrar a rede virtual utilizando o seguinte comando:
 
@@ -178,7 +178,7 @@ Se a configuração preparada parecer boa, pode avançar e comprometer os recurs
 
     azure storage account commit-migration <storageAccountName>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral da migração apoiada pela plataforma de recursos IaaS do clássico para o Gestor de Recursos Azure](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Análise detalhada técnica sobre a migração suportada por plataforma da clássica para Azure Resource Manager)

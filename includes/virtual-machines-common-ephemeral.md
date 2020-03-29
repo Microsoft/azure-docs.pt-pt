@@ -9,10 +9,10 @@ ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: d848b92da5d4181832adff8499b3531d020c30c9
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78155480"
 ---
 Os discos Efémeros SÃO criados no armazenamento da máquina virtual local (VM) e não são guardados para o armazenamento remoto azure. Os discos efémeros os discos operativos funcionam bem para cargas de trabalho apátridas, onde as aplicações são tolerantes a falhas individuais de VM, mas são mais afetadas pelo tempo de implantação de VM ou reimaging as instâncias vm individuais. Com o disco Ephemeral OS, obtém latência de leitura/escrita mais baixa para o disco OS e reimagem vM mais rápida. 
@@ -44,19 +44,19 @@ Principais diferenças entre discos operativos osso persistentes e efémeros:
 
 ## <a name="size-requirements"></a>Requisitos de tamanho
 
-Pode implantar imagens VM e, por exemplo, até ao tamanho da cache VM. Por exemplo, as imagens standard do Windows Server do mercado são de cerca de 127 GiB, o que significa que você precisa de um tamanho VM que tem uma cache maior que 127 GiB. Neste caso, o [Standard_DS2_v2](~/articles/virtual-machines/dv2-dsv2-series.md) tem um tamanho de cache de 86 GiB, que não é grande o suficiente. O Standard_DS3_v2 tem um tamanho cache de 172 GiB, que é grande o suficiente. Neste caso, o Standard_DS3_v2 é o menor tamanho da série DSv2 que pode usar com esta imagem. Imagens Básicas do Linux no Marketplace e no Windows Server imagens que são denotadas por `[smallsize]` tendem a rondar os 30 GiB e podem usar a maioria dos tamanhos VM disponíveis.
+Pode implantar imagens VM e, por exemplo, até ao tamanho da cache VM. Por exemplo, as imagens standard do Windows Server do mercado são de cerca de 127 GiB, o que significa que você precisa de um tamanho VM que tem uma cache maior que 127 GiB. Neste caso, o [Standard_DS2_v2](~/articles/virtual-machines/dv2-dsv2-series.md) tem um tamanho de cache de 86 GiB, que não é grande o suficiente. O Standard_DS3_v2 tem um tamanho cache de 172 GiB, que é grande o suficiente. Neste caso, o Standard_DS3_v2 é o menor tamanho da série DSv2 que pode usar com esta imagem. Imagens Básicas do Linux nas imagens do `[smallsize]` Marketplace e do Windows Server que são denotadas tendem a rondar os 30 GiB e podem usar a maioria dos tamanhos VM disponíveis.
 
-Os discos efémeros também requerem que o tamanho VM suporte o armazenamento Premium. Os tamanhos geralmente (mas nem sempre) têm um `s` no nome, como DSv2 e EsV3. Para mais informações, consulte os [tamanhos de VM Azure](../articles/virtual-machines/linux/sizes.md) para obter detalhes em torno dos tamanhos suportam o armazenamento Premium.
+Os discos efémeros também requerem que o tamanho VM suporte o armazenamento Premium. Os tamanhos geralmente (mas `s` nem sempre) têm um em nome, como DSv2 e EsV3. Para mais informações, consulte os [tamanhos de VM Azure](../articles/virtual-machines/linux/sizes.md) para obter detalhes em torno dos tamanhos suportam o armazenamento Premium.
 
 ## <a name="powershell"></a>PowerShell
 
-Para utilizar um disco efémero para uma implementação de PowerShell VM, utilize o [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) na sua configuração VM. Detete a `-DiffDiskSetting` para `Local` e `-Caching` para `ReadOnly`.     
+Para utilizar um disco efémero para uma implementação de PowerShell VM, utilize o [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) na sua configuração VM. Definir `-DiffDiskSetting` o `Local` `-Caching` de `ReadOnly`e para .     
 
 ```powershell
 Set-AzVMOSDisk -DiffDiskSetting Local -Caching ReadOnly
 ```
 
-Para as implementações de conjuntos de escala, utilize o [cmdlet Set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) na sua configuração. Detete a `-DiffDiskSetting` para `Local` e `-Caching` para `ReadOnly`.
+Para as implementações de conjuntos de escala, utilize o [cmdlet Set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) na sua configuração. Definir `-DiffDiskSetting` o `Local` `-Caching` de `ReadOnly`e para .
 
 
 ```powershell
@@ -65,7 +65,7 @@ Set-AzVmssStorageProfile -DiffDiskSetting Local -OsDiskCaching ReadOnly
 
 ## <a name="cli"></a>CLI
 
-Para utilizar um disco efémero para uma implantação CLI VM, coloque o parâmetro `--ephemeral-os-disk` em [az vm criar](/cli/azure/vm#az-vm-create) para `true` e o parâmetro `--os-disk-caching` para `ReadOnly`.
+Para utilizar um disco efémero para uma implantação `--ephemeral-os-disk` CLI VM, coloque `true` o `--os-disk-caching` parâmetro `ReadOnly`em [az vm criar](/cli/azure/vm#az-vm-create) e o parâmetro para .
 
 ```azurecli-interactive
 az vm create \
@@ -78,7 +78,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Para conjuntos de escala, utilize o mesmo parâmetro de `--ephemeral-os-disk true` para [criar az-vmss-e](/cli/azure/vmss#az-vmss-create) definir o parâmetro `--os-disk-caching` para `ReadOnly`.
+Para conjuntos de escala, `--ephemeral-os-disk true` utilize o mesmo parâmetro para [criar az-vmss-criar](/cli/azure/vmss#az-vmss-create) e definir o `--os-disk-caching` parâmetro para `ReadOnly`.
 
 ## <a name="portal"></a>Portal   
 
@@ -93,7 +93,7 @@ Também pode criar conjuntos de escala com discos efémeros operativos operativo
 ![Screenshot mostrando o botão de rádio para escolher usar um disco efémero oso para o seu conjunto de escala](./media/virtual-machines-common-ephemeral/scale-set.png)
 
 ## <a name="scale-set-template-deployment"></a>Implantação do modelo de conjunto de escala  
-O processo para criar um conjunto de escala que usa um disco efémero de OS é adicionar a propriedade `diffDiskSettings` ao tipo de recurso `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` no modelo. Além disso, a política de cache deve ser definida para `ReadOnly` para o disco efémero osso. 
+O processo para criar um conjunto de escala que usa um `diffDiskSettings` disco `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` efémero de OS é adicionar a propriedade ao tipo de recurso no modelo. Além disso, a política `ReadOnly` de cache deve ser definida para o disco efémero osso. 
 
 
 ```json
@@ -137,7 +137,7 @@ O processo para criar um conjunto de escala que usa um disco efémero de OS é a
 ```
 
 ## <a name="vm-template-deployment"></a>Implantação do modelo VM 
-Pode implantar um VM com um disco efémero operativo utilizando um modelo. O processo para criar um VM que utiliza discos efémeros de OS é adicionar a propriedade `diffDiskSettings` ao tipo de recursos Microsoft.Compute/virtualMachines no modelo. Além disso, a política de cache deve ser definida para `ReadOnly` para o disco efémero osso. 
+Pode implantar um VM com um disco efémero operativo utilizando um modelo. O processo para criar um VM que utiliza discos efémeros de OS é adicionar a `diffDiskSettings` propriedade ao tipo de recursos Microsoft.Compute/virtualMachines no modelo. Além disso, a política `ReadOnly` de cache deve ser definida para o disco efémero osso. 
 
 ```json
 { 

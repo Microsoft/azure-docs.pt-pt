@@ -5,22 +5,22 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.custom: sfrev
 ms.openlocfilehash: cb6e4ab00afd80cba41881e46296f7046a905919
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76934954"
 ---
 # <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster-preview"></a>Configure suporte de identidade gerido num cluster de tecido de serviço existente (pré-visualização)
 
-Para utilizar [identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/overview.md) nas suas aplicações De Tecido de Serviço, primeiro ative o Serviço de *Fichas* de Identidade Gerida no cluster. Esse serviço é responsável pela autenticação de Service Fabric aplicativos usando suas identidades gerenciadas e pela obtenção de tokens de acesso em seu nome. Quando o serviço estiver habilitado, você poderá vê-lo em Service Fabric Explorer na seção **sistema** no painel esquerdo, executando sob o nome **Fabric:/System/ManagedIdentityTokenService**.
+Para utilizar [identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/overview.md) nas suas aplicações De Tecido de Serviço, primeiro ative o Serviço de *Fichas* de Identidade Gerida no cluster. Este serviço é responsável pela autenticação de aplicações de Tecido de Serviço utilizando as suas identidades geridas e pela obtenção de fichas de acesso em seu nome. Uma vez ativado o serviço, pode vê-lo no Service Fabric Explorer sob a secção **Sistema** no painel esquerdo, funcionando sob o nome **de tecido:/System/ManagedIdentityTokenService**.
 
 > [!NOTE]
-> O Service Fabric Runtime versão 6.5.658.9590 ou superior é necessário para habilitar o **serviço de token de identidade gerenciado**.  
+> A versão de execução do tecido de serviço 6.5.658.9590 ou superior é necessária para ativar o Serviço de **Fichas**de Identidade Gerida .  
 >
-> Você pode encontrar a versão Service Fabric de um cluster do portal do Azure abrindo o recurso de cluster e verificando a propriedade **versão do Service Fabric** na seção **Essentials** .
+> Pode encontrar a versão Service Fabric de um cluster do portal Azure abrindo o recurso de cluster e verificando a propriedade da **versão Service Fabric** na secção **Essentials.**
 >
-> Se o cluster estiver no modo de atualização **manual** , será necessário primeiro atualizá-lo para 6.5.658.9590 ou posterior.
+> Se o cluster estiver no modo de atualização **manual,** terá de o atualizar primeiro para 6.5.658.9590 ou mais tarde.
 
 ## <a name="enable-managed-identity-token-service-in-an-existing-cluster"></a>Ativar *o Serviço de Fichas* de Identidade Gerida num cluster existente
 
@@ -40,7 +40,7 @@ Para ativar o Serviço de Fichas de Identidade Gerida num cluster existente, ter
 ]
 ```
 
-Para que as alterações entrem em vigor, você também precisará alterar a política de atualização para especificar uma reinicialização forçada do tempo de execução de Service Fabric em cada nó à medida que a atualização progride por meio do cluster. Essa reinicialização garante que o serviço de sistema habilitado recentemente seja iniciado e em execução em cada nó. No trecho de código abaixo, `forceRestart` é a configuração essencial; Use seus valores existentes para o restante das configurações.  
+Para que as alterações entrem em vigor, também terá de alterar a política de atualização para especificar um reinício vigoroso do tempo de execução do Tecido de Serviço em cada nó à medida que a atualização progride através do cluster. Este reinício garante que o serviço de sistema recém-activado é iniciado e funcionando em cada nó. No corte abaixo, `forceRestart` encontra-se a definição essencial; utilize os valores existentes para o resto das definições.  
 
 ```json
 "upgradeDescription": {
@@ -55,11 +55,11 @@ Para que as alterações entrem em vigor, você também precisará alterar a pol
 ```
 
 > [!NOTE]
-> Após a conclusão bem-sucedida da atualização, não se esqueça de reverter a configuração de `forceRestart` para minimizar o impacto das atualizações subsequentes. 
+> Após a conclusão bem sucedida da atualização, não se esqueça de reverter a `forceRestart` definição, para minimizar o impacto das atualizações subsequentes. 
 
-## <a name="errors-and-troubleshooting"></a>Erros e solução de problemas
+## <a name="errors-and-troubleshooting"></a>Erros e resolução de problemas
 
-Se a implantação falhar com a mensagem a seguir, isso significa que o cluster não está sendo executado em uma versão de Service Fabric alta o suficiente:
+Se a implementação falhar com a seguinte mensagem, significa que o cluster não está a funcionar numa versão suficientemente alta do Tecido de Serviço:
 
 ```json
 {
@@ -69,7 +69,7 @@ Se a implantação falhar com a mensagem a seguir, isso significa que o cluster 
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Implantar um aplicativo de Service Fabric do Azure com uma identidade gerenciada atribuída pelo sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-* [Implantar um aplicativo de Service Fabric do Azure com uma identidade gerenciada atribuída pelo usuário](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-* [Aproveite a identidade gerenciada de um aplicativo Service Fabric do código de serviço](./how-to-managed-identity-service-fabric-app-code.md)
-* [Conceder a um aplicativo de Service Fabric do Azure acesso a outros recursos do Azure](./how-to-grant-access-other-resources.md)
+* [Implementar uma aplicação Azure Service Fabric com uma identidade gerida atribuída pelo sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
+* [Implementar uma aplicação Azure Service Fabric com uma identidade gerida atribuída pelo utilizador](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+* [Alavancar a identidade gerida de uma aplicação Service Fabric a partir do código de serviço](./how-to-managed-identity-service-fabric-app-code.md)
+* [Conceder um acesso à aplicação Azure Service Fabric a outros recursos azure](./how-to-grant-access-other-resources.md)

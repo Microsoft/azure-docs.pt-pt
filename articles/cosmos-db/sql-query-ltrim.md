@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 08c069de70684a8562e86963ddb2e84ee889e7cc
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302258"
 ---
 # <a name="ltrim-azure-cosmos-db"></a>LTRIM (Azure Cosmos DB)
- Devolve uma expressão de cadeia de caracteres depois que ele remove espaços em branco à esquerda.  
+ Devolve uma expressão de corda depois de remover os espaços em branco de condução.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -30,11 +30,11 @@ LTRIM(<str_expr>)
   
 ## <a name="return-types"></a>Tipos de retorno
   
-  Devolve uma expressão de cadeia.  
+  Devolve uma expressão de corda.  
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo que se segue mostra como usá`LTRIM` dentro de uma consulta.  
+  O exemplo que se `LTRIM` segue mostra como usar dentro de uma consulta.  
   
 ```sql
 SELECT LTRIM("  abc") AS l1, LTRIM("abc") AS l2, LTRIM("abc   ") AS l3 

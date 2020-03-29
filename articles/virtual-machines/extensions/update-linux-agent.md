@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: mimckitt
 ms.openlocfilehash: e4489f7c810799ca8e89565fe698f398f942b089
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78251711"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Como atualizar o Agente Azure Linux num VM
@@ -301,7 +301,7 @@ sudo apt-get install waagent
 ```
 
 #### <a name="enable-agent-auto-update"></a>Ativar a atualização automática do agente
-Esta versão da Debian não tem uma versão >= 2.0.16, pelo que o AutoUpdate não está disponível para o mesmo. A saída do comando acima mostrar-lhe-á se o pacote estiver atualizado.
+Esta versão da Debian não tem uma versão >= 2.0.16, pelo que o AutoUpdate não está disponível para o efeito. A saída do comando acima mostrar-lhe-á se o pacote estiver atualizado.
 
 
 
@@ -349,7 +349,7 @@ sudo systemctl restart walinuxagent.service
 
 ## <a name="oracle-linux-6-and-oracle-linux-7"></a>Oracle Linux 6 e Oracle Linux 7
 
-Para a Oracle Linux, certifique-se de que o repositório `Addons` está ativado. Opte por editar o ficheiro `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) ou `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux) e alterar a linha `enabled=0` para `enabled=1` em **[ol6_addons]** ou **[ol7_addons]** neste ficheiro.
+Para a Oracle Linux, `Addons` certifique-se de que o repositório está ativado. Opte por `/etc/yum.repos.d/public-yum-ol6.repo`editar o ficheiro (Oracle Linux `/etc/yum.repos.d/public-yum-ol7.repo`6) ou `enabled=0` `enabled=1` (Oracle Linux) e mude a linha para **sub[ol6_addons]** ou **[ol7_addons]** neste ficheiro.
 
 Em seguida, para instalar a versão mais recente do Agente Azure Linux, escreva:
 
@@ -387,15 +387,15 @@ Em seguida, escreva:
 sudo yum update WALinuxAgent
 ```
 
-Normalmente isto é tudo o que você precisa, mas se por alguma razão você precisa instalá-lo a partir de https://github.com diretamente, use os seguintes passos.
+Normalmente isto é tudo o que você precisa, mas https://github.com se por alguma razão você precisa instalá-lo diretamente, use os seguintes passos.
 
 
 ## <a name="update-the-linux-agent-when-no-agent-package-exists-for-distribution"></a>Atualize o Agente Linux quando não existir nenhum pacote de agente para distribuição
 
-Instale wget (existem alguns distros que não o instalam por padrão, como as versões Red Hat, CentOS e Oracle Linux 6.4 e 6.5) digitando `sudo yum install wget` na linha de comando.
+Instale wget (existem alguns distros que não o instalam por padrão, como as versões Red Hat, `sudo yum install wget` CentOS e Oracle Linux 6.4 e 6.5) digitando na linha de comando.
 
 ### <a name="1-download-the-latest-version"></a>1. Descarregue a versão mais recente
-Abra [o lançamento do Agente Azure Linux no GitHub](https://github.com/Azure/WALinuxAgent/releases) numa página web e descubra o número mais recente da versão. (Pode localizar a sua versão atual digitando `waagent --version`.)
+Abra [o lançamento do Agente Azure Linux no GitHub](https://github.com/Azure/WALinuxAgent/releases) numa página web e descubra o número mais recente da versão. (Pode localizar a sua `waagent --version`versão atual digitando .)
 
 #### <a name="for-version-22x-or-later-type"></a>Para a versão 2.2.x ou posterior, escreva:
 ```bash
@@ -415,7 +415,7 @@ cd WALinuxAgent-2.2.14
 ### <a name="2-install-the-azure-linux-agent"></a>2. Instale o Agente Azure Linux
 
 #### <a name="for-version-22x-use"></a>Para a versão 2.2.x, utilize:
-Pode ser necessário instalar a embalagem `setuptools` primeira vista [aqui.](https://pypi.python.org/pypi/setuptools) Em seguida, execute:
+Pode ser necessário instalar `setuptools` o pacote primeiro-- veja [aqui](https://pypi.python.org/pypi/setuptools). Em seguida, execute:
 
 ```bash
 sudo python setup.py install

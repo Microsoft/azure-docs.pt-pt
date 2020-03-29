@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
 ms.openlocfilehash: 83b0a69e063e9427c726216ef873f5a1c97f9582
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78163731"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrar a sua base de dados MySQL utilizando a importação e a exportação
@@ -42,13 +42,13 @@ Adicione as informações de ligação à bancada mySQL.
 ## <a name="determine-when-to-use-import-and-export-techniques-instead-of-a-dump-and-restore"></a>Determinar quando utilizar técnicas de importação e exportação em vez de um despejo e restaurar
 Utilize ferramentas MySQL para importar e exportar bases de dados para a Base de Dados Azure MySQL nos seguintes cenários. Noutros cenários, poderá beneficiar-se da utilização da [abordagem de despejo e restauro.](concepts-migrate-dump-restore.md) 
 
-- Quando você precisa escolher seletivamente algumas tabelas para importar de uma base de dados MySQL existente para A Base de Dados Azure MySQL, o melhor é usar a técnica de importação e exportação.  Ao fazê-lo, pode omitir quaisquer mesas desnecessárias da migração para poupar tempo e recursos. Por exemplo, utilize o interruptor `--include-tables` ou `--exclude-tables` com [a misqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables) e o interruptor de `--tables` com [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables).
+- Quando você precisa escolher seletivamente algumas tabelas para importar de uma base de dados MySQL existente para A Base de Dados Azure MySQL, o melhor é usar a técnica de importação e exportação.  Ao fazê-lo, pode omitir quaisquer mesas desnecessárias da migração para poupar tempo e recursos. Por exemplo, `--include-tables` utilize `--exclude-tables` o interruptor ou como `--tables` com a bomba de [misqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables) e o interruptor com [misqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables).
 - Quando estiver a mover os objetos da base de dados para além das tabelas, crie explicitamente esses objetos. Inclua constrangimentos (chave primária, chave estrangeira, índices), vistas, funções, procedimentos, gatilhos e quaisquer outros objetos de base de dados que queira migrar.
 - Quando estiver a migrar dados de fontes de dados externas que não uma base de dados MySQL, crie ficheiros planos e importe-os utilizando [a mysqlimport](https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html).
 
 Certifique-se de que todas as tabelas da base de dados utilizam o motor de armazenamento InnoDB quando estiver a carregar dados para a Base de Dados Azure para o MySQL. A Base de Dados Azure para MySQL suporta apenas o motor de armazenamento InnoDB, pelo que não suporta motores de armazenamento alternativos. Se as suas tabelas necessitarem de motores de armazenamento alternativos, certifique-se de que os converte para utilizar o formato do motor InnoDB antes da migração para a Base de Dados Azure para o MySQL. 
 
-Por exemplo, se tiver uma aplicação WordPress ou web que utilize o motor MyISAM, converta primeiro as tabelas migrando os dados para tabelas InnoDB. Em seguida, restaurar para azure Base de dados para MySQL. Utilize a cláusula `ENGINE=INNODB` para definir o motor para a criação de uma tabela e, em seguida, transferir os dados para a tabela compatível antes da migração. 
+Por exemplo, se tiver uma aplicação WordPress ou web que utilize o motor MyISAM, converta primeiro as tabelas migrando os dados para tabelas InnoDB. Em seguida, restaurar para azure Base de dados para MySQL. Utilize a `ENGINE=INNODB` cláusula para definir o motor para a criação de uma tabela e, em seguida, transfira os dados para a tabela compatível antes da migração. 
 
    ```sql
    INSERT INTO innodb_table SELECT * FROM myisam_table ORDER BY primary_key_columns

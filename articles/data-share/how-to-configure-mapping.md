@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: 1ff432c2073536448c8194ebe537c8bf8cf00663
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76964248"
 ---
 # <a name="how-to-configure-a-dataset-mapping-for-a-received-share-in-azure-data-share"></a>Como configurar um mapeamento de conjunto de dados para uma participação recebida na Partilha de Dados do Azure
@@ -31,7 +31,7 @@ Verifique a caixa ao lado do conjunto de dados a que gostaria de atribuir um des
 
 Selecione um tipo de dados-alvo que gostaria que os dados aterrassem. Para a partilha baseada em instantâneos, quaisquer dados que já existam em quaisquer contas de armazenamento previamente mapeadas não serão automaticamente transferidos para a nova loja-alvo. Para partilha no local, selecione uma loja de dados no Local especificado. O Local é o centro de dados Azure onde está localizada a loja de dados de fonte do fornecedor de dados.
 
-![Conta de armazenamento de destino](./media/dataset-map-target-sql.png "Armazenamento de destino") 
+![Conta de armazenamento alvo](./media/dataset-map-target-sql.png "Armazenamento de destino") 
 
 ## <a name="select-a-file-format-sql-sources-only"></a>Selecione um formato de ficheiro (apenas fontes SQL)
 
@@ -41,7 +41,7 @@ Se os dados de origem forem de uma fonte baseada em SQL, pode escolher em que fo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber como começar a compartilhar dados, continue no tutorial [compartilhar seus dados](share-your-data.md) .
+Para aprender a começar a partilhar dados, continue a partilhar o seu tutorial de [dados.](share-your-data.md)
 
 
 

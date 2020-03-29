@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: ae1371a8f025fd5e5722d483323fbe937538eb15
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78939224"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implementar o streaming failover com media services v2
@@ -44,7 +44,7 @@ Isto dá-lhe os URLs de streaming onde os caminhos relativos dos URLs são os me
 
 Em seguida, para lidar com quaisquer interrupções, pode criar uma Rede de Entrega de Conteúdos para além destes localizadores de origem. 
 
-Aplicam-se as seguintes considerações:
+As seguintes considerações são aplicáveis:
 
 * A versão atual do Media Services SDK não suporta a geração programática de informações do IAssetFile que associariam um ativo a ficheiros de ativos. Em vez disso, utilize o CreateFileInfos Media Services REST API para o fazer. 
 * Os ativos encriptados de armazenamento (AssetCreationOptions.StorageEncrypted) não são suportados para replicação (porque a chave de encriptação é diferente em ambas as contas dos Media Services). 
@@ -59,11 +59,11 @@ Aplicam-se as seguintes considerações:
 
 ## <a name="set-up-your-project"></a>Configurar o seu projeto
 
-Nesta secção, cria-se e C# cria um projeto de Aplicação de Consola.
+Nesta secção, cria-se e cria um projeto de Aplicação de Consola C#.
 
-1. Utilize o Visual Studio para criar C# uma nova solução que contenha o projeto de Aplicação de Consolas. Introduza **handleRedundancyForOnDemandStreaming** para o nome e, em seguida, clique em **OK**.
+1. Utilize o Visual Studio para criar uma nova solução que contenha o projeto de Aplicação de Consola C#. Introduza **handleRedundancyForOnDemandStreaming** para o nome e, em seguida, clique em **OK**.
 2. Crie a pasta **SupportFiles** no mesmo nível do ficheiro do projeto **HandleRedundancyForOnDemandStreaming.csproj.** Na pasta **SuporteFiles,** crie as pastas **OutputFiles** e **MP4Files.** Copie um ficheiro .mp4 na pasta **MP4Files.** (Neste exemplo, o ficheiro **ignite.mp4** é utilizado.) 
-3. Use **o NuGet** para adicionar referências a DLLs relacionados com serviços de media. No **Menu Principal do Estúdio Visual,** selecione **TOOLS** > **NuGet Package Manager** > Consola de Gestor de **Pacotes**. Na janela da consola, **digite instalação de pacote windowsazure.mediaservices**, e prima Enter.
+3. Use **o NuGet** para adicionar referências a DLLs relacionados com serviços de media. No **Menu Principal do Estúdio Visual,** selecione **TOOLS** > **NuGet Package Manager** > **Manager Console**. Na janela da consola, **digite instalação de pacote windowsazure.mediaservices**, e prima Enter.
 4. Adicione outras referências que são necessárias para este projeto: System.Runtime.Serialization e System.Web.
 5. Substitua **as** declarações adicionadas ao ficheiro **Programs.cs** por padrão com as seguintes:
 
@@ -756,7 +756,7 @@ Para obter mais informações sobre a proteção de conteúdos, consulte [Utiliz
 
 [Use Webhooks Azure para monitorizar notificações de emprego dos Media Services](media-services-dotnet-check-job-progress-with-webhooks.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora pode utilizar um gestor de tráfego para encaminhar pedidos entre os dois centros de dados, e assim falhar em caso de interrupções.
 

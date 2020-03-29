@@ -13,10 +13,10 @@ ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
 ms.openlocfilehash: 822fab5c00501d415c3c184587141e869523e417
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78945387"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controlos de acesso à rede Azure SQL e Data Warehouse
@@ -141,7 +141,7 @@ As regras de rede virtual são alternativas mais fáceis de estabelecer e gerir 
 ## <a name="private-link"></a>Ligação Privada 
 O Link Privado permite-lhe ligar-se ao Azure SQL Server através de um **ponto final privado**. Um ponto final privado é um endereço IP privado dentro de uma [rede virtual](../virtual-network/virtual-networks-overview.md) específica e subnet.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para um início rápido na criação de uma regra de firewall IP ao nível do servidor, consulte Criar uma base de [dados Azure SQL](sql-database-single-database-get-started.md).
 

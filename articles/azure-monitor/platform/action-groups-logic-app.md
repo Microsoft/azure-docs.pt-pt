@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
 ms.openlocfilehash: 655a3acc44a1418778b37fbef85e5df75d042317
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78206241"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Como desencadear ações complexas com alertas do Monitor Azure
@@ -47,7 +47,7 @@ O processo é semelhante se quiser que a aplicação lógica realize uma ação 
 
 5.  Selecione o gatilho: **Quando um pedido HTTP for recebido**.
 
-    ![Gatilhos de aplicativológico](media/action-groups-logic-app/logic-app-triggers.png "Acionadores da aplicação lógica")
+    ![Acionadores da aplicação lógica](media/action-groups-logic-app/logic-app-triggers.png "Acionadores da aplicação lógica")
 
 6.  Selecione **Editar** para alterar o gatilho de pedido HTTP.
 
@@ -100,9 +100,9 @@ O processo é semelhante se quiser que a aplicação lógica realize uma ação 
 
     ![Definir o cabeçalho do tipo conteúdo](media/action-groups-logic-app/content-type-header.png "Definir o cabeçalho do tipo conteúdo")
 
-10. Selecione **+** **Novo passo** e, em seguida, escolha Adicionar uma **ação**.
+10. Selecione **+** **novo passo** e, em seguida, escolha Adicionar uma **ação**.
 
-    ![Adicione uma ação](media/action-groups-logic-app/add-action.png "Adicionar uma ação")
+    ![Adicionar uma ação](media/action-groups-logic-app/add-action.png "Adicionar uma ação")
 
 11. Procure e selecione o conector Microsoft Teams. Escolha as **Equipas microsoft - post message** action.
 
@@ -110,7 +110,7 @@ O processo é semelhante se quiser que a aplicação lógica realize uma ação 
 
 12. Configure a ação das Equipas microsoft. O Designer de **Aplicações Lógicas** pede-lhe para autenticar a sua conta Office 365. Escolha o ID da **equipa** e o ID do **canal** para enviar a mensagem para.
 
-13. Configure a mensagem utilizando uma combinação de texto estático e referências aos campos \<\> no conteúdo dinâmico. Copiar e colar o seguinte texto no campo **Mensagem:**
+13. Configure a mensagem utilizando uma combinação de \<texto\> estático e referências aos campos no conteúdo dinâmico. Copiar e colar o seguinte texto no campo **Mensagem:**
 
     ```text
       Activity Log Alert: <eventSource>
@@ -119,7 +119,7 @@ O processo é semelhante se quiser que a aplicação lógica realize uma ação 
       resourceId: <resourceId>
     ```
 
-    Em seguida, procure e substitua os campos \<\> por etiquetas de conteúdo dinâmicas com o mesmo nome.
+    Em seguida, procure \<\> e substitua os campos por etiquetas de conteúdo dinâmicas com o mesmo nome.
 
     > [!NOTE]
     > Há dois campos dinâmicos que são nomeados **estatuto.** Adicione estes dois campos à mensagem. Use o campo que está no saco de propriedade **activityLog** e elimine o outro campo. Passe o cursor sobre o campo de **estado** para ver a referência de campo totalmente qualificada, como mostra a seguinte imagem:
@@ -186,7 +186,7 @@ As entradas de Saúde do Serviço Azure fazem parte do registo de atividade. O p
 -  Os passos 9 e 10 são os mesmos.
 -  Para os passos 11 a 14, utilize o seguinte processo:
 
-   1. Selecione **+** **Novo passo** e, em seguida, escolha Adicionar uma **condição**. Defina as seguintes condições para que a aplicação lógica execute apenas quando os dados de entrada correspondam aos valores abaixo.  Ao introduzir o valor da versão na caixa de texto, coloque as pascantes à sua volta ("0.1.1") para se certificar de que é avaliada como uma corda e não como um tipo numérico.  O sistema não mostra as cotações se voltar à página, mas o código subjacente mantém o tipo de corda.   
+   1. Selecione **+** **novo passo** e, em seguida, escolha Adicionar uma **condição**. Defina as seguintes condições para que a aplicação lógica execute apenas quando os dados de entrada correspondam aos valores abaixo.  Ao introduzir o valor da versão na caixa de texto, coloque as pascantes à sua volta ("0.1.1") para se certificar de que é avaliada como uma corda e não como um tipo numérico.  O sistema não mostra as cotações se voltar à página, mas o código subjacente mantém o tipo de corda.   
        - `schemaId == Microsoft.Insights/activityLogs`
        - `eventSource == ServiceHealth`
        - `version == "0.1.1"`
@@ -195,7 +195,7 @@ As entradas de Saúde do Serviço Azure fazem parte do registo de atividade. O p
 
    1. Em condições **verdadeiras,** siga as instruções nos passos 11 a 13 em [Criar um alerta](#create-an-activity-log-alert-administrative) de registo de atividade para adicionar a ação das Equipas Microsoft.
 
-   1. Defina a mensagem utilizando uma combinação de HTML e conteúdo dinâmico. Copiar e colar o seguinte conteúdo no campo **Mensagem.** Substitua os campos `[incidentType]`, `[trackingID]`, `[title]`e `[communication]` por etiquetas dinâmicas de conteúdo com o mesmo nome:
+   1. Defina a mensagem utilizando uma combinação de HTML e conteúdo dinâmico. Copiar e colar o seguinte conteúdo no campo **Mensagem.** Substitua `[incidentType]` `[trackingID]`os `[title]`campos `[communication]` e os campos por etiquetas de conteúdo dinâmicas com o mesmo nome:
 
        ```html
        <p>
@@ -274,7 +274,7 @@ O processo de criação de um alerta métrico é semelhante à criação de um a
 - Os passos 9 e 10 são os mesmos.
 - Para os passos 11 a 14, utilize o seguinte processo:
 
-  1. Selecione **+** **Novo passo** e, em seguida, escolha Adicionar uma **condição**. Defina as seguintes condições para que a aplicação lógica execute apenas quando os dados de entrada correspondem a estes valores abaixo. Ao introduzir o valor da versão na caixa de texto, coloque as pascitões à sua volta ("2.0") para se certificar de que é avaliada como uma corda e não como um tipo numérico.  O sistema não mostra as cotações se voltar à página, mas o código subjacente mantém o tipo de corda. 
+  1. Selecione **+** **novo passo** e, em seguida, escolha Adicionar uma **condição**. Defina as seguintes condições para que a aplicação lógica execute apenas quando os dados de entrada correspondem a estes valores abaixo. Ao introduzir o valor da versão na caixa de texto, coloque as pascitões à sua volta ("2.0") para se certificar de que é avaliada como uma corda e não como um tipo numérico.  O sistema não mostra as cotações se voltar à página, mas o código subjacente mantém o tipo de corda. 
      - `schemaId == AzureMonitorMetricAlert`
      - `version == "2.0"`
        
@@ -284,7 +284,7 @@ O processo de criação de um alerta métrico é semelhante à criação de um a
 
       !["Alerta métrico situação real pós ação"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "Alerta métrico verdadeira condição pós ação")
 
-  1. Na condição **falsa,** defina uma ação do Microsoft Teams para comunicar que o alerta métrico não corresponde às expectativas da aplicação lógica. Inclua a carga útil da JSON. Note como referenciar o conteúdo dinâmico `triggerBody` na expressão `json()`.
+  1. Na condição **falsa,** defina uma ação do Microsoft Teams para comunicar que o alerta métrico não corresponde às expectativas da aplicação lógica. Inclua a carga útil da JSON. Note como `triggerBody` referenciar o `json()` conteúdo dinâmico na expressão.
 
       !["Alerta métrico de falsas condições pós ação"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "Alerta métrico de falsacondição pós ação")
 

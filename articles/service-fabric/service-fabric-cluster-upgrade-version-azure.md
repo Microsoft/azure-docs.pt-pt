@@ -1,70 +1,70 @@
 ---
-title: Atualizar a versão de Service Fabric do Azure de um cluster
-description: Atualize o código de Service Fabric e/ou a configuração que executa um Cluster Service Fabric, incluindo a definição do modo de atualização de cluster, a atualização de certificados, a adição de portas de aplicativo, a realização de patches de so e assim por diante. O que você pode esperar quando as atualizações são executadas?
+title: Atualizar a versão Azure Service Fabric de um cluster
+description: Atualize o código e/ou configuração do Tecido de Serviço que executa um cluster de tecido de serviço, incluindo a definição do modo de atualização do cluster, a atualização de certificados, a adição de portas de aplicação, a realização de patches de OS, e assim por diante. O que se pode esperar quando as atualizações forem realizadas?
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.openlocfilehash: c3ffcbd4296385623ff5e2c1ee001c27598ff3fb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75451812"
 ---
-# <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>Atualizar a versão Service Fabric de um cluster
+# <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>Atualizar a versão do Service Fabric de um cluster
 
-Para qualquer sistema moderno, a criação de uma grande possibilidade é a chave para atingir o sucesso de longo prazo de seu produto. Um Cluster Service Fabric do Azure é um recurso que você possui, mas é parcialmente gerenciado pela Microsoft. Este artigo descreve como atualizar a versão do Service Fabric em execução no cluster do Azure.
+Para qualquer sistema moderno, conceber para a graduação é fundamental para alcançar o sucesso a longo prazo do seu produto. Um cluster Azure Service Fabric é um recurso que possui, mas é parcialmente gerido pela Microsoft. Este artigo descreve como atualizar a versão do Tecido de Serviço em execução no seu cluster Azure.
 
-Você pode definir seu cluster para receber atualizações automáticas de malha à medida que elas são lançadas pela Microsoft ou você pode selecionar uma versão de malha com suporte na qual você deseja que o cluster esteja.
+Pode configurar o seu cluster para receber atualizações automáticas de tecido saem à medida que são lançadas pela Microsoft ou pode selecionar uma versão de tecido suportado em que pretende que o seu cluster esteja ligado.
 
-Você faz isso definindo a configuração de cluster "upgrademode" no portal ou usando o Gerenciador de recursos no momento da criação ou posterior em um cluster ao vivo 
+Faça-o definindo a configuração do cluster "upgradeMode" no portal ou utilizando o Gestor de Recursos no momento da criação ou mais tarde num cluster ao vivo 
 
 > [!NOTE]
-> Certifique-se de manter o cluster executando uma versão de malha com suporte sempre. Como e quando anunciamos o lançamento de uma nova versão do Service Fabric, a versão anterior é marcada para o fim do suporte após um mínimo de 60 dias a partir dessa data. As novas versões são anunciadas [no blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/). A nova versão está disponível para escolha. 
+> Certifique-se de que mantém o seu cluster sempre com uma versão de tecido suportado. À medida que anunciamos o lançamento de uma nova versão do tecido de serviço, a versão anterior está marcada para fim do suporte após um mínimo de 60 dias a partir dessa data. Os novos lançamentos são anunciados no blog da equipa de tecidos de [serviço.](https://blogs.msdn.microsoft.com/azureservicefabric/) O novo lançamento está disponível para escolher. 
 > 
 > 
 
-14 dias antes da expiração da liberação que o cluster está executando, é gerado um evento de integridade que coloca o cluster em um estado de integridade de aviso. O cluster permanece em um estado de aviso até que você atualize para uma versão de malha com suporte.
+14 dias antes do termo da libertação que o seu cluster está a executar, é gerado um evento de saúde que coloca o seu cluster num estado de saúde de alerta. O cluster permanece em estado de alerta até atualizar para uma versão de tecido suportado.
 
-## <a name="set-the-upgrade-mode-in-the-azure-portal"></a>Definir o modo de atualização no portal do Azure
-Você pode definir o cluster como automático ou manual ao criar o cluster.
+## <a name="set-the-upgrade-mode-in-the-azure-portal"></a>Desajuste o modo de atualização no portal Azure
+Pode configurar o cluster de forma automática ou manual quando estiver a criar o cluster.
 
 ![Create_Manualmode][Create_Manualmode]
 
-Você pode definir o cluster como automático ou manual quando estiver em um cluster ativo, usando a experiência de gerenciamento. 
+Pode configurar o cluster para automático ou manual quando estiver num cluster vivo, utilizando a experiência de gestão. 
 
-### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal"></a>Atualizando para uma nova versão em um cluster que está definido como modo manual por meio do Portal.
-Para atualizar para uma nova versão, tudo o que você precisa fazer é selecionar a versão disponível na lista suspensa e salvar. A atualização do Fabric é iniciada automaticamente. As políticas de integridade do cluster (uma combinação de integridade do nó e a integridade de todos os aplicativos em execução no cluster) são seguidas durante a atualização.
+### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal"></a>Upgrade para uma nova versão num cluster que está definido para modo Manual via portal.
+Para fazer o upgrade para uma nova versão, tudo o que precisa de fazer é selecionar a versão disponível a partir do dropdown e economizar. A atualização do Tecido é iniciada automaticamente. As políticas de saúde do cluster (uma combinação de saúde nó e a saúde de todas as aplicações em execução no cluster) são cumpridas durante a atualização.
 
-Se as políticas de integridade do cluster não forem atendidas, a atualização será revertida. Role para baixo neste documento para ler mais sobre como definir as políticas de integridade personalizadas. 
+Se as políticas de saúde do cluster não forem cumpridas, a atualização é revertida. Percorra este documento para ler mais sobre como definir essas políticas de saúde personalizadas. 
 
-Depois de corrigir os problemas que resultaram na reversão, você precisa iniciar a atualização novamente, seguindo as mesmas etapas de antes.
+Depois de ter corrigido os problemas que resultaram na reversão, tem de reiniciar a atualização, seguindo os mesmos passos que antes.
 
 ![Manage_Automaticmode][Manage_Automaticmode]
 
-## <a name="set-the-upgrade-mode-using-a-resource-manager-template"></a>Definir o modo de atualização usando um modelo do Resource Manager
-Adicione a configuração "upgrademode" à definição de recurso Microsoft. infabric/clusters e defina "clusterCodeVersion" como uma das versões de malha com suporte, conforme mostrado abaixo e, em seguida, implante o modelo. Os valores válidos para "upgrademode" são "manual" ou "Automatic"
+## <a name="set-the-upgrade-mode-using-a-resource-manager-template"></a>Desajuste o modo de atualização usando um modelo de Gestor de Recursos
+Adicione a configuração "upgradeMode" à definição de recursos microsoft.ServiceFabric/clusters e detetete a "clusterCodeVersion" para uma das versões de tecido suportado, como mostrado abaixo e, em seguida, implemente o modelo. Os valores válidos para "upgradeMode" são "Manual" ou "Automático"
 
-![ARMUpgradeMode][ARMUpgradeMode]
+![ArmupgradeMode][ARMUpgradeMode]
 
-### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template"></a>Atualizando para uma nova versão em um cluster que está definido para o modo manual por meio de um modelo do Resource Manager.
-Quando o cluster estiver no modo manual, para atualizar para uma nova versão, altere o "clusterCodeVersion" para uma versão com suporte e implante-o. A implantação do modelo inicia a atualização da malha é iniciada automaticamente. As políticas de integridade do cluster (uma combinação de integridade do nó e a integridade de todos os aplicativos em execução no cluster) são seguidas durante a atualização.
+### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template"></a>Upgrade para uma nova versão num cluster que é definido para modo Manual através de um modelo de Gestor de Recursos.
+Quando o cluster estiver em modo Manual, para atualizar para uma nova versão, altere o "clusterCodeVersion" para uma versão suportada e implemente-a. A implementação do modelo, os pontapés da atualização do Tecido são iniciados automaticamente. As políticas de saúde do cluster (uma combinação de saúde nó e a saúde de todas as aplicações em execução no cluster) são cumpridas durante a atualização.
 
-Se as políticas de integridade do cluster não forem atendidas, a atualização será revertida.  
+Se as políticas de saúde do cluster não forem cumpridas, a atualização é revertida.  
 
-Depois de corrigir os problemas que resultaram na reversão, você precisa iniciar a atualização novamente, seguindo as mesmas etapas de antes.
+Depois de ter corrigido os problemas que resultaram na reversão, tem de reiniciar a atualização, seguindo os mesmos passos que antes.
 
-## <a name="set-custom-health-polices-for-upgrades"></a>Definir políticas de integridade personalizadas para atualizações
-Você pode especificar políticas de integridade personalizadas para atualização do fabric. Se você tiver definido o cluster para atualizações automáticas de malha, essas políticas serão aplicadas à [fase 1 das atualizações automáticas de malha](service-fabric-cluster-upgrade.md#fabric-upgrade-behavior-during-automatic-upgrades).
-Se você tiver definido o cluster para atualizações de malha manual, essas políticas serão aplicadas cada vez que você selecionar uma nova versão disparando o sistema para iniciar a atualização do Fabric no cluster. Se você não substituir as políticas, os padrões serão usados.
+## <a name="set-custom-health-polices-for-upgrades"></a>Detete polícias de saúde personalizados para upgrades
+Pode especificar polícias de saúde personalizados para upgrade de tecido. Se tiver definido o seu cluster para atualizações automáticas de tecidos, então estas políticas são aplicadas à [Fase-1 das atualizações automáticas de tecidos](service-fabric-cluster-upgrade.md#fabric-upgrade-behavior-during-automatic-upgrades).
+Se tiver definido o seu cluster para atualizações de tecidomanual, estas políticas são aplicadas cada vez que seleciona uma nova versão que aciona o sistema para iniciar a atualização do tecido no seu cluster. Se não anular as políticas, os incumprimentos são utilizados.
 
-Você pode especificar as políticas de integridade personalizadas ou examinar as configurações atuais na folha "atualização da malha", selecionando as configurações de atualização avançadas. Examine a imagem a seguir sobre como. 
+Pode especificar as políticas de saúde personalizadas ou rever as definições atuais sob a lâmina de "upgrade de tecido", selecionando as definições avançadas de atualização. Reveja a seguinte imagem sobre como. 
 
-![Gerenciar políticas de integridade personalizadas][HealthPolices]
+![Gerir políticas de saúde personalizadas][HealthPolices]
 
-## <a name="list-all-available-versions-for-all-environments-for-a-given-subscription"></a>Listar todas as versões disponíveis para todos os ambientes de uma determinada assinatura
-Execute o comando a seguir e você deverá obter uma saída semelhante a esta.
+## <a name="list-all-available-versions-for-all-environments-for-a-given-subscription"></a>Listar todas as versões disponíveis para todos os ambientes para uma determinada subscrição
+Execute o seguinte comando, e deve obter uma saída semelhante a esta.
 
-"supportExpiryUtc" informa quando uma determinada versão está expirando ou expirou. A versão mais recente não tem uma data válida-ela tem um valor de "9999-12-31T23:59:59.9999999", que significa apenas que a data de expiração ainda não está definida.
+"supportExpiryUtc" diz ao seu quando uma dada libertação está expirando ou expirou. O último lançamento não tem uma data válida - tem um valor de "9999-12-31T23:59:59.999999999", o que significa apenas que a data de validade ainda não está definida.
 
 ```REST
 GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2016-09-01
@@ -109,9 +109,9 @@ Output:
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba como personalizar algumas das configurações de [malha de cluster do Service Fabric](service-fabric-cluster-fabric-settings.md)
-* Saiba como [dimensionar o cluster para dentro e para fora](service-fabric-cluster-scale-up-down.md)
-* Saiba mais sobre [atualizações de aplicativos](service-fabric-application-upgrade.md)
+* Aprenda a personalizar algumas das [configurações](service-fabric-cluster-fabric-settings.md) de tecido de tecido de serviço
+* Aprenda a [escalar o seu cluster para dentro e para fora](service-fabric-cluster-scale-up-down.md)
+* Conheça as atualizações de [aplicações](service-fabric-application-upgrade.md)
 
 <!--Image references-->
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png

@@ -4,10 +4,10 @@ description: Configure uma tarefa de registo de contentores Azure (Tarefa ACR) p
 ms.topic: article
 ms.date: 01/14/2020
 ms.openlocfilehash: 47b2a50784cf56b089fea0981e5a06d581b8ba3a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76842503"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autenticação de registo cruzado numa tarefa ACR utilizando uma identidade gerida pelo Azure 
@@ -16,7 +16,7 @@ Numa [tarefa ACR,](container-registry-tasks-overview.md)pode [permitir uma ident
 
 Neste artigo, aprende-se a permitir uma identidade gerida numa tarefa para retirar uma imagem de um registo diferente daquele usado para executar a tarefa.
 
-Para criar os recursos Do Azure, este artigo requer que execute a versão Azure CLI 2.0.68 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli].
+Para criar os recursos Do Azure, este artigo requer que execute a versão Azure CLI 2.0.68 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli].
 
 ## <a name="scenario-overview"></a>Descrição geral do cenário
 
@@ -52,7 +52,7 @@ az acr build --image baseimages/node:9-alpine --registry mybaseregistry --file D
 
 ## <a name="define-task-steps-in-yaml-file"></a>Definir passos de tarefa no ficheiro YAML
 
-Os passos para este exemplo tarefa [em várias etapas](container-registry-tasks-multi-step.md) são definidos num [ficheiro YAML](container-registry-tasks-reference-yaml.md). Crie um ficheiro chamado `helloworldtask.yaml` no seu diretório de trabalho local e repasse os seguintes conteúdos. Atualize o valor da `REGISTRY_NAME` na etapa de construção com o nome do servidor do seu registo base.
+Os passos para este exemplo tarefa [em várias etapas](container-registry-tasks-multi-step.md) são definidos num [ficheiro YAML](container-registry-tasks-reference-yaml.md). Crie um `helloworldtask.yaml` ficheiro nomeado no seu diretório de trabalho local e repasse os seguintes conteúdos. Atualize o `REGISTRY_NAME` valor na etapa de construção com o nome do servidor do seu registo base.
 
 ```yml
 version: v1.1.0
@@ -62,7 +62,7 @@ steps:
   - push: ["$Registry/hello-world:$ID"]
 ```
 
-O passo de construção usa o ficheiro `Dockerfile-app` no [Azure-Samples/acr-build-helloworld repo](https://github.com/Azure-Samples/acr-build-helloworld-node.git) para construir uma imagem. O `--build-arg` refere o registo base para puxar a imagem base. Quando construída com sucesso, a imagem é empurrada para o registo usado para executar a tarefa.
+O passo de `Dockerfile-app` construção usa o ficheiro no [Azure-Samples/acr-build-helloworld repo](https://github.com/Azure-Samples/acr-build-helloworld-node.git) para construir uma imagem. As `--build-arg` referências ao registo base para puxar a imagem base. Quando construída com sucesso, a imagem é empurrada para o registo usado para executar a tarefa.
 
 ## <a name="option-1-create-task-with-user-assigned-identity"></a>Opção 1: Criar tarefa com identidade atribuída ao utilizador
 
@@ -72,7 +72,7 @@ Os passos nesta secção criam uma tarefa e permitem uma identidade atribuída a
 
 ### <a name="create-task"></a>Criar tarefa
 
-Crie a tarefa *helloworldtask* executando a seguinte [tarefa az acr criar][az-acr-task-create] comando. A tarefa funciona sem um contexto de código fonte, e o comando refere que o ficheiro `helloworldtask.yaml` no diretório de trabalho. O parâmetro `--assign-identity` passa a identificação de recursos da identidade atribuída ao utilizador. 
+Crie a tarefa *helloworldtask* executando a seguinte [tarefa az acr criar][az-acr-task-create] comando. A tarefa funciona sem um contexto de código `helloworldtask.yaml` fonte, e o comando refere o ficheiro no diretório de trabalho. O `--assign-identity` parâmetro passa a identificação de recursos da identidade atribuída ao utilizador. 
 
 ```azurecli
 az acr task create \
@@ -91,7 +91,7 @@ Os passos nesta secção criam uma tarefa e permitem uma identidade atribuída a
 
 ### <a name="create-task"></a>Criar tarefa
 
-Crie a tarefa *helloworldtask* executando a seguinte [tarefa az acr criar][az-acr-task-create] comando. A tarefa funciona sem um contexto de código fonte, e o comando refere que o ficheiro `helloworldtask.yaml` no diretório de trabalho. O parâmetro `--assign-identity` sem valor permite a identidade atribuída ao sistema na tarefa. 
+Crie a tarefa *helloworldtask* executando a seguinte [tarefa az acr criar][az-acr-task-create] comando. A tarefa funciona sem um contexto de código `helloworldtask.yaml` fonte, e o comando refere o ficheiro no diretório de trabalho. O `--assign-identity` parâmetro sem valor permite a identidade atribuída ao sistema na tarefa. 
 
 ```azurecli
 az acr task create \
@@ -113,7 +113,7 @@ Utilize o comando do [az acr show][az-acr-show] para obter a identificação de 
 baseregID=$(az acr show --name mybaseregistry --query id --output tsv)
 ```
 
-Utilize a atribuição de [funções az criar][az-role-assignment-create] comando para atribuir a identidade o papel `acrpull` ao registo base. Este papel tem permissões apenas para retirar imagens do registo.
+Utilize a atribuição de [funções az][az-role-assignment-create] `acrpull` criar comando para atribuir a identidade ao registo base. Este papel tem permissões apenas para retirar imagens do registo.
 
 ```azurecli
 az role assignment create \
@@ -124,7 +124,7 @@ az role assignment create \
 
 ## <a name="add-target-registry-credentials-to-task"></a>Adicionar credenciais de registo-alvo à tarefa
 
-Agora utilize o comando de adição de tarefas [acr acr][az-acr-task-credential-add] para permitir que a tarefa autenticar com o registo base usando as credenciais da identidade. Executar o comando correspondente ao tipo de identidade gerida que ativou na tarefa. Se ativar uma identidade atribuída ao utilizador, passe `--use-identity` com a identificação do cliente da identidade. Se ativar uma identidade atribuída ao sistema, passe `--use-identity [system]`.
+Agora utilize o comando de adição de tarefas [acr acr][az-acr-task-credential-add] para permitir que a tarefa autenticar com o registo base usando as credenciais da identidade. Executar o comando correspondente ao tipo de identidade gerida que ativou na tarefa. Se ativar uma identidade atribuída ao `--use-identity` utilizador, passe com a identificação do cliente da identidade. Se ativar uma identidade atribuída ao `--use-identity [system]`sistema, passe .
 
 ```azurecli
 # Add credentials for user-assigned identity to the task

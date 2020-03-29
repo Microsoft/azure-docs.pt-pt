@@ -1,49 +1,49 @@
 ---
-title: Mover os recursos de implantação clássica do Azure
-description: Use Azure Resource Manager para mover recursos de implantação clássicos para um novo grupo de recursos ou assinatura.
+title: Move Azure Classic recursos de implantação
+description: Use o Gestor de Recursos Azure para mover recursos de implantação clássicos para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.openlocfilehash: 78b9769a31fa0c96c12e18d05cb9c484aa52a1d5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75485289"
 ---
-# <a name="move-guidance-for-classic-deployment-model-resources"></a>Mover diretrizes para recursos do modelo de implantação clássico
+# <a name="move-guidance-for-classic-deployment-model-resources"></a>Mover orientação para recursos do modelo de implementação clássico
 
-As etapas para mover os recursos implantados por meio do modelo clássico diferem se você estiver movendo os recursos em uma assinatura ou em uma nova assinatura.
+As etapas para movimentar recursos implementados através do modelo clássico diferem com base na mudança dos recursos dentro de uma subscrição ou numa nova subscrição.
 
-## <a name="move-in-the-same-subscription"></a>Mover na mesma assinatura
+## <a name="move-in-the-same-subscription"></a>Mover-se na mesma subscrição
 
-Ao mover recursos do grupo de recursos para outro grupo de recursos dentro da mesma subscrição, aplicam-se as seguintes restrições:
+Ao transferir recursos de um grupo de recursos para outro grupo de recursos dentro da mesma subscrição, aplicam-se as seguintes restrições:
 
-* Não não possível mover a redes virtuais (clássicas).
-* Máquinas virtuais (clássicas) têm de ser movidas com o serviço cloud.
-* Só pode ser movido serviço em nuvem quando a mudança inclui todas as suas máquinas virtuais.
-* Apenas um serviço cloud pode ser movido por vez.
+* As redes virtuais (clássicas) não podem ser movidas.
+* As máquinas virtuais (clássicas) devem ser movidas com o serviço de nuvem.
+* O serviço de nuvem só pode ser movido quando o movimento inclui todas as suas máquinas virtuais.
+* Apenas um serviço de nuvem pode ser movido de cada vez.
 * Apenas uma conta de armazenamento (clássica) pode ser movida de cada vez.
-* Não é possível mover a conta de armazenamento (clássica) na mesma operação com uma máquina virtual ou um serviço em nuvem.
+* A conta de armazenamento (clássica) não pode ser movida na mesma operação com uma máquina virtual ou um serviço de nuvem.
 
-Para mover recursos clássicos para um novo grupo de recursos dentro da mesma assinatura, use as [operações de movimentação padrão](../move-resource-group-and-subscription.md) por meio do portal, Azure PowerShell, CLI do Azure ou API REST. Utilize as mesmas operações que utiliza para mover os recursos do Resource Manager.
+Para mover recursos clássicos para um novo grupo de recursos dentro da mesma subscrição, utilize as [operações](../move-resource-group-and-subscription.md) de movimento padrão através do portal, Azure PowerShell, Azure CLI ou REST API. Usa as mesmas operações que utiliza para movimentar recursos do Gestor de Recursos.
 
-## <a name="move-across-subscriptions"></a>Mover entre assinaturas
+## <a name="move-across-subscriptions"></a>Mover-se através de subscrições
 
-Quando mover recursos para uma nova subscrição, aplicam-se as seguintes restrições:
+Ao mover recursos para uma nova subscrição, aplicam-se as seguintes restrições:
 
-* Todos os recursos clássicos na subscrição têm de ser movidos na mesma operação.
-* A assinatura de destino não deve ter outros recursos clássicos.
-* A mudança só pode ser pedida através da API REST separado para move clássico. Os comandos de movimentação do Gestor de recursos padrão não funcionam quando mover recursos clássicos para uma nova subscrição.
+* Todos os recursos clássicos da subscrição devem ser movidos na mesma operação.
+* A subscrição-alvo não deve ter outros recursos clássicos.
+* O movimento só pode ser solicitado através de uma API REST separada para movimentos clássicos. Os comandos de movimento padrão do Gestor de Recursos não funcionam ao mover recursos clássicos para uma nova subscrição.
 
-Para mover recursos clássicos para uma nova subscrição, utilize as operações REST que são específicas para recursos clássicos. Para usar o REST, execute as seguintes etapas:
+Para mover recursos clássicos para uma nova subscrição, use as operações REST que são específicas dos recursos clássicos. Para utilizar o REST, faça os seguintes passos:
 
-1. Verifique se a subscrição de origem pode participar de uma movimentação entre subscrições. Utilize a seguinte operação:
+1. Verifique se a subscrição de origem pode participar num movimento de subscrição cruzada. Utilize a seguinte operação:
 
    ```HTTP
    POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
    ```
 
-     No corpo do pedido, incluem:
+     No órgão de pedido, inclua:
 
    ```json
    {
@@ -51,7 +51,7 @@ Para mover recursos clássicos para uma nova subscrição, utilize as operaçõe
    }
    ```
 
-     A resposta para a operação de validação é o seguinte formato:
+     A resposta para a operação de validação encontra-se no seguinte formato:
 
    ```json
    {
@@ -63,13 +63,13 @@ Para mover recursos clássicos para uma nova subscrição, utilize as operaçõe
    }
    ```
 
-1. Verifique se a subscrição de destino pode participar de uma movimentação entre subscrições. Utilize a seguinte operação:
+1. Verifique se a subscrição do destino pode participar num movimento de subscrição cruzada. Utilize a seguinte operação:
 
    ```HTTP
    POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
    ```
 
-     No corpo do pedido, incluem:
+     No órgão de pedido, inclua:
 
    ```json
    {
@@ -77,14 +77,14 @@ Para mover recursos clássicos para uma nova subscrição, utilize as operaçõe
    }
    ```
 
-     A resposta está no mesmo formato que a validação de subscrição de origem.
-1. Se ambas as subscrições passam na validação, mova todos os recursos clássicos de uma subscrição para outra subscrição com a seguinte operação:
+     A resposta encontra-se no mesmo formato que a validação de subscrição de origem.
+1. Se ambas as subscrições passarem a validação, mova todos os recursos clássicos de uma subscrição para outra subscrição com a seguinte operação:
 
    ```HTTP
    POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
    ```
 
-    No corpo do pedido, incluem:
+    No órgão de pedido, inclua:
 
    ```json
    {
@@ -92,10 +92,10 @@ Para mover recursos clássicos para uma nova subscrição, utilize as operaçõe
    }
    ```
 
-A operação pode ser executada durante vários minutos.
+A operação pode decorrer durante vários minutos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você tiver problemas para mover os recursos clássicos, entre em contato com o [suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+Se tiver dificuldade em mover recursos clássicos, contacte [o Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
-Para obter comandos para mover recursos, consulte [mover recursos para um novo grupo de recursos ou assinatura](../move-resource-group-and-subscription.md).
+Para que os comandos movam recursos, consulte [mover recursos para um novo grupo de recursos ou subscrição](../move-resource-group-and-subscription.md).

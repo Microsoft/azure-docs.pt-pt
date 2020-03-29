@@ -12,31 +12,31 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40f89fbe19b93601f9e0525f0387e402bd175fe4
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672671"
 ---
 # <a name="azure-ad-joined-devices"></a>Dispositivos associados ao Azure AD
 
 A adesão à Azure AD destina-se a organizações que queiram ser apenas em nuvem ou em nuvem. Qualquer organização pode implementar dispositivos azure ad não importa o tamanho ou a indústria. A Azure AD junta-se a obras mesmo num ambiente híbrido, permitindo o acesso a aplicações e recursos em nuvem e no local.
 
-|   | AD Azure Junta-se |
+|   | Associação ao Azure AD |
 | --- | --- |
 | **Definição** | Juntou-se apenas à Azure AD exigindo que a conta organizacional assinasse o dispositivo |
 | **Audiência primária** | Adequado tanto para organizações só em nuvem como híbridas. |
 |   | Aplicável a todos os utilizadores de uma organização |
-| **Propriedade do dispositivo** | Organização |
+| **Propriedade dos dispositivos** | Organização |
 | **Sistemas Operativos** | Todos os dispositivos do Windows 10 |
 | **Aprovisionamento** | Self-service: Windows OOBE ou Definições |
 |   | Inscrição em massa |
-|   | Piloto automático do Windows |
+|   | Windows Autopilot |
 | **Sinal de dispositivo em opções** | Contas organizacionais utilizando: |
 |   | Palavra-passe |
 |   | Windows Hello para empresas |
 |   | Chaves de segurança FIDO2.0 (pré-visualização) |
-| **Gestão de Dispositivos** | Gestão de Dispositivos Móveis (exemplo: Microsoft Intune) |
+| **Gestão de dispositivos** | Gestão de Dispositivos Móveis (exemplo: Microsoft Intune) |
 |   | Cogestão com microsoft Intune e Microsoft Endpoint Configuration Manager |
 | **Principais capacidades** | SSO tanto para os recursos de nuvem como para o local |
 |   | Acesso Condicional através da inscrição do MDM e avaliação de conformidade com o MDM |
@@ -80,7 +80,7 @@ A Associação do Azure AD pode ser implementada com um dos seguintes métodos:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Planeie o seu Anúncio Azure aderir à implementação](azureadjoin-plan.md)
+- [Planear a sua implementação de associação do Azure AD](azureadjoin-plan.md)
 - [Como gerir o grupo de administradores locais em Azure AD aderiu a dispositivos](assign-local-admin.md)
 - [Gerir identidades do dispositivo utilizando o portal Azure](device-management-azure-portal.md)
 - [Gerir dispositivos velhos em Azure AD](manage-stale-devices.md)

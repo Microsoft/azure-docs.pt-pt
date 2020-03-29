@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 955e13b88037aa42b59707698549b1c980720990
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840609"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualização de registos de fluxo do Grupo de Segurança da Rede com Power BI
@@ -87,7 +87,7 @@ Os gráficos seguintes mostram os fluxos por interface da Rede, com a parte supe
 
 O gráfico da roda de donut seguinte mostra uma avaria de Fluxos por Porta de Destino. Com esta informação, pode ver as portas de destino mais utilizadas no período especificado.
 
-![donut][9]
+![rosca][9]
 
 O gráfico de barras seguinte mostra o Fluxo por NSG e Regra. Com esta informação, pode ver os NSGs responsáveis pela maior parte do tráfego, e a avaria do tráfego num NSG por regra.
 
@@ -111,7 +111,7 @@ Sinta-se à vontade para personalizar este modelo para as suas necessidades. Exi
 
 ## <a name="notes"></a>Notas
 
-* Os registos por padrão são armazenados em `https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`
+* Os registos por padrão são armazenados em`https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`
 
     * Se existirem outros dados noutro diretório, as consultas para puxar e processar os dados devem ser modificadas.
 
@@ -119,7 +119,7 @@ Sinta-se à vontade para personalizar este modelo para as suas necessidades. Exi
 
 * Se tiver uma grande quantidade de registos, recomendamos que investigue uma solução utilizando outra loja de dados como data Lake ou servidor SQL.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como visualizar os seus registos de fluxo NSG com a Stack Elástica visitando registos de fluxo NSG do Observador de [Rede Azure utilizando ferramentas de código aberto](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 

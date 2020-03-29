@@ -1,6 +1,6 @@
 ---
-title: Práticas recomendadas e solução de problemas do node. js
-description: Conheça as práticas recomendadas e as etapas de solução de problemas para aplicativos node. js em execução no serviço Azure App.
+title: Node.js boas práticas e resolução de problemas
+description: Aprenda as melhores práticas e passos de resolução de problemas para aplicações nonóios em execução no Serviço de Aplicações Azure.
 author: msangapu-msft
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
 ms.devlang: nodejs
@@ -9,58 +9,58 @@ ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 682884d11b298a97e27056af3c10802dfd410e4c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75430570"
 ---
-# <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Guia de práticas recomendadas e solução de problemas para aplicativos de nó em janelas de serviço Azure App
+# <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Boas práticas e guia de resolução de problemas para aplicações de nó no Azure App Service Windows
 
-Neste artigo, você aprenderá as práticas recomendadas e as etapas de solução de problemas para [aplicativos de nó](app-service-web-get-started-nodejs.md) em execução no serviço de Azure app (com [iisnode](https://github.com/azure/iisnode)).
+Neste artigo, aprende as melhores práticas e passos de resolução de problemas para [aplicações](app-service-web-get-started-nodejs.md) de nó em execução no Azure App Service (com [iisnode).](https://github.com/azure/iisnode)
 
 > [!WARNING]
-> Tenha cuidado ao usar as etapas de solução de problemas em seu site de produção. A recomendação é solucionar problemas de seu aplicativo em uma configuração de não produção, por exemplo, seu slot de preparo e quando o problema for corrigido, trocar o slot de preparo pelo slot de produção.
+> Tenha cuidado ao utilizar passos de resolução de problemas no seu local de produção. A recomendação é resolver problemas na sua aplicação numa configuração de não produção, por exemplo, a sua ranhura de preparação e quando o problema for corrigido, troque a sua ranhura de preparação com a sua ranhura de produção.
 >
 
-## <a name="iisnode-configuration"></a>Configuração do IISNODE
+## <a name="iisnode-configuration"></a>Configuração IISNODE
 
-Esse [arquivo de esquema](https://github.com/Azure/iisnode/blob/master/src/config/iisnode_schema_x64.xml) mostra todas as configurações que você pode definir para iisnode. Algumas das configurações que são úteis para seu aplicativo:
+Este [ficheiro de esquema](https://github.com/Azure/iisnode/blob/master/src/config/iisnode_schema_x64.xml) sintetiza todas as definições que pode configurar para iisnode. Algumas das definições que são úteis para a sua aplicação:
 
 ### <a name="nodeprocesscountperapplication"></a>nodeProcessCountPerApplication
 
-Essa configuração controla o número de processos de nó que são iniciados por aplicativo do IIS. O valor predefinido é 1. Você pode iniciar quantos node. EXEs forem sua contagem de vCPU de VM alterando o valor para 0. O valor recomendado é 0 para a maioria dos aplicativos, para que você possa usar todos os vCPUs em seu computador. O Node. exe é de thread único, portanto, um node. exe consome um máximo de 1 vCPU. Para obter o desempenho máximo do seu aplicativo de nó, você deseja usar todos os vCPUs.
+Esta definição controla o número de processos de nó que são lançados por aplicação IIS. O valor predefinido é 1. Pode lançar tantos nó.ex como a contagem vCPU VM, alterando o valor para 0. O valor recomendado é 0 para a maioria das aplicações para que possa utilizar todos os vCPUs na sua máquina. O nó.exe é de roscar-se para que um nó.exe consuma um máximo de 1 vCPU. Para obter o máximo desempenho da sua aplicação de nó, você deseja usar todos os vCPUs.
 
 ### <a name="nodeprocesscommandline"></a>nodeProcessCommandLine
 
-Essa configuração controla o caminho para o Node. exe. Você pode definir esse valor para apontar para a versão do node. exe.
+Esta definição controla o caminho para o nó.exe. Pode definir este valor para apontar para a sua versão nó.exe.
 
 ### <a name="maxconcurrentrequestsperprocess"></a>maxConcurrentRequestsPerProcess
 
-Essa configuração controla o número máximo de solicitações simultâneas enviadas pelo iisnode para cada node. exe. No serviço Azure App, o valor padrão é infinito. Você pode configurar o valor dependendo de quantas solicitações seu aplicativo recebe e a rapidez com que seu aplicativo processa cada solicitação.
+Esta definição controla o número máximo de pedidos simultâneos enviados por ísóno a cada nó.exe. No Serviço de Aplicações Azure, o valor padrão é Infinito. Pode configurar o valor dependendo do número de pedidos que a sua aplicação recebe e da rapidez com que a sua aplicação processa cada pedido.
 
-### <a name="maxnamedpipeconnectionretry"></a>maxNamedPipeConnectionRetry
+### <a name="maxnamedpipeconnectionretry"></a>maxNamePipeConnectionRetry
 
-Essa configuração controla o número máximo de vezes que o iisnode tenta fazer a conexão no pipe nomeado para enviar as solicitações para o Node. exe. Essa configuração em combinação com namedPipeConnectionRetryDelay determina o tempo limite total de cada solicitação dentro de iisnode. O valor padrão é 200 no serviço Azure App. Tempo limite total em segundos = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay)/1000
+Esta definição controla o número máximo de vezes que o iisnode se retenta fazendo a ligação no tubo nomeado para enviar os pedidos para o nó.exe. Esta definição em combinação com o denominadoPipeConnectionRetryDelay determina o tempo total de cada pedido dentro do iisnode. O valor padrão é de 200 no Serviço de Aplicações Azure. Tempo total em segundos = (maxNamedPipeConnectionRetry \* chamadoPipeConnectionRetryDelay) / 1000
 
-### <a name="namedpipeconnectionretrydelay"></a>namedPipeConnectionRetryDelay
+### <a name="namedpipeconnectionretrydelay"></a>nomeadoPipeConnectionRetryDelay
 
-Essa configuração controla a quantidade de tempo (em MS) iisnode aguarda entre cada repetição para enviar a solicitação para o Node. exe no pipe nomeado. O valor padrão é 250 MS.
-Tempo limite total em segundos = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay)/1000
+Esta definição controla a quantidade de tempo (em ms) que o iisnode aguarda entre cada nova tentativa para enviar o pedido para nó.exe sobre o tubo nomeado. O valor padrão é de 250 ms.
+Tempo total em segundos = (maxNamedPipeConnectionRetry \* chamadoPipeConnectionRetryDelay) / 1000
 
-Por padrão, o tempo limite total em iisnode no serviço Azure App é 200 \* 250 MS = 50 segundos.
+Por padrão, o tempo total de iisnode no Serviço \* de Aplicações Azure é de 200 250 ms = 50 segundos.
 
 ### <a name="logdirectory"></a>logDirectory
 
-Essa configuração controla o diretório em que iisnode registra stdout/stderr. O valor padrão é iisnode, que é relativo ao diretório do script principal (diretório em que o Server. js principal está presente)
+Esta definição controla o diretório onde os logs de iisnode stdout/stderr. O valor padrão é o iisnode, que é relativo ao diretório principal do script (diretório onde o servidor principal.js está presente)
 
 ### <a name="debuggerextensiondll"></a>debuggerExtensionDll
 
-Essa configuração controla qual versão do node-Inspector iisnode usa ao depurar o aplicativo de nó. Atualmente, iisnode-0.7.3 0.7.3. dll e iisnode. dll são os únicos dois valores válidos para essa configuração. O valor padrão é iisnode-0.7.3 0.7.3. dll. A versão iisnode-0.7.3 0.7.3. dll usa node-Inspector-0.7.3 e usa o Web Sockets. Habilite o Web Sockets em seu webapp do Azure para usar esta versão. Consulte <https://ranjithblogs.azurewebsites.net/?p=98> para obter mais detalhes sobre como configurar o iisnode para usar o novo node-Inspector.
+Esta definição controla a versão do iisnódodo do inspetor de nós que utiliza ao depurar a aplicação do nó. Atualmente, o iisnode-inspector-0.7.3.dll e o iisnode-inspector.dll são os dois únicos valores válidos para esta definição. O valor por defeito é iisnode-inspector-0.7.3.dll. A versão iisnode-inspector-0.7.3.dll utiliza o nó-inspector-0.7.3 e utiliza tomadas web. Ative as tomadas web no seu webapp Azure para utilizar esta versão. Consulte <https://ranjithblogs.azurewebsites.net/?p=98> mais detalhes sobre como configurar o iisnode para utilizar o novo inspetor de nó.
 
 ### <a name="flushresponse"></a>flushResponse
 
-O comportamento padrão do IIS é que ele armazena em buffer os dados de resposta de até 4 MB antes da liberação, ou até o final da resposta, o que vier primeiro. o iisnode oferece uma definição de configuração para substituir esse comportamento: para liberar um fragmento do corpo da entidade de resposta assim que o iisnode o receber do node. exe, você precisará definir o atributo iisnode/@flushResponse em Web. config como ' true ':
+O comportamento padrão do IIS é que tampona dados de resposta até 4 MB antes de flushing, ou até o final da resposta, o que vier primeiro. O iisnode oferece uma configuração de configuração para sobrepor este comportamento: para descarregar um fragmento do corpo da entidade iisnode/@flushResponse de resposta assim que o iisnode o receber do nó.exe, é necessário definir o atributo em web.config para 'verdadeiro':
 
 ```xml
 <configuration>
@@ -71,9 +71,9 @@ O comportamento padrão do IIS é que ele armazena em buffer os dados de respost
 </configuration>
 ```
 
-Habilitar a liberação de cada fragmento do corpo da entidade de resposta adiciona sobrecarga de desempenho que reduz a taxa de transferência do sistema em aproximadamente 5% (a partir de v 0.1.13). O melhor para definir o escopo dessa configuração somente para pontos de extremidade que exigem streaming de resposta (por exemplo, usando o elemento `<location>` no Web. config)
+Ativar a descarga de cada fragmento do corpo da entidade de resposta adiciona a sobrecarga de desempenho que reduz a entrada do sistema em ~5% (a partir de v0.1.13). O melhor para analisar esta definição apenas para pontos `<location>` finais que requerem streaming de resposta (por exemplo, utilizando o elemento na web.config)
 
-Além disso, para aplicativos de streaming, você também deve definir responseBufferLimit do manipulador de iisnode como 0.
+Além disso, para aplicações de streaming, também deve definir a respostaBufferLimit do seu manipulador de iisnode para 0.
 
 ```xml
 <handlers>
@@ -81,49 +81,49 @@ Além disso, para aplicativos de streaming, você também deve definir responseB
 </handlers>
 ```
 
-### <a name="watchedfiles"></a>watchedFiles
+### <a name="watchedfiles"></a>watchfiles
 
-Uma lista de arquivos separados por ponto e vírgula que são observados para alterações. Qualquer alteração em um arquivo faz com que o aplicativo seja reciclado. Cada entrada consiste em um nome de diretório opcional, bem como um nome de arquivo necessário, que são relativos ao diretório em que o ponto de entrada do aplicativo principal está localizado. Curingas são permitidos somente na parte do nome do arquivo. O valor predefinido é `*.js;iisnode.yml`
+Uma lista separada do ponto-semi-cólon de ficheiros que são vigiadas para alterações. Qualquer alteração a um ficheiro faz com que a aplicação recicle. Cada entrada consiste num nome de diretório opcional, bem como num nome de ficheiro exigido, relativo ao diretório onde se encontra o principal ponto de entrada da aplicação. Cartões selvagens são permitidos apenas na porção de nome de ficheiro. O valor predefinido é `*.js;iisnode.yml`
 
-### <a name="recyclesignalenabled"></a>recycleSignalEnabled
+### <a name="recyclesignalenabled"></a>reciclarSignalEnabled
 
-O valor predefinido é false. Se habilitada, o aplicativo de nó pode se conectar a um pipe nomeado (variável de ambiente IISNODE\_controle de\_PIPE) e enviar uma mensagem de "reciclagem". Isso faz com que w3wp seja reciclado normalmente.
+O valor predefinido é false. Se ativado, a aplicação do nó pode ligar-se\_a\_um tubo denominado (variável ambiental IISNODE CONTROL PIPE) e enviar uma mensagem de "reciclagem". Isto faz com que o W3WP recicle graciosamente.
 
 ### <a name="idlepageouttimeperiod"></a>idlePageOutTimePeriod
 
-O valor padrão é 0, o que significa que esse recurso está desabilitado. Quando definido como um valor maior que 0, iisnode fará a despágina de todos os seus processos filho a cada ' idlePageOutTimePeriod ' em milissegundos. Consulte a [documentação](/windows/desktop/api/psapi/nf-psapi-emptyworkingset) para entender o que o Page out significa. Essa configuração é útil para aplicativos que consomem uma grande quantidade de memória e desejam paginar a memória para o disco ocasionalmente para liberar RAM.
+O valor predefinido é 0, o que significa que esta funcionalidade está desativada. Quando definido para um valor superior a 0, o iisnode irá páginar todos os seus processos infantis em milissegundos. Consulte a [documentação](/windows/desktop/api/psapi/nf-psapi-emptyworkingset) para entender o que significa a página. Esta definição é útil para aplicações que consomem uma elevada quantidade de memória e querem pager a memória para o disco ocasionalmente para libertar ram.
 
 > [!WARNING]
-> Tenha cuidado ao habilitar as seguintes definições de configuração em aplicativos de produção. A recomendação é não habilitá-los em aplicativos de produção ao vivo.
+> Tenha cuidado ao ativar as seguintes definições de configuração nas aplicações de produção. A recomendação é não permitir que se instem aplicações de produção ao vivo.
 >
 
 ### <a name="debugheaderenabled"></a>debugHeaderEnabled
 
-O valor predefinido é false. Se definido como true, iisnode adicionará um cabeçalho de resposta HTTP `iisnode-debug` a cada resposta HTTP, ele enviará o valor do cabeçalho `iisnode-debug` será uma URL. Partes individuais de informações de diagnóstico podem ser obtidas examinando o fragmento de URL, no entanto, uma visualização está disponível abrindo a URL em um navegador.
+O valor predefinido é false. Se for definido como verdadeiro, o iisnode adiciona um cabeçalho `iisnode-debug` de resposta HTTP a cada resposta HTTP que envia o valor do `iisnode-debug` cabeçalho é um URL. Peças individuais de informação de diagnóstico podem ser obtidas olhando para o fragmento de URL, no entanto, uma visualização está disponível abrindo o URL num navegador.
 
-### <a name="loggingenabled"></a>loggingEnabled
+### <a name="loggingenabled"></a>exploração madeireiraHabilitada
 
-Essa configuração controla o registro em log de stdout e stderr por iisnode. Iisnode captura stdout/stderr de processos de nó que ele inicia e grava no diretório especificado na configuração ' logDirectory '. Depois que isso estiver habilitado, seu aplicativo gravará logs no sistema de arquivos e, dependendo da quantidade de log feita pelo aplicativo, poderá haver implicações de desempenho.
+Esta definição controla o registo de stdout e stderr por ísóno. Iisnode captura stdout/stderr dos processos de nó que lança e escreve para o diretório especificado na definição 'logDirectory'. Uma vez ativada, a sua aplicação escreve registos para o sistema de ficheiros e, dependendo da quantidade de registo feito pela aplicação, pode haver implicações de desempenho.
 
 ### <a name="deverrorsenabled"></a>devErrorsEnabled
 
-O valor predefinido é false. Quando definido como true, iisnode exibe o código de status HTTP e o código de erro do Win32 em seu navegador. O código Win32 é útil na depuração de determinados tipos de problemas.
+O valor predefinido é false. Quando definido como verdadeiro, o iisnode apresenta o código de estado HTTP e o código de erro Win32 no seu navegador. O código win32 é útil para depurar certos tipos de problemas.
 
-### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled (não habilitar no site de produção ao vivo)
+### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>depuraçãoEnabled (não permitir no local de produção ao vivo)
 
-Essa configuração controla o recurso de depuração. O Iisnode é integrado ao node-Inspector. Ao habilitar essa configuração, você habilita a depuração do seu aplicativo de nó. Ao habilitar essa configuração, o iisnode cria arquivos de Inspetor de nó no diretório ' debuggerVirtualDir ' na primeira solicitação de depuração para o aplicativo de nó. Você pode carregar o node-Inspector enviando uma solicitação para `http://yoursite/server.js/debug`. Você pode controlar o segmento de URL de depuração com a configuração ' debuggerPathSegment '. Por padrão, debuggerPathSegment = ' Debug '. Você pode definir `debuggerPathSegment` para um GUID, por exemplo, para que seja mais difícil de ser descoberto por outras pessoas.
+Esta definição controla a função de depuração. Iisnode está integrado com o inspetor do nó. Ao ativar esta definição, permite a depuração da aplicação do nó. Ao permitir esta definição, o iisnode cria ficheiros de inspetor de nós no diretório 'debuggerVirtualDir' no primeiro pedido de depuração para a sua aplicação de nó. Você pode carregar o inspetor de nó, enviando um pedido para `http://yoursite/server.js/debug`. Pode controlar o segmento DEURL de depuração com a definição 'debuggerPathSegment'. Por predefinição, debuggerPathSegment='debug'. Pode definir `debuggerPathSegment` um GUID, por exemplo, para que seja mais difícil ser descoberto por outros.
 
-Leia [depurar aplicativos node. js no Windows](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html) para obter mais detalhes sobre a depuração.
+Leia [as aplicações Debug node.js no Windows](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html) para obter mais detalhes sobre a depuração.
 
-## <a name="scenarios-and-recommendationstroubleshooting"></a>Cenários e recomendações/solução de problemas
+## <a name="scenarios-and-recommendationstroubleshooting"></a>Cenários e recomendações/resolução de problemas
 
-### <a name="my-node-application-is-making-excessive-outbound-calls"></a>Meu aplicativo de nó está fazendo chamadas de saída excessivas
+### <a name="my-node-application-is-making-excessive-outbound-calls"></a>O meu pedido de nó está a fazer chamadas excessivas de saída.
 
-Muitos aplicativos desejariam fazer conexões de saída como parte de sua operação regular. Por exemplo, quando uma solicitação chega, seu aplicativo de nó deseja entrar em contato com uma API REST em outro lugar e obter algumas informações para processar a solicitação. Você desejaria usar um agente Keep Alive ao fazer chamadas http ou HTTPS. Você pode usar o módulo agentkeepalive como seu agente Keep Alive ao fazer essas chamadas de saída.
+Muitas aplicações gostariam de fazer ligações de saída como parte do seu funcionamento regular. Por exemplo, quando um pedido chega, a sua app de nó quereria contactar uma API REST em outro lugar e obter algumas informações para processar o pedido. Você gostaria de usar um agente para manter vivo ao fazer chamadas http ou https. Podes usar o módulo de agentekeepalive como agente para manter vivo ao fazer estas chamadas de saída.
 
-O módulo agentkeepalive garante que os soquetes sejam reutilizados em sua VM webapp do Azure. A criação de um novo soquete em cada solicitação de saída adiciona sobrecarga ao seu aplicativo. Fazer com que seu aplicativo reutilize soquetes para solicitações de saída garante que seu aplicativo não exceda os maxSockets alocados por VM. A recomendação no serviço de Azure App é definir o valor de maxSockets de agentKeepAlive para um total de (4 instâncias de Node. exe \* 40 maxSockets/instância) 160 soquetes por VM.
+O módulo agentkeepalive garante que as tomadas são reutilizadas no seu VM webapp Azure. A criação de uma nova tomada em cada pedido de saída adiciona sobrecarga à sua aplicação. Ter as tomadas de reutilização da sua aplicação para pedidos de saída garante que a sua aplicação não excede as maxSockets que são atribuídas por VM. A recomendação sobre o Serviço de Aplicações Azure é definir o valor maxSockets do \* agenteKeepAlive para um total de (4 instâncias de nó.exe 40 maxSockets/instância) 160 tomadas por VM.
 
-Exemplo de configuração de [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) :
+Configuração do [agente de exemploKeepALive:](https://www.npmjs.com/package/agentkeepalive)
 
 ```nodejs
 let keepaliveAgent = new Agent({
@@ -135,17 +135,17 @@ let keepaliveAgent = new Agent({
 ```
 
 > [!IMPORTANT]
-> Este exemplo pressupõe que você tenha quatro node. exe em execução em sua VM. Se você tiver um número diferente de Node. exe em execução na VM, será necessário modificar a configuração maxSockets de acordo.
+> Este exemplo pressupõe que tem 4 nós.exe em execução no seu VM. Se tiver um número diferente de nó.exe em execução no VM, deve modificar a definição maxSockets em conformidade.
 >
 
-#### <a name="my-node-application-is-consuming-too-much-cpu"></a>Meu aplicativo de nó está consumindo muita CPU
+#### <a name="my-node-application-is-consuming-too-much-cpu"></a>A minha aplicação de nó está a consumir demasiado CPU
 
-Você pode receber uma recomendação do serviço Azure App em seu portal sobre o alto consumo de CPU. Você também pode configurar monitores para observar determinadas [métricas](web-sites-monitor.md). Ao verificar o uso da CPU no [painel do portal do Azure](../azure-monitor/app/web-monitor-performance.md), verifique os valores máximos da CPU para que você não perca os valores de pico.
-Se você acredita que seu aplicativo está consumindo muita CPU e não pode explicar por quê, você pode criar o perfil de seu aplicativo de nó para descobrir.
+Poderá receber uma recomendação do Azure App Service no seu portal sobre o elevado consumo de CPU. Também pode configurar monitores para vigiar certas [métricas](web-sites-monitor.md). Ao verificar a utilização do CPU no [Painel do Portal Azure,](../azure-monitor/app/web-monitor-performance.md)verifique os valores MAX para CPU para que não perca os valores máximos.
+Se acredita que a sua aplicação está a consumir demasiado CPU e não consegue explicar porquê, pode perfilar a sua aplicação de nó para descobrir.
 
-#### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Criando perfil do aplicativo de nó no serviço de Azure App com o V8-Profiler
+#### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Perfilde a sua aplicação de nó no Serviço de Aplicações Azure com Perfil V8
 
-Por exemplo, digamos que você tenha um aplicativo Olá, mundo do qual deseja criar o perfil da seguinte maneira:
+Por exemplo, digamos que tem uma aplicação hello world que quer perfilar da seguinte forma:
 
 ```nodejs
 const http = require('http');
@@ -166,16 +166,16 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Vá para o site do console de depuração `https://yoursite.scm.azurewebsites.net/DebugConsole`
+Ir ao site da Consola Debug`https://yoursite.scm.azurewebsites.net/DebugConsole`
 
-Vá para o diretório site/wwwroot. Você verá um prompt de comando, conforme mostrado no exemplo a seguir:
+Entre no seu diretório site/wwwroot. Vê um pedido de comando como mostrado no seguinte exemplo:
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_install_v8.png)
 
 Execute o comando `npm install v8-profiler`.
 
-Esse comando instala o V8-Profiler em nó\_diretório de módulos e todas as suas dependências.
-Agora, edite o Server. js para criar o perfil do seu aplicativo.
+Este comando instala o perfil v8\_sob o diretório de módulos de nó e todas as suas dependências.
+Agora, edite o seu servidor.js para perfilar a sua aplicação.
 
 ```nodejs
 const http = require('http');
@@ -201,81 +201,81 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-O código anterior cria o perfil da função WriteConsoleLog e, em seguida, grava a saída do perfil no arquivo ' Profile. cpuprofile ' em seu site wwwroot. Envie uma solicitação para seu aplicativo. Você verá um arquivo ' Profile. cpuprofile ' criado no seu site wwwroot.
+Os perfis de código anteriores da função WriteConsoleLog e, em seguida, escreve a saída de perfil para o ficheiro 'profile.cpuprofile' no seu site wwwroot. Envie um pedido para o seu pedido. Você vê um ficheiro 'profile.cpuprofile' criado sob o seu site wwwroot.
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
 
-Baixe esse arquivo e abra-o com as ferramentas do Chrome F12. Pressione F12 no Chrome e escolha a guia **perfis** . escolha o botão **carregar** . Selecione o arquivo Profile. cpuprofile que você baixou. Clique no perfil que você acabou de carregar.
+Descarregue este ficheiro e abra-o com as Ferramentas Chrome F12. Prima F12 no Chrome e, em seguida, escolha o separador **Perfis.** Escolha o botão **carregar.** Selecione o ficheiro profile.cpuprofile do seu perfil que descarregou. Clique no perfil que acabou de carregar.
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
 
-Você pode ver que 95% do tempo foi consumido pela função WriteConsoleLog. A saída também mostra os números de linha e os arquivos de origem exatos que causaram o problema.
+Pode ver que 95% do tempo foi consumido pela função WriteConsoleLog. A saída também mostra os números de linha exatos e os ficheiros de origem que causaram o problema.
 
-### <a name="my-node-application-is-consuming-too-much-memory"></a>Meu aplicativo de nó está consumindo muita memória
+### <a name="my-node-application-is-consuming-too-much-memory"></a>A minha aplicação de nó está a consumir demasiada memória.
 
-Se seu aplicativo estiver consumindo muita memória, você verá um aviso de Azure App serviço em seu portal sobre o alto consumo de memória. Você pode configurar monitores para observar determinadas [métricas](web-sites-monitor.md). Ao verificar o uso de memória no [painel do portal do Azure](../azure-monitor/app/web-monitor-performance.md), verifique os valores máximos de memória para que você não perca os valores de pico.
+Se a sua aplicação estiver a consumir demasiada memória, vê um aviso do Serviço de Aplicações Azure no seu portal sobre o elevado consumo de memória. Pode configurar monitores para vigiar certas [métricas.](web-sites-monitor.md) Ao verificar o uso da memória no [Painel do Portal Azure,](../azure-monitor/app/web-monitor-performance.md)certifique-se de verificar se há memória dos valores MAX para que não perca os valores de pico.
 
-#### <a name="leak-detection-and-heap-diff-for-nodejs"></a>Detecção de vazamentos e comparação de heap para node. js
+#### <a name="leak-detection-and-heap-diff-for-nodejs"></a>Deteção de fugas e Heap Diff para nó.js
 
-Você pode usar [node-memwatch](https://github.com/lloyd/node-memwatch) para ajudá-lo a identificar vazamentos de memória.
-Você pode instalar `memwatch` assim como o V8-Profiler e editar seu código para capturar e comparar heaps para identificar os vazamentos de memória em seu aplicativo.
+Pode usar o memwatch do nó para [ajudá-lo](https://github.com/lloyd/node-memwatch) a identificar fugas de memória.
+Pode instalar-se `memwatch` tal como o perfil v8 e editar o seu código para capturar e difundir pilhas para identificar as fugas de memória na sua aplicação.
 
-### <a name="my-nodeexes-are-getting-killed-randomly"></a>Meus node. exe estão sendo eliminados aleatoriamente
+### <a name="my-nodeexes-are-getting-killed-randomly"></a>O meu nó.exe's está a ser morto aleatoriamente.
 
-Há alguns motivos pelos quais o Node. exe é desligado aleatoriamente:
+Há algumas razões pelas quais o nó.exe é desligado aleatoriamente:
 
-1. Seu aplicativo está lançando exceções não capturadas – Verifique d:\\Home\\arquivos de log\\aplicativo\\arquivo logging-Errors. txt para obter os detalhes sobre a exceção lançada. Esse arquivo tem o rastreamento de pilha para ajudar a depurar e corrigir seu aplicativo.
-2. Seu aplicativo está consumindo muita memória, o que está afetando outros processos de começar. Se a memória total da VM estiver próxima de 100%, o Node. exe poderá ser eliminado pelo Gerenciador de processos. O Process Manager elimina alguns processos para permitir que outros processos tenham uma chance de realizar algum trabalho. Para corrigir esse problema, perfilie seu aplicativo para vazamentos de memória. Se seu aplicativo exigir grandes quantidades de memória, escale verticalmente para uma VM maior (o que aumenta a RAM disponível para a VM).
+1. A sua aplicação está a lançar\\\\exceções\\\\não apanhadas – Verifique d: registo de registos em casa Ficheiro de registo de erros.txt para obter os detalhes sobre a exceção lançada. Este ficheiro tem o traço da pilha para ajudar a depurar e corrigir a sua aplicação.
+2. A sua aplicação está a consumir demasiada memória, o que está a afetar outros processos desde o início. Se a memória VM total estiver perto de 100%, o seu nó.exe pode ser morto pelo gestor do processo. O gestor de processos mata alguns processos para permitir que outros processos possam fazer algum trabalho. Para corrigir este problema, desmepresente o seu pedido de fugas de memória. Se a sua aplicação necessitar de grandes quantidades de memória, aumente até um VM maior (o que aumenta a RAM disponível para o VM).
 
-### <a name="my-node-application-does-not-start"></a>O aplicativo do meu nó não é iniciado
+### <a name="my-node-application-does-not-start"></a>A minha aplicação de nó não começa.
 
-Se seu aplicativo estiver retornando erros 500 quando for iniciado, pode haver alguns motivos:
+Se a sua aplicação estiver a devolver 500 Erros quando começar, pode haver algumas razões:
 
-1. O Node. exe não está presente no local correto. Verifique a configuração nodeProcessCommandLine.
-2. O arquivo de script principal não está presente no local correto. Verifique o Web. config e certifique-se de que o nome do arquivo de script principal na seção de manipuladores corresponda ao arquivo de script principal.
-3. A configuração de Web. config não está correta – Verifique os nomes/valores das configurações.
-4. Início frio – o seu aplicativo está demorando muito para começar. Se seu aplicativo demorar mais do que (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay)/1000 segundos, iisnode retornará um erro 500. Aumente os valores dessas configurações para corresponder à hora de início do seu aplicativo para evitar que o iisnode atinja o tempo limite e retornando o erro 500.
+1. O nó.exe não está presente no local certo. Verifique a definição de nodeProcessCommandLine.
+2. O ficheiro principal do script não está presente no local correto. Verifique web.config e certifique-se de que o nome do ficheiro principal do script na secção de manipuladores corresponde ao ficheiro principal do script.
+3. A configuração Web.config não está correta – verifique os nomes/valores das definições.
+4. Arranque a frio – A sua aplicação está a demorar muito tempo a ser iniciada. Se a sua aplicação demorar mais \* do que (maxNamedPipeConnectionRetrynome chamadoPipeConnectionRetryDelay) / 1000 segundos, o iisnode devolve um erro de 500. Aumente os valores destas definições para corresponder à hora de início da sua aplicação para evitar que o iisnode saia e desatifique o erro de 500.
 
-### <a name="my-node-application-crashed"></a>Meu aplicativo de nó falhou
+### <a name="my-node-application-crashed"></a>A minha aplicação de nó despenhou-se.
 
-Seu aplicativo está lançando exceções não capturadas – Verifique `d:\\home\\LogFiles\\Application\\logging-errors.txt` arquivo para obter os detalhes sobre a exceção lançada. Esse arquivo tem o rastreamento de pilha para ajudar a diagnosticar e corrigir seu aplicativo.
+A sua aplicação está a `d:\\home\\LogFiles\\Application\\logging-errors.txt` lançar exceções não apanhadas – Verifique o ficheiro para obter os detalhes da exceção lançada. Este ficheiro tem o traço da pilha para ajudar a diagnosticar e corrigir a sua aplicação.
 
-### <a name="my-node-application-takes-too-much-time-to-start-cold-start"></a>O aplicativo de nó leva muito tempo para começar (inicialização a frio)
+### <a name="my-node-application-takes-too-much-time-to-start-cold-start"></a>A minha aplicação de nó leva muito tempo para começar (Início frio)
 
-A causa comum para tempos de início de aplicativo longos é um grande número de arquivos no nó\_módulos. O aplicativo tenta carregar a maioria desses arquivos ao iniciar. Por padrão, como os arquivos são armazenados no compartilhamento de rede no serviço Azure App, o carregamento de muitos arquivos pode levar tempo.
-Algumas soluções para tornar esse processo mais rápido são:
+A causa comum para longos tempos de início\_de aplicação é um elevado número de ficheiros nos módulos do nó. A aplicação tenta carregar a maioria destes ficheiros quando começa. Por predefinição, uma vez que os seus ficheiros estão armazenados na partilha da rede no Serviço de Aplicações Azure, carregar muitos ficheiros pode demorar algum tempo.
+Algumas soluções para tornar este processo mais rápido são:
 
-1. Verifique se você tem uma estrutura de dependência simples e nenhuma dependência duplicada usando npm3 para instalar seus módulos.
-2. Tente carregar lentamente os módulos de\_de nó e não carregue todos os módulos no início do aplicativo. Para módulos de carga lenta, a chamada para exigir (' module ') deve ser feita quando você realmente precisa do módulo dentro da função antes da primeira execução do código do módulo.
-3. Azure App serviço oferece um recurso chamado cache local. Esse recurso copia o conteúdo do compartilhamento de rede para o disco local na VM. Como os arquivos são locais, o tempo de carregamento dos módulos de\_de nó é muito mais rápido.
+1. Certifique-se de que tem uma estrutura de dependência plana e nenhuma dependência duplicada utilizando o npm3 para instalar os seus módulos.
+2. Tente carregar os\_módulos de nó preguiçosos e não carregue todos os módulos no início da aplicação. Para os módulos de carga preguiçosos, a chamada a exigir ('módulo') deve ser feita quando realmente precisa do módulo dentro da função antes da primeira execução do código do módulo.
+3. O Azure App Service oferece uma funcionalidade chamada cache local. Esta funcionalidade copia o seu conteúdo desde a partilha de rede até ao disco local no VM. Como os ficheiros são locais,\_o tempo de carga dos módulos de nó é muito mais rápido.
 
-## <a name="iisnode-http-status-and-substatus"></a>Status e substatus HTTP do IISNODE
+## <a name="iisnode-http-status-and-substatus"></a>Estatuto e subestatuto do IISNODE
 
-O [arquivo de origem](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h) `cnodeconstants` lista todas as combinações de status/substatus possíveis que o iisnode pode retornar devido a um erro.
+O `cnodeconstants` [ficheiro fonte](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h) lista todas as possíveis combinações de estado/subestatuto que o iisnode pode devolver devido a um erro.
 
-Habilite o FREB para que seu aplicativo Veja o código de erro do Win32 (certifique-se de habilitar o FREB somente em sites que não sejam de produção por motivos de desempenho).
+Ative o FREB para a sua aplicação ver o código de erro win32 (certifique-se de que ativa a FREB apenas em sites não produtivos por razões de desempenho).
 
-| Status do http | Substatus http | Possível motivo? |
+| Estado http | Subestatuto http | Possível razão? |
 | --- | --- | --- |
-| 500 |1000 |Houve algum problema ao despachar a solicitação para IISNODE – Verifique se o Node. exe foi iniciado. O Node. exe pode ter falhado ao iniciar. Verifique se há erros na configuração de Web. config. |
-| 500 |1001 |-Win32Error 0x2-o aplicativo não está respondendo à URL. Verifique as regras de reescrita de URL ou verifique se o aplicativo expresso tem as rotas corretas definidas. -Win32Error 0x6d – o pipe nomeado está ocupado – node. exe não está aceitando solicitações porque o pipe está ocupado. Verifique o alto uso da CPU. -Outros erros – Verifique se o Node. exe falhou. |
-| 500 |1002 |Node. exe falhou – Verifique d:\\Home\\LogFiles\\Logging-Errors. txt para rastreamento de pilha. |
-| 500 |1003 |Problema de configuração de pipe – a configuração de pipe nomeado está incorreta. |
-| 500 |1004-1018 |Ocorreu um erro ao enviar a solicitação ou processar a resposta para/do node. exe. Verifique se o Node. exe falhou. Marque d:\\Home\\arquivos de log\\Logging-Errors. txt para rastreamento de pilha. |
-| 503 |1000 |Não há memória suficiente para alocar mais conexões de pipe nomeado. Verifique por que seu aplicativo está consumindo tanta memória. Verifique o valor da configuração maxConcurrentRequestsPerProcess. Se não for infinito e você tiver muitas solicitações, aumente esse valor para evitar esse erro. |
-| 503 |1001 |A solicitação não pôde ser expedida para o Node. exe porque o aplicativo está sendo reciclado. Depois que o aplicativo for reciclado, as solicitações deverão ser atendidas normalmente. |
-| 503 |1002 |Verifique o código de erro Win32 para obter o motivo real – a solicitação não pôde ser expedida para um node. exe. |
-| 503 |1003 |O pipe nomeado está muito ocupado – Verifique se o Node. exe está consumindo CPU excessiva |
+| 500 |1000 |Houve algum problema a enviar o pedido para o IISNODE – Verificar se o nó.exe foi iniciado. O nó.exe pode ter caído quando começou. Verifique se a configuração web.config está a verificar se há erros. |
+| 500 |1001 |- Win32Error 0x2 - A app não responde ao URL. Verifique as regras de reescrita do URL ou verifique se a sua aplicação expressa tem as rotas corretas definidas. - Win32Error 0x6d – o tubo nomeado está ocupado – O Node.exe não aceita pedidos porque o tubo está ocupado. Verifique o alto uso do CPU. - Outros erros - verifique se o nó.exe se despenhou. |
+| 500 |1002 |Node.exe crashed –\\check\\d: home LogFiles\\logging-errors.txt for stack trace. |
+| 500 |1003 |Problema de configuração do tubo – A configuração do tubo nomeado está incorreta. |
+| 500 |1004-1018 |Houve algum erro ao enviar o pedido ou processar a resposta para/a partir do nó.exe. Verifique se o nó.exe se despenhou. verificar\\d:\\home\\LogFiles log-errors.txt para rastrear o rastreio da pilha. |
+| 503 |1000 |Não há memória suficiente para alocar ligações de tubos mais nomeadas. Verifique por que a sua aplicação está a consumir tanta memória. Verifique o valor de definição maxConcurrentRequestSPerProcess. Se não é infinito e tem muitos pedidos, aumente este valor para evitar este erro. |
+| 503 |1001 |O pedido não pôde ser enviado para nó.exe porque o pedido é reciclagem. Depois de o pedido ter sido reciclado, os pedidos devem ser servidos normalmente. |
+| 503 |1002 |Verifique o código de erro win32 por razão real – O pedido não pôde ser enviado para um nó.exe. |
+| 503 |1003 |O tubo nomeado é muito ocupado – Verifique se o nó.exe está a consumir CPU excessivo |
 
-O NODE. exe tem uma configuração chamada `NODE_PENDING_PIPE_INSTANCES`. No serviço Azure App, esse valor é definido como 5000. O que significa que o Node. exe pode aceitar solicitações de 5000 por vez no pipe nomeado. Esse valor deve ser bom o suficiente para a maioria dos aplicativos de nó em execução no serviço Azure App. Você não deve ver 503,1003 no serviço Azure App devido ao valor alto para o `NODE_PENDING_PIPE_INSTANCES`
+Node.exe tem uma `NODE_PENDING_PIPE_INSTANCES`definição chamada . No Serviço de Aplicações Azure, este valor está definido para 5000. O que significa que o nó.exe pode aceitar 5000 pedidos de cada vez no cano nomeado. Este valor deve ser bom o suficiente para a maioria das aplicações de nó que estão em execução no Serviço de Aplicações Azure. Você não deve ver 503.1003 no Azure App Service devido ao alto valor para o`NODE_PENDING_PIPE_INSTANCES`
 
 ## <a name="more-resources"></a>Mais recursos
 
-Siga estes links para saber mais sobre os aplicativos node. js no serviço Azure App.
+Siga estes links para saber mais sobre aplicações no nó.js no Serviço de Aplicações Azure.
 
-* [Introdução às aplicações Web Node.js no Serviço de Aplicações do Azure](app-service-web-get-started-nodejs.md)
-* [Como depurar uma aplicação Web Node.js no Serviço de Aplicações do Azure](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
+* [Introdução às Web Apps Node.js no App Service do Azure](app-service-web-get-started-nodejs.md)
+* [Como depurar uma aplicação Web Node.js no App Service do Azure](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
 * [Utilizar Módulos do Node.js com aplicações do Azure](../nodejs-use-node-modules-azure-apps.md)
-* [Aplicações Web do Serviço de Aplicações do Azure: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
+* [Web Apps do App Service do Azure: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Centro de Programadores do Node.js](../nodejs-use-node-modules-azure-apps.md)
 * [Explorar a Consola de Depuração do Kudu Super Secreta](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

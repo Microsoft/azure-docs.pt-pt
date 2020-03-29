@@ -1,21 +1,21 @@
 ---
-title: Solucionar problemas e diagnosticar falhas de fluxo de trabalho
-description: Saiba como solucionar e diagnosticar problemas, erros e falhas em seus fluxos de trabalho em aplicativos lógicos do Azure
+title: Resolução de problemas e diagnóstico de falhas de fluxo de trabalho
+description: Aprenda a resolver problemas e diagnosticar problemas, erros e falhas nos seus fluxos de trabalho em Aplicações Lógicas Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/31/2020
 ms.openlocfilehash: 1f83f13564a64a0d9d8a5e0144ca95af6a769d6c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76905039"
 ---
-# <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Solucionar problemas e diagnosticar falhas de fluxo de trabalho no aplicativo lógico do Azure
+# <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Problemas de resolução e diagnóstico de falhas de fluxo de trabalho em Aplicações Lógicas Azure
 
-Seu aplicativo lógico gera informações que podem ajudá-lo a diagnosticar e depurar problemas em seu aplicativo. Você pode diagnosticar um aplicativo lógico examinando cada etapa no fluxo de trabalho por meio do portal do Azure. Ou, pode adicionar alguns passos a um fluxo de trabalho para depuração em tempo de funcionamento.
+A sua aplicação lógica gera informações que podem ajudá-lo a diagnosticar e depurar problemas na sua aplicação. Pode diagnosticar uma aplicação lógica revendo cada passo no fluxo de trabalho através do portal Azure. Ou, pode adicionar alguns passos a um fluxo de trabalho para depuração em tempo de funcionamento.
 
 <a name="check-trigger-history"></a>
 
@@ -31,7 +31,7 @@ Cada aplicação lógica começa com uma tentativa de gatilho, por isso, se o ga
 
    As inputs do gatilho incluem os dados que o gatilho espera e exige minicioso para iniciar o fluxo de trabalho. Rever estas inputs pode ajudá-lo a determinar se as inputs do gatilho estão corretas e se a condição foi satisfeita para que o fluxo de trabalho possa continuar.
 
-   Por exemplo, a propriedade `feedUrl` aqui tem um valor de alimentação RSS incorreto:
+   Por exemplo, `feedUrl` a propriedade aqui tem um valor de alimentação RSS incorreto:
 
    ![Rever as inputs do gatilho para erros](./media/logic-apps-diagnosing-failures/review-trigger-inputs-for-errors.png)
 
@@ -60,19 +60,19 @@ Cada vez que o gatilho dispara para um item ou evento, o motor Logic Apps cria e
 
 1. Verifique as inputs do passo falhado para confirmar se aparecem como espera.
 
-1. Examine os detalhes de cada etapa em uma execução específica. Em **histórico de execuções**, selecione a execução que você deseja examinar.
+1. Reveja os detalhes para cada passo numa corrida específica. Sob a história de **Runs,** selecione a execução que pretende examinar.
 
-   ![Revisar histórico de execuções](./media/logic-apps-diagnosing-failures/logic-app-runs-history.png)
+   ![A revisão corre história](./media/logic-apps-diagnosing-failures/logic-app-runs-history.png)
 
    ![Ver detalhes da execução de uma aplicação lógica](./media/logic-apps-diagnosing-failures/logic-app-run-details.png)
 
-1. Para examinar as entradas, as saídas e as mensagens de erro de uma etapa específica, escolha essa etapa para que a forma se expanda e mostre os detalhes. Por exemplo:
+1. Para examinar as inputs, saídas e quaisquer mensagens de erro para um passo específico, escolha esse passo para que a forma se expanda e mostre os detalhes. Por exemplo:
 
    ![Ver detalhes do passo](./media/logic-apps-diagnosing-failures/logic-app-run-details-expanded.png)
 
-## <a name="perform-runtime-debugging"></a>Executar depuração de tempo de execução
+## <a name="perform-runtime-debugging"></a>Executar a depuração do runtime
 
-Para ajudar na depuração, pode adicionar passos de diagnóstico a um fluxo de trabalho de aplicações lógicas, juntamente com a revisão do gatilho e executa o histórico. Por exemplo, você pode adicionar etapas que usam o serviço [testador de webhook](https://webhook.site/) para que você possa inspecionar solicitações HTTP e determinar o tamanho, a forma e o formato exatos.
+Para ajudar na depuração, pode adicionar passos de diagnóstico a um fluxo de trabalho de aplicações lógicas, juntamente com a revisão do gatilho e executa o histórico. Por exemplo, pode adicionar passos que utilizam o serviço [Webhook Tester](https://webhook.site/) para que possa inspecionar os pedidos http e determinar o seu tamanho, forma e forma exata.
 
 1. Vá ao site [Webhook Tester](https://webhook.site/) e copie o URL único gerado.
 
@@ -84,4 +84,4 @@ Para ajudar na depuração, pode adicionar passos de diagnóstico a um fluxo de 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Monitorar seu aplicativo lógico](../logic-apps/monitor-logic-apps.md)
+* [Monitorize a sua aplicação lógica](../logic-apps/monitor-logic-apps.md)

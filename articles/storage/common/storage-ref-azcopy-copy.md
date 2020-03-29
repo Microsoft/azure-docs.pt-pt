@@ -1,5 +1,5 @@
 ---
-title: cópia azcopy Microsoft Docs
+title: cópia azcopy[ Microsoft Docs
 description: Este artigo fornece informações de referência para o comando de cópia da azcopy.
 author: normesta
 ms.service: storage
@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 431372b930269c3dfa6bdc6e8b2fe4d291a8162e
-ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78933791"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
@@ -23,25 +23,25 @@ Cópias dados de origem para um local de destino.
 
 Cópias dados de origem para um local de destino. As instruções suportadas são:
 
-  - local <> Azure Blob (SAS ou Autenticação OAuth)
-  - local <> Ficheiros Azure (Autenticação Share/diretório SAS)
-  - local <> ADLS Gen 2 (SAS, OAuth ou Autenticação SharedKey)
+  - local <-> Azure Blob (SAS ou Autenticação OAuth)
+  - arquivos azure <-> locais (autenticação Share/diretório SAS)
+  - < aadLS gen 2 > local (SAS, OAuth ou SharedKey)
   - Azure Blob (SAS ou público) -> Azure Blob (SAS ou Autenticação OAuth)
   - Azure Blob (SAS ou público) -> Ficheiros Azure (SAS)
   - Ficheiros Azure (SAS) -> Ficheiros Azure (SAS)
-  - Ficheiros Azure (SAS) -> Azure Blob (SAS ou Autenticação OAuth)
-  - AWS S3 (Chave de Acesso) -> Blob do Bloco Azure (SAS ou autenticação OAuth)
+  - Ficheiros Azure (SAS) -> Azure Blob (SAS ou autenticação OAuth)
+  - AWS S3 (Chave de Acesso) -> Bloco Azure Blob (SAS ou autenticação OAuth)
 
 Consulte os exemplos para mais informações.
 
 ## <a name="related-conceptual-articles"></a>Artigos conceituais relacionados
 
-- [Começar com a AzCopy](storage-use-azcopy-v10.md)
+- [Introdução ao AzCopy](storage-use-azcopy-v10.md)
 - [Transferir dados com armazenamento AzCopy e Blob](storage-use-azcopy-blobs.md)
 - [Transferir dados com a AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
 - [Configure, otimize e problemas AzCopy](storage-use-azcopy-configure.md)
 
-## <a name="advanced"></a>Avançada
+## <a name="advanced"></a>Avançado
 
 A AzCopy deteta automaticamente o tipo de conteúdo dos ficheiros ao ser carregado a partir do disco local, com base na extensão ou conteúdo do ficheiro (se não for especificada nenhuma extensão).
 
@@ -75,7 +75,7 @@ Faça upload de um único ficheiro utilizando um token SAS:
 
 Faça upload de um único ficheiro utilizando uma ficha SAS e tubagens (apenas bolhas de bloco):
   
-- gato "/path/to/file.txt" | azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]? [SAS]"
+- gato "/path/to/file.txt" [ azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]? [SAS]"
 
 Faça upload de um diretório inteiro usando um token SAS:
   
@@ -147,25 +147,25 @@ Copie todos os recipientes, diretórios e blobs blobs da conta de armazenamento 
 
 Copie um único objeto para blob Storage da Amazon Web Services (AWS) S3 usando uma chave de acesso e um token SAS. Em primeiro lugar, definir a variável ambiental AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a fonte AWS S3.
   
-- azcopy cp "https://s3.amazonaws.com/[balde]/[objeto]" "https://[destaccount].blob.core.windows.net/[contentor]/[path/to/blob]? [SAS]"
+- azcopy cphttps://s3.amazonaws.com/" [balde]/[objeto]" "https://[destaccount].blob.core.windows.net/[contentor]/[path/to/blob]? [SAS]"
 
 Copie um diretório inteiro para blob Storage da AWS S3 utilizando uma chave de acesso e um token SAS. Em primeiro lugar, definir a variável ambiental AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a fonte AWS S3.
 
-- azcopy cp "https://s3.amazonaws.com/[balde]/[pasta]" "https://[destaccount].blob.core.windows.net/[contentor]/[path/to/diretório]? [SAS]" --recursivo=verdadeiro
+- azcopy cphttps://s3.amazonaws.com/" [balde]/[pasta]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/diretório]? [SAS]" --recursivo=verdadeiro
 
 Por favor, consulte https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html para entender melhor o espaço reservado [pasta].
 
 Copie todos os baldes para Blob Storage da Amazon Web Services (AWS) utilizando uma chave de acesso e um token SAS. Em primeiro lugar, definir a variável ambiental AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a fonte AWS S3.
 
-- azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.net? [SAS]" --recursivo=verdadeiro
+- azcopy cphttps://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.net? [SAS]" --recursivo=verdadeiro
 
 Copie todos os baldes para Blob Storage de uma região da Amazon Web Services (AWS) utilizando uma chave de acesso e um token SAS. Em primeiro lugar, definir a variável ambiental AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a fonte AWS S3.
 
-- azcopy cp "https://s3-[região].amazonaws.com/" "https://[destaccount].blob.core.windows.net? [SAS]" --recursivo=verdadeiro
+- azcopy cphttps://s3-" [região].amazonaws.com/" "https://[destaccount].blob.core.windows.net? [SAS]" --recursivo=verdadeiro
 
 Copie um subconjunto de baldes utilizando um símbolo wildcard (*) no nome do balde. Tal como os exemplos anteriores, vai precisar de uma chave de acesso e um símbolo SAS. Certifique-se de que a variável ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a fonte AWS S3.
 
-- azcopy cp "https://s3.amazonaws.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net? [SAS]" --recursivo=verdadeiro
+- azcopy cphttps://s3.amazonaws.com/" [bucket*name]/" "https://[destaccount].blob.core.windows.net? [SAS]" --recursivo=verdadeiro
 
 ## <a name="options"></a>Opções
 

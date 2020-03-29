@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: 0a744c2de320ddad2e7959cae7b62d7990879953
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898578"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceitos, terminologia e entidades no Azure Scheduler
@@ -85,11 +85,11 @@ A tarefa também inclui os dados fornecidos pelo sistema, como o próximo tempo 
 | Elemento | Necessário | Descrição | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | Não | A hora de início da tarefa com um desvio de fuso horário no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
-| [**action**](#action) | Sim | Os detalhes da ação principal, que pode incluir um objeto **errorAction** | 
+| [**ação**](#action) | Sim | Os detalhes da ação principal, que pode incluir um objeto **errorAction** | 
 | [**errorAction**](#error-action) | Não | Os detalhes da ação secundária que será executada se a ação principal falhar |
 | [**recurrence**](#recurrence) | Não | Os detalhes, como a frequência e o intervalo de uma tarefa periódica | 
 | [**retryPolicy**](#retry-policy) | Não | Os detalhes de quantas vezes se repete uma ação | 
-| [**state**](#state) | Sim | Os detalhes do estado atual da tarefa |
+| [**estado**](#state) | Sim | Os detalhes do estado atual da tarefa |
 | [**status**](#status) | Sim | Os detalhes do estado atual da tarefa, que é controlado pelo serviço |
 ||||
 
@@ -248,10 +248,10 @@ Uma tarefa voltará a ocorrer se a definição JSON da tarefa incluir o objeto *
 
 | Propriedade | Necessário | Valor | Descrição | 
 |----------|----------|-------|-------------| 
-| **frequency** | Sim, quando a **periodicidade** é utilizada | “Minuto”, “Hora”, “Dia”, “Semana”, “Mês”, “Ano” | A unidade de tempo entre ocorrências | 
-| **interval** | Não | 1 a 1000, inclusive | Um número inteiro positivo que determina o número de unidades de tempo entre cada ocorrência com base na **frequência** | 
-| **schedule** | Não | Varia | Os detalhes das agendas mais complexas e avançadas. Veja **hours**, **hours**, **weekDays**, **months** e **monthDays** | 
-| **hours** | Não | 1 a 24 | Um matriz com a hora marca quando a tarefa será executada | 
+| **frequência** | Sim, quando a **periodicidade** é utilizada | “Minuto”, “Hora”, “Dia”, “Semana”, “Mês”, “Ano” | A unidade de tempo entre ocorrências | 
+| **intervalo** | Não | 1 a 1000, inclusive | Um número inteiro positivo que determina o número de unidades de tempo entre cada ocorrência com base na **frequência** | 
+| **agenda** | Não | Varia | Os detalhes das agendas mais complexas e avançadas. Veja **hours**, **hours**, **weekDays**, **months** e **monthDays** | 
+| **horas** | Não | 1 a 24 | Um matriz com a hora marca quando a tarefa será executada | 
 | **minutes** | Não | 0 a 59 | Um matriz com os minutos marca quando a tarefa será executada | 
 | **months** | Não | 1 a 12 | Um matriz com os meses marca quando a tarefa será executada | 
 | **monthDays** | Não | Varia | Um matriz com os dias do mês marca quando a tarefa será executada | 
@@ -324,5 +324,5 @@ Por exemplo:
 
 * [Criar agendas complexas e periodicidade avançada](scheduler-advanced-complexity.md)
 * [Referência da API REST do Azure Scheduler](/rest/api/scheduler)
-* [Referência de cmdlets do PowerShell do Azure Scheduler](scheduler-powershell-reference.md)
+* [Referência de cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md)
 * [Limites, quotas, valores predefinidos e códigos de erro](scheduler-limits-defaults-errors.md)

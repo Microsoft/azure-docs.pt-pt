@@ -7,17 +7,17 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: ec716924d3cebf8e78b0505b95837b91c568813a
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898155"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Fontes de dados suportadas no Catálogo de Dados do Azure
 
 Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo de um clique, ou através da introdução manual de informações diretamente no portal web do Catálogo de Dados do Azure. A tabela seguinte resume todas as fontes de dados que são suportadas pelo catálogo hoje em dia, e as capacidades de publicação para cada um. Também estão listadas as ferramentas de dados externas que cada fonte de dados pode lançar a partir da nossa experiência "open-in" do portal. A segunda tabela contém uma especificação mais técnica de cada propriedade de ligação fonte de dados.
 
-## <a name="list-of-supported-data-sources"></a>Lista de fontes de dados suportadas
+## <a name="list-of-supported-data-sources"></a>Lista de origens de dados suportadas
 
 <table>
     <tr>
@@ -359,7 +359,7 @@ Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo
       <td></td>
     </tr>
     <tr>
-      <td>Lista SharePoint </td>
+      <td>Lista do SharePoint </td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -450,9 +450,9 @@ Se quiser ver uma fonte específica de dados suportada, sugira que (ou voice o s
 <table>
     <tr>
        <td><b>Tipo de fonte</b></td>
-       <td><b>Tipo de ativo</b></td>
+       <td><b>Tipo de recurso</b></td>
        <td><b>Tipos de objetos</b></td>
-       <td><b>estrutura DSL<b></td>
+       <td><b>Estrutura DSL<b></td>
     </tr>
     <tr>
       <td>Azure Data Lake Store</td>

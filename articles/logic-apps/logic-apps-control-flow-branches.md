@@ -1,77 +1,77 @@
 ---
-title: Criar ou unir ramificações paralelas para ações em fluxos de trabalho
-description: Saiba como criar ou mesclar branches em execução paralela para ações de fluxo de trabalho independentes em aplicativos lógicos do Azure
+title: Criar ou juntar ramos paralelos para ações em fluxos de trabalho
+description: Saiba como criar ou fundir sucursais paralelas para ações independentes de fluxo de trabalho em Aplicações Lógicas Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/10/2018
 ms.openlocfilehash: c0b1519992ba930382a1987aed185ef3c92eded4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75453434"
 ---
-# <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Criar ou unir ramificações paralelas para ações de fluxo de trabalho em aplicativos lógicos do Azure
+# <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Criar ou juntar ramos paralelos para ações de fluxo de trabalho em Aplicações Lógicas Azure
 
-Por padrão, suas ações em fluxos de trabalho de aplicativo lógico são executadas em sequência. Para executar ações independentes ao mesmo tempo, você pode criar [ramificações paralelas](#parallel-branches)e, em seguida, [unir essas ramificações](#join-branches) posteriormente em seu fluxo. 
+Por padrão, as suas ações em fluxos de trabalho de aplicações lógicas são sequencialmente. Para realizar ações independentes ao mesmo tempo, pode criar [ramos paralelos](#parallel-branches)e, em seguida, [juntar-se a esses ramos](#join-branches) mais tarde no seu fluxo. 
 
 > [!TIP] 
-> Se você tiver um gatilho que recebe uma matriz e quiser executar um fluxo de trabalho para cada item de matriz, poderá desvincular *essa matriz* com a propriedade de gatilho de [ **divisão** ](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
+> Se tiver um gatilho que receba uma matriz e queira executar um fluxo de trabalho para cada item de matriz, pode *desempantar* essa matriz com a propriedade do gatilho [ **SplitOn** ](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição, [inscreva-se numa conta do Azure gratuita](https://azure.microsoft.com/free/). 
 
-* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 <a name="parallel-branches"></a>
 
-## <a name="add-parallel-branch"></a>Adicionar ramificação paralela
+## <a name="add-parallel-branch"></a>Adicionar ramo paralelo
 
-Para executar as etapas independentes ao mesmo tempo, você pode adicionar ramificações paralelas ao lado de uma etapa existente. 
+Para executar passos independentes ao mesmo tempo, pode adicionar ramos paralelos ao lado de um passo existente. 
 
-![Executar etapas em paralelo](media/logic-apps-control-flow-branches/parallel.png)
+![Correr passos em paralelo](media/logic-apps-control-flow-branches/parallel.png)
 
-Seu aplicativo lógico aguarda que todas as ramificações sejam concluídas antes de continuar o fluxo de trabalho. Branches paralelos são executados somente quando seus `runAfter` valores de propriedade correspondem ao status concluído da etapa pai. Por exemplo, `branchAction1` e `branchAction2` são definidos para execução somente quando a `parentAction` é concluída com `Succeeded` status.
+A sua aplicação lógica aguarda que todos os ramos terminem antes de continuar o fluxo de trabalho. Os ramos paralelos `runAfter` só funcionam quando os seus valores de propriedade correspondem ao estado do passo dos pais acabado. Por exemplo, `branchAction1` `branchAction2` ambos e estão `parentAction` definidos `Succeeded` para funcionar apenas quando os completos com estatuto.
 
 > [!NOTE]
-> Antes de começar, seu aplicativo lógico já deve ter uma etapa onde você pode adicionar ramificações paralelas.
+> Antes de começar, a sua aplicação lógica já deve ter um passo onde pode adicionar ramos paralelos.
 
-1. No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, abra seu aplicativo lógico no designer de aplicativo lógico.
+1. No <a href="https://portal.azure.com" target="_blank">portal Azure,</a>abra a sua aplicação lógica no Logic App Designer.
 
-1. Mova o ponteiro sobre a seta acima da etapa em que você deseja adicionar ramificações paralelas. Escolha o sinal de **adição** ( **+** ) que aparece e, em seguida, escolha **Adicionar uma ramificação paralela**. 
+1. Mova o ponteiro sobre a seta acima do degrau onde pretende adicionar ramos paralelos. Escolha o sinal**+** de **mais** ( ) que aparece e, em seguida, escolha Adicionar um **ramo paralelo**. 
 
-   ![Adicionar ramificação paralela](media/logic-apps-control-flow-branches/add-parallel-branch.png)
+   ![Adicionar ramo paralelo](media/logic-apps-control-flow-branches/add-parallel-branch.png)
 
-1. Na caixa de pesquisa, localize e selecione a ação desejada.
+1. Na caixa de pesquisa, encontre e selecione a ação que deseja.
 
-   ![Localize e selecione a ação desejada](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
+   ![Encontre e selecione a ação que deseja](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
 
-   A ação selecionada agora aparece na ramificação paralela, por exemplo:
+   A sua ação selecionada aparece agora no ramo paralelo, por exemplo:
 
-   ![Localize e selecione a ação desejada](media/logic-apps-control-flow-branches/added-parallel-branch.png)
+   ![Encontre e selecione a ação que deseja](media/logic-apps-control-flow-branches/added-parallel-branch.png)
 
-1. Agora, em cada ramificação paralela, adicione as etapas desejadas. Para adicionar outra ação a uma ramificação, mova o ponteiro sob a ação em que você deseja adicionar uma ação sequencial. Escolha o sinal de **mais** ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
+1. Agora, em cada ramo paralelo, adicione os passos que quiser. Para adicionar outra ação a um ramo, mova o seu ponteiro sob a ação onde pretende adicionar uma ação sequencial. Escolha o**+** sinal de **mais** ( ) que aparece e, em seguida, selecione Adicionar uma **ação**.
 
-   ![Adicionar ação sequencial à ramificação paralela](media/logic-apps-control-flow-branches/add-sequential-action.png)
+   ![Adicione ação sequencial ao ramo paralelo](media/logic-apps-control-flow-branches/add-sequential-action.png)
 
-1. Na caixa de pesquisa, localize e selecione a ação desejada.
+1. Na caixa de pesquisa, encontre e selecione a ação que deseja.
 
-   ![Localizar e Selecionar ação sequencial](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
+   ![Localizar e selecionar ação sequencial](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
 
-   A ação selecionada agora aparece dentro do Branch atual, por exemplo:
+   A sua ação selecionada aparece agora dentro do ramo atual, por exemplo:
 
-   ![Localizar e Selecionar ação sequencial](media/logic-apps-control-flow-branches/added-sequential-action.png)
+   ![Localizar e selecionar ação sequencial](media/logic-apps-control-flow-branches/added-sequential-action.png)
 
-Para mesclar branches de volta juntos, junte-se [a seus branches paralelos](#join-branches). 
+Para voltar a fundir os ramos, [junte os seus ramos paralelos.](#join-branches) 
 
 <a name="parallel-json"></a>
 
-## <a name="parallel-branch-definition-json"></a>Definição de ramificação paralela (JSON)
+## <a name="parallel-branch-definition-json"></a>Definição paralela de ramo (JSON)
 
-Se você estiver trabalhando no modo de exibição de código, poderá definir a estrutura paralela na definição JSON do aplicativo lógico, por exemplo:
+Se estiver a trabalhar em vista de código, pode definir a estrutura paralela na definição JSON da sua aplicação lógica, por exemplo:
 
 ``` json
 {
@@ -109,31 +109,31 @@ Se você estiver trabalhando no modo de exibição de código, poderá definir a
 
 <a name="join-branches"></a>
 
-## <a name="join-parallel-branches"></a>Unir branches paralelos
+## <a name="join-parallel-branches"></a>Junte-se a ramos paralelos
 
-Para mesclar ramificações paralelas juntas, basta adicionar uma etapa na parte inferior em todas as ramificações. Esta etapa é executada Depois que todas as ramificações paralelas terminam de ser executadas.
+Para fundir ramos paralelos, basta adicionar um passo na parte inferior sob todos os ramos. Este passo corre depois de todos os ramos paralelos terminarem de correr.
 
-![Unir branches paralelos](media/logic-apps-control-flow-branches/join.png)
+![Junte-se a ramos paralelos](media/logic-apps-control-flow-branches/join.png)
 
-1. Na [portal do Azure](https://portal.azure.com), localize e abra seu aplicativo lógico no designer de aplicativo lógico. 
+1. No [portal Azure,](https://portal.azure.com)encontre e abra a sua aplicação lógica no Logic App Designer. 
 
-1. Nas ramificações paralelas que você deseja ingressar, escolha **nova etapa**. 
+1. Sob os ramos paralelos que pretende aderir, escolha **novo passo.** 
 
-   ![Adicionar etapa à junção](media/logic-apps-control-flow-branches/add-join-step.png)
+   ![Adicione passo para aderir](media/logic-apps-control-flow-branches/add-join-step.png)
 
-1. Na caixa de pesquisa, localize e selecione a ação desejada como a etapa que une as ramificações.
+1. Na caixa de pesquisa, encontre e selecione a ação que deseja como o passo que une os ramos.
 
-   ![Localizar e selecionar a ação que une ramificações paralelas](media/logic-apps-control-flow-branches/join-steps.png)
+   ![Encontre e selecione a ação que une ramos paralelos](media/logic-apps-control-flow-branches/join-steps.png)
 
-   Seus branches paralelos agora são mesclados.
+   Os seus ramos paralelos estão agora fundidos.
 
-   ![Ramificações Unidas](media/logic-apps-control-flow-branches/joined-branches.png)
+   ![Ramos aderidos](media/logic-apps-control-flow-branches/joined-branches.png)
 
 <a name="join-json"></a>
 
-## <a name="join-definition-json"></a>Definição de junção (JSON)
+## <a name="join-definition-json"></a>Definição de adesão (JSON)
 
-Se você estiver trabalhando no modo de exibição de código, poderá definir a estrutura de junção na definição JSON do aplicativo lógico, por exemplo:
+Se estiver a trabalhar em vista de código, pode definir a estrutura de adesão na definição JSON da sua aplicação lógica, por exemplo:
 
 ``` json
 {
@@ -184,11 +184,11 @@ Se você estiver trabalhando no modo de exibição de código, poderá definir a
 ## <a name="get-support"></a>Obter suporte
 
 * Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ou votar em recursos e sugestões, visite o [site de comentários do usuário dos aplicativos lógicos do Azure](https://aka.ms/logicapps-wish).
+* Para submeter ou votar em funcionalidades e sugestões, visite o site de feedback do utilizador das [Aplicações Lógicas Azure.](https://aka.ms/logicapps-wish)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Executar etapas com base em uma condição (instruções condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Executar etapas com base em valores diferentes (instruções switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
-* [Executar e repetir etapas (loops)](../logic-apps/logic-apps-control-flow-loops.md)
-* [Executar etapas com base no status da ação agrupada (escopos)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* [Passos de execução com base numa condição (declarações condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Executar passos com base em diferentes valores (declarações de switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Executar e repetir passos (loops)](../logic-apps/logic-apps-control-flow-loops.md)
+* [Passos de execução baseados no estado de ação agruparado (âmbitos)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

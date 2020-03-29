@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f6fd62ccab4d6e32b23835d280732797e133ada8
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78671627"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Começar com a Proteção de Identidade do Diretório Ativo azure e o Microsoft Graph
@@ -54,7 +54,7 @@ Antes de começar, vai precisar de:
 
 1. Copie o seu nome de domínio.
 
-## <a name="create-a-new-app-registration"></a>Criar um novo registo de aplicação
+## <a name="create-a-new-app-registration"></a>Criar uma nova inscrição de aplicativos
 
 1. Na página **'Diretório Ativo',** na secção **Gerir,** clique nos **registos da App**.
 
@@ -72,7 +72,7 @@ Antes de começar, vai precisar de:
 
    1. Como **Tipo,** selecione **Aplicação Web E / Ou Web API**.
 
-   1. Na caixa de texto **smS do Url sign-on,** escreva `http://localhost`.
+   1. Na caixa de texto **smS sign-on URL,** escreva `http://localhost`.
 
    1. Clique em **Criar**.
 1. Para abrir a página **Definições,** na lista de aplicações, clique no registo da aplicação recém-criada. 
@@ -139,12 +139,12 @@ Neste momento, devia ter:
 - O ID do cliente 
 - A chave 
 
-Para autenticar, envie um pedido de correio para `https://login.microsoft.com` com os seguintes parâmetros no corpo:
+Para autenticar, envie um `https://login.microsoft.com` pedido de correio com os seguintes parâmetros no corpo:
 
 - grant_type: "**client_credentials**"
-- recurso: `https://graph.microsoft.com`
-- client_id: \<o seu\> de identificação do seu cliente
-- client_secret: \<a sua\> chave
+- recurso:`https://graph.microsoft.com`
+- client_id: \<identificação do seu cliente\>
+- client_secret: \<a sua chave\>
 
 Se for bem sucedido, isto devolve um símbolo de autenticação.  
 Para chamar a API, crie um cabeçalho com o seguinte parâmetro:
@@ -155,7 +155,7 @@ Para chamar a API, crie um cabeçalho com o seguinte parâmetro:
 
 Ao autenticar, pode encontrar o tipo de ficha e o token de acesso no token devolvido.
 
-Envie este cabeçalho como um pedido para o seguinte URL DaPi: `https://graph.microsoft.com/beta/identityRiskEvents`
+Envie este cabeçalho como um pedido para o seguinte URL DaPi:`https://graph.microsoft.com/beta/identityRiskEvents`
 
 A resposta, se for bem sucedida, é uma recolha de deteções de risco de identidade e dados associados no formato OData JSON, que pode ser analisado e tratado como entender.
 

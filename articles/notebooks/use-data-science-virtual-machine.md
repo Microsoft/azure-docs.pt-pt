@@ -7,10 +7,10 @@ ms.author: getroyer
 ms.topic: how-to
 ms.date: 06/13/2019
 ms.openlocfilehash: b4da63b7b2a6da4316215b85a09ca7420745251c
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898409"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Utilizar máquinas virtuais azure data science
@@ -26,7 +26,7 @@ Por padrão, os projetos funcionam no nível **De Computação Livre,** que est�
 
 Para criar uma nova instância DSVM, siga as instruções sobre [Criar um Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Para mais informações, incluindo detalhes sobre preços, consulte [Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)de Ciência de Dados .
 
-## <a name="connect-to-the-dsvm"></a>Ligar a DSVM
+## <a name="connect-to-the-dsvm"></a>Ligue-se ao DSVM
 
 Assim que for criado o DSVM, selecione a lista de drop-down **run** no painel de instrumentos do projeto Dos Cadernos Azure e selecione a instância DSVM apropriada. A lista de abandono mostra casos de DSVM se as seguintes condições forem verdadeiras:
 
@@ -49,7 +49,7 @@ Obtém estes valores a partir da página DSVM no portal Azure.
 
 ## <a name="accessing-azure-notebooks-files-from-the-dsvm"></a>Aceder aos ficheiros de Cadernos Azure do DSVM
 
-O acesso ao sistema de ficheiros é suportado para versões DSVM 19.06.15 ou posteriores. Para verificar a versão, ligue-se primeiro ao seu DSVM via SSH e, em seguida, execute o seguinte comando: `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"` (deve utilizar o endereço IP exato mostrado aqui). O número da versão é mostrado na saída para "versão".
+O acesso ao sistema de ficheiros é suportado para versões DSVM 19.06.15 ou posteriores. Para verificar a versão, ligue-se primeiro ao seu DSVM `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"` via SSH e, em seguida, execute o seguinte comando: (deve utilizar o endereço IP exato mostrado aqui). O número da versão é mostrado na saída para "versão".
 
 Para preservar a paridade dos caminhos de ficheiros com o nível **De Computação Livre,** só é possível abrir um projeto de cada vez num DSVM. Para abrir um novo projeto, tem de encerrar primeiro o projeto aberto.
 

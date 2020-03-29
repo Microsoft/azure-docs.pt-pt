@@ -1,5 +1,5 @@
 ---
-title: Códigos de erro no portal de Diretório Ativo Azure  Microsoft Docs
+title: Códigos de erro no portal de Diretório Ativo Azure [ Microsoft Docs
 description: Referência aos códigos de erro dos relatórios de atividades de início de sessão.
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6b4e21a23ebc455653b4d5b22ac18023b533728c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78190471"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro do relatório de atividade sessão 

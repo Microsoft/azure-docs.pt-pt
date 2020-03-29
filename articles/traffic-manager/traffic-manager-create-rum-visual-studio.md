@@ -14,10 +14,10 @@ ms.date: 03/16/2018
 ms.author: rohink
 ms.custom: ''
 ms.openlocfilehash: 3106334e1fb3e3000cbd09e00e413b34a1b55e54
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76939192"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Como enviar medições reais de utilizador para Gestor de Tráfego com Centro Móvel de Estúdio Visual
@@ -34,8 +34,8 @@ Para configurar as Medições reais do Utilizador, é necessário obter uma chav
 As medições que efetua e enviadas para o Traffic Manager a partir da sua aplicação cliente são identificadas pelo serviço utilizando uma cadeia única, chamada Chave de Medições reais do Utilizador (RUM). Pode obter uma chave RUM utilizando o portal Azure, uma API REST ou utilizando as interfaces PowerShell/CLI.
 
 Para obter a chave RUM utilizando o portal Azure utilizando o seguinte procedimento:
-1. A partir de um browser, inscreva-se no portal Azure. Se ainda não tem uma conta, pode inscrever-se para um julgamento gratuito de um mês.
-2. Na barra de pesquisa do portal, procure o nome de perfil do Gestor de Tráfego que pretende modificar e, em seguida, clique no perfil do Gestor de Tráfego nos resultados apresentados.
+1. Num browser, inicie sessão no portal do Azure. Se ainda não tiver uma conta, pode inscrever-se para obter uma avaliação gratuita durante um mês.
+2. Na barra de pesquisa do portal, procure o nome do perfil do Gestor de Tráfego que pretende modificar e, em seguida, clique no perfil do Gestor de Tráfego nos resultados apresentados.
 3. Na página de perfil do Gestor de Tráfego, clique em **Medições reais do Utilizador** em **Definições**.
 4. Clique em **Criar** uma nova chave RUM.
         
@@ -89,7 +89,7 @@ Para utilizar medições reais do utilizador, complete o seguinte procedimento:
     import com.microsoft.azure.mobile.rum.RealUserMeasurements;
     ```
 
-    Procure a chamada `onCreate` no mesmo ficheiro e adicione o seguinte código:
+    Procure a `onCreate` chamada no mesmo ficheiro e adicione o seguinte código:
 
     ```java
     RealUserMeasurements.setRumKey("<Your RUM Key>");

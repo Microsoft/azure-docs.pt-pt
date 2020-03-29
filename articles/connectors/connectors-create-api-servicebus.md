@@ -1,6 +1,6 @@
 ---
-title: Trocar mensagens com o barramento de serviço do Azure
-description: Criar tarefas e fluxos de trabalho automatizados que enviam e recebem mensagens usando o barramento de serviço do Azure nos aplicativos lógicos do Azure
+title: Troca de mensagens com ônibus de serviço Azure
+description: Criar tarefas automatizadas e fluxos de trabalho que enviam e recebem mensagens utilizando o Azure Service Bus em Aplicações Lógicas Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 09/19/2019
 tags: connectors
 ms.openlocfilehash: 1b38b8508dbe17d42bf191149410f5db638cf834
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76261624"
 ---
-# <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Trocar mensagens na nuvem usando os aplicativos lógicos do Azure e o barramento de serviço do Azure
+# <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Troca de mensagens na nuvem usando aplicativos azure logic e ônibus de serviço Azure
 
-Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o conector do [barramento de serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md) , você pode criar tarefas automatizadas e fluxos de trabalho que transferem dados, como ordens de venda e compra, diários e movimentações de estoque entre aplicativos para sua organização. O conector não apenas monitora, envia e gerencia mensagens, mas também executa ações com filas, sessões, tópicos, assinaturas e assim por diante, por exemplo:
+Com [as Aplicações Lógicas Azure](../logic-apps/logic-apps-overview.md) e o conector [Azure Service Bus,](../service-bus-messaging/service-bus-messaging-overview.md) pode criar tarefas automatizadas e fluxos de trabalho que transferem dados, tais como encomendas de vendas e compras, revistas e movimentos de inventário em aplicações para a sua organização. O conector não só monitoriza, envia e gere mensagens, mas também executa ações com filas, sessões, tópicos, subscrições, e assim por diante, por exemplo:
 
-* Monitore quando as mensagens chegam (preenchimento automático) ou são recebidas (bloqueio de inspeção) em filas, tópicos e assinaturas de tópico.
-* Enviar mensagens.
-* Criar e excluir assinaturas de tópico.
-* Gerencie mensagens em filas e assinaturas de tópico, por exemplo, obter, obter adiadas, concluir, adiar, abandonar e mensagens mortas.
-* Renovar bloqueios em mensagens e sessões em filas e assinaturas de tópico.
-* Fechar sessões em filas e tópicos.
+* Monitorize quando as mensagens chegarem (auto-completas) ou sejam recebidas (peek-lock) em filas, tópicos e subscrições de tópicos.
+* Envie mensagens.
+* Criar e eliminar subscrições de tópicos.
+* Gerencie mensagens em filas e subscrições de tópicos, por exemplo, obter, obter diferido, completo, adiar, abandonar e carta morta.
+* Renovar bloqueios em mensagens e sessões em filas e subscrições de tópicos.
+* Encerrar sessões em filas e tópicos.
 
-Você pode usar gatilhos que obtêm respostas do barramento de serviço e disponibilizam a saída para outras ações em seus aplicativos lógicos. Você também pode fazer com que outras ações usem a saída das ações do barramento de serviço. Se você for novo no barramento de serviço e nos aplicativos lógicos, examine [o que é o barramento de serviço do Azure?](../service-bus-messaging/service-bus-messaging-overview.md) e [o que são os aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md)?
+Pode utilizar gatilhos que obtêm respostas do Service Bus e disponibilizar a saída a outras ações nas suas aplicações lógicas. Também pode ter outras ações a utilizar a saída das ações do Service Bus. Se é novo em Aplicações de Ônibus de Serviço e Lógica, reveja [o que é o Azure Service Bus?](../service-bus-messaging/service-bus-messaging-overview.md) e o que é [azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 [!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
 
@@ -33,131 +33,131 @@ Você pode usar gatilhos que obtêm respostas do barramento de serviço e dispon
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* Um namespace do barramento de serviço e uma entidade de mensagens, como uma fila. Esses itens e seu aplicativo lógico precisam usar a mesma assinatura do Azure. Se você não tiver esses itens, saiba como [criar seu namespace e uma fila do barramento de serviço](../service-bus-messaging/service-bus-create-namespace-portal.md).
+* Um espaço de nome de ônibus de serviço e entidade de mensagens, como uma fila. Estes itens e a sua aplicação lógica precisam de usar a mesma subscrição do Azure. Se não tiver estes itens, aprenda a criar o seu espaço de nome service [Bus e uma fila](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
-* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* O aplicativo lógico em que você usa o namespace do barramento de serviço e a entidade de mensagens. Seu aplicativo lógico e o barramento de serviço precisam usar a mesma assinatura do Azure. Para iniciar o fluxo de trabalho com um gatilho do barramento de serviço, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar uma ação do barramento de serviço em seu fluxo de trabalho, inicie seu aplicativo lógico com outro gatilho, por exemplo, o [gatilho de recorrência](../connectors/connectors-native-recurrence.md).
+* A aplicação lógica onde utiliza o espaço de nome do Bus de Serviço e a entidade de mensagens. A sua aplicação lógica e o autocarro de serviço precisam de usar a mesma subscrição Azure. Para iniciar o seu fluxo de trabalho com um gatilho de ônibus de serviço, [crie uma aplicação lógica em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para utilizar uma ação do Service Bus no seu fluxo de trabalho, inicie a sua aplicação lógica com outro gatilho, por exemplo, o [gatilho recurrence](../connectors/connectors-native-recurrence.md).
 
 <a name="permissions-connection-string"></a>
 
-## <a name="check-permissions"></a>Verificar permissões
+## <a name="check-permissions"></a>Verifique permissões
 
-Confirme se seu aplicativo lógico tem permissões para acessar o namespace do barramento de serviço.
+Confirme que a sua aplicação lógica tem permissões para aceder ao seu espaço de nome service Bus.
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-1. Vá para o *namespace*do barramento de serviço. Na página namespace, em **configurações**, selecione **políticas de acesso compartilhado**. Em **declarações**, verifique se você tem permissões de **Gerenciamento** para esse namespace.
+1. Vá ao seu espaço de *nome*service Bus . Na página do espaço de nome, em **Definições,** selecione políticas de **acesso partilhado**. Em **Sinistros,** verifique se tem permissões **de gestão** para esse espaço de nome.
 
-   ![Gerenciar permissões para namespace do barramento de serviço](./media/connectors-create-api-azure-service-bus/azure-service-bus-namespace.png)
+   ![Gerir permissões para o espaço de nome do ônibus de serviço](./media/connectors-create-api-azure-service-bus/azure-service-bus-namespace.png)
 
-1. Obtenha a cadeia de conexão para o namespace do barramento de serviço. Você precisa dessa cadeia de caracteres ao fornecer as informações de conexão em seu aplicativo lógico.
+1. Obtenha a corda de ligação para o seu espaço de nome service Bus. Precisa desta corda quando fornece as informações de ligação na sua aplicação lógica.
 
-   1. No painel **políticas de acesso compartilhado** , selecione **RootManageSharedAccessKey**.
+   1. No painel de políticas de **acesso partilhado,** selecione **RootManageSharedAccessKey**.
    
-   1. Ao lado de sua cadeia de conexão primária, selecione o botão Copiar. Salve a cadeia de conexão para uso posterior.
+   1. Ao lado da corda de ligação primária, selecione o botão de cópia. Guarde a corda de ligação para posterior utilização.
 
-      ![Copiar cadeia de conexão do namespace do barramento de serviço](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
+      ![Linha de ligação nome do ônibus de serviço de cópia](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > Para confirmar se a cadeia de conexão está associada ao namespace do barramento de serviço ou a uma entidade de mensagens, como uma fila, pesquise a cadeia de conexão para o parâmetro `EntityPath` . Se você encontrar esse parâmetro, a cadeia de conexão será para uma entidade específica e não será a cadeia de caracteres correta a ser usada com seu aplicativo lógico.
+   > Para confirmar se a sua cadeia de ligação está associada ao seu espaço de nome service `EntityPath`  Bus ou a uma entidade de mensagens, como uma fila, procure na cadeia de ligação o parâmetro. Se encontrar este parâmetro, a cadeia de ligação é para uma entidade específica, e não é a corda correta para usar com a sua aplicação lógica.
 
-## <a name="add-service-bus-trigger"></a>Adicionar gatilho do barramento de serviço
+## <a name="add-service-bus-trigger"></a>Adicionar gatilho de ônibus de serviço
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Entre no [portal do Azure](https://portal.azure.com)e abra seu aplicativo lógico em branco no designer do aplicativo lógico.
+1. Inscreva-se no [portal Azure](https://portal.azure.com)e abra a sua aplicação lógica em branco no Logic App Designer.
 
-1. Na caixa de pesquisa, insira "barramento de serviço do Azure" como seu filtro. Na lista de gatilhos, selecione o gatilho desejado.
+1. Na caixa de pesquisa, introduza o "ônibus de serviço azul" como filtro. A partir da lista de gatilhos, selecione o gatilho que deseja.
 
-   Por exemplo, para disparar seu aplicativo lógico quando um novo item é enviado para uma fila do barramento de serviço, selecione o gatilho **quando uma mensagem é recebida em uma fila (preenchimento automático)** .
+   Por exemplo, para acionar a sua aplicação lógica quando um novo item é enviado para uma fila de ônibus de serviço, selecione o Quando uma mensagem é recebida num gatilho **de fila (automática).**
 
-   ![Selecionar gatilho do barramento de serviço](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
+   ![Selecione o gatilho do ônibus de serviço](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
-   Todos os gatilhos do barramento de serviço são gatilhos *de sondagem longa* . Essa descrição significa que, quando o gatilho é acionado, o gatilho processa todas as mensagens e aguarda 30 segundos para que mais mensagens apareçam na fila ou na assinatura do tópico. Se nenhuma mensagem aparecer em 30 segundos, a execução do gatilho será ignorada. Caso contrário, o gatilho continuará lendo mensagens até que a assinatura da fila ou do tópico esteja vazia. A próxima sondagem do gatilho é baseada no intervalo de recorrência especificado nas propriedades do gatilho.
+   Todos os gatilhos do Autocarro de Serviço são gatilhos *de sondagens longas.* Esta descrição significa que quando o gatilho dispara, o gatilho processa todas as mensagens e espera 30 segundos para que mais mensagens apareçam na fila ou na subscrição do tópico. Se não aparecerem mensagens em 30 segundos, o gatilho é ignorado. Caso contrário, o gatilho continua a ler mensagens até que a fila ou a subscrição do tópico esteja vazia. A próxima sondagem é baseada no intervalo de recorrência especificado nas propriedades do gatilho.
 
-   Alguns gatilhos, como **quando uma ou mais mensagens chegam em um gatilho de fila (conclusão automática)** , podem retornar uma ou mais mensagens. Quando esses gatilhos são acionados, eles retornam entre um e o número de mensagens que é especificado pela propriedade **contagem máxima de mensagens** do gatilho.
+   Alguns gatilhos, como o Quando uma ou mais mensagens chegam num gatilho **de fila (auto-completo),** podem devolver uma ou mais mensagens. Quando estes disparam, regressam entre uma e o número de mensagens especificadas pela propriedade de contagem máxima de **mensagens** do gatilho.
 
-1. Se o seu gatilho estiver se conectando ao seu namespace do barramento de serviço pela primeira vez, siga estas etapas quando o designer do aplicativo lógico solicitar informações de conexão.
+1. Se o seu gatilho estiver a ligar-se ao seu espaço de nome do Autocarro de Serviço pela primeira vez, siga estes passos quando o Logic App Designer lhe pedir informações sobre ligação.
 
-   1. Forneça um nome para a conexão e selecione o namespace do barramento de serviço.
+   1. Forneça um nome para a sua ligação e selecione o seu espaço de nome service Bus.
 
-      ![Criar conexão do barramento de serviço, parte 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
+      ![Criar conexão de ônibus de serviço, parte 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
 
-      Para inserir manualmente a cadeia de conexão, selecione **inserir manualmente as informações de conexão**. Se você não tiver a cadeia de conexão, saiba [como localizar a cadeia de conexão](#permissions-connection-string).
+      Para introduzir manualmente a cadeia de ligação, selecione **manualmente as informações**de ligação . Se não tiver a sua corda de ligação, aprenda a encontrar a sua corda de [ligação.](#permissions-connection-string)
 
-   1. Selecione a política do barramento de serviço e selecione **criar**.
+   1. Selecione a sua política de ônibus de serviço e selecione **Criar**.
 
-      ![Criar conexão do barramento de serviço, parte 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
+      ![Criar conexão de ônibus de serviço, parte 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
 
-   1. Selecione a entidade de mensagens que você deseja, como uma fila ou um tópico. Para este exemplo, selecione a fila do barramento de serviço.
+   1. Selecione a entidade de mensagens que deseja, como uma fila ou tópico. Para este exemplo, selecione a sua fila de ônibus de serviço.
    
-      ![Selecionar fila do barramento de serviço](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-trigger.png)
+      ![Selecione fila de ônibus de serviço](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-trigger.png)
 
-1. Forneça as informações necessárias para o gatilho selecionado. Para adicionar outras propriedades disponíveis à ação, abra a lista **Adicionar novo parâmetro** e selecione as propriedades desejadas.
+1. Forneça as informações necessárias para o seu gatilho selecionado. Para adicionar outras propriedades disponíveis à ação, abra a **lista de novos parâmetros e** selecione as propriedades que deseja.
 
-   Para o gatilho deste exemplo, selecione o intervalo de sondagem e a frequência para verificar a fila.
+   Para este gatilho, selecione o intervalo de votação e a frequência para verificar a fila.
 
-   ![Configurar intervalo de sondagem](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
+   ![Configurar o intervalo de sondagens](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
-   Para obter mais informações sobre gatilhos e propriedades disponíveis, consulte a [página de referência](/connectors/servicebus/)do conector.
+   Para obter mais informações sobre os gatilhos e propriedades disponíveis, consulte a página de [referência](/connectors/servicebus/)do conector .
 
-1. Continue criando seu aplicativo lógico adicionando as ações desejadas.
+1. Continue a construir a sua aplicação lógica adicionando as ações que deseja.
 
-   Por exemplo, você pode adicionar uma ação que envia email quando uma nova mensagem chega. Quando o gatilho verificar sua fila e encontrar uma nova mensagem, seu aplicativo lógico executará as ações selecionadas para a mensagem encontrada.
+   Por exemplo, pode adicionar uma ação que envia e-mail quando uma nova mensagem chega. Quando o gatilho verifica a sua fila e encontra uma nova mensagem, a sua aplicação lógica executa as suas ações selecionadas para a mensagem encontrada.
 
-## <a name="add-service-bus-action"></a>Adicionar ação do barramento de serviço
+## <a name="add-service-bus-action"></a>Adicionar ação de ônibus de serviço
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Entre no [portal do Azure](https://portal.azure.com)e abra seu aplicativo lógico no designer do aplicativo lógico.
+1. Inscreva-se no [portal Azure](https://portal.azure.com)e abra a sua aplicação lógica no Logic App Designer.
 
-1. Na etapa em que você deseja adicionar uma ação, selecione **nova etapa**.
+1. Sob o degrau onde pretende adicionar uma ação, selecione **Novo passo**.
 
-   Ou, para adicionar uma ação entre etapas, mova o ponteiro sobre a seta entre essas etapas. Selecione o sinal de adição ( **+** ) que aparece e selecione **Adicionar uma ação**.
+   Ou, para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre esses passos. Selecione o**+** sinal de mais ( ) que aparece e selecione **Adicionar uma ação**.
 
-1. Em **escolher uma ação**, na caixa de pesquisa, insira "barramento de serviço do Azure" como filtro. Na lista ações, selecione a ação desejada. 
+1. Em **'Escolha uma ação**' na caixa de pesquisa, introduza "ônibus de serviço azul" como filtro. Na lista de ações, selecione a ação que deseja. 
 
-   Para este exemplo, selecione a ação **Enviar mensagem** .
+   Para este exemplo, selecione a ação **Enviar** mensagem.
 
-   ![Selecionar ação do barramento de serviço](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
+   ![Selecione ação de ônibus de serviço](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
 
-1. Se sua ação estiver se conectando ao namespace do barramento de serviço pela primeira vez, siga estas etapas quando o designer do aplicativo lógico solicitar informações de conexão.
+1. Se a sua ação estiver a ligar-se ao seu espaço de nome service Bus pela primeira vez, siga estes passos quando o Logic App Designer lhe pedir informações sobre ligação.
 
-   1. Forneça um nome para a conexão e selecione o namespace do barramento de serviço.
+   1. Forneça um nome para a sua ligação e selecione o seu espaço de nome service Bus.
 
-      ![Criar conexão do barramento de serviço, parte 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
+      ![Criar conexão de ônibus de serviço, parte 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
 
-      Para inserir manualmente a cadeia de conexão, selecione **inserir manualmente as informações de conexão**. Se você não tiver a cadeia de conexão, saiba [como localizar a cadeia de conexão](#permissions-connection-string).
+      Para introduzir manualmente a cadeia de ligação, selecione **manualmente as informações**de ligação . Se não tiver a sua corda de ligação, aprenda a encontrar a sua corda de [ligação.](#permissions-connection-string)
 
-   1. Selecione a política do barramento de serviço e selecione **criar**.
+   1. Selecione a sua política de ônibus de serviço e selecione **Criar**.
 
-      ![Criar conexão do barramento de serviço, parte 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
+      ![Criar conexão de ônibus de serviço, parte 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
 
-   1. Selecione a entidade de mensagens que você deseja, como uma fila ou um tópico. Para este exemplo, selecione a fila do barramento de serviço.
+   1. Selecione a entidade de mensagens que deseja, como uma fila ou tópico. Para este exemplo, selecione a sua fila de ônibus de serviço.
 
-      ![Selecionar fila do barramento de serviço](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-action.png)
+      ![Selecione fila de ônibus de serviço](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-action.png)
 
-1. Forneça os detalhes necessários para a ação selecionada. Para adicionar outras propriedades disponíveis à ação, abra a lista **Adicionar novo parâmetro** e selecione as propriedades desejadas.
+1. Forneça os detalhes necessários para a sua ação selecionada. Para adicionar outras propriedades disponíveis à ação, abra a **lista de novos parâmetros e** selecione as propriedades que deseja.
 
-   Por exemplo, selecione as propriedades **conteúdo** e **tipo de conteúdo** para adicioná-las à ação. Em seguida, especifique o conteúdo para a mensagem que você deseja enviar.
+   Por exemplo, selecione as propriedades **do Tipo de Conteúdo** e **Conteúdo** para que as adicione à ação. Em seguida, especifique o conteúdo da mensagem que pretende enviar.
 
    ![Fornecer conteúdo e detalhes da mensagem](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 
-   Para obter mais informações sobre as ações disponíveis e suas propriedades, consulte a [página de referência](/connectors/servicebus/)do conector.
+   Para obter mais informações sobre as ações disponíveis e as suas propriedades, consulte a página de [referência](/connectors/servicebus/)do conector .
 
-1. Continue criando seu aplicativo lógico adicionando outras ações que desejar.
+1. Continue a construir a sua aplicação lógica adicionando quaisquer outras ações que queira.
 
-   Por exemplo, você pode adicionar uma ação que envia email para confirmar que sua mensagem foi enviada.
+   Por exemplo, pode adicionar uma ação que envia e-mail para confirmar que a sua mensagem foi enviada.
 
-1. Guarde a aplicação lógica. Na barra de ferramentas do designer, selecione **salvar**.
+1. Guarde a aplicação lógica. Na barra de ferramentas de design, selecione **Guardar**.
 
 ## <a name="connector-reference"></a>Referência do conector
 
-O conector do barramento de serviço pode economizar até 1.500 sessões exclusivas por vez de um barramento de serviço para o cache do conector. Se a contagem de sessões exceder esse limite, as sessões antigas serão removidas do cache. Para obter mais informações, consulte [sessões de mensagens](../service-bus-messaging/message-sessions.md).
+O conector Service Bus pode economizar até 1.500 sessões únicas de cada vez, desde um autocarro de serviço até à cache do conector. Se a contagem de sessões exceder este limite, as sessões antigas são removidas da cache. Para mais informações, consulte [as sessões de mensagem](../service-bus-messaging/message-sessions.md).
 
-Para obter outros detalhes técnicos sobre gatilhos, ações e limites, que são descritos pela descrição de OpenAPI (anteriormente, Swagger) do conector, examine a [página de referência](/connectors/servicebus/)do conector. Para saber mais sobre as mensagens do barramento de serviço do Azure, consulte [o que é o barramento de serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md)?
+Para outros detalhes técnicos sobre gatilhos, ações e limites, descritos pela descrição OpenAPI (ex-Swagger) do conector, reveja a página de [referência](/connectors/servicebus/)do conector . Para mais informações sobre as Mensagens de Ônibus de Serviço Azure, veja [o que é o Azure Service Bus?](../service-bus-messaging/service-bus-messaging-overview.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)
+* Saiba mais sobre outros [conectores de Aplicações Lógicas](../connectors/apis-list.md)

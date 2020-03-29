@@ -1,5 +1,5 @@
 ---
-title: Subnet Azure Traffic Manager sobreposição usando Azure CLI  Microsoft Docs
+title: Subnet Azure Traffic Manager sobreposição usando Azure CLI [ Microsoft Docs
 description: Este artigo irá ajudá-lo a entender como a subposição da subnet do Gestor de Tráfego pode ser usada para substituir o método de encaminhamento de um perfil do Gestor de Tráfego para direcionar o tráfego para um ponto final baseado no endereço IP do utilizador final através da gama IP predefinida para mapeamentos de pontofinal.
 services: traffic-manager
 documentationcenter: ''
@@ -10,10 +10,10 @@ ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: rohink
 ms.openlocfilehash: 818b692884bd9d31efd08663a582ebcfec2032e9
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938477"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-cli"></a>Subnet do Gestor de Tráfego sobreposição usando O ClI Azure
@@ -39,7 +39,7 @@ Para criar uma subposição de sub-rede do Gestor de Tráfego, pode utilizar o A
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.28 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.28 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
 ## <a name="update-the-traffic-manager-endpoint-with-subnet-override"></a>Atualize o ponto final do Gestor de Tráfego com a sobreposição da sub-rede.
 Utilize o Azure CLI para atualizar o seu ponto final com a [atualização do gestor de pontofinal](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update)do gestor de tráfego da rede Az .
@@ -76,7 +76,7 @@ az network traffic-manager endpoint update \
     --type AzureEndpoints
 
 ```
-## <a name="next-steps"></a>Próximos Passos
-Saiba mais sobre os [métodos de roteamento de tráfego](traffic-manager-routing-methods.md)do Traffic Manager.
+## <a name="next-steps"></a>Passos Seguintes
+Saiba mais sobre os métodos de [encaminhamento de tráfego](traffic-manager-routing-methods.md)do Gestor de Tráfego.
 
 Conheça o [método de encaminhamento de tráfego subnet](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method)

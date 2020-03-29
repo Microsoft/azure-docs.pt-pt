@@ -1,7 +1,7 @@
 ---
 title: Autenticação intermediada no Android / Azure
 titlesuffix: Microsoft identity platform
-description: Uma visão geral da autenticação intermediada e autorização para Android na plataforma de identidade da Microsoft
+description: Uma visão geral da autenticação intermediada & autorização para Android na plataforma de identidade da Microsoft
 services: active-directory
 author: shoatman
 manager: CelesteDG
@@ -14,10 +14,10 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman, hahamil, brianmel
 ms.openlocfilehash: a734589178438fd65d9a2d156fd91fc82807f578
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76697902"
 ---
 # <a name="brokered-authentication-in-android"></a>Autenticação intermediada no Android
@@ -26,11 +26,11 @@ Deve utilizar um dos corretores de autenticação da Microsoft para participar n
 
 - Inscrição única do dispositivo
 - Acesso condicional para:
-  - Proteção de aplicativos intune
+  - Intune App Protection
   - Registo do Dispositivo (Adesão ao Local de Trabalho)
   - Gestão de Dispositivos Móveis
 - Gestão de Conta em todo o dispositivo
-  -  através de Definições de Gestor de Conta Android e Definições de Conta
+  -  através de Definições de conta do Gestor de Contas Android &
   - "Conta de Trabalho" - tipo de conta personalizada
 
 No Android, o Microsoft Authentication Broker é um componente que está incluído com a [Aplicação autenticadora microsoft](https://play.google.com/store/apps/details?id=com.azure.authenticator) e o [Portal da Empresa Intune](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal)
@@ -56,9 +56,9 @@ Se um dispositivo ainda não tiver uma aplicação de corretagem instalada, a MS
 
 ### <a name="when-a-broker-is-installed"></a>Quando um corretor é instalado
 
-Quando um corretor é instalado num dispositivo, todos os pedidos de fichainter interativa subsequentes (chamadas para `acquireToken()`) são tratados pelo corretor e não localmente pela MSAL. Qualquer estado SSO anteriormente disponível para a MSAL não está disponível para o corretor. Como resultado, o utilizador terá de autenticar novamente ou selecionar uma conta da lista existente de contas conhecidas pelo dispositivo.
+Quando um corretor é instalado num dispositivo, todos os pedidos `acquireToken()`de fichainter interativa subsequentes (chamadas para ) são tratados pelo corretor e não localmente pela MSAL. Qualquer estado SSO anteriormente disponível para a MSAL não está disponível para o corretor. Como resultado, o utilizador terá de autenticar novamente ou selecionar uma conta da lista existente de contas conhecidas pelo dispositivo.
 
-Instalar um corretor não requer que o utilizador volte a fazer o seu insto. Só quando o utilizador precisar de resolver um `MsalUiRequiredException` o próximo pedido irá para o corretor. `MsalUiRequiredException` é lançado por uma série de razões, e precisa de ser resolvido interactivamente. Estas são algumas razões comuns:
+Instalar um corretor não requer que o utilizador volte a fazer o seu insto. Só quando o utilizador `MsalUiRequiredException` precisar de resolver um irá o próximo pedido ir para o corretor. `MsalUiRequiredException`é lançado por uma série de razões, e precisa ser resolvido interactivamente. Estas são algumas razões comuns:
 
 - O utilizador alterou a palavra-passe associada à sua conta.
 - A conta do utilizador já não cumpre uma política de Acesso Condicional.
@@ -76,7 +76,7 @@ Se o Portal da Empresa Intune estiver instalado e estiver a funcionar como corre
 
 Deve registar um URI redirecionado que seja compatível com o corretor. O redirecionamento uri para o corretor precisa incluir o nome de pacote da sua aplicação, bem como a representação codificada base64 da assinatura da sua app.
 
-O formato do URI redirecionado é: `msauth://<yourpackagename>/<base64urlencodedsignature>`
+O formato do URI redirecionado é:`msauth://<yourpackagename>/<base64urlencodedsignature>`
 
 Gere a sua assinatura codificada pelo url Base64 utilizando as chaves de assinatura da sua aplicação. Aqui estão alguns comandos de exemplo que usam as suas teclas de depuração:
 
@@ -116,9 +116,9 @@ A MSAL comunica com o corretor de duas formas:
 - Serviço vinculado a corretor
 - Gestor de contas Android
 
-A MSAL usa primeiro o serviço de corretor ligado porque ligar para este serviço não requer nenhuma permissão Android. Se a ligação ao serviço vinculado falhar, a MSAL utilizará o API do Gestor de Contas Android. A MSAL só o faz se a sua aplicação já tiver recebido a `"READ_CONTACTS"` permissão.
+A MSAL usa primeiro o serviço de corretor ligado porque ligar para este serviço não requer nenhuma permissão Android. Se a ligação ao serviço vinculado falhar, a MSAL utilizará o API do Gestor de Contas Android. A MSAL só o faz se `"READ_CONTACTS"` a sua aplicação já tiver recebido a permissão.
 
-Se tiver um `MsalClientException` com código de erro `"BROKER_BIND_FAILURE"`, então existem duas opções:
+Se obtém `MsalClientException` um `"BROKER_BIND_FAILURE"`código de erro, então existem duas opções:
 
 - Peça ao utilizador para desativar a otimização de energia para a aplicação Microsoft Authenticator e para o Portal da Empresa Intune.
-- Peça ao utilizador que conceda a `"READ_CONTACTS"` permissão
+- Peça ao utilizador `"READ_CONTACTS"` que conceda a permissão

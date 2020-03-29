@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: snehaa
 ms.openlocfilehash: c85c5c6e11beb0178139dad152f56f420b2ac26f
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78926719"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: Questões comuns

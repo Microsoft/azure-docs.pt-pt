@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 45a2829411ea4713df898c90be73792718160cd2
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255117"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Como utilizar o Plugin de Streaming Suave da Microsoft para a Estrutura de Meios de Comunicação De Código Aberto da Adobe  
@@ -43,7 +43,7 @@ O plugin suporta a carga e a reprodução de conteúdos smooth streaming a pedid
 * Troca de linguagem áudio múltipla com APIs incorporados da OSMF
 * Seleção de qualidade de reprodução max com APIs incorporados da OSMF
 * Sidecar fechou legendas com legendas OSMF plugin
-* Adobe&reg; Flash&reg; Player 11.4 ou superior.
+* Adobe&reg; &reg; Flash Player 11.4 ou superior.
 * Esta versão suporta apenas os OSMF 2.0.
 
 ## <a name="supported-features-and-known-issues"></a>Características suportadas e questões conhecidas
@@ -331,7 +331,7 @@ pacote {
 O Smooth Streaming para plugin dinâmico OSMF é compatível com a Reprodução de [Strobe Media (SMP)](http://osmf.org/strobe_mediaplayback.html). Pode utilizar o Plugin SS para o OSMF para adicionar a reprodução de conteúdo de Streaming Suave ao SMP. Para tal, copie "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" num servidor web para a carga HTTP utilizando os seguintes passos:
 
 1. Navegue na página de [configuração da Reprodução Strobe Media](http://osmf.org/dev/2.0gm/setup.html). 
-2. Desloque o src para uma fonte de streaming suave (por exemplo, http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
+2. Desloque o src para uma fonte de streaming suave (por exemplo.http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
 3. Faça as alterações de configuração desejadas e clique em Pré-visualização e Atualização.
    
    **Nota** O seu servidor web de conteúdo necessita de um crossdomain.xml válido. 
@@ -380,8 +380,8 @@ O Smooth Streaming para plugin dinâmico OSMF é compatível com a Reprodução 
         </embed>
         </object>
         </html>
-2. Guarde a sua página HTML e publique num servidor web. Navegue na página web publicada utilizando o seu Flash&reg; Player favorito habilitado para o navegador de Internet (Internet Explorer, Chrome, Firefox, assim por diante).
-3. Desfrute de conteúdos de Streaming Suave dentro do Adobe&reg; Flash&reg; Player.
+2. Guarde a sua página HTML e publique num servidor web. Navegue na página web publicada&reg; utilizando o seu Flash Player favorito ativado o navegador de Internet (Internet Explorer, Chrome, Firefox, assim por diante).
+3. Desfrute de conteúdos de&reg; &reg; Streaming Suave dentro do Adobe Flash Player.
 
 Para obter mais informações sobre o desenvolvimento geral da OSMF, consulte a página oficial de [desenvolvimento da OSMF](http://osmf.org/resources.html).
 
@@ -391,6 +391,6 @@ Para obter mais informações sobre o desenvolvimento geral da OSMF, consulte a 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Veja também
 [Plugin de streaming adaptativo da Microsoft para atualização do OSMF](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/) 
 

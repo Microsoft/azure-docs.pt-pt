@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: rohink
 ms.openlocfilehash: 282099cb274c1ea872a0df9c2753a939ef31421f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938577"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Perfis do Gestor de Tráfego aninhados
@@ -95,7 +95,7 @@ As definições de monitorização num perfil do Gestor de Tráfego aplicam-se a
 
 ![Monitorização do ponto final do Gestor de Tráfego com definições de ponto final][10]
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQs
 
 * [Como configurar perfis aninhados?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoint-monitoring)
 

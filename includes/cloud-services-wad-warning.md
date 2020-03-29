@@ -5,24 +5,24 @@ ms.service: cloud-services
 ms.topic: include
 ms.date: 11/25/2018
 ms.openlocfilehash: 5deba9d8968f71ef1b21517e74e6af4c39aa9271
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76279353"
 ---
 > [!WARNING]
-> Quando você habilita o diagnóstico para uma função existente, todas as extensões que você já definiu são desabilitadas quando o pacote é implantado. As regiões incluem:
+> Quando ativa os diagnósticos para uma função existente, quaisquer extensões que já tenha definido são desativadas quando a embalagem é implantada. Estas incluem:
 >
-> * Diagnóstico de Microsoft Monitoring Agent
-> * Monitoramento de segurança do Microsoft Azure
+> * Diagnóstico de agente de monitorização da Microsoft
+> * Monitorização de Segurança do Microsoft Azure
 > * Microsoft Antimalware                 
 > * Agente de Monitorização da Microsoft
-> * Agente do Microsoft Service Profiler      
-> * Extensão de domínio do Windows Azure        
-> * Extensão de Diagnóstico do Azure do Windows   
-> * Extensão de Área de Trabalho Remota do Windows Azure
-> * Coletor de logs do Windows Azure
+> * Agente de perfil de serviço da Microsoft      
+> * Extensão do domínio Do Windows Azure        
+> * Extensão de diagnóstico do Windows Azure   
+> * Extensão remota do ambiente de trabalho do Windows Azure
+> * Colecionador de registos Windows Azure
 >
-> Você pode redefinir suas extensões por meio do portal do Azure ou do PowerShell depois de implantar a função atualizada.
+> Pode redefinir as suas extensões através do portal Azure ou powerShell depois de implementar a função atualizada.
 >

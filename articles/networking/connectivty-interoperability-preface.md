@@ -1,6 +1,6 @@
 ---
-title: 'Interoperabilidade nos recursos de conectividade de back-end do Azure: configuração de teste | Microsoft Docs'
-description: Este artigo descreve uma configuração de teste que você pode usar para analisar a interoperabilidade entre o ExpressRoute, uma VPN site a site e um emparelhamento de rede virtual no Azure.
+title: 'Interoperabilidade nas funcionalidades de conectividade traseira do Azure: Configuração de teste / Microsoft Docs'
+description: Este artigo descreve uma configuração de teste que pode usar para analisar a interoperabilidade entre o ExpressRoute, uma VPN site-to-site e o peering de rede virtual em Azure.
 documentationcenter: na
 services: networking
 author: rambk
@@ -11,74 +11,74 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 0cbd4b620a03ed26e95679cf7cb1abef277a9471
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74873800"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-test-setup"></a>Interoperabilidade nos recursos de conectividade de back-end do Azure: configuração de teste
+# <a name="interoperability-in-azure-back-end-connectivity-features-test-setup"></a>Interoperabilidade nas funcionalidades de conectividade traseira do Azure: Configuração de teste
 
-Este artigo descreve uma configuração de teste que você pode usar para analisar como os serviços de rede do Azure interoperam nos níveis de plano de controle e plano de dados. Vamos examinar brevemente os componentes de rede do Azure:
+Este artigo descreve uma configuração de teste que pode usar para analisar como os serviços de networking Azure interoperam ao nível do plano de controlo e do plano de dados. Vamos olhar brevemente para os componentes de rede Azure:
 
--   **Azure expressroute**: Use o emparelhamento privado no Azure expressroute para conectar diretamente espaços IP privados em sua rede local às implantações de rede virtual do Azure. O ExpressRoute pode ajudá-lo a obter uma maior largura de banda e uma conexão privada. Muitos parceiros de ExpressRoute de rota expressa oferecem conectividade de ExpressRoute com SLAs. Para saber mais sobre o ExpressRoute e saber como configurar o ExpressRoute, consulte [introdução ao expressroute][ExpressRoute].
--   **VPN site a site**: você pode usar o gateway de VPN do Azure como uma VPN site a site para conectar com segurança uma rede local ao Azure pela Internet ou usando o ExpressRoute. Para saber como configurar uma VPN site a site para se conectar ao Azure, consulte Configurar o [Gateway de VPN][VPN].
--   **Emparelhamento vnet**: Use o emparelhamento de rede virtual (VNet) para estabelecer a conectividade entre o VNets na rede virtual do Azure. Para saber mais sobre o emparelhamento VNet, consulte o [tutorial sobre emparelhamento vnet][VNet].
+-   **Azure ExpressRoute**: Utilize o peering privado no Azure ExpressRoute para ligar diretamente os espaços IP privados da sua rede no local às suas implementações da Rede Virtual Azure. O ExpressRoute pode ajudá-lo a alcançar uma maior largura de banda e uma ligação privada. Muitos parceiros ecológicos ExpressRoute oferecem conectividade ExpressRoute com SLAs. Para saber mais sobre o ExpressRoute e para aprender a configurar a ExpressRoute, consulte [introdução ao ExpressRoute][ExpressRoute].
+-   **VPN site-to-site**: Você pode usar O Gateway VPN Azure como um VPN site-to-site para ligar de forma segura uma rede no local ao Azure através da internet ou usando o ExpressRoute. Para aprender a configurar uma VPN site-to-site para ligar ao Azure, consulte [Configure VPN Gateway][VPN].
+-   **VNet peering**: Use a rede virtual (VNet) peering para estabelecer conectividade entre VNets na Rede Virtual Azure. Para saber mais sobre o peering vNet, consulte o [tutorial no VNet peering][VNet].
 
-## <a name="test-setup"></a>Configuração de teste
+## <a name="test-setup"></a>Configuração do teste
 
-A figura a seguir ilustra a configuração do teste:
+A figura que se segue ilustra a configuração do ensaio:
 
 ![1][1]
 
-O ponto central da configuração do teste é a VNet do Hub na região 1 do Azure. A VNet do Hub está conectada a redes diferentes das seguintes maneiras:
+A peça central da configuração do teste é o hub VNet na Região Azure 1. O hub VNet está ligado a diferentes redes das seguintes formas:
 
--   A VNet do Hub está conectada à VNet do spoke usando o emparelhamento VNet. A VNet spoke tem acesso remoto a ambos os gateways na VNet do Hub.
--   A VNet do Hub está conectada à VNet do Branch usando VPN site a site. A conectividade usa eBGP para trocar rotas.
--   A VNet do Hub está conectada à rede local 1 usando o emparelhamento privado do ExpressRoute como o caminho principal. Ele usa a conectividade VPN site a site como o caminho de backup. No restante deste artigo, nos referimos a este circuito do ExpressRoute como ExpressRoute 1. Por padrão, os circuitos de ExpressRoute fornecem conectividade redundante para alta disponibilidade. No ExpressRoute 1, a subinterface do roteador da borda do cliente secundário (CE) que faces o roteador do Microsoft Enterprise Edge (MSEE) secundário está desabilitada. Uma linha vermelha na seta de linha dupla na figura anterior representa a subinterface do roteador CE desabilitada.
--   A VNet do Hub está conectada à rede local 2 usando outro emparelhamento privado do ExpressRoute. No restante deste artigo, nos referimos a esse segundo circuito do ExpressRoute como ExpressRoute 2.
--   O ExpressRoute 1 também conecta a VNet do Hub e a rede local 1 a uma VNet remota na região 2 do Azure.
+-   O hub VNet está ligado ao VNet falado usando o peering VNet. O VNet falado tem acesso remoto a ambos os gateways no centro VNet.
+-   O hub VNet está ligado ao ramo VNet utilizando VPN site-to-site. A conectividade utiliza o EBGP para trocar rotas.
+-   O hub VNet está ligado à rede local Location 1, utilizando o peering privado ExpressRoute como o caminho principal. Utiliza a conectividade VPN do site-a-site como o caminho de reserva. No resto deste artigo, referimo-nos a este circuito ExpressRoute como ExpressRoute 1. Por padrão, os circuitos ExpressRoute proporcionam conectividade redundante para alta disponibilidade. No ExpressRoute 1, a subinterface do router secundário de borda do cliente (CE) que enfrenta o secundário Microsoft Enterprise Edge Router (MSEE) está desativada. Uma linha vermelha sobre a seta de linha dupla na figura anterior representa o subinterface do router CE desativado.
+-   O hub VNet está ligado à rede local Local 2 utilizando outro peering privado ExpressRoute. No resto deste artigo, referimo-nos a este segundo circuito ExpressRoute como ExpressRoute 2.
+-   ExpressRoute 1 também liga tanto o hub VNet como a rede local 1 a um VNet remoto na Região Azure 2.
 
-## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>Conectividade de VPN site a site e de ExpressRoute em tandem
+## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>ExpressRoute e conectividade VPN site-to-site em conjunto
 
-###  <a name="site-to-site-vpn-over-expressroute"></a>VPN site a site por meio do ExpressRoute
+###  <a name="site-to-site-vpn-over-expressroute"></a>VPN site-to-site sobre ExpressRoute
 
-Você pode configurar uma VPN site a site usando o emparelhamento da Microsoft ExpressRoute para trocar dados de forma privada entre sua rede local e o VNets do Azure. Com essa configuração, você pode trocar dados com confidencialidade, autenticidade e integridade. A troca de dados também é a anti-repetição. Para obter mais informações sobre como configurar uma VPN IPsec site a site no modo de túnel usando o emparelhamento da Microsoft do ExpressRoute, consulte [VPN site a site sobre o emparelhamento da Microsoft do expressroute][S2S-Over-ExR]. 
+Pode configurar um VPN site-to-site utilizando o ExpressRoute Microsoft, olhando para a troca privada de dados entre a sua rede no local e os seus VNets Azure. Com esta configuração, pode trocar dados com confidencialidade, autenticidade e integridade. A troca de dados também é anti-repetição. Para obter mais informações sobre como configurar um IPsec VPN site-to-site em modo túnel, utilizando o peering expressRoute Microsoft, consulte [o Site-to-site VPN através do peering expressRoute Microsoft][S2S-Over-ExR]. 
 
-A principal limitação de configurar uma VPN site a site que usa o emparelhamento da Microsoft é a taxa de transferência. A taxa de transferência sobre o túnel IPsec é limitada pela capacidade do gateway de VPN. A taxa de transferência do gateway de VPN é inferior à taxa de transferência do ExpressRoute. Nesse cenário, o uso do túnel IPsec para tráfego altamente seguro e o uso de emparelhamento privado para todo o outro tráfego ajuda a otimizar a utilização da largura de banda do ExpressRoute.
+A principal limitação de configurar uma VPN site-to-site que usa o peering da Microsoft é a entrada. A entrada sobre o túnel IPsec é limitada pela capacidade de gateway VPN. A entrada de gateway VPN é inferior à entrada do ExpressRoute. Neste cenário, a utilização do túnel IPsec para tráfego altamente seguro e a utilização de um esparso privado para todos os outros tráfegos ajuda a otimizar a utilização da largura de banda ExpressRoute.
 
-### <a name="site-to-site-vpn-as-a-secure-failover-path-for-expressroute"></a>VPN site a site como um caminho de failover seguro para o ExpressRoute
+### <a name="site-to-site-vpn-as-a-secure-failover-path-for-expressroute"></a>VPN do site-para-site como um caminho de falha seguro para expressRoute
 
-O ExpressRoute serve como um par de circuitos redundantes para garantir a alta disponibilidade. Você pode configurar a conectividade do ExpressRoute com redundância geográfica em diferentes regiões do Azure. Além disso, conforme demonstrado em nossa configuração de teste, em uma região do Azure, você pode usar uma VPN site a site para criar um caminho de failover para a conectividade do ExpressRoute. Quando os mesmos prefixos são anunciados no ExpressRoute e em uma VPN site a site, o Azure prioriza o ExpressRoute. Para evitar o roteamento assimétrico entre o ExpressRoute e a VPN site a site, a configuração de rede local também deve ser reciprocada usando a conectividade de ExpressRoute antes de usar a conectividade VPN site a site.
+A ExpressRoute serve como um par de circuitos redundantes para garantir uma alta disponibilidade. Pode configurar a conectividade ExpressRoute geo-redundante em diferentes regiões do Azure. Além disso, como demonstrado na nossa configuração de teste, dentro de uma região do Azure, você pode usar um VPN site-to-site para criar um caminho de failover para a sua conectividade ExpressRoute. Quando os mesmos prefixos são anunciados tanto sobre o ExpressRoute como sobre uma VPN site-to-site, o Azure prioriza o ExpressRoute. Para evitar o encaminhamento assimétrico entre o ExpressRoute e o VPN site-to-site, a configuração da rede no local também deve retribuir usando a conectividade ExpressRoute antes de utilizar a conectividade VPN site-to-site.
 
-Para obter mais informações sobre como configurar conexões coexistentes para o ExpressRoute e uma VPN site a site, consulte [ExpressRoute e coexistência site a site][ExR-S2S-CoEx].
+Para obter mais informações sobre como configurar as ligações coexistentes para o ExpressRoute e uma VPN site-to-site, consulte [expressRoute e coexistência site-to-site][ExR-S2S-CoEx].
 
-## <a name="extend-back-end-connectivity-to-spoke-vnets-and-branch-locations"></a>Estender a conectividade de back-end para spoke VNets e locais de filiais
+## <a name="extend-back-end-connectivity-to-spoke-vnets-and-branch-locations"></a>Alargar a conectividade de back-end a VNets falados e localizações de filiais
 
-### <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Conectividade de VNet do spoke usando o emparelhamento VNet
+### <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Conectividade VNet falada usando o peering VNet
 
-A arquitetura de VNet de Hub e spoke é amplamente usada. O Hub é uma VNet no Azure que atua como um ponto central de conectividade entre seu VNets de spoke e sua rede local. Os spokes são VNets que emparelham com o Hub e que você pode usar para isolar cargas de trabalho. O tráfego flui entre o datacenter local e o Hub por meio de uma conexão de ExpressRoute ou VPN. Para obter mais informações sobre a arquitetura, consulte [implementar uma topologia de rede hub-spoke no Azure][Hub-n-Spoke].
+A arquitetura VNet hub e falada é amplamente usada. O hub é um VNet em Azure que funciona como um ponto central de conectividade entre os seus VNets falados e a sua rede no local. Os raios são VNets que espreitam com o centro, e que você pode usar para isolar cargas de trabalho. Fluxos de tráfego entre o datacenter no local e o centro através de uma ligação ExpressRoute ou VPN. Para obter mais informações sobre a arquitetura, consulte [Implementar uma topologia de rede de hub-spoke em Azure][Hub-n-Spoke].
 
-No emparelhamento VNet dentro de uma região, o spoke VNets pode usar gateways de VNet de Hub (gateways VPN e ExpressRoute) para se comunicar com redes remotas.
+Em VNet espreitando dentro de uma região, vNets falados podem usar gateways vNet hub (tanto gateways VPN como ExpressRoute) para comunicar com redes remotas.
 
-### <a name="branch-vnet-connectivity-by-using-site-to-site-vpn"></a>Conectividade de VNet de ramificação usando VPN site a site
+### <a name="branch-vnet-connectivity-by-using-site-to-site-vpn"></a>Conectividade Branch VNet utilizando VPN site-to-site
 
-Talvez você queira ramificar VNets, que estão em regiões diferentes, e redes locais para se comunicarem entre si por meio de uma VNet de Hub. A solução nativa do Azure para essa configuração é a conectividade VPN site a site usando uma VPN. Uma alternativa é usar uma NVA (solução de virtualização de rede) para roteamento no Hub.
+Você pode querer que os VNets de ramificação, que estão em diferentes regiões, e redes no local para comunicar uns com os outros através de um hub VNet. A solução azure nativa para esta configuração é a conectividade VPN site-to-site utilizando uma VPN. Uma alternativa é utilizar um aparelho virtual de rede (NVA) para o encaminhamento no centro.
 
-Para obter mais informações, consulte [o que é o gateway de VPN?][VPN] e [implantar um NVA altamente disponível][Deploy-NVA].
+Para mais informações, consulte o [Deploy a highly available NVA][Deploy-NVA] [que é VPN Gateway?][VPN]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre os [detalhes de configuração][Configuration] para a topologia de teste.
+Conheça os detalhes da [configuração][Configuration] para a topologia do teste.
 
-Saiba mais sobre a [análise do plano de controle][Control-Analysis] da configuração do teste e as exibições de diferentes VNETS ou VLANs na topologia.
+Conheça a análise do plano de [controlo][Control-Analysis] da configuração do teste e as vistas de diferentes VNets ou VLANs na topologia.
 
-Saiba mais sobre a [análise do plano de dados][Data-Analysis] das exibições de configuração de teste e de monitoramento de rede do Azure.
+Conheça a análise de [planos][Data-Analysis] de dados da configuração do teste e das vistas da funcionalidade de monitorização da rede Azure.
 
-Consulte as [perguntas frequentes sobre o ExpressRoute][ExR-FAQ] para:
--   Saiba quantos circuitos do ExpressRoute você pode se conectar a um gateway de ExpressRoute.
--   Saiba quantos gateways do ExpressRoute você pode se conectar a um circuito do ExpressRoute.
--   Saiba mais sobre outros limites de escala do ExpressRoute.
+Consulte o [ExpressRoute FAQ][ExR-FAQ] para:
+-   Saiba quantos circuitos ExpressRoute pode ligar a um gateway ExpressRoute.
+-   Saiba quantos gateways ExpressRoute pode ligar a um circuito ExpressRoute.
+-   Conheça outros limites de escala da ExpressRoute.
 
 
 <!--Image References-->

@@ -6,17 +6,17 @@ ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
 ms.openlocfilehash: adad0ddfc78530b3a3a7c139d9a95ec4790c8053
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76934152"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Implementar em anfitriões dedicados
 
-"Dedicado" é um SKU de ACI (instâncias de contêiner do Azure) que fornece um ambiente de computação isolado e dedicado para executar contêineres com segurança. O uso do SKU dedicado resulta em cada grupo de contêineres com um servidor físico dedicado em um datacenter do Azure, garantindo o isolamento completo da carga de trabalho para ajudar a atender aos requisitos de segurança e conformidade da sua organização. 
+"Dedicado" é um sku Azure Container Instances (ACI) que proporciona um ambiente de computação isolado e dedicado para recipientes de corrida seguros. Utilizando os resultados dedicados em cada grupo de contentores, tendo um servidor físico dedicado num centro de dados Azure, garantindo o isolamento total da carga de trabalho para ajudar a satisfazer os requisitos de segurança e conformidade da sua organização. 
 
-O SKU dedicado é apropriado para cargas de trabalho de contêiner que exigem isolamento de carga de trabalho de uma perspectiva de servidor físico.
+O sku dedicado é apropriado para cargas de trabalho de contentores que requerem isolamento de carga de trabalho do ponto de vista do servidor físico.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -25,22 +25,22 @@ O SKU dedicado é apropriado para cargas de trabalho de contêiner que exigem is
 ## <a name="use-the-dedicated-sku"></a>Use o sku dedicado
 
 > [!IMPORTANT]
-> O uso do SKU dedicado só está disponível na versão mais recente da API (2019-12-01) que está sendo distribuída no momento. Especifique essa versão de API em seu modelo de implantação.
+> A utilização do sku dedicado só está disponível na versão Mais recente da API (2019-12-01) que está atualmente a ser lançada. Especifique esta versão API no seu modelo de implementação.
 >
 
-Começando com a versão API 2019-12-01, existe uma propriedade `sku` sob a secção de propriedades do grupo de contentores de um modelo de implantação, que é necessário para uma implementação de ACI. No momento, você pode usar essa propriedade como parte de um modelo de implantação Azure Resource Manager para ACI. Saiba mais sobre a implementação de recursos ACI com um modelo no [Tutorial: Implante um grupo multi-contentor usando um modelo](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group)de Gestor de Recursos . 
+Começando com a versão API 2019-12-01, existe uma `sku` propriedade sob a secção de propriedades do grupo de contentores de um modelo de implantação, que é necessário para uma implementação de ACI. Atualmente, você pode usar esta propriedade como parte de um modelo de implementação do Gestor de Recursos Azure para ACI. Saiba mais sobre a implementação de recursos ACI com um modelo no [Tutorial: Implante um grupo multi-contentor usando um modelo](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group)de Gestor de Recursos . 
 
-A propriedade `sku` pode ter um dos seguintes valores:
-* `Standard` - a escolha padrão de implantação do ACI, que ainda garante a segurança ao nível do hipervisor 
-* `Dedicated` - utilizado para o isolamento do nível de carga de trabalho com hospedeiros físicos dedicados para o grupo de contentores
+O `sku` imóvel pode ter um dos seguintes valores:
+* `Standard`- a escolha padrão de implantação do ACI, que ainda garante a segurança ao nível do hipervisor 
+* `Dedicated`- utilizado para o isolamento do nível de carga de trabalho com hospedeiros físicos dedicados para o grupo de contentores
 
-## <a name="modify-your-json-deployment-template"></a>Modificar seu modelo de implantação JSON
+## <a name="modify-your-json-deployment-template"></a>Modifique o seu modelo de implementação JSON
 
 No seu modelo de implementação, modifique ou adicione as seguintes propriedades:
-* Em `resources`, `apiVersion` definida para `2012-12-01`.
-* Sob as propriedades do grupo de contentores, adicione uma propriedade `sku` com valor `Dedicated`.
+* Abaixo, `resources` `apiVersion` definido `2012-12-01`para.
+* Sob as propriedades do `sku` grupo de `Dedicated`contentores, adicione uma propriedade com valor.
 
-Aqui está um trecho de código de exemplo para a seção de recursos de um modelo de implantação de grupo de contêineres que usa o SKU dedicado:
+Aqui está um exemplo de snippet para a secção de recursos de um modelo de implantação de grupo de contentores que usa o sku dedicado:
 
 ```json
 [...]
@@ -127,9 +127,9 @@ Segue-se um modelo completo que implanta um grupo de contentores de amostras que
 }
 ```
 
-## <a name="deploy-your-container-group"></a>Implantar seu grupo de contêineres
+## <a name="deploy-your-container-group"></a>Implante o seu grupo de contentores
 
-Se você criou e editou o arquivo de modelo de implantação em sua área de trabalho, você pode carregá-lo em seu diretório Cloud Shell arrastando o arquivo para ele. 
+Se criou e editou o ficheiro do modelo de implementação no seu ambiente de trabalho, pode carregá-lo para o seu diretório Cloud Shell arrastando o ficheiro para o mesmo. 
 
 Crie um grupo de recursos com o comando [az group create][az-group-create].
 
@@ -137,7 +137,7 @@ Crie um grupo de recursos com o comando [az group create][az-group-create].
 az group create --name myResourceGroup --location eastus
 ```
 
-Implante o modelo com o comando [AZ Group Deployment Create][az-group-deployment-create] .
+Desloque o modelo com a implementação do [grupo AZ criar][az-group-deployment-create] comando.
 
 ```azurecli-interactive
 az group deployment create --resource-group myResourceGroup --template-file deployment-template.json

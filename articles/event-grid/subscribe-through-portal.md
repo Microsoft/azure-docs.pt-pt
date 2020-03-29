@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 3172c92ecae094ab5d978803d2ccac7e6404a5e1
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721511"
 ---
 # <a name="subscribe-to-events-through-portal"></a>Subscreva eventos através do portal
@@ -64,7 +64,7 @@ Algumas fontes de evento supor a criação de uma subscrição de evento atravé
 
 O portal apresenta-lhe opções para criar uma subscrição de evento que seja relevante para essa fonte.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre entrega e repetições de eventos, entrega e retentativa de mensagens da Grelha de [Eventos.](delivery-and-retry.md)
 * Para obter uma introdução ao Event Grid, veja [Sobre o Azure Event Grid](overview.md).

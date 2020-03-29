@@ -12,10 +12,10 @@ ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 9ad51e113a752e0692cb377a83d4819b4e284bb7
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78188448"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o sign-in para o diretório ativo azure multi-inquilino utilizando políticas personalizadas no Diretório Ativo Azure B2C
@@ -32,13 +32,13 @@ Complete os passos em [Get started com políticas personalizadas no Azure Ative 
 
 Para permitir o início de sessão para utilizadores de uma organização específica da AD Azure, é necessário registar uma aplicação dentro do inquilino da AD Azure organizacional.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino ad organizacional Azure (por exemplo, contoso.com). Selecione o filtro de **subscrição Do Diretório +** no menu superior e, em seguida, escolha o diretório que contém o seu inquilino.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione registos de **Aplicações**.
 1. Selecione **Novo registo**.
 1. Insira um **Nome** para a sua candidatura. Por exemplo, `Azure AD B2C App`.
 1. Selecione **Contas em qualquer diretório organizacional** para esta aplicação.
-1. Para o **Redirect URI,** aceite o valor da **Web**e introduza o seguinte URL em todas as letras minúsculas, onde `your-B2C-tenant-name` é substituído pelo nome do seu inquilino Azure AD B2C.
+1. Para o **Redirect URI,** aceite o valor da **Web**e introduza `your-B2C-tenant-name` o seguinte URL em todas as letras minúsculas, onde é substituído pelo nome do seu inquilino Azure AD B2C.
 
     ```
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
@@ -47,17 +47,17 @@ Para permitir o início de sessão para utilizadores de uma organização espec�
     Por exemplo, `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 
 1. Selecione **Registar**. Grave o ID de **Aplicação (cliente)** para utilização num passo posterior.
-1. Selecione **Certificados e segredos**e, em seguida, selecione **novo segredo do cliente**.
+1. Selecione **Certificados & segredos**e, em seguida, selecione **novo segredo do cliente**.
 1. Introduza uma **Descrição** para o segredo, selecione uma expiração e, em seguida, **selecione Adicionar**. Grave o **valor** do segredo para uso num passo posterior.
 
 ## <a name="configuring-optional-claims"></a>Configurar reclamações opcionais
 
-Se pretender obter as `family_name` e `given_name` reclamações da Azure AD, pode configurar reclamações opcionais para a sua aplicação no portal Azure UI ou manifesto de aplicação. Para mais informações, consulte [Como fornecer reclamações opcionais à sua aplicação Azure AD](../active-directory/develop/active-directory-optional-claims.md).
+Se quiser obter `family_name` as `given_name` reclamações e reclamações da Azure AD, pode configurar reclamações opcionais para a sua aplicação no portal Azure UI ou manifesto de aplicação. Para mais informações, consulte [Como fornecer reclamações opcionais à sua aplicação Azure AD](../active-directory/develop/active-directory-optional-claims.md).
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Procure e selecione **Azure Ative Directory**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Procure e selecione **Azure Active Directory**.
 1. A partir da secção **Gerir,** selecione registos de **Aplicações**.
 1. Selecione a aplicação que pretende configurar reclamações opcionais na lista.
-1. A partir da secção **Gerir,** selecione **configuração token (pré-visualização)** .
+1. A partir da secção **Gerir,** selecione **configuração token (pré-visualização)**.
 1. **Selecione Adicionar reclamação opcional**.
 1. Selecione o tipo de ficha que pretende configurar.
 1. Selecione as reclamações opcionais a adicionar.
@@ -71,7 +71,7 @@ Você precisa armazenar a chave de aplicação que criou no seu inquilino Azure 
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 1. No âmbito **das Políticas,** selecione Quadro de **Experiência de Identidade**.
 1. Selecione **teclas Policy** e, em seguida, selecione **Adicionar**.
-1. Para **opções,** escolha `Manual`.
+1. Para **Opções,** escolha. `Manual`
 1. Introduza um **nome** para a chave política. Por exemplo, `AADAppSecret`.  O prefixo `B2C_1A_` é adicionado automaticamente ao nome da sua chave quando é criado, pelo que a sua referência no XML na secção seguinte é *B2C_1A_AADAppSecret*.
 1. Em **Segredo,** insira o seu segredo de cliente que gravou anteriormente.
 1. Para **a utilização da chave,** selecione `Signature`.
@@ -136,25 +136,25 @@ Pode definir a AD Azure como um fornecedor de sinistros adicionando AD Azure ao 
     ```
 
 1. Sob o elemento **ClaimsProvider,** atualize o valor do **Domínio** para um valor único que pode ser usado para distingui-lo de outros fornecedores de identidade.
-1. Sob o elemento **Perfil Técnico,** atualize o valor para **O Nome**do Ecrã , por exemplo, `Contoso Employee`. Este valor é apresentado no botão de início de sessão na sua página de início de sessão.
+1. Sob o elemento **Perfil Técnico,** atualize o `Contoso Employee`valor para **DisplayName**, por exemplo, . Este valor é apresentado no botão de início de sessão na sua página de início de sessão.
 1. **Deteto client_id** para a identificação de candidatura do pedido de multi-inquilino sinuoso da AD Azure que registou anteriormente.
 1. Em **CryptographicKeys, atualize**o valor do **StorageReferenceId** para o nome da chave de política que criou anteriormente. Por exemplo, `B2C_1A_AADAppSecret`.
 
 ### <a name="restrict-access"></a>Restringir o acesso
 
 > [!NOTE]
-> A utilização `https://login.microsoftonline.com/` como valor para **O Validador de Emissões** permite que todos os utilizadores de AD Azure assinem a sua aplicação.
+> A `https://login.microsoftonline.com/` utilização como valor para **ValidatokenIssuerPrefixes** permite que todos os utilizadores de AD Azure inscrevam na sua aplicação.
 
 Você precisa atualizar a lista de emitentes de token válidos e restringir o acesso a uma lista específica de utilizadores de inquilinos DaD Azure que podem iniciar sessão.
 
-Para obter os valores, veja os metadados de descoberta do OpenID Connect para cada um dos inquilinos da AD Azure que gostaria de ter os utilizadores a iniciar em sessão. O formato do URL de metadados é semelhante ao `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration`, onde `your-tenant` é o seu nome de inquilino Azure AD. Por exemplo:
+Para obter os valores, veja os metadados de descoberta do OpenID Connect para cada um dos inquilinos da AD Azure que gostaria de ter os utilizadores a iniciar em sessão. O formato do URL dos `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration`metadados é semelhante ao, onde `your-tenant` está o seu nome de inquilino Azure AD. Por exemplo:
 
 `https://login.microsoftonline.com/fabrikam.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 
 Execute estes passos para cada inquilino da AD Azure que deve ser usado para iniciar sessão:
 
-1. Abra o seu navegador e vá ao URL de metadados OpenID Connect para o inquilino. Encontre o objeto **emitente** e grave o seu valor. Deve parecer semelhante a `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/`.
-1. Copiar e colar o valor na chave **ValidTokenIssuerPrefixes.** Separe vários emitentes com uma vírem. Um exemplo com dois emitentes aparece na amostra xml de `ClaimsProvider` anterior.
+1. Abra o seu navegador e vá ao URL de metadados OpenID Connect para o inquilino. Encontre o objeto **emitente** e grave o seu valor. Deve parecer semelhante `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/`a.
+1. Copiar e colar o valor na chave **ValidTokenIssuerPrefixes.** Separe vários emitentes com uma vírem. Um exemplo com dois emitentes `ClaimsProvider` aparece na amostra xml anterior.
 
 ### <a name="upload-the-extension-file-for-verification"></a>Faça upload do ficheiro de extensão para verificação
 
@@ -169,7 +169,7 @@ Por esta altura, já configuraste a tua política para que o Azure AD B2C saiba 
 Neste momento, o fornecedor de identidade foi criado, mas não está disponível em nenhum dos ecrãs de inscrição/inscrição. Para disponibilizá-lo, cria-se uma duplicação de uma viagem de utilizador de modelo existente e, em seguida, modificá-la de modo a que também tenha o fornecedor de identidade Azure AD.
 
 1. Abra o ficheiro *TrustFrameworkBase.xml* a partir do pacote de arranque.
-2. Encontre e copie todo o conteúdo do elemento **UserJourney** que inclua `Id="SignUpOrSignIn"`.
+2. Encontre e copie todo o conteúdo `Id="SignUpOrSignIn"`do elemento **UserJourney** que inclui .
 3. Abra as *Extensões TrustFramework.xml* e encontre o elemento **UserJourneys.** Se o elemento não existir, adicione um.
 4. Colhe todo o conteúdo do elemento **UserJourney** que copiou em criança do elemento **UserJourneys.**
 5. Mude o nome da identificação da viagem do utilizador. Por exemplo, `SignUpSignInContoso`.
@@ -179,7 +179,7 @@ Neste momento, o fornecedor de identidade foi criado, mas não está disponível
 O elemento **ClaimsProviderSelection** é análogo a um botão de fornecedor de identidade num ecrã de inscrição/inscrição. Se adicionar um elemento **ClaimsProviderSelection** para AD Azure, aparece um novo botão quando um utilizador aterra na página.
 
 1. Encontre o elemento **OrchestrationStep** que inclui `Order="1"` na viagem de utilizador que criou em *TrustFrameworkExtensions.xml*.
-1. Em **ClaimsProviderSelects,** adicione o seguinte elemento. Defino o valor do **TargetClaimsExchangeId** para um valor adequado, por exemplo, `AzureADExchange`:
+1. Em **ClaimsProviderSelects,** adicione o seguinte elemento. Definir o valor do **TargetClaimsExchangeId** para `AzureADExchange`um valor adequado, por exemplo:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="AzureADExchange" />
@@ -189,7 +189,7 @@ O elemento **ClaimsProviderSelection** é análogo a um botão de fornecedor de 
 
 Agora que tens um botão no lugar, tens de ligá-lo a uma ação. A ação, neste caso, é que o Azure AD B2C comunique com a Azure AD para receber um símbolo. Ligue o botão a uma ação ligando o perfil técnico para o seu fornecedor de reclamações da AD Azure.
 
-1. Encontre a **OrquestrationStep** que inclui `Order="2"` na viagem do utilizador.
+1. Encontre a **OrquestraçãoStep** que inclui `Order="2"` na viagem do utilizador.
 2. Adicione o seguinte elemento **ClaimsExchange** certificando-se de que utiliza o mesmo valor para **id** que utilizou para **TargetClaimsExchangeId**:
 
     ```XML

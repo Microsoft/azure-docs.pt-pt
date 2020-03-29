@@ -10,15 +10,15 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 97ea98fc38fc8d06dc1bc65ee057241da6f15488
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78851393"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Resolução de problemas dos VMs de arranque/paragem durante a solução de horas de folga
 
-## <a name="deployment-failure"></a>Cenário: A solução Start/Stop VM não funciona corretamente
+## <a name="scenario-the-startstop-vm-solution-fails-to-properly-deploy"></a><a name="deployment-failure"></a>Cenário: A solução Start/Stop VM não funciona corretamente
 
 ### <a name="issue"></a>Problema
 
@@ -58,7 +58,7 @@ As implantações podem falhar devido a uma das seguintes razões:
 
 1. Já existe uma Conta de Automação com o mesmo nome na região selecionada.
 2. Está em vigor uma política que proíbe a implantação da solução Start/Stop VMs.
-3. Os tipos de `Microsoft.OperationsManagement`, `Microsoft.Insights`ou `Microsoft.Automation` de recursos não estão registados.
+3. Os `Microsoft.OperationsManagement` `Microsoft.Insights`tipos `Microsoft.Automation` de recursos não estão registados.
 4. O seu espaço de trabalho Log Analytics tem um bloqueio.
 5. Tem uma versão desatualizada dos módulos AzureRM ou a solução Start/Stop.
 
@@ -77,7 +77,7 @@ Reveja a seguinte lista para potenciais soluções para o seu problema ou locais
 4. Se tiver um bloqueio no seu espaço de trabalho Log Analytics, vá ao seu espaço de trabalho no portal Azure e remova quaisquer fechaduras no recurso.
 5. Se as resoluções acima não resolverem o seu problema, siga as instruções em ['Atualizar a Solução'](../automation-solution-vm-management.md#update-the-solution) para reutilizar a solução Iniciar/Parar.
 
-## <a name="all-vms-fail-to-startstop"></a>Cenário: Todos os VMs não conseguem iniciar/parar
+## <a name="scenario-all-vms-fail-to-startstop"></a><a name="all-vms-fail-to-startstop"></a>Cenário: Todos os VMs não conseguem iniciar/parar
 
 ### <a name="issue"></a>Problema
 
@@ -118,7 +118,7 @@ Reveja a seguinte lista para potenciais soluções para o seu problema ou locais
   Get-AzureRmAutomationVariable -Name External_ExcludeVMNames -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName> | Select-Object Value
   ```
 
-## <a name="some-vms-fail-to-startstop"></a>Cenário: Alguns dos meus VMs não conseguem começar ou parar
+## <a name="scenario-some-of-my-vms-fail-to-start-or-stop"></a><a name="some-vms-fail-to-startstop"></a>Cenário: Alguns dos meus VMs não conseguem começar ou parar
 
 ### <a name="issue"></a>Problema
 
@@ -137,7 +137,7 @@ Este erro pode ser causado por uma das seguintes razões:
 
 Reveja a seguinte lista para potenciais soluções para o seu problema ou locais para procurar:
 
-* Ao utilizar o cenário de [sequência](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags) do VM Iniciar/Parar durante o horário de folga, tem de se certificar de que cada VM que pretende iniciar ou parar tem a etiqueta correta. Certifique-se de que os VMs que deseja começar têm a etiqueta `sequencestart` e os VMs que pretende parar têm a etiqueta `sequencestop`. Ambas as etiquetas requerem um valor inteiro positivo. Pode utilizar uma consulta semelhante ao seguinte exemplo para procurar todos os VMs com as etiquetas e os seus valores.
+* Ao utilizar o cenário de [sequência](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags) do VM Iniciar/Parar durante o horário de folga, tem de se certificar de que cada VM que pretende iniciar ou parar tem a etiqueta correta. Certifique-se de que os VMs `sequencestart` que deseja começar têm a `sequencestop` etiqueta e os VMs que pretende parar têm a etiqueta. Ambas as etiquetas requerem um valor inteiro positivo. Pode utilizar uma consulta semelhante ao seguinte exemplo para procurar todos os VMs com as etiquetas e os seus valores.
 
   ```powershell-interactive
   Get-AzureRmResource | ? {$_.Tags.Keys -contains "SequenceStart" -or $_.Tags.Keys -contains "SequenceStop"} | ft Name,Tags
@@ -155,7 +155,7 @@ Reveja a seguinte lista para potenciais soluções para o seu problema ou locais
 
 * Verifique os [fluxos](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) de trabalho para procurar erros. No portal, vá à sua Conta de Automação e selecione **Jobs** no âmbito **da Automatização de Processos.**
 
-## <a name="custom-runbook"></a>Cenário: O meu livro de corridas personalizado não consegue iniciar ou parar os meus VMs
+## <a name="scenario-my-custom-runbook-fails-to-start-or-stop-my-vms"></a><a name="custom-runbook"></a>Cenário: O meu livro de corridas personalizado não consegue iniciar ou parar os meus VMs
 
 ### <a name="issue"></a>Problema
 
@@ -169,7 +169,7 @@ A causa do fracasso pode ser uma de muitas coisas. Vá à sua Conta de Automaç�
 
 É aconselhável utilizar os [VMs start/stop durante](../automation-solution-vm-management.md) a solução de horas de folga para iniciar e parar VMs em Automação Azure. Esta solução é da autoria da Microsoft. Os livros de execução personalizados não são suportados pela Microsoft. Você pode encontrar uma solução para o seu livro de corridas personalizado, visitando o artigo de resolução de [problemas](runbooks.md) do livro de corridas. Este artigo fornece orientação geral e resolução de problemas para livros de todos os tipos. Verifique os [fluxos](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) de trabalho para procurar erros. No portal, vá à sua Conta de Automação e selecione **Jobs** no âmbito **da Automatização de Processos.**
 
-## <a name="dont-start-stop-in-sequence"></a>Cenário: VMs não iniciam ou param na sequência correta
+## <a name="scenario-vms-dont-start-or-stop-in-the-correct-sequence"></a><a name="dont-start-stop-in-sequence"></a>Cenário: VMs não iniciam ou param na sequência correta
 
 ### <a name="issue"></a>Problema
 
@@ -183,17 +183,17 @@ Isto é causado por uma marcação incorreta nos VMs.
 
 Tome os seguintes passos para garantir que a solução está corretamente configurada.
 
-1. Certifique-se de que todos os VMs devem ser iniciados ou parados têm uma etiqueta `sequencestart` ou `sequencestop`, dependendo da sua situação. Estas etiquetas precisam de um inteiro positivo como o valor. Os VMs são processados por ordem ascendente com base neste valor.
-2. Certifique-se de que os grupos de recursos para os VMs serem iniciados ou parados estão nas variáveis `External_Start_ResourceGroupNames` ou `External_Stop_ResourceGroupNames`, dependendo da sua situação.
-3. Teste as suas alterações executando o livro de `SequencedStartStop_Parent` com o parâmetro WHATIF definido para True para pré-visualizar as suas alterações.
+1. Certifique-se de que todos os `sequencestart` VMs devem ser iniciados ou parados têm uma ou `sequencestop` etiqueta, dependendo da sua situação. Estas etiquetas precisam de um inteiro positivo como o valor. Os VMs são processados por ordem ascendente com base neste valor.
+2. Certifique-se de que os grupos de recursos para `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames` os VMs serem iniciados ou parados estão nas ou variáveis, dependendo da sua situação.
+3. Teste as suas alterações executando o `SequencedStartStop_Parent` livro de execução com o parâmetro WHATIF definido para True para pré-visualizar as suas alterações.
 
 Para obter instruções mais detalhadas e adicionais sobre como utilizar a solução para iniciar e parar vMs em sequência, consulte [Os VMs iniciar/parar em sequência](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags).
 
-## <a name="403"></a>Cenário: Trabalho de Início/Stop VM falha com 403 estatuto proibido
+## <a name="scenario-startstop-vm-job-fails-with-403-forbidden-status"></a><a name="403"></a>Cenário: Trabalho de Início/Stop VM falha com 403 estatuto proibido
 
 ### <a name="issue"></a>Problema
 
-Encontra empregos que falharam com um erro `403 forbidden` para os VMs de início/paragem durante os solução solução off hours.
+Encontra empregos que falharam com um `403 forbidden` erro para os VMs de arranque/paragem durante os livros de solução off hours.
 
 ### <a name="cause"></a>Causa
 
@@ -209,7 +209,7 @@ Se o certificado estiver caducada para a sua Conta Run As, siga os passos listad
 
 O problema pode ser causado por permissões em falta. Para saber como verificar as permissões num recurso, consulte [Quickstart: Ver as funções atribuídas a um utilizador utilizando o portal Azure](../../role-based-access-control/check-access.md). Terá de fornecer o ID de inscrição para o principal de serviço utilizado pela Conta Run As. Pode recuperar este valor indo para a sua Conta de Automação no portal Azure, selecionando **Executar como contas** em **Definições** de Conta e clicando na conta de Execução adequada.
 
-## <a name="other"></a>Cenário: O meu problema não está listado acima
+## <a name="scenario-my-problem-isnt-listed-above"></a><a name="other"></a>Cenário: O meu problema não está listado acima
 
 ### <a name="issue"></a>Problema
 
@@ -231,5 +231,5 @@ Para resolver muitos erros, é aconselhável remover e atualizar a solução. Pa
 Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 
 * Obtenha respostas de especialistas do Azure através dos [fóruns do Azure](https://azure.microsoft.com/support/forums/)
-* Ligue-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente ao ligar a comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente, ligando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
 * Se precisar de mais ajuda, pode apresentar um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.

@@ -4,10 +4,10 @@ description: Como monitorizar o consumo de recursos computacionais como cpu e me
 ms.topic: article
 ms.date: 04/24/2019
 ms.openlocfilehash: b4a66254c18d7e01b6d56e64e6b62721b620d499
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78250038"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Monitorizar recursos de contentores no Azure Container Instances
@@ -17,7 +17,7 @@ ms.locfileid: "78250038"
 Este documento detalha a recolha de métricas do Monitor Azure para casos de contentores utilizando tanto o portal Azure como o Azure CLI.
 
 > [!IMPORTANT]
-> As métricas do Monitor Azure em Casos de Contentores Azure estão atualmente em pré-visualização, e [aplicam-se algumas limitações.](#preview-limitations) As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+> As métricas do Monitor Azure em Casos de Contentores Azure estão atualmente em pré-visualização, e [aplicam-se algumas limitações.](#preview-limitations) As pré-visualizações são disponibilizadas a si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 
 ## <a name="preview-limitations"></a>Limitações de pré-visualização
 
@@ -78,7 +78,7 @@ Timestamp            Name       Average
 2019-04-23 23:10:00  CPU Usage  0.5
 ```
 
-Altere o valor do parâmetro `--metric` no comando para obter [outras métricas suportadas][supported-metrics]. Por exemplo, utilize o seguinte comando para obter métricas de utilização da **memória.** 
+Altere o `--metric` valor do parâmetro no comando para obter [outras métricas suportadas][supported-metrics]. Por exemplo, utilize o seguinte comando para obter métricas de utilização da **memória.** 
 
 ```azurecli
 az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --output table
@@ -101,7 +101,7 @@ Timestamp            Name          Average
 2019-04-23 23:10:00  Memory Usage  8093696.0
 ```
 
-Para um grupo multi-contentores, a dimensão `containerName` pode ser adicionada para devolver métricas por recipiente.
+Para um grupo multi-contentores, a `containerName` dimensão pode ser adicionada para devolver métricas por recipiente.
 
 ```azurecli
 az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --dimension containerName --output table
@@ -138,7 +138,7 @@ Timestamp            Name          Containername             Average
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre a monitorização do Azure na visão geral da [Monitorização Azure.][azure-monitoring]
+Saiba mais sobre o Azure Monitor na [Descrição geral do Azure Monitor][azure-monitoring].
 
 Aprenda a criar [alertas métricos][metric-alert] para ser notificado quando uma métrica para as instâncias de contentores azure atravessa um limiar.
 

@@ -1,5 +1,5 @@
 ---
-title: Como funciona a sincronização nos Serviços de Domínio Da AD Azure  Microsoft Docs
+title: Como funciona a sincronização nos Serviços de Domínio Da AD Azure [ Microsoft Docs
 description: Saiba como funciona o processo de sincronização para objetos e credenciais de um inquilino da AD Azure ou no local do ambiente ative directory Domain Services para um domínio gerido pelo Azure Ative Directory Domain Services.
 services: active-directory-ds
 author: iainfoulds
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
 ms.openlocfilehash: 7e0e904b182a57a51b5d76f0acebc13bce5902b2
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944424"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Como objetos e credenciais são sincronizados num domínio gerido pelo Azure AD Domain Services
@@ -41,15 +41,15 @@ A tabela seguinte lista alguns atributos comuns e como são sincronizados com O 
 | Atributo em DS AD Azure | Origem | Notas |
 |:--- |:--- |:--- |
 | UPN | Atributo *UPN* do utilizador no inquilino da AD Azure | O atributo da UPN do inquilino da AD Azure é sincronizado como é para Azure AD DS. A forma mais fiável de iniciar sessão num domínio gerido pelo Azure AD DS é a utilização da UPN. |
-| SAMAccountName | *Atributo* de apelido de utilizador em inquilino da AD Azure ou autogerado | O atributo *SAMAccountName* é obtido a partir do *atributo mailNickname* no inquilino Azure AD. Se várias contas de utilizador tiverem o mesmo *atributo de apelido* de correio, o *SAMAccountName* é autogerado. Se o *prefixo* de correio do utilizador Nickname ou *UPN* for superior a 20 caracteres, o *SAMAccountName* é autogerado para cumprir o limite de 20 caracteres nos atributos *SAMAccountName.* |
+| Nome de conta sam | *Atributo* de apelido de utilizador em inquilino da AD Azure ou autogerado | O atributo *SAMAccountName* é obtido a partir do *atributo mailNickname* no inquilino Azure AD. Se várias contas de utilizador tiverem o mesmo *atributo de apelido* de correio, o *SAMAccountName* é autogerado. Se o *prefixo* de correio do utilizador Nickname ou *UPN* for superior a 20 caracteres, o *SAMAccountName* é autogerado para cumprir o limite de 20 caracteres nos atributos *SAMAccountName.* |
 | Palavras-passe | Senha do utilizador do inquilino da AD Azure | As hashes de senha legacy necessárias para a autenticação NTLM ou Kerberos são sincronizadas do inquilino Azure AD. Se o inquilino da AD Azure estiver configurado para sincronização híbrida utilizando o Azure AD Connect, estas hashes de senha são provenientes do ambiente AD DS no local. |
 | Sid do utilizador/grupo primário | Autogerado | O SID primário para contas de utilizador/grupo é autogerado em Azure AD DS. Este atributo não corresponde ao sid do principal utilizador/grupo do objeto num ambiente AD DS no local. Esta incompatibilidade deve-se ao facto de o domínio gerido pelo Azure AD DS ter um espaço de nome SID diferente do domínio AD DS no local. |
 | Histórico sid para utilizadores e grupos | No local, o utilizador primário e o grupo SID | O atributo *SidHistory* para utilizadores e grupos em Azure AD DS está definido para corresponder ao utilizador primário correspondente ou grupo SID em um ambiente AD DS no local. Esta funcionalidade ajuda a tornar mais fácil o levantamento e a mudança de aplicações no local para o Azure AD DS, uma vez que não precisa de re-ACL recursos. |
 
 > [!TIP]
-> **Inscreva-se no domínio gerido utilizando o formato UPN** O atributo *SAMAccountName,* como `AADDSCONTOSO\driley`, pode ser gerado automaticamente para algumas contas de utilizador num domínio gerido pelo Azure AD DS. O *SAMAccountName* gerado automaticamente pelos utilizadores pode diferir do prefixo UPN, pelo que nem sempre é uma forma fiável de iniciar sessão.
+> **Inscreva-se no domínio gerido utilizando o formato UPN** O atributo *SAMAccountName,* como, por exemplo, `AADDSCONTOSO\driley`pode ser gerado automaticamente para algumas contas de utilizador num domínio gerido pelo Azure AD DS. O *SAMAccountName* gerado automaticamente pelos utilizadores pode diferir do prefixo UPN, pelo que nem sempre é uma forma fiável de iniciar sessão.
 >
-> Por exemplo, se vários utilizadores tiverem o mesmo *atributo de mailNickname* ou utilizadores tiverem prefixos UPN excessivamente longos, o *Nome SAMAccountName* para estes utilizadores pode ser gerado automaticamente. Utilize o formato UPN, como `driley@aaddscontoso.com`, para iniciar sessão fiavelmente num domínio gerido pelo Azure AD DS.
+> Por exemplo, se vários utilizadores tiverem o mesmo *atributo de mailNickname* ou utilizadores tiverem prefixos UPN excessivamente longos, o *Nome SAMAccountName* para estes utilizadores pode ser gerado automaticamente. Utilize o formato UPN, como, por exemplo, `driley@aaddscontoso.com`para iniciar sessão fiavelmente num domínio gerido pelo Azure AD DS.
 
 ### <a name="attribute-mapping-for-user-accounts"></a>Mapeamento de atributos para contas de utilizador
 
@@ -57,27 +57,27 @@ A tabela que se segue ilustra como os atributos específicos para os objetos de 
 
 | Atributo do utilizador em Azure AD | Atributo do utilizador em Azure AD DS |
 |:--- |:--- |
-| accountEnabled |userAccountControl (define ou limpa a ACCOUNT_DISABLED bit) |
+| contaEnabled |userAccountControl (define ou limpa a ACCOUNT_DISABLED bit) |
 | city |l |
-| país |Co |
-| Departamento |Departamento |
+| país |co |
+| departamento |departamento |
 | displayName |displayName |
-| facsimileTelephoneNumber |facsimileTelephoneNumber |
-| givenName |givenName |
-| jobTitle |Título |
-| mail |mail |
-| mailNickname |msDS-AzureADMailNickname |
-| mailNickname |SAMAccountName (pode por vezes ser autogerado) |
-| móvel |móvel |
+| facsimilePhoneNumber |facsimilePhoneNumber |
+| nomeDado |nomeDado |
+| empregoTítulo |título |
+| correio |correio |
+| mailApelido |msDS-AzureADMailNickname |
+| mailApelido |SAMAccountName (pode por vezes ser autogerado) |
+| dispositivo móvel |dispositivo móvel |
 | objectide |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
 | passwordPolíticas |userAccountControl (define ou limpa a DONT_EXPIRE_PASSWORD bit) |
 | physicalDeliveryOfficeName |physicalDeliveryOfficeName |
-| postalCode |postalCode |
+| Código postal |Código postal |
 | língua preferida |língua preferida |
-| state |St |
+| state |SC |
 | streetAddress |streetAddress |
-| Apelido |sn |
+| surname |sn |
 | telefoneNúmero |telefoneNúmero |
 | userPrincipalName |userPrincipalName |
 
@@ -89,11 +89,11 @@ A tabela que se segue ilustra como os atributos específicos para objetos de gru
 |:--- |:--- |
 | displayName |displayName |
 | displayName |SAMAccountName (pode por vezes ser autogerado) |
-| mail |mail |
-| mailNickname |msDS-AzureADMailNickname |
+| correio |correio |
+| mailApelido |msDS-AzureADMailNickname |
 | objectide |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
-| segurançaHabilitado |grupoType |
+| segurançaHabilitado |tipodeGrupo |
 
 ## <a name="synchronization-from-on-premises-ad-ds-to-azure-ad-and-azure-ad-ds"></a>Sincronização de AD DS no local para Azure AD e Azure AD DS
 

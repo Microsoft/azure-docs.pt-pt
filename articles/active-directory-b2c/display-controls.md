@@ -12,10 +12,10 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 4998fb19e42e123edd57bfcf10931d594ac4cb44
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78188737"
 ---
 # <a name="display-controls"></a>Controlos de exibição
@@ -32,7 +32,7 @@ A imagem que se segue ilustra uma página de inscrição autoafirmada com dois c
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
- Na secção [metadados](self-asserted-technical-profile.md#metadata) de um [perfil técnico autoafirmado,](self-asserted-technical-profile.md)a [Definição](contentdefinitions.md) de Conteúdo referenciada precisa de ter `DataUri` definida seletiva para a versão de contrato de página 2.0.0 ou superior. Por exemplo:
+ Na secção [metadados](self-asserted-technical-profile.md#metadata) de um [perfil técnico autoafirmado,](self-asserted-technical-profile.md)o `DataUri` Conteúdo [Definido](contentdefinitions.md) referenciado precisa de ter definido para a versão de contrato de página 2.0.0 ou superior. Por exemplo:
 
 ```XML
 <ContentDefinition Id="api.selfasserted">
@@ -78,7 +78,7 @@ O exemplo que se segue prepovoa o endereço de e-mail a ser verificado com o end
 
 Cada tipo de controlo de exibição requer um conjunto diferente de reclamações de exibição, [alegações](#output-claims)de saída e [ações](#display-control-actions) a realizar.
 
-Semelhante às **alegações** de exibição definidas num [perfil técnico autoafirmado,](self-asserted-technical-profile.md#display-claims)as alegações de exibição representam as alegações a recolher junto do utilizador no controlo do ecrã. O elemento **ClaimType** referenciado precisa de especificar o elemento **UserInputType** para um tipo de entrada do utilizador suportado pelo Azure AD B2C, como `TextBox` ou `DropdownSingleSelect`. Se for exigido um valor de reclamação de visualização por uma **Ação,** detete o atributo **exigido** a `true` para forçar o utilizador a fornecer um valor para essa reclamação específica.
+Semelhante às **alegações** de exibição definidas num [perfil técnico autoafirmado,](self-asserted-technical-profile.md#display-claims)as alegações de exibição representam as alegações a recolher junto do utilizador no controlo do ecrã. O elemento **ClaimType** referenciado precisa de especificar o elemento **UserInputType** para um tipo de entrada `TextBox` `DropdownSingleSelect`do utilizador suportado pelo Azure AD B2C, tal como ou . Se for exigido um valor de reclamação **Required** de visualização `true` por uma **Ação,** detete o atributo necessário para forçar o utilizador a fornecer um valor para essa reclamação específica.
 
 São necessárias certas alegações de exibição para certos tipos de controlo de visualização. Por exemplo, o Código de **Verificação** é necessário para o controlo do ecrã do tipo Controlo de **Verificação**. Utilize o atributo **ControlClaimClaimType** para especificar qual o DisplayClaim designado para a reclamação necessária. Por exemplo:
 

@@ -1,5 +1,5 @@
 ---
-title: Inscrição combinada para SSPR e MFA - Diretório Ativo Azure
+title: Registo combinado para SSPR e MFA – Azure Active Directory
 description: Autenticação de vários fatores da AD Azure e registo de redefinição de senha de autosserviço (pré-visualização)
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4cb5aca128679b21072a2a3daa503dc43a8e2885
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78942882"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registo combinado de informações de segurança (pré-visualização)
@@ -34,12 +34,12 @@ O registo combinado de informações de segurança da Azure AD não está atualm
 |     |
 
 > [!IMPORTANT]
-> Os utilizadores que estejam habilitados tanto para a pré-visualização original como para a experiência de registo combinado melhorada verão o novo comportamento. Os utilizadores que estiverem habilitados para ambas as experiências verão apenas a nova experiência My Profile. O novo My Profile alinha-se com o aspeto e sensação de registo combinado e proporciona uma experiência perfeita para os utilizadores. Os utilizadores podem ver o Meu Perfil [indo ](https://myprofile.microsoft.com)para https://myprofile.microsoft.com.
+> Os utilizadores que estejam habilitados tanto para a pré-visualização original como para a experiência de registo combinado melhorada verão o novo comportamento. Os utilizadores que estiverem habilitados para ambas as experiências verão apenas a nova experiência My Profile. O novo My Profile alinha-se com o aspeto e sensação de registo combinado e proporciona uma experiência perfeita para os utilizadores. Os utilizadores podem ver [https://myprofile.microsoft.com](https://myprofile.microsoft.com)o Meu Perfil indo para .
 
 > [!NOTE] 
 > Pode encontrar uma mensagem de erro enquanto tenta aceder à opção de informação de segurança. Por exemplo, "Desculpe, não podemos inscrevê-lo". Neste caso, confirme que não tem qualquer configuração ou objeto de política de grupo que bloqueie cookies de terceiros no navegador web. 
 
-As minhas páginas de Perfil são localizadas com base nas definições linguísticas do computador que acede à página. A Microsoft armazena o idioma mais recente usado no cache do navegador, pelo que as tentativas subsequentes de aceder às páginas continuarão a renderizar no último idioma utilizado. Se limpar a cache, as páginas voltarão a renderizar. Se quiser forçar uma linguagem específica, pode adicionar `?lng=<language>` ao fim do URL, onde `<language>` é o código da linguagem que pretende renderizar.
+As minhas páginas de Perfil são localizadas com base nas definições linguísticas do computador que acede à página. A Microsoft armazena o idioma mais recente usado no cache do navegador, pelo que as tentativas subsequentes de aceder às páginas continuarão a renderizar no último idioma utilizado. Se limpar a cache, as páginas voltarão a renderizar. Se quiser forçar uma linguagem específica, `?lng=<language>` pode adicionar ao fim `<language>` do URL, onde está o código da linguagem que pretende renderizar.
 
 ![Criar SSPR ou outros métodos de verificação de segurança](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 
@@ -47,17 +47,17 @@ As minhas páginas de Perfil são localizadas com base nas definições linguís
 
 O registo combinado suporta os seguintes métodos e ações de autenticação:
 
-|   | Registar | Alteração | Eliminar |
+|   | Registar | Alterar | Eliminar |
 | --- | --- | --- | --- |
-| Autenticador da Microsoft | Sim (máximo de 5) | Não | Sim |
+| Microsoft Authenticator | Sim (máximo de 5) | Não | Sim |
 | Outra aplicação autenticadora | Sim (máximo de 5) | Não | Sim |
 | Ficha de hardware | Não | Não | Sim |
-| Phone | Sim | Sim | Sim |
+| Telefone | Sim | Sim | Sim |
 | Telefone alternativo | Sim | Sim | Sim |
 | Telefone do escritório | Não | Não | Não |
-| E-mail | Sim | Sim | Sim |
-| Questões de segurança | Sim | Não | Sim |
-| Palavras-passe de aplicativos | Sim | Não | Sim |
+| Email | Sim | Sim | Sim |
+| Perguntas de segurança | Sim | Não | Sim |
+| Palavras-passe da aplicação | Sim | Não | Sim |
 | Chaves de segurança FIDO2<br />*Modo gerido apenas a partir da página [de informações](https://mysignins.microsoft.com/security-info) de Segurança*| Sim | Sim | Sim |
 
 > [!NOTE]
@@ -113,7 +113,7 @@ Se a política de SSPR exigir que os utilizadores revejam as suas informações 
 
 ### <a name="manage-mode"></a>Gerir o modo
 
-Os utilizadores podem aceder ao modo de gestão [indo](https://aka.ms/mysecurityinfo) para https://aka.ms/mysecurityinfoou selecionando **informações** de Segurança a partir do Meu Perfil. A partir daí, os utilizadores podem adicionar métodos, eliminar ou alterar os métodos existentes, alterar o método predefinido e muito mais.
+Os utilizadores podem aceder [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) ao modo de gestão indo ou selecionando **informações** de Segurança a partir do Meu Perfil. A partir daí, os utilizadores podem adicionar métodos, eliminar ou alterar os métodos existentes, alterar o método predefinido e muito mais.
 
 ## <a name="key-usage-scenarios"></a>Cenários de utilização chave
 
@@ -127,17 +127,17 @@ Um utilizador não criou todas as informações de segurança necessárias e vai
 
 Um administrador não impôs o registo.
 
-Um utilizador que ainda não tenha configurado todas as informações de segurança necessárias vai para [https://myprofile.microsoft.com](https://myprofile.microsoft.com). O utilizador seleciona **informações de segurança** no painel esquerdo. A partir daí, o utilizador opta por adicionar um método, seleciona qualquer um dos métodos disponíveis e segue os passos para configurar esse método. Quando terminado, o utilizador vê o método que acabou de ser configurado na página de informações de Segurança.
+Um utilizador que ainda não tenha configurado todas [https://myprofile.microsoft.com](https://myprofile.microsoft.com)as informações de segurança necessárias vai para . O utilizador seleciona **informações de segurança** no painel esquerdo. A partir daí, o utilizador opta por adicionar um método, seleciona qualquer um dos métodos disponíveis e segue os passos para configurar esse método. Quando terminado, o utilizador vê o método que acabou de ser configurado na página de informações de Segurança.
 
 ### <a name="delete-security-info-from-my-profile"></a>Eliminar informações de segurança do Meu Perfil
 
-Um utilizador que já tenha configurado pelo menos um método navega para [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). O utilizador opta por eliminar um dos métodos previamente registados. Quando terminado, o utilizador já não vê esse método na página de informações de Segurança.
+Um utilizador que já tenha configurado pelo [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)menos um método navega para . O utilizador opta por eliminar um dos métodos previamente registados. Quando terminado, o utilizador já não vê esse método na página de informações de Segurança.
 
 ### <a name="change-the-default-method-from-my-profile"></a>Alterar o método padrão do Meu Perfil
 
-Um utilizador que já tenha configurado pelo menos um método que pode ser utilizado para a autenticação multi-factor navega para [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). O utilizador altera o método padrão atual para um método padrão diferente. Quando terminado, o utilizador vê o novo método predefinido na página de informações de Segurança.
+Um utilizador que já tenha configurado pelo menos um método que pode [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)ser utilizado para a autenticação multi-factor navega para . O utilizador altera o método padrão atual para um método padrão diferente. Quando terminado, o utilizador vê o novo método predefinido na página de informações de Segurança.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Forçar os utilizadores a reregistar métodos de autenticação](howto-mfa-userdevicesettings.md#manage-authentication-methods)
 
@@ -149,4 +149,4 @@ Um utilizador que já tenha configurado pelo menos um método que pode ser utili
 
 [Configurar o reset da palavra-passe de autosserviço](howto-sspr-deployment.md)
 
-[Configure Autenticação multi-factor Azure](howto-mfa-getstarted.md)
+[Configurar o Multi-Factor Authentication do Azure](howto-mfa-getstarted.md)

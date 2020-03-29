@@ -1,6 +1,6 @@
 ---
 title: Transformação de divisão condicional no fluxo de dados de mapeamento
-description: Dividir dados em fluxos diferentes usando a transformação Divisão condicional no fluxo de dados de mapeamento Azure Data Factory
+description: Divida dados em diferentes fluxos usando a transformação de divisão condicional no fluxo de dados de mapeamento da Fábrica de Dados azure
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/16/2019
 ms.openlocfilehash: d7e2af6c98951e685192656b37226716e4340bfe
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930435"
 ---
 # <a name="conditional-split-transformation-in-mapping-data-flow"></a>Transformação de divisão condicional no fluxo de dados de mapeamento
 
-A transformação Divisão condicional roteia as linhas de dados para diferentes fluxos com base em condições de correspondência. A transformação Divisão condicional é semelhante a uma estrutura de decisão de caso em uma linguagem de programação. A transformação avalia as expressões e, com base nos resultados, direciona a linha de dados para o fluxo especificado.
+A transformação de divisão condicional encaminha linhas de dados para diferentes fluxos com base em condições correspondentes. A transformação de divisão condicional é semelhante a uma estrutura de decisão do CASO numa linguagem de programação. A transformação avalia expressões e, com base nos resultados, direciona a linha de dados para o fluxo especificado.
 
 ## <a name="configuration"></a>Configuração
 
-A configuração **Split on** determina se a linha de dados flui para o primeiro fluxo de correspondência ou para cada fluxo ao qual ela corresponde.
+A **Divisão na** definição determina se a linha de dados flui para o primeiro fluxo correspondente ou para cada fluxo a que corresponde.
 
-Use o construtor de expressões de fluxo de dados para inserir uma expressão para a condição de divisão. Para adicionar uma nova condição, clique no ícone de adição em uma linha existente. Um fluxo padrão também pode ser adicionado para linhas que não correspondem a nenhuma condição.
+Utilize o construtor de expressão de fluxo de dados para introduzir uma expressão para a condição dividida. Para adicionar uma nova condição, clique no ícone plus numa linha existente. Um fluxo padrão também pode ser adicionado para linhas que não correspondem a qualquer condição.
 
-![Divisão condicional](media/data-flow/conditionalsplit1.png "opções de divisão condicional")
+![divisão condicional](media/data-flow/conditionalsplit1.png "opções de divisão condicional")
 
 ## <a name="data-flow-script"></a>Script de fluxo de dados
 
@@ -43,13 +43,13 @@ Use o construtor de expressões de fluxo de dados para inserir uma expressão pa
 
 ### <a name="example"></a>Exemplo
 
-O exemplo abaixo é uma transformação de divisão condicional chamada `SplitByYear` que usa o fluxo de entrada `CleanData`. Essa transformação tem duas condições de divisão `year < 1960` e `year > 1980`. `disjoint` é false porque os dados vão para a primeira condição de correspondência. Cada linha que corresponde à primeira condição vai para o fluxo de saída `moviesBefore1960`. Todas as linhas restantes que correspondem à segunda condição vão para o fluxo de saída `moviesAFter1980`. Todas as outras linhas fluem por meio do `AllOtherMovies`de fluxo padrão.
+O exemplo abaixo é uma `SplitByYear` transformação de `CleanData`divisão condicional chamada que acolhe o fluxo de entrada . Esta transformação tem `year < 1960` `year > 1980`duas condições divididas e. `disjoint`é falso porque os dados vão para a primeira condição correspondente. Cada linha correspondente à primeira `moviesBefore1960`condição vai para o fluxo de saída. Todas as linhas restantes correspondentes `moviesAFter1980`à segunda condição vão para o fluxo de saída . Todas as outras linhas `AllOtherMovies`fluem através do fluxo padrão .
 
-No Data Factory UX, essa transformação é semelhante à imagem abaixo:
+Na Fábrica de Dados UX, esta transformação parece a imagem abaixo:
 
-![Divisão condicional](media/data-flow/conditionalsplit1.png "opções de divisão condicional")
+![divisão condicional](media/data-flow/conditionalsplit1.png "opções de divisão condicional")
 
-O script de fluxo de dados para essa transformação está no trecho de código abaixo:
+O script de fluxo de dados para esta transformação está no corte abaixo:
 
 ```
 CleanData
@@ -62,4 +62,4 @@ CleanData
 
 ## <a name="next-steps"></a>Passos seguintes
 
-As transformações de fluxo de dados comuns usadas com divisão condicional são a [transformação de junção](data-flow-join.md), a [transformação de pesquisa](data-flow-lookup.md)e a [transformação selecionar](data-flow-select.md)
+As transformações comuns do fluxo de dados usadas com divisão condicional são a transformação de [join,](data-flow-join.md)a transformação de [lookup,](data-flow-lookup.md)e a [transformação selecionada](data-flow-select.md)

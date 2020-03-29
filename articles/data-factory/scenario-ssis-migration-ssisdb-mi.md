@@ -1,6 +1,6 @@
 ---
-title: Migração do SSIS com a instância gerenciada do banco de dados SQL do Azure como destino da carga de trabalho
-description: Migração do SSIS com a instância gerenciada do banco de dados SQL do Azure como o destino de carga de trabalho
+title: Migração SSIS com Base de Dados Azure SQL gerida como o destino da carga de trabalho da base de dados
+description: A migração do SSIS com a Base de Dados Azure SQL geriu a instância como o destino da carga de trabalho da base de dados.
 services: data-factory
 documentationcenter: ''
 author: chugugrace
@@ -12,35 +12,35 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/12/2019
 ms.openlocfilehash: 38010e3aaa2d0544dfbfe19135d25250d2b021a2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74929787"
 ---
-# <a name="ssis-migration-with-azure-sql-database-managed-instance-as-the-database-workload-destination"></a>Migração do SSIS com a instância gerenciada do banco de dados SQL do Azure como destino da carga de trabalho
+# <a name="ssis-migration-with-azure-sql-database-managed-instance-as-the-database-workload-destination"></a>Migração SSIS com Base de Dados Azure SQL gerida como o destino da carga de trabalho da base de dados
 
-Ao migrar cargas de trabalho de banco de dados do SQL Server local para a instância gerenciada do banco de dados SQL do Azure, você deve estar familiarizado com o [serviço de migração de data do Azure](https://docs.microsoft.com/azure/dms/dms-overview)(DMS) e as [topologias de rede para migrações de instância gerenciada do banco de dado SQL](https://docs.microsoft.com/azure/dms/resource-network-topologies)
+Ao migrar cargas de trabalho de base de dados do SQL Server nas instalações para a base de dados Azure SQL gerida, deve estar familiarizado com o Serviço de Migração de [Dados Azure](https://docs.microsoft.com/azure/dms/dms-overview)(DMS), e as topoologias de rede para a Base de [Dados Azure SQL geridas por migrações de instâncias utilizando DMS](https://docs.microsoft.com/azure/dms/resource-network-topologies).
 
-Este artigo se concentra na migração de pacotes do SSIS (serviço de integração do SQL Server) armazenados no catálogo do SSIS (SSISDB) e em trabalhos de SQL Server Agent que agendam execuções de pacotes SSIS.
+Este artigo centra-se na migração de pacotes do SQL Server Integration Service (SSIS) armazenados no catálogo SSIS (SSISDB) e no SQL Server Agent que programam execuções de pacotes SSIS.
 
-## <a name="migrate-ssis-catalog-ssisdb"></a>Migrar catálogo do SSIS (SSISDB)
+## <a name="migrate-ssis-catalog-ssisdb"></a>Catálogo Migrate SSIS (SSISDB)
 
-A migração do SSISDB pode ser feita usando DMS, conforme descrito no artigo: [migrar pacotes do SSIS para uma instância gerenciada do banco de dados SQL do Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages-managed-instance).
+A migração Do SSISDB pode ser feita utilizando DMS, conforme descrito no artigo: [Migrar pacotes SSIS para uma instância gerida](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages-managed-instance)pela Base de Dados Azure SQL .
 
-## <a name="ssis-jobs-to-azure-sql-database-managed-instance-agent"></a>Trabalhos do SSIS para o agente de instância gerenciada do banco de dados SQL
+## <a name="ssis-jobs-to-azure-sql-database-managed-instance-agent"></a>SSIS empregos para Azure SQL Database gerido agente de instância
 
-A instância gerenciada do banco de dados SQL do Azure tem um Agendador nativo de primeira classe, assim como SQL Server Agent local.  Como uma ferramenta de migração para trabalhos do SSIS ainda não está disponível, eles precisam ser migrados do SQL Server Agent local para o agente de instância gerenciada do banco de dados SQL do Azure por meio de scripts/cópia manual.
+A base de dados Azure SQL gerida tem um programador nativo de primeira classe, tal como o Agente de Servidores SQL nas instalações.  Uma vez que uma ferramenta de migração para empregos SSIS ainda não está disponível, estes têm de ser migrados do SQL Server Agent nas instalações para o Agente de instância gerido pela Azure SQL Database através de scripts/cópia manual.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction)
-- [Azure-SSIS Integration Runtime](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)
+- [Fábrica de Dados Azure](https://docs.microsoft.com/azure/data-factory/introduction)
+- [Tempo de execução de integração Azure-SSIS](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)
 - [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)
-- [Topologias de rede para migrações de instância gerenciada do banco de dados SQL do Azure usando DMS](https://docs.microsoft.com/azure/dms/resource-network-topologies)
-- [Migrar pacotes do SSIS para uma instância gerenciada do banco de dados SQL do Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages-managed-instance)
+- [Topologs de rede para Base de Dados Azure SQL gerida seletiva seletivas usando DMS](https://docs.microsoft.com/azure/dms/resource-network-topologies)
+- [Migrar pacotes do SSIS para uma instância gerida da Base de Dados SQL do Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages-managed-instance)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Conectar-se ao SSISDB no Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database)
-- [Executar pacotes do SSIS implantados no Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-run-packages)
+- [Ligue-se ao SSISDB em Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database)
+- [Executar pacotes SSIS implantados em Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-run-packages)

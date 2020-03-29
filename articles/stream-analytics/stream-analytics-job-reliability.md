@@ -1,6 +1,6 @@
 ---
-title: Evitar interrupções de serviços em tarefas do Azure Stream Analytics
-description: Este artigo descreve orientações sobre a realização de suas tarefas do Stream Analytics atualizar resiliente.
+title: Evite interrupções de serviço em empregos da Azure Stream Analytics
+description: Este artigo descreve orientações para tornar os seus trabalhos stream analytics atualizados resilientes.
 author: jseb225
 ms.author: sidram
 ms.reviewer: mamccrea
@@ -9,30 +9,30 @@ ms.topic: conceptual
 ms.date: 06/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: d2d21e081b274bd985c48dac91fff5203a6b5b8a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75425992"
 ---
-# <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>Garante a confiabilidade de tarefa do Stream Analytics durante as atualizações de serviço
+# <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>Garantia Stream Analytics fiabilidade do trabalho durante atualizações de serviço
 
-Parte do que está a ser um serviço totalmente gerido é a capacidade para introduzir novas funcionalidades de serviço e aprimoramentos rapidamente. Como resultado, o Stream Analytics pode ter uma atualização de serviço implementar numa base semanal (ou com mais frequência). Independentemente da quantidade de teste é realizado ainda há um risco de que uma tarefa existente, em execução pode ser interrompidos devido à introdução de um bug. Se você estiver executando trabalhos de missão crítica, esses riscos precisam ser evitados. Você pode reduzir esse risco seguindo o modelo de **[região emparelhada](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** do Azure. 
+Parte de ser um serviço totalmente gerido é a capacidade de introduzir novas funcionalidades de serviço e melhorias a um ritmo acelerado. Como resultado, o Stream Analytics pode ter uma atualização de serviço implementada semanalmente (ou mais frequente). Por muito que os testes sejam feitos, existe ainda o risco de um trabalho existente e em execução poder quebrar devido à introdução de um bug. Se está a gerir trabalhos críticos da missão, estes riscos têm de ser evitados. Pode reduzir este risco seguindo o modelo de **[região emparelhado](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** do Azure. 
 
-## <a name="how-do-azure-paired-regions-address-this-concern"></a>Como é que as regiões emparelhadas do Azure abordar esta questão?
+## <a name="how-do-azure-paired-regions-address-this-concern"></a>Como é que as regiões emparelhadas de Azure abordam esta preocupação?
 
-Stream Analytics garante tarefas em regiões emparelhadas são atualizadas em lotes separados. Como resultado, há um intervalo de tempo suficiente entre as atualizações para identificar possíveis problemas e corrigi-los.
+Stream Analytics garante que os postos de trabalho em regiões emparelhadas são atualizados em lotes separados. Como resultado, existe um espaço de tempo suficiente entre as atualizações para identificar potenciais problemas e corrigi-los.
 
-_Com exceção da Índia Central_ (cujo região emparelhada, Sul da Índia, não tem a presença de Stream Analytics), a implementação de uma atualização para o Stream Analytics não ocorreria ao mesmo tempo num conjunto de regiões emparelhadas. Implementações em várias regiões **no mesmo grupo de** pode ocorrer **ao mesmo tempo**.
+_Com exceção da Índia Central_ (cuja região emparelhada, a Índia do Sul, não tem presença no Stream Analytics), a implantação de uma atualização para o Stream Analytics não ocorreria ao mesmo tempo num conjunto de regiões emparelhadas. As implantações em várias regiões **do mesmo grupo** podem ocorrer ao mesmo **tempo**.
 
-O artigo sobre **[disponibilidade e regiões emparelhadas](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** tem as informações mais atualizadas em que regiões são emparelhadas.
+O artigo sobre **[disponibilidade e regiões emparelhadas](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** tem a informação mais atualizada sobre quais as regiões que estão emparelhadas.
 
-É recomendável implantar trabalhos idênticos em ambas as regiões emparelhadas. Em seguida, você deve [monitorar esses trabalhos](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor) para ser notificado quando algo inesperado ocorrer. Se um desses trabalhos terminar em um estado de [falha](https://docs.microsoft.com/azure/stream-analytics/job-states) após uma atualização de serviço Stream Analytics, você poderá entrar em contato com o atendimento ao cliente para ajudar a identificar a causa raiz. Você também deve fazer failover de todos os consumidores downstream para a saída do trabalho íntegro.
+Recomenda-se a implantação de postos de trabalho idênticos em ambas as regiões emparelhadas. Deve [então monitorizar estes trabalhos](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor) para ser notificado quando algo inesperado acontece. Se um destes trabalhos acabar num [estado falhado](https://docs.microsoft.com/azure/stream-analytics/job-states) após uma atualização de serviço stream analytics, pode contactar o apoio do cliente para ajudar a identificar a causa principal. Também deve falhar em relação a quaisquer consumidores a jusante para a produção saudável de emprego.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução ao Stream Analytics](stream-analytics-introduction.md)
 * [Introdução ao Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar tarefas do Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência de linguagem de consulta do Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência da REST API de gestão de análise de Stream](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência de linguagem de consulta stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência rest API de gestão stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

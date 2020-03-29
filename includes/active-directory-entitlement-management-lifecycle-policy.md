@@ -9,10 +9,10 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.custom: include file
 ms.openlocfilehash: e971af5d415ea788f97ab11b58541e629c7eb0ed
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76694365"
 ---
 ## <a name="lifecycle"></a>Ciclo de vida

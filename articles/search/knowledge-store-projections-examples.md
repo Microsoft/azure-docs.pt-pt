@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/15/2020
 ms.openlocfilehash: 23c370289669c2dde4f8969a2921018cd0abc08c
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78943669"
 ---
 # <a name="knowledge-store-projections-how-to-shape-and-export-enrichments"></a>Projeções de lojas de conhecimento: Como moldar e exportar enriquecimentos
 
 > [!IMPORTANT] 
-> A loja de conhecimento está atualmente em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [versão REST API 2019-05-06-Preview](search-api-preview.md) fornece funcionalidades de pré-visualização. Existe atualmente um suporte de portal limitado e nenhum suporte sdk .NET.
+> A loja de conhecimento está atualmente em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure . A [versão REST API 2019-05-06-Preview](search-api-preview.md) fornece funcionalidades de pré-visualização. Existe atualmente um suporte de portal limitado e nenhum suporte sdk .NET.
 
 As projeções são a expressão física de documentos enriquecidos numa loja de conhecimento. O uso eficaz dos seus documentos enriquecidos requer estrutura. Neste artigo, você vai explorar tanto a estrutura como as relações, aprendendo como construir propriedades de projeção, bem como como relacionar dados entre os tipos de projeção que cria. 
 
@@ -200,13 +200,13 @@ Para entender a intersecção entre a modelação de dados e as projeções, usa
 }
 ```
 
-Utilizando este skillset, com o seu nulo `knowledgeStore` como base, o nosso primeiro exemplo preenche o `knowledgeStore` objeto, configurado com projeções que criam estruturas de dados tabular que podemos usar noutros cenários. 
+Utilizando este skillset, `knowledgeStore` com o seu nulo como base, o nosso primeiro exemplo preenche o `knowledgeStore` objeto, configurado com projeções que criam estruturas de dados tabular que podemos usar noutros cenários. 
 
 ## <a name="projecting-to-tables"></a>Projeção para mesas
 
 Projetar para tabelas em Armazenamento Azure é útil para reportar e analisar usando ferramentas como Power BI. O Power BI pode ler a partir de mesas e descobrir relações com base nas teclas que são geradas durante a projeção. Se está a tentar construir um dashboard, ter dados relacionados simplificará essa tarefa. 
 
-Vamos supor que estamos a tentar construir um painel onde possamos visualizar as frases-chave extraídas de documentos como uma nuvem de palavras. Para criar a estrutura de dados certa, podemos adicionar uma habilidade Shaper ao skillset para criar uma forma personalizada que tenha os detalhes específicos do documento e frases-chave. A forma personalizada será chamada `pbiShape` no nó raiz `document`.
+Vamos supor que estamos a tentar construir um painel onde possamos visualizar as frases-chave extraídas de documentos como uma nuvem de palavras. Para criar a estrutura de dados certa, podemos adicionar uma habilidade Shaper ao skillset para criar uma forma personalizada que tenha os detalhes específicos do documento e frases-chave. A forma personalizada `pbiShape` será `document` chamada no nó raiz.
 
 > [!NOTE] 
 > As projeções de tabelas são tabelas de armazenamento Azure, regidas pelos limites de armazenamento impostos pelo Armazenamento Azure. Para mais informações, consulte [os limites](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model)de armazenamento da mesa. É útil saber que o tamanho da entidade não pode exceder 1 MB e uma única propriedade não pode ser maior do que 64 KB. Estes constrangimentos fazem das tabelas uma boa solução para armazenar um grande número de pequenas entidades.
@@ -215,12 +215,12 @@ Vamos supor que estamos a tentar construir um painel onde possamos visualizar as
 
 Crie uma forma personalizada que possa projetar para armazenamento de mesa. Sem uma forma personalizada, uma projeção só pode referir um único nó (uma projeção por saída). Criar uma forma personalizada permite-lhe agregar vários elementos num novo todo lógico que pode ser projetado como uma única mesa, ou fatiado e distribuído por uma coleção de mesas. 
 
-Neste exemplo, a forma personalizada combina metadados e entidades identificadas e frases-chave. O objeto chama-se `pbiShape` e é pai sob `/document`. 
+Neste exemplo, a forma personalizada combina metadados e entidades identificadas e frases-chave. O objeto `pbiShape` é chamado e `/document`é pai sob . 
 
 > [!IMPORTANT] 
 > Um dos objetivos da formação é garantir que todos os nós de enriquecimento sejam expressos em JSON bem formado, que é necessário para projetar para a loja de conhecimento. Isto é especialmente verdade quando uma árvore de enriquecimento contém nós que não são bem formados JSON (por exemplo, quando um enriquecimento é pai de um primitivo como uma corda).
 >
-> Reparem nos dois últimos nós, `KeyPhrases` e `Entities`. Estes são embrulhados num objeto JSON válido com o `sourceContext`. Isto é necessário como `keyphrases` e `entities` são enriquecimentos em primitivos e precisam de ser convertidos para JSON válido antes de poderem ser projetados.
+> Reparem nos últimos `KeyPhrases` dois `Entities`nós, e. Estes são embrulhados num objeto JSON válido com o `sourceContext`. Isto é necessário `keyphrases` `entities` como e são enriquecimentos em primitivos e precisa ser convertido para JSON válido antes de ser projetado.
 >
 
 
@@ -304,7 +304,7 @@ Adicione a habilidade de Shaper acima à habilidade.
 }  
 ```
 
-Agora que temos todos os dados necessários para projetar para as tabelas, atualizar o objeto knowledgeStore com as definições de tabela. Neste exemplo, temos três tabelas, definidas pela definição das propriedades `tableName`, `source` e `generatedKeyName`.
+Agora que temos todos os dados necessários para projetar para as tabelas, atualizar o objeto knowledgeStore com as definições de tabela. Neste exemplo, temos três tabelas, `tableName`definidas pela definição do , `source` e `generatedKeyName` propriedades.
 
 ```json
 "knowledgeStore" : {
@@ -337,7 +337,7 @@ Agora que temos todos os dados necessários para projetar para as tabelas, atual
 
 Pode processar o seu trabalho seguindo estes passos:
 
-1. Deteto a propriedade ```storageConnectionString``` para uma cadeia de conexão de conta de armazenamento de propósito geral V2 válida.  
+1. Deteto a ```storageConnectionString``` propriedade numa cadeia de ligação de conta de armazenamento de uso geral V2 válida.  
 
 1. Atualize a habilidade através da emissão do pedido PUT.
 
@@ -351,23 +351,23 @@ Antes de seguir em frente no exemplo seguinte, vamos revisitar aspetos da proje�
 
 Cortar é uma técnica que subdivide toda uma forma consolidada em partes constituintes. O resultado consiste em tabelas separadas mas relacionadas com as que pode trabalhar individualmente.
 
-No exemplo, `pbiShape` é a forma consolidada (ou nó de enriquecimento). Na definição de projeção, `pbiShape` é cortado em tabelas adicionais, o que lhe permite retirar partes da forma, ```keyPhrases``` e ```Entities```. No Power BI, isto é útil, uma vez que várias entidades e teclas Estão associadas a cada documento, e você terá mais insights se você pode ver entidades e chavePhrases como dados categorizados.
+No exemplo, `pbiShape` é a forma consolidada (ou nó de enriquecimento). Na definição `pbiShape` de projeção, é cortado em tabelas adicionais, ```keyPhrases``` o ```Entities```que lhe permite retirar partes da forma, e . No Power BI, isto é útil, uma vez que várias entidades e teclas Estão associadas a cada documento, e você terá mais insights se você pode ver entidades e chavePhrases como dados categorizados.
 
-Cortar gera implicitamente uma relação entre as mesas dos pais e das crianças, utilizando o ```generatedKeyName``` na mesa dos pais para criar uma coluna com o mesmo nome na mesa da criança. 
+Cortar implicitamente gera uma relação entre as mesas ```generatedKeyName``` dos pais e das crianças, utilizando a tabela dos pais para criar uma coluna com o mesmo nome na mesa da criança. 
 
 ### <a name="naming-relationships"></a>Relações de nomeação
 
-As propriedades ```generatedKeyName``` e ```referenceKeyName``` são usadas para relacionar dados entre tabelas ou mesmo em tipos de projeção. Cada linha na tabela/projeção da criança tem uma propriedade que aponta para o progenitor. O nome da coluna ou propriedade da criança é o ```referenceKeyName``` do progenitor. Quando o ```referenceKeyName``` não é prestado, o serviço desfaz-se do ```generatedKeyName``` do progenitor. 
+As ```generatedKeyName``` ```referenceKeyName``` propriedades e propriedades são usadas para relacionar dados entre tabelas ou mesmo em tipos de projeção. Cada linha na tabela/projeção da criança tem uma propriedade que aponta para o progenitor. O nome da coluna ou propriedade ```referenceKeyName``` da criança é do progenitor. Quando ```referenceKeyName``` o não é fornecido, o ```generatedKeyName``` serviço desfaz-o ao do progenitor. 
 
-O Power BI baseia-se nestas chaves geradas para descobrir relações dentro das tabelas. Se precisar da coluna na mesa infantil com o nome diferente, coloque a propriedade ```referenceKeyName``` na mesa dos pais. Um exemplo seria definir o ```generatedKeyName``` como ID na tabela pbiDocument e o ```referenceKeyName``` como DocumentID. Isto resultaria na coluna nas tabelas pbiEntidades e pbiKeyPhrases que continham o id do documento sendo nomeado DocumentID.
+O Power BI baseia-se nestas chaves geradas para descobrir relações dentro das tabelas. Se precisar da coluna na mesa infantil com ```referenceKeyName``` o nome diferente, coloque a propriedade na mesa dos pais. Um exemplo seria definir ```generatedKeyName``` o ID como ID na ```referenceKeyName``` tabela pbiDocument e no documentoID. Isto resultaria na coluna nas tabelas pbiEntidades e pbiKeyPhrases que continham o id do documento sendo nomeado DocumentID.
 
 ## <a name="projecting-to-objects"></a>Projeção de objetos
 
 As projeções de objetos não têm as mesmas limitações que as projeções de tabela e são mais adequadas para a projeção de grandes documentos. Neste exemplo, projetamos todo o documento para uma projeção de objetos. As projeções dos objetos limitam-se a uma única projeção num recipiente e não podem ser cortadas.
 
-Para definir uma projeção de objetos, usaremos a matriz ```objects``` nas projeções. Pode gerar uma nova forma utilizando a habilidade Shaper ou utilizar a formação linear da projeção do objeto. Embora o exemplo das tabelas tenha demonstrado a abordagem de criar uma forma e cortar, este exemplo demonstra o uso da formação linear. 
+Para definir uma projeção de ```objects``` objetos, usaremos a matriz nas projeções. Pode gerar uma nova forma utilizando a habilidade Shaper ou utilizar a formação linear da projeção do objeto. Embora o exemplo das tabelas tenha demonstrado a abordagem de criar uma forma e cortar, este exemplo demonstra o uso da formação linear. 
 
-A formação inline é a capacidade de criar uma nova forma na definição das inputs para uma projeção. A formação inline cria um objeto anónimo idêntico ao que uma habilidade Shaper produziria (no nosso caso, `pbiShape`). A formação inline é útil se estiver a definir uma forma que não planeia reutilizar.
+A formação inline é a capacidade de criar uma nova forma na definição das inputs para uma projeção. A formação inline cria um objeto anónimo idêntico ao que uma `pbiShape`habilidade Shaper produziria (no nosso caso, ). A formação inline é útil se estiver a definir uma forma que não planeia reutilizar.
 
 A propriedade de projeções é uma matriz. Para este exemplo, estamos adicionando uma nova exemplo de projeção à matriz, onde a definição de knowledgeStore contém projeções line. Ao utilizar projeções inline, pode omitir a habilidade shaper.
 
@@ -426,7 +426,7 @@ A propriedade de projeções é uma matriz. Para este exemplo, estamos adicionan
 
 As projeções de ficheiros são imagens que são extraídas do documento de origem ou saídas de enriquecimento que podem ser projetadas fora do processo de enriquecimento. As projeções de ficheiros, semelhantes às projeções de objetos, são implementadas como bolhas no Armazenamento Azure, e contêm a imagem. 
 
-Para gerar uma projeção de ficheiros, usamos a matriz `files` no objeto de projeção. Este exemplo projeta todas as imagens extraídas do documento para um contentor chamado `samplefile`.
+Para gerar uma projeção `files` de ficheiros, usamos a matriz no objeto de projeção. Este exemplo projeta todas as imagens extraídas do documento para um contentor chamado `samplefile`.
 
 ```json
 "knowledgeStore" : {
@@ -463,7 +463,7 @@ Estas alterações refletem-se na definição do knowledgeStore mais abaixo.
 
 ### <a name="shape-data-for-cross-projection"></a>Dados de forma para projeção cruzada
 
-Para obter as formas que precisamos para estas projeções, comece por adicionar uma nova habilidade Shaper que cria um objeto em forma chamado `crossProjection`. 
+Para obter as formas que precisamos para estas projeções, comece por `crossProjection`adicionar uma nova habilidade Shaper que cria um objeto em forma chamado . 
 
 ```json
 {
@@ -661,13 +661,13 @@ Ao construir projeções de diferentes tipos, as projeções de ficheiros e obje
 
 Ao definir uma projeção, existem algumas questões comuns que podem causar resultados inesperados. Verifique estes problemas se a produção na loja de conhecimento não é o que se espera.
 
-+ Não moldar enriquecimentos de cordas em JSON válido. Quando as cordas são enriquecidas, por exemplo `merged_content` enriquecidas com frases-chave, a propriedade enriquecida é representada como uma criança de `merged_content` dentro da árvore de enriquecimento. A representação padrão não é bem formada JSON. Assim, no momento da projeção, certifique-se de transformar o enriquecimento num objeto JSON válido com um nome e um valor.
++ Não moldar enriquecimentos de cordas em JSON válido. Quando as cordas são enriquecidas, por exemplo `merged_content` enriquecidas com frases-chave, a propriedade enriquecida é representada como uma criança dentro da árvore de `merged_content` enriquecimento. A representação padrão não é bem formada JSON. Assim, no momento da projeção, certifique-se de transformar o enriquecimento num objeto JSON válido com um nome e um valor.
 
-+ Omitindo o ```/*``` no final de um caminho de origem. Se a fonte de uma projeção for `/document/pbiShape/keyPhrases`, a matriz de frases-chave é projetada como um único objeto/linha. Em vez disso, desloque o caminho de origem para `/document/pbiShape/keyPhrases/*` para produzir uma única linha ou objeto para cada uma das frases-chave.
++ Omitindo o ```/*``` final de um caminho de origem. Se a fonte de `/document/pbiShape/keyPhrases`uma projeção for, a matriz de frases-chave é projetada como um único objeto/linha. Em vez disso, `/document/pbiShape/keyPhrases/*` desloque o caminho de origem para produzir uma única linha ou objeto para cada uma das frases-chave.
 
 + Erros de sintaxe de caminho. Os selecionadores de trajetória são sensíveis a casos e podem levar a avisos de entrada em falta se não utilizar a caixa exata para o seletor.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Os exemplos deste artigo demonstram padrões comuns sobre como criar projeções. Agora que tem uma boa compreensão dos conceitos, está mais bem equipado para construir projeções para o seu cenário específico.
 

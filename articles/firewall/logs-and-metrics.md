@@ -1,5 +1,5 @@
 ---
-title: Visão geral dos logs e das métricas do firewall do Azure
+title: Visão geral dos registos e métricas da Firewall Azure
 description: Pode monitorizar os registos do Azure Firewall com registos de firewall. Também pode utilizar os registos de atividades para auditar operações nos recursos do Azure Firewall.
 services: firewall
 author: vhorne
@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 01/22/2020
 ms.author: victorh
 ms.openlocfilehash: 89c6700d5df3bcef1332121c3cf7d8f720fe054c
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76315036"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Registos e métricas do Azure Firewall
 
 Pode monitorizar os registos do Azure Firewall com registos de firewall. Também pode utilizar os registos de atividades para auditar operações nos recursos do Azure Firewall.
 
-Pode aceder a alguns destes registos através do portal. Os logs podem ser enviados para [Azure monitor logs](../azure-monitor/insights/azure-networking-analytics.md), armazenamento e hubs de eventos e analisados em logs de Azure monitor ou ferramentas diferentes, como Excel e Power bi.
+Pode aceder a alguns destes registos através do portal. Os registos podem ser enviados para [registos do Monitor Azure,](../azure-monitor/insights/azure-networking-analytics.md)Storage e Event Hubs e analisados em registos do Monitor Azure ou por diferentes ferramentas como o Excel e o Power BI.
 
-As métricas são leves e podem dar suporte a cenários quase em tempo real, tornando-as úteis para alertas e detecção rápida de problemas.
+As métricas são leves e podem suportar cenários próximos em tempo real tornando-os úteis para alertar e detetar rapidamente problemas.
 
 ## <a name="diagnostic-logs"></a>Registos de diagnósticos
 
@@ -28,7 +28,7 @@ As métricas são leves e podem dar suporte a cenários quase em tempo real, tor
 
 * **Registo de regra de Aplicação**
 
-   O log de regras de aplicativo é salvo em uma conta de armazenamento, transmitida para os hubs de eventos e/ou enviados para Azure Monitor logs somente se você o tiver habilitado para cada Firewall do Azure. Cada nova ligação que corresponde a uma das suas regras de aplicação configuradas resulta num registo da ligação aceite/negada. Os dados são registados no formato JSON, conforme mostrado no exemplo seguinte:
+   O registo de regras da Aplicação é guardado numa conta de armazenamento, transmitido para os hubs do Evento e/ou enviado para registos do Monitor Azure apenas se o tiver ativado para cada Firewall Azure. Cada nova ligação que corresponde a uma das suas regras de aplicação configuradas resulta num registo da ligação aceite/negada. Os dados são registados no formato JSON, conforme mostrado no exemplo seguinte:
 
    ```
    Category: application rule logs.
@@ -51,7 +51,7 @@ As métricas são leves e podem dar suporte a cenários quase em tempo real, tor
 
 * **Registo de regra de Rede**
 
-   O log de regras de rede é salvo em uma conta de armazenamento, transmitida para os hubs de eventos e/ou enviados para Azure Monitor logs somente se você o tiver habilitado para cada Firewall do Azure. Cada nova ligação que corresponde a uma das suas regras de rede configuradas resulta num registo da ligação aceite/negada. Os dados são registados no formato JSON, conforme mostrado no exemplo seguinte:
+   O registo de regras da Rede é guardado numa conta de armazenamento, transmitido para os hubs do Evento e/ou enviado para registos do Monitor Azure apenas se o tiver ativado para cada Firewall Azure. Cada nova ligação que corresponde a uma das suas regras de rede configuradas resulta num registo da ligação aceite/negada. Os dados são registados no formato JSON, conforme mostrado no exemplo seguinte:
 
    ```
    Category: network rule logs.
@@ -77,55 +77,55 @@ Tem três opções para armazenar os registos:
 
 * **Conta de armazenamento**: as contas de armazenamento são ideais para os registos quando estes são armazenados durante um período mais longo e revistos quando necessário.
 * **Hubs de eventos**: os Hubs de eventos são uma excelente opção para integrar com outras informações de segurança e ferramentas de gestão de eventos (SEIM) para obter alertas sobre os seus recursos.
-* **Logs de Azure monitor**: os logs de Azure monitor são mais bem usados para o monitoramento geral em tempo real de seu aplicativo ou a análise de tendências.
+* **Registos do Monitor Azure:** Os registos do Monitor Azure são melhor utilizados para a monitorização geral em tempo real da sua aplicação ou para analisar as tendências.
 
 ## <a name="activity-logs"></a>Registos de atividade
 
    As entradas de registos de atividades são recolhidas por predefinição e pode visualizá-las no portal do Azure.
 
-   Você pode usar [os logs de atividades do Azure](../azure-resource-manager/management/view-activity-logs.md) (anteriormente conhecidos como logs operacionais e logs de auditoria) para exibir todas as operações enviadas à sua assinatura do Azure.
+   Pode utilizar registos de atividade do [Azure](../azure-resource-manager/management/view-activity-logs.md) (anteriormente conhecidos como registos operacionais e registos de auditoria) para visualizar todas as operações submetidas à sua subscrição azure.
 
 ## <a name="metrics"></a>Métricas
 
-As métricas em Azure Monitor são valores numéricos que descrevem algum aspecto de um sistema em um determinado momento. As métricas são coletadas a cada minuto e são úteis para alertas porque podem ser amostradas com frequência. Um alerta pode ser acionado rapidamente com lógica relativamente simples.
+As métricas no Monitor Azure são valores numéricos que descrevem algum aspeto de um sistema num determinado momento. As métricas são recolhidas a cada minuto, e são úteis para alertar porque podem ser amostradas com frequência. Um alerta pode ser disparado rapidamente com uma lógica relativamente simples.
 
-As seguintes métricas estão disponíveis para o Firewall do Azure:
+As seguintes métricas estão disponíveis para o Firewall Azure:
 
-- **Contagem de ocorrências de regras de aplicativo** -o número de vezes que uma regra de aplicativo foi atingida.
-
-    Unidade: contagem
-
-- **Contagem de ocorrências de regras de rede** -o número de vezes que uma regra de rede foi atingida.
+- As regras de **candidatura atingem a contagem** - O número de vezes que uma regra de candidatura foi atingida.
 
     Unidade: contagem
 
-- **Dados processados** -quantidade de dados atravessando o firewall.
+- As regras da **rede atingem a contagem** - O número de vezes que uma regra de rede foi atingida.
+
+    Unidade: contagem
+
+- **Dados processados** - Quantidade de dados que atravessam a firewall.
 
     Unidade: bytes
 
-- **Estado de integridade do firewall** – indica a integridade do firewall com base na disponibilidade da porta SNAT.
+- Firewall estado de **saúde** - Indica a saúde da firewall com base na disponibilidade da porta SNAT.
 
-    Unidade: porcentagem
+    Unidade: por cento
 
-   Essa métrica tem duas dimensões:
-  - Status: os valores possíveis estão *íntegros*, *degradados*, não *íntegros*.
-  - Motivo: indica o motivo do status correspondente do firewall. 
+   Esta métrica tem duas dimensões:
+  - Estado: Os valores possíveis são *saudáveis,* *degradados,* *insalubres.*
+  - Razão: Indica a razão do estado correspondente da firewall. 
 
-     Se as portas SNAT forem usadas > 95%, elas serão consideradas esgotadas e a integridade será 50% com status =**degradado** e motivo =**porta SNAT**. O firewall mantém o tráfego de processamento e as conexões existentes não são afetadas. No entanto, novas conexões podem não ser estabelecidas de forma intermitente.
+     Se as portas SNAT forem utilizadas > 95%, são consideradas exaustas e a saúde é de 50% com estatuto=**Degradada** e razão=**Porta SNAT**. A firewall continua a processar o tráfego e as ligações existentes não são afetadas. No entanto, novas ligações podem não ser estabelecidas intermitentemente.
 
-     Se as portas SNAT forem usadas < 95%, o firewall será considerado íntegro e a integridade será mostrada como 100%.
+     Se as portas SNAT forem usadas < 95%, então a firewall é considerada saudável e a saúde é mostrada como 100%.
 
-     Se nenhum uso de portas SNAT for relatado, a integridade será mostrada como 0%. 
+     Se não for reportado o uso das portas SNAT, a saúde é mostrada como 0%. 
 
-- **Utilização da porta SNAT** -a porcentagem de portas SNAT que foram utilizadas pelo firewall.
+- **Utilização da porta SNAT** - A percentagem de portas SNAT que foram utilizadas pela firewall.
 
-    Unidade: porcentagem
+    Unidade: por cento
 
-   Quando você adiciona mais endereços IP públicos ao firewall, mais portas SNAT estão disponíveis, reduzindo a utilização de portas SNAT. Além disso, quando o firewall é dimensionado por diferentes motivos (por exemplo, CPU ou taxa de transferência) portas SNAT adicionais também ficam disponíveis. De modo eficaz, um determinado percentual de utilização de portas SNAT pode ficar inativo sem a adição de endereços IP públicos, apenas porque o serviço foi expandido. Você pode controlar diretamente o número de endereços IP públicos disponíveis para aumentar as portas disponíveis no firewall. Mas, você não pode controlar diretamente o dimensionamento de firewall. Atualmente, as portas SNAT são adicionadas somente aos cinco primeiros endereços IP públicos.   
+   Quando adiciona mais endereços IP públicos à sua firewall, existem mais portas SNAT disponíveis, reduzindo a utilização das portas SNAT. Adicionalmente, quando a firewall se esescala por diferentes razões (por exemplo, CPU ou entrada) também ficam disponíveis portas SNAT adicionais. Assim, efetivamente, uma determinada percentagem de utilização de portas SNAT pode diminuir sem que você adicione quaisquer endereços IP públicos, apenas porque o serviço escalou. Pode controlar diretamente o número de endereços IP públicos disponíveis para aumentar as portas disponíveis na sua firewall. Mas não se pode controlar diretamente a escala de firewall. Atualmente, as portas SNAT são adicionadas apenas para os primeiros cinco endereços IP públicos.   
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para saber como monitorar os logs e as métricas do firewall do Azure, consulte [tutorial: monitorar logs de firewall do Azure](tutorial-diagnostics.md).
+- Para aprender a monitorizar os registos e métricas da Firewall Azure, consulte [Tutorial: Monitor Azure Firewall logs](tutorial-diagnostics.md).
 
-- Para saber mais sobre as métricas em Azure Monitor, consulte [métricas em Azure monitor](../azure-monitor/platform/data-platform-metrics.md).
+- Para saber mais sobre métricas no Monitor Azure, consulte [Métricas no Monitor Azure](../azure-monitor/platform/data-platform-metrics.md).

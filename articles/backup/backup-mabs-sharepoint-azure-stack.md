@@ -4,10 +4,10 @@ description: Utilize o Servidor de Backup Azure para fazer backup e restaurar os
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: d080605022cadf121fa6be99c9758fe9c0d878ef
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78673046"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Back up a SharePoint farm on Azure Stack
@@ -36,7 +36,7 @@ O agente de backup Azure deve ser instalado no servidor que está a executar o S
 
 ### <a name="sharepoint-farm"></a>Farm do SharePoint
 
-Por cada 10 milhões de itens na exploração, deve haver pelo menos 2 GB de espaço no volume onde está localizada a pasta MABS. Este espaço é necessário para a geração de catálogos. Para que o MABS recupere itens específicos (coleções de sites, sites, listas, bibliotecas de documentos, pastas, documentos individuais e itens de lista), a geração de catálogos cria uma lista dos URLs que estão contidos em cada base de dados de conteúdos. Pode visualizar a lista de URLs no painel de itens recuperável na área de tarefa de **recuperação** da Consola de Administrador MABS.
+Por cada 10 milhões de itens na exploração, deve haver pelo menos 2 GB de espaço no volume onde está localizada a pasta MABS. Este espaço é necessário para a geração do catálogo. Para que o MABS recupere itens específicos (coleções de sites, sites, listas, bibliotecas de documentos, pastas, documentos individuais e itens de lista), a geração de catálogos cria uma lista dos URLs que estão contidos em cada base de dados de conteúdos. Pode visualizar a lista de URLs no painel de itens recuperável na área de tarefa de **recuperação** da Consola de Administrador MABS.
 
 ### <a name="sql-server"></a>SQL Server
 
@@ -49,17 +49,17 @@ Se a exploração do SharePoint tiver bases de dados do SQL Server que estejam c
 * O MABS que protege uma quinta do SharePoint não protege índices de pesquisa ou bases de dados de serviços de aplicação. Terá de configurar separadamente a proteção destas bases de dados.
 * O MABS não fornece cópias de segurança das bases de dados do SharePoint SQL Server que estão alojadas em ações do servidor de ficheiros scale-out (SOFS).
 
-## <a name="configure-sharepoint-protection"></a>Configurar a proteção do SharePoint
+## <a name="configure-sharepoint-protection"></a>Configure a proteção SharePoint
 
 Antes de poder utilizar o MABS para proteger o SharePoint, tem de configurar o serviço SharePoint VSS Writer (serviço WSS Writer) utilizando **o ConfigureSharePoint.exe**.
 
-Pode encontrar **ConfigureSharePoint.exe** na pasta [MABS Installation Path]\bin no servidor web frontal. Esta ferramenta fornece ao agente de proteção as credenciais para a exploração SharePoint. Execute-o num único servidor WFE. Se tiver vários servidores WFE, selecione apenas um quando configurar um grupo de proteção.
+Pode encontrar **ConfigureSharePoint.exe** na pasta [MABS Installation Path]\bin no servidor web frontal. Esta ferramenta fornece ao agente de proteção as credenciais para a exploração SharePoint. Executa-o num único servidor WFE. Se tiver vários servidores WFE, selecione apenas um quando configurar um grupo de proteção.
 
 ### <a name="to-configure-the-sharepoint-vss-writer-service"></a>Para configurar o serviço SharePoint VSS Writer
 
 1. No servidor WFE, a uma solicitação de comando, vá para [localização de instalação MABS]\bin\
 2. Introduza configuração -EnableSharePointProtection.
-3. Insira as credenciais do administrador da fazenda. Esta conta deve ser um membro do grupo de administrador local no servidor WFE. Se o administrador da fazenda não for um administrador local, conceda as seguintes permissões no servidor WFE:
+3. Introduza as credenciais de administrador do farm. Esta conta deve ser um membro do grupo de Administrador local no servidor WFE. Se o administrador da fazenda não for um administrador local, conceda as seguintes permissões no servidor WFE:
    * Conceda o WSS_Admin_WPG controlo total do grupo à pasta DPM (%Program Files%\Microsoft Azure Backup\DPM).
    * Conceda o WSS_Admin_WPG grupo ler o acesso à chave de registo dPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
@@ -75,7 +75,7 @@ Depois de configurar o MABS e a quinta SharePoint, como explicado anteriormente,
 ### <a name="to-protect-a-sharepoint-farm"></a>Para proteger uma quinta do SharePoint
 
 1. A partir do separador **Proteção** da Consola de Administrador MABS, clique em **New**.
-    ![novo separador de proteção](./media/backup-azure-backup-sharepoint/dpm-new-protection-tab.png)
+    ![Novo Separador de Proteção](./media/backup-azure-backup-sharepoint/dpm-new-protection-tab.png)
 2. Na página Do Tipo do Grupo de **Proteção Selecione** do assistente **do Grupo de Proteção Nova,** selecione **Servidores**e, em seguida, clique em **Seguinte**.
 
     ![Selecione tipo de Grupo de Proteção](./media/backup-azure-backup-sharepoint/select-protection-group-type.png)
@@ -89,7 +89,7 @@ Depois de configurar o MABS e a quinta SharePoint, como explicado anteriormente,
    >
 4. Na página **Select Data Protection Method,** introduza o nome do Grupo de **Proteção**e selecione os seus métodos de *proteção preferidos*. Clique em **Seguinte**.
 
-    ![Selecione método de proteção de dados](./media/backup-azure-backup-sharepoint/select-data-protection-method1.png)
+    ![Selecionar método de proteção de dados](./media/backup-azure-backup-sharepoint/select-data-protection-method1.png)
 
    > [!NOTE]
    > O método de proteção do disco ajuda a cumprir os objetivos de curto prazo de recuperação.
@@ -97,7 +97,7 @@ Depois de configurar o MABS e a quinta SharePoint, como explicado anteriormente,
    >
 5. Na página **'Especificar Objetivos de Curto Prazo',** selecione a sua gama de **Retenção**preferida e identifique-se quando pretende que ocorram backups.
 
-    ![Especificar objetivos a curto prazo](./media/backup-azure-backup-sharepoint/specify-short-term-goals2.png)
+    ![Especificar objetivos de curto prazo](./media/backup-azure-backup-sharepoint/specify-short-term-goals2.png)
 
    > [!NOTE]
    > Como a recuperação é mais frequentemente necessária para dados com menos de cinco dias, selecionamos uma gama de retenção de cinco dias em disco e garantimos que a cópia de segurança acontece durante o horário de não produção, por exemplo.
@@ -144,7 +144,7 @@ Depois de configurar o MABS e a quinta SharePoint, como explicado anteriormente,
 ## <a name="restore-a-sharepoint-item-from-disk-by-using-mabs"></a>Restaurar um item SharePoint a partir do disco utilizando MABS
 
 No exemplo seguinte, o *item Recovery SharePoint* foi acidentalmente eliminado e precisa de ser recuperado.
-![](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection5.png) de Proteção de Pontos de Partilha MABS
+![Proteção do Ponto de Partilha MABS4](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection5.png)
 
 1. Abra a **consola de administrador dPM**. Todas as explorações sharePoint protegidas por DPM são mostradas no separador **Proteção.**
 
@@ -156,7 +156,7 @@ No exemplo seguinte, o *item Recovery SharePoint* foi acidentalmente eliminado e
 
     ![Proteção do Ponto de Partilha MABS6](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection7.png)
 4. Selecione o ponto de recuperação apropriado dos resultados da pesquisa, clique no item para a direita e, em seguida, **selecione Recuperar**.
-5. Também pode navegar por vários pontos de recuperação e selecionar uma base de dados ou item para recuperar. Selecione **Data > Tempo**de recuperação , e, em seguida, selecione a correta Base de **Dados > SharePoint farm > Ponto de recuperação > Item**.
+5. Também pode navegar por vários pontos de recuperação e selecionar uma base de dados ou item para recuperar. Selecione data > tempo de **recuperação**e, em seguida, selecione a base de dados correta **> fazenda SharePoint > ponto**de recuperação > ponto de recuperação .
 
     ![Proteção do Ponto de Partilha MABS7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
 6. Clique no item para a direita e, em seguida, selecione **Recuperar** para abrir o **Assistente de Recuperação**. Clique em **Seguinte**.
@@ -230,7 +230,7 @@ No exemplo seguinte, o *item Recovery SharePoint* foi acidentalmente eliminado e
     ![Proteção do Ponto de Partilha MABS13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. Neste ponto, siga os passos de recuperação no início deste artigo para recuperar uma base de dados de conteúdo sharePoint a partir do disco.
 
-## <a name="faqs"></a>Perguntas mais frequentes
+## <a name="faqs"></a>FAQs
 
 P: Posso recuperar um item SharePoint para a localização original se o SharePoint estiver configurado utilizando o SQL AlwaysOn (com proteção no disco)?<br>
 R: Sim, o item pode ser recuperado para o site original do SharePoint.

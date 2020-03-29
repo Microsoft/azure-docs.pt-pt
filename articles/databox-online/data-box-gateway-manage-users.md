@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 60fd5476d687d9f44aec885cdf888572e8e523a4
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78946125"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-gateway"></a>Utilizar o portal do Azure para gerir os utilizadores no Azure Data Box Gateway
@@ -41,11 +41,11 @@ Efetue os seguintes passos no portal do Azure para adicionar um utilizador.
 
 1. No portal do Azure, aceda ao recurso Data Box Gateway e, em seguida, navegue para **Descrição Geral**. Clique em **+ Adicionar utilizador** na barra de comandos.
 
-    ![Clique em adicionar utilizador](media/data-box-gateway-manage-users/add-user-1.png)
+    ![Clicar em adicionar utilizador](media/data-box-gateway-manage-users/add-user-1.png)
 
 2. Especifique o nome de utilizador e a palavra-passe do utilizador que pretende adicionar. Confirme a palavra-passe e clique em **Adicionar**.
 
-    ![Clique em adicionar utilizador](media/data-box-gateway-manage-users/add-user-2.png)
+    ![Clicar em adicionar utilizador](media/data-box-gateway-manage-users/add-user-2.png)
 
     > [!IMPORTANT] 
     > Estes utilizadores estão reservados pelo sistema e não devem ser utilizados: Administrador, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Convidado.  
@@ -77,6 +77,6 @@ A lista de utilizadores é atualizada para refletir o utilizador eliminado.
 ![Eliminar um utilizador](media/data-box-gateway-manage-users/delete-user-3.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [Gerir a largura de banda](data-box-gateway-manage-bandwidth-schedules.md).

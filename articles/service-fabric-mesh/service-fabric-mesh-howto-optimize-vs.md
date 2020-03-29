@@ -1,31 +1,31 @@
 ---
-title: Otimizar o Visual Studio para o Azure Service Fabric malha
-description: Este artigo mostra como otimizar o desempenho do Visual Studio para projetos de malha Service Fabric de forma que sua primeira execução de depuração (F5) seja muito mais rápida.
+title: Otimize Estúdio Visual para Malha de Tecido de Serviço Azure
+description: Este artigo mostra-lhe como otimizar o desempenho do Estúdio Visual para projetos de malha de tecido de serviço para que a sua primeira execução de depuração (F5) seja muito mais rápida.
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: 40c4e9972a3d83a5dd8247bacac12e9d67a15f66
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75497972"
 ---
-# <a name="optimize-visual-studio-performance-for-service-fabric-mesh-projects"></a>Otimizar o desempenho do Visual Studio para projetos de malha Service Fabric
+# <a name="optimize-visual-studio-performance-for-service-fabric-mesh-projects"></a>Otimizar o desempenho do Estúdio Visual para projetos de malha de tecido de serviço
 
-Este artigo mostra como otimizar o desempenho do Visual Studio para projetos de malha Service Fabric de forma que sua primeira execução de depuração (F5) seja muito mais rápida.  
+Este artigo mostra-lhe como otimizar o desempenho do Estúdio Visual para projetos de malha de tecido de serviço para que a sua primeira execução de depuração (F5) seja muito mais rápida.  
 
-## <a name="change-visual-studio-settings"></a>Alterar as configurações do Visual Studio
+## <a name="change-visual-studio-settings"></a>Alterar as definições do Estúdio Visual
  
-No Visual Studio, em **ferramentas** > **Opções**  > **Service Fabric ferramentas de malha** > **geral**, você pode ajustar as seguintes configurações:
+No Estúdio Visual, em **ferramentas** > **opções**  > **de ferramentas Ferramentas** > de malha de tecido**geral,** pode ajustar as seguintes definições:
 
-- Efetuar **pull de imagens do Docker necessárias no projeto aberto** faz com que sua primeira execução de depuração (F5) seja mais rápida, iniciando o processo de download da imagem durante o carregamento do projeto.  
-- **Implantar aplicativo no projeto aberto** pode fazer sua primeira execução de depuração (F5) mais rápido iniciando o processo de implantação quando o projeto é aberto.  
-- **Remover aplicativo no projeto fechar** recursos de recuperações (CPU, RAM) alocados para o aplicativo removendo o aplicativo de malha quando o projeto é fechado.  
+- **Puxe as imagens necessárias** do Docker em projeto aberto torna a sua primeira execução de depuração (F5) mais rápida, iniciando o processo de descarregamento de imagem enquanto o projeto está a carregar.  
+- **Implementar aplicação em projeto aberto** pode tornar a sua primeira execução de depuração (F5) mais rápida, iniciando o processo de implantação assim que o projeto for aberto.  
+- **Remover a aplicação no projeto de perto** recupera recursos (CPU, RAM) atribuídos à app removendo a app Mesh quando o projeto está fechado.  
 
-Quando você vê mensagens na janela Ferramentas do Service Fabric saída que o Visual Studio está "obtendo imagens", "aquecendo" ou "removendo aplicativo", ele está em referência às configurações acima. Você pode desativar essas configurações.
+Quando se vê mensagens na janela de saída do Service Fabric Tools que o Visual Studio está a 'puxar imagens', 'aquecer', ou 'remover a aplicação', é em referência às definições acima. Pode desligar estas definições.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Leia o [tutorial depurar um aplicativo de malha](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+Ler através do [tutorial de aplicação Debug a Mesh](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)

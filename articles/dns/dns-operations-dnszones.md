@@ -1,6 +1,6 @@
 ---
 title: Gerir zonas DNS em Azure DNS - PowerShell / Microsoft Docs
-description: Pode gerir zonas DNS utilizando o Azure Powershell. Este artigo descreve como atualizar, excluir e criar zonas DNS no DNS do Azure
+description: Pode gerir zonas DNS utilizando o Azure Powershell. Este artigo descreve como atualizar, excluir e criar zonas de DNS em DNS Azure
 services: dns
 documentationcenter: na
 author: rohinkoul
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: rohink
 ms.openlocfilehash: 0120501aab7f0a63721126bfb5b3d04d9deb42fb
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76936806"
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>Como gerir as Zonas DNS usando o PowerShell
@@ -25,8 +25,8 @@ ms.locfileid: "76936806"
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [CLI clássica do Azure](dns-operations-dnszones-cli-nodejs.md)
-> * [CLI do Azure](dns-operations-dnszones-cli.md)
+> * [ClI clássico azure](dns-operations-dnszones-cli-nodejs.md)
+> * [Azure CLI](dns-operations-dnszones-cli.md)
 
 Este artigo mostra-lhe como gerir as suas zonas DNS utilizando o Azure PowerShell. Também pode gerir as suas zonas DNS utilizando o [azure CLI](dns-operations-dnszones-cli.md) de plataforma cruzada ou o portal Azure.
 
@@ -57,7 +57,7 @@ O Azure DNS também suporta zonas privadas de DNS.  Para saber mais sobre zonas 
 
 ## <a name="get-a-dns-zone"></a>Obtenha uma zona DNS
 
-Para recuperar uma zona DNS, utilize o `Get-AzureRmDnsZone` cmdlet. Esta operação devolve um objeto de zona DNS correspondente a uma zona existente em DNS Azure. O objeto contém dados sobre a zona (como o número de conjuntos de recordes), mas não contém os próprios conjuntos de registo (ver `Get-AzureRmDnsRecordSet`).
+Para recuperar uma zona DNS, utilize o `Get-AzureRmDnsZone` cmdlet. Esta operação devolve um objeto de zona DNS correspondente a uma zona existente em DNS Azure. O objeto contém dados sobre a zona (como o número de conjuntos de `Get-AzureRmDnsRecordSet`recordes), mas não contém os próprios conjuntos de registo (ver).
 
 ```powershell
 Get-AzureRmDnsZone -Name contoso.com –ResourceGroupName MyAzureResourceGroup
@@ -118,11 +118,11 @@ $zone.Tags.Add("status","approved")
 Set-AzureRmDnsZone -Zone $zone
 ```
 
-Ao utilizar `Set-AzureRmDnsZone` com um objeto $zone, as [verificações do Etag](dns-zones-records.md#etags) são utilizadas para garantir que as alterações simultâneas não sejam substituídas. Pode utilizar o interruptor opcional `-Overwrite` para suprimir estes controlos.
+Quando `Set-AzureRmDnsZone` se utiliza com um $zone objeto, as [verificações do Etag](dns-zones-records.md#etags) são utilizadas para garantir que as alterações simultâneas não sejam substituídas. Pode utilizar o `-Overwrite` interruptor opcional para suprimir estes controlos.
 
 ## <a name="delete-a-dns-zone"></a>Eliminar uma Zona DNS
 
-As zonas DNS podem ser eliminadas utilizando o `Remove-AzureRmDnsZone` cmdlet.
+As zonas DNS podem `Remove-AzureRmDnsZone` ser eliminadas utilizando o cmdlet.
 
 > [!NOTE]
 > A eliminação de uma zona DNS também elimina todos os registos DNS na zona. Esta operação não pode ser anulada. Se a zona DNS estiver em utilização, os serviços que utilizam a zona irão falhar quando a zona for eliminada.
@@ -154,7 +154,7 @@ Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | R
 
 ```
 
-Tal como acontece com `Set-AzureRmDnsZone`, especificar a zona utilizando um objeto `$zone` permite que as verificações do Etag garantam que as alterações simultâneas não são eliminadas. Utilize o interruptor `-Overwrite` para suprimir estes controlos.
+Tal `Set-AzureRmDnsZone`como acontece, especificar `$zone` a zona utilizando um objeto permite que as verificações do Etag garantam que as alterações simultâneas não são eliminadas. Utilize `-Overwrite` o interruptor para suprimir estes controlos.
 
 ## <a name="confirmation-prompts"></a>Pedidos de confirmação
 

@@ -1,6 +1,6 @@
 ---
-title: Gerenciar pontos de extremidade de streaming com o SDK do .NET. | Microsoft Docs
-description: Este artigo demonstra como gerenciar pontos de extremidade de streaming com o portal do Azure.
+title: Gerencie os pontos finais de streaming com .NET SDK. | Microsoft Docs
+description: Este artigo demonstra como gerir os pontos finais de streaming com o portal Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,45 +16,45 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: b6c6fccd473ae57139c0b46bf32dc9468a4ba1a8
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74901279"
 ---
-# <a name="manage-streaming-endpoints-with-net-sdk"></a>Gerenciar pontos de extremidade de streaming com o SDK do .NET  
+# <a name="manage-streaming-endpoints-with-net-sdk"></a>Gerir pontos finais de streaming com .NET SDK  
 
 >[!NOTE]
->Certifique-se de examinar o artigo de [visão geral](media-services-streaming-endpoints-overview.md) . Além disso, examine [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+>Certifique-se de rever o artigo sobre [visão geral.](media-services-streaming-endpoints-overview.md) Além disso, reveja [o StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
 
-O código neste artigo mostra como executar as seguintes tarefas usando o SDK do .NET dos serviços de mídia do Azure:
+O código deste artigo mostra como fazer as seguintes tarefas utilizando o Azure Media Services .NET SDK:
 
-- Examine o ponto de extremidade de streaming padrão.
-- Criar/Adicionar novo ponto de extremidade de streaming.
+- Examine o ponto final de transmissão padrão.
+- Criar/adicionar novo ponto final de streaming.
 
-    Talvez você queira ter vários pontos de extremidade de streaming se planeja ter diferentes CDNs ou uma CDN e acesso direto.
+    Você pode querer ter vários pontos finais de streaming se você planeja ter cDNs diferentes ou um CDN e acesso direto.
 
     > [!NOTE]
-    > Você será cobrado somente quando o ponto de extremidade de streaming estiver em estado de execução.
+    > Só é cobrado quando o seu Streaming Endpoint está em estado de funcionamento.
     
-- Atualize o ponto de extremidade de streaming.
+- Atualize o ponto final de streaming.
     
-    Certifique-se de chamar a função Update ().
+    Certifique-se de que liga para a função Atualização.
 
-- Exclua o ponto de extremidade de streaming.
+- Elimine o ponto final de streaming.
 
     >[!NOTE]
-    >O ponto de extremidade de streaming padrão não pode ser excluído.
+    >O ponto final de transmissão predefinido não pode ser eliminado.
 
-Para obter informações sobre como dimensionar o ponto de extremidade de streaming, consulte [este](media-services-portal-scale-streaming-endpoints.md) artigo.
+Para obter informações sobre como escalar o ponto final de streaming, consulte [este](media-services-portal-scale-streaming-endpoints.md) artigo.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
 
 Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com informações da ligação, conforme descrito em [Media Services development with .NET](media-services-dotnet-how-to-use.md) (Desenvolvimento de Serviços de Multimédia com .NET). 
 
-## <a name="add-code-that-manages-streaming-endpoints"></a>Adicionar código que gerencia pontos de extremidade de streaming
+## <a name="add-code-that-manages-streaming-endpoints"></a>Adicione código que gere os pontos finais de streaming
     
-Substitua o código no Program.cs pelo código a seguir:
+Substitua o código no Program.cs pelo seguinte código:
 
 ```csharp
 using System;

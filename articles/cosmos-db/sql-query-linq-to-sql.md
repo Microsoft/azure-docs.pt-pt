@@ -1,29 +1,29 @@
 ---
-title: Conversão de LINQ to SQL em Azure Cosmos DB
-description: Conheça os operadores LINQ com suporte e como as consultas LINQ são mapeadas para consultas SQL no Azure Cosmos DB.
+title: TRADUÇÃO LINQ para SQL em Azure Cosmos DB
+description: Saiba como os operadores linq suportados e como as consultas LINQ são mapeadas para consultas SQL em Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: d43f95b91df7d0c9c442339de51936200f4688e2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75441259"
 ---
-# <a name="linq-to-sql-translation"></a>LINQ para tradução de SQL
+# <a name="linq-to-sql-translation"></a>Tradução LINQ para SQL
 
-O provedor de consulta Azure Cosmos DB executa um mapeamento de melhor esforço de uma consulta LINQ em uma consulta SQL Cosmos DB. A descrição a seguir pressupõe uma familiaridade básica com o LINQ.
+O fornecedor de consulta SQ D da Azure Cosmos realiza um melhor esforço de mapeamento de uma consulta LINQ para uma consulta Cosmos DB SQL. A seguinte descrição pressupõe uma familiaridade básica com o LINQ.
 
-O sistema do tipo de provedor de consulta dá suporte apenas aos tipos primitivos JSON: Numeric, Boolean, String e NULL.
+O sistema de tipo de fornecedor de consulta suporta apenas os tipos primitivos JSON: numérico, booleano, corda e nulo.
 
-O provedor de consultas oferece suporte às seguintes expressões escalares:
+O prestador de consultas suporta as seguintes expressões escalar:
 
 - Valores constantes, incluindo valores constantes dos tipos de dados primitivos no tempo de avaliação da consulta.
   
-- Expressões de índice de matriz/propriedade que se referem à propriedade de um objeto ou de um elemento de matriz. Por exemplo:
+- Expressões de índice de propriedade/matriz que se referem à propriedade de um objeto ou de um elemento matriz. Por exemplo:
   
   ```
     family.Id;
@@ -32,21 +32,21 @@ O provedor de consultas oferece suporte às seguintes expressões escalares:
     family.children[n].grade; //n is an int variable
   ```
   
-- Expressões aritméticas, incluindo expressões aritméticas comuns em valores numéricos e boolianos. Para obter a lista completa, consulte a [especificação de Azure Cosmos DB SQL](https://go.microsoft.com/fwlink/p/?LinkID=510612).
+- Expressões aritméticas, incluindo expressões aritméticas comuns sobre valores numéricos e booleanos. Para a lista completa, consulte a [especificação Azure Cosmos DB SQL](https://go.microsoft.com/fwlink/p/?LinkID=510612).
   
   ```
     2 * family.children[0].grade;
     x + y;
   ```
   
-- Expressões de comparação de cadeia de caracteres, que incluem a comparação de um valor de cadeia de caracteres com um valor de cadeia de caracteres  
+- Expressões de comparação de cordas, que incluem comparar um valor de cadeia com algum valor de cadeia constante.  
   
   ```
     mother.familyName == "Wakefield";
     child.givenName == s; //s is a string variable
   ```
   
-- Expressões de criação de objeto/matriz, que retornam um objeto de tipo de valor composto ou tipo anônimo, ou uma matriz desses objetos. Você pode aninhar esses valores.
+- Expressões de criação de objetos/matrizes, que devolvem um objeto de tipo de valor composto ou tipo anónimo, ou uma matriz desses objetos. Pode nidificar estes valores.
   
   ```
     new Parent { familyName = "Wakefield", givenName = "Robin" };
@@ -54,35 +54,35 @@ O provedor de consultas oferece suporte às seguintes expressões escalares:
     new int[] { 3, child.grade, 5 };
   ```
 
-## <a id="SupportedLinqOperators"></a>Operadores LINQ com suporte
+## <a name="supported-linq-operators"></a><a id="SupportedLinqOperators"></a>Operadores linq suportados
 
-O provedor LINQ incluído no SDK do .NET do SQL dá suporte aos seguintes operadores:
+O fornecedor LINQ incluído com o SQL .NET SDK suporta os seguintes operadores:
 
-- **Selecione**: projeções traduzir para SQL SELECT, incluindo construção de objeto.
-- **Onde**: os filtros são convertidos em SQL onde e dão suporte à conversão entre `&&`, `||`e `!` aos operadores SQL
-- **SelectMany**: permite que o desenrolamento de matrizes à cláusula SQL JOIN. Use para encadear ou aninhar expressões para filtrar elementos de matriz.
-- **OrderBy** e **OrderByDescending**: translate para order by com ASC ou Desc.
-- **Contagem**, **soma**, **Min**, **Max**, e **média** operadores de agregação e seus equivalentes de async **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, e **AverageAsync**.
-- **CompareTo**: se traduz em comparações de intervalo. Comumente usado para cadeias de caracteres, pois não são comparáveis em .NET.
-- **Skip** e **Take**: está relacionado ao deslocamento e ao limite do SQL para limitar os resultados de uma consulta e fazer a paginação.
-- **Funções matemáticas**: dá suporte à conversão de .net `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan`e `Truncate` para as funções internas SQL equivalentes.
-- **Funções de cadeia de caracteres**: dá suporte à conversão de .net `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd`e `TrimStart` para as funções internas SQL equivalentes.
-- **Funções de matriz**: dá suporte à conversão do .net `Concat`, `Contains`e `Count` para as funções internas do SQL equivalentes.
-- **Funções de extensão geoespaciais**: dá suporte à conversão de métodos stub `Distance`, `IsValid`, `IsValidDetailed`e `Within` às funções internas SQL equivalentes.
-- **Função de extensão de função definida pelo usuário**: dá suporte à conversão do método stub `UserDefinedFunctionProvider.Invoke` para a função definida pelo usuário correspondente.
-- **Miscelânea**: dá suporte à conversão de `Coalesce` e operadores condicionais. Pode converter `Contains` em cadeia de caracteres CONTAINS, ARRAY_CONTAINS ou SQL no, dependendo do contexto.
+- **Selecione**: As projeções traduzem-se para O Select SQL, incluindo a construção de objetos.
+- **Sempre**que : Filtros se traduzam para `&&` `||`SQL WHERE, e tradução de suporte entre, e `!` para os operadores SQL
+- **SelectMany:** Permite o desenrolar das matrizes para a cláusula SQL JOIN. Utilize para correntes ou expressões de ninho para filtrar elementos de matriz.
+- **OrderBy** e **OrderByDescending:** Traduza para ENCOMENDAR POR COM ASC ou DESC.
+- **Contagem,** **Soma,** **Min,** **Max**e operadores **médios** para agregação, e os seus equivalentes async **CountAsync,** **SumAsync,** **MinAsync,** **MaxAsync**e **AverageAsync.**
+- **CompareTo:** Traduz-se em comparações de alcance. Comumente usados para cordas, uma vez que não são comparáveis em .NET.
+- **Skip** and **Take**: Traduz-se para SQL OFFSET e LIMIT para limitar os resultados de uma consulta e fazer paginação.
+- **Funções matemáticas:** Suporta a `Abs` `Acos`tradução de .NET, `Asin` `Pow`, `Round` `Sign` `Sin` `Sqrt` `Tan` `Truncate` `Atan`, `Ceiling` `Cos` `Exp` `Floor` `Log` `Log10`, , , , , , , , , , , , e para as funções equivalentes sQL incorporadas.
+- **Funções**de corda: Suporta `Concat`a `Contains` `Count`tradução de `Reverse` `StartsWith`.NET, `ToUpper` `TrimEnd`, `EndsWith``IndexOf` `TrimStart` , `Replace` `SubString`, , , `ToLower`, , , , , e para as funções equivalentes sQL incorporadas.
+- **Funções de matriz:** Suporta `Concat` `Contains`a `Count` tradução de .NET, e para as funções incorporadas sQL equivalentes.
+- **Funções de extensão geoespacial:** Suporta `Distance` `IsValid`a `IsValidDetailed`tradução dos métodos de tubos, , e `Within` as funções incorporadas equivalentes da SQL.
+- **Função**de extensão de função definida `UserDefinedFunctionProvider.Invoke` pelo utilizador : Suporta a tradução do método do tubo para a função definida pelo utilizador correspondente.
+- **Diversos**: Apoia a tradução `Coalesce` e os operadores condicional. Pode `Contains` traduzir-se para String CONTAINS, ARRAY_CONTAINS ou SQL IN, dependendo do contexto.
 
 ## <a name="examples"></a>Exemplos
 
-Os exemplos a seguir ilustram como alguns dos operadores de consulta LINQ padrão são convertidos em consultas Cosmos DB.
+Os exemplos seguintes ilustram como alguns dos operadores de consulta padrão linq se traduzem para consultas de DB cosmos.
 
 ### <a name="select-operator"></a>Selecionar operador
 
-A sintaxe é `input.Select(x => f(x))`, onde `f` é uma expressão escalar.
+A sintaxe `input.Select(x => f(x))` `f` é, onde é uma expressão escalar.
 
-**Selecione operador, exemplo 1:**
+**Selecione o operador, exemplo 1:**
 
-- **Expressão lambda do LINQ**
+- **Expressão de lambda LINQ**
   
   ```csharp
       input.Select(family => family.parents[0].familyName);
@@ -95,9 +95,9 @@ A sintaxe é `input.Select(x => f(x))`, onde `f` é uma expressão escalar.
       FROM Families f
     ```
   
-**Selecione operador, exemplo 2:** 
+**Selecione o operador, exemplo 2:** 
 
-- **Expressão lambda do LINQ**
+- **Expressão de lambda LINQ**
   
   ```csharp
       input.Select(family => family.children[0].grade + c); // c is an int variable
@@ -112,7 +112,7 @@ A sintaxe é `input.Select(x => f(x))`, onde `f` é uma expressão escalar.
   
 **Selecione operador, exemplo 3:**
 
-- **Expressão lambda do LINQ**
+- **Expressão de lambda LINQ**
   
   ```csharp
     input.Select(family => new
@@ -130,11 +130,11 @@ A sintaxe é `input.Select(x => f(x))`, onde `f` é uma expressão escalar.
       FROM Families f
   ```
 
-### <a name="selectmany-operator"></a>Operador SelectMany
+### <a name="selectmany-operator"></a>SelectMany operador
 
-A sintaxe é `input.SelectMany(x => f(x))`, onde `f` é uma expressão escalar, que retorna um tipo de contentor.
+A sintaxe `input.SelectMany(x => f(x))` `f` é, onde está uma expressão escalar que devolve um tipo de recipiente.
 
-- **Expressão lambda do LINQ**
+- **Expressão de lambda LINQ**
   
   ```csharp
       input.SelectMany(family => family.children);
@@ -149,11 +149,11 @@ A sintaxe é `input.SelectMany(x => f(x))`, onde `f` é uma expressão escalar, 
 
 ### <a name="where-operator"></a>Onde operador
 
-A sintaxe é `input.Where(x => f(x))`, onde `f` é uma expressão escalar, que retorna um valor booleano.
+A sintaxe `input.Where(x => f(x))` `f` é, onde está uma expressão escalar, que devolve um valor booleano.
 
-**Operador where, exemplo 1:**
+**Quando o operador, exemplo 1:**
 
-- **Expressão lambda do LINQ**
+- **Expressão de lambda LINQ**
   
   ```csharp
       input.Where(family=> family.parents[0].familyName == "Wakefield");
@@ -167,9 +167,9 @@ A sintaxe é `input.Where(x => f(x))`, onde `f` é uma expressão escalar, que r
       WHERE f.parents[0].familyName = "Wakefield"
   ```
   
-**Operador where, exemplo 2:**
+**Quando o operador, exemplo 2:**
 
-- **Expressão lambda do LINQ**
+- **Expressão de lambda LINQ**
   
   ```csharp
       input.Where(
@@ -188,15 +188,15 @@ A sintaxe é `input.Where(x => f(x))`, onde `f` é uma expressão escalar, que r
 
 ## <a name="composite-sql-queries"></a>Consultas SQL compostas
 
-Você pode compor os operadores anteriores para formar consultas mais poderosas. Como Cosmos DB dá suporte a Contêineres aninhados, você pode concatenar ou aninhar a composição.
+Pode compor os operadores anteriores para formar consultas mais poderosas. Uma vez que cosmos DB suporta recipientes aninhados, você pode concatenar ou nidificar a composição.
 
 ### <a name="concatenation"></a>Concatenação
 
-A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concatenada pode começar com uma consulta `SelectMany` opcional, seguida por vários operadores `Select` ou `Where`.
+A sintaxe é. `input(.|.SelectMany())(.Select()|.Where())*` Uma consulta concatenada pode começar `SelectMany` com uma consulta `Select` `Where` opcional, seguida por vários ou operadores.
 
 **Concatenação, exemplo 1:**
 
-- **Expressão lambda do LINQ**
+- **Expressão de lambda LINQ**
   
   ```csharp
       input.Select(family => family.parents[0])
@@ -213,7 +213,7 @@ A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concate
 
 **Concatenação, exemplo 2:**
 
-- **Expressão lambda do LINQ**
+- **Expressão de lambda LINQ**
   
   ```csharp
       input.Where(family => family.children[0].grade > 3)
@@ -230,7 +230,7 @@ A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concate
 
 **Concatenação, exemplo 3:**
 
-- **Expressão lambda do LINQ**
+- **Expressão de lambda LINQ**
   
   ```csharp
       input.Select(family => new { grade=family.children[0].grade}).
@@ -247,7 +247,7 @@ A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concate
 
 **Concatenação, exemplo 4:**
 
-- **Expressão lambda do LINQ**
+- **Expressão de lambda LINQ**
   
   ```csharp
       input.SelectMany(family => family.parents)
@@ -262,15 +262,15 @@ A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concate
       WHERE p.familyName = "Wakefield"
   ```
 
-### <a name="nesting"></a>Aninhamento
+### <a name="nesting"></a>Nidificação
 
-A sintaxe é `input.SelectMany(x=>x.Q())` em que `Q` é um operador `Select`, `SelectMany`ou `Where`.
+A sintaxe `Q` é `Select` `input.SelectMany(x=>x.Q())` `SelectMany`onde `Where` está um, ou operador.
 
-Uma consulta aninhada aplica a consulta interna a cada elemento do contêiner externo. Um recurso importante é que a consulta interna pode se referir aos campos dos elementos no contêiner externo, como uma auto-associação.
+Uma consulta aninhada aplica a consulta interna a cada elemento do recipiente exterior. Uma característica importante é que a consulta interna pode referir-se aos campos dos elementos no recipiente exterior, como uma auto-ligação.
 
-**Aninhamento, exemplo 1:**
+**Nidificação, exemplo 1:**
 
-- **Expressão lambda do LINQ**
+- **Expressão de lambda LINQ**
   
   ```csharp
       input.SelectMany(family=>
@@ -285,9 +285,9 @@ Uma consulta aninhada aplica a consulta interna a cada elemento do contêiner ex
       JOIN p IN f.parents
   ```
 
-**Aninhamento, exemplo 2:**
+**Nidificação, exemplo 2:**
 
-- **Expressão lambda do LINQ**
+- **Expressão de lambda LINQ**
   
   ```csharp
       input.SelectMany(family =>
@@ -303,9 +303,9 @@ Uma consulta aninhada aplica a consulta interna a cada elemento do contêiner ex
       WHERE c.familyName = "Jeff"
   ```
 
-**Aninhamento, exemplo 3:**
+**Nidificação, exemplo 3:**
 
-- **Expressão lambda do LINQ**
+- **Expressão de lambda LINQ**
   
   ```csharp
       input.SelectMany(family => family.children.Where(
@@ -324,5 +324,5 @@ Uma consulta aninhada aplica a consulta interna a cada elemento do contêiner ex
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Exemplos do Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Dados de documento de modelo](modeling-data.md)
+- [Amostras Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [Dados de documento do modelo](modeling-data.md)

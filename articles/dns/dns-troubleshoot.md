@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/20/2019
 ms.author: rohink
 ms.openlocfilehash: b5e1624bf852256f6e8fb0b616258f932c5a8998
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76939037"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Guia de resolução de problemas azure DNS
@@ -92,6 +92,6 @@ Exemplos de nomes de registos SRV (“sip” do nome do serviço, “tcp” do p
 ## <a name="next-steps"></a>Passos seguintes
 
 * Conheça [zonas e registos De DNS Azure](dns-zones-records.md)
-* Para começar a usar o DNS do Azure, saiba como [criar uma zona DNS](dns-getstarted-create-dnszone-portal.md) e [criar registros DNS](dns-getstarted-create-recordset-portal.md).
-* Para migrar uma zona DNS existente, saiba como [importar e exportar um arquivo de zona DNS](dns-import-export.md).
+* Para começar a utilizar o Azure DNS, aprenda a [criar uma zona DNS](dns-getstarted-create-dnszone-portal.md) e [crie registos DNS](dns-getstarted-create-recordset-portal.md).
+* Para migrar uma zona DNS existente, aprenda a importar e exportar um ficheiro de [zona DNS](dns-import-export.md).
 

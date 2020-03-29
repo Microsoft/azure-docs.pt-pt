@@ -1,54 +1,54 @@
 ---
-title: Pacote autônomo do Azure Service Fabric para Windows Server
-description: Descrição e o conteúdo do pacote autónomo do Azure Service Fabric para Windows Server.
+title: Pacote autónomo de tecido de serviço Azure para servidor windows
+description: Descrição e conteúdo do pacote autónomo de tecido de serviço Azure para o Windows Server.
 author: maburlik
 ms.topic: conceptual
 ms.date: 8/10/2017
 ms.author: maburlik
 ms.openlocfilehash: 1bb73fa69717f067139067f127a0d50af4878d6c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75451850"
 ---
-# <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Conteúdo do pacote autónomo do Service Fabric para o Windows Server
-Na [transferido](https://go.microsoft.com/fwlink/?LinkId=730690) pacote autónomo do Service Fabric, encontrará os seguintes ficheiros:
+# <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Conteúdo do pacote autónomo de tecido de serviço para servidor windows
+No pacote autónomo de tecido de serviço [descarregado,](https://go.microsoft.com/fwlink/?LinkId=730690) encontrará os seguintes ficheiros:
 
-| **Nome de ficheiro** | **Breve descrição** |
+| **Nome de ficheiro** | **Descrição curta** |
 | --- | --- |
-| CreateServiceFabricCluster.ps1 |Um script do PowerShell que cria o cluster utilizando as definições nas ClusterConfig.json. |
-| RemoveServiceFabricCluster.ps1 |Um script do PowerShell que remove um cluster com as definições no ClusterConfig.json. |
-| AddNode.ps1 |Um script do PowerShell para adicionar um nó de um existente já implementou o cluster no computador atual. |
-| RemoveNode.ps1 |Um script do PowerShell para remover um nó de um existente já implementou o cluster da máquina atual. |
-| CleanFabric.ps1 |Um script do PowerShell para a limpeza autónoma de instalação do Service Fabric fora da máquina atual. Instalações anteriores do MSI devem ser removidas com seus próprios desinstaladores associados. |
-| TestConfiguration.ps1 |Um script do PowerShell para analisar a infraestrutura conforme especificado no JSON. |
-| DownloadServiceFabricRuntimePackage.ps1 |Um script do PowerShell utilizado para transferir o pacote de tempo de execução mais recente fora de banda, para cenários em que a máquina de implementação não está ligada à internet. |
-| DeploymentComponentsAutoextractor.exe |Arquivo auto-extraível que contém os componentes de implantação usado pelos scripts de pacote autónomo. |
-| EULA_ENU.txt |Os termos de licenciamento para a utilização do pacote do Microsoft Azure Service Fabric autônomo do Windows Server. Pode [transferir uma cópia do EULA](https://go.microsoft.com/fwlink/?LinkID=733084) agora. |
-| Readme. txt |Uma ligação para as notas de versão e instruções de instalação básica. É um subconjunto das instruções neste documento. |
+| CreateServiceFabricCluster.ps1 |Um script PowerShell que cria o cluster utilizando as definições em ClusterConfig.json. |
+| RemoverServiceFabricCluster.ps1 |Um script PowerShell que remove um cluster utilizando as definições em ClusterConfig.json. |
+| AddNode.ps1 |Um script PowerShell para adicionar um nó a um cluster implantado existente na máquina atual. |
+| Remover Node.ps1 |Um script PowerShell para remover um nó de um cluster implantado existente da máquina atual. |
+| CleanFabric.ps1 |Um script PowerShell para limpar uma instalação autónoma de tecido de serviço fora da máquina atual. As instalações anteriores da MSI devem ser removidas utilizando os seus próprios desinstaladores associados. |
+| TestConfiguration.ps1 |Um script PowerShell para analisar a infraestrutura conforme especificado no Cluster.json. |
+| DownloadServiceFabricRuntimePackage.ps1 |Um script PowerShell usado para descarregar o mais recente pacote de tempo de execução fora da banda, para cenários em que a máquina de implantação não está ligada à internet. |
+| Componentes auto-extractor.exe |Arquivo de auto-extracção contendo componentes de implantação utilizados pelos scripts de pacote autónomo. |
+| EULA_ENU.txt |Os termos de licença para a utilização do pacote De Servidor Windows Server autónomo do Microsoft Azure Service Fabric. Já pode [descarregar uma cópia da EULA.](https://go.microsoft.com/fwlink/?LinkID=733084) |
+| Readme.txt |Um link para as notas de lançamento e instruções básicas de instalação. É um subconjunto das instruções deste documento. |
 | ThirdPartyNotice.rtf |Aviso de software de terceiros que está no pacote. |
-| Tools\Microsoft.Azure.ServiceFabric.Windowsserver.SupportPackage.zip |StandaloneLogCollector.exe qual é executado sob demanda para recolher e carregar registos de rastreio para a Microsoft para fins de suporte. |
-| Tools\ServiceFabricUpdateService.zip |Uma ferramenta usada para ativar a atualização do código de automática para clusters que não têm acesso à internet. Podem encontrar mais detalhes [aqui](service-fabric-cluster-upgrade-windows-server.md)|
+| Ferramentas\Microsoft.Azure.ServiceFabric.WindowsServer.SupportPackage.zip |StandaloneLogCollector.exe que é executado a pedido para recolher e carregar registos de rastreio para a Microsoft para fins de suporte. |
+| Ferramentas\ServiceFabricUpdateService.zip |Uma ferramenta usada para permitir a atualização do código automático para clusters que não têm acesso à Internet. Mais detalhes podem ser encontrados [aqui](service-fabric-cluster-upgrade-windows-server.md)|
 
 **Modelos** 
 
-| **Nome de ficheiro** | **Breve descrição** |
+| **Nome de ficheiro** | **Descrição curta** |
 | --- | --- |
-| ClusterConfig.Unsecure.DevCluster.json |Um ficheiro de exemplo de configuração do cluster contém as definições para um desprotegido, três nós, única máquina (ou máquina virtual) cluster de desenvolvimento, incluindo as informações para cada nó no cluster. |
-| ClusterConfig.Unsecure.MultiMachine.json |Um ficheiro de exemplo de configuração do cluster contém as definições para um cluster não seguro, máquina multi (ou máquina virtual), incluindo as informações para cada máquina no cluster. |
-| ClusterConfig.Windows.DevCluster.json |Um ficheiro de exemplo de configuração do cluster contém todas as definições de um segura e três nós, única máquina (ou máquina virtual) cluster de desenvolvimento, incluindo as informações para cada nó que está no cluster. O cluster estiver protegido com o [identidades do Windows](https://msdn.microsoft.com/library/ff649396.aspx). |
-| ClusterConfig.Windows.MultiMachine.json |Um ficheiro de exemplo de configuração do cluster contém todas as definições para um cluster de máquina multi (ou máquina virtual) segura, através da segurança do Windows, incluindo as informações para cada máquina que está em cluster seguro. O cluster estiver protegido com o [identidades do Windows](https://msdn.microsoft.com/library/ff649396.aspx). |
-| ClusterConfig.x509.DevCluster.json |Um ficheiro de exemplo de configuração do cluster contém todas as definições de um segura e três nós, única máquina (ou máquina virtual) cluster de desenvolvimento, incluindo as informações para cada nó no cluster. O cluster estiver protegido com x509 certificados. |
-| ClusterConfig.x509.MultiMachine.json |Um ficheiro de exemplo de configuração do cluster contém todas as definições para o cluster seguro, máquina multi (ou máquina virtual), incluindo as informações para cada nó no cluster seguro. O cluster estiver protegido com x509 certificados. |
-| ClusterConfig.gMSA.Windows.MultiMachine.json |Um ficheiro de exemplo de configuração do cluster contém todas as definições para o cluster seguro, máquina multi (ou máquina virtual), incluindo as informações para cada nó no cluster seguro. O cluster estiver protegido usando [contas de serviço geridas de grupo](https://technet.microsoft.com/library/jj128431(v=ws.11).aspx). |
+| ClusterConfig.Unsecure.DevCluster.json |Um ficheiro de amostra de configuração de cluster que contém as definições para um cluster de desenvolvimento não seguro, de três nós, de uma única máquina (ou máquina virtual), incluindo a informação de cada nó no cluster. |
+| ClusterConfig.Unsecure.MultiMachine.json |Um ficheiro de amostra de configuração de cluster que contém as definições para um cluster não seguro, multi-máquina (ou máquina virtual), incluindo a informação de cada máquina no cluster. |
+| ClusterConfig.Windows.DevCluster.json |Um ficheiro de amostra de configuração de cluster que contém todas as definições para um cluster de desenvolvimento seguro, de três nós, de uma única máquina (ou máquina virtual), incluindo a informação para cada nó que está no cluster. O cluster é protegido utilizando [identidades do Windows](https://msdn.microsoft.com/library/ff649396.aspx). |
+| ClusterConfig.Windows.MultiMachine.json |Um ficheiro de amostra de configuração de cluster que contém todas as definições para um cluster seguro, multi-máquina (ou máquina virtual) utilizando a segurança do Windows, incluindo as informações para cada máquina que se encontra no cluster seguro. O cluster é protegido utilizando [identidades do Windows](https://msdn.microsoft.com/library/ff649396.aspx). |
+| ClusterConfig.x509.DevCluster.json |Um ficheiro de amostra de configuração de cluster que contém todas as definições para um cluster de desenvolvimento seguro, de três nós, de uma única máquina (ou máquina virtual), incluindo a informação de cada nó no cluster. O cluster é protegido com certificados x509. |
+| ClusterConfig.x509.MultiMachine.json |Um ficheiro de amostra de configuração de cluster que contém todas as definições para o cluster seguro, multi-máquina (ou máquina virtual), incluindo a informação de cada nó no cluster seguro. O cluster é protegido com certificados x509. |
+| ClusterConfig.gMSA.Windows.MultiMachine.json |Um ficheiro de amostra de configuração de cluster que contém todas as definições para o cluster seguro, multi-máquina (ou máquina virtual), incluindo a informação de cada nó no cluster seguro. O cluster é protegido utilizando contas de [serviço geridas](https://technet.microsoft.com/library/jj128431(v=ws.11).aspx)pelo grupo . |
 
-## <a name="cluster-configuration-samples"></a>Exemplos de configuração de cluster
-Versões mais recentes dos modelos de configuração de cluster podem ser encontradas na página do GitHub: [exemplos de configuração de Cluster autónomo](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
+## <a name="cluster-configuration-samples"></a>Amostras de configuração de cluster
+As versões mais recentes dos modelos de configuração do cluster podem ser encontradas na página GitHub: [Amostras de configuração](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)autónoma do cluster .
 
-## <a name="independent-runtime-package"></a>Independente de tempo de execução de pacote
-O pacote de tempo de execução mais recente é transferido automaticamente durante a implementação de cluster a partir [Link transferir - tempo de execução do Service Fabric - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354).
+## <a name="independent-runtime-package"></a>Pacote independente de tempo de execução
+O pacote de tempo de execução mais recente é descarregado automaticamente durante a implementação do cluster a partir do [Download Link - Service Fabric Runtime - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354).
 
 ## <a name="related"></a>Relacionado
-* [Criar um cluster autónomo de Azure Service Fabric](service-fabric-cluster-creation-for-windows-server.md)
-* [Cenários de segurança de cluster do Service Fabric](service-fabric-windows-cluster-windows-security.md)
+* [Criar um cluster de tecido de serviço Azure autónomo](service-fabric-cluster-creation-for-windows-server.md)
+* [Cenários de segurança do cluster de tecido de serviço](service-fabric-windows-cluster-windows-security.md)

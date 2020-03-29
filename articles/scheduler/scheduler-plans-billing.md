@@ -1,6 +1,6 @@
 ---
 title: Planos e faturação
-description: Saiba mais sobre planos e faturação para O Scheduler Azure
+description: Saiba mais sobre planos e faturação do Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
@@ -9,10 +9,10 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
 ms.openlocfilehash: e821036ff4ddb5a9786bc4f4537bb81539ab2c87
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898477"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Planos e faturação para O Scheduler Azure
@@ -83,5 +83,5 @@ As coleções de emprego Premium P20 fornecem as mesmas capacidades que as cole�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Conceitos, terminologia e hierarquia de entidades do Azure Scheduler](scheduler-concepts-terms.md)
-* [Limites, predefinições e códigos de erro do Azure Scheduler](scheduler-limits-defaults-errors.md)
+* [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
+* [Limites, predefinições e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)

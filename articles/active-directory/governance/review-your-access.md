@@ -1,6 +1,6 @@
 ---
-title: Examine o acesso a grupos & aplicativos nas revisões de acesso – Azure AD
-description: Saiba como revisar seu próprio acesso a grupos ou aplicativos em Azure Active Directory revisões de acesso.
+title: Reveja o seu acesso a grupos & aplicações em comentários de acesso - Azure AD
+description: Saiba como rever o seu próprio acesso a grupos ou aplicações nas avaliações de acesso ao Diretório Ativo do Azure.
 services: active-directory
 author: msaburnley
 manager: daveba
@@ -16,69 +16,69 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0d75d7ffe28fa126ee5e359cba19e66e3c0f36e2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75422406"
 ---
-# <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Examinar o acesso a grupos ou aplicativos nas revisões de acesso do Azure AD
+# <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Reveja o acesso a grupos ou aplicações em avaliações de acesso a Anúncio si mesmo
 
-O Azure Active Directory (AD do Azure) simplifica como as empresas gerenciam o acesso a grupos ou aplicativos no Azure AD e outros serviços online da Microsoft com um recurso chamado revisões de acesso do Azure AD.
+O Azure Ative Directory (Azure AD) simplifica a forma como as empresas gerem o acesso a grupos ou aplicações em Azure AD e outros Serviços Online da Microsoft com uma funcionalidade chamada avaliações de acesso a AD Azure.
 
-Este artigo descreve como examinar seu próprio acesso a um grupo ou a um aplicativo.
+Este artigo descreve como rever o seu próprio acesso a um grupo ou a uma aplicação.
 
-## <a name="open-the-access-review"></a>Abrir a revisão de acesso
+## <a name="open-the-access-review"></a>Abra a revisão de acesso
 
-A primeira etapa para executar uma revisão de acesso é encontrar e abrir a revisão de acesso.
+O primeiro passo para realizar uma revisão de acesso é encontrar e abrir a revisão de acesso.
 
-1. Procure um email da Microsoft que solicita que você examine o acesso. Aqui está um email de exemplo para examinar o acesso a um grupo.
+1. Procure um e-mail da Microsoft que lhe peça para rever o acesso. Aqui está um e-mail de exemplo para rever o seu acesso a um grupo.
 
-    ![Email de exemplo da Microsoft para revisar o acesso a um grupo](./media/review-your-access/access-review-email.png)
+    ![Exemplo de e-mail da Microsoft para rever o seu acesso a um grupo](./media/review-your-access/access-review-email.png)
 
-1. Clique no link **examinar acesso** para abrir a revisão de acesso.
+1. Clique no link **de acesso rever** para abrir a revisão de acesso.
 
-Se você não tiver o email, poderá encontrar suas revisões de acesso pendentes seguindo estas etapas.
+Se não tiver o e-mail, pode encontrar as suas avaliações de acesso pendentes seguindo estes passos.
 
-1. Entre no portal do myapps em [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. Inscreva-se no portal [https://myapps.microsoft.com](https://myapps.microsoft.com)MyApps em .
 
-    ![Portal do myapps Listando aplicativos aos quais você tem permissões](./media/review-your-access/myapps-access-panel.png)
+    ![Aplicações de listagem de portais MyApps que tem permissões](./media/review-your-access/myapps-access-panel.png)
 
 1. No canto superior direito da página, clique no símbolo de utilizador, que mostra o seu nome e a sua organização predefinida. Se aparecer mais de uma organização, selecione aquela que pediu a revisão de acesso.
 
-1. No lado direito da página, clique no bloco **revisões de acesso** para ver uma lista das revisões de acesso pendentes.
+1. No lado direito da página, clique no azulejo de comentários de **Acesso** para ver uma lista das avaliações de acesso pendentes.
 
     Se o mosaico não estiver visível, não há revisões de acesso a realizar nessa organização e não é necessária nenhuma ação nesse momento.
 
-    ![Lista de revisões de acesso pendente para seus aplicativos e grupos](./media/review-your-access/access-reviews-list.png)
+    ![Lista de avaliações de acesso pendentes para as suas apps e grupos](./media/review-your-access/access-reviews-list.png)
 
-1. Clique no link **Iniciar revisão** para a revisão de acesso que você deseja executar.
+1. Clique no link **de revisão Iniciar** para a revisão de acesso que pretende realizar.
 
-## <a name="perform-the-access-review"></a>Executar a revisão de acesso
+## <a name="perform-the-access-review"></a>Realizar a revisão de acesso
 
-Depois de abrir a revisão de acesso, você poderá ver seu acesso.
+Uma vez aberta a revisão de acesso, pode ver o seu acesso.
 
-1. Examine seu acesso e decida se você ainda precisa de acesso.
+1. Reveja o seu acesso e decida se ainda precisa de acesso.
 
-    Se a solicitação for revisar o acesso para outros, a página terá uma aparência diferente. Para obter mais informações, consulte [examinar o acesso a grupos ou aplicativos](perform-access-review.md).
+    Se o pedido for para rever o acesso a outros, a página será diferente. Para mais informações, consulte [Rever o acesso a grupos ou aplicações](perform-access-review.md).
 
-    ![Abra a revisão de acesso perguntando se você ainda precisa de acesso a um grupo](./media/review-your-access/perform-access-review.png)
+    ![Revisão de acesso aberto perguntando se você ainda precisa de acesso a um grupo](./media/review-your-access/perform-access-review.png)
 
-1. Clique em **Sim** para manter seu acesso ou clique em **não** para remover o acesso.
+1. Clique em **Sim** para manter o seu acesso ou clique **em Não** para remover o seu acesso.
 
-1. Se você clicar em **Sim**, talvez seja necessário especificar uma justificativa na caixa **motivo** .
+1. Se clicar em **Sim,** poderá ter de especificar uma justificação na caixa **Reason.**
 
-    ![Revisão de acesso concluída perguntando se você ainda precisa de acesso a um grupo](./media/review-your-access/perform-access-review-submit.png)
+    ![Revisão de acesso concluída perguntando se ainda precisa de acesso a um grupo](./media/review-your-access/perform-access-review-submit.png)
 
-1. Clique em **Submit** (Submeter).
+1. Clique em **Submeter**.
 
-    Sua seleção é enviada e você retornou para o portal do myapps.
+    A sua seleção é submetida e regressou ao portal MyApps.
 
-    Se você quiser alterar sua resposta, abra novamente a página de revisões de acesso e atualize sua resposta. Você pode alterar sua resposta a qualquer momento até que a revisão de acesso seja encerrada.
+    Se quiser alterar a sua resposta, reabra a página de comentários de acesso e atualize a sua resposta. Pode alterar a sua resposta a qualquer momento até que a revisão de acesso termine.
 
     > [!NOTE]
-    > Se você indicou que não precisa mais de acesso, não será removido imediatamente. Você será removido quando a revisão terminar ou quando um administrador parar a revisão.
+    > Se indicou que já não precisa de acesso, não será removido imediatamente. É removido quando a revisão terminar ou quando um administrador para a revisão.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Concluir uma revisão de acesso de grupos ou aplicativos](complete-access-review.md)
+- [Concluir uma revisão de acesso de grupos ou aplicações](complete-access-review.md)

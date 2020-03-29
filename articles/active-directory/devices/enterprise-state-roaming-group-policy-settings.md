@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bdffbc3a140bd13dcd6d352db8c192803d39b03e
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672375"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Política de Grupo e definições de MDM
@@ -41,7 +41,7 @@ As definições de política do MDM aplicam-se tanto ao Windows 10 como ao Windo
 
 As definições de política do grupo aplicam-se aos dispositivos Windows 10 que se juntam a um domínio de Diretório Ativo. A tabela também inclui configurações antigas que parecem gerir definições de sincronização, mas que não funcionam para o Enterprise State Roaming para o Windows 10, que são notadas com 'Não utilizar' na descrição.
 
-Estas definições estão localizadas em: `Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
+Estas definições estão localizadas em:`Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
 
 | Nome | Descrição |
 | --- | --- |

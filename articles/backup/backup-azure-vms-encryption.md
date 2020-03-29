@@ -4,10 +4,10 @@ description: Descreve como fazer backup e restaurar vMs Azure encriptados com o 
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: a3976cc83f749b1abe00cef3f5bf867ffbc30ab6
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78206695"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Back up e restaurar Azure VM encriptado
@@ -61,12 +61,12 @@ Além disso, há algumas coisas que talvez precises de fazer em algumas circunst
 
     ![Lâmina de reserva](./media/backup-azure-vms-encryption/select-backup.png)
 
-3. Na **meta de backup** > Ondeestá a sua carga **de trabalho?**
-4. Em **O que quer fazer de volta?** Selecione máquina **Virtual** > **OK**.
+3. No **objetivo** > de backup Onde **Azure**está a sua carga**de trabalho?**
+4. Em O que quer fazer **Virtual machine** > **OK** **de volta?**
 
       ![Lâmina de cenário](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
-5. Na **política de backup** > Escolha a política de **backup**, selecione a política que pretende associar ao cofre. Em seguida, clique em **OK**.
+5. Na **política** > de**backup Escolha a política**de backup , selecione a política que pretende associar ao cofre. Em seguida, clique em **OK**.
     - Uma política de backup especifica quando os backups são recolhidos e quanto tempo são armazenados.
     - Os detalhes da política predefinida estão listados no menu pendente.
 
@@ -99,7 +99,7 @@ O backup inicial será executado de acordo com o horário, mas você pode execut
 3. Na lista **de Itens de Backup,** clique nas elipses (...).
 4. Clique em **Backup agora**.
 5. Em **Backup Now,** utilize o controlo do calendário para selecionar o último dia em que o ponto de recuperação deve ser mantido. Em seguida, clique em **OK**.
-6. Monitorize as notificações do portal. Você pode monitorizar o progresso do trabalho no painel de abóbadas > **Backup Jobs** > **Em andamento**. Dependendo do tamanho da sua VM, a criação da cópia de segurança inicial poderá demorar algum tempo.
+6. Monitorize as notificações do portal. Você pode monitorizar o progresso do trabalho no painel de instrumentos do cofre > **Backup Jobs** > **Em andamento.** Dependendo do tamanho da sua VM, a criação da cópia de segurança inicial poderá demorar algum tempo.
 
 ## <a name="provide-permissions"></a>Fornecer permissões
 
@@ -112,13 +112,13 @@ Para definir permissões:
 
 1. No portal Azure, selecione **Todos os serviços**e procure **cofres chave.**
 2. Selecione o cofre de chaves associado ao VM encriptado que está a apoiar.
-3. Selecione **as políticas** de acesso > **Adicionar novas**.
+3. Selecione **políticas de** > acesso**Adicione novas**.
 4. **Selecione o principal,** e, em seguida, digite a **Gestão de Backup**.
-5. Selecione O Serviço de **Gestão de Backup** > **Selecione**.
+5. Selecione o serviço >  **de gestão de****backupSe**.
 
     ![Seleção de serviço de backup](./media/backup-azure-vms-encryption/select-backup-service.png)
 
-6. Em **Adicionar a política de acesso** > **Configurar a partir do modelo (opcional)** , selecione **Backup Azure**.
+6. Em **Adicionar política** > de acesso**Configure a partir do modelo (opcional)**, selecione **Backup Azure**.
     - As permissões necessárias são preenchidas para **permissões chave** e **permissões secretas**.
     - Se o seu VM estiver encriptado **usando apenas BEK**, remova a seleção de **permissões Chave,** uma vez que apenas necessita de permissões para segredos.
 

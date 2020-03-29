@@ -1,5 +1,5 @@
 ---
-title: Como verificar o progresso do trabalho utilizando a REST API  Microsoft Docs
+title: Como verificar o progresso do trabalho utilizando a REST API [ Microsoft Docs
 description: Este artigo demonstra como verificar o progresso do trabalho utilizando a Azure Media Services v2 REST API.
 services: media-services
 documentationcenter: ''
@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: cac8622c95ca2cb08ef412ac7117caac0c52ca56
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773620"
 ---
 # <a name="how-to-check-job-progress"></a>Como: verificar o progresso do trabalho
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Quando se gere empregos, muitas vezes é preciso uma forma de acompanhar o progresso do emprego. Você pode descobrir o estado de trabalho usando a propriedade do Estado de Trabalho. Para mais informações sobre a propriedade do Estado, consulte [Propriedades da Entidade De Emprego](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
 
-## <a name="connect-to-media-services"></a>Ligue-se aos Serviços Multimédia
+## <a name="connect-to-media-services"></a>Ligar aos Media Services
 
 Para obter informações sobre como se conectar à AMS API, consulte [Aceda à API dos Serviços de Mídia Azure com autenticação Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
@@ -68,6 +68,6 @@ Resposta:
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 [Media Services operações REST API visão geral](media-services-rest-how-to-use.md)

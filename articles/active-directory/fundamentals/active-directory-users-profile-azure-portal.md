@@ -1,6 +1,6 @@
 ---
-title: Adicionar ou atualizar informações de perfil do usuário-Azure AD
-description: Instruções sobre como adicionar informações a um perfil de utilizador no Azure Active Directory, incluindo os detalhes de uma imagem e a tarefa.
+title: Adicionar ou atualizar informações sobre o perfil do utilizador - Azure AD
+description: Instruções sobre como adicionar informações ao perfil de um utilizador no Diretório Ativo Azure, incluindo uma imagem e detalhes de trabalho.
 services: active-directory
 author: msaburnley
 manager: daveba
@@ -13,52 +13,52 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ba51b0ad7f314058f34092dff4e26411020086a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75422880"
 ---
-# <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Adicionar ou atualizar as informações de perfil de um utilizador com o Azure Active Directory
-Adicione informações de perfil do usuário, incluindo uma imagem do perfil, informações específicas de tarefa e algumas definições com o Azure Active Directory (Azure AD). Para obter mais informações sobre como adicionar novos utilizadores, consulte [como adicionar ou eliminar utilizadores no Azure Active Directory](add-users-azure-active-directory.md).
+# <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Adicionar ou atualizar as informações do perfil de um utilizador com o Azure Active Directory
+Adicione informações sobre o perfil do utilizador, incluindo uma imagem de perfil, informações específicas para o trabalho e algumas definições utilizando o Azure Ative Directory (Azure AD). Para mais informações sobre a adição de novos utilizadores, consulte [como adicionar ou excluir utilizadores no Diretório Ativo do Azure](add-users-azure-active-directory.md).
 
-## <a name="add-or-change-profile-information"></a>Adicionar ou alterar as informações de perfil
-Como verá, há mais informações disponíveis no perfil de um utilizador que o que pode adicionar durante a criação do utilizador. Todas essas informações adicionais é opcionais e podem ser adicionadas conforme necessário pela sua organização.
+## <a name="add-or-change-profile-information"></a>Adicionar ou alterar informações sobre o perfil
+Como pode ver, há mais informação disponível no perfil de um utilizador do que o que é capaz de adicionar durante a criação do utilizador. Toda esta informação adicional é opcional e pode ser adicionada conforme necessário pela sua organização.
 
-## <a name="to-add-or-change-profile-information"></a>Para adicionar ou alterar as informações de perfil
-1. Entre no [portal do Azure](https://portal.azure.com/) como um administrador de usuário para a organização.
+## <a name="to-add-or-change-profile-information"></a>Para adicionar ou alterar informações de perfil
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) como administrador de utilizador para a organização.
 
-2. Selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione um utilizador. Por exemplo, _Alain Charon_.
+2. Selecione **Diretório Ativo Azure,** selecione **Utilizadores**e, em seguida, selecione um utilizador. Por exemplo, _Alain Charon._
 
-    O **Alain Charon - perfil** é apresentada a página.
+    A página **alain Charon - Perfil** aparece.
 
     ![Página de perfil do utilizador, incluindo informações editáveis](media/active-directory-users-profile-azure-portal/user-profile-all-blade.png)
 
-3. Selecione **editar** para, opcionalmente, adicionar ou atualizar as informações incluídas em cada uma das seções disponíveis.
+3. Selecione **Editar** para adicionar ou atualizar opcionalmente as informações incluídas em cada uma das secções disponíveis.
 
-    ![Página de perfil do usuário, que mostra as áreas editáveis](media/active-directory-users-profile-azure-portal/user-profile-edit.png)
+    ![Página de perfil do utilizador, mostrando as áreas editáveis](media/active-directory-users-profile-azure-portal/user-profile-edit.png)
 
-    - **Imagem do perfil.** Selecione uma imagem em miniatura para a conta de utilizador. Esta imagem é apresentada no Azure Active Directory e páginas pessoais do utilizador, tais como a página de myapps.microsoft.com.
+    - **Imagem de perfil.** Selecione uma imagem de miniatura para a conta do utilizador. Esta imagem aparece no Diretório Ativo do Azure e nas páginas pessoais do utilizador, como a página myapps.microsoft.com.
 
-    - **Identidade.** Adicione ou atualize um valor de identidade adicional para o usuário, como um sobrenome casado. Você pode definir esse nome independentemente dos valores de First Name e Last Name. Por exemplo, você pode usá-lo para incluir iniciais, um nome de empresa ou alterar a sequência de nomes mostrados. Em outro exemplo, para dois usuários cujos nomes são "Chris Green", você pode usar a cadeia de caracteres de identidade para definir seus nomes como "Chris B. Green" "Chris R. Green (contoso)."
+    - **A identidade.** Adicione ou atualize um valor de identidade adicional para o utilizador, como um sobrenome casado. Pode definir este nome de forma independente a partir dos valores de Primeiro nome e Apelido. Por exemplo, pode usá-lo para incluir iniciais, um nome de empresa ou para alterar a sequência de nomes mostrados. Noutro exemplo, para dois utilizadores cujos nomes são 'Chris Green' pode usar a cadeia Identidade para definir os seus nomes para 'Chris B. Green' 'Chris R. Green (Contoso).'
 
-    - **Informações da tarefa.** Adicione qualquer informação relacionados com tarefas, como cargo, departamento ou gestor do utilizador.
+    - **Informação de trabalho.** Adicione qualquer informação relacionada com o trabalho, como o cargo de utilizador, departamento ou gestor.
 
-    - **Definições.** Decida se o utilizador pode iniciar sessão no inquilino do Azure Active Directory. Também pode especificar a localização do utilizador global.
+    - **Configurações.** Decida se o utilizador pode iniciar sessão no Azure Ative Directory tenant. Também pode especificar a localização global do utilizador.
 
-    - **Informações de contacto.** Adicione quaisquer informações de contato relevantes para o usuário, exceto para algumas informações de contato móvel ou telefone do usuário (somente um administrador global pode atualizar para usuários em funções de administrador).
+    - **Informações de contacto.** Adicione quaisquer informações de contacto relevantes para o utilizador, com exceção das informações de contacto de algum utilizador ou telemóvel (apenas um administrador global pode atualizar para os utilizadores nas funções de administrador).
 
-    - **Informações de contacto de autenticação.** Verifique se estas informações para se certificar de que existe um endereço de e-mail e número de telefone do Active Directory para o utilizador. Estas informações são utilizadas pelo Azure Active Directory para se certificar de que o usuário realmente é o utilizador durante o início de sessão. Informações de contacto de autenticação podem ser atualizada apenas por um administrador global.
+    - **Informação de contacto de autenticação.** Verifique esta informação para se certificar de que existe um número de telefone ativo e endereço de e-mail para o utilizador. Estas informações são utilizadas pelo Azure Ative Directory para garantir que o utilizador é realmente o utilizador durante o início de sessão. As informações de contacto de autenticação só podem ser atualizadas por um administrador global.
 
 4. Selecione **Guardar**.
 
-    Todas as alterações são guardadas para o utilizador.
+    Todas as suas alterações são guardadas para o utilizador.
 
     >[!Note]
-    >Tem de utilizar o Windows Server Active Directory para atualizar a identidade, informações de contacto ou informações da tarefa para os utilizadores cuja origem de autoridade é o Windows Server Active Directory. Depois de concluir a atualização, tem de aguardar o próximo ciclo de sincronização seja concluída antes de verá as alterações.
+    >Deve utilizar o Diretório Ativo do Windows Server para atualizar a identidade, informações de contacto ou informações de trabalho para utilizadores cuja fonte de autoridade é o Diretório Ativo do Servidor do Windows. Depois de completar a atualização, deve esperar que o próximo ciclo de sincronização termine antes de ver as alterações.
 
 ## <a name="next-steps"></a>Passos seguintes
-Depois de atualizou os perfis dos seus utilizadores, pode executar os seguintes processos de basic:
+Depois de atualizar os perfis dos seus utilizadores, pode realizar os seguintes processos básicos:
 
 - [Adicionar ou eliminar utilizadores](add-users-azure-active-directory.md)
 
@@ -66,4 +66,4 @@ Depois de atualizou os perfis dos seus utilizadores, pode executar os seguintes 
 
 - [Criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md)
 
-Ou pode realizar outras tarefas de gestão de utilizador, como a atribuição de delegados, através de políticas e partilhar contas de utilizador. Para obter mais informações sobre outras ações disponíveis, consulte [documentação de gestão de utilizador do Azure Active Directory](../users-groups-roles/index.yml).
+Ou pode executar outras tarefas de gestão de utilizadores, tais como atribuir delegados, usar políticas e partilhar contas de utilizadores. Para obter mais informações sobre outras ações disponíveis, consulte a documentação de [gestão de utilizadores do Azure Ative Directory.](../users-groups-roles/index.yml)

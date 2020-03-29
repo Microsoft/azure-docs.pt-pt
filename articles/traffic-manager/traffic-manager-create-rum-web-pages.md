@@ -14,10 +14,10 @@ ms.date: 03/16/2018
 ms.author: rohink
 ms.custom: ''
 ms.openlocfilehash: 927d774ee30a291607a8a47fc2fd6878c1bc6fee
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938686"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Como enviar Medições reais de utilizador para o Gestor de Tráfego Do Azure usando páginas web
@@ -29,8 +29,8 @@ Pode configurar as suas páginas web para enviar Medições reais do Utilizador 
 As medições que efetua e envia ao Traffic Manager a partir da sua aplicação cliente são identificadas pelo serviço utilizando uma cadeia única, chamada Chave de Medições reais **do Utilizador (RUM).** Pode obter uma chave RUM utilizando o portal Azure, uma API REST ou utilizando o PowerShell ou o Azure CLI.
 
 Para obter a chave RUM utilizando o portal Azure:
-1. A partir de um browser, inscreva-se no portal Azure. Se ainda não tem uma conta, pode inscrever-se para um julgamento gratuito de um mês.
-2. Na barra de pesquisa do portal, procure o nome de perfil do Gestor de Tráfego que pretende modificar e, em seguida, clique no perfil do Gestor de Tráfego nos resultados apresentados.
+1. Num browser, inicie sessão no portal do Azure. Se ainda não tiver uma conta, pode inscrever-se para obter uma avaliação gratuita durante um mês.
+2. Na barra de pesquisa do portal, procure o nome do perfil do Gestor de Tráfego que pretende modificar e, em seguida, clique no perfil do Gestor de Tráfego nos resultados apresentados.
 3. Na lâmina de perfil do Gestor de Tráfego, clique em **Medições reais do Utilizador** em **Definições**.
 4. Clique em **Criar** uma nova chave RUM.
  
@@ -54,7 +54,7 @@ Para obter a chave RUM utilizando o portal Azure:
 Depois de ter obtido a chave RUM, o próximo passo é incorporar este JavaScript copiado numa página HTML que os seus utilizadores finais visitam. Editar HTML pode ser feito de muitas maneiras e usando diferentes ferramentas e fluxos de trabalho. Este exemplo mostra como atualizar uma página HTML para adicionar este script. Pode utilizar esta orientação para adaptá-la ao fluxo de trabalho de gestão de fontes HTML.
 
 1.  Abra a página HTML num editor de texto
-2.  Colar o código JavaScript que copiou no passo anterior para a secção BODY do HTML (o código copiado está na linha 8 e 9, ver figura 3).
+2.  Colar o código JavaScript que copiou no passo anterior para a secção BODY do HTML (o código copiado está na linha 8 & 9, ver figura 3).
  
     ![Inserido código Javascript na página web para medições reais do utilizador](./media/traffic-manager-create-rum-web-pages/real-user-measurement-embed-script.png)  
 

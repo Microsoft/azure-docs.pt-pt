@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: kumud
 ms.openlocfilehash: f4643aae0b28861f4ddb99d8dace749e62f930b8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78199483"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configure endereços IP privados para uma máquina virtual utilizando o Azure CLI
@@ -67,7 +67,7 @@ Para criar um VM chamado *DNS01* na subnet *FrontEnd* de uma VNet chamada *TestV
 
    * `--resource-group`: Nome do grupo de recursos para criar o IP público.
    * `--name`: Nome do IP público.
-   * `--location`: Região azure na qual criar o IP público.
+   * `--location`: Região azul na qual criar o IP público.
 
 3. Executar o [nic de rede az criar](/cli/azure/network/nic) comando para criar um NIC com um IP privado estático. A lista apresentada depois do resultado explica os parâmetros utilizados. 
    

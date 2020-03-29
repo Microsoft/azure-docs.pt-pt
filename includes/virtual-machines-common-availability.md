@@ -9,10 +9,10 @@ ms.date: 11/04/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 4860dcac666f790fed199536338e50a967113c20
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76748856"
 ---
 Este artigo fornece-lhe uma visão geral das funcionalidades de disponibilidade das máquinas virtuais Azure (VMs).
@@ -27,7 +27,7 @@ Existem poucas opções que o Azure fornece para alcançar a Alta Disponibilidad
 
 [As zonas](../articles/availability-zones/az-overview.md) de disponibilidade expandem o nível de controlo que tem para manter a disponibilidade das aplicações e dados nos seus VMs. Uma Zona de Disponibilidade é uma zona fisicamente separada, dentro de uma região de Azure. Existem três Zonas de Disponibilidade por região de Azure apoiada. 
 
-Cada Zona de Disponibilidade tem uma fonte de energia, uma rede e um sistema de refrigeração distintos. Ao arquitetar as suas soluções para utilizar VMs replicados em zonas, pode proteger as suas aplicações e dados da perda de um datacenter. Se uma zona for comprometida, os aplicativos e dados replicados estarão instantaneamente disponíveis em outra zona. 
+Cada Zona de Disponibilidade tem uma fonte de energia, uma rede e um sistema de refrigeração distintos. Ao arquitetar as suas soluções para utilizar VMs replicados em zonas, pode proteger as suas aplicações e dados da perda de um datacenter. Se uma zona estiver comprometida, as aplicações e os dados replicados estão instantaneamente disponíveis noutra zona. 
 
 ![Zonas de disponibilidade](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
 
@@ -52,13 +52,13 @@ Os conjuntos de escala de máquinas virtuais Azure permitem criar e gerir um gru
 ### <a name="preview-orchestration-mode-preview"></a>Pré-visualização: Antevisão do modo de orquestração
 Os conjuntos de escala de máquinas virtuais permitem especificar o modo de orquestração.  Com o modo de orquestração de conjunto de máquinas virtuais (pré-visualização), pode agora escolher se o conjunto de escala deve orquestrar máquinas virtuais que são criadas explicitamente fora de um modelo de configuração de conjunto de escala, ou casos de máquinas virtuais criados implicitamente com base no modelo de configuração. Escolha o modo de orquestração que o modelo de orquestração VM permite agrupar máquinas virtuais explicitamente definidas numa região ou numa zona de disponibilidade. As máquinas virtuais implantadas numa Zona de Disponibilidade proporcionam isolamento zonal aos VMs, estão ligadas ao limite da zona de disponibilidade e não estão sujeitas a quaisquer falhas que possam ocorrer noutrazona de disponibilidade da região. 
 
-|   | "orchestrationMode": "VM" (VirtualMachine)| "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
+|   | "OrchestrationMode": "VM" (VirtualMachine)| "modo de orquestração": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |----|----|----|
-| Modelo de configuração de VM| Nenhum. O VirtualMachineProfile está indefinido no modelo de conjunto de escala. | Necessário. O VirtualMachineProfile é povoado no modelo de conjunto de escala. |
-| Adicionando Nova VM ao conjunto de dimensionamento| As VMs são adicionadas explicitamente ao conjunto de dimensionamento quando a VM é criada. | Os VMs são implicitamente criados e adicionados à escala definida com base no modelo de configuração VM, contagem de instâncias e regras de autoscalcificação. |
-| Zonas de Disponibilidade| Dá suporte à implantação regional ou a VMs em uma zona de disponibilidade| Dá suporte à implantação regional ou a vários Zonas de Disponibilidade; Pode definir a estratégia de balanceamento de zona |
-| Domínios de falha| Pode definir a contagem de domínios de falha. 2 ou 3 com base no suporte regional e 5 para a zona de disponibilidade. O domínio de falha VM atribuído persistirá com o ciclo de vida vM, incluindo desalocar e reiniciar. | Pode definir 1, 2 ou 3 domínios de falha para implementações não zonais e 5 para implementações da zona de disponibilidade. O domínio de falha VM atribuído não persiste com o ciclo de vida vm, as máquinas virtuais são atribuídas a um domínio de falha no momento da atribuição. |
-| Domínios de atualização| N/D. Os domínios de atualização são mapeados automaticamente para domínios de falha| N/D. Os domínios de atualização são mapeados automaticamente para domínios de falha |
+| Modelo de configuração VM| Nenhum. O VirtualMachineProfile está indefinido no modelo de conjunto de escala. | Necessário. O VirtualMachineProfile é povoado no modelo de conjunto de escala. |
+| Adicionar novo VM ao conjunto de escala| Os VMs são explicitamente adicionados à escala definida quando o VM é criado. | Os VMs são implicitamente criados e adicionados à escala definida com base no modelo de configuração VM, contagem de instâncias e regras de autoscalcificação. |
+| Zonas de Disponibilidade| Apoia a implantação regional ou VMs numa zona de disponibilidade| Apoia a implantação regional ou múltiplas Zonas de Disponibilidade; Pode definir a estratégia de equilíbrio da zona |
+| Domínios de falha| Pode definir a contagem de domínios de falha. 2 ou 3 com base no apoio regional e 5 na zona de disponibilidade. O domínio de falha VM atribuído persistirá com o ciclo de vida vM, incluindo desalocar e reiniciar. | Pode definir 1, 2 ou 3 domínios de falha para implementações não zonais e 5 para implementações da zona de disponibilidade. O domínio de falha VM atribuído não persiste com o ciclo de vida vm, as máquinas virtuais são atribuídas a um domínio de falha no momento da atribuição. |
+| Domínios de atualização| N/D. Os domínios de atualização são automaticamente mapeados para domínios de falha| N/D. Os domínios de atualização são automaticamente mapeados para domínios de falha |
 
 **Domínios de falha e domínios de atualização**
 
@@ -81,6 +81,6 @@ Os VMs dentro de um conjunto de disponibilidade também são distribuídos autom
 
 ![Conjuntos de disponibilidade](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Pode agora começar a utilizar estas funcionalidades de redundância e disponibilidade para criar o seu ambiente do Azure. Para informações relativas a melhores práticas, veja [Melhores Práticas de Disponibilidade do Azure](/azure/architecture/checklist/resiliency-per-service).
 

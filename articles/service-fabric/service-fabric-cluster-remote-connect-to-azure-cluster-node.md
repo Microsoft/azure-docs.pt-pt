@@ -1,58 +1,58 @@
 ---
-title: Conexão remota a um nó de Cluster Service Fabric do Azure
-description: Saiba como se conectar remotamente a uma instância do conjunto de dimensionamento (um nó de Cluster Service Fabric).
+title: Ligação remota a um nó de cluster de tecido de serviço Azure
+description: Aprenda a ligar-se remotamente a uma instância de conjunto de escala (um nó de cluster de tecido de serviço).
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.openlocfilehash: c7ca4f0d5dce1b19837a44d5c9749f3e1293c6b8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458326"
 ---
-# <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Conectar remotamente a uma instância do conjunto de dimensionamento de máquinas virtuais ou a um nó de cluster
-Em um Cluster Service Fabric em execução no Azure, cada tipo de nó de cluster que você define [configura uma escala separada de máquina virtual](service-fabric-cluster-nodetypes.md).  Você pode conectar-se remotamente a instâncias específicas do conjunto de dimensionamento (nós de cluster).  Ao contrário das VMs de instância única, as instâncias do conjunto de dimensionamento não têm seus próprios endereços IP virtuais. Isso pode ser desafiador quando você está procurando um endereço IP e uma porta que você pode usar para se conectar remotamente a uma instância específica.
+# <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Ligação remota a uma instância de conjunto de escala de máquina virtual ou um nó de cluster
+Num cluster de tecido de serviço em funcionamento em Azure, cada tipo de nó de cluster que define [configura uma escala separada](service-fabric-cluster-nodetypes.md)da máquina virtual .  Pode ligar-se remotamente a instâncias específicas de conjuntos de escala (nós de cluster).  Ao contrário dos VMs de instância única, as instâncias de conjunto de escala não têm os seus próprios endereços IP virtuais. Isto pode ser um desafio quando procura um endereço IP e uma porta que pode usar para ligar remotamente a uma instância específica.
 
-Para localizar um endereço IP e uma porta que você pode usar para se conectar remotamente a uma instância específica, conclua as etapas a seguir.
+Para encontrar um endereço IP e uma porta que possa utilizar para ligar remotamente a uma instância específica, complete os seguintes passos.
 
-1. Obtenha as regras de NAT de entrada para protocolo RDP (RDP).
+1. Obtenha as regras nat de entrada para o Protocolo de Ambiente de Trabalho Remoto (RDP).
 
-    Normalmente, cada tipo de nó definido em seu cluster tem seu próprio endereço IP virtual e um balanceador de carga dedicado. Por padrão, o balanceador de carga para um tipo de nó é nomeado com o seguinte formato: *lb-{cluster-Name}-{node-Type}* ; por exemplo, *lb-mycluster-frontend*. 
+    Tipicamente, cada tipo de nó definido no seu cluster tem o seu próprio endereço IP virtual e um equilibrador de carga dedicado. Por predefinição, o equilibrista de carga para um tipo de nó é nomeado com o seguinte formato: *LB-{cluster-name}-{node-type}*; por exemplo, *LB-mycluster-FrontEnd*. 
     
-    Na página do balanceador de carga no portal do Azure, selecione **configurações** > **regras de NAT de entrada**: 
+    Na página do seu equilibrista de carga no portal Azure, selecione **Definições** > **Regras NAT de entrada:** 
 
-    ![Regras NAT de entrada do balanceador de carga](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
+    ![Regras na NAT do equilibrista de carga](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 
-    A captura de tela a seguir mostra as regras de NAT de entrada para um tipo de nó chamado FrontEnd: 
+    A seguinte imagem mostra as regras nat de entrada para um tipo de nó chamado FrontEnd: 
 
-    ![Regras NAT de entrada do balanceador de carga](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
+    ![Regras na NAT do equilibrista de carga](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
 
-    Para cada nó, o endereço IP aparece na coluna **destino** , a coluna de **destino** fornece a instância do conjunto de dimensionamento e a coluna **serviço** fornece o número da porta. Para a conexão remota, as portas são alocadas para cada nó em ordem crescente, começando com a porta 3389.
+    Para cada nó, o endereço IP aparece na coluna **DESTINATION,** a coluna **TARGET** dá a instância de conjunto de escala, e a coluna **SERVICE** fornece o número da porta. Para ligação remota, as portas são alocados a cada nó em ordem ascendente a partir da porta 3389.
 
-    Você também pode encontrar as regras NAT de entrada na seção `Microsoft.Network/loadBalancers` do modelo do Resource Manager para seu cluster.
+    Também pode encontrar as regras na `Microsoft.Network/loadBalancers` nat inbound na secção do modelo de Gestor de Recursos para o seu cluster.
     
-2. Para confirmar a porta de entrada para o mapeamento de porta de destino de um nó, você pode clicar em sua regra e examinar o valor da **porta de destino** . A captura de tela a seguir mostra a regra NAT de entrada para o nó **frontend (instância 1)** na etapa anterior. Observe que, embora o número da porta (de entrada) seja 3390, a porta de destino é mapeada para a porta 3389, a porta para o serviço RDP no destino.  
+2. Para confirmar a porta de entrada para o mapeamento da porta-alvo para um nó, pode clicar na sua regra e olhar para o valor da **porta Target.** A imagem seguinte mostra a regra NAT de entrada para o nó **FrontEnd (Instância 1)** no passo anterior. Note-se que, embora o número de porta (de entrada) seja 3390, a porta-alvo é mapeada para a porta 3389, a porta para o serviço RDP no alvo.  
 
-    ![Mapeamento de porta de destino](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/port-mapping.png)
+    ![Mapeamento de porta-alvo](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/port-mapping.png)
 
-    Por padrão, para clusters do Windows, a porta de destino é a porta 3389, que é mapeada para o serviço RDP no nó de destino. Para clusters do Linux, a porta de destino é a porta 22, que é mapeada para o serviço de Secure Shell (SSH).
+    Por predefinição, para os clusters Windows, a porta-alvo é a porta-alvo 3389, que mapeia o serviço RDP no nó alvo. Para os clusters Linux, a porta-alvo é a porta-alvo 22, que mapeia o serviço Secure Shell (SSH).
 
-3. Conectar remotamente ao nó específico (instância do conjunto de dimensionamento). Você pode usar o nome de usuário e a senha que você definiu quando criou o cluster ou qualquer outra credencial configurada. 
+3. Ligue-se remotamente ao nó específico (instância de conjunto de escala). Pode utilizar o nome de utilizador e a palavra-passe que definiu quando criou o cluster ou quaisquer outras credenciais configuradas. 
 
-    A captura de tela a seguir mostra o uso de Conexão de Área de Trabalho Remota para se conectar ao nó **frontend (instância 1)** em um cluster do Windows:
+    A imagem que se segue mostra a utilização da Ligação remota de ambiente de trabalho para ligar ao nó **FrontEnd (Instância 1)** num cluster Windows:
     
-    ![Ligação ao Ambiente de Trabalho Remoto](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/rdp-connect.png)
+    ![Ligação de Ambiente de Trabalho Remoto](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/rdp-connect.png)
 
-    Em nós do Linux, você pode se conectar com o SSH (o exemplo a seguir reutiliza o mesmo endereço IP e porta para fins de brevidade):
+    Nos nós Linux, pode ligar-se ao SSH (o exemplo seguinte reutiliza o mesmo endereço IP e porta para brevidade):
 
     ``` bash
     ssh SomeUser@40.117.156.199 -p 3390
     ```
 
 
-Para as próximas etapas, leia os seguintes artigos:
-* Consulte a [visão geral do recurso "implantar em qualquer lugar" e uma comparação com clusters gerenciados pelo Azure](service-fabric-deploy-anywhere.md).
-* Saiba mais sobre a [segurança do cluster](service-fabric-cluster-security.md).
-* [Atualizar os valores de intervalo de porta RDP](./scripts/service-fabric-powershell-change-rdp-port-range.md) em VMs de cluster após a implantação
-* [Alterar o nome de usuário e a senha do administrador](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) para VMs do cluster
+Para os próximos passos, leia os seguintes artigos:
+* Veja a [visão geral da funcionalidade "Implementar em qualquer lugar" e uma comparação com clusters geridos pelo Azure](service-fabric-deploy-anywhere.md).
+* Saiba mais sobre [a segurança do cluster.](service-fabric-cluster-security.md)
+* [Atualizar os valores da gama de porta rdp](./scripts/service-fabric-powershell-change-rdp-port-range.md) em VMs de cluster após a implantação
+* Alterar o nome de utilizador e a [palavra-passe](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) do administrador para VMs de cluster
 

@@ -1,37 +1,37 @@
 ---
-title: Gravar procedimentos armazenados, gatilhos e UDFs no Azure Cosmos DB
-description: Saiba como definir procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB
+title: Escreva procedimentos armazenados, gatilhos e UDFs em Azure Cosmos DB
+description: Saiba como definir procedimentos armazenados, gatilhos e funções definidas pelo utilizador no Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
 ms.openlocfilehash: 4dee017323bda5fc08598a9b24cadd11516807cf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75441722"
 ---
-# <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como escrever procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB
+# <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como escrever procedimentos, gatilhos e funções definidas pelo utilizador em Azure Cosmos DB
 
-O Azure Cosmos DB fornece execução transacional e integrada de linguagem de JavaScript que permite escrever **procedimentos armazenados**, **gatilhos**e **UDFs (funções definidas pelo usuário)** . Ao usar a API do SQL no Azure Cosmos DB, você pode definir os procedimentos armazenados, gatilhos e UDFs na linguagem JavaScript. Você pode escrever sua lógica em JavaScript e executá-la dentro do mecanismo de banco de dados. Você pode criar e executar gatilhos, procedimentos armazenados e UDFs usando [portal do Azure](https://portal.azure.com/), a [API de consulta integrada à linguagem JavaScript no Azure Cosmos DB](javascript-query-api.md) e os [SDKs do cliente de API do SQL Cosmos DB](sql-api-dotnet-samples.md). 
+O Azure Cosmos DB fornece uma execução transacional integrada em linguagem do JavaScript que permite escrever **procedimentos armazenados,** **gatilhos**e **funções definidas pelo utilizador (UDFs)**. Ao utilizar a API SQL em Azure Cosmos DB, pode definir os procedimentos armazenados, gatilhos e UDFs em linguagem JavaScript. Pode escrever a sua lógica no JavaScript e executá-la dentro do motor de base de dados. Pode criar e executar gatilhos, procedimentos armazenados e UDFs utilizando o [portal Azure,](https://portal.azure.com/)a Consulta Integrada de Consulta em [Língua JavaScript em Azure Cosmos DB](javascript-query-api.md) e o Cliente [API Cosmos DB SQL.](sql-api-dotnet-samples.md) 
 
-Para chamar um procedimento armazenado, um gatilho e uma função definida pelo usuário, você precisa registrá-lo. Para obter mais informações, consulte [como trabalhar com procedimentos armazenados, gatilhos, funções definidas pelo usuário no Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
+Para chamar um procedimento armazenado, gatilho e função definida pelo utilizador, é necessário registá-lo. Para mais informações, consulte [Como trabalhar com procedimentos armazenados, gatilhos, funções definidas pelo utilizador no Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
 
 > [!NOTE]
-> Para contêineres particionados, ao executar um procedimento armazenado, um valor de chave de partição deve ser fornecido nas opções de solicitação. Os procedimentos armazenados sempre estão no escopo de uma chave de partição. Os itens que têm um valor de chave de partição diferente não serão visíveis para o procedimento armazenado. Isso também se aplica a gatilhos.
+> Para os recipientes divididos, ao executar um procedimento armazenado, deve ser fornecido um valor-chave de partição nas opções de pedido. Os procedimentos armazenados são sempre remetos a uma chave de partição. Os itens que tenham um valor-chave de divisória diferente não serão visíveis ao procedimento armazenado. Isto também se aplica aos gatilhos.
 
 > [!Tip]
-> O cosmos dá suporte à implantação de contêineres com procedimentos armazenados, gatilhos e funções definidas pelo usuário. Para obter mais informações, consulte [criar um contêiner de Azure Cosmos DB com a funcionalidade do lado do servidor.](manage-sql-with-resource-manager.md#create-sproc)
+> A Cosmos suporta a implantação de contentores com procedimentos armazenados, gatilhos e funções definidas pelo utilizador. Para mais informações consulte [Criar um recipiente Azure Cosmos DB com funcionalidade do lado do servidor.](manage-sql-with-resource-manager.md#create-sproc)
 
-## <a id="stored-procedures"></a>Como escrever procedimentos armazenados
+## <a name="how-to-write-stored-procedures"></a><a id="stored-procedures"></a>Como escrever procedimentos armazenados
 
-Os procedimentos armazenados são escritos usando JavaScript, eles podem criar, atualizar, ler, consultar e excluir itens dentro de um contêiner Cosmos do Azure. Os procedimentos armazenados são registrados por coleção e podem operar em qualquer documento ou anexo presente nessa coleção.
+Os procedimentos armazenados são escritos usando javaScript, podem criar, atualizar, ler, consultar e eliminar itens dentro de um recipiente Azure Cosmos. Os procedimentos armazenados são registados por recolha, e podem funcionar em qualquer documento ou anexo presente nessa coleção.
 
 **Exemplo**
 
-Aqui está um procedimento armazenado simples que retorna uma resposta "Olá, Mundo".
+Aqui está um procedimento simples armazenado que devolve uma resposta "Hello World".
 
 ```javascript
 var helloWorldStoredProc = {
@@ -45,17 +45,17 @@ var helloWorldStoredProc = {
 }
 ```
 
-O objeto de contexto fornece acesso a todas as operações que podem ser executadas em Azure Cosmos DB, bem como acesso aos objetos de solicitação e resposta. Nesse caso, você usa o objeto de resposta para definir o corpo da resposta a ser enviada de volta ao cliente.
+O objeto de contexto proporciona acesso a todas as operações que podem ser realizadas no Azure Cosmos DB, bem como acesso aos objetos de pedido e resposta. Neste caso, utiliza o objeto de resposta para definir o corpo da resposta a ser devolvido ao cliente.
 
-Uma vez gravado, o procedimento armazenado deve ser registrado com uma coleção. Para saber mais, consulte [como usar procedimentos armazenados no artigo Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#stored-procedures) .
+Uma vez escrito, o procedimento armazenado deve ser registado com uma coleção. Para saber mais, consulte como utilizar procedimentos armazenados no artigo da [Azure Cosmos DB.](how-to-use-stored-procedures-triggers-udfs.md#stored-procedures)
 
-### <a id="create-an-item"></a>Criar um item usando o procedimento armazenado
+### <a name="create-an-item-using-stored-procedure"></a><a id="create-an-item"></a>Criar um item usando o procedimento armazenado
 
-Quando você cria um item usando o procedimento armazenado, o item é inserido no contêiner Cosmos do Azure e uma ID para o item recém-criado é retornada. Criar um item é uma operação assíncrona e depende das funções de retorno de chamada do JavaScript. A função de retorno de chamada tem dois parâmetros: um para o objeto de erro em caso de falha da operação e outro para um valor de retorno; Nesse caso, o objeto criado. Dentro do retorno de chamada, você pode manipular a exceção ou gerar um erro. Caso um retorno de chamada não seja fornecido e haja um erro, o tempo de execução do Azure Cosmos DB gerará um erro. 
+Quando se cria um item utilizando o procedimento armazenado, o item é inserido no recipiente Azure Cosmos e é devolvido um ID para o item recém-criado. Criar um item é uma operação assíncrona e depende das funções de callback JavaScript. A função de retorno tem dois parâmetros - um para o objeto de erro no caso de a operação falhar e outro por um valor de devolução; neste caso, o objeto criado. Dentro da chamada, pode lidar com a exceção ou lançar um erro. No caso de não ser fornecida uma chamada e houver um erro, o tempo de execução do Azure Cosmos DB irá lançar um erro. 
 
-O procedimento armazenado também inclui um parâmetro para definir a descrição, é um valor booliano. Quando o parâmetro for definido como true e a descrição estiver ausente, o procedimento armazenado gerará uma exceção. Caso contrário, o restante do procedimento armazenado continuará a ser executado.
+O procedimento armazenado também inclui um parâmetro para definir a descrição, é um valor booleano. Quando o parâmetro estiver definido e a descrição faltar, o procedimento armazenado lançará uma exceção. Caso contrário, o resto do procedimento armazenado continua a ser executado.
 
-O procedimento armazenado de exemplo a seguir usa um novo item Cosmos do Azure como entrada, insere-o no contêiner Cosmos do Azure e retorna a ID para o item recém-criado. Neste exemplo, estamos aproveitando o exemplo ToDolist da [API SQL do início rápido do .net](create-sql-api-dotnet.md)
+O procedimento armazenado a seguir toma um novo item Azure Cosmos como entrada, insere-o no recipiente Azure Cosmos e devolve o ID para o item recém-criado. Neste exemplo, estamos a aproveitar a amostra ToDoList da [Quickstart .NET SQL API](create-sql-api-dotnet.md)
 
 ```javascript
 function createToDoItem(itemToCreate) {
@@ -75,7 +75,7 @@ function createToDoItem(itemToCreate) {
 
 ### <a name="arrays-as-input-parameters-for-stored-procedures"></a>Matrizes como parâmetros de entrada para procedimentos armazenados 
 
-Ao definir um procedimento armazenado no portal do Azure, os parâmetros de entrada são sempre enviados como uma cadeia de caracteres para o procedimento armazenado. Mesmo se passar uma matriz de cadeias de caracteres como entrada, a matriz é convertida em cadeia de caracteres e enviada para o procedimento armazenado. Para solucionar esse erro, você pode definir uma função em seu procedimento armazenado para analisar a cadeia de caracteres como uma matriz. O código a seguir mostra como analisar um parâmetro de entrada de cadeia de caracteres como uma matriz:
+Ao definir um procedimento armazenado no portal Azure, os parâmetros de entrada são sempre enviados como uma corda para o procedimento armazenado. Mesmo que passe uma série de cordas como entrada, a matriz é convertida em corda e enviada para o procedimento armazenado. Para contornar isto, pode definir uma função dentro do seu procedimento armazenado para analisar a corda como uma matriz. O seguinte código mostra como analisar um parâmetro de entrada de cadeia como uma matriz:
 
 ```javascript
 function sample(arr) {
@@ -88,9 +88,9 @@ function sample(arr) {
 }
 ```
 
-### <a id="transactions"></a>Transações em procedimentos armazenados
+### <a name="transactions-within-stored-procedures"></a><a id="transactions"></a>Transações dentro dos procedimentos armazenados
 
-Você pode implementar transações em itens dentro de um contêiner usando um procedimento armazenado. O exemplo a seguir usa transações em um aplicativo de jogos de futebol de fantasia para trocar jogadores entre duas equipes em uma única operação. O procedimento armazenado tenta ler os dois itens de Cosmos do Azure, cada um correspondendo às IDs de Player passadas como um argumento. Se ambos os players forem encontrados, o procedimento armazenado atualizará os itens permutando suas equipes. Se algum erro for encontrado ao longo do caminho, o procedimento armazenado lançará uma exceção JavaScript que anula implicitamente a transação.
+Pode implementar transações em itens dentro de um contentor utilizando um procedimento armazenado. O exemplo seguinte usa transações dentro de uma aplicação de jogos de fantasy football para trocar jogadores entre duas equipas numa única operação. O procedimento armazenado tenta ler os dois itens Azure Cosmos cada um correspondente aos IDs do jogador transmitidos como argumento. Se ambos os jogadores forem encontrados, o procedimento armazenado atualiza os itens trocando as suas equipas. Se houver erros ao longo do caminho, o procedimento armazenado lança uma exceção JavaScript que aborta implicitamente a transação.
 
 ```javascript
 // JavaScript source code
@@ -156,9 +156,9 @@ function tradePlayers(playerId1, playerId2) {
 }
 ```
 
-### <a id="bounded-execution"></a>Execução limitada em procedimentos armazenados
+### <a name="bounded-execution-within-stored-procedures"></a><a id="bounded-execution"></a>Execução delimitada dentro dos procedimentos armazenados
 
-Veja a seguir um exemplo de um procedimento armazenado que importa os itens em massa para um contêiner Cosmos do Azure. O procedimento armazenado lida com a execução limitada, verificando o valor de retorno booliano de `createDocument`e, em seguida, usa a contagem de itens inseridos em cada invocação do procedimento armazenado para rastrear e retomar o progresso entre os lotes.
+Segue-se um exemplo de um procedimento armazenado que importa a granel itens num contentor Azure Cosmos. O procedimento armazenado trata da execução delimitada, verificando o valor de devolução booleano de , e, em seguida, utiliza a contagem de itens inseridos em cada invocação do procedimento armazenado para rastrear e retomar o progresso através dos `createDocument`lotes.
 
 ```javascript
 function bulkImport(items) {
@@ -211,13 +211,13 @@ function bulkImport(items) {
 }
 ```
 
-## <a id="triggers"></a>Como escrever gatilhos
+## <a name="how-to-write-triggers"></a><a id="triggers"></a>Como escrever gatilhos
 
-O Azure Cosmos DB dá suporte a pré-gatilhos e pós-gatilhos. Os pré-gatilhos são executados antes de modificar um item de banco de dados e pós-gatilhos são executados após a modificação de um item de banco de dados.
+A Azure Cosmos DB suporta pré-gatilhos e pós-gatilhos. Os pré-gatilhos são executados antes de modificar um item de base de dados e os pós-gatilhos são executados após modificar um item de base de dados.
 
-### <a id="pre-triggers"></a>Pré-gatilhos
+### <a name="pre-triggers"></a><a id="pre-triggers"></a>Pré-acionadores
 
-O exemplo a seguir mostra como um pré-gatilho é usado para validar as propriedades de um item Cosmos do Azure que está sendo criado. Neste exemplo, estamos aproveitando o exemplo ToDolist da [API SQL do início rápido do .net](create-sql-api-dotnet.md)para adicionar uma propriedade Timestamp a um item recém-adicionado, se ele não contiver um.
+O exemplo que se segue mostra como um pré-gatilho é usado para validar as propriedades de um item Azure Cosmos que está a ser criado. Neste exemplo, estamos a aproveitar a amostra ToDoList da [Quickstart .NET SQL API,](create-sql-api-dotnet.md)para adicionar uma propriedade de timestamp a um item recém-adicionado se não contiver uma.
 
 ```javascript
 function validateToDoItemTimestamp() {
@@ -238,15 +238,15 @@ function validateToDoItemTimestamp() {
 }
 ```
 
-Os pré-acionadores não podem ter parâmetros de entrada. O objeto de solicitação no gatilho é usado para manipular a mensagem de solicitação associada à operação. No exemplo anterior, o pré-gatilho é executado ao criar um item Cosmos do Azure e o corpo da mensagem de solicitação contém o item a ser criado no formato JSON.
+Os pré-acionadores não podem ter parâmetros de entrada. O objeto de pedido no gatilho é utilizado para manipular a mensagem de pedido associada à operação. No exemplo anterior, o pré-gatilho é executado ao criar um item Azure Cosmos, e o corpo de mensagem de pedido contém o item a ser criado em formato JSON.
 
-Quando os gatilhos são registrados, você pode especificar as operações com as quais ele pode ser executado. Esse gatilho deve ser criado com um valor `TriggerOperation` de `TriggerOperation.Create`, o que significa que usar o gatilho em uma operação de substituição, conforme mostrado no código a seguir, não é permitido.
+Quando os gatilhos estiverem registados, pode especificar as operações com as quais pode ser executada. Este gatilho deve ser `TriggerOperation` criado `TriggerOperation.Create`com um valor de , o que significa que não é permitida a utilização do gatilho numa operação de substituição, tal como mostrado no código seguinte.
 
-Para obter exemplos de como registrar e chamar um pré-gatilho, consulte os artigos [pré-gatilhos](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) e [pós-disparadores](how-to-use-stored-procedures-triggers-udfs.md#post-triggers) . 
+Por exemplo, como registar e ligar para um pré-gatilho, ver [artigos pré-gatilhos](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) e [pós-gatilhos.](how-to-use-stored-procedures-triggers-udfs.md#post-triggers) 
 
-### <a id="post-triggers"></a>Pós-gatilhos
+### <a name="post-triggers"></a><a id="post-triggers"></a>Pós-acionadores
 
-O exemplo a seguir mostra um post-Trigger. Esse gatilho consulta o item de metadados e o atualiza com detalhes sobre o item recém-criado.
+O exemplo que se segue mostra um pós-gatilho. Este gatilho consulta o item dos metadados e atualiza-o com detalhes sobre o item recém-criado.
 
 
 ```javascript
@@ -282,13 +282,13 @@ function updateMetadataCallback(err, items, responseOptions) {
 }
 ```
 
-Uma coisa importante a ser observada é a execução transacional de gatilhos no Azure Cosmos DB. O post-Trigger é executado como parte da mesma transação para o item subjacente. Uma exceção durante a execução pós-gatilho falhará na transação inteira. Qualquer coisa confirmada será revertida e uma exceção será retornada.
+Uma coisa que é importante notar é a execução transacional de gatilhos em Azure Cosmos DB. O pós-gatilho funciona como parte da mesma transação para o próprio item subjacente. Uma exceção durante a execução pós-desencadeamento falhará toda a transação. Qualquer coisa comprometida será retornada e uma exceção devolvida.
 
-Para obter exemplos de como registrar e chamar um pré-gatilho, consulte os artigos [pré-gatilhos](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) e [pós-disparadores](how-to-use-stored-procedures-triggers-udfs.md#post-triggers) . 
+Por exemplo, como registar e ligar para um pré-gatilho, ver [artigos pré-gatilhos](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) e [pós-gatilhos.](how-to-use-stored-procedures-triggers-udfs.md#post-triggers) 
 
-## <a id="udfs"></a>Como gravar funções definidas pelo usuário
+## <a name="how-to-write-user-defined-functions"></a><a id="udfs"></a>Como escrever funções definidas pelo utilizador
 
-O exemplo a seguir cria um UDF para calcular o imposto de renda para vários colchetes de renda. Essa função definida pelo usuário seria então usada dentro de uma consulta. Para os fins deste exemplo, suponha que haja um contêiner chamado "invenha" com propriedades da seguinte maneira:
+A amostra seguinte cria uma UDF para calcular o imposto sobre o rendimento para vários escalões de rendimento. Esta função definida pelo utilizador seria então utilizada dentro de uma consulta. Para efeitos deste exemplo, suponha que exista um contentor chamado "Rendas" com propriedades da seguinte forma:
 
 ```json
 {
@@ -298,7 +298,7 @@ O exemplo a seguir cria um UDF para calcular o imposto de renda para vários col
 }
 ```
 
-A seguir está uma definição de função para calcular o imposto de renda para vários colchetes de renda:
+Segue-se uma definição de função para calcular o imposto sobre o rendimento para vários escalões de rendimentos:
 
 ```javascript
 function tax(income) {
@@ -315,11 +315,11 @@ function tax(income) {
     }
 ```
 
-Para obter exemplos de como registrar e usar uma função definida pelo usuário, consulte [como usar funções definidas pelo usuário no Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#udfs) artigo.
+Por exemplo, como registar e utilizar uma função definida pelo utilizador, consulte [como utilizar funções definidas pelo utilizador no artigo da Azure Cosmos DB.](how-to-use-stored-procedures-triggers-udfs.md#udfs)
 
 ## <a name="logging"></a>Registo 
 
-Ao usar procedimentos armazenados, gatilhos ou funções definidas pelo usuário, você pode registrar as etapas usando o comando `console.log()`. Este comando irá concentrar uma cadeia de caracteres para depuração quando `EnableScriptLogging` for definido como true, conforme mostrado no exemplo a seguir:
+Ao utilizar o procedimento armazenado, os gatilhos ou as funções `console.log()` definidas pelo utilizador, pode registar os passos utilizando o comando. Este comando concentrará uma corda `EnableScriptLogging` para depuração quando for definido como mostrado no seguinte exemplo:
 
 ```javascript
 var response = await client.ExecuteStoredProcedureAsync(
@@ -330,12 +330,12 @@ Console.WriteLine(response.ScriptLog);
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre os conceitos e como escrever ou usar procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB:
+Saiba mais conceitos e como escrever ou utilizar procedimentos, gatilhos e funções definidas pelo utilizador no Azure Cosmos DB:
 
 * [Como registar e utilizar procedimentos armazenados, acionadores e funções definidas pelo utilizador no Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
 
-* [Como escrever procedimentos armazenados e gatilhos usando a API de consulta JavaScript no Azure Cosmos DB](how-to-write-javascript-query-api.md)
+* [Como escrever procedimentos e gatilhos armazenados usando API Javascript Consulta ry em Azure Cosmos DB](how-to-write-javascript-query-api.md)
 
-* [Trabalhando com Azure Cosmos DB procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB](stored-procedures-triggers-udfs.md)
+* [Trabalhar com a Azure Cosmos DB procedimentos, gatilhos e funções definidas pelo utilizador no Azure Cosmos DB](stored-procedures-triggers-udfs.md)
 
-* [Trabalhando com API de consulta integrada de linguagem JavaScript no Azure Cosmos DB](javascript-query-api.md)
+* [Trabalhar com a api integrada de consulta integrada em língua JavaScript em Azure Cosmos DB](javascript-query-api.md)

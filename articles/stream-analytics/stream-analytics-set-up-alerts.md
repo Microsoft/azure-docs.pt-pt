@@ -1,6 +1,6 @@
 ---
-title: Configurar alertas de monitoramento para trabalhos de Azure Stream Analytics
-description: Este artigo descreve como usar o portal do Azure para configurar o monitoramento e alertas para trabalhos de Azure Stream Analytics.
+title: Criar alertas de monitorização para empregos da Azure Stream Analytics
+description: Este artigo descreve como usar o portal Azure para criar monitorização e alertas para trabalhos de Azure Stream Analytics.
 author: jseb225
 ms.author: sidram
 ms.reviewer: mamccrea
@@ -8,67 +8,67 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.openlocfilehash: 836b7a489e3c73d745b128cbbc0c3566220ac409
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458729"
 ---
-# <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Configurar alertas para trabalhos de Azure Stream Analytics
+# <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Criar alertas para empregos da Azure Stream Analytics
 
-É importante monitorar seu trabalho de Azure Stream Analytics para garantir que o trabalho esteja sendo executado continuamente sem problemas. Este artigo descreve como configurar alertas para cenários comuns que devem ser monitorados. 
+É importante monitorizar o seu trabalho de Azure Stream Analytics para garantir que o trabalho está a funcionar continuamente sem problemas. Este artigo descreve como configurar alertas para cenários comuns que devem ser monitorizados. 
 
-Você pode definir regras em métricas de dados de logs de operação por meio do portal, bem como [programaticamente](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a).
+Pode definir regras sobre métricas a partir de dados da Operação Registos através do portal, bem como [programáticamente](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a).
 
-## <a name="set-up-alerts-in-the-azure-portal"></a>Configurar alertas no portal do Azure
-### <a name="get-alerted-when-a-job-stops-unexpectedly"></a>Receber alertas quando um trabalho parar inesperadamente
+## <a name="set-up-alerts-in-the-azure-portal"></a>Criar alertas no portal Azure
+### <a name="get-alerted-when-a-job-stops-unexpectedly"></a>Seja alertado quando um trabalho para inesperadamente
 
-O exemplo a seguir demonstra como configurar alertas para quando seu trabalho entrar em um estado de falha. Esse alerta é recomendado para todos os trabalhos.
+O exemplo que se segue demonstra como configurar alertas para quando o seu trabalho entrar num estado falhado. Este alerta é recomendado para todos os trabalhos.
 
-1. No portal do Azure, abra o trabalho de Stream Analytics para o qual você deseja criar um alerta.
+1. No portal Azure, abra o trabalho stream analytics para o que pretende criar um alerta.
 
-2. Na página **trabalho** , navegue até a seção **monitoramento** .  
+2. Na página **De trabalho,** navegue para a secção **de Monitorização.**  
 
-3. Selecione **métricas**e **nova regra de alerta**.
+3. Selecione **Métricas,** e, em seguida, **nova regra de alerta**.
 
-   ![Instalação de alertas do portal do Azure Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-set-up-alerts.png)  
+   ![Azure portal Stream Analytics alerta supérflua](./media/stream-analytics-set-up-alerts/stream-analytics-set-up-alerts.png)  
 
-4. O nome do trabalho de Stream Analytics deve aparecer automaticamente em **recurso**. Clique em **Adicionar condição**e selecione **todas as operações administrativas** em **Configurar lógica de sinal**.
+4. O nome de trabalho do Stream Analytics deve aparecer automaticamente em **RECURSO**. Clique em **Adicionar condição**e selecione todas **as operações administrativas** sob a lógica de **sinal configuração**.
 
-   ![Selecione o nome do sinal para Stream Analytics alerta](./media/stream-analytics-set-up-alerts/stream-analytics-condition-signal.png)  
+   ![Selecione o nome do sinal para o alerta Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-condition-signal.png)  
 
-5. Em **Configurar lógica de sinal**, **altere nível de evento** para **todos** e altere o **status** para **falha**. Deixe o **evento iniciado por** em branco e selecione **concluído**.
+5. Sob a lógica do **sinal configure,** mude o **Nível de Evento** para **Todos** e mude **o Estado** para **Falhado**. Deixe **o Evento iniciado em** branco e selecione **Done**.
 
-   ![Configurar a lógica de sinal para Stream Analytics alerta](./media/stream-analytics-set-up-alerts/stream-analytics-configure-signal-logic.png) 
+   ![Configure lógica de sinal para alerta Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-configure-signal-logic.png) 
 
-6. Selecione um grupo de ações existente ou crie um novo grupo. Neste exemplo, um novo grupo de ação chamado **TIDashboardGroupActions** foi criado com uma ação **emails** que envia um email aos usuários com a função **proprietário** Azure Resource Manager.
+6. Selecione um grupo de ação existente ou crie um novo grupo. Neste exemplo, um novo grupo de ação chamado **TIDashboardGroupActions** foi criado com uma ação **de Emails** que envia um e-mail para os utilizadores com o Papel de Gestor de Recursos **do Proprietário** Azure.
 
-   ![Configurando um alerta para um trabalho do Azure streaming Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
+   ![Criação de um alerta para um trabalho de Streaming Analytics azure](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
 
-7. Os grupos de **recursos**, **condições**e **ações** devem ter uma entrada. Observe que, para que os alertas sejam acionados, as condições definidas precisam ser atendidas. Por exemplo, pode medir o valor médio de uma métrica durante os últimos 15 minutos, de cinco em cinco minutos.
+7. Os **GRUPOS DE RECURSOS,** **CONDIÇÃO**e **AÇÃO** devem ter cada um uma entrada. Note que, para que os alertas para o fogo, as condições definidas devem ser satisfeitas. Por exemplo, pode medir o valor médio de uma métrica durante os últimos 15 minutos, de cinco em cinco minutos.
 
-   ![Criar Stream Analytics regra de alerta](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
+   ![Criar a regra de alerta stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 
-   Adicione um **nome de regra de alerta**, uma **Descrição**e seu **grupo de recursos** aos **detalhes do alerta** e clique em **criar regra de alerta** para criar a regra para seu trabalho de Stream Analytics.
+   Adicione um nome de regra de **Alerta,** **Descrição,** e o seu **Grupo de Recursos** aos DETALHES DE **ALERTA** e clique em Criar a regra de **alerta** para criar a regra para o seu trabalho de Streaming Analytics.
 
-   ![Criar Stream Analytics regra de alerta](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
+   ![Criar a regra de alerta stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
    
-## <a name="scenarios-to-monitor"></a>Cenários para monitorar
+## <a name="scenarios-to-monitor"></a>Cenários para monitorizar
 
-Os alertas a seguir são recomendados para monitorar o desempenho de seu trabalho de Stream Analytics. Essas métricas devem ser avaliadas a cada minuto durante o último período de 5 minutos.
+Recomenda-se a monitorização do desempenho do seu trabalho em Análise stream. Estas métricas devem ser avaliadas a cada minuto durante os últimos 5 minutos.
 
-|Métrica|Condição|Agregação de tempo|Limiar|Ações corretivas|
+|Métrica|Condição|Agregação do tempo|Limiar|Ações Corretivas|
 |-|-|-|-|-|
-|% De utilização de SU|Mais do que|Máximo|80|Há vários fatores que aumentam a utilização de SU%. Você pode dimensionar com a paralelização de consulta ou aumentar o número de unidades de streaming. Para obter mais informações, veja [Leverage query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md) (Tirar partido da paralelização de consultas no Azure Stream Analytics).|
-|Erros de tempo de execução|Mais do que|Total|0|Examine a atividade ou os logs de diagnóstico e faça as alterações apropriadas nas entradas, na consulta ou nas saídas.|
-|Atraso da marca d' água|Mais do que|Máximo|Quando o valor médio dessa métrica nos últimos 15 minutos for maior que a tolerância de chegada tardia (em segundos). Se você não tiver modificado a tolerância de chegada tardia, o padrão será definido como 5 segundos.|Tente aumentar o número de SUs ou paralelizar sua consulta. Para obter mais informações sobre o SUs, consulte [entender e ajustar unidades de streaming](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job). Para obter mais informações sobre como paralelizar sua consulta, consulte [alavancar a paralelização de consulta no Azure Stream Analytics](stream-analytics-parallelization.md).|
-|Erros de desserialização de entrada|Mais do que|Total|0|Examine a atividade ou os logs de diagnóstico e faça as alterações apropriadas na entrada. Para obter mais informações sobre logs de diagnóstico, consulte [solucionar problemas Azure Stream Analytics usando logs de diagnóstico](stream-analytics-job-diagnostic-logs.md)|
+|Utilização su%|Maior que|Máximo|80|Existem vários fatores que aumentam a utilização de SU% Pode escalar com paraparação de consultas ou aumentar o número de unidades de streaming. Para obter mais informações, veja [Leverage query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md) (Tirar partido da paralelização de consultas no Azure Stream Analytics).|
+|Erros de tempo de execução|Maior que|Total|0|Examine a atividade ou os registos de diagnóstico e efelo alterações adequadas nas inputs, consultas ou saídas.|
+|Atraso na marca de água|Maior que|Máximo|Quando o valor médio desta métrica nos últimos 15 minutos é maior do que a tolerância à chegada tardia (em segundos). Se não tiver modificado a tolerância à chegada tardia, o padrão é definido para 5 segundos.|Tente aumentar o número de SUs ou paralelizar a sua consulta. Para obter mais informações sobre SUs, consulte [Compreender e ajustar unidades](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job)de streaming . Para obter mais informações sobre a paralelização da sua consulta, consulte a [paralelização da consulta de Alavancagem no Azure Stream Analytics](stream-analytics-parallelization.md).|
+|Erros de desserialização de entrada|Maior que|Total|0|Examine a atividade ou os registos de diagnóstico e efelo alterações adequadas à entrada. Para obter mais informações sobre registos de diagnóstico, consulte [Troubleshoot Azure Stream Analytics utilizando registos](stream-analytics-job-diagnostic-logs.md) de diagnóstico|
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para obter mais detalhes sobre como configurar alertas no portal do Azure, consulte [receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).  
+Para mais detalhes sobre a configuração de alertas no portal Azure, consulte [Receber notificações](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)de alerta .  
 
-Para obter assistência, tente nosso [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para mais assistência, experimente o nosso [fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)

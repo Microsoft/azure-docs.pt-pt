@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
 ms.openlocfilehash: 48485b7ba0f846afa737454b092a6c1ee986b737
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78254966"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-azure-database-migration-service"></a>Topologs de rede para migrações de instância gerida sql DB Azure usando o Serviço de Migração de Bases de Dados Azure
@@ -46,7 +46,7 @@ Utilize esta topologia de rede se o seu ambiente necessitar de um ou mais dos se
 
 **Requisitos**
 
-- A rede virtual que o Azure Database Migration Service utiliza para este cenário também deve ser ligada à rede no local utilizando (https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- A rede virtual que o Azure Database Migration Service utiliza para este cenário tambémhttps://docs.microsoft.com/azure/expressroute/expressroute-introduction) deve ser ligada à rede no local utilizando ou VPN ( ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 - Configurar o [peering da rede VNet](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre a rede virtual utilizada para a base de dados Azure SQL gerida por exemplo e o Serviço de Migração de Bases de Dados Azure.
 
 ## <a name="cloud-to-cloud-migrations-shared-virtual-network"></a>Migrações cloud-to-cloud: Rede virtual partilhada

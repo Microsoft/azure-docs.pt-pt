@@ -10,10 +10,10 @@ ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
 ms.openlocfilehash: 3c21e2fcdde9bffac91af56d49dfa0bf336e8c0c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78246240"
 ---
 # <a name="secure-assets-in-azure-automation"></a>Ativos seguros na Automação Azure
@@ -192,7 +192,7 @@ Para revogar o acesso às chaves geridas pelo cliente, utilize a PowerShell ou o
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [O que é o Cofre chave Azure?](../key-vault/key-vault-overview.md)
+- [O que é o cofre de chave do Azure?](../key-vault/key-vault-overview.md)
 
 - [Recursos de certificados na Automatização do Azure](shared-resources/certificates.md)
 

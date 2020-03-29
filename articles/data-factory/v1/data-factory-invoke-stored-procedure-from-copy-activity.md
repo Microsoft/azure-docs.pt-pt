@@ -1,6 +1,6 @@
 ---
-title: Invocar procedimento armazenado de Azure Data Factory atividade de cópia
-description: Saiba como invocar um procedimento armazenado no banco de dados SQL do Azure ou SQL Server de uma atividade de cópia Azure Data Factory.
+title: Invocar procedimento armazenado da Atividade de Cópia da Fábrica de Dados de Azure
+description: Saiba como invocar um procedimento armazenado na Base de Dados Azure SQL, ou SQL Server a partir de uma atividade de cópia da Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,23 +13,23 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d05c2b03a0c498144f37c9b6205053120a596b09
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74924086"
 ---
-# <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Invocar procedimento armazenado da atividade de cópia no Azure Data Factory
+# <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Invocar procedimento armazenado a partir da atividade de cópia na Fábrica de Dados Azure
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço de Data Factory, consulte [transformar dados usando a atividade de procedimento armazenado no data Factory](../transform-data-using-stored-procedure.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte [a transformação de dados utilizando a atividade de procedimento armazenado na Fábrica](../transform-data-using-stored-procedure.md)de Dados .
 
 
-Ao copiar dados para o [SQL Server](data-factory-sqlserver-connector.md) ou para o [Azure SQL Database](data-factory-azure-sql-connector.md), você pode configurar o **sqlsink** na atividade de cópia para invocar um procedimento armazenado. Talvez você queira usar o procedimento armazenado para executar qualquer processamento adicional (mesclando colunas, pesquisando valores, inserindo em várias tabelas etc.) é necessário antes de inserir dados na tabela de destino. Esse recurso aproveita os [parâmetros com valor de tabela](https://msdn.microsoft.com/library/bb675163.aspx). 
+Ao copiar dados para [o SQL Server](data-factory-sqlserver-connector.md) ou para a Base de [Dados SQL,](data-factory-azure-sql-connector.md)pode configurar o **SqlSink** na atividade de cópia para invocar um procedimento armazenado. É necessário utilizar o procedimento armazenado para efetuar qualquer tratamento adicional (colunas de fusão, procurar valores, inserção em várias tabelas, etc.) antes de inserir os dados na tabela de destino. Esta funcionalidade tira partido dos [parâmetros de valor de tabela.](https://msdn.microsoft.com/library/bb675163.aspx) 
 
-O exemplo a seguir mostra como invocar um procedimento armazenado em um SQL Server banco de dados de um pipeline de Data Factory (atividade de cópia):  
+A amostra que se segue mostra como invocar um procedimento armazenado numa base de dados do SQL Server a partir de um pipeline data Factory (atividade de cópia):  
 
-## <a name="output-dataset-json"></a>DataSet de saída JSON
-No DataSet de saída JSON, defina o **tipo** como: **sqlservertable**. Defina-o como **AzureSqlTable** para usar com um banco de dados SQL do Azure. O valor da propriedade **TableName** deve corresponder ao nome do primeiro parâmetro do procedimento armazenado.  
+## <a name="output-dataset-json"></a>Conjunto de dados de saída JSON
+No conjunto de dados de saída JSON, desloque o **tipo** para: **SqlServerTable**. Deite-o no **AzureSqlTable** para utilizar com uma base de dados Azure SQL. O valor da propriedade **tableName** deve coincidir com o nome do primeiro parâmetro do procedimento armazenado.  
 
 ```json
 {
@@ -48,8 +48,8 @@ No DataSet de saída JSON, defina o **tipo** como: **sqlservertable**. Defina-o 
 }
 ```
 
-## <a name="sqlsink-section-in-copy-activity-json"></a>Seção sqlsink na atividade de cópia JSON
-Defina a seção **sqlsink** no JSON da atividade de cópia da seguinte maneira. Para invocar um procedimento armazenado durante a inserção de dados no banco de dado do coletor/destino, especifique valores para as propriedades **SqlWriterStoredProcedureName** e **SqlWriterTableType** . Para obter descrições dessas propriedades, consulte [a seção sqlsink no artigo conector de SQL Server](data-factory-sqlserver-connector.md#sqlsink).
+## <a name="sqlsink-section-in-copy-activity-json"></a>Secção SqlSink na atividade de cópia JSON
+Defina a secção **SqlSink** na atividade de cópia JSON da seguinte forma. Para invocar um procedimento armazenado ao inserir dados na base de dados de sink/destination, especifique valores tanto para as propriedades **SqlWriterStoredProcedureName** e **SqlWriterTableType.** Para descrições destas propriedades, consulte a [secção SqlSink no artigo do conector SQL Server](data-factory-sqlserver-connector.md#sqlsink).
 
 ```json
 "sink":
@@ -67,8 +67,8 @@ Defina a seção **sqlsink** no JSON da atividade de cópia da seguinte maneira.
 }
 ```
 
-## <a name="stored-procedure-definition"></a>Definição do procedimento armazenado 
-No banco de dados, defina o procedimento armazenado com o mesmo nome que **SqlWriterStoredProcedureName**. O procedimento armazenado manipula dados de entrada do armazenamento de dados de origem e insere dados em uma tabela no banco de dado de destino. O nome do primeiro parâmetro do procedimento armazenado deve corresponder ao TableName definido no DataSet JSON (marketing).
+## <a name="stored-procedure-definition"></a>Definição de procedimento armazenado 
+Na sua base de dados, defina o procedimento armazenado com o mesmo nome que **o Nome de Procedimento SqlWriterStored**. O procedimento armazenado trata os dados de entrada da loja de dados de origem e insere os dados numa tabela na base de dados do destino. O nome do primeiro parâmetro de procedimento armazenado deve coincidir com o nome do quadro definido no conjunto de dados JSON (Marketing).
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
@@ -81,7 +81,7 @@ END
 ```
 
 ## <a name="table-type-definition"></a>Definição de tipo de tabela
-No banco de dados, defina o tipo de tabela com o mesmo nome que **SqlWriterTableType**. O esquema do tipo de tabela deve corresponder ao esquema do conjunto de dados de entrada.
+Na sua base de dados, defina o tipo de tabela com o mesmo nome que **o SqlWriterTableType**. O esquema do tipo de mesa deve coincidir com o esquema do conjunto de dados de entrada.
 
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
@@ -91,7 +91,7 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Examine os seguintes artigos do conector para obter exemplos de JSON completos: 
+Reveja os seguintes artigos de conector que para exemplos completos da JSON: 
 
 - [Base de Dados SQL do Azure](data-factory-azure-sql-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)

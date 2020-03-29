@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 10/27/2016
 ms.author: rohink
 ms.openlocfilehash: b77248813463f51d4bd2c5186e421aec43ffaf52
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76939213"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Utilizar serviços de balanceamento de carga no Azure
@@ -39,7 +39,7 @@ A nível conceptual, cada um destes serviços desempenha um papel distinto na hi
 
   O cliente liga-se diretamente ao ponto final devolvido pelo Traffic Manager. O Azure Traffic Manager deteta quando um ponto final não é saudável e depois redireciona os clientes para outra instância saudável. Consulte a documentação do Gestor de [Tráfego do Azure](traffic-manager-overview.md) para saber mais sobre o serviço.
 * **O Application Gateway** fornece o controlador de entrega de aplicações (ADC) como um serviço, oferecendo várias capacidades de equilíbrio de carga da Camada 7 para a sua aplicação. Permite que os clientes otimizem a produtividade da quinta web descarregando a rescisão intensiva de SSL por CPU para o gateway da aplicação. Outras capacidades de encaminhamento da Camada 7 incluem distribuição de rodada-robin do tráfego de entrada, afinidade de sessão baseada em cookies, encaminhamento baseado em caminhos de URL, e a capacidade de hospedar vários websites atrás de um único gateway de aplicação. O Gateway de aplicações pode ser configurado como um gateway virado para a Internet, um gateway apenas interno, ou uma combinação de ambos. Application Gateway é totalmente gerido, escalável e altamente disponível. Proporciona um conjunto avançado de capacidades de registo e diagnóstico, para uma melhor capacidade de gestão.
-* **Load Balancer** é parte integrante da pilha Azure SDN, fornecendo serviços de equilíbrio de carga de baixa latência e de baixa latência para todos os protocolos UDP e TCP. Gere as ligações de entrada e saída. Pode configurar pontos finais equilibrados em carga seletos públicos e internos e definir regras para mapear ligações de entrada para destinos de piscina sem saída, utilizando opções de sondagem de saúde TCP e HTTP para gerir a disponibilidade do serviço.
+* **Load Balancer** é parte integrante da pilha Azure SDN, fornecendo serviços de equilíbrio de carga de baixa latência e de baixa latência para todos os protocolos UDP e TCP. Gere as ligações de entrada e saída. Pode configurar pontos finais públicos e internos com balanceamento de carga e definir regras para mapear as ligações de entrada para destinos do conjunto de back-end, com opções de pesquisa de estado de funcionamento TCP e HTTP para gerir a disponibilidade do serviço.
 
 ## <a name="scenario"></a>Cenário
 
@@ -65,7 +65,7 @@ O diagrama seguinte mostra a arquitetura deste cenário:
 
 ### <a name="step-1-create-a-traffic-manager-profile"></a>Passo 1: Criar um perfil de Gestor de Tráfego
 
-1. No portal Azure, clique em **Criar um recurso** > perfil de **Networking** > **Traffic Manager** > **Criar**.
+1. No portal Azure, clique em **Criar um** > **perfil** > de Gestor**de** > Tráfego em Rede de recursos**Criar**.
 2. Introduza as seguintes informações básicas:
 
    * **Nome**: Dê ao seu perfil de Gestor de Tráfego um nome de prefixo DNS.
@@ -80,7 +80,7 @@ O diagrama seguinte mostra a arquitetura deste cenário:
 
 ### <a name="step-2-create-the-application-gateways"></a>Passo 2: Criar os gateways de aplicação
 
-1. No portal Azure, no painel esquerdo, clique em **Criar um recurso** > **Gateway**de **aplicação** > .
+1. No portal Azure, no painel esquerdo, clique em **Criar um** > Gateway de**Aplicação****de** > Rede de Recursos .
 2. Introduza as seguintes informações básicas sobre o gateway da aplicação:
 
    * **Nome**: O nome do gateway da aplicação.
@@ -96,7 +96,7 @@ O diagrama seguinte mostra a arquitetura deste cenário:
 
 #### <a name="configure-url-routing-for-application-gateways"></a>Configure o encaminhamento de URL para gateways de aplicação
 
-Quando você escolhe um pool de back-end, um gateway de aplicação configurado com uma regra baseada em caminhos toma um padrão de caminho do URL de pedido, além da distribuição de robin redondo. Neste cenário, estamos a adicionar uma regra baseada no caminho para direcionar qualquer URL com "/imagens/\*" para o conjunto de servidores de imagem. Para obter mais informações sobre a configuração do encaminhamento baseado em caminhos de URL para um gateway de aplicação, consulte criar [uma regra baseada em caminhos para um gateway de aplicação](../application-gateway/application-gateway-create-url-route-portal.md).
+Quando você escolhe um pool de back-end, um gateway de aplicação configurado com uma regra baseada em caminhos toma um padrão de caminho do URL de pedido, além da distribuição de robin redondo. Neste cenário, estamos adicionando uma regra baseada no caminho para\*direcionar qualquer URL com "/imagens/ " para o conjunto de servidores de imagem. Para obter mais informações sobre a configuração do encaminhamento baseado em caminhos de URL para um gateway de aplicação, consulte criar [uma regra baseada em caminhos para um gateway de aplicação](../application-gateway/application-gateway-create-url-route-portal.md).
 
 ![Diagrama de nível web de gateway de aplicação](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png)
 
@@ -127,7 +127,7 @@ Quando você escolhe um pool de back-end, um gateway de aplicação configurado 
    + **DEFINIÇÃO HTTP**: As definições http a utilizar com esta regra.
 
    > [!IMPORTANT]
-   > Caminhos: Caminhos válidos devem começar com "/". O wildcard "\*" só é permitido no final. Exemplos válidos são /xyz, /xyz\*, ou /xyz/\*.
+   > Caminhos: Caminhos válidos devem começar com "/". O wildcard\*" é permitido apenas no final. Exemplos válidos são /xyz,\*/xyz,\*ou /xyz/ .
 
    ![Lâmina de gateway de aplicação "Adicionar regra baseada no caminho"](./media/traffic-manager-load-balancing-azure/s2-appgw-pathrule-blade.png)
 
@@ -158,7 +158,7 @@ Se o seu cluster de base de dados de alta disponibilidade estiver a utilizar o S
 
 Para obter mais informações sobre a configuração de um equilibrador de carga interna, consulte [Criar um equilibrador](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)de carga interno no portal Azure .
 
-1. No portal Azure, no painel esquerdo, clique em **Criar um recurso** > **rede** > **balanceador**de carga .
+1. No portal Azure, no painel esquerdo, clique em Criar um**equilíbrio**de carga de**rede** > de **recursos.** > 
 2. Escolha um nome para o seu equilibrador de carga.
 3. Desloque o **Tipo** para **Interno**e escolha a rede virtual e a sub-rede apropriadas para que o equilibrador de carga resida.
 4. No âmbito **da atribuição de endereçoIP,** selecione **Dynamic** ou **Static**.
@@ -210,5 +210,5 @@ Agora configuramos o endereço IP e a porta frontal do equilibrador de carga nas
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição Geral do Gestor de Tráfego](traffic-manager-overview.md)
-* [Visão geral do gateway de aplicativo](../application-gateway/application-gateway-introduction.md)
+* [Descrição geral do Gateway de Aplicação](../application-gateway/application-gateway-introduction.md)
 * [Descrição Geral do Balanceador de Carga do Azure (Azure Load Balancer overview)](../load-balancer/load-balancer-overview.md)

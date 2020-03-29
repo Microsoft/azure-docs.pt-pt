@@ -1,5 +1,5 @@
 ---
-title: Publique, subscreva eventos na cloud - Azure Event Grid IoT Edge  Microsoft Docs
+title: Publique, subscreva eventos na cloud - Azure Event Grid IoT Edge [ Microsoft Docs
 description: Publique, subscreva eventos na nuvem usando Webhook com Grelha de Eventos em IoT Edge
 author: VidyaKukke
 manager: rajarv
@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: c82f1edfc3acd73c1d38425f963aaaf2976a1cc5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76844599"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Tutorial: Publicar, subscrever eventos na nuvem
@@ -23,9 +23,9 @@ Este artigo percorre todos os passos necessários para publicar e subscrever eve
 Consulte o [Event Grid Concepts](concepts.md) para entender o que é um tópico de grelha de eventos e subscrição antes de prosseguir.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
-Para concluir este tutorial, você precisará de:
+Para completar este tutorial, necessitará:
 
-* **Assinatura do Azure** – crie uma [conta gratuita](https://azure.microsoft.com/free) se você ainda não tiver uma. 
+* **Assinatura Azure** - Crie uma [conta gratuita](https://azure.microsoft.com/free) se ainda não tiver uma. 
 * **Dispositivo Azure IoT Hub e IoT Edge** - Siga os passos no arranque rápido dos [dispositivos](../../iot-edge/quickstart.md) [Linux](../../iot-edge/quickstart-linux.md) ou Windows se ainda não tiver um.
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)]
@@ -77,12 +77,12 @@ Como editor de um evento, você precisa criar um tópico de grelha de eventos. O
           }
         }
     ```
-1. Executar o seguinte comando para criar o tópico. O código de status HTTP de 200 OK deve ser retornado.
+1. Executar o seguinte comando para criar o tópico. Http Status Code of 200 OK deve ser devolvido.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic2.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2?api-version=2019-01-01-preview
     ```
-1. Executar o seguinte comando para verificar o tópico foi criado com sucesso. O código de status HTTP de 200 OK deve ser retornado.
+1. Executar o seguinte comando para verificar o tópico foi criado com sucesso. Http Status Code of 200 OK deve ser devolvido.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2?api-version=2019-01-01-preview
@@ -106,7 +106,7 @@ Como editor de um evento, você precisa criar um tópico de grelha de eventos. O
 
 ## <a name="create-an-event-subscription"></a>Criar uma subscrição de evento
 
-Os assinantes podem se registrar para eventos publicados em um tópico. Para receber qualquer evento, os subscritores terão de criar uma subscrição da grelha de eventos sobre um tema de interesse.
+Os assinantes podem inscrever-se para eventos publicados num tópico. Para receber qualquer evento, os subscritores terão de criar uma subscrição da grelha de eventos sobre um tema de interesse.
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
@@ -126,13 +126,13 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
     ```
 
    >[!NOTE]
-   > O **endpointType** especifica que o assinante é um Webhook.  O **endpointUrl** especifica a URL na qual o assinante está escutando eventos. Este URL corresponde à amostra da Função Azure que configura mais cedo.
-2. Executar o seguinte comando para criar a subscrição. O código de status HTTP de 200 OK deve ser retornado.
+   > O **endpointType** especifica que o assinante é um Webhook.  O **endpointUrl** especifica o URL no qual o assinante está a ouvir eventos. Este URL corresponde à amostra da Função Azure que configura mais cedo.
+2. Executar o seguinte comando para criar a subscrição. Http Status Code of 200 OK deve ser devolvido.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription2.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2/eventSubscriptions/sampleSubscription2?api-version=2019-01-01-preview
     ```
-3. Execute o comando a seguir para verificar se a assinatura foi criada com êxito. O código de status HTTP de 200 OK deve ser retornado.
+3. Executar o seguinte comando para verificar se a subscrição foi criada com sucesso. Http Status Code of 200 OK deve ser devolvido.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2/eventSubscriptions/sampleSubscription2?api-version=2019-01-01-preview
@@ -182,7 +182,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
     curl -k -H "Content-Type: application/json" -X POST -g -d @event2.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2/events?api-version=2019-01-01-preview
     ```
 
-## <a name="verify-event-delivery"></a>Verificar a entrega de eventos
+## <a name="verify-event-delivery"></a>Verificar a entrega do evento
 
 Pode ver o evento entregue no portal Azure sob a opção **Monitor** da sua função.
 

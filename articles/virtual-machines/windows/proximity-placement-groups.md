@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: cynthn
 ms.openlocfilehash: f69e245d72a63b942896cdd9f4a2225cb4c1706d
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78208530"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-powershell"></a>Implementar VMs para grupos de colocação de proximidade usando powerShell
@@ -49,7 +49,7 @@ Get-AzProximityPlacementGroup
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
-Crie um VM no grupo de colocação de proximidade usando `-ProximityPlacementGroup $ppg.Id` para se referir ao ID do grupo de colocação de proximidade quando utilizar o [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) para criar o VM.
+Crie um VM no grupo `-ProximityPlacementGroup $ppg.Id` de colocação de proximidade usando para se referir ao ID do grupo de colocação de proximidade quando utilizar o [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) para criar o VM.
 
 ```azurepowershell-interactive
 $vmName = "myVM"
@@ -96,7 +96,7 @@ Start-AzVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName
 
 
 ## <a name="availability-sets"></a>Conjuntos de Disponibilidade
-Também pode criar um conjunto de disponibilidade sintetária no seu grupo de colocação de proximidade. Utilize o mesmo parâmetro de `-ProximityPlacementGroup` com o [Cmdlet New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) para criar um conjunto de disponibilidade e todos os VMs criados no conjunto de disponibilidade também serão criados no mesmo grupo de colocação de proximidade.
+Também pode criar um conjunto de disponibilidade sintetária no seu grupo de colocação de proximidade. Utilize o `-ProximityPlacementGroup` mesmo parâmetro com o [Cmdlet New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) para criar um conjunto de disponibilidade e todos os VMs criados no conjunto de disponibilidade também serão criados no mesmo grupo de colocação de proximidade.
 
 Para adicionar ou remover um conjunto de disponibilidade existente para um grupo de colocação de proximidade, você primeiro precisa parar todos os VMs no conjunto de disponibilidade. 
 
@@ -146,7 +146,7 @@ foreach ($vmId in $vmIDs){
 
 ## <a name="scale-sets"></a>Conjuntos de dimensionamento
 
-Também pode criar um conjunto de escala no seu grupo de colocação de proximidade. Utilize o mesmo parâmetro de `-ProximityPlacementGroup` com [new-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) para criar um conjunto de escala e todas as instâncias serão criadas no mesmo grupo de colocação de proximidade.
+Também pode criar um conjunto de escala no seu grupo de colocação de proximidade. Use o `-ProximityPlacementGroup` mesmo parâmetro com [New-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) para criar um conjunto de escala e todas as instâncias serão criadas no mesmo grupo de colocação de proximidade.
 
 
 Para adicionar ou remover uma escala existente definida para um grupo de colocação de proximidade, primeiro precisa parar o conjunto de escala. 

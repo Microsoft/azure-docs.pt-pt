@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 11/15/2019
 ms.author: victorh
 ms.openlocfilehash: 41b2fb754f1d6ead3a7475ca146ab99758aa8134
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78246862"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Criar um portal de aplicação com http para https redirection usando o Azure CLI
 
-Pode utilizar o Azure CLI para criar um gateway de [aplicação](overview.md) com um certificado para a rescisão de SSL. Uma regra de roteamento é utilizada para redirecionar o tráfego HTTP para a porta HTTPS no seu gateway de aplicação. Neste exemplo, também cria um conjunto de escala de [máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para o conjunto de backend do gateway de aplicação que contém duas instâncias de máquina virtual.
+Pode utilizar o Azure CLI para criar um gateway de [aplicação](overview.md) com um certificado para a rescisão de SSL. Uma regra de encaminhamento é usada para redirecionar o tráfego HTTP para a porta HTTPS no seu gateway de aplicação. Neste exemplo, também cria um conjunto de escala de [máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para o conjunto de backend do gateway de aplicação que contém duas instâncias de máquina virtual.
 
 Neste artigo, vai aprender a:
 
@@ -25,18 +25,18 @@ Neste artigo, vai aprender a:
 > * Criar um certificado autoassinado
 > * Configurar uma rede
 > * Criar um gateway de aplicação com o certificado
-> * Adicionar uma regra de serviço de escuta e o redirecionamento
+> * Adicione uma regra de escuta e reorientação
 > * Criar um conjunto de dimensionamento de máquinas virtuais com o conjunto de back-end predefinido
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
 
-Para utilização em produção, deve importar um certificado válido assinado por um fornecedor fidedigno. Neste tutorial, vai criar um certificado autoassinado e um ficheiro pfx com o comando openssl.
+Para utilização da produção, deve importar um certificado válido assinado por um fornecedor de confiança. Neste tutorial, vai criar um certificado autoassinado e um ficheiro pfx com o comando openssl.
 
 ```console
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
@@ -50,7 +50,7 @@ openssl pkcs12 -export -out appgwcert.pfx -inkey privateKey.key -in appgwcert.cr
 
 Introduza a palavra-passe para o certificado. Neste exemplo, *Azure123456!* é a palavra-passe utilizada.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos com [az group create](/cli/azure/group).
 
@@ -84,7 +84,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Criar o gateway de aplicação
 
-Pode utilizar [az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create) para criar o gateway de aplicação denominado *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, o sku e as definições de HTTP. 
+Pode utilizar [az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create) para criar o gateway de aplicação denominado *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, sku e definições de HTTP. 
 
 O gateway de aplicação é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que criou anteriormente. Neste exemplo, vai associar o certificado que criou e a respetiva palavra-passe quando criar o gateway de aplicação. 
 
@@ -115,7 +115,7 @@ az network application-gateway create \
 - *appGatewayFrontendIP* - atribui *myAGPublicIPAddress* a *appGatewayHttpListener*.
 - *rule1* - a regra de encaminhamento predefinida associada a *appGatewayHttpListener*.
 
-## <a name="add-a-listener-and-redirection-rule"></a>Adicionar uma regra de serviço de escuta e o redirecionamento
+## <a name="add-a-listener-and-redirection-rule"></a>Adicione uma regra de escuta e reorientação
 
 ### <a name="add-the-http-port"></a>Adicione a porta HTTP
 
@@ -218,7 +218,7 @@ az network public-ip show \
 
 ![Aviso de segurança](./media/redirect-http-to-https-cli/application-gateway-secure.png)
 
-Para aceitar o aviso de segurança se tiver utilizado um certificado autoassinado, selecione **Detalhes** e, em seguida **Aceda à página Web**. O site NGINX protegido é apresentado como no exemplo seguinte:
+Para aceitar o aviso de segurança se usou um certificado auto-assinado, selecione **Detalhes** **e,** em seguida, vá para a página web . O site NGINX protegido é apresentado como no exemplo seguinte:
 
 ![Testar o URL base no gateway de aplicação](./media/redirect-http-to-https-cli/application-gateway-nginxtest.png)
 
@@ -230,7 +230,7 @@ Neste tutorial, ficou a saber como:
 > * Criar um certificado autoassinado
 > * Configurar uma rede
 > * Criar um gateway de aplicação com o certificado
-> * Adicionar uma regra de serviço de escuta e o redirecionamento
+> * Adicione uma regra de escuta e reorientação
 > * Criar um conjunto de dimensionamento de máquinas virtuais com o conjunto de back-end predefinido
 
 

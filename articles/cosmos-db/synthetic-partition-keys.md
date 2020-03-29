@@ -1,25 +1,25 @@
 ---
-title: Criar uma chave de partição sintética no Azure Cosmos DB
-description: Saiba como usar chaves de partição sintéticas em seus contêineres de Cosmos do Azure para distribuir os dados e a carga de trabalho uniformemente entre as chaves de partição
+title: Crie uma chave de partição sintética em Azure Cosmos DB
+description: Aprenda a usar chaves de partição sintética nos seus recipientes Azure Cosmos para distribuir os dados e a carga de trabalho uniformemente através das teclas de partição
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
 ms.openlocfilehash: e8786c2d6e93c18a5bf9856a5555d6b528f842c5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75441226"
 ---
 # <a name="create-a-synthetic-partition-key"></a>Criar uma chave de partição sintética
 
-É a melhor prática ter uma chave de partição com muitos valores distintos, como centenas ou milhares. O objetivo é distribuir seus dados e a carga de trabalho uniformemente entre os itens associados a esses valores de chave de partição. Se essa propriedade não existir em seus dados, você poderá construir uma *chave de partição sintética*. Este documento descreve várias técnicas básicas para gerar uma chave de partição sintética para seu contêiner Cosmos.
+É a melhor prática ter uma chave de partição com muitos valores distintos, como centenas ou milhares. O objetivo é distribuir os seus dados e carga de trabalho uniformemente pelos itens associados a estes valores-chave de partição. Se tal propriedade não existir nos seus dados, pode construir uma *chave de partição sintética.* Este documento descreve várias técnicas básicas para gerar uma chave de partição sintética para o seu recipiente Cosmos.
 
-## <a name="concatenate-multiple-properties-of-an-item"></a>Concatenar várias propriedades de um item
+## <a name="concatenate-multiple-properties-of-an-item"></a>Concatenate múltiplas propriedades de um item
 
-Você pode formar uma chave de partição concatenando vários valores de propriedade em uma única propriedade de `partitionKey` artificial. Essas chaves são chamadas de chaves sintéticas. Por exemplo, considere o seguinte documento de exemplo:
+Você pode formar uma chave de partição concatenando múltiplos valores de propriedade em uma única propriedade artificial. `partitionKey` Estas chaves são referidas como chaves sintéticas. Por exemplo, considere o seguinte documento de exemplo:
 
 ```JavaScript
 {
@@ -28,7 +28,7 @@ Você pode formar uma chave de partição concatenando vários valores de propri
 }
 ```
 
-Para o documento anterior, uma opção é definir/deviceId ou/Date como a chave de partição. Use essa opção se você quiser particionar seu contêiner com base na ID ou na data do dispositivo. Outra opção é concatenar esses dois valores em uma propriedade de `partitionKey` sintética que é usada como a chave de partição.
+Para o documento anterior, uma opção é definir/dispositivoId ou/data como chave de partição. Utilize esta opção, se pretender dividir o seu recipiente com base no ID ou data do dispositivo. Outra opção é concatenar estes dois `partitionKey` valores numa propriedade sintética que é usada como chave de partição.
 
 ```JavaScript
 {
@@ -38,27 +38,27 @@ Para o documento anterior, uma opção é definir/deviceId ou/Date como a chave 
 }
 ```
 
-Em cenários em tempo real, você pode ter milhares de itens em um banco de dados. Em vez de adicionar a chave sintética manualmente, defina a lógica do cliente para concatenar valores e inserir a chave sintética nos itens em seus contêineres do cosmos.
+Em cenários em tempo real, pode ter milhares de itens numa base de dados. Em vez de adicionar manualmente a chave sintética, defina a lógica do lado do cliente para concatenar valores e inserir a chave sintética nos itens dos seus recipientes Cosmos.
 
-## <a name="use-a-partition-key-with-a-random-suffix"></a>Usar uma chave de partição com um sufixo aleatório
+## <a name="use-a-partition-key-with-a-random-suffix"></a>Use uma chave de partição com um sufixo aleatório
 
-Outra estratégia possível para distribuir a carga de trabalho mais uniformemente é acrescentar um número aleatório no final do valor da chave de partição. Ao distribuir itens dessa forma, você pode executar operações de gravação paralelas entre partições.
+Outra estratégia possível para distribuir a carga de trabalho de forma mais homoviada é anexar um número aleatório no final do valor-chave da partilha. Quando distribui itens desta forma, pode realizar operações de escrita paralelas através de divisórias.
 
-Um exemplo é se uma chave de partição representa uma data. Você pode escolher um número aleatório entre 1 e 400 e concatenar-o como um sufixo para a data. Esse método resulta em valores de chave de partição como `2018-08-09.1`,`2018-08-09.2`e assim por diante, por meio de `2018-08-09.400`. Como você randomiza a chave de partição, as operações de gravação no contêiner em cada dia são distribuídas uniformemente entre várias partições. Esse método resulta em um paralelismo melhor e na taxa de transferência geral mais alta.
+Um exemplo é se uma chave de partição representa uma data. Pode escolher um número aleatório entre 1 e 400 e concatená-lo como um sufixo à data. Este método resulta em `2018-08-09.1``2018-08-09.2`valores-chave de `2018-08-09.400`partilha como, e assim por diante, através de . Como aleatoriamente a chave da partição, as operações de escrita no recipiente em cada dia são distribuídas uniformemente por várias divisórias. Este método resulta num melhor paralelismo e numa maior dose de entrada.
 
-## <a name="use-a-partition-key-with-pre-calculated-suffixes"></a>Usar uma chave de partição com sufixos previamente calculados 
+## <a name="use-a-partition-key-with-pre-calculated-suffixes"></a>Utilize uma chave de partição com sufixos pré-calculados 
 
-A estratégia de sufixo aleatório pode melhorar muito a taxa de transferência de gravação, mas é difícil ler um item específico. Você não sabe o valor do sufixo que foi usado quando escreveu o item. Para facilitar a leitura de itens individuais, use a estratégia de sufixos previamente calculados. Em vez de usar um número aleatório para distribuir os itens entre as partições, use um número que seja calculado com base em algo que você deseja consultar.
+A estratégia de sufixo aleatório pode melhorar muito a produção de escrita, mas é difícil ler um item específico. Não sabes o valor do sufixo que foi usado quando escreveste o artigo. Para facilitar a leitura de itens individuais, utilize a estratégia de sufixos pré-calculados. Em vez de usar um número aleatório para distribuir os itens entre as divisórias, use um número que é calculado com base em algo que você quer consultar.
 
-Considere o exemplo anterior, em que um contêiner usa uma data como a chave de partição. Agora suponha que cada item tenha um atributo `Vehicle-Identification-Number` (`VIN`) que desejamos acessar. Além disso, suponha que você geralmente execute consultas para localizar itens pelo `VIN`, além de data. Antes que seu aplicativo grave o item no contêiner, ele pode calcular um sufixo de hash com base no VIN e acrescentá-lo à data da chave da partição. O cálculo pode gerar um número entre 1 e 400 que é distribuído uniformemente. Esse resultado é semelhante aos resultados produzidos pelo método de estratégia de sufixo aleatório. O valor da chave de partição é, então, a data concatenada com o resultado calculado.
+Considere o exemplo anterior, em que um recipiente utiliza uma data como chave de partição. Agora suponha que `Vehicle-Identification-Number` cada`VIN`item tem um ( ) atributo a que queremos aceder. Além disso, suponha que muitas vezes faça consultas para encontrar itens até `VIN`à data. Antes da sua aplicação escrever o item para o recipiente, pode calcular um sufixo de hash com base no VIN e acomodá-lo à data da chave da partição. O cálculo pode gerar um número entre 1 e 400 que é distribuído uniformemente. Este resultado é semelhante aos resultados produzidos pelo método de estratégia de sufixo aleatório. O valor-chave da divisória é então a data concatenada com o resultado calculado.
 
-Com essa estratégia, as gravações são espalhadas uniformemente entre os valores de chave de partição e entre as partições. Você pode ler facilmente um item e uma data específicos, pois você pode calcular o valor da chave de partição para um `Vehicle-Identification-Number`específico. O benefício desse método é que você pode evitar a criação de uma única chave de partição ativa, ou seja, uma chave de partição que usa toda a carga de trabalho. 
+Com esta estratégia, as escritas estão uniformemente distribuídas pelos valores-chave da partilha, e através das divisórias. Pode ler facilmente um determinado item e data, pois pode `Vehicle-Identification-Number`calcular o valor-chave da partilha para um específico . O benefício deste método é que pode evitar criar uma única chave de partição quente, ou seja, uma chave de partição que leva toda a carga de trabalho. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Você pode saber mais sobre o conceito de particionamento nos seguintes artigos:
+Pode saber mais sobre o conceito de partição nos seguintes artigos:
 
-* Saiba mais sobre [partições lógicas](partition-data.md).
-* Saiba mais sobre como [provisionar a taxa de transferência em bancos de dados e contêineres do Azure Cosmos](set-throughput.md).
-* Saiba como [provisionar a taxa de transferência em um contêiner Cosmos do Azure](how-to-provision-container-throughput.md).
-* Saiba como [provisionar a taxa de transferência em um banco de dados Cosmos do Azure](how-to-provision-database-throughput.md).
+* Saiba mais sobre [divisórias lógicas.](partition-data.md)
+* Saiba mais sobre como fornecer a entrada em contentores e bases de [dados da Azure Cosmos.](set-throughput.md)
+* Aprenda a [fornecer a entrada num recipiente Azure Cosmos.](how-to-provision-container-throughput.md)
+* Aprenda a fornecer a entrada numa base de [dados Azure Cosmos.](how-to-provision-database-throughput.md)

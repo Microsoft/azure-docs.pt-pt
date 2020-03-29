@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: 06a4bdb8a8ee5d458347d30b53f740952151799e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75426213"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulação de negociação de elevada frequência com o Stream Analytics
@@ -64,7 +64,7 @@ Seguem-se alguns eventos de exemplo gerados:
 >O carimbo de data/hora do evento é **lastUpdated**, no formato de hora “epoch”.
 
 ### <a name="predictive-model-for-high-frequency-trading"></a>Modelo preditivo para negociação de elevada frequência
-Para fins de demonstração, vamos utilizar um modelo linear descrito por Darryl Shen no seu [documento](https://docplayer.net/23038840-Order-imbalance-based-strategy-in-high-frequency-trading.html).
+Para efeitos de demonstração, usamos um modelo linear descrito por Darryl Shen no [seu artigo.](https://docplayer.net/23038840-Order-imbalance-based-strategy-in-high-frequency-trading.html)
 
 O Volume Order Imbalance (VOI) é uma função do preço e volume de compra/venda atual e do preço e volume de compra/venda desde o último tick. O documento identifica a correlação entre o VOI e o movimento de preços futuro. Cria um modelo linear entre os cinco últimos valores de VOI e a alteração do preço nos dez ticks seguintes. Para preparar o modelo, são utilizados os dados do dia anterior com regressão linear. 
 
@@ -450,9 +450,9 @@ SELECT
 FROM simulation /* output trade simulation to PBI */
 ```
 
-![Gráfico de Power BI obra visual](./media/stream-analytics-high-frequency-trading/trades-power-bi-chart.png)
+![Trades Power BI gráfico visual](./media/stream-analytics-high-frequency-trading/trades-power-bi-chart.png)
 
-![Gráfico de PNL Power BI visual](./media/stream-analytics-high-frequency-trading/pnl-power-bi-chart.png)
+![PNL Power BI gráfico visual](./media/stream-analytics-high-frequency-trading/pnl-power-bi-chart.png)
 
 
 ## <a name="summary"></a>Resumo

@@ -8,10 +8,10 @@ ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
 ms.openlocfilehash: 0d03c2df720a4e3ccf57fe0be00c2af4fcf72eb0
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944835"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para armazenamento premium usando a recuperação do site Azure
@@ -73,14 +73,14 @@ Pode utilizar a Recuperação do Site para migrar VMs Azure IaaS entre regiões 
 
 ### <a name="step-1-create-a-recovery-services-vault"></a>Passo 1: Criar um cofre de serviços de recuperação
 
-1. Abra o [Portal do Azure](https://portal.azure.com).
-2. Selecione **Criar um recurso** > **Management** > **Backup** e Recuperação do **Site (OMS)** . Em alternativa, pode selecionar **browse** > Cofre de Serviços de **Recuperação** > **Adicionar**. 
+1. Abra o [portal Azure.](https://portal.azure.com)
+2. Selecione **Criar uma** > cópia de**segurança** de**gestão** > de recursos e recuperação do **site (OMS)**. Em alternativa, pode selecionar O > **Abóbada** > **Add**de Serviços de Recuperação de **Navegação**. 
 3. Especifique uma região para a qual os VMs serão replicados. Para efeitos de migração na mesma região, selecione a região onde estão as suas Fontes de VMs e as suas contas de armazenamento de origem. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Passo 2: Escolha os seus objetivos de proteção 
 
 1. No VM onde pretende instalar o servidor de configuração, abra o [portal Azure](https://portal.azure.com).
-2. Vá aos **cofres dos Serviços** de Recuperação > **Definições** >  > **De recuperação** do local **Passo 1: Preparar** a meta de **proteção**de infraestruturas > .
+2. Vá aos **cofres dos serviços**de recuperação > **Definições** > **Local De recuperação** > Passo 1: Preparar objetivo de**proteção de****infraestruturas** > .
 
    ![Navegação para o painel de objetivos de proteção][2]
 
@@ -90,7 +90,7 @@ Pode utilizar a Recuperação do Site para migrar VMs Azure IaaS entre regiões 
 
 ### <a name="step-3-set-up-the-source-environment-configuration-server"></a>Passo 3: Configurar o ambiente de origem (servidor de configuração)
 
-1. Baixe a **Configuração Unificada de Recuperação** do Site Azure e a chave de registo do cofre indo para a **infraestrutura prepare** > **Prepare fonte** > adicionar vidraças **do Servidor.** 
+1. Baixe a **Configuração Unificada de Recuperação** do Site Azure e a chave de registo do cofre indo para a **infraestrutura** > prepare**preparar** > as panelas add**server.** 
  
    Vai precisar da chave de registo do cofre para executar a configuração unificada. A chave é válida durante cinco dias depois de gerá-la.
 
@@ -123,7 +123,7 @@ Pode utilizar a Recuperação do Site para migrar VMs Azure IaaS entre regiões 
 
 ### <a name="step-4-set-up-the-target-environment"></a>Passo 4: Configurar o ambiente-alvo
 
-Selecione **preparar a infraestrutura** > **Target**e especifique o modelo de implementação que pretende utilizar para VMs após a falha. Pode escolher **Classic** ou **Resource Manager,** dependendo do seu cenário.
+Selecione Prepare o**Target**de **infraestrutura** > e especifique o modelo de implementação que pretende utilizar para VMs após a falha. Pode escolher **Classic** ou **Resource Manager,** dependendo do seu cenário.
 
 ![Painel de alvo][10]
 
@@ -152,7 +152,7 @@ Para verificar se o seu servidor de configuração está associado com sucesso �
    O VM falhado terá dois discos temporários: um do VM primário e o outro criado durante o fornecimento do VM na região de recuperação. Para excluir o disco temporário antes da replicação, instale o serviço de mobilidade antes de ativar a replicação. Para saber mais sobre como excluir o disco temporário, consulte [Excluir discos da replicação](../../site-recovery/vmware-walkthrough-overview.md).
 
 2. Ative a replicação da seguinte forma:
-   1. Selecione **Replicate Application** > **Origem**. Depois de ter ativado a replicação pela primeira vez, selecione **+Replicate** no cofre para permitir a replicação de máquinas adicionais.
+   1. Selecione **Replicate Application** > **Source**. Depois de ter ativado a replicação pela primeira vez, selecione **+Replicate** no cofre para permitir a replicação de máquinas adicionais.
    2. No passo 1, configura a **Fonte** como servidor de processos.
    3. No passo 2, especifique o modelo de implementação pós-falha, uma conta de armazenamento premium para migrar, uma conta de armazenamento padrão para guardar registos e uma rede virtual para não o fazer.
    4. No passo 3, adicione VMs protegidos por endereço IP. (Pode precisar de um endereço IP interno para encontrá-los.)
@@ -173,7 +173,7 @@ Pode escolher um modelo de implementação pós-falha de acordo com a sua necess
 
 ### <a name="step-8-run-a-test-failover"></a>Passo 8: Executar um teste failover
 
-Para verificar se a sua replicação está completa, selecione a sua instância de Recuperação do Site e, em seguida, selecione **Definições** > **Itens Replicados**. Verá o estado e a percentagem do seu processo de replicação. 
+Para verificar se a sua replicação está completa, selecione a sua instância de Recuperação do Site e, em seguida, selecione**Itens Replicados**de **Definições** > . Verá o estado e a percentagem do seu processo de replicação. 
 
 Depois de concluída a replicação inicial, execute uma falha no teste para validar a sua estratégia de replicação. Para obter etapas detalhadas de uma falha de teste, consulte [Executar uma falha de teste na Recuperação do Local](../../site-recovery/vmware-walkthrough-overview.md). 
 
@@ -200,12 +200,12 @@ A Recuperação do Site criará uma instância VM cujo tipo é o mesmo ou semelh
 
 3. **Limpe a infraestrutura de recuperação do sítio Azure.** Se a Recuperação do Local já não for necessária, pode limpar a sua infraestrutura. Eliminar itens replicados, o servidor de configuração e a política de recuperação e, em seguida, eliminar o cofre de recuperação do site Azure.
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 
 * [Monitorizar e resolução de problemas para máquinas virtuais e servidores físicos](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
 * [Fórum de Recuperação de Sites do Microsoft Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para cenários específicos para máquinas virtuais migratórias, consulte os seguintes recursos:
 
@@ -215,9 +215,9 @@ Para cenários específicos para máquinas virtuais migratórias, consulte os se
 
 Consulte também os seguintes recursos para saber mais sobre o Armazenamento Azure e as Máquinas Virtuais Azure:
 
-* [Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
-* [Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Selecione um tipo de disco para VMs IaaS](disks-types.md)
+* [Storage do Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Máquinas Virtuais Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
+* [Selecionar um tipo de disco para VMs IaaS](disks-types.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png

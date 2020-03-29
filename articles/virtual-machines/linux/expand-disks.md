@@ -8,10 +8,10 @@ ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 1295c5276f0f342323acf8d86eaaf9f785af3e9f
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78945190"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expanda discos rígidos virtuais num VM Linux com o ClI Azure
@@ -82,13 +82,13 @@ Para utilizar um disco expandido, expanda a divisória subjacente e o sistema de
     sudo umount /dev/sdc1
     ```
 
-    b. Utilize `parted` para visualizar informações sobre o disco e redimensionar a partição:
+    b. Utilizar `parted` para visualizar informações sobre o disco e redimensionar a partição:
 
     ```bash
     sudo parted /dev/sdc
     ```
 
-    Consulte informações sobre o layout de partição existente com `print`. A saída é semelhante ao seguinte exemplo, que mostra que o disco subjacente é de 215 GB:
+    Veja informações sobre o `print`layout de partição existente com . A saída é semelhante ao seguinte exemplo, que mostra que o disco subjacente é de 215 GB:
 
     ```bash
     GNU Parted 3.2
@@ -105,7 +105,7 @@ Para utilizar um disco expandido, expanda a divisória subjacente e o sistema de
         1      0.00B  107GB  107GB  ext4
     ```
 
-    c. Expanda a divisória com `resizepart`. Introduza o número da partição, *1*, e um tamanho para a nova partição:
+    c. Expandir a `resizepart`partição com . Introduza o número da partição, *1*, e um tamanho para a nova partição:
 
     ```bash
     (parted) resizepart
@@ -113,33 +113,33 @@ Para utilizar um disco expandido, expanda a divisória subjacente e o sistema de
     End?  [107GB]? 215GB
     ```
 
-    d. Para sair, insira `quit`.
+    d. Para sair, `quit`entre.
 
-1. Com a partilha redimensionada, verifique a consistência da divisória com `e2fsck`:
+1. Com a divisória redimensionada, `e2fsck`verifique a consistência da partição com:
 
     ```bash
     sudo e2fsck -f /dev/sdc1
     ```
 
-1. Redimensione o sistema de ficheiros com `resize2fs`:
+1. Redimensionar o `resize2fs`sistema de ficheiros com:
 
     ```bash
     sudo resize2fs /dev/sdc1
     ```
 
-1. Monte a divisória no local pretendido, tais como `/datadrive`:
+1. Monte a divisória no local `/datadrive`pretendido, tais como:
 
     ```bash
     sudo mount /dev/sdc1 /datadrive
     ```
 
-1. Para verificar se o disco de dados foi redimensionado, utilize `df -h`. A saída de exemplo seguinte mostra que a unidade de dados */dev/sdc1* é agora de 200 GB:
+1. Para verificar se o disco de `df -h`dados foi redimensionado, utilize. A saída de exemplo seguinte mostra que a unidade de dados */dev/sdc1* é agora de 200 GB:
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on
     /dev/sdc1        197G   60M   187G   1% /datadrive
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Se necessitar de armazenamento adicional, também pode adicionar discos de [dados a um VM Linux](add-disk.md). 
 * Para obter mais informações sobre encriptação de disco, consulte a [encriptação do disco Azure para VMs Linux](disk-encryption-overview.md).

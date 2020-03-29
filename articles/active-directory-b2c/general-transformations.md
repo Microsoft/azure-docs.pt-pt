@@ -12,10 +12,10 @@ ms.date: 02/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: afdf2f531ede30d868123d89cac94fcfae070384
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78188550"
 ---
 # <a name="general-claims-transformations"></a>Transformações gerais de sinistros
@@ -28,10 +28,10 @@ Este artigo fornece exemplos para a utilização de transformações gerais de s
 
 Valor de cópia de uma reclamação para outra. Ambas as alegações devem ser do mesmo tipo.
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim | cadeia, int | O tipo de reclamação que deve ser copiado. |
-| OutputClaim | outputClaim | cadeia, int | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado. |
+| Pedido de crédito | inputClaim | cadeia, int | O tipo de reclamação que deve ser copiado. |
+| Pedido de saída | saídaReclamada | cadeia, int | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado. |
 
 Utilize esta transformação de sinistros para copiar um valor de uma sequência ou reivindicação numérica, para outra reclamação. O exemplo seguinte copia o valor de reclamação de email externo para a reclamação de e-mail.
 
@@ -49,18 +49,18 @@ Utilize esta transformação de sinistros para copiar um valor de uma sequência
 ### <a name="example"></a>Exemplo
 
 - Créditos de entrada:
-    - **inputClaim**: bob@contoso.com
+    - **inputClaim:**bob@contoso.com
 - Alegações de saída:
-    - **saída :** bob@contoso.com
+    - **saídaSClaim:**bob@contoso.com
 
 ## <a name="doesclaimexist"></a>Reivindicação Existe
 
 Verifica se o **inputClaim** existe ou não e define **a saídaClaim** para verdade ou falsa em conformidade.
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim |Qualquer | A alegação de entrada cuja existência precisa de ser verificada. |
-| OutputClaim | outputClaim | boolean | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado. |
+| Pedido de crédito | inputClaim |Qualquer | A alegação de entrada cuja existência precisa de ser verificada. |
+| Pedido de saída | saídaReclamada | boolean | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado. |
 
 Utilize esta transformação de reclamações para verificar se existe uma reclamação ou contém qualquer valor. O valor de retorno é uma booleana que indica se a reclamação existe. A seguir, verifica o exemplo se o endereço de e-mail existe.
 
@@ -78,7 +78,7 @@ Utilize esta transformação de reclamações para verificar se existe uma recla
 ### <a name="example"></a>Exemplo
 
 - Créditos de entrada:
-  - **inputClaim**: someone@contoso.com
+  - **inputClaim:**someone@contoso.com
 - Alegações de saída:
   - **saídaReivindicação**: verdadeiro
 
@@ -86,12 +86,12 @@ Utilize esta transformação de reclamações para verificar se existe uma recla
 
 Hash o texto simples fornecido usando o sal e um segredo. O algoritmo de hashing usado é SHA-256.
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | texto simples | string | A alegação de entrada para ser encriptada |
-| inputClaim | sal | string | O parâmetro de sal. Pode criar um valor aleatório, usando `CreateRandomString` transformação de sinistros. |
+| Pedido de crédito | texto simples | string | A alegação de entrada para ser encriptada |
+| Pedido de crédito | sal | string | O parâmetro de sal. Pode criar um valor `CreateRandomString` aleatório, utilizando a transformação de sinistros. |
 | EntradaParametro | randomizerSecret | string | Aponta para uma **chave política**Azure AD B2C existente. Para criar uma nova chave de política: No seu inquilino Azure AD B2C, ao abrigo **do Manage**, selecione Identity **Experience Framework**. Selecione **teclas de política** para visualizar as chaves disponíveis no seu inquilino. Selecione **Adicionar**. Para **opções,** selecione **Manual**. Forneça um nome (o prefixo *B2C_1A_* pode ser adicionado automaticamente.). Na caixa de texto **Secreta,** introduza qualquer segredo que queira usar, como 1234567890. Para **a utilização da chave,** selecione **Signature**. Selecione **Criar**. |
-| OutputClaim | hash | string | O ClaimType que é produzido após esta transformação de sinistros foi invocado. A reclamação configurada na `plaintext` inputClaim. |
+| Pedido de saída | hash | string | O ClaimType que é produzido após esta transformação de sinistros foi invocado. A reclamação configurada no `plaintext` inputClaim. |
 
 ```XML
 <ClaimsTransformation Id="HashPasswordWithEmail" TransformationMethod="Hash">
@@ -111,7 +111,7 @@ Hash o texto simples fornecido usando o sal e um segredo. O algoritmo de hashing
 ### <a name="example"></a>Exemplo
 
 - Créditos de entrada:
-  - **texto simples**: MyPass@word1
+  - **texto simples:**MyPass@word1
   - **sal**: 487624568
   - **randomizerSecret**: B2C_1A_AccountTransformSecret
 - Alegações de saída:

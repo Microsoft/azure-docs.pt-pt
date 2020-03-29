@@ -8,10 +8,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 7e17547f88465103b61eabec04978ea806ffa2c9
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78296444"
 ---
 # <a name="stringtonull-azure-cosmos-db"></a>StringToNull (Azure Cosmos DB)
@@ -34,7 +34,7 @@ StringToNull(<str_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo que se segue mostra como `StringToNull` se comporta em diferentes tipos. 
+  O exemplo que `StringToNull` se segue mostra como se comporta em diferentes tipos. 
 
 Seguem-se exemplos com entrada válida.
 

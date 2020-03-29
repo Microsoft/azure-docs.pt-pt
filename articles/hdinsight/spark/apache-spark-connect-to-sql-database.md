@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/05/2020
 ms.openlocfilehash: 4e0c1626582297aa7d80cbbd4241b6f81e314f8f
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78927465"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Utilize o cluster HDInsight Spark para ler e escrever dados para a Base de Dados Azure SQL
@@ -23,7 +23,7 @@ Saiba como ligar um cluster Apache Spark em Azure HDInsight com uma Base de Dado
 
 * Cluster de faíscas Azure HDInsight.  Siga as instruções em [Create a Apache Spark cluster in HDInsight](apache-spark-jupyter-spark-sql.md).
 
-* Base de Dados Azure SQL. Siga as instruções na [Create a Azure SQL Database](../../sql-database/sql-database-get-started-portal.md). Certifique-se de criar uma base de dados com o esquema e dados da amostra **AdventureWorksLT.** Além disso, certifique-se de que cria uma regra de firewall ao nível do servidor para permitir que o endereço IP do seu cliente aceda à base de dados SQL no servidor. As instruções para adicionar a regra da firewall estão disponíveis no mesmo artigo. Depois de ter criado a sua Base de Dados Azure SQL, certifique-se de que mantém os seguintes valores à mão. Precisa que se liguem à base de dados de um cluster spark.
+* Base de Dados SQL do Azure. Siga as instruções na [Create a Azure SQL Database](../../sql-database/sql-database-get-started-portal.md). Certifique-se de criar uma base de dados com o esquema e dados da amostra **AdventureWorksLT.** Além disso, certifique-se de que cria uma regra de firewall ao nível do servidor para permitir que o endereço IP do seu cliente aceda à base de dados SQL no servidor. As instruções para adicionar a regra da firewall estão disponíveis no mesmo artigo. Depois de ter criado a sua Base de Dados Azure SQL, certifique-se de que mantém os seguintes valores à mão. Precisa que se liguem à base de dados de um cluster spark.
 
     * Nome do servidor que acolhe a Base de Dados Azure SQL.
     * Nome de base de dados Azure SQL.
@@ -31,7 +31,7 @@ Saiba como ligar um cluster Apache Spark em Azure HDInsight com uma Base de Dado
 
 * Estúdio de Gestão de Servidores SQL (SSMS). Siga as instruções do [SSMS para ligar e consultar dados](../../sql-database/sql-database-connect-query-ssms.md).
 
-## <a name="create-a-jupyter-notebook"></a>Criar um Caderno Jupyter
+## <a name="create-a-jupyter-notebook"></a>Criar um Bloco de Notas do Jupyter Notebook
 
 Comece por criar um [Caderno Jupyter](https://jupyter.org/) associado ao cluster Spark. Usa este caderno para executar os códigos usados neste artigo.
 
@@ -56,7 +56,7 @@ Comece por criar um [Caderno Jupyter](https://jupyter.org/) associado ao cluster
 
 1. Isto abre um novo caderno com um nome predefinido, **Sem título.** Clique no nome do caderno e insira um nome à sua escolha.
 
-    ![Forneça um nome para o caderno](./media/apache-spark-connect-to-sql-database/hdinsight-spark-jupyter-notebook-name.png "Fornecer um nome para o bloco de notas")
+    ![Fornecer um nome para o bloco de notas](./media/apache-spark-connect-to-sql-database/hdinsight-spark-jupyter-notebook-name.png "Fornecer um nome para o bloco de notas")
 
 Agora pode começar a criar a sua aplicação.
 
@@ -76,7 +76,7 @@ Nesta secção, lê-se dados de uma tabela (por exemplo, **SalesLT.Address)** qu
 
     Prima **SHIFT + ENTER** para executar a célula do código.  
 
-1. Utilize o corte abaixo para construir um URL JDBC que pode passar para as APIs de moldura de dados spark. O código cria um objeto `Properties` para manter os parâmetros. Colhe o corte numa célula de código e prima **SHIFT + ENTER** para executar.
+1. Utilize o corte abaixo para construir um URL JDBC que pode passar para as APIs de moldura de dados spark. O código `Properties` cria um objeto para manter os parâmetros. Colhe o corte numa célula de código e prima **SHIFT + ENTER** para executar.
 
        import java.util.Properties
 
@@ -85,7 +85,7 @@ Nesta secção, lê-se dados de uma tabela (por exemplo, **SalesLT.Address)** qu
        connectionProperties.put("user", s"${jdbcUsername}")
        connectionProperties.put("password", s"${jdbcPassword}")         
 
-1. Utilize o corte abaixo para criar um dataframe com os dados de uma tabela na sua Base de Dados Azure SQL. Neste corte, utilizamos uma tabela `SalesLT.Address` que está disponível como parte da base de dados **AdventureWorksLT.** Colhe o corte numa célula de código e prima **SHIFT + ENTER** para executar.
+1. Utilize o corte abaixo para criar um dataframe com os dados de uma tabela na sua Base de Dados Azure SQL. Neste corte, utilizamos uma `SalesLT.Address` tabela que está disponível como parte da base de dados **AdventureWorksLT.** Colhe o corte numa célula de código e prima **SHIFT + ENTER** para executar.
 
        val sqlTableDF = spark.read.jdbc(jdbc_url, "SalesLT.Address", connectionProperties)
 
@@ -121,7 +121,7 @@ Nesta secção, utilizamos um ficheiro CSV de amostra disponível no cluster par
 
     Prima **SHIFT + ENTER** para executar a célula do código.  
 
-1. O seguinte corte constrói um URL JDBC que pode passar para as APIs de moldura de dados spark. O código cria um objeto `Properties` para manter os parâmetros. Colhe o corte numa célula de código e prima **SHIFT + ENTER** para executar.
+1. O seguinte corte constrói um URL JDBC que pode passar para as APIs de moldura de dados spark. O código `Properties` cria um objeto para manter os parâmetros. Colhe o corte numa célula de código e prima **SHIFT + ENTER** para executar.
 
        import java.util.Properties
 
@@ -130,21 +130,21 @@ Nesta secção, utilizamos um ficheiro CSV de amostra disponível no cluster par
        connectionProperties.put("user", s"${jdbcUsername}")
        connectionProperties.put("password", s"${jdbcPassword}")
 
-1. Utilize o seguinte corte para extrair o esquema dos dados em HVAC.csv e utilize o esquema para carregar os dados do CSV num quadro de dados, `readDf`. Colhe o corte numa célula de código e prima **SHIFT + ENTER** para executar.
+1. Utilize o seguinte corte para extrair o esquema dos dados em HVAC.csv e utilize o esquema para carregar os `readDf`dados do CSV num quadro de dados, . Colhe o corte numa célula de código e prima **SHIFT + ENTER** para executar.
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
        val readDf = spark.read.format("csv").schema(userSchema).load("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
-1. Utilize o quadro de dados `readDf` para criar uma tabela temporária, `temphvactable`. Em seguida, use a mesa temporária para criar uma mesa de colmeia, `hvactable_hive`.
+1. Utilize `readDf` o quadro de dados `temphvactable`para criar uma tabela temporária, . Em seguida, use a mesa temporária `hvactable_hive`para criar uma mesa de colmeia, .
 
        readDf.createOrReplaceTempView("temphvactable")
        spark.sql("create table hvactable_hive as select * from temphvactable")
 
-1. Por fim, utilize a mesa da colmeia para criar uma tabela na Base de Dados Azure SQL. O seguinte corte cria `hvactable` na Base de Dados Azure SQL.
+1. Por fim, utilize a mesa da colmeia para criar uma tabela na Base de Dados Azure SQL. O seguinte corte `hvactable` cria na Base de Dados Azure SQL.
 
        spark.table("hvactable_hive").write.jdbc(jdbc_url, "hvactable", connectionProperties)
 
-1. Ligue-se à Base de Dados Azure SQL utilizando SSMS e verifique se vê um `dbo.hvactable` lá.
+1. Ligue-se à Base de Dados Azure SQL utilizando `dbo.hvactable` SSMS e verifique se vê um ali.
 
     a. Inicie o SSMS e ligue-se à Base de Dados Azure SQL, fornecendo detalhes de ligação como indicado na imagem abaixo.
 
@@ -162,9 +162,9 @@ Nesta secção, utilizamos um ficheiro CSV de amostra disponível no cluster par
 
 ## <a name="stream-data-into-azure-sql-database"></a>Transmitir dados para a Base de Dados Azure SQL
 
-Nesta secção, transmitimos dados para o `hvactable` que já criou na Base de Dados Azure SQL na secção anterior.
+Nesta secção, transmitimos dados `hvactable` para o que já criou na Base de Dados Azure SQL na secção anterior.
 
-1. Como primeiro passo, certifique-se de que não há registos no `hvactable`. Utilizando SSMS, execute a seguinte consulta na mesa.
+1. Como primeiro passo, certifique-se de `hvactable`que não há registos no . Utilizando SSMS, execute a seguinte consulta na mesa.
 
     ```sql
     TRUNCATE TABLE [dbo].[hvactable]
@@ -178,17 +178,17 @@ Nesta secção, transmitimos dados para o `hvactable` que já criou na Base de D
        import org.apache.spark.sql.streaming._
        import java.sql.{Connection,DriverManager,ResultSet}
 
-1. Transmitimos dados do **AVAC.csv** para o `hvactable`. O ficheiro HVAC.csv está disponível no cluster em `/HdiSamples/HdiSamples/SensorSampleData/HVAC/`. No seguinte corte, primeiro obtemos o esquema dos dados para ser transmitido. Depois, criamos um quadro de dados de streaming usando esse esquema. Colhe o corte numa célula de código e prima **SHIFT + ENTER** para executar.
+1. Transmitimos dados do **AVAC.csv** para o `hvactable`. O ficheiro HVAC.csv está `/HdiSamples/HdiSamples/SensorSampleData/HVAC/`disponível no cluster em . No seguinte corte, primeiro obtemos o esquema dos dados para ser transmitido. Depois, criamos um quadro de dados de streaming usando esse esquema. Colhe o corte numa célula de código e prima **SHIFT + ENTER** para executar.
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
        val readStreamDf = spark.readStream.schema(userSchema).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 
        readStreamDf.printSchema
 
-1. A saída mostra o esquema de **AVAC.csv**. O `hvactable` também tem o mesmo esquema. A saída lista as colunas na tabela.
+1. A saída mostra o esquema de **AVAC.csv**. O `hvactable` tem o mesmo esquema também. A saída lista as colunas na tabela.
 
     ![hdinsight Apache Spark schema tabela](./media/apache-spark-connect-to-sql-database/hdinsight-schema-table.png "Esquema da mesa")
 
-1. Por fim, utilize o seguinte corte para ler os dados do AVAC.csv e transmiti-lo para o `hvactable` na Base de Dados Azure SQL. Colhe o corte numa célula de código, substitua os valores do espaço reservado pelos valores da sua Base de Dados Azure SQL e, em seguida, prima **SHIFT + ENTER** para executar.
+1. Por fim, utilize o seguinte corte para ler os dados do AVAC.csv e transmiti-lo para a `hvactable` base de dados Azure SQL. Colhe o corte numa célula de código, substitua os valores do espaço reservado pelos valores da sua Base de Dados Azure SQL e, em seguida, prima **SHIFT + ENTER** para executar.
 
        val WriteToSQLQuery  = readStreamDf.writeStream.foreach(new ForeachWriter[Row] {
           var connection:java.sql.Connection = _
@@ -229,7 +229,7 @@ Nesta secção, transmitimos dados para o `hvactable` que já criou na Base de D
         
          var streamingQuery = WriteToSQLQuery.start()
 
-1. Verifique se os dados estão a ser transmitidos para o `hvactable` executando a seguinte consulta no SQL Server Management Studio (SSMS). Cada vez que faz escruver a consulta, mostra o número de filas na mesa a aumentar.
+1. Verifique se os dados estão `hvactable` a ser transmitidos para a seguinte consulta no Estúdio de Gestão de Servidores SQL (SSMS). Cada vez que faz escruver a consulta, mostra o número de filas na mesa a aumentar.
 
     ```sql
     SELECT COUNT(*) FROM hvactable

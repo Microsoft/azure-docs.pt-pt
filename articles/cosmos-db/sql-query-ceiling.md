@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 81f113aa51a7f739b506ec7e3eb5bf2cb9f49a03
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302649"
 ---
 # <a name="ceiling-azure-cosmos-db"></a>TETO (Azure Cosmos DB)
- Devolve o menor valor de número inteiro maior que ou igual a, a expressão numérica especificada.  
+ Devolve o menor valor inteiro maior ou igual à expressão numérica especificada.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -34,7 +34,7 @@ CEILING (<numeric_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte mostra valores numéricos, negativos e nulos positivos com a função `CEILING`.  
+  O exemplo seguinte mostra valores numéricos, `CEILING` negativos e nulos positivos com a função.  
   
 ```sql
 SELECT CEILING(123.45) AS c1, CEILING(-123.45) AS c2, CEILING(0.0) AS c3  

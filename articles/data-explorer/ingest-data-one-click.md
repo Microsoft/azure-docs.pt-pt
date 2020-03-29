@@ -1,6 +1,6 @@
 ---
-title: Use a ingestão de um clique para ingerir dados no Azure Data Explorer
-description: Saiba mais sobre como ingerir (carregar) dados no Azure Data Explorer simplesmente usando a ingestão de um clique.
+title: Utilize uma ingestão de um clique para ingerir dados no Azure Data Explorer
+description: Saiba como ingerir (carregar) dados no Azure Data Explorer simplesmente usando uma ingestão de um clique.
 author: orspod
 ms.author: orspodek
 ms.reviewer: tzgitlin
@@ -8,86 +8,86 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.openlocfilehash: 4a53f7e68501ce7f9b19dea0822d3896ec241fb8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75444560"
 ---
-# <a name="use-one-click-ingestion-to-ingest-data-into-azure-data-explorer"></a>Use a ingestão de um clique para ingerir dados no Azure Data Explorer
+# <a name="use-one-click-ingestion-to-ingest-data-into-azure-data-explorer"></a>Utilize uma ingestão de um clique para ingerir dados no Azure Data Explorer
 
-Este artigo mostra como usar a ingestão de um clique para ingestão rápida de uma nova tabela nos formatos JSON ou CSV. Os dados podem ser ingeridos do armazenamento ou de um arquivo local em uma tabela existente ou em uma nova tabela. Use o assistente de um único clique intuitivo e seus dados são ingeridos em alguns minutos. Em seguida, você pode editar a tabela e executar consultas usando a interface do usuário da Web do Azure Data Explorer.
+Este artigo mostra-lhe como usar uma ingestão de um clique para uma ingestão rápida de uma nova tabela em formatos JSON ou CSV. Os dados podem ser ingeridos a partir do armazenamento ou de um ficheiro local numa tabela existente ou numa nova tabela. Utilize o intuitivo assistente de um clique e os seus dados ingerirem em poucos minutos. Em seguida, pode editar a tabela e executar consultas utilizando o Azure Data Explorer Web UI.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
-* Inicie sessão [na aplicação](https://dataexplorer.azure.com/).
-* Crie [um cluster de data Explorer do Azure e um banco de dados](create-cluster-database-portal.md).
-* Entre na [interface do usuário da Web](https://dataexplorer.azure.com/) e [adicione uma conexão ao cluster](/azure/data-explorer/web-query-data#add-clusters).
+* Inscreva-se [na inscrição](https://dataexplorer.azure.com/).
+* Criar [um cluster azure Data Explorer e base de dados.](create-cluster-database-portal.md)
+* Inscreva-se na [UI web](https://dataexplorer.azure.com/) e [adicione uma ligação ao seu cluster](/azure/data-explorer/web-query-data#add-clusters).
 
-## <a name="ingest-new-data"></a>Ingerir novos dados
+## <a name="ingest-new-data"></a>Ingestão de novos dados
 
-1. Clique com o botão direito do mouse na linha de *banco de dados* ou *tabela* no menu à esquerda da interface do usuário da Web e selecione **ingerir novos dados (versão prévia)** .
+1. Clique na *base* de dados ou na linha de *mesa* no menu esquerdo da UI Web e selecione **Ingest novos dados (Pré-visualização)**.
 
-    ![Selecione a ingestão de um clique na interface do usuário da Web](media/ingest-data-one-click/one-click-ingestion-in-webui.png)   
+    ![Selecione ingestão de um clique na UI Web](media/ingest-data-one-click/one-click-ingestion-in-webui.png)   
  
-1. Na janela **ingerir novos dados (versão prévia)** , selecione a guia **origem** e preencha os **detalhes do projeto**:
+1. Na janela **Ingest new data (Preview),** selecione o separador **Fonte** e complete os Detalhes do **Projeto:**
 
-    * Para **tabela**, selecione um nome de tabela existente no menu suspenso ou selecione **criar novo** para fazer uma nova tabela.
-    * Para **tipo de ingestão**, selecione **de armazenamento** ou **de arquivo**.
-      * Se você tiver selecionado **em armazenamento**, selecione **vincular ao armazenamento** para adicionar a URL. Use a [URL SAS do blob](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) para contas de armazenamento privado. 
-      * Se você selecionou **do arquivo**, selecione **procurar** e arraste o arquivo para a caixa.
-    * Selecione **Editar esquema** para exibir e editar a configuração da coluna da tabela.
+    * Para **Tabela**, selecione um nome de mesa existente no menu suspenso ou selecione **Criar novo** para fazer uma nova tabela.
+    * Para **o tipo de ingestão,** selecione a partir do **armazenamento** ou **do ficheiro**.
+      * Se selecionar **a partir do armazenamento,** selecione Link para o **armazenamento** para adicionar o URL. Utilize [o URL Blob SAS](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) para contas de armazenamento privadas. 
+      * Se selecionar **a partir do ficheiro,** selecione **'Navegar'** e arraste o ficheiro para a caixa.
+    * **Selecione Editar esquemapara** visualizar e editar a configuração da coluna de tabela.
  
-    ![Detalhes da fonte de ingestão com um clique](media/ingest-data-one-click/one-click-ingestion-source.png) 
+    ![Detalhes da fonte de ingestão de um clique](media/ingest-data-one-click/one-click-ingestion-source.png) 
 
     > [!TIP]
-    > Se você selecionar **ingerir novos dados (visualização)** em uma linha de *tabela* , o nome da tabela selecionada será exibido nos **detalhes do projeto**.
+    > Se selecionar **novos dados da Ingest (Pré-visualização)** numa linha de *tabela,* o nome da tabela selecionado aparecerá nos Detalhes do **Projeto**.
 
-1. Se você selecionou uma tabela existente, a janela **mapear colunas** será aberta para mapear colunas de dados de origem para colunas da tabela de destino. 
-    * Use **omitir coluna** para remover uma coluna de destino da tabela.
-    * Use **nova coluna** para adicionar uma nova coluna à tabela.
+1. Se selecionar uma tabela existente, a janela das **colunas** mapeia abre-se para mapear colunas de dados de origem para colunas de tabelas-alvo. 
+    * Utilize a **coluna Omit** para remover uma coluna de alvo da tabela.
+    * Utilize a **nova coluna** para adicionar uma nova coluna à mesa.
 
-    ![Janela mapear colunas](media/ingest-data-one-click/one-click-map-columns-window.png)
+    ![Janela de colunas de mapas](media/ingest-data-one-click/one-click-map-columns-window.png)
 
-1. Na guia **esquema** :
+1. No separador **Schema:**
 
-    * Selecione **tipo de compactação** no menu suspenso e, em seguida, selecione **descompactado** ou **gzip**.
-    * Selecione **formato de dados** no menu suspenso e, em seguida, selecione **JSON**, **CSV**, **TSV**, **SCSV**, **SOHSV**, **TSVE**ou **PSV**. 
-        * Ao selecionar o formato **JSON** , você também deve selecionar **níveis JSON**, de 1 a 10. Os níveis afetam a representação de dados da coluna da tabela. 
-        * Se você selecionar um formato diferente de JSON, deverá marcar a caixa de seleção **incluir nomes de coluna** para ignorar a linha de cabeçalho do arquivo.
-    * O **nome do mapeamento** é definido automaticamente, mas pode ser editado.
-    * Se você selecionou uma tabela existente, poderá selecionar **mapear colunas** para abrir a janela **mapear colunas** .
+    * Selecione o tipo de **compressão** a partir do menu suspenso e, em seguida, selecione-os **descomprimidos** ou **GZip**.
+    * Selecione **o formato Data** a partir do menu suspenso e, em seguida, selecione **JSON,** **CSV,** **TSV,** **SCSV,** **SOHSV,** **TSVE**ou **PSV**. 
+        * Quando selecionar o formato **JSON,** deve também selecionar **os níveis JSON**, de 1 a 10. Os níveis afetam a representação de dados da coluna de tabela. 
+        * Se selecionar um formato diferente do JSON, deve selecionar a caixa de verificação **Incluir nomes** de colunas para ignorar a linha de título do ficheiro.
+    * **O nome do mapeamento** é definido automaticamente, mas pode ser editado.
+    * Se selecionar uma tabela existente, pode selecionar **colunas do Mapa** para abrir a janela das **colunas do Mapa.**
 
-    ![Esquema de formato CSV de ingestão com um clique](media/ingest-data-one-click/one-click-csv-format.png)
+    ![Esquema de formato CSV de ingestão de um clique](media/ingest-data-one-click/one-click-csv-format.png)
 
-1. Acima do painel do **Editor** , selecione o botão **v** para abrir o editor. No editor, você pode exibir e copiar as consultas automáticas geradas de suas entradas. 
+1. Acima do painel do **Editor,** selecione o botão **v** para abrir o editor. No editor, pode ver e copiar as consultas automáticas geradas a partir das suas inputs. 
 
-1. Na tabela: 
-    * Clique com o botão direito do mouse em novos cabeçalhos de coluna para **alterar tipo de dados**, **renomear coluna**, **Excluir coluna**, **classificar em ordem crescente**ou classificar em ordem **decrescente**. Nas colunas existentes, somente a classificação de dados está disponível. 
-    * Clique duas vezes no nome da nova coluna a ser editada.
+1. Na mesa: 
+    * Clique na direita nos cabeçalhos da coluna para alterar o tipo de **dados,** **coluna De Nome de renome,** apagar **coluna,** **ordenar ascendente**, ou ordenar **a descida**. Nas colunas existentes, apenas está disponível a triagem de dados. 
+    * Clique duas vezes no novo nome da coluna para editar.
 
-1. Selecione **Iniciar ingestão** para criar uma tabela e um mapeamento e para iniciar a ingestão de dados.
+1. **Selecione Iniciar a ingestão** para criar uma tabela e mapeamento e iniciar a ingestão de dados.
 
-    ![Esquema de formato JSON de ingestão com um clique](media/ingest-data-one-click/one-click-json-format.png) 
+    ![Esquema de formato JSON de ingestão de um clique](media/ingest-data-one-click/one-click-json-format.png) 
  
 ## <a name="query-data"></a>Consultar dados
 
-1. Na janela **ingestão de dados concluída** , todas as três etapas serão marcadas com marcas de seleção verdes se a ingestão de dados for concluída com êxito.
+1. Na janela concluída de **ingestão** de dados, os três passos serão marcados com marcas de verificação verde se a ingestão de dados terminar com sucesso.
  
-    ![Ingestão de dados com um clique concluída](media/ingest-data-one-click/one-click-data-ingestion-complete.png)
+    ![Ingestão de dados de um clique completa](media/ingest-data-one-click/one-click-data-ingestion-complete.png)
 
-1. Selecione o botão **v** para abrir a consulta. Copie para a interface do usuário da Web para editar a consulta.
+1. Selecione o botão **v** para abrir a consulta. Copiar para a Web UI para editar a consulta.
 
-1. O menu à direita contém **consultas rápidas** e opções de **ferramentas** . 
+1. O menu à direita contém **consultas rápidas** e opções **de ferramentas.** 
 
-    * **Consultas rápidas** incluem links para a interface do usuário da Web com consultas de exemplo.
-    * As **ferramentas** incluem um link para **descartar comandos** na interface do usuário da Web, o que permite solucionar problemas executando os comandos `.drop` relevantes.
+    * **Consultas rápidas** incluem links para a Web UI com consultas de exemplo.
+    * **As ferramentas** incluem um link para **comandos Drop** na Web UI, `.drop` que lhe permitem resolver problemas executando os comandos relevantes.
 
     > [!TIP]
-    > Você pode perder dados ao usar comandos de `.drop`. Use-os com cuidado.
+    > Pode perder dados quando `.drop` utilizar comandos. Use-os com cuidado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Consultar dados no Azure Data Explorer interface do usuário da Web](web-query-data.md)
-* [Escrever consultas para Data Explorer do Azure usando a linguagem de consulta Kusto](write-queries.md)
+* [Dados de consulta na Web UI do Web do Web do Web do Web do Web do Web do Web do Web do Web do Web do Web do Web do Web do Web](web-query-data.md)
+* [Escreva consultas para O Explorador de Dados Azure usando a linguagem da consulta de Kusto](write-queries.md)

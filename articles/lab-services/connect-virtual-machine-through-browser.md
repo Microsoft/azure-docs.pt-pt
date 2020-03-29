@@ -1,6 +1,6 @@
 ---
-title: Conectar-se às suas máquinas virtuais por meio de um navegador – Azure | Microsoft Docs
-description: Saiba como se conectar às suas máquinas virtuais por meio de um navegador.
+title: Ligue-se às suas máquinas virtuais através de um browser - Azure [ Microsoft Docs
+description: Saiba como se conectar às suas máquinas virtuais através de um browser.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: tanmayeekamath
@@ -14,30 +14,30 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: takamath
 ms.openlocfilehash: 4549ee0f50c06040b70307c96b5ca96cd4162214
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74974304"
 ---
-# <a name="connect-to-your-virtual-machines-through-a-browser"></a>Conectar-se às suas máquinas virtuais por meio de um navegador 
+# <a name="connect-to-your-virtual-machines-through-a-browser"></a>Conecte-se às suas máquinas virtuais através de um browser 
 
-O DevTest Labs integra-se à [bastiões do Azure](https://docs.microsoft.com/azure/bastion/), que permite que você se conecte às suas máquinas virtuais por meio de um navegador. Para obter informações sobre como habilitar esse recurso no DevTest Labs, consulte [habilitar conexão do navegador em máquinas virtuais do laboratório](enable-browser-connection-lab-virtual-machines.md).
+A DevTest Labs integra-se com o [Azure Bastion,](https://docs.microsoft.com/azure/bastion/)que lhe permite ligar-se às suas máquinas virtuais através de um browser. Para obter informações sobre como ativar esta funcionalidade em DevTest Labs, consulte [Enable a ligação do navegador em máquinas virtuais de laboratório](enable-browser-connection-lab-virtual-machines.md).
 
-Quando o *navegador conectar* estiver habilitado, os usuários do laboratório poderão acessar as máquinas virtuais por meio de um navegador.  
+Uma vez que a *ligação* do Navegador esteja ativada, os utilizadores de laboratório podem aceder a máquinas virtuais através de um browser.  
 
-## <a name="create-a-lab-virtual-machine"></a>Criar uma máquina virtual do laboratório
+## <a name="create-a-lab-virtual-machine"></a>Criar uma máquina virtual de laboratório
 
-Primeiro, você precisa criar a máquina virtual do laboratório em uma rede virtual que tenha a bastiões configurada nela. Selecione a segunda **sub-rede** que você criou, não o AzureBastionSubnet. Você pode selecionar uma rede virtual durante a criação da máquina virtual acessando a guia **Configurações avançadas** .
+Primeiro é preciso criar a máquina virtual de laboratório dentro de uma rede virtual que tenha o Bastion configurado nela. Selecione a segunda **sub-rede** que criou, não a AzureBastionSubnet. Pode selecionar uma rede virtual durante a criação de máquinas virtuais, indo para o separador de **definições Avançada.**
 
 ![Criar a máquina virtual](./media/connect-virtual-machine-through-browser/create-virtual-machine.png)
 
-## <a name="launch-virtual-machine-in-a-browser"></a>Iniciar máquina virtual em um navegador
+## <a name="launch-virtual-machine-in-a-browser"></a>Lance máquina virtual em um navegador
 
-Depois que a máquina virtual for criada, você poderá iniciá-la em um navegador clicando no botão *conectar do navegador* e inserindo seu nome de usuário e senha para o computador.  
+Assim que a máquina virtual for criada, pode lançá-la num browser clicando no botão de *ligação* do Navegador e inserindo o seu nome de utilizador e palavra-passe para a máquina.  
 
-![Iniciar em um navegador](./media/connect-virtual-machine-through-browser/browser-connect.png)
+![Lançamento em um navegador](./media/connect-virtual-machine-through-browser/browser-connect.png)
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
-[Adicionar uma VM a um laboratório no Azure DevTest Labs](devtest-lab-add-vm.md)
+[Adicione um VM a um laboratório em Azure DevTest Labs](devtest-lab-add-vm.md)

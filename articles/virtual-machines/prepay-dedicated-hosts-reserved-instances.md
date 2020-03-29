@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
 ms.openlocfilehash: 57123abfe7f343a75d264d43afb88f9de1409e8a
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78207748"
 ---
 # <a name="save-costs-with-a-reserved-instance-of-azure-dedicated-hosts"></a>Poupe custos com uma instância reservada de anfitriões dedicados azure
@@ -40,9 +40,9 @@ Os descontos de reserva não se aplicam para o seguinte:
 
 - **Clouds** - As reservas não estão disponíveis para compra nas regiões da Alemanha ou da China.
 
-- **Quota insuficiente** - Uma reserva que seja orientada para uma única subscrição deve ter quota vCPU disponível na subscrição para a nova instância reservada. Por exemplo, se a subscrição-alvo tem um limite de quota de 10 vCPUs para dSv3-Series, então não pode comprar uma reserva dedicada a anfitriões que apoiem esta série. O controlo de quotas para reservas inclui os VMs e os anfitriões dedicados já implantados na subscrição. Pode [criar um pedido](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) de aumento de quota para resolver esta questão.
+- **Quota insuficiente** - Uma reserva que seja orientada para uma única subscrição deve ter quota vCPU disponível na subscrição para a nova instância reservada. Por exemplo, se a subscrição-alvo tem um limite de quota de 10 vCPUs para dSv3-Series, então não pode comprar uma reserva dedicada a anfitriões que apoiem esta série. O controlo de quotas para reservas inclui os VMs e os anfitriões dedicados já implantados na subscrição. Pode [criar um pedido](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) de aumento de quota para resolver esta questão.
 
-- **Restrições** de capacidade - Em circunstâncias raras, o Azure limita a compra de novas reservas para o subconjunto de SKUs dedicados, devido à baixa capacidade numa região.
+- **Restrições** de capacidade - Em circunstâncias raras, o Azure limita a compra de novas reservas para subconjunto de SKUs dedicados, devido à baixa capacidade numa região.
 
 ## <a name="buy-a-reservation"></a>Comprar uma reserva
 
@@ -60,13 +60,13 @@ Para comprar uma instância:
 
 1. Inicie sessão no  [portal do Azure](https://portal.azure.com/).
 
-2. Selecione **todos os serviços**  **reservas**\>.
+2. Selecione todas as reservas de \> **serviços**. **All services**
 
 3. Selecione **Adicionar** para comprar uma nova reserva e, em seguida, clique em **Anfitriões Dedicados**.
 
 4. Introduza os campos necessários. Executar anfitriões dedicados casos que correspondam aos atributos que seleciona qualificam-se para obter o desconto de reserva. O número real de instâncias dedicadas do anfitrião que obtêm o desconto depende do âmbito e quantidade selecionados.
 
-Se tiver um acordo eA, pode utilizar a **opção Adicionar mais** adicionar rapidamente instâncias adicionais. A opção não está disponível para outros tipos de subscrição.
+Se tiver um acordo eA, pode utilizar a **opção** Adicionar mais para adicionar rapidamente instâncias adicionais. A opção não está disponível para outros tipos de subscrição.
 
 | **Campo**           | **Descrição**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -74,20 +74,20 @@ Se tiver um acordo eA, pode utilizar a **opção Adicionar mais** adicionar ra
 | Âmbito               | O âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Região              | A região de Azure que está coberta pela reserva.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Tamanho dedicado do hospedeiro | O tamanho dos casos dedicados do Anfitrião.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Duração                | Um ano ou três anos.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Termo                | Um ano ou três anos.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | Quantidade            | O número de casos adquiridos dentro da reserva. A quantidade é o número de instâncias de anfitriões dedicados que podem obter o desconto de faturação.                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
-- **Âmbito** de grupo de recursos únicos — Aplica o desconto de reserva aos recursos correspondentes apenas no grupo de recursos selecionados.
+- **Âmbito** de grupo de recursos únicos — Aplica o desconto de reserva aos recursos correspondentes apenas no grupo de recursos selecionados.
 
-- **Âmbito único de subscrição** — Aplica o desconto de reserva aos recursos correspondentes na subscrição selecionada.
+- **Âmbito** único de subscrição — Aplica o desconto de reserva aos recursos correspondentes na subscrição selecionada.
 
-- **Âmbito partilhado** — Aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que se encontram no contexto da faturação. Para os clientes da EA, o contexto de faturação é a inscrição. Para subscrições individuais com taxas pay as you go, o âmbito da faturação reside em todas as subscrições elegíveis criadas pelo administrador de conta.
+- **Âmbito partilhado** — Aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que se encontram no contexto de faturação. Para os clientes da EA, o contexto de faturação é a inscrição. Para subscrições individuais com taxas pay as you go, o âmbito da faturação reside em todas as subscrições elegíveis criadas pelo administrador de conta.
 
 ## <a name="usage-data-and-reservation-utilization"></a>Dados de utilização e utilização de reservas
 
 Os dados de utilização têm um preço efetivo de zero pela utilização que obtém um desconto de reserva. Pode ver qual a instância vm que recebeu o desconto de reserva para cada reserva.
 
-Para obter mais informações sobre como os descontos de reserva aparecem nos dados de utilização, consulte o uso da reserva Do Minée do [Foco para a sua inscrição na Empresa](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea) se for cliente DaE. Se tiver uma subscrição individual, consulte o uso da [reserva Do Understand Azure para a sua subscrição Pay-As-You-Go](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage).
+Para obter mais informações sobre como os descontos de reserva aparecem nos dados de utilização, consulte o uso da reserva Do Minéeça Para a [sua inscrição](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea) na Enterprise se for cliente DaE. Se tiver uma subscrição individual, consulte o uso da [reserva Do Understand Azure para a sua subscrição Pay-As-You-Go](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage).
 
 ## <a name="change-a-reservation-after-purchase"></a>Alterar uma reserva após a compra
 
@@ -127,7 +127,7 @@ Para aprender a gerir uma reserva, consulte [Gerir reservas azure](https://docs
 
 Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
 
-- [O que são as Reservas do Azure?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
+- [O que são Reservas Azure?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
 
 - [Usando anfitriões dedicados azure](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)
 
@@ -135,7 +135,7 @@ Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
 
 - [Gerir Reservas no Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
 
-- [Compreender como o desconto das reservas é aplicado](https://docs.microsoft.com/azure/billing/billing-understand-vm-reservation-charges)
+- [Compreender como o desconto de reserva é aplicado](https://docs.microsoft.com/azure/billing/billing-understand-vm-reservation-charges)
 
 - [Compreender a utilização de reservas para uma subscrição com tarifas pay as you go](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)
 
@@ -143,6 +143,6 @@ Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
 
 - [Custos de software Windows não incluídos nas reservas](https://docs.microsoft.com/azure/billing/billing-reserved-instance-windows-software-costs)
 
-- [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations) (Reservas do Azure no programa Fornecedor de Soluções Cloud (CSP) do Centro de Parceiros)
+- [Azure Reservations no programa Fornecedor de Soluções Cloud (CSP) do Centro de Parceiros](https://docs.microsoft.com/partner-center/azure-reservations)
 
 

@@ -1,61 +1,61 @@
 ---
-title: 'Capacidade de teste: comunicação de serviço'
-description: A comunicação entre serviços é um ponto de integração crítico de um aplicativo Service Fabric. Este artigo discute as considerações de design e técnicas de teste.
+title: 'Testabilidade: Comunicação de serviço'
+description: A comunicação serviço-a-serviço é um ponto crítico de integração de uma aplicação Service Fabric. Este artigo discute considerações de design e técnicas de teste.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 87b922cb9655588a22c739d26c9ce9e49d35781a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75465563"
 ---
-# <a name="service-fabric-testability-scenarios-service-communication"></a>Cenários de possibilidade de teste Service Fabric: comunicação de serviço
-Os microserviços e a superfície de estilos de arquitetura orientada a serviços naturalmente no Azure Service Fabric. Nesses tipos de arquiteturas distribuídas, aplicativos de microatendimento com componentes são normalmente compostos por vários serviços que precisam se comunicar entre si. Até os casos mais simples, geralmente você tem pelo menos um serviço Web sem estado e um serviço de armazenamento de dados com estado que precisam se comunicar.
+# <a name="service-fabric-testability-scenarios-service-communication"></a>Cenários de testabilidade do tecido de serviço: Comunicação de serviço
+Microserviços e estilos arquitetónicos orientados para o serviço surgem naturalmente no Tecido de Serviço Azure. Neste tipo de arquiteturas distribuídas, as aplicações de microserviços componentes são tipicamente compostas por múltiplos serviços que precisam de falar uns com os outros. Mesmo nos casos mais simples, você geralmente tem pelo menos um serviço web apátrida e um serviço de armazenamento de dados apátrida que precisa comunicar.
 
-A comunicação entre serviços é um ponto de integração crítico de um aplicativo, pois cada serviço expõe uma API remota a outros serviços. Trabalhar com um conjunto de limites de API que envolvem e/s geralmente requer algum cuidado, com uma boa quantidade de testes e validação.
+A comunicação serviço-a-serviço é um ponto crítico de integração de uma aplicação, porque cada serviço expõe uma API remota a outros serviços. Trabalhar com um conjunto de limites de API que envolve I/O geralmente requer algum cuidado, com uma boa quantidade de testes e validação.
 
-Há várias considerações a serem feitas quando esses limites de serviço são vinculados em um sistema distribuído:
+Existem numerosas considerações a fazer quando estes limites de serviço são ligados num sistema distribuído:
 
-* *Protocolo de transporte*. Você usará HTTP para maior interoperabilidade ou um protocolo binário personalizado para taxa de transferência máxima?
-* *Tratamento de erros*. Como os erros permanentes e transitórios serão tratados? O que acontecerá quando um serviço for movido para um nó diferente?
-* *Tempos limite e latência*. Em aplicativos multicamadas, como cada camada de serviço lida com a latência por meio da pilha e para o usuário?
+* *Protocolo de transporte.* Utilizará http para uma interoperabilidade acrescida, ou um protocolo binário personalizado para a máxima potência?
+* *Manipulação de erros*. Como serão tratados erros permanentes e transitórios? O que vai acontecer quando um serviço passar para um nó diferente?
+* *Intervalos e latência.* Em aplicações multicamadas, como é que cada camada de serviço manterá a latência através da pilha e do utilizador?
 
-Se você usar um dos componentes de comunicação de serviço internos fornecidos pelo Service Fabric ou se você criar seu próprio, testar as interações entre seus serviços é essencial para garantir a resiliência em seu aplicativo.
+Quer utilize um dos componentes de comunicação de serviço incorporados fornecidos pela Service Fabric ou se constrói o seu próprio, testar as interações entre os seus serviços é fundamental para garantir a resiliência na sua aplicação.
 
-## <a name="prepare-for-services-to-move"></a>Preparar para mover os serviços
-As instâncias de serviço podem se movimentar ao longo do tempo. Isso é especialmente verdadeiro quando eles são configurados com métricas de carga para balanceamento de recursos ideal personalizado. Service Fabric move suas instâncias de serviço para maximizar sua disponibilidade mesmo durante atualizações, failovers, expansão e outras situações que ocorrem durante o tempo de vida de um sistema distribuído.
+## <a name="prepare-for-services-to-move"></a>Prepare-se para os serviços se moverem
+As instâncias de serviço podem mover-se ao longo do tempo. Isto é especialmente verdade quando são configurados com métricas de carga para um equilíbrio de recursos ideal personalizado. O Service Fabric move as suas instâncias de serviço para maximizar a sua disponibilidade mesmo durante upgrades, failovers, scale-out e outras situações que ocorrem ao longo da vida de um sistema distribuído.
 
-À medida que os serviços se movimentam no cluster, seus clientes e outros serviços devem estar preparados para lidar com dois cenários quando se comunicam com um serviço:
+À medida que os serviços se movem no cluster, os seus clientes e outros serviços devem estar preparados para lidar com dois cenários quando falam com um serviço:
 
-* A instância de serviço ou a réplica de partição foi movida desde a última vez que você falou. Essa é uma parte normal de um ciclo de vida do serviço e deve ocorrer durante o tempo de vida do seu aplicativo.
-* A instância de serviço ou a réplica de partição está no processo de movimentação. Embora o failover de um serviço de um nó para outro ocorra muito rapidamente no Service Fabric, pode haver um atraso na disponibilidade se o componente de comunicação do serviço estiver lento para ser iniciado.
+* A instância de serviço ou réplica de divisória moveu-se desde a última vez que falou com ela. Esta é uma parte normal de um ciclo de vida de serviço, e deve acontecer durante a vida da sua aplicação.
+* A instância de serviço ou réplica da divisória está em processo de deslocação. Embora a falha de um serviço de um nó para outro ocorra muito rapidamente no Tecido de Serviço, pode haver um atraso na disponibilidade se o componente de comunicação do seu serviço for lento para iniciar.
 
-Tratar esses cenários normalmente é importante para um sistema de execução tranqüila. Para fazer isso, tenha em mente que:
+Lidar com estes cenários graciosamente é importante para um sistema de funcionamento suave. Para fazê-lo, lembre-se que:
 
-* Cada serviço que pode ser conectado tem um *endereço* em que ele escuta (por exemplo, http ou WebSockets). Quando uma instância ou partição de serviço é movida, seu ponto de extremidade de endereço é alterado. (Ele se move para um nó diferente com um endereço IP diferente.) Se você estiver usando os componentes de comunicação internos, eles tratarão de reresolver os endereços de serviço para você.
-* Pode haver um aumento temporário na latência do serviço, pois a instância do serviço inicia seu ouvinte novamente. Isso depende de quão rápido o serviço abre o ouvinte depois que a instância do serviço é movida.
-* Todas as conexões existentes precisam ser fechadas e reabertas depois que o serviço é aberto em um novo nó. Um desligamento ou reinício de nó normal permite que as conexões existentes sejam desligadas normalmente.
+* Cada serviço que pode ser ligado tem um *endereço* que ouve (por exemplo, HTTP ou WebSockets). Quando uma instância de serviço ou partição se move, o seu ponto final de endereço muda. (Muda-se para um nó diferente com um endereço IP diferente.) Se estiver a utilizar os componentes de comunicação incorporados, tratarão da reresolução de endereços de serviço para si.
+* Pode haver um aumento temporário da latência do serviço à medida que a instância de serviço recomeça o seu ouvinte. Isto depende da rapidez com que o serviço abre o ouvinte após a deslocação da instância de serviço.
+* Quaisquer ligações existentes precisam de ser fechadas e reabertas após a abertura do serviço num novo nó. Uma paragem ou reinício gracioso do nó permite que as ligações existentes sejam desligadas graciosamente.
 
-### <a name="test-it-move-service-instances"></a>Teste: mover instâncias de serviço
-Usando as ferramentas de teste do Service Fabric, você pode criar um cenário de teste para testar essas situações de maneiras diferentes:
+### <a name="test-it-move-service-instances"></a>Teste-o: Mover instâncias de serviço
+Utilizando as ferramentas de testabilidade do Service Fabric, pode ser autor de um cenário de teste para testar estas situações de diferentes formas:
 
-1. Mova uma réplica primária de um serviço com estado.
+1. Mova a réplica primária de um serviço imponente.
    
-    A réplica primária de uma partição de serviço com estado pode ser movida por vários motivos. Use isso para direcionar a réplica primária de uma partição específica para ver como seus serviços reagem para a movimentação de uma maneira muito controlada.
+    A réplica primária de uma partição de serviço estatal pode ser movida por várias razões. Use isto para direcionar a réplica primária de uma divisória específica para ver como os seus serviços reagem ao movimento de forma muito controlada.
    
     ```powershell
    
     PS > Move-ServiceFabricPrimaryReplica -PartitionId 6faa4ffa-521a-44e9-8351-dfca0f7e0466 -ServiceName fabric:/MyApplication/MyService
    
     ```
-2. Parar um nó.
+2. Pare um nó.
    
-    Quando um nó é interrompido, Service Fabric move todas as instâncias de serviço ou partições que estavam nesse nó para um dos outros nós disponíveis no cluster. Use isso para testar uma situação em que um nó é perdido do seu cluster e todas as instâncias de serviço e réplicas nesse nó precisam ser movidas.
+    Quando um nó é parado, o Service Fabric move todas as instâncias de serviço ou divisórias que estavam nesse nó para um dos outros nós disponíveis no cluster. Use isto para testar uma situação em que um nó é perdido do seu cluster e todas as instâncias de serviço e réplicas desse nó têm que se mover.
    
-    Você pode interromper um nó usando o cmdlet **Stop-ServiceFabricNode** do PowerShell:
+    Pode parar um nó utilizando o cmdlet PowerShell **Stop-ServiceFabricNode:**
    
     ```powershell
    
@@ -64,14 +64,14 @@ Usando as ferramentas de teste do Service Fabric, você pode criar um cenário d
     ```
 
 ## <a name="maintain-service-availability"></a>Manter a disponibilidade do serviço
-Como plataforma, a Service Fabric foi projetada para fornecer alta disponibilidade de seus serviços. Mas, em casos extremos, problemas de infraestrutura subjacentes ainda podem causar indisponibilidade. É importante testar esses cenários também.
+Como plataforma, o Service Fabric foi projetado para fornecer uma elevada disponibilidade dos seus serviços. Mas, em casos extremos, os problemas subjacentes às infraestruturas podem ainda causar indisponibilidade. É importante testar também estes cenários.
 
-Os serviços com estado usam um sistema baseado em quorum para replicar o estado para alta disponibilidade. Isso significa que um quorum de réplicas precisa estar disponível para executar operações de gravação. Em casos raros, como uma falha de hardware generalizada, um quorum de réplicas pode não estar disponível. Nesses casos, você não poderá executar operações de gravação, mas ainda poderá executar operações de leitura.
+Os serviços estatais usam um sistema baseado em quórum para replicar o estado para uma elevada disponibilidade. Isto significa que um quórum de réplicas precisa estar disponível para realizar operações de escrita. Em casos raros, como uma falha generalizada no hardware, um quórum de réplicas pode não estar disponível. Nestes casos, não poderá realizar operações de escrita, mas ainda poderá realizar operações de leitura.
 
-### <a name="test-it-write-operation-unavailability"></a>Teste: indisponibilidade de operação de gravação
-Usando as ferramentas de possibilidade de teste no Service Fabric, você pode injetar uma falha que induz a perda de quorum como um teste. Embora esse cenário seja raro, é importante que os clientes e serviços que dependem de um serviço com estado estejam preparados para lidar com situações em que não podem fazer solicitações de gravação para ele. Também é importante que o serviço com estado em si esteja ciente dessa possibilidade e possa comunicar-se normalmente com os chamadores.
+### <a name="test-it-write-operation-unavailability"></a>Teste-o: Escrever indisponibilidade de operação
+Ao utilizar as ferramentas de testabilidade no Tecido de Serviço, pode injetar uma falha que induz a perda de quórum como teste. Embora tal cenário seja raro, é importante que os clientes e serviços que dependem de um serviço de estado estejam preparados para lidar com situações em que não podem fazer pedidos de escrita. Também é importante que o próprio serviço esteja ciente desta possibilidade e possa comunicá-lo graciosamente aos chamadores.
 
-Você pode induzir a perda de quorum usando o cmdlet **Invoke-ServiceFabricPartitionQuorumLoss** do PowerShell:
+Pode induzir a perda de quórum utilizando o PowerShell **Invoke-ServicePartitionPartitionQuorumLoss** cmdlet:
 
 ```powershell
 
@@ -79,10 +79,10 @@ PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/
 
 ```
 
-Neste exemplo, definimos `QuorumLossMode` como `QuorumReplicas` para indicar que queremos induzir a perda de quorum sem desativar todas as réplicas. Dessa forma, as operações de leitura ainda são possíveis. Para testar um cenário em que uma partição inteira não está disponível, você pode definir essa opção como `AllReplicas`.
+Neste exemplo, `QuorumLossMode` definimos `QuorumReplicas` para indicar que queremos induzir a perda de quórum sem derrubar todas as réplicas. Desta forma, as operações de leitura ainda são possíveis. Para testar um cenário em que uma partição `AllReplicas`inteira não esteja disponível, pode definir este interruptor para .
 
 ## <a name="next-steps"></a>Passos seguintes
-[Saiba mais sobre as ações de possibilidade de teste](service-fabric-testability-actions.md)
+[Saiba mais sobre ações de testability](service-fabric-testability-actions.md)
 
-[Saiba mais sobre cenários de possibilidade de teste](service-fabric-testability-scenarios.md)
+[Saiba mais sobre cenários de testability](service-fabric-testability-scenarios.md)
 

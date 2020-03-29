@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: rohink
 ms.openlocfilehash: 19445c06ccf08d2d7916545ad495c56883616c7a
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938635"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hierarquia país/região utilizada pelo Gestor de Tráfego Azure para o método de encaminhamento de tráfego geográfico
@@ -51,7 +51,7 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - DE(Alemanha)
 
-        - DK(Denmark)
+        - DK (Dinamarca)
 
         - EE (Estónia)
 
@@ -93,7 +93,7 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - LV (Letónia)
 
-        - MC(Monaco)
+        - MC (Mónaco)
 
         - MD (Moldávia)
 
@@ -101,7 +101,7 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - MK (Macedónia do Norte)
 
-        - MT(Malta)
+        - MT (Malta)
 
         - NL(Países Baixos)
 
@@ -134,7 +134,7 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - XJ(jan Mayen)
 
-        - XK(Kosovo)
+        - XK (Kosovo)
 
     - GEO-ME (Médio Oriente)
 
@@ -176,7 +176,7 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - AW(Aruba)
 
-        - BB(Barbados)
+        - BB (Barbados)
 
         - BL (São Barthélemy)
 
@@ -274,11 +274,11 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - EUA (Estados Unidos)
 
-            - US-AK(Alaska)
+            - EUA-AK (Alasca)
 
-            - US-AL(Alabama)
+            - US-AL (Alabama)
 
-            - US-AR(Arkansas)
+            - EUA-AR (Arkansas)
 
             - EUA-AZ (Arizona)
 
@@ -306,13 +306,13 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
             - US-IN (Indiana)
 
-            - US-KS(Kansas)
+            - EUA-KS (Kansas)
 
-            - US-KY(Kentucky)
+            - EUA-KY (Kentucky)
 
             - EUA-LA (Louisiana)
 
-            - US-MA(Massachusetts)
+            - EUA-MA (Massachusetts)
 
             - US-MD (Maryland)
 
@@ -320,11 +320,11 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
             - US-MI (Michigan)
 
-            - US-MN(Minnesota)
+            - US-MN (Minnesota)
 
             - EUA-MO (Missouri)
 
-            - US-MS(Mississippi)
+            - EUA-MS (Mississippi)
 
             - US-MT (Montana)
 
@@ -340,7 +340,7 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
             - EUA-NM (Novo México)
 
-            - US-NV(Nevada)
+            - EUA-NV (Nevada)
 
             - EUA-NY (Nova Iorque)
 
@@ -358,9 +358,9 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
             - EUA-SD (Dakota do Sul)
 
-            - US-TN(Tennessee)
+            - US-TN (Tennessee)
 
-            - US-TX(Texas)
+            - EUA-TX (Texas)
 
             - EUA-UT (Utah)
 
@@ -368,13 +368,13 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
             - EUA-VT (Vermont)
 
-            - US-WA(Washington)
+            - EUA-WA (Washington)
 
-            - US-WI(Wisconsin)
+            - EUA-WI (Wisconsin)
 
             - EUA-WV (Virgínia Ocidental)
 
-            - US-WY(Wyoming)
+            - EUA-WY (Wyoming)
 
         - VC (São Vicente e Granadinas)
 
@@ -396,13 +396,13 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - BD (Bangladesh)
 
-        - BN(Brunei)
+        - BN (Brunei)
 
         - BT (Butão)
 
         - CC (Ilhas De Cocos (Keeling)
 
-        - CN(China)
+        - CN (China)
 
         - CX (Ilha de Natal)
 
@@ -430,13 +430,13 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - LA (Laos)
 
-        - LK(Sri Lanka)
+        - LK (Sri Lanka)
 
         - MM (Myanmar)
 
         - MN (Mongólia)
 
-        - MO (RAE de Macau)
+        - MO (RAEm de Macau)
 
         - MV (Maldivas)
 
@@ -466,7 +466,7 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
     - GEO-AF (África)
 
-        - AO(Angola)
+        - AO (Angola)
 
         - BF(Burkina Faso)
 
@@ -478,7 +478,7 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - BW (Botsuana)
 
-        - CD(Congo (RDC))
+        - CD (Congo (RDC))
 
         - CF (República Centro-Africana)
 
@@ -488,7 +488,7 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - CV (Cabo Verde)
 
-        - DJ(Djibouti)
+        - DJ (Djibuti)
 
         - DZ (Argélia)
 
@@ -522,7 +522,7 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - MA (Marrocos)
 
-        - MG(Madagascar)
+        - MG(Madagáscar)
 
         - ML(Mali)
 
@@ -580,7 +580,7 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - ZM (Zâmbia)
 
-        - ZW(Zimbabwe)
+        - ZW (Zimbabué)
 
     - GEO-AN (Antártida)
 
@@ -600,7 +600,7 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - CE (Equador)
 
-        - Ilhas Falkland (Malvinas)
+        - FK (Ilhas Falkland)
 
         - GF (Guiana Francesa)
 
@@ -682,11 +682,11 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - TV(Tuvalu)
 
-        - VU(Vanuatu)
+        - VU (Vanuatu)
 
         - WF (Wallis e Futuna)
 
-        - WS(Samoa)
+        - WS (Samoa)
 
 ## <a name="next-steps"></a>Passos seguintes
 

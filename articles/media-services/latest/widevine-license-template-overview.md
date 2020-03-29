@@ -14,20 +14,20 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: 94ce5e45a9a43e81020096ddc0a67429b286d9b1
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76705637"
 ---
 # <a name="media-services-v3-with-widevine-license-template-overview"></a>Media Services v3 com visão geral do modelo de licença Widevine
 
-O Azure Media Services permite-lhe encriptar os seus conteúdos com o **Google Widevine**. A Media Services também presta um serviço para a entrega de licenças Widevine. Pode utilizar APIs da Azure Media Services para configurar as licenças widevine. Quando um jogador tenta reproduzir o seu conteúdo protegido pela Widevine, um pedido é enviado para o serviço de entrega de licença para obter a licença. Se o serviço de licença aprovar o pedido, o serviço emite a licença. Ele é enviado para o cliente e é utilizado para desencriptar e reproduzir o conteúdo especificado.
+O Azure Media Services permite-lhe encriptar os seus conteúdos com o **Google Widevine**. A Media Services também presta um serviço para a entrega de licenças Widevine. Pode utilizar APIs da Azure Media Services para configurar as licenças widevine. Quando um jogador tenta reproduzir o seu conteúdo protegido pela Widevine, um pedido é enviado para o serviço de entrega de licença para obter a licença. Se o serviço de licença aprovar o pedido, o serviço emite a licença. É enviado para o cliente e é usado para desencriptar e reproduzir o conteúdo especificado.
 
 Um pedido de licença widevine é formatado como uma mensagem JSON.  
 
 >[!NOTE]
-> Pode criar uma mensagem vazia sem valores, apenas "{}." Em seguida, um modelo de licença é criado com incumprimentos. O padrão funciona para a maioria dos casos. Os cenários de entrega de licençabaseados na Microsoft devem sempre utilizar os predefinidos. Se precisar de definir os valores de "fornecedor" e "content_id", um fornecedor deve corresponder às credenciais da Widevine.
+> Pode criar uma mensagem vazia sem{}valores, apenas." Em seguida, um modelo de licença é criado com incumprimentos. O padrão funciona para a maioria dos casos. Os cenários de entrega de licençabaseados na Microsoft devem sempre utilizar os predefinidos. Se precisar de definir os valores de "fornecedor" e "content_id", um fornecedor deve corresponder às credenciais da Widevine.
 
     {  
        "payload":"<license challenge>",
@@ -62,11 +62,11 @@ Um pedido de licença widevine é formatado como uma mensagem JSON.
 
 | Nome | Valor | Descrição |
 | --- | --- | --- |
-| carga útil |Fio codificado Base64 |O pedido de licença enviado por um cliente. |
+| payload |Fio codificado Base64 |O pedido de licença enviado por um cliente. |
 | content_id |Fio codificado Base64 |Identificador usado para obter a chave ID e chave de conteúdo para cada content_key_specs.track_type. |
-| em WMI |string |Costumava procurar chaves de conteúdo e políticas. Se a entrega da chave da Microsoft for utilizada para a entrega da licença Widevine, este parâmetro é ignorado. |
+| fornecedor |string |Costumava procurar chaves de conteúdo e políticas. Se a entrega da chave da Microsoft for utilizada para a entrega da licença Widevine, este parâmetro é ignorado. |
 | policy_name |string |Nome de uma política previamente registada. Opcional. |
-| allowed_track_types |Enum |SD_ONLY ou SD_HD. Controla quais as chaves de conteúdo incluídas numa licença. |
+| allowed_track_types |enum |SD_ONLY ou SD_HD. Controla quais as chaves de conteúdo incluídas numa licença. |
 | content_key_specs |Conjunto de estruturas JSON, consulte a secção "Especificações de chave de conteúdo".  |Um controlo mais fino sobre as chaves de conteúdo para devolver. Para mais informações, consulte a secção "Especificações de chave de conteúdo". Apenas um dos valores allowed_track_types e content_key_specs pode ser especificado. |
 | use_policy_overrides_exclusively |Boolean, verdadeiro ou falso |Utilize atributos de política especificados por policy_overrides e omita todas as políticas previamente armazenadas. |
 | policy_overrides |Estrutura JSON, veja a secção "A política substitui". |Definições políticas para esta licença.  No caso de este ativo ter uma política predefinida, estes valores especificados são utilizados. |
@@ -89,17 +89,17 @@ Cada content_key_specs valor deve ser especificado para todas as faixas, indepen
 ## <a name="policy-overrides"></a>Sobreposições políticas
 | Nome | Valor | Descrição |
 | --- | --- | --- |
-| can_play&#46;policy_overrides |Boolean, verdadeiro ou falso |Indica que a reprodução do conteúdo é permitida. A predefinição é falso. |
+| policy_overrides&#46;can_play |Boolean, verdadeiro ou falso |Indica que a reprodução do conteúdo é permitida. A predefinição é falso. |
 | policy_overrides&#46;can_persist |Boolean, verdadeiro ou falso |Indica que a licença pode ser persistiu no armazenamento não volátil para uso offline. A predefinição é falso. |
 | policy_overrides&#46;can_renew |Boolean, verdadeiro ou falso |Indica que a renovação desta licença é permitida. Se for verdade, a duração da licença pode ser prolongada por batimentos cardíacos. A predefinição é falso. |
-| policy_overrides&#46;license_duration_seconds |int64 |Indica a janela de tempo para esta licença específica. Um valor de 0 indica que não há limite para a duração. O padrão é 0. |
-| policy_overrides&#46;rental_duration_seconds |int64 |Indica a janela de tempo enquanto é permitida a reprodução. Um valor de 0 indica que não há limite para a duração. O padrão é 0. |
-| policy_overrides&#46;playback_duration_seconds |int64 |A janela de visualização do tempo após a reprodução começa dentro da duração da licença. Um valor de 0 indica que não há limite para a duração. O padrão é 0. |
+| policy_overrides&#46;license_duration_seconds |int64 |Indica a janela de tempo para esta licença específica. Um valor de 0 indica que não há limite para a duração. Padrão é 0. |
+| policy_overrides&#46;rental_duration_seconds |int64 |Indica a janela de tempo enquanto é permitida a reprodução. Um valor de 0 indica que não há limite para a duração. Padrão é 0. |
+| policy_overrides playback_duration_seconds&#46; |int64 |A janela de visualização do tempo após a reprodução começa dentro da duração da licença. Um valor de 0 indica que não há limite para a duração. Padrão é 0. |
 | policy_overrides&#46;renewal_server_url |string |Todos os pedidos de batimentos cardíacos (renovação) para esta licença são direcionados para o URL especificado. Este campo só é usado se can_renew for verdade. |
-| policy_overrides&#46;renewal_delay_seconds |int64 |Quantos segundos depois de license_start_time antes da primeira tentativa de renovação. Este campo só é usado se can_renew for verdade. O padrão é 0. |
-| policy_overrides&#46;renewal_retry_interval_seconds |int64 |Especifica o atraso em segundos entre os pedidos de renovação da licença subsequentes, em caso de falha. Este campo só é usado se can_renew for verdade. |
+| policy_overrides&#46;renewal_delay_seconds |int64 |Quantos segundos depois de license_start_time antes da primeira tentativa de renovação. Este campo só é usado se can_renew for verdade. Padrão é 0. |
+| policy_overrides renewal_retry_interval_seconds&#46; |int64 |Especifica o atraso em segundos entre os pedidos de renovação da licença subsequentes, em caso de falha. Este campo só é usado se can_renew for verdade. |
 | policy_overrides&#46;renewal_recovery_duration_seconds |int64 |A janela de tempo em que a reprodução pode continuar enquanto a renovação é tentada, mas sem sucesso devido a problemas no back-end com o servidor de licença. Um valor de 0 indica que não há limite para a duração. Este campo só é usado se can_renew for verdade. |
-| policy_overrides&#46;renew_with_usage |Boolean, verdadeiro ou falso |Indica que a licença é enviada para renovação quando o uso começa. Este campo só é usado se can_renew for verdade. |
+| policy_overrides renew_with_usage&#46; |Boolean, verdadeiro ou falso |Indica que a licença é enviada para renovação quando o uso começa. Este campo só é usado se can_renew for verdade. |
 
 ## <a name="session-initialization"></a>Inicialização da sessão
 | Nome | Valor | Descrição |
@@ -125,7 +125,7 @@ ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration =
 };
 ```
 
-### <a id="classes"></a>Defina as classes necessárias e serialize para a JSON
+### <a name="define-needed-classes-and-serialize-to-json"></a><a id="classes"></a>Defina as classes necessárias e serialize para a JSON
 
 #### <a name="define-classes"></a>Definir aulas
 
@@ -205,8 +205,8 @@ private static ContentKeyPolicyWidevineConfiguration ConfigureWidevineLicenseTem
 
 ## <a name="additional-notes"></a>Notas adicionais
 
-* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+* A Widevine é um serviço prestado pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Verificar como [proteger com o DRM](protect-with-drm.md)
+Confira como [proteger com a DRM](protect-with-drm.md)

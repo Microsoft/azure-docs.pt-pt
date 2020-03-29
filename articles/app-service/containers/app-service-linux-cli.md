@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.custom: seodec18
 ms.openlocfilehash: 5ca5322467402af710df68c82d747f8f8d65e142
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255929"
 ---
-# <a name="manage-web-app-for-containers-using-azure-cli"></a>Gerir a Web App para contentores utilizando o Azure CLI
+# <a name="manage-web-app-for-containers-using-azure-cli"></a>Gerir a Aplicação Web para Contentores com a CLI do Azure
 
 Utilizando os comandos deste artigo é possível criar e gerir uma Aplicação Web para contentores utilizando o Azure CLI.
 Pode começar a utilizar a nova versão do CLI de duas formas:
@@ -95,7 +95,7 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 ## <a name="next-steps"></a>Passos seguintes
 
 * [O que é o Serviço de Aplicações Azure no Linux?](app-service-linux-intro.md)
-* [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Concha de nuvem azure (pré-visualização)](../../cloud-shell/overview.md)
 * [Configurar ambientes de teste no Serviço de Aplicações do Azure](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Implantação contínua com aplicação web para contentores](app-service-linux-ci-cd.md)

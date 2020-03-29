@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
 ms.openlocfilehash: 3d9c178201ab0c22ed4eab9cf65f7d48e59e1359
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78246129"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Visão geral do Agente De MáquinaS Virtuais Azure
@@ -115,7 +115,7 @@ Quando inicia sessão num VM do Windows, o Task Manager pode ser utilizado para 
 O Agente Azure VM para Windows é automaticamente atualizado. À medida que os novos VMs são implantados para o Azure, recebem o mais recente agente VM no tempo de provisionamento vm. As imagens VM personalizadas devem ser atualizadas manualmente para incluir o novo agente VM no momento da criação de imagem.
 
 ## <a name="windows-guest-agent-automatic-logs-collection"></a>Coleção de registos automáticos do agente convidado do Windows
-O Windows Guest Agent tem uma funcionalidade para recolher automaticamente alguns registos. Esta funcionalidade é controladora pelo processo CollectGuestLogs.exe. Existe tanto para os Serviços paas cloud como para as Máquinas Virtuais IaaS e o seu objetivo é recolher rapidamente e automaticamente alguns registos de diagnóstico de um VM - para que possam ser usados para análise offline. Os registos recolhidos são Registos de Eventos, Registos DE OS, Registos Azure e algumas chaves de registo. Produz um ficheiro ZIP que é transferido para o Hospedeiro da VM. Este ficheiro ZIP pode então ser analisado por Equipas de Engenharia e profissionais de Suporte para investigar questões a pedido do cliente que detém o VM.
+O Windows Guest Agent tem uma funcionalidade para recolher automaticamente alguns registos. Esta funcionalidade é controladora pelo processo CollectGuestLogs.exe. Existe tanto para os Serviços paas cloud como para as Máquinas Virtuais IaaS e o seu objetivo é & rapidamente recolher alguns registos de diagnóstico de um VM - para que possam ser usados para análise offline. Os registos recolhidos são Registos de Eventos, Registos DE OS, Registos Azure e algumas chaves de registo. Produz um ficheiro ZIP que é transferido para o Hospedeiro da VM. Este ficheiro ZIP pode então ser analisado por Equipas de Engenharia e profissionais de Suporte para investigar questões a pedido do cliente que detém o VM.
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre extensões VM, consulte [extensões de máquinas virtuais Azure e funcionalidades de visão geral](overview.md).

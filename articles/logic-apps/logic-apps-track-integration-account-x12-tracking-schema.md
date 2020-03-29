@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: 5b2df194761ebc167e67498a985960a4fce35f19
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76905297"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-azure-logic-apps"></a>Crie esquemas para rastrear mensagens X12 em Aplicações Lógicas Azure
@@ -55,26 +55,26 @@ Para ajudá-lo a monitorizar o sucesso, erros e propriedades de mensagens para t
 }
 ```
 
-| Propriedade | Obrigatório | Tipo | Descrição |
+| Propriedade | Necessário | Tipo | Descrição |
 |----------|----------|------|-------------|
 | senderPartnerName | Não | Cadeia | Nome do parceiro do remetente de mensagens X12 |
-| receiverPartnerName | Não | Cadeia | Nome do parceiro do recetor de mensagens X12 |
-| senderQualifier | Sim | Cadeia | Enviar qualificação de parceiro |
-| senderIdentifier | Sim | Cadeia | Enviar identificador parceiro |
+| receptorPartnerName | Não | Cadeia | Nome do parceiro do recetor de mensagens X12 |
+| remetenteQualifier | Sim | Cadeia | Enviar qualificação de parceiro |
+| remetente Identificador | Sim | Cadeia | Enviar identificador parceiro |
 | receptorQualifier | Sim | Cadeia | Receber qualificação de parceiro |
-| receiverIdentifier | Sim | Cadeia | Receba identificador parceiro |
-| agreementName | Não | Cadeia | Nome do acordo X12 ao qual as mensagens são resolvidas |
-| direção | Sim | Enum | Direção do fluxo de mensagens, que é `receive` ou `send` |
-| interchangeControlNumber | Não | Cadeia | Número de controlo de intercâmbio |
-| functionalGroupControlNumber | Não | Cadeia | Número de controlo funcional |
-| transactionSetControlNumber | Não | Cadeia | Número de controlo definido de transação |
-| CorrelationMessageId | Não | Cadeia | Id de mensagem de correlação, que é uma combinação de {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber} |
+| receptorIdentificador | Sim | Cadeia | Receba identificador parceiro |
+| acordoNome | Não | Cadeia | Nome do acordo X12 ao qual as mensagens são resolvidas |
+| direção | Sim | Enum | Direção do fluxo de `receive` mensagem, que é ou ou`send` |
+| intercâmbioControlNumber | Não | Cadeia | Número de controlo de intercâmbio |
+| funcionalGroupControlNumber | Não | Cadeia | Número de controlo funcional |
+| transacçãoSetControlNumber | Não | Cadeia | Número de controlo definido de transação |
+| Mensagem de correlação | Não | Cadeia | Id de mensagem de correlação, que é uma combinação de {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber} |
 | mensagemTipo | Não | Cadeia | Conjunto de transações ou tipo de documento |
 | isMessageFailed | Sim | Booleano | Se a mensagem X12 falhou |
 | isReconhecimento Técnico Esperado | Sim | Booleano | Se o reconhecimento técnico está configurado no acordo X12 |
 | isFunctionalReconhecementExpected | Sim | Booleano | Se o reconhecimento funcional está configurado no acordo X12 |
 | needAk2LoopForValidMessages | Sim | Booleano | Se o loop AK2 é necessário para uma mensagem válida |
-| segmentsCount | Não | Número inteiro | Número de segmentos no conjunto de transações X12 |
+| segmentosCount | Não | Número inteiro | Número de segmentos no conjunto de transações X12 |
 |||||
 
 ## <a name="x12-transaction-set-acknowledgment-tracking-schema"></a>X12 conjunto de reconhecimento esquema de rastreamento
@@ -111,28 +111,28 @@ Para ajudá-lo a monitorizar o sucesso, erros e propriedades de mensagens para t
 }
 ```
 
-| Propriedade | Obrigatório | Tipo | Descrição |
+| Propriedade | Necessário | Tipo | Descrição |
 |----------|----------|------|-------------|
 | senderPartnerName | Não | Cadeia | Nome do parceiro do remetente de mensagens X12 |
-| receiverPartnerName | Não | Cadeia | Nome do parceiro do recetor de mensagens X12 |
-| senderQualifier | Sim | Cadeia | Enviar qualificação de parceiro |
-| senderIdentifier | Sim | Cadeia | Enviar identificador parceiro |
+| receptorPartnerName | Não | Cadeia | Nome do parceiro do recetor de mensagens X12 |
+| remetenteQualifier | Sim | Cadeia | Enviar qualificação de parceiro |
+| remetente Identificador | Sim | Cadeia | Enviar identificador parceiro |
 | receptorQualifier | Sim | Cadeia | Receber qualificação de parceiro |
-| receiverIdentifier | Sim | Cadeia | Receba identificador parceiro |
-| agreementName | Não | Cadeia | Nome do acordo X12 ao qual as mensagens são resolvidas |
-| direção | Sim | Enum | Direção do fluxo de mensagens, que é `receive` ou `send` |
-| interchangeControlNumber | Não | Cadeia | Número de controlo de intercâmbio do reconhecimento funcional. O valor povoa apenas para o lado do envio onde o reconhecimento funcional é recebido para as mensagens enviadas ao parceiro. |
-| functionalGroupControlNumber | Não | Cadeia | Número funcional de controlo de grupo do reconhecimento funcional. O valor povoa apenas para o lado de envio onde o reconhecimento funcional é recebido para as mensagens enviadas ao parceiro |
+| receptorIdentificador | Sim | Cadeia | Receba identificador parceiro |
+| acordoNome | Não | Cadeia | Nome do acordo X12 ao qual as mensagens são resolvidas |
+| direção | Sim | Enum | Direção do fluxo de `receive` mensagem, que é ou ou`send` |
+| intercâmbioControlNumber | Não | Cadeia | Número de controlo de intercâmbio do reconhecimento funcional. O valor povoa apenas para o lado do envio onde o reconhecimento funcional é recebido para as mensagens enviadas ao parceiro. |
+| funcionalGroupControlNumber | Não | Cadeia | Número funcional de controlo de grupo do reconhecimento funcional. O valor povoa apenas para o lado de envio onde o reconhecimento funcional é recebido para as mensagens enviadas ao parceiro |
 | isaSegment | Não | Cadeia | Segmento ISA da mensagem. O valor povoa apenas para o lado de envio onde o reconhecimento funcional é recebido para as mensagens enviadas ao parceiro |
 | gsSegment | Não | Cadeia | Segmento GS da mensagem. O valor povoa apenas para o lado de envio onde o reconhecimento funcional é recebido para as mensagens enviadas ao parceiro |
-| respondingfunctionalGroupControlNumber | Não | Cadeia | O número de controlo de intercâmbio de resposta |
-| respondingFunctionalGroupId | Não | Cadeia | O id do grupo funcional de resposta, que mapeia para AK101 no reconhecimento |
-| respondingtransactionSetControlNumber | Não | Cadeia | O número de controlo de conjunto de transações de resposta |
-| respondingTransactionSetId | Não | Cadeia | O conjunto de transações respondendo ID, que mapeia para AK201 no reconhecimento |
-| statusCode | Sim | Booleano | Código de estado de reconhecimento definido de transação |
-| segmentsCount | Sim | Enum | Código de estatuto de reconhecimento com estes valores permitidos: `Accepted`, `Rejected`e `AcceptedWithErrors` |
-| processamentoEstatuto | Sim | Enum | Estatuto de processamento do reconhecimento com estes valores permitidos: `Received`, `Generated`e `Sent` |
-| CorrelationMessageId | Não | Cadeia | Id de mensagem de correlação, que é uma combinação de {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber} |
+| respondendoFuncionalGroupControlNumber | Não | Cadeia | O número de controlo de intercâmbio de resposta |
+| respondendoFunctionalGroupId | Não | Cadeia | O id do grupo funcional de resposta, que mapeia para AK101 no reconhecimento |
+| responder transacçõesSetControlNumber | Não | Cadeia | O número de controlo de conjunto de transações de resposta |
+| respondendoTransactionSetId | Não | Cadeia | O conjunto de transações respondendo ID, que mapeia para AK201 no reconhecimento |
+| estadoCódigo | Sim | Booleano | Código de estado de reconhecimento definido de transação |
+| segmentosCount | Sim | Enum | Código de estatuto de reconhecimento `Accepted`com `Rejected`estes valores permitidos: , e`AcceptedWithErrors` |
+| processamentoEstatuto | Sim | Enum | Estatuto de processamento do reconhecimento com `Received`estes `Generated`valores permitidos: , e`Sent` |
+| Mensagem de correlação | Não | Cadeia | Id de mensagem de correlação, que é uma combinação de {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber} |
 | isMessageFailed | Sim | Booleano | Se a mensagem X12 falhou |
 | ak2Segment | Não | Cadeia | Reconhecimento de uma transação definida dentro do grupo funcional recebido |
 | ak3Segment | Não | Cadeia | Reporta erros num segmento de dados |
@@ -169,17 +169,17 @@ Para ajudá-lo a monitorizar o sucesso, erros e propriedades de mensagens para t
 }
 ```
 
-| Propriedade | Obrigatório | Tipo | Descrição |
+| Propriedade | Necessário | Tipo | Descrição |
 |----------|----------|------|-------------|
 | senderPartnerName | Não | Cadeia | Nome do parceiro do remetente de mensagens X12 |
-| receiverPartnerName | Não | Cadeia | Nome do parceiro do recetor de mensagens X12 |
-| senderQualifier | Sim | Cadeia | Enviar qualificação de parceiro |
-| senderIdentifier | Sim | Cadeia | Enviar identificador parceiro |
+| receptorPartnerName | Não | Cadeia | Nome do parceiro do recetor de mensagens X12 |
+| remetenteQualifier | Sim | Cadeia | Enviar qualificação de parceiro |
+| remetente Identificador | Sim | Cadeia | Enviar identificador parceiro |
 | receptorQualifier | Sim | Cadeia | Receber qualificação de parceiro |
-| receiverIdentifier | Sim | Cadeia | Receba identificador parceiro |
-| agreementName | Não | Cadeia | Nome do acordo X12 ao qual as mensagens são resolvidas |
-| direção | Sim | Enum | Direção do fluxo de mensagens, que é `receive` ou `send` |
-| interchangeControlNumber | Não | Cadeia | Número de controlo de intercâmbio |
+| receptorIdentificador | Sim | Cadeia | Receba identificador parceiro |
+| acordoNome | Não | Cadeia | Nome do acordo X12 ao qual as mensagens são resolvidas |
+| direção | Sim | Enum | Direção do fluxo de `receive` mensagem, que é ou ou`send` |
+| intercâmbioControlNumber | Não | Cadeia | Número de controlo de intercâmbio |
 | isaSegment | Não | Cadeia | Segmento ISA de mensagem |
 | isReconhecimento Técnico Esperado | Booleano | Se o reconhecimento técnico está configurado no acordo X12  |
 | isMessageFailed | Sim | Booleano | Se a mensagem X12 falhou |
@@ -220,22 +220,22 @@ Para ajudá-lo a monitorizar o sucesso, erros e propriedades de mensagens para t
 }
 ```
 
-| Propriedade | Obrigatório | Tipo | Descrição |
+| Propriedade | Necessário | Tipo | Descrição |
 |----------|----------|------|-------------|
 | senderPartnerName | Não | Cadeia | Nome do parceiro do remetente de mensagens X12 |
-| receiverPartnerName | Não | Cadeia | Nome do parceiro do recetor de mensagens X12 |
-| senderQualifier | Sim | Cadeia | Enviar qualificação de parceiro |
-| senderIdentifier | Sim | Cadeia | Enviar identificador parceiro |
+| receptorPartnerName | Não | Cadeia | Nome do parceiro do recetor de mensagens X12 |
+| remetenteQualifier | Sim | Cadeia | Enviar qualificação de parceiro |
+| remetente Identificador | Sim | Cadeia | Enviar identificador parceiro |
 | receptorQualifier | Sim | Cadeia | Receber qualificação de parceiro |
-| receiverIdentifier | Sim | Cadeia | Receba identificador parceiro |
-| agreementName | Não | Cadeia | Nome do acordo X12 ao qual as mensagens são resolvidas |
-| direção | Sim | Enum | Direção do fluxo de mensagens, que é `receive` ou `send` |
-| interchangeControlNumber | Não | Cadeia | Número de controlo de intercâmbio do reconhecimento técnico que é recebido por parceiros |
+| receptorIdentificador | Sim | Cadeia | Receba identificador parceiro |
+| acordoNome | Não | Cadeia | Nome do acordo X12 ao qual as mensagens são resolvidas |
+| direção | Sim | Enum | Direção do fluxo de `receive` mensagem, que é ou ou`send` |
+| intercâmbioControlNumber | Não | Cadeia | Número de controlo de intercâmbio do reconhecimento técnico que é recebido por parceiros |
 | isaSegment | Não | Cadeia | Segmento ISA para o reconhecimento técnico que é recebido de parceiros |
-| respondingInterchangeControlNumber | Não | Cadeia | Número de controlo de intercâmbio para o reconhecimento técnico que é recebido de parceiros |
+| respondendoInterchangeControlNumber | Não | Cadeia | Número de controlo de intercâmbio para o reconhecimento técnico que é recebido de parceiros |
 | isMessageFailed | Sim | Booleano | Se a mensagem X12 falhou |
-| statusCode | Sim | Enum | Código de estado de reconhecimento de intercâmbio com estes valores permitidos: `Accepted`, `Rejected`e `AcceptedWithErrors` |
-| processamentoEstatuto | Sim | Enum | Estatuto de reconhecimento com estes valores permitidos: `Received`, `Generated`e `Sent` |
+| estadoCódigo | Sim | Enum | Código de estado de reconhecimento de `Accepted` `Rejected`intercâmbio com estes valores permitidos: , e`AcceptedWithErrors` |
+| processamentoEstatuto | Sim | Enum | Estatuto de reconhecimento com estes `Received` `Generated`valores permitidos: , e`Sent` |
 | ta102 | Não | Cadeia | Data de intercâmbio |
 | ta103 | Não | Cadeia | Tempo de intercâmbio |
 | ta105 | Não | Cadeia | Código de nota de intercâmbio |
@@ -273,18 +273,18 @@ Para ajudá-lo a monitorizar o sucesso, erros e propriedades de mensagens para t
 }
 ```
 
-| Propriedade | Obrigatório | Tipo | Descrição |
+| Propriedade | Necessário | Tipo | Descrição |
 |----------|----------|------|-------------|
 | senderPartnerName | Não | Cadeia | Nome do parceiro do remetente de mensagens X12 |
-| receiverPartnerName | Não | Cadeia | Nome do parceiro do recetor de mensagens X12 |
-| senderQualifier | Sim | Cadeia | Enviar qualificação de parceiro |
-| senderIdentifier | Sim | Cadeia | Enviar identificador parceiro |
+| receptorPartnerName | Não | Cadeia | Nome do parceiro do recetor de mensagens X12 |
+| remetenteQualifier | Sim | Cadeia | Enviar qualificação de parceiro |
+| remetente Identificador | Sim | Cadeia | Enviar identificador parceiro |
 | receptorQualifier | Sim | Cadeia | Receber qualificação de parceiro |
-| receiverIdentifier | Sim | Cadeia | Receba identificador parceiro |
-| agreementName | Não | Cadeia | O nome do acordo X12 ao qual as mensagens são resolvidas |
+| receptorIdentificador | Sim | Cadeia | Receba identificador parceiro |
+| acordoNome | Não | Cadeia | O nome do acordo X12 ao qual as mensagens são resolvidas |
 | direção | Sim | Enum | Direção do fluxo de mensagem, receber ou enviar |
-| interchangeControlNumber | Não | Cadeia | Número de controlo de intercâmbio |
-| functionalGroupControlNumber | Não | Cadeia | Número de controlo funcional |
+| intercâmbioControlNumber | Não | Cadeia | Número de controlo de intercâmbio |
+| funcionalGroupControlNumber | Não | Cadeia | Número de controlo funcional |
 | gsSegment | Não | Cadeia | Segmento GS da mensagem |
 | isReconhecimento Técnico Esperado | Sim | Booleano | Se o reconhecimento técnico está configurado no acordo X12 |
 | isFunctionalReconhecementExpected | Sim | Booleano | Se o reconhecimento funcional está configurado no acordo X12 |
@@ -329,25 +329,25 @@ Para ajudá-lo a monitorizar o sucesso, erros e propriedades de mensagens para t
 }
 ```
 
-| Propriedade | Obrigatório | Tipo | Descrição |
+| Propriedade | Necessário | Tipo | Descrição |
 |----------|----------|------|-------------|
 | senderPartnerName | Não | Cadeia | Nome do parceiro do remetente de mensagens X12 |
-| receiverPartnerName | Não | Cadeia | Nome do parceiro do recetor de mensagens X12 |
-| senderQualifier | Sim | Cadeia | Enviar qualificação de parceiro |
-| senderIdentifier | Sim | Cadeia | Enviar identificador parceiro |
+| receptorPartnerName | Não | Cadeia | Nome do parceiro do recetor de mensagens X12 |
+| remetenteQualifier | Sim | Cadeia | Enviar qualificação de parceiro |
+| remetente Identificador | Sim | Cadeia | Enviar identificador parceiro |
 | receptorQualifier | Sim | Cadeia | Receber qualificação de parceiro |
-| receiverIdentifier | Sim | Cadeia | Receba identificador parceiro |
-| agreementName | Não | Cadeia | Nome do acordo X12 ao qual as mensagens são resolvidas |
-| direção | Sim | Enum | Direção do fluxo de mensagens, que é `receive` ou `send` |
-| interchangeControlNumber | Não | Cadeia | Número de controlo de intercâmbio, que povoa para o lado do envio quando um reconhecimento técnico é recebido de parceiros |
-| functionalGroupControlNumber | Não | Cadeia | Número funcional de controlo do grupo do reconhecimento técnico, que povoa para o lado do envio quando um reconhecimento técnico é recebido de parceiros |
+| receptorIdentificador | Sim | Cadeia | Receba identificador parceiro |
+| acordoNome | Não | Cadeia | Nome do acordo X12 ao qual as mensagens são resolvidas |
+| direção | Sim | Enum | Direção do fluxo de `receive` mensagem, que é ou ou`send` |
+| intercâmbioControlNumber | Não | Cadeia | Número de controlo de intercâmbio, que povoa para o lado do envio quando um reconhecimento técnico é recebido de parceiros |
+| funcionalGroupControlNumber | Não | Cadeia | Número funcional de controlo do grupo do reconhecimento técnico, que povoa para o lado do envio quando um reconhecimento técnico é recebido de parceiros |
 | isaSegment | Não | Cadeia | O mesmo que o número de controlo de intercâmbio, mas povoado apenas em casos específicos |
 | gsSegment | Não | Cadeia | O mesmo que o número funcional de controlo de grupo, mas povoado apenas em casos específicos |
-| respondingfunctionalGroupControlNumber | Não | Cadeia | Número de controlo do grupo funcional original |
-| respondingFunctionalGroupId | Não | Cadeia | Mapas para AK101 no grupo funcional de reconhecimento ID |
+| respondendoFuncionalGroupControlNumber | Não | Cadeia | Número de controlo do grupo funcional original |
+| respondendoFunctionalGroupId | Não | Cadeia | Mapas para AK101 no grupo funcional de reconhecimento ID |
 | isMessageFailed | Booleano | Se a mensagem X12 falhou |
-| statusCode | Sim | Enum | Código de estatuto de reconhecimento com estes valores permitidos: `Accepted`, `Rejected`e `AcceptedWithErrors` |
-| processamentoEstatuto | Sim | Enum | Estatuto de processamento do reconhecimento com estes valores permitidos: `Received`, `Generated`e `Sent` |
+| estadoCódigo | Sim | Enum | Código de estatuto de reconhecimento `Accepted`com `Rejected`estes valores permitidos: , e`AcceptedWithErrors` |
+| processamentoEstatuto | Sim | Enum | Estatuto de processamento do reconhecimento com `Received`estes `Generated`valores permitidos: , e`Sent` |
 | ak903 | Não | Cadeia | Número de conjuntos de transações recebidos |
 | ak904 | Não | Cadeia | Número de conjuntos de transações aceites no grupo funcional identificado |
 | ak9Segment | Não | Cadeia | Se o grupo funcional identificado no segmento AK1 é aceite ou rejeitado, e por que |
@@ -362,4 +362,4 @@ Para obter informações sobre os esquemas de rastreio do protocolo B2B, consult
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Monitor de mensagens B2B com registos do Monitor Azure](../logic-apps/monitor-b2b-messages-log-analytics.md)
+* [Monitorizar mensagens B2B com os registos do Azure Monitor](../logic-apps/monitor-b2b-messages-log-analytics.md)

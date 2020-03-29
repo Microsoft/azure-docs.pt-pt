@@ -1,6 +1,6 @@
 ---
-title: O que são parceiros de segurança confiáveis do Gerenciador de firewall do Azure (versão prévia)
-description: Saiba mais sobre parceiros de segurança confiáveis do Gerenciador de firewall do Azure
+title: O que são parceiros de segurança fidedignos do Azure Firewall Manager (pré-visualização)
+description: Saiba mais sobre os parceiros de segurança fidedignos do Azure Firewall Manager
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: victorh
 ms.openlocfilehash: b92242ce9086579d0397f78853402cfc08453f68
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75436778"
 ---
 # <a name="what-are-trusted-security-partners-preview"></a>O que são parceiros de segurança fidedignos (pré-visualização)?
@@ -19,65 +19,65 @@ ms.locfileid: "75436778"
 > [!IMPORTANT]
 > Esta pré-visualização pública é disponibilizada sem um contrato de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
 
-Os *parceiros de segurança confiáveis (versão prévia)* no Gerenciador de firewall do Azure permitem que você use suas ofertas de SECaaS (segurança como serviço) conhecidas e de terceiros para proteger o acesso à Internet para seus usuários.
+*Parceiros de segurança fidedignos (pré-visualização)* no Azure Firewall Manager permite-lhe utilizar a sua segurança familiar, de melhor procriação, de terceiros como serviço (SECaaS) para proteger o acesso à Internet para os seus utilizadores.
 
-Com uma configuração rápida, você pode proteger um hub com um parceiro de segurança com suporte e rotear e filtrar o tráfego de Internet de suas redes virtuais (VNets) ou locais de ramificação em uma região. Isso é feito usando o gerenciamento automatizado de rotas, sem configurar e gerenciar UDRs (rotas definidas pelo usuário).
+Com uma configuração rápida, pode garantir um hub com um parceiro de segurança suportado, e encaminhar e filtrar o tráfego de Internet das suas Redes Virtuais (VNets) ou localizações de filiais dentro de uma região. Isto é feito utilizando a gestão automatizada da rota, sem configurar e gerir rotas definidas pelo utilizador (UDRs).
 
-Você pode implantar hubs protegidos configurados com o parceiro de segurança de sua escolha em várias regiões do Azure para obter conectividade e segurança para seus usuários em qualquer lugar do mundo nessas regiões. Com a capacidade de usar a oferta do parceiro de segurança para o tráfego de aplicativos de Internet/SaaS e o Firewall do Azure para tráfego privado nos hubs protegidos, agora você pode começar a criar sua borda de segurança no Azure que está perto de seus usuários e aplicativos distribuídos globalmente.
+Pode implementar centros seguros configurados com o parceiro de segurança à sua escolha em várias regiões do Azure para obter conectividade e segurança para os seus utilizadores em qualquer parte do mundo nessas regiões. Com a capacidade de utilizar a oferta do parceiro de segurança para o tráfego de aplicações Internet/SaaS, e o Azure Firewall para tráfego privado nos centros seguros, pode agora começar a construir a sua vantagem de segurança no Azure que está perto dos seus utilizadores e aplicações distribuídos globalmente.
 
-Para esta versão prévia, os parceiros de segurança com suporte são **ZScaler** e **iboss**. As regiões com suporte são WestCentralUS, NorthCentralUS, Westus, WestUS2 e Eastus.
+Para esta pré-visualização, os parceiros de segurança suportados são **ZScaler** e **iboss**. As regiões apoiadas são WestCentralUS, NorthCentralUS, WestUS, WestUS2 e EastUS.
 
 ![Parceiros de segurança fidedignos](media/trusted-security-partners/trusted-security-partners.png)
 
-## <a name="key-scenarios"></a>Principais cenários
+## <a name="key-scenarios"></a>Cenários-chave
 
-Você pode usar os parceiros de segurança para filtrar o tráfego de Internet nos seguintes cenários:
+Pode utilizar os parceiros de segurança para filtrar o tráfego da Internet nos seguintes cenários:
 
-- Rede virtual (VNet) para a Internet
+- Rede Virtual (VNet) para a Internet
 
-   Aproveite a proteção avançada da Internet com reconhecimento de usuário para suas cargas de trabalho de nuvem em execução no Azure.
+   Aproveite a proteção avançada de internet consciente do utilizador para as suas cargas de trabalho em nuvem em funcionamento no Azure.
 
-- Branch para a Internet
+- Sucursal para a Internet
 
-   Aproveite sua conectividade do Azure e a distribuição global para adicionar facilmente filtragem de NSaaS de terceiros para cenários de Branch para Internet. Você pode criar sua rede de trânsito global e borda de segurança usando a WAN virtual do Azure.
+   Aproveite a sua conectividade Azure e distribuição global para adicionar facilmente filtragem nSaaS de terceiros para ramificação para cenários de Internet. Pode construir a sua rede global de trânsito e borda de segurança utilizando o Azure Virtual WAN.
 
-Há suporte para os seguintes cenários:
--   VNet para a Internet por meio de uma oferta de parceiro de terceiros.
--   Ramificar para a Internet por meio de uma oferta de parceiro de terceiros.
--   Branch para a Internet por meio de uma oferta de parceiro de terceiros, o restante do tráfego privado (spoke a spoke, spoke-to-branches, de ramificação para spokes) por meio do firewall do Azure.
+Os seguintes cenários são apoiados:
+-   VNet para internet através de uma oferta de parceiros de terceiros.
+-   Sucursal para a Internet através de uma oferta de parceiros de terceiros.
+-   Sucursal para a Internet através de uma oferta de parceiros de terceiros, o resto do tráfego privado (Spoke-to-Spoke, Spoke-to-Branches, Branch-to-Spokes) via Azure Firewall.
 
-O cenário a seguir não tem suporte:
+O seguinte cenário não é suportado:
 
-- A VNet para a Internet por meio de uma oferta de parceiro não pode ser combinada com o Firewall do Azure para tráfego privado. Consulte as limitações a seguir.
+- A VNet para a Internet através de uma oferta de parceiros não pode ser combinada com o Azure Firewall para tráfego privado. Consulte as seguintes limitações.
 
 ## <a name="current-limitations"></a>Limitações atuais
 
-- Para VNet à Internet, você não pode misturar a adição do firewall do Azure para tráfego privado e uma oferta de parceiro para tráfego de Internet. Você pode enviar o tráfego da Internet para o Firewall do Azure ou uma oferta de parceiro de segurança de terceiros no Hub virtual protegido, mas não ambos. 
-- Você pode implantar no máximo um parceiro de segurança por Hub virtual. Se você precisar alterar o provedor, deverá remover o parceiro existente e adicionar um novo.
+- Para a VNet para a Internet, não é possível misturar a adição de Firewall Azure para tráfego privado e uma oferta de parceiropara tráfego na Internet. Pode enviar tráfego de Internet para o Azure Firewall ou um parceiro de segurança de terceiros que oferece no centro virtual seguro, mas não ambos. 
+- Pode implantar no máximo um parceiro de segurança por centro virtual. Se precisar de alterar o fornecedor, tem de remover o parceiro existente e adicionar um novo.
 
-## <a name="best-practices-for-internet-traffic-filtering-in-secured-virtual-hubs"></a>Práticas recomendadas para filtragem de tráfego de Internet em hubs virtuais protegidos
+## <a name="best-practices-for-internet-traffic-filtering-in-secured-virtual-hubs"></a>As melhores práticas para filtragem de tráfego na Internet em centros virtuais seguros
 
-O tráfego da Internet normalmente inclui o tráfego da Web. Mas também inclui o tráfego destinado a aplicativos SaaS como o Office 365 (O365) e os serviços de PaaS públicos do Azure, como o armazenamento do Azure, o SQL do Azure e assim por diante. Veja a seguir as recomendações de práticas recomendadas para lidar com o tráfego para esses serviços:
+O tráfego de internet normalmente inclui tráfego web. Mas também inclui tráfego destinado a aplicações SaaS como Office 365 (O365) e serviços públicos azure PaaS como Azure Storage, Azure Sql, e assim por diante. Seguem-se as recomendações de boas práticas para o tratamento do tráfego a estes serviços:
 
-### <a name="handling-azure-paas-traffic"></a>Lidando com o tráfego de PaaS do Azure
+### <a name="handling-azure-paas-traffic"></a>Manuseamento do tráfego Azure PaaS
  
-- Use o Firewall do Azure para proteção se seu tráfego consistir principalmente da PaaS do Azure e o acesso aos recursos para seus aplicativos puder ser filtrado usando endereços IP, FQDNs, marcas de serviço ou marcas de FQDN.
+- Utilize o Firewall Azure para proteção se o seu tráfego for constituído maioritariamente por Azure PaaS, e o acesso a recursos para as suas aplicações pode ser filtrado usando endereços IP, FQDNs, etiquetas de serviço ou etiquetas FQDN.
 
-- Use uma solução de parceiro de terceiros nos hubs se seu tráfego consistir em acesso ao aplicativo SaaS ou se você precisar de filtragem de reconhecimento de usuário (por exemplo, para suas cargas de trabalho de VDI (Virtual Desktop Infrastructure)) ou precisar de recursos avançados de filtragem da Internet.
+- Utilize uma solução de parceiro de terceiros nos seus hubs se o seu tráfego for composto por acesso à aplicação SaaS, ou se necessitar de filtragem consciente do utilizador (por exemplo, para as suas cargas de trabalho de infraestrutura de ambiente de trabalho virtuais (VDI) ou se necessitar de capacidades avançadas de filtragem da Internet.
 
-![Todos os cenários do Gerenciador de firewall do Azure](media/trusted-security-partners/all-scenarios.png)
+![Todos os cenários para O Gestor de Firewall azure](media/trusted-security-partners/all-scenarios.png)
 
-## <a name="handling-office-365-o365-traffic"></a>Lidando com o tráfego do Office 365 (O365)
+## <a name="handling-office-365-o365-traffic"></a>Tráfego do Gabinete de Manuseamento 365 (O365)
 
-Em cenários de localização de Branch distribuídos globalmente, você deve redirecionar o tráfego do Office 365 diretamente no Branch antes de enviar o tráfego de Internet restante para o Hub protegido do Azure.
+Em cenários de localização de filiais distribuídos globalmente, deve redirecionar o tráfego do Office 365 diretamente para a sucursal antes de enviar o tráfego restante de Internet que o seu hub azure segurou.
 
-Para o Office 365, a latência de rede e o desempenho são essenciais para uma experiência de usuário bem-sucedida. Para atingir essas metas em relação ao desempenho e à experiência do usuário ideais, os clientes devem implementar o Office 365 Direct e o escape local antes de considerar o roteamento do restante do tráfego da Internet por meio do Azure.
+Para o Office 365, a latência e desempenho da rede são cruciais para a experiência bem sucedida do utilizador. Para atingir estes objetivos em torno do desempenho ideal e da experiência do utilizador, os clientes devem implementar o Office 365 de fuga direta e local antes de considerar em rotar o resto do tráfego de Internet através do Azure.
 
-Os [princípios de conectividade de rede do office 365](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles) chamam as principais conexões de rede do Office 365 para serem roteadas localmente da ramificação do usuário ou do dispositivo móvel e diretamente pela Internet para o ponto de presença mais próximo da rede da Microsoft.
+Os princípios de conectividade da [rede office 365](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles) exigem que as principais ligações de rede do Office 365 sejam direcionadas localmente a partir do ramo de utilizador ou dispositivo móvel e diretamente através da Internet para o ponto de presença mais próximo da rede microsoft.
 
-Além disso, as conexões do Office 365 são fortemente criptografadas para privacidade e uso de protocolos proprietários e eficientes por motivos de desempenho. Isso torna impraticável e impactado a entidade dessas conexões com soluções de segurança de nível de rede tradicionais. Por esses motivos, é altamente recomendável que os clientes enviem o tráfego do Office 365 diretamente de ramificações, antes de enviar o restante do tráfego por meio do Azure. A Microsoft fez um parceria com vários provedores de soluções SD-WAN, que se integram ao Azure e ao Office 365 e facilitam para os clientes a análise do Office 365 Direct e da Internet local. Para obter detalhes, consulte [como fazer definir minhas políticas de O365 por meio da WAN virtual?](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview)
+Além disso, as ligações do Office 365 são fortemente encriptadas para privacidade e utilizam protocolos eficientes e proprietários por razões de desempenho. Isto torna impraticável e impactante sujeitar essas ligações a soluções tradicionais de segurança ao nível da rede. Por estas razões, recomendamos vivamente que os clientes enviem o Tráfego do Office 365 diretamente de filiais, antes de enviar o resto do tráfego através do Azure. A Microsoft estabeleceu uma parceria com vários fornecedores de soluções SD-WAN, que se integram com o Azure e o Office 365 e facilitam aos clientes a fuga direta e local da Internet do Office 365. Para mais detalhes veja [como posso definir as minhas políticas de O365 via Virtual WAN?](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Implantar uma oferta de segurança confiável em um hub protegido usando o Gerenciador de firewall do Azure](deploy-trusted-security-partner.md).
+[Implemente uma oferta de segurança fidedigna num hub seguro, utilizando](deploy-trusted-security-partner.md)o Azure Firewall Manager .
