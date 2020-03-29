@@ -1,6 +1,6 @@
 ---
-title: Instalar atualizações numa matriz Virtual do Microsoft Azure StorSimple | Documentos da Microsoft
-description: Descreve como utilizar a IU da web de matriz Virtual StorSimple para aplicar atualizações utilizando o método de portal e correção
+title: Instale atualizações num Microsoft Azure StorSimple Virtual Array [ Microsoft Docs
+description: Descreve como usar o StorSimple Virtual Array web UI para aplicar atualizações usando o portal e método hotfix
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -16,46 +16,46 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7bf064ff01693f7a65c756a99c435d7f1a39840e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61409420"
 ---
-# <a name="install-updates-on-your-storsimple-virtual-array---azure-portal"></a>Instalar atualizações em sua matriz Virtual StorSimple - portal do Azure
+# <a name="install-updates-on-your-storsimple-virtual-array---azure-portal"></a>Instale atualizações no seu StorSimple Virtual Array - portal Azure
 
 ## <a name="overview"></a>Descrição geral
 
-Este artigo descreve os passos necessários para instalar atualizações em sua matriz Virtual StorSimple através da IU da web local e através do portal do Azure. Tem de aplicar as atualizações de software ou correções para manter a sua matriz Virtual StorSimple atualizados. 
+Este artigo descreve os passos necessários para instalar atualizações no seu StorSimple Virtual Array através da UI web local e através do portal Azure. Tem de aplicar atualizações de software ou hotfixes para manter o storSimple Virtual Array atualizado. 
 
-Tenha em atenção que a instalação de uma atualização ou correção reinicia o seu dispositivo. Uma vez que a matriz Virtual StorSimple é um dispositivo de nó único, qualquer e/s em curso é interrompida e o período de indisponibilidade ocorre com o seu dispositivo. 
+Tenha em mente que instalar uma atualização ou um hotfix reinicia o seu dispositivo. Dado que o StorSimple Virtual Array é um único dispositivo de nó, qualquer I/O em curso é interrompido e o seu dispositivo experimenta tempo de inatividade. 
 
-Antes de aplicar uma atualização, recomendamos que levar os volumes ou compartilhamentos offline no anfitrião primeiro e, em seguida, o dispositivo. Isto minimiza qualquer possibilidade de danos em dados.
+Antes de aplicar uma atualização, recomendamos que leve os volumes ou partilhas offline no anfitrião primeiro e depois o dispositivo. Isto minimiza qualquer possibilidade de danos em dados.
 
 > [!IMPORTANT]
-> Se estiver a executar a atualização 0.1 ou versões de software de disponibilidade geral, tem de utilizar o método de correção através da IU da web local para instalar a atualização 0.3. Se estiver a executar atualização 0.2, recomendamos que instale as atualizações através do portal clássico do Azure.
+> Se estiver a executar versões de software Update 0.1 ou GA, tem de utilizar o método de correção de hotéis através da UI web local para instalar a atualização 0.3. Se estiver a executar o Update 0.2, recomendamos que instale as atualizações através do portal clássico Azure.
  
 
-## <a name="use-the-local-web-ui"></a>Utilizar a IU da web local
+## <a name="use-the-local-web-ui"></a>Use a UI web local
 
-Existem dois passos quando utilizar a IU da web local:
+Existem dois passos ao utilizar a UI web local:
 
-* Transferir a atualização ou a correção
-* Instalar a atualização ou a correção
+* Descarregue a atualização ou o hotfix
+* Instale a atualização ou o hotfix
 
-### <a name="download-the-update-or-the-hotfix"></a>Transferir a atualização ou a correção
+### <a name="download-the-update-or-the-hotfix"></a>Descarregue a atualização ou o hotfix
 
 Execute os seguintes passos para transferir a atualização de software a partir do Catálogo Microsoft Update.
 
-#### <a name="to-download-the-update-or-the-hotfix"></a>Para transferir a atualização ou a correção
+#### <a name="to-download-the-update-or-the-hotfix"></a>Para descarregar a atualização ou o hotfix
 
-1. Inicie o Internet Explorer e navegue para [ https://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
+1. Inicie o Internet [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com)Explorer e navegue para .
 
 2. Se esta for a primeira vez que utiliza o Catálogo Microsoft Update neste computador, clique em **Instalar** quando lhe for pedido para instalar o suplemento do Catálogo Microsoft Update.
 
-3. Na caixa de pesquisa do catálogo Microsoft Update, introduza o número de Base de dados de conhecimento (BDC) de correção que pretende transferir. Introduza **3182061** para atualização 0.3 e, em seguida, clique em **pesquisa**.
+3. Na caixa de pesquisa do Catálogo de Atualizações da Microsoft, introduza o número da Base de Conhecimento (KB) do hotfix que pretende descarregar. Introduza **o 3182061** para atualizar 0.3 e, em seguida, clique em **Procurar**.
    
-    A lista de correções é apresentada, por exemplo, **StorSimple Virtual matriz atualização 0.3**.
+    A listagem de hotfix aparece, por exemplo, **storSimple Virtual Array Update 0.3**.
    
     ![Catálogo de pesquisa](./media/storsimple-virtual-array-install-update/download1.png)
 
@@ -63,51 +63,51 @@ Execute os seguintes passos para transferir a atualização de software a partir
 
 5. Clique em **Ver Cesto**.
 
-6. Clique em **Transferir**. Especifique ou **Pesquise** uma localização local onde pretende que as transferências apareçam. As atualizações são transferidas para a localização especificada e colocadas numa sub-pasta com o mesmo nome que a atualização. A pasta também pode ser copiada para uma partilha de rede que é acessível a partir do dispositivo.
+6. Clique em **Baixar**. Especifique ou **Pesquise** uma localização local onde pretende que as transferências apareçam. As atualizações são transferidas para a localização especificada e colocadas numa sub-pasta com o mesmo nome que a atualização. A pasta também pode ser copiada para uma partilha de rede que é acessível a partir do dispositivo.
 
-7. Abra a pasta copiada, deverá ver um ficheiro de pacote do Microsoft Update autónomo `WindowsTH-KB3011067-x64`. Este ficheiro é utilizado para instalar a atualização ou correção.
+7. Abra a pasta copiada, deve ver um `WindowsTH-KB3011067-x64`ficheiro Pacote Autónomo da Microsoft Update . Este ficheiro é utilizado para instalar a atualização ou o hotfix.
 
-### <a name="install-the-update-or-the-hotfix"></a>Instalar a atualização ou a correção
+### <a name="install-the-update-or-the-hotfix"></a>Instale a atualização ou o hotfix
 
-Antes da instalação de atualização ou correção, certifique-se de que tem a atualização ou a correção transferido localmente no seu anfitrião ou acessível através de uma partilha de rede. 
+Antes da atualização ou instalação hotfix, certifique-se de que tem a atualização ou o hotfix descarregado localmente no seu anfitrião ou acessível através de uma partilha de rede. 
 
-Utilize este método para instalar atualizações num dispositivo com o GA ou atualizar 0,1 versões de software. Este procedimento demora menos de 2 minutos a concluir. Execute os seguintes passos para instalar a atualização ou correção.
+Utilize este método para instalar atualizações num dispositivo que executa as versões de software GA ou Update 0.1. Este procedimento leva menos de 2 minutos para ser concluído. Execute os seguintes passos para instalar a atualização ou o hotfix.
 
-#### <a name="to-install-the-update-or-the-hotfix"></a>Para instalar a atualização ou a correção
+#### <a name="to-install-the-update-or-the-hotfix"></a>Para instalar a atualização ou o hotfix
 
-1. Na IU da web local, aceda a **manutenção** > **atualização de Software**.
+1. Na Web UI local, vá a**Atualização**de Software **de Manutenção** > .
    
     ![atualizar o dispositivo](./media/storsimple-virtual-array-install-update/update1m.png)
 
-2. Na **caminho do ficheiro de atualização**, introduza o nome de ficheiro para a atualização ou a correção. Também pode navegar para o ficheiro de instalação de atualização ou correção se colocado num compartilhamento de rede. Clique em **Aplicar**.
+2. No caminho do **ficheiro Atualizar,** introduza o nome do ficheiro para a atualização ou para o hotfix. Também pode navegar no ficheiro de instalação de atualização ou hotfix se for colocado numa partilha de rede. Clique em **Aplicar**.
    
     ![atualizar o dispositivo](./media/storsimple-virtual-array-install-update/update2m.png)
 
-3. É apresentado um aviso. Isso é um dispositivo de nó único, após a atualização é aplicada, o dispositivo é reiniciado e não há período de indisponibilidade. Clique no ícone de verificação.
+3. É apresentado um aviso. Dado que se trata de um único dispositivo de nó, após a atualização ser aplicada, o dispositivo reinicia e há tempo de inatividade. Clique no ícone de verificação.
    
    ![atualizar o dispositivo](./media/storsimple-virtual-array-install-update/update3m.png)
 
-4. A atualização começa. Depois do dispositivo é atualizado com êxito, reinicia. A interface do Usuário local não está acessível desta duração.
+4. A atualização começa. Depois de o dispositivo ser atualizado com sucesso, reinicia. A UI local não é acessível nesta duração.
    
     ![atualizar o dispositivo](./media/storsimple-virtual-array-install-update/update5m.png)
 
-5. Após o reinício estiver concluído, será direcionado para o **iniciar sessão** página. Para verificar que tiver atualizado o software de dispositivo, na web local da interface do Usuário, aceda ao **manutenção** > **atualização de Software**. A versão de software apresentados deve ser **10.0.0.0.0.10288.0** para atualização 0.3.
+5. Após o reinício, é levado para a página **do Sinal.** Para verificar se o software do dispositivo foi atualizado, na Web UI local, vá para **a Atualização** > de**Software**de Manutenção . A versão de software exibida deve ser **10.0.0.0.0.10288.0** para Atualização 0.3.
    
    > [!NOTE]
-   > Iremos comunicar as versões de software numa forma um pouco diferentes na IU da web local e o portal do Azure. Por exemplo, a IU web local comunica **10.0.0.0.0.10288** e os relatórios do portais do Azure **10.0.10288.0** para a mesma versão.
+   > Relatamos as versões de software de uma forma ligeiramente diferente na UI web local e no portal Azure. Por exemplo, a UI web local reporta **10.0.0.0.10288** e o portal Azure reporta **10.0.10288.0** para a mesma versão.
    
     ![atualizar o dispositivo](./media/storsimple-virtual-array-install-update/update6m.png)
 
 ## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 
-Se executar a atualização 0.2, recomendamos que instale atualizações por meio do portal do Azure. O procedimento de portal requer que o utilizador procurar, transferir e, em seguida, instale as atualizações. Este procedimento demora cerca de 7 minutos a concluir. Execute os seguintes passos para instalar a atualização ou correção.
+Se executar o Update 0.2, recomendamos que instale atualizações através do portal Azure. O procedimento do portal requer que o utilizador faça o download, descarregue e instale as atualizações. Este procedimento leva cerca de 7 minutos para ser concluído. Execute os seguintes passos para instalar a atualização ou o hotfix.
 
 [!INCLUDE [storsimple-virtual-array-install-update-via-portal](../../includes/storsimple-virtual-array-install-update-via-portal.md)]
 
-Após a instalação for concluída (como indicado por Estado da tarefa a 100%), aceda ao seu serviço StorSimple Device Manager. Selecione **dispositivos** e, em seguida, selecione e clique no dispositivo que pretende atualizar a partir da lista de dispositivos ligados a este serviço. Na **definições** painel, aceda à **gerir** secção e selecione **atualizações do dispositivo**. A versão de software apresentados deve ser **10.0.10288.0**.
+Depois de concluída a instalação (conforme indicado pelo estado de trabalho em 100 %), vá ao serviço StorSimple Device Manager. Selecione **Dispositivos** e, em seguida, selecione e clique no dispositivo que pretende atualizar a partir da lista de dispositivos ligados a este serviço. Na lâmina **Definições,** vá à secção **'Gerir'** e selecione **atualizações**do Dispositivo . A versão de software exibida deve ser **10.0.10288.0**.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [administrando sua matriz Virtual StorSimple](storsimple-ova-web-ui-admin.md).
+Saiba mais sobre [a administração do seu StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 

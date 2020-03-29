@@ -1,6 +1,6 @@
 ---
-title: 'Sincronização do Azure AD Connect: IU do Gestor do serviço de sincronização | Documentos da Microsoft'
-description: Compreenda o Synchronization Service Manager para o Azure AD Connect.
+title: 'Sincronização Azure AD Connect: Gestor de Serviços de Sincronização UI [ Gestor de Serviços de Sincronização] Microsoft Docs'
+description: Compreenda o Gestor de Serviços de Sincronização para o Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,25 +18,25 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c3a03b2320caa7facc04f589993907ab9b3a7703
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60381540"
 ---
-# <a name="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui"></a>Introdução ao Azure AD Connect da IU do Gestor do serviço de sincronização
+# <a name="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui"></a>Introdução ao Azure AD Connect Synchronization Service Manager UI
 
-![Gestor do serviço de sincronização](./media/how-to-connect-sync-service-manager-ui/ssmui.png)
+![Gestor de Serviços de Sincronização](./media/how-to-connect-sync-service-manager-ui/ssmui.png)
 
-O **Synchronization Service Manager** interface do Usuário é utilizado para configurar mais avançados aspectos do motor de sincronização e para ver os aspectos operacionais do serviço.
+O Gestor **de Serviços** de Sincronização UI é usado para configurar aspetos mais avançados do motor de sincronização e para ver os aspetos operacionais do serviço.
 
-Iniciar o **Synchronization Service Manager** interface do Usuário a partir do menu Iniciar. É denominada **serviço de sincronização** e pode ser encontrado no **do Azure AD Connect** grupo.  
-![Gestor do serviço de sincronização](./media/how-to-connect-sync-service-manager-ui/startmenu.png)
+Inicia-se o UI do Gestor de Serviços de **Sincronização** a partir do menu inicial. Chama-se **Serviço de Sincronização** e pode ser encontrado no grupo **Azure AD Connect.**  
+![Gestor de Serviços de Sincronização](./media/how-to-connect-sync-service-manager-ui/startmenu.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre a interface do Usuário do Synchronization Service Manager, incluindo [Operations](how-to-connect-sync-service-manager-ui-operations.md), [conectores](how-to-connect-sync-service-manager-ui-connectors.md), [estruturador de Metaversos](how-to-connect-sync-service-manager-ui-mvdesigner.md), e [depesquisadeMetaversos](how-to-connect-sync-service-manager-ui-mvsearch.md) separadores.
+Saiba mais sobre o Gestor de Serviços de Sincronização UI, incluindo [Operações,](how-to-connect-sync-service-manager-ui-operations.md) [Conectores,](how-to-connect-sync-service-manager-ui-connectors.md) [Metaverse Designer](how-to-connect-sync-service-manager-ui-mvdesigner.md)e separadores de [Pesquisa Metaverse.](how-to-connect-sync-service-manager-ui-mvsearch.md)
 
-Saiba mais sobre o [do Azure AD Connect](how-to-connect-sync-whatis.md) configuração.
+Saiba mais sobre a configuração de [sincronização azure AD Connect.](how-to-connect-sync-whatis.md)
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

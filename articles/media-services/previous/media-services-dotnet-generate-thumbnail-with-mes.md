@@ -1,6 +1,6 @@
 ---
 title: Como gerar miniaturas com o Media Encoder Standard com .NET
-description: Este tópico mostra como utilizar o .NET para codificar um recurso e gerar miniaturas em simultâneo com o Media Encoder Standard.
+description: Este tópico mostra como usar .NET para codificar um ativo e gerar miniaturas ao mesmo tempo usando o Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,25 +15,25 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6bc29c098bcf7ef1d1a2e2532a00c95f0ec7e927
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61244234"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Como gerar miniaturas com o Media Encoder Standard com .NET 
 
-Pode utilizar o Media Encoder Standard para gerar miniaturas de um ou mais a partir do seu vídeo de entrada [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), ou [BMP](https://en.wikipedia.org/wiki/BMP_file_format) formatos de ficheiro de imagem. Pode submeter tarefas que produzem apenas imagens ou pode combinar a geração de miniaturas com codificação. Este artigo fornece algumas exemplo XML e JSON em miniatura configurações predefinidas para estes cenários. No final do artigo, há uma [código de exemplo](#code_sample) que mostra como utilizar o SDK de .NET de serviços de multimédia para realizar a tarefa de codificação.
+Pode utilizar o Media Encoder Standard para gerar uma ou mais miniaturas a partir do seu vídeo de entrada em formatos de ficheiros de imagem [JPEG,](https://en.wikipedia.org/wiki/JPEG) [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics)ou [BMP.](https://en.wikipedia.org/wiki/BMP_file_format) Pode submeter Tarefas que produzam apenas imagens, ou pode combinar geração de miniaturas com codificação. Este artigo fornece algumas predefinições de miniatura sinuosa xML e JSON para tais cenários. No final do artigo, existe um código de [amostra](#code_sample) que mostra como utilizar os Media Services .NET SDK para realizar a tarefa de codificação.
 
-Para obter mais detalhes sobre os elementos que são usados em suas configurações predefinidas de exemplo, deve rever [esquema Media Encoder Standard](media-services-mes-schema.md).
+Para obter mais detalhes sobre os elementos utilizados nas predefinições da amostra, deve rever o esquema Padrão media [Encoder](media-services-mes-schema.md).
 
-Lembre-se de que reveja os [considerações](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) secção.
+Certifique-se de rever a secção [Considerações.](media-services-dotnet-generate-thumbnail-with-mes.md#considerations)
     
-## <a name="example-of-a-single-png-file-preset"></a>Exemplo de uma configuração predefinida de "ficheiro PNG único"
+## <a name="example-of-a-single-png-file-preset"></a>Exemplo de um preset de "único ficheiro PNG"
 
-A configuração predefinida seguinte de JSON e XML pode ser utilizada para produzir um único PNG ficheiro de saída do primeiro alguns segundos da entrada de vídeo, em que o codificador faz uma tentativa de melhor esforço em encontrar um quadro "interessante". Tenha em atenção que as dimensões da imagem de saída foram definidas para 100%, o que significa que correspondam às dimensões do vídeo de entrada. Observe também como a definição de "Formato" no "Saídas" é necessária para corresponder a utilização de "PngLayers" na secção "Codecs". 
+A predefinição json e XML seguinte pode ser usada para produzir um único ficheiro PNG de saída a partir dos primeiros segundos do vídeo de entrada, onde o codificador faz uma tentativa de melhor esforço para encontrar uma moldura "interessante". Note que as dimensões da imagem de saída foram definidas para 100%, o que significa que estas correspondem às dimensões do vídeo de entrada. Note também como a definição "Formato" em "Saídas" é necessária para combinar a utilização de "PngLayers" na secção "Codecs". 
 
-### <a name="json-preset"></a>Configuração predefinida JSON
+### <a name="json-preset"></a>Predefinição JSON
 
 ```json
     {
@@ -62,7 +62,7 @@ A configuração predefinida seguinte de JSON e XML pode ser utilizada para prod
     }
 ```
     
-### <a name="xml-preset"></a>Configuração predefinida XML
+### <a name="xml-preset"></a>Predefinição XML
 
 ```xml
     <?xml version="1.0" encoding="utf-16"?>
@@ -85,11 +85,11 @@ A configuração predefinida seguinte de JSON e XML pode ser utilizada para prod
     </Preset>
 ```
 
-## <a name="example-of-a-series-of-jpeg-images-preset"></a>Exemplo de uma configuração predefinida de "série de imagens JPEG"
+## <a name="example-of-a-series-of-jpeg-images-preset"></a>Exemplo de uma predefinição de "série de imagens JPEG"
 
-A configuração predefinida seguinte de JSON e XML pode ser utilizada para gerar um conjunto de 10 imagens em carimbos de 5%, 15%,..., 95% da linha cronológica de entrada, em que o tamanho da imagem é especificado um trimestre que o vídeo de entrada.
+A predefinição json e XML seguinte pode ser usada para produzir um conjunto de 10 imagens em selos temporais de 5%, 15%, ..., 95% da linha temporal de entrada, onde o tamanho da imagem é especificado como um quarto do vídeo de entrada.
 
-### <a name="json-preset"></a>Configuração predefinida JSON
+### <a name="json-preset"></a>Predefinição JSON
 
 ```json
     {
@@ -121,7 +121,7 @@ A configuração predefinida seguinte de JSON e XML pode ser utilizada para gera
     }
 ```
 
-### <a name="xml-preset"></a>Configuração predefinida XML
+### <a name="xml-preset"></a>Predefinição XML
     
 ```xml
     <?xml version="1.0" encoding="utf-16"?>
@@ -145,11 +145,11 @@ A configuração predefinida seguinte de JSON e XML pode ser utilizada para gera
     </Preset>
 ```
 
-## <a name="example-of-a-one-image-at-a-specific-timestamp-preset"></a>Exemplo de uma configuração predefinida de "uma imagem num carimbo específico"
+## <a name="example-of-a-one-image-at-a-specific-timestamp-preset"></a>Exemplo de predefinição de "uma imagem a uma marca de tempo específica"
 
-A configuração predefinida seguinte de JSON e XML pode ser utilizada para produzir uma única imagem JPEG na marca de 30 segundos de vídeo de entrada. Esta configuração predefinida de espera que o vídeo de entrada para ser mais de 30 segundos de duração (caso contrário falha a tarefa).
+A predefinição JSON e XML seguinte pode ser usada para produzir uma única imagem JPEG na marca de 30 segundos do vídeo de entrada. Este preset espera que o vídeo de entrada tenha mais de 30 segundos de duração (caso contrário, o trabalho falha).
 
-### <a name="json-preset"></a>Configuração predefinida JSON
+### <a name="json-preset"></a>Predefinição JSON
 
 ```json
     {
@@ -181,7 +181,7 @@ A configuração predefinida seguinte de JSON e XML pode ser utilizada para prod
     }
 ```
 
-### <a name="xml-preset"></a>Configuração predefinida XML
+### <a name="xml-preset"></a>Predefinição XML
 ```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -204,13 +204,13 @@ A configuração predefinida seguinte de JSON e XML pode ser utilizada para prod
     </Preset>
 ```
 
-## <a name="example-of-a-thumbnails-at-different-resolutions-preset"></a>Exemplo de uma configuração predefinida de "miniaturas em resoluções diferentes"
+## <a name="example-of-a-thumbnails-at-different-resolutions-preset"></a>Exemplo de um predefinido de "miniaturas em diferentes resoluções"
 
-A configuração predefinida seguinte pode ser utilizada para gerar miniaturas em resoluções diferentes numa tarefa. No exemplo, a % de 5 de posições, 15%,..., 95% da linha cronológica de entrada, o codificador gera duas imagens – um de cada 100% de resolução de vídeo de entrada e o outro a 50%.
+O preset seguinte pode ser usado para gerar miniaturas em diferentes resoluções numa tarefa. No exemplo, nas posições 5%, 15%, ..., 95% da linha temporal de entrada, o codificador gera duas imagens – uma a 100% da resolução de vídeo de entrada e outra a 50%.
 
-Observe o uso de macro {resolução} no nome de ficheiro; ele indica ao codificador para utilizar a largura e altura que especificou na secção de codificação da configuração predefinida ao gerar o nome de ficheiro das imagens de saída. Isto também ajuda a fazer a distinção entre as diferentes imagens facilmente
+Note a utilização de {Resolução} macro no Nome de Ficheiro; indica ao codificador a utilização da largura e altura que especificou na secção de codificação do predefinido enquanto gera o nome de ficheiro das imagens de saída. Isto também ajuda a distinguir entre as diferentes imagens facilmente
 
-### <a name="json-preset"></a>Configuração predefinida JSON
+### <a name="json-preset"></a>Predefinição JSON
 
 ```json
     {
@@ -249,7 +249,7 @@ Observe o uso de macro {resolução} no nome de ficheiro; ele indica ao codifica
     }
 ```
 
-### <a name="xml-preset"></a>Configuração predefinida XML
+### <a name="xml-preset"></a>Predefinição XML
 ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -277,12 +277,12 @@ Observe o uso de macro {resolução} no nome de ficheiro; ele indica ao codifica
     </Preset>
 ```
 
-## <a name="example-of-generating-a-thumbnail-while-encoding"></a>Exemplo de gerar uma miniatura da codificação
+## <a name="example-of-generating-a-thumbnail-while-encoding"></a>Exemplo de gerar uma miniatura enquanto codifica
 
-Embora todos os exemplos acima foram abordados como pode submeter uma tarefa de codificação produz apenas imagens, também pode combinar a codificação de vídeo/áudio com geração de miniaturas. A configuração predefinida seguinte de JSON e XML dizer **Media Encoder Standard** para gerar uma miniatura durante a codificação.
+Embora todos os exemplos acima tenham discutido como pode submeter uma tarefa de codificação que produz apenas imagens, também pode combinar codificação de vídeo/áudio com geração de miniaturas. O predefinido JSON e XML seguinte seguem dizer ao **Media Encoder Standard** para gerar uma miniatura durante a codificação.
 
-### <a id="json"></a>Configuração predefinida JSON
-Para obter informações sobre o esquema, consulte [isso](https://msdn.microsoft.com/library/mt269962.aspx) artigo.
+### <a name="json-preset"></a><a id="json"></a>Predefinição JSON
+Para obter informações sobre esquemas, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) artigo.
 
 ```json
     {
@@ -346,8 +346,8 @@ Para obter informações sobre o esquema, consulte [isso](https://msdn.microsoft
     }
 ```
 
-### <a id="xml"></a>Configuração predefinida XML
-Para obter informações sobre o esquema, consulte [isso](https://msdn.microsoft.com/library/mt269962.aspx) artigo.
+### <a name="xml-preset"></a><a id="xml"></a>Predefinição XML
+Para obter informações sobre esquemas, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) artigo.
 
 ```csharp
     <?xml version="1.0" encoding="utf-16"?>
@@ -401,23 +401,23 @@ Para obter informações sobre o esquema, consulte [isso](https://msdn.microsoft
     </Preset>   
 ```
 
-## <a id="code_sample"></a>Codificar o vídeo e gerar a miniatura com .NET
+## <a name="encode-video-and-generate-thumbnail-with-net"></a><a id="code_sample"></a>Encode vídeo e gere miniatura com .NET
 
-O exemplo de código seguinte utiliza o SDK .NET dos Media Services para efetuar as seguintes tarefas:
+O exemplo de código que se segue utiliza media services .NET SDK para executar as seguintes tarefas:
 
-* Crie uma tarefa de codificação.
-* Obter uma referência ao codificador Media Encoder Standard.
-* Carregar a configuração predefinida [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) ou [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) que contêm a configuração predefinida, bem como as informações necessárias para gerar miniaturas de codificação. Pode salvar isso [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) ou [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) num arquivo e utilize o seguinte código ao carregar o ficheiro.
+* Criar um trabalho de codificação.
+* Obtenha uma referência ao codificador Padrão do Codificador De Media.
+* Carregue o conjunto de [xml](media-services-dotnet-generate-thumbnail-with-mes.md#xml) ou [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) que contenham o predefinido de codificação, bem como as informações necessárias para gerar miniaturas. Pode guardar este [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) ou [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) num ficheiro e utilizar o seguinte código para carregar o ficheiro.
   
         // Load the XML (or JSON) from the local file.
         string configuration = File.ReadAllText(fileName);  
-* Adicione uma única tarefa de codificação para a tarefa. 
-* Especifique o elemento de entrada estar codificado.
-* Crie um elemento de saída que contém o elemento codificado.
-* Adicione um manipulador de eventos para verificar o progresso da tarefa.
-* Submeta a tarefa.
+* Adicione uma única tarefa de codificação ao trabalho. 
+* Especifique o ativo de entrada a codificar.
+* Crie um ativo de saída que contenha o ativo codificado.
+* Adicione um manipulador de eventos para verificar o progresso do trabalho.
+* Submeta o trabalho.
 
-Consulte a [desenvolvimento de serviços de multimédia com .NET](media-services-dotnet-how-to-use.md) artigo para obter instruções sobre como configurar o ambiente de desenvolvimento.
+Consulte o desenvolvimento dos [Serviços de Media com o](media-services-dotnet-how-to-use.md) artigo .NET para obter instruções sobre como configurar o seu ambiente de dev.
 
 ```csharp
 using System;
@@ -546,24 +546,24 @@ namespace EncodeAndGenerateThumbnails
 ```
 
 ## <a name="considerations"></a>Considerações
-As seguintes considerações aplicam-se:
+As seguintes considerações são aplicáveis:
 
-* A utilização de carimbos de data / explícita para iniciar/passo/intervalo parte do princípio de que a origem de entrada é longo, pelo menos, 1 minuto.
-* Elementos de jpg/Png/BmpImage tem início, passo e os atributos de cadeia de caracteres de intervalo – estas podem ser interpretadas como:
+* A utilização de carimbos de tempo explícitos para Iniciar/Passo/Alcance pressupõe que a fonte de entrada tem pelo menos 1 minuto de duração.
+* Os elementos jpg/Png/BmpImage têm atributos de cadeia Start, Step e Range – estes podem ser interpretados como:
   
-  * Número de quadros se forem inteiros não negativos, por exemplo, "Start": "120",
-  * Caminho relativo para a duração da origem se for expresso com o sufixo %, por exemplo "Start": "15%", OU
-  * Timestamp se for expresso no hh: mm:... formato. Por exemplo "começar:" "00:01:00"
+  * Número do quadro se forem inteiros não negativos, por exemplo "Iniciar": "120",
+  * Relativamente à duração da fonte se expresso como %-sufixo, por exemplo "Iniciar": "15%", OU
+  * Carimbo de tempo se expresso como HH:MM:SS... formato. Por exemplo, "Iniciar" : "00:01:00"
     
-    Pode combinar e misturar notações como.
+    Pode misturar e combinar notações como quiser.
     
-    Além disso, o início suporta também uma Macro especial: {melhores}, que tentará determinar o primeiro quadro "interessante" da nota conteúdo: (Passo e o intervalo são ignoradas quando início está definido como {melhor})
-  * Predefinições: Iniciar: {melhor}
-* Formato de saída tem de ser explicitamente fornecido para cada formato de imagem: Jpg/Png/BmpFormat. Quando estiver presente, o MES corresponde a JpgVideo para JpgFormat e assim por diante. OutputFormat introduz uma nova Macro específicos de codec de imagem: {Index}, que tem de estar presente (uma vez e apenas uma vez) para os formatos de saída de imagem.
+    Além disso, o Start também suporta um Macro especial:{Best}, que tenta determinar o primeiro quadro "interessante" do conteúdo NOTA: (Passo e Alcance são ignorados quando o Início está definido para {Best})
+  * Predefinições: Início:{Best}
+* O formato de saída tem de ser explicitamente fornecido para cada formato de Imagem: Jpg/Png/BmpFormat. Quando presente, o MES corresponde ao JpgVideo ao JpgFormat e assim por diante. OutputFormat introduz um novo Macro específico do código de imagem: {Index}, que precisa estar presente (uma vez e apenas uma vez) para formatos de saída de imagem.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Pode verificar o [progresso da tarefa](media-services-check-job-progress.md) enquanto a tarefa de codificação está pendente.
+Pode verificar o progresso do [trabalho](media-services-check-job-progress.md) enquanto o trabalho de codificação está pendente.
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -571,6 +571,6 @@ Pode verificar o [progresso da tarefa](media-services-check-job-progress.md) enq
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consultar Também
-[Descrição geral da codificação de serviços de multimédia](media-services-encode-asset.md)
+## <a name="see-also"></a>Veja também
+[Visão geral de codificação de serviços de mídia](media-services-encode-asset.md)
 

@@ -1,8 +1,8 @@
 ---
-title: Privacidade do utilizador e o Azure AD totalmente integrado início de sessão único | Documentos da Microsoft
-description: Este artigo trata da conformidade SSO totalmente integrado do Azure Active Directory (Azure AD) e do GDPR.
+title: Privacidade do utilizador e entrada única do AD Azure Seamless / Microsoft Docs
+description: Este artigo trata do Azure Ative Directory (Azure AD) Seamless SSO e do RGPD.
 services: active-directory
-keywords: o que é o Azure AD Connect, com o GDPR, necessário componentes para o Azure AD, SSO, Single Sign-on
+keywords: o que é Azure AD Connect, RGPD, componentes necessários para Azure AD, SSO, Sign-on Único
 documentationcenter: ''
 author: billmath
 manager: daveba
@@ -17,38 +17,38 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9311c1060b953e87f163cb482db14cdd43f50d3d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60242110"
 ---
-# <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Privacidade do utilizador e do Azure AD totalmente integrada início de sessão único
+# <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Privacidade do Utilizar e Início de Sessão Simples no Azure AD
 
 [!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="overview"></a>Descrição geral
 
 
-O Azure AD Seamless SSO cria o tipo de registo seguinte, que pode conter dados pessoais: 
+O Azure AD Seamless SSO cria o seguinte tipo de registo, que pode conter Dados Pessoais: 
 
-- Ficheiros de registo de rastreio do Azure AD Connect.
+- Ficheiros de registo de rastreio de ligação adligações Azur.
 
-Melhore a privacidade dos utilizadores para SSO totalmente integrado de duas formas:
+Melhorar a privacidade do utilizador para SSO sem emenda de duas formas:
 
-1.  Mediante solicitação, extrair dados para uma pessoa e remover dados de que a pessoa das instalações.
-2.  Certifique-se de que nenhum dado é mantido para além de 48 horas.
+1.  Mediante solicitação, extrai os dados de uma pessoa e remova os dados dessa pessoa das instalações.
+2.  Certifique-se de que nenhum dado é retido para além de 48 horas.
 
-Recomendamos vivamente a segunda opção, pois é mais fácil de implementar e manter. Veja a seguir instruções para cada tipo de registo:
+Recomendamos vivamente a segunda opção, uma vez que é mais fácil implementar e manter. Consulte as seguintes instruções para cada tipo de registo:
 
-### <a name="delete-azure-ad-connect-trace-log-files"></a>Eliminar ficheiros de registo de rastreio do Azure AD Connect
+### <a name="delete-azure-ad-connect-trace-log-files"></a>Eliminar ficheiros de registo de rastreio de ligação ad ad azure
 
-Verifique o conteúdo do **%ProgramData%\AADConnect** conteúdo de registo de pasta e eliminar o rastreio (**rastreio -\*. log** ficheiros) dessa pasta dentro de 48 horas de instalar ou atualizar o Azure AD Connect ou modificar a configuração do SSO totalmente integrado, como esta ação pode criar dados cobertos pelo GDPR.
+Verifique o conteúdo da pasta **%ProgramData\AADConnect** e elimine o conteúdo do registo de rastreios **(ficheiros de\*** rastreio.
 
 >[!IMPORTANT]
->Não elimine o **PersistedState.xml** ficheiros nesta pasta, como este ficheiro é utilizado para manter o estado da instalação anterior do Azure AD Connect e é utilizado quando uma instalação de atualização é feita. Este ficheiro nunca irá conter todos os dados sobre uma pessoa e nunca deve ser eliminado.
+>Não elimine o ficheiro **PersistedState.xml** nesta pasta, uma vez que este ficheiro é utilizado para manter o estado da instalação anterior do Azure AD Connect e é utilizado quando uma instalação de atualização é feita. Este ficheiro nunca conterá quaisquer dados sobre uma pessoa e nunca deve ser eliminado.
 
-Pode rever e eliminar estes ficheiros de registo de rastreio com o Explorador do Windows ou pode utilizar o seguinte script do PowerShell para efetuar as ações necessárias:
+Pode rever e eliminar estes ficheiros de registo de rastreio utilizando o Windows Explorer ou pode utilizar o seguinte script PowerShell para executar as ações necessárias:
 
 ```powershell
 $Files = ((Get-Item -Path "$env:programdata\aadconnect\trace-*.log").VersionInfo).FileName 
@@ -58,16 +58,16 @@ Foreach ($file in $Files) {
 }
 ```
 
-Guarde o script num arquivo com o ". PS1 "extensão. Execute este script conforme necessário.
+Guarde o guião num ficheiro com ". Extensão PS1". Executa este guião conforme necessário.
 
-Para saber mais sobre relacionados com os requisitos do Azure AD Connect com o GDPR, consulte [este artigo](reference-connect-user-privacy.md).
+Para saber mais sobre os requisitos relacionados do RGPD Azure AD Connect, consulte [este artigo](reference-connect-user-privacy.md).
 
-### <a name="note-about-domain-controller-logs"></a>Tenha em atenção sobre os registos de controlador de domínio
+### <a name="note-about-domain-controller-logs"></a>Nota sobre registos de controladores de domínio
 
-Se o registo de auditoria é ativado, este produto pode gerar registos de segurança para os controladores de domínio. Para saber mais sobre como configurar políticas de auditoria, leia isto [artigo](https://technet.microsoft.com/library/dd277403.aspx).
+Se o registo de auditoria estiver ativado, este produto poderá gerar registos de segurança para os seus Controladores de Domínio. Para saber mais sobre a configuração das políticas de auditoria, leia este [artigo.](https://technet.microsoft.com/library/dd277403.aspx)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Rever a política de Privacy da Microsoft no Centro de fidedignidade](https://www.microsoft.com/trustcenter)
-  - [**Resolução de problemas** ](tshoot-connect-sso.md) -Saiba como resolver problemas comuns com a funcionalidade.
-  - [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – para preenchimento de pedidos de novas funcionalidades.
+* [Reveja a política de privacidade da Microsoft no Trust Center](https://www.microsoft.com/trustcenter)
+  - [**Troubleshoot**](tshoot-connect-sso.md) - Aprenda a resolver problemas comuns com a funcionalidade.
+  - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - Para arquivar novos pedidos de funcionalidades.

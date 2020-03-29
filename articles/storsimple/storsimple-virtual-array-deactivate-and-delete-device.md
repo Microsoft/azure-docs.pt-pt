@@ -1,6 +1,6 @@
 ---
-title: Desativar e eliminar um Microsoft Azure StorSimple Virtual Array | Documentos da Microsoft
-description: Descreve como remover o dispositivo StorSimple de serviço ao primeiro a desativar e, em seguida, excluí-lo.
+title: Desative e elimine um Microsoft Azure StorSimple Virtual Array [ Matriz Virtual] do Microsoft Azure StorSimple [ Microsoft Docs
+description: Descreve como remover o dispositivo StorSimple do serviço, desativando-o primeiro e, em seguida, eliminando-o.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,30 +15,30 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: alkohli
 ms.openlocfilehash: bb1a56d204a46f89213f20e317494120f0ea565e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60580603"
 ---
-# <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Desativar e eliminar uma matriz Virtual StorSimple
+# <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Desativar e eliminar um StorSimple Virtual Array
 
 ## <a name="overview"></a>Descrição geral
 
-Ao desativar uma StorSimple Virtual Array, interromperá a ligação entre o dispositivo e o serviço StorSimple Device Manager correspondente. Este tutorial explica como:
+Quando desativa um StorSimple Virtual Array, quebra a ligação entre o dispositivo e o serviço correspondente storSimple Device Manager. Este tutorial explica como:
 
 * Desativar um dispositivo 
 * Eliminar um dispositivo desativado
 
-As informações neste artigo aplica-se apenas para as matrizes virtuais do StorSimple. Para obter informações sobre a 8000 série, aceda a como [desativar ou eliminar um dispositivo](storsimple-deactivate-and-delete-device.md).
+A informação neste artigo aplica-se apenas às Matrizes Virtuais StorSimple. Para obter informações sobre a série 8000, vá a como [desativar ou apagar um dispositivo](storsimple-deactivate-and-delete-device.md).
 
 ## <a name="when-to-deactivate"></a>Quando desativar?
 
-Desativação é uma operação permanente e não pode ser anulada. Não é possível registar um dispositivo desativado novamente com o serviço StorSimple Device Manager. Poderá ter de desativar e eliminar um StorSimple Virtual Array nos seguintes cenários:
+A desativação é uma operação PERMANENTE e não pode ser desfeita. Não é possível registar novamente um dispositivo desativado com o serviço StorSimple Device Manager. Pode ser necessário desativar e eliminar um StorSimple Virtual Array nos seguintes cenários:
 
-* **A ativação pós-falha planeada** : O dispositivo está online e quiser efetuar a ativação pós-falha do seu dispositivo. Se estiver a planear atualizar para um dispositivo maior, terá de efetuar a ativação pós-falha do seu dispositivo. Depois da propriedade dos dados é transferida e a ativação pós-falha estiver concluída, o dispositivo de origem é eliminado automaticamente.
-* **Ativação pós-falha não planeada** : O dispositivo está offline e terá de efetuar a ativação pós-falha do dispositivo. Este cenário poderá ocorrer durante um desastre quando houver uma falha no Centro de dados e o dispositivo primário está inativo. Planeja fazer a ativação pós-falha do dispositivo para um dispositivo secundário. Depois da propriedade dos dados é transferida e a ativação pós-falha estiver concluída, o dispositivo de origem é eliminado automaticamente.
-* **Desativar** : Pretende desativar o dispositivo. Isso exige que primeiro desativar o dispositivo e, em seguida, eliminá-lo. Ao desativar um dispositivo, já não pode aceder a todos os dados armazenados localmente. Só é possível aceder e recuperar os dados armazenados na cloud. Em seguida, se pretender manter os dados do dispositivo após a desativação, deve tirar um instantâneo de cloud de todos os seus dados antes de desativar um dispositivo. Este instantâneo de cloud permite-lhe recuperar todos os dados num estágio posterior.
+* **Falha planeada** : O seu dispositivo está on-line e planeia falhar sobre o seu dispositivo. Se estiver a planear fazer upgrade para um dispositivo maior, poderá ter de falhar sobre o seu dispositivo. Após a transferência da propriedade dos dados e a falha estar completa, o dispositivo de origem é automaticamente eliminado.
+* **Falha não planeada** : O seu dispositivo está offline e precisa de falhar sobre o dispositivo. Este cenário pode ocorrer durante um desastre quando há uma falha no datacenter e o seu dispositivo primário está em baixo. Planeias falhar o dispositivo num dispositivo secundário. Após a transferência da propriedade dos dados e a falha estar completa, o dispositivo de origem é automaticamente eliminado.
+* **Desativação:** Pretende desmantelar o dispositivo. Isto requer que primeiro desative o dispositivo e depois o apague. Quando desativa um dispositivo, já não é possível aceder a quaisquer dados armazenados localmente. Só é possível aceder e recuperar os dados armazenados na nuvem. Se planeia manter os dados do dispositivo após a desativação, então deve tirar uma imagem em nuvem de todos os seus dados antes de desativar um dispositivo. Este instantâneo de nuvem permite-lhe recuperar todos os dados numa fase posterior.
 
 ## <a name="deactivate-a-device"></a>Desativar um dispositivo
 
@@ -46,49 +46,49 @@ Para desativar o seu dispositivo, execute os seguintes passos.
 
 #### <a name="to-deactivate-the-device"></a>Para desativar o dispositivo
 
-1. No seu serviço, ir para **gestão > dispositivos**. Na **dispositivos** painel, clique e selecione o dispositivo que pretende desativar.
+1. Ao seu serviço, vá à **Management > Devices**. Na lâmina **do Dispositivo,** clique e selecione o dispositivo que pretende desativar.
    
-    ![Selecione o dispositivo para desativar](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete7.png)
-2. No seu **dashboard do dispositivo** painel, clique em **... Obter mais** e na lista, selecione **desativar**.
+    ![Selecione dispositivo para desativar](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete7.png)
+2. Na lâmina do **painel de instrumentos** do dispositivo, **clique... Mais** e mais da lista, selecione **Desativar**.
    
-    ![Clique em Desativar](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete8.png)
-3. Na **Deactivate** painel, escreva o nome do dispositivo e, em seguida, clique em **desativar**. 
+    ![Clique em desativar](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete8.png)
+3. Na lâmina **Desativar,** digite o nome do dispositivo e clique em **Desativar**. 
    
-    ![Confirmar Desativação](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete1.png)
+    ![Confirmar desativar](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete1.png)
    
-    O processo de desativar é iniciado e demora alguns minutos a concluir.
+    O processo de desativação começa e demora alguns minutos a ser concluído.
    
     ![Desativar em curso](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete2.png)
-4. Após a desativação, atualiza a lista de dispositivos.
+4. Após a desativação, a lista de dispositivos atualiza-se.
    
-    ![Desativar concluída](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete3.png)
+    ![Desativar completo](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete3.png)
    
-    Agora pode eliminar este dispositivo.
+    Agora pode apagar este dispositivo.
 
 ## <a name="delete-the-device"></a>Eliminar o dispositivo
 
-Um dispositivo tem de ser desativado pela primeira vez para eliminá-lo. A eliminar um dispositivo remove-o na lista de dispositivos ligados ao serviço. O serviço, em seguida, pode deixar de gerir o dispositivo eliminado. Os dados associados ao dispositivo permanecem, no entanto, na cloud. Estes dados, em seguida, é acrescido encargos.
+Um dispositivo tem de ser primeiro desativado para o eliminar. A eliminação de um dispositivo retira-o da lista de dispositivos ligados ao serviço. O serviço já não pode gerir o dispositivo apagado. No entanto, os dados associados ao dispositivo permanecem na nuvem. Estes dados acumulam então encargos.
 
 Para eliminar o dispositivo, execute os seguintes passos.
 
-#### <a name="to-delete-the-device"></a>Para eliminar o dispositivo
+#### <a name="to-delete-the-device"></a>Para apagar o dispositivo
 
-1. No Gestor de dispositivos do StorSimple, aceda a **gestão > dispositivos**. Na **dispositivos** painel, selecione um dispositivo desativado que pretende eliminar.
-2. Na **dashboard do dispositivo** painel, clique em **... Obter mais** e, em seguida, clique em **eliminar**.
+1. No seu Gestor de Dispositivos StorSimple, vá à **Management > Devices**. Na lâmina **do Dispositivo,** selecione um dispositivo desativado que pretende eliminar.
+2. Na lâmina do painel de instrumentos do **Dispositivo,** **clique... Mais** e depois clique em **Apagar**.
    
-   ![Selecione o dispositivo para eliminar](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete4.png)
-3. Na **elimine** painel, escreva o nome do seu dispositivo para confirmar a eliminação e, em seguida, clique em **eliminar**. Eliminar o dispositivo não elimina os dados de cloud associados ao dispositivo. 
+   ![Selecione dispositivo para eliminar](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete4.png)
+3. Na lâmina **Eliminar,** digite o nome do seu dispositivo para confirmar a eliminação e, em seguida, clique em **Apagar**. A eliminação do dispositivo não elimina os dados em nuvem associados ao dispositivo. 
    
    ![Confirmar eliminação](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete5.png) 
-4. A eliminação é iniciado e demora alguns minutos a concluir.
+4. A supressão começa e leva alguns minutos para ser completada.
    
-   ![Eliminação em curso](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete6.png)
+   ![Eliminar em curso](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete6.png)
    
-    Depois do dispositivo é eliminado, pode ver a lista atualizada de dispositivos.
+    Depois de o dispositivo ser eliminado, pode visualizar a lista atualizada de dispositivos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para obter informações sobre como efetuar a ativação pós-falha, aceda a [ativação pós-falha e recuperação após desastre de sua matriz Virtual StorSimple](storsimple-virtual-array-failover-dr.md).
+* Para obter informações sobre como falhar, vá ao Failover e à [recuperação de desastres do seu StorSimple Virtual Array](storsimple-virtual-array-failover-dr.md).
 
-* Para saber mais sobre como utilizar o serviço StorSimple Device Manager, aceda a [utilizar o serviço StorSimple Device Manager para administrar a sua matriz Virtual StorSimple](storsimple-virtual-array-manager-service-administration.md). 
+* Para saber mais sobre como utilizar o serviço StorSimple Device Manager, vá utilizar [o serviço StorSimple Device Manager para administrar o seu StorSimple Virtual Array](storsimple-virtual-array-manager-service-administration.md). 
 

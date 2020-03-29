@@ -1,6 +1,6 @@
 ---
-title: Composição de descrição geral - Azure Batch
-description: Introdução ao utilizar o Azure para o processamento e uma descrição geral das capacidades de composição do Azure Batch
+title: Visão geral de renderização - Lote Azure
+description: Introdução da utilização do Azure para renderização e uma visão geral das capacidades de renderização do Lote Azure
 services: batch
 ms.service: batch
 author: mscurrell
@@ -8,98 +8,98 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: d4423b22c4c8afea5afa9c7040e081665b17ba87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60774034"
 ---
 # <a name="rendering-using-azure"></a>Composição com o Azure
 
-O processamento é o processo de colocar modelos 3D e convertê-los em imagens 2D. Ficheiros de cenas 3D são criados nos aplicativos como o Autodesk 3ds Max e Blender Autodesk Maya.  Aplicações de composição, como o Autodesk Maya, Autodesk Arnold, V-Ray da Chaos Group e ciclos de Blender produzem imagens 2D.  Imagens única, às vezes, são criadas a partir os ficheiros de cenas. No entanto, é comum para modelar e compor várias imagens e, em seguida, combiná-los numa animação.
+Renderização é o processo de pegar em modelos 3D e convertê-los em imagens 2D. Os ficheiros de cenas 3D são da autoria de aplicações como Autodesk 3ds Max, Autodesk Maya e Blender.  Aplicações de renderização como Autodesk Maya, Autodesk Arnold, Chaos Group V-Ray e Blender Cycles produzem imagens 2D.  Às vezes, imagens individuais são criadas a partir dos ficheiros da cena. No entanto, é comum modelar e renderizar múltiplas imagens, e depois combiná-las numa animação.
 
-A carga de trabalho de composição é muito usada para efeitos especiais (VFX) no setor de mídia e entretenimento. Composição também é utilizada em vários outros setores, tais como a publicidade, de varejo, petróleo e gás e produção.
+A carga de trabalho de renderização é fortemente utilizada para efeitos especiais (VFX) na indústria dos Media e Entretenimento. A composição também é utilizada em muitos outros setores, como publicidade, retalho, petróleo e gás e fabrico.
 
-O processo de renderização é computacionalmente intensivo; Pode haver vários quadros/imagens para produzir e cada imagem pode demorar várias horas para processar.  O processamento, portanto, é uma carga de trabalho de processamento de batch perfeito que pode tirar partido do Azure e o Azure Batch para executar várias composições em paralelo.
+O processo de renderização é computacionalmente intensivo; pode haver muitos quadros/imagens para produzir e cada imagem pode levar muitas horas para renderizar.  A renderização é, portanto, uma carga de trabalho de processamento de lote perfeito que pode alavancar O Lote Azure e Azure para executar muitos renders em paralelo.
 
-## <a name="why-use-azure-for-rendering"></a>Porquê utilizar o Azure para processamento?
+## <a name="why-use-azure-for-rendering"></a>Porquê usar o Azure para renderizar?
 
-Por diversos motivos, o processamento é uma carga de trabalho perfeitamente adequada para o Azure e o Azure Batch:
+Por muitas razões, renderização é uma carga de trabalho perfeitamente adequada para O Lote Azure e Azure:
 
-* Composição de tarefas pode ser dividida em várias partes que podem ser executadas em paralelo com várias VMs:
-  * Animações consistem em vários quadros e cada quadro pode ser processado em paralelo.  As VMs mais disponíveis para cada quadro, mais rapidamente todos os quadros e a animação podem ser produzidos de processo.
-  * Algum software de composição permite que os quadros únicos dividir em várias partes, como mosaicos ou setores.  Cada parte pode ser processada separadamente, em seguida, combinada com a imagem final quando tem concluído a todas as partes.  Quanto mais VMs que estão disponíveis, mais rapidamente um quadro pode ser processado.
-* Composição de projetos pode exigir escalas enormes:
-  * Quadros individuais podem ser complexos e exigem muitas horas a ser processado, mesmo em hardware de alta gama; animações podem consistir em centenas de milhares de quadros.  Uma grande quantidade de computação é necessária para processar animações de alta qualidade num período de tempo razoável.  Em alguns casos, mais de 100.000 núcleos foram utilizados para processar milhares de quadros em paralelo.
-* Projetos de composição são baseados no projeto e requerem quantidades diferentes de computação:
-  * Atribuir capacidade de computação e armazenamento quando necessário, aumentar ou reduzir verticalmente, de acordo com carga durante um projeto e removê-lo quando um projeto é concluído.
-  * Pague por capacidade quando alocados, mas não paga por isso, quando não existe nenhuma carga, tal como entre projetos.
-  * Se adaptar para absorver picos devido a alterações inesperadas; escala superior se existem alterações inesperadas tardia num projeto e essas alterações precisam ser processadas com base numa agenda forte.
-* Escolha entre uma seleção ampla de hardware de acordo com a aplicação, a carga de trabalho e o período de tempo:
-  * Há uma seleção ampla de hardware disponíveis no Azure que pode ser alocado e gerido com o Batch.
-  * Dependendo do projeto, o requisito pode ser o melhor relação preço/desempenho ou o melhor desempenho geral.  Plano diferentes e/ou aplicações de composição tem requisitos diferentes de memória.  Algum aplicativo de processamento pode tirar partido das GPUs para o melhor desempenho ou determinadas funcionalidades. 
-* VMs de baixa prioridade reduzam os custos:
-  * VMs de baixa prioridade estão disponíveis para um desconto significativo em comparação comparado VMs regulares de sob demanda e são adequadas para alguns tipos de tarefa.
-  * VMs de baixa prioridade podem ser alocadas pelo Azure Batch, com o Batch fornece flexibilidade em como elas são usadas para se adaptar para um vasto leque de requisitos.  Os conjuntos do batch podem consistir em VMs dedicadas e baixa prioridade, com o mesmo que está a ser possível alterar a combinação de tipos de VM em qualquer altura.
+* Os trabalhos de renderização podem ser divididos em muitas peças que podem ser executadas em paralelo usando vários VMs:
+  * As animações consistem em muitos quadros e cada quadro pode ser renderizado em paralelo.  Quanto mais VMs estiverem disponíveis para processar cada quadro, mais rápido todos os quadros e a animação podem ser produzidos.
+  * Alguns softwares de renderização permitem que quadros individuais sejam divididos em várias peças, tais como azulejos ou fatias.  Cada peça pode ser renderizada separadamente, depois combinada na imagem final quando todas as peças estiverem terminadas.  Quanto mais VMs estiverem disponíveis, mais rápido uma moldura pode ser renderizada.
+* Projetos de renderização podem exigir uma enorme escala:
+  * Os quadros individuais podem ser complexos e requerem muitas horas para renderizar, mesmo em hardware topo de gama; animações podem consistir em centenas de milhares de quadros.  Uma enorme quantidade de computação é necessária para renderizar animações de alta qualidade em um tempo razoável.  Em alguns casos, mais de 100.000 núcleos têm sido usados para tornar milhares de quadros em paralelo.
+* Os projetos de renderização são baseados em projetos e requerem quantidades variadas de cálculo:
+  * Aloque a capacidade de computação e armazenamento quando necessário, escale-a para cima ou para baixo de acordo com a carga durante um projeto e remova-a quando um projeto estiver concluído.
+  * Pague pela capacidade quando atribuído, mas não pague quando não há carga, como entre projetos.
+  * Atender a rajadas devido a alterações inesperadas; escala maior se houver mudanças inesperadas no final de um projeto e essas mudanças precisam de ser processadas em um calendário apertado.
+* Escolha entre uma ampla seleção de hardware de acordo com a aplicação, carga de trabalho e prazo:
+  * Há uma grande seleção de hardware disponível no Azure que pode ser alocado e gerido com Batch.
+  * Dependendo do projeto, a exigência pode ser para o melhor preço/desempenho ou o melhor desempenho geral.  Diferentes cenas e/ou aplicações de renderização terão diferentes requisitos de memória.  Algumas aplicações de renderização podem alavancar gpus para o melhor desempenho ou certas funcionalidades. 
+* Os VMs de baixa prioridade reduzem os custos:
+  * Os VMs de baixa prioridade estão disponíveis para um grande desconto em comparação com os VMs regulares a pedido e são adequados para alguns tipos de trabalho.
+  * Os VMs de baixa prioridade podem ser atribuídos pelo Lote Azure, com o Batch a oferecer flexibilidade na forma como são utilizados para atender a um vasto conjunto de requisitos.  As piscinas de lotes podem consistir tanto em VMs dedicados como em baixa prioridade, sendo possível alterar a mistura de tipos vM a qualquer momento.
 
-## <a name="options-for-rendering-on-azure"></a>Opções de composição no Azure
+## <a name="options-for-rendering-on-azure"></a>Opções para renderização no Azure
 
-Há um recursos de intervalo do Azure que podem ser utilizado para cargas de trabalho de composição.  Que capacidades a utilizar depende de qualquer ambiente existente e requisitos.
+Existem uma gama de capacidades Azure que podem ser usadas para renderizar cargas de trabalho.  Quais as capacidades a utilizar depende de qualquer ambiente e requisitos existentes.
 
-### <a name="existing-on-premises-rendering-environment-using-a-render-management-application"></a>Existente no local através de uma aplicação de gestão de composição de ambiente de composição
+### <a name="existing-on-premises-rendering-environment-using-a-render-management-application"></a>Ambiente de renderização existente no local utilizando uma aplicação de gestão renderizada
 
-O caso mais comum é para aqui para ser um existente no local compor farm a ser gerido por um aplicativo de gerenciamento de composição como PipelineFX Qube, renderizar Royal ou Thinkbox dentro do prazo.  É o requisito expandir no local a capacidade de farm de composição com VMs do Azure.
+O caso mais comum é que exista uma exploração existente no local, sendo gerida por uma aplicação de gestão de renderização como PipelineFX Qube, Royal Render ou Thinkbox Deadline.  A obrigação é alargar a capacidade agrícola no local utilizando VMs Azure.
 
-O software de gestão de composição tem suporte do Azure interno ou podemos tornar o plug-ins disponíveis que adicionar suporte do Azure. Para obter mais informações sobre o suporte compor os gerentes e a funcionalidade ativada, consulte o artigo sobre [usando renderizar gerentes](https://docs.microsoft.com/azure/batch/batch-rendering-render-managers).
+O software de gestão renderização ou tem suporte Azure incorporado ou disponibilizamos plug-ins que adicionam suporte Azure. Para obter mais informações sobre os gestores de renderização suportados e funcionalidades habilitadas, consulte o artigo sobre [a utilização](https://docs.microsoft.com/azure/batch/batch-rendering-render-managers)de gestores de renderização .
 
-### <a name="custom-rendering-workflow"></a>Fluxo de trabalho de composição personalizada
+### <a name="custom-rendering-workflow"></a>Fluxo de trabalho de renderização personalizada
 
-O requisito é para as VMs expandir um farm de composição existente.  Conjuntos do Azure Batch podem alocar um grande número de VMs, permitir às VMs de baixa prioridade ser utilizado e dinamicamente dimensionamento automático com VMs com preços completo e fornecer o licenciamento de pagamento para utilização para aplicações de composição populares.
+A exigência é que os VMs aumentem uma exploração de renderização existente.  As piscinas do Lote Azure podem alocar um grande número de VMs, permitir que vMs de baixa prioridade sejam usados e dinamicamente auto-dimensionados com VMs a preços inteiros, e fornecer licenças pay-for-use para aplicações de renderização populares.
 
-### <a name="no-existing-render-farm"></a>Nenhum farm de composição existente
+### <a name="no-existing-render-farm"></a>Nenhuma fazenda de renderização existente
 
-Estações de trabalho cliente poderão estar a executar a composição, mas está a aumentar a carga de trabalho de composição e está a demorar demasiado tempo a utilizar apenas a capacidade de estação de trabalho.  O Azure Batch pode ser utilizado para alocar render farm computação sob demanda os e agendar trabalhos de composição para o farm de composição do Azure.
+As estações de trabalho dos clientes podem estar a realizar renderização, mas a carga de trabalho de renderização está a aumentar e está a demorar muito tempo a utilizar exclusivamente a capacidade da estação de trabalho.  O Lote Azure pode ser usado para atribuir a putação agrícola renderizada a pedido, bem como agendar os trabalhos de renderização para a fazenda de renderização Azure.
 
-## <a name="azure-batch-rendering-capabilities"></a>Capacidades de composição do Azure Batch
+## <a name="azure-batch-rendering-capabilities"></a>Capacidades de renderização do Lote Azure
 
-O Azure Batch permite que cargas de trabalho paralelas ser executado no Azure.  Permite a criação e gestão de grandes quantidades de VMs em que as aplicações são instaladas e executadas.  Ele também oferece capacidades para executar as instâncias desses aplicativos, fornecendo a atribuição de tarefas para VMs, colocação em fila, aplicação de monitorização e assim por diante de agendamento de tarefas abrangente.
+O Lote Azure permite que as cargas de trabalho paralelas sejam executadas em Azure.  Permite a criação e gestão de um grande número de VMs em que as aplicações são instaladas e executadas.  Também fornece capacidades abrangentes de agendamento de trabalho para executar instâncias dessas aplicações, fornecendo a atribuição de tarefas a VMs, fila, monitorização de aplicações, e assim por diante.
 
-O Azure Batch é utilizado para muitas cargas de trabalho, mas as seguintes funcionalidades estão disponíveis para especificamente que seja mais fácil e rápido executar cargas de trabalho de composição.
+O Lote Azure é utilizado para muitas cargas de trabalho, mas as seguintes capacidades estão disponíveis para tornar mais fácil e rápido executar cargas de trabalho de renderização.
 
-* Imagens de VM com gráficos pré-instaladas e aplicações de composição:
-  * Imagens de VM do Marketplace do Azure estão disponíveis que contêm gráficos populares e aplicações de composição, evitando a necessidade de instalar os aplicativos por conta própria ou criar suas próprias imagens personalizadas com os aplicativos instalados. 
-* Licenciamento pay-per-use para aplicações de composição:
-  * Pode optar por pagar para os aplicativos ao minuto, além de pagar para a computação de VMs, que evita ter de comprar licenças e potencialmente configurar um servidor de licenças para os aplicativos.  Pagar por utilização também significa que é possível para se adaptar para variados e inesperada de carga porque não é um número fixo de licenças não existe.
-  * Também é possível utilizar as aplicações pré-instaladas com suas próprias licenças e não utilizar o licenciamento de pagamento por utilização. Para fazer isso, normalmente instala um no local ou baseado no Azure de licença de servidor e utilizar uma rede virtual do Azure para ligar o conjunto de composição para o servidor de licenças.
-* Plug-ins para aplicativos de modelagem e design de cliente:
-  * Plug-ins de permitir que os utilizadores finais possam utilizar o Azure Batch diretamente a partir do aplicativo cliente, como o Autodesk Maya, permitindo-lhes criar conjuntos, submeter tarefas e fazer uso de mais a capacidade para executar composições mais rápidas de computação.
-* Integração do Gestor de composição:
-  * O Azure Batch está integrado a aplicações de gestão de composição ou plug-ins estejam disponíveis para fornecer a integração do Azure Batch.
+* Imagens VM com gráficos pré-instalados e aplicações de renderização:
+  * Estão disponíveis imagens VM do Azure Marketplace que contêm gráficos populares e aplicações de renderização, evitando a necessidade de instalar as aplicações por si mesmo ou criar as suas próprias imagens personalizadas com as aplicações instaladas. 
+* Licenciamento por pagamento para aplicações de prestação:
+  * Pode optar por pagar as aplicações ao minuto, além de pagar os VMs computacionais, o que evita ter de comprar licenças e potencialmente configurar um servidor de licença para as aplicações.  Pagar pela utilização também significa que é possível atender a cargavariada e inesperada, uma vez que não existe um número fixo de licenças.
+  * Também é possível utilizar as aplicações pré-instaladas com as suas próprias licenças e não utilizar o licenciamento pay-per-use. Para isso, normalmente instala-se um servidor de licença baseado no Local ou azure e utiliza uma rede virtual Azure para ligar a piscina de renderização ao servidor de licenças.
+* Plug-ins para design de clientes e aplicações de modelação:
+  * Os plug-ins permitem que os utilizadores finais utilizem o Lote Azure diretamente a partir da aplicação do cliente, como a Autodesk Maya, permitindo-lhes criar piscinas, submeter empregos e utilizar mais capacidade de computação para realizar renderizações mais rápidas.
+* Integração de gestor de renderização:
+  * O Azure Batch está integrado em aplicações de gestão renderizadas ou plug-ins estão disponíveis para fornecer a integração do Lote Azure.
 
-Existem várias formas de utilizar o Azure Batch, que também se aplicam ao Azure Batch rendering.
+Existem várias formas de utilizar o Lote Azure, que também se aplicam à renderização do Lote Azure.
 
 * APIs:
-  * Escrever código com o [REST](https://docs.microsoft.com/rest/api/batchservice), [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/batch), [Python](https://docs.microsoft.com/python/api/overview/azure/batch), [Java](https://docs.microsoft.com/java/api/overview/azure/batch), ou outro suporte de APIs.  Os desenvolvedores podem integrar capacidades do Azure Batch em seus aplicativos existentes ou o fluxo de trabalho, quer na cloud ou com base no local.  Por exemplo, o [Autodesk Maya Plug-in](https://github.com/Azure/azure-batch-maya) utiliza a API de Python do Batch para invocar o Batch, criar e gerir conjuntos, submeter trabalhos e tarefas e monitorização do Estado.
-* Ferramentas de linha de comandos:
-  * O [linha de comandos do Azure](https://docs.microsoft.com/cli/azure/) ou [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) pode ser utilizado para a utilização de Batch do script.
-  * Em particular, o suporte de modelo de CLI do Batch torna muito mais fácil criar agrupamentos e submeter tarefas.
-* Interfaces do usuário:
-  * [Explorador do batch](https://github.com/Azure/BatchExplorer) é uma ferramenta de cliente para várias plataformas, que também permite que as contas do Batch a ser geridos e monitorizados, mas fornece algumas capacidades mais ricas em comparação comparadas a IU do portal do Azure.  Um conjunto de modelos de conjunto e o trabalho são desde que são adaptados para cada aplicativo suportado e pode ser usado para facilmente criar agrupamentos e submeter tarefas.
-  * O portal do Azure pode ser utilizado para gerir e monitorizar o Azure Batch.
-* Cliente aplicativo do plug-in:
-  * Plug-ins estão disponíveis que permitem a composição do Batch para ser utilizada a partir diretamente do design de cliente e aplicações de modelos. Os plug-ins principalmente invocar a aplicação do Explorador do Batch com informações contextuais sobre o atual modelo 3D.
-  * Os plug-ins seguintes estão disponíveis:
-    * [O Azure Batch para Maya](https://github.com/Azure/azure-batch-maya)
+  * Escreva código utilizando o [REST](https://docs.microsoft.com/rest/api/batchservice), [.NET,](https://docs.microsoft.com/dotnet/api/overview/azure/batch) [Python,](https://docs.microsoft.com/python/api/overview/azure/batch) [Java,](https://docs.microsoft.com/java/api/overview/azure/batch)ou outras APIs suportadas.  Os desenvolvedores podem integrar as capacidades do Azure Batch nas suas aplicações ou fluxos de trabalho existentes, seja em nuvem ou com base no local.  Por exemplo, o [plug-in Autodesk Maya](https://github.com/Azure/azure-batch-maya) utiliza a API do Batch Python para invocar o Batch, criar e gerir piscinas, submeter empregos e tarefas e monitorizar o estado.
+* Ferramentas de linha de comando:
+  * A linha de [comando Azure](https://docs.microsoft.com/cli/azure/) ou [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) podem ser utilizadas para a utilização do lote.
+  * Em particular, o suporte do modelo DE Lote CLI torna muito mais fácil criar piscinas e apresentar empregos.
+* UIs:
+  * [O Batch Explorer](https://github.com/Azure/BatchExplorer) é uma ferramenta de cliente transversal que também permite que as contas do Batch sejam geridas e monitorizadas, mas fornece algumas capacidades mais ricas em comparação com o portal Azure UI.  Um conjunto de modelos de bilhar e de trabalho são fornecidos que são personalizados para cada aplicação apoiada e podem ser usados para criar facilmente piscinas e para apresentar empregos.
+  * O portal Azure pode ser utilizado para gerir e monitorizar o Lote Azure.
+* Plug-in de aplicação de cliente:
+  * Estão disponíveis plug-ins que permitem que a renderização do Lote seja utilizada diretamente dentro das aplicações de design e modelação do cliente. Os plug-ins invocam principalmente a aplicação Batch Explorer com informações contextuais sobre o atual modelo 3D.
+  * Estão disponíveis os seguintes plug-ins:
+    * [Lote Azure para Maya](https://github.com/Azure/azure-batch-maya)
     * [3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
-    * [Blender](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
+    * [Liquidificador](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
 
-## <a name="getting-started-with-azure-batch-rendering"></a>Introdução ao Azure Batch rendering
+## <a name="getting-started-with-azure-batch-rendering"></a>Começando com a renderização do Lote Azure
 
-Consulte os seguintes tutoriais de introdução para experimentar o Azure Batch rendering:
+Consulte os seguintes tutoriais introdutórios para experimentar a renderização do Lote Azure:
 
-* [Utilize o Explorador do Batch para compor uma cena Blender](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
-* [Utilizar a CLI do Batch para compor uma cena Autodesk 3ds Max](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
+* [Use o Batch Explorer para renderizar uma cena de liquidificador](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
+* [Utilize o Batch CLI para renderizar uma cena Autodesk 3ds Max](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Determinar a lista de aplicações de composição e versões incluídas nas imagens de VM do Azure Marketplace no [este artigo](https://docs.microsoft.com/azure/batch/batch-rendering-applications).
+Determine a lista de aplicações e versões de renderização incluídas nas imagens VM do Azure Marketplace [neste artigo](https://docs.microsoft.com/azure/batch/batch-rendering-applications).

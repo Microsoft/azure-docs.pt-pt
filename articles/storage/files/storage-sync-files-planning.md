@@ -1,5 +1,5 @@
 ---
-title: Planejamento de uma implantação de Sincronização de Ficheiros Azure  Microsoft Docs
+title: Planejamento de uma implantação de Sincronização de Ficheiros Azure [ Microsoft Docs
 description: Saiba o que considerar ao planear uma implementação de Ficheiros Azure.
 author: roygara
 ms.service: storage
@@ -8,10 +8,10 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0684f626553946619a0db2cd895df39576bd17b9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255122"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
@@ -50,7 +50,7 @@ Ao implementar o Azure File Sync, recomendamos:
 - Prestando atenção às limitações iops de uma conta de armazenamento ao implementar ações de ficheiros Azure. Idealmente, você mapearia as partilhas de ficheiros 1:1 com contas de armazenamento, no entanto isso pode nem sempre ser possível devido a vários limites e restrições, tanto da sua organização como do Azure. Quando não for possível ter apenas uma parte de ficheiro implantada numa conta de armazenamento, considere quais as ações que serão altamente ativas e quais as ações que serão menos ativas para garantir que as ações de ficheiro mais quentes não sejam colocadas na mesma conta de armazenamento em conjunto.
 
 ## <a name="windows-file-server-considerations"></a>Considerações de servidor de ficheiros do Windows
-Para ativar a capacidade de sincronização no Windows Server, tem de instalar o agente descarregado rentreficheiro Sinifáto Azure. O agente Dossincronização de ficheiros Azure fornece dois componentes principais: `FileSyncSvc.exe`, o serviço de fundo Windows responsável pela monitorização de alterações nos pontos finais do servidor e início de sessões de sincronização, e `StorageSync.sys`, um filtro de sistema de ficheiros que permite o tiering em nuvem e a rápida recuperação de desastres.  
+Para ativar a capacidade de sincronização no Windows Server, tem de instalar o agente descarregado rentreficheiro Sinifáto Azure. O agente Azure File Sync fornece `FileSyncSvc.exe`dois componentes principais: o serviço de fundo Windows responsável pela monitorização de `StorageSync.sys`alterações nos pontos finais do servidor e início de sessões de sincronização, e , um filtro de sistema de ficheiros que permite o tiering em nuvem e a rápida recuperação de desastres.  
 
 ### <a name="operating-system-requirements"></a>Requisitos do sistema operativo
 O Azure File Sync é suportado com as seguintes versões do Windows Server:
@@ -83,16 +83,16 @@ Os dados do espaço de nome são armazenados na memória por razões de desempen
  
 Na tabela seguinte, fornecemos tanto o tamanho do espaço de nome como uma conversão para a capacidade para ações típicas de ficheiros de finalidade geral, onde o tamanho médio do ficheiro é de 512 KiB. Se os tamanhos dos seus ficheiros forem menores, considere adicionar memória adicional para a mesma quantidade de capacidade. Baseie a configuração da sua memória no tamanho do espaço de nome.
 
-| Tamanho do espaço de nome - ficheiros e diretórios (milhões)  | Capacidade típica (TiB)  | Núcleos de CPU  | Memória recomendada (GiB) |
+| Tamanho do espaço de nome - ficheiros & diretórios (milhões)  | Capacidade típica (TiB)  | Núcleos cpu  | Memória recomendada (GiB) |
 |---------|---------|---------|---------|
 | 3        | 1.4     | 2        | 8 (sincronização inicial)/ 2 (churn típico)      |
 | 5        | 2.3     | 2        | 16 (sincronização inicial)/ 4 (churn típico)    |
 | 10       | 4.7     | 4        | 32 (sincronização inicial)/ 8 (churn típico)   |
 | 30       | 14.0    | 8        | 48 (sincronização inicial)/ 16 (churn típico)   |
 | 50       | 23.3    | 16       | 64 (sincronização inicial)/ 32 (churn típico)  |
-| 100 *     | 46.6    | 32       | 128 (sincronização inicial)/ 32 (churn típico)  |
+| 100*     | 46.6    | 32       | 128 (sincronização inicial)/ 32 (churn típico)  |
 
-\*Sincronizar mais de 100 milhões de ficheiros e diretórios não é recomendado neste momento. Este é um limite suave baseado nos nossos limiares testados. Para mais informações, consulte a escalabilidade e os alvos de desempenho do [Azure Files.](storage-files-scale-targets.md#azure-file-sync-scale-targets)
+\*Sincronizar mais de 100 milhões de ficheiros & diretórios não é recomendado neste momento. Este é um limite suave baseado nos nossos limiares testados. Para mais informações, consulte a escalabilidade e os alvos de desempenho do [Azure Files.](storage-files-scale-targets.md#azure-file-sync-scale-targets)
 
 > [!TIP]
 > A sincronização inicial de um espaço de nome é uma operação intensiva e recomendamos a atribuição de mais memória até que a sincronização inicial esteja completa. Isto não é necessário, mas.pode acelerar a sincronização inicial. 
@@ -136,9 +136,9 @@ Apenas os volumes NTFS são suportados; ReFS, FAT, FAT32 e outros sistemas de fi
 
 A tabela que se segue mostra o estado interop das funcionalidades do sistema de ficheiros NTFS: 
 
-| Funcionalidade | Estado de apoio | Notas |
+| Funcionalidade | Estado do suporte | Notas |
 |---------|----------------|-------|
-| Listas de controlo de acesso (ACLs) | Totalmente apoiado | As listas de controlo discricionáriode de acesso ao estilo do Windows são preservadas pelo Azure File Sync e são aplicadas pelo Windows Server nos pontos finais do servidor. Os ACLs também podem ser aplicados ao montar em direto a parte do ficheiro Azure, no entanto isso requer uma configuração adicional. Consulte a [secção Identidade](#identity) para mais informações. |
+| Listas de controlo de acesso (ACL) | Totalmente apoiado | As listas de controlo discricionáriode de acesso ao estilo do Windows são preservadas pelo Azure File Sync e são aplicadas pelo Windows Server nos pontos finais do servidor. Os ACLs também podem ser aplicados ao montar em direto a parte do ficheiro Azure, no entanto isso requer uma configuração adicional. Consulte a [secção Identidade](#identity) para mais informações. |
 | Ligações fixas | Ignorado | |
 | Ligações simbólicas | Ignorado | |
 | Pontos de montagem | Parcialmente apoiado | Os pontos de montagem podem ser a raiz de um ponto final do servidor, mas são ignorados se estiverem contidos no espaço de nome de um ponto final do servidor. |
@@ -154,17 +154,17 @@ A tabela que se segue mostra o estado interop das funcionalidades do sistema de 
 |-|-|
 | pagefile.sys | Ficheiro específico do sistema |
 | Desktop.ini | Ficheiro específico do sistema |
-| thumbs.db | Arquivo temporário para miniaturas |
+| polegares.db | Arquivo temporário para miniaturas |
 | ehthumbs.db | Arquivo temporário para miniaturas de mídia |
 | ~$\*.\* | Arquivo temporário do escritório |
 | \*.tmp | Arquivo temporário |
 | \*.laccdb | Ficheiro de bloqueio DB de acesso|
 | 635D02A9D91C401B97884B82B3BCDAEA.* | Ficheiro Sincronizado Interno|
-| informações sobre o volume do sistema de \\ | Pasta específica ao volume |
-| $RECYCLE.BIN| Pasta |
+| \\Informação sobre o volume do sistema | Pasta específica ao volume |
+| $RECYCLE. CAIXOTE DO LIXO| Pasta |
 | \\SyncShareState | Pasta para Sincronização |
 
-### <a name="failover-clustering"></a>Agrupamento failover
+### <a name="failover-clustering"></a>Clustering de Ativação Pós-falha
 O Clusterde failover do Windows Server é suportado pelo WebE File Sync para a opção de implementação "File Server for general use". O Clusterde Failover não é suportado no "Scale-Out File Server para dados de aplicação" (SOFS) ou em Volumes Partilhados Clustered (CSVs).
 
 > [!Note]  
@@ -202,9 +202,9 @@ O Azure File Sync não suporta a desduplicação de dados e o tiering em nuvem n
 ### <a name="distributed-file-system-dfs"></a>Sistema de Ficheiros Distribuídos (DFS)
 O Azure File Sync suporta o interop com espaços de nomedfs (DFS-N) e replicação DFS (DFS-R).
 
-**DFS Namespaces (DFS-N)** : O Sync de Ficheiros Azure é totalmente suportado nos servidores DFS-N. Pode instalar o agente Dessincronização de ficheiros Azure num ou mais membros DODFS-N para sincronizar dados entre os pontos finais do servidor e o ponto final da nuvem. Para mais informações, consulte a [visão geral dos espaços de nomes do DFS](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
+**DFS Namespaces (DFS-N)**: O Sync de Ficheiros Azure é totalmente suportado nos servidores DFS-N. Pode instalar o agente Dessincronização de ficheiros Azure num ou mais membros DODFS-N para sincronizar dados entre os pontos finais do servidor e o ponto final da nuvem. Para mais informações, consulte a [visão geral dos espaços de nomes do DFS](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
  
-**Replicação DFS (DFS-R)** : Uma vez que DFS-R e Azure File Sync são ambas soluções de replicação, na maioria dos casos, recomendamos a substituição do DFS-R por Sincronização de Ficheiros Azure. Existem, no entanto, vários cenários em que desejaria utilizar juntos dfS-R e Azure File Sync:
+**Replicação DFS (DFS-R)**: Uma vez que DFS-R e Azure File Sync são ambas soluções de replicação, na maioria dos casos, recomendamos a substituição do DFS-R por Sincronização de Ficheiros Azure. Existem, no entanto, vários cenários em que desejaria utilizar juntos dfS-R e Azure File Sync:
 
 - Está a migrar de uma implantação DFS-R para uma implantação de Sincronização de Ficheiros Azure. Para mais informações, consulte [migrate uma implementação de replicação DFS (DFS-R) para O Sincronizado de Ficheiros Azure](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync).
 - Nem todos os servidores no local que necessitem de uma cópia dos seus dados de ficheiros podem ser ligados diretamente à internet.
@@ -220,7 +220,7 @@ Para mais informações, consulte a [visão geral da replicação do DFS](https:
 ### <a name="sysprep"></a>Sysprep
 A utilização de sysprep num servidor que tenha o agente Dessincronizado de Ficheiros Azure instalado não é suportada e pode levar a resultados inesperados. A instalação do agente e o registo do servidor devem ocorrer após a implementação da imagem do servidor e de completar a mini-configuração de sysprep.
 
-### <a name="windows-search"></a>Pesquisa do Windows
+### <a name="windows-search"></a>Windows Search
 Se o tiering de nuvem estiver ativado num ponto final do servidor, os ficheiros que são hierárquicos são ignorados e não indexados pelo Windows Search. Os ficheiros não nidificantes estão devidamente indexados.
 
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Outras soluções hierárquicas de gestão de armazenamento (HSM)
@@ -245,7 +245,7 @@ Com base na política da sua organização ou requisitos regulamentares únicos,
 - Atividade de rede de aceleração do Azure File Sync.
 
 Para saber mais sobre a configuração da funcionalidade de networking do Azure File Sync, consulte:
-- [Definições do proxy e da firewall do Azure File Sync](storage-sync-files-firewall-and-proxy.md)
+- [Definições da firewall e do proxy do Azure File Sync](storage-sync-files-firewall-and-proxy.md)
 - [Garantir o Azure File Sync é um bom vizinho no seu datacenter](storage-sync-files-server-registration.md)
 
 ## <a name="encryption"></a>Encriptação
@@ -262,7 +262,7 @@ O outro método principal para encriptar dados é encriptar o fluxo de dados do 
 
 O Azure File Sync não opera com o NTFS Encrypted File System (NTFS EFS) ou com soluções de encriptação de terceiros que se sentam acima do sistema de ficheiros, mas abaixo do fluxo de dados do ficheiro. 
 
-### <a name="encryption-in-transit"></a>Encriptação em trânsito
+### <a name="encryption-in-transit"></a>Encriptação de dados em circulação
 O agente Azure File Sync comunica com o seu Serviço de Sincronização de Armazenamento e partilha de ficheiros Azure utilizando o protocolo De sincronização de ficheiros Azure e o protocolo FileREST, ambos utilizando sempre HTTPS sobre a porta 443. O Azure File Sync não envia pedidos não encriptados em HTTP. 
 
 As contas de armazenamento azure contêm um interruptor para exigir encriptação em trânsito, que é ativado por padrão. Mesmo que o interruptor ao nível da conta de armazenamento seja desativado, o que significa que as ligações não encriptadas às suas ações de ficheiro Saqueado são possíveis, o Azure File Sync continuará a utilizar apenas canais encriptados para aceder à sua partilha de ficheiros.
@@ -276,7 +276,7 @@ Para obter mais informações sobre encriptação em trânsito, consulte a neces
 ### <a name="azure-file-share-encryption-at-rest"></a>Encriptação de partilha de ficheiros Azure em repouso
 [!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
 
-## <a name="storage-tiers"></a>Níveis de armazenamento
+## <a name="storage-tiers"></a>Camadas de armazenamento
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 
 ### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Ativar as ações de ficheiro padrão até 100 TiB
@@ -288,7 +288,7 @@ Para obter mais informações sobre encriptação em trânsito, consulte a neces
 ## <a name="azure-file-sync-region-availability"></a>Disponibilidade da região de sincronização de ficheiros Azure
 O Azure File Sync está disponível nas seguintes regiões:
 
-| Nuvem azul | Região geográfica | Região do Azure | Código da região |
+| Nuvem do Azure | Região geográfica | Região do Azure | Código da região |
 |-------------|-------------------|--------------|-------------|
 | Público | Ásia | Ásia Leste | `eastasia` |
 | Público | Ásia | Ásia Sudeste | `southeastasia` |
@@ -298,7 +298,7 @@ O Azure File Sync está disponível nas seguintes regiões:
 | Público | Canadá | Canadá Central | `canadacentral` |
 | Público | Canadá | Leste do Canadá | `canadaeast` |
 | Público | Europa | Europa do Norte | `northeurope` |
-| Público | Europa | Europa Ocidental | `westeurope` |
+| Público | Europa | Europa ocidental | `westeurope` |
 | Público | França | França Central | `francecentral` |
 | Público | França | França Sul* | `francesouth` |
 | Público | Índia | Índia Central | `centralindia` |
@@ -311,8 +311,8 @@ O Azure File Sync está disponível nas seguintes regiões:
 | Público | África do Sul | África do Sul Oeste* | `southafricawest` |
 | Público | E.A.U. | Central dos Emirados Emirados ArMeTos* | `uaecentral` |
 | Público | E.A.U. | Emirados Unidos norte | `uaenorth` |
-| Público | RU | Sul do Reino Unido | `uksouth` |
-| Público | RU | Oeste do Reino Unido | `ukwest` |
+| Público | REINO UNIDO | Sul do Reino Unido | `uksouth` |
+| Público | REINO UNIDO | Oeste do Reino Unido | `ukwest` |
 | Público | EUA | E.U.A. Central | `centralus` |
 | Público | EUA | E.U.A. Leste | `eastus` |
 | Público | EUA | E.U.A. Leste 2 | `eastus2` |
@@ -321,9 +321,9 @@ O Azure File Sync está disponível nas seguintes regiões:
 | Público | EUA | E.U.A. Centro-Oeste | `westcentralus` |
 | Público | EUA | E.U.A. Oeste | `westus` |
 | Público | EUA | E.U.A.Oeste 2 | `westus2` |
-| Gov dos EUA | EUA | US Gov - Arizona | `usgovarizona` |
-| Gov dos EUA | EUA | US Gov - Texas | `usgovtexas` |
-| Gov dos EUA | EUA | US Gov - Virginia | `usgovvirginia` |
+| US Gov | EUA | US Gov - Arizona | `usgovarizona` |
+| US Gov | EUA | US Gov - Texas | `usgovtexas` |
+| US Gov | EUA | US Gov - Virginia | `usgovvirginia` |
 
 O Azure File Sync suporta sincronizar apenas com uma partilha de ficheiros Azure que está na mesma região que o Serviço de Sincronização de Armazenamento.
 
@@ -340,7 +340,7 @@ Se tiver um servidor de ficheiros Windows existente, o Azure File Sync pode ser 
 
 - Crie pontos finais do servidor para a sua antiga partilha de ficheiros e a sua nova partilha de ficheiros e deixe o Sync do Ficheiro Azure sincronizar os dados entre os pontos finais do servidor. A vantagem desta abordagem é que torna muito fácil subscrever demasiado o armazenamento no seu novo servidor de ficheiros, uma vez que o Azure File Sync está ciente de um tiering em nuvem. Quando estiver pronto, pode cortar os utilizadores finais para a partilha de ficheiros no novo servidor e remover o ponto final do servidor da antiga partilha de ficheiros.
 
-- Crie um ponto final do servidor apenas no novo servidor de ficheiros e copie dados a partir da antiga partilha de ficheiros utilizando `robocopy`. Dependendo da topologia das partilhas de ficheiros no seu novo servidor (quantas ações tem em cada volume, quão livre é cada volume, etc.), poderá ter de fornecer temporariamente armazenamento adicional, uma vez que se espera que `robocopy` do seu antigo servidor para o seu novo servidor dentro do seu datacenter no local, será concluída mais rapidamente do que o Azure File Sync irá mover dados para o Azure.
+- Crie um ponto final do servidor apenas no novo servidor `robocopy`de ficheiros e copie os dados a partir da antiga partilha de ficheiros utilizando . Dependendo da topologia das partilhas de ficheiros no seu novo servidor (quantas ações tem em cada volume, quão livre é `robocopy` cada volume, etc.), poderá ter de fornecer temporariamente armazenamento adicional, pois espera-se que do seu antigo servidor para o seu novo servidor dentro do seu datacenter no local seja concluído mais rapidamente do que o Azure File Sync irá mover dados para o Azure.
 
 Também é possível utilizar a Data Box para migrar dados para uma implementação de Sincronização de Ficheiros Azure. Na maior parte das vezes, quando os clientes querem usar a Data Box para ingerir dados, fazem-no porque pensam que vai aumentar a velocidade da sua implantação ou porque ajudará com cenários de largura de banda limitados. Embora seja verdade que a utilização de uma Caixa de Dados para ingerir dados na sua implementação do Sync de Ficheiros Azure diminuirá a utilização da largura de banda, é provável que seja mais rápida para a maioria dos cenários prosseguir um upload de dados online através de um dos métodos acima descritos. Para saber mais sobre como utilizar a Data Box para ingerir dados na sua implementação de Sincronização de Ficheiros Azure, consulte os [dados migrate para o Sync de Ficheiros Azure com](storage-sync-offline-data-transfer.md)a Caixa de Dados Azure .
 
@@ -370,7 +370,7 @@ Se estiver a utilizar uma solução de backup no local, as cópias de segurança
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Considere configurações de firewall e proxy](storage-sync-files-firewall-and-proxy.md)
-* [Planning for an Azure Files deployment](storage-files-planning.md) (Planear uma implementação de Ficheiros do Azure)
-* [Implementar ficheiros Azure](storage-files-deployment-guide.md)
+* [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
+* [Implementar os Ficheiros do Azure](storage-files-deployment-guide.md)
 * [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)
 * [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)

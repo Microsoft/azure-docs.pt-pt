@@ -8,17 +8,17 @@ ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
 ms.openlocfilehash: 16e8f770445218e10ab7e7645a81325d11be55da
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77505960"
 ---
-# <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Otimizar o custo com capacidade reservada no Azure Cosmos DB
+# <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Otimizar o custo com a capacidade de reserva no Azure Cosmos DB
 
 A capacidade reservada do Azure Cosmos DB ajuda-o a poupar dinheiro ao consolidar uma reserva de recursos do Azure Cosmos DB durante um ou três anos. Com a capacidade reservada do Azure Cosmos DB, pode obter um desconto no débito aprovisionado dos recursos do Cosmos DB. Exemplos de recursos incluem bases de dados e contentores (tabelas, coleções e grafos).
 
-A capacidade reservada da Azure Cosmos DB pode reduzir significativamente os seus custos de DB cosmos&mdash;até 65% a preços regulares com um compromisso inicial de um ano ou três anos. A capacidade reservada proporciona um desconto de faturação e não afeta o estado de funcionamento dos seus recursos DB Azure Cosmos.
+A capacidade reservada da Azure Cosmos DB pode&mdash;reduzir significativamente os seus custos de DB cosmos até 65% em preços regulares com um compromisso inicial de um ano ou três anos. A capacidade reservada proporciona um desconto de faturação e não afeta o estado de funcionamento dos seus recursos DB Azure Cosmos.
 
 A capacidade reservada da Azure Cosmos DB cobre a entrada prevista para os seus recursos. Não abrange os custos de armazenamento e de rede. Assim que comprar uma reserva, as taxas de entrada que correspondem aos atributos de reserva já não são cobradas pelas tarifas pagas. Para mais informações sobre reservas, consulte o artigo de [reservas do Azure.](../cost-management-billing/reservations/save-compute-costs-reservations.md)
 
@@ -36,7 +36,7 @@ Calculamos recomendações de compra com base no seu padrão de utilização hor
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).  
 
-2. Selecione **todos os serviços** > **Reservas** > **Adicionar**.
+2. Selecione **todos os serviços** > **Reservations** > **Reservas Adicionar**.
 
 3. Do painel de **reservas de compra,** escolha **Azure Cosmos DB**.
 
@@ -60,7 +60,7 @@ Esta recomendação de compra de uma reserva de 30.000 RU/s indica que, entre 3 
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).  
 
-2. Selecione **todos os serviços** > **Reservas** > **Adicionar**.  
+2. Selecione **todos os serviços** > **Reservations** > **Reservas Adicionar**.  
 
 3. A partir do painel de **reservas de compra,** escolha **Azure Cosmos DB** para comprar uma nova reserva.  
 
@@ -92,7 +92,7 @@ Quando a sua reserva expira, os seus casos de Azure Cosmos DB continuam a funcio
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Self-service exchanges and refunds for Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md) (Trocas e reembolsos self-service para Reservas do Azure).
+Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -103,11 +103,11 @@ O desconto de reserva é aplicado automaticamente aos recursos DO Azure Cosmos D
 * Para saber mais sobre as reservas do Azure, veja os seguintes artigos:
 
    * [O que são as reservas do Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)  
-   * [Gerir reservas do Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md)  
+   * [Gerir reservas azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md)  
    * [Compreender a utilização de reservas na inscrição Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)  
    * [Compreender a utilização de reservas na sua subscrição Pay As You Go](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
    * [Reservas azure no programa CSP partner Center](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se tiver dúvidas ou precisar de ajuda, [crie um pedido](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)de apoio.

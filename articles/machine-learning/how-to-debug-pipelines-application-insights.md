@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.custom: seodec18
 ms.openlocfilehash: 85dcd9ef98deb2ea0117f2db280e49c4a57bf00f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76776303"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines-in-application-insights"></a>Depuração e problemas de aprendizagem automática em Insights de Aplicação
@@ -28,7 +28,7 @@ Ter os seus registos no local uma vez fornecerá um histórico de exceções e m
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Siga os passos para criar um espaço de trabalho [Azure Machine Learning](./how-to-manage-workspace.md) e [crie o seu primeiro pipeline](./how-to-create-your-first-pipeline.md)
-* [Configurar o ambiente de desenvolvimento](./how-to-configure-environment.md) para instalar o SDK do Azure Machine Learning.
+* [Configure o seu ambiente](./how-to-configure-environment.md) de desenvolvimento para instalar o Azure Machine Learning SDK.
 * Instale o pacote [OpenCensus Azure Monitor Exporter](https://pypi.org/project/opencensus-ext-azure/) localmente:
   ```python
   pip install opencensus-ext-azure
@@ -39,7 +39,7 @@ Ter os seus registos no local uma vez fornecerá um histórico de exceções e m
 
 Esta secção é uma introdução específica para a utilização do OpenCensus a partir de um pipeline Azure Machine Learning. Para um tutorial detalhado, consulte [Os Exportadores de Monitor OpenCensus Azure](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 
-Adicione um PythonScriptStep ao seu Pipeline Azure ML. Configure a sua [Configuração run com](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) a dependência do opencensus-ext-azure. Configure a variável ambiente `APPLICATIONINSIGHTS_CONNECTION_STRING`.
+Adicione um PythonScriptStep ao seu Pipeline Azure ML. Configure a sua [Configuração run com](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) a dependência do opencensus-ext-azure. Configure `APPLICATIONINSIGHTS_CONNECTION_STRING` a variável ambiental.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies
@@ -142,7 +142,7 @@ logger.info("I will be sent to Application Insights with Custom Dimensions", cus
 
 O OpenCensus AzureLogHandler é utilizado para direcionar os registos python para insights de aplicação. Como resultado, as nuances de registo python devem ser consideradas. Quando um madeireiro é criado, tem um nível de registo predefinido e mostrará registos superiores ou iguais a esse nível. Uma boa referência para a utilização de características de exploração de python é o [Livro de Receitas de Exploração Madeireira.](https://docs.python.org/3/howto/logging-cookbook.html)
 
-A variável ambiente `APPLICATIONINSIGHTS_CONNECTION_STRING` é necessária para a biblioteca OpenCensus. Recomendamos que esta variável ambiental em vez de a transmitir como parâmetro de gasoduto para evitar passar em torno de cordas de ligação de texto simples.
+A `APPLICATIONINSIGHTS_CONNECTION_STRING` variável ambiental é necessária para a biblioteca OpenCensus. Recomendamos que esta variável ambiental em vez de a transmitir como parâmetro de gasoduto para evitar passar em torno de cordas de ligação de texto simples.
 
 ## <a name="querying-logs-in-application-insights"></a>Consulta de registos em Insights de Aplicação
 
@@ -163,7 +163,7 @@ Algumas das consultas abaixo utilizam 'customDimensions.Level'. Estes níveis de
 | Registar resultados com erro de nível de gravidade dos últimos 7 dias              | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.Level == 'ERROR'                     |
 | Contagem dos resultados do registo com erro de nível de gravidade nos últimos 7 dias     | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.Level == 'ERROR' \| <br>summarize count()</pre> |
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 Uma vez que tenha registos na sua instância Deinsights de Aplicação, podem ser usados para definir [alertas do Monitor Azure](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on) com base em resultados de consulta.
 

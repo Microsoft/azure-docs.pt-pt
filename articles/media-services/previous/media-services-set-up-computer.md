@@ -1,6 +1,6 @@
 ---
 title: Configurar o ambiente de desenvolvimento dos Serviços de Multimédia do Azure | Microsoft Docs
-description: Este artigo descreve como configurar seu ambiente para desenvolvimento com os serviços de mídia do Azure.
+description: Este artigo descreve como configurar o seu ambiente para o desenvolvimento com a Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,20 +15,20 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 5ef9b3d6f13de70cdf2fff87d9aed0a8efc2b782
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74895789"
 ---
 # <a name="set-up-your-media-services-development-environment"></a>Configurar o ambiente de desenvolvimento dos Serviços de Multimédia  
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Os passos seguintes descrevem os pré-requisitos necessários para o desenvolvimento com os Media Services do Azure.
 
-## <a name="create-a-media-services-account"></a>Criar uma conta de Serviços de Multimédia
+## <a name="create-a-media-services-account"></a>Criar uma conta dos Media Services
 Utilize o Portal do Azure, o SDK do .NET ou a API REST para criar uma conta dos Serviços de Multimédia do Azure.
 
 <a id="setup_dev_env"></a>

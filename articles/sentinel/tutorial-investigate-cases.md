@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
 ms.openlocfilehash: ecd8c508d05bfeb541a6cb5efbcdf2fffd3c78d3
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77587197"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutorial: Investigar incidentes com Azure Sentinel
@@ -26,7 +26,7 @@ ms.locfileid: "77587197"
 > [!IMPORTANT]
 > O gráfico de investigação está atualmente em pré-visualização pública.
 > Esta funcionalidade é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 
 Este tutorial ajuda-o a investigar incidentes com O Sentinel. Depois de ligar as suas fontes de dados ao Azure Sentinel, pretende ser notificado quando algo suspeito acontecer. Para que possa fazê-lo, o Azure Sentinel permite-lhe criar regras avançadas de alerta, que geram incidentes que pode atribuir e investigar.
@@ -54,7 +54,7 @@ Só poderá investigar o incidente se usou os campos de mapeamento da entidade q
 
 1. Para ver mais detalhes sobre os alertas e entidades do incidente, selecione **Ver todos os detalhes** na página do incidente e rever os separadores relevantes que resumem as informações do incidente. No separador **Alertas,** reveja o alerta em si. Pode ver todas as informações relevantes sobre o alerta – a consulta que desencadeou o alerta, o número de resultados devolvidos por consulta e a capacidade de executar playbooks nos alertas. Para aprofundar ainda mais o incidente, selecione o número de **Eventos**. Isto abre a consulta que gerou os resultados e os eventos que desencadearam o alerta no Log Analytics. No separador **Entidades,** pode ver todas as entidades que mapeou como parte da definição de regra de alerta.
 
-    ![Visualizar os detalhes do alerta](media/tutorial-investigate-cases/alert-details.png)
+    ![Ver detalhes de alerta](media/tutorial-investigate-cases/alert-details.png)
 
 1. Se está a investigar ativamente um incidente, é uma boa ideia definir o estado do incidente **até** que o feche.
 
@@ -97,7 +97,7 @@ Para utilizar o gráfico de investigação:
 
     ![Ver alertas relacionados](media/tutorial-investigate-cases/related-alerts.png)
 
-1. Para cada consulta de exploração, pode selecionar a opção de abrir os resultados do evento bruto e a consulta utilizada no Log Analytics, selecionando **Eventos\>** .
+1. Para cada consulta de exploração, pode selecionar a opção de abrir os resultados do evento bruto e a consulta utilizada no Log Analytics, selecionando **Eventos\>**.
 
 1. Para compreender o incidente, o gráfico dá-lhe uma linha temporal paralela.
 

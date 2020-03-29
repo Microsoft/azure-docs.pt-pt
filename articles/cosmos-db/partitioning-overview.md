@@ -1,5 +1,5 @@
 ---
-title: Partição em Azure Cosmos DB
+title: Criação de partições no Azure Cosmos DB
 description: Aprenda sobre a partilha em Azure Cosmos DB, as melhores práticas ao escolher uma chave de partição, e como gerir divisórias lógicas
 author: markjbrown
 ms.author: mjbrown
@@ -7,17 +7,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: 551703b5dcca082904197010366ee059998dde4b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251872"
 ---
-# <a name="partitioning-in-azure-cosmos-db"></a>Partição em Azure Cosmos DB
+# <a name="partitioning-in-azure-cosmos-db"></a>Criação de partições no Azure Cosmos DB
 
 A Azure Cosmos DB utiliza a partilha para escalar recipientes individuais numa base de dados para atender às necessidades de desempenho da sua aplicação. Na partilha, os itens de um recipiente são divididos em subconjuntos distintos *chamados divisórias lógicas*. As divisórias lógicas são formadas com base no valor de uma chave de *partição* que está associada a cada item num recipiente. Todos os itens numa divisória lógica têm o mesmo valor-chave de partição.
 
-Por exemplo, um recipiente contém itens. Cada item tem um valor único para a propriedade `UserID`. Se `UserID` servir como chave de partição para os itens no recipiente e houver 1.000 valores únicos de `UserID`, 1.000 divisórias lógicas são criadas para o recipiente.
+Por exemplo, um recipiente contém itens. Cada item tem um `UserID` valor único para a propriedade. Se `UserID` servir como chave de partição para os itens no recipiente `UserID` e existem 1.000 valores únicos, 1.000 divisórias lógicas são criadas para o recipiente.
 
 Além de uma chave de partição que determina a partição lógica do item, cada item num recipiente tem um ID de *item* (único dentro de uma divisória lógica). Combinar a chave de partição e o ID do item cria o *índice*do item, que identifica exclusivamente o item.
 
@@ -33,7 +33,7 @@ As consultas que acedem a dados dentro de uma única divisória lógica são mai
 
 Para saber mais sobre como o Azure Cosmos DB gere as divisórias, consulte [divisórias lógicas.](partition-data.md) (Não é necessário compreender os detalhes internos para construir ou executar as suas aplicações, mas adicionado aqui para um leitor curioso.)
 
-## <a id="choose-partitionkey"></a>Escolher uma chave de partição
+## <a name="choosing-a-partition-key"></a><a id="choose-partitionkey"></a>Escolher uma chave de partição
 
 Segue-se uma boa orientação para a escolha de uma chave de partição:
 
@@ -47,7 +47,7 @@ Segue-se uma boa orientação para a escolha de uma chave de partição:
 
 * Os candidatos a chaves de partição podem incluir propriedades que aparecem frequentemente como filtro nas suas consultas. As consultas podem ser eficientemente encaminhadas, incluindo a chave de partição no predicado do filtro.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda sobre [divisórias e escalas horizontais em Azure Cosmos DB](partition-data.md).
 * Saiba mais sobre [a provisão disponibilizada em Azure Cosmos DB](request-units.md).

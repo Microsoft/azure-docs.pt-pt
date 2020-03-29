@@ -1,6 +1,6 @@
 ---
-title: Integração contínua & implantação contínua-Azure IoT Edge
-description: Configurar a integração contínua e implementação contínua – Azure IoT Edge com o Azure DevOps, Pipelines do Azure
+title: Integração contínua & implantação contínua - Azure IoT Edge
+description: Configurar integração contínua e implantação contínua - Azure IoT Edge com Azure DevOps, Pipelines Azure
 author: shizn
 manager: philmea
 ms.author: xshi
@@ -9,221 +9,221 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 4b99e83a8e71b13183c76321c7076b85a212f021
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76510979"
 ---
-# <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integração contínua e implementação contínua para o Azure IoT Edge
+# <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integração contínua e implantação contínua para Azure IoT Edge
 
-Você pode adotar facilmente o DevOps com seus aplicativos Azure IoT Edge com as tarefas de Azure IoT Edge internas no Azure Pipelines. Este artigo demonstra como você pode usar os recursos de integração contínua e implantação contínua do Azure Pipelines para compilar, testar e implantar aplicativos de forma rápida e eficiente em seu Azure IoT Edge.
+Pode facilmente adotar DevOps com as suas aplicações Azure IoT Edge com as tarefas Azure IoT Edge incorporadas em Pipelines Azure. Este artigo demonstra como pode utilizar as funcionalidades contínuas de integração e implantação contínua dos Oleodutos Azure para construir, testar e implementar aplicações de forma rápida e eficiente para o seu Azure IoT Edge.
 
-![Diagrama - CI e CD ramos para desenvolvimento e produção](./media/how-to-ci-cd/cd.png)
+![Diagrama - Ramos ci e CD para desenvolvimento e produção](./media/how-to-ci-cd/cd.png)
 
-Neste artigo, você aprenderá a usar as tarefas internas de Azure IoT Edge para Azure Pipelines criar dois pipelines para sua solução de IoT Edge. Há quatro ações que podem ser usadas nas tarefas de Azure IoT Edge.
+Neste artigo, aprende-se a utilizar as tarefas Azure IoT Edge incorporadas para os Oleodutos Azure para criar dois oleodutos para a sua solução IoT Edge. Existem quatro ações que podem ser usadas nas tarefas Azure IoT Edge.
 
-* As **imagens de módulo Azure IOT Edge-Build** pegam o código da solução IOT Edge e compilam as imagens de contêiner.
-* **Azure IOT Edge-as imagens do módulo Push** enviam imagens de módulo para o registro de contêiner especificado.
-* **Azure IOT Edge-gerar o manifesto de implantação** Obtém um arquivo Deployment. Template. JSON e as variáveis e, em seguida, gera o arquivo de manifesto de implantação final IOT Edge.
-* **Azure IOT Edge-implantar em dispositivos IOT Edge** ajuda a criar implantações IOT Edge para dispositivos de IOT Edge único/vários.
+* **Borda Azure IoT - Construir imagens do Módulo** pega no seu código de solução IoT Edge e constrói as imagens do recipiente.
+* **Borda Azure IoT - As imagens do Módulo push** empurram as imagens do módulo para o registo do recipiente que especificou.
+* **Azure IoT Edge - Generate Deployment Manifest** leva um ficheiro deployment.template.json e as variáveis, em seguida, gera o arquivo manifesto de implantação de IoT Edge final.
+* **Borda Azure IoT - Implementar para dispositivos IoT Edge** ajuda a criar implementações IoT Edge para dispositivos IoT Edge únicos/múltiplos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um repositório Azure Repos. Se você não tiver uma, poderá [criar um novo repositório git em seu projeto](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav).
-* Uma solução IoT Edge confirmada e enviada por push para seu repositório. Se você quiser criar uma nova solução de exemplo para testar este artigo, siga as etapas em [módulos desenvolver e depurar em Visual Studio Code](how-to-vs-code-develop-module.md) ou [desenvolver e depurar C# módulos no Visual Studio](how-to-visual-studio-develop-csharp-module.md).
+* Um repositório Azure Repos. Se não tiver um, pode [criar um novo repo Git no seu projeto.](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav)
+* Uma solução IoT Edge comprometida e empurrada para o seu repositório. Se quiser criar uma nova solução de amostra para testar este artigo, siga os passos em [Módulos De desenvolvimento e depuração em Código](how-to-vs-code-develop-module.md) de Estúdio Visual ou [Desenvolva e debugifique módulos C# no Estúdio Visual](how-to-visual-studio-develop-csharp-module.md).
 
-   Para este artigo, tudo o que você precisa é a pasta da solução criada pelos modelos de IoT Edge no Visual Studio Code ou no Visual Studio. Você não precisa criar, enviar por push, implantar ou depurar esse código antes de continuar. Você definirá esses processos em Azure Pipelines.
+   Para este artigo, tudo o que precisa é da pasta de soluções criada pelos modelos IoT Edge em Código de Estúdio Visual ou Estúdio Visual. Não precisa de construir, empurrar, implementar ou desinver este código antes de prosseguir. Vais preparar esses processos em Azure Pipelines.
 
-   Se você estiver criando uma nova solução, clone seu repositório localmente primeiro. Em seguida, ao criar a solução, você pode optar por criá-la diretamente na pasta do repositório. Você pode facilmente confirmar e enviar por push os novos arquivos a partir daí.
+   Se está a criar uma nova solução, clone o seu repositório localmente primeiro. Depois, quando criar a solução, pode optar por criá-la diretamente na pasta de repositório. Pode facilmente comprometer-se e empurrar os novos ficheiros a partir daí.
 
-* Um registro de contêiner no qual você pode enviar imagens de módulo. Você pode usar o [registro de contêiner do Azure](https://docs.microsoft.com/azure/container-registry/) ou um registro de terceiros.
-* Um [Hub IOT](../iot-hub/iot-hub-create-through-portal.md) ativo com pelo menos IOT Edge dispositivos para testar os estágios de implantação de teste e produção separados. Você pode seguir os artigos de início rápido para criar um dispositivo IoT Edge no [Linux](quickstart-linux.md) ou no [Windows](quickstart.md)
+* Um registo de contentores onde pode empurrar imagens de módulos. Pode utilizar o Registo de [Contentores Azure](https://docs.microsoft.com/azure/container-registry/) ou um registo de terceiros.
+* Um [hub ioT](../iot-hub/iot-hub-create-through-portal.md) ativo com dispositivos IoT Edge para testar as fases separadas de implantação de testes e de produção. Pode seguir os artigos quickstart para criar um dispositivo IoT Edge no [Linux](quickstart-linux.md) [ou](quickstart.md) Windows
 
-Para obter mais informações sobre como usar Azure Repos, consulte [compartilhar seu código com o Visual Studio e Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts)
+Para mais informações sobre a utilização do Azure Repos, consulte [Partilhar o seu código com o Visual Studio e o Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts)
 
 ## <a name="configure-continuous-integration"></a>Configurar a integração contínua
 
-Nesta seção, você criará um novo pipeline de compilação. Configure o pipeline para ser executado automaticamente quando você fizer check-in de qualquer alteração no IoT Edge solução de exemplo e publicar logs de compilação.
+Nesta secção, cria-se um novo oleoduto de construção. Configure o gasoduto para funcionar automaticamente quando verificar quaisquer alterações na solução IoT Edge da amostra e publique registos de construção.
 
 >[!NOTE]
->Este artigo usa o designer visual DevOps do Azure. Antes de seguir as etapas nesta seção, desative o recurso de visualização para a nova experiência de criação de pipeline YAML.
+>Este artigo usa o designer visual Azure DevOps. Antes de seguir os passos nesta secção, desligue a função de pré-visualização para a nova experiência de criação de gasodutoS YAML.
 >
->1. No Azure DevOps, selecione o ícone de perfil e selecione **recursos de visualização**.
->2. Desative a **nova experiência de criação de pipeline YAML** .
+>1. Em Azure DevOps, selecione o ícone do seu perfil e selecione **as funcionalidades de pré-visualização**.
+>2. Desligue a experiência de criação do **novo gasoduto YAML.**
 >
->Para obter mais informações, consulte [criar um pipeline de compilação](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline).
+>Para mais informações, consulte Criar um oleoduto de [construção.](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline)
 
-1. Entre em sua organização do Azure DevOps (**https:\//dev.Azure.com/{Your Organization}/** ) e abra o projeto que contém o repositório da solução IOT Edge.
+1. Inscreva-se na sua organização Azure DevOps **(https:\//dev.azure.com/{your organization}/**) e abra o projeto que contém o seu repositório de soluções IoT Edge.
 
-   Para este artigo, criamos um repositório chamado **IoTEdgeRepo**. Esse repositório contém **IoTEdgeSolution** que tem o código para um módulo chamado **filtermodule**.
+   Para este artigo, criámos um repositório chamado **IoTEdgeRepo.** Este repositório contém **IoTEdgeSolution** que tem o código para um módulo chamado **filtermodule**.
 
-   ![Abra seu projeto do DevOps](./media/how-to-ci-cd/init-project.png)
+   ![Abra o seu projeto DevOps](./media/how-to-ci-cd/init-project.png)
 
-2. Navegue até Azure Pipelines em seu projeto. Abra a guia **compilações** e selecione **novo pipeline**. Ou, se você já tiver pipelines de compilação, selecione o botão **novo** . Em seguida, escolha **novo pipeline de Build**.
+2. Navegue para azure pipelines no seu projeto. Abra o separador **Builds** e selecione **Novo pipeline**. Ou, se já tiver oleodutos de construção, selecione o botão **Novo.** Em seguida, escolha **novo oleoduto de construção.**
 
     ![Criar um novo pipeline de compilação](./media/how-to-ci-cd/add-new-build.png)
 
-3. Siga os prompts para criar seu pipeline.
+3. Siga as instruções para criar o seu oleoduto.
 
-   1. Forneça as informações de origem para seu novo pipeline de Build. Selecione **Azure Repos git** como a origem e, em seguida, selecione o projeto, o repositório e a ramificação em que seu código de solução IOT Edge está localizado. Em seguida, selecione **continuar**.
+   1. Forneça as informações de origem para o seu novo oleoduto de construção. Selecione **Azure Repos Git** como fonte e, em seguida, selecione o projeto, o repositório e o ramo onde está localizado o seu código de solução IoT Edge. Em seguida, selecione **Continuar**.
 
-      ![Selecionar a origem do pipeline](./media/how-to-ci-cd/pipeline-source.png)
+      ![Selecione a sua fonte de gasoduto](./media/how-to-ci-cd/pipeline-source.png)
 
    2. Selecione **trabalho vazio** em vez de um modelo.
 
-      ![Começar com um processo vazio](./media/how-to-ci-cd/start-with-empty.png)
+      ![Comece com um processo vazio](./media/how-to-ci-cd/start-with-empty.png)
 
-4. Depois que o pipeline for criado, você será levado para o editor de pipeline. Na descrição do pipeline, escolha o pool de agentes correto com base na sua plataforma de destino:
+4. Assim que o teu oleoduto for criado, és levado para o editor do oleoduto. Na descrição do seu pipeline, escolha a piscina de agente correta com base na sua plataforma-alvo:
 
-   * Se gostaria de criar os seus módulos na plataforma amd64 para contentores do Linux, escolha **alojado 1604 da Ubuntu**
+   * Se quiser construir os seus módulos na plataforma amd64 para contentores Linux, escolha **Ubuntu 1604**
 
-   * Se você quiser criar seus módulos na plataforma AMD64 para contêineres do Windows 1809, precisará [Configurar o agente auto-hospedado no Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
+   * Se quiser construir os seus módulos na plataforma amd64 para contentores Windows 1809, precisa de [configurar um agente auto-hospedado no Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
 
-   * Se você quiser criar seus módulos na plataforma arm32v7 ou arm64 para contêineres do Linux, precisará [Configurar o agente auto-hospedado no Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
+   * Se quiser construir os seus módulos na plataforma arm32v7 ou arm64 para recipientes Linux, precisa de [configurar um agente auto-hospedado no Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
 
-     ![Configurar o conjunto de agentes de compilação](./media/how-to-ci-cd/configure-env.png)
+     ![Configure piscina de agente de construção](./media/how-to-ci-cd/configure-env.png)
 
-5. Seu pipeline vem pré-configurado com um trabalho chamado **agente trabalho 1**. Selecione o sinal de adição ( **+** ) para adicionar três tarefas ao trabalho: **Azure IOT Edge** duas vezes, **Copie os arquivos** uma vez e **publique os artefatos de compilação** uma vez. (Passe o mouse sobre o nome de cada tarefa para ver o botão **Adicionar** .)
+5. O seu oleoduto vem reconfigurado com um trabalho chamado **Agente Job 1**. Selecione o**+** sinal de adição () para adicionar três tarefas ao trabalho: **Azure IoT Edge** duas vezes, **Copy Files** uma vez e Publicar Artefactos de **Construção** uma vez. (Pairar sobre o nome de cada tarefa para ver o botão **Adicionar.)**
 
-   ![Adicionar tarefa de Azure IoT Edge](./media/how-to-ci-cd/add-iot-edge-task.png)
+   ![Adicionar tarefa Azure IoT Edge](./media/how-to-ci-cd/add-iot-edge-task.png)
 
-   Quando todas as quatro tarefas forem adicionadas, seu trabalho do Agent será semelhante ao exemplo a seguir:
+   Quando as quatro tarefas são adicionadas, o seu trabalho de Agente parece ser o seguinte exemplo:
 
-   ![Três tarefas no pipeline de compilação](./media/how-to-ci-cd/add-tasks.png)
+   ![Três tarefas no oleoduto de construção](./media/how-to-ci-cd/add-tasks.png)
 
-6. Selecione a primeira tarefa de **Azure IOT Edge** para editá-la. Essa tarefa compila todos os módulos na solução com a plataforma de destino que você especificar.
+6. Selecione a primeira tarefa **Azure IoT Edge** para editá-lo. Esta tarefa constrói todos os módulos na solução com a plataforma-alvo que especifica.
 
-   * **Nome de exibição**: aceite as **imagens padrão do módulo de Azure IOT Edge compilação**.
-   * **Ação**: aceite as imagens padrão do **módulo de compilação**.
-   * **arquivo. Template. JSON**: selecione as reticências ( **...** ) e navegue até o arquivo **Deployment. Template. JSON** no repositório que contém sua solução de IOT Edge.
-   * **Plataforma padrão**: selecione a plataforma apropriada para seus módulos com base em seu dispositivo de IOT Edge de destino.
-   * **Variáveis de saída**: as variáveis de saída incluem um nome de referência que você pode usar para configurar o caminho do arquivo no qual o arquivo Deployment. JSON será gerado. Defina o nome de referência como algo que se memorizar como o **Edge**.
+   * **Nome**do ecrã : Aceitar o limite de **1º Aresta Azul padrão - Construir imagens de módulos**.
+   * **Ação**: Aceitar as imagens padrão **do módulo Construa**.
+   * **.template.json file**: Selecione a elipsis **(...**) e navegue para o ficheiro **deployment.template.json** no repositório que contém a sua solução IoT Edge.
+   * **Plataforma padrão**: Selecione a plataforma adequada para os seus módulos com base no dispositivo IoT Edge alvo.
+   * **Variáveis de saída**: As variáveis de saída incluem um nome de referência que pode utilizar para configurar o caminho do ficheiro onde o ficheiro deployment.json será gerado. Desloque o nome de referência para algo memorável como **edge**.
 
-7. Selecione a segunda tarefa de **Azure IOT Edge** para editá-la. Essa tarefa envia por push todas as imagens de módulo para o registro de contêiner que você selecionar.
+7. Selecione a segunda tarefa **Azure IoT Edge** para editá-la. Esta tarefa empurra todas as imagens do módulo para o registo do recipiente que selecionar.
 
-   * **Nome de exibição**: o nome de exibição é atualizado automaticamente quando o campo de ação é alterado.
-   * **Ação**: Use a lista suspensa para selecionar **imagens de módulo Push**.
-   * **Tipo de registro de contêiner**: selecione o tipo de registro de contêiner que você usa para armazenar suas imagens de módulo. Dependendo de qual tipo de registro você escolher, o formulário será alterado. Se você escolher **registro de contêiner do Azure**, use as listas suspensas para selecionar a assinatura do Azure e o nome do registro de contêiner. Se você escolher **registro de contêiner genérico**, selecione **novo** para criar uma conexão de serviço do registro.
-   * **arquivo. Template. JSON**: selecione as reticências ( **...** ) e navegue até o arquivo **Deployment. Template. JSON** no repositório que contém sua solução de IOT Edge.
-   * **Plataforma padrão**: selecione a mesma plataforma que as imagens de módulo criadas.
+   * Nome do **visor**: O nome do visor é automaticamente atualizado quando o campo de ação muda.
+   * **Ação**: Utilize a lista de abandono para selecionar **imagens**do módulo Push .
+   * Tipo de registo de **contentores:** Selecione o tipo de registo de contentores que utiliza para armazenar as imagens do módulo. Dependendo do tipo de registo que escolher, o formulário muda. Se escolher o Registo de **Contentores Azure,** utilize as listas de abandono para selecionar a subscrição Azure e o nome do seu registo de contentores. Se escolher o Registo genérico de **contentores,** selecione **Novo** para criar uma ligação de serviço de registo.
+   * **.template.json file**: Selecione a elipsis **(...**) e navegue para o ficheiro **deployment.template.json** no repositório que contém a sua solução IoT Edge.
+   * **Plataforma padrão**: Selecione a mesma plataforma que as imagens do módulo construído.
 
-   Se tiver vários registos de contentores para alojar as suas imagens de módulo, precisa duplicar esta tarefa, selecione o registo de contentor diferente e utilizar **ignorar módulos** nas definições avançadas para ignorar as imagens que não são para isso Registro específicos.
+   Se tiver vários registos de contentores para alojar as imagens do seu módulo, precisa de duplicar esta tarefa, selecionar diferentes registos de contentores e utilizar os **módulos** bypass nas definições avançadas para contornar as imagens que não são para este registo específico.
 
-8. Selecione a tarefa **copiar arquivos** para editá-la. Use essa tarefa para copiar arquivos para o diretório de preparo do artefato.
+8. Selecione a tarefa **Copy Files** para editá-la. Utilize esta tarefa para copiar ficheiros para o diretório de encenação de artefactos.
 
-   * **Nome de exibição**: copiar arquivos para: remover pasta.
-   * **Conteúdo**: Coloque duas linhas nesta seção, `deployment.template.json` e `**/module.json`. Esses dois tipos de arquivos são as entradas para gerar IoT Edge manifesto de implantação. Precisa ser copiado para a pasta de preparo do artefato e publicado para o pipeline de liberação.
-   * **Pasta de destino**: Coloque a variável `$(Build.ArtifactStagingDirectory)`. Consulte [criar variáveis](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) para saber mais sobre a descrição.
+   * **Nome do ecrã**: Copiar Ficheiros para: Largar pasta.
+   * **Conteúdo**: Coloque duas linhas `deployment.template.json` `**/module.json`nesta secção e . Estes dois tipos de ficheiros são as inputs para gerar manifesto de implantação do IoT Edge. É preciso copiar para a pasta de encenação de artefactos e publicada para o pipeline de lançamento.
+   * **Pasta-alvo**: `$(Build.ArtifactStagingDirectory)`Coloque a variável . Consulte [as variáveis de construção](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) para saber sobre a descrição.
 
-9. Selecione a tarefa **publicar artefatos de compilação** para editá-lo. Forneça o caminho do diretório de preparo do artefato para a tarefa para que o caminho possa ser publicado no pipeline de liberação.
+9. Selecione a tarefa **publicar construir artefactos** para editá-lo. Forneça o caminho do diretório de encenação de artefactos para a tarefa para que o caminho possa ser publicado para lançar o oleoduto.
 
-   * **Nome de exibição**: publicar artefato: soltar.
-   * **Caminho para publicação**: Coloque a variável `$(Build.ArtifactStagingDirectory)`. Consulte [criar variáveis](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) para saber mais sobre a descrição.
-   * **Nome do artefato**: Drop.
-   * **Local de publicação do artefato**: Azure pipelines.
+   * **Nome do ecrã**: Publicar Artefacto: gota.
+   * **Caminho para publicação**: `$(Build.ArtifactStagingDirectory)`Colocar a variável . Consulte [as variáveis de construção](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) para saber sobre a descrição.
+   * Nome do **artefacto:** gota.
+   * **Artefacto publicar localização**: Azure Pipelines.
 
-10. Abra a guia **gatilhos** e marque a caixa para **habilitar a integração contínua**. Certifique-se de que o ramo que contém o código está incluído.
+10. Abra o separador **Triggers** e verifique a caixa para permitir a **integração contínua**. Certifique-se de que o ramo que contém o seu código está incluído.
 
-    ![Ativar o acionador de integração contínua](./media/how-to-ci-cd/configure-trigger.png)
+    ![Ativar o gatilho de integração contínua](./media/how-to-ci-cd/configure-trigger.png)
 
-11. Salve o novo pipeline de compilação com o botão **salvar** .
+11. Guarde o novo pipeline de construção com botão **Save.**
 
-Este pipeline agora está configurado para ser executado automaticamente quando você envia por push um novo código para seu repositório. A última tarefa, a publicação de artefatos de pipeline, dispara um pipeline de liberação. Continue na próxima seção para compilar o pipeline de liberação.
+Este gasoduto está agora configurado para ser executado automaticamente quando empurra o novo código para o seu repo. A última tarefa, publicar os artefactos do oleoduto, desencadeia um oleoduto de libertação. Continue para a secção seguinte para construir o oleoduto de libertação.
 
 ## <a name="configure-continuous-deployment"></a>Configurar a implementação contínua
 
-Nesta seção, você criará um pipeline de liberação que é configurado para ser executado automaticamente quando o pipeline de compilação descartar artefatos e mostrará os logs de implantação em Azure Pipelines.
+Nesta secção, cria-se um gasoduto de libertação configurado para funcionar automaticamente quando o seu oleoduto de construção deixa cair artefactos, e mostrará registos de implantação em Pipelines Azure.
 
-Criar um novo pipeline e adicionar um novo estágio
+Crie um novo oleoduto e adicione uma nova fase
 
-1. Na **versões** separador, escolha **+ novo pipeline**. Ou, se você já tiver pipelines de versão, escolha o botão **+ novo** e selecione **+ novo pipeline de liberação**.  
+1. No separador **Lançamentos,** escolha **+ Novo oleoduto**. Ou, se já tiver gasodutos de libertação, escolha o botão **+ Novo** e selecione + Novo gasoduto de **libertação**.  
 
-    ![Adicionar o pipeline de lançamento](./media/how-to-ci-cd/add-release-pipeline.png)
+    ![Adicionar oleoduto de libertação](./media/how-to-ci-cd/add-release-pipeline.png)
 
-2. Quando for solicitado a selecionar um modelo, escolha começar com um **trabalho vazio**.
+2. Quando solicitado a selecionar um modelo, opte por começar com um **trabalho Vazio**.
 
-    ![Começar com uma tarefa vazia](./media/how-to-ci-cd/start-with-empty-job.png)
+    ![Comece com um trabalho vazio](./media/how-to-ci-cd/start-with-empty-job.png)
 
-3. Seu novo pipeline de versão inicializa com um estágio, chamado **estágio 1**. Renomeie o estágio 1 para **desenvolver** e tratá-lo como um ambiente de teste. Normalmente, os pipelines de implantação contínua têm vários estágios, incluindo **desenvolvimento**, **preparo** e **produção**. Você pode criar mais com base em sua prática DevOps. Feche a janela detalhes do estágio depois que ela for renomeada.
+3. O seu novo oleoduto de lançamento ininicia-se com uma fase, chamada **Fase 1**. Mude o nome da fase 1 para **dev** e trate-o como um ambiente de teste. Normalmente, os gasodutos de implantação contínua têm várias fases, incluindo **dev,** **encenação** e **prod**. Pode criar mais com base na sua prática de DevOps. Feche a janela de detalhes do palco assim que for rebatizada.
 
-4. Vincule a versão aos artefatos de compilação publicados pelo pipeline de compilação. Clique em **adicionar** na área de artefactos.
+4. Ligue a libertação aos artefactos de construção que são publicados pelo oleoduto de construção. Clique em **adicionar** a área de artefactos.
 
-   ![Adicione os artefactos](./media/how-to-ci-cd/add-artifacts.png)  
+   ![Adicionar artefactos](./media/how-to-ci-cd/add-artifacts.png)  
 
-5. Na **página Adicionar um artefato**, selecione **compilação**do tipo de origem. Em seguida, selecione o projeto e o pipeline de compilação que você criou. Em seguida, selecione **Adicionar**.
+5. Em Adicionar uma página de **artefacto,** selecione o tipo de origem **Construir**. Em seguida, selecione o projeto e o pipeline de construção que criou. Em seguida, selecione **Adicionar**.
 
    ![Adicione um artefacto de compilação](./media/how-to-ci-cd/add-an-artifact.png)
 
-6. Abra os gatilhos de artefato e selecione a alternância para habilitar o gatilho de implantação contínua. Agora, uma nova versão será criada cada vez que uma nova compilação estiver disponível.
+6. Abra os gatilhos do artefacto e selecione o alternância para ativar o gatilho de implantação contínua. Agora, um novo lançamento será criado cada vez que uma nova construção estiver disponível.
 
-   ![Configurar o acionador de implementação contínua](./media/how-to-ci-cd/add-a-trigger.png)
+   ![Configurar o gatilho de implantação contínua](./media/how-to-ci-cd/add-a-trigger.png)
 
-7. O estágio de **desenvolvimento** é pré-configurado com um trabalho e zero tarefas. No menu pipeline, selecione **tarefas** e escolha o estágio **desenvolvimento** .  Selecione o trabalho e a contagem de tarefas para configurar as tarefas neste estágio.
+7. A fase **de dev** é pré-configurada com um trabalho e zero tarefas. A partir do menu do pipeline, selecione **Tasks** e, em seguida, escolha a fase **de dev.**  Selecione a contagem de tarefas e tarefas para configurar as tarefas nesta fase.
 
-    ![Configurar tarefas de desenvolvimento](./media/how-to-ci-cd/view-stage-tasks.png)
+    ![Configure tarefas de v](./media/how-to-ci-cd/view-stage-tasks.png)
 
-8. No estágio de **desenvolvimento** , você deve ver um **trabalho de agente**padrão. Você pode configurar detalhes sobre o trabalho do Agent, mas a tarefa de implantação é insensível à plataforma para que você possa usar o **VS2017 hospedado** ou o **Ubuntu 1604 hospedado** no **pool de agentes** (ou qualquer outro agente gerenciado por conta própria).
+8. Na fase **de dev,** deve ver um trabalho de **agente**padrão. Pode configurar detalhes sobre o trabalho do agente, mas a tarefa de implementação é insensível à plataforma para que possa utilizar o **Vs2017 hospedado** ou o **Ubuntu 1604 hospedado** na **piscina do Agente** (ou qualquer outro agente gerido por si mesmo).
 
-9. Selecione o sinal de adição ( **+** ) para adicionar duas tarefas. Pesquise e adicione **Azure IOT Edge** duas vezes.
+9. Selecione o**+** sinal de mais () para adicionar duas tarefas. Procure e adicione **Azure IoT Edge** duas vezes.
 
-    ![Adicionar tarefas para desenvolvimento](./media/how-to-ci-cd/add-task-qa.png)
+    ![Adicionar tarefas para dev](./media/how-to-ci-cd/add-task-qa.png)
 
-10. Selecione a primeira tarefa de **Azure IOT Edge** e configure-a com os seguintes valores:
+10. Selecione a primeira tarefa **Azure IoT Edge** e configure-a com os seguintes valores:
 
-    * **Nome de exibição**: o nome de exibição é atualizado automaticamente quando o campo de ação é alterado.
-    * **Ação**: Use a lista suspensa para selecionar **gerar manifesto de implantação**. Alterar o valor da ação também atualiza o nome de exibição da tarefa para corresponder.
-    * **arquivo. Template. JSON**: Coloque o caminho `$(System.DefaultWorkingDirectory)/Drop/drop/deployment.template.json`. O caminho é publicado a partir do pipeline de compilação.
-    * **Plataforma padrão**: escolha o mesmo valor ao criar as imagens de módulo.
-    * **Caminho de saída**: Coloque o caminho `$(System.DefaultWorkingDirectory)/Drop/drop/configs/deployment.json`. Esse caminho é o arquivo de manifesto de implantação IoT Edge final.
+    * Nome do **visor**: O nome do visor é automaticamente atualizado quando o campo de ação muda.
+    * **Ação**: Utilize a lista de abandono para selecionar o manifesto de **implantação Generate .** Alterar o valor de ação também atualiza o nome do ecrã de tarefas para combinar.
+    * **.template.json file**: `$(System.DefaultWorkingDirectory)/Drop/drop/deployment.template.json`Coloque o caminho . O caminho é publicado a partir de pipeline de construção.
+    * **Plataforma padrão**: Escolha o mesmo valor ao construir as imagens do módulo.
+    * **Via de saída** `$(System.DefaultWorkingDirectory)/Drop/drop/configs/deployment.json`: Coloque o caminho . Este caminho é o ficheiro manifesto de implantação de IoT Edge final.
 
-    Essas configurações ajudam a substituir as URLs de imagem de módulo no arquivo `deployment.template.json`. O **manifesto de implantação de geração** também ajuda a substituir as variáveis pelo valor exato que você definiu no arquivo de `deployment.template.json`. No VS/VS Code, você está especificando o valor real em um arquivo de `.env`. Em Azure Pipelines, defina o valor na guia variáveis de pipeline de liberação. vá para a guia variáveis e configure o nome e o valor da seguinte maneira.
+    Estas configurações ajudam a substituir os URLs de imagem do módulo no `deployment.template.json` ficheiro. O manifesto de **implementação da Geração** também ajuda a `deployment.template.json` substituir as variáveis pelo valor exato que definiu no ficheiro. No Código VS/VS, está a especificar `.env` o valor real num ficheiro. Nos Gasodutos Azure, define o valor no separador Delançamento Pipeline Variáveis. Mova-se para o separador Variáveis e configure o nome e o valor como seguinte.
 
-    * **ACR_ADDRESS**: seu endereço de registro de contêiner do Azure.
-    * **ACR_PASSWORD**: sua senha de registro de contêiner do Azure.
-    * **ACR_USER**: seu nome de usuário do registro de contêiner do Azure.
+    * **ACR_ADDRESS:** O seu endereço de registo de contentores Azure.
+    * **ACR_PASSWORD**: A sua senha de registo de contentores Azure.
+    * **ACR_USER**: O nome de utilizador do registo do seu contentor Azure.
 
-    Se você tiver outras variáveis em seu projeto, poderá especificar o nome e o valor nessa guia. O **manifesto de implantação de geração** só pode reconhecer as variáveis em `${VARIABLE}` tipo, verifique se você está usando isso em seus arquivos de `*.template.json`.
+    Se tiver outras variáveis no seu projeto, pode especificar o nome e o valor neste separador. O manifesto de **implantação Da Geração** só pode reconhecer as variáveis que estão no `${VARIABLE}` sabor, certifique-se de que está a usar isso nos seus `*.template.json` ficheiros.
 
-    ![Configurar variáveis para o pipeline de liberação](./media/how-to-ci-cd/configure-variables.png)
+    ![Configure variáveis para o gasoduto de libertação](./media/how-to-ci-cd/configure-variables.png)
 
-11. Selecione a segunda tarefa de **Azure IOT Edge** e configure-a com os seguintes valores:
+11. Selecione a segunda tarefa **Azure IoT Edge** e configure-a com os seguintes valores:
 
-    * **Nome de exibição**: o nome de exibição é atualizado automaticamente quando o campo de ação é alterado.
-    * **Ação**: Use a lista suspensa para selecionar **implantar em dispositivos IOT Edge**. Alterar o valor da ação também atualiza o nome de exibição da tarefa para corresponder.
-    * **Assinatura do Azure**: selecione a assinatura que contém o Hub IOT.
-    * **Nome do Hub IOT**: selecione o Hub IOT.
-    * **Escolher dispositivo único/múltiplo**: escolha se deseja que o pipeline de liberação seja implantado em um dispositivo ou em vários dispositivos.
-      * Se você implantar em um único dispositivo, insira o **IOT Edge ID do dispositivo**.
-      * Se você estiver implantando em vários dispositivos, especifique a **condição de destino**do dispositivo. A condição de destino é um filtro para corresponder a um conjunto de dispositivos IoT Edge no Hub IoT. Se pretender utilizar etiquetas do dispositivo como a condição, terá de atualizar os dispositivos correspondentes etiquetas com twin de dispositivos do IoT Hub. Atualize a **ID de implantação IOT Edge** e **IOT Edge prioridade de implantação** nas configurações avançadas. Para obter mais informações sobre como criar uma implantação para vários dispositivos, consulte [entender IOT Edge implantações automáticas](module-deployment-monitoring.md).
-    * Expanda Configurações avançadas, selecione **IOT Edge ID da implantação**, coloque a variável `$(System.TeamProject)-$(Release.EnvironmentName)`. Isso mapeia o projeto e o nome da versão com sua ID de implantação IoT Edge.
+    * Nome do **visor**: O nome do visor é automaticamente atualizado quando o campo de ação muda.
+    * **Ação**: Utilize a lista de dropdown para selecionar **dispositivos De si o Edge IoT**. Alterar o valor de ação também atualiza o nome do ecrã de tarefas para combinar.
+    * **Assinatura Azure**: Selecione a subscrição que contém o seu Hub IoT.
+    * **Nome IoT Hub**: Selecione o seu hub IoT.
+    * **Escolha um dispositivo único/múltiplo**: Escolha se pretende que o gasoduto de desbloqueio seja implantado num dispositivo ou em vários dispositivos.
+      * Se se implantar num único dispositivo, introduza o ID do **dispositivo IoT Edge**.
+      * Se estiver a ser implantado em vários dispositivos, especifique a condição de **alvo**do dispositivo . A condição-alvo é um filtro que combina com um conjunto de dispositivos IoT Edge no IoT Hub. Se pretender utilizar as Etiquetas do Dispositivo como condição, precisa de atualizar as etiquetas correspondentes dos dispositivos com o dispositivo IoT Hub twin. Atualize a prioridade de implementação do **IoT Edge** id e **ioT Edge** nas definições avançadas. Para obter mais informações sobre a criação de uma implementação para vários dispositivos, consulte [as implementações automáticas De Entendo IoT Edge](module-deployment-monitoring.md).
+    * Expandir Definições Avançadas, selecionar ID de `$(System.TeamProject)-$(Release.EnvironmentName)` **implementação ioT Edge,** colocar a variável . Isto mapeia o nome do projeto e liberta o seu ID de implementação IoT Edge.
 
-12. Selecione **salvar** para salvar as alterações no novo pipeline de lançamento. Retorne ao modo de exibição de pipeline selecionando **pipeline** no menu.
+12. Selecione **Guardar** para guardar as alterações para o novo gasoduto de lançamento. Volte à vista do gasoduto selecionando **pipeline** do menu.
 
-## <a name="verify-iot-edge-cicd-with-the-build-and-release-pipelines"></a>Verifique se o IoT Edge CI/CD com a compilação e lançar pipelines
+## <a name="verify-iot-edge-cicd-with-the-build-and-release-pipelines"></a>Verifique ioT Edge CI/CD com os oleodutos de construção e libertação
 
-Para acionar uma tarefa de compilação, pode emitir uma confirmação para o repositório de código fonte ou acionar manualmente. Nesta seção, você dispara manualmente o pipeline de CI/CD para testar se ele funciona. Em seguida, verifique se a implantação foi realizada com sucesso.
+Para desencadear um trabalho de construção, pode empurrar um compromisso para o repositório de código de origem ou desencadeá-lo manualmente. Nesta secção, aciona manualmente o gasoduto CI/CD para testar o funcionamento. Em seguida, verifique se o destacamento é bem sucedido.
 
-1. Navegue até o pipeline de compilação que você criou no início deste artigo.
+1. Navegue até ao oleoduto de construção que criou no início deste artigo.
 
-2. Você pode disparar um trabalho de compilação em seu pipeline de compilação selecionando o botão de **fila** como na captura de tela a seguir.
+2. Pode desencadear um trabalho de construção no seu pipeline de construção selecionando o botão **de fila** como na seguinte imagem.
 
-    ![Acionador manual](./media/how-to-ci-cd/manual-trigger.png)
+    ![Gatilho manual](./media/how-to-ci-cd/manual-trigger.png)
 
-3. Selecione o trabalho de compilação para observar seu progresso. Se o pipeline de compilação for concluído com êxito, ele disparará uma liberação para o estágio de **desenvolvimento** .
+3. Selecione o trabalho de construção para ver o seu progresso. Se o gasoduto de construção for concluído com sucesso, desencadeia uma libertação para a fase **de dev.**
 
-    ![Criar registos](./media/how-to-ci-cd/build-logs.png)
+    ![Construir troncos](./media/how-to-ci-cd/build-logs.png)
 
-4. A versão de **desenvolvimento** bem-sucedida cria IOT Edge implantação para dispositivos de IOT Edge de destino.
+4. A libertação de **dev** bem sucedida cria a implementação ioT Edge para dispositivos IoT Edge alvo.
 
-    ![Versão para desenvolvimento](./media/how-to-ci-cd/pending-approval.png)
+    ![Lançamento para dev](./media/how-to-ci-cd/pending-approval.png)
 
-5. Clique em estágio de **desenvolvimento** para ver os logs de liberação.
+5. Clique na fase **de dev** para ver os registos de lançamento.
 
     ![Registos de versão](./media/how-to-ci-cd/release-logs.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* IoT Edge exemplo de práticas recomendadas do DevOps no [projeto DevOps do Azure para IOT Edge](how-to-devops-project.md)
-* Compreender a implementação de IoT Edge no [implementações de compreender o IoT Edge para dispositivos individuais ou em escala](module-deployment-monitoring.md)
-* Siga os passos para criar, atualizar ou eliminar uma implementação no [implementar e monitorizar os módulos do IoT Edge em escala](how-to-deploy-monitor.md).
+* IoT Edge DevOps melhor amostra de práticas no [Projeto Azure DevOps para IoT Edge](how-to-devops-project.md)
+* Compreenda a implementação ioT Edge em [Understand IoT Edge implementações para dispositivos individuais ou em escala](module-deployment-monitoring.md)
+* Caminhe pelos passos para criar, atualizar ou eliminar uma implementação em [módulos Deploy e monitor ioT Edge em escala](how-to-deploy-monitor.md).

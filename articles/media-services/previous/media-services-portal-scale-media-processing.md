@@ -1,6 +1,6 @@
 ---
-title: Dimensionar processamento de multimédia no portal do Azure | Documentos da Microsoft
-description: Este tutorial orienta-o pelos passos de dimensionamento no portal do Azure de processamento de multimédia.
+title: Processamento de meios de escala utilizando o portal Azure [ Microsoft Docs
+description: Este tutorial acompanha-o através dos passos do processamento de meios de escala utilizando o portal Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: c840764dc978a8dacb3450c0aca5e5d93284b8a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61127546"
 ---
 # <a name="change-the-reserved-unit-type"></a>Alterar tipo de unidade reservada
@@ -33,33 +33,33 @@ ms.locfileid: "61127546"
 
 ## <a name="overview"></a>Descrição geral
 
-As contas dos Serviços de Multimédia estão associadas a um Tipo de Unidade Reservada, que determina a velocidade do processamento das suas tarefas de processamento de mulitmédia. Pode escolher de entre os seguintes tipos de unidade reservada: **S1**, **S2**, ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**.
+As contas dos Serviços de Multimédia estão associadas a um Tipo de Unidade Reservada, que determina a velocidade do processamento das suas tarefas de processamento de mulitmédia. Pode escolher entre os seguintes tipos de unidades reservados: **S1,** **S2,** ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**.
 
-Para além de especificar o tipo de unidade reservada, pode especificar o aprovisionamento da sua conta com **Unidades Reservadas** (RUs). O número de RUs aprovisionadas determina o número de tarefas de multimédia que podem ser processadas em simultâneo numa determinada conta.
+Além de especificar o tipo de unidade reservado, pode especificar para fornecer a sua conta com **Unidades Reservadas** (RUs). O número de RUs aprovisionadas determina o número de tarefas de multimédia que podem ser processadas em simultâneo numa determinada conta.
 
 >[!NOTE]
 >As RUs destinam-se a paralelizar todos os processamentos de multimédia, incluindo trabalhos de indexação com o Azure Media Indexer. No entanto, ao contrário da codificação, os trabalhos de indexação não são processados mais depressa com unidades reservadas mais rápidas.
 
 > [!IMPORTANT]
-> Lembre-se de que reveja os [descrição geral](media-services-scale-media-processing-overview.md) tópico para obter mais informações sobre o dimensionamento de tópico de processamento de multimédia.
+> Certifique-se de rever o tópico de [visão geral](media-services-scale-media-processing-overview.md) para obter mais informações sobre o tema de processamento de meios de escala.
 > 
 > 
 
-## <a name="scale-media-processing"></a>Dimensionar processamento de multimédia
+## <a name="scale-media-processing"></a>Processamento de meios de escala
 Para alterar o tipo de unidade reservada e o número de unidades reservadas, faça o seguinte:
 
 1. No [portal do Azure](https://portal.azure.com/) selecione a sua conta de Serviços de Multimédia do Azure.
-2. Na **configurações** janela, selecione **unidades reservadas de multimédia**.
+2. Na janela **Definições,** selecione **Unidades reservadas para media**.
    
-    Para alterar o número de unidades reservadas para o tipo de unidade reservada selecionado, utilize o **unidades de servidos multimédia** controlo de deslize na parte superior do ecrã.
+    Para alterar o número de unidades reservadas para o tipo de unidade reservado selecionado, utilize o slider **Media Served Units** na parte superior do ecrã.
    
-    Para alterar o **tipo de unidade reservada**, clique nas **velocidade das unidades de processamento reservadas** barra. Em seguida, selecione o escalão de preço que tem de: S1, S2 ou S3.
+    Para alterar o **TIPO DE UNIDADE RESERVADO,** clique na **barra de velocidade das unidades de processamento reservadas.** Em seguida, selecione o nível de preços de que necessita: S1, S2 ou S3.
    
 3. Prima o botão GUARDAR para guardar as alterações.
    
-    As unidades reservadas novas são alocadas quando pressiona SALVAR.
+    As novas unidades reservadas são atribuídas quando premir SAVE.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Rever os percursos de aprendizagem dos Serviços de Multimédia
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

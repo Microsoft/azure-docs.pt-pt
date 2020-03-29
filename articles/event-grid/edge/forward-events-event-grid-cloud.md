@@ -1,5 +1,5 @@
 ---
-title: Eventos de vanguarda para a nuvem de Rede de Eventos - Azure Event Grid IoT Edge  Microsoft Docs
+title: Eventos de vanguarda para a nuvem de Rede de Eventos - Azure Event Grid IoT Edge [ Microsoft Docs
 description: Eventos de borda avançada para nuvem de rede de eventos
 author: VidyaKukke
 manager: rajarv
@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 7184fb5c45ce41de2bd63b55fb67cbd9ba6361e3
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76844722"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>Tutorial: Eventos para a frente para a nuvem da Grelha de Eventos
@@ -26,20 +26,20 @@ Este artigo percorre todos os passos necessários para encaminhar eventos de bor
  Para completar este tutorial, você precisa ter uma compreensão dos conceitos de Event Grid no [edge](concepts.md) e [Azure](../concepts.md). Para obter tipos de destino adicionais, consulte [os manipuladores de eventos](event-handlers.md). 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
-Para concluir este tutorial, você precisará de:
+Para completar este tutorial, necessitará:
 
-* **Assinatura do Azure** – crie uma [conta gratuita](https://azure.microsoft.com/free) se você ainda não tiver uma. 
+* **Assinatura Azure** - Crie uma [conta gratuita](https://azure.microsoft.com/free) se ainda não tiver uma. 
 * **Dispositivo Azure IoT Hub e IoT Edge** - Siga os passos no arranque rápido dos [dispositivos](../../iot-edge/quickstart.md) [Linux](../../iot-edge/quickstart-linux.md) ou Windows se ainda não tiver um.
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)] 
 ## <a name="create-event-grid-topic-and-subscription-in-cloud"></a>Criar tópico de grelha de eventos e subscrição na nuvem
 
-Crie um tópico de grelha de eventos e subscrição na nuvem seguindo [este tutorial.](../custom-event-quickstart-portal.md) Note `topicURL`, `sasKey`, e `topicName` do tema recém-criado que usará mais tarde no tutorial.
+Crie um tópico de grelha de eventos e subscrição na nuvem seguindo [este tutorial.](../custom-event-quickstart-portal.md) Note-se, `topicURL` `sasKey` `topicName` e do tema recém-criado que usará mais tarde no tutorial.
 
 Por exemplo, se criasse um tópico chamado `testegcloudtopic` nos EUA Ocidentais, os valores seriam parecidos com:
 
-* **TópicoUrl**: `https://testegcloudtopic.westus2-1.eventgrid.azure.net/api/events`
-* **Nome tópico**: `testegcloudtopic`
+* **TopicUrl**:`https://testegcloudtopic.westus2-1.eventgrid.azure.net/api/events`
+* **Nome tópico**:`testegcloudtopic`
 * **SasKey**: Disponível no **AccessKey** do seu tópico. Utilize **a tecla1**.
 
 ## <a name="create-event-grid-topic-at-the-edge"></a>Criar tópico de grelha de evento sintetizador
@@ -54,12 +54,12 @@ Por exemplo, se criasse um tópico chamado `testegcloudtopic` nos EUA Ocidentais
           }
         }
     ```
-1. Executar o seguinte comando para criar o tópico. O código de status HTTP de 200 OK deve ser retornado.
+1. Executar o seguinte comando para criar o tópico. Http Status Code of 200 OK deve ser devolvido.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic3.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3?api-version=2019-01-01-preview
     ```
-1. Executar o seguinte comando para verificar o tópico foi criado com sucesso. O código de status HTTP de 200 OK deve ser retornado.
+1. Executar o seguinte comando para verificar o tópico foi criado com sucesso. Http Status Code of 200 OK deve ser devolvido.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3?api-version=2019-01-01-preview
@@ -122,13 +122,13 @@ Por exemplo, se criasse um tópico chamado `testegcloudtopic` nos EUA Ocidentais
         }
     ```
 
-2. Executar o seguinte comando para criar a subscrição. O código de status HTTP de 200 OK deve ser retornado.
+2. Executar o seguinte comando para criar a subscrição. Http Status Code of 200 OK deve ser devolvido.
 
      ```sh
      curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription3.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3/eventSubscriptions/sampleSubscription3?api-version=2019-01-01-preview
      ```
 
-3. Execute o comando a seguir para verificar se a assinatura foi criada com êxito. O código de status HTTP de 200 OK deve ser retornado.
+3. Executar o seguinte comando para verificar se a subscrição foi criada com sucesso. Http Status Code of 200 OK deve ser devolvido.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3/eventSubscriptions/sampleSubscription3?api-version=2019-01-01-preview

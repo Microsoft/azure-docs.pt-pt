@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: f434ad6e19c89f248fec948c0a049fabb0f7c476
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79248440"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Aceder ao segredo do cofre chave ao implementar aplicações geridas pelo Azure
@@ -36,13 +36,13 @@ Este artigo descreve como configurar o Cofre chave para trabalhar com aplicaçõ
 
 ## <a name="add-service-as-contributor"></a>Adicionar serviço como contribuinte
 
-1. Selecione **Controlo de acesso (IAM)** .
+1. Selecione **o controlo de acesso (IAM)**.
 
    ![Selecione o controlo de acesso](./media/key-vault-access/access-control.png)
 
-1. **Selecione Adicionar a atribuição de funções**.
+1. Selecione **Adicionar atribuição de função**.
 
-   ![Selecione adicionar](./media/key-vault-access/add-access-control.png)
+   ![Selecionar Adicionar](./media/key-vault-access/add-access-control.png)
 
 1. Selecione **Colaborador** para o papel. Procure o Fornecedor de **Recursos de Aparelhos** e selecione-o a partir das opções disponíveis.
 

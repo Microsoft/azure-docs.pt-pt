@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: fedec6ea764394d36f5b4d7c883f7cb9f9520a29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64869028"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Introdução ao SDK de cliente Java para os Serviços de Multimédia do Azure  
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Este tutorial explica-lhe os passos para implementar um serviço básico de entrega de conteúdos de vídeo com os Serviços de Multimédia do Azure através do SDK de cliente Java.
 
@@ -36,7 +36,7 @@ O seguinte é necessário para concluir este tutorial:
 * Uma conta dos Media Services. Para criar uma conta dos Media Services, consulte [Como Criar uma Conta de Media Services](media-services-portal-create-account.md).
 * O atual [SDK de Java dos Serviços de Multimédia do Azure](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest)
 
-## <a name="how-to-import-the-azure-media-services-java-client-sdk-package"></a>Como: Importar o pacote SDK de cliente de Java de serviços de multimédia do Azure
+## <a name="how-to-import-the-azure-media-services-java-client-sdk-package"></a>Como: importar o pacote SDK de cliente Java dos Serviços de Multimédia do Azure
 
 Para começar a utilizar o SDK de Serviços de Multimédia para Java, adicione uma referência à versão atual (0.9.8) do pacote `azure-media` do [SDK de Java dos Serviços de Multimédia do Azure](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest)
 
@@ -45,25 +45,25 @@ Por exemplo, se a sua ferramenta de compilação for `gradle`, adicione a seguin
     compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'
 
 >[!IMPORTANT]
->A partir da versão do pacote `azure-media` `0.9.8`, o SDK adicionou suporte para autenticação do Azure Active Directory (AAD) e removeu o suporte para a autenticação do Serviço de Controlo de Acesso (ACS) do Azure. Recomendamos que migre para o modelo de autenticação do Azure AD assim que for possível. Para obter detalhes sobre a migração, leia o artigo [Aceder à API de Serviços de Multimédia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
+>A partir da versão do pacote `azure-media``0.9.8`, o SDK adicionou suporte para autenticação do Azure Active Directory (AAD) e removeu o suporte para a autenticação do Serviço de Controlo de Acesso (ACS) do Azure. Recomendamos que migre para o modelo de autenticação do Azure AD assim que for possível. Para obter detalhes sobre a migração, leia o artigo [Aceder à API de Serviços de Multimédia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 
 >[!NOTE]
 >Pode encontrar o código fonte do SDK de Java dos Serviços de Multimédia do Azure no nosso [repositório do GitHub](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media). Certifique-se de que muda para o ramo 0.9 e não para o ramo principal. 
 
-## <a name="how-to-use-azure-media-services-with-java"></a>Como: Utilizar os serviços de multimédia do Azure com Java
+## <a name="how-to-use-azure-media-services-with-java"></a>Como: utilizar os Serviços de Multimédia do Azure com Java
 
 >[!NOTE]
->Quando a conta dos Serviços de Multimédia é criada, é adicionado um ponto final de transmissão em fluxo **predefinido** à mesma, no estado **Parado**. Para começar a transmitir o seu conteúdo em fluxo e a tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**.
+>Quando a sua conta De serviços de media é criada, um ponto final de streaming **predefinido** é adicionado à sua conta no estado **Deter.** Para começar a transmitir o seu conteúdo em fluxo e a tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**.
 
 O código seguinte mostra como criar um elemento, carregar um ficheiro de multimédia para o elemento, executar uma função com uma tarefa para transformar o elemento e criar um localizador para transmitir o vídeo.
 
 Antes de utilizar este código, configure uma conta dos Serviços de Multimédia. Para obter informações sobre como configurar uma conta, consulte [Como Criar uma Conta dos Media Services](media-services-portal-create-account.md).
 
 O código liga à API dos Serviços de Multimédia do Azure através da autenticação do principal de serviço do Azure AD. Crie uma aplicação do Azure AD e especifique os valores para as seguintes variáveis no código:
-* `tenant`: Domínio de inquilino do Azure AD onde reside a aplicação do Azure AD
-* `clientId`: O ID de cliente da aplicação do Azure AD
-* `clientKey`: A chave de cliente da aplicação do Azure AD
-* `restApiEndpoint`: O ponto final de REST API da conta dos serviços de multimédia do Azure
+* `tenant`: o domínio de inquilino do Azure AD onde reside a aplicação do Azure AD
+* `clientId`: o ID de cliente da aplicação do Azure AD
+* `clientKey`: a chave de cliente da aplicação do Azure AD
+* `restApiEndpoint`: o ponto final da API REST da conta dos Serviços de Multimédia do Azure
 
 Pode criar uma aplicação do Azure AD e obter os valores de configuração anteriores a partir do portal do Azure. Para obter mais informações, veja a secção **Autenticação do principal de serviço** do artigo [Introdução à autenticação do Azure AD através do portal do Azure](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad).
 

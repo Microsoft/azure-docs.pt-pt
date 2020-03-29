@@ -1,6 +1,6 @@
 ---
-title: Verifique o estado de funcionamento de um cluster do Explorador de dados do Azure
-description: Este artigo descreve os passos para monitorizar o estado de funcionamento do cluster do Explorador de dados do Azure.
+title: Verifique a saúde de um cluster Azure Data Explorer
+description: Este artigo descreve passos para monitorizar a saúde do seu cluster Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,34 +8,34 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: a280d8869a3790444a97c38f792a3d9eeb6bde1d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60861323"
 ---
-# <a name="check-the-health-of-an-azure-data-explorer-cluster"></a>Verifique o estado de funcionamento de um cluster do Explorador de dados do Azure
+# <a name="check-the-health-of-an-azure-data-explorer-cluster"></a>Verifique a saúde de um cluster Azure Data Explorer
 
-Há vários fatores que afetam o estado de funcionamento de um cluster do Explorador de dados do Azure, incluindo a CPU, memória e o subsistema de disco. Este artigo mostra alguns passos básicos que pode tomar para avaliar o estado de funcionamento de um cluster.
+Existem vários fatores que impactam a saúde de um cluster azure Data Explorer, incluindo CPU, memória e o subsistema do disco. Este artigo mostra alguns passos básicos que você pode tomar para medir a saúde de um aglomerado.
 
-1. Inicie sessão em [https://dataexplorer.azure.com](https://dataexplorer.azure.com).
+1. Inscreva-se [https://dataexplorer.azure.com](https://dataexplorer.azure.com)em .
 
-1. No painel esquerdo, selecione o cluster e execute o seguinte comando.
+1. No painel esquerdo, selecione o seu cluster e execute o seguinte comando.
 
     ```Kusto
     .show diagnostics
     | project IsHealthy
     ```
-    Uma saída de 1 está em bom estada; uma saída de 0 está danificada.
+    Uma saída de 1 é saudável; uma saída de 0 não é saudável.
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e navegue para o cluster.
+1. Assine no [portal Azure](https://portal.azure.com)e navegue para o seu cluster.
 
-1. Sob **monitorização**, selecione **métricas**, em seguida, selecione **manter ativo**, conforme mostrado na imagem seguinte. Uma saída próximas de 1 significa que um cluster de bom estado de funcionamento.
+1. Em **Monitorização,** selecione **Métricas,** em seguida, selecione **Keep Alive**, como mostrado na imagem seguinte. Uma saída próxima de 1 significa um aglomerado saudável.
 
-    ![Métrica de manter ativo do cluster](media/check-cluster-health/portal-metrics.png)
+    ![Métrica cluster Keep Alive](media/check-cluster-health/portal-metrics.png)
 
-1. É possível adicionar outras métricas para o gráfico. Selecione o gráfico, em seguida, **adicionar métrica**. Selecione outra métrica - este exemplo mostra **CPU**.
+1. É possível adicionar outras métricas ao gráfico. Selecione o gráfico **e,** em seguida, Adicionar métrica . Selecione outra métrica - este exemplo mostra **CPU**.
 
     ![Adicionar métrica](media/check-cluster-health/add-metric.png)
 
-1. Se precisar de assistência diagnosticar problemas com o estado de funcionamento de um cluster, abra um pedido de suporte no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+1. Se necessitar de assistência para diagnosticar problemas com a saúde de um cluster, por favor abra um pedido de apoio no [portal Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

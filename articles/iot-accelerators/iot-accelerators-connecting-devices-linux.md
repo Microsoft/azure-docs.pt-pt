@@ -1,6 +1,6 @@
 ---
-title: Aprovisionar dispositivos de Linux para monitorização remota em C - Azure | Documentos da Microsoft
-description: Descreve como ligar um dispositivo para o solution accelerator monitorização remota usando um aplicativo escrito em C em execução no Linux.
+title: Provision Linux dispositivos para monitorização remota em C - Azure Microsoft Docs
+description: Descreve como ligar um dispositivo ao acelerador de solução de monitorização remota utilizando uma aplicação escrita em C em execução no Linux.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,47 +9,47 @@ ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: dobett
 ms.openlocfilehash: 91d4eda566c8b534daa10c62637db28ccb01bbb6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61454504"
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-linux"></a>Ligar o seu dispositivo para o acelerador de solução de monitorização remota (Linux)
+# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-linux"></a>Ligue o seu dispositivo ao acelerador de solução de monitorização remota (Linux)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Este tutorial mostra-lhe como ligar um dispositivo real para o acelerador de solução de monitorização remota.
+Este tutorial mostra-lhe como ligar um dispositivo real ao acelerador de soluções de monitorização remota.
 
-Tal como acontece com aplicativos mais incorporados que são executadas em dispositivos restritos, o código de cliente para a aplicação de dispositivo é escrito em C. Neste tutorial, vai criar a aplicação num computador a executar o Ubuntu (Linux).
+Tal como acontece com a maioria das aplicações incorporadas que funcionam em dispositivos constrangidos, o código cliente para a aplicação do dispositivo está escrito em C. Neste tutorial, você constrói a aplicação em uma máquina que executa Ubuntu (Linux).
 
-Se preferir simular um dispositivo, veja [criar e teste de um novo dispositivo simulado](iot-accelerators-remote-monitoring-create-simulated-device.md).
+Se preferir simular um dispositivo, consulte [Criar e testar um novo dispositivo simulado](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir os passos neste guia de procedimentos, precisa de um dispositivo com o Ubuntu versão 15.04 ou posterior. Antes de continuar, [configurar o ambiente de desenvolvimento do Linux](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux).
+Para completar os passos neste guia de como guiar, precisa de um dispositivo que execute a versão 15.04 de Ubuntu ou mais tarde. Antes de prosseguir, instale o seu ambiente de [desenvolvimento Linux.](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux)
 
 ## <a name="view-the-code"></a>Ver o código
 
-O [código de exemplo](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring_client) utilizados neste guia está disponível no repositório do GitHub de SDKs do Azure IoT C.
+O [código de amostra](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring_client) utilizado neste guia está disponível no repositório Azure IoT C SDKs GitHub.
 
-### <a name="download-the-source-code-and-prepare-the-project"></a>Baixe o código-fonte e preparar o projeto
+### <a name="download-the-source-code-and-prepare-the-project"></a>Descarregue o código fonte e prepare o projeto
 
-Para preparar o projeto, clonar ou transferir os [repositório Azure IoT SDKs de C](https://github.com/Azure/azure-iot-sdk-c) do GitHub.
+Para preparar o projeto, clone ou descarregue o [repositório Azure IoT C SDKs](https://github.com/Azure/azure-iot-sdk-c) do GitHub.
 
-O exemplo está localizado no **amostras/soluções/remote_monitoring_client** pasta.
+A amostra está localizada nas **amostras/soluções/pasta remote_monitoring_client.**
 
-Abra o **remote_monitoring.c** de ficheiros a **exemplos/soluções/remote_monitoring_client** pasta num editor de texto.
+Abra o ficheiro **remote_monitoring.c** na pasta **de amostras/soluções/remote_monitoring_client** num editor de texto.
 
 [!INCLUDE [iot-accelerators-connecting-code](../../includes/iot-accelerators-connecting-code.md)]
 
 ## <a name="build-and-run-the-application"></a>Compilar e executar a aplicação
 
-Os passos seguintes descrevem como utilizar *CMake* para criar a aplicação de cliente. A aplicação de cliente de monitorização remota foi desenvolvida como parte do processo de compilação para o SDK.
+Os seguintes passos descrevem como usar o *CMake* para construir a aplicação do cliente. A aplicação do cliente de monitorização remota é construída como parte do processo de construção para o SDK.
 
-1. Editar a **remote_monitoring.c** ficheiro para substituir o `<connectionstring>` com a cadeia de ligação do dispositivo que anotou no início deste guia de procedimentos quando adicionou um dispositivo para o solution accelerator.
+1. Edite o ficheiro **remote_monitoring.c** para substituir `<connectionstring>` com a cadeia de ligação do dispositivo que observou no início deste guia de como orientar quando adicionou um dispositivo ao acelerador de soluções.
 
-1. Navegue para a raiz da sua cópia clonada a [repositório Azure IoT SDKs de C](https://github.com/Azure/azure-iot-sdk-c) repositório e execute os seguintes comandos para criar a aplicação de cliente:
+1. Navegue para a raiz da sua cópia clonada do [repositório de repositório sdks Azure IoT C](https://github.com/Azure/azure-iot-sdk-c) e execute os seguintes comandos para construir a aplicação do cliente:
 
     ```sh
     mkdir cmake
@@ -58,15 +58,15 @@ Os passos seguintes descrevem como utilizar *CMake* para criar a aplicação de 
     make
     ```
 
-1. Execute a aplicação de cliente e enviar telemetria ao IoT Hub:
+1. Executar a aplicação do cliente e enviar telemetria para ioT Hub:
 
     ```sh
     ./samples/solutions/remote_monitoring_client/remote_monitoring_client
     ```
 
-    A consola apresenta as mensagens como:
+    A consola apresenta mensagens como:
 
-    - A aplicação envia telemetria de exemplo para o solution accelerator.
-    - Responde a métodos invocados a partir do dashboard da solução.
+    - A aplicação envia telemetria de amostra para o acelerador de solução.
+    - Responde aos métodos invocados a partir do painel de solução.
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]

@@ -1,6 +1,6 @@
 ---
 title: Introdução a Python e aos Serviços Cloud do Azure | Microsoft Docs
-description: Descrição geral da utilização das Ferramentas Python para Visual Studio para criar serviços cloud do Azure, incluindo funções da Web e de trabalho.
+description: Descrição geral da utilização das Ferramentas do Python para Visual Studio para a criação de Cloud Services do Azure, incluindo funções da Web e funções de trabalho.
 services: cloud-services
 documentationcenter: python
 author: tgore03
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: b832831a2483b11a7a3c1942dd79065e8be65bf9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75360723"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Funções da Web e de trabalho do Python com Ferramentas de Python para Visual Studio
@@ -21,17 +21,17 @@ ms.locfileid: "75360723"
 Este artigo fornece uma descrição geral da utilização de funções da Web e de trabalho do Python através das [Ferramentas do Python para Visual Studio][Python Tools for Visual Studio]. Aprenda a utilizar o Visual Studio para criar e implementar um Serviço Cloud básico que utiliza o Python.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* [Visual Studio 2013, 2015 ou 2017](https://www.visualstudio.com/)
+* [Estúdio Visual 2013, 2015 ou 2017](https://www.visualstudio.com/)
 * [Ferramentas do Python para Visual Studio][Python Tools for Visual Studio] (PTVS)
-* [SDK Tools do Azure para VS 2013][Azure SDK Tools for VS 2013] ou  
-[SDK Tools do Azure para VS 2015][Azure SDK Tools for VS 2015] ou  
-[SDK Tools do Azure para VS 2017][Azure SDK Tools for VS 2017]
+* [Ferramentas do Azure SDK para VS 2013][Azure SDK Tools for VS 2013] ou  
+[Ferramentas do Azure SDK para VS 2015][Azure SDK Tools for VS 2015] ou  
+[Ferramentas do Azure SDK para VS 2017][Azure SDK Tools for VS 2017]
 * [Python 2.7 de 32 bits][Python 2.7 32-bit] ou [Python 3.5 de 32 bits][Python 3.5 32-bit]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-are-python-web-and-worker-roles"></a>O que são as funções da Web e de trabalho do Python?
-O Azure fornece três modelos de computação para a execução de aplicativos: [recurso de aplicativos Web no serviço de Azure app][execution model-web sites], [máquinas virtuais do Azure][execution model-vms]e [serviços de nuvem do Azure][execution model-cloud services]. Os três modelos suportam o Python. Os Cloud Services, que incluem funções da Web e de trabalho, fornecem uma *Plataforma como Serviço (PaaS)* . Dentro de um serviço cloud, uma função da Web fornece um servidor Web de Serviços de Informação Internet (IIS) dedicado para alojar as aplicações Web front-end, enquanto uma função de trabalho pode executar tarefas assíncronas, de execução longa ou perpétuas, independentes da interação ou intervenção do utilizador.
+O Azure fornece três modelos de computação para a execução de aplicações: [Funcionalidade Aplicações Web no Serviço de Aplicações do Azure][execution model-web sites], [Máquinas Virtuais do Azure][execution model-vms] e [Serviços Cloud do Azure][execution model-cloud services]. Os três modelos suportam o Python. Os Cloud Services, que incluem funções da Web e de trabalho, fornecem uma *Plataforma como Serviço (PaaS)*. Dentro de um serviço cloud, uma função da Web fornece um servidor Web de Serviços de Informação Internet (IIS) dedicado para alojar as aplicações Web front-end, enquanto uma função de trabalho pode executar tarefas assíncronas, de execução longa ou perpétuas, independentes da interação ou intervenção do utilizador.
 
 Para obter mais informações, consulte [O que é um Serviço em Nuvem?].
 
@@ -335,7 +335,7 @@ Para obter mais detalhes sobre a utilização de serviços do Azure a partir das
 * [Serviço Blob][Blob Service]
 * [Serviço Tabela][Table Service]
 * [Serviço Fila][Queue Service]
-* [Filas do Service Bus][Service Bus Queues]
+* [Filas de ônibus de serviço][Service Bus Queues]
 * [Tópicos de Service Bus][Service Bus Topics]
 
 <!--Link references-->

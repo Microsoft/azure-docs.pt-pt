@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
 ms.openlocfilehash: 1e597a81967a8fb6be2959d53e65ad01135e5e25
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76842908"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gerir e analisar registos de fluxo de grupos de segurança de rede em Azure usando o Network Watcher e o Graylog
@@ -36,7 +36,7 @@ Os registos de fluxo do grupo de segurança da rede estão ativados utilizando o
 
 ![Fluxo de trabalho de graylog](./media/network-watcher-analyze-nsg-flow-logs-graylog/workflow.png)
 
-## <a name="installation-steps"></a>Passos de Instalação
+## <a name="installation-steps"></a>Etapas de instalação
 
 ### <a name="enable-network-security-group-flow-logging"></a>Ativar o fluxo de fluxo do grupo de segurança da rede
 
@@ -175,10 +175,10 @@ Para mais informações sobre esta ficha, consulte a [documentação](https://gi
 
 Agora que estabeleceu uma ligação aos registos de fluxo utilizando o Logstash e configurar o servidor Graylog, precisa de configurar o Graylog para aceitar os ficheiros de registo que entram.
 
-1. Navegue para a interface web do Graylog Server utilizando o URL configurado para o mesmo. Pode aceder à interface direcionando o seu navegador para `http://<graylog-server-ip>:9000/`
+1. Navegue para a interface web do Graylog Server utilizando o URL configurado para o mesmo. Você pode aceder à interface direcionando o seu navegador para`http://<graylog-server-ip>:9000/`
 
 2. Para navegar na página de configuração, selecione o menu de drop-down do **Sistema** na barra de navegação superior à direita e, em seguida, clique em **Inputs**.
-   Alternativamente, navegue para `http://<graylog-server-ip>:9000/system/inputs`
+   Alternativamente, navegar para`http://<graylog-server-ip>:9000/system/inputs`
 
    ![Introdução](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
 
@@ -194,7 +194,7 @@ Agora que estabeleceu uma ligação aos registos de fluxo utilizando o Logstash 
 
    Para saber mais sobre as inputs da mensagem Graylog, consulte a [documentação](https://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs).
 
-4. Uma vez feitas estas configurações, pode iniciar o Logstash para começar a ler em registos de fluxo com o seguinte comando: `sudo systemctl start logstash.service`.
+4. Uma vez feitas estas configurações, pode iniciar o Logstash para começar `sudo systemctl start logstash.service`a ler em registos de fluxo com o seguinte comando: .
 
 ### <a name="search-through-graylog-messages"></a>Pesquisar através de mensagens Graylog
 
@@ -212,9 +212,9 @@ Por predefinição, todos os campos de mensagens estão incluídos na pesquisa s
 
 Agora que o Graylog configurao em funcionamento, pode utilizar algumas das suas funcionalidades para entender melhor os seus dados de registo de fluxo. Uma dessas formas é usando dashboards para criar visões específicas dos seus dados.
 
-### <a name="create-a-dashboard"></a>Criar um dashboard
+### <a name="create-a-dashboard"></a>Create a dashboard (Criar um dashboard)
 
-1. Na barra de navegação superior, selecione **Dashboards** ou navegue para `http://<graylog-server-ip>:9000/dashboards/`
+1. Na barra de navegação superior, selecione **Dashboards** ou navegue para`http://<graylog-server-ip>:9000/dashboards/`
 
 2. A partir daí, clique no botão verde Criar o **dashboard** e preencher o formulário curto com o título e descrição do seu painel de instrumentos. Acerte no botão **Guardar** para criar o novo painel de instrumentos. Vê-se um painel semelhante à seguinte imagem:
 

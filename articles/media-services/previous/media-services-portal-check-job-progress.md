@@ -1,6 +1,6 @@
 ---
-title: Monitorizar o progresso de tarefa de codificação com o portal do Azure
-description: Este tutorial explica-lhe os passos para monitorizar o progresso da tarefa no portal do Azure.
+title: Monitorizar o progresso do trabalho de codificação com o portal Azure
+description: Este tutorial acompanha-o através dos passos de monitorização do seu trabalho através do portal Azure.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,31 +15,31 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 86c91582256261d701dc3c73b1bdfdcb6002f6e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64867224"
 ---
-# <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Monitorizar o progresso de tarefa de codificação com o portal do Azure
+# <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Monitorizar o progresso do trabalho de codificação com o portal Azure
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 ## <a name="overview"></a>Descrição geral
 
-Quando executa tarefas, muitas vezes, necessitam de uma maneira de controlar o progresso da tarefa. 
+Quando se gere empregos, muitas vezes é preciso uma forma de acompanhar o progresso do emprego. 
 
 Para monitorizar o progresso da tarefa de codificação, clique em **Definições** (na parte superior da página) e, em seguida, selecione **Tarefas**.
 
 ![Tarefas](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
-Pode clicar a tarefa para ver mais detalhes.
+Pode clicar no trabalho para ver mais detalhes.
 
 ![Tarefas](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
 
-## <a name="next-steps"></a>Passos Seguintes
-Depois da tarefa de codificação é um, pode publicar e reproduzir os recursos, conforme descrito [aqui](media-services-portal-publish.md).
+## <a name="next-steps"></a>Passos seguintes
+Depois do seu trabalho de codificação ser um, pode publicar e reproduzir os seus bens, como descrito [aqui.](media-services-portal-publish.md)
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

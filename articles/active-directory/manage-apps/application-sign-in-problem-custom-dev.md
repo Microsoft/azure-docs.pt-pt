@@ -1,6 +1,6 @@
 ---
-title: Problemas ao iniciar sessão a uma aplicação personalizada desenvolvida | Documentos da Microsoft
-description: Erros comuns que podem estar a causar a não conseguir iniciar sessão numa aplicação desenvolvidos com o Azure AD
+title: Problemas de contratação de uma aplicação desenvolvida sob medida Microsoft Docs
+description: Erros comuns que podem estar a fazer com que não possa assinar uma aplicação que desenvolveu com a Azure AD
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,30 +17,30 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b8ad2499aea8bf4e41ca00d6c78d76e112f0493e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65825242"
 ---
-# <a name="problems-signing-in-to-a-custom-developed-application"></a>Problemas ao iniciar sessão para uma aplicação personalizada desenvolvida
+# <a name="problems-signing-in-to-a-custom-developed-application"></a>Problemas de sessão numa aplicação desenvolvida sob medida
 
-Há vários erros que podem estar a causar a não conseguir iniciar sessão numa aplicação. O maior encontro de pessoas de motivo que esse problema é configurado incorretamente aplicações.
+Existem vários erros que podem estar a fazer com que não consiga assinar uma aplicação. A maior razão pela qual as pessoas se deparam com este problema são as aplicações mal configuradas.
 
-## <a name="errors-related-to--misconfigured-apps"></a>Erros relacionados com aplicações configurado incorretamente
+## <a name="errors-related-to--misconfigured-apps"></a>Erros relacionados com apps mal configuradas
 
-* Certifique-se de que ambas as configurações no portal do corresponde ao que tem na sua aplicação. Especificamente, compare o ID de cliente/aplicação, URLs de resposta, chaves/segredos de cliente e URI de ID de aplicação.
+* Verifique ambas as configurações do portal correspondem às que tem na sua aplicação. Especificamente, compare id cliente/aplicação, URLs de resposta, segredos/chaves do cliente e ID de aplicação URI.
 
-* Comparar o recurso que está a solicitar acesso ao código com as permissões configuradas no **necessários recursos** separador para se certificar de que apenas a solicitar recursos que configurou.
+* Compare o recurso a que está a pedir acesso em código com as permissões configuradas no separador **Recursos Necessários** para se certificar de que apenas solicita recursos configurados.
 
-* Ver [Stack Overflow do Azure AD](https://stackoverflow.com/questions/tagged/azure-active-directory) para quaisquer erros ou problemas semelhantes.
+* Consulte [o Azure AD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory) para obter erros ou problemas semelhantes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Guia do programador do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)<br>
+[Guia de desenvolvimento da AD Azure](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)<br>
 
-[Consentimento e a integração de aplicações para o Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)<br>
+[Consentimento e Integração de Apps para AD Azure](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)<br>
 
-[Aplicações de convergência de consentimento e concessão de permissões para o Azure AD v2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
+[Consentimento e Permissão para Aplicações Convergentes Azure AD v2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
-[O Azure AD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory>)
+[Empilhador Azure ADOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory>)

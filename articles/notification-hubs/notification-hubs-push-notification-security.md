@@ -1,6 +1,6 @@
 ---
-title: Modelo de segurança dos hubs de notificação
-description: Saiba mais sobre o modelo de segurança para os hubs de notificação do Azure.
+title: Modelo de segurança de Centros de Notificação
+description: Conheça o modelo de segurança dos Hubs de Notificação Azure.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -17,61 +17,61 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/23/2019
 ms.openlocfilehash: b871775bc7a6d795e86147ae9cffa27bdd2f3348
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76263766"
 ---
-# <a name="notification-hubs-security"></a>Segurança dos hubs de notificação
+# <a name="notification-hubs-security"></a>Segurança dos Centros de Notificação
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
-Este tópico descreve o modelo de segurança dos hubs de notificação do Azure.
+Este tópico descreve o modelo de segurança dos Hubs de Notificação Azure.
 
-## <a name="shared-access-signature-security"></a>Segurança de assinatura de acesso compartilhado
+## <a name="shared-access-signature-security"></a>Segurança de assinatura de acesso partilhado
 
-Os hubs de notificação implementam um esquema de segurança em nível de entidade chamado de SAS ( *assinatura de acesso compartilhado* ). Cada regra contém um nome, um valor de chave (segredo compartilhado) e um conjunto de direitos, conforme explicado posteriormente em [declarações de segurança](#security-claims). 
+O Notification Hubs implementa um sistema de segurança ao nível da entidade chamado *Signature shared access* (SAS). Cada regra contém um nome, um valor-chave (segredo partilhado) e um conjunto de direitos, como explicado mais tarde em reivindicações de [Segurança.](#security-claims) 
 
-Ao criar um Hub, duas regras são criadas automaticamente: uma com direitos de **escuta** (que o aplicativo cliente usa) e outra com **todos os** direitos (que o back-end do aplicativo usa):
+Ao criar um hub, são criadas automaticamente duas regras: uma com direitos **de escuta** (que a app do cliente utiliza) e outra com **todos os** direitos (que o backend da aplicação utiliza):
 
-- **DefaultListenSharedAccessSignature**: concede somente a permissão **Listen** .
-- **DefaultFullSharedAccessSignature**: concede permissões de **escuta**, **Gerenciamento**e **envio** . Essa política deve ser usada somente no back-end do aplicativo. Não usá-lo em aplicativos cliente; Use uma política somente com acesso de **escuta** . Para criar uma nova política de acesso personalizada com um novo token SAS, consulte [tokens SAS para políticas de acesso](#sas-tokens-for-access-policies) mais adiante neste artigo.
+- **DefaultListenSharedAccessSignature**: concede apenas permissão **de escuta.**
+- **DefaultFullSharedAccessSignature**: grants **Listen**, **Manage**, and **Send** permissions. Esta política deve ser usada apenas no seu backend de aplicações. Não o utilize em aplicações de clientes; usar uma política com apenas **ouvir** acesso. Para criar uma nova política de acesso personalizado com um novo token SAS, consulte [tokens SAS para políticas](#sas-tokens-for-access-policies) de acesso mais tarde neste artigo.
 
-Ao executar o gerenciamento de registro de aplicativos cliente, se as informações enviadas por meio de notificações não forem confidenciais (por exemplo, atualizações do clima), uma maneira comum de acessar um hub de notificação é fornecer o valor de chave da regra de acesso somente de escuta para o aplicativo cliente, e para fornecer o valor de chave da regra acesso completo ao back-end do aplicativo.
+Ao executar a gestão de registo sabotadas de aplicações de clientes, se as informações enviadas através de notificações não forem sensíveis (por exemplo, atualizações meteorológicas), uma forma comum de aceder a um Centro de Notificação é dar o valor-chave da regra O acesso apenas à aplicação do cliente, e dar o valor-chave da regra de acesso total ao backend da aplicação.
 
-Os aplicativos não devem inserir o valor de chave em aplicativos cliente da Windows Store; em vez disso, faça com que o aplicativo cliente a recupere do back-end do aplicativo na inicialização.
+As aplicações não devem incorporar o valor-chave nas aplicações de clientes da Windows Store; em vez disso, fazer com que a aplicação do cliente a recupere do backend da app no arranque.
 
-A chave com acesso de **escuta** permite que um aplicativo cliente se registre em qualquer marca. Se seu aplicativo precisar restringir registros a marcas específicas para clientes específicos (por exemplo, quando as marcas representam IDs de usuário), o back-end do aplicativo deve executar os registros. Para obter mais informações, consulte [Gerenciamento de registro](notification-hubs-push-notification-registration-management.md). Observe que dessa forma, o aplicativo cliente não terá acesso direto aos hubs de notificação.
+A chave com o acesso **Listen** permite que uma aplicação de cliente se registe para qualquer etiqueta. Se a sua aplicação tiver de restringir as inscrições a etiquetas específicas a clientes específicos (por exemplo, quando as etiquetas representam iDs de utilizador), o backend da sua aplicação deve efetuar as inscrições. Para mais informações, consulte [a gestão do registo.](notification-hubs-push-notification-registration-management.md) Note que desta forma, a aplicação do cliente não terá acesso direto aos Centros de Notificação.
 
-## <a name="security-claims"></a>Declarações de segurança
+## <a name="security-claims"></a>Reclamações de segurança
 
-Semelhante a outras entidades, as operações do hub de notificação são permitidas para três declarações de segurança: **escutar**, **Enviar**e **gerenciar**.
+À semelhança de outras entidades, as operações do Centro de Notificação são permitidas para três pedidos de segurança: **Ouvir,** **Enviar**e **Gerir**.
 
 | Afirmação   | Descrição                                          | Operações permitidas |
 | ------- | ---------------------------------------------------- | ------------------ |
-| Escutar  | Criar/atualizar, ler e excluir registros únicos | Criar/atualizar registro<br><br>Ler registro<br><br>Ler todos os registros de um identificador<br><br>Excluir registro |
-| Enviar    | Enviar mensagens para o Hub de notificação                | Enviar mensagem |
-| Gerir  | CRUDs em hubs de notificação (incluindo atualização de credenciais do PNS e chaves de segurança) e ler registros com base em marcas |Criar/atualizar/ler/excluir hubs<br><br>Ler registros por marca |
+| Escutar  | Criar/Atualizar, Ler e Eliminar registos individuais | Criar/Atualizar o registo<br><br>Ler inscrição<br><br>Leia todas as inscrições para um cabo<br><br>Excluir o registo |
+| Enviar    | Enviar mensagens para o Centro de Notificação                | Enviar mensagem |
+| Gerir  | CRUDs em Centros de Notificação (incluindo a atualização de credenciais PNS e chaves de segurança), e ler registos com base em etiquetas |Criar/Atualizar/Ler/Eliminar centros<br><br>Ler inscrições por etiqueta |
 
-Os hubs de notificação aceitam tokens SAS gerados com chaves compartilhadas configuradas diretamente no Hub.
+O Notification Hubs aceita tokens SAS gerados com chaves partilhadas configuradas diretamente no centro.
 
-Não é possível enviar uma notificação para mais de um namespace. Os namespaces são contêineres lógicos para hubs de notificação e não estão envolvidos no envio de notificações.
+Não é possível enviar uma notificação para mais do que um espaço de nome. Os espaços de nome são recipientes lógicos para Centros de Notificação e não estão envolvidos no envio de notificações.
 
-Usar as políticas de acesso no nível de namespace (credenciais) para operações em nível de namespace; por exemplo: listando hubs, criando ou excluindo hubs, etc. Somente as políticas de acesso no nível do Hub permitem enviar notificações.
+Utilize as políticas de acesso ao nível do espaço de nome (credenciais) para operações ao nível do espaço de nome; por exemplo: listar centros, criar ou eliminar centros, etc. Apenas as políticas de acesso ao nível do hub permitem enviar notificações.
 
-### <a name="sas-tokens-for-access-policies"></a>Tokens SAS para políticas de acesso
+### <a name="sas-tokens-for-access-policies"></a>Fichas SAS para políticas de acesso
 
-Para criar uma nova declaração de segurança ou para exibir as chaves SAS existentes, faça o seguinte:
+Para criar uma nova reivindicação de segurança ou para visualizar as chaves SAS existentes, faça o seguinte:
 
 1. Inicie sessão no Portal do Azure.
 2. Selecione **Todos os recursos**.
-3. Selecione o nome do hub de notificação para o qual você deseja criar a declaração ou exibir a chave SAS.
-4. No menu à esquerda, selecione políticas de **acesso**.
-5. Selecione **nova política** para criar uma nova declaração de segurança. Dê um nome à política e selecione as permissões que deseja conceder. Em seguida, selecione **OK**.
-6. A cadeia de conexão completa (incluindo a nova chave SAS) é exibida na janela políticas de acesso. Você pode copiar essa cadeia de caracteres para a área de transferência para uso posterior.
+3. Selecione o nome do Centro de Notificação para o qual pretende criar a reclamação ou ver a chave SAS.
+4. No menu à esquerda, selecione Políticas de **Acesso**.
+5. Selecione **Nova Política** para criar uma nova reivindicação de segurança. Dê um nome à apólice e selecione as permissões que pretende conceder. Em seguida, selecione **OK**.
+6. A cadeia de ligação completa (incluindo a nova tecla SAS) é exibida na janela Políticas de Acesso. Pode copiar esta cadeia para posterior utilização.
 
-Para extrair a chave SAS de uma política específica, selecione o botão **copiar** ao lado da política que contém a chave SAS desejada. Cole esse valor em um local temporário e copie a parte da chave SAS da cadeia de conexão. Este exemplo usa um namespace de hubs de notificação chamado **mytestnamespace1**e uma política chamada **policy2**. A chave SAS é o valor próximo ao final da cadeia de caracteres, especificado por **SharedAccessKey**:
+Para extrair a tecla SAS de uma política específica, selecione o botão **Copiar** ao lado da política que contém a tecla SAS deseja. Cole este valor numa localização temporária e, em seguida, copie a parte chave SAS da cadeia de ligação. Este exemplo usa um espaço de nome sinuoso de Centros de Notificação chamado **mytestnamespace1**, e uma política chamada **política2**. A tecla SAS é o valor próximo da extremidade da cadeia, especificada por **SharedAccessKey:**
 
 ```shell
 Endpoint=sb://mytestnamespace1.servicebus.windows.net/;SharedAccessKeyName=policy2;SharedAccessKey=<SAS key value here>
@@ -81,4 +81,4 @@ Endpoint=sb://mytestnamespace1.servicebus.windows.net/;SharedAccessKeyName=polic
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Visão geral dos hubs de notificação](notification-hubs-push-notification-overview.md)
+- [Visão geral dos Centros de Notificação](notification-hubs-push-notification-overview.md)

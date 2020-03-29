@@ -10,16 +10,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 4b725c8a1bf0649a640c02a9a1828ec9014d36d6
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76905654"
 ---
 # <a name="indexing-documents-in-azure-data-lake-storage-gen2"></a>Documentos de indexação em Azure Data Lake Storage Gen2
 
 > [!IMPORTANT] 
-> O suporte do Azure Data Lake Storage Gen2 está atualmente em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Você pode solicitar acesso às visualizações preenchendo [este formulário](https://aka.ms/azure-cognitive-search/indexer-preview). A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece esse recurso. Atualmente não existe nenhum suporte de Portal ou .NET SDK.
+> O suporte do Azure Data Lake Storage Gen2 está atualmente em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure . Pode solicitar acesso às pré-visualizações preenchendo [este formulário](https://aka.ms/azure-cognitive-search/indexer-preview). A [versão REST API 2019-05-06-Preview](search-api-preview.md) fornece esta funcionalidade. Atualmente não existe nenhum suporte de Portal ou .NET SDK.
 
 
 Ao configurar uma conta de armazenamento Azure, tem a opção de ativar o espaço de [nome hierárquico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace). Isto permite que a recolha de conteúdos numa conta seja organizada numa hierarquia de diretórios e subdiretórios aninhados. Ao permitir espaço de nome hierárquico, permite o [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
@@ -38,7 +38,7 @@ Inscreva-se na pré-visualização do indexer de armazenamento de data Lake Gen2
 
 Assim que tiver recebido a confirmação de que a sua inscrição de pré-visualização foi bem sucedida, está pronto para criar o pipeline de indexação.
 
-Pode indexar conteúdo e metadados a partir de Data Lake Storage Gen2 utilizando a [versão REST API 2019-05-06-Preview](search-api-preview.md). Não há suporte para Portal ou SDK do .NET no momento.
+Pode indexar conteúdo e metadados a partir de Data Lake Storage Gen2 utilizando a [versão REST API 2019-05-06-Preview](search-api-preview.md). Não existe nenhum suporte de Portal ou .NET SDK neste momento.
 
 O conteúdo indexante no Data Lake Storage Gen2 é idêntico ao conteúdo indexante no armazenamento de Blob Azure. Para entender como configurar a fonte de dados, índice e indexador de dados do Data Lake Storage Gen2, consulte [como indexar documentos no Armazenamento de Blob Azure com pesquisa cognitiva Azure](search-howto-indexing-azure-blob-storage.md). O artigo de armazenamento blob também fornece informações sobre quais os formatos de documentos suportados, que propriedades de metadados blob são extraídas, indexação incremental, e muito mais. Esta informação será a mesma para data lake storage Gen2.
 
@@ -50,7 +50,7 @@ Se manter o controlo de acesso em cada documento no índice é importante, cabe 
 
 ## <a name="change-detection"></a>Deteção de Alterações
 
-O indexante de armazenamento de data lake Gen2 suporta a deteção de alterações. Isto significa que quando o indexante funciona, apenas reindexe as bolhas alteradas, tal como determinado sou`LastModified` carimbo de tempo.
+O indexante de armazenamento de data lake Gen2 suporta a deteção de alterações. Isto significa que quando o indexante funciona, apenas reindexe as bolhas `LastModified` alteradas, tal como determinado si, pelo carimbo temporal da bolha.
 
 > [!NOTE] 
-> Data Lake Storage Gen2 permite que os diretórios sejam renomeados. Quando um diretório é renomeado os carimbos temporais para as bolhas nesse diretório não são atualizados. Como resultado, o indexante não irá reindexar essas bolhas. Se precisa que as bolhas de um diretório sejam reindexadas após um renome de diretório porque agora têm novos URLs, terá de atualizar o `LastModified` prazo para todas as bolhas do diretório para que o indexante saiba reindexá-las durante uma futura execução.
+> Data Lake Storage Gen2 permite que os diretórios sejam renomeados. Quando um diretório é renomeado os carimbos temporais para as bolhas nesse diretório não são atualizados. Como resultado, o indexante não irá reindexar essas bolhas. Se precisa que as bolhas de um diretório sejam reindexadas após um renome de diretório porque `LastModified` agora têm novos URLs, terá de atualizar a marca de tempo para todas as bolhas do diretório para que o indexante saiba reindexá-las durante uma futura execução.

@@ -1,6 +1,6 @@
 ---
-title: Mover arquivos entre o armazenamento baseado em arquivo
-description: Saiba como usar um modelo de solução para mover arquivos entre o armazenamento baseado em arquivo usando Azure Data Factory.
+title: Mover ficheiros entre armazenamento baseado em ficheiros
+description: Aprenda a usar um modelo de solução para mover ficheiros entre armazenamento baseado em ficheiros utilizando a Azure Data Factory.
 services: data-factory
 author: dearandyxu
 ms.author: yexu
@@ -12,62 +12,62 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
 ms.openlocfilehash: b3165daa06ed975df9ccb677699d3ceb449327ab
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74941948"
 ---
-# <a name="move-files-with-azure-data-factory"></a>Mover arquivos com Azure Data Factory
+# <a name="move-files-with-azure-data-factory"></a>Mova ficheiros com a Azure Data Factory
 
-Este artigo descreve um modelo de solução que você pode usar para mover arquivos de uma pasta para outra entre repositórios baseados em arquivo. Um dos cenários comuns de uso deste modelo: os arquivos são continuamente descartados para uma pasta de aterrissagem do seu repositório de origem. Ao criar um gatilho de agendamento, o pipeline do ADF pode mover periodicamente esses arquivos da origem para o repositório de destino.  A maneira como o pipeline do ADF atinge "movendo arquivos" está obtendo os arquivos da pasta de aterrissagem, copiando cada um deles para outra pasta no repositório de destino e, em seguida, excluindo os mesmos arquivos da pasta de aterrissagem no repositório de origem.
+Este artigo descreve um modelo de solução que pode utilizar para mover ficheiros de uma pasta para outra entre lojas baseadas em ficheiros. Um dos cenários comuns de utilização deste modelo: Os ficheiros são continuamente deixados cair numa pasta de aterragem da sua loja de origem. Ao criar um gatilho de horário, o gasoduto ADF pode periodicamente mover esses ficheiros da fonte para a loja de destino.  A forma como o pipeline ADF consegue "ficheiros em movimento" é obter os ficheiros da pasta de aterragem, copiando cada um deles para outra pasta na loja de destino e, em seguida, apagando os mesmos ficheiros da pasta de aterragem na loja fonte.
 
 > [!NOTE]
-> Lembre-se de que esse modelo foi projetado para mover arquivos em vez de mover pastas.  Se você quiser mover a pasta alterando o conjunto de um para que ela contenha apenas um caminho de pasta e, em seguida, usando a atividade de cópia e excluir a referência ao mesmo conjunto de um que representa uma pasta, você precisa ter muito cuidado. É porque você precisa certificar-se de que não haverá novos arquivos chegando à pasta entre a operação de cópia e a operação de exclusão. Se houver novos arquivos chegando à pasta no momento em que a atividade de cópia acabou de concluir o trabalho de cópia, mas a atividade de exclusão não tiver sido feita, é possível que a atividade de exclusão exclua esse novo arquivo de chegada que não foi copiado para o destinati no entanto, excluindo a pasta inteira.
+> Esteja ciente de que este modelo foi concebido para mover ficheiros em vez de mover pastas.  Se pretender mover a pasta alterando o conjunto de dados para a tornar apenas uma pasta e, em seguida, utilizar a atividade da cópia e eliminar a atividade para se referir ao mesmo conjunto de dados que representa uma pasta, tem de ter muito cuidado. É porque tem de se certificar de que não haverá novos ficheiros que chegam à pasta entre a operação de cópia e a eliminação da operação. Se houver novos ficheiros que chegam à pasta no momento em que a sua atividade de cópia acabou de completar a função de cópia, mas a atividade de Eliminar não foi encarada, é possível que a atividade do Delete apague este novo ficheiro de chegada que NÃO foi copiado para o destino ainda, apagando toda a pasta.
 
 ## <a name="about-this-solution-template"></a>Sobre este modelo de solução
 
-Este modelo obtém os arquivos do armazenamento baseado em arquivo de origem. Em seguida, ele move cada um deles para o repositório de destino.
+Este modelo obtém os ficheiros da sua loja baseada em ficheiros de origem. Em seguida, move cada um deles para a loja de destino.
 
 O modelo contém cinco atividades:
-- **GetMetadata** Obtém a lista de objetos, incluindo os arquivos e subpastas de sua pasta no repositório de origem. Ele não recuperará os objetos recursivamente. 
-- **Filtro filtrar** a lista de objetos da atividade **GetMetadata** para selecionar apenas os arquivos. 
-- **Foreach** Obtém a lista de arquivos da atividade de **filtro** e, em seguida, itera na lista e passa cada arquivo para a atividade de cópia e a atividade de exclusão.
-- **Copiar** copia um arquivo da origem para o repositório de destino.
-- **Excluir** exclui o mesmo arquivo do repositório de origem.
+- **GetMetadata obtém** a lista de objetos, incluindo os ficheiros e subpastas da sua pasta na loja fonte. Não recuperará os objetos de forma recursiva. 
+- **Filtrar** a lista de objetos da atividade **getMetadata** para selecionar apenas os ficheiros. 
+- **ForEach** obtém a lista de ficheiros da atividade do **Filtro** e, em seguida, iterates sobre a lista e passa cada ficheiro para a atividade copy e eliminar atividade.
+- **Copie** um ficheiro da fonte para a loja de destino.
+- **Eliminar apaga** o mesmo ficheiro da loja fonte.
 
 O modelo define quatro parâmetros:
-- *SourceStore_Location* é o caminho da pasta do seu repositório de origem para o qual você deseja mover arquivos. 
-- *SourceStore_Directory* é o caminho da subpasta do seu repositório de origem para o qual você deseja mover arquivos.
-- *DestinationStore_Location* é o caminho da pasta do armazenamento de destino para o qual você deseja mover os arquivos. 
-- *DestinationStore_Directory* é o caminho da subpasta do armazenamento de destino para o qual você deseja mover os arquivos.
+- *SourceStore_Location* é o caminho da pasta da sua loja de origem onde pretende mover ficheiros. 
+- *SourceStore_Directory* é o caminho da subpasta da sua loja de origem onde pretende mover ficheiros.
+- *DestinationStore_Location* é o caminho das pastas da sua loja de destino para onde pretende mover ficheiros. 
+- *DestinationStore_Directory* é o caminho da subpasta da sua loja de destino para onde pretende mover ficheiros.
 
 ## <a name="how-to-use-this-solution-template"></a>Como usar este modelo de solução
 
-1. Vá para o modelo **mover arquivos** . Selecione conexão existente ou crie uma **nova** conexão com o repositório de arquivos de origem para o qual você deseja mover arquivos. Lembre-se de que **DataSource_Folder** e **DataSource_File** são referências à mesma conexão do seu repositório de arquivos de origem.
+1. Vá ao modelo **de ficheiros Move.** Selecione a ligação existente ou crie uma **nova** ligação à sua loja de ficheiros de origem onde pretenda mover ficheiros. Esteja ciente de que **DataSource_Folder** e **DataSource_File** são referência à mesma ligação da sua loja de ficheiros fonte.
 
-    ![Criar uma nova conexão com a origem](media/solution-template-move-files/move-files1.png)
+    ![Criar uma nova ligação com a fonte](media/solution-template-move-files/move-files1.png)
 
-2. Selecione conexão existente ou crie uma **nova** conexão com o repositório de arquivos de destino para o qual você deseja mover os arquivos.
+2. Selecione a ligação existente ou crie uma **nova** ligação à sua loja de ficheiros de destino para onde pretende mover ficheiros.
 
-    ![Criar uma nova conexão com o destino](media/solution-template-move-files/move-files2.png)
+    ![Criar uma nova ligação ao destino](media/solution-template-move-files/move-files2.png)
 
-3. Selecione **usar esta** guia de modelo.
+3. Selecione Utilize este separador de **modelo.**
     
-4. Você verá o pipeline, como no exemplo a seguir:
+4. Verá o oleoduto, como no seguinte exemplo:
 
-    ![Mostrar o pipeline](media/solution-template-move-files/move-files4.png)
+    ![Mostre o oleoduto](media/solution-template-move-files/move-files4.png)
 
-5. Selecione **depurar**, insira os **parâmetros**e, em seguida, selecione **concluir**.   Os parâmetros são o caminho da pasta para onde você deseja mover os arquivos e o caminho da pasta para onde você deseja mover os arquivos. 
+5. Selecione **Debug,** introduza os **Parâmetros**e, em seguida, selecione **Terminar**.   Os parâmetros são o caminho da pasta para onde pretende mover ficheiros e o caminho da pasta para onde pretende mover ficheiros. 
 
     ![Executar o pipeline](media/solution-template-move-files/move-files5.png)
 
-6. Examine o resultado.
+6. Reveja o resultado.
 
-    ![Examinar o resultado](media/solution-template-move-files/move-files6.png)
+    ![Reveja o resultado](media/solution-template-move-files/move-files6.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Copiar arquivos novos e alterados por LastModifiedDate com Azure Data Factory](solution-template-copy-new-files-lastmodifieddate.md)
+- [Copiar novos e alterados ficheiros por LastModifiedDate com fábrica de dados Azure](solution-template-copy-new-files-lastmodifieddate.md)
 
-- [Copiar arquivos de vários contêineres com Azure Data Factory](solution-template-copy-files-multiple-containers.md)
+- [Copiar ficheiros de vários contentores com fábrica de dados Azure](solution-template-copy-files-multiple-containers.md)

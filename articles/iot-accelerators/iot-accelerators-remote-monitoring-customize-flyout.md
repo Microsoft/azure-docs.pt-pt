@@ -1,6 +1,6 @@
 ---
-title: Adicionar um submenu para a solução de monitorização remota da interface do Usuário - Azure | Documentos da Microsoft
-description: Este artigo mostra-lhe como adicionar uma nova lista de opções numa página da web de acelerador de solução da interface do Usuário da monitorização remota.
+title: Adicione um flyout à solução de monitorização remota UI - Azure [ Microsoft Docs
+description: Este artigo mostra-lhe como adicionar um novo flyout numa página na UI web de aceleração da solução de monitorização remota.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -9,59 +9,59 @@ services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
 ms.openlocfilehash: ccb1a7ff6abbc68f42c7632a8ba7a392b2c48794
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61447119"
 ---
-# <a name="add-a-custom-flyout-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicionar uma lista de opções personalizada para monitorização remota solution accelerator da IU da web
+# <a name="add-a-custom-flyout-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicione um flyout personalizado ao UI web de solução de monitorização remota
 
-Este artigo mostra-lhe como adicionar uma nova lista de opções numa página web de acelerador de solução da interface do Usuário da monitorização remota. O artigo descreve:
+Este artigo mostra-lhe como adicionar um novo flyout a uma página na UI web de aceleração da solução de monitorização remota. O artigo descreve:
 
 - Como preparar um ambiente de desenvolvimento local.
-- Como adicionar um submenu de novo a uma página na IU da web.
+- Como adicionar um novo flyout a uma página na Web UI.
 
-O submenu de exemplo neste artigo apresenta a página e a grade que o [adicionar uma grade personalizada para monitorização remota solution accelerator da IU da web](iot-accelerators-remote-monitoring-customize-grid.md) procedimento artigo mostra-lhe como adicionar.
+O exemplo deste artigo mostra na página com a grelha que a Adicionar uma grelha personalizada ao acelerador de [soluções de monitorização remota ui](iot-accelerators-remote-monitoring-customize-grid.md) como fazer mostra como adicionar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir os passos neste guia de procedimentos, terá o seguinte software instalado no seu computador de desenvolvimento local:
+Para completar os passos neste guia de como orientar, precisa do seguinte software instalado na sua máquina de desenvolvimento local:
 
 - [Git](https://git-scm.com/downloads)
-- [Node.js](https://nodejs.org/download/)
+- [Nó.js](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Antes de continuar, deve de concluir os passos nos seguintes artigos:
+Deve completar os passos nos seguintes artigos antes de continuar:
 
-- [Adicionar uma página personalizada para monitorização remota solution accelerator da IU da web](iot-accelerators-remote-monitoring-customize-page.md).
-- [Adicionar um serviço personalizado para monitorização remota solution accelerator da IU da web](iot-accelerators-remote-monitoring-customize-service.md)
-- [Adicionar uma grade personalizada para monitorização remota solution accelerator da IU da web](iot-accelerators-remote-monitoring-customize-grid.md)
+- [Adicione uma página personalizada ao uI web de aceleração da solução de monitorização remota](iot-accelerators-remote-monitoring-customize-page.md).
+- [Adicione um serviço personalizado ao uI web de solução de monitorização remota](iot-accelerators-remote-monitoring-customize-service.md)
+- [Adicione uma grelha personalizada ao uI web de solução de monitorização remota](iot-accelerators-remote-monitoring-customize-grid.md)
 
 ## <a name="add-a-flyout"></a>Adicionar uma lista de opções
 
-Para adicionar um submenu para a IU da web, terá de adicionar os ficheiros de origem que definem o submenu e modificar alguns ficheiros existentes para tornar a IU da web em consideração o novo componente.
+Para adicionar um flyout ao UI web, você precisa adicionar os ficheiros de origem que definem o flyout, e modificar alguns ficheiros existentes para tornar a Web UI ciente do novo componente.
 
-### <a name="add-the-new-files-that-define-the-flyout"></a>Adicionar os novos ficheiros que definem o submenu
+### <a name="add-the-new-files-that-define-the-flyout"></a>Adicione os novos ficheiros que definem o flyout
 
-Para começar, o **src/instruções/componentes/páginas/pageWithFlyout/flyouts/exampleFlyout** pasta contém os ficheiros que definem um submenu:
+Para começar, a pasta **src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout** contém os ficheiros que definem um flyout:
 
-**exampleFlyout.container.js**
+**exemploFlyout.container.js**
 
 [!code-javascript[Example flyout container](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.container.js?name=flyoutcontainer "Example flyout container")]
 
-**exampleFlyout.js**
+**exemploFlyout.js**
 
 [!code-javascript[Example flyout](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.js?name=flyout "Example flyout")]
 
-Copiar o **passo a passo/src/componentes/pageWithFlyout/páginas/flyouts** pasta para o **src/componentes/páginas/exemplo** pasta.
+Copie a pasta **src/walkthrough/components/pages/pageWithFlyout/flyouts** para a pasta **src/components/pages/exemplo.**
 
-### <a name="add-the-flyout-to-the-page"></a>Adicionar a lista de opções para a página
+### <a name="add-the-flyout-to-the-page"></a>Adicione o flyout à página
 
-Modificar a **src/components/pages/example/basicPage.js** para adicionar o submenu.
+Modifique o **src/componentes/páginas/exemplo/basicPage.js** para adicionar o flyout.
 
-Adicione **Btn** para as importações de **componentes/partilhados** e adicione importações para **svgs** e **ExampleFlyoutContainer**:
+Adicione **btn** às importações de **componentes/partilhados** e adicione importações para **svgs** e **ExampleFlyoutContainer:**
 
 ```js
 import {
@@ -76,7 +76,7 @@ import { svgs } from 'utilities';
 import { ExampleFlyoutContainer } from './flyouts/exampleFlyout';
 ```
 
-Adicionar uma **const** definição para **closedFlyoutState** e adicioná-lo para o estado no construtor:
+Adicione uma definição **de const** para **o FlyoutState fechado** e adicione-a ao estado no construtor:
 
 ```js
 const closedFlyoutState = { openFlyoutName: undefined };
@@ -88,7 +88,7 @@ export class BasicPage extends Component {
   }
 ```
 
-Adicione as seguintes funções para o **BasicPage** classe:
+Adicione as seguintes funções à classe **BasicPage:**
 
 ```js
   closeFlyout = () => this.setState(closedFlyoutState);
@@ -96,7 +96,7 @@ Adicione as seguintes funções para o **BasicPage** classe:
   openFlyout = (name) => () => this.setState({ openFlyoutName: name });
 ```
 
-Adicione as seguintes **const** definições para o **renderizar** função:
+Adicione as seguintes definições de **const** à função **renderização:**
 
 ```js
     const { openFlyoutName } = this.state;
@@ -104,7 +104,7 @@ Adicione as seguintes **const** definições para o **renderizar** função:
     const isExampleFlyoutOpen = openFlyoutName === 'example';
 ```
 
-Adicione um botão para abrir a lista de opções ao menu de contexto:
+Adicione um botão para abrir o flyout ao menu de contexto:
 
 ```js
       <ContextMenu key="context-menu">
@@ -113,7 +113,7 @@ Adicione um botão para abrir a lista de opções ao menu de contexto:
       </ContextMenu>,
 ```
 
-Adicione algum texto e o contentor de lista de opções para o conteúdo da página:
+Adicione um pouco de texto e o recipiente de flyout ao conteúdo da página:
 
 ```js
       <PageContent className="basic-page-container" key="page-content">
@@ -125,20 +125,20 @@ Adicione algum texto e o contentor de lista de opções para o conteúdo da pág
       </PageContent>
 ```
 
-## <a name="test-the-flyout"></a>Testar a lista de opções
+## <a name="test-the-flyout"></a>Teste o voo para fora
 
-Se o web interface do Usuário não está já em execução localmente, execute o seguinte comando na raiz da sua cópia local do repositório:
+Se a UI web ainda não estiver a funcionar localmente, execute o seguinte comando na raiz da sua cópia local do repositório:
 
 ```cmd/sh
 npm start
 ```
 
-O comando anterior é a interface do Usuário localmente em executado [ http://localhost:3000/dashboard ](http://localhost:3000/dashboard). Navegue para o **exemplo** página e clique em **flutuante aberto**.
+O comando anterior executa [http://localhost:3000/dashboard](http://localhost:3000/dashboard)a UI localmente em . Navegue para a página **Exemplo** e clique em **Open Flyout**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu sobre os recursos disponíveis para o ajudar a adicionar ou personalizar páginas na IU da web no solution accelerator monitorização remota.
+Neste artigo, aprendeu sobre os recursos disponíveis para ajudá-lo a adicionar ou personalizar páginas na UI web no acelerador de soluções de Monitorização Remota.
 
-Agora que definiu um submenu numa página, a próxima etapa é [adicionar um painel para o dashboard de monitorização remota solution accelerator da IU da web](iot-accelerators-remote-monitoring-customize-panel.md).
+Agora que definiu um flyout numa página, o próximo passo é adicionar um painel ao painel no acelerador de [soluções remotas UI](iot-accelerators-remote-monitoring-customize-panel.md).
 
-Para obter mais informações concetuais sobre o acelerador de solução de monitorização remota, consulte [arquitetura de monitorização remota](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+Para obter informações mais conceptuais sobre o acelerador de soluções de monitorização remota, consulte [a arquitetura de Monitorização Remota.](iot-accelerators-remote-monitoring-sample-walkthrough.md)

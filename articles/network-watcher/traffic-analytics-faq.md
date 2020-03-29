@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
 ms.openlocfilehash: 5e31ed905f05070c8715a63ef3386b0006df0a75
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840626"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Análise de Tráfego frequentemente fez perguntas
@@ -45,7 +45,7 @@ A sua conta deve satisfazer um dos seguintes dados para permitir análises de tr
     - Microsoft.Network/localNetworkGateways/read 
     - Microsoft.Network/networkInterfaces/read 
     - Microsoft.Network/networkSecurityGroups/read 
-    - Microsoft.Network/publicIPAddresses/read
+    - Microsoft.Network/publicIPAddresss/read
     - Microsoft.Network/routeTables/read
     - Microsoft.Network/virtualNetworkGateways/read 
     - Microsoft.Network/virtualNetworks/read
@@ -72,9 +72,9 @@ Pode utilizar análises de tráfego para NSGs em qualquer uma das seguintes regi
 - E.U.A. Centro-Sul
 - E.U.A. Central
 - E.U.A. Oeste
-- E.U.A. Oeste 2
+- E.U.A.Oeste 2
 - França Central
-- Europa Ocidental
+- Europa ocidental
 - Europa do Norte
 - Sul do Brasil
 - Oeste do Reino Unido
@@ -89,7 +89,7 @@ Pode utilizar análises de tráfego para NSGs em qualquer uma das seguintes regi
 - Leste do Japão
 - Oeste do Japão
 - US Gov - Virginia
-- Leste da China 2
+- China Leste 2
 
 O espaço de trabalho log Analytics deve existir nas seguintes regiões:
 - Canadá Central
@@ -100,9 +100,9 @@ O espaço de trabalho log Analytics deve existir nas seguintes regiões:
 - E.U.A. Centro-Sul
 - E.U.A. Central
 - E.U.A. Oeste
-- E.U.A. Oeste 2
+- E.U.A.Oeste 2
 - França Central
-- Europa Ocidental
+- Europa ocidental
 - Europa do Norte
 - Oeste do Reino Unido
 - Sul do Reino Unido
@@ -114,7 +114,7 @@ O espaço de trabalho log Analytics deve existir nas seguintes regiões:
 - Índia Central
 - Leste do Japão
 - US Gov - Virginia
-- Leste da China 2
+- China Leste 2
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Os NSGs posso permitir que os registos de fluxo estejam em diferentes regiões do que o meu espaço de trabalho?
 
@@ -330,25 +330,25 @@ A página geomap contém duas secções principais:
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegação de teclado no banner
     
 - Por padrão, a seleção na página geo-mapa para o banner é o filtro "DCs Azure".
-- Para se deslocar para outro filtro, utilize o `Tab` ou a tecla `Right arrow`. Para andar para trás, utilize a `Shift+Tab` ou a chave `Left arrow`. A navegação para a frente é da esquerda para a direita, seguida de cima para baixo.
-- Prima `Enter` ou a tecla de seta `Down` para aplicar o filtro selecionado. Com base na seleção e implantação do filtro, destacam-se os nódosos sob a secção do mapa.
-- Para alternar entre banner e mapa, prima `Ctrl+F6`.
+- Para se deslocar para outro `Tab` filtro, utilize a `Right arrow` chave ou a chave. Para se mover para `Shift+Tab` trás, use a chave ou a `Left arrow` chave. A navegação para a frente é da esquerda para a direita, seguida de cima para baixo.
+- Pressione `Enter` `Down` ou a tecla de seta para aplicar o filtro selecionado. Com base na seleção e implantação do filtro, destacam-se os nódosos sob a secção do mapa.
+- Para alternar entre `Ctrl+F6`banner e mapa, prima .
         
 ### <a name="keyboard-navigation-on-the-map"></a>Navegação de teclado no mapa
     
-- Depois de ter selecionado qualquer filtro no banner e pressionado `Ctrl+F6`, o foco move-se para um dos nós destacados ( Centro de**dados Azure** ou **País/Região**) na vista do mapa.
-- Para passar para outros nós destacados no mapa, use `Tab` ou a chave `Right arrow` para o movimento para a frente. Utilize `Shift+Tab` ou a chave `Left arrow` para movimentos retrógrados.
-- Para selecionar qualquer nó realçado no mapa, utilize a tecla `Enter` ou `Down arrow`.
-- Na seleção de tais nós, o foco move-se para a Caixa de Ferramentas de **Informação** para o nó. Por predefinição, o foco move-se para o botão fechado na Caixa de Ferramentas de **Informação**. Para se mover ainda mais dentro da vista **Box,** utilize `Right arrow` e `Left arrow` chaves para avançar e recuar, respectivamente. Premir `Enter` tem o mesmo efeito que selecionar o botão focado na Caixa de Ferramentas de **Informação**.
-- Quando pressiona `Tab` enquanto o foco está na Caixa de Ferramentas de **Informação,** o foco move-se para os pontos finais no mesmo continente que o nó selecionado. Utilize as chaves `Right arrow` e `Left arrow` para passar por estes pontos finais.
-- Para se mover para outros pontos finais de fluxo ou aglomerados de continente, use `Tab` para movimentos avançados e `Shift+Tab` para o movimento retrógrado.
-- Quando o foco estiver nos **clusters do Continente,** utilize as teclas de seta `Enter` ou `Down` para destacar os pontos finais dentro do aglomerado do continente. Para passar por pontos finais e pelo botão de fecho na caixa de informação do cluster do continente, utilize a chave `Right arrow` ou `Left arrow` para movimentos para a frente e para trás, respectivamente. Em qualquer ponto final, pode utilizar `Shift+L` para mudar para a linha de ligação do nó selecionado para o ponto final. Pode pressionar `Shift+L` novamente para passar ao ponto final selecionado.
+- Depois de ter selecionado qualquer filtro `Ctrl+F6`no banner e pressionado, o foco move-se para um dos nós destacados ( Centro de**dados Azure** ou **País/Região**) na vista do mapa.
+- Para passar para outros nós destacados no `Tab` mapa, `Right arrow` use ou a chave para o movimento para a frente. Utilize `Shift+Tab` ou `Left arrow` a chave para movimentos retrógrados.
+- Para selecionar qualquer nó realçado no `Enter` mapa, use a ou `Down arrow` a tecla.
+- Na seleção de tais nós, o foco move-se para a Caixa de Ferramentas de **Informação** para o nó. Por predefinição, o foco move-se para o botão fechado na Caixa de Ferramentas de **Informação**. Para avançar ainda mais dentro `Right arrow` `Left arrow` da vista **Box,** use e teclas para avançar e recuar, respectivamente. Premir `Enter` tem o mesmo efeito que selecionar o botão focado na Caixa de Ferramentas de **Informação**.
+- Quando pressiona `Tab` enquanto o foco está na Caixa de Ferramentas de **Informação,** o foco move-se para os pontos finais no mesmo continente que o nó selecionado. Utilize `Right arrow` as `Left arrow` chaves e as chaves para passar por estes pontos finais.
+- Para se mover para outros pontos `Tab` finais de `Shift+Tab` fluxo ou aglomerados de continente, use para o movimento para a frente e para o movimento para trás.
+- Quando o foco estiver nos **clusters do Continente,** utilize as `Enter` teclas ou `Down` setas para destacar os pontos finais dentro do aglomerado do continente. Para mover-se através de pontos finais e do botão `Left arrow` de fecho na caixa de informação do cluster do continente, utilize a ou a `Right arrow` chave para o movimento para a frente e para trás, respectivamente. Em qualquer ponto final, `Shift+L` pode utilizar para mudar para a linha de ligação do nó selecionado para o ponto final. Pode premir `Shift+L` novamente para passar ao ponto final selecionado.
         
 ### <a name="keyboard-navigation-at-any-stage"></a>Navegação de teclado em qualquer fase
     
-- `Esc` colapsa a seleção expandida.
-- A chave `Up arrow` realiza a mesma ação que `Esc`. A chave `Down arrow` realiza a mesma ação que `Enter`.
-- Use `Shift+Plus` para ampliar e `Shift+Minus` para ampliar.
+- `Esc`colapsa a seleção expandida.
+- A `Up arrow` chave executa `Esc`a mesma ação que . A `Down arrow` chave executa `Enter`a mesma ação que .
+- Use `Shift+Plus` para ampliar `Shift+Minus` e para fazer zoom para fora.
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-virtual-network-topology-view"></a>Como posso navegar usando o teclado na vista de topologia da rede virtual?
 
@@ -360,16 +360,16 @@ A página de topologia das redes virtuais contém duas secções principais:
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegação de teclado no banner
     
 - Por padrão, a seleção na página de topologia das redes virtuais para o banner é o filtro "VNets Conectados".
-- Para se mover para outro filtro, use a chave `Tab` para avançar. Para andar para trás, use a chave `Shift+Tab`. A navegação para a frente é da esquerda para a direita, seguida de cima para baixo.
-- Prima `Enter` para aplicar o filtro selecionado. Com base na seleção e implantação do filtro, destacam-se os nódos os nós (rede virtual) sob a secção de topologia.
-- Para alternar entre o banner e a topologia, prima `Ctrl+F6`.
+- Para passar para outro `Tab` filtro, use a chave para avançar. Para andar para `Shift+Tab` trás, use a chave. A navegação para a frente é da esquerda para a direita, seguida de cima para baixo.
+- Pressione `Enter` para aplicar o filtro selecionado. Com base na seleção e implantação do filtro, destacam-se os nódos os nós (rede virtual) sob a secção de topologia.
+- Para alternar entre o banner `Ctrl+F6`e a topologia, prima .
         
 ### <a name="keyboard-navigation-on-the-topology"></a>Navegação de teclado na topologia
     
-- Depois de ter selecionado qualquer filtro no banner e pressionado `Ctrl+F6`, o foco move-se para um dos nós em destaque **(VNet**) na vista topologia.
-- Para passar para outros nós destacados na vista topologia, use a chave `Shift+Right arrow` para o movimento para a frente. 
-- Nos nós em destaque, o foco move-se para a Caixa de Ferramentas de **Informação** para o nó. Por predefinição, o foco move-se para o botão **Mais detalhes** na Caixa de Ferramentas de **Informação**. Para se mover ainda mais dentro da vista **Box,** utilize as chaves `Right arrow` e `Left arrow` para avançar e recuar, respectivamente. Premir `Enter` tem o mesmo efeito que selecionar o botão focado na Caixa de Ferramentas de **Informação**.
-- Na seleção de tais nós, pode visitar todas as suas ligações, uma a uma, pressionando a chave `Shift+Left arrow`. O foco move-se para a Caixa de Ferramentas de **Informação** dessa ligação. Em qualquer momento, o foco pode ser deslocado de volta para o nó pressionando `Shift+Right arrow` novamente.
+- Depois de ter selecionado qualquer filtro `Ctrl+F6`no banner e pressionado, o foco move-se para um dos nós destacados **(VNet**) na vista topologia.
+- Para passar para outros nós destacados na vista `Shift+Right arrow` topologia, use a chave para o movimento para a frente. 
+- Nos nós em destaque, o foco move-se para a Caixa de Ferramentas de **Informação** para o nó. Por predefinição, o foco move-se para o botão **Mais detalhes** na Caixa de Ferramentas de **Informação**. Para se mover ainda mais `Right arrow` dentro `Left arrow` da vista **Box,** utilize as chaves e as teclas para avançar e recuar, respectivamente. Premir `Enter` tem o mesmo efeito que selecionar o botão focado na Caixa de Ferramentas de **Informação**.
+- Na seleção de tais nós, pode visitar todas as suas ligações, uma a uma, pressionando a `Shift+Left arrow` chave. O foco move-se para a Caixa de Ferramentas de **Informação** dessa ligação. Em qualquer momento, o foco pode ser deslocado `Shift+Right arrow` de volta para o nó pressionando novamente.
     
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-subnet-topology-view"></a>Como posso navegar usando o teclado na vista de topologia subnet?
@@ -382,14 +382,14 @@ A página de topologia das subredes virtuais contém duas secções principais:
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegação de teclado no banner
     
 - Por padrão, a seleção na página de topologia das subredes virtuais para o banner é o filtro "Subnets".
-- Para se mover para outro filtro, use a chave `Tab` para avançar. Para andar para trás, use a chave `Shift+Tab`. A navegação para a frente é da esquerda para a direita, seguida de cima para baixo.
-- Prima `Enter` para aplicar o filtro selecionado. Com base na seleção e implantação do filtro, destacam-se os nódosos (Subnet) sob a secção de topologia.
-- Para alternar entre o banner e a topologia, prima `Ctrl+F6`.
+- Para passar para outro `Tab` filtro, use a chave para avançar. Para andar para `Shift+Tab` trás, use a chave. A navegação para a frente é da esquerda para a direita, seguida de cima para baixo.
+- Pressione `Enter` para aplicar o filtro selecionado. Com base na seleção e implantação do filtro, destacam-se os nódosos (Subnet) sob a secção de topologia.
+- Para alternar entre o banner `Ctrl+F6`e a topologia, prima .
         
 ### <a name="keyboard-navigation-on-the-topology"></a>Navegação de teclado na topologia
     
-- Depois de ter selecionado qualquer filtro no banner e pressionado `Ctrl+F6`, o foco move-se para um dos nós destacados **(Subnet)** na vista de topologia.
-- Para passar para outros nós destacados na vista topologia, use a chave `Shift+Right arrow` para o movimento para a frente. 
-- Nos nós em destaque, o foco move-se para a Caixa de Ferramentas de **Informação** para o nó. Por predefinição, o foco move-se para o botão **Mais detalhes** na Caixa de Ferramentas de **Informação**. Para se mover ainda mais dentro da vista **Box,** utilize `Right arrow` e `Left arrow` chaves para avançar e recuar, respectivamente. Premir `Enter` tem o mesmo efeito que selecionar o botão focado na Caixa de Ferramentas de **Informação**.
-- Na seleção de tais nós, pode visitar todas as suas ligações, uma a uma, pressionando `Shift+Left arrow` chave. O foco move-se para a Caixa de Ferramentas de **Informação** dessa ligação. Em qualquer momento, o foco pode ser deslocado de volta para o nó pressionando `Shift+Right arrow` novamente.    
+- Depois de ter selecionado qualquer filtro `Ctrl+F6`no banner e pressionado, o foco move-se para um dos nós destacados **(Subnet)** na vista topologia.
+- Para passar para outros nós destacados na vista `Shift+Right arrow` topologia, use a chave para o movimento para a frente. 
+- Nos nós em destaque, o foco move-se para a Caixa de Ferramentas de **Informação** para o nó. Por predefinição, o foco move-se para o botão **Mais detalhes** na Caixa de Ferramentas de **Informação**. Para avançar ainda mais dentro `Right arrow` `Left arrow` da vista **Box,** use e teclas para avançar e recuar, respectivamente. Premir `Enter` tem o mesmo efeito que selecionar o botão focado na Caixa de Ferramentas de **Informação**.
+- Na seleção de tais nós, você pode visitar todas as `Shift+Left arrow` suas ligações, uma a uma, pressionando a chave. O foco move-se para a Caixa de Ferramentas de **Informação** dessa ligação. Em qualquer momento, o foco pode ser deslocado `Shift+Right arrow` de volta para o nó pressionando novamente.    
 

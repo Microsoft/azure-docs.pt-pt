@@ -1,6 +1,6 @@
 ---
-title: Alterar a palavra-passe de conta do conector do Azure AD | Documentos da Microsoft
-description: Este tópico documenta como restaurar a conta do conector do Azure AD.
+title: Alterar a senha da conta do Conector Azure AD / Microsoft Docs
+description: Este tópico documenta como restaurar a conta azure AD Connector.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,41 +17,41 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0ea151ee79fccd66f1d9422744d8f57829677ec0
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67204538"
 ---
 # <a name="change-the-azure-ad-connector-account-password"></a>Alterar a palavra-passe da conta do Conector do Azure AD
-A conta do conector do Azure AD deve para ser o serviço gratuitamente. Se precisar de repor as respetivas credenciais, então este tópico é para si. Por exemplo, se um Administrador Global tiver por engano repor a palavra-passe da conta com o PowerShell.
+A conta Azure AD Connector deve ser gratuita. Se precisas de redefinir as suas credenciais, então este tópico é para ti. Por exemplo, se um Administrador Global tiver, por engano, redefinir a palavra-passe na conta utilizando o PowerShell.
 
-## <a name="reset-the-credentials"></a>Repor as credenciais
-Se a conta do conector do Azure AD não consegue contactar o Azure AD devido a problemas de autenticação, a palavra-passe pode ser reposta.
+## <a name="reset-the-credentials"></a>Redefinir as credenciais
+Se a conta de Conector AD Azure não puder contactar a AD Azure devido a problemas de autenticação, a palavra-passe pode ser redefinida.
 
-1. Inicie sessão para o servidor de sincronização do Azure AD Connect e inicie o PowerShell.
+1. Inicie sessão no servidor de sincronização Azure AD Connect e inicie a PowerShell.
 2. Execute `Add-ADSyncAADServiceAccount`.  
-   ![Addadsyncaadserviceaccount de cmdlet do PowerShell](./media/how-to-connect-azureadaccount/addadsyncaadserviceaccount.png)
-3. Fornece credenciais de Administrador Global do Azure AD.
+   ![Conta de addadsyncadservice de cmdlet PowerShell](./media/how-to-connect-azureadaccount/addadsyncaadserviceaccount.png)
+3. Forneça credenciais de administração da Azure AD Global.
 
-Este cmdlet repõe a palavra-passe para a conta de serviço e atualizá-la no Azure AD e no motor de sincronização.
+Este cmdlet repõe a palavra-passe para a conta de serviço e atualiza-a tanto no Azure AD como no motor de sincronização.
 
-## <a name="known-issues-these-steps-can-solve"></a>Problemas conhecidos que podem resolver estes passos
-Esta secção é uma lista de erros relatados por clientes que foram corrigidos por um credenciais repor na conta do conector do Azure AD.
+## <a name="known-issues-these-steps-can-solve"></a>Questões conhecidas que estes passos podem resolver
+Esta secção é uma lista de erros relatados pelos clientes que foram corrigidos por uma redefinição de credenciais na conta do Conector Azure AD.
 
 ---
 Evento 6900  
 O servidor encontrou um erro inesperado ao processar uma notificação de alteração de palavra-passe:  
-AADSTS70002: Credenciais de validação de erro. AADSTS50054: Foi utilizada uma palavra-passe antiga para a autenticação.
+AADSTS70002: Erro validando credenciais. AADSTS50054: A palavra-passe antiga é usada para autenticação.
 
 ---
 Evento 659  
-Erro ao obter a configuração de sincronização da política de palavra-passe. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException:  
-AADSTS70002: Credenciais de validação de erro. AADSTS50054: Foi utilizada uma palavra-passe antiga para a autenticação.
+Erro ao recuperar a configuração da sincronização da política de passwords. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException:  
+AADSTS70002: Erro validando credenciais. AADSTS50054: A palavra-passe antiga é usada para autenticação.
 
-## <a name="next-steps"></a>Passos Seguintes
-**Tópicos de descrição geral**
+## <a name="next-steps"></a>Passos seguintes
+**Tópicos de visão geral**
 
-* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
+* [Sincronização Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)
 

@@ -1,8 +1,8 @@
 ---
-title: 'Sincronização do Azure AD Connect:  Alterar a palavra-passe de conta do AD DS | Documentos da Microsoft'
-description: Este documento de tópico descreve como atualizar do Azure AD Connect, depois da palavra-passe da conta do AD DS é alterada.
+title: 'Sincronização Azure AD Connect: Alterar a senha da conta AD DS Microsoft Docs'
+description: Este documento de tópico descreve como atualizar o Azure AD Connect após a alteração da palavra-passe da conta AD DS.
 services: active-directory
-keywords: Conta do AD DS, a conta do Active Directory, a palavra-passe
+keywords: Conta AD DS, conta De Diretório Ativo, senha
 documentationcenter: ''
 author: billmath
 manager: daveba
@@ -18,43 +18,43 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 35e04be046e20883f60c576745a29342add68a81
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60241604"
 ---
-# <a name="changing-the-ad-ds-account-password"></a>Alterar a palavra-passe de conta do AD DS
-A conta do AD DS refere-se para a conta de utilizador utilizada pelo Azure AD Connect para comunicar com o Active Directory no local. Se alterar a palavra-passe da conta do AD DS, tem de atualizar o serviço do Azure AD Connect sincronização com a nova palavra-passe. Caso contrário, a sincronização já não pode sincronizar corretamente com o Active Directory no local e que encontrará os seguintes erros:
+# <a name="changing-the-ad-ds-account-password"></a>Alterar a palavra-passe da conta do AD DS
+A conta AD DS refere-se à conta de utilizador utilizada pelo Azure AD Connect para comunicar com o Diretório Ativo no local. Se alterar a palavra-passe da conta AD DS, tem de atualizar o Serviço de Sincronização de Ligação AD Azure com a nova palavra-passe. Caso contrário, a Sincronização já não pode sincronizar corretamente com o Diretório Ativo no local e encontrará os seguintes erros:
 
-* A operação do Synchronization Service Manager, qualquer importação ou exportação com locais AD falha com **credenciais de início não** erro.
+* No Gestor de Serviços de Sincronização, qualquer operação de importação ou exportação com AD no local falha sem erro de **credenciais de início.**
 
-* No Visualizador de eventos do Windows, o log de eventos do aplicativo contém um erro com **evento ID 6000** e a mensagem **"o agente de gestão"contoso.com"Falha ao executar uma vez que as credenciais eram inválidas"** .
+* No Windows Event Viewer, o registo do evento da aplicação contém um erro com o **Id do evento 6000** e a mensagem **'O agente de gestão "contoso.com" não foi executado porque as credenciais eram inválidas.**
 
 
-## <a name="how-to-update-the-synchronization-service-with-new-password-for-ad-ds-account"></a>Como atualizar o serviço de sincronização com a nova palavra-passe para a conta do AD DS
-Para atualizar o serviço de sincronização com a nova palavra-passe:
+## <a name="how-to-update-the-synchronization-service-with-new-password-for-ad-ds-account"></a>Como atualizar o Serviço de Sincronização com nova senha para conta AD DS
+Para atualizar o Serviço de Sincronização com a nova senha:
 
-1. Inicie o Synchronization Service Manager (serviço de sincronização do início →).
-</br>![Gestor do serviço de sincronização](./media/how-to-connect-sync-change-addsacct-pass/startmenu.png)  
+1. Inicie o Gestor de Serviços de Sincronização (START → Serviço de Sincronização).
+</br>![Gestor de Serviços de Sincronização](./media/how-to-connect-sync-change-addsacct-pass/startmenu.png)  
 
-2. Vá para o **conectores** separador.
+2. Vá ao separador **Conectores.**
 
-3. Selecione o **conector AD** que corresponde à conta do AD DS para o qual a respetiva palavra-passe foi alterada.
+3. Selecione o **Conector AD** que corresponde à conta AD DS para a qual a sua palavra-passe foi alterada.
 
-4. Sob **ações**, selecione **propriedades**.
+4. Em **Ações,** selecione **Propriedades**.
 
-5. Na caixa de diálogo pop-up, selecione **ligar à floresta do Active Directory**:
+5. No diálogo pop-up, selecione **Connect to Ative Directory Forest:**
 
-6. Introduza a nova palavra-passe da conta do AD DS no **palavra-passe** caixa de texto.
+6. Introduza a nova palavra-passe da conta AD DS na caixa de texto **password.**
 
-7. Clique em **OK** para guardar a nova palavra-passe e fechar a caixa de diálogo pop-up.
+7. Clique **em OK** para guardar a nova senha e fechar o diálogo pop-up.
 
-8. Reinício do Azure AD ligar o serviço de sincronização no Gestor de controlo de serviços do Windows. Isso é para garantir que qualquer referência para a palavra-passe antiga é removida da cache de memória.
+8. Reiniciar o Serviço de Sincronização de Ligação Azure AD no âmbito do Windows Service Control Manager. Isto é para garantir que qualquer referência à palavra-passe antiga seja removida do cache de memória.
 
-## <a name="next-steps"></a>Passos Seguintes
-**Tópicos de descrição geral**
+## <a name="next-steps"></a>Passos seguintes
+**Tópicos de visão geral**
 
-* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
+* [Sincronização Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
 
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)

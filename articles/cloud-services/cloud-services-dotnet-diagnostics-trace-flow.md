@@ -1,7 +1,7 @@
 ---
-title: Rastrear o fluxo no aplicativo de serviços de nuvem com Diagnóstico do Azure
+title: Trace o fluxo na aplicação de serviços de nuvem com diagnósticos azure
 titleSuffix: Azure Cloud Services
-description: Adicione mensagens de rastreamento a um aplicativo do Azure para ajudar a depurar, medir o desempenho, o monitoramento, a análise de tráfego e muito mais.
+description: Adicione mensagens de rastreio a uma aplicação Azure para ajudar a depurar, medir o desempenho, monitorização, análise de tráfego e muito mais.
 services: cloud-services
 documentationcenter: .net
 author: tgore03
@@ -11,32 +11,32 @@ ms.topic: article
 ms.date: 02/20/2016
 ms.author: tagore
 ms.openlocfilehash: 47a33ba27dd6d2df626d93695c421303bace6a0b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75386515"
 ---
-# <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Rastrear o fluxo de um aplicativo de serviços de nuvem com Diagnóstico do Azure
-O rastreamento é uma maneira de monitorar a execução do seu aplicativo enquanto ele está em execução. Você pode usar as classes [System. Diagnostics. Trace](/dotnet/api/system.diagnostics.trace), [System. Diagnostics. Debug](/dotnet/api/system.diagnostics.debug)e [System. Diagnostics. traceexception](/dotnet/api/system.diagnostics.tracesource) para registrar informações sobre erros e a execução de aplicativos em logs, arquivos de texto ou outros dispositivos para análise posterior. Para obter mais informações sobre rastreamento, consulte [rastreamento e instrumentação de aplicativos](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications).
+# <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Trace o fluxo de uma aplicação de Serviços cloud com diagnósticos azure
+Rastrear é uma forma de monitorizar a execução da sua aplicação enquanto está em execução. Pode utilizar o [System.Diagnostics.Trace,](/dotnet/api/system.diagnostics.trace) [System.Diagnostics.Debug,](/dotnet/api/system.diagnostics.debug) [system.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) classes para registar informações sobre erros e execução de aplicações em registos, ficheiros de texto ou outros dispositivos para posterior análise. Para mais informações sobre rastreios, consulte Aplicações de [Rastreio e Instrumentação](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications).
 
-## <a name="use-trace-statements-and-trace-switches"></a>Usar instruções de rastreamento e opções de rastreamento
-Implemente o rastreamento em seu aplicativo de serviços de nuvem adicionando o [DiagnosticMonitorTraceListener](/previous-versions/azure/reference/ee758610(v=azure.100)) à configuração do aplicativo e fazendo chamadas para System. Diagnostics. Trace ou System. Diagnostics. Debug no código do aplicativo. Use o arquivo de configuração *app. config* para funções de trabalho e o *Web. config* para funções Web. Quando você cria um novo serviço hospedado usando um modelo do Visual Studio, Diagnóstico do Azure é automaticamente adicionado ao projeto e o DiagnosticMonitorTraceListener é adicionado ao arquivo de configuração apropriado para as funções que você adiciona.
+## <a name="use-trace-statements-and-trace-switches"></a>Utilize declarações de vestígios e interruptores de rastreio
+Implemente o rastreio na sua aplicação Cloud Services adicionando o [DiagnosticMonitorTraceListener](/previous-versions/azure/reference/ee758610(v=azure.100)) à configuração da aplicação e fazendo chamadas para System.Diagnostics.Trace ou System.Diagnostics.Debug no seu código de aplicação. Utilize a app de ficheiros de *configuração.config* para funções de trabalhador e o *web.config* para funções web. Quando cria um novo serviço hospedado utilizando um modelo de Estúdio Visual, o Azure Diagnostics é adicionado automaticamente ao projeto e o DiagnosticMonitorTraceListener é adicionado ao ficheiro de configuração apropriado para as funções que adiciona.
 
-Para obter informações sobre como colocar instruções de rastreamento, consulte [como: Adicionar instruções de rastreamento ao código do aplicativo](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
+Para obter informações sobre a colocação de declarações de vestígios, consulte [Como: Adicionar declarações de rastreio ao Código de Aplicação](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
 
-Ao colocar as [Opções de rastreamento](/dotnet/framework/debug-trace-profile/trace-switches) em seu código, você pode controlar se o rastreamento ocorre e quão extensiva é. Isso permite que você monitore o status do seu aplicativo em um ambiente de produção. Isso é especialmente importante em um aplicativo de negócios que usa vários componentes em execução em vários computadores. Para obter mais informações, consulte [como: configurar opções de rastreamento](/dotnet/framework/debug-trace-profile/how-to-create-initialize-and-configure-trace-switches).
+Ao colocar os [Trace Switches](/dotnet/framework/debug-trace-profile/trace-switches) no seu código, pode controlar se o rastreio ocorre e quão extenso é. Isto permite-lhe monitorizar o estado da sua aplicação num ambiente de produção. Isto é especialmente importante numa aplicação de negócio que utiliza vários componentes em execução em vários computadores. Para mais informações, consulte [Como configurar os interruptores](/dotnet/framework/debug-trace-profile/how-to-create-initialize-and-configure-trace-switches)de rastreio .
 
-## <a name="configure-the-trace-listener-in-an-azure-application"></a>Configurar o ouvinte de rastreamento em um aplicativo do Azure
-Trace, Debug e Rastreáte exigem que você configure "ouvintes" para coletar e registrar as mensagens que são enviadas. Os ouvintes coletam, armazenam e roteiam mensagens de rastreamento. Eles direcionam a saída de rastreamento para um destino apropriado, como um log, uma janela ou um arquivo de texto. Diagnóstico do Azure usa a classe [DiagnosticMonitorTraceListener](/previous-versions/azure/reference/ee758610(v=azure.100)) .
+## <a name="configure-the-trace-listener-in-an-azure-application"></a>Configure o ouvinte de vestígios numa aplicação Azure
+Trace, Debug e TraceSource, exigem que instale "ouvintes" para recolher e gravar as mensagens que são enviadas. Os ouvintes recolhem, armazenam e rotas de rastreio de mensagens. Direcionam a saída de rastreio para um alvo apropriado, como um registo, janela ou ficheiro de texto. O Azure Diagnostics utiliza a classe [DiagnosticMonitorTraceListener.](/previous-versions/azure/reference/ee758610(v=azure.100))
 
-Antes de concluir o procedimento a seguir, você deve inicializar o monitor de diagnóstico do Azure. Para fazer isso, consulte [habilitando o diagnóstico no Microsoft Azure](cloud-services-dotnet-diagnostics.md).
+Antes de completar o seguinte procedimento, deve inicializar o monitor de diagnóstico Azure. Para isso, consulte A Habilitação de [Diagnósticos no Microsoft Azure](cloud-services-dotnet-diagnostics.md).
 
-Observe que, se você usar os modelos fornecidos pelo Visual Studio, a configuração do ouvinte será adicionada automaticamente para você.
+Note que se utilizar os modelos fornecidos pelo Visual Studio, a configuração do ouvinte é adicionada automaticamente para si.
 
-### <a name="add-a-trace-listener"></a>Adicionar um ouvinte de rastreamento
-1. Abra o arquivo Web. config ou app. config para sua função.
-2. Adicione o código a seguir ao arquivo. Altere o atributo Version para usar o número de versão do assembly que você está referenciando. A versão do assembly não é necessariamente alterada com cada versão do SDK do Azure, a menos que haja atualizações para ela.
+### <a name="add-a-trace-listener"></a>Adicione um ouvinte de traços
+1. Abra o ficheiro web.config ou app.config para o seu papel.
+2. Adicione o seguinte código ao ficheiro. Altere o atributo versão para utilizar o número de versão do conjunto a que se refere. A versão de montagem não muda necessariamente com cada versão Do SDK Azure, a menos que existam atualizações.
    
     ```
     <system.diagnostics>
@@ -55,23 +55,23 @@ Observe que, se você usar os modelos fornecidos pelo Visual Studio, a configura
     </system.diagnostics>
     ```
    > [!IMPORTANT]
-   > Verifique se você tem uma referência de projeto para o assembly Microsoft. WindowsAzure. Diagnostics. Atualize o número de versão no XML acima para corresponder à versão do assembly Microsoft. WindowsAzure. Diagnostics referenciado.
+   > Certifique-se de que tem uma referência ao projeto de referência para o conjunto Microsoft.WindowsAzure.Diagnostics. Atualize o número da versão no xml acima para corresponder à versão do conjunto de diagnósticos Microsoft.WindowsAzure.Diagnostics.
    > 
    > 
-3. Salve o arquivo de configuração.
+3. Guarde o ficheiro de config.
 
-Para obter mais informações sobre ouvintes, consulte [ouvintes de rastreamento](/dotnet/framework/debug-trace-profile/trace-listeners).
+Para mais informações sobre os ouvintes, consulte [Trace Listeners](/dotnet/framework/debug-trace-profile/trace-listeners).
 
-Depois de concluir as etapas para adicionar o ouvinte, você pode adicionar instruções de rastreamento ao seu código.
+Depois de completar os passos para adicionar o ouvinte, pode adicionar declarações de rastreio ao seu código.
 
-### <a name="to-add-trace-statement-to-your-code"></a>Para adicionar a instrução trace ao seu código
-1. Abra um arquivo de origem para seu aplicativo. Por exemplo, o \<RoleName > arquivo. cs para a função de trabalho ou função Web.
-2. Adicione a seguinte diretiva using se ela ainda não tiver sido adicionada:
+### <a name="to-add-trace-statement-to-your-code"></a>Para adicionar a declaração de rastreio ao seu código
+1. Abra um ficheiro de origem para a sua candidatura. Por exemplo, \<o ficheiro RoleName>.cs para o papel do trabalhador ou função web.
+2. Adicione a seguinte diretiva utilizando a seguinte diretiva se ainda não tiver sido adicionada:
     ```
         using System.Diagnostics;
     ```
-3. Adicione instruções de rastreamento em que você deseja capturar informações sobre o estado do seu aplicativo. Você pode usar uma variedade de métodos para formatar a saída da instrução trace. Para obter mais informações, consulte [como: Adicionar instruções de rastreamento ao código do aplicativo](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
-4. Salve o arquivo de origem.
+3. Adicione declarações de Trace onde pretende capturar informações sobre o estado da sua aplicação. Pode utilizar uma variedade de métodos para formatar a saída da declaração de Rastreio. Para mais informações, consulte [Como: Adicionar declarações de rastreio ao Código](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code)de Aplicação .
+4. Guarde o ficheiro de origem.
 
 
 

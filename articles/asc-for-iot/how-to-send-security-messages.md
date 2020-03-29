@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
 ms.openlocfilehash: 8bbbd8248c7418b667e34389cb47bd3f6b4f06ab
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76963823"
 ---
 # <a name="send-security-messages-sdk"></a>Enviar mensagens de segurança SDK
@@ -29,7 +29,7 @@ Este guia explica o Centro de Segurança Azure para as capacidades de serviço I
 Neste guia, ficará a saber como: 
 > [!div class="checklist"]
 > * Envie mensagens de segurança utilizando o SDK Azure IoT C
-> * Envie mensagens de segurança usando C# o Azure IoT SDK
+> * Envie mensagens de segurança utilizando o Azure IoT C# SDK
 > * Envie mensagens de segurança usando o Azure IoT Python SDK
 > * Envie mensagens de segurança utilizando o Nó Azure IoT.js SDK
 > * Envie mensagens de segurança usando o Azure IoT Java SDK
@@ -46,7 +46,7 @@ O Azure Security Center for IoT define uma mensagem de segurança utilizando os 
 - Se a mensagem estiver em conformidade com o esquema da mensagem de [segurança](https://aka.ms/iot-security-schemas)
 - Se a mensagem foi definida como uma mensagem de segurança antes de enviar
 
-Cada mensagem de segurança inclui os metadados do remetente, tais como `AgentId`, `AgentVersion`, `MessageSchemaVersion` e uma lista de eventos de segurança.
+Cada mensagem de segurança inclui os metadados `AgentVersion` `MessageSchemaVersion` do remetente, tais como, `AgentId`e uma lista de eventos de segurança.
 O esquema define as propriedades válidas e necessárias da mensagem de segurança, incluindo os tipos de eventos.
 
 >[!Note]
@@ -57,7 +57,7 @@ O esquema define as propriedades válidas e necessárias da mensagem de seguran�
 
 ## <a name="valid-message-example"></a>Exemplo de mensagem válido
 
-O exemplo abaixo mostra um objeto de mensagem de segurança válido. O exemplo contém os metadados da mensagem e um evento de segurança `ProcessCreate`.
+O exemplo abaixo mostra um objeto de mensagem de segurança válido. O exemplo contém os metadados da mensagem e um `ProcessCreate` evento de segurança.
 
 Uma vez definida como uma mensagem de segurança e enviada, esta mensagem será processada pelo Azure Security Center para IoT.
 
@@ -91,7 +91,7 @@ Uma vez definida como uma mensagem de segurança e enviada, esta mensagem será 
 
 ## <a name="send-security-messages"></a>Enviar mensagens de segurança 
 
-Envie mensagens de segurança *sem* utilizar o Azure Security Center para o agente IoT, utilizando o [dispositivo Azure IoT C SDK,](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview) [dispositivo Azure IoT C# SDK,](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview) [Azure IoT Node.js SDK,](https://github.com/Azure/azure-iot-sdk-node) [Azure IoT Python SDK,](https://github.com/Azure/azure-iot-sdk-python)ou [Azure IoT Java SDK](https://github.com/Azure/azure-iot-sdk-java).
+Envie mensagens de segurança *sem* utilizar o Azure Security Center para o agente IoT, utilizando o [dispositivo Azure IoT C SDK,](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview) [Azure IoT C# dispositivo SDK,](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview) [Azure IoT Node.js SDK,](https://github.com/Azure/azure-iot-sdk-node) [Azure IoT Python SDK,](https://github.com/Azure/azure-iot-sdk-python)ou [Azure IoT Java SDK](https://github.com/Azure/azure-iot-sdk-java).
 
 Para enviar os dados do dispositivo dos seus dispositivos para processamento pelo Azure Security Center para ioT, utilize uma das seguintes APIs para marcar mensagens para o correto encaminhamento para o Azure Security Center para o pipeline de processamento de IoT. 
 
@@ -157,7 +157,7 @@ private static async Task SendSecurityMessageAsync(string messageContent)
     await client.SendEventAsync(securityMessage);
 }
 ```
-#### <a name="nodejs-api"></a>API do node. js
+#### <a name="nodejs-api"></a>Node.js API
 
 ```typescript
 var Protocol = require('azure-iot-device-mqtt').Mqtt

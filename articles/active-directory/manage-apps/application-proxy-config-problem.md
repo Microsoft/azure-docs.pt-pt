@@ -1,6 +1,6 @@
 ---
-title: Problema ao criar uma aplicação de Proxy de aplicações | Documentos da Microsoft
-description: Como resolver problemas de criação de aplicações de Proxy de aplicações no portal de administração do Azure AD
+title: Problema na criação de aplicação de procuração de aplicações / Microsoft Docs
+description: Como resolver problemas criando aplicações de procuração de aplicações no portal Azure AD Admin
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,39 +17,39 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 104b98cba0948ec5d0896877e54eab1e7cd4049f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65825806"
 ---
-# <a name="problem-creating-an-application-proxy-application"></a>Problema ao criar uma aplicação de Proxy de aplicações 
+# <a name="problem-creating-an-application-proxy-application"></a>Problema de criação de uma aplicação proxy de aplicação 
 
-Seguem-se alguns dos problemas comuns face de pessoas ao criar uma nova aplicação de proxy de aplicação.
+Abaixo estão algumas das questões comuns que as pessoas enfrentam na criação de uma nova aplicação de procuração de aplicações.
 
 ## <a name="recommended-documents"></a>Documentos recomendados 
 
-Para saber mais sobre como criar uma aplicação de Proxy de aplicações através do Portal de administração, veja [publicar aplicações com o Proxy de aplicações do Azure AD](application-proxy-add-on-premises-application.md).
+Para saber mais sobre a criação de uma aplicação proxy de aplicação através do Portal da Administração, consulte as aplicações da Publicação utilizando o Proxy de [Aplicação AD Azure](application-proxy-add-on-premises-application.md).
 
-Se estiver a seguir os passos esse documento e estiver a receber um erro ao criar a aplicação, consulte os detalhes do erro para obter informações e sugestões para saber como corrigir o aplicativo. A maioria das mensagens de erro incluem uma correção sugerida. 
+Se estiver a seguir os passos desse documento e estiver a ter um erro na criação da aplicação, consulte os detalhes do erro para obter informações e sugestões para a forma de corrigir a aplicação. A maioria das mensagens de erro incluem uma correção sugerida. 
 
-## <a name="specific-things-to-check"></a>Aspetos específicos a verificar
+## <a name="specific-things-to-check"></a>Coisas específicas para verificar
 
-Para evitar erros comuns, certifique-se:
+Para evitar erros comuns, verifique:
 
--   For um administrador com permissão para criar uma aplicação de Proxy de aplicações
+-   É um administrador com permissão para criar um pedido de procuração de aplicação
 
--   O URL interno é exclusivo
+-   O URL interno é único
 
--   O URL externo é exclusivo
+-   O URL externo é único
 
--   Os URLs de começar com http ou https e terminar com uma "/"
+-   Os URLs começam com http ou https, e terminam com um "/"
 
 -   O URL deve ser um nome de domínio e não um endereço IP
 
-A mensagem de erro deve exibir no canto superior direito, ao criar a aplicação. Também pode selecionar o ícone de notificação para ver as mensagens de erro.
+A mensagem de erro deve ser exibida no canto superior direito quando criar a aplicação. Também pode selecionar o ícone de notificação para ver as mensagens de erro.
 
-   ![Linha de notificação](./media/application-proxy-config-problem/error-message.png)
+   ![Pedido de notificação](./media/application-proxy-config-problem/error-message.png)
 
-## <a name="next-steps"></a>Passos Seguintes
-[Ativar o Proxy de aplicações no portal do Azure](application-proxy-add-on-premises-application.md)
+## <a name="next-steps"></a>Passos seguintes
+[Ativar o Proxy da Aplicação no Portal do Azure](application-proxy-add-on-premises-application.md)

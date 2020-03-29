@@ -1,553 +1,553 @@
 ---
-title: CLI do Azure Service Fabric-aplicativo sfctl
-description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para gerenciar aplicativos.
+title: Aplicação Azure Service Fabric CLI-sfctl
+description: Conheça o sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para gestão de aplicações.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: b4e1066bba1db387c9dc0600bc55522f0b5fe897
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76906206"
 ---
 # <a name="sfctl-application"></a>sfctl application
-Criar, excluir e gerenciar aplicativos e tipos de aplicativos.
+Criar, eliminar e gerir aplicações e tipos de aplicações.
 
 ## <a name="commands"></a>Comandos
 
 |Comando|Descrição|
 | --- | --- |
-| criar | Cria um aplicativo Service Fabric usando a descrição especificada. |
-| delete | Exclui um aplicativo Service Fabric existente. |
-| deployed | Obtém as informações sobre um aplicativo implantado em um Service Fabric nó. |
-| deployed-health | Obtém as informações sobre a integridade de um aplicativo implantado em um Service Fabric nó. |
-| deployed-list | Obtém a lista de aplicativos implantados em um nó de Service Fabric. |
-| saúde | Obtém a integridade do aplicativo do Service Fabric. |
-| info | Obtém informações sobre um aplicativo Service Fabric. |
-| list | Obtém a lista de aplicativos criados no Cluster Service Fabric que correspondem aos filtros especificados. |
-| carregar | Obtém informações de carga sobre um aplicativo Service Fabric. |
-| manifesto | Obtém o manifesto que descreve um tipo de aplicativo. |
-| provision | Provisiona ou registra um tipo de aplicativo Service Fabric com o cluster usando o pacote '. sfpkg ' no repositório externo ou usando o pacote de aplicativos no repositório de imagens. |
-| report-health | Envia um relatório de integridade sobre o aplicativo Service Fabric. |
-| tipo | Obtém a lista de tipos de aplicativos no Cluster Service Fabric que correspondem exatamente ao nome especificado. |
-| type-list | Obtém a lista de tipos de aplicativos no Cluster Service Fabric. |
-| unprovision | Remove ou cancela o registro de um tipo de aplicativo Service Fabric do cluster. |
-| upgrade | Inicia a atualização de um aplicativo no Cluster Service Fabric. |
-| upgrade-resume | Retoma a atualização de um aplicativo no Cluster Service Fabric. |
-| upgrade-rollback | Inicia a reversão da atualização atual em andamento de um aplicativo no Cluster Service Fabric. |
-| upgrade-status | Obtém detalhes para a atualização mais recente executada neste aplicativo. |
-| carregar | Copie um pacote de aplicativos Service Fabric para o repositório de imagens. |
+| criar | Cria uma aplicação de tecido de serviço utilizando a descrição especificada. |
+| delete | Elimina uma aplicação de Tecido de Serviço existente. |
+| implantado | Obtém a informação sobre uma aplicação implantada num nó de Tecido de Serviço. |
+| saúde implantada | Obtém a informação sobre a saúde de uma aplicação implantada num nó de Tecido de Serviço. |
+| lista implantada | Obtém a lista de aplicações implantadas num nó de Tecido de Serviço. |
+| saúde | Obtém a saúde da aplicação de tecido de serviço. |
+| informações | Obtém informações sobre uma aplicação de Tecido de Serviço. |
+| list | Obtém a lista de aplicações criadas no cluster Service Fabric que correspondem aos filtros especificados. |
+| carregar | Obtém informações de carga sobre uma aplicação de Tecido de Serviço. |
+| manifest | Obtém o manifesto descrevendo um tipo de aplicação. |
+| disposição | Provisões ou regista um tipo de aplicação de Tecido de Serviço com o cluster utilizando o pacote '.sfpkg' na loja externa ou utilizando o pacote de aplicações na loja de imagens. |
+| relatório-saúde | Envia um relatório de saúde sobre a aplicação Service Fabric. |
+| tipo | Obtém a lista de tipos de aplicação no cluster Service Fabric que corresponda exatamente ao nome especificado. |
+| lista de tipos | Obtém a lista de tipos de aplicação no cluster Service Fabric. |
+| unprovision | Remove ou desregista um tipo de aplicação de tecido de serviço do cluster. |
+| atualizar | Começa a atualizar uma aplicação no cluster Service Fabric. |
+| upgrade-currículo | Retoma a atualização de uma aplicação no cluster Service Fabric. |
+| upgrade-rollback | Começa a reverter a atualização atual de uma aplicação no cluster Service Fabric. |
+| estado de atualização | Obtém detalhes sobre a mais recente atualização realizada nesta aplicação. |
+| carregar | Copie um pacote de aplicação Service Fabric para a loja de imagens. |
 
-## <a name="sfctl-application-create"></a>criação de aplicativo sfctl
-Cria um aplicativo Service Fabric usando a descrição especificada.
-
-### <a name="arguments"></a>Argumentos
-
-|Argumento|Descrição|
-| --- | --- |
-| --nome da aplicação [Obrigatório] | O nome do aplicativo, incluindo o esquema de URI ' Fabric\:'. |
-| --tipo de app [Obrigatório] | O nome do tipo de aplicativo encontrado no manifesto do aplicativo. |
-| --versão de apps [Necessária] | A versão do tipo de aplicativo, conforme definido no manifesto do aplicativo. |
-| --max-node-count | O número máximo de nós em que Service Fabric reservará a capacidade para este aplicativo. Observe que isso não significa que os serviços desse aplicativo serão colocados em todos esses nós. |
-| --métricas | Uma lista codificada em JSON de descrições de métrica de capacidade do aplicativo. Uma métrica é definida como um nome, associada a um conjunto de capacidades para cada nó no qual o aplicativo existe. |
-| --min-contagem de nós | O número mínimo de nós em que Service Fabric reservará a capacidade para este aplicativo. Observe que isso não significa que os serviços desse aplicativo serão colocados em todos esses nós. |
-| --parâmetros | Uma lista codificada em JSON de substituições de parâmetro de aplicativo a serem aplicadas ao criar o aplicativo. |
-| --Timeout-t | Padrão\: 60. |
-
-### <a name="global-arguments"></a>Argumentos globais
-
-|Argumento|Descrição|
-| --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
-
-## <a name="sfctl-application-delete"></a>exclusão do aplicativo sfctl
-Exclui um aplicativo Service Fabric existente.
-
-Um aplicativo deve ser criado antes que possa ser excluído. A exclusão de um aplicativo excluirá todos os serviços que fazem parte desse aplicativo. Por padrão, Service Fabric tentará fechar as réplicas de serviço de maneira normal e, em seguida, excluirá o serviço. No entanto, se um serviço estiver tendo problemas para fechar a réplica normalmente, a operação de exclusão poderá levar muito tempo ou ficar presa. Use o sinalizador opcional ForceRemove para ignorar a sequência de fechamento normal e forçar a exclusão do aplicativo e de todos os seus serviços.
+## <a name="sfctl-application-create"></a>sfctl aplicação criar
+Cria uma aplicação de tecido de serviço utilizando a descrição especificada.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
-| --force-remove | Remova um aplicativo ou serviço Service Fabric de modo forçado sem passar pela sequência de desligamento normal. Esse parâmetro pode ser usado para forçar a exclusão de um aplicativo ou serviço para o qual a exclusão está atingindo o tempo limite devido a problemas no código de serviço que impedem o fechamento normal das réplicas. |
-| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --nome da aplicação [Obrigatório] | O nome da aplicação,\:incluindo o esquema URI de tecido. |
+| --tipo de app [Obrigatório] | O nome do tipo de aplicação encontrado no manifesto de aplicação. |
+| --versão de apps [Necessária] | A versão do tipo de aplicação, tal como definida no manifesto de aplicação. |
+| -- contagem de nósolotamax | O número máximo de nós onde o Tecido de Serviço reservará capacidade para esta aplicação. Note que isso não significa que os serviços desta aplicação serão colocados em todos esses nós. |
+| -métricas | Uma lista codificada da JSON das descrições métricas da capacidade da aplicação. Uma métrica é definida como um nome, associado a um conjunto de capacidades para cada nó em que a aplicação existe. |
+| --min-nó-contagem | O número mínimo de nós onde o Tecido de Serviço reservará capacidade para esta aplicação. Note que isso não significa que os serviços desta aplicação serão colocados em todos esses nós. |
+| --parâmetros | Uma lista codificada de parâmetros de aplicação a aplicar a aplicar durante a criação da aplicação. |
+| --timeout -t | Padrão\: 60. |
 
-### <a name="global-arguments"></a>Argumentos globais
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
-## <a name="sfctl-application-deployed"></a>aplicativo sfctl implantado
-Obtém as informações sobre um aplicativo implantado em um Service Fabric nó.
+## <a name="sfctl-application-delete"></a>aplicação sfctl excluir
+Elimina uma aplicação de Tecido de Serviço existente.
 
-Essa consulta retornará informações do aplicativo do sistema se a ID do aplicativo fornecida for para o aplicativo do sistema. Os resultados abrangem aplicativos implantados nos Estados ativo, ativando e baixando. Essa consulta requer que o nome do nó corresponda a um nó no cluster. A consulta falhará se o nome do nó fornecido não apontar para nenhum nó do Service Fabric ativo no cluster.
+Uma aplicação deve ser criada antes de poder ser eliminada. A eliminação de uma aplicação irá eliminar todos os serviços que fazem parte dessa aplicação. Por padrão, o Service Fabric tentará fechar as réplicas de serviço de forma graciosa e, em seguida, eliminar o serviço. No entanto, se um serviço estiver com problemas de fecho da réplica graciosamente, a operação de eliminação pode demorar muito tempo ou ficar presa. Utilize a bandeira opcional ForceRemove para saltar a graciosa sequência de fecho e apagar com força a aplicação e todos os seus serviços.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
+| --application-id [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da\:aplicação sem o esquema URI 'fabric ' URI. A partir da versão 6.0, os nomes\~hierárquicos são delimitados com o " personagem ". Por exemplo, se o nome\:da aplicação for "tecido /myapp/app1", a identidade da aplicação seria "myapp\~app1" em 6.0+ e "myapp/app1" em versões anteriores. |
+| --remoção da força | Remova uma aplicação ou serviço de tecido de serviço com força sem passar pela sequência de paragem graciosa. Este parâmetro pode ser utilizado para eliminar com força uma aplicação ou serviço para o qual a eliminação é cronometragem devido a problemas no código de serviço que impedem o encerramento gracioso das réplicas. |
+| --timeout -t | O tempo de funcionamento do servidor para a execução da operação em segundos. Este prazo especifica a duração do tempo que o cliente está disposto a esperar que a operação solicitada esteja concluída. O valor padrão para este parâmetro é de 60 segundos.  Padrão\: 60. |
+
+### <a name="global-arguments"></a>Argumentos Globais
+
+|Argumento|Descrição|
+| --- | --- |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
+
+## <a name="sfctl-application-deployed"></a>aplicação sfctl implantada
+Obtém a informação sobre uma aplicação implantada num nó de Tecido de Serviço.
+
+Esta consulta devolve informações de aplicação do sistema se o ID da aplicação fornecido for para aplicação do sistema. Os resultados englobam aplicações implementadas em estados ativos, ativadores e descarregamentos. Esta consulta requer que o nome do nó corresponda a um nó no cluster. A consulta falha se o nome do nó fornecido não apontar para quaisquer nós ativos de tecido de serviço no cluster.
+
+### <a name="arguments"></a>Argumentos
+
+|Argumento|Descrição|
+| --- | --- |
+| --application-id [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da\:aplicação sem o esquema URI 'fabric ' URI. A partir da versão 6.0, os nomes\~hierárquicos são delimitados com o " personagem ". Por exemplo, se o nome\:da aplicação for "tecido /myapp/app1", a identidade da aplicação seria "myapp\~app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | --nome do nó [Obrigatório] | O nome do nó. |
-| --include-estado de integridade | Inclua o estado de integridade de uma entidade. Se esse parâmetro for false ou não for especificado, o estado de integridade retornado será "Unknown". Quando definido como true, a consulta entra em paralelo ao nó e ao serviço do sistema de integridade antes que os resultados sejam mesclados. Como resultado, a consulta é mais cara e pode levar mais tempo. |
-| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --incluir-estado-saúde-estado | Incluir o estado de saúde de uma entidade. Se este parâmetro for falso ou não especificado, então o estado de saúde devolvido é "Desconhecido". Quando é verdade, a consulta vai paralelamente ao nó e ao serviço do sistema de saúde antes da fusão dos resultados. Como resultado, a consulta é mais cara e pode demorar mais tempo. |
+| --timeout -t | O tempo de funcionamento do servidor para a execução da operação em segundos. Este prazo especifica a duração do tempo que o cliente está disposto a esperar que a operação solicitada esteja concluída. O valor padrão para este parâmetro é de 60 segundos.  Padrão\: 60. |
 
-### <a name="global-arguments"></a>Argumentos globais
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
-## <a name="sfctl-application-deployed-health"></a>aplicativo sfctl implantado – integridade
-Obtém as informações sobre a integridade de um aplicativo implantado em um Service Fabric nó.
+## <a name="sfctl-application-deployed-health"></a>aplicação sfctl implantada-saúde
+Obtém a informação sobre a saúde de uma aplicação implantada num nó de Tecido de Serviço.
 
-Obtém as informações sobre a integridade de um aplicativo implantado em um Service Fabric nó. Use EventsHealthStateFilter para filtrar opcionalmente a coleção de objetos HealthEvent relatados no aplicativo implantado com base no estado de integridade. Use Deployedservicepackageshealthstatefilter foi para filtrar opcionalmente para filhos do DeployedServicePackageHealth com base no estado de integridade.
+Obtém a informação sobre a saúde de uma aplicação implantada num nó de Tecido de Serviço. Utilize o EventsHealthStateFilter para filtrar opcionalmente para a recolha de objetos HealthEvent relatados na aplicação implementada com base no estado de saúde. Utilize o DeployServicePackagesHealthStateFilter para filtrar opcionalmente as crianças implantadas ServicePackageHealth com base no estado de saúde.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
+| --application-id [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da\:aplicação sem o esquema URI 'fabric ' URI. A partir da versão 6.0, os nomes\~hierárquicos são delimitados com o " personagem ". Por exemplo, se o nome\:da aplicação for "tecido /myapp/app1", a identidade da aplicação seria "myapp\~app1" em 6.0+ e "myapp/app1" em versões anteriores. |
 | --nome do nó [Obrigatório] | O nome do nó. |
-| --deployed-service-packages-health-state-filter | Permite a filtragem dos objetos de estado de integridade do pacote de serviço implantados retornados no resultado da consulta de integridade do aplicativo implantada com base em seu estado de integridade. Os valores possíveis para esse parâmetro incluem o valor inteiro de um dos seguintes Estados de integridade. Somente pacotes de serviço implantados que correspondem ao filtro são retornados. Todos os pacotes de serviço implantados são usados para avaliar o estado de integridade agregado do aplicativo implantado. Se não for especificado, todas as entradas serão retornadas. Os valores de estado são uma enumeração baseada em sinalizador e, portanto, o valor pode ser uma combinação desses valores, obtida usando o operador ' OR ' bit-up. Por exemplo, se o valor fornecido for 6, o estado de integridade dos pacotes de serviço com o valor OK (2) e Warning (4) será retornado.  <br> -Default-valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None-filtro que não corresponde a nenhum valor de HealthState. Usado para não retornar nenhum resultado em uma determinada coleção de Estados. O valor é 1.  <br> -Ok-filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning-filtro que corresponde à entrada com o valor Warning de HealthState. O valor é 4.  <br> -Error-filtro que corresponde à entrada com o valor Error de HealthState. O valor é 8.  <br> -All-filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
-| --events-health-state-filter | Permite filtrar a coleção de objetos HealthEvent retornados com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor inteiro de um dos seguintes Estados de integridade. Somente os eventos que correspondem ao filtro são retornados. Todos os eventos são usados para avaliar o estado de integridade agregado. Se não for especificado, todas as entradas serão retornadas. Os valores de estado são uma enumeração baseada em sinalizador e, portanto, o valor pode ser uma combinação desses valores, obtida usando o operador ' OR ' bit-up. Por exemplo, se o valor fornecido for 6, todos os eventos com o valor OK (2) e Warning (4) serão retornados.  <br> -Default-valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None-filtro que não corresponde a nenhum valor de HealthState. Usado para não retornar nenhum resultado em uma determinada coleção de Estados. O valor é 1.  <br> -Ok-filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning-filtro que corresponde à entrada com o valor Warning de HealthState. O valor é 4.  <br> -Error-filtro que corresponde à entrada com o valor Error de HealthState. O valor é 8.  <br> -All-filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
-| --Exclude-Statistics-Health | Indica se as estatísticas de integridade devem ser retornadas como parte do resultado da consulta. false por padrão. As estatísticas mostram o número de entidades filhas no estado de integridade Ok, aviso e erro. |
-| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --implementado-service-packages-health-state-filter | Permite a filtragem do pacote de serviço implantado objetos do estado de saúde devolvidos em resultado de consulta de saúde de aplicação implementada com base no seu estado de saúde. Os valores possíveis para este parâmetro incluem o valor inteiro de um dos seguintes estados de saúde. Apenas são devolvidos pacotes de serviço implantados que correspondam ao filtro. Todos os pacotes de serviços implantados são utilizados para avaliar o estado de saúde agregado da aplicação implantada. Se não especificadas, todas as entradas são devolvidas. Os valores do Estado são uma enumeração baseada em bandeiras, pelo que o valor pode ser uma combinação destes valores, obtidos utilizando o operador bitwise 'OR'. Por exemplo, se o valor fornecido for de 6, então os pacotes de estado de saúde de serviço com o valor do Estado de Saúde de OK (2) e Aviso (4) são devolvidos.  <br> - Predefinição - Valor predefinido. Corresponde a qualquer Estado de Saúde. O valor é zero.  <br> - Nenhum - Filtro que não corresponda a qualquer valor do Estado de Saúde. Usado para não devolver resultados numa determinada coleção de estados. O valor é 1.  <br> - Ok - Filtrar que corresponde à entrada com o valor do Estado de Saúde Ok. O valor é 2.  <br> - Aviso - Filtrar a entrada que corresponde ao valor do Estado de Saúde Aviso. O valor é 4.  <br> - Erro - Filtrar a entrada que corresponde à entrada com o erro de valor do Estado de Saúde. O valor é 8.  <br> - Tudo - Filtrar a entrada que corresponde a qualquer valor do Estado de Saúde. O valor é 65535. |
+| -eventos-saúde-filtro estado-estado | Permite filtrar a coleção de objetos HealthEvent devolvidos com base no estado de saúde. Os valores possíveis para este parâmetro incluem o valor inteiro de um dos seguintes estados de saúde. Só os eventos que combinam com o filtro são devolvidos. Todos os eventos são usados para avaliar o estado de saúde agregado. Se não especificadas, todas as entradas são devolvidas. Os valores do Estado são uma enumeração baseada em bandeiras, pelo que o valor pode ser uma combinação destes valores, obtidos utilizando o operador bitwise 'OR'. Por exemplo, se o valor fornecido for de 6, todos os eventos com o valor do Estado de Saúde de OK (2) e Aviso (4) são devolvidos.  <br> - Predefinição - Valor predefinido. Corresponde a qualquer Estado de Saúde. O valor é zero.  <br> - Nenhum - Filtro que não corresponda a qualquer valor do Estado de Saúde. Usado para não devolver resultados numa determinada coleção de estados. O valor é 1.  <br> - Ok - Filtrar que corresponde à entrada com o valor do Estado de Saúde Ok. O valor é 2.  <br> - Aviso - Filtrar a entrada que corresponde ao valor do Estado de Saúde Aviso. O valor é 4.  <br> - Erro - Filtrar a entrada que corresponde à entrada com o erro de valor do Estado de Saúde. O valor é 8.  <br> - Tudo - Filtrar a entrada que corresponde a qualquer valor do Estado de Saúde. O valor é 65535. |
+| -excluir-estatísticas de saúde | Indica se as estatísticas de saúde devem ser devolvidas como parte do resultado da consulta. Falso por defeito. As estatísticas mostram o número de entidades infantis no estado de saúde Ok, Warning e Error. |
+| --timeout -t | O tempo de funcionamento do servidor para a execução da operação em segundos. Este prazo especifica a duração do tempo que o cliente está disposto a esperar que a operação solicitada esteja concluída. O valor padrão para este parâmetro é de 60 segundos.  Padrão\: 60. |
 
-### <a name="global-arguments"></a>Argumentos globais
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
-## <a name="sfctl-application-deployed-list"></a>aplicativo sfctl implantado-lista
-Obtém a lista de aplicativos implantados em um nó de Service Fabric.
+## <a name="sfctl-application-deployed-list"></a>aplicação sfctl implantada lista
+Obtém a lista de aplicações implantadas num nó de Tecido de Serviço.
 
-Obtém a lista de aplicativos implantados em um nó de Service Fabric. Os resultados não incluem informações sobre aplicativos de sistema implantados, a menos que sejam consultados explicitamente por ID. Os resultados abrangem aplicativos implantados nos Estados ativo, ativando e baixando. Essa consulta requer que o nome do nó corresponda a um nó no cluster. A consulta falhará se o nome do nó fornecido não apontar para nenhum nó do Service Fabric ativo no cluster.
+Obtém a lista de aplicações implantadas num nó de Tecido de Serviço. Os resultados não incluem informações sobre aplicações do sistema implementadas, a menos que seja explicitamente consultado por ID. Os resultados englobam aplicações implementadas em estados ativos, ativadores e descarregamentos. Esta consulta requer que o nome do nó corresponda a um nó no cluster. A consulta falha se o nome do nó fornecido não apontar para quaisquer nós ativos de tecido de serviço no cluster.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
 | --nome do nó [Obrigatório] | O nome do nó. |
-| --continuação-token | O parâmetro de token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio é incluído na resposta da API quando os resultados do sistema não se ajustam em uma única resposta. Quando esse valor é passado para a próxima chamada à API, a API retorna o próximo conjunto de resultados. Se não houver mais resultados, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL. |
-| --include-estado de integridade | Inclua o estado de integridade de uma entidade. Se esse parâmetro for false ou não for especificado, o estado de integridade retornado será "Unknown". Quando definido como true, a consulta entra em paralelo ao nó e ao serviço do sistema de integridade antes que os resultados sejam mesclados. Como resultado, a consulta é mais cara e pode levar mais tempo. |
-| --max-results | O número máximo de resultados a serem retornados como parte das consultas paginadas. Esse parâmetro define o limite superior no número de resultados retornados. Os resultados retornados podem ser menores que os resultados máximos especificados se não couberem na mensagem de acordo com as restrições de tamanho máximo de mensagem definidas na configuração. Se esse parâmetro for zero ou não for especificado, a consulta paginável incluirá o máximo possível de resultados que couberem na mensagem de retorno. |
-| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --continuação-token | O parâmetro simbólico de continuação é utilizado para obter o próximo conjunto de resultados. Um símbolo de continuação com um valor não vazio é incluído na resposta da API quando os resultados do sistema não se encaixam numa única resposta. Quando este valor é passado para a próxima chamada da API, a API devolve o próximo conjunto de resultados. Se não houver mais resultados, então o sinal de continuação não contém um valor. O valor deste parâmetro não deve ser codificado. |
+| --incluir-estado-saúde-estado | Incluir o estado de saúde de uma entidade. Se este parâmetro for falso ou não especificado, então o estado de saúde devolvido é "Desconhecido". Quando é verdade, a consulta vai paralelamente ao nó e ao serviço do sistema de saúde antes da fusão dos resultados. Como resultado, a consulta é mais cara e pode demorar mais tempo. |
+| -resultados máximos | O número máximo de resultados a devolver como parte das consultas páginadas. Este parâmetro define o limite superior no número de resultados devolvidos. Os resultados devolvidos podem ser inferiores aos resultados máximos especificados se não encaixarem na mensagem de acordo com as restrições de tamanho máximo de mensagem definidas na configuração. Se este parâmetro for zero ou não especificado, a consulta páginada inclui o maior número possível de resultados que se encaixem na mensagem de devolução. |
+| --timeout -t | O tempo de funcionamento do servidor para a execução da operação em segundos. Este prazo especifica a duração do tempo que o cliente está disposto a esperar que a operação solicitada esteja concluída. O valor padrão para este parâmetro é de 60 segundos.  Padrão\: 60. |
 
-### <a name="global-arguments"></a>Argumentos globais
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
-## <a name="sfctl-application-health"></a>integridade do aplicativo sfctl
-Obtém a integridade do aplicativo do Service Fabric.
+## <a name="sfctl-application-health"></a>saúde da aplicação sfctl
+Obtém a saúde da aplicação de tecido de serviço.
 
-Retorna o estado integridade do aplicativo do Service Fabric. Os relatórios de resposta estão ok, erro ou estado de integridade de aviso. Se a entidade não for encontrada no repositório de integridade, ela retornará um erro.
+Devolve o estado de calor da aplicação de tecido de serviço. A resposta reporta o estado de saúde Ok, Error ou Warning. Se a entidade não for encontrada na loja de saúde, devolverá o Erro.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
-| --deployed-applications-health-state-filter | Permite a filtragem dos objetos de estado de integridade dos aplicativos implantados retornados no resultado da consulta de integridade do aplicativo com base em seu estado de integridade. Os valores possíveis para esse parâmetro incluem o valor inteiro de um dos seguintes Estados de integridade. Somente os aplicativos implantados que correspondem ao filtro serão retornados. Todos os aplicativos implantados são usados para avaliar o estado de integridade agregado. Se não for especificado, todas as entradas serão retornadas. Os valores de estado são uma enumeração baseada em sinalizador e, portanto, o valor pode ser uma combinação desses valores, obtida usando o operador ' OR ' bit-up. Por exemplo, se o valor fornecido for 6, o estado de integridade dos aplicativos implantados com o valor OK (2) e Warning (4) será retornado.  <br> -Default-valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None-filtro que não corresponde a nenhum valor de HealthState. Usado para não retornar nenhum resultado em uma determinada coleção de Estados. O valor é 1.  <br> -Ok-filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning-filtro que corresponde à entrada com o valor Warning de HealthState. O valor é 4.  <br> -Error-filtro que corresponde à entrada com o valor Error de HealthState. O valor é 8.  <br> -All-filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
-| --events-health-state-filter | Permite filtrar a coleção de objetos HealthEvent retornados com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor inteiro de um dos seguintes Estados de integridade. Somente os eventos que correspondem ao filtro são retornados. Todos os eventos são usados para avaliar o estado de integridade agregado. Se não for especificado, todas as entradas serão retornadas. Os valores de estado são uma enumeração baseada em sinalizador e, portanto, o valor pode ser uma combinação desses valores, obtida usando o operador ' OR ' bit-up. Por exemplo, se o valor fornecido for 6, todos os eventos com o valor OK (2) e Warning (4) serão retornados.  <br> -Default-valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None-filtro que não corresponde a nenhum valor de HealthState. Usado para não retornar nenhum resultado em uma determinada coleção de Estados. O valor é 1.  <br> -Ok-filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning-filtro que corresponde à entrada com o valor Warning de HealthState. O valor é 4.  <br> -Error-filtro que corresponde à entrada com o valor Error de HealthState. O valor é 8.  <br> -All-filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
-| --Exclude-Statistics-Health | Indica se as estatísticas de integridade devem ser retornadas como parte do resultado da consulta. false por padrão. As estatísticas mostram o número de entidades filhas no estado de integridade Ok, aviso e erro. |
-| --services-health-state-filter | Permite a filtragem dos objetos de estado de integridade dos serviços retornados no resultado da consulta de integridade de serviços com base em seu estado de integridade. Os valores possíveis para esse parâmetro incluem o valor inteiro de um dos seguintes Estados de integridade. Somente os serviços que correspondem ao filtro são retornados. Todos os serviços são usados para avaliar o estado de integridade agregado. Se não for especificado, todas as entradas serão retornadas. Os valores de estado são uma enumeração baseada em sinalizador e, portanto, o valor pode ser uma combinação desses valores, obtida usando o operador ' OR ' bit-up. Por exemplo, se o valor fornecido for 6, o estado de integridade dos serviços com o valor OK (2) e Warning (4) será retornado.  <br> -Default-valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None-filtro que não corresponde a nenhum valor de HealthState. Usado para não retornar nenhum resultado em uma determinada coleção de Estados. O valor é 1.  <br> -Ok-filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning-filtro que corresponde à entrada com o valor Warning de HealthState. O valor é 4.  <br> -Error-filtro que corresponde à entrada com o valor Error de HealthState. O valor é 8.  <br> -All-filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
-| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --application-id [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da\:aplicação sem o esquema URI 'fabric ' URI. A partir da versão 6.0, os nomes\~hierárquicos são delimitados com o " personagem ". Por exemplo, se o nome\:da aplicação for "tecido /myapp/app1", a identidade da aplicação seria "myapp\~app1" em 6.0+ e "myapp/app1" em versões anteriores. |
+| --aplicações implantadas-filtro de estado-saúde | Permite a filtragem das aplicações implementadas objetos do estado de saúde devolvidos em resultado de consulta de saúde de aplicação com base no seu estado de saúde. Os valores possíveis para este parâmetro incluem o valor inteiro de um dos seguintes estados de saúde. Apenas as aplicações implantadas que correspondam ao filtro serão devolvidas. Todas as aplicações implementadas são usadas para avaliar o estado de saúde agregado. Se não especificadas, todas as entradas são devolvidas. Os valores do Estado são uma enumeração baseada na bandeira, pelo que o valor pode ser uma combinação destes valores, obtidos utilizando um operador de 'OR' bitwise. Por exemplo, se o valor fornecido for de 6, então o estado de saúde das aplicações implementadas com o valor do Estado de Saúde de OK (2) e Aviso (4) são devolvidos.  <br> - Predefinição - Valor predefinido. Corresponde a qualquer Estado de Saúde. O valor é zero.  <br> - Nenhum - Filtro que não corresponda a qualquer valor do Estado de Saúde. Usado para não devolver resultados numa determinada coleção de estados. O valor é 1.  <br> - Ok - Filtrar que corresponde à entrada com o valor do Estado de Saúde Ok. O valor é 2.  <br> - Aviso - Filtrar a entrada que corresponde ao valor do Estado de Saúde Aviso. O valor é 4.  <br> - Erro - Filtrar a entrada que corresponde à entrada com o erro de valor do Estado de Saúde. O valor é 8.  <br> - Tudo - Filtrar a entrada que corresponde a qualquer valor do Estado de Saúde. O valor é 65535. |
+| -eventos-saúde-filtro estado-estado | Permite filtrar a coleção de objetos HealthEvent devolvidos com base no estado de saúde. Os valores possíveis para este parâmetro incluem o valor inteiro de um dos seguintes estados de saúde. Só os eventos que combinam com o filtro são devolvidos. Todos os eventos são usados para avaliar o estado de saúde agregado. Se não especificadas, todas as entradas são devolvidas. Os valores do Estado são uma enumeração baseada em bandeiras, pelo que o valor pode ser uma combinação destes valores, obtidos utilizando o operador bitwise 'OR'. Por exemplo, se o valor fornecido for de 6, todos os eventos com o valor do Estado de Saúde de OK (2) e Aviso (4) são devolvidos.  <br> - Predefinição - Valor predefinido. Corresponde a qualquer Estado de Saúde. O valor é zero.  <br> - Nenhum - Filtro que não corresponda a qualquer valor do Estado de Saúde. Usado para não devolver resultados numa determinada coleção de estados. O valor é 1.  <br> - Ok - Filtrar que corresponde à entrada com o valor do Estado de Saúde Ok. O valor é 2.  <br> - Aviso - Filtrar a entrada que corresponde ao valor do Estado de Saúde Aviso. O valor é 4.  <br> - Erro - Filtrar a entrada que corresponde à entrada com o erro de valor do Estado de Saúde. O valor é 8.  <br> - Tudo - Filtrar a entrada que corresponde a qualquer valor do Estado de Saúde. O valor é 65535. |
+| -excluir-estatísticas de saúde | Indica se as estatísticas de saúde devem ser devolvidas como parte do resultado da consulta. Falso por defeito. As estatísticas mostram o número de entidades infantis no estado de saúde Ok, Warning e Error. |
+| --serviços-filtro estado-saúde | Permite a filtragem dos serviços de estado de saúde objetos devolvidos em resultado de consultas de saúde de serviços com base no seu estado de saúde. Os valores possíveis para este parâmetro incluem o valor inteiro de um dos seguintes estados de saúde. Só os serviços que combinam com o filtro são devolvidos. Todos os serviços são utilizados para avaliar o estado de saúde agregado. Se não especificadas, todas as entradas são devolvidas. Os valores do Estado são uma enumeração baseada na bandeira, pelo que o valor pode ser uma combinação destes valores, obtidos utilizando um operador de 'OR' bitwise. Por exemplo, se o valor fornecido for de 6, então o estado de saúde dos serviços com o valor do Estado de Saúde de OK (2) e Aviso (4) será devolvido.  <br> - Predefinição - Valor predefinido. Corresponde a qualquer Estado de Saúde. O valor é zero.  <br> - Nenhum - Filtro que não corresponda a qualquer valor do Estado de Saúde. Usado para não devolver resultados numa determinada coleção de estados. O valor é 1.  <br> - Ok - Filtrar que corresponde à entrada com o valor do Estado de Saúde Ok. O valor é 2.  <br> - Aviso - Filtrar a entrada que corresponde ao valor do Estado de Saúde Aviso. O valor é 4.  <br> - Erro - Filtrar a entrada que corresponde à entrada com o erro de valor do Estado de Saúde. O valor é 8.  <br> - Tudo - Filtrar a entrada que corresponde a qualquer valor do Estado de Saúde. O valor é 65535. |
+| --timeout -t | O tempo de funcionamento do servidor para a execução da operação em segundos. Este prazo especifica a duração do tempo que o cliente está disposto a esperar que a operação solicitada esteja concluída. O valor padrão para este parâmetro é de 60 segundos.  Padrão\: 60. |
 
-### <a name="global-arguments"></a>Argumentos globais
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
-## <a name="sfctl-application-info"></a>informações do aplicativo sfctl
-Obtém informações sobre um aplicativo Service Fabric.
+## <a name="sfctl-application-info"></a>informação de aplicação sfctl
+Obtém informações sobre uma aplicação de Tecido de Serviço.
 
-Retorna as informações sobre o aplicativo que foi criado ou no processo de criação no cluster de Service Fabric e cujo nome corresponde ao especificado como o parâmetro. A resposta inclui o nome, o tipo, o status, os parâmetros e outros detalhes sobre o aplicativo.
+Devolve as informações sobre a aplicação que foi criada ou em processo de criação no cluster Service Fabric e cujo nome corresponde ao especificado como parâmetro. A resposta inclui o nome, tipo, estado, parâmetros e outros detalhes sobre a aplicação.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
-| --Exclude-parâmetros de aplicativo | O sinalizador que especifica se os parâmetros do aplicativo serão excluídos do resultado. |
-| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --application-id [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da\:aplicação sem o esquema URI 'fabric ' URI. A partir da versão 6.0, os nomes\~hierárquicos são delimitados com o " personagem ". Por exemplo, se o nome\:da aplicação for "tecido /myapp/app1", a identidade da aplicação seria "myapp\~app1" em 6.0+ e "myapp/app1" em versões anteriores. |
+| -excluir-aplicação-parâmetros | A bandeira que especifica se os parâmetros de aplicação serão excluídos do resultado. |
+| --timeout -t | O tempo de funcionamento do servidor para a execução da operação em segundos. Este prazo especifica a duração do tempo que o cliente está disposto a esperar que a operação solicitada esteja concluída. O valor padrão para este parâmetro é de 60 segundos.  Padrão\: 60. |
 
-### <a name="global-arguments"></a>Argumentos globais
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
-## <a name="sfctl-application-list"></a>lista de aplicativos do sfctl
-Obtém a lista de aplicativos criados no Cluster Service Fabric que correspondem aos filtros especificados.
+## <a name="sfctl-application-list"></a>lista de candidaturas sfctl
+Obtém a lista de aplicações criadas no cluster Service Fabric que correspondem aos filtros especificados.
 
-Obtém as informações sobre os aplicativos que foram criados ou no processo de criação no Cluster Service Fabric e que correspondem aos filtros especificados. A resposta inclui o nome, o tipo, o status, os parâmetros e outros detalhes sobre o aplicativo. Se os aplicativos não couberem em uma página, uma página de resultados será retornada, bem como um token de continuação, que pode ser usado para obter a próxima página. Os filtros ApplicationTypeName e ApplicationDefinitionKindFilter não podem ser especificados ao mesmo tempo.
+Obtém a informação sobre as aplicações que foram criadas ou em processo de criação no cluster Service Fabric e corresponde aos filtros especificados. A resposta inclui o nome, tipo, estado, parâmetros e outros detalhes sobre a aplicação. Se as aplicações não encaixarem numa página, uma página de resultados é devolvida, bem como um sinal de continuação, que pode ser usado para obter a página seguinte. Filtrar AplicaçõesTypeName e ApplicationDefinitionKindFilter não pode ser especificado ao mesmo tempo.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --application-definition-kind-filter | Usado para filtrar em ApplicationDefinitionKind, que é o mecanismo usado para definir um aplicativo Service Fabric.  <br> -Default-valor padrão, que executa a mesma função que selecionar "All". O valor é 0.  <br> -All-filtro que corresponde à entrada com qualquer valor de ApplicationDefinitionKind. O valor é 65535.  <br> -ServiceFabricApplicationDescription-filtro que corresponde à entrada com o valor ApplicationDefinitionKind ServiceFabricApplicationDescription. O valor é 1.  <br> -Compose-filtro que corresponde à entrada com o valor de ApplicationDefinitionKind de composição. O valor é 2. |
-| --tipo de aplicativo-nome | O nome do tipo de aplicativo usado para filtrar os aplicativos a serem consultados. Esse valor não deve conter a versão do tipo de aplicativo. |
-| --continuação-token | O parâmetro de token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio é incluído na resposta da API quando os resultados do sistema não se ajustam em uma única resposta. Quando esse valor é passado para a próxima chamada à API, a API retorna o próximo conjunto de resultados. Se não houver mais resultados, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL. |
-| --Exclude-parâmetros de aplicativo | O sinalizador que especifica se os parâmetros do aplicativo serão excluídos do resultado. |
-| --max-results | O número máximo de resultados a serem retornados como parte das consultas paginadas. Esse parâmetro define o limite superior no número de resultados retornados. Os resultados retornados podem ser menores que os resultados máximos especificados se não couberem na mensagem de acordo com as restrições de tamanho máximo de mensagem definidas na configuração. Se esse parâmetro for zero ou não for especificado, a consulta paginável incluirá o máximo possível de resultados que couberem na mensagem de retorno. |
-| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --aplicação-definição-tipo-filtro | Usado para filtrar em ApplicationDefinitionKind, que é o mecanismo usado para definir uma aplicação de Tecido de Serviço.  <br> - Predefinição - Valor predefinido, que desempenha a mesma função que selecionar "All". O valor é 0.  <br> - Tudo - Filtrar a entrada que corresponde à entrada com qualquer valor applicationDefinitionKind. O valor é 65535.  <br> - ServiceFabricApplicationDescription - Filtro que corresponde à entrada com aplicaçãoDefiniçãoValor Value ServiceFabricApplicationDescription. O valor é 1.  <br> - Compor - Filtrar que corresponde à entrada com o valor ApplicationDefinitionKind Compor. O valor é 2. |
+| --nome do tipo aplicação | O nome do tipo de aplicação usado para filtrar as aplicações para consulta. Este valor não deve conter a versão do tipo de aplicação. |
+| --continuação-token | O parâmetro simbólico de continuação é utilizado para obter o próximo conjunto de resultados. Um símbolo de continuação com um valor não vazio é incluído na resposta da API quando os resultados do sistema não se encaixam numa única resposta. Quando este valor é passado para a próxima chamada da API, a API devolve o próximo conjunto de resultados. Se não houver mais resultados, então o sinal de continuação não contém um valor. O valor deste parâmetro não deve ser codificado. |
+| -excluir-aplicação-parâmetros | A bandeira que especifica se os parâmetros de aplicação serão excluídos do resultado. |
+| -resultados máximos | O número máximo de resultados a devolver como parte das consultas páginadas. Este parâmetro define o limite superior no número de resultados devolvidos. Os resultados devolvidos podem ser inferiores aos resultados máximos especificados se não encaixarem na mensagem de acordo com as restrições de tamanho máximo de mensagem definidas na configuração. Se este parâmetro for zero ou não especificado, a consulta páginada inclui o maior número possível de resultados que se encaixem na mensagem de devolução. |
+| --timeout -t | O tempo de funcionamento do servidor para a execução da operação em segundos. Este prazo especifica a duração do tempo que o cliente está disposto a esperar que a operação solicitada esteja concluída. O valor padrão para este parâmetro é de 60 segundos.  Padrão\: 60. |
 
-### <a name="global-arguments"></a>Argumentos globais
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
-## <a name="sfctl-application-load"></a>carga do aplicativo sfctl
-Obtém informações de carga sobre um aplicativo Service Fabric.
+## <a name="sfctl-application-load"></a>carga de aplicação sfctl
+Obtém informações de carga sobre uma aplicação de Tecido de Serviço.
 
-Retorna as informações de carga sobre o aplicativo que foi criado ou no processo de criação no cluster de Service Fabric e cujo nome corresponde ao especificado como o parâmetro. A resposta inclui o nome, os nós mínimos, os nós máximos, o número de nós que o aplicativo está ocupando no momento e as informações de métrica de carga do aplicativo sobre o aplicativo.
+Devolve as informações de carga sobre a aplicação que foi criada ou em processo de criação no cluster Service Fabric e cujo nome corresponde ao especificado como parâmetro. A resposta inclui o nome, nós mínimos, nós máximos, o número de nós que a aplicação está a ocupar atualmente, e informações métricas de carga de aplicação sobre a aplicação.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
-| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --application-id [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da\:aplicação sem o esquema URI 'fabric ' URI. A partir da versão 6.0, os nomes\~hierárquicos são delimitados com o " personagem ". Por exemplo, se o nome\:da aplicação for "tecido /myapp/app1", a identidade da aplicação seria "myapp\~app1" em 6.0+ e "myapp/app1" em versões anteriores. |
+| --timeout -t | O tempo de funcionamento do servidor para a execução da operação em segundos. Este prazo especifica a duração do tempo que o cliente está disposto a esperar que a operação solicitada esteja concluída. O valor padrão para este parâmetro é de 60 segundos.  Padrão\: 60. |
 
-### <a name="global-arguments"></a>Argumentos globais
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
-## <a name="sfctl-application-manifest"></a>manifesto do aplicativo sfctl
-Obtém o manifesto que descreve um tipo de aplicativo.
+## <a name="sfctl-application-manifest"></a>manifesto de aplicação sfctl
+Obtém o manifesto descrevendo um tipo de aplicação.
 
-A resposta contém o XML do manifesto do aplicativo como uma cadeia de caracteres.
+A resposta contém o manifesto de aplicação XML como uma corda.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --nome do tipo de aplicação [Obrigatório] | O nome do tipo de aplicativo. |
-| --aplicação-tipo-versão [Obrigatório] | A versão do tipo de aplicativo. |
-| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --nome do tipo de aplicação [Obrigatório] | O nome do tipo de candidatura. |
+| --aplicação-tipo-versão [Obrigatório] | A versão do tipo de aplicação. |
+| --timeout -t | O tempo de funcionamento do servidor para a execução da operação em segundos. Este prazo especifica a duração do tempo que o cliente está disposto a esperar que a operação solicitada esteja concluída. O valor padrão para este parâmetro é de 60 segundos.  Padrão\: 60. |
 
-### <a name="global-arguments"></a>Argumentos globais
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
-## <a name="sfctl-application-provision"></a>provisionamento de aplicativo sfctl
-Provisiona ou registra um tipo de aplicativo Service Fabric com o cluster usando o pacote '. sfpkg ' no repositório externo ou usando o pacote de aplicativos no repositório de imagens.
+## <a name="sfctl-application-provision"></a>provisão de aplicação sfctl
+Provisões ou regista um tipo de aplicação de Tecido de Serviço com o cluster utilizando o pacote '.sfpkg' na loja externa ou utilizando o pacote de aplicações na loja de imagens.
 
-Provisiona um tipo de aplicativo Service Fabric com o cluster. O provisionamento é necessário antes que qualquer novo aplicativo possa ser instanciado. A operação de provisionamento pode ser executada no pacote de aplicativos especificado pelo relativePathInImageStore ou usando o URI do '. sfpkg ' externo. A menos que--external-Provision esteja definido, esse comando esperará o provisionamento do repositório de imagens.
+Provisões um tipo de aplicação de tecido de serviço com o cluster. A disposição é necessária antes de quaisquer novos pedidos poderem ser instantaneamente instantâneos. A operação de fornecimento pode ser executada quer no pacote de aplicações especificado pela empresa relativaPathInImageStore, quer através da utilização do URI do '.sfpkg' externo. A menos que a provisão externa esteja definida, este comando espera a provisão da loja de imagens.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --application-package-download-uri | O caminho para o pacote de aplicativos '. sfpkg ' de onde o pacote de aplicativos pode ser baixado usando protocolos HTTP ou HTTPS. <br><br> Somente para o tipo de provisionamento armazenamento externo. O pacote de aplicativos pode ser armazenado em um repositório externo que fornece a operação GET para baixar o arquivo. Os protocolos com suporte são HTTP e HTTPS, e o caminho deve permitir acesso de leitura. |
-| --tipo de aplicativo-compilação-caminho | Somente para o tipo de provisionamento, armazenar imagem. O caminho relativo para o pacote de aplicativos no repositório de imagens especificado durante a operação de carregamento anterior. |
-| --tipo de aplicativo-nome | Somente para o tipo de provisionamento armazenamento externo. O nome do tipo de aplicativo representa o nome do tipo de aplicativo encontrado no manifesto do aplicativo. |
-| --tipo de aplicativo-versão | Somente para o tipo de provisionamento armazenamento externo. A versão do tipo de aplicativo representa a versão do tipo de aplicativo encontrada no manifesto do aplicativo. |
-| --provisionamento externo | O local de onde o pacote de aplicativos pode ser registrado ou provisionado. Indica que o provisionamento é para um pacote de aplicativos que foi previamente carregado em um repositório externo. O pacote de aplicativos termina com a extensão *. sfpkg. |
-| --sem espera | Indica se o provisionamento deve ocorrer de forma assíncrona ou não. <br><br> Quando definido como true, a operação de provisionamento retorna quando a solicitação é aceita pelo sistema e a operação de provisionamento continua sem nenhum limite de tempo limite. O valor predefinido é false. Para pacotes de aplicativos grandes, é recomendável definir o valor como true. |
-| --Timeout-t | Padrão\: 60. |
+| --aplicação-pacote-download-uri | O caminho para o pacote de aplicações '.sfpkg' de onde o pacote de aplicações pode ser descarregado usando protocolos HTTP ou HTTPS. <br><br> Para provisões, apenas para uma loja externa tipo. O pacote de aplicações pode ser armazenado numa loja externa que fornece a operação GET para descarregar o ficheiro. Os protocolos suportados são HTTP e HTTPS, e o caminho deve permitir o acesso da READ. |
+| --aplicação-tipo-construção-caminho | Para a oferta apenas loja de imagem tipo. O caminho relativo para o pacote de aplicação na loja de imagens especificado durante o funcionamento de upload prévio. |
+| --nome do tipo aplicação | Para provisões, apenas para uma loja externa tipo. O nome do tipo de aplicação representa o nome do tipo de aplicação encontrado no manifesto de aplicação. |
+| --aplicação-tipo-versão | Para provisões, apenas para uma loja externa tipo. A versão do tipo de aplicação representa a versão do tipo de aplicação encontrada no manifesto de aplicação. |
+| --oferta externa | A localização de onde o pacote de candidatura pode ser registado ou provisionado. Indica que a disposição é para um pacote de aplicação que foi previamente enviado para uma loja externa. O pacote de aplicação termina com a extensão *.sfpkg. |
+| - não esperar | Indica se o provisionamento deve ou não ocorrer assincronicamente. <br><br> Quando é verdadeira, a operação de fornecimento regressa quando o pedido é aceite pelo sistema, e a operação de provisão continua sem limite de tempo. O valor predefinido é false. Para grandes pacotes de aplicações, recomendamos que o valor seja verdadeiro. |
+| --timeout -t | Padrão\: 60. |
 
-### <a name="global-arguments"></a>Argumentos globais
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
-## <a name="sfctl-application-report-health"></a>relatório do aplicativo sfctl – integridade
-Envia um relatório de integridade sobre o aplicativo Service Fabric.
+## <a name="sfctl-application-report-health"></a>relatório de aplicação sfctl-saúde
+Envia um relatório de saúde sobre a aplicação Service Fabric.
 
-Relata o estado de integridade do aplicativo Service Fabric especificado. O relatório deve conter as informações sobre a origem do relatório de integridade e a propriedade na qual ele é relatado. O relatório é enviado para um aplicativo Service Fabric gateway, que encaminha para o repositório de integridade. O relatório pode ser aceito pelo gateway, mas rejeitado pelo repositório de integridade após a validação extra. Por exemplo, o repositório de integridade pode rejeitar o relatório devido a um parâmetro inválido, como um número de sequência obsoleto. Para ver se o relatório foi aplicado no repositório de integridade, obtenha a integridade do aplicativo e verifique se o relatório é exibido.
+Informa o estado de saúde da especificada aplicação Service Fabric. O relatório deve conter as informações sobre a origem do relatório de saúde e dos bens em que é comunicado. O relatório é enviado para uma aplicação de gateway de tecido de serviço, que reencaminha para a loja de saúde. O relatório pode ser aceite pela porta de entrada, mas rejeitado pela loja de saúde após validação extra. Por exemplo, a loja de saúde pode rejeitar o relatório por causa de um parâmetro inválido, como um número de sequência velha. Para ver se o relatório foi aplicado na loja de saúde, obtenha saúde de aplicação e verifique se o relatório aparece.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --application-id [Obrigatório] | A identidade do aplicativo. <br><br> Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere '\~'. Por exemplo, se o nome do aplicativo for ' Fabric\:/MyApp/App1 ', a identidade do aplicativo será ' MyApp\~App1 ' em 6.0 + e ' MyApp/App1 ' nas versões anteriores. |
-| --propriedade de saúde [Necessária] | A propriedade das informações de integridade. <br><br> Uma entidade pode ter relatórios de integridade para propriedades diferentes. A propriedade é uma cadeia de caracteres e não uma enumeração fixa para permitir a flexibilidade do reporter para categorizar a condição de estado que dispara o relatório. Por exemplo, um reporter com SourceID "LocalWatchdog" pode monitorar o estado do disco disponível em um nó, para que ele possa relatar a propriedade "AvailableDisk" nesse nó. O mesmo Reporter pode monitorar a conectividade do nó, para que possa relatar uma propriedade "Connectivity" no mesmo nó. No repositório de integridade, esses relatórios são tratados como eventos de integridade separados para o nó especificado. Junto com SourceID, a propriedade identifica exclusivamente as informações de integridade. |
-| --estado de saúde [Obrigatório] | Os valores possíveis incluem\: "Invalid", "OK", "Warning", "Error", "Unknown". |
-| --source-id [Obrigatório] | O nome de origem que identifica o componente de cliente/Watchdog/sistema que gerou as informações de integridade. |
-| --Descrição | A descrição das informações de integridade. <br><br> Ele representa o texto livre usado para adicionar informações legíveis ao relatório. O comprimento máximo da cadeia de caracteres para a descrição é de 4096 caracteres. Se a cadeia de caracteres fornecida for maior, ela será truncada automaticamente. Quando truncados, os últimos caracteres da descrição contêm um marcador "[Truncado]", e o tamanho total da corda é de 4096 caracteres. A presença do marcador indica para os usuários que o truncamento ocorreu. Observe que, quando truncado, a descrição tem menos de 4096 caracteres a partir da cadeia de caracteres original. |
-| --imediato | Um sinalizador que indica se o relatório deve ser enviado imediatamente. <br><br> Um relatório de integridade é enviado para um aplicativo Service Fabric gateway, que encaminha para o repositório de integridade. Se Immediate for definido como true, o relatório será enviado imediatamente do gateway HTTP para o repositório de integridade, independentemente das configurações do cliente de malha que o aplicativo de gateway HTTP está usando. Isso é útil para relatórios críticos que devem ser enviados assim que possível. Dependendo do tempo e de outras condições, o envio do relatório ainda poderá falhar, por exemplo, se o gateway HTTP estiver fechado ou se a mensagem não alcançar o gateway. Se Immediate for definido como false, o relatório será enviado com base nas configurações do cliente de integridade do gateway HTTP. Portanto, ele será em lote de acordo com a configuração do HealthReportSendInterval. Essa é a configuração recomendada porque permite que o cliente de integridade Otimize as mensagens de relatório de integridade para o repositório de integridade, bem como o processamento do relatório de integridade. Por padrão, os relatórios não são enviados imediatamente. |
-| --remove-when-expired | Valor que indica se o relatório será removido do repositório de integridade quando ele expirar. <br><br> Se definido como true, o relatório será removido do repositório de integridade depois de expirar. Se definido como false, o relatório será tratado como um erro quando expirado. O valor dessa propriedade é false por padrão. Quando os clientes relatam periodicamente, eles devem definir RemoveWhenExpired false (padrão). Dessa forma, o relator tem problemas (por exemplo, deadlock) e não pode relatar, a entidade é avaliada com erro quando o relatório de integridade expira. Isso sinaliza a entidade como estando em estado de integridade de erro. |
-| --sequence-number | O número de sequência deste relatório de integridade como uma cadeia de caracteres numérica. <br><br> O número de sequência do relatório é usado pelo repositório de integridade para detectar relatórios obsoletos. Se não for especificado, um número de sequência será gerado automaticamente pelo cliente de integridade quando um relatório for adicionado. |
-| --Timeout-t | Padrão\: 60. |
-| --ttl | A duração para a qual este relatório de integridade é válido. Esse campo usa o formato ISO8601 para especificar a duração. <br><br> Quando os clientes relatam periodicamente, eles devem enviar relatórios com mais frequência do que a vida útil. Se os clientes reportarem a transição, eles poderão definir a vida útil como infinito. Quando a vida útil expira, o evento de integridade que contém as informações de integridade é removido do repositório de integridade, se RemoveWhenExpired for verdadeiro ou avaliado com erro, se RemoveWhenExpired false. Se não for especificado, o padrão de vida útil para valor infinito. |
+| --application-id [Obrigatório] | A identidade do pedido. <br><br> Este é tipicamente o nome completo da\:aplicação sem o esquema URI 'fabric ' URI. A partir da versão 6.0, os nomes\~hierárquicos são delimitados com o personagem ' ' . Por exemplo, se o nome\:da aplicação for 'fabric /myapp/app1', a identidade da aplicação seria 'myapp\~app1' em 6.0+ e 'myapp/app1' em versões anteriores. |
+| --propriedade de saúde [Necessária] | A propriedade da informação de saúde. <br><br> Uma entidade pode ter relatórios de saúde para diferentes propriedades. A propriedade é uma corda e não uma enumeração fixa para permitir que a flexibilidade do repórter categorize a condição do Estado que desencadeia o relatório. Por exemplo, um repórter com SourceId "LocalWatchdog" pode monitorizar o estado do disco disponível num nó, para que possa reportar a propriedade "AvailableDisk" nesse nó. O mesmo repórter pode monitorizar a conectividade do nó, para que possa reportar uma propriedade "Conectividade" no mesmo nó. Na loja de saúde, estes relatórios são tratados como eventos de saúde separados para o nó especificado. Juntamente com o SourceId, a propriedade identifica exclusivamente a informação de saúde. |
+| --estado de saúde [Obrigatório] | Os valores possíveis incluem\: 'Inválido', 'Ok', 'Aviso', 'Erro', 'Desconhecido'. |
+| --source-id [Obrigatório] | O nome de origem que identifica o componente cliente/cão de guarda/sistema que gerou a informação de saúde. |
+| --descrição | A descrição da informação de saúde. <br><br> Representa texto gratuito utilizado para adicionar informações legíveis humanas sobre o relatório. O comprimento máximo da corda para a descrição é de 4096 caracteres. Se a corda fornecida for mais comprida, será automaticamente truncada. Quando truncados, os últimos caracteres da descrição contêm um marcador "[Truncado]", e o tamanho total da corda é de 4096 caracteres. A presença do marcador indica aos utilizadores que ocorreu a truncação. Note que quando truncado, a descrição tem menos de 4096 caracteres da cadeia original. |
+| -imediatamente | Uma bandeira que indica se o relatório deve ser enviado imediatamente. <br><br> Um relatório de saúde é enviado para uma aplicação de gateway de tecido de serviço, que reencaminha para a loja de saúde. Se o Immediate for definido como verdadeiro, o relatório é enviado imediatamente de HTTP Gateway para a loja de saúde, independentemente das definições do cliente de tecido que a Aplicação HTTP Gateway está a usar. Isto é útil para relatórios críticos que devem ser enviados o mais rapidamente possível. Dependendo do tempo e de outras condições, o envio do relatório pode ainda falhar, por exemplo, se o Gateway HTTP estiver fechado ou a mensagem não chegar ao Gateway. Se imediatamente for definido como falso, o relatório é enviado com base nas definições do cliente de saúde a partir do HTTP Gateway. Portanto, será loteizado de acordo com a configuração HealthReportSendInterval. Esta é a configuração recomendada porque permite ao cliente de saúde otimizar mensagens de relatórios de saúde para a loja de saúde, bem como processamento de relatórios de saúde. Por defeito, os relatórios não são enviados imediatamente. |
+| -remover-quando expirado | Valor que indica se o relatório é removido da loja de saúde quando expira. <br><br> Se for verdade, o relatório é removido da loja de saúde após o seu termo. Se for definido como falso, o relatório é tratado como um erro quando expirado. O valor desta propriedade é falso por defeito. Quando os clientes reportam periodicamente, devem definir RemoverQuando Expirado falso (predefinido). Desta forma, é que o repórter tem problemas (por exemplo, impasse) e não pode reportar, a entidade é avaliada por engano quando o relatório de saúde expira. Isto sinaliza a entidade como estando em estado de saúde error. |
+| --número de sequência | O número da sequência deste relatório de saúde como uma corda numérica. <br><br> O número da sequência do relatório é usado pela loja de saúde para detetar relatórios antigos. Se não especificado, um número de sequência é gerado automaticamente pelo cliente de saúde quando um relatório é adicionado. |
+| --timeout -t | Padrão\: 60. |
+| -ttl | A duração da qual este relatório de saúde é válido. Este campo utiliza o formato ISO8601 para especificar a duração. <br><br> Quando os clientes reportam periodicamente, devem enviar relatórios com maior frequência do que o tempo de vida. Se os clientes reportarem sobre a transição, podem definir o tempo para viver em infinito. Quando expira a hora de viver, o evento de saúde que contém as informações de saúde é removido da loja de saúde, se removeWhenExpired for verdadeiro, ou avaliado por erro, se removerQuando Expirado falso. Se não for especificado, o tempo para viver não corresponde ao valor infinito. |
 
-### <a name="global-arguments"></a>Argumentos globais
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
-## <a name="sfctl-application-type"></a>tipo de aplicativo sfctl
-Obtém a lista de tipos de aplicativos no Cluster Service Fabric que correspondem exatamente ao nome especificado.
+## <a name="sfctl-application-type"></a>tipo de aplicação sfctl
+Obtém a lista de tipos de aplicação no cluster Service Fabric que corresponda exatamente ao nome especificado.
 
-Retorna as informações sobre os tipos de aplicativo que são provisionados ou que estão sendo provisionados no Cluster Service Fabric. Esses resultados são de tipos de aplicativos cujo nome corresponde exatamente ao especificado como parâmetro e que estão em conformidade com os parâmetros de consulta fornecidos. Todas as versões do tipo de aplicativo correspondentes ao nome do tipo de aplicativo são retornadas, com cada versão retornada como um tipo de aplicativo. A resposta inclui o nome, a versão, o status e outros detalhes sobre o tipo de aplicativo. Essa é uma consulta paginada, o que significa que, se nem todos os tipos de aplicativos couberem em uma página, uma página de resultados será retornada, bem como um token de continuação, que pode ser usado para obter a próxima página. Por exemplo, se houver 10 tipos de aplicativos, mas uma página se ajustar apenas aos três primeiros tipos de aplicativo, ou se os resultados máximos forem definidos como 3, então três serão retornadas. Para acessar o restante dos resultados, recupere as páginas subsequentes usando o token de continuação retornado na próxima consulta. Um token de continuação vazio será retornado se não houver nenhuma página subsequente.
+Devolve as informações sobre os tipos de aplicação que são provisionados ou em processo de aprovisionamento no cluster Service Fabric. Estes resultados são de tipos de aplicação cujo nome corresponde exatamente ao especificado como parâmetro, e que cumprem os parâmetros de consulta dado. Todas as versões do tipo de aplicação que correspondam ao nome do tipo de aplicação são devolvidas, com cada versão devolvida como um tipo de aplicação. A resposta inclui o nome, versão, estado e outros detalhes sobre o tipo de aplicação. Esta é uma consulta de página, o que significa que se não todos os tipos de aplicação se encaixarem numa página, uma página de resultados é devolvida, bem como um token de continuação, que pode ser usado para obter a página seguinte. Por exemplo, se houver 10 tipos de aplicação, mas uma página apenas se adequa aos três primeiros tipos de aplicação, ou se os resultados máximos forem definidos para 3, então três são devolvidos. Para aceder ao resto dos resultados, recupere as páginas seguintes utilizando o token de continuação devolvido na consulta seguinte. Um sinal de continuação vazio é devolvido se não houver páginas posteriores.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --nome do tipo de aplicação [Obrigatório] | O nome do tipo de aplicativo. |
-| --tipo de aplicativo-versão | A versão do tipo de aplicativo. |
-| --continuação-token | O parâmetro de token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio é incluído na resposta da API quando os resultados do sistema não se ajustam em uma única resposta. Quando esse valor é passado para a próxima chamada à API, a API retorna o próximo conjunto de resultados. Se não houver mais resultados, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL. |
-| --Exclude-parâmetros de aplicativo | O sinalizador que especifica se os parâmetros do aplicativo serão excluídos do resultado. |
-| --max-results | O número máximo de resultados a serem retornados como parte das consultas paginadas. Esse parâmetro define o limite superior no número de resultados retornados. Os resultados retornados podem ser menores que os resultados máximos especificados se não couberem na mensagem de acordo com as restrições de tamanho máximo de mensagem definidas na configuração. Se esse parâmetro for zero ou não for especificado, a consulta paginável incluirá o máximo possível de resultados que couberem na mensagem de retorno. |
-| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --nome do tipo de aplicação [Obrigatório] | O nome do tipo de candidatura. |
+| --aplicação-tipo-versão | A versão do tipo de aplicação. |
+| --continuação-token | O parâmetro simbólico de continuação é utilizado para obter o próximo conjunto de resultados. Um símbolo de continuação com um valor não vazio é incluído na resposta da API quando os resultados do sistema não se encaixam numa única resposta. Quando este valor é passado para a próxima chamada da API, a API devolve o próximo conjunto de resultados. Se não houver mais resultados, então o sinal de continuação não contém um valor. O valor deste parâmetro não deve ser codificado. |
+| -excluir-aplicação-parâmetros | A bandeira que especifica se os parâmetros de aplicação serão excluídos do resultado. |
+| -resultados máximos | O número máximo de resultados a devolver como parte das consultas páginadas. Este parâmetro define o limite superior no número de resultados devolvidos. Os resultados devolvidos podem ser inferiores aos resultados máximos especificados se não encaixarem na mensagem de acordo com as restrições de tamanho máximo de mensagem definidas na configuração. Se este parâmetro for zero ou não especificado, a consulta páginada inclui o maior número possível de resultados que se encaixem na mensagem de devolução. |
+| --timeout -t | O tempo de funcionamento do servidor para a execução da operação em segundos. Este prazo especifica a duração do tempo que o cliente está disposto a esperar que a operação solicitada esteja concluída. O valor padrão para este parâmetro é de 60 segundos.  Padrão\: 60. |
 
-### <a name="global-arguments"></a>Argumentos globais
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
-## <a name="sfctl-application-type-list"></a>tipo de aplicativo sfctl-lista
-Obtém a lista de tipos de aplicativos no Cluster Service Fabric.
+## <a name="sfctl-application-type-list"></a>sfctl aplicação lista de tipo
+Obtém a lista de tipos de aplicação no cluster Service Fabric.
 
-Retorna as informações sobre os tipos de aplicativo que são provisionados ou que estão sendo provisionados no Cluster Service Fabric. Cada versão de um tipo de aplicativo é retornada como um tipo de aplicativo. A resposta inclui o nome, a versão, o status e outros detalhes sobre o tipo de aplicativo. Essa é uma consulta paginada, o que significa que, se nem todos os tipos de aplicativos couberem em uma página, uma página de resultados será retornada, bem como um token de continuação, que pode ser usado para obter a próxima página. Por exemplo, se houver 10 tipos de aplicativos, mas uma página se ajustar apenas aos três primeiros tipos de aplicativo, ou se os resultados máximos forem definidos como 3, então três serão retornadas. Para acessar o restante dos resultados, recupere as páginas subsequentes usando o token de continuação retornado na próxima consulta. Um token de continuação vazio será retornado se não houver nenhuma página subsequente.
+Devolve as informações sobre os tipos de aplicação que são provisionados ou em processo de aprovisionamento no cluster Service Fabric. Cada versão de um tipo de aplicação é devolvida como um tipo de aplicação. A resposta inclui o nome, versão, estado e outros detalhes sobre o tipo de aplicação. Esta é uma consulta de página, o que significa que se não todos os tipos de aplicação se encaixarem numa página, uma página de resultados é devolvida, bem como um token de continuação, que pode ser usado para obter a página seguinte. Por exemplo, se houver 10 tipos de aplicação, mas uma página apenas se adequa aos três primeiros tipos de aplicação, ou se os resultados máximos forem definidos para 3, então três são devolvidos. Para aceder ao resto dos resultados, recupere as páginas seguintes utilizando o token de continuação devolvido na consulta seguinte. Um sinal de continuação vazio é devolvido se não houver páginas posteriores.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --tipo de aplicativo-definição de tipo-filtro | Usado para filtrar em ApplicationTypeDefinitionKind, que é o mecanismo usado para definir um tipo de aplicativo Service Fabric.  <br> -Default-valor padrão, que executa a mesma função que selecionar "All". O valor é 0.  <br> -All-filtro que corresponde à entrada com qualquer valor de ApplicationTypeDefinitionKind. O valor é 65535.  <br> -ServiceFabricApplicationPackage-filtro que corresponde à entrada com o valor ApplicationTypeDefinitionKind ServiceFabricApplicationPackage. O valor é 1.  <br> -Compose-filtro que corresponde à entrada com o valor de ApplicationTypeDefinitionKind de composição. O valor é 2. |
-| --continuação-token | O parâmetro de token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio é incluído na resposta da API quando os resultados do sistema não se ajustam em uma única resposta. Quando esse valor é passado para a próxima chamada à API, a API retorna o próximo conjunto de resultados. Se não houver mais resultados, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL. |
-| --Exclude-parâmetros de aplicativo | O sinalizador que especifica se os parâmetros do aplicativo serão excluídos do resultado. |
-| --max-results | O número máximo de resultados a serem retornados como parte das consultas paginadas. Esse parâmetro define o limite superior no número de resultados retornados. Os resultados retornados podem ser menores que os resultados máximos especificados se não couberem na mensagem de acordo com as restrições de tamanho máximo de mensagem definidas na configuração. Se esse parâmetro for zero ou não for especificado, a consulta paginável incluirá o máximo possível de resultados que couberem na mensagem de retorno. |
-| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --application-type-definition-kind-filter | Utilizado para filtrar no ApplicationTypeDefinitionKind, que é o mecanismo utilizado para definir um tipo de aplicação de tecido de serviço.  <br> - Predefinição - Valor predefinido, que desempenha a mesma função que selecionar "All". O valor é 0.  <br> - Tudo - Filtrar a entrada que corresponde à entrada com qualquer valor applicationTypeDefinitionKind. O valor é 65535.  <br> - ServiceFabricApplicationPackage - Filtro que corresponde à entrada com applicationTypeDefinitionValor valor ServiceFabricApplicationPackage. O valor é 1.  <br> - Compor - Filtrar que corresponde à entrada com o valor ApplicationTypeDefinitionKind Compõe. O valor é 2. |
+| --continuação-token | O parâmetro simbólico de continuação é utilizado para obter o próximo conjunto de resultados. Um símbolo de continuação com um valor não vazio é incluído na resposta da API quando os resultados do sistema não se encaixam numa única resposta. Quando este valor é passado para a próxima chamada da API, a API devolve o próximo conjunto de resultados. Se não houver mais resultados, então o sinal de continuação não contém um valor. O valor deste parâmetro não deve ser codificado. |
+| -excluir-aplicação-parâmetros | A bandeira que especifica se os parâmetros de aplicação serão excluídos do resultado. |
+| -resultados máximos | O número máximo de resultados a devolver como parte das consultas páginadas. Este parâmetro define o limite superior no número de resultados devolvidos. Os resultados devolvidos podem ser inferiores aos resultados máximos especificados se não encaixarem na mensagem de acordo com as restrições de tamanho máximo de mensagem definidas na configuração. Se este parâmetro for zero ou não especificado, a consulta páginada inclui o maior número possível de resultados que se encaixem na mensagem de devolução. |
+| --timeout -t | O tempo de funcionamento do servidor para a execução da operação em segundos. Este prazo especifica a duração do tempo que o cliente está disposto a esperar que a operação solicitada esteja concluída. O valor padrão para este parâmetro é de 60 segundos.  Padrão\: 60. |
 
-### <a name="global-arguments"></a>Argumentos globais
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
-## <a name="sfctl-application-unprovision"></a>desprovisionamento de aplicativo sfctl
-Remove ou cancela o registro de um tipo de aplicativo Service Fabric do cluster.
+## <a name="sfctl-application-unprovision"></a>não provisão aplicação sfctl
+Remove ou desregista um tipo de aplicação de tecido de serviço do cluster.
 
-Esta operação só poderá ser executada se todas as instâncias do aplicativo do tipo de aplicativo tiverem sido excluídas. Após o cancelamento do registro do tipo de aplicativo, nenhuma nova instância do aplicativo poderá ser criada para esse tipo de aplicativo específico.
+Esta operação só pode ser executada se todas as instâncias de aplicação do tipo de aplicação tiverem sido eliminadas. Uma vez que o tipo de aplicação não esteja registado, não podem ser criadas novas instâncias de aplicação para este tipo de aplicação em particular.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --nome do tipo de aplicação [Obrigatório] | O nome do tipo de aplicativo. |
-| --aplicação-tipo-versão [Obrigatório] | A versão do tipo de aplicativo, conforme definido no manifesto do aplicativo. |
-| --Async-Parameter | O sinalizador que indica se o desprovisionamento deve ocorrer de forma assíncrona. Quando definido como true, a operação de desprovisionamento retorna quando a solicitação é aceita pelo sistema e a operação de desprovisionamento continua sem nenhum limite de tempo limite. O valor predefinido é false. No entanto, é recomendável defini-lo como true para pacotes de aplicativos grandes que foram provisionados. |
-| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --nome do tipo de aplicação [Obrigatório] | O nome do tipo de candidatura. |
+| --aplicação-tipo-versão [Obrigatório] | A versão do tipo de aplicação, tal como definida no manifesto de aplicação. |
+| --parâmetro asincrono | A bandeira indicando se a não disposição deve ou não ocorrer assíncronamente. Quando é verdadeira, a operação de não provisão regressa quando o pedido é aceite pelo sistema, e a operação de não fornecimento continua sem limite de tempo. O valor predefinido é false. No entanto, recomendamos que seja fiel aos grandes pacotes de aplicações que foram provisionados. |
+| --timeout -t | O tempo de funcionamento do servidor para a execução da operação em segundos. Este prazo especifica a duração do tempo que o cliente está disposto a esperar que a operação solicitada esteja concluída. O valor padrão para este parâmetro é de 60 segundos.  Padrão\: 60. |
 
-### <a name="global-arguments"></a>Argumentos globais
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
-## <a name="sfctl-application-upgrade"></a>atualização do aplicativo sfctl
-Inicia a atualização de um aplicativo no Cluster Service Fabric.
+## <a name="sfctl-application-upgrade"></a>upgrade de aplicação sfctl
+Começa a atualizar uma aplicação no cluster Service Fabric.
 
-Valida os parâmetros de atualização de aplicativo fornecidos e inicia a atualização do aplicativo se os parâmetros forem válidos. Observe que a descrição da atualização substitui a descrição do aplicativo existente. Isso significa que, se os parâmetros não forem especificados, os parâmetros existentes nos aplicativos serão substituídos pela lista de parâmetros vazia. Isso resultaria no aplicativo usando o valor padrão dos parâmetros do manifesto do aplicativo.
+Valida os parâmetros de atualização da aplicação fornecidos e começa a atualizar a aplicação se os parâmetros forem válidos. Note que a descrição da atualização substitui a descrição da aplicação existente. Isto significa que, se os parâmetros não forem especificados, os parâmetros existentes nas aplicações serão substituídos com a lista de parâmetros vazios. Isto resultaria na aplicação utilizando o valor padrão dos parâmetros do manifesto de aplicação.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --application-id [Obrigatório] | A identidade do aplicativo. <br><br> Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
-| --versão de aplicação [Necessária] | A versão do tipo de aplicativo de destino (encontrada no manifesto do aplicativo) para a atualização do aplicativo. |
-| --parâmetros [obrigatórios] | Uma lista codificada em JSON de substituições de parâmetro de aplicativo a serem aplicadas ao atualizar o aplicativo. |
-| --default-serviço-integridade-política | Especificação codificada em JSON da política de integridade usada por padrão para avaliar a integridade de um tipo de serviço. |
-| --ação de falha | A ação a ser executada quando uma atualização monitorada encontra política de monitoramento ou violações de política de integridade. |
-| --Force-Restart | Reinicie processos de modo forçado durante a atualização, mesmo quando a versão do código não tiver sido alterada. |
-| --health-check-retry-timeout | O período de tempo entre as tentativas de realizar verificações de integridade se o aplicativo ou o cluster não estiver íntegro.  Padrão\: PT0H10M0S. |
-| --health-check-stable-duration | A quantidade de tempo que o aplicativo ou o cluster deve permanecer íntegro antes que a atualização prossiga para o próximo domínio de atualização.  Padrão\: PT0H2M0S. <br><br> Ele é primeiro interpretado como uma cadeia de caracteres que representa uma duração de ISO 8601. Se isso falhar, ele será interpretado como um número que representa o número total de milissegundos. |
-| --health-check-wait-duration | O período de tempo de espera após a conclusão de um domínio de atualização antes de iniciar o processo de verificações de integridade.  Padrão\: 0. |
-| --max-unhealthy-apps | A porcentagem máxima permitida de aplicativos implantados não íntegros. Representado como um número entre 0 e 100. |
-| --modo | O modo usado para monitorar a integridade durante uma atualização sem interrupção.  Padrão\: UnmonitoredAuto. |
-| --replica-set-check-timeout | A quantidade máxima de tempo para bloquear o processamento de um domínio de atualização e evitar a perda de disponibilidade quando houver problemas inesperados. Medido em segundos. |
-| --service-health-policy | Mapa codificado em JSON com política de integridade do tipo de serviço por nome de tipo de serviço. O mapa está vazio como padrão. |
-| --Timeout-t | Padrão\: 60. |
-| --tempo limite do domínio de atualização | A quantidade de tempo que cada domínio de atualização precisa concluir antes que a falha seja executada.  Default\: P10675199DT02H48M05.4775807S. <br><br> Ele é primeiro interpretado como uma cadeia de caracteres que representa uma duração de ISO 8601. Se isso falhar, ele será interpretado como um número que representa o número total de milissegundos. |
-| --upgrade-timeout | O tempo durante o qual a atualização geral deve ser concluída antes de FailureAction ser executada.  Default\: P10675199DT02H48M05.4775807S. <br><br> Ele é primeiro interpretado como uma cadeia de caracteres que representa uma duração de ISO 8601. Se isso falhar, ele será interpretado como um número que representa o número total de milissegundos. |
-| --warning-as-error | Indica se os avisos são tratados com a mesma severidade que os erros. |
+| --application-id [Obrigatório] | A identidade do pedido. <br><br> Este é tipicamente o nome completo da\:aplicação sem o esquema URI 'fabric ' URI. A partir da versão 6.0, os nomes\~hierárquicos são delimitados com o " personagem ". Por exemplo, se o nome\:da aplicação for "tecido /myapp/app1", a identidade da aplicação seria "myapp\~app1" em 6.0+ e "myapp/app1" em versões anteriores. |
+| --versão de aplicação [Necessária] | A versão do tipo de aplicação alvo (encontrada no manifesto de aplicação) para a atualização da aplicação. |
+| --parâmetros [obrigatórios] | Uma lista codificada de parâmetros de aplicação a aplicar a aplicar durante a atualização da aplicação. |
+| --padrão-serviço-política de saúde | JSON codifica especificação da política de saúde utilizada por padrão para avaliar a saúde de um tipo de serviço. |
+| --falha-acção | A ação a realizar quando uma atualização monitorizada encontra a política de monitorização ou as violações da política de saúde. |
+| --reinício da força | Reiniciar vigorosamente os processos durante a atualização mesmo quando a versão do código não mudou. |
+| --saúde-check-retry-timeout | O período de tempo entre as tentativas de realização de verificações de saúde se a aplicação ou o cluster não forem saudáveis.  Padrão\: PT0H10m0s. |
+| --saúde-check-estável-duração | O tempo que a aplicação ou o cluster devem manter-se saudáveis antes da atualização passar para o próximo domínio de atualização.  Padrão\: PT0H2M0s. <br><br> É interpretado pela primeira vez como uma corda que representa uma duração ISO 8601. Se isso falhar, então é interpretado como um número que representa o número total de milissegundos. |
+| --saúde-check-wait-duração | O tempo de espera após completar um domínio de atualização antes de iniciar o processo de verificação de saúde.  Padrão\: 0. |
+| -- aplicações max-insalubres | A percentagem máxima permitida de aplicações implantadas não saudáveis. Representado como um número entre 0 e 100. |
+| --modo | O modo utilizado para monitorizar a saúde durante uma atualização de rolamento.  Padrão\: Não monitorizadoAuto. |
+| --replica-set-check-out | O máximo de tempo para bloquear o processamento de um domínio de upgrade e evitar a perda de disponibilidade quando há problemas inesperados. Medido em segundos. |
+| --serviço-política de saúde | Mapa codificado jSON com política de saúde do tipo de serviço por nome do tipo de serviço. O mapa está vazio. |
+| --timeout -t | Padrão\: 60. |
+| --upgrade-tempo de domínio | O tempo que cada domínio de atualização tem de completar antes da execução da Ação de Falha.  Padrão\: P10675199DT02H48m05.4775807s. <br><br> É interpretado pela primeira vez como uma corda que representa uma duração ISO 8601. Se isso falhar, então é interpretado como um número que representa o número total de milissegundos. |
+| --upgrade-timeout | O tempo que a atualização global tem de completar antes da execução da FailAction.  Padrão\: P10675199DT02H48m05.4775807s. <br><br> É interpretado pela primeira vez como uma corda que representa uma duração ISO 8601. Se isso falhar, então é interpretado como um número que representa o número total de milissegundos. |
+| --aviso-como-erro | Indica se os avisos são tratados com a mesma gravidade que os erros. |
 
-### <a name="global-arguments"></a>Argumentos globais
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
-## <a name="sfctl-application-upgrade-resume"></a>atualização do aplicativo sfctl-retomar
-Retoma a atualização de um aplicativo no Cluster Service Fabric.
+## <a name="sfctl-application-upgrade-resume"></a>sfctl aplicação upgrade-currículo
+Retoma a atualização de uma aplicação no cluster Service Fabric.
 
-Retoma uma atualização de aplicativo Service Fabric manual não monitorada. Service Fabric atualiza um domínio de atualização por vez. Para atualizações manuais não monitoradas, depois que Service Fabric concluir um domínio de atualização, ele aguardará que você chame essa API antes de prosseguir para o próximo domínio de atualização.
+Retoma uma atualização manual de aplicações do Tecido de Serviço não monitorizada. Serviço Tecido atualiza um domínio de upgrade de cada vez. Para atualizações manuais não monitorizadas, depois de o Tecido de Serviço terminar um domínio de atualização, aguarda-lhe que chame a este API antes de seguir para o próximo domínio de atualização.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
-| --upgrade-nome de domínio [Obrigatório] | O nome do domínio de atualização no qual a atualização deve ser retomada. |
-| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --application-id [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da\:aplicação sem o esquema URI 'fabric ' URI. A partir da versão 6.0, os nomes\~hierárquicos são delimitados com o " personagem ". Por exemplo, se o nome\:da aplicação for "tecido /myapp/app1", a identidade da aplicação seria "myapp\~app1" em 6.0+ e "myapp/app1" em versões anteriores. |
+| --upgrade-nome de domínio [Obrigatório] | O nome do domínio de atualização para retomar a atualização. |
+| --timeout -t | O tempo de funcionamento do servidor para a execução da operação em segundos. Este prazo especifica a duração do tempo que o cliente está disposto a esperar que a operação solicitada esteja concluída. O valor padrão para este parâmetro é de 60 segundos.  Padrão\: 60. |
 
-### <a name="global-arguments"></a>Argumentos globais
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
-## <a name="sfctl-application-upgrade-rollback"></a>atualização do aplicativo sfctl-reversão
-Inicia a reversão da atualização atual em andamento de um aplicativo no Cluster Service Fabric.
+## <a name="sfctl-application-upgrade-rollback"></a>sfctl aplicação upgrade-rollback
+Começa a reverter a atualização atual de uma aplicação no cluster Service Fabric.
 
-Inicia a reversão da atualização do aplicativo atual para a versão anterior. Essa API só pode ser usada para reverter a atualização em andamento atual que está sendo revertida para a nova versão. Se o aplicativo não estiver sendo atualizado no momento, use a API StartApplicationUpgrade para atualizá-lo para a versão desejada, incluindo reverter para uma versão anterior.
+Começa a reverter a atualização atual da aplicação para a versão anterior. Esta API só pode ser usada para reverter a atual atualização em curso que está a avançar para uma nova versão. Se a aplicação não estiver atualmente a ser atualizada, utilize a StartApplicationUpgrade API para atualizá-la para a versão desejada, incluindo voltar a ser uma versão anterior.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
-| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --application-id [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da\:aplicação sem o esquema URI 'fabric ' URI. A partir da versão 6.0, os nomes\~hierárquicos são delimitados com o " personagem ". Por exemplo, se o nome\:da aplicação for "tecido /myapp/app1", a identidade da aplicação seria "myapp\~app1" em 6.0+ e "myapp/app1" em versões anteriores. |
+| --timeout -t | O tempo de funcionamento do servidor para a execução da operação em segundos. Este prazo especifica a duração do tempo que o cliente está disposto a esperar que a operação solicitada esteja concluída. O valor padrão para este parâmetro é de 60 segundos.  Padrão\: 60. |
 
-### <a name="global-arguments"></a>Argumentos globais
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
-## <a name="sfctl-application-upgrade-status"></a>atualização do aplicativo sfctl-status
-Obtém detalhes para a atualização mais recente executada neste aplicativo.
+## <a name="sfctl-application-upgrade-status"></a>sfctl aplicação upgrade-status
+Obtém detalhes sobre a mais recente atualização realizada nesta aplicação.
 
-Retorna informações sobre o estado da atualização mais recente do aplicativo junto com detalhes para ajudar a depurar problemas de integridade do aplicativo.
+Devolve informações sobre o estado da última atualização de aplicações, juntamente com detalhes para ajudar a depurar problemas de saúde de aplicações.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI ' Fabric\:'. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "Fabric\:/MyApp/App1", a identidade do aplicativo será "MyApp\~App1" no 6.0 + e "MyApp/App1" nas versões anteriores. |
-| --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --application-id [Obrigatório] | A identidade do pedido. Este é tipicamente o nome completo da\:aplicação sem o esquema URI 'fabric ' URI. A partir da versão 6.0, os nomes\~hierárquicos são delimitados com o " personagem ". Por exemplo, se o nome\:da aplicação for "tecido /myapp/app1", a identidade da aplicação seria "myapp\~app1" em 6.0+ e "myapp/app1" em versões anteriores. |
+| --timeout -t | O tempo de funcionamento do servidor para a execução da operação em segundos. Este prazo especifica a duração do tempo que o cliente está disposto a esperar que a operação solicitada esteja concluída. O valor padrão para este parâmetro é de 60 segundos.  Padrão\: 60. |
 
-### <a name="global-arguments"></a>Argumentos globais
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
-## <a name="sfctl-application-upload"></a>carregamento do aplicativo sfctl
-Copie um pacote de aplicativos Service Fabric para o repositório de imagens.
+## <a name="sfctl-application-upload"></a>upload de aplicação sfctl
+Copie um pacote de aplicação Service Fabric para a loja de imagens.
 
-Opcionalmente, exiba o progresso do carregamento de cada arquivo no pacote. O progresso do upload é enviado para `stderr`.
+Exiba opcionalmente o progresso de upload de cada ficheiro da embalagem. O upload do `stderr`progresso é enviado para .
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --caminho [Obrigatório] | Caminho para o pacote de aplicativo local. |
+| --caminho [Obrigatório] | Caminho para o pacote de candidatura local. |
 | -compressa | Aplicável apenas aos pacotes de aplicações service Fabric. Crie uma nova pasta contendo o pacote de aplicação comprimido para a localização predefinida, ou para a localização especificada pelo parâmetro de localização comprimido, e, em seguida, carregue a pasta recém-criada. <br><br> Se já existir um ficheiro comprimido gerado por sfctl, será substituído se esta bandeira estiver definida. Um erro será devolvido se o diretório não for um pacote de aplicação. Se já for um pacote de aplicação comprimido, a pasta será copiada como está. Por predefinição, o pacote de aplicação comprimido recém-criado será eliminado após um upload bem sucedido. Se o upload não for bem sucedido, por favor limpe manualmente a embalagem comprimido conforme necessário. A eliminação não remove quaisquer dirs vazios que possam ter sido criados se o parâmetro de localização comprimido refere-se a diretórios inexistentes. |
-| --localização comprimido | A localização para colocar o pacote de aplicação comprimido. <br><br> Se não for fornecida qualquer localização, o pacote comprimido será colocado sob uma pasta recém-criada chamada sfctl_compressed_temp sob o directório-mãe especificado no argumento do caminho. Por exemplo, se o argumento do caminho tiver o valor C\:/FolderA/AppPkg, então o pacote comprimido será adicionado a C\:/FolderA/sfctl_compressed_temp/AppPkg. |
-| --imagestore-string | Armazenamento de imagens de destino para carregar o pacote de aplicativos.  A malha de\: padrão\:ImageStore. <br><br> Para carregar em um local de arquivo, inicie esse parâmetro com ' file\:'. Caso contrário, o valor deverá ser a cadeia de conexão do repositório de imagens, como o valor padrão. |
+| --localização comprimido | A localização para colocar o pacote de aplicação comprimido. <br><br> Se não for fornecida qualquer localização, o pacote comprimido será colocado sob uma pasta recém-criada chamada sfctl_compressed_temp sob o directório-mãe especificado no argumento do caminho. Por exemplo, se o argumento\:do caminho tiver o valor C/FolderA/AppPkg, então o pacote comprimido será adicionado a C/FolderA/sfctl_compressed_temp/AppPkg.\: |
+| --imagestore-string | Loja de imagem de destino para fazer o upload do pacote de aplicações para.  Imagem\: \:De tecido padrão. <br><br> Para fazer o upload para um local\:de arquivo, inicie este parâmetro com 'file'. Caso contrário, o valor deve ser a cadeia de ligação da loja de imagens, como o valor predefinido. |
 | -manter-se comprimido | Quer mantenha ou não o pacote comprimido gerado na conclusão do upload bem-sucedido. <br><br> Se não estiver definido, então, após a conclusão bem sucedida, os pacotes de aplicações comprimidos serão eliminados. Se o upload não tiver sido bem sucedido, então o pacote de aplicação será sempre mantido no diretório de saída para recarregar. |
-| --mostrar-progresso | Mostrar o progresso do upload de arquivo para pacotes grandes. |
-| --Timeout-t | O tempo limite total em segundos. O upload falhará e retornará um erro depois que a duração do tempo limite de carregamento for aprovada. Esse tempo limite se aplica a todo o pacote de aplicativo, e os tempos limite de arquivo individual serão iguais à duração do tempo limite restante. O timeout não inclui o tempo necessário para comprimir o pacote de aplicações.  Padrão\: 300. |
+| -show-progress | Mostre o progresso do upload do ficheiro para grandes pacotes. |
+| --timeout -t | O tempo total em segundos. O upload falhará e devolverá o erro após o tempo de saída ter passado. Este prazo aplica-se a todo o pacote de aplicação, e os prazos de entrega de ficheiros individuais serão iguais à duração do tempo de paragem. O timeout não inclui o tempo necessário para comprimir o pacote de aplicações.  Padrão\: 300. |
 
-### <a name="global-arguments"></a>Argumentos globais
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Configure](service-fabric-cli.md) a CLI do Service Fabric.
-- Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Configurar](service-fabric-cli.md) o CLI de tecido de serviço.
+- Aprenda a utilizar o CLI de tecido de serviço utilizando as [scripts de amostra](/azure/service-fabric/scripts/sfctl-upgrade-application).

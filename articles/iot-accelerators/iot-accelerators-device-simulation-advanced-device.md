@@ -1,6 +1,6 @@
 ---
-title: Criar um modelo de dispositivo simulado avançadas - Azure | Documentos da Microsoft
-description: Este guia de procedimentos, irá aprender a criar um modelo do dispositivo avançadas para utilização com acelerador de solução de simulação do dispositivo.
+title: Criar um modelo avançado de dispositivo simulado - Azure. Microsoft Docs
+description: Neste guia de como orientar, aprende-se a criar um modelo avançado de dispositivo para utilização com o acelerador de soluções de simulação de dispositivo.
 author: troyhopwood
 manager: timlt
 ms.service: iot-accelerators
@@ -10,21 +10,21 @@ ms.custom: mvc
 ms.date: 03/18/2019
 ms.author: troyhop
 ms.openlocfilehash: 4401d4b93a27e76554368ce72d256b38de61df4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61449062"
 ---
-# <a name="create-an-advanced-device-model"></a>Criar um modelo de dispositivo avançados
+# <a name="create-an-advanced-device-model"></a>Create an advanced device model (Criar um modelo de dispositivo avançado)
 
-Este guia de procedimentos descreve os ficheiros JSON e JavaScript que definem um modelo de dispositivo personalizado. O artigo inclui alguns ficheiros de definição de modelo de dispositivo de exemplo e mostra-lhe como carregá-los à sua instância de simulação do dispositivo. Pode criar modelos de dispositivos avançado para simular os comportamentos de dispositivo mais realistas para seus testes.
+Este guia descreve os ficheiros JSON e JavaScript que definem um modelo de dispositivo personalizado. O artigo inclui alguns ficheiros de definição de modelo de dispositivo de amostra e mostra-lhe como carregá-los para a sua instância de Simulação de Dispositivo. Pode criar modelos avançados de dispositivos para simular comportamentos mais realistas do dispositivo para os seus testes.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir os passos neste guia de procedimentos, terá uma instância implantada de simulação do dispositivo na sua subscrição do Azure.
+Para seguir os passos neste guia de como orientar, precisa de uma instância implementada de Simulação de Dispositivo na sua subscrição Azure.
 
 Se ainda não tiver implementado a Simulação de Dispositivos, deve concluir o início rápido [Implementar e executar uma simulação de dispositivo no Azure](quickstart-device-simulation-deploy.md).
 
@@ -34,47 +34,47 @@ Para executar a Simulação de Dispositivos no browser, comece por navegar para 
 
 Poderá ser-lhe pedido para iniciar sessão com as credenciais da subscrição do Azure.
 
-Em seguida, clique em **inicie** no mosaico da simulação de dispositivo que tenha implementado na [implementar e executar uma simulação de dispositivo do IoT no Azure](quickstart-device-simulation-deploy.md) início rápido.
+Em seguida, clique em **Lançamento** no azulejo para simulação de dispositivo que implementou no [Deploy e execute uma simulação de dispositivo IoT em Quickstart Azure.](quickstart-device-simulation-deploy.md)
 
 ## <a name="device-models"></a>Modelos de dispositivos
 
-Cada dispositivo simulado pertence a um modelo de dispositivo específico que define o comportamento de simulação. Este comportamento inclui como frequentemente enviar telemetria, que tipo de mensagens a enviar e os métodos com suporte.
+Cada dispositivo simulado pertence a um modelo específico de dispositivo que define o comportamento de simulação. Este comportamento inclui a frequência de enviar telemetria, que tipo de mensagens enviar, e os métodos suportados.
 
-É possível definir um modelo de dispositivo usando um arquivo de definição de dispositivo JSON e um conjunto de arquivos JavaScript. Estes ficheiros JavaScript definem o comportamento de simulação, tais como a telemetria aleatória e a lógica do método.
+Define um modelo de dispositivo utilizando um ficheiro de definição de dispositivo JSON e um conjunto de ficheiros JavaScript. Estes ficheiros JavaScript definem o comportamento de simulação, como a telemetria aleatória e a lógica do método.
 
-Tem um modelo de dispositivo típico:
+Um modelo típico de dispositivo tem:
 
-* Um ficheiro de JSON para cada modelo do dispositivo (por exemplo, elevator.json).
-* Um ficheiro de script de comportamento de JavaScript para cada modelo do dispositivo (por exemplo, elevador-state.js)
-* Um ficheiro de script de método de JavaScript para cada método de dispositivo (por exemplo, elevador-go-down.js)
+* Um ficheiro JSON para cada modelo de dispositivo (por exemplo, elevator.json).
+* Um ficheiro de script de comportamento JavaScript para cada modelo de dispositivo (por exemplo, elevator-state.js)
+* Um ficheiro de script do método JavaScript para cada método do dispositivo (por exemplo, elevador-go-down.js)
 
 > [!NOTE]
-> Nem todos os modelos de dispositivos definem métodos. Portanto um modelo do dispositivo pode ou não ter scripts de método. No entanto, todos os modelos de dispositivos tem de ter um script de comportamento.
+> Nem todos os modelos de dispositivos definem métodos. Portanto, um modelo de dispositivo pode ou não ter scripts de método. No entanto, todos os modelos do dispositivo devem ter um script de comportamento.
 
 ## <a name="device-definition-file"></a>Ficheiro de definição de dispositivo
 
 Cada ficheiro de definição do dispositivo contém detalhes de um modelo de dispositivo simulado, incluindo as seguintes informações:
 
-* Nome de modelo do dispositivo: cadeia de caracteres.
-* Protocolo: AMQP | MQTT | HTTP.
+* Nome do modelo do dispositivo: corda.
+* Protocolo: AMQP [ AMQP ] MQTT HTTP.
 * O estado inicial do dispositivo.
-* A frequência de atualizar o estado do dispositivo.
-* Qual arquivo JavaScript para utilizar para atualizar o estado do dispositivo.
-* Uma lista de mensagens de telemetria para enviar, cada um com uma frequência específica.
-* O esquema das mensagens de telemetria, utilizada pela aplicação de back-end para analisar a telemetria recebida.
-* Uma lista de métodos suportados e o ficheiro de JavaScript para usar para simular a cada método.
+* Quantas vezes para refrescar o estado do dispositivo.
+* Que ficheiro JavaScript usar para refrescar o estado do dispositivo.
+* Uma lista de mensagens de telemetria para enviar, cada uma com uma frequência específica.
+* O esquema das mensagens de telemetria, usados por aplicação de back-end para analisar a telemetria recebida.
+* Uma lista de métodos suportados e o ficheiro JavaScript para utilizar para simular cada método.
 
-### <a name="file-schema"></a>Esquema de ficheiro
+### <a name="file-schema"></a>Esquema de arquivo
 
-A versão do esquema é sempre "1.0.0" e é específica para o formato deste ficheiro:
+A versão schema é sempre "1.0.0" e é específica do formato deste ficheiro:
 
 ```json
 "SchemaVersion": "1.0.0"
 ```
 
-### <a name="device-model-description"></a>Descrição do modelo de dispositivo
+### <a name="device-model-description"></a>Descrição do modelo do dispositivo
 
-As seguintes propriedades descrevem o modelo do dispositivo. Cada tipo tem um identificador exclusivo, uma versão semântica, um nome e uma descrição:
+As seguintes propriedades descrevem o modelo do dispositivo. Cada tipo tem um identificador único, uma versão semântica, um nome e uma descrição:
 
 ```json
 "Id": "chiller-01",
@@ -83,9 +83,9 @@ As seguintes propriedades descrevem o modelo do dispositivo. Cada tipo tem um id
 "Description": "Chiller with external temperature and humidity sensors."
 ```
 
-### <a name="iot-protocol"></a>Protocolo do IoT
+### <a name="iot-protocol"></a>Protocolo IoT
 
-Dispositivos IoT podem ligar através de protocolos diferentes. A simulação permite-lhe utilizar qualquer um **AMQP**, **MQTT**, ou **HTTP**:
+Os dispositivos IoT podem ligar-se utilizando diferentes protocolos. A simulação permite-lhe utilizar **amqp,** **MQTT**ou **HTTP:**
 
 ```json
 "Protocol": "AMQP"
@@ -93,7 +93,7 @@ Dispositivos IoT podem ligar através de protocolos diferentes. A simulação pe
 
 ### <a name="simulated-device-state"></a>Estado do dispositivo simulado
 
-Cada dispositivo simulado tem um Estado interno, que tem de ser definido. O estado também define as propriedades que podem ser comunicadas na telemetria. Por exemplo, um chiller pode ter um Estado inicial, tais como:
+Cada dispositivo simulado tem um estado interno, que deve ser definido. O Estado também define as propriedades que podem ser reportadas na telemetria. Por exemplo, um refrigerador pode ter um estado inicial como:
 
 ```json
 "InitialState": {
@@ -102,7 +102,7 @@ Cada dispositivo simulado tem um Estado interno, que tem de ser definido. O esta
 },
 ```
 
-Um dispositivo móvel com vários sensores pode ter mais propriedades, por exemplo:
+Um dispositivo em movimento com vários sensores pode ter mais propriedades, por exemplo:
 
 ```json
 "InitialState": {
@@ -115,20 +115,20 @@ Um dispositivo móvel com vários sensores pode ter mais propriedades, por exemp
 }
 ```
 
-Estado do dispositivo é mantido na memória pelo serviço de simulação e fornecido como entrada para a função de JavaScript. A função de JavaScript poderia decidir:
+O estado do dispositivo é mantido na memória pelo serviço de simulação e fornecido como entrada para a função JavaScript. A função JavaScript pode decidir:
 
-* Para ignorar o estado e gerar alguns dados aleatórios.
+* Ignorar o estado e gerar alguns dados aleatórios.
 * Para atualizar o estado do dispositivo de alguma forma realista para um determinado cenário.
 
-A função que gera o estado também recebe como entrada:
+A função que gera o Estado também recebe como entrada:
 
-* O ID de dispositivo.
+* A identificação do dispositivo.
 * O modelo do dispositivo.
-* A hora atual. Este valor torna possível gerar dados de diferentes por dispositivo e por hora.
+* O tempo atual. Este valor permite gerar diferentes dados por dispositivo e pelo tempo.
 
-### <a name="generating-telemetry-messages"></a>A gerar mensagens de telemetria
+### <a name="generating-telemetry-messages"></a>Gerando mensagens de telemetria
 
-O serviço de simulação pode enviar vários tipos de telemetria de cada dispositivo. Normalmente, a telemetria inclui dados de estado do dispositivo. Por exemplo, uma sala simulada pode enviar informações sobre a temperatura e humidade cada 10 segundos. Tenha em atenção os marcadores de posição no seguinte fragmento, que são automaticamente substituídas por valores do Estado do dispositivo:
+O serviço de simulação pode enviar vários tipos de telemetria para cada dispositivo. Tipicamente, a telemetria inclui dados do estado do dispositivo. Por exemplo, um quarto simulado pode enviar informações sobre temperatura e humidade a cada 10 segundos. Note os espaços reservados no seguinte corte, que são automaticamente substituídos por valores do estado do dispositivo:
 
 ```json
 "Telemetry": [
@@ -149,27 +149,27 @@ O serviço de simulação pode enviar vários tipos de telemetria de cada dispos
 ],
 ```
 
-Os marcadores de posição usam uma sintaxe especial **${NAME}** onde **nome** é uma chave do objeto de estado de dispositivo devolvido pelo JavaScript **principal** função. Cadeias de caracteres devem estar escritos entre aspas, enquanto os números não devem.
+Os espaços reservados usam uma sintaxe especial **${NAME}** onde o **NAME** é uma chave do objeto de estado do dispositivo devolvido pela função **principal** JavaScript. As cordas devem ser citadas, enquanto os números não devem.
 
-#### <a name="message-schema"></a>Esquema de mensagens
+#### <a name="message-schema"></a>Esquema de mensagem
 
-Cada tipo de mensagem tem de ter um esquema bem definido. O esquema de mensagem também é publicado no IoT Hub, para que as aplicações de back-end podem reutilizar as informações para interpretar a telemetria de entrada.
+Cada tipo de mensagem deve ter um esquema bem definido. O esquema da mensagem também é publicado no IoT Hub, para que as aplicações back-end possam reutilizar a informação para interpretar a telemetria que está a chegar.
 
-O esquema suporta o formato JSON, que permite fácil de análise, transformação e análise, em vários sistemas e serviços.
+O esquema suporta o formato JSON, que permite facilitar a análise, transformação e análise, em vários sistemas e serviços.
 
-Os campos apresentados no esquema podem ser dos seguintes tipos:
+Os campos enumerados no esquema podem ser dos seguintes tipos:
 
-* Objeto - serializado utilizando o JSON
-* Binário - serializado utilizando o em base64
-* Text
-* Boolean
-* Integer
+* Objeto - serializado usando JSON
+* Binário - serializado usando base64
+* Texto
+* Booleano
+* Número inteiro
 * Double
 * DateTime
 
 ### <a name="supported-methods"></a>Métodos suportados
 
-Dispositivos simulados também podem reagir a chamadas de método, caso em que executar alguma lógica e fornecer alguma resposta. Da mesma forma para a simulação, a lógica do método é armazenada num arquivo JavaScript e pode interagir com o estado do dispositivo. Por exemplo:
+Os dispositivos simulados também podem reagir a chamadas de métodos, caso em que executam alguma lógica e fornecem alguma resposta. Da mesma forma que a simulação, a lógica do método é armazenada num ficheiro JavaScript, e pode interagir com o estado do dispositivo. Por exemplo:
 
 ```json
 "CloudToDeviceMethods": {
@@ -180,13 +180,13 @@ Dispositivos simulados também podem reagir a chamadas de método, caso em que e
 }
 ```
 
-## <a name="create-a-device-definition-file"></a>Crie um ficheiro de definição de dispositivo
+## <a name="create-a-device-definition-file"></a>Criar um ficheiro de definição de dispositivo
 
-Neste procedimentos-to-guia verá como criar um modelo do dispositivo para um drone. Drone aleatoriamente será saíssem voando um conjunto inicial de alterar a localização e altitude de coordenadas.
+Neste como-guia você vê como criar um modelo de dispositivo para um drone. O drone voará aleatoriamente em torno de um conjunto inicial de coordenadas que mudam de local e altitude.
 
-Copie o JSON seguinte para um editor de texto e guarde-o como **drone.json**.
+Copie o seguinte JSON num editor de texto e guarde-o como **drone.json**.
 
-### <a name="device-definition-json-example"></a>Exemplo de JSON de definição de dispositivo
+### <a name="device-definition-json-example"></a>Exemplo JSON definição de dispositivo
 
 ```json
 {
@@ -247,19 +247,19 @@ Copie o JSON seguinte para um editor de texto e guarde-o como **drone.json**.
 }
 ```
 
-## <a name="behavior-script-files"></a>Arquivos de script de comportamento
+## <a name="behavior-script-files"></a>Ficheiros de script de comportamento
 
-O código no ficheiro de script de comportamento move drone. O script altera a elevação e a localização do drone manipulando no estado de memória do dispositivo.
+O código no ficheiro do guião de comportamento move o drone. O guião altera a elevação e localização do drone manipulando o dispositivo em estado de memória.
 
-Os arquivos JavaScript tem de ter uma **principal** função, que aceita dois parâmetros:
+Os ficheiros JavaScript devem ter uma função **principal,** que aceita dois parâmetros:
 
-* R **contexto** objeto que contém três propriedades:
-    * **currentTime** como uma cadeia com formato **aaaa-MM-DD ' HH:mm:sszzz**.
-    * **deviceId**. Por exemplo, **Simulated.Elevator.123**.
-    * **deviceModel**. Por exemplo, **elevador**.
-* R **estado** objeto que é o valor devolvido pela função na chamada anterior. Este estado do dispositivo é mantido pelo serviço de simulação e utilizado para gerar mensagens de telemetria.
+* Um objeto de **contexto** que contém três propriedades:
+    * **currentTime** como uma cadeia com formato **yyyy-MM-dd'T'HH:mm:sszzz**.
+    * **dispositivoId**. Por exemplo, **Simulado.Elevador.123**.
+    * **dispositivoModel**. Por exemplo, **Elevador.**
+* Um objeto **de Estado** que é o valor devolvido pela função na chamada anterior. Este estado de dispositivo é mantido pelo serviço de simulação, e usado para gerar mensagens de telemetria.
 
-O **principal** função devolve o novo estado do dispositivo. Por exemplo:
+A função **principal** devolve o estado do novo dispositivo. Por exemplo:
 
 ```JavaScript
 function main(context, state) {
@@ -272,11 +272,11 @@ function main(context, state) {
 }
 ```
 
-## <a name="create-a-behavior-script-file"></a>Crie um ficheiro de script de comportamento
+## <a name="create-a-behavior-script-file"></a>Criar um ficheiro de script de comportamento
 
-Copie o seguinte JavaScript num editor de texto e guarde-o como **drone state.js**.
+Copie o seguinte JavaScript num editor de texto e guarde-o como **drone-state.js**.
 
-### <a name="device-model-javascript-simulation-example"></a>Exemplo de simulação de JavaScript de modelo de dispositivo
+### <a name="device-model-javascript-simulation-example"></a>Exemplo de simulação javaScript modelo do dispositivo
 
 ```JavaScript
 "use strict";
@@ -397,15 +397,15 @@ function varylocation(latitude, longitude, distance) {
 }
 ```
 
-## <a name="create-a-method-script-file"></a>Crie um ficheiro de script do método
+## <a name="create-a-method-script-file"></a>Criar um ficheiro de script de método
 
-Scripts de método são semelhantes aos scripts de comportamento. Elas definem o comportamento do dispositivo quando é chamada de uma nuvem específica para o método de dispositivo.
+Os scripts de método são semelhantes aos scripts de comportamento. Definem o comportamento do dispositivo quando uma nuvem específica para o método do dispositivo é chamada.
 
-O script de recolhimento de drones define coordenadas do drone a um ponto fixo para simular drone retornando home page.
+O guião de recordação do drone define as coordenadas do drone para um ponto fixo para simular o regresso do drone a casa.
 
-Copie o seguinte JavaScript num editor de texto e guarde-o como **droneRecall method.js**.
+Copie o seguinte JavaScript num editor de texto e guarde-o como **droneRecall-method.js**.
 
-### <a name="device-model-javascript-simulation-example"></a>Exemplo de simulação de JavaScript de modelo de dispositivo
+### <a name="device-model-javascript-simulation-example"></a>Exemplo de simulação javaScript modelo do dispositivo
 
 ```JavaScript
 "use strict";
@@ -467,11 +467,11 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-## <a name="debugging-script-files"></a>Arquivos de script de depuração
+## <a name="debugging-script-files"></a>Depurando ficheiros de script
 
-Embora não é possível anexar um depurador para um ficheiro de comportamento em execução, é possível escrever informações para o registo de serviço com o **log** função. Para erros de sintaxe, o interpretador de falha e escreve informações sobre a exceção no registo.
+Embora não possa anexar um debugger a um ficheiro de comportamento em execução, é possível escrever informações ao registo de serviço utilizando a função de **registo.** Para erros de sintaxe, o intérprete falha e escreve informações sobre a exceção ao registo.
 
-Exemplo de registo:
+Exemplo de exploração:
 
 ```JavaScript
 function main(context, state) {
@@ -490,11 +490,11 @@ function main(context, state) {
 }
 ```
 
-## <a name="deploy-an-advanced-device-model"></a>Implementar um modelo de dispositivo avançados
+## <a name="deploy-an-advanced-device-model"></a>Implementar um modelo avançado de dispositivo
 
-Para implementar o seu modelo de dispositivo avançados, que carregue os ficheiros de sua instância de simulação do dispositivo:
+Para implementar o seu modelo avançado de dispositivo, faça o upload dos ficheiros da sua instância de Simulação de Dispositivos:
 
-Selecione **Device models** (Modelos de dispositivos), na barra de menus. O **modelos de dispositivos** página lista os modelos de dispositivo disponíveis nesta instância de simulação do dispositivo:
+Selecione **Device models** (Modelos de dispositivos), na barra de menus. A página de **modelos do Dispositivo** lista os modelos do dispositivo disponíveis neste caso de Simulação de Dispositivos:
 
 ![Modelos de dispositivos](media/iot-accelerators-device-simulation-advanced-device/devicemodelnav.png)
 
@@ -502,18 +502,18 @@ Clique em **+ Add Device Models** (+ Adicionar Modelos de Dispositivos), no cant
 
 ![Adicionar modelo de dispositivo](media/iot-accelerators-device-simulation-advanced-device/devicemodels.png)
 
-Clique em **avançadas** para abrir o separador de modelo avançado de dispositivos:
+Clique em **Advanced** para abrir o separador de modelo avançado do dispositivo:
 
-![Separador Avançadas](media/iot-accelerators-device-simulation-advanced-device/advancedtab.png)
+![Separador Avançado](media/iot-accelerators-device-simulation-advanced-device/advancedtab.png)
 
-Clique em **procurar** e selecione os ficheiros JSON e JavaScript que criou. Certifique-se de que selecione todos os três arquivos. Se qualquer um arquivo está em falta, a validação falhar:
+Clique em **Navegar** e selecione os ficheiros JSON e JavaScript que criou. Certifique-se de selecionar os três ficheiros. Se faltar algum ficheiro, a validação falha:
 
 ![Procurar ficheiros](media/iot-accelerators-device-simulation-advanced-device/browse.png)
 
-Se os ficheiros passam na validação, clique em **guardar** e seu modelo de dispositivo está pronto para ser usado numa simulação. Caso contrário, corrija os erros e recarregue o os ficheiros:
+Se os seus ficheiros passarem na validação, clique em **Guardar** e o seu modelo de dispositivo está pronto para ser utilizado numa simulação. Caso contrário, corrija quaisquer erros e recarregue os ficheiros:
 
 ![Guardar](media/iot-accelerators-device-simulation-advanced-device/validated.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Este guia de procedimentos, ficou a conhecer os arquivos de modelo de dispositivo usados na simulação de dispositivo e como criar um modelo de dispositivo avançado. Em seguida, pode querer explorar como [utilize o Time Series Insights para visualizar a telemetria enviada a partir do solution accelerator de simulação do dispositivo](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-device-simulation-time-series-insights).
+Neste guia de como orientar, aprendeu sobre os ficheiros do modelo do dispositivo utilizados na Simulação do Dispositivo e como criar um modelo avançado de dispositivo. Em seguida, poderá querer explorar como utilizar insights da Série Time para visualizar a [telemetria enviada do acelerador de solução de simulação de dispositivos](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-device-simulation-time-series-insights).

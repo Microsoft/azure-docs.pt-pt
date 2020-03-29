@@ -16,10 +16,10 @@ ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: caa620c2389bb6e2387636bc262ceb2de99d8e34
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77201310"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Conecte redes virtuais com o peering de rede virtual usando powerShell
@@ -33,7 +33,7 @@ Pode ligar redes virtuais entre si com o peering de rede virtual. Depois de as r
 * Implementar uma máquina virtual (VM) em cada rede virtual
 * Comunicar entre VMs
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -129,7 +129,7 @@ Crie uma VM em cada rede virtual, para que possa comunicar entre as mesmas num p
 
 ### <a name="create-the-first-vm"></a>Criar a primeira VM
 
-Crie um VM com [New-AzVM](/powershell/module/az.compute/new-azvm). O exemplo seguinte cria um VM chamado *myVm1* na rede virtual *myVirtualNetwork1.* A opção `-AsJob` cria o VM em segundo plano, para que possa continuar até ao próximo passo. Quando solicitado, introduza o nome de utilizador e a palavra-passe com o que pretende iniciar sessão no VM com.
+Crie um VM com [New-AzVM](/powershell/module/az.compute/new-azvm). O exemplo seguinte cria um VM chamado *myVm1* na rede virtual *myVirtualNetwork1.* A `-AsJob` opção cria o VM em segundo plano, para que possa continuar até ao próximo passo. Quando solicitado, introduza o nome de utilizador e a palavra-passe com o que pretende iniciar sessão no VM com.
 
 ```azurepowershell-interactive
 New-AzVm `

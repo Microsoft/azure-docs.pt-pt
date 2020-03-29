@@ -1,5 +1,5 @@
 ---
-title: Entrega e retry - Azure Event Grid IoT Edge  Microsoft Docs
+title: Entrega e retry - Azure Event Grid IoT Edge [ Microsoft Docs
 description: Entrega e retenção em Event Grid na IoT Edge.
 author: VidyaKukke
 manager: rajarv
@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 7df283b12a0d04d2b785c13a2f12b03115581e79
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76841717"
 ---
 # <a name="delivery-and-retry"></a>Entrega e tentativa
@@ -31,7 +31,7 @@ Há duas filas de back back back pré-configuradas que determinam o horário em 
 
 | Agenda | Descrição |
 | ---------| ------------ |
-| um minuto | As mensagens que acabam aqui são tentadas a cada minuto.
+| 1 minuto | As mensagens que acabam aqui são tentadas a cada minuto.
 | 10 minutos | As mensagens que acabam aqui são tentadas a cada 10 minutos.
 
 ### <a name="how-it-works"></a>Como funciona
@@ -52,9 +52,9 @@ Um evento será abandonado se um dos limites da política de repescagem for atin
 
 ## <a name="configuring-defaults-for-all-subscribers"></a>Configurar incumprimentos para todos os subscritores
 
-Existem duas propriedades: `brokers__defaultMaxDeliveryAttempts` e `broker__defaultEventTimeToLiveInSeconds` que podem ser configuradas como parte da implementação da Rede de Eventos, que controla os incumprimentos da política de retry para todos os subscritores.
+Existem duas `brokers__defaultMaxDeliveryAttempts` propriedades: e `broker__defaultEventTimeToLiveInSeconds` que podem ser configuradas como parte da implementação da Rede de Eventos, que controla os incumprimentos da política de retry para todos os subscritores.
 
-| Nome da propriedade | Descrição |
+| Nome da Propriedade | Descrição |
 | ---------------- | ------------ |
 | `broker__defaultMaxDeliveryAttempts` | Número máximo de tentativas para entregar um evento. Valor predefinido: 30.
 | `broker__defaultEventTimeToLiveInSeconds` | Evento TTL em segundos após o qual um evento será abandonado se não for entregue. Valor predefinido: **7200** segundos

@@ -17,10 +17,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 61490f75d12967f7f396d5f767f2d2e696474572
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76897200"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Monitorizar a sincronização do Azure AD Connect com o Azure AD Connect Health
@@ -113,13 +113,13 @@ Ao selecionar o botão "Exportação", pode transferir um ficheiro CSV com todos
 ### <a name="diagnose-and-remediate-sync-errors"></a>Diagnosticar e corrigir erros de sincronização 
 Para cenários de erro de sincronização de atributo duplicado específico que envolvem uma atualização de Âncora de Origem do utilizador, pode corrigi-los diretamente no portal. Leia mais sobre [Diagnosticar e resolver erros de sincronização de atributo duplicado](how-to-connect-health-diagnose-sync-errors.md)
 
-## <a name="related-links"></a>Hiperligações relacionadas
-* [Resolver problemas de erros durante a sincronização](tshoot-connect-sync-errors.md)
+## <a name="related-links"></a>Ligações relacionadas
+* [Erros de resolução de problemas durante a sincronização](tshoot-connect-sync-errors.md)
 * [Resiliência de Atributos Duplicados](how-to-connect-syncservice-duplicate-attribute-resiliency.md)
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Instalação do Agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)
-* [Azure AD Connect Health Operations (Operações do Azure AD Connect Health)](how-to-connect-health-operations.md)
-* [Utilizar o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
-* [Utilizar o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md)
+* [Operações de Saúde Azure AD Connect](how-to-connect-health-operations.md)
+* [Utilizar o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
+* [Utilizar o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md)
 * [FAQ do Azure AD Connect Health](reference-connect-health-faq.md)
-* [Histórico das Versões do Azure AD Connect Health](reference-connect-health-version-history.md)
+* [História da versão da versão de ligação da saúde azure AD](reference-connect-health-version-history.md)

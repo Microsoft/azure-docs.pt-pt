@@ -1,6 +1,6 @@
 ---
-title: Ingestão de bolhas de ponta a ponta no Azure Data Explorer atravésC#
-description: Neste artigo, aprende-se a ingerir bolhas no Azure Data Explorer com um C#exemplo de ponta a ponta que utiliza .
+title: 'Ingestão de bolhas de ponta a ponta no Azure Data Explorer através de C #'
+description: Neste artigo, aprende-se a ingerir bolhas no Azure Data Explorer com um exemplo de ponta a ponta que utiliza C#.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -8,30 +8,30 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.openlocfilehash: 0711484c4fff24c5dcd3c18effce596a92bc30c3
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76964520"
 ---
-# <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-c"></a>Ingestão de bolhas de ponta a ponta no Azure Data Explorer atravésC#
+# <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-c"></a>Ingestão de bolhas de ponta a ponta no Azure Data Explorer através de C #
 
 > [!div class="op_single_selector"]
-> * [C#](end-to-end-csharp.md)
-> * [Python](end-to-end-python.md)
+> * [C #](end-to-end-csharp.md)
+> * [Pitão](end-to-end-python.md)
 >
 
-O Azure Data Explorer é um serviço de exploração de dados rápido e escalonável para dados de log e telemetria. Este artigo fornece um exemplo de ponta a ponta de como ingerir dados do armazenamento de BLOBs do Azure para o Azure Data Explorer. 
+O Azure Data Explorer é um serviço de exploração rápida e escalável de dados para dados de registo e telemetria. Este artigo dá-lhe um exemplo de como ingerir dados do armazenamento do Azure Blob no Azure Data Explorer. 
 
-Você aprenderá como criar programaticamente um grupo de recursos, uma conta de armazenamento e um contêiner, um hub de eventos e um cluster de Data Explorer do Azure e um banco de dados. Você também aprenderá como configurar programaticamente o Data Explorer do Azure para ingerir dados da nova conta de armazenamento.
+Você vai aprender a criar programáticamente um grupo de recursos, uma conta de armazenamento e recipiente, um hub de eventos, e um cluster azure Data Explorer e base de dados. Também aprenderá a configurar programaticamente o Azure Data Explorer para ingerir dados a partir da nova conta de armazenamento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="install-c-nuget"></a>Instalar C# o NuGet
+## <a name="install-c-nuget"></a>Instalar C# NuGet
 
-* Instale [Microsoft. Azure. Management. Kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
+* Instale [microsoft.Azure.Management.kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
 * Instale [microsoft.Azure.Management.ResourceManager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
 * Instale [microsoft.Azure.Management.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/).
 * Instale [Microsoft.Azure.Storage.Blob](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/).
@@ -43,9 +43,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](http
 
 ## <a name="code-example"></a>Exemplo de código 
 
-O exemplo de código a seguir fornece um processo passo a passo que resulta na ingestão de dados no Azure Data Explorer. 
+O exemplo de código que se segue dá-lhe um processo passo a passo que resulta na ingestão de dados no Azure Data Explorer. 
 
-Primeiro, você cria um grupo de recursos. Também cria recursos Azure, como uma conta de armazenamento e um contentor, um hub de eventos, e um cluster e base de dados do Azure Data Explorer, e adiciona os principais. Em seguida, você cria uma assinatura da grade de eventos do Azure, juntamente com um mapeamento de tabela e coluna, no banco de dados Data Explorer do Azure. Por fim, você cria a conexão de dados para configurar o Azure Data Explorer para ingerir dados da nova conta de armazenamento. 
+Primeiro cria-se um grupo de recursos. Também cria recursos Azure, como uma conta de armazenamento e um contentor, um hub de eventos, e um cluster e base de dados do Azure Data Explorer, e adiciona os principais. Em seguida, cria uma subscrição da Rede de Eventos Azure, juntamente com um mapeamento de tabela e coluna, na base de dados do Azure Data Explorer. Por fim, cria a ligação de dados para configurar o Azure Data Explorer para ingerir dados a partir da nova conta de armazenamento. 
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -176,14 +176,14 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 ```
 | **Definição** | **Descrição do campo** |
 |---|---|---|
-| tenantId | Sua ID de locatário. Ele também é conhecido como uma ID de diretório.|
-| subscriptionId | A ID da assinatura que você usa para a criação de recursos.|
-| clientId | A ID do cliente do aplicativo que pode acessar recursos em seu locatário.|
-| clientSecret | O segredo do cliente do aplicativo que pode acessar recursos em seu locatário. |
+| inquilinoId | Sua identificação do inquilino. Também é conhecido como uma identificação de diretório.|
+| subscriptionId | O ID de subscrição que utiliza para a criação de recursos.|
+| clientId | A identificação do cliente da aplicação que pode aceder a recursos no seu inquilino.|
+| clienteSecret | O segredo do cliente da aplicação que pode aceder a recursos no seu inquilino. |
 
-## <a name="test-the-code-example"></a>Testar o exemplo de código
+## <a name="test-the-code-example"></a>Teste o exemplo do código
 
-1. Carregue um arquivo na conta de armazenamento.
+1. Faça upload de um ficheiro para a conta de armazenamento.
 
     ```csharp
     string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=xxxxxxxxxxxxxx;AccountKey=xxxxxxxxxxxxxx;EndpointSuffix=core.windows.net";
@@ -199,7 +199,7 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
     |---|---|---|
     | armazenamentoConnectionString | A cadeia de ligação da conta de armazenamento criada programáticamente.|
 
-2. Executar uma consulta de teste no Azure Data Explorer.
+2. Ecorra uma consulta de teste no Azure Data Explorer.
 
     ```csharp
     var kustoUri = $"https://{kustoClusterName}.{locationSmallCase}.kusto.windows.net";
@@ -226,7 +226,7 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Para excluir o grupo de recursos e limpar os recursos, use o seguinte comando:
+Para eliminar o grupo de recursos e limpar os recursos, utilize o seguinte comando:
 
 ```csharp
 await resourceManagementClient.ResourceGroups.DeleteAsync(resourceGroupName);
@@ -234,7 +234,7 @@ await resourceManagementClient.ResourceGroups.DeleteAsync(resourceGroupName);
 
 ## <a name="next-steps"></a>Passos seguintes
 
-*  Para saber mais sobre outras maneiras de criar um cluster e um banco de dados, consulte [criar um cluster de data Explorer do Azure e um banco de dados](create-cluster-database-csharp.md).
-* Para saber mais sobre os métodos de ingestão, confira [ingestão de dados do Azure data Explorer](ingest-data-overview.md).
-* Para saber mais sobre o aplicativo Web, consulte [início rápido: consultar dados na interface do usuário da Web do Azure data Explorer](web-query-data.md).
+*  Para saber mais sobre outras formas de criar um cluster e base de dados, consulte [Criar um cluster e base de dados do Azure Data Explorer](create-cluster-database-csharp.md).
+* Para saber mais sobre os métodos de ingestão, consulte a [ingestão](ingest-data-overview.md)de dados do Azure Data Explorer .
+* Para saber mais sobre a aplicação web, consulte [Quickstart: Dados de consulta na Web UI do Azure Data Explorer](web-query-data.md).
 * [Escreva consultas](write-queries.md) com linguagem de consulta kusto.

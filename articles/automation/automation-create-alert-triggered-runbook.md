@@ -1,59 +1,59 @@
 ---
-title: Usar um alerta para disparar um runbook de automação do Azure
-description: Saiba como disparar um runbook para ser executado quando um alerta do Azure é gerado.
+title: Use um alerta para desencadear um livro de execução da Automação Azure
+description: Aprenda a desencadear um livro de corridas para funcionar quando um alerta Azure é levantado.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.openlocfilehash: df28116c588ed77f02c78a42a85feb91ca339e7b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75366705"
 ---
-# <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Usar um alerta para disparar um runbook de automação do Azure
+# <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Use um alerta para desencadear um livro de execução da Automação Azure
 
-Você pode usar [Azure monitor](../azure-monitor/overview.md?toc=%2fazure%2fautomation%2ftoc.json) para monitorar os logs e as métricas de nível base para a maioria dos serviços no Azure. Você pode chamar runbooks de automação do Azure usando [grupos de ação](../azure-monitor/platform/action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) ou alertas clássicos para automatizar tarefas com base em alertas. Este artigo mostra como configurar e executar um runbook usando alertas.
+Pode utilizar o [Monitor Azure](../azure-monitor/overview.md?toc=%2fazure%2fautomation%2ftoc.json) para monitorizar métricas e registos de nível base para a maioria dos serviços em Azure. Pode ligar para os livros de execução da Automatização Azure utilizando [grupos](../azure-monitor/platform/action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) de ação ou utilizando alertas clássicos para automatizar tarefas com base em alertas. Este artigo mostra-lhe como configurar e executar um livro de corridas usando alertas.
 
 ## <a name="alert-types"></a>Tipos de alerta
 
-Você pode usar runbooks de automação com três tipos de alertas:
+Pode utilizar livros de automação com três tipos de alerta:
 
 * Alertas comuns
 * Alertas do registo de atividades
-* Alertas de métrica quase em tempo real
+* Alertas métricos em tempo real
 
 > [!NOTE]
-> O esquema de alerta comum padroniza a experiência de consumo para notificações de alerta no Azure hoje. Historicamente, os três tipos de alertas no Azure hoje (métrica, log e log de atividades) tiveram seus próprios modelos de email, esquemas de webhook, etc. Para saber mais, consulte [esquema de alerta comum](../azure-monitor/platform/alerts-common-schema.md)
+> O esquema de alerta comum normaliza a experiência de consumo para notificações de alerta em Azure hoje. Historicamente, os três tipos de alerta em Azure hoje (registo métrico, diário e de atividade) tiveram os seus próprios modelos de e-mail, schemas webhook, etc. Para saber mais, consulte o esquema de [alerta comum](../azure-monitor/platform/alerts-common-schema.md)
 
-Quando um alerta chama um runbook, a chamada real é uma solicitação HTTP POST para o webhook. O corpo da solicitação POST contém um objeto com formato JSON que tem propriedades úteis relacionadas ao alerta. A tabela a seguir lista os links para o esquema de carga para cada tipo de alerta:
+Quando um alerta chama um livro de execução, a chamada real é um pedido HTTP POST para o webhook. O corpo do pedido POST contém um objeto formado pela JSON que tem propriedades úteis que estão relacionadas com o alerta. A tabela seguinte enumera as ligações ao esquema de carga útil para cada tipo de alerta:
 
-|Alerta  |Descrição|Esquema de carga  |
+|Alerta  |Descrição|Esquema de carga útil  |
 |---------|---------|---------|
-|[Alerta comum](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|O esquema de alerta comum que padroniza a experiência de consumo para notificações de alerta no Azure hoje.|Esquema de conteúdo de alerta comum|
-|[Alerta do log de atividades](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envia uma notificação quando qualquer evento novo no log de atividades do Azure corresponde a condições específicas. Por exemplo, quando uma operação de `Delete VM` ocorre em **myProductionResourceGroup** ou quando um novo evento de integridade do serviço do Azure com um status **ativo** é exibido.| [Esquema de conteúdo de alerta do log de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
-|[Alerta de métrica quase em tempo real](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envia uma notificação mais rápido que os alertas de métrica quando uma ou mais métricas de nível de plataforma atendem às condições especificadas. Por exemplo, quando o valor de **% de CPU** em uma VM é maior **que 90**, e o valor para a **rede no** é maior que **500 MB** nos últimos 5 minutos.| [Esquema de carga de alerta de métrica quase em tempo real](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
+|[Alerta comum](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|O esquema de alerta comum que normaliza a experiência de consumo para notificações de alerta hoje em Azure.|Esquema de carga útil de alerta comum|
+|[Alerta de registo de atividade](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envia uma notificação quando qualquer novo evento no registo de atividade do Azure corresponde a condições específicas. Por exemplo, `Delete VM` quando uma operação ocorre no **myProductionResourceGroup** ou quando aparece um novo evento de Saúde de Serviço Azure com um estado **Ativo.**| [Esquema de alerta de registo de atividade](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
+|[Alerta métrico em tempo real](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envia uma notificação mais rapidamente do que os alertas métricos quando uma ou mais métricas ao nível da plataforma cumprem as condições especificadas. Por exemplo, quando o valor para a **CPU %** num VM é superior a **90**, e o valor para a **Rede In** é superior a **500 MB** nos últimos 5 minutos.| [Esquema de carga útil de alerta métrico em tempo real](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
 
-Como os dados fornecidos por cada tipo de alerta são diferentes, cada tipo de alerta é tratado de forma diferente. Na próxima seção, você aprenderá a criar um runbook para lidar com diferentes tipos de alertas.
+Como os dados fornecidos por cada tipo de alerta são diferentes, cada tipo de alerta é tratado de forma diferente. Na secção seguinte, aprende-se a criar um livro de rés para lidar com diferentes tipos de alertas.
 
-## <a name="create-a-runbook-to-handle-alerts"></a>Criar um runbook para manipular alertas
+## <a name="create-a-runbook-to-handle-alerts"></a>Crie um livro de corridas para lidar com alertas
 
-Para usar a automação com alertas, você precisa de um runbook que tenha lógica que gerencia o conteúdo JSON de alerta que é passado para o runbook. O runbook de exemplo a seguir deve ser chamado de um alerta do Azure.
+Para utilizar a Automação com alertas, é necessário um livro de execução que tenha uma lógica que gere a carga útil jSON alerta que é passada para o livro de execução. O seguinte livro de exemplo saem de um alerta Azure.
 
-Conforme descrito na seção anterior, cada tipo de alerta tem um esquema diferente. O script usa os dados do webhook no parâmetro de entrada `WebhookData` runbook de um alerta. Em seguida, o script avalia o conteúdo JSON para determinar qual tipo de alerta foi usado.
+Tal como descrito na secção anterior, cada tipo de alerta tem um esquema diferente. O script retira os dados `WebhookData` do webhook no parâmetro de entrada do livro de execução a partir de um alerta. Em seguida, o script avalia a carga útil JSON para determinar que tipo de alerta foi usado.
 
-Este exemplo usa um alerta de uma VM. Ele recupera os dados da VM do conteúdo e, em seguida, usa essas informações para interromper a VM. A conexão deve ser configurada na conta de automação em que o runbook é executado. Ao usar alertas para disparar runbooks, é importante verificar o status do alerta no runbook que é disparado. O runbook será disparado cada vez que o estado do alerta for alterado. Os alertas têm vários Estados, os dois Estados mais comuns são `Activated` e `Resolved`. Verifique esse estado em sua lógica de runbook para garantir que o runbook não seja executado mais de uma vez. O exemplo neste artigo mostra como procurar apenas `Activated` alertas.
+Este exemplo usa um alerta de um VM. Recupera os dados vm da carga útil e, em seguida, utiliza essa informação para parar o VM. A ligação deve ser configurada na conta Automation onde o livro de execução é executado. Ao utilizar alertas para acionar os livros de execução, é importante verificar o estado do alerta no livro de execução que é acionado. O livro de execução irá desencadear cada vez que o estado de alerta. Os alertas têm vários estados, os dois estados mais comuns são `Activated` e. `Resolved` Verifique este estado na sua lógica de caderneta para garantir que o seu livro de execução não funciona mais do que uma vez. O exemplo neste artigo mostra `Activated` como procurar apenas alertas.
 
-O runbook usa a [conta Executar como](automation-create-runas-account.md) AzureRunAsConnection para autenticar com o Azure para executar a ação de gerenciamento na VM.
+O livro de execução utiliza o **AzureRunAsConnection** [Run Como conta](automation-create-runas-account.md) para autenticar com o Azure para realizar a ação de gestão contra o VM.
 
-Use este exemplo para criar um runbook chamado **Stop-AzureVmInResponsetoVMAlert**. Você pode modificar o script do PowerShell e usá-lo com muitos recursos diferentes.
+Use este exemplo para criar um livro chamado **Stop-AzureVmInResponsetoVMAlert**. Pode modificar o script PowerShell e usá-lo com muitos recursos diferentes.
 
-1. Vá para sua conta de automação do Azure.
-2. Em **automação de processo**, selecione **Runbooks**.
-3. Na parte superior da lista de runbooks, selecione **+ criar um runbook**.
-4. Na página **Adicionar runbook** , digite **Stop-AzureVmInResponsetoVMAlert** para o nome do runbook. Para o tipo de runbook, selecione **PowerShell**. Em seguida, selecione **Criar**.  
-5. Copie o exemplo do PowerShell a seguir na página **Editar** .
+1. Vá à sua conta de Automação Azure.
+2. Em Fase **de Automação de Processos,** selecione **Runbooks**.
+3. No topo da lista de livros de execução, selecione **+ Crie um livro de execução**.
+4. Na página **Add Runbook,** introduza **Stop-AzureVmInResponsetoVMAlert** para o nome do livro de execução. Para o tipo de livro de execução, selecione **PowerShell**. Em seguida, selecione **Criar**.  
+5. Copie o seguinte exemplo PowerShell na página **Editar.**
 
     ```powershell-interactive
     [OutputType("PSAzureOperationResponse")]
@@ -164,34 +164,34 @@ Use este exemplo para criar um runbook chamado **Stop-AzureVmInResponsetoVMAlert
     }
     ```
 
-6. Selecione **publicar** para salvar e publicar o runbook.
+6. Selecione **Publicar** para guardar e publicar o livro de execução.
 
 ## <a name="create-the-alert"></a>Criar o alerta
 
-Os alertas usam grupos de ações, que são coleções de ações disparadas pelo alerta. Runbooks são apenas uma das muitas ações que podem ser usadas com grupos de ação.
+Os alertas utilizam grupos de ação, que são coletores de ações que são desencadeadas pelo alerta. Os livros de corridas são apenas uma das muitas ações que pode usar com grupos de ação.
 
-1. Em sua conta de automação, selecione **alertas** em **monitoramento**.
+1. Na sua Conta de Automação, selecione **Alertas** sob **Monitorização**.
 1. Selecione **+ Nova regra de alerta**.
-1. Clique em **selecionar** em **recurso**. Na página **selecionar um recurso** , selecione sua VM para alertar e clique em **concluído**.
-1. Clique em **Adicionar condição** em **condição**. Selecione o sinal que você deseja usar, por exemplo, **percentual de CPU** e clique em **concluído**.
-1. Na página **Configurar lógica de sinal** , insira o **valor limite** em **lógica de alerta**e clique em **concluído**.
-1. Em **grupos de ações**, selecione **criar novo**.
-1. Na página **Adicionar grupo de ações** , dê um nome a seu grupo de ação e um nome curto.
-1. Dê um nome à ação. Para o tipo de ação, selecione **runbook de automação**.
-1. Selecione **Editar detalhes**. Na página **Configurar runbook** , em **origem do runbook**, selecione **usuário**.  
-1. Selecione sua **assinatura** e **conta de automação**e, em seguida, selecione o runbook **Stop-AzureVmInResponsetoVMAlert** .  
-1. Selecione **Sim** para **habilitar o esquema de alerta comum**.
-1. Para criar o grupo de ações, selecione **OK**.
+1. Clique em **Selecionar** sob **recurso**. Na página **Selecione uma** página de recursos, selecione o seu VM para alertar e clique **em Done**.
+1. Clique em **Adicionar condição** sob **condição**. Selecione o sinal que pretende utilizar, por exemplo, **percentagem de CPU** e clique **em Done**.
+1. Na página lógica do **sinal Configurar,** introduza o seu **valor limiar** sob a lógica **de Alerta**, e clique em **Done**.
+1. Em **grupos de ação,** selecione **Criar Novo**.
+1. Na página do **grupo de ação Add,** dê ao seu grupo de ação um nome e um nome curto.
+1. Dê um nome à ação. Para o tipo de ação, selecione **Automation Runbook**.
+1. Selecione **Editar Detalhes**. Na página **Configure Runbook,** sob a fonte Do Livro de **Execução,** selecione **User**.  
+1. Selecione a sua conta **de Subscrição** e **Automação**e, em seguida, selecione o livro de execução **Stop-AzureVmInResponsetoVMAlert.**  
+1. Selecione **Sim** para Ativar o esquema de **alerta comum**.
+1. Para criar o grupo de ação, selecione **OK**.
 
-    ![Página Adicionar grupo de ações](./media/automation-create-alert-triggered-runbook/add-action-group.png)
+    ![Adicionar página de grupo de ação](./media/automation-create-alert-triggered-runbook/add-action-group.png)
 
-    Você pode usar esse grupo de ações nos [alertas do log de atividades](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) e [alertas quase em tempo real](../azure-monitor/platform/alerts-overview.md?toc=%2fazure%2fautomation%2ftoc.json) criados por você.
+    Pode utilizar este grupo de ação nos [alertas](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) de registo de atividade e [alertas próximos em tempo real](../azure-monitor/platform/alerts-overview.md?toc=%2fazure%2fautomation%2ftoc.json) que cria.
 
-1. Em **detalhes do alerta**, adicione um nome e uma descrição da regra de alerta e clique em **criar regra de alerta**.
+1. Em detalhes de **alerta,** adicione um nome e descrição da regra de alerta e clique **em Criar regra**de alerta .
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter mais informações sobre como iniciar um runbook de automação usando um webhook, consulte [Iniciar um runbook de um webhook](automation-webhooks.md).
-* Para obter detalhes sobre diferentes maneiras de iniciar um runbook, consulte [iniciando um runbook](automation-starting-a-runbook.md).
-* Para saber como criar um alerta do log de atividades, consulte [criar alertas do log de atividades](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
-* Para saber como criar um alerta quase em tempo real, consulte [criar uma regra de alerta no portal do Azure](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
+* Para obter mais informações sobre o início de um livro de execução automation, utilizando um webhook, consulte [Iniciar um livro de execução a partir de um webhook](automation-webhooks.md).
+* Para mais detalhes sobre diferentes formas de iniciar um livro de corridas, consulte Iniciar um livro de [corridas](automation-starting-a-runbook.md).
+* Para aprender a criar um alerta de registo de atividade, consulte [Criar alertas](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)de registo de atividade .
+* Para aprender a criar um alerta quase em tempo real, consulte Criar uma regra de [alerta no portal Azure](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).

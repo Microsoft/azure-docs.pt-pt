@@ -1,6 +1,6 @@
 ---
-title: Como atualizar um serviço de nuvem | Microsoft Docs
-description: Saiba como atualizar os serviços de nuvem no Azure. Saiba como uma atualização em um serviço de nuvem prossegue para garantir a disponibilidade.
+title: Como atualizar um serviço de nuvem / Microsoft Docs
+description: Saiba como atualizar os serviços de cloud em Azure. Saiba como uma atualização de um serviço na nuvem prossegue para garantir a disponibilidade.
 services: cloud-services
 author: tgore03
 ms.service: cloud-services
@@ -8,180 +8,180 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: 731f4e8cc8a93f33d6887f44fc8d09585e92a75a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75360349"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Como atualizar um serviço de nuvem
 
-A atualização de um serviço de nuvem, incluindo suas funções e o SO convidado, é um processo de três etapas. Primeiro, os arquivos binários e de configuração para o novo serviço de nuvem ou versão do sistema operacional devem ser carregados. Em seguida, o Azure reserva recursos de computação e de rede para o serviço de nuvem com base nos requisitos da nova versão do serviço de nuvem. Por fim, o Azure realiza uma atualização sem interrupção para atualizar incrementalmente o locatário para a nova versão ou o sistema operacional convidado, preservando, ao mesmo tempo, a disponibilidade. Este artigo aborda os detalhes dessa última etapa – a atualização sem interrupção.
+Atualizar um serviço na nuvem, incluindo tanto as suas funções como o so convidado, é um processo de três etapas. Em primeiro lugar, os binários e ficheiros de configuração para o novo serviço de nuvem ou versão S devem ser carregados. Em seguida, o Azure reserva a computação e os recursos de rede para o serviço na nuvem com base nos requisitos da nova versão do serviço na nuvem. Por fim, o Azure realiza uma atualização rolante para atualizar incrementalmente o inquilino para a nova versão ou o S O de hóspedes, preservando ao mesmo tempo a sua disponibilidade. Este artigo discute os detalhes deste último passo – a atualização em andamento.
 
-## <a name="update-an-azure-service"></a>Atualizar um serviço do Azure
-O Azure organiza suas instâncias de função em agrupamentos lógicos chamados de UD (domínios de atualização). Domínios de atualização (UD) são conjuntos lógicos de instâncias de função que são atualizados como um grupo.  O Azure atualiza um serviço de nuvem um UD de cada vez, o que permite que instâncias em outros UDs continuem a servir tráfego.
+## <a name="update-an-azure-service"></a>Atualizar um Serviço Azure
+O Azure organiza as suas instâncias em agrupamentos lógicos chamados domínios de atualização (UD). Os domínios de upgrade (UD) são conjuntos lógicos de instâncias de papéis que são atualizados como um grupo.  O Azure atualiza um serviço na nuvem uma UD de cada vez, o que permite que casos em outros UDs continuem a servir o tráfego.
 
-O número padrão de domínios de atualização é 5. Você pode especificar um número diferente de domínios de atualização, incluindo o atributo upgradeDomainCount no arquivo de definição do serviço (. csdef). Para obter mais informações sobre o atributo upgradeDomainCount, consulte [esquema de definição de serviços de nuvem do Azure (arquivo. csdef)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file).
+O número padrão de domínios de atualização é de 5. Pode especificar um número diferente de domínios de atualização, incluindo o atributo do DomainCount de upgrade no ficheiro de definição do serviço (.csdef). Para obter mais informações sobre o atributo do UpgradeDomainCount, consulte [Azure Cloud Services Definition Schema (.csdef File)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file).
 
-Quando você executa uma atualização in-loco de uma ou mais funções em seu serviço, o Azure atualiza conjuntos de instâncias de função de acordo com o domínio de atualização ao qual eles pertencem. O Azure atualiza todas as instâncias em um determinado domínio de atualização – interrompendo-as, atualizando-as, colocando-as online novamente e, em seguida, passa para o próximo domínio. Ao interromper somente as instâncias em execução no domínio de atualização atual, o Azure garante que uma atualização ocorra com o menor impacto possível no serviço em execução. Para obter mais informações, consulte [como a atualização continuará](#howanupgradeproceeds) mais adiante neste artigo.
+Quando executa uma atualização no local de uma ou mais funções no seu serviço, o Azure atualiza conjuntos de instâncias de funções de acordo com o domínio de atualização a que pertencem. O Azure atualiza todas as ocorrências num determinado domínio de upgrade – impedindo-os, atualizando-os, trazendo-os de volta à linha – e depois passa para o próximo domínio. Ao parar apenas as instâncias em execução no domínio atual de atualização, o Azure garante que ocorre uma atualização com o menor impacto possível no serviço de funcionamento. Para mais informações, consulte [como a atualização prossegue](#howanupgradeproceeds) mais tarde neste artigo.
 
 > [!NOTE]
-> Embora os termos **atualização** e **atualização** tenham significado ligeiramente diferente no contexto do Azure, eles podem ser usados de maneira intercambiável para os processos e descrições dos recursos deste documento.
+> Embora a **atualização** e **atualização** de termos tenham um significado ligeiramente diferente no contexto Azure, podem ser utilizados intercambiavelmente para os processos e descrições das funcionalidades deste documento.
 >
 >
 
-Seu serviço deve definir pelo menos duas instâncias de uma função para que essa função seja atualizada in-loco sem tempo de inatividade. Se o serviço consistir em apenas uma instância de uma função, seu serviço ficará indisponível até que a atualização in-loco seja concluída.
+O seu serviço deve definir pelo menos dois casos de um papel para que esse papel seja atualizado no local sem tempo de inatividade. Se o serviço consistir em apenas uma instância de uma função, o seu serviço estará indisponível até que a atualização no local esteja concluída.
 
 Este tópico aborda as seguintes informações sobre as atualizações do Azure:
 
-* [Alterações de serviço permitidas durante uma atualização](#AllowedChanges)
-* [Como uma atualização prossegue](#howanupgradeproceeds)
+* [Permitida seleções de serviço durante uma atualização](#AllowedChanges)
+* [Como uma atualização procede](#howanupgradeproceeds)
 * [Reversão de uma atualização](#RollbackofanUpdate)
-* [Iniciando várias operações de mutação em uma implantação em andamento](#multiplemutatingoperations)
-* [Distribuição de funções entre domínios de atualização](#distributiondfroles)
+* [Início de múltiplas operações de mutação numa implantação em curso](#multiplemutatingoperations)
+* [Distribuição de funções em domínios de upgrade](#distributiondfroles)
 
 <a name="AllowedChanges"></a>
 
-## <a name="allowed-service-changes-during-an-update"></a>Alterações de serviço permitidas durante uma atualização
-A tabela a seguir mostra as alterações permitidas em um serviço durante uma atualização:
+## <a name="allowed-service-changes-during-an-update"></a>Permitida seleções de serviço durante uma atualização
+A tabela seguinte mostra as alterações permitidas a um serviço durante uma atualização:
 
-| Alterações permitidas para hospedar, serviços e funções | Atualização in-loco | Preparado (permuta de VIP) | Excluir e reimplantar |
+| Alterações permitidas ao alojamento, serviços e funções | Atualização no local | Encenação (troca VIP) | Eliminar e reutilizar |
 | --- | --- | --- | --- |
 | Versão do sistema operativo |Sim |Sim |Sim |
-| Nível de confiança do .NET |Sim |Sim |Sim |
+| nível de confiança .NET |Sim |Sim |Sim |
 | Tamanho da máquina virtual<sup>1</sup> |Sim<sup>2</sup> |Sim |Sim |
-| Configurações de armazenamento local |Aumentar somente<sup>2</sup> |Sim |Sim |
-| Adicionar ou remover funções em um serviço |Sim |Sim |Sim |
-| Número de instâncias de uma função específica |Sim |Sim |Sim |
-| Número ou tipo de pontos de extremidade para um serviço |Sim<sup>2</sup> |Não |Sim |
-| Nomes e valores de parâmetros de configuração |Sim |Sim |Sim |
-| Valores (mas não nomes) das definições de configuração |Sim |Sim |Sim |
+| Configurações de armazenamento local |Aumentar apenas<sup>2</sup> |Sim |Sim |
+| Adicionar ou remover funções num serviço |Sim |Sim |Sim |
+| Número de casos de um papel específico |Sim |Sim |Sim |
+| Número ou tipo de pontos finais para um serviço |Sim<sup>2</sup> |Não |Sim |
+| Nomes e valores das definições de configuração |Sim |Sim |Sim |
+| Valores (mas não nomes) de configurações de configuração |Sim |Sim |Sim |
 | Adicionar novos certificados |Sim |Sim |Sim |
-| Alterar certificados existentes |Sim |Sim |Sim |
-| Implantar novo código |Sim |Sim |Sim |
+| Alterar os certificados existentes |Sim |Sim |Sim |
+| Implementar novo código |Sim |Sim |Sim |
 
-<sup>1</sup> alteração de tamanho limitada ao subconjunto de tamanhos disponíveis para o serviço de nuvem.
+<sup>1</sup> Alteração de tamanho limitada ao subconjunto de tamanhos disponíveis para o serviço de nuvem.
 
-<sup>2</sup> requer o SDK do Azure 1,5 ou versões posteriores.
+<sup>2</sup> Requer versões Azure SDK 1.5 ou posteriores.
 
 > [!WARNING]
-> A alteração do tamanho da máquina virtual destruirá os dados locais.
+> Mudar o tamanho da máquina virtual destruirá os dados locais.
 >
 >
 
-Os itens a seguir não têm suporte durante uma atualização:
+Os seguintes itens não são suportados durante uma atualização:
 
-* Alterando o nome de uma função. Remova e adicione a função com o novo nome.
-* Alteração da contagem de domínios de atualização.
+* Mudar o nome de um papel. Retire e adicione o papel com o novo nome.
+* Alteração da contagem de domínio de atualização.
 * Diminuindo o tamanho dos recursos locais.
 
-Se você estiver fazendo outras atualizações para a definição do serviço, como diminuir o tamanho do recurso local, você deverá executar uma atualização de permuta de VIP em vez disso. Para obter mais informações, consulte a [implantação de permuta](/previous-versions/azure/reference/ee460814(v=azure.100)).
+Se estiver a fazer outras atualizações à definição do seu serviço, como a diminuição do tamanho do recurso local, tem de realizar uma atualização de swap VIP. Para mais informações, consulte [A Implementação de Swap](/previous-versions/azure/reference/ee460814(v=azure.100)).
 
 <a name="howanupgradeproceeds"></a>
 
-## <a name="how-an-upgrade-proceeds"></a>Como uma atualização prossegue
-Você pode decidir se deseja atualizar todas as funções em seu serviço ou uma única função no serviço. Em ambos os casos, todas as instâncias de cada função que está sendo atualizada e que pertencem ao primeiro domínio de atualização são interrompidas, atualizadas e colocadas online novamente. Quando eles estiverem online novamente, as instâncias no segundo domínio de atualização serão interrompidas, atualizadas e colocadas online novamente. Um serviço de nuvem pode ter no máximo uma atualização ativa por vez. A atualização é sempre executada em relação à versão mais recente do serviço de nuvem.
+## <a name="how-an-upgrade-proceeds"></a>Como uma atualização procede
+Pode decidir se pretende atualizar todas as funções do seu serviço ou uma única função no serviço. Em qualquer dos casos, todos os casos de cada função que está a ser atualizado e pertencem ao primeiro domínio de atualização são parados, atualizados e trazidos de volta online. Uma vez que estejam novamente on-line, as instâncias no segundo domínio de upgrade são paradas, atualizadas e trazidas de volta on-line. Um serviço de nuvem pode ter, no máximo, um upgrade ativo de cada vez. A atualização é sempre realizada contra a versão mais recente do serviço de cloud.
 
-O diagrama a seguir ilustra como a atualização procede se você estiver atualizando todas as funções no serviço:
+O diagrama seguinte ilustra como a atualização funciona se estiver a atualizar todas as funções do serviço:
 
-![Atualizar serviço](media/cloud-services-update-azure-service/IC345879.png "Atualizar serviço")
+![Serviço de upgrade](media/cloud-services-update-azure-service/IC345879.png "Serviço de upgrade")
 
-Este próximo diagrama ilustra como a atualização procede se você estiver atualizando apenas uma única função:
+Este próximo diagrama ilustra como a atualização funciona se estiver a atualizar apenas uma única função:
 
-![Função de atualização](media/cloud-services-update-azure-service/IC345880.png "Função de atualização")  
+![Papel de upgrade](media/cloud-services-update-azure-service/IC345880.png "Papel de upgrade")  
 
-Durante uma atualização automática, o controlador de malha do Azure avalia periodicamente a integridade do serviço de nuvem para determinar quando é seguro percorrer o próximo UD. Essa avaliação de integridade é executada por função e considera apenas instâncias na versão mais recente (ou seja, instâncias de UDs que já foram percorridos). Ele verifica se um número mínimo de instâncias de função, para cada função, obteve um estado de terminal satisfatório.
+Durante uma atualização automática, o Controlador de Tecidos Azure avalia periodicamente a saúde do serviço de nuvem para determinar quando é seguro andar na próxima UD. Esta avaliação de saúde é realizada por função e considera apenas casos na versão mais recente (ou seja, casos de UDs que já foram andados). Verifica que um número mínimo de exemplos, para cada papel, atingiram um estado terminal satisfatório.
 
-### <a name="role-instance-start-timeout"></a>Tempo limite de início da instância de função
-O controlador de malha aguardará 30 minutos para que cada instância de função atinja um estado iniciado. Se a duração do tempo limite expirar, o controlador de malha continuará a passar para a próxima instância de função.
+### <a name="role-instance-start-timeout"></a>Role Instance Iniciar Timeout
+O Controlador de Tecidos esperará 30 minutos para que cada instância de funções chegue a um estado iniciado. Se a duração do tempo decorrido, o Controlador de Tecidos continuará a caminhar para a próxima instância de funções.
 
-### <a name="impact-to-drive-data-during-cloud-service-upgrades"></a>Impacto na unidade de dados durante atualizações do serviço de nuvem
+### <a name="impact-to-drive-data-during-cloud-service-upgrades"></a>Impacto para impulsionar dados durante atualizações do Serviço cloud
 
-Ao atualizar um serviço de uma única instância para várias instâncias, seu serviço será desativado enquanto a atualização for executada devido à maneira como o Azure atualiza os serviços. O contrato de nível de serviço que garante a disponibilidade do serviço só se aplica a serviços que são implantados com mais de uma instância. A lista a seguir descreve como os dados em cada unidade são afetados por cada cenário de atualização de serviço do Azure:
+Ao atualizar um serviço de uma única instância para várias instâncias, o seu serviço será desativado enquanto a atualização é realizada devido à forma como o Azure atualiza os serviços. O acordo de nível de serviço que garante a disponibilidade de serviços só se aplica aos serviços que são implantados com mais de um caso. A lista seguinte descreve como os dados de cada unidade são afetados por cada cenário de atualização de serviço seleções do Azure:
 
-|Cenário|Unidade C|Unidade D|Unidade E|
+|Cenário|Unidade C|Unidade D|E Drive|
 |--------|-------|-------|-------|
-|Reinicialização da VM|Preservado|Preservado|Preservado|
+|VM reboot|Preservado|Preservado|Preservado|
 |Reinicialização do portal|Preservado|Preservado|Destruído|
 |Reimagem do portal|Preservado|Destruído|Destruído|
-|Atualização in-loco|Preservado|Preservado|Destruído|
-|Migração de nó|Destruído|Destruído|Destruído|
+|Upgrade no local|Preservado|Preservado|Destruído|
+|Migração do nó|Destruído|Destruído|Destruído|
 
-Observe que, na lista acima, a unidade E: representa a unidade raiz da função e não deve ser embutida em código. Em vez disso, use a variável de ambiente **% RoleRoot%** para representar a unidade.
+Note que, na lista acima, o E: unidade representa o impulso radicular do papel, e não deve ser codificado em código. Em vez disso, utilize a variável ambiente **%RoleRoot%** para representar a unidade.
 
-Para minimizar o tempo de inatividade ao atualizar um serviço de instância única, implante um novo serviço de várias instâncias no servidor de preparo e execute uma permuta de VIP.
+Para minimizar o tempo de inatividade ao atualizar um serviço de uma instância única, implemente um novo serviço de várias instâncias para o servidor de encenação e realize uma troca VIP.
 
 <a name="RollbackofanUpdate"></a>
 
 ## <a name="rollback-of-an-update"></a>Reversão de uma atualização
-O Azure fornece flexibilidade no gerenciamento de serviços durante uma atualização, permitindo que você inicie operações adicionais em um serviço, após a solicitação de atualização inicial ser aceita pelo controlador de malha do Azure. Uma reversão só pode ser executada quando uma atualização (alteração de configuração) ou atualização está no estado **em andamento** na implantação. Uma atualização ou atualização é considerada em andamento, desde que haja pelo menos uma instância do serviço que ainda não tenha sido atualizada para a nova versão. Para testar se uma reversão é permitida, verifique o valor do sinalizador RollbackAllowed, retornado pelas operações [obter implantação](/previous-versions/azure/reference/ee460804(v=azure.100)) e [obter propriedades do serviço de nuvem](/previous-versions/azure/reference/ee460806(v=azure.100)) , está definido como true.
+O Azure oferece flexibilidade na gestão de serviços durante uma atualização, permitindo-lhe iniciar operações adicionais num serviço, depois de o pedido inicial de atualização ser aceite pelo Controlador de Tecidos Azure. Uma reversão só pode ser realizada quando uma atualização (alteração de configuração) ou atualização estiver em **andamento** na implementação. Uma atualização ou atualização é considerada em curso desde que haja pelo menos uma instância do serviço que ainda não foi atualizada para a nova versão. Para testar se é permitida uma reversão, verifique o valor da bandeira RollbackAllowed, devolvida pelas operações [Get Deployment](/previous-versions/azure/reference/ee460804(v=azure.100)) e Get Cloud [Service Properties,](/previous-versions/azure/reference/ee460806(v=azure.100)) está definida como verdadeira.
 
 > [!NOTE]
-> Apenas faz sentido chamar Rollback em uma atualização in-loco ou atualizar, pois as atualizações **de** permuta de VIP envolvem a substituição de uma instância inteira em execução do seu serviço por outra.
+> Só faz sentido ligar para o Rollback numa atualização ou atualização **no local** porque as atualizações de swapVIP envolvem substituir uma instância inteira do seu serviço por outra.
 >
 >
 
-A reversão de uma atualização em andamento tem os seguintes efeitos na implantação:
+O reversão de uma atualização em curso tem os seguintes efeitos na implantação:
 
-* Todas as instâncias de função que ainda não foram atualizadas ou atualizadas para a nova versão não são atualizadas ou atualizadas, pois essas instâncias já estão executando a versão de destino do serviço.
-* Todas as instâncias de função que já foram atualizadas ou atualizadas para a nova versão do arquivo de pacote de serviço (\*. cspkg) ou do arquivo de configuração de serviço (\*. cscfg) (ou ambos os arquivos) são revertidas para a versão de pré-atualização desses arquivos.
+* Quaisquer casos de funções que ainda não tivessem sido atualizados ou atualizados para a nova versão não são atualizados ou atualizados, uma vez que esses casos já estão a executar a versão-alvo do serviço.
+* Quaisquer casos de funções que já tivessem sido atualizados\*ou atualizados para a nova\*versão do pacote de serviços (.cspkg) ou a configuração do serviço (.cscfg) (ou ambos os ficheiros) são revertidos para a versão pré-actualização destes ficheiros.
 
-Essa funcionalidade é fornecida pelos seguintes recursos:
+Isto funcionalmente é fornecido pelas seguintes características:
 
-* A operação de [reversão de atualização ou](/previous-versions/azure/reference/hh403977(v=azure.100)) atualização, que pode ser chamada em uma atualização de configuração (disparada chamando a [configuração de implantação de alteração](/previous-versions/azure/reference/ee460809(v=azure.100))) ou uma atualização (disparada chamando a implantação de [atualização](/previous-versions/azure/reference/ee460793(v=azure.100))) desde que haja pelo menos uma instância no serviço que ainda não tenha sido atualizada para a nova versão.
-* O elemento bloqueado e o elemento RollbackAllowed, que são retornados como parte do corpo da resposta das operações [obter implantação](/previous-versions/azure/reference/ee460804(v=azure.100)) e [obter propriedades do serviço de nuvem](/previous-versions/azure/reference/ee460806(v=azure.100)) :
+* A operação [de atualização de atualização ou atualização de atualização,](/previous-versions/azure/reference/hh403977(v=azure.100)) que pode ser chamada numa atualização de configuração (desencadeada por chamada de Configuração de Implementação de [Alterações)](/previous-versions/azure/reference/ee460809(v=azure.100))ou uma atualização (desencadeada por chamada de Atualização de [Atualização),](/previous-versions/azure/reference/ee460793(v=azure.100))desde que haja pelo menos uma instância no serviço que ainda não tenha sido atualizada para a nova versão.
+* O elemento Lock e o elemento RollbackAllowed, que são devolvidos como parte do corpo de resposta das operações [get deployment](/previous-versions/azure/reference/ee460804(v=azure.100)) e get Cloud [Service Properties:](/previous-versions/azure/reference/ee460806(v=azure.100))
 
-  1. O elemento bloqueado permite detectar quando uma operação de mutação pode ser chamada em uma determinada implantação.
-  2. O elemento RollbackAllowed permite detectar quando a operação de [atualização de reversão ou](/previous-versions/azure/reference/hh403977(v=azure.100)) atualização pode ser chamada em uma determinada implantação.
+  1. O elemento 'Locked' permite detetar quando uma operação mutante pode ser invocada numa determinada implantação.
+  2. O elemento RollbackAllowed permite-lhe detetar quando a operação [de atualização de atualização ou atualização](/previous-versions/azure/reference/hh403977(v=azure.100)) pode ser chamada numa determinada implementação.
 
-  Para executar uma reversão, você não precisa verificar os elementos Locked e RollbackAllowed. É suficiente confirmar se RollbackAllowed está definido como true. Esses elementos só serão retornados se esses métodos forem invocados usando o cabeçalho de solicitação definido como "x-MS-Version: 2011-10-01" ou uma versão posterior. Para obter mais informações sobre cabeçalhos de versão, consulte [controle de versão de gerenciamento de serviços](/previous-versions/azure/gg592580(v=azure.100)).
+  Para efetuar uma reversão, não tem de verificar tanto os elementos Locked como os RollbackAllowed. Basta confirmar que o RollbackAllowed está pronto para ser verdade. Estes elementos só são devolvidos se estes métodos forem invocados utilizando o cabeçalho de pedido definido para "x-ms-versão: 2011-10-01" ou uma versão posterior. Para obter mais informações sobre cabeçalhos de versão, consulte versão [de Gestão de Serviços](/previous-versions/azure/gg592580(v=azure.100)).
 
-Há algumas situações em que não há suporte para a reversão de uma atualização ou atualização, estas são as seguintes:
+Existem algumas situações em que não é suportada uma reversão de uma atualização ou atualização, estas são as seguintes:
 
-* Redução nos recursos locais – se a atualização aumentar os recursos locais para uma função, a plataforma do Azure não permitirá a reversão.
-* Limitações de cota – se a atualização foi uma operação de redução vertical, talvez você não tenha mais uma cota de computação suficiente para concluir a operação de reversão. Cada assinatura do Azure tem uma cota associada que especifica o número máximo de núcleos que podem ser consumidos por todos os serviços hospedados que pertencem a essa assinatura. Se a execução de uma reversão de uma determinada atualização colocar sua assinatura sobre a cota, a reversão não será habilitada.
-* Condição de corrida – se a atualização inicial for concluída, uma reversão não será possível.
+* Redução dos recursos locais - Se a atualização aumentar os recursos locais para um papel, a plataforma Azure não permite o retrocesso.
+* Limitações de quota - Se a atualização tiver sido uma operação de redução de escala, pode deixar de ter quota de cálculo suficiente para completar a operação de reversão. Cada subscrição do Azure tem uma quota associada a ela que especifica o número máximo de núcleos que podem ser consumidos por todos os serviços hospedados que pertencem a essa subscrição. Se a execução de uma atualização de uma determinada atualização colocar a sua subscrição sobre a quota, então não será ativada uma reversão.
+* Condição da corrida - Se a atualização inicial tiver sido concluída, não é possível um retrocesso.
 
-Um exemplo de quando a reversão de uma atualização pode ser útil é se você estiver usando a operação de [implantação de atualização](/previous-versions/azure/reference/ee460793(v=azure.100)) no modo manual para controlar a taxa na qual uma atualização in-loco principal para o serviço hospedado do Azure é distribuída.
+Um exemplo de quando a reversão de uma atualização pode ser útil é se estiver a utilizar a operação de implementação de [atualização](/previous-versions/azure/reference/ee460793(v=azure.100)) em modo manual para controlar a taxa a que é lançada uma grande atualização no local para o seu serviço hospedado no Azure.
 
-Durante a distribuição da atualização, você chama a [implantação de atualização](/previous-versions/azure/reference/ee460793(v=azure.100)) no modo manual e começa a percorrer os domínios de atualização. Em algum momento, conforme você monitora a atualização, você observa que algumas instâncias de função nos primeiros domínios de atualização que você examina não respondem, você pode chamar a operação de [reversão de atualização ou atualização](/previous-versions/azure/reference/hh403977(v=azure.100)) na implantação, o que deixará de ser inalterado as instâncias que ainda não foram atualizadas e reverterão as instâncias que foram atualizadas para o pacote de serviço e a configuração anteriores.
+Durante o lançamento da atualização, ligue para a [atualização](/previous-versions/azure/reference/ee460793(v=azure.100)) em modo manual e comece a andar em domínios de atualização. Se em algum momento, ao monitorizar a atualização, notar algumas instâncias de função nos primeiros domínios de atualização que examina não responderam, pode ligar para a operação [Derollback Update ou Upgrade](/previous-versions/azure/reference/hh403977(v=azure.100)) na implementação, o que deixará intactas as instâncias que ainda não tinham sido atualizadas e as instâncias de reversão que tinham sido atualizadas para o pacote e configuração de serviço anteriores.
 
 <a name="multiplemutatingoperations"></a>
 
-## <a name="initiating-multiple-mutating-operations-on-an-ongoing-deployment"></a>Iniciando várias operações de mutação em uma implantação em andamento
-Em alguns casos, talvez você queira iniciar várias operações de mutação simultâneas em uma implantação em andamento. Por exemplo, você pode executar uma atualização de serviço e, enquanto essa atualização está sendo distribuída em todo o serviço, você deseja fazer alguma alteração, por exemplo, para reverter a atualização, aplicar uma atualização diferente ou até mesmo excluir a implantação. Um caso em que isso pode ser necessário é se uma atualização de serviço contiver código de bugs, o que faz com que uma instância de função atualizada falhe repetidamente. Nesse caso, o controlador de malha do Azure não poderá fazer o progresso na aplicação dessa atualização, pois um número insuficiente de instâncias no domínio atualizado será íntegro. Esse estado é conhecido como uma *implantação paralisada*. Você pode desfazer a implantação revertendo a atualização ou aplicando uma atualização atualizada sobre a falha de uma.
+## <a name="initiating-multiple-mutating-operations-on-an-ongoing-deployment"></a>Início de múltiplas operações de mutação numa implantação em curso
+Em alguns casos, pode querer iniciar múltiplas operações de mutação simultânea numa implantação em curso. Por exemplo, pode efetuar uma atualização de serviço e, enquanto essa atualização estiver a ser lançada em todo o seu serviço, pretende efetuar algumas alterações, por exemplo, revera a atualização, aplicar uma atualização diferente ou até mesmo apagar a implementação. Um caso em que isso possa ser necessário é se uma atualização de serviço contiver um código buggy que faz com que uma instância de funções atualizada se despenhe repetidamente. Neste caso, o Controlador de Tecidos Azure não poderá fazer progressos na aplicação dessa atualização, uma vez que um número insuficiente de casos no domínio atualizado são saudáveis. Este estado é referido como uma *implantação presa.* Pode desmarcar a implementação religando a atualização ou aplicando uma nova atualização sobre a falha.
 
-Depois que a solicitação inicial para atualizar ou atualizar o serviço tiver sido recebida pelo controlador de malha do Azure, você poderá iniciar as operações de mutação subsequentes. Ou seja, você não precisa aguardar a conclusão da operação inicial antes de poder iniciar outra operação de mutação.
+Uma vez que o pedido inicial de atualização ou atualização do serviço tenha sido recebido pelo Controlador de Tecidos Azure, pode iniciar operações de mutação subsequentes. Ou seja, não precisa esperar que a operação inicial termine antes de iniciar outra operação em mutação.
 
-Iniciar uma segunda operação de atualização enquanto a primeira atualização está em andamento será executado de forma semelhante à operação de reversão. Se a segunda atualização estiver no modo automático, o primeiro domínio de atualização será atualizado imediatamente, possivelmente levando a instâncias de vários domínios de atualização estarem offline no mesmo momento.
+O início de uma segunda operação de atualização enquanto a primeira atualização estiver em curso funcionará de forma semelhante à operação de reversão. Se a segunda atualização estiver em modo automático, o primeiro domínio de atualização será atualizado imediatamente, possivelmente levando a que casos de vários domínios de atualização estejam offline no mesmo momento.
 
-As operações de mutação são as seguintes: [Alterar configuração de implantação](/previous-versions/azure/reference/ee460809(v=azure.100)), [implantação de atualização](/previous-versions/azure/reference/ee460793(v=azure.100)), [Atualizar status da implantação](/previous-versions/azure/reference/ee460808(v=azure.100)), [excluir implantação](/previous-versions/azure/reference/ee460815(v=azure.100))e [reverter atualização ou atualização](/previous-versions/azure/reference/hh403977(v=azure.100)).
+As operações de mutação são as seguintes: Configuração de [implementação de alterações,](/previous-versions/azure/reference/ee460809(v=azure.100)) [implementação de atualização,](/previous-versions/azure/reference/ee460793(v=azure.100))estado de implementação de [atualização,](/previous-versions/azure/reference/ee460808(v=azure.100)) [eliminação](/previous-versions/azure/reference/ee460815(v=azure.100))de implementação e [atualização ou atualização](/previous-versions/azure/reference/hh403977(v=azure.100))de reversão .
 
-Duas operações, [obter implantação](/previous-versions/azure/reference/ee460804(v=azure.100)) e [obter propriedades do serviço de nuvem](/previous-versions/azure/reference/ee460806(v=azure.100)), retornam o sinalizador bloqueado que pode ser examinado para determinar se uma operação de mutação pode ser chamada em uma determinada implantação.
+Duas operações, [Get Deployment](/previous-versions/azure/reference/ee460804(v=azure.100)) e [Get Cloud Service Properties,](/previous-versions/azure/reference/ee460806(v=azure.100))devolvam a bandeira bloqueada que pode ser examinada para determinar se uma operação mutante pode ser invocada numa determinada implantação.
 
-Para chamar a versão desses métodos que retorna o sinalizador bloqueado, você deve definir o cabeçalho de solicitação como "x-MS-Version: 2011-10-01" ou posterior. Para obter mais informações sobre cabeçalhos de versão, consulte [controle de versão de gerenciamento de serviços](/previous-versions/azure/gg592580(v=azure.100)).
+Para chamar a versão destes métodos que devolvem a bandeira bloqueada, deve definir o cabeçalho de pedido para "x-ms-versão: 2011-10-01" ou um posterior. Para obter mais informações sobre cabeçalhos de versão, consulte versão [de Gestão de Serviços](/previous-versions/azure/gg592580(v=azure.100)).
 
 <a name="distributiondfroles"></a>
 
-## <a name="distribution-of-roles-across-upgrade-domains"></a>Distribuição de funções entre domínios de atualização
-O Azure distribui instâncias de uma função uniformemente em um número definido de domínios de atualização, que podem ser configurados como parte do arquivo de definição de serviço (. csdef). O número máximo de domínios de atualização é 20 e o padrão é 5. Para obter mais informações sobre como modificar o arquivo de definição de serviço, consulte [esquema de definição de serviço do Azure (arquivo. csdef)](cloud-services-model-and-package.md#csdef).
+## <a name="distribution-of-roles-across-upgrade-domains"></a>Distribuição de funções em domínios de upgrade
+O Azure distribui casos de uma função uniformemente através de um conjunto de domínios de atualização, que podem ser configurados como parte do ficheiro de definição de serviço (.csdef). O número máximo de domínios de atualização é de 20 e o padrão é de 5. Para obter mais informações sobre como modificar o ficheiro de definição de serviço, consulte a Definição de [Serviço Azure Schema (.csdef File)](cloud-services-model-and-package.md#csdef).
 
-Por exemplo, se sua função tiver dez instâncias, por padrão, cada domínio de atualização conterá duas instâncias. Se sua função tiver 14 instâncias, quatro dos domínios de atualização conterão três instâncias e um quinto domínio conterá dois.
+Por exemplo, se o seu papel tiver dez instâncias, por padrão cada domínio de atualização contém duas instâncias. Se o seu papel tem 14 instâncias, então quatro dos domínios de atualização contêm três instâncias, e um quinto domínio contém dois.
 
-Os domínios de atualização são identificados com um índice de base zero: o primeiro domínio de atualização tem uma ID de 0, e o segundo domínio de atualização tem uma ID de 1 e assim por diante.
+Os domínios de atualização são identificados com um índice de base zero: o primeiro domínio de atualização tem uma identificação de 0, e o segundo domínio de atualização tem uma identificação de 1, e assim por diante.
 
-O diagrama a seguir ilustra como um serviço do que contém duas funções são distribuídas quando o serviço define dois domínios de atualização. O serviço está executando oito instâncias da função Web e nove instâncias da função de trabalho.
+O diagrama seguinte ilustra como um serviço do que contém duas funções são distribuídos quando o serviço define dois domínios de atualização. O serviço está a executar oito instâncias do papel web e nove casos do papel do trabalhador.
 
-![Distribuição de domínios de atualização](media/cloud-services-update-azure-service/IC345533.png "Distribuição de domínios de atualização")
+![Distribuição de Domínios de Upgrade](media/cloud-services-update-azure-service/IC345533.png "Distribuição de Domínios de Upgrade")
 
 > [!NOTE]
-> Observe que o Azure controla como as instâncias são alocadas entre domínios de atualização. Não é possível especificar quais instâncias são alocadas a qual domínio.
+> Note que o Azure controla a forma como os casos são atribuídos em domínios de atualização. Não é possível especificar quais as instâncias atribuídas a que domínio.
 >
 >
 
 ## <a name="next-steps"></a>Passos seguintes
 [Como gerir Serviços Cloud](cloud-services-how-to-manage-portal.md)  
-[Como monitorar serviços de nuvem](cloud-services-how-to-monitor.md)  
+[Como monitorizar os serviços de cloud](cloud-services-how-to-monitor.md)  
 [Como configurar um Serviços Cloud](cloud-services-how-to-configure-portal.md)  
 
 

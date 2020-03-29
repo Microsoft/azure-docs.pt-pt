@@ -1,6 +1,6 @@
 ---
-title: Utilize o site de soluções de IoT do Azure - Azure | Documentos da Microsoft
-description: Descreve como utilizar o site de AzureIoTSolutions.com para implementar o acelerador de soluções.
+title: Utilize o site Azure IoT Solutions - Azure [ Azure ] Microsoft Docs
+description: Descreve como usar o website AzureIoTSolutions.com para implementar o seu acelerador de soluções.
 author: dominicbetts
 manager: philmea
 ms.service: iot-accelerators
@@ -9,60 +9,60 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
 ms.openlocfilehash: 87f6b9cef50e4b8c388be835b2aa7bed8177ac4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61447459"
 ---
-# <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Utilizar o site de azureiotsolutions.com para implementar o acelerador de soluções
+# <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Utilize o site azureiotsolutions.com para implementar o seu acelerador de soluções
 
-Pode implementar os Aceleradores de solução de IoT do Azure à sua subscrição do Azure partir [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators). AzureIoTSolutions.com hospeda o código aberto da Microsoft e os Aceleradores de solução de parceiro. Estes aceleradores de solução que se alinham com o [arquitetura de referência do Azure IoT](https://aka.ms/iotrefarchitecture). Pode utilizar o site para implementar rapidamente um acelerador de solução como um ambiente de demonstração ou de produção.
+Pode implantar aceleradores de soluções Azure IoT para a sua assinatura Azure a partir de [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators). AzureIoTSolutions.com acolhe tanto os aceleradores de código aberto da Microsoft como os aceleradores de soluções de parceiro. Estes aceleradores de solução alinham-se com a [Arquitetura de Referência Azure IoT.](https://aka.ms/iotrefarchitecture) Pode utilizar o site para implementar rapidamente um acelerador de soluções como uma demonstração ou ambiente de produção.
 
 ![AzureIoTSolutions.com](media/iot-accelerators-permissions/iotsolutionscom.png)
 
 > [!TIP]
-> Se precisar de mais controlo sobre o processo de implementação, pode utilizar o [CLI para implementar um acelerador de solução](iot-accelerators-remote-monitoring-deploy-cli.md).
+> Se necessitar de mais controlo sobre o processo de implantação, pode utilizar o [CLI para implantar um acelerador](iot-accelerators-remote-monitoring-deploy-cli.md)de solução .
 
-Pode implantar Aceleradores de soluções nas seguintes configurações:
+Pode implantar os aceleradores de solução nas seguintes configurações:
 
-* **Padrão**: Uma implementação de infraestrutura expandida para o desenvolvimento de um ambiente de produção. O Azure Container Service implementa os microsserviços em várias máquinas virtuais do Azure. O Kubernetes orquestra os contentores do Docker que alojam os microsserviços individuais.
-* **Básico**: Uma versão de custo reduzido para demonstração ou para testar uma implementação. Todos os microsserviços são implementados numa máquina virtual do Azure individual.
-* **Local**: Uma implementação de computador local para teste e desenvolvimento. Esta abordagem implementa os microsserviços para um contentor do Docker local e liga-se para o IoT Hub do Azure Cosmos DB e os serviços de armazenamento do Azure na cloud.
+* **Norma**: Uma implantação de infraestruturas alargada para o desenvolvimento de um ambiente de produção. O Serviço de Contentores Azure implanta os microserviços em várias máquinas virtuais Azure. O Kubernetes orquestra os contentores do Docker que alojam os microsserviços individuais.
+* **Básico**: Uma versão de custo reduzido para uma demonstração ou para testar uma implantação. Todos os microsserviços são implementados numa máquina virtual do Azure individual.
+* **Local**: Uma implantação local de máquinas para testes e desenvolvimento. Esta abordagem implanta os microserviços para um contentor local do Docker e liga-se aos serviços de armazenamento IoT Hub, Azure Cosmos DB e Azure na nuvem.
 
-Cada um dos Aceleradores de solução utiliza uma combinação diferente de serviços do Azure, como o IoT Hub, o Azure Stream Analytics e o Cosmos DB. Para obter mais informações, visite [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators) e selecione um acelerador de solução.
+Cada um dos aceleradores de solução usa uma combinação diferente de serviços Azure como IoT Hub, Azure Stream Analytics e Cosmos DB. Para mais informações, visite [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators) e selecione um acelerador de soluções.
 
-## <a name="sign-in-at-azureiotsolutionscom"></a>Inicie sessão em azureiotsolutions.com
+## <a name="sign-in-at-azureiotsolutionscom"></a>Inscreva-se no azureiotsolutions.com
 
-Antes de poder implementar um acelerador de soluções, tem de iniciar sessão em AzureIoTSolutions.com utilizando credenciais associadas uma subscrição do Azure. Se a sua conta estiver associada a mais do que um inquilino do Microsoft Azure Active Directory (AD), pode utilizar o **lista pendente de seleção de conta** para escolher o diretório a utilizar.
+Antes de poder implementar um acelerador de soluções, tem de iniciar sessão em AzureIoTSolutions.com utilizando credenciais associadas a uma subscrição azure. Se a sua conta estiver associada a mais de um inquilino do Microsoft Azure Ative Directory (AD), pode utilizar a desistência da **seleção da Conta** para escolher o diretório para utilizar.
 
-As suas permissões Aceleradores de solução de implementar, gerir utilizadores e gerir serviços do Azure dependem de sua função no diretório selecionado. As funções do Azure AD comuns associadas com os Aceleradores de solução incluem:
+As suas permissões para implementar aceleradores de soluções, gerir utilizadores e gerir os serviços do Azure dependem do seu papel no diretório selecionado. As funções da AD Azure Comum associadas aos aceleradores de solução incluem:
 
-* **Administrador global**: Podem existir muitas [os administradores globais](../active-directory/users-groups-roles/directory-assign-admin-roles.md) por inquilino do Azure AD:
+* **Administrador global**: Pode haver muitos [administradores globais](../active-directory/users-groups-roles/directory-assign-admin-roles.md) por inquilino da AD Azure:
 
-  * Quando cria um inquilino do Azure AD, é por predefinição o administrador global desse inquilino.
-  * O administrador global pode implementar os Aceleradores de solução de básico e standard.
+  * Quando se cria um inquilino da AD Azure, é por defeito o administrador global desse inquilino.
+  * O administrador global pode implementar aceleradores básicos e de soluções padrão.
 
-* **Utilizador de domínio**: Podem existir vários usuários de domínio por inquilino do Azure AD. Um utilizador de domínio pode implementar um acelerador de solução básica.
+* **Utilizador de domínio**: Pode haver muitos utilizadores de domínio por inquilino Azure AD. Um utilizador de domínio pode implementar um acelerador de solução básica.
 
-* **Utilizador convidado**: Podem existir vários utilizadores convidados por inquilino do Azure AD. Os utilizadores convidados não é possível implementar um acelerador de solução no inquilino do Azure AD.
+* **Utilizador convidado**: Pode haver muitos utilizadores convidados por inquilino Da Azure AD. Os utilizadores convidados não podem implementar um acelerador de soluções no inquilino da AD Azure.
 
-Para obter mais informações sobre utilizadores e funções no Azure AD, consulte os seguintes recursos:
+Para obter mais informações sobre utilizadores e funções em Azure AD, consulte os seguintes recursos:
 
-* [Criar utilizadores no Azure Active Directory](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
-* [Atribuir utilizadores a aplicações](../active-directory/manage-apps/assign-user-or-group-access-portal.md)
+* [Criar utilizadores no Diretório Ativo do Azure](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
+* [Atribuir utilizadores a apps](../active-directory/manage-apps/assign-user-or-group-access-portal.md)
 
 ## <a name="choose-your-device"></a>Escolha o seu dispositivo
 
-O site de AzureIoTSolutions.com contém ligações para o [certificação do Azure para o catálogo de dispositivos de IoT](https://catalog.azureiotsolutions.com/).
+O site AzureIoTSolutions.com liga-se ao catálogo de [dispositivos Azure Certified para IoT](https://catalog.azureiotsolutions.com/).
 
-O catálogo de lista centenas de dispositivos de hardware de IoT certificados que pode ligar a seus Aceleradores de solução para começar a criar a sua solução de IoT.
+O catálogo lista centenas de dispositivos de hardware IoT certificados que pode ligar aos seus aceleradores de soluções para começar a construir a sua solução IoT.
 
 ![Catálogo de dispositivos](media/iot-accelerators-permissions/devicecatalog.png)
 
-Se for um fabricante de hardware, clique em **me tornar um parceiro** para saber mais sobre a nossa parceria com a Microsoft sobre o certificado para o programa de IoT.
+Se for um fabricante de hardware, clique em **Tornar-se um Parceiro** para aprender sobre a parceria com a Microsoft no programa Certified for IoT.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para experimentar um dos aceleradores de soluções de IoT, veja os inícios rápidos:
 

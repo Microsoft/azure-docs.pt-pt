@@ -14,10 +14,10 @@ ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 8bb00c770c61a0a5462a01ae552bd7e40a7cdb36
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77470654"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Governação da infraestrutura azure DevTest Labs - Recursos
@@ -86,5 +86,5 @@ Recomendamos que estabeleça permissões adequadas ao nível do laboratório par
 ### <a name="answer"></a>Resposta
 Sim. Navegue para a página do Grupo de Recursos a partir da página inicial do seu laboratório. Em seguida, selecione **Mover** na barra de ferramentas e selecione o laboratório que pretende mover para um grupo de recursos diferente. Quando se cria um laboratório, um grupo de recursos é automaticamente criado para si. No entanto, você pode querer mover o laboratório para um grupo de recursos diferente que segue as convenções de nomeação da empresa. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Ver Gerir o custo e a [propriedade.](devtest-lab-guidance-governance-cost-ownership.md)

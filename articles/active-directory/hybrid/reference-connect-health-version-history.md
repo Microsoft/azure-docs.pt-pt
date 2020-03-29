@@ -17,10 +17,10 @@ ms.date: 03/20/2019
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ace8d170a5ba48c00775c3b376df8bb70a337d5d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76897027"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Histórico do Lançamento de Versões
@@ -94,7 +94,7 @@ A Azure AD Connect Health for Sync está integrada com a instalação Azure AD C
    1. Hotfix para [alta questão de CPU de monitoring agent com .NET Framework KB releases](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)
 
 ## <a name="june-2018"></a>junho de 2018 
-**Novos recursos de visualização:** 
+**Novas funcionalidades de pré-visualização:** 
 * Azure AD Connect Health for Sync - Diagnosticar e remediar erros de sincronização duplicados do portal 
 
 **Atualização do agente:** 
@@ -126,7 +126,7 @@ A Azure AD Connect Health for Sync está integrada com a instalação Azure AD C
 
 
 ## <a name="march-2018"></a>Março de 2018
-**Novos recursos de visualização:**
+**Novas funcionalidades de pré-visualização:**
 * Azure AD Connect Health for AD FS - Relatório IP arriscado e alerta.
 
 **Atualização do agente:**
@@ -157,7 +157,7 @@ A Azure AD Connect Health for Sync está integrada com a instalação Azure AD C
 **Atualização do agente:**
 
  * O agente Azure AD Connect Health para Sync (versão 3.0.129.0) lançado com a versão 1.1.649.0 do Azure AD Connect
-<br></br> Corrigiu um problema de compatibilidade entre o Azure AD Connect e o Azure AD Connect Health Agent for Sync. Este problema afeta os clientes que estão a realizar o upgrade do Azure AD Connect no local para a versão 1.1.647.0, mas atualmente tem a versão 3.0.127.0 do Health Agent. Após a atualização, o agente de integridade não poderá mais enviar dados de integridade sobre Azure AD Connect serviço de sincronização ao Azure AD Serviço de Integridade. Com essa correção, a versão do agente de integridade 3.0.129.0 é instalada durante Azure AD Connect atualização in-loco. A versão do agente de integridade 3.0.129.0 não tem problema de compatibilidade com Azure AD Connect versão 1.1.649.0.
+<br></br> Corrigiu um problema de compatibilidade entre o Azure AD Connect e o Azure AD Connect Health Agent for Sync. Este problema afeta os clientes que estão a realizar o upgrade do Azure AD Connect no local para a versão 1.1.647.0, mas atualmente tem a versão 3.0.127.0 do Health Agent. Após a atualização, o Agente de Saúde já não pode enviar dados de saúde sobre o Serviço de Sincronização de Ligação Azure AD para o Serviço de Saúde Azure AD. Com esta correção, a versão 3.0.129.0 do Health Agent é instalada durante a atualização do Azure AD Connect no local. A versão 3.0.129.0 do Health Agent não tem problemas de compatibilidade com a versão 1.1.649.0 do Azure AD Connect.
 
 ## <a name="july-2017"></a>Julho de 2017
 **Atualização do agente:**
@@ -180,7 +180,7 @@ A Azure AD Connect Health for Sync está integrada com a instalação Azure AD C
   1. Melhorias de upload de contadores de desempenho
   2. Correções de bugs e melhorias gerais
 
-## <a name="october-2016"></a>outubro de 2016
+## <a name="october-2016"></a>Outubro de 2016
 **Atualização do agente:**
 
 * Agente azure AD Connect Health para AD FS (versão 2.6.408.0)
@@ -192,7 +192,7 @@ A Azure AD Connect Health for Sync está integrada com a instalação Azure AD C
 * Forneça os dados necessários para os Relatórios de Erros de Sincronização
 * Correções de bugs relacionadas com Alertas
 
-**Novos recursos de visualização:**
+**Novas funcionalidades de pré-visualização:**
 
 * Relatórios de erros de sincronização para Azure AD Connect
 
@@ -201,7 +201,7 @@ A Azure AD Connect Health for Sync está integrada com a instalação Azure AD C
 * Azure AD Connect Health for AD FS - Campo de endereçoIP está disponível no relatório sobre os 50 utilizadores com mau nome de utilizador/palavra-passe.
 
 ## <a name="july-2016"></a>Julho de 2016
-**Novos recursos de visualização:**
+**Novas funcionalidades de pré-visualização:**
 
 * [Azure AD Connect Health para DS AD](how-to-connect-health-adds.md).
 
@@ -219,15 +219,15 @@ A Azure AD Connect Health for Sync está integrada com a instalação Azure AD C
 
 * Suporte para [controlo de acesso baseado em funções](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)
 
-**Novos recursos de visualização:**
+**Novas funcionalidades de pré-visualização:**
 
-* [Azure ad Connect Health para sincronização](how-to-connect-health-sync.md).
+* [Azure AD Connect Health para sincronização](how-to-connect-health-sync.md).
 
-**Problemas corrigidos:**
+**Questões fixas:**
 
 * Correção de bugs para erros observados durante os registos do agente.
 
-## <a name="september-2015"></a>setembro de 2015
+## <a name="september-2015"></a>Setembro de 2015
 **Novas funcionalidades:**
 
 * Relatório de palavra-passe de username errado para AD FS
@@ -236,11 +236,11 @@ A Azure AD Connect Health for Sync está integrada com a instalação Azure AD C
 * Melhorias nos Alertas para AD FS
 * Melhorias no Agente de Saúde Azure AD Connect para AD FS para conectividade e upload de dados.
 
-**Problemas corrigidos:**
+**Questões fixas:**
 
 * Correções de bugs em Insights de utilização para tipos de erro AD FS.
 
-## <a name="june-2015"></a>junho de 2015
+## <a name="june-2015"></a>Junho de 2015
 **Lançamento inicial de Azure AD Connect Health para AD FS e AD FS Proxy.**
 
 **Novas funcionalidades:**

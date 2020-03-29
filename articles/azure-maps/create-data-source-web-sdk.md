@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: codepen
 ms.openlocfilehash: 1675d63fd3a65beda46042f4a78535bb4e066e62
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190238"
 ---
 # <a name="create-a-data-source"></a>Criar uma origem de dados
@@ -22,11 +22,11 @@ O Azure Maps Web SDK armazena dados em fontes de dados. A utilização de fontes
 
 **Fonte de dados da GeoJSON**
 
-Uma carga de fonte de dados baseada em GeoJSON e armazenar dados localmente usando a classe `DataSource`. Os dados geoJSON podem ser criados manualmente ou criados utilizando as classes auxiliares no espaço de nome [atlas.data.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) A classe `DataSource` fornece funções para importar ficheiros GeoJSON locais ou remotos. Os ficheiros GeoJSON remotos devem ser hospedados num ponto final ativado por CORs. A classe `DataSource` fornece funcionalidade para dados de pontos de agrupamento. E, os dados podem ser facilmente adicionados, removidos e atualizados com a classe `DataSource`.
+Uma carga de fonte de dados baseada em `DataSource` GeoJSON e armazenar dados localmente usando a classe. Os dados geoJSON podem ser criados manualmente ou criados utilizando as classes auxiliares no espaço de nome [atlas.data.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) A `DataSource` classe fornece funções para importar ficheiros GeoJSON locais ou remotos. Os ficheiros GeoJSON remotos devem ser hospedados num ponto final ativado por CORs. A `DataSource` classe fornece funcionalidade para dados de pontos de agrupamento. E, os dados podem ser facilmente `DataSource` adicionados, removidos e atualizados com a classe.
 
 
 > [!TIP]
-> Digamos que quer substituir todos os dados de uma `DataSource`. Se fizer chamadas para o `clear` então `add` funções, o mapa pode voltar a renderizar duas vezes, o que pode causar um pequeno atraso. Em vez disso, utilize a função `setShapes`, que removerá e substituirá todos os dados na fonte de dados e apenas desencadeará uma única rerenderização do mapa.
+> Digamos que quer substituir todos os `DataSource`dados em . Se fizer chamadas `clear` para `add` as funções então, o mapa pode voltar a renderizar duas vezes, o que pode causar um pequeno atraso. Em vez `setShapes` disso, utilize a função, que removerá e substituirá todos os dados na fonte de dados e apenas desencadeará uma única reprodução do mapa.
 
 **Fonte de azulejo seletor**
 
@@ -37,9 +37,9 @@ Uma fonte de azulejos vetoriais descreve como aceder a uma camada de azulejos ve
  - Mudar o estilo dos dados nos mapas vetores não requer o descarregamento dos dados novamente, uma vez que o novo estilo pode ser aplicado no cliente. Em contraste, mudar o estilo de uma camada de azulejo ster tipicamente requer carregar azulejos do servidor e depois aplicar o novo estilo.
  - Uma vez que os dados são entregues em forma vetorial, há menos processamento do lado do servidor necessário para preparar os dados. Como resultado, os dados mais recentes podem ser disponibilizados mais rapidamente.
 
-Todas as camadas que usam uma fonte vetorial devem especificar um valor `sourceLayer`.
+Todas as camadas que usam `sourceLayer` uma fonte vetorial devem especificar um valor.
 
-Uma vez criadas, as fontes de dados podem ser adicionadas ao mapa através da propriedade `map.sources`, que é um [SourceManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager). O código que se segue mostra como criar uma `DataSource` e adicioná-la ao mapa.
+Uma vez criadas, as fontes `map.sources` de dados podem ser adicionadas ao mapa através da propriedade, que é um [SourceManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager). O código seguinte mostra `DataSource` como criar um e adicioná-lo ao mapa.
 
 ```javascript
 //Create a data source and add it to the map.
@@ -138,25 +138,25 @@ Saiba mais sobre as aulas e métodos utilizados neste artigo:
 Consulte os seguintes artigos para obter mais amostras de código para adicionar aos seus mapas:
 
 > [!div class="nextstepaction"]
-> [Adicione um popup](map-add-popup.md)
+> [Adicionar um pop-up](map-add-popup.md)
 
 > [!div class="nextstepaction"]
-> [Utilize expressões de estilo baseadas em dados](data-driven-style-expressions-web-sdk.md)
+> [Utilizar expressões de estilo com base em dados](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Adicione uma camada de símbolo](map-add-pin.md)
+> [Adicionar uma camada de símbolo](map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [Adicione uma camada de bolha](map-add-bubble-layer.md)
+> [Adicionar uma camada de bolha](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-> [Adicione uma camada de linha](map-add-line-layer.md)
+> [Adicionar uma camada de linhas](map-add-line-layer.md)
 
 > [!div class="nextstepaction"]
-> [Adicione uma camada de polígono](map-add-shape.md)
+> [Adicionar uma camada de polígonos](map-add-shape.md)
 
 > [!div class="nextstepaction"]
 > [Adicione um mapa de calor](map-add-heat-map-layer.md)
 
 > [!div class="nextstepaction"]
-> [Exemplos de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Amostras de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)

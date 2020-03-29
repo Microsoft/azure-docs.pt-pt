@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 46c5e1ed0a1d0db100c3415c40f59d46f62b21f9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258944"
 ---
 # <a name="azure-service-fabric-cli"></a>CLI do Azure Service Fabric
@@ -240,7 +240,7 @@ Verifique se o ponto final do cluster especificado está disponível e à escuta
 
 ### <a name="detailed-logs"></a>Registos detalhados
 
-Muitas vezes, os registos detalhados são úteis para depurar ou comunicar problemas. A bandeira `--debug` aumenta a verbosidade da saída.
+Muitas vezes, os registos detalhados são úteis para depurar ou comunicar problemas. A `--debug` bandeira aumenta a verbosidade da saída.
 
 ### <a name="command-help-and-syntax"></a>Ajuda de comandos e sintaxe
 

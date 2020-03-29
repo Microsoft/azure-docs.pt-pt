@@ -1,125 +1,125 @@
 ---
-title: CLI do Azure Service Fabric-Propriedade sfctl
-description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para armazenar e consultar propriedades.
+title: Azure Service Fabric CLI-sfctl property
+description: Conheça o sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para armazenar e consultar propriedades.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: a9bd75e0b7f8bfceb50a71ca83b60ff1e7b45508
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76905825"
 ---
 # <a name="sfctl-property"></a>sfctl property
-Armazenar e consultar Propriedades em nomes de Service Fabric.
+Armazenar e consultar propriedades sob nomes de Tecido de Serviço.
 
 ## <a name="commands"></a>Comandos
 
 |Comando|Descrição|
 | --- | --- |
-| delete | Exclui a propriedade de Service Fabric especificada. |
-| Get | Obtém a propriedade de Service Fabric especificada. |
-| list | Obtém informações sobre todas as propriedades de Service Fabric em um determinado nome. |
-| Posicione | Cria ou atualiza uma propriedade Service Fabric. |
+| delete | Elimina a propriedade especificada service fabric. |
+| get | Obtém a propriedade especificada service fabric. |
+| list | Obtém informações sobre todas as propriedades do Tecido de Serviço com um nome próprio. |
+| colocar | Cria ou atualiza uma propriedade de Tecido de Serviço. |
 
-## <a name="sfctl-property-delete"></a>exclusão da propriedade sfctl
-Exclui a propriedade de Service Fabric especificada.
+## <a name="sfctl-property-delete"></a>propriedade sfctl excluir
+Elimina a propriedade especificada service fabric.
 
-Exclui a propriedade Service Fabric especificada em um determinado nome. É necessário criar uma propriedade antes que ela possa ser excluída.
-
-### <a name="arguments"></a>Argumentos
-
-|Argumento|Descrição|
-| --- | --- |
-| --nome-id [Obrigatório] | O nome do Service Fabric, sem o esquema de URI ' Fabric\:'. |
-| --propriedade-nome [Obrigatório] | Especifica o nome da propriedade a ser obtida. |
-| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
-
-### <a name="global-arguments"></a>Global Arguments
-
-|Argumento|Descrição|
-| --- | --- |
-| --debug | Increase logging verbosity to show all debug logs. |
-| --help -h | Show this help message and exit. |
-| --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
-| --verbose | Increase logging verbosity. Use --debug for full debug logs. |
-
-## <a name="sfctl-property-get"></a>Get da propriedade sfctl
-Obtém a propriedade de Service Fabric especificada.
-
-Obtém a propriedade Service Fabric especificada em um determinado nome. Isso sempre retornará o valor e os metadados.
+Elimina a propriedade especificada service fabric com um nome próprio. Uma propriedade deve ser criada antes de ser eliminada.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --nome-id [Obrigatório] | O nome do Service Fabric, sem o esquema de URI ' Fabric\:'. |
-| --propriedade-nome [Obrigatório] | Especifica o nome da propriedade a ser obtida. |
-| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
+| --nome-id [Obrigatório] | O nome Tecido de Serviço, sem o esquema URI 'tecido'.\: |
+| --propriedade-nome [Obrigatório] | Especifica o nome da propriedade para obter. |
+| --timeout -t | O tempo de funcionamento do servidor para a execução da operação em segundos. Este prazo especifica a duração do tempo que o cliente está disposto a esperar que a operação solicitada esteja concluída. O valor padrão para este parâmetro é de 60 segundos.  Padrão\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug | Increase logging verbosity to show all debug logs. |
-| --help -h | Show this help message and exit. |
-| --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
-| --verbose | Increase logging verbosity. Use --debug for full debug logs. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
-## <a name="sfctl-property-list"></a>lista de propriedades sfctl
-Obtém informações sobre todas as propriedades de Service Fabric em um determinado nome.
+## <a name="sfctl-property-get"></a>propriedade sfctl obter
+Obtém a propriedade especificada service fabric.
 
-Um nome de Service Fabric pode ter uma ou mais propriedades nomeadas que armazenam informações personalizadas. Esta operação obtém as informações sobre essas propriedades em uma lista paginável. As informações incluem nome, valor e metadados sobre cada uma das propriedades.
+Obtém a propriedade especificada service fabric com um nome próprio. Isto irá sempre devolver valor e metadados.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --nome-id [Obrigatório] | O nome do Service Fabric, sem o esquema de URI ' Fabric\:'. |
-| --continuação-token | O parâmetro de token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio é incluído na resposta da API quando os resultados do sistema não se ajustam em uma única resposta. Quando esse valor é passado para a próxima chamada à API, a API retorna o próximo conjunto de resultados. Se não houver mais resultados, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL. |
-| --include-valores | Permite especificar se os valores das propriedades retornadas devem ser incluídos. True se os valores devem ser retornados com os metadados; False para retornar apenas os metadados de propriedade. |
-| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
+| --nome-id [Obrigatório] | O nome Tecido de Serviço, sem o esquema URI 'tecido'.\: |
+| --propriedade-nome [Obrigatório] | Especifica o nome da propriedade para obter. |
+| --timeout -t | O tempo de funcionamento do servidor para a execução da operação em segundos. Este prazo especifica a duração do tempo que o cliente está disposto a esperar que a operação solicitada esteja concluída. O valor padrão para este parâmetro é de 60 segundos.  Padrão\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug | Increase logging verbosity to show all debug logs. |
-| --help -h | Show this help message and exit. |
-| --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
-| --verbose | Increase logging verbosity. Use --debug for full debug logs. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
-## <a name="sfctl-property-put"></a>sfctl da propriedade put
-Cria ou atualiza uma propriedade Service Fabric.
+## <a name="sfctl-property-list"></a>lista de propriedade sfctl
+Obtém informações sobre todas as propriedades do Tecido de Serviço com um nome próprio.
 
-Cria ou atualiza a propriedade de Service Fabric especificada em um determinado nome.
+Um nome de Tecido de Serviço pode ter uma ou mais propriedades nomeadas que armazenam informações personalizadas. Esta operação obtém a informação sobre estas propriedades numa lista de páginas. A informação inclui nome, valor e metadados sobre cada uma das propriedades.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --nome-id [Obrigatório] | O nome do Service Fabric, sem o esquema de URI ' Fabric\:'. |
-| --propriedade-nome [Obrigatório] | O nome da propriedade de Service Fabric. |
-| --valor [Obrigatório] | Descreve um valor de Propriedade Service Fabric. Esta é uma cadeia de caracteres JSON. <br><br> A cadeia json tem dois campos, o 'Kind' dos dados, e o valor, introduzido como 'Data' dos dados. O valor ' Kind ' deve ser o primeiro item a ser exibido na cadeia de caracteres JSON e pode ser os valores ' binary ', ' Int64 ', ' Double ', ' String ' ou ' GUID '. O valor deve ser serializado para os tipos especificados. Os valores ' Kind ' e ' data ' devem ser fornecidos como cadeias de caracteres. |
-| --custom-id-type | A ID de tipo personalizado da propriedade. Usando essa propriedade, o usuário é capaz de marcar o tipo do valor da propriedade. |
-| --timeout -t | Default\: 60. |
+| --nome-id [Obrigatório] | O nome Tecido de Serviço, sem o esquema URI 'tecido'.\: |
+| --continuação-token | O parâmetro simbólico de continuação é utilizado para obter o próximo conjunto de resultados. Um símbolo de continuação com um valor não vazio é incluído na resposta da API quando os resultados do sistema não se encaixam numa única resposta. Quando este valor é passado para a próxima chamada da API, a API devolve o próximo conjunto de resultados. Se não houver mais resultados, então o sinal de continuação não contém um valor. O valor deste parâmetro não deve ser codificado. |
+| --incluir valores | Permite especificar se inclui os valores das propriedades devolvidas. É verdade que os valores devem ser devolvidos com os metadados; Falso para devolver apenas metadados de propriedade. |
+| --timeout -t | O tempo de funcionamento do servidor para a execução da operação em segundos. Este prazo especifica a duração do tempo que o cliente está disposto a esperar que a operação solicitada esteja concluída. O valor padrão para este parâmetro é de 60 segundos.  Padrão\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --debug | Increase logging verbosity to show all debug logs. |
-| --help -h | Show this help message and exit. |
-| --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
-| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
-| --verbose | Increase logging verbosity. Use --debug for full debug logs. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
+
+## <a name="sfctl-property-put"></a>propriedade sfctl colocar
+Cria ou atualiza uma propriedade de Tecido de Serviço.
+
+Cria ou atualiza a propriedade especificada service fabric com um nome próprio.
+
+### <a name="arguments"></a>Argumentos
+
+|Argumento|Descrição|
+| --- | --- |
+| --nome-id [Obrigatório] | O nome Tecido de Serviço, sem o esquema URI 'tecido'.\: |
+| --propriedade-nome [Obrigatório] | O nome da propriedade Service Fabric. |
+| --valor [Obrigatório] | Descreve um valor de propriedade de Tecido de Serviço. Esta é uma corda JSON. <br><br> A cadeia json tem dois campos, o 'Kind' dos dados, e o valor, introduzido como 'Data' dos dados. O valor 'Kind' deve ser o primeiro item a aparecer na cadeia JSON, e pode ser os valores 'Binary', 'Int64', 'Double', 'String' ou 'Guid'. O valor deve ser serializável para os tipos. Tanto os valores "Kind" como os 'Data' devem ser fornecidos como cordas. |
+| --personalizado-id-tipo | O id personalizado da propriedade. Utilizando esta propriedade, o utilizador é capaz de etiquetar o tipo do valor do imóvel. |
+| --timeout -t | Padrão\: 60. |
+
+### <a name="global-arguments"></a>Argumentos Globais
+
+|Argumento|Descrição|
+| --- | --- |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Configure](service-fabric-cli.md) a CLI do Service Fabric.
-- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Instale](service-fabric-cli.md) o CLI de tecido de serviço.
+- Aprenda a utilizar o CLI de tecido de serviço utilizando as [scripts de amostra](/azure/service-fabric/scripts/sfctl-upgrade-application).

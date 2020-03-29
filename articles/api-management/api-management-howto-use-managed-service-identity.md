@@ -1,5 +1,5 @@
 ---
-title: Utilize identidades geridas na Gestão da API azure  Microsoft Docs
+title: Utilize identidades geridas na Gestão da API azure [ Microsoft Docs
 description: Saiba como usar identidades geridas na Gestão aPI
 services: api-management
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
 ms.openlocfilehash: 49576b805e6c6d01340e663bfb5d8e9013917625
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249636"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Utilizar identidades geridas na Gestão da API Azure
@@ -32,7 +32,7 @@ Para configurar uma identidade gerida no portal, primeiro criará uma instância
 2. Selecione **identidades de serviço geridas**.
 3. Switch Register com Diretório Ativo Azure para On. Clique em Guardar.
 
-![Ativar msi](./media/api-management-msi/enable-msi.png)
+![Ativar o MSI](./media/api-management-msi/enable-msi.png)
 
 ### <a name="using-the-azure-resource-manager-template"></a>Usando o modelo de Gestor de Recursos Azure
 
@@ -231,10 +231,10 @@ O exemplo seguinte mostra um modelo de Gestor de Recursos Azure que contém os s
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre identidades geridas para os recursos Azure:
 
 * [O que é gerida identidades para recursos Azure](../active-directory/managed-identities-azure-resources/overview.md)
-* [Modelos de Gestor de Recursos Azure](https://github.com/Azure/azure-quickstart-templates)
+* [Modelos do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates)
 * [Autenticar com uma identidade gerida numa política](./api-management-authentication-policies.md#ManagedIdentity)

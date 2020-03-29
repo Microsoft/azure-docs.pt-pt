@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: rohink
 ms.openlocfilehash: 84367a00643c48e7fe2fb7f907bab64589193b2e
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938547"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Considerações de desempenho para o Gestor de Tráfego
@@ -40,13 +40,13 @@ Existem vários sites que pode usar para entender o desempenho e comportamento d
 
 As ferramentas nestes sites medem as lateências dNS e exibem os endereços IP resolvidos para locais de clientes em todo o mundo. A maioria destas ferramentas não cache os resultados do DNS. Portanto, as ferramentas mostram a procura completa do DNS cada vez que um teste é executado. Quando testa a partir do seu próprio cliente, apenas experimenta o desempenho completo da procura de DNS uma vez durante a duração do TTL.
 
-## <a name="sample-tools-to-measure-dns-performance"></a>Ferramentas de amostra para medir o desempenho do DNS
+## <a name="sample-tools-to-measure-dns-performance"></a>Ferramentas de exemplo para medir o desempenho de DNS
 
 * [SolveDNS](https://www.solvedns.com/dns-comparison/)
 
     O SolveDNS oferece muitas ferramentas de desempenho. A ferramenta DNS Compare pode mostrar-lhe quanto tempo demora a resolver o seu nome DNS e como isso se compara a outros prestadores de serviços DNS.
 
-* [WebSitePulse](https://www.websitepulse.com/help/tools.php)
+* [InternetSitePulse](https://www.websitepulse.com/help/tools.php)
 
     Uma das ferramentas mais simples é o WebSitePulse. Introduza o URL para ver o tempo de resolução do DNS, First Byte, Last Byte e outras estatísticas de desempenho. Pode escolher entre três locais de teste diferentes. Neste exemplo, vê-se que a primeira execução mostra que a procura de DNS demora 0,204 segundos.
 
@@ -74,13 +74,13 @@ As ferramentas nestes sites medem as lateências dNS e exibem os endereços IP r
 
     Este site mostra informações mais detalhadas do DNS, incluindo CNAMEs e registos A. Certifique-se de que verifica a saída de 'Colorize' e 'Stats' em opções e selecione 'All' em Nomeservers.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 [Sobre os métodos de encaminhamento de tráfego do Gestor de Tráfego](traffic-manager-routing-methods.md)
 
-[Teste as definições do gestor de tráfego](traffic-manager-testing-settings.md)
+[Testar as definições do Gestor de Tráfego (Test your Traffic Manager settings)](traffic-manager-testing-settings.md)
 
-[Operações do Gestor de Tráfego (Referência da API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Operações do Traffic Manager (Referência da API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Cmdlets do Gestor de Tráfego Azure](https://docs.microsoft.com/powershell/module/az.trafficmanager)
 

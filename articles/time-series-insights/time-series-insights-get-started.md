@@ -1,5 +1,5 @@
 ---
-title: Criar um ambiente - Azure Time Series Insights  Microsoft Docs
+title: Criar um ambiente - Azure Time Series Insights [ Microsoft Docs
 description: Aprenda a usar o portal Azure para criar um novo ambiente Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/31/2020
 ms.custom: seodec18
 ms.openlocfilehash: 2c946c49884ef0de6843028976d4ec00ccfbcdfe
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76934852"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Criar um novo ambiente do Time Series Insights no portal do Azure
@@ -34,13 +34,13 @@ Siga estes passos para criar um ambiente:
 
 1. Selecione a categoria **Internet das Coisas** e selecione Time Series **Insights**.
 
-   [![Criar o ambiente de Insights da Série do Tempo](media/time-series-insights-get-started/tsi-create-new-environment.png)](media/time-series-insights-get-started/tsi-create-new-environment.png#lightbox)
+   [![Crie o ambiente do Time Series Insights](media/time-series-insights-get-started/tsi-create-new-environment.png)](media/time-series-insights-get-started/tsi-create-new-environment.png#lightbox)
 
 1. Na página **Time Series Insights,** selecione **Criar**.
 
 1. Preencha os parâmetros necessários. A tabela a seguir explica cada parâmetro:
    
-   [![Criar o grupo de recursos Time Series Insights](media/time-series-insights-get-started/tsi-configure-and-create.png)](media/time-series-insights-get-started/tsi-configure-and-create.png#lightbox)
+   [![Crie o grupo de recursos do Time Series Insights](media/time-series-insights-get-started/tsi-configure-and-create.png)](media/time-series-insights-get-started/tsi-configure-and-create.png#lightbox)
    
    Definição|Valor sugerido|Descrição
    ---|---|---
@@ -51,15 +51,15 @@ Siga estes passos para criar um ambiente:
    Escalão de preço | S1 | Escolha o débito necessário. Para os custos mais baixos e capacidade de arranque, selecione S1.
    Capacidade | 1 | A capacidade é que o multiplicador se aplica à taxa de entrada, capacidade de armazenamento e custo associado ao SKU selecionado.  Pode alterar a capacidade de um ambiente após a criação. Para os custos mais baixos, selecione uma capacidade de 1. 
   
-1. Selecione **Criar** para iniciar o processo de provisionamento. Pode levar alguns minutos.
+1. Selecione **Criar** para iniciar o processo de provisionamento. Poderá demorar alguns minutos.
 
 1. Para monitorizar o processo de implantação, selecione o símbolo **notificações** (ícone do sino).
 
-   [![Ver as notificações](media/time-series-insights-get-started/tsi-deploy-notifications.png)](media/time-series-insights-get-started/tsi-deploy-notifications.png#lightbox)
+   [![Assista às notificações](media/time-series-insights-get-started/tsi-deploy-notifications.png)](media/time-series-insights-get-started/tsi-deploy-notifications.png#lightbox)
 
 1. Na **visão geral**do recurso, verifique as definições de configuração de implementação.
 
-   [![Criar o pino de Insights da Série de Tempo para o painel de instrumentos](media/time-series-insights-get-started/tsi-verify-deployment.png)](media/time-series-insights-get-started/tsi-verify-deployment.png#lightbox)
+   [![Crie o marcador do Time Series Insights para o dashboard](media/time-series-insights-get-started/tsi-verify-deployment.png)](media/time-series-insights-get-started/tsi-verify-deployment.png#lightbox)
 
 1. **(Opcional)** Selecione o ícone do **pino** no canto superior direito para aceder facilmente ao ambiente time series Insights no futuro.
 
@@ -69,6 +69,6 @@ Siga estes passos para criar um ambiente:
 
 * [Adicione uma fonte](time-series-insights-how-to-add-an-event-source-eventhub.md) de evento do Event Hub ao seu ambiente Azure Time Series Insights.
 
-* [Enviar eventos](time-series-insights-send-events.md) para a origem do evento.
+* [Envie eventos](time-series-insights-send-events.md) para a fonte do evento.
 
 * Veja o seu ambiente no explorador time [series Insights](https://insights.timeseries.azure.com).

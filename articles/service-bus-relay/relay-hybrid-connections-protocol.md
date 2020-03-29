@@ -1,6 +1,6 @@
 ---
-title: Guia do protocolo Conexões Híbridas de retransmissão do Azure | Microsoft Docs
-description: Este artigo descreve as interações do lado do cliente com o Conexões Híbridas retransmissão para conectar clientes em funções de emissor e remetente.
+title: Guia de protocolo de ligações híbridas Azure Relay [ Guia de protocolos de ligações híbridas de retransmissão azul ] Microsoft Docs
+description: Este artigo descreve as interações do lado do cliente com o relé De Conexões Híbridas para ligar clientes em funções de ouvinte e remetente.
 services: service-bus-relay
 documentationcenter: na
 author: clemensv
@@ -15,168 +15,168 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: clemensv
 ms.openlocfilehash: 68668452152064584d1c419a3053ccb642b103f8
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76514957"
 ---
-# <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de Conexões Híbridas de retransmissão do Azure
+# <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de conexões híbridas Azure Relay
 
-A retransmissão do Azure é um dos principais pilares de capacidade da plataforma do barramento de serviço do Azure. O novo _conexões híbridas_ recurso de retransmissão é uma evolução segura e de protocolo aberto com base em http e WebSockets. Ele substitui o antigo recurso de _Serviços BizTalk_ , igualmente nomeado, criado em uma base de protocolo proprietário. A integração do Conexões Híbridas ao Azure App Services continuará a funcionar no estado em que se encontram.
+O Azure Relay é um dos pilares de capacidade chave da plataforma Azure Service Bus. A nova capacidade de _Conexões Híbridas_ da Relay é uma evolução segura e de protocolo aberto baseada em HTTP e WebSockets. Substitui a primeira funcionalidade _bizTalk Services,_ igualmente nomeada, que foi construída sobre uma fundação de protocolo proprietário. A integração das Conexões Híbridas nos Serviços de Aplicações Azure continuará a funcionar como está.
 
-O Conexões Híbridas habilita a comunicação de fluxo bidirecional, binária e fluxo de datagrama simples entre dois aplicativos em rede. Uma ou ambas as partes podem residir atrás de NATs ou de firewalls.
+As Ligações Híbridas permitem uma comunicação bidirecional, de fluxo binário e um simples fluxo de datagram entre duas aplicações em rede. Qualquer uma das partes pode residir atrás de NATs ou firewalls.
 
-Este artigo descreve as interações do lado do cliente com o Conexões Híbridas retransmissão para conectar clientes em funções de emissor e remetente. Ele também descreve como os ouvintes aceitam novas conexões e solicitações.
+Este artigo descreve as interações do lado do cliente com o relé De Conexões Híbridas para ligar clientes em funções de ouvinte e remetente. Também descreve como os ouvintes aceitam novas ligações e pedidos.
 
 ## <a name="interaction-model"></a>Modelo de interação
 
-A retransmissão de Conexões Híbridas conecta duas partes fornecendo um ponto de reunião na nuvem do Azure que as partes podem descobrir e se conectar da perspectiva da sua própria rede. O ponto de reunião é chamado de "conexão híbrida" nesta e em outras documentações, nas APIs e também na portal do Azure. O ponto de extremidade do serviço de Conexões Híbridas é chamado de "serviço" para o restante deste artigo.
+O relé De Conexões Híbridas liga duas partes fornecendo um ponto de encontro na nuvem Azure que as partes podem descobrir e ligar a partir da perspetiva da sua própria rede. O ponto de encontro chama-se "Conexão Híbrida" nesta e noutra documentação, nas APIs, e também no portal Azure. O ponto final do serviço De conexões híbridas é referido como o "serviço" para o resto deste artigo.
 
-O serviço permite retransmitir conexões de soquete da Web e solicitações e respostas HTTP (S).
+O serviço permite a transmissão de ligações web socket e pedidos e respostas HTTP(S).
 
-O modelo de interação se baseia no nomenclatura estabelecido por muitas outras APIs de rede. Há um ouvinte que indica primeiro a preparação para lidar com as conexões de entrada e, subsequentemente, aceita-as à medida que elas chegam. No outro lado, um cliente se conecta ao ouvinte, esperando que a conexão seja aceita para estabelecer um caminho de comunicação bidirecional. "Conectar", "escutar" e "aceitar" são os mesmos termos que você encontra na maioria das APIs de soquete.
+O modelo de interação apoia-se na nomenclatura estabelecida por muitas outras APIs em rede. Há um ouvinte que primeiro indica disponibilidade para lidar com as ligações de entrada, e posteriormente aceita-as à medida que chegam. Por outro lado, um cliente liga-se ao ouvinte, esperando que essa ligação seja aceite para estabelecer uma via de comunicação bidirecional. "Connect", "Listen" e "Accept" são os mesmos termos que se encontram na maioria das APIs da tomada.
 
-Qualquer modelo de comunicação retransmitido tem qualquer parte fazendo conexões de saída para um ponto de extremidade de serviço. Isso faz com que o "ouvinte" também seja um "cliente" em uso coloquial usado e também pode causar outras sobrecargas de terminologia. A terminologia precisa, portanto, usada para Conexões Híbridas é a seguinte:
+Qualquer modelo de comunicação retransmitido tem qualquer uma das partes a fazer ligações de saída para um ponto final de serviço. Isto faz do "ouvinte" também um "cliente" no uso coloquial, e também pode causar outras sobrecargas de terminologia. A terminologia precisa, portanto, utilizada para ligações híbridas é a seguinte:
 
-Os programas em ambos os lados de uma conexão são chamados de "clientes", pois eles são clientes para o serviço. O cliente que aguarda e aceita conexões é o "ouvinte" ou diz estar na "função de ouvinte". O cliente que inicia uma nova conexão em direção a um ouvinte por meio do serviço é chamado de "remetente" ou está na "função de remetente".
+Os programas de ambos os lados de uma ligação são chamados de "clientes", uma vez que são clientes do serviço. O cliente que espera e aceita ligações é o "ouvinte", ou diz-se que está no "papel de ouvinte". O cliente que inicia uma nova ligação para um ouvinte através do serviço é chamado de "remetente", ou está na "função remetente".
 
-### <a name="listener-interactions"></a>Interações de ouvinte
+### <a name="listener-interactions"></a>Interações de ouvintes
 
-O ouvinte tem cinco interações com o serviço; todos os detalhes de transmissão são descritos posteriormente neste artigo na seção de referência.
+O ouvinte tem cinco interações com o serviço; todos os detalhes do fio são descritos mais tarde neste artigo na secção de referência.
 
-As mensagens de escuta, aceitação e solicitação são recebidas do serviço. As operações de renovação e ping são enviadas pelo ouvinte.
+As mensagens Ouvir, Aceitar e Solicitar são recebidas do serviço. As operações de Renovação e Ping são enviadas pelo ouvinte.
 
-#### <a name="listen-message"></a>Mensagem de escuta
+#### <a name="listen-message"></a>Ouvir mensagem
 
-Para indicar a prontidão para o serviço que um ouvinte está pronto para aceitar conexões, ele cria uma conexão WebSocket de saída. O handshake de conexão carrega o nome de uma conexão híbrida configurada no namespace de retransmissão e um token de segurança que confere o direito "escutar" nesse nome.
+Para indicar prontidão ao serviço de que um ouvinte está pronto para aceitar ligações, cria uma ligação WebSocket de saída. O aperto de mão de ligação tem o nome de uma Conexão Híbrida configurada no espaço de nome retransmissor, e um símbolo de segurança que confere o "Ouvir" direito nesse nome.
 
-Quando o WebSocket é aceito pelo serviço, o registro é concluído e o WebSocket estabelecido é mantido ativo como o "canal de controle" para habilitar todas as interações subsequentes. O serviço permite até 25 ouvintes simultâneos para uma conexão híbrida. A cota para AppHooks deve ser determinada.
+Quando o WebSocket é aceite pelo serviço, o registo é completo e o WebSocket estabelecido é mantido vivo como o "canal de controlo" para permitir todas as interações subsequentes. O serviço permite até 25 ouvintes simultâneos para uma Ligação Híbrida. A quota para AppHooks deve ser determinada.
 
-Por Conexões Híbridas, se houver dois ou mais ouvintes ativos, as conexões de entrada serão balanceadas entre eles em ordem aleatória; a distribuição justa é tentada com o melhor esforço.
+Para ligações híbridas, se houver dois ou mais ouvintes ativos, as ligações de entrada são equilibradas em todas elas por ordem aleatória; a distribuição justa é tentada com o melhor esforço.
 
 #### <a name="accept-message"></a>Aceitar mensagem
 
-Quando um remetente abre uma nova conexão no serviço, o serviço escolhe e notifica um dos ouvintes ativos na conexão híbrida. Essa notificação é enviada para o ouvinte pelo canal de controle aberto como uma mensagem JSON. A mensagem contém a URL do ponto de extremidade WebSocket ao qual o ouvinte deve se conectar para aceitar a conexão.
+Quando um remetente abre uma nova ligação no serviço, o serviço escolhe e notifica um dos ouvintes ativos na Ligação Híbrida. Esta notificação é enviada ao ouvinte sobre o canal de controlo aberto como uma mensagem JSON. A mensagem contém o URL do ponto final do WebSocket a que o ouvinte deve ligar-se para aceitar a ligação.
 
-A URL pode e deve ser usada diretamente pelo ouvinte sem nenhum trabalho extra.
-As informações codificadas só são válidas por um curto período de tempo, essencialmente por enquanto o remetente está disposto a esperar que a conexão seja estabelecida de ponta a ponta. O máximo a ser assumido é de 30 segundos. A URL só pode ser usada para uma tentativa de conexão bem-sucedida. Assim que a conexão WebSocket com a URL de reunião for estabelecida, todas as atividades adicionais nesse WebSocket serão retransmitidas de e para o remetente. Isso acontece sem qualquer intervenção ou interpretação pelo serviço.
+O URL pode e deve ser utilizado diretamente pelo ouvinte sem qualquer trabalho extra.
+As informações codificadas só são válidas por um curto período de tempo, essencialmente enquanto o remetente estiver disposto a esperar que a ligação seja estabelecida de ponta a ponta. O máximo a assumir é de 30 segundos. O URL só pode ser utilizado para uma tentativa de ligação bem sucedida. Assim que a ligação WebSocket com o URL de encontro for estabelecida, toda a atividade adicional neste WebSocket é transmitida de e para o remetente. Isto acontece sem qualquer intervenção ou interpretação por parte do serviço.
 
-### <a name="request-message"></a>Mensagem de solicitação
+### <a name="request-message"></a>Mensagem de pedido
 
-Além das conexões WebSocket, o ouvinte também pode receber quadros de solicitação HTTP de um remetente, se esse recurso estiver explicitamente habilitado na conexão híbrida.
+Além das ligações WebSocket, o ouvinte também pode receber quadros de pedido HTTP de um remetente, se esta capacidade estiver explicitamente ativada na Ligação Híbrida.
 
-Os ouvintes que se anexam ao Conexões Híbridas com suporte a HTTP devem lidar com o gesto de `request`. Um ouvinte que não manipula `request` e, portanto, causa erros de tempo limite repetidos durante a conexão pode estar na lista de bloqueios pelo serviço no futuro.
+Os ouvintes que se ligam às `request` Conexões Híbridas com suporte HTTP DEVEM lidar com o gesto. Um ouvinte que não `request` lida com o tratamento e, portanto, causa erros de tempo repetidos enquanto está ligado pode ser listado na lista negra pelo serviço no futuro.
 
-Os metadados do cabeçalho do quadro HTTP são convertidos em JSON para manipulação mais simples pela estrutura do ouvinte, também porque as bibliotecas de análise de cabeçalho HTTP são mais raras que os analisadores JSON. Os metadados HTTP que são relevantes apenas para a relação entre o remetente e o gateway HTTP de retransmissão, incluindo informações de autorização, não são encaminhados. Os corpos de solicitação HTTP são transferidos de forma transparente como quadros de WebSocket binários.
+Os metadados do cabeçalho do quadro HTTP são traduzidos para JSON para um manuseamento mais simples pela estrutura do ouvinte, também porque as bibliotecas de análise de cabeçalho http são mais raras do que os parsers JSON. Os metadados HTTP que só são relevantes para a relação entre o remetente e o gateway REL HTTP, incluindo informações de autorização, não são reencaminhados. Os organismos de pedido HTTP são transferidos de forma transparente como quadros binários do WebSocket.
 
-O ouvinte pode responder a solicitações HTTP usando um gesto de resposta equivalente.
+O ouvinte pode responder aos pedidos de HTTP usando um gesto de resposta equivalente.
 
-O fluxo de solicitação/resposta usa o canal de controle por padrão, mas pode ser "atualizado" para um WebSocket de reunião distinta sempre que necessário. Conexões WebSocket distintas aumentam a taxa de transferência para cada conversa do cliente, mas sobrecarregam o ouvinte com mais conexões que precisam ser tratadas, o que pode não ser capaz de obter clientes leves.
+O fluxo de pedido/resposta utiliza o canal de controlo por defeito, mas pode ser "atualizado" para um webSocket distinto sempre que necessário. As ligações WebSocket distintas melhoram a produção para cada conversa de cliente, mas sobrecarregam o ouvinte com mais ligações que precisam de ser manuseadas, o que pode não ser desejado para clientes leves.
 
-No canal de controle, os corpos de solicitação e resposta são limitados a no máximo 64 kB de tamanho. Os metadados do cabeçalho HTTP são limitados a um total de 32 kB. Se a solicitação ou a resposta exceder esse limite, o ouvinte deverá ser atualizado para um WebSocket de reunião usando um gesto equivalente para manipular a [aceitação](#accept-message).
+No canal de controlo, os organismos de pedido e resposta limitam-se a, no máximo, 64 kB de tamanho. Os metadados do cabeçalho HTTP estão limitados a um total de 32 kB. Se o pedido ou a resposta excederesse limiar, o ouvinte DEVE atualizar para um WebSocket de encontro utilizando um gesto equivalente ao manuseamento do [Accept](#accept-message).
 
-Para solicitações, o serviço decide se as solicitações devem ser roteadas no canal de controle. Isso inclui, mas pode não estar limitado a casos em que uma solicitação exceda 64 kB (cabeçalhos mais corpo), ou se a solicitação for enviada com [codificação de transferência "em bloco"](https://tools.ietf.org/html/rfc7230#section-4.1) e o serviço tiver razão para esperar que a solicitação exceda 64 KB ou a leitura da solicitação não seja instantânea. Se o serviço optar por entregar a solicitação pela reunião, ele só passará o endereço de reunião para o ouvinte.
-Em seguida, o ouvinte deve estabelecer o WebSocket de reunião e o serviço imediatamente entrega a solicitação completa, incluindo corpos sobre o WebSocket de reunião. A resposta também deve usar o WebSocket de reunião.
+Para pedidos, o serviço decide se encaminha os pedidos para o canal de controlo. Isto inclui, mas não pode limitar-se a casos em que um pedido exceda 64 kB (cabeçalhos mais corpo) ou se o pedido for enviado com [codificação de transferência "chunked"](https://tools.ietf.org/html/rfc7230#section-4.1) e o serviço tiver razões para esperar que o pedido exceda 64kB ou ler o pedido não é instantâneo. Se o serviço optar por entregar o pedido em vez de um encontro, apenas passa o endereço de encontro ao ouvinte.
+O ouvinte deve então estabelecer o WebSocket de encontro e o serviço entrega prontamente o pedido completo, incluindo corpos sobre o webSocket de encontro. A resposta DEVE também utilizar o WebSocket de encontro.
 
-Para solicitações que chegam pelo canal de controle, o ouvinte decide se deve responder pelo canal de controle ou por meio de reunião. O serviço deve incluir um endereço de reunião com cada solicitação roteada pelo canal de controle. Esse endereço só é válido para atualização da solicitação atual.
+Para pedidos que chegam ao canal de controlo, o ouvinte decide se responde através do canal de controlo ou através do encontro. O serviço DEVE incluir um endereço de encontro com todos os pedidos encaminhados para o canal de controlo. Este endereço só é válido para a atualização do pedido atual.
 
-Se o ouvinte optar por atualizar, ele se conectará e entregará imediatamente a resposta sobre o soquete de reunião estabelecido.
+Se o ouvinte optar por fazer a atualização, liga-se e entrega prontamente a resposta sobre a tomada de encontro estabelecida.
 
-Depois que o WebSocket de reunião tiver sido estabelecido, o ouvinte deverá mantê-lo para manipulação adicional de solicitações e respostas do mesmo cliente. O serviço manterá o WebSocket enquanto a conexão de soquete HTTPS com o remetente persistir e roteará todas as solicitações subsequentes desse remetente sobre o WebSocket mantido. Se o ouvinte optar por descartar o WebSocket de reunião de seu lado, o serviço também removerá a conexão com o remetente, independentemente de uma solicitação subsequente já estar em andamento.
+Uma vez estabelecido o webSocket de encontro, o ouvinte deve mantê-lo para posterior tratamento de pedidos e respostas do mesmo cliente. O serviço manterá o WebSocket enquanto a ligação da tomada HTTPS com o remetente persistir e irá encaminhar todos os pedidos subsequentes desse remetente para a WebSocket mantida. Se o ouvinte optar por retirar o WebSocket do seu lado, o serviço também deixará cair a ligação ao remetente, independentemente de um pedido subsequente já estar em curso.
 
 #### <a name="renew-operation"></a>Renovar operação
 
-O token de segurança que deve ser usado para registrar o ouvinte e manter o canal de controle pode expirar enquanto o ouvinte está ativo. A expiração do token não afeta as conexões contínuas, mas faz com que o canal de controle seja Descartado pelo serviço em ou logo após o momento da expiração. A operação "renovar" é uma mensagem JSON que o ouvinte pode enviar para substituir o token associado ao canal de controle, para que o canal de controle possa ser mantido por períodos estendidos.
+O sinal de segurança que deve ser utilizado para registar o ouvinte e manter o canal de controlo pode expirar enquanto o ouvinte estiver ativo. A caducidade do símbolo não afeta as ligações em curso, mas faz com que o canal de controlo seja abandonado pelo serviço em ou logo após o momento de expiração. A operação "renovar" é uma mensagem JSON que o ouvinte pode enviar para substituir o símbolo associado ao canal de controlo, de modo a que o canal de controlo possa ser mantido por longos períodos.
 
-#### <a name="ping-operation"></a>Operação de ping
+#### <a name="ping-operation"></a>Operação ping
 
-Se o canal de controle permanecer ocioso por um longo tempo, intermediários no caminho, como balanceadores de carga ou NATs, poderão descartar a conexão TCP. A operação de "ping" evita isso enviando uma pequena quantidade de dados no canal que lembra a todos na rota de rede que a conexão deve estar ativa e também serve como um teste "ao vivo" para o ouvinte. Se o ping falhar, o canal de controle deverá ser considerado inutilizável e o ouvinte deverá se reconectar.
+Se o canal de controlo permanecer inativo durante muito tempo, os intermediários a caminho, tais como os equilibradores de carga ou os NATs, podem deixar cair a ligação TCP. A operação "ping" evita que, enviando uma pequena quantidade de dados no canal, que lembre a todos na rota da rede que a ligação deve estar viva, e também serve como um teste "ao vivo" para o ouvinte. Se o ping falhar, o canal de controlo deve ser considerado inutilizável e o ouvinte deve voltar a ligar-se.
 
-### <a name="sender-interaction"></a>Interação do remetente
+### <a name="sender-interaction"></a>Interação com o remetente
 
-O remetente tem duas interações com o serviço: ele conecta um soquete da Web ou envia solicitações via HTTPS. As solicitações não podem ser enviadas por meio de um soquete da Web da função de remetente.
+O remetente tem duas interações com o serviço: liga uma Web Socket ou envia pedidos via HTTPS. Os pedidos não podem ser enviados por uma Tomada Web a partir da função de remetente.
 
-#### <a name="connect-operation"></a>Operação de conexão
+#### <a name="connect-operation"></a>Operação de ligação
 
-A operação "conectar" abre um WebSocket no serviço, fornecendo o nome da conexão híbrida e (opcionalmente, mas exigido por padrão) um token de segurança que faz referência à permissão "enviar" na cadeia de caracteres de consulta. Em seguida, o serviço interage com o ouvinte da maneira descrita anteriormente e o ouvinte cria uma conexão de reunião que é unida a esse WebSocket. Depois que o WebSocket tiver sido aceito, todas as outras interações nesse WebSocket serão com um ouvinte conectado.
+A operação "connect" abre um WebSocket no serviço, fornecendo o nome da Conexão Híbrida e (opcionalmente, mas exigido por padrão) um símbolo de segurança que confere permissão de "Enviar" na corda de consulta. O serviço interage então com o ouvinte da forma descrita anteriormente, e o ouvinte cria uma ligação de encontro que se junta a este WebSocket. Depois de o WebSocket ter sido aceite, todas as interações adicionais sobre o WebSocket estão com um ouvinte conectado.
 
-#### <a name="request-operation"></a>Operação de solicitação
+#### <a name="request-operation"></a>Operação de pedido
 
-Para Conexões Híbridas para o qual o recurso foi habilitado, o remetente pode enviar solicitações HTTP amplamente irrestritas para os ouvintes.
+Para ligações híbridas para as quais a funcionalidade foi ativada, o remetente pode enviar pedidos http sem restrições aos ouvintes.
 
-Exceto para um token de acesso de retransmissão que é inserido na cadeia de caracteres de consulta ou em um cabeçalho HTTP da solicitação, a retransmissão é totalmente transparente para todas as operações HTTP no endereço de retransmissão e todos os sufixos do caminho do endereço de retransmissão, deixando o ouvinte totalmente no controle de autorização de ponta a ponta e até mesmo recursos de extensão HTTP como [CORS](https://www.w3.org/TR/cors/).
+Com exceção de um sinal de acesso retransmissor que esteja incorporado na corda de consulta ou num cabeçalho HTTP do pedido, o Retransmissor é totalmente transparente para todas as operações http no endereço Retransmissor e todos os sufixos da rota do endereço Relé, deixando o ouvinte totalmente no controlo da autorização de ponta a ponta e até mesmo funcionalidades de extensão HTTP como [CORS](https://www.w3.org/TR/cors/).
 
-A autorização do remetente com o ponto de extremidade de retransmissão é ativada por padrão, mas é opcional. O proprietário da conexão híbrida pode optar por permitir remetentes anônimos. O serviço interceptará, inspecionará e removerá as informações de autorização da seguinte maneira:
+A autorização do remetente com o ponto final do retransmissor é ligada por defeito, mas é OPCIONAL. O proprietário da Ligação Híbrida pode optar por permitir remetentes anónimos. O serviço intercetará, inspecionará e retirará as informações de autorização da seguinte forma:
 
-1. Se a cadeia de caracteres de consulta contiver uma expressão `sb-hc-token`, a expressão sempre será removida da cadeia de caracteres de consulta. Ele será avaliado se a autorização de retransmissão estiver ativada.
-2. Se os cabeçalhos de solicitação contiverem um cabeçalho `ServiceBusAuthorization`, a expressão de cabeçalho sempre será removida da coleção de cabeçalho.
-   Ele será avaliado se a autorização de retransmissão estiver ativada.
-3. Somente se a autorização de retransmissão estiver ativada e se os cabeçalhos de solicitação contiverem um cabeçalho `Authorization` e nenhuma das expressões anteriores estiver presente, o cabeçalho será avaliado e removido. Caso contrário, o `Authorization`sempre será passado no estado em que se encontra.
+1. Se a corda de `sb-hc-token` consulta contiver uma expressão, a expressão será sempre retirada da corda de consulta. Será avaliado se a autorização de retransmissão estiver ligada.
+2. Se os cabeçalhos `ServiceBusAuthorization` de pedido contiverem um cabeçalho, a expressão do cabeçalho será sempre retirada da coleção do cabeçalho.
+   Será avaliado se a autorização de retransmissão estiver ligada.
+3. Só se a autorização de retransmissão for `Authorization` ligada, e se os cabeçalhos de pedido contiverem um cabeçalho, e nenhuma das expressões anteriores estiver presente, o cabeçalho será avaliado e despido. Caso contrário, `Authorization`o é sempre transmitido como está.
 
-Se não houver um ouvinte ativo, o serviço retornará um código de erro 502 de "gateway inadequado". Se o serviço não parecer manipular a solicitação, o serviço retornará um 504 "tempo limite do gateway" após 60 segundos.
+Se não houver ouvinte ativo, o serviço devolverá um código de erro 502 "Bad Gateway". Se o serviço não parecer tratar do pedido, o serviço devolverá um "Timeout Gateway" 504 após 60 segundos.
 
 ### <a name="interaction-summary"></a>Resumo da interação
 
-O resultado desse modelo de interação é que o cliente remetente sai do handshake com um WebSocket "limpo", que está conectado a um ouvinte e que não precisa de nenhum preâmbulo ou preparação adicional. Esse modelo permite praticamente qualquer implementação de cliente WebSocket existente para aproveitar prontamente o serviço de Conexões Híbridas fornecendo uma URL construída corretamente em sua camada de cliente WebSocket.
+O resultado deste modelo de interação é que o cliente remetente sai do aperto de mão com um WebSocket "limpo", que está ligado a um ouvinte e que não precisa de mais preâmbulos ou preparação. Este modelo permite que praticamente qualquer implementação de cliente WebSocket existente aproveite facilmente o serviço de Conexões Híbridas fornecendo um URL corretamente construído na sua camada de cliente WebSocket.
 
-O WebSocket de conexão de reunião que o ouvinte obtém por meio da interação de aceitação também é limpo e pode ser entregue a qualquer implementação de servidor WebSocket existente com alguma abstração extra mínima que diferencie entre as operações "Accept" no os ouvintes de rede local de sua estrutura e as operações de "aceitação" remota Conexões Híbridas.
+A ligação de pontos de encontro WebSocket que o ouvinte obtém através da interação aceita também é limpa e pode ser entregue a qualquer implementação do servidor WebSocket existente com alguma abstração extra mínima que distingue entre operações de "aceitar" em os ouvintes locais da rede local e as operações remotas de Ligações Híbridas "aceitam".
 
-O modelo de solicitação/resposta HTTP fornece ao remetente uma área de superfície de protocolo HTTP totalmente irrestrita com uma camada de autorização opcional. O ouvinte Obtém uma seção de cabeçalho de solicitação HTTP pré-configurada que pode ser reativada para uma solicitação HTTP downstream ou manipulada como está, com quadros binários que realizam corpos HTTP. As respostas usam o mesmo formato. Interações com menos de 64 KB de corpo de solicitação e resposta podem ser manipuladas em um único soquete da Web que é compartilhado para todos os remetentes. As solicitações e respostas maiores podem ser manipuladas usando o modelo de reunião.
+O modelo http request/response dá ao remetente uma área de superfície de protocolo HTTP em grande parte sem restrições com uma camada de autorização OPCIONAL. O ouvinte obtém uma secção de cabeçalho de pedido HTTP pré-analisada que pode ser transformada num pedido HTTP a jusante ou manuseada como está, com molduras binárias que transportam corpos HTTP. As respostas usam o mesmo formato. As interações com menos de 64 KB de corpo de pedido e resposta podem ser manuseadas sobre uma única Tomada Web que é partilhada para todos os remetentes. Pedidos e respostas maiores podem ser tratados utilizando o modelo de encontro.
 
-## <a name="protocol-reference"></a>Referência de protocolo
+## <a name="protocol-reference"></a>Referência protocole
 
-Esta seção descreve os detalhes das interações de protocolo descritas anteriormente.
+Esta secção descreve os detalhes das interações protocolares descritas anteriormente.
 
-Todas as conexões WebSocket são feitas na porta 443 como uma atualização do HTTPS 1,1, que é normalmente abstraida por alguma API ou estrutura de WebSocket. A descrição aqui é mantida em uma implementação neutra, sem sugerir uma estrutura específica.
+Todas as ligações WebSocket são feitas na porta 443 como uma atualização de HTTPS 1.1, que é comumente abstrata por alguma estrutura WebSocket ou API. A descrição aqui é mantida neutra em termos de implementação, sem sugerir um quadro específico.
 
 ### <a name="listener-protocol"></a>Protocolo de escuta
 
-O protocolo de escuta consiste em dois gestos de conexão e três operações de mensagem.
+O protocolo do ouvinte consiste em dois gestos de ligação e três operações de mensagens.
 
-#### <a name="listener-control-channel-connection"></a>Conexão de canal de controle de ouvinte
+#### <a name="listener-control-channel-connection"></a>Ligação do canal de controlo do ouvinte
 
-O canal de controle é aberto com a criação de uma conexão WebSocket para:
+O canal de controlo é aberto com a criação de uma ligação WebSocket para:
 
 `wss://{namespace-address}/$hc/{path}?sb-hc-action=...[&sb-hc-id=...]&sb-hc-token=...`
 
-O `namespace-address` é o nome de domínio totalmente qualificado do namespace de retransmissão do Azure que hospeda a conexão híbrida, normalmente no formato `{myname}.servicebus.windows.net`.
+O `namespace-address` nome de domínio totalmente qualificado do espaço de nome Sulista Azure que acolhe a Conexão Híbrida, tipicamente do formulário. `{myname}.servicebus.windows.net`
 
-As opções de parâmetro de cadeia de caracteres de consulta são as seguintes.
+As opções de parâmetros de corda de consulta são as seguintes.
 
-| Parâmetro        | Obrigatório | Descrição
+| Parâmetro        | Necessário | Descrição
 | ---------------- | -------- | -------------------------------------------
-| `sb-hc-action`   | Sim      | Para a função de ouvinte, o parâmetro deve ser **SB-HC-Action = escutar**
-| `{path}`         | Sim      | O caminho do namespace codificado por URL da conexão híbrida pré-configurada na qual registrar esse ouvinte. Essa expressão é anexada à parte do caminho de `$hc/` fixo.
-| `sb-hc-token`    | Sim\*    | O ouvinte deve fornecer um token de acesso compartilhado de barramento de serviço com codificação de URL válido para o namespace ou conexão híbrida que confere o direito de **escuta** .
-| `sb-hc-id`       | Não       | Essa ID opcional fornecida pelo cliente habilita o rastreamento de diagnóstico de ponta a ponta.
+| `sb-hc-action`   | Sim      | Para o papel de ouvinte, o parâmetro deve ser **sb-hc-action=ouvir**
+| `{path}`         | Sim      | O caminho espaço de nome codificado por URL da Ligação Híbrida pré-configurada para registar este ouvinte ligado. Esta expressão está anexada `$hc/` à parte do caminho fixo.
+| `sb-hc-token`    | Sim\*    | O ouvinte deve fornecer um suporte de acesso partilhado de ônibus de serviço codificado com URL para o espaço de nome ou conexão híbrida que confere o direito de **ouvir.**
+| `sb-hc-id`       | Não       | Este ID opcional fornecido pelo cliente permite o rastreio de diagnóstico de ponta a ponta.
 
-Se a conexão WebSocket falhar porque o caminho de conexão híbrida não está sendo registrado, ou um token inválido ou ausente ou algum outro erro, os comentários de erro são fornecidos usando o modelo de comentários de status HTTP 1,1 regular. A descrição do status contém uma ID de rastreamento de erro que pode ser comunicada à equipe de suporte do Azure:
+Se a ligação WebSocket falhar devido ao facto de a rota de ligação híbrida não estar registada, ou de um token inválido ou em falta, ou de algum outro erro, o feedback de erro é fornecido utilizando o modelo regular de feedback do estado HTTP 1.1. A descrição do estado contém um erro de rastreio que pode ser comunicado ao pessoal de suporte do Azure:
 
 | Código | Erro          | Descrição
 | ---- | -------------- | -------------------------------------------------------------------
-| 404  | Não foi encontrado      | O caminho da conexão híbrida é inválido ou a URL base está malformada.
-| 401  | Não autorizado   | O token de segurança está ausente ou malformado ou inválido.
-| 403  | Proibido      | O token de segurança não é válido para este caminho para esta ação.
-| 500  | Erro interno | Algo deu errado no serviço.
+| 404  | Não encontrado      | O caminho de ligação híbrida é inválido ou o URL base está mal formado.
+| 401  | Não autorizado   | O sinal de segurança está em falta, mal formado ou inválido.
+| 403  | Proibido      | O símbolo de segurança não é válido para este caminho para esta ação.
+| 500  | Erro Interno | Algo correu mal no serviço.
 
-Se a conexão WebSocket for desligada intencionalmente pelo serviço depois que ela tiver sido inicialmente configurada, o motivo para isso é comunicado usando um código de erro de protocolo WebSocket apropriado junto com uma mensagem de erro descritiva que também inclui uma ID de rastreamento. O serviço não desligará o canal de controle sem encontrar uma condição de erro. Qualquer desligamento normal é controlado pelo cliente.
+Se a ligação WebSocket for desligada intencionalmente pelo serviço após a sua configuração inicial, a razão para o fazer é comunicada utilizando um código de erro de protocolo WebSocket apropriado, juntamente com uma mensagem de erro descritiva que também inclui um ID de rastreio. O serviço não desligará o canal de controlo sem encontrar uma condição de erro. Qualquer encerramento limpo é controlado pelo cliente.
 
-| Status do WS | Descrição
+| Estatuto WS | Descrição
 | --------- | -------------------------------------------------------------------------------
-| 1001      | O caminho de conexão híbrida foi excluído ou desabilitado.
-| 1008      | O token de segurança expirou, portanto, a política de autorização foi violada.
-| 1011      | Algo deu errado no serviço.
+| 1001      | O caminho de ligação híbrida foi eliminado ou desativado.
+| 1008      | O sinal de segurança expirou, portanto a política de autorização é violada.
+| 1011      | Algo correu mal no serviço.
 
-#### <a name="accept-handshake"></a>Aceitar handshake
+#### <a name="accept-handshake"></a>Aceite o aperto de mão
 
-A notificação "Accept" é enviada pelo serviço para o ouvinte pelo canal de controle estabelecido anteriormente como uma mensagem JSON em um quadro de texto WebSocket. Não há nenhuma resposta para esta mensagem.
+A notificação "aceitar" é enviada pelo serviço ao ouvinte através do canal de controlo previamente estabelecido como uma mensagem JSON num quadro de texto WebSocket. Não há resposta a esta mensagem.
 
-A mensagem contém um objeto JSON chamado "Accept", que define as seguintes propriedades neste momento:
+A mensagem contém um objeto JSON chamado "aceitar", que define as seguintes propriedades neste momento:
 
-* **endereço** – a cadeia de caracteres de URL a ser usada para estabelecer o WebSocket para o serviço para aceitar uma conexão de entrada.
-* **ID** – o identificador exclusivo para esta conexão. Se a ID tiver sido fornecida pelo cliente remetente, será o valor fornecido pelo remetente, caso contrário, será um valor gerado pelo sistema.
-* **connectHeaders** – todos os cabeçalhos HTTP que foram fornecidos ao ponto de extremidade de retransmissão pelo remetente, que também inclui os cabeçalhos s-WebSocket-Protocol e s-WebSocket-Extensions.
+* **endereço** – a cadeia URL a utilizar para estabelecer o WebSocket ao serviço para aceitar uma ligação de entrada.
+* **id** – o identificador único para esta ligação. Se o ID foi fornecido pelo cliente remetente, é o valor fornecido pelo remetente, caso contrário é um valor gerado pelo sistema.
+* **ligarHeaders** – todos os cabeçalhos HTTP que foram fornecidos ao ponto final do retransmissor pelo remetente, que também inclui o Sec-WebSocket-Protocol e os cabeçalhos sec-WebSocket-Extensions.
 
 ```json
 {
@@ -192,77 +192,77 @@ A mensagem contém um objeto JSON chamado "Accept", que define as seguintes prop
 }
 ```
 
-A URL de endereço fornecida na mensagem JSON é usada pelo ouvinte para estabelecer o WebSocket para aceitar ou rejeitar o soquete do remetente.
+O URL de endereço fornecido na mensagem JSON é utilizado pelo ouvinte para estabelecer o WebSocket para aceitar ou rejeitar a tomada do remetente.
 
-##### <a name="accepting-the-socket"></a>Aceitando o soquete
+##### <a name="accepting-the-socket"></a>Aceitando a tomada
 
-Para aceitar, o ouvinte estabelece uma conexão WebSocket com o endereço fornecido.
+Para aceitar, o ouvinte estabelece uma ligação WebSocket ao endereço fornecido.
 
-Se a mensagem "Accept" transportar um cabeçalho `Sec-WebSocket-Protocol`, espera-se que o ouvinte aceite apenas o WebSocket se ele der suporte a esse protocolo. Além disso, ele define o cabeçalho conforme o WebSocket é estabelecido.
+Se a mensagem "aceitar" transportar um `Sec-WebSocket-Protocol` cabeçalho, espera-se que o ouvinte só aceite o WebSocket se suportar esse protocolo. Além disso, define o cabeçalho à medida que o WebSocket é estabelecido.
 
-O mesmo se aplica ao cabeçalho `Sec-WebSocket-Extensions`. Se a estrutura oferecer suporte a uma extensão, ela deverá definir o cabeçalho como a resposta do lado do servidor do handshake de `Sec-WebSocket-Extensions` necessário para a extensão.
+O mesmo se `Sec-WebSocket-Extensions` aplica ao cabeçalho. Se a estrutura suportar uma extensão, deve definir o cabeçalho `Sec-WebSocket-Extensions` para a resposta do lado do servidor do aperto de mão necessário para a extensão.
 
-A URL deve ser usada no estado em que se encontra para estabelecer o soquete de aceitação, mas contém os seguintes parâmetros:
+O URL deve ser utilizado como é para estabelecer a tomada aceite, mas contém os seguintes parâmetros:
 
-| Parâmetro      | Obrigatório | Descrição
+| Parâmetro      | Necessário | Descrição
 | -------------- | -------- | -------------------------------------------------------------------
-| `sb-hc-action` | Sim      | Para aceitar um soquete, o parâmetro deve ser `sb-hc-action=accept`
-| `{path}`       | Sim      | (consulte o parágrafo a seguir)
-| `sb-hc-id`     | Não       | Consulte a descrição anterior da **ID**.
+| `sb-hc-action` | Sim      | Para aceitar uma tomada, o parâmetro deve ser`sb-hc-action=accept`
+| `{path}`       | Sim      | (ver o parágrafo seguinte)
+| `sb-hc-id`     | Não       | Consulte a descrição anterior do **id**.
 
-`{path}` é o caminho do namespace com codificação de URL da conexão híbrida pré-configurada na qual registrar esse ouvinte. Essa expressão é anexada à parte do caminho de `$hc/` fixo.
+`{path}`é o caminho espaço de espaço de nome codificado por URL da Ligação Híbrida pré-configurada para registar este ouvinte. Esta expressão está anexada `$hc/` à parte do caminho fixo.
 
-A expressão `path` pode ser estendida com um sufixo e uma expressão de cadeia de caracteres de consulta que segue o nome registrado após uma barra de separação.
-Isso permite que o cliente remetente passe argumentos de expedição para o ouvinte de aceitação quando não é possível incluir cabeçalhos HTTP. A expectativa é que a estrutura do ouvinte analise a parte do caminho fixo e o nome registrado do caminho e faça o restante, possivelmente sem nenhum argumento de cadeia de caracteres de consulta prefixado por `sb-`, disponível para o aplicativo para decidir se deseja aceitar a conexão.
+A `path` expressão pode ser estendida com um sufixo e uma expressão de corda de consulta que segue o nome registado após um corte para a frente que separa.
+Isto permite ao cliente remetente passar argumentos de envio para o ouvinte que aceita quando não é possível incluir cabeçalhos HTTP. A expectativa é que o quadro do ouvinte analise a parte do caminho fixo e o nome registado do `sb-`caminho e torne o restante, possivelmente sem argumentos de corda de consulta pré-fixados, disponíveis para o pedido de decisão para decidir se aceitam a ligação.
 
-Para obter mais informações, consulte a seguinte seção "protocolo do remetente".
+Para mais informações, consulte a secção "Protocolo de Remetente".
 
-Se houver um erro, o serviço poderá responder da seguinte maneira:
+Se houver um erro, o serviço pode responder da seguinte forma:
 
 | Código | Erro          | Descrição
 | ---- | -------------- | -----------------------------------
 | 403  | Proibido      | O URL não é válido.
-| 500  | Erro interno | Algo deu errado no serviço
+| 500  | Erro Interno | Algo correu mal no serviço.
 
- Depois que a conexão é estabelecida, o servidor desliga o WebSocket quando o WebSocket do remetente é desligado ou com o seguinte status:
+ Depois de estabelecida a ligação, o servidor desliga o WebSocket quando o remetente WebSocket desliga, ou com o seguinte estado:
 
-| Status do WS | Descrição                                                                     |
+| Estatuto WS | Descrição                                                                     |
 | --------- | ------------------------------------------------------------------------------- |
-| 1001      | O cliente remetente desliga a conexão.                                    |
-| 1001      | O caminho de conexão híbrida foi excluído ou desabilitado.                        |
-| 1008      | O token de segurança expirou, portanto, a política de autorização foi violada. |
-| 1011      | Algo deu errado no serviço.                                            |
+| 1001      | O cliente remetente desliga a ligação.                                    |
+| 1001      | O caminho de ligação híbrida foi eliminado ou desativado.                        |
+| 1008      | O sinal de segurança expirou, portanto a política de autorização é violada. |
+| 1011      | Algo correu mal no serviço.                                            |
 
-##### <a name="rejecting-the-socket"></a>Rejeitando o soquete
+##### <a name="rejecting-the-socket"></a>Rejeitando a tomada
 
- Rejeitar o Soquete depois de inspecionar a mensagem de `accept` requer um handshake semelhante para que o código de status e a descrição do status que se comunicam com o motivo da rejeição possam fluir de volta para o remetente.
+ Rejeitar a tomada após `accept` inspecionar a mensagem requer um aperto de mão semelhante para que o código de estado e a descrição do estado que comunicam a razão da rejeição possam voltar para o remetente.
 
- A escolha de design de protocolo aqui é usar um handshake WebSocket (que é projetado para terminar em um estado de erro definido) para que as implementações do ouvinte do cliente possam continuar a depender de um cliente WebSocket e não precisem empregar um cliente HTTP simples e extra.
+ A escolha do design do protocolo aqui é usar um aperto de mão WebSocket (que é projetado para terminar em um estado de erro definido) para que as implementações de clientes ouvintes possam continuar a depender de um cliente WebSocket e não precisam de empregar um cliente http extra, nu.
 
- Para rejeitar o soquete, o cliente usa o URI de endereço da mensagem de `accept` e acrescenta dois parâmetros de cadeia de caracteres de consulta a ele, da seguinte maneira:
+ Para rejeitar a tomada, o cliente `accept` retira o endereço URI da mensagem e anexa dois parâmetros de corda de consulta, da seguinte forma:
 
-| Param                   | Obrigatório | Descrição                              |
+| Param                   | Necessário | Descrição                              |
 | ----------------------- | -------- | ---------------------------------------- |
-| sb-hc-statusCode        | Sim      | Código de status HTTP numérico.                |
-| sb-hc-statusDescription | Sim      | Motivo legível por humanos para a rejeição. |
+| sb-hc-statusCódigo        | Sim      | Código de estado numérico HTTP.                |
+| sb-hc-statusDescrição | Sim      | Razão legível humana para a rejeição. |
 
-O URI resultante é usado para estabelecer uma conexão WebSocket.
+O URI resultante é então utilizado para estabelecer uma ligação WebSocket.
 
-Ao concluir corretamente, esse handshake falha intencionalmente com um código de erro HTTP 410, pois nenhum WebSocket foi estabelecido. Se algo der errado, os códigos a seguir descrevem o erro:
+Ao completar corretamente, este aperto de mão falha intencionalmente com um código de erro HTTP 410, uma vez que não foi estabelecido nenhum WebSocket. Se algo correr mal, os seguintes códigos descrevem o erro:
 
 | Código | Erro          | Descrição                          |
 | ---- | -------------- | ------------------------------------ |
 | 403  | Proibido      | O URL não é válido.                |
-| 500  | Erro interno | Algo deu errado no serviço. |
+| 500  | Erro Interno | Algo correu mal no serviço. |
 
-#### <a name="request-message"></a>Mensagem de solicitação
+#### <a name="request-message"></a>Mensagem de pedido
 
-A mensagem de `request` é enviada pelo serviço para o ouvinte pelo canal de controle. A mesma mensagem também é enviada pelo WebSocket de reunião depois de estabelecida.
+A `request` mensagem é enviada pelo serviço ao ouvinte através do canal de controlo. A mesma mensagem também é enviada sobre o webSocket de encontro uma vez estabelecido.
 
-O `request` consiste em duas partes: um cabeçalho e quadros de corpo binários.
-Se não houver corpo, os quadros do corpo serão omitidos. O indicador de se um corpo está presente é a propriedade booliana `body` na mensagem de solicitação.
+As `request` duas partes são constituídas por duas partes: um cabeçalho e uma moldura corporal binária.
+Se não houver corpo, as molduras do corpo são omitidas. O indicador para se um corpo está `body` presente é a propriedade booleana na mensagem de pedido.
 
-Para uma solicitação com um corpo de solicitação, a estrutura pode ter a seguinte aparência:
+Para um pedido com um órgão de pedido, a estrutura pode ser assim:
 
 ``` text
 ----- Web Socket text frame ----
@@ -282,10 +282,10 @@ FEFEFEFEFEFEFEFEFEFEF...
 ----------------------------------
 ```
 
-O ouvinte deve lidar com o recebimento da divisão do corpo da solicitação em vários quadros binários (consulte [fragmentos do WebSocket](https://tools.ietf.org/html/rfc6455#section-5.4)).
-A solicitação termina quando um quadro binário com o sinalizador de FIN definido foi recebido.
+O cabo do ouvinte MUST recebendo o corpo de pedido dividido em vários quadros binários (ver [fragmentos webSocket](https://tools.ietf.org/html/rfc6455#section-5.4)).
+O pedido termina quando foi recebida uma moldura binária com o conjunto de bandeira fin.
 
-Para uma solicitação sem corpo, há apenas um quadro de texto.
+Para um pedido sem corpo, só há uma moldura de texto.
 
 ``` text
 ----- Web Socket text frame ----
@@ -299,24 +299,24 @@ Para uma solicitação sem corpo, há apenas um quadro de texto.
 ----------------------------------
 ```
 
-O conteúdo JSON para `request` é o seguinte:
+O conteúdo da `request` JSON é o seguinte:
 
-* Cadeia de caracteres de URI de **endereço** . Este é o endereço de reunião a ser usado para esta solicitação. Se a solicitação de entrada for maior que 64 kB, o restante dessa mensagem será deixado vazio e o cliente deverá iniciar um handshake de reunião equivalente à `accept` operação descrita abaixo. Em seguida, o serviço colocará o `request` completo no soquete da Web estabelecido. Se for esperado que a resposta exceda 64 kB, o ouvinte também deverá iniciar um handshake de reunião e, em seguida, transferir a resposta sobre o soquete da Web estabelecido.
-* **ID** – cadeia de caracteres. O identificador exclusivo para esta solicitação.
-* **requestHeaders** – esse objeto contém todos os cabeçalhos HTTP que foram fornecidos ao ponto de extremidade pelo remetente, com exceção das informações de autorização, conforme explicado [acima](#request-operation), e os cabeçalhos que se referem estritamente à conexão com o gateway. Especificamente, todos os cabeçalhos definidos ou reservados em [RFC7230](https://tools.ietf.org/html/rfc7230), exceto `Via`, são removidos e não encaminhados:
+* **endereço** - corda URI. Este é o endereço de encontro a utilizar para este pedido. Se o pedido de entrada for superior a 64 kB, o restante desta mensagem fica vazio e `accept` o cliente DEVE iniciar um aperto de mão equivalente à operação descrita abaixo. Em seguida, o `request` serviço colocará o completo na tomada Web estabelecida. Se se pode esperar que a resposta ultrapasse os 64 kB, o ouvinte DEVE também iniciar um aperto de mão de encontro e, em seguida, transferir a resposta sobre a tomada Web estabelecida.
+* **id** – corda. O identificador único para este pedido.
+* **solicitadoresHeaders** – este objeto contém todos os cabeçalhos HTTP que foram fornecidos ao ponto final pelo remetente, com exceção das informações de autorização [acima](#request-operation)explicadas – e cabeçalhos que se relacionam estritamente com a ligação com o portal. Especificamente, TODOS os cabeçalhos definidos ou `Via`reservados em [RFC7230,](https://tools.ietf.org/html/rfc7230)exceto, são despojados e não reencaminhados:
 
-  * `Connection` (RFC7230, seção 6,1)
-  * `Content-Length` (RFC7230, seção 3.3.2)
-  * `Host` (RFC7230, seção 5,4)
-  * `TE` (RFC7230, seção 4,3)
-  * `Trailer` (RFC7230, seção 4,4)
-  * `Transfer-Encoding` (RFC7230, seção 3.3.1)
-  * `Upgrade` (RFC7230, seção 6,7)
-  * `Close` (RFC7230, seção 8,1)
+  * `Connection`(RFC7230, Secção 6.1)
+  * `Content-Length`(RFC7230, Secção 3.3.2)
+  * `Host`(RFC7230, Secção 5.4)
+  * `TE`(RFC7230, Secção 4.3)
+  * `Trailer`(RFC7230, Secção 4.4)
+  * `Transfer-Encoding`(RFC7230, Secção 3.3.1)
+  * `Upgrade`(RFC7230, Secção 6.7)
+  * `Close`(RFC7230, Secção 8.1)
 
-* **requestTarget** – cadeia de caracteres. Essa propriedade contém o ["destino da solicitação" (RFC7230, seção 5,3)](https://tools.ietf.org/html/rfc7230#section-5.3) da solicitação. Isso inclui a parte da cadeia de caracteres de consulta, que é removida de todos os `sb-hc-` parâmetros prefixados.
-* Cadeia de caracteres de **método** . Esse é o método da solicitação, por [RFC7231, seção 4](https://tools.ietf.org/html/rfc7231#section-4). O método `CONNECT` não deve ser usado.
-* **Body** – booliano. Indica se um ou mais quadros de corpo binário são mostrados a seguir.
+* **solicitarTarget** – corda. Este imóvel detém o "Alvo de [Pedido" (RFC7230, Secção 5.3)](https://tools.ietf.org/html/rfc7230#section-5.3) do pedido. Isto inclui a porção de corda de `sb-hc-` consulta, que é despojada de todos os parâmetros pré-fixados.
+* **método** - corda. Este é o método do pedido, por [RFC7231, Secção 4](https://tools.ietf.org/html/rfc7231#section-4). O `CONNECT` método NÃO DEVE ser utilizado.
+* **corpo** – boolean. Indica se segue uma ou mais molduras binárias do corpo.
 
 ``` JSON
 {
@@ -335,22 +335,22 @@ O conteúdo JSON para `request` é o seguinte:
 }
 ```
 
-##### <a name="responding-to-requests"></a>Respondendo a solicitações
+##### <a name="responding-to-requests"></a>Responder a pedidos
 
-O receptor deve responder. A falha repetida de responder às solicitações enquanto mantém a conexão pode fazer com que o ouvinte fique na lista de bloqueios.
+O recetor DEVE responder. A incapacidade repetida de responder aos pedidos mantendo a ligação pode resultar na colocação da lista negra do ouvinte.
 
-As respostas podem ser enviadas em qualquer ordem, mas cada solicitação deve ser respondida em até 60 segundos ou a entrega será relatada como tendo falhado. O prazo final de 60 segundos é contado até que o quadro de `response` tenha sido recebido pelo serviço. Uma resposta em andamento com vários quadros binários não pode ficar ociosa por mais de 60 segundos ou terminada.
+As respostas podem ser enviadas em qualquer encomenda, mas cada pedido deve ser respondido dentro de 60 segundos ou a entrega será reportada como tendo falhado. O prazo de 60 segundos `response` é contado até que o quadro tenha sido recebido pelo serviço. Uma resposta contínua com várias molduras binárias não pode ficar inativa por mais de 60 segundos ou termina.
 
-Se a solicitação for recebida no canal de controle, a resposta deverá ser enviada no canal de controle de onde a solicitação foi recebida ou deve ser enviada por um canal de reunião.
+Se o pedido for recebido através do canal de controlo, a resposta DEVE ser enviada no canal de controlo de onde o pedido foi recebido ou deve ser enviada através de um canal de encontro.
 
-A resposta é um objeto JSON chamado "Response". As regras para lidar com o conteúdo do corpo são exatamente semelhantes às `request` mensagem e com base na propriedade `body`.
+A resposta é um objeto da JSON chamado "resposta". As regras para o manuseamento `request` do conteúdo do `body` corpo são exatamente como com a mensagem e baseadas na propriedade.
 
-* **requestId** – cadeia de caracteres. Necessário. O valor da propriedade de `id` da mensagem de `request` que está sendo respondida.
-* **StatusCode** – número. Necessário. um código de status HTTP numérico que indica o resultado da notificação. Todos os códigos de status de [RFC7231, seção 6](https://tools.ietf.org/html/rfc7231#section-6) são permitidos, exceto por [502 "gateway inadequado"](https://tools.ietf.org/html/rfc7231#section-6.6.3) e [504 "tempo limite de gateway"](https://tools.ietf.org/html/rfc7231#section-6.6.5).
-* **statusDescription** -cadeia de caracteres. Adicional. Status HTTP-frase do motivo do código por [RFC7230, seção 3.1.2](https://tools.ietf.org/html/rfc7230#section-3.1.2)
-* **responseHeaders** – cabeçalhos HTTP a serem definidos em uma resposta http externa.
-  Assim como no `request`, os cabeçalhos definidos RFC7230 não devem ser usados.
-* **Body** – booliano. Indica se os quadros de corpo binário seguem (m).
+* **requestId** – corda. Necessário. O `id` valor patrimonial `request` da mensagem a ser respondida.
+* **statusCódigo** – número. Necessário. um código de estado http numérico que indique o resultado da notificação. Todos os códigos de estado do [RFC7231, secção 6,](https://tools.ietf.org/html/rfc7231#section-6) exceto [502 "Bad Gateway"](https://tools.ietf.org/html/rfc7231#section-6.6.3) e [504 "Gateway Timeout".](https://tools.ietf.org/html/rfc7231#section-6.6.5)
+* **estadoDescrição** - corda. OPCIONAL. FRASE de razão de código de estado HTTP por [RFC7230, Secção 3.1.2](https://tools.ietf.org/html/rfc7230#section-3.1.2)
+* **respostaHeaders** – Cabeçalhos HTTP a definir numa resposta http externa.
+  Tal como `request`acontece com os cabeçalhos definidos RFC7230 NÃO DEVEM ser utilizados.
+* **corpo** – boolean. Indica se os quadros do corpo binário seguem(s).
 
 ``` text
 ----- Web Socket text frame ----
@@ -370,39 +370,39 @@ A resposta é um objeto JSON chamado "Response". As regras para lidar com o cont
 ----------------------------------
 ```
 
-##### <a name="responding-via-rendezvous"></a>Respondendo por meio da reunião
+##### <a name="responding-via-rendezvous"></a>Respondendo via encontro
 
-Para respostas que excedem 64 kB, a resposta deve ser entregue em um soquete de reunião. Além disso, se a solicitação exceder 64 kB e a `request` contiver apenas o campo endereço, um soquete de reunião deverá ser estabelecido para obter o `request`. Depois que um soquete de reunião tiver sido estabelecido, as respostas para o respectivo cliente e as solicitações subsequentes desse respectivo cliente deverão ser entregues pelo soquete de reunião enquanto ele persistir.
+Para respostas superiores a 64 kB, a resposta DEVE ser entregue sobre uma tomada de ponto de encontro. Além disso, se o pedido exceder `request` 64 kB, e o único contiver o `request`campo de endereços, deve ser estabelecida uma tomada de encontro para obter o . Uma vez estabelecida uma tomada de encontro, as respostas ao respetivo cliente e os pedidos subsequentes desse respetivo cliente DEVEM ser entregues sobre a tomada de encontro enquanto persiste.
 
-A URL de `address` no `request` deve ser usada no estado em que se encontra para estabelecer o soquete de reunião, mas contém os seguintes parâmetros:
+O `address` URL `request` no deve ser utilizado como é para estabelecer a tomada de encontro, mas contém os seguintes parâmetros:
 
-| Parâmetro      | Obrigatório | Descrição
+| Parâmetro      | Necessário | Descrição
 | -------------- | -------- | -------------------------------------------------------------------
-| `sb-hc-action` | Sim      | Para aceitar um soquete, o parâmetro deve ser `sb-hc-action=request`
+| `sb-hc-action` | Sim      | Para aceitar uma tomada, o parâmetro deve ser`sb-hc-action=request`
 
-Se houver um erro, o serviço poderá responder da seguinte maneira:
+Se houver um erro, o serviço pode responder da seguinte forma:
 
 | Código | Erro           | Descrição
 | ---- | --------------- | -----------------------------------
-| 400  | Solicitação inválida | Ação não reconhecida ou URL inválida.
+| 400  | Pedido Inválido | Ação não reconhecida ou URL não válido.
 | 403  | Proibido       | A URL expirou.
-| 500  | Erro interno  | Algo deu errado no serviço
+| 500  | Erro Interno  | Algo correu mal no serviço.
 
- Depois que a conexão é estabelecida, o servidor desliga o WebSocket quando o soquete HTTP do cliente é desligado ou com o seguinte status:
+ Após a ligação ter sido estabelecida, o servidor desliga o WebSocket quando a tomada HTTP do cliente se desliga, ou com o seguinte estado:
 
-| Status do WS | Descrição                                                                     |
+| Estatuto WS | Descrição                                                                     |
 | --------- | ------------------------------------------------------------------------------- |
-| 1001      | O cliente remetente desliga a conexão.                                    |
-| 1001      | O caminho de conexão híbrida foi excluído ou desabilitado.                        |
-| 1008      | O token de segurança expirou, portanto, a política de autorização foi violada. |
-| 1011      | Algo deu errado no serviço.                                            |
+| 1001      | O cliente remetente desliga a ligação.                                    |
+| 1001      | O caminho de ligação híbrida foi eliminado ou desativado.                        |
+| 1008      | O sinal de segurança expirou, portanto a política de autorização é violada. |
+| 1011      | Algo correu mal no serviço.                                            |
 
 
 #### <a name="listener-token-renewal"></a>Renovação de token de ouvinte
 
-Quando o token do ouvinte está prestes a expirar, ele pode substituí-lo enviando uma mensagem de quadro de texto ao serviço por meio do canal de controle estabelecido. A mensagem contém um objeto JSON chamado `renewToken`, que define a seguinte propriedade neste momento:
+Quando o sinal de escuta estiver prestes a expirar, pode substituí-lo enviando uma mensagem de texto para o serviço através do canal de controlo estabelecido. A mensagem contém um objeto `renewToken`JSON chamado , que define a seguinte propriedade neste momento:
 
-* **token** – um token de acesso compartilhado de barramento de serviço de codificação de URL válido para o namespace ou conexão híbrida que confere o direito de **escuta** .
+* **ficha** – um suporte de acesso partilhado de ônibus de serviço codificado por URL para o espaço de nome ou ligação híbrida que confere o direito **de ouvir.**
 
 ```json
 {
@@ -413,103 +413,103 @@ Quando o token do ouvinte está prestes a expirar, ele pode substituí-lo envian
 }
 ```
 
-Se a validação do token falhar, o acesso será negado e o serviço de nuvem fechará o WebSocket do canal de controle com um erro. Caso contrário, não haverá resposta.
+Se a validação do token falhar, o acesso é negado e o serviço de nuvem fecha o canal de controlo WebSocket com um erro. Caso contrário, não há resposta.
 
-| Status do WS | Descrição                                                                     |
+| Estatuto WS | Descrição                                                                     |
 | --------- | ------------------------------------------------------------------------------- |
-| 1008      | O token de segurança expirou, portanto, a política de autorização foi violada. |
+| 1008      | O sinal de segurança expirou, portanto a política de autorização é violada. |
 
-### <a name="web-socket-connect-protocol"></a>Protocolo de conexão de soquete da Web
+### <a name="web-socket-connect-protocol"></a>Protocolo de ligação web socket
 
-O protocolo do remetente é efetivamente idêntico ao modo como um ouvinte é estabelecido.
-A meta é a transparência máxima do WebSocket de ponta a ponta. O endereço a ser conectado é o mesmo do ouvinte, mas a "ação" difere e o token precisa de uma permissão diferente:
+O protocolo do remetente é efetivamente idêntico à forma como um ouvinte é estabelecido.
+O objetivo é a máxima transparência para o WebSocket de ponta a ponta. O endereço a que se ligar é o mesmo que para o ouvinte, mas a "ação" difere e o símbolo precisa de uma permissão diferente:
 
 ```
 wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sbc-hc-token=...
 ```
 
-O _namespace-address_ é o nome de domínio totalmente qualificado do namespace de retransmissão do Azure que hospeda a conexão híbrida, normalmente no formato `{myname}.servicebus.windows.net`.
+O _nome space-address_ é o nome de domínio totalmente qualificado do espaço de nome `{myname}.servicebus.windows.net`Sulista Azure que acolhe a Conexão Híbrida, tipicamente do formulário .
 
-A solicitação pode conter cabeçalhos HTTP adicionais arbitrários, incluindo aqueles definidos pelo aplicativo. Todos os cabeçalhos fornecidos fluem para o ouvinte e podem ser encontrados no objeto `connectHeader` da mensagem de controle **Accept** .
+O pedido pode conter cabeçalhos http extra arbitrários extra, incluindo os definidos pela aplicação. Todos os cabeçalhos fornecidos fluem para `connectHeader` o ouvinte e podem ser encontrados no objeto da mensagem de controlo **de aceitação.**
 
-As opções de parâmetro de cadeia de caracteres de consulta são as seguintes:
+As opções de parâmetros de corda de consulta são as seguintes:
 
 | Param          | Necessário? | Descrição
 | -------------- | --------- | -------------------------- |
-| `sb-hc-action` | Sim       | Para a função de remetente, o parâmetro deve ser `sb-hc-action=connect`.
-| `{path}`       | Sim       | (consulte o parágrafo a seguir)
-| `sb-hc-token`  | Sim\*     | O ouvinte deve fornecer um token de acesso compartilhado de barramento de serviço com codificação de URL válido para o namespace ou conexão híbrida que confere o direito de **envio** .
-| `sb-hc-id`     | Não        | Uma ID opcional que habilita o rastreamento de diagnóstico de ponta a ponta e é disponibilizada para o ouvinte durante o handshake de aceitação.
+| `sb-hc-action` | Sim       | Para o papel do remetente, `sb-hc-action=connect`o parâmetro deve ser .
+| `{path}`       | Sim       | (ver o parágrafo seguinte)
+| `sb-hc-token`  | Sim\*     | O ouvinte deve fornecer um suporte de acesso partilhado de ônibus de serviço codificado com URL para o espaço de nome ou conexão híbrida que confere o direito **de envio.**
+| `sb-hc-id`     | Não        | Um ID opcional que permite o rastreio de diagnóstico de ponta a ponta e é disponibilizado ao ouvinte durante o aperto de mão aceite.
 
- O `{path}` é o caminho do namespace de URL codificada da conexão híbrida pré-configurada na qual registrar esse ouvinte. A expressão `path` pode ser estendida com um sufixo e uma expressão de cadeia de caracteres de consulta para se comunicar mais. Se a conexão híbrida estiver registrada no caminho `hyco`, a `path` expressão poderá ser `hyco/suffix?param=value&...` seguida pelos parâmetros de cadeia de caracteres de consulta definidos aqui. Uma expressão completa pode ser a seguinte:
+ É `{path}` o caminho espaço de espaço de nome codificado por URL da Ligação Híbrida pré-configurada para registar este ouvinte. A `path` expressão pode ser estendida com um sufixo e uma expressão de corda de consulta para comunicar mais. Se a Ligação Híbrida `hyco`estiver `path` registada no `hyco/suffix?param=value&...` caminho, a expressão pode ser seguida pelos parâmetros de corda de consulta definidos aqui. Uma expressão completa pode então ser a seguinte:
 
 ```
 wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sbc-hc-token=...
 ```
 
-A expressão de `path` é passada para o ouvinte no URI de endereço contido na mensagem de controle "Accept".
+A `path` expressão é transmitida ao ouvinte no endereço URI contido na mensagem de controlo "aceitar".
 
-Se a conexão WebSocket falhar devido ao caminho de conexão híbrida não estar registrado, um token inválido ou ausente ou algum outro erro, os comentários de erro serão fornecidos usando o modelo de comentários de status HTTP 1,1 regular. A descrição do status contém uma ID de rastreamento de erro que pode ser comunicada à equipe de suporte do Azure:
+Se a ligação WebSocket falhar devido ao facto de a via de ligação híbrida não estar registada, um token inválido ou em falta, ou algum outro erro, o feedback de erro é fornecido utilizando o modelo regular de feedback do estado HTTP 1.1. A descrição do estado contém um ID de rastreio de erros que pode ser comunicado ao pessoal de suporte do Azure:
 
 | Código | Erro          | Descrição
 | ---- | -------------- | -------------------------------------------------------------------
-| 404  | Não foi encontrado      | O caminho da conexão híbrida é inválido ou a URL base está malformada.
-| 401  | Não autorizado   | O token de segurança está ausente ou malformado ou inválido.
-| 403  | Proibido      | O token de segurança não é válido para este caminho e para esta ação.
-| 500  | Erro interno | Algo deu errado no serviço.
+| 404  | Não encontrado      | O caminho de ligação híbrida é inválido ou o URL base está mal formado.
+| 401  | Não autorizado   | O sinal de segurança está em falta, mal formado ou inválido.
+| 403  | Proibido      | O símbolo de segurança não é válido para este caminho e para esta ação.
+| 500  | Erro Interno | Algo correu mal no serviço.
 
-Se a conexão WebSocket for desligada intencionalmente pelo serviço depois que ela tiver sido inicialmente configurada, o motivo para isso é comunicado usando um código de erro de protocolo WebSocket apropriado junto com uma mensagem de erro descritiva que também inclui uma ID de rastreamento .
+Se a ligação WebSocket for desligada intencionalmente pelo serviço depois de ter sido inicialmente configurada, a razão para o fazer é comunicada utilizando um código de erro de protocolo WebSocket apropriado, juntamente com uma mensagem de erro descritiva que também inclui um ID de rastreio .
 
-| Status do WS | Descrição
+| Estatuto WS | Descrição
 | --------- | ------------------------------------------------------------------------------- 
-| 1000      | O ouvinte desligou o soquete.
-| 1001      | O caminho de conexão híbrida foi excluído ou desabilitado.
-| 1008      | O token de segurança expirou, portanto, a política de autorização foi violada.
-| 1011      | Algo deu errado no serviço.
+| 1000      | O ouvinte desligou a tomada.
+| 1001      | O caminho de ligação híbrida foi eliminado ou desativado.
+| 1008      | O sinal de segurança expirou, portanto a política de autorização é violada.
+| 1011      | Algo correu mal no serviço.
 
-### <a name="http-request-protocol"></a>Protocolo de solicitação HTTP
+### <a name="http-request-protocol"></a>PROTOCOLO DE PEDIDO HTTP
 
-O protocolo HTTP Request permite solicitações HTTP arbitrárias, exceto atualizações de protocolo.
-As solicitações HTTP são apontadas para o endereço de tempo de execução regular da entidade, sem o $hc infixo que é usado para clientes do WebSocket de conexões híbridas.
+O protocolo de pedido http permite pedidos de HTTP arbitrários, exceto atualizações protocolares.
+Os pedidos HTTP são apontados para o endereço de tempo de execução regular da entidade, sem o $hc infixo que é usado para ligações híbridas Clientes WebSocket.
 
 ```
 https://{namespace-address}/{path}?sbc-hc-token=...
 ```
 
-O _namespace-address_ é o nome de domínio totalmente qualificado do namespace de retransmissão do Azure que hospeda a conexão híbrida, normalmente no formato `{myname}.servicebus.windows.net`.
+O _nome space-address_ é o nome de domínio totalmente qualificado do espaço de nome `{myname}.servicebus.windows.net`Sulista Azure que acolhe a Conexão Híbrida, tipicamente do formulário .
 
-A solicitação pode conter cabeçalhos HTTP adicionais arbitrários, incluindo aqueles definidos pelo aplicativo. Todos os cabeçalhos fornecidos, exceto aqueles diretamente definidos no fluxo RFC7230 (consulte a [mensagem de solicitação](#Request message)) para o ouvinte e podem ser encontrados no objeto `requestHeader` da mensagem de **solicitação** .
+O pedido pode conter cabeçalhos http extra arbitrários extra, incluindo os definidos pela aplicação. Todos os cabeçalhos fornecidos, exceto os diretamente definidos no RFC7230 (ver `requestHeader` mensagem de [pedido](#Request message)) fluem para o ouvinte e podem ser encontrados no objeto da mensagem de **pedido.**
 
-As opções de parâmetro de cadeia de caracteres de consulta são as seguintes:
+As opções de parâmetros de corda de consulta são as seguintes:
 
 | Param          | Necessário? | Descrição
 | -------------- | --------- | ---------------- |
-| `sb-hc-token`  | Sim\*     | O ouvinte deve fornecer um token de acesso compartilhado de barramento de serviço com codificação de URL válido para o namespace ou conexão híbrida que confere o direito de **envio** .
+| `sb-hc-token`  | Sim\*     | O ouvinte deve fornecer um suporte de acesso partilhado de ônibus de serviço codificado com URL para o espaço de nome ou conexão híbrida que confere o direito **de envio.**
 
-O token também pode ser executado no cabeçalho HTTP `ServiceBusAuthorization` ou `Authorization`. O token poderá ser omitido se a conexão híbrida estiver configurada para permitir solicitações anônimas.
+O símbolo também pode ser `ServiceBusAuthorization` transportado `Authorization` no cabeçalho ou http. O símbolo pode ser omitido se a Ligação Híbrida estiver configurada para permitir pedidos anónimos.
 
-Como o serviço age efetivamente como um proxy, mesmo que não seja como um proxy HTTP verdadeiro, ele adiciona um cabeçalho `Via` ou anota o cabeçalho de `Via` existente compatível com [RFC7230, seção 5.7.1](https://tools.ietf.org/html/rfc7230#section-5.7.1).
-O serviço adiciona o nome de host do namespace de retransmissão para `Via`.
+Uma vez que o serviço atua efetivamente como um representante, mesmo `Via` que não como um `Via` verdadeiro representante http, ou adiciona um cabeçalho ou anota o cabeçalho existente em conformidade com [o RFC7230, secção 5.7.1](https://tools.ietf.org/html/rfc7230#section-5.7.1).
+O serviço adiciona o nome `Via`de anfitrião do espaço de retransmissão a .
 
 | Código | Mensagem  | Descrição                    |
 | ---- | -------- | ------------------------------ |
-| 200  | OK       | A solicitação foi manipulada por pelo menos um ouvinte.  |
-| 202  | Aceite | A solicitação foi aceita por pelo menos um ouvinte. |
+| 200  | OK       | O pedido foi tratado por pelo menos um ouvinte.  |
+| 202  | Aceite | O pedido foi aceite por pelo menos um ouvinte. |
 
-Se houver um erro, o serviço poderá responder da seguinte maneira. Se a resposta é proveniente do serviço ou do ouvinte pode ser identificada por meio da presença do cabeçalho de `Via`. Se o cabeçalho estiver presente, a resposta será do ouvinte.
+Se houver um erro, o serviço pode responder da seguinte forma. Se a resposta tem origem no serviço ou no ouvinte pode `Via` ser identificada através da presença do cabeçalho. Se o cabeçalho estiver presente, a resposta é do ouvinte.
 
 | Código | Erro           | Descrição
 | ---- | --------------- |--------- |
-| 404  | Não foi encontrado       | O caminho da conexão híbrida é inválido ou a URL base está malformada.
-| 401  | Não autorizado    | O token de segurança está ausente ou malformado ou inválido.
-| 403  | Proibido       | O token de segurança não é válido para este caminho e para esta ação.
-| 500  | Erro interno  | Algo deu errado no serviço.
-| 503  | Gateway incorrecto     | Não foi possível rotear a solicitação para nenhum ouvinte.
-| 504  | Tempo limite do gateway | A solicitação foi roteada para um ouvinte, mas o ouvinte não confirmou o recebimento no tempo necessário.
+| 404  | Não encontrado       | O caminho de ligação híbrida é inválido ou o URL base está mal formado.
+| 401  | Não autorizado    | O sinal de segurança está em falta, mal formado ou inválido.
+| 403  | Proibido       | O símbolo de segurança não é válido para este caminho e para esta ação.
+| 500  | Erro Interno  | Algo correu mal no serviço.
+| 503  | Bad Gateway     | O pedido não podia ser encaminhado para nenhum ouvinte.
+| 504  | Tempo de passagem | O pedido foi encaminhado para um ouvinte, mas o ouvinte não reconheceu a receção no tempo necessário.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [FAQ de Reencaminhamento](relay-faq.md)
 * [Criar um espaço de nomes](relay-create-namespace-portal.md)
-* [Introdução ao .NET](relay-hybrid-connections-dotnet-get-started.md)
+* [Começar com .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introdução ao Nó](relay-hybrid-connections-node-get-started.md)

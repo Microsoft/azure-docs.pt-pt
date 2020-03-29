@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: f36db28b58cd57b6407019b378a82632aa6c6228
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840660"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualizar padrões de tráfego de rede de e para os seus VMs utilizando ferramentas de código aberto
@@ -35,8 +35,8 @@ Tem uma aplicação web simples implantada num VM em Azure que pretende utilizar
 
 ### <a name="install-capanalysis"></a>Instalar capAnalysis
 
-Para instalar o CapAnalysis numa máquina virtual, pode consultar as instruções oficiais aqui https://www.capanalysis.net/ca/how-to-install-capanalysis.
-Para aceder remotamente à CapAnalysis, é necessário abrir a porta 9877 no seu VM adicionando uma nova regra de segurança de entrada. Para mais informações sobre a criação de regras em Grupos de Segurança de Rede, consulte a [Create rules in a existinte NSG](../virtual-network/manage-network-security-group.md#create-a-security-rule). Uma vez adicionada a regra com sucesso, deverá poder aceder ao CapAnalysis a partir de `http://<PublicIP>:9877`
+Para instalar o CapAnalysis numa máquina virtual, pode https://www.capanalysis.net/ca/how-to-install-capanalysisconsultar as instruções oficiais aqui .
+Para aceder remotamente à CapAnalysis, é necessário abrir a porta 9877 no seu VM adicionando uma nova regra de segurança de entrada. Para mais informações sobre a criação de regras em Grupos de Segurança de Rede, consulte a [Create rules in a existinte NSG](../virtual-network/manage-network-security-group.md#create-a-security-rule). Uma vez adicionada a regra com sucesso, você deve ser capaz de aceder a CapAnalysis a partir de`http://<PublicIP>:9877`
 
 ### <a name="use-azure-network-watcher-to-start-a-packet-capture-session"></a>Use o Vigilante da Rede Azure para iniciar uma sessão de captura de pacotes
 
@@ -47,7 +47,7 @@ Pode fazer o upload direto de uma captura de pacotes tirada pelo observador de r
 
 Ao fornecer um link para o CapAnalysis, certifique-se de anexar um token SAS ao URL blob de armazenamento.  Para isso, navegue para a assinatura de acesso partilhado a partir da conta de armazenamento, designe as permissões permitidas e prima o botão Generate SAS para criar um símbolo. Em seguida, pode anexar o token SAS ao URL blob de armazenamento de captura de pacotes.
 
-O URL resultante será parecido com o seguinte URL: http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
+O URL resultante será parecido com o seguinte URL:http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
 
 
 ### <a name="analyzing-packet-captures"></a>Analisar capturas de pacotes
@@ -84,7 +84,7 @@ O CapAnalysis oferece várias opções para visualizar a captura do seu pacote, 
 
     ![filtros][11]
 
-    Visite [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about) para saber mais sobre todas as capacidades do CapAnalysis.
+    Visite [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about) para saber mais sobre todas as capacidades da CapAnalysis.
 
 ## <a name="conclusion"></a>Conclusão
 

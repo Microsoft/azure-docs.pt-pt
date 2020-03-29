@@ -1,6 +1,6 @@
 ---
-title: Utilizar a CLI do Azure para começar a utilizar com a geração 1 de armazenamento do Azure Data Lake | Documentos da Microsoft
-description: Utilizar a CLI do Azure para criar uma conta de geração 1 de armazenamento do Data Lake e executar operações básicas
+title: Use o Azure CLI para começar com o Azure Data Lake Storage Gen1 [ Microsoft Docs
+description: Utilize o Azure CLI para criar uma conta Gen1 de Armazenamento de Data Lake e realizar operações básicas
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -11,38 +11,38 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 9431cc7fa12b86371ce6b2325aca8e13d264442e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60885351"
 ---
-# <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Introdução ao Azure Data Lake Store com a CLI do Azure
+# <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Começar com a Azure Data Lake Store usando o Azure CLI
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [CLI do Azure](data-lake-store-get-started-cli-2.0.md)
+> * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 >
 > 
 
-Saiba como utilizar a CLI do Azure para criar uma conta de geração 1 de armazenamento do Azure Data Lake e executar operações básicas, tais como criar pastas, carregar e transferem ficheiros de dados, eliminar a conta, entre outras. Para obter mais informações sobre a geração 1 de armazenamento do Data Lake, veja [descrição geral do Data Lake Storage Gen1](data-lake-store-overview.md).
+Aprenda a utilizar o Azure CLI para criar uma conta Azure Data Lake Storage Gen1 e efetuar operações básicas como criar pastas, carregar e descarregar ficheiros de dados, eliminar a sua conta, etc. Para mais informações sobre data Lake Storage Gen1, consulte [a visão geral do Data Lake Storage Gen1](data-lake-store-overview.md).
 
-A CLI do Azure é a experiência da linha de comandos do Azure para a gestão de recursos do Azure. Pode ser utilizada no macOS, no Linux e no Windows. Para obter mais informações, consulte [descrição geral da CLI do Azure](https://docs.microsoft.com/cli/azure). Também pode ver o [referência da CLI do Azure Data Lake Storage Gen1](https://docs.microsoft.com/cli/azure/dls) para obter uma lista completa de comandos e sintaxe.
+A CLI do Azure é a experiência da linha de comandos do Azure para a gestão de recursos do Azure. Pode ser utilizada no macOS, no Linux e no Windows. Para mais informações, consulte a [visão geral do Azure CLI](https://docs.microsoft.com/cli/azure). Também pode ver a referência do [Azure Data Lake Storage Gen1 CLI](https://docs.microsoft.com/cli/azure/dls) para uma lista completa de comandos e sintaxe.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este artigo, tem de ter o seguinte:
 
-* **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma subscrição Azure.** Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **CLI do Azure** -veja [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) para obter instruções.
+* **Azure CLI** - Consulte [a instalação do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) para obter instruções.
 
 ## <a name="authentication"></a>Autenticação
 
-Este artigo utiliza uma abordagem de autenticação mais simples com o Data Lake Storage Gen1 em que inicia sessão como utilizador final. O nível de acesso para a Gen1 de armazenamento do Data Lake conta e sistema de ficheiros é, então, governado pelo nível de acesso do utilizador com sessão iniciada. No entanto, existem outras abordagens para autenticar com o Data Lake Storage Gen1, que são **autenticação de utilizador final** ou **autenticação serviço a serviço**. Para obter instruções e mais informações sobre como autenticar, consulte [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) (Autenticação de utilizador final) ou [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md) (Autenticação de serviço a serviço).
+Este artigo utiliza uma abordagem de autenticação mais simples com data Lake Storage Gen1 onde faz login como utilizador final. O nível de acesso à conta e sistema de ficheiros Data Lake Storage Gen1 é então regido pelo nível de acesso do registado no utilizador. No entanto, existem outras abordagens também para autenticar com data Lake Storage Gen1, que são **autenticação de utilizador final** ou **autenticação serviço-a-serviço**. Para obter instruções e obter mais informações sobre como autenticar, veja [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) (Autenticação de utilizador final) ou [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md) (Autenticação de serviço a serviço).
 
 
 ## <a name="log-in-to-your-azure-subscription"></a>Inicie sessão na subscrição do Azure
@@ -61,36 +61,36 @@ Este artigo utiliza uma abordagem de autenticação mais simples com o Data Lake
     az account set --subscription <subscription id> 
     ```
 
-## <a name="create-an-azure-data-lake-storage-gen1-account"></a>Criar uma conta de geração 1 de armazenamento do Azure Data Lake
+## <a name="create-an-azure-data-lake-storage-gen1-account"></a>Criar uma conta de Armazenamento de Lago de Dados Azure Gen1
 
-1. Crie um novo grupo de recursos. No seguinte comando, forneça os valores de parâmetros que pretende utilizar. Se o nome da localização contiver espaços, coloque-o entre aspas. Por exemplo, "EUA Leste 2". 
+1. Crie um novo grupo de recursos. No seguinte comando, forneça os valores de parâmetros que pretende utilizar. Se o nome da localização contiver espaços, coloque-o entre aspas. Por exemplo, "E.U.A. Leste 2". 
    
     ```azurecli
     az group create --location "East US 2" --name myresourcegroup
     ```
 
-2. Crie a conta de geração 1 de armazenamento do Data Lake.
+2. Crie a conta Data Lake Storage Gen1.
    
     ```azurecli
     az dls account create --account mydatalakestoragegen1 --resource-group myresourcegroup
     ```
 
-## <a name="create-folders-in-a-data-lake-storage-gen1-account"></a>Criar pastas numa conta do Data Lake Storage Gen1
+## <a name="create-folders-in-a-data-lake-storage-gen1-account"></a>Criar pastas numa conta Gen1 de Armazenamento de Data Lake
 
-Pode criar pastas na sua conta de geração 1 de armazenamento do Azure Data Lake para gerir e armazenar dados. Utilize o seguinte comando para criar uma pasta denominada **mynewfolder** na raiz da conta do Data Lake Storage Gen1.
+Pode criar pastas sob a sua conta Azure Data Lake Storage Gen1 para gerir e armazenar dados. Utilize o seguinte comando para criar uma pasta chamada **mynewfolder** na raiz da conta Data Lake Storage Gen1.
 
 ```azurecli
 az dls fs create --account mydatalakestoragegen1 --path /mynewfolder --folder
 ```
 
 > [!NOTE]
-> O parâmetro `--folder` assegura que o comando cria uma pasta. Se este parâmetro não estiver presente, o comando cria um ficheiro vazio designado mynewfolder na raiz da conta do Data Lake Storage Gen1.
+> O parâmetro `--folder` assegura que o comando cria uma pasta. Se este parâmetro não estiver presente, o comando cria um ficheiro vazio chamado mynewfolder na raiz da conta Data Lake Storage Gen1.
 > 
 >
 
-## <a name="upload-data-to-a-data-lake-storage-gen1-account"></a>Carregar dados para uma conta de geração 1 de armazenamento do Data Lake
+## <a name="upload-data-to-a-data-lake-storage-gen1-account"></a>Faça upload de dados para uma conta Gen1 de Armazenamento de Data Lake
 
-Pode carregar dados para a geração 1 de armazenamento do Data Lake diretamente no nível de raiz ou para uma pasta que criou na conta. Os fragmentos abaixo demonstram como carregar alguns dados de exemplo para a pasta (**mynewfolder**) que criou na secção anterior.
+Pode fazer o upload de dados para data Lake Storage Gen1 diretamente ao nível raiz ou a uma pasta que criou dentro da conta. Os fragmentos abaixo demonstram como carregar alguns dados de exemplo para a pasta (**mynewfolder**) que criou na secção anterior.
 
 Se estiver à procura de alguns dados de exemplo para carregar, pode obter a pasta **Ambulance Data** a partir do [Repositório de Git do Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData). Transfira o ficheiro e armazene-o num diretório local no seu computador, como C:\sampledata\.
 
@@ -104,9 +104,9 @@ az dls fs upload --account mydatalakestoragegen1 --source-path "C:\SampleData\Am
 >
 
 
-## <a name="list-files-in-a-data-lake-storage-gen1-account"></a>Listar ficheiros numa conta de geração 1 de armazenamento do Data Lake
+## <a name="list-files-in-a-data-lake-storage-gen1-account"></a>Lista rumine ficheiros numa conta Gen1 de Armazenamento de Data Lake
 
-Utilize o seguinte comando para listar os ficheiros numa conta de geração 1 de armazenamento do Data Lake.
+Utilize o seguinte comando para listar os ficheiros numa conta Gen1 de Armazenamento de Data Lake.
 
 ```azurecli
 az dls fs list --account mydatalakestoragegen1 --path /mynewfolder
@@ -132,7 +132,7 @@ O resultado deve ser semelhante ao seguinte:
         }
     ]
 
-## <a name="rename-download-and-delete-data-from-a-data-lake-storage-gen1-account"></a>Mudar o nome, transferir e eliminar dados de uma conta de geração 1 de armazenamento do Data Lake 
+## <a name="rename-download-and-delete-data-from-a-data-lake-storage-gen1-account"></a>Renomear, transferir e eliminar dados de uma conta Gen1 de Armazenamento de Data Lake 
 
 * **Para mudar o nome de um ficheiro**, utilize o seguinte comando:
   
@@ -163,9 +163,9 @@ O resultado deve ser semelhante ao seguinte:
     az dls fs delete --account mydatalakestoragegen1 --path /mynewfolder --recurse
     ```
 
-## <a name="work-with-permissions-and-acls-for-a-data-lake-storage-gen1-account"></a>Trabalhar com as permissões e ACLs de uma conta de geração 1 de armazenamento do Data Lake
+## <a name="work-with-permissions-and-acls-for-a-data-lake-storage-gen1-account"></a>Trabalhe com permissões e ACLs para uma conta Gen1 de Armazenamento de Data Lake
 
-Nesta secção, saiba mais sobre como gerir ACLs e permissões com a CLI do Azure. Para uma discussão detalhada sobre como as ACLs estão implementadas na geração 1 de armazenamento do Azure Data Lake, veja [controlo de acesso no Azure Data Lake Storage Gen1](data-lake-store-access-control.md).
+Nesta secção aprende-se a gerir ACLs e permissões utilizando o Azure CLI. Para uma discussão detalhada sobre como os ACLs são implementados em Azure Data Lake Storage Gen1, consulte o controlo de [acesso em Azure Data Lake Storage Gen1](data-lake-store-access-control.md).
 
 * **Para atualizar o proprietário de um ficheiro/pasta**, utilize o seguinte comando:
 
@@ -223,8 +223,8 @@ Nesta secção, saiba mais sobre como gerir ACLs e permissões com a CLI do Azur
     az dls fs access remove-all --account mydatalakestoragegen1 --path /mynewfolder
     ```
     
-## <a name="delete-a-data-lake-storage-gen1-account"></a>Eliminar uma conta de geração 1 de armazenamento do Data Lake
-Utilize o seguinte comando para eliminar uma conta de geração 1 de armazenamento do Data Lake.
+## <a name="delete-a-data-lake-storage-gen1-account"></a>Eliminar uma conta Gen1 de Armazenamento de Data Lake
+Utilize o seguinte comando para eliminar uma conta Gen1 de Armazenamento de Data Lake.
 
 ```azurecli
 az dls account delete --account mydatalakestoragegen1
@@ -232,8 +232,8 @@ az dls account delete --account mydatalakestoragegen1
 
 Quando lhe for pedido, introduza **S** para eliminar a conta.
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Utilize a geração 1 de armazenamento do Azure Data Lake para requisitos de grandes volumes de dados](data-lake-store-data-scenarios.md) 
+## <a name="next-steps"></a>Passos seguintes
+* [Use o Azure Data Lake Storage Gen1 para grandes necessidades de dados](data-lake-store-data-scenarios.md) 
 * [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)
-* [Utilizar o Azure Data Lake Analytics com o Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Utilizar o Azure HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Use Azure Data Lake Analytics com Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Use Azure HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

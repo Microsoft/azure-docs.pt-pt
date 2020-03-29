@@ -1,6 +1,6 @@
 ---
-title: Condições de correspondência do mecanismo de regras do Azure CDN do Verizon Premium | Microsoft Docs
-description: Documentação de referência para a rede de distribuição de conteúdo do Azure das condições de correspondência do mecanismo de regras do Verizon Premium.
+title: Azure CDN da Verizon Premium governa condições de correspondência do motor / Microsoft Docs
+description: Documentação de referência para a Rede de Entrega de Conteúdos Azure da Verizon Premium regras condições de correspondência do motor.
 services: cdn
 author: mdgattuso
 ms.service: azure-cdn
@@ -8,99 +8,99 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
 ms.openlocfilehash: 1660dca34b2f128ef5889145fcdeed0d2523b9bb
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593209"
 ---
-# <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Condições de correspondência do mecanismo de regras do Azure CDN do Verizon Premium
+# <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Azure CDN da Verizon Premium governa condições de correspondência do motor
 
-Este artigo lista descrições detalhadas das condições de correspondência disponíveis para a CDN (rede de distribuição de conteúdo) do Azure do [mecanismo de regras](cdn-verizon-premium-rules-engine.md)do Verizon Premium.
+Este artigo enumera descrições detalhadas das condições de jogo disponíveis para a Rede de Entrega de Conteúdos Azure (CDN) do motor de [regras](cdn-verizon-premium-rules-engine.md)Verizon Premium .
 
-A segunda parte de uma regra é a condição de correspondência. Uma condição de correspondência identifica tipos específicos de solicitações para as quais um conjunto de recursos será executado.
+A segunda parte de uma regra é a condição de jogo. Uma condição de correspondência identifica tipos específicos de pedidos para os quais um conjunto de funcionalidades será realizado.
 
-Por exemplo, você pode usar uma condição de correspondência para:
+Por exemplo, pode utilizar uma condição de correspondência para:
 
-- Filtrar solicitações de conteúdo em um local específico.
-- Filtrar solicitações geradas de um determinado endereço IP ou país/região.
-- Filtrar solicitações por informações de cabeçalho.
+- Filtrar pedidos de conteúdo num determinado local.
+- Filtrar pedidos gerados a partir de um determinado endereço IP ou país/região.
+- Filtrar pedidos por informação do cabeçalho.
 
-## <a name="always-match-condition"></a>Condição de correspondência sempre
+## <a name="always-match-condition"></a>Sempre corresponder condição
 
-A condição de correspondência sempre aplica um conjunto padrão de recursos a todas as solicitações.
-
-Nome | Objetivo
------|--------
-[Sempre](#always) | Aplica um conjunto padrão de recursos a todas as solicitações.
-
-## <a name="device-match-condition"></a>Condição de correspondência de dispositivo
-
-A condição de correspondência de dispositivo identifica solicitações feitas de um dispositivo móvel com base em suas propriedades.  
+A condição de jogo Always aplica um conjunto de funcionalidades padrão a todos os pedidos.
 
 Nome | Objetivo
 -----|--------
-[Vice](#device) | Identifica solicitações feitas de um dispositivo móvel com base em suas propriedades.
+[Sempre](#always) | Aplica um conjunto de funcionalidades padrão a todos os pedidos.
+
+## <a name="device-match-condition"></a>Condição de correspondência do dispositivo
+
+A condição de correspondência do Dispositivo identifica pedidos feitos a partir de um dispositivo móvel com base nas suas propriedades.  
+
+Nome | Objetivo
+-----|--------
+[Dispositivo](#device) | Identifica pedidos feitos a partir de um dispositivo móvel com base nas suas propriedades.
 
 ## <a name="location-match-conditions"></a>Condições de correspondência de localização
 
-As condições de correspondência de localização identificam solicitações com base no local do solicitante.
+As condições de correspondência de localização identificam pedidos com base na localização do solicitador.
 
 Nome | Objetivo
 -----|--------
-[Número AS](#as-number) | Identifica solicitações originadas de uma rede específica.
-[País](#country) | Identifica solicitações originadas dos países/regiões especificados.
+[Número as](#as-number) | Identifica pedidos originários de uma determinada rede.
+[País](#country) | Identifica pedidos originários dos países/regiões especificados.
 
 ## <a name="origin-match-conditions"></a>Condições de correspondência de origem
 
-As condições de correspondência de origem identificam solicitações que apontam para o armazenamento de rede de distribuição de conteúdo ou um servidor de origem do cliente.
+As condições de correspondência origin identificam pedidos que apontam para o armazenamento da Rede de Entrega de Conteúdos ou um servidor de origem do cliente.
 
 Nome | Objetivo
 -----|--------
-[Origem da CDN](#cdn-origin) | Identifica solicitações de conteúdo armazenado no armazenamento de rede de distribuição de conteúdo.
-[Origem do cliente](#customer-origin) | Identifica solicitações de conteúdo armazenado em um servidor de origem do cliente específico.
+[Origem CDN](#cdn-origin) | Identifica pedidos de conteúdo armazenados no armazenamento da Rede de Entrega de Conteúdos.
+[Origem do Cliente](#customer-origin) | Identifica pedidos de conteúdo armazenados num servidor específico de origem do cliente.
 
-## <a name="request-match-conditions"></a>Condições de correspondência de solicitação
+## <a name="request-match-conditions"></a>Solicitar condições de jogo
 
-As condições de correspondência de solicitação identificam solicitações com base em suas propriedades.
-
-Nome | Objetivo
------|--------
-[Endereço IP do cliente](#client-ip-address) | Identifica solicitações originadas de um endereço IP específico.
-[Parâmetro de cookie](#cookie-parameter) | Verifica os cookies associados a cada solicitação para o valor especificado.
-[Regex de parâmetro de cookie](#cookie-parameter-regex) | Verifica os cookies associados a cada solicitação para a expressão regular especificada.
-[CNAME de borda](#edge-cname) | Identifica as solicitações que apontam para um CNAME de borda específico.
-[Domínio de referência](#referring-domain) | Identifica solicitações que foram referenciadas dos nomes de host especificados.
-[Literal de cabeçalho de solicitação](#request-header-literal) | Identifica solicitações que contêm o cabeçalho especificado definido como um valor especificado.
-[Regex de cabeçalho de solicitação](#request-header-regex) | Identifica solicitações que contêm o cabeçalho especificado definido como um valor que corresponde à expressão regular especificada.
-[Curinga de cabeçalho de solicitação](#request-header-wildcard) | Identifica solicitações que contêm o cabeçalho especificado definido como um valor que corresponde ao padrão especificado.
-[Método de solicitação](#request-method) | Identifica solicitações por seu método HTTP.
-[Esquema de solicitação](#request-scheme) | Identifica solicitações por seu protocolo HTTP.
-
-## <a name="url-match-conditions"></a>Condições de correspondência de URL
-
-As condições de correspondência de URL identificam solicitações com base em suas URLs.
+As condições de correspondência do Pedido identificam pedidos com base nas suas propriedades.
 
 Nome | Objetivo
 -----|--------
-[Diretório do caminho da URL](#url-path-directory) | Identifica solicitações por seu caminho relativo.
-[Extensão do caminho da URL](#url-path-extension) | Identifica solicitações por sua extensão de nome de arquivo.
-[Nome de arquivo do caminho da URL](#url-path-filename) | Identifica solicitações por nome de arquivo.
-[Literal de caminho de URL](#url-path-literal) | Compara o caminho relativo de uma solicitação com o valor especificado.
-[Regex de caminho de URL](#url-path-regex) | Compara o caminho relativo de uma solicitação com a expressão regular especificada.
-[Curinga de caminho de URL](#url-path-wildcard) | Compara o caminho relativo de uma solicitação com o padrão especificado.
-[Literal de consulta de URL](#url-query-literal) | Compara a cadeia de caracteres de consulta de uma solicitação com o valor especificado.
-[Parâmetro de consulta de URL](#url-query-parameter) | Identifica solicitações que contêm o parâmetro de cadeia de caracteres de consulta especificado definido como um valor que corresponde a um padrão especificado.
-[Regex de consulta de URL](#url-query-regex) | Identifica solicitações que contêm o parâmetro de cadeia de caracteres de consulta especificado definido como um valor que corresponde a uma expressão regular especificada.
-[Curinga de consulta de URL](#url-query-wildcard) | Compara o valor especificado com a cadeia de caracteres de consulta da solicitação.
+[Endereço IP do Cliente](#client-ip-address) | Identifica pedidos originários de um determinado endereço IP.
+[Parâmetro de cookies](#cookie-parameter) | Verifica os cookies associados a cada pedido pelo valor especificado.
+[Parameter de biscoitos Regex](#cookie-parameter-regex) | Verifica os cookies associados a cada pedido para a expressão regular especificada.
+[Nome de borda](#edge-cname) | Identifica pedidos que apontam para um CNAME de borda específica.
+[Domínio de referimento](#referring-domain) | Identifica os pedidos que foram remetidos a partir dos nomes de acolhimento especificados.
+[Pedido cabeçalho literal](#request-header-literal) | Identifica pedidos que contenham o cabeçalho especificado definido para um valor especificado.
+[Pedido de cabeçalho Regex](#request-header-regex) | Identifica pedidos que contenham o cabeçalho especificado definido para um valor que corresponda à expressão regular especificada.
+[Pedir Header Wildcard](#request-header-wildcard) | Identifica pedidos que contenham o cabeçalho especificado definido para um valor que corresponda ao padrão especificado.
+[Método de Pedido](#request-method) | Identifica pedidos pelo seu método HTTP.
+[Regime de Pedidos](#request-scheme) | Identifica pedidos pelo seu protocolo HTTP.
 
-## <a name="reference-for-rules-engine-match-conditions"></a>Referência para condições de correspondência do mecanismo de regras
+## <a name="url-match-conditions"></a>Condições de correspondência url
+
+As condições de correspondência do URL identificam pedidos com base nos seus URLs.
+
+Nome | Objetivo
+-----|--------
+[Diretório de caminhos URL](#url-path-directory) | Identifica pedidos pelo seu caminho relativo.
+[Extensão do caminho do URL](#url-path-extension) | Identifica pedidos pela extensão do nome do ficheiro.
+[Nome de ficheiro de caminho URL](#url-path-filename) | Identifica pedidos pelo nome do ficheiro.
+[URL Caminho Literal](#url-path-literal) | Compara o caminho relativo de um pedido com o valor especificado.
+[URL Path Regex](#url-path-regex) | Compara o caminho relativo de um pedido com a expressão regular especificada.
+[URL Path Wildcard](#url-path-wildcard) | Compara o caminho relativo de um pedido com o padrão especificado.
+[Url Consulta Literal](#url-query-literal) | Compara a corda de consulta de um pedido com o valor especificado.
+[Parâmetro de consulta de URL](#url-query-parameter) | Identifica pedidos que contenham o parâmetro de corda de consulta especificado definido para um valor que corresponda a um padrão especificado.
+[URL Consulta Regex](#url-query-regex) | Identifica pedidos que contenham o parâmetro de corda de consulta especificado definido para um valor que corresponda a uma expressão regular especificada.
+[URL Consulta Wildcard](#url-query-wildcard) | Compara o valor especificado com a corda de consulta do pedido.
+
+## <a name="reference-for-rules-engine-match-conditions"></a>Referência para regras condições de correspondência do motor
 
 ---
 
 ### <a name="always"></a>Sempre
 
-A condição de correspondência sempre aplica um conjunto padrão de recursos a todas as solicitações.
+A condição de jogo Always aplica um conjunto de funcionalidades padrão a todos os pedidos.
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
@@ -108,26 +108,26 @@ A condição de correspondência sempre aplica um conjunto padrão de recursos a
 
 ---
 
-### <a name="as-number"></a>Número AS
+### <a name="as-number"></a>Número as
 
-A rede de número as é definida por seu número de sistema autônomo (ASN). 
+A rede AS Number é definida pelo seu número de sistema autónomo (ASN). 
 
-A opção **corresponde**/**não corresponde** determina as condições sob as quais a condição de correspondência de número as é atendida:
+A opção **Match**/**Does Match** determina as condições em que a condição de jogo do número AS é satisfeita:
 
-- **Corresponde**a: Requer que o ASN da rede do cliente corresponda a um dos ASNs especificados. 
-- Não **corresponde**a: Exige que o ASN da rede do cliente não corresponda a nenhum dos ASNs especificados.
+- **Fósforos**: Requer que a ASN da rede de clientes corresponda a uma das ASNs especificadas. 
+- **Não Corresponde**: Requer que a ASN da rede de clientes não corresponda a nenhuma das ASNs especificadas.
 
-Informações da chave:
+Informação-chave:
 
-- Especifique vários ASNs delimitando cada um deles com um único espaço. Por exemplo, 64514 64515 corresponde a solicitações que chegam de 64514 ou 64515.
-- Algumas solicitações podem não retornar um ASN válido. Um ponto de interrogação (?) corresponderá a solicitações para as quais um ASN válido não pôde ser determinado.
-- Especifique todo o ASN para a rede desejada. Valores parciais não serão correspondidos.
-- Devido à maneira como as configurações de cache são controladas, essa condição de correspondência é incompatível com os seguintes recursos:
-  - Concluir preenchimento de cache
+- Especifique várias ASNs delimitando cada uma com um único espaço. Por exemplo, 64514 64515 pedidos que chegam de 64514 ou 64515.
+- Certos pedidos podem não devolver uma ASN válida. Um ponto de interrogação (?) corresponderá aos pedidos para os quais não foi possível determinar uma ASN válida.
+- Especifique toda a ASN para a rede desejada. Valores parciais não serão igualados.
+- Devido à forma como as definições de cache são rastreadas, esta condição de jogo é incompatível com as seguintes características:
+  - Enchimento completo de cache
   - Idade máxima interna padrão
-  - Forçar Max-age interna
-  - Ignorar não cache de origem
-  - Max-obsoleto interno
+  - Força Interna Max-Age
+  - Ignore a Origem Sem Cache
+  - Max-Stale interno
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
@@ -135,19 +135,19 @@ Informações da chave:
 
 ---
 
-### <a name="cdn-origin"></a>Origem da CDN
+### <a name="cdn-origin"></a>Origem CDN
 
-A condição de correspondência de origem da CDN é atendida quando as duas condições a seguir são atendidas:
+A condição de correspondência da Origem CDN é satisfeita quando ambas as condições são satisfeitas:
 
-- O conteúdo do armazenamento da CDN foi solicitado.
-- O URI de solicitação usa o tipo de ponto de acesso ao conteúdo (por exemplo,/000001) que é definido nessa condição de correspondência:
-  - URL DA CDN: O URI de solicitação deve conter o ponto de acesso ao conteúdo selecionado.
-  - URL de CNAME de borda: A configuração de CNAME de borda correspondente deve apontar para o ponto de acesso de conteúdo selecionado.
+- Foi solicitado conteúdo do armazenamento da CDN.
+- O pedido URI utiliza o tipo de ponto de acesso ao conteúdo (por exemplo, /000001) que é definido nesta condição de jogo:
+  - URL CDN: O pedido URI deve conter o ponto de acesso ao conteúdo selecionado.
+  - URL Edge CNAME: A configuração CNAME de borda correspondente deve apontar para o ponto de acesso ao conteúdo selecionado.
   
-Informações da chave:
+Informação-chave:
 
-- O ponto de acesso ao conteúdo identifica o serviço que deve fornecer o conteúdo solicitado.
-- Não use uma instrução AND IF para combinar certas condições de correspondência. Por exemplo, a combinação de uma condição de correspondência de origem CDN com uma condição de correspondência de origem do cliente criaria um padrão de correspondência que nunca poderia ser correspondido. Por esse motivo, duas condições de correspondência de origem da CDN não podem ser combinadas por meio de uma instrução AND IF.
+- O ponto de acesso ao conteúdo identifica o serviço que deve servir o conteúdo solicitado.
+- Não utilize uma declaração e if para combinar certas condições de correspondência. Por exemplo, combinar uma condição de correspondência de Origem CDN com uma condição de correspondência de Origem do Cliente criaria um padrão de correspondência que nunca poderia ser igualado. Por esta razão, duas condições de correspondência de Origem CDN não podem ser combinadas através de uma declaração e IF.
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
@@ -155,28 +155,28 @@ Informações da chave:
 
 ---
 
-### <a name="client-ip-address"></a>Endereço IP do cliente
+### <a name="client-ip-address"></a>Endereço IP do Cliente
 
-A opção **corresponde**/**não corresponde** determina as condições sob as quais a condição de correspondência de endereço IP do cliente é atendida:
+A opção **Match**/**Does Not Match** determina as condições em que a condição de correspondência do Endereço IP do Cliente é satisfeita:
 
-- **Corresponde**a: Requer que o endereço IP do cliente corresponda a um dos endereços IP especificados. 
-- Não **corresponde**a: Requer que o endereço IP do cliente não corresponda a nenhum dos endereços IP especificados. 
+- **Fósforos**: Requer que o endereço IP do cliente corresponda a um dos endereços IP especificados. 
+- **Não Corresponde**: Requer que o endereço IP do cliente não corresponda a nenhum dos endereços IP especificados. 
 
-Informações da chave:
+Informação-chave:
 
-- Use a notação CIDR.
-- Especifique vários endereços IP e/ou blocos de endereço IP delimitando cada um deles com um único espaço. Por exemplo:
-  - **Exemplo de IPv4**: 1.2.3.4 10.20.30.40 corresponde a todas as solicitações que chegam do endereço 1.2.3.4 ou 10.20.30.40.
-  - **Exemplo de IPv6**: 1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80 corresponde a todas as solicitações que chegam do endereço 1:2:3:4:5:6:7:8 ou 10:20:30:40:50:60:70:80.
-- A sintaxe de um bloco de endereço IP é o endereço IP base seguido por uma barra e o tamanho do prefixo. Por exemplo:
-  - **Exemplo de IPv4**: 5.5.5.64/26 corresponde a todas as solicitações que chegam de endereços 5.5.5.64 por meio de 5.5.5.127.
-  - **Exemplo de IPv6**: 1:2:3:/48 corresponde a todas as solicitações que chegam de endereços 1:2:3:0:0:0:0:0 a 1:2: 3: ffff: ffff: ffff: ffff: ffff.
-- Devido à maneira como as configurações de cache são controladas, essa condição de correspondência é incompatível com os seguintes recursos:
-  - Concluir preenchimento de cache
+- Utilize notação CIDR.
+- Especifique vários endereços IP e/ou blocos de endereços IP, delimitando cada um com um único espaço. Por exemplo:
+  - **Exemplo iPv4**: 1.2.3.4 10.20.30.40 corresponde a quaisquer pedidos que cheguem de ambos os endereços 1.2.3.4 ou 10.20.30.40.
+  - **Exemplo do IPv6:** 1:2:3:4:5:6:7:8 10:20:40:50:60:70:80 corresponde a quaisquer pedidos que cheguem de ambos os endereços 1:2:3:4:5:7:8 ou 10:20:40:50:60:70:70:80.
+- A sintaxe para um bloco de endereçoIP é o endereço IP base seguido de uma barra para a frente e o tamanho do prefixo. Por exemplo:
+  - **Exemplo iPv4**: 5.5.5.64/26 corresponde a quaisquer pedidos que cheguem dos endereços 5.5.5.64 a 5.5.5.127.
+  - **Exemplo iPv6**: 1:2:3:/48 corresponde a qualquer pedido que chegue dos endereços 1:2:3:0:0:0:0:0:0:0 a 1:2:3:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff:ff
+- Devido à forma como as definições de cache são rastreadas, esta condição de jogo é incompatível com as seguintes características:
+  - Enchimento completo de cache
   - Idade máxima interna padrão
-  - Forçar Max-age interna
-  - Ignorar não cache de origem
-  - Max-obsoleto interno
+  - Força Interna Max-Age
+  - Ignore a Origem Sem Cache
+  - Max-Stale interno
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
@@ -184,64 +184,64 @@ Informações da chave:
 
 ---
 
-### <a name="cookie-parameter"></a>Parâmetro de cookie
+### <a name="cookie-parameter"></a>Parâmetro de cookies
 
-A opção **corresponde**/**não corresponde** determina as condições sob as quais a condição de correspondência de parâmetro de cookie é atendida.
+A opção **Match**/**Does Not Match** determina as condições em que a condição de correspondência do Parâmetro de Cookie é satisfeita.
 
-- **Corresponde**a: Requer que uma solicitação contenha o cookie especificado com um valor que corresponda a pelo menos um dos valores definidos nessa condição de correspondência.
-- Não **corresponde**a: Requer que a solicitação atenda a qualquer um dos seguintes critérios:
-  - Ele não contém o cookie especificado.
-  - Ele contém o cookie especificado, mas seu valor não corresponde a nenhum dos valores definidos nessa condição de correspondência.
+- **Fósforos**: Requer um pedido para conter o cookie especificado com um valor que corresponda a pelo menos um dos valores definidos nesta condição de jogo.
+- **Não Corresponder**: Requer que o pedido satisfaça qualquer um dos seguintes critérios:
+  - Não contém o cookie especificado.
+  - Contém o cookie especificado, mas o seu valor não corresponde a nenhum dos valores definidos nesta condição de jogo.
   
-Informações da chave:
+Informação-chave:
 
 - Nome do cookie:
-  - Como os valores curinga, incluindo asteriscos (*), não têm suporte quando você está especificando um nome de cookie, somente correspondências de nome de cookie exatas são elegíveis para comparação.
-  - Apenas um único nome de cookie pode ser especificado por instância dessa condição de correspondência.
-  - Comparações de nome de cookie diferenciam maiúsculas de minúsculas.
+  - Uma vez que os valores wildcard, incluindo asteriscos (*), não são suportados quando está a especificar um nome de cookie, apenas os jogos de nome exatos do cookie são elegíveis para comparação.
+  - Apenas um único nome de cookie pode ser especificado por exemplo desta condição de correspondência.
+  - As comparações de nomes de cookies são insensíveis aos casos.
 - Valor do cookie:
-  - Especifique vários valores de cookie delimitando cada um deles com um único espaço.
-  - Um valor de cookie pode aproveitar [os valores curinga](cdn-verizon-premium-rules-engine-reference.md#wildcard-values).
-  - Se um valor curinga não tiver sido especificado, somente uma correspondência exata atenderá a essa condição de correspondência. Por exemplo, a especificação de "valor" corresponderá a "valor", mas não a "value1" ou "value2".
-  - Use a opção **Ignorar maiúsculas** para controlar se uma comparação que diferencia maiúsculas de minúsculas é feita em relação ao valor de cookie da solicitação.
-- Devido à maneira como as configurações de cache são controladas, essa condição de correspondência é incompatível com os seguintes recursos:
-  - Concluir preenchimento de cache
+  - Especifique vários valores de cookies delimitando cada um com um único espaço.
+  - Um valor de cookie pode tirar partido dos [valores wildcard.](cdn-verizon-premium-rules-engine-reference.md#wildcard-values)
+  - Se não tiver sido especificado um valor wildcard, apenas uma correspondência exata satisfará esta condição de jogo. Por exemplo, especificar "Valor" corresponderá a "Valor", mas não "Valor1" ou "Valor2".
+  - Utilize a opção **Ignore Case** para controlar se é feita uma comparação sensível a casos com o valor do cookie do pedido.
+- Devido à forma como as definições de cache são rastreadas, esta condição de jogo é incompatível com as seguintes características:
+  - Enchimento completo de cache
   - Idade máxima interna padrão
-  - Forçar Max-age interna
-  - Ignorar não cache de origem
-  - Max-obsoleto interno
+  - Força Interna Max-Age
+  - Ignore a Origem Sem Cache
+  - Max-Stale interno
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 </br>
 
 ---
 
-### <a name="cookie-parameter-regex"></a>Regex de parâmetro de cookie
+### <a name="cookie-parameter-regex"></a>Parameter de biscoitos Regex
 
-A condição de correspondência Regex de parâmetro de cookie define um nome e valor de cookie. Você pode usar [expressões regulares](cdn-verizon-premium-rules-engine-reference.md#regular-expressions) para definir o valor de cookie desejado.
+A condição de correspondência do Parameter De Cookie Regex define um nome e valor de cookies. Pode utilizar [expressões regulares](cdn-verizon-premium-rules-engine-reference.md#regular-expressions) para definir o valor desejado pelo cookie.
 
-A opção **corresponde**/**não corresponde** determina as condições sob as quais a condição de correspondência Regex de parâmetro de cookie são atendidas.
+A opção **Match**/**Does Not Match** determina as condições em que o estado de jogo do Parameter Regex é cumprido.
 
-- **Corresponde**a: Requer que uma solicitação contenha o cookie especificado com um valor que corresponda à expressão regular especificada.
-- Não **corresponde**a: Requer que a solicitação atenda a qualquer um dos seguintes critérios:
-  - Ele não contém o cookie especificado.
-  - Ele contém o cookie especificado, mas seu valor não corresponde à expressão regular especificada.
+- **Fósforos**: Requer um pedido para conter o cookie especificado com um valor que corresponda à expressão regular especificada.
+- **Não Corresponder**: Requer que o pedido satisfaça qualquer um dos seguintes critérios:
+  - Não contém o cookie especificado.
+  - Contém o cookie especificado, mas o seu valor não corresponde à expressão regular especificada.
   
-Informações da chave:
+Informação-chave:
 
 - Nome do cookie:
-  - Como não há suporte para expressões regulares e valores curinga, incluindo asteriscos (*), quando você está especificando um nome de cookie, somente correspondências de nome de cookie exatas são elegíveis para comparação.
-  - Apenas um único nome de cookie pode ser especificado por instância dessa condição de correspondência.
-  - Comparações de nome de cookie diferenciam maiúsculas de minúsculas.
+  - Como expressões regulares e valores wildcard, incluindo asteriscos (*), não são suportados quando está a especificar um nome de cookie, apenas os jogos de nome exatos do cookie são elegíveis para comparação.
+  - Apenas um único nome de cookie pode ser especificado por exemplo desta condição de correspondência.
+  - As comparações de nomes de cookies são insensíveis aos casos.
 - Valor do cookie:
-  - Um valor de cookie pode tirar proveito de expressões regulares.
-  - Use a opção **Ignorar maiúsculas** para controlar se uma comparação que diferencia maiúsculas de minúsculas é feita em relação ao valor de cookie da solicitação.
-- Devido à maneira como as configurações de cache são controladas, essa condição de correspondência é incompatível com os seguintes recursos:
-  - Concluir preenchimento de cache
+  - Um valor de cookie pode tirar partido de expressões regulares.
+  - Utilize a opção **Ignore Case** para controlar se é feita uma comparação sensível a casos com o valor do cookie do pedido.
+- Devido à forma como as definições de cache são rastreadas, esta condição de jogo é incompatível com as seguintes características:
+  - Enchimento completo de cache
   - Idade máxima interna padrão
-  - Forçar Max-age interna
-  - Ignorar não cache de origem
-  - Max-obsoleto interno
+  - Força Interna Max-Age
+  - Ignore a Origem Sem Cache
+  - Max-Stale interno
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
@@ -249,41 +249,41 @@ Informações da chave:
 
 ---
 
-### <a name="country"></a>Country
+### <a name="country"></a>País
 
-Você pode especificar um país por meio de seu código de país. 
+Pode especificar um país através do seu código de país. 
 
-A opção **corresponde**/**não corresponde** determina as condições sob as quais a condição de correspondência de país é atendida:
+A opção **Match**/**Does Match** determina as condições em que a condição de jogo do País é satisfeita:
 
-- **Corresponde**a: Requer que a solicitação contenha os valores de código de país especificados. 
-- Não **corresponde**a: Requer que a solicitação não contenha os valores de código de país especificados.
+- **Fósforos**: Requer o pedido para conter os valores de código do país especificados. 
+- **Não Colhe**: Requer que o pedido não contenha os valores de código do país especificados.
 
-Informações da chave:
+Informação-chave:
 
-- Especifique vários códigos de país delimitando cada um deles com um único espaço.
-- Não há suporte para caracteres curinga quando você está especificando um código de país.
-- Os códigos do país "EU" e "AP" não abrangem todos os endereços IP nessas regiões.
-- Algumas solicitações podem não retornar um código de país válido. Um ponto de interrogação (?) corresponderá a solicitações para as quais um código de país válido não pôde ser determinado.
-- Os códigos de país diferenciam maiúsculas de minúsculas.
-- Devido à maneira como as configurações de cache são controladas, essa condição de correspondência é incompatível com os seguintes recursos:
-  - Concluir preenchimento de cache
+- Especifique vários códigos de país delimitando cada um com um único espaço.
+- Os wildcards não são suportados quando estás a especificar um código de país.
+- Os códigos dos países "UE" e "AP" não abrangem todos os endereços IP nessas regiões.
+- Certos pedidos podem não devolver um código de país válido. Um ponto de interrogação (?) corresponderá aos pedidos para os quais não foi possível determinar um código de país válido.
+- Os códigos do país são sensíveis aos casos.
+- Devido à forma como as definições de cache são rastreadas, esta condição de jogo é incompatível com as seguintes características:
+  - Enchimento completo de cache
   - Idade máxima interna padrão
-  - Forçar Max-age interna
-  - Ignorar não cache de origem
-  - Max-obsoleto interno
+  - Força Interna Max-Age
+  - Ignore a Origem Sem Cache
+  - Max-Stale interno
 
-#### <a name="implementing-country-filtering-by-using-the-rules-engine"></a>Implementando a filtragem de país usando o mecanismo de regras
+#### <a name="implementing-country-filtering-by-using-the-rules-engine"></a>Implementação da filtragem do país utilizando o motor de regras
 
-Essa condição de correspondência permite que você execute uma infinidade de personalizações com base no local do qual uma solicitação foi originada. Por exemplo, o comportamento do recurso de filtragem de país pode ser replicado por meio da seguinte configuração:
+Esta condição de jogo permite-lhe realizar uma infinidade de personalizações com base no local a partir do qual um pedido teve origem. Por exemplo, o comportamento da funcionalidade de filtragem do país pode ser replicado através da seguinte configuração:
 
-- Correspondência de curinga de caminho de URL: Defina a [condição de correspondência curinga do caminho da URL](#url-path-wildcard) para o diretório que será protegido. 
-    Acrescente um asterisco ao final do caminho relativo para garantir que o acesso a todos os seus filhos será restringido por essa regra.
+- Url Path Wildcard match: Delineie a condição de [correspondência do URL Path Wildcard](#url-path-wildcard) para o diretório que será fixado. 
+    Anexar um asterisco ao fim do caminho relativo para garantir que o acesso a todos os seus filhos será restringido por esta regra.
 
-- Correspondência de país: Defina a condição de correspondência de país para o conjunto de países desejado.
-  - Permitir Defina a condição de correspondência de país como não **corresponde** para permitir que apenas os países especificados acessem o conteúdo armazenado no local definido pela condição de correspondência curinga de caminho de URL.
-  - Impeça Defina a condição de correspondência de país como correspondências para impedir que os países especificados acessem o conteúdo armazenado no local definido pela condição de correspondência curinga de caminho de URL.
+- Jogo de país: Definir a condição de jogo do País para o conjunto desejado de países.
+  - Permitir: Definir a condição de correspondência do País para **Não Corresponder** para permitir apenas aos países especificados o acesso aos conteúdos armazenados no local definido pela condição de correspondência do URL Path Wildcard.
+  - Bloco: Delineie a condição de correspondência do País para **as partidas** para impedir que os países especificados acedam aos conteúdos armazenados no local definido pela condição de correspondência do URL Path Wildcard.
 
-- Recurso negar acesso (403): Habilite o [recurso negar acesso (403)](cdn-verizon-premium-rules-engine-reference-features.md#deny-access-403) para replicar a parte permitir ou bloquear do recurso de filtragem de país.
+- Recurso Deny Access (403): Ativar a [função De acesso a negar (403)](cdn-verizon-premium-rules-engine-reference-features.md#deny-access-403) para replicar a parte de permitir ou bloquear a funcionalidade de filtragem do país.
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
@@ -291,15 +291,15 @@ Essa condição de correspondência permite que você execute uma infinidade de 
 
 ---
 
-### <a name="customer-origin"></a>Origem do cliente
+### <a name="customer-origin"></a>Origem do Cliente
 
-Informações da chave:
+Informação-chave:
 
-- A condição de correspondência de origem do cliente é atendida independentemente de o conteúdo ser solicitado por meio de uma URL CDN ou de uma URL CNAME de borda que aponta para a origem do cliente selecionada.
-- Uma configuração de origem do cliente que é referenciada por uma regra não pode ser excluída da página de origem do cliente. Antes de tentar excluir uma configuração de origem do cliente, verifique se as seguintes configurações não fazem referência a ela:
+- A condição de correspondência da Origem do Cliente é satisfeita independentemente de o conteúdo ser solicitado através de um URL CDN ou de um URL CNAME de borda que aponta para a origem do cliente selecionado.
+- Uma configuração de origem do cliente referenciada por uma regra não pode ser eliminada da página de Origem do Cliente. Antes de tentar eliminar uma configuração de origem do cliente, certifique-se de que as seguintes configurações não a referenciam:
   - Uma condição de correspondência de origem do cliente
-  - Uma configuração de CNAME de borda
-- Não use uma instrução AND IF para combinar certas condições de correspondência. Por exemplo, combinar uma condição de correspondência de origem do cliente com uma condição de correspondência de origem da CDN criaria um padrão de correspondência que nunca poderia ser correspondido. Por esse motivo, duas condições de correspondência de origem do cliente não podem ser combinadas por meio de uma instrução AND IF.
+  - Uma configuração CNAME de borda
+- Não utilize uma declaração e if para combinar certas condições de correspondência. Por exemplo, combinar uma condição de correspondência de Origem do Cliente com uma condição de correspondência de Origem CDN criaria um padrão de correspondência que nunca poderia ser igualado. Por esta razão, duas condições de correspondência de Origem do Cliente não podem ser combinadas através de uma declaração e IF.
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
@@ -309,64 +309,64 @@ Informações da chave:
 
 ### <a name="device"></a>Dispositivo
 
-A condição de correspondência de dispositivo identifica solicitações feitas de um dispositivo móvel com base em suas propriedades. A detecção de dispositivo móvel é obtida por meio do [WURFL](http://wurfl.sourceforge.net/). 
+A condição de correspondência do Dispositivo identifica pedidos feitos a partir de um dispositivo móvel com base nas suas propriedades. A deteção de dispositivos móveis é conseguida através da [WURFL](http://wurfl.sourceforge.net/). 
 
-A opção **corresponde**/**não corresponde** determina as condições sob as quais a condição de correspondência do dispositivo é atendida:
+A opção **Match**/**Does Match** determina as condições em que a condição de correspondência do Dispositivo é satisfeita:
 
-- **Corresponde**a: Requer que o dispositivo do solicitante corresponda ao valor especificado. 
-- Não **corresponde**a: Requer que o dispositivo do solicitante não corresponda ao valor especificado.
+- **Fósforos**: Requer que o dispositivo do soliciter corresponda ao valor especificado. 
+- **Não Colhe**: Requer que o dispositivo do soliciter não corresponda ao valor especificado.
 
-Informações da chave:
+Informação-chave:
 
-- Use a opção **Ignorar caso** para especificar se o valor especificado diferencia maiúsculas de minúsculas.
-- Devido à maneira como as configurações de cache são controladas, essa condição de correspondência é incompatível com os seguintes recursos:
-  - Concluir preenchimento de cache
+- Utilize a opção **Ignore Case** para especificar se o valor especificado é sensível a casos.
+- Devido à forma como as definições de cache são rastreadas, esta condição de jogo é incompatível com as seguintes características:
+  - Enchimento completo de cache
   - Idade máxima interna padrão
-  - Forçar Max-age interna
-  - Ignorar não cache de origem
-  - Max-obsoleto interno
+  - Força Interna Max-Age
+  - Ignore a Origem Sem Cache
+  - Max-Stale interno
 
-#### <a name="string-type"></a>Tipo de cadeia de caracteres
+#### <a name="string-type"></a>Tipo de corda
 
-Um recurso WURFL normalmente aceita qualquer combinação de números, letras e símbolos. Devido à natureza flexível desse recurso, você deve escolher como o valor associado a essa condição de correspondência é interpretado. A tabela a seguir descreve o conjunto de opções disponíveis:
+Uma capacidade WURFL normalmente aceita qualquer combinação de números, letras e símbolos. Devido à natureza flexível desta capacidade, deve escolher como é interpretado o valor associado a esta condição de correspondência. O quadro seguinte descreve o conjunto de opções disponíveis:
 
-Type     | Descrição
+Tipo     | Descrição
 ---------|------------
-Literal  | Selecione esta opção para impedir que a maioria dos caracteres utilize o significado especial usando seu [valor literal](cdn-verizon-premium-rules-engine-reference.md#literal-values).
-Amplia | Selecione esta opção para aproveitar todos os [caracteres curinga] ([valores curinga](cdn-verizon-premium-rules-engine-reference.md#wildcard-values)).
-Regex    | Selecione esta opção para usar [expressões regulares](cdn-verizon-premium-rules-engine-reference.md#regular-expressions). Expressões regulares são úteis para definir um padrão de caracteres.
+Literal  | Selecione esta opção para evitar que a maioria dos caracteres assuma um significado especial utilizando o seu [valor literal](cdn-verizon-premium-rules-engine-reference.md#literal-values).
+Wildcard | Selecione esta opção para tirar partido de todos [caracteres[wildcard].](cdn-verizon-premium-rules-engine-reference.md#wildcard-values)
+Rio Regex    | Selecione esta opção para utilizar [expressões regulares](cdn-verizon-premium-rules-engine-reference.md#regular-expressions). Expressões regulares são úteis para definir um padrão de caracteres.
 
-#### <a name="wurfl-capabilities"></a>Recursos do WURFL
+#### <a name="wurfl-capabilities"></a>Capacidades WURFL
 
-Um recurso WURFL se refere a uma categoria que descreve os dispositivos móveis. A funcionalidade selecionada determina o tipo de descrição de dispositivo móvel que é usado para identificar solicitações.
+Uma capacidade WURFL refere-se a uma categoria que descreve dispositivos móveis. A capacidade selecionada determina o tipo de descrição do dispositivo móvel que é usado para identificar pedidos.
 
-A tabela a seguir lista os recursos do WURFL e suas variáveis para o mecanismo de regras.
+A tabela que se segue lista as capacidades da WURFL e as suas variáveis para o motor de regras.
 
 > [!NOTE]
-> As variáveis a seguir têm suporte nos recursos **Modificar cabeçalho de solicitação do cliente** e **Modificar cabeçalho de resposta do cliente** .
+> As seguintes variáveis são suportadas no **Cabeçalho** de Pedido de Cliente Modificado e modificar as funcionalidades do Cabeçalho de Resposta ao **Cliente.**
 
-Funcionalidade | Variável | Descrição | Valores de exemplo
+Capacidade | Variável | Descrição | Valores da amostra
 -----------|----------|-------------|----------------
-Nome da marca | %{wurfl_cap_brand_name} | Uma cadeia de caracteres que indica o nome da marca do dispositivo. | Samsung
-SO do dispositivo | %{wurfl_cap_device_os} | Uma cadeia de caracteres que indica o sistema operacional instalado no dispositivo. | IOS
-Versão do SO do Dispositivo | %{wurfl_cap_device_os_version} | Uma cadeia de caracteres que indica o número de versão do sistema operacional instalado no dispositivo. | 1.0.1
-Orientação dupla | %{wurfl_cap_dual_orientation} | Um booliano que indica se o dispositivo dá suporte à orientação dupla. | true
-DTD HTML preferencial | %{wurfl_cap_html_preferred_dtd} | Uma cadeia de caracteres que indica a definição de tipo de documento (DTD) preferencial do dispositivo móvel para conteúdo HTML. | nenhum<br/>xhtml_basic<br/>html5
-Inalinhamento de imagem | %{wurfl_cap_image_inlining} | Um booliano que indica se o dispositivo dá suporte a imagens codificadas em base64. | false
-É Android | %{wurfl_vcap_is_android} | Um booliano que indica se o dispositivo usa o sistema operacional Android. | true
-É IOS | %{wurfl_vcap_is_ios} | Um booliano que indica se o dispositivo usa iOS. | false
-É Smart TV | %{wurfl_cap_is_smarttv} | Um booliano que indica se o dispositivo é uma TV inteligente. | false
-É smartphone | %{wurfl_vcap_is_smartphone} | Um booliano que indica se o dispositivo é um smartphone. | true
-É Tablet | %{wurfl_cap_is_tablet} | Um booliano que indica se o dispositivo é um Tablet. Essa descrição é independente do sistema operacional. | true
-É dispositivo sem fio | %{wurfl_cap_is_wireless_device} | Um booliano que indica se o dispositivo é considerado um dispositivo sem fio. | true
-Nome do marketing | %{wurfl_cap_marketing_name} | Uma cadeia de caracteres que indica o nome de marketing do dispositivo. | BlackBerry 8100 Pearl
-Navegador móvel | %{wurfl_cap_mobile_browser} | Uma cadeia de caracteres que indica o navegador que é usado para solicitar conteúdo do dispositivo. | Chrome
-Versão do navegador móvel | %{wurfl_cap_mobile_browser_version} | Uma cadeia de caracteres que indica a versão do navegador que é usada para solicitar conteúdo do dispositivo. | 31
-Nome do Modelo | %{wurfl_cap_model_name} | Uma cadeia de caracteres que indica o nome do modelo do dispositivo. | s3
-Download progressivo | %{wurfl_cap_progressive_download} | Um booliano que indica se o dispositivo dá suporte à reprodução de áudio e vídeo enquanto ainda está sendo baixado. | true
-Data de lançamento | %{wurfl_cap_release_date} | Uma cadeia de caracteres que indica o ano e o mês em que o dispositivo foi adicionado ao banco de dados WURFL.<br/><br/>Formato: `yyyy_mm` | 2013_december
-Altura da resolução | %{wurfl_cap_resolution_height} | Um inteiro que indica a altura do dispositivo em pixels. | 768
-Largura da resolução | %{wurfl_cap_resolution_width} | Um inteiro que indica a largura do dispositivo em pixels. | 1024
+Nome da marca | %{wurfl_cap_brand_name} | Uma corda que indica o nome da marca do dispositivo. | Samsung
+Dispositivo OS | %{wurfl_cap_device_os} | Uma cadeia que indica o sistema operativo instalado no dispositivo. | iOS
+Versão do SO do dispositivo | %{wurfl_cap_device_os_version} | Uma cadeia que indica o número de versão do sistema operativo instalado no dispositivo. | 1.0.1
+Orientação Dupla | %{wurfl_cap_dual_orientation} | Um Boolean que indica se o dispositivo suporta uma orientação dupla. | true
+HTML DTD preferido | %{wurfl_cap_html_preferred_dtd} | Uma cadeia que indica a definição de tipo de documento preferido do dispositivo móvel (DTD) para o conteúdo HTML. | nenhuma<br/>xhtml_basic<br/>html5
+Imagem Inlining | %{wurfl_cap_image_inlining} | Um Boolean que indica se o dispositivo suporta imagens codificadas base64. | false
+É Android | %{wurfl_vcap_is_android} | Um Boolean que indica se o dispositivo utiliza o Sistema Operativo Android. | true
+É IOS | %{wurfl_vcap_is_ios} | Um Boolean que indica se o dispositivo utiliza o iOS. | false
+É smart TV | %{wurfl_cap_is_smarttv} | Um Boolean que indica se o dispositivo é uma tv inteligente. | false
+É smartphone | %{wurfl_vcap_is_smartphone} | Um Boolean que indica se o dispositivo é um smartphone. | true
+É Tablet | %{wurfl_cap_is_tablet} | Um Boolean que indica se o dispositivo é um tablet. Esta descrição é independente do OS. | true
+É dispositivo sem fios | %{wurfl_cap_is_wireless_device} | Um Boolean que indica se o dispositivo é considerado um dispositivo sem fios. | true
+Nome de Marketing | %{wurfl_cap_marketing_name} | Uma corda que indica o nome de marketing do dispositivo. | Pérola BlackBerry 8100
+Navegador Móvel | %{wurfl_cap_mobile_browser} | Uma cadeia que indica o navegador que é usado para solicitar conteúdo do dispositivo. | Chrome
+Versão do navegador móvel | %{wurfl_cap_mobile_browser_version} | Uma cadeia que indica a versão do navegador que é usada para solicitar conteúdo do dispositivo. | 31
+Nome modelo | %{wurfl_cap_model_name} | Uma corda que indica o nome modelo do dispositivo. | s3
+Download progressivo | %{wurfl_cap_progressive_download} | Um Boolean que indica se o dispositivo suporta a reprodução de áudio e vídeo enquanto ainda está a ser descarregado. | true
+Data de Lançamento | %{wurfl_cap_release_date} | Uma cadeia que indica o ano e mês em que o dispositivo foi adicionado à base de dados WURFL.<br/><br/>Formato:`yyyy_mm` | 2013_december
+Altura da Resolução | %{wurfl_cap_resolution_height} | Um inteiro que indica a altura do dispositivo em pixels. | 768
+Largura da Resolução | %{wurfl_cap_resolution_width} | Um inteiro que indica a largura do dispositivo em pixels. | 1024
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
@@ -374,19 +374,19 @@ Largura da resolução | %{wurfl_cap_resolution_width} | Um inteiro que indica a
 
 ---
 
-### <a name="edge-cname"></a>CNAME de borda
+### <a name="edge-cname"></a>Nome de borda
 
-Informações da chave:
+Informação-chave:
 
-- A lista de CNAMEs de borda disponíveis é limitada a esses CNAMEs de borda que foram configurados na página CNAMEs de borda para a plataforma na qual o mecanismo de regras está sendo configurado.
-- Antes de tentar excluir uma configuração de CNAME de borda, verifique se uma condição de correspondência CNAME de borda não faz referência a ela. As configurações de CNAME de borda que foram definidas em uma regra não podem ser excluídas da página CNAMEs de borda.
-- Não use uma instrução AND IF para combinar certas condições de correspondência. Por exemplo, combinar uma condição de correspondência de CNAME de borda com uma condição de correspondência de origem do cliente criaria um padrão de correspondência que nunca poderia ser correspondido. Por esse motivo, duas condições de correspondência de CNAME de borda não podem ser combinadas por meio de uma instrução AND IF.
-- Devido à maneira como as configurações de cache são controladas, essa condição de correspondência é incompatível com os seguintes recursos:
-  - Concluir preenchimento de cache
+- A lista de CNAMEs de borda disponível limita-se às CNAMEs de borda que foram configuradas na página Edge CNAMEs para a plataforma em que o motor de regras está a ser configurado.
+- Antes de tentar eliminar uma configuração CNAME de borda, certifique-se de que uma condição de correspondência de Edge Cname não a refere. As configurações de Edge CNAME que tenham sido definidas numa regra não podem ser eliminadas da página EDGE CNAMEs.
+- Não utilize uma declaração e if para combinar certas condições de correspondência. Por exemplo, combinar uma condição de correspondência de Edge Cname com uma condição de correspondência de Origem do Cliente criaria um padrão de correspondência que nunca poderia ser igualado. Por esta razão, duas condições de correspondência de Edge Cname não podem ser combinadas através de uma declaração e if.
+- Devido à forma como as definições de cache são rastreadas, esta condição de jogo é incompatível com as seguintes características:
+  - Enchimento completo de cache
   - Idade máxima interna padrão
-  - Forçar Max-age interna
-  - Ignorar não cache de origem
-  - Max-obsoleto interno
+  - Força Interna Max-Age
+  - Ignore a Origem Sem Cache
+  - Max-Stale interno
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
@@ -394,27 +394,27 @@ Informações da chave:
 
 ---
 
-### <a name="referring-domain"></a>Domínio de referência
+### <a name="referring-domain"></a>Domínio de referimento
 
-O nome do host associado ao referenciador por meio do qual o conteúdo foi solicitado determina se a condição do domínio de referência é atendida.
+O nome do anfitrião associado ao remetente através do qual o conteúdo foi solicitado determina se a condição de Domínio De Referir é satisfeita.
 
-A opção **corresponde**/**não corresponde** determina as condições sob as quais a condição de correspondência de domínio de referência são atendidas:
+A opção **Match**/**Does Not Match** determina as condições em que a condição de jogo do Domínio De Referir é satisfeita:
 
-- **Corresponde**a: Requer o nome do host de referência para corresponder aos valores especificados. 
-- Não **corresponde**a: Requer que o nome do host de referência não corresponda ao valor especificado.
+- **Fósforos**: Requer o nome do anfitrião de remetente para corresponder aos valores especificados. 
+- **Não Corresponder**: Requer que o nome do anfitrião de reparação não corresponda ao valor especificado.
 
-Informações da chave:
+Informação-chave:
 
-- Especifique vários nomes de host delimitando cada um deles com um único espaço.
-- Essa condição de correspondência dá suporte a [valores curinga](cdn-verizon-premium-rules-engine-reference.md#wildcard-values).
-- Se o valor especificado não contiver um asterisco, ele deverá ser uma correspondência exata para o nome de host do referenciador. Por exemplo, especificar "mydomain.com" não corresponderia a "www.mydomain.com".
-- Use a opção **Ignorar maiúsculas** para controlar se uma comparação que diferencia maiúsculas de minúsculas é feita.
-- Devido à maneira como as configurações de cache são controladas, essa condição de correspondência é incompatível com os seguintes recursos:
-  - Concluir preenchimento de cache
+- Especifique vários nomes de anfitriões delimitando cada um com um único espaço.
+- Esta condição de jogo suporta [os valores wildcard](cdn-verizon-premium-rules-engine-reference.md#wildcard-values).
+- Se o valor especificado não contiver um asterisco, deve ser uma correspondência exata para o nome de anfitrião do remetente. Por exemplo, especificar "mydomain.com" não corresponderia a "www.mydomain.com".
+- Utilize a opção **Ignore Case** para controlar se é feita uma comparação sensível a casos.
+- Devido à forma como as definições de cache são rastreadas, esta condição de jogo é incompatível com as seguintes características:
+  - Enchimento completo de cache
   - Idade máxima interna padrão
-  - Forçar Max-age interna
-  - Ignorar não cache de origem
-  - Max-obsoleto interno
+  - Força Interna Max-Age
+  - Ignore a Origem Sem Cache
+  - Max-Stale interno
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
@@ -422,24 +422,24 @@ Informações da chave:
 
 ---  
 
-### <a name="request-header-literal"></a>Literal de cabeçalho de solicitação
+### <a name="request-header-literal"></a>Pedido cabeçalho literal
 
-A opção **corresponde**/**não corresponde** determina as condições sob as quais a condição de correspondência literal do cabeçalho de solicitação é atendida.
+A opção **Match**/**Does Not Match** determina as condições em que o estado de jogo literal do Cabeçalho de Pedido é cumprido.
 
-- **Corresponde**a: Requer que a solicitação contenha o cabeçalho especificado. Seu valor deve corresponder ao que está definido nessa condição de correspondência.
-- Não **corresponde**a: Requer que a solicitação atenda a qualquer um dos seguintes critérios:
-  - Ele não contém o cabeçalho especificado.
-  - Ele contém o cabeçalho especificado, mas seu valor não corresponde ao que está definido nessa condição de correspondência.
+- **Fósforos**: Requer o pedido para conter o cabeçalho especificado. O seu valor deve corresponder ao que está definido nesta condição de jogo.
+- **Não Corresponder**: Requer que o pedido satisfaça qualquer um dos seguintes critérios:
+  - Não contém o cabeçalho especificado.
+  - Contém o cabeçalho especificado, mas o seu valor não corresponde ao que está definido nesta condição de jogo.
   
-Informações da chave:
+Informação-chave:
 
-- Comparações de nome de cabeçalho sempre diferenciam maiúsculas de minúsculas. Use a opção **Ignorar maiúsculas** para controlar a diferenciação de maiúsculas e minúsculas das comparações de valor de cabeçalho.
-- Devido à maneira como as configurações de cache são controladas, essa condição de correspondência é incompatível com os seguintes recursos:
-  - Concluir preenchimento de cache
+- As comparações de nomes do cabeçalho são sempre insensíveis ao caso. Utilize a opção **Ignore Case** para controlar a sensibilidade de caso das comparações de valor do cabeçalho.
+- Devido à forma como as definições de cache são rastreadas, esta condição de jogo é incompatível com as seguintes características:
+  - Enchimento completo de cache
   - Idade máxima interna padrão
-  - Forçar Max-age interna
-  - Ignorar não cache de origem
-  - Max-obsoleto interno
+  - Força Interna Max-Age
+  - Ignore a Origem Sem Cache
+  - Max-Stale interno
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
@@ -447,30 +447,30 @@ Informações da chave:
 
 ---  
 
-### <a name="request-header-regex"></a>Regex de cabeçalho de solicitação
+### <a name="request-header-regex"></a>Pedido de cabeçalho Regex
 
-A opção **corresponde**/**não corresponde** determina as condições sob as quais a condição de correspondência Regex de cabeçalho de solicitação são atendidas.
+A opção **Match**/**Does Not Match** determina as condições em que o estado de jogo do Cabeçalho Regex de Pedido é cumprido.
 
-- **Corresponde**a: Requer que a solicitação contenha o cabeçalho especificado. Seu valor deve corresponder ao padrão definido na [expressão regular](cdn-verizon-premium-rules-engine-reference.md#regular-expressions)especificada.
-- Não **corresponde**a: Requer que a solicitação atenda a qualquer um dos seguintes critérios:
-  - Ele não contém o cabeçalho especificado.
-  - Ele contém o cabeçalho especificado, mas seu valor não corresponde à expressão regular especificada.
+- **Fósforos**: Requer o pedido para conter o cabeçalho especificado. O seu valor deve corresponder ao padrão definido na [expressão regular](cdn-verizon-premium-rules-engine-reference.md#regular-expressions)especificada .
+- **Não Corresponder**: Requer que o pedido satisfaça qualquer um dos seguintes critérios:
+  - Não contém o cabeçalho especificado.
+  - Contém o cabeçalho especificado, mas o seu valor não corresponde à expressão regular especificada.
 
-Informações da chave:
+Informação-chave:
 
 - Nome do cabeçalho:
-  - Comparações de nome de cabeçalho diferenciam maiúsculas de minúsculas.
-  - Substitua os espaços no nome do cabeçalho por "% 20".
+  - As comparações de nomes do cabeçalho são insensíveis aos casos.
+  - Substitua os espaços no nome cabeçalho por "%20".
 - Valor do cabeçalho:
-  - Um valor de cabeçalho pode tirar proveito de expressões regulares.
-  - Use a opção **Ignorar maiúsculas** para controlar a diferenciação de maiúsculas e minúsculas das comparações de valor de cabeçalho.
-  - A condição de correspondência é atendida somente quando um valor de cabeçalho corresponde exatamente a pelo menos um dos padrões especificados.
-- Devido à maneira como as configurações de cache são controladas, essa condição de correspondência é incompatível com os seguintes recursos:
-  - Concluir preenchimento de cache
+  - Um valor cabeçalho pode tirar partido de expressões regulares.
+  - Utilize a opção **Ignore Case** para controlar a sensibilidade de caso das comparações de valor do cabeçalho.
+  - A condição de jogo só é satisfeita quando um valor do cabeçalho corresponde exatamente a pelo menos um dos padrões especificados.
+- Devido à forma como as definições de cache são rastreadas, esta condição de jogo é incompatível com as seguintes características:
+  - Enchimento completo de cache
   - Idade máxima interna padrão
-  - Forçar Max-age interna
-  - Ignorar não cache de origem
-  - Max-obsoleto interno
+  - Força Interna Max-Age
+  - Ignore a Origem Sem Cache
+  - Max-Stale interno
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
@@ -478,31 +478,31 @@ Informações da chave:
 
 ---
 
-### <a name="request-header-wildcard"></a>Curinga de cabeçalho de solicitação
+### <a name="request-header-wildcard"></a>Pedir Header Wildcard
 
-A opção **corresponde**/**não corresponde** determina as condições sob as quais a condição de correspondência curinga do cabeçalho de solicitação é atendida.
+A opção **Match**/**Does Not Match** determina as condições em que o estado de jogo do Cabeçalho de Pedido wildcard é cumprido.
 
-- **Corresponde**a: Requer que a solicitação contenha o cabeçalho especificado. Seu valor deve corresponder a pelo menos um dos valores definidos nessa condição de correspondência.
-- Não **corresponde**a: Requer que a solicitação atenda a qualquer um dos seguintes critérios:
-  - Ele não contém o cabeçalho especificado.
-  - Ele contém o cabeçalho especificado, mas seu valor não corresponde a nenhum dos valores especificados.
+- **Fósforos**: Requer o pedido para conter o cabeçalho especificado. O seu valor deve corresponder, pelo menos, a um dos valores definidos nesta condição de jogo.
+- **Não Corresponder**: Requer que o pedido satisfaça qualquer um dos seguintes critérios:
+  - Não contém o cabeçalho especificado.
+  - Contém o cabeçalho especificado, mas o seu valor não corresponde a nenhum dos valores especificados.
   
-Informações da chave:
+Informação-chave:
 
 - Nome do cabeçalho:
-  - Comparações de nome de cabeçalho diferenciam maiúsculas de minúsculas.
-  - Os espaços no nome do cabeçalho devem ser substituídos por "% 20". Você também pode usar esse valor para especificar espaços em um valor de cabeçalho.
+  - As comparações de nomes do cabeçalho são insensíveis aos casos.
+  - Os espaços no nome cabeçalho devem ser substituídos por "%20". Também pode utilizar este valor para especificar espaços num valor cabeçalho.
 - Valor do cabeçalho:
-  - Um valor de cabeçalho pode tirar proveito dos [valores curinga](cdn-verizon-premium-rules-engine-reference.md#wildcard-values).
-  - Use a opção **Ignorar maiúsculas** para controlar a diferenciação de maiúsculas e minúsculas das comparações de valor de cabeçalho.
-  - Essa condição de correspondência é atendida quando um valor de cabeçalho corresponde exatamente a pelo menos um dos padrões especificados.
-  - Especifique vários valores delimitando cada um deles com um único espaço.
-- Devido à maneira como as configurações de cache são controladas, essa condição de correspondência é incompatível com os seguintes recursos:
-  - Concluir preenchimento de cache
+  - Um valor de cabeçalho pode tirar partido dos [valores wildcard.](cdn-verizon-premium-rules-engine-reference.md#wildcard-values)
+  - Utilize a opção **Ignore Case** para controlar a sensibilidade de caso das comparações de valor do cabeçalho.
+  - Esta condição de jogo é satisfeita quando um valor do cabeçalho corresponde exatamente a pelo menos um dos padrões especificados.
+  - Especifique vários valores delimitando cada um com um único espaço.
+- Devido à forma como as definições de cache são rastreadas, esta condição de jogo é incompatível com as seguintes características:
+  - Enchimento completo de cache
   - Idade máxima interna padrão
-  - Forçar Max-age interna
-  - Ignorar não cache de origem
-  - Max-obsoleto interno
+  - Força Interna Max-Age
+  - Ignore a Origem Sem Cache
+  - Max-Stale interno
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
@@ -510,28 +510,28 @@ Informações da chave:
 
 ---
 
-### <a name="request-method"></a>Método de solicitação
+### <a name="request-method"></a>Método de Pedido
 
-A condição de correspondência do método de solicitação é atendida somente quando os ativos são solicitados por meio do método de solicitação selecionado. Os métodos de solicitação disponíveis são:
+A condição de correspondência do Método de Pedido só é satisfeita quando os ativos são solicitados através do método de pedido selecionado. Os métodos de pedido disponíveis são:
 
 - GET
-- CABEÇALHO
+- HEAD
 - POST
-- OPÇÕES
+- Opções
 - PUT
 - DELETE
-- RASTREOU
-- CONNECT
+- VESTÍGIOS
+- LIGAÇÃO
 
-Informações da chave:
+Informação-chave:
 
-- Por padrão, somente o método GET Request pode gerar conteúdo armazenado em cache na rede. Todos os outros métodos de solicitação são proxies por meio da rede.
-- Devido à maneira como as configurações de cache são controladas, essa condição de correspondência é incompatível com os seguintes recursos:
-  - Concluir preenchimento de cache
+- Por predefinição, apenas o método de pedido GET pode gerar conteúdo em cache na rede. Todos os outros métodos de pedido são proxid através da rede.
+- Devido à forma como as definições de cache são rastreadas, esta condição de jogo é incompatível com as seguintes características:
+  - Enchimento completo de cache
   - Idade máxima interna padrão
-  - Forçar Max-age interna
-  - Ignorar não cache de origem
-  - Max-obsoleto interno
+  - Força Interna Max-Age
+  - Ignore a Origem Sem Cache
+  - Max-Stale interno
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
@@ -539,21 +539,21 @@ Informações da chave:
 
 ---
 
-### <a name="request-scheme"></a>Esquema de solicitação
+### <a name="request-scheme"></a>Regime de Pedidos
 
-A condição de correspondência do esquema de solicitação é atendida somente quando os ativos são solicitados por meio do protocolo selecionado. Os protocolos disponíveis são:
+A condição de correspondência do Esquema de Pedido só é satisfeita quando os ativos são solicitados através do protocolo selecionado. Os protocolos disponíveis são:
 
 - HTTP
 - HTTPS
 
-Informações da chave:
+Informação-chave:
 
-- Devido à maneira como as configurações de cache são controladas, essa condição de correspondência é incompatível com os seguintes recursos:
-  - Concluir preenchimento de cache
+- Devido à forma como as definições de cache são rastreadas, esta condição de jogo é incompatível com as seguintes características:
+  - Enchimento completo de cache
   - Idade máxima interna padrão
-  - Forçar Max-age interna
-  - Ignorar não cache de origem
-  - Max-obsoleto interno
+  - Força Interna Max-Age
+  - Ignore a Origem Sem Cache
+  - Max-Stale interno
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
@@ -561,57 +561,57 @@ Informações da chave:
 
 ---
 
-### <a name="url-path-directory"></a>Diretório do caminho da URL
+### <a name="url-path-directory"></a>Diretório de caminhos URL
 
-Identifica uma solicitação por seu caminho relativo, que exclui o nome de arquivo do ativo solicitado.
+Identifica um pedido pelo seu percurso relativo, que exclui o nome do ficheiro do ativo solicitado.
 
-A opção **corresponde**/**não corresponde** determina as condições sob as quais a condição de correspondência do diretório do caminho da URL é atendida.
+A opção **Match**/**Does Not Match** determina as condições em que a condição de correspondência do Diretório do Caminho de URL é satisfeita.
 
-- **Corresponde**a: Requer que a solicitação contenha um caminho de URL relativo, excluindo o nome do arquivo, que corresponda ao padrão de URL especificado.
-- Não **corresponde**a: Requer que a solicitação contenha um caminho de URL relativo, exceto o nome do arquivo, que não corresponda ao padrão de URL especificado.
+- **Fósforos**: Requer o pedido para conter um caminho URL relativo, excluindo o nome do ficheiro, que corresponda ao padrão de URL especificado.
+- **Não Colhe**: Requer o pedido para conter um caminho URL relativo, excluindo o nome do ficheiro, que não corresponda ao padrão de URL especificado.
 
-Informações da chave:
+Informação-chave:
 
-- Use a opção **relativo a** para especificar se a comparação de URL começa antes ou depois do ponto de acesso de conteúdo. O ponto de acesso ao conteúdo é a parte do caminho que aparece entre o nome de host Verizon CDN e o caminho relativo para o ativo solicitado (por exemplo,/800001/CustomerOrigin). Ele identifica um local por tipo de servidor (por exemplo, CDN ou origem do cliente) e o número da conta do cliente.
+- Utilize a opção **Relativa para** especificar se a comparação de URL começa antes ou depois do ponto de acesso ao conteúdo. O ponto de acesso ao conteúdo é a parte do caminho que aparece entre o nome de anfitrião da Verizon CDN e o caminho relativo para o ativo solicitado (por exemplo, /800001/CustomerOrigin). Identifica uma localização por tipo de servidor (por exemplo, CDN ou origem do cliente) e o número da sua conta de cliente.
 
-   Os valores a seguir estão disponíveis para a opção **relativo a** :
-  - **Raiz**: Indica que o ponto de comparação de URL começa diretamente após o nome de host da CDN. 
+   Os seguintes valores estão disponíveis para o **Relativo à** opção:
+  - **Raiz**: Indica que o ponto de comparação de URL começa diretamente após o nome de anfitrião do CDN. 
 
-  Por exemplo: http:\//WPC.0001.&lt; domínio&gt;800001/ **/myorigin/pasta**/index.htm
+  Por exemplo:\/http: /wpc.0001. &lt;&gt;domínio/**800001/myorigin/myfolder**/index.htm
 
-  - **Origem**: Indica que o ponto de comparação de URL começa após o ponto de acesso de conteúdo (por exemplo,/000001 ou/800001/myorigin). Como o \*CNAME. azureedge.net é criado em relação ao diretório de origem no nome de host da CDN da Verizon por padrão, os usuários da CDN do Azure devem usar o valor de **origem** . 
+  - **Origem**: Indica que o ponto de comparação de URL começa após o ponto de acesso ao conteúdo (por exemplo, /000001 ou /800001/myorigin). Uma \*vez que o .azureedge.net CNAME é criado em relação ao diretório de origem no nome de anfitrião da Verizon CDN por padrão, os utilizadores de CDN Azure devem usar o valor **Origem.** 
 
-  Por exemplo: https:\//&lt;Endpoint&gt;. azureedge.NET/**MyFolder**/index.htm 
+  Por exemplo:\//&lt;https:&gt;endpoint .azureedge.net/**myfolder**/index.htm 
 
-  Esta URL aponta para o seguinte nome de host da CDN da\/Verizon&lt; : http:/WPC.0001. domínio&gt;/800001/myorigin/**MyFolder**/index.htm
+  Este URL aponta para o seguinte nome de\/anfitrião Verizon CDN: http: /wpc.0001. &lt;domínio&gt;/800001/myorigin/**myfolder**/index.htm
 
-- Uma URL CNAME de borda é reescrita para uma URL CDN antes da comparação de URL.
+- Um URL CNAME de borda é reescrito para um URL CDN antes da comparação de URL.
 
-    Por exemplo, ambas as URLs a seguir apontam para o mesmo ativo e, portanto, têm o mesmo caminho de URL.
-  - URL da CDN: http\/:&lt; /WPC.0001. domínio&gt;/800001/CustomerOrigin/Path/Asset.htm
+    Por exemplo, ambos os URLs seguintes apontam para o mesmo ativo e, portanto, têm o mesmo caminho de URL.
+  - URL CDN:\/http: /wpc.0001. &lt;domínio&gt;/800001/CustomerOrigin/path/asset.htm
     
-  - URL de CNAME de borda:\/http&gt;:/&lt;Endpoint. azureedge.net/Path/Asset.htm
+  - URL Edge CNAME:\//&lt;http: endpoint&gt;.azureedge.net/path/asset.htm
     
     Informações adicionais:
-  - Domínio personalizado: https:\//My.domain.com/Path/Asset.htm
+  - Domínio personalizado:\/https: /my.domain.com/path/asset.htm
     
-    - Caminho da URL (relativo à raiz):/800001/CustomerOrigin/path/
+    - Caminho de URL (relativo à raiz): /800001/CustomerOrigin/path/
     
-    - Caminho da URL (relativo à origem):/Path/
+    - Caminho url (relativo à origem): /caminho/
 
-- A parte da URL usada para a comparação de URL termina logo antes do nome de arquivo do ativo solicitado. Uma barra invertida é o último caractere nesse tipo de caminho.
+- A parte do URL que é usada para a comparação de URL termina pouco antes do nome do ficheiro do ativo solicitado. Um corte para a frente é o último personagem neste tipo de caminho.
 
-- Substitua os espaços no padrão de caminho da URL por "% 20".
+- Substitua quaisquer espaços no padrão de percurso url por "%20".
 
-- Cada padrão de caminho de URL pode conter um ou mais asteriscos (*), onde cada asterisco corresponde a uma sequência de um ou mais caracteres.
+- Cada padrão de caminho URL pode conter um ou mais asteriscos (*), onde cada asterisco corresponde a uma sequência de um ou mais caracteres.
 
-- Especifique vários caminhos de URL no padrão delimitando cada um deles com um único espaço.
+- Especifique múltiplos caminhos de URL no padrão, delimitando cada um com um único espaço.
 
-    Por exemplo: */Sales/*/marketing/
+    Por exemplo: */vendas/ */marketing/
 
-- Uma especificação de caminho de URL pode aproveitar [os valores curinga](cdn-verizon-premium-rules-engine-reference.md#wildcard-values).
+- Uma especificação de caminho URL pode tirar partido dos [valores wildcard](cdn-verizon-premium-rules-engine-reference.md#wildcard-values).
 
-- Use a opção **Ignorar maiúsculas** para controlar se uma comparação que diferencia maiúsculas de minúsculas é executada.
+- Utilize a opção **Ignore Case** para controlar se é efetuada uma comparação sensível a casos.
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
@@ -619,39 +619,39 @@ Informações da chave:
 
 ---
 
-### <a name="url-path-extension"></a>Extensão do caminho da URL
+### <a name="url-path-extension"></a>Extensão do caminho do URL
 
-Identifica solicitações pela extensão de arquivo do ativo solicitado.
+Identifica pedidos pela extensão do ficheiro do ativo solicitado.
 
-A opção **corresponde**/**não corresponde** determina as condições sob as quais a condição de correspondência de extensão de caminho de URL são atendidas.
+A opção **Match**/**Does Not Match** determina as condições em que a condição de correspondência de extensão do caminho do URL é satisfeita.
 
-- **Corresponde**a: Requer que a URL da solicitação contenha uma extensão de arquivo que corresponda exatamente ao padrão especificado.
+- **Fósforos**: Requer o URL do pedido para conter uma extensão de ficheiro que corresponda exatamente ao padrão especificado.
 
-   Por exemplo, se você especificar "htm", os ativos "htm" serão correspondidos, mas não os ativos "html".  
+   Por exemplo, se especificar "htm", os ativos "htm" são combinados, mas não ativos "html".  
 
-- Não **corresponde**a: Requer que a solicitação de URL contenha uma extensão de arquivo que não corresponda ao padrão especificado.
+- **Não Colhe**: Requer o pedido de URL para conter uma extensão de ficheiro que não corresponda ao padrão especificado.
 
-Informações da chave:
+Informação-chave:
 
-- Especifique as extensões de arquivo a serem correspondidas na caixa **valor** . Não incluir um ponto à esquerda; por exemplo, use htm em vez de. htm.
+- Especifique as extensões de ficheiro sintetizando na caixa **Valor.** Não inclua um período de liderança; por exemplo, use htm em vez de .htm.
 
-- Use a opção **Ignorar maiúsculas** para controlar se uma comparação que diferencia maiúsculas de minúsculas é executada.
+- Utilize a opção **Ignore Case** para controlar se é efetuada uma comparação sensível a casos.
 
-- Especifique várias extensões de arquivo delimitando cada extensão com um único espaço. 
+- Especifique várias extensões de ficheiros delimitando cada extensão com um único espaço. 
 
-    Por exemplo: htm HTML
+    Por exemplo: htm html
 
-- Por exemplo, a especificação de "htm" corresponde aos ativos "htm", mas não aos ativos "html".
+- Por exemplo, especificar "htm" corresponde a ativos "htm", mas não ativos "html".
 
-#### <a name="sample-scenario"></a>Cenário de exemplo
+#### <a name="sample-scenario"></a>Cenário de amostragem
 
-A configuração de exemplo a seguir pressupõe que essa condição de correspondência seja atendida quando uma solicitação corresponde a uma das extensões especificadas.
+A configuração da amostra seguinte pressupõe que esta condição de jogo é satisfeita quando um pedido corresponde a uma das extensões especificadas.
 
-Especificação de valor: ASP aspx PHP HTML
+Especificação de valor: asp aspx php html
 
-Essa condição de correspondência é atendida quando encontra URLs que terminam com as seguintes extensões:
+Esta condição de jogo é satisfeita quando encontra URLs que terminam com as seguintes extensões:
 
-- . asp
+- .asp
 - .aspx
 - .php
 - .html
@@ -662,30 +662,30 @@ Essa condição de correspondência é atendida quando encontra URLs que termina
 
 ---
 
-### <a name="url-path-filename"></a>Nome de arquivo do caminho da URL
+### <a name="url-path-filename"></a>Nome de ficheiro de caminho URL
 
-Identifica solicitações pelo nome de arquivo do ativo solicitado. Para os fins dessa condição de correspondência, um nome de arquivo consiste no nome do ativo solicitado, um ponto e a extensão do arquivo (por exemplo, index. html).
+Identifica pedidos pelo nome do ficheiro do ativo solicitado. Para efeitos desta condição de correspondência, um nome de ficheiro consiste no nome do ativo solicitado, um período e na extensão do ficheiro (por exemplo, index.html).
 
-A opção **corresponde**/**não corresponde** determina as condições sob as quais a condição de correspondência de nome de arquivo de caminho de URL são atendidas.
+A opção **Match**/**Does Not Match** determina as condições em que a condição de correspondência do nome de ficheiro do caminho URL é satisfeita.
 
-- **Corresponde**a: Requer que a solicitação contenha um nome de arquivo em seu caminho de URL que corresponda ao padrão especificado.
-- Não **corresponde**a: Requer que a solicitação contenha um nome de arquivo em seu caminho de URL que não corresponda ao padrão especificado.
+- **Fósforos**: Requer o pedido para conter um nome de ficheiro no seu caminho URL que corresponda ao padrão especificado.
+- **Não Colhe**: Requer o pedido de contenção de um nome de ficheiro no seu percurso URL que não corresponda ao padrão especificado.
 
-Informações da chave:
+Informação-chave:
 
-- Use a opção **Ignorar maiúsculas** para controlar se uma comparação que diferencia maiúsculas de minúsculas é executada.
+- Utilize a opção **Ignore Case** para controlar se é efetuada uma comparação sensível a casos.
 
-- Para especificar várias extensões de arquivo, separe cada extensão com um único espaço.
+- Para especificar várias extensões de ficheiros, separe cada extensão com um único espaço.
 
-    Por exemplo: index. htm index. html
+    Por exemplo: index.htm index.html
 
-- Substitua espaços em um valor de nome de arquivo por "% 20".
+- Substitua os espaços num valor de nome de ficheiro por "%20".
 
-- Um valor de nome de arquivo pode aproveitar [os valores curinga](cdn-verizon-premium-rules-engine-reference.md#wildcard-values). Por exemplo, cada padrão de nome de arquivo pode consistir em um ou mais asteriscos (*), onde cada asterisco corresponde a uma sequência de um ou mais caracteres.
+- Um valor de nome de ficheiro pode tirar partido dos [valores wildcard](cdn-verizon-premium-rules-engine-reference.md#wildcard-values). Por exemplo, cada padrão de nome de ficheiro pode consistir em um ou mais asteriscos (*), onde cada asterisco corresponde a uma sequência de um ou mais caracteres.
 
-- Se os caracteres curinga não forem especificados, somente uma correspondência exata atenderá a essa condição de correspondência.
+- Se os caracteres wildcard não forem especificados, então apenas uma correspondência exata irá satisfazer esta condição de jogo.
 
-    Por exemplo, a especificação de "Presentation. ppt" corresponde a um ativo chamado "Presentation. ppt", mas não um chamado "Presentation. pptx".
+    Por exemplo, especificar "presentation.ppt" corresponde a um ativo chamado "presentation.ppt", mas não um chamado "presentation.pptx".
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
@@ -693,83 +693,48 @@ Informações da chave:
 
 ---
 
-### <a name="url-path-literal"></a>Literal de caminho de URL
+### <a name="url-path-literal"></a>URL Caminho Literal
 
-Compara o caminho da URL de uma solicitação, incluindo o nome do arquivo, ao valor especificado.
+Compara o caminho url de um pedido, incluindo o nome do ficheiro, com o valor especificado.
 
-A opção **corresponde**/**não corresponde** determina as condições sob as quais a condição de correspondência literal de caminho de URL são atendidas.
+A opção **Match**/**Does Not Match** determina as condições em que a condição de correspondência literal do CAMINHO URL é satisfeita.
 
-- **Corresponde**a: Requer que a solicitação contenha um caminho de URL que corresponda ao padrão especificado.
-- Não **corresponde**a: Requer que a solicitação contenha um caminho de URL que não corresponda ao padrão especificado.
+- **Fósforos**: Requer o pedido para conter um caminho URL que corresponda ao padrão especificado.
+- **Não Colhe**: Requer o pedido para conter um caminho URL que não corresponda ao padrão especificado.
 
-Informações da chave:
+Informação-chave:
 
-- Use a opção **relativo a** para especificar se o ponto de comparação de URL começa antes ou depois do ponto de acesso de conteúdo. 
+- Utilize a opção **Relativa para** especificar se o ponto de comparação de URL começa antes ou depois do ponto de acesso ao conteúdo. 
 
-    Os valores a seguir estão disponíveis para a opção **relativo a** :
-  - **Raiz**: Indica que o ponto de comparação de URL começa diretamente após o nome de host da CDN.
+    Os seguintes valores estão disponíveis para o **Relativo à** opção:
+  - **Raiz**: Indica que o ponto de comparação de URL começa diretamente após o nome de anfitrião do CDN.
 
-    Por exemplo: http:\//WPC.0001.&lt; &gt;**800001/myorigin/MyFolder/index.htm** de domínio/
+    Por exemplo:\/http: /wpc.0001. &lt;&gt;/**800001/myorigin/myfolder/index.htm de** domínio
 
-  - **Origem**: Indica que o ponto de comparação de URL começa após o ponto de acesso de conteúdo (por exemplo,/000001 ou/800001/myorigin). Como o \*CNAME. azureedge.net é criado em relação ao diretório de origem no nome de host da CDN da Verizon por padrão, os usuários da CDN do Azure devem usar o valor de **origem** . 
+  - **Origem**: Indica que o ponto de comparação de URL começa após o ponto de acesso ao conteúdo (por exemplo, /000001 ou /800001/myorigin). Uma \*vez que o .azureedge.net CNAME é criado em relação ao diretório de origem no nome de anfitrião da Verizon CDN por padrão, os utilizadores de CDN Azure devem usar o valor **Origem.** 
 
-    Por exemplo: https:\//&lt;Endpoint&gt;. azureedge.NET/**MyFolder/index.htm**
+    Por exemplo:\//&lt;https:&gt;endpoint .azureedge.net/**myfolder/index.htm**
 
-  Esta URL aponta para o seguinte nome de host da CDN da\/Verizon&lt; : http:/WPC.0001. /800001/myorigin/&gt;de domínio**MyFolder/index.htm**
+  Este URL aponta para o seguinte nome de\/anfitrião Verizon CDN: http: /wpc.0001. &lt;domínio&gt;/800001/myorigin/**myfolder/index.htm**
 
-- Uma URL CNAME de borda é reescrita para uma URL CDN antes de uma comparação de URL.
+- Um URL CNAME de borda é reescrito para um URL CDN antes de uma comparação de URL.
 
-Por exemplo, ambas as URLs a seguir apontam para o mesmo ativo e, portanto, têm o mesmo caminho de URL:
+Por exemplo, ambos os seguintes URLs apontam para o mesmo ativo e, portanto, têm o mesmo caminho url:
 
-- URL da CDN: http\/:&lt; /WPC.0001. domínio&gt;/800001/CustomerOrigin/Path/Asset.htm
-- URL de CNAME de borda:\/http&gt;:/&lt;Endpoint. azureedge.net/Path/Asset.htm
+- URL CDN:\/http: /wpc.0001. &lt;domínio&gt;/800001/CustomerOrigin/path/asset.htm
+- URL Edge CNAME:\//&lt;http: endpoint&gt;.azureedge.net/path/asset.htm
 
     Informações adicionais:
     
-    - Caminho da URL (relativo à raiz):/800001/CustomerOrigin/path/asset.htm
+    - Caminho de URL (relativo à raiz): /800001/CustomerOrigin/path/asset.htm
    
-    - Caminho da URL (relativo à origem):/path/asset.htm
+    - Url caminho (relativo à origem): /path/asset.htm
 
-- As cadeias de caracteres de consulta na URL são ignoradas.
-- Use a opção **Ignorar maiúsculas** para controlar se uma comparação que diferencia maiúsculas de minúsculas é executada.
-- O valor especificado para essa condição de correspondência é comparado com o caminho relativo da solicitação exata feita pelo cliente.
+- As cordas de consulta na URL são ignoradas.
+- Utilize a opção **Ignore Case** para controlar se é efetuada uma comparação sensível a casos.
+- O valor especificado para esta condição de jogo é comparado com o caminho relativo do pedido exato feito pelo cliente.
 
-- Para corresponder a todas as solicitações feitas em um diretório específico, use o [diretório de caminho da URL](#url-path-directory) ou a condição de correspondência curinga do caminho da [URL](#url-path-wildcard) .
-
-[Voltar ao início](#reference-for-rules-engine-match-conditions)
-
-</br>
-
----
-
-### <a name="url-path-regex"></a>Regex de caminho de URL
-
-Compara o caminho da URL da solicitação com a [expressão regular](cdn-verizon-premium-rules-engine-reference.md#regular-expressions)especificada.
-
-A opção **corresponde**/**não corresponde** determina as condições sob as quais a condição de correspondência Regex de caminho de URL são atendidas.
-
-- **Corresponde**a: Requer que a solicitação contenha um caminho de URL que corresponda à expressão regular especificada.
-- Não **corresponde**a: Requer que a solicitação contenha um caminho de URL que não corresponda à expressão regular especificada.
-
-Informações da chave:
-
-- Uma URL CNAME de borda é reescrita para uma URL CDN antes da comparação de URL.
-
-    Por exemplo, ambas as URLs apontam para o mesmo ativo e, portanto, têm o mesmo caminho de URL.
-
-     - URL da CDN: http\/:&lt; /WPC.0001. domínio&gt;/800001/CustomerOrigin/Path/Asset.htm
-
-     - URL de CNAME de borda:\/http:/My.domain.com/Path/Asset.htm
-
-    Informações adicionais:
-    
-     - Caminho da URL:/800001/CustomerOrigin/path/asset.htm
-
-- As cadeias de caracteres de consulta na URL são ignoradas.
-    
-- Use a opção **Ignorar maiúsculas** para controlar se uma comparação que diferencia maiúsculas de minúsculas é executada.
-    
-- Os espaços no caminho da URL devem ser substituídos por "% 20".
+- Para combinar todos os pedidos feitos a um determinado diretório, utilize o [Diretório de Percursos URL](#url-path-directory) ou a condição de correspondência [url Path Wildcard.](#url-path-wildcard)
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
@@ -777,65 +742,100 @@ Informações da chave:
 
 ---
 
-### <a name="url-path-wildcard"></a>Curinga de caminho de URL
+### <a name="url-path-regex"></a>URL Path Regex
 
-Compara o caminho da URL relativa de uma solicitação com o padrão curinga especificado.
+Compara o caminho url de um pedido com a [expressão regular](cdn-verizon-premium-rules-engine-reference.md#regular-expressions)especificada .
 
-A opção **corresponde**/**não corresponde** determina as condições sob as quais a condição de correspondência curinga de caminho de URL são atendidas.
+A opção **Match**/**Does Not Match** determina as condições em que a condição de correspondência do URL Path Regex é satisfeita.
 
-- **Corresponde**a: Requer que a solicitação contenha um caminho de URL que corresponda ao padrão curinga especificado.
-- Não **corresponde**a: Requer que a solicitação contenha um caminho de URL que não corresponda ao padrão curinga especificado.
+- **Fósforos**: Requer o pedido de contenção de um caminho URL que corresponda à expressão regular especificada.
+- **Não Colhe**: Requer o pedido de contenção de um caminho URL que não corresponda à expressão regular especificada.
 
-Informações da chave:
+Informação-chave:
 
-- **Relativo à** opção: Esta opção determina se o ponto de comparação de URL começa antes ou depois do ponto de acesso de conteúdo.
+- Um URL CNAME de borda é reescrito para um URL CDN antes da comparação de URL.
 
-   Essa opção pode ter os seguintes valores:
-     - **Raiz**: Indica que o ponto de comparação de URL começa diretamente após o nome de host da CDN.
+    Por exemplo, ambos os URLs apontam para o mesmo ativo e, portanto, têm o mesmo caminho de URL.
 
-       Por exemplo: http:\//WPC.0001.&lt; &gt;**800001/myorigin/MyFolder/index.htm** de domínio/
+     - URL CDN:\/http: /wpc.0001. &lt;domínio&gt;/800001/CustomerOrigin/path/asset.htm
 
-     - **Origem**: Indica que o ponto de comparação de URL começa após o ponto de acesso de conteúdo (por exemplo,/000001 ou/800001/myorigin). Como o \*CNAME. azureedge.net é criado em relação ao diretório de origem no nome de host da CDN da Verizon por padrão, os usuários da CDN do Azure devem usar o valor de **origem** . 
+     - URL Edge CNAME:\/http: /my.domain.com/path/asset.htm
 
-       Por exemplo: https:\//&lt;Endpoint&gt;. azureedge.NET/**MyFolder/index.htm**
+    Informações adicionais:
+    
+     - Url caminho: /800001/CustomerOrigin/path/asset.htm
 
-     Esta URL aponta para o seguinte nome de host da CDN da\/Verizon&lt; : http:/WPC.0001. /800001/myorigin/&gt;de domínio**MyFolder/index.htm**
+- As cordas de consulta na URL são ignoradas.
+    
+- Utilize a opção **Ignore Case** para controlar se é efetuada uma comparação sensível a casos.
+    
+- Os espaços no caminho do URL devem ser substituídos por "%20".
 
-- Uma URL CNAME de borda é reescrita para uma URL CDN antes da comparação de URL.
+[Voltar ao início](#reference-for-rules-engine-match-conditions)
 
-    Por exemplo, ambas as URLs a seguir apontam para o mesmo ativo e, portanto, têm o mesmo caminho de URL:
-     - URL da CDN http://wpc.0001.&lt:;d&gt; omain/800001/CustomerOrigin/Path/Asset.htm
-     - URL de CNAME de borda:\/http&gt;:/&lt;Endpoint. azureedge.net/Path/Asset.htm
+</br>
+
+---
+
+### <a name="url-path-wildcard"></a>URL Path Wildcard
+
+Compara o caminho de URL relativo de um pedido com o padrão wildcard especificado.
+
+A opção **Match**/**Does Not Match** determina as condições em que a condição de correspondência do URL Path Wildcard é satisfeita.
+
+- **Fósforos**: Requer o pedido para conter um caminho URL que corresponda ao padrão wildcard especificado.
+- **Não Colhe**: Requer o pedido para conter um caminho URL que não corresponda ao padrão wildcard especificado.
+
+Informação-chave:
+
+- **Relativamente a** opção: Esta opção determina se o ponto de comparação de URL começa antes ou depois do ponto de acesso ao conteúdo.
+
+   Esta opção pode ter os seguintes valores:
+     - **Raiz**: Indica que o ponto de comparação de URL começa diretamente após o nome de anfitrião do CDN.
+
+       Por exemplo:\/http: /wpc.0001. &lt;&gt;/**800001/myorigin/myfolder/index.htm de** domínio
+
+     - **Origem**: Indica que o ponto de comparação de URL começa após o ponto de acesso ao conteúdo (por exemplo, /000001 ou /800001/myorigin). Uma \*vez que o .azureedge.net CNAME é criado em relação ao diretório de origem no nome de anfitrião da Verizon CDN por padrão, os utilizadores de CDN Azure devem usar o valor **Origem.** 
+
+       Por exemplo:\//&lt;https:&gt;endpoint .azureedge.net/**myfolder/index.htm**
+
+     Este URL aponta para o seguinte nome de\/anfitrião Verizon CDN: http: /wpc.0001. &lt;domínio&gt;/800001/myorigin/**myfolder/index.htm**
+
+- Um URL CNAME de borda é reescrito para um URL CDN antes da comparação de URL.
+
+    Por exemplo, ambos os seguintes URLs apontam para o mesmo ativo e, portanto, têm o mesmo caminho url:
+     - URL CDN: http://wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
+     - URL Edge CNAME:\//&lt;http: endpoint&gt;.azureedge.net/path/asset.htm
     
     Informações adicionais:
     
-     - Caminho da URL (relativo à raiz):/800001/CustomerOrigin/path/asset.htm
+     - Caminho de URL (relativo à raiz): /800001/CustomerOrigin/path/asset.htm
     
-     - Caminho da URL (relativo à origem):/path/asset.htm
+     - Url caminho (relativo à origem): /path/asset.htm
     
-- Especifique vários caminhos de URL delimitando cada um deles com um único espaço.
+- Especifique múltiplos caminhos de URL delimitando cada um com um único espaço.
 
-   Por exemplo:/marketing/Asset. */Sales/*. htm
+   Por exemplo: /marketing/ativo.* /sales/*.htm
 
-- As cadeias de caracteres de consulta na URL são ignoradas.
+- As cordas de consulta na URL são ignoradas.
     
-- Use a opção **Ignorar maiúsculas** para controlar se uma comparação que diferencia maiúsculas de minúsculas é executada.
+- Utilize a opção **Ignore Case** para controlar se é efetuada uma comparação sensível a casos.
     
-- Substitua os espaços no caminho da URL por "% 20".
+- Substitua os espaços no caminho do URL por "%20".
     
-- O valor especificado para um caminho de URL pode aproveitar [os valores curinga](cdn-verizon-premium-rules-engine-reference.md#wildcard-values). Cada padrão de caminho de URL pode conter um ou mais asteriscos (*), onde cada asterisco pode corresponder a uma sequência de um ou mais caracteres.
+- O valor especificado para um caminho DE URL pode tirar partido dos [valores wildcard](cdn-verizon-premium-rules-engine-reference.md#wildcard-values). Cada padrão de caminho URL pode conter um ou mais asteriscos (*), onde cada asterisco pode corresponder a uma sequência de um ou mais caracteres.
 
-#### <a name="sample-scenarios"></a>Cenários de exemplo
+#### <a name="sample-scenarios"></a>Cenários de amostra
 
-As configurações de exemplo na tabela a seguir pressupõem que essa condição de correspondência seja atendida quando uma solicitação corresponder ao padrão de URL especificado:
+As configurações da amostra na tabela a seguir assumem que esta condição de jogo é satisfeita quando um pedido corresponde ao padrão de URL especificado:
 
-Value                   | Relativo a    | Resultado 
+Valor                   | Relativamente a    | Resultado 
 ------------------------|----------------|-------
-*/test.html */test.php  | Raiz ou origem | Esse padrão é correspondido por solicitações de ativos nomeados "Test. html" ou "Test. php" em qualquer pasta.
-/80ABCD/origin/text/*   | Raiz           | Esse padrão é correspondido quando o ativo solicitado atende aos seguintes critérios: <br />-Ele deve residir em uma origem de cliente chamada "Origin". <br />-O caminho relativo deve começar com uma pasta chamada "text". Ou seja, o ativo solicitado pode residir na pasta "texto" ou em uma de suas subpastas recursivas.
-*/css/* */js/*          | Raiz ou origem | Esse padrão é correspondido por todas as URLs CDN ou CNAME de borda que contêm uma pasta CSS ou js.
-*.jpg *.gif *.png       | Raiz ou origem | Esse padrão é correspondido por todas as URLs CDN ou CNAME de borda que terminam com. jpg,. gif ou. png. Uma maneira alternativa de especificar esse padrão é com a [condição de correspondência de extensão de caminho de URL](#url-path-extension).
-/images/*/Media/*      | Origem         | Esse padrão é correspondido pelas URLs de CDN ou de borda CNAME cujo caminho relativo começa com uma pasta "images" ou "Media". <br />-URL da CDN: http\/:&lt; /WPC.0001. /800001/myorigin/images/Sales/Event1.png&gt;de domínio<br />- Sample edge CNAME URL: http:\//cdn.mydomain.com/images/sales/event1.png
+*/test.html */test.php  | Raiz ou Origem | Este padrão é acompanhado por pedidos de ativos chamados "test.html" ou "test.php" em qualquer pasta.
+/80ABCD/origem/texto/*   | Raiz           | Este padrão é acompanhado quando o ativo solicitado satisfaz os seguintes critérios: <br />- Deve residir numa origem do cliente chamada "origem". <br />- O caminho relativo deve começar com uma pasta chamada "texto". Ou seja, o ativo solicitado pode residir na pasta "text" ou numa das suas subpastas recursivas.
+*/css/* */js/*          | Raiz ou Origem | Este padrão é combinado por todos os URLs CDN ou CNAME de borda que contenham uma pasta css ou js.
+*.jpg *.gif *.png       | Raiz ou Origem | Este padrão é combinado por todos os URLs CDN ou CNAME de borda que terminam com .jpg, .gif ou .png. Uma forma alternativa de especificar este padrão é com a condição de correspondência de [extensão do caminho do URL](#url-path-extension).
+/images/* /media/*      | Origem         | Este padrão é combinado por CDN ou URLs CNAME de borda cujo caminho relativo começa com uma pasta de "imagens" ou "media". <br />- URL CDN:\/http: /wpc.0001. &lt;domínio&gt;/800001/myorigin/images/sales/event1.png<br />- URL CNAME de\/borda da amostra: http: /cdn.mydomain.com/images/sales/event1.png
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
@@ -843,36 +843,36 @@ Value                   | Relativo a    | Resultado
 
 ---
 
-### <a name="url-query-literal"></a>Literal de consulta de URL
+### <a name="url-query-literal"></a>Url Consulta Literal
 
-Compara a cadeia de caracteres de consulta de uma solicitação com o valor especificado.
+Compara a corda de consulta de um pedido com o valor especificado.
 
-A opção **corresponde**/**não corresponde** determina as condições sob as quais a condição de correspondência literal de consulta de URL são atendidas.
+A opção **Match**/**Does Not Match** determina as condições em que a condição de correspondência literal de consulta url é satisfeita.
 
-- **Corresponde**a: Requer que a solicitação contenha uma cadeia de caracteres de consulta de URL que corresponda à cadeia de caracteres de consulta especificada.
-- Não **corresponde**a: Requer que a solicitação contenha uma cadeia de caracteres de consulta de URL que não corresponda à cadeia de caracteres de consulta especificada.
+- **Fósforos**: Requer o pedido para conter uma cadeia de consulta url que corresponda à corda de consulta especificada.
+- **Não Colhe**: Requer o pedido de contenção de uma cadeia de consulta url que não corresponda à corda de consulta especificada.
 
-Informações da chave:
+Informação-chave:
 
-- Somente correspondências exatas da cadeia de caracteres de consulta atendem a essa condição de correspondência
+- Apenas os fósforos de corda de consulta exata satisfazem esta condição de jogo.
     
-- Use a opção **Ignorar caso** para controlar a diferenciação de maiúsculas e minúsculas das comparações de cadeia de caracteres de consulta.
+- Utilize a opção **Ignore Case** para controlar a sensibilidade de caso das comparações de cordas de consulta.
     
-- Não inclua um ponto de interrogação (?) à esquerda no texto do valor da cadeia de caracteres de consulta.
+- Não inclua um ponto de interrogação (?) no texto de valor de corda de consulta.
     
-- Determinados caracteres exigem codificação de URL. Use o símbolo de porcentagem para codificar por URL os seguintes caracteres:
+- Certos caracteres requerem codificação de URL. Utilize o símbolo percentual para codificar os seguintes caracteres:
 
    Caráter | Codificação de URL
    ----------|---------
    Espaço     | %20
    &         | %25
 
-- Devido à maneira como as configurações de cache são controladas, essa condição de correspondência é incompatível com os seguintes recursos:
-   - Concluir preenchimento de cache
+- Devido à forma como as definições de cache são rastreadas, esta condição de jogo é incompatível com as seguintes características:
+   - Enchimento completo de cache
    - Idade máxima interna padrão
-   - Forçar Max-age interna
-   - Ignorar não cache de origem
-   - Max-obsoleto interno
+   - Força Interna Max-Age
+   - Ignore a Origem Sem Cache
+   - Max-Stale interno
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
@@ -882,82 +882,82 @@ Informações da chave:
 
 ### <a name="url-query-parameter"></a>Parâmetro de consulta de URL
 
-Identifica solicitações que contêm o parâmetro de cadeia de caracteres de consulta especificado. Esse parâmetro é definido como um valor que corresponde a um padrão especificado. Os parâmetros de cadeia de caracteres de consulta (por exemplo, parâmetro = valor) na URL da solicitação determinam se essa condição é atendida. Essa condição de correspondência identifica um parâmetro de cadeia de caracteres de consulta por seu nome e aceita um ou mais valores para o valor do parâmetro. 
+Identifica pedidos que contenham o parâmetro de corda de consulta especificado. Este parâmetro está definido para um valor que corresponde a um padrão especificado. Os parâmetros de cadeia de consulta (por exemplo, parâmetro=valor) no URL de pedido determinam se esta condição é satisfeita. Esta condição de correspondência identifica um parâmetro de corda de consulta pelo seu nome e aceita um ou mais valores para o valor do parâmetro. 
 
-A opção **corresponde**/**não corresponde** determina as condições sob as quais a condição de correspondência de parâmetro de consulta de URL são atendidas.
+A opção **Match**/**Does Not Match** determina as condições em que a condição de correspondência do parâmetro de consulta url é satisfeita.
 
-- **Corresponde**a: Requer que uma solicitação contenha o parâmetro especificado com um valor que corresponda a pelo menos um dos valores definidos nessa condição de correspondência.
-- Não **corresponde**a: Requer que a solicitação atenda a qualquer um dos seguintes critérios:
-  - Ele não contém o parâmetro especificado.
-  - Ele contém o parâmetro especificado, mas seu valor não corresponde a nenhum dos valores definidos nessa condição de correspondência.
+- **Partidas**: Requer um pedido para conter o parâmetro especificado com um valor que corresponda a pelo menos um dos valores definidos nesta condição de jogo.
+- **Não Corresponder**: Requer que o pedido satisfaça qualquer um dos seguintes critérios:
+  - Não contém o parâmetro especificado.
+  - Contém o parâmetro especificado, mas o seu valor não corresponde a nenhum dos valores definidos nesta condição de jogo.
 
-Essa condição de correspondência fornece uma maneira fácil de especificar combinações de nome/valor de parâmetro. Para obter mais flexibilidade se você estiver correspondendo a um parâmetro de cadeia de caracteres de consulta, considere usar a condição de correspondência [curinga de consulta de URL](#url-query-wildcard) .
+Esta condição de correspondência fornece uma maneira fácil de especificar as combinações de nome/valor do parâmetro. Para obter mais flexibilidade se estiver a combinar um parâmetro de corda de consulta, considere utilizar a condição de correspondência [url Query Wildcard.](#url-query-wildcard)
 
-Informações da chave:
+Informação-chave:
 
-- Apenas um nome de parâmetro de consulta de URL única pode ser especificado por instância dessa condição de correspondência.
+- Apenas um único nome de parâmetro de consulta URL pode ser especificado por exemplo desta condição de correspondência.
     
-- Como não há suporte para valores curinga quando um nome de parâmetro é especificado, somente as correspondências de nome de parâmetro exatas são elegíveis para comparação.
-- [Os valores](cdn-verizon-premium-rules-engine-reference.md#wildcard-values)de parâmetro podem incluir valor curinga.
-   - Cada padrão de valor de parâmetro pode consistir em um ou mais asteriscos (*), onde cada asterisco pode corresponder a uma sequência de um ou mais caracteres.
-   - Determinados caracteres exigem codificação de URL. Use o símbolo de porcentagem para codificar por URL os seguintes caracteres:
+- Como os valores wildcard não são suportados quando um nome de parâmetro é especificado, apenas as correspondências exatas de nome do parâmetro são elegíveis para comparação.
+- O valor do parâmetro pode incluir [valores wildcard.](cdn-verizon-premium-rules-engine-reference.md#wildcard-values)
+   - Cada padrão de valor do parâmetro pode consistir em um ou mais asteriscos (*), onde cada asterisco pode corresponder a uma sequência de um ou mais caracteres.
+   - Certos caracteres requerem codificação de URL. Utilize o símbolo percentual para codificar os seguintes caracteres:
 
        Caráter | Codificação de URL
        ----------|---------
        Espaço     | %20
        &         | %25
 
-- Especifique vários valores de parâmetro de cadeia de caracteres de consulta delimitando cada um deles com um único espaço. Essa condição de correspondência é atendida quando uma solicitação contém uma das combinações de nome/valor especificadas.
+- Especifique vários valores de parâmetros de corda de consulta, delimitando cada um com um único espaço. Esta condição de jogo é satisfeita quando um pedido contém uma das combinações de nome/valor especificadas.
 
    - Exemplo 1:
 
      - Configuração:
 
-       ValueA ValueB
+       ValorA ValorB
 
-     - Essa configuração corresponde aos seguintes parâmetros de cadeia de caracteres de consulta:
+     - Esta configuração corresponde aos seguintes parâmetros de corda de consulta:
 
-       Parâmetro1 = valor
+       Parâmetro1=ValueA
     
-       Parâmetro1 = valorB
+       Parâmetro1=ValorB
 
    - Exemplo 2:
 
      - Configuração: 
 
-        Valor% 20A valor% 20B
+        Valor%20A Valor%20B
 
-     - Essa configuração corresponde aos seguintes parâmetros de cadeia de caracteres de consulta:
+     - Esta configuração corresponde aos seguintes parâmetros de corda de consulta:
 
-       Parâmetro1 = valor% 20A
+       Parâmetro1=Valor%20A
 
-       Parâmetro1 = valor% 20B
+       Parâmetro1=Valor%20B
 
-- Essa condição de correspondência é atendida somente quando há uma correspondência exata com pelo menos uma das combinações de nome/valor da cadeia de caracteres de consulta especificada.
+- Esta condição de jogo só é satisfeita quando há uma correspondência exata com pelo menos uma das combinações especificadas de nome/valor de consulta.
 
-   Por exemplo, se você usar a configuração no exemplo anterior, a combinação de nome/valor de parâmetro "parâmetro1 = ValueAdd" não seria considerada uma correspondência. No entanto, se você especificar um dos seguintes valores, ele corresponderá a essa combinação de nome/valor:
+   Por exemplo, se utilizar a configuração no exemplo anterior, a combinação de nome/valor do parâmetro "Parameter1=ValueAdd" não seria considerada compatível. No entanto, se especificar um dos seguintes valores, corresponderá a essa combinação de nome/valor:
 
-   - Valor de valorB ValueAdd
-   - Valor * valorB
+   - Valorado Valorb Valorb
+   - ValorA* ValorB
 
-- Use a opção **Ignorar caso** para controlar a diferenciação de maiúsculas e minúsculas das comparações de cadeia de caracteres de consulta.
+- Utilize a opção **Ignore Case** para controlar a sensibilidade de caso das comparações de cordas de consulta.
     
-- Devido à maneira como as configurações de cache são controladas, essa condição de correspondência é incompatível com os seguintes recursos:
-   - Concluir preenchimento de cache
+- Devido à forma como as definições de cache são rastreadas, esta condição de jogo é incompatível com as seguintes características:
+   - Enchimento completo de cache
    - Idade máxima interna padrão
-   - Forçar Max-age interna
-   - Ignorar não cache de origem
-   - Max-obsoleto interno
+   - Força Interna Max-Age
+   - Ignore a Origem Sem Cache
+   - Max-Stale interno
 
 #### <a name="sample-scenarios"></a>Cenários de exemplo
 
-O exemplo a seguir demonstra como essa opção funciona em situações específicas:
+O exemplo que se segue demonstra como esta opção funciona em situações específicas:
 
 Nome  | Valor |  Resultado
 ------|-------|--------
-Utilizador  | Joe   | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada é "? User = Joe."
-Utilizador  | *     | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada contém um parâmetro de usuário.
-Email | Joe\* | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada contém um parâmetro de email que começa com "Joe".
+Utilizador  | João   | Este padrão é combinado quando a corda de consulta para um URL solicitado é "?user=joe".
+Utilizador  | *     | Este padrão é combinado quando a corda de consulta para um URL solicitado contém um parâmetro do Utilizador.
+Email | João\* | Este padrão é combinado quando a corda de consulta para um URL solicitado contém um parâmetro de e-mail que começa com "Joe".
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
@@ -965,47 +965,47 @@ Email | Joe\* | Esse padrão é correspondido quando a cadeia de caracteres de c
 
 ---
 
-### <a name="url-query-regex"></a>Regex de consulta de URL
+### <a name="url-query-regex"></a>URL Consulta Regex
 
-Identifica solicitações que contêm o parâmetro de cadeia de caracteres de consulta especificado. Esse parâmetro é definido como um valor que corresponde a uma [expressão regular](cdn-verizon-premium-rules-engine-reference.md#regular-expressions)especificada.
+Identifica pedidos que contenham o parâmetro de corda de consulta especificado. Este parâmetro está definido para um valor que corresponda a uma [expressão regular](cdn-verizon-premium-rules-engine-reference.md#regular-expressions)especificada .
 
-A opção **corresponde**/**não corresponde** determina as condições sob as quais a condição de correspondência Regex de consulta de URL são atendidas.
+A opção **Match**/**Does Not Match** determina as condições em que a condição de correspondência do URL Query Regex é satisfeita.
 
-- **Corresponde**a: Requer que a solicitação contenha uma cadeia de caracteres de consulta de URL que corresponda à expressão regular especificada.
-- Não **corresponde**a: Requer que a solicitação contenha uma cadeia de caracteres de consulta de URL que não corresponda à expressão regular especificada.
+- **Fósforos**: Requer o pedido de contenção de uma cadeia de consulta url que corresponda à expressão regular especificada.
+- **Não Colhe**: Requer o pedido de contenção de uma cadeia de consulta url que não corresponda à expressão regular especificada.
 
-Informações da chave:
+Informação-chave:
 
-- Somente as correspondências exatas para a expressão regular especificada satisfazem essa condição de correspondência.
+- Apenas os fósforos exatos com a expressão regular especificada satisfazem esta condição de jogo.
     
-- Use a opção **Ignorar caso** para controlar a diferenciação de maiúsculas e minúsculas das comparações de cadeia de caracteres de consulta.
+- Utilize a opção **Ignore Case** para controlar a sensibilidade de caso das comparações de cordas de consulta.
     
-- Para os fins desta opção, uma cadeia de caracteres de consulta começa com o primeiro caractere após o delimitador de ponto de interrogação (?) para a cadeia de caracteres de consulta.
+- Para efeitos desta opção, uma corda de consulta começa com o primeiro personagem após o ponto de interrogação (?) delimitador para a corda de consulta.
     
-- Determinados caracteres exigem codificação de URL. Use o símbolo de porcentagem para codificar por URL os seguintes caracteres:
+- Certos caracteres requerem codificação de URL. Utilize o símbolo percentual para codificar os seguintes caracteres:
 
    Caráter | Codificação de URL | Valor
    ----------|--------------|------
    Espaço     | %20          | \%20
    &         | %25          | \%25
 
-   Observe que os símbolos de porcentagem devem ser ignorados.
+   Note que os símbolos percentuais devem ser escapados.
 
-- Caracteres de expressão regular especiais de escape duplo (por exemplo \^, $. +) para incluir uma barra invertida na expressão regular.
+- Personagens especiais de expressão regular \^de fuga dupla (por exemplo, $.+) para incluir um backslash na expressão regular.
 
    Por exemplo:
 
-   Valor | Interpretado como 
+   Valor | Interpretado Como 
    ------|---------------
    \\+    | +
    \\\\+   | \\+
 
-- Devido à maneira como as configurações de cache são controladas, essa condição de correspondência é incompatível com os seguintes recursos:
-   - Concluir preenchimento de cache
+- Devido à forma como as definições de cache são rastreadas, esta condição de jogo é incompatível com as seguintes características:
+   - Enchimento completo de cache
    - Idade máxima interna padrão
-   - Forçar Max-age interna
-   - Ignorar não cache de origem
-   - Max-obsoleto interno
+   - Força Interna Max-Age
+   - Ignore a Origem Sem Cache
+   - Max-Stale interno
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
@@ -1013,59 +1013,59 @@ Informações da chave:
 
 ---
 
-### <a name="url-query-wildcard"></a>Curinga de consulta de URL
+### <a name="url-query-wildcard"></a>URL Consulta Wildcard
 
-Compara os valores especificados com a cadeia de caracteres de consulta da solicitação.
+Compara o(s) valor especificado com a corda de consulta do pedido.
 
-A opção **corresponde**/**não corresponde** determina as condições sob as quais a condição de correspondência curinga de consulta de URL são atendidas.
+A opção **Match**/**Does Not Match** determina as condições em que a condição de correspondência url Consulta Wildcard é satisfeita.
 
-- **Corresponde**a: Requer que a solicitação contenha uma cadeia de caracteres de consulta de URL que corresponda ao valor curinga especificado.
-- Não **corresponde**a: Requer que a solicitação contenha uma cadeia de caracteres de consulta de URL que não corresponda ao valor curinga especificado.
+- **Fósforos**: Requer o pedido para conter uma cadeia de consulta URL que corresponda ao valor wildcard especificado.
+- **Não Colhe**: Requer o pedido de contenção de uma cadeia de consulta url que não corresponda ao valor wildcard especificado.
 
-Informações da chave:
+Informação-chave:
 
-- Para os fins desta opção, uma cadeia de caracteres de consulta começa com o primeiro caractere após o delimitador de ponto de interrogação (?) para a cadeia de caracteres de consulta.
-- Os valores de parâmetro podem incluir [valores curinga](cdn-verizon-premium-rules-engine-reference.md#wildcard-values):
-   - Cada padrão de valor de parâmetro pode consistir em um ou mais asteriscos (*), onde cada asterisco pode corresponder a uma sequência de um ou mais caracteres.
-   - Determinados caracteres exigem codificação de URL. Use o símbolo de porcentagem para codificar por URL os seguintes caracteres:
+- Para efeitos desta opção, uma corda de consulta começa com o primeiro personagem após o ponto de interrogação (?) delimitador para a corda de consulta.
+- Os valores dos parâmetros podem incluir [valores wildcard:](cdn-verizon-premium-rules-engine-reference.md#wildcard-values)
+   - Cada padrão de valor do parâmetro pode consistir em um ou mais asteriscos (*), onde cada asterisco pode corresponder a uma sequência de um ou mais caracteres.
+   - Certos caracteres requerem codificação de URL. Utilize o símbolo percentual para codificar os seguintes caracteres:
 
      Caráter | Codificação de URL
      ----------|---------
      Espaço     | %20
      &         | %25
 
-- Especifique vários valores delimitando cada um deles com um único espaço.
+- Especifique vários valores delimitando cada um com um único espaço.
 
-   Por exemplo: *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
+   Por exemplo: *Parâmetro1=ValueB* *ValueB* *Parameter1=ValueC&Parameter2=Valorizado*
 
-- Somente correspondências exatas para pelo menos um dos padrões de cadeia de caracteres de consulta especificados atendem a essa condição de correspondência.
+- Apenas correspondem exatamente a pelo menos um dos padrões de corda de consulta especificados satisfazem esta condição de correspondência.
     
-- Use a opção **Ignorar caso** para controlar a diferenciação de maiúsculas e minúsculas das comparações de cadeia de caracteres de consulta.
+- Utilize a opção **Ignore Case** para controlar a sensibilidade de caso das comparações de cordas de consulta.
     
-- Devido à maneira como as configurações de cache são controladas, essa condição de correspondência é incompatível com os seguintes recursos:
-   - Concluir preenchimento de cache
+- Devido à forma como as definições de cache são rastreadas, esta condição de jogo é incompatível com as seguintes características:
+   - Enchimento completo de cache
    - Idade máxima interna padrão
-   - Forçar Max-age interna
-   - Ignorar não cache de origem
-   - Max-obsoleto interno
+   - Força Interna Max-Age
+   - Ignore a Origem Sem Cache
+   - Max-Stale interno
 
 #### <a name="sample-scenarios"></a>Cenários de exemplo
 
-O exemplo a seguir demonstra como essa opção funciona em situações específicas:
+O exemplo que se segue demonstra como esta opção funciona em situações específicas:
 
  Nome                 | Descrição
  ---------------------|------------
-user=joe              | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada é "? User = Joe."
-\*user=\* \*optout=\* | Esse padrão é correspondido quando a consulta de URL CDN contém o parâmetro User ou optou.
+utilizador=joe              | Este padrão é combinado quando a corda de consulta para um URL solicitado é "?user=joe".
+\*utilizador=\* \*optout=\* | Este padrão é combinado quando a consulta de URL cDN contém o utilizador ou o parâmetro optout.
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
 </br>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Visão geral da rede de distribuição de conteúdo do Azure](cdn-overview.md)
+- [Visão geral da Rede de Entrega de Conteúdos Azure](cdn-overview.md)
 - [Referência do motor de regras](cdn-verizon-premium-rules-engine-reference.md)
 - [Expressões condicionais do motor de regras](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
 - [Funcionalidades do motor de regras](cdn-verizon-premium-rules-engine-reference-features.md)
-- [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](cdn-verizon-premium-rules-engine.md)
+- [Sobrepor o comportamento do HTTP usando o motor de regras](cdn-verizon-premium-rules-engine.md)

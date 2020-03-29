@@ -1,6 +1,6 @@
 ---
-title: Migração de entre regiões de geração 1 do Data Lake Storage do Azure | Documentos da Microsoft
-description: Saiba mais sobre a migração entre regiões de geração 1 de armazenamento do Azure Data Lake.
+title: Migração transversal do Lago Azure Data Gen1 Microsoft Docs
+description: Saiba mais sobre a migração transversal para azure Data Lake Storage Gen1.
 services: data-lake-store
 documentationcenter: ''
 author: swums
@@ -13,42 +13,42 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: stewu
 ms.openlocfilehash: 0bf0843314f38c0de28820c82e95b7921297bf40
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60518477"
 ---
-# <a name="migrate-azure-data-lake-storage-gen1-across-regions"></a>Migrar Gen1 de armazenamento do Azure Data Lake em várias regiões
+# <a name="migrate-azure-data-lake-storage-gen1-across-regions"></a>Migrate Azure Data Lake Storage Gen1 através de regiões
 
-Como a geração 1 de armazenamento do Azure Data Lake torna-se disponíveis em novas regiões, pode optar por fazer uma única migração, para aproveitar a nova região. Saiba o que considerar quando planear e concluir a migração.
+À medida que o Azure Data Lake Storage Gen1 se torna disponível em novas regiões, poderá optar por fazer uma migração única, para aproveitar a nova região. Aprenda o que considerar como planeia e complete a migração.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma subscrição do Azure**. Para obter mais informações, consulte [crie hoje a sua conta gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta de geração 1 de armazenamento do Data Lake em duas regiões diferentes**. Para obter mais informações, consulte [introdução ao Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
-* **Azure Data Factory**. Para obter mais informações, veja [Introdução ao Azure Data Factory](../data-factory/introduction.md).
+* **Uma subscrição Azure.** Para mais informações, consulte [Criar a sua conta Azure gratuita hoje](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma conta de Data Lake Storage Gen1 em duas regiões diferentes.** Para mais informações, consulte [Start start with Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
+* Fábrica de **Dados Azure.** Para obter mais informações, veja [Introdução ao Azure Data Factory](../data-factory/introduction.md).
 
 
 ## <a name="migration-considerations"></a>Considerações sobre a migração
 
-Em primeiro lugar, identifique a estratégia de migração que funciona melhor para a sua aplicação que grava, lê ou processa dados no Data Lake Storage Gen1. Ao escolher uma estratégia, considere os requisitos de disponibilidade de seu aplicativo e o período de indisponibilidade ocorre durante uma migração. Por exemplo, a abordagem mais simples pode ser a utilização do modelo de migração "lift-and-shift" de cloud. Nesta abordagem, colocar em pausa a aplicação na sua região existente, enquanto todos os seus dados são copiados para a nova região. Quando o processo de cópia estiver concluído, pode retomar a sua aplicação na nova região e, em seguida, elimina a conta de geração 1 de armazenamento do Data Lake antiga. É necessário o período de indisponibilidade durante a migração.
+Em primeiro lugar, identifique a estratégia de migração que funciona melhor para a sua aplicação que escreve, lê ou processa dados em Data Lake Storage Gen1. Ao escolher uma estratégia, considere os requisitos de disponibilidade da sua aplicação e o tempo de inatividade que ocorre durante uma migração. Por exemplo, a sua abordagem mais simples pode ser usar o modelo de migração em nuvem "lift-and-shift". Nesta abordagem, você pausa a aplicação na sua região existente enquanto todos os seus dados são copiados para a nova região. Quando o processo de cópia estiver concluído, recomeça a sua aplicação na nova região e, em seguida, elimina a antiga conta Data Lake Storage Gen1. É necessário tempo de inatividade durante a migração.
 
-Para reduzir o período de indisponibilidade, pode começar imediatamente a ingestão de novos dados na nova região. Quando tiver os dados mínimos necessários, execute a sua aplicação na nova região. Em segundo plano, continue a copiar os dados mais antigos da conta do Data Lake Storage Gen1 existente para a nova conta de geração 1 de armazenamento do Data Lake na nova região. Ao utilizar esta abordagem, pode fazer a transição para a nova região com pouco tempo de inatividade. Quando todos os dados mais antigos foi copiado, elimina a conta de geração 1 de armazenamento do Data Lake antiga.
+Para reduzir o tempo de inatividade, poderá começar imediatamente a ingerir novos dados na nova região. Quando tiver os dados mínimos necessários, faça a sua aplicação na nova região. Em segundo plano, continue a copiar dados mais antigos da conta gen1 de armazenamento de data lake para a nova conta Data Lake Storage Gen1 na nova região. Ao utilizar esta abordagem, pode fazer a mudança para a nova região com pouco tempo de inatividade. Quando todos os dados mais antigos forem copiados, elimine a antiga conta Data Lake Storage Gen1.
 
-Outros detalhes importantes a considerar quando planear a migração são:
+Outros detalhes importantes a ter em conta ao planear a sua migração são:
 
-* **Volume de dados**. O volume de dados (em gigabytes, o número de ficheiros e pastas e assim por diante) afeta o tempo e os recursos que necessários para a migração.
+* **Volume de dados**. O volume de dados (em gigabytes, o número de ficheiros e pastas, e assim por diante) afeta o tempo e os recursos necessários para a migração.
 
-* **Nome da conta do Data Lake Storage Gen1**. O novo nome de conta na nova região deve ser globalmente exclusivo. Por exemplo, o nome da sua conta do Data Lake Storage Gen1 antiga na região E.U.A. Leste 2 pode ser contosoeastus2.azuredatalakestore.net. Pode nomear sua nova conta de geração 1 de armazenamento do Data Lake na UE Norte contosonortheu.azuredatalakestore.net.
+* **Data Lake Storage Gen1 nome da conta**. O novo nome de conta na nova região deve ser globalmente único. Por exemplo, o nome da sua antiga conta data lake storage Gen1 no Leste dos EUA 2 pode ser contosoeastus2.azuredatalakestore.net. Pode nomear a sua nova conta data lake storage Gen1 no norte da UE contosonortheu.azuredatalakestore.net.
 
-* **Ferramentas**. Recomendamos que utilize o [atividade de cópia de fábrica de dados do Azure](../data-factory/connector-azure-data-lake-store.md) para copiar ficheiros de geração 1 de armazenamento do Data Lake. O Data Factory suporta o movimento de dados com alto desempenho e confiabilidade. Tenha em atenção que o Data Factory copia apenas a hierarquia de pasta e o conteúdo dos ficheiros. Tem de aplicar manualmente a quaisquer listas de controlo de acesso (ACLs) que utilize a conta antiga para a nova conta. Para obter mais informações, incluindo as metas de desempenho para cenários mais favorável, consulte a [guia de sintonização de desempenho de atividade de cópia e](../data-factory/copy-activity-performance.md). Se pretender que os dados copiados mais rapidamente, poderá ter de utilizar unidades de movimento de dados na Cloud adicionais. Algumas outras ferramentas, como o AdlCopy, não suportam a cópia de dados entre regiões.  
+* **Ferramentas.** Recomendamos que utilize a Atividade de Cópia da Fábrica de [Dados Azure](../data-factory/connector-azure-data-lake-store.md) para copiar ficheiros Gen1 de Armazenamento de Data Lake. Data Factory suporta o movimento de dados com alto desempenho e fiabilidade. Tenha em mente que a Data Factory copia apenas a hierarquia da pasta e o conteúdo dos ficheiros. É necessário aplicar manualmente quaisquer listas de controlo de acesso (ACLs) que utilize na conta antiga para a nova conta. Para obter mais informações, incluindo alvos de desempenho para cenários melhores, consulte o desempenho da Atividade de Cópia e o guia de [afinação](../data-factory/copy-activity-performance.md). Se pretender que os dados sejam copiados mais rapidamente, poderá ter de utilizar unidades adicionais de movimento de dados em nuvem. Algumas outras ferramentas, como a AdlCopy, não suportam copiar dados entre regiões.  
 
-* **Custos de largura de banda**. [Custos de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/) aplicam-se de uma vez que dados são transferidos para fora de uma região do Azure.
+* **Cargas de largura de banda**. [Os encargos de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/) aplicam-se porque os dados são transferidos para fora de uma região de Azure.
 
-* **ACLs nos seus dados**. Proteger os seus dados na nova região através da aplicação de ACLs para ficheiros e pastas. Para obter mais informações, consulte [proteger os dados armazenados no Azure Data Lake Storage Gen1](data-lake-store-secure-data.md). Recomendamos que utilize a migração para atualizar e ajustar as ACLs. Pode querer utilizar definições semelhantes às suas definições atuais. Pode ver as ACLs que são aplicadas a qualquer arquivo com o portal do Azure, [cmdlets do PowerShell](/powershell/module/az.datalakestore/get-azdatalakestoreitempermission), ou SDKs.  
+* **ACLs nos seus dados**. Proteja os seus dados na nova região aplicando ACLs em ficheiros e pastas. Para mais informações, consulte [a Segurança dos Dados armazenados no Azure Data Lake Storage Gen1](data-lake-store-secure-data.md). Recomendamos que utilize a migração para atualizar e ajustar os seus ACLs. É melhor utilizar definições semelhantes às definições atuais. Pode visualizar os ACLs que são aplicados a qualquer ficheiro utilizando o portal Azure, [cmdlets PowerShell](/powershell/module/az.datalakestore/get-azdatalakestoreitempermission)ou SDKs.  
 
-* **Localização de serviços de análise**. Para um melhor desempenho, seus serviços de análise, como o Azure Data Lake Analytics ou o Azure HDInsight, devem estar na mesma região que seus dados.  
+* **Localização dos serviços de análise.** Para um melhor desempenho, os seus serviços de análise, como o Azure Data Lake Analytics ou o Azure HDInsight, devem estar na mesma região que os seus dados.  
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Descrição geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
+## <a name="next-steps"></a>Passos seguintes
+* [Visão geral do Armazenamento de Lagos De Dados Azure Gen1](data-lake-store-overview.md)

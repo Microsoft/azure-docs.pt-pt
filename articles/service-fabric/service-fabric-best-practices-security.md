@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: dcdc338bdcdb2c04f6b8894ccb358bc773b95c07
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258931"
 ---
 # <a name="azure-service-fabric-security"></a>Segurança do Azure Service Fabric 
@@ -70,7 +70,7 @@ Para aplicar um ACL nos seus certificados para os seus processos de Cluster de T
 
 ## <a name="secure-a-service-fabric-cluster-certificate-by-common-name"></a>Garanta um certificado de cluster de tecido de serviço por nome comum
 
-Para garantir o seu cluster de tecido de serviço por certificado `Common Name`, utilize o certificado de propriedade do modelo De gestor de [recursosCommonNames,](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames)da seguinte forma:
+Para garantir o seu `Common Name`cluster de tecido de serviço por certificado, utilize o certificado de propriedade do modelo De gestor de [recursosCommonNames,](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames)da seguinte forma:
 
 ```json
 "certificateCommonNames": {
@@ -87,16 +87,16 @@ Para garantir o seu cluster de tecido de serviço por certificado `Common Name`,
 > [!NOTE]
 > Os clusters service Fabric utilizarão o primeiro certificado válido que encontrar na loja de certificados do seu anfitrião. No Windows, este será o certificado com a data de validade mais recente que corresponde à sua impressão digital de Nome Comum e Emitente.
 
-Os domínios Azure, tais como *\<your SUBDOMAIN\>.cloudapp.azure.com ou \<YOUR SUBDOMAIN\>.trafficmanager.net, são propriedade da Microsoft. As autoridades de certificados não emitirão certificados para domínios a utilizadores não autorizados. A maioria dos utilizadores terá de adquirir um domínio a um registrador, ou ser um administrador de domínio autorizado, para que uma autoridade de certificados lhe emita um certificado com esse nome comum.
+Os domínios Azure,\<tais\>como * \<YOUR\>SUBDOMAIN .cloudapp.azure.com ou YOUR SUBDOMAIN .trafficmanager.net, são propriedade da Microsoft. As autoridades de certificados não emitirão certificados para domínios a utilizadores não autorizados. A maioria dos utilizadores terá de adquirir um domínio a um registrador, ou ser um administrador de domínio autorizado, para que uma autoridade de certificados lhe emita um certificado com esse nome comum.
 
 Para mais detalhes sobre como configurar o Serviço DNS para resolver o seu domínio num endereço IP da Microsoft, reveja como configurar o [DNS Azure para hospedar o seu domínio](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns).
 
 > [!NOTE]
 > Depois de delegar os servidores de nome sinuosos dos seus domínios para os servidores de nome sinos do Azure, adicione os seguintes dois registos à sua Zona DNS:
-> - Um registo 'A' para o domínio APEX que não seja um `Alias record set` a todos os Endereços IP que o seu domínio personalizado irá resolver.
-> - Um registo 'C' para subdomínios da Microsoft que forprovisionou que não são uma `Alias record set`. Por exemplo, pode utilizar o nome DNS do seu Gestor de Tráfego ou do Balancer de Carga.
+> - Um registo 'A' para o domínio `Alias record set` APEX que não seja um para todos os Endereços IP que o seu domínio personalizado irá resolver.
+> - Um registo 'C' para sub domínios da `Alias record set`Microsoft que forprovisionou que não são um . Por exemplo, pode utilizar o nome DNS do seu Gestor de Tráfego ou do Balancer de Carga.
 
-Para atualizar o seu portal para exibir um nome DNS personalizado para o seu Cluster de Tecidos de Serviço `"managementEndpoint"`, atualize as propriedades do gestor de recursos do cluster de tecido de serviço:
+Para atualizar o seu portal para exibir um `"managementEndpoint"`nome DNS personalizado para o seu Cluster de Tecidos de Serviço, atualize as propriedades do gestor de recursos do cluster de tecido de serviço:
 
 ```json
  "managementEndpoint": "[concat('https://<YOUR CUSTOM DOMAIN>:',parameters('nt0fabricHttpGatewayPort'))]",
@@ -162,7 +162,7 @@ Os clusters de tecido de serviço Azure estão hospedados em conjuntos de escala
 Para obter uma lista de serviços a que a MSI pode ser usada para autenticar, consulte [os Serviços Azure que suportam a Autenticação de DirectórioActivo Azure.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication)
 
 
-Para permitir o sistema atribuído à identidade gerida durante a criação de um conjunto de escala de máquinas virtuais ou de um conjunto de escala de máquinas virtuais existente, declare a seguinte propriedade `"Microsoft.Compute/virtualMachinesScaleSets"`:
+Para permitir o sistema atribuído à identidade gerida durante a criação de um conjunto de `"Microsoft.Compute/virtualMachinesScaleSets"` escala de máquinas virtuais ou de um conjunto de escala de máquinas virtuais existente, declare a seguinte propriedade:
 
 ```json
 "identity": { 

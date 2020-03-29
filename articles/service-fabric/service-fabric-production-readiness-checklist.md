@@ -1,60 +1,60 @@
 ---
-title: Lista de verificação de preparação de produção do Azure Service Fabric
-description: Obtenha seu aplicativo Service Fabric e a produção de cluster pronta seguindo as práticas recomendadas.
+title: Lista de verificação de prontidão de produção de tecido de serviço Azure
+description: Prepare a sua aplicação Service Fabric e a produção de cluster seguindo as melhores práticas.
 ms.topic: conceptual
 ms.date: 6/05/2019
 ms.openlocfilehash: 90d600b01aa870f7b3a58e70ef32e774e7107524
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75376805"
 ---
 # <a name="production-readiness-checklist"></a>Lista de verificação da preparação de produção
 
-Seu aplicativo e cluster estão prontos para fazer o tráfego de produção? Executar e testar seu aplicativo e seu cluster não significa necessariamente que está pronto para entrar em produção. Mantenha seu aplicativo e o cluster em execução sem problemas passando pela seguinte lista de verificação. É altamente recomendável fazer check-out de todos esses itens. Obviamente, você pode optar por usar soluções alternativas para um item de linha específico (por exemplo, suas próprias estruturas de diagnóstico).
+A sua aplicação e cluster estão prontos para tomar tráfego de produção? Correr e testar a sua aplicação e o seu cluster não significa necessariamente que esteja pronto para entrar em produção. Mantenha a sua aplicação e cluster funcionando sem problemas, passando pela seguinte lista de verificação. Recomendamos vivamente que todos estes itens sejam verificados. Obviamente, pode optar por utilizar soluções alternativas para um determinado item de linha (por exemplo, os seus próprios quadros de diagnóstico).
 
 
-## <a name="prerequisites-for-production"></a>Pré-requisitos para produção
-1. Práticas recomendadas do Azure Service Fabric: [design de aplicativo](./service-fabric-best-practices-applications.md), [segurança](./service-fabric-best-practices-security.md), [rede](./service-fabric-best-practices-networking.md), [planejamento de capacidade e dimensionamento](./service-fabric-best-practices-capacity-scaling.md), [Infraestrutura como código](./service-fabric-best-practices-infrastructure-as-code.md)e [monitoramento e diagnóstico](./service-fabric-best-practices-monitoring.md). 
-1. Implemente a configuração de segurança Reliable Actors se estiver usando o modelo de programação atores
-1. Para clusters com mais de 20 núcleos ou 10 nós, crie um tipo de nó primário dedicado para serviços do sistema. Adicione [restrições de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) para reservar o tipo de nó primário para serviços do sistema.
-1. Use um SKU D2v2 ou superior para o tipo de nó primário. É recomendável escolher uma SKU com pelo menos 50 GB de capacidade de disco rígido.
-1. Os clusters de produção devem ser [seguros](service-fabric-cluster-security.md). Para obter um exemplo de como configurar um cluster seguro, consulte este [modelo de cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Use nomes comuns para certificados e evite usar certificados autoassinados.
-1. Adicione [restrições de recursos em contêineres e serviços](service-fabric-resource-governance.md), para que eles não consumam mais de 75% dos recursos de nó. 
-1. Entenda e defina o [nível de durabilidade](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Um nível de durabilidade prata ou mais alto é recomendado para tipos de nó que executam cargas de trabalho com estado. O tipo de nó primário deve ter um nível de durabilidade definido como prata ou superior.
-1. Entenda e escolha o [nível de confiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) do tipo de nó. É recomendável uma confiabilidade prateada ou mais alta.
-1. Carregue e dimensione teste suas cargas de trabalho para identificar [os requisitos de capacidade](service-fabric-cluster-capacity.md) para seu cluster. 
-1. Seus serviços e aplicativos são monitorados e os logs de aplicativo estão sendo gerados e armazenados, com alertas. Por exemplo, consulte [adicionar registro em log ao aplicativo Service Fabric](service-fabric-how-to-diagnostics-log.md) e [monitorar contêineres com Azure monitor logs](service-fabric-diagnostics-oms-containers.md).
-1. O cluster é monitorado com alertas (por exemplo, com [logs de Azure monitor](service-fabric-diagnostics-event-analysis-oms.md)). 
-1. A infraestrutura subjacente do conjunto de dimensionamento de máquinas virtuais é monitorada com alertas (por exemplo, com [logs de Azure monitor](service-fabric-diagnostics-oms-agent.md).
-1. O cluster tem sempre [certificados primários e secundários](service-fabric-cluster-security-update-certs-azure.md) (portanto, você não fica bloqueado).
-1. Mantenha clusters separados para desenvolvimento, preparo e produção. 
-1. [Atualizações de aplicativos](service-fabric-application-upgrade.md) e [atualizações de cluster](service-fabric-tutorial-upgrade-cluster.md) são testadas primeiro em clusters de desenvolvimento e de preparo. 
-1. Desative as atualizações automáticas em clusters de produção e ative-as para clusters de preparo e desenvolvimento (reversão conforme necessário). 
-1. Estabeleça um RPO (objetivo de ponto de recuperação) para seu serviço e configure um [processo de recuperação de desastres](service-fabric-disaster-recovery.md) e teste-o.
-1. Planeje o [dimensionamento](service-fabric-cluster-scaling.md) manual ou programático do cluster.
-1. Planeje a [aplicação de patches](service-fabric-patch-orchestration-application.md) em seus nós de cluster. 
-1. Estabeleça um pipeline de CI/CD para que suas alterações mais recentes sejam continuamente testadas. Por exemplo, usando o [Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) ou [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
-1. Teste seu desenvolvimento & clusters de preparo sob carga com o [serviço de análise de falha](service-fabric-testability-overview.md) e induz o [caos](service-fabric-controlled-chaos.md)controlado. 
-1. Planeje o [dimensionamento](service-fabric-concepts-scalability.md) de seus aplicativos. 
+## <a name="prerequisites-for-production"></a>Pré-requisitos para a produção
+1. Boas práticas do Tecido de Serviço Azure: [Design de Aplicações,](./service-fabric-best-practices-applications.md) [Segurança,](./service-fabric-best-practices-security.md) [Networking,](./service-fabric-best-practices-networking.md) [Planeamento de Capacidadee escala,](./service-fabric-best-practices-capacity-scaling.md) [Infraestrutura como Código](./service-fabric-best-practices-infrastructure-as-code.md)e [Monitorização e Diagnósticos.](./service-fabric-best-practices-monitoring.md) 
+1. Implementar a configuração de segurança de Atores Fiáveis se utilizar o modelo de programação dos Atores
+1. Para clusters com mais de 20 núcleos ou 10 nós, crie um nó primário dedicado para serviços de sistema. Adicione restrições de [colocação](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) para reservar o tipo principal de nó para os serviços do sistema.
+1. Utilize um SKU D2v2 ou superior para o tipo de nó primário. Recomenda-se escolher um SKU com capacidade de disco rígido de pelo menos 50 GB.
+1. Os aglomerados de produção devem ser [seguros.](service-fabric-cluster-security.md) Para um exemplo de configuração de um cluster seguro, consulte este modelo de [cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Utilize nomes comuns para certificados e evite usar certs auto-assinados.
+1. Adicione restrições de [recursos em contentores e serviços,](service-fabric-resource-governance.md)para que não consumam mais de 75% dos recursos do nó. 
+1. Compreender e definir o [nível de durabilidade.](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) O nível de durabilidade prateado ou superior é recomendado para tipos de nó que executam cargas de trabalho estatais. O tipo de nó primário deve ter um nível de durabilidade definido para Prata ou superior.
+1. Compreenda e escolha o nível de [fiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) do tipo de nó. Recomenda-se a fiabilidade prateada ou superior.
+1. A carga e a escala testam as suas cargas de trabalho para identificar [os requisitos](service-fabric-cluster-capacity.md) de capacidade para o seu cluster. 
+1. Os seus serviços e aplicações são monitorizados e os registos de aplicações estão a ser gerados e armazenados, com alerta. Por exemplo, consulte [Adicionar sessão de registo à sua aplicação de tecido de serviço](service-fabric-how-to-diagnostics-log.md) e monitorizar [recipientes com registos do Monitor Azure](service-fabric-diagnostics-oms-containers.md).
+1. O cluster é monitorizado com alerta (por exemplo, com [registos do Monitor Azure).](service-fabric-diagnostics-event-analysis-oms.md) 
+1. A infraestrutura de conjunto de máquinas virtuais subjacente é monitorizada com alerta (por exemplo, com [registos do Monitor Azure](service-fabric-diagnostics-oms-agent.md).
+1. O cluster tem sempre [certificados primários e secundários](service-fabric-cluster-security-update-certs-azure.md) (para que não fique trancado).
+1. Manter aglomerados separados para desenvolvimento, encenação e produção. 
+1. [As atualizações de aplicações](service-fabric-application-upgrade.md) e [as atualizações](service-fabric-tutorial-upgrade-cluster.md) de clusters são testadas em clusters de desenvolvimento e encenação primeiro. 
+1. Desligue as atualizações automáticas nos clusters de produção e ligue-as para o desenvolvimento e encenação de clusters (reversão conforme necessário). 
+1. Estabeleça um Objetivo de Ponto de Recuperação (RPO) para o seu serviço e estabeleça um processo de recuperação de [desastres](service-fabric-disaster-recovery.md) e teste-o.
+1. [Planeie escalonar](service-fabric-cluster-scaling.md) o seu cluster manualmente ou programáticamente.
+1. [Planeie remendar](service-fabric-patch-orchestration-application.md) os seus nós de cluster. 
+1. Estabeleça um gasoduto CI/CD de modo a que as suas últimas alterações estejam a ser continuamente testadas. Por exemplo, usando [Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) ou [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
+1. Teste o seu desenvolvimento & a encenar clusters sob carga com o Serviço de Análise de [Falhas](service-fabric-testability-overview.md) e induzir [o caos](service-fabric-controlled-chaos.md)controlado. 
+1. [Planeie escalonar](service-fabric-concepts-scalability.md) as suas candidaturas. 
 
 
-Se você estiver usando o modelo de programação Service Fabric Reliable Services ou Reliable Actors, os itens a seguir precisarão ser desmarcados:
-1. Atualizar aplicativos durante o desenvolvimento local para verificar se o código do serviço está respeitando o token de cancelamento no método `RunAsync` e fechando ouvintes de comunicação personalizados.
-1. Evite [armadilhas comuns](service-fabric-work-with-reliable-collections.md) ao usar coleções confiáveis.
-1. Monitore os contadores de desempenho de memória .NET CLR ao executar testes de carga e verificar se há altas tarifas de coleta de lixo ou crescimento de heap de fuga.
-1. Mantenha o backup offline de [Reliable Services e Reliable Actors](service-fabric-reliable-services-backup-restore.md) e teste o processo de restauração.
-1. A contagem de instâncias da máquina virtual NodeType primária deve ser ideal para o nível mínimo da camada de confiabilidade dos clusters; as condições quando apropriadas para exceder o mínimo de camada incluem: temporariamente ao dimensionar verticalmente sua SKU do conjunto de dimensionamento de máquinas virtuais de NodeType primário.
+Se estiver a utilizar o modelo de programação Service Fabric Reliable Services ou Reliable Actors, os seguintes itens devem ser verificados:
+1. Atualize as aplicações durante o desenvolvimento local para verificar se `RunAsync` o seu código de serviço está honrando o símbolo de cancelamento no método e fechando os ouvintes de comunicação personalizados.
+1. Evite [armadilhas comuns](service-fabric-work-with-reliable-collections.md) ao utilizar Coleções Fiáveis.
+1. Monitorize os contadores de desempenho da memória CLR .NET ao executar testes de carga e verifique se há altas taxas de Recolha de Lixo ou crescimento de pilha em fuga.
+1. Mantenha a cópia de segurança offline de [Serviços Fiáveis e Atores Fiáveis](service-fabric-reliable-services-backup-restore.md) e teste o processo de restauração.
+1. A contagem de instâncias de máquina virtual do nó primário deve ser idealmente igual ao mínimo para o seu nível de Fiabilidade dos Clusters; as condições, quando apropriado para exceder o nível mínimo, inclui: temporariamente quando escalaverticalmente o seu conjunto de escala virtual SKU do nó primário.
 
-## <a name="optional-best-practices"></a>Práticas recomendadas opcionais
+## <a name="optional-best-practices"></a>Boas práticas opcionais
 
-Embora as listas acima sejam pré-requisitos para entrar em produção, os itens a seguir também devem ser considerados:
-1. Conecte-se ao [modelo de integridade Service Fabric](service-fabric-health-introduction.md) para estender a avaliação de integridade interna e os relatórios.
-1. Implante um Watchdog personalizado que esteja monitorando seu aplicativo e relate a [carga](service-fabric-cluster-resource-manager-metrics.md) para o [balanceamento de recursos](service-fabric-cluster-resource-manager-balancing.md). 
+Embora as listas acima referidas sejam pré-requisitos para entrar em produção, devem também ser considerados os seguintes itens:
+1. Ligue-se ao modelo de [saúde do Tecido de Serviço](service-fabric-health-introduction.md) para alargar a avaliação e relatório saúde incorporados.
+1. Implemente um cão de guarda personalizado que esteja a monitorizar a sua aplicação e reporte [carga](service-fabric-cluster-resource-manager-metrics.md) para [o equilíbrio de recursos](service-fabric-cluster-resource-manager-balancing.md). 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Implantar um Service Fabric cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* [Implantar um Cluster Service Fabric Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+* [Implementar um cluster de janelas de tecido de serviço](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+* [Implementar um cluster de Linux de Tecido de Serviço](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 * Saiba mais sobre o [ciclo de vida das aplicações](service-fabric-application-lifecycle.md) do Service Fabric.

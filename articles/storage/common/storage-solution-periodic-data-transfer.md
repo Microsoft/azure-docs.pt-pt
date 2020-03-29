@@ -1,6 +1,6 @@
 ---
-title: Escolha uma solução do Azure para a transferência de dados periódica | Documentos da Microsoft
-description: Saiba como escolher uma solução do Azure para a transferência de dados, quando estiver transferindo dados periodicamente.
+title: Escolha uma solução Azure para transferência periódica de dados. Microsoft Docs
+description: Saiba como escolher uma solução Azure para transferência de dados quando está a transferir dados periodicamente.
 services: storage
 author: alkohli
 ms.service: storage
@@ -9,65 +9,65 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: alkohli
 ms.openlocfilehash: fb49802adf6242f445b700d06622d7e6aa336b4d
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67357046"
 ---
-# <a name="solutions-for-periodic-data-transfer"></a>Soluções para a transferência de dados periódica
+# <a name="solutions-for-periodic-data-transfer"></a>Solutions for periodic data transfer (Soluções para a transferência de dados periódica)
  
-Este artigo fornece uma descrição geral da transferência de dados soluções quando estiver transferindo dados periodicamente. Transferência de dados periódica através da rede pode ser categorizada como recorrente em intervalos regulares ou de movimento de dados contínua. O artigo também descreve as opções de transferência de dados recomendada e a matriz de respetivas capacidades-chave para este cenário.
+Este artigo fornece uma visão geral das soluções de transferência de dados quando está a transferir dados periodicamente. A transferência periódica de dados sobre a rede pode ser classificada como recorrente em intervalos regulares ou movimento contínuo de dados. O artigo também descreve as opções recomendadas de transferência de dados e a respetiva matriz de capacidade para este cenário.
 
-Para compreender uma visão geral de todas as opções de transferência de dados disponíveis, aceda a [escolher uma solução de transferência de dados do Azure](storage-choose-data-transfer-solution.md).
+Para compreender uma visão geral de todas as opções de transferência de dados disponíveis, vá escolher uma solução de transferência de [dados Azure.](storage-choose-data-transfer-solution.md)
 
 ## <a name="recommended-options"></a>Opções recomendadas
 
-As opções recomendadas para a transferência de dados periódica enquadram-se em duas categorias, dependendo da transferência é recorrente ou contínua.
+As opções recomendadas para transferência periódica de dados recaem em duas categorias, dependendo se a transferência é recorrente ou contínua.
 
-- **Ferramentas de script/programática** – para transferência de dados que ocorre em intervalos regulares, para utilização com script e programática ferramentas como o AzCopy e o armazenamento do Azure, REST APIs. Essas ferramentas são voltadas para profissionais de TI e desenvolvedores.
+- **Ferramentas script/programáticas** – Para a transferência de dados que ocorre em intervalos regulares, utilize as ferramentas scriptadas e programáticas tais como AzCopy e Azure Storage REST APIs. Estas ferramentas são direcionadas para profissionais e desenvolvedores de TI.
 
-    - **AzCopy** - Utilize esta ferramenta da linha de comandos para copiar facilmente os dados de e para os Blobs do Azure, ficheiros e o armazenamento com um desempenho ideal de tabelas. AzCopy oferece suporte a simultaneidade e paralelismo e a capacidade para retomar as operações de cópia quando interrompido.
-    - **Azure Storage REST APIs/SDKs** – ao criar uma aplicação, pode desenvolver a aplicação em relação a APIs de REST de armazenamento do Azure e utilizar os SDKs do Azure disponível em vários idiomas. As APIs REST também pode aproveitar a biblioteca de movimento do dados do Azure armazenamento concebido especialmente para a cópia de alto desempenho dos dados para e do Azure.
+    - **AzCopy** - Utilize esta ferramenta de linha de comando para copiar facilmente dados de e para o armazenamento de Blobs, Ficheiros e Mesa seletivas com um desempenho ótimo. A AzCopy suporta conmoeda e paralelismo, e a capacidade de retomar as operações de cópia quando interrompida.
+    - **Azure Storage REST APIs/SDKs** – Ao construir uma aplicação, pode desenvolver a aplicação contra APIs REST DE Armazenamento Azure e utilizar os SDKs Azure oferecidos em vários idiomas. As APIs rest também podem alavancar a Biblioteca de Movimentos de Dados de Armazenamento Azure projetada especialmente para a cópia de dados de alto desempenho de e para o Azure.
 
-- **Ferramentas de ingestão de dados contínuos** – contínua, em curso para ingestão de dados, pode selecionar um dispositivo de transferência online do Data Box ou o Azure Data Factory. Essas ferramentas são configuradas por profissionais de TI e transparente podem automatizar a transferência de dados.
+- **Ferramentas contínuas de ingestão** de dados – Para uma ingestão contínua e contínua de dados, pode selecionar um dispositivo de transferência online data Box ou a Azure Data Factory. Estas ferramentas são criadas por profissionais de TI e podem automatizar de forma transparente a transferência de dados.
 
-    - **O Azure Data Factory** – Data Factory deve ser utilizado para aumentar horizontalmente uma operação de transferência, e se for necessário para o nível de orquestração e o enterprise capacidades de monitorização. Utilize o Azure Data Factory para configurar um pipeline de cloud que regularmente transfere arquivos entre vários serviços do Azure, no local ou uma combinação dos dois. O Azure Data Factory permite que orquestra condicionada por dados os fluxos de trabalho ingerir dados de arquivos de dados diferentes e automatizam o movimento de dados e transformação de dados.
-    - **O Azure Data Box família para transferências online** -Edge de caixa de dados e dados de caixa de Gateway são dispositivos de rede online que podem mover dados para dentro e fora do Azure. Edge de caixa de dados utiliza inteligência artificial (IA)-capacidade de computação de borda processar previamente os dados antes de carregar. Gateway de caixa de dados é uma versão virtual do dispositivo com as mesmas capacidades de transferência de dados.
+    - **A Azure Data Factory** – Data Factory deve ser utilizada para escalar uma operação de transferência e, se houver necessidade de capacidades de orquestração e de monitorização de nível empresarial. Utilize a Azure Data Factory para criar um oleoduto em nuvem que transfere regularmente ficheiros entre vários serviços Azure, no local ou uma combinação dos dois. A Azure Data Factory permite-lhe orquestrar fluxos de trabalho baseados em dados que ingerirem dados de lojas de dados díspares e automatizar o movimento de dados e a transformação de dados.
+    - **Família Azure Data Box para transferências on-line** - Data Box Edge e Data Box Gateway são dispositivos de rede online que podem mover dados para dentro e para fora do Azure. Data Box Edge utiliza inteligência artificial (AI) ativada por Edge computacionapara pré-processar dados antes de ser carregado. Data Box Gateway é uma versão virtual do dispositivo com as mesmas capacidades de transferência de dados.
 
 
-## <a name="comparison-of-key-capabilities"></a>Comparação dos principais recursos
+## <a name="comparison-of-key-capabilities"></a>Comparação de capacidades-chave
 
-A tabela seguinte resume as diferenças nas capacidades principais.
+A tabela que se segue resume as diferenças nas capacidades-chave.
 
-### <a name="scriptedprogrammatic-network-data-transfer"></a>Transferência de dados de rede com script/Programmatic
+### <a name="scriptedprogrammatic-network-data-transfer"></a>Transferência de dados de rede script/programática
 
-| Funcionalidade                  | AzCopy                                 | APIs REST do armazenamento do Azure       |
+| Capacidade                  | AzCopy                                 | APIs de repouso de armazenamento azure       |
 |-----------------------------|----------------------------------------|-------------------------------|
-| Fator de formulário                 | Ferramenta de linha de comando da Microsoft       | Os clientes desenvolvem no armazenamento <br> APIs REST com bibliotecas de cliente do Azure |
-| Configuração inicial de uso individual     | Mínimo                                | Esforço de desenvolvimento moderada, a variável    |
-| Formato de dados                 | Blobs do Azure, os ficheiros do Azure, as tabelas do Azure | Blobs do Azure, os ficheiros do Azure, as tabelas do Azure   |
-| Desempenho                 | Já otimizado                      | Otimizar ao desenvolver                  |
-| Preços                     | Gratuito, são aplicáveis encargos de saída de dados      | Gratuito, são aplicáveis encargos de saída de dados        |
+| Fator de forma                 | Ferramenta de linha de comando da Microsoft       | Os clientes desenvolvem-se contra o Armazenamento <br> REST APIs usando bibliotecas de clientes Azure |
+| Configuração única inicial     | Mínimo                                | Esforço moderado e variável de desenvolvimento    |
+| Formato de Dados                 | Blobs Azure, Arquivos Azure, Mesas Azure | Blobs Azure, Arquivos Azure, Mesas Azure   |
+| Desempenho                 | Já otimizado                      | Otimizar à medida que se desenvolve                  |
+| Preços                     | Aplicam-se gratuitamente as taxas de egress de dados      | Aplicam-se gratuitamente as taxas de egress de dados        |
 
-### <a name="continuous-data-ingestion-over-network"></a>Ingestão de dados contínua através de rede
+### <a name="continuous-data-ingestion-over-network"></a>Ingestão contínua de dados sobre a rede
 
 | Funcionalidade                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
-| Fator de formulário                                   | Dispositivo virtual             | Dispositivo físico          | Serviço no portal do Azure, o agente no local                                                            |
-| Hardware                                      | O hipervisor            | Fornecido pela Microsoft    | N/D                                                            |
-| Esforço de configuração inicial                          | Baixa (< 30 min.)            | Moderado (~ acoplar horas) | Grande (~ dias)                                                 |
-| Formato de dados                                   | Blobs do Azure, os ficheiros do Azure   | Blobs do Azure, os ficheiros do Azure | [Suporta 70 conectores de dados para arquivos de dados e formatos](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
-| Processamento prévio de dados                           | Não                         | Sim, através de computação do Edge    | Sim                                                           |
+| Fator de forma                                   | Dispositivo virtual             | Dispositivo físico          | Serviço no portal Azure, agente no local                                                            |
+| Hardware                                      | O seu hipervisor            | Fornecido pela Microsoft    | ND                                                            |
+| Esforço inicial de configuração                          | Baixa (<30 minutos.)            | Moderado (~algumas horas) | Grande (~dias)                                                 |
+| Formato de Dados                                   | Azure Blobs, Ficheiros Azure   | Azure Blobs, Ficheiros Azure | [Suporta mais de 70 conectores de dados para lojas e formatos de dados](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
+| Pré-processamento de dados                           | Não                         | Sim, via computação Edge    | Sim                                                           |
 | Cache local<br>(para armazenar dados no local)    | Sim                        | Sim                      | Não                                                            |
-| Transferir a partir de outras clouds                    | Não                         | Não                       | Sim                                                           |
+| Transferência de outras nuvens                    | Não                         | Não                       | Sim                                                           |
 | Preços                                       | [Preços](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Preços](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Preços](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Transferir dados com AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
-- [Obter mais informações sobre dados de transferência com APIs REST do armazenamento](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet).
-- Compreender como:
-    - [Transferir dados com dados de caixa de Gateway](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares).
-    - [Transformar dados com o Edge de caixa de dados antes de enviar para o Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute).
-- [Aprender a transferir dados com o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-bulk-copy-portal).
+- [Transferir dados com a AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
+- [Mais informações sobre transferência de dados com APIs REST de Armazenamento](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet).
+- Entenda como:
+    - [Transferir dados com Data Box Gateway](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares).
+    - [Transforme os dados com data box Edge antes de enviar para o Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute).
+- [Saiba como transferir dados com a Azure Data Factory.](https://docs.microsoft.com/azure/data-factory/tutorial-bulk-copy-portal)

@@ -1,6 +1,6 @@
 ---
-title: O que é um dispositivo ingressado no Azure AD híbrido?
-description: Saiba como o gerenciamento de identidades de dispositivo pode ajudá-lo a gerenciar dispositivos que estão acessando recursos em seu ambiente.
+title: O que é um dispositivo híbrido Azure AD?
+description: Saiba como a gestão da identidade do dispositivo pode ajudá-lo a gerir dispositivos que estão a aceder a recursos no seu ambiente.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 15cdaba7d63d72aab25757e7ba6f5eadc48e026a
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76512254"
 ---
 # <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos híbridos associados ao Azure AD
@@ -25,45 +25,45 @@ Muitas organizações utilizam há mais de uma década a associação a um domí
 - Aos departamentos de TI gerirem dispositivos detidos pela organização num local central.
 - Aos utilizadores iniciarem sessão nos dispositivos deles com as contas escolares ou profissionais do Active Directory.
 
-Normalmente, as organizações com um espaço local dependem de métodos de geração de imagens para provisionar dispositivos e geralmente usam **Configuration Manager** ou **GP (política de grupo)** para gerenciá-los.
+Normalmente, as organizações com uma pegada no local dependem de métodos de imagem para fornecer dispositivos, e muitas vezes usam O Gestor de **Configuração** ou a política de **grupo (GP)** para geri-los.
 
-Se o seu ambiente tiver uma infraestrutura do AD no local e também quiser tirar partido das capacidades que o Azure Active Directory oferece, pode implementar dispositivos híbridos associados ao Azure AD. Esses dispositivos são dispositivos que ingressaram em seu Active Directory local e registrados com seu Azure Active Directory.
+Se o seu ambiente tiver uma infraestrutura do AD no local e também quiser tirar partido das capacidades que o Azure Active Directory oferece, pode implementar dispositivos híbridos associados ao Azure AD. Estes dispositivos são dispositivos que se juntam ao seu Diretório Ativo no local e registados no seu Diretório Ativo Azure.
 
-|   | Ingresso no Azure AD híbrido |
+|   | AD Hybrid Azure Junta-se |
 | --- | --- |
-| **Definição** | Ingressado no AD local e no Azure AD exigindo a conta institucional para entrar no dispositivo |
-| **Público-alvo principal** | Adequado para organizações híbridas com a infraestrutura existente do AD local |
-|   | Aplicável a todos os usuários em uma organização |
-| **Propriedade do dispositivo** | Organização |
-| **Sistemas operacionais** | Windows 10, 8,1 e 7 |
+| **Definição** | Juntou-se às instalações a D.A. e a Azure AD exigindo que a conta organizacional assinasse o dispositivo |
+| **Audiência primária** | Adequado para organizações híbridas com infraestrutura ad existente no local |
+|   | Aplicável a todos os utilizadores de uma organização |
+| **Propriedade dos dispositivos** | Organização |
+| **Sistemas Operativos** | Windows 10, 8.1 e 7 |
 |   | Windows Server 2008/R2, 2012/R2, 2016 e 2019 |
 | **Aprovisionamento** | Windows 10, Windows Server 2016/2019 |
-|   | Ingresso no domínio por ti e autojunção via configuração do Azure AD Connect ou do ADFS |
-|   | Ingresso no domínio pelo AutoPilot do Windows e autojunção via configuração do Azure AD Connect ou do ADFS |
-|   | Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2-exigir MSI |
-| **Opções de entrada do dispositivo** | Contas organizacionais usando: |
+|   | Domain join by IT and autojoin via Azure AD Connect ou ADFS config |
+|   | Domain join by Windows Autopilot e autojoin via Azure AD Connect ou Config ADFS |
+|   | Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2 - Requerer MSI |
+| **Sinal de dispositivo em opções** | Contas organizacionais utilizando: |
 |   | Palavra-passe |
-|   | Windows Hello para empresas para Win10 |
-| **Gestão de Dispositivos** | Política de Grupo |
-|   | Configuration Manager autônomo ou cogerenciamento com Microsoft Intune |
-| **Principais recursos** | SSO para recursos de nuvem e locais |
-|   | Acesso condicional por meio do ingresso no domínio ou por meio do Intune, se for cogerenciado |
-|   | Redefinição de senha por autoatendimento e redefinição de PIN do Windows Hello na tela de bloqueio |
-|   | Enterprise State Roaming entre dispositivos |
+|   | Windows Olá para negócios para Win10 |
+| **Gestão de dispositivos** | Política de Grupo |
+|   | Gestor de Configuração autónomo ou cogestão com a Microsoft Intune |
+| **Principais capacidades** | SSO tanto para os recursos de nuvem como para o local |
+|   | Acesso Condicional através do Domínio aderir ou através de Intune se cogerido |
+|   | Reset de palavra-passe de autosserviço e reset PIN do Windows Hello PIN no ecrã de bloqueio |
+|   | Roaming do Estado Da Empresa através de dispositivos |
 
 ![Dispositivos híbridos associados ao Azure AD](./media/concept-azure-ad-join-hybrid/azure-ad-hybrid-joined-device.png)
 
 ## <a name="scenarios"></a>Cenários
 
-Use dispositivos ingressados no Azure AD híbrido se:
+Utilize dispositivos híbridos Azure AD se:
 
 - Tiver aplicações Win32 implementadas nesses dispositivos que se baseiam na autenticação de máquinas do Active Directory.
-- Você deseja continuar a usar Política de Grupo para gerenciar a configuração do dispositivo.
-- Você deseja continuar a usar soluções de geração de imagens existentes para implantar e configurar dispositivos.
-- Você deve oferecer suporte a dispositivos Windows 7 e 8,1 de nível inferior além do Windows 10
+- Pretende continuar a utilizar a Política de Grupo para gerir a configuração do dispositivo.
+- Pretende continuar a utilizar soluções de imagem existentes para implementar e configurar dispositivos.
+- Tem de suportar dispositivos Windows 7 e 8.1 de nível inferior, além do Windows 10
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Planear a sua implementação de associação ao Azure AD híbrido](hybrid-azuread-join-plan.md)
-- [Gerenciar identidades de dispositivo usando o portal do Azure](device-management-azure-portal.md)
-- [Gerenciar dispositivos obsoletos no Azure AD](manage-stale-devices.md)
+- [Gerir identidades do dispositivo utilizando o portal Azure](device-management-azure-portal.md)
+- [Gerir dispositivos velhos em Azure AD](manage-stale-devices.md)

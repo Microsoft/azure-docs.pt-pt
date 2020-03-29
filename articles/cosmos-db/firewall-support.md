@@ -1,37 +1,37 @@
 ---
-title: Firewall do IP para contas do Cosmos do Azure
-description: Saiba como proteger dados do Azure Cosmos DB ao utilizar políticas de controlo de acesso IP para o suporte de firewall.
+title: Firewall IP para contas Azure Cosmos
+description: Aprenda a proteger os dados do Azure Cosmos DB utilizando políticas de controlo de acesso IP para suporte a firewall.
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.openlocfilehash: 9398eb4038afcd17788e750fcb5c27c76e9f3f44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66241084"
 ---
-# <a name="ip-firewall-in-azure-cosmos-db"></a>Firewall do IP no Azure Cosmos DB
+# <a name="ip-firewall-in-azure-cosmos-db"></a>Firewall de IP no Azure Cosmos DB
 
-Para proteger os dados armazenados na sua conta, do Azure Cosmos DB suporta um modelo de autorização baseada em segredo que utiliza um forte baseada em Hash Message Authentication Code (HMAC). Além disso, o Azure Cosmos DB suporta controlos de acesso baseado em IP para o suporte de firewall de entrada. Esse modelo é semelhante para as regras de firewall de um sistema de base de dados tradicionais e fornece um nível adicional de segurança à sua conta. Com firewalls, pode configurar a sua conta do Cosmos do Azure para ser acessível apenas a partir de um conjunto aprovado de computadores e/ou serviços em nuvem. Acesso a dados armazenados na sua base de dados do Cosmos do Azure desses aprovados conjuntos de máquinas e serviços ainda exige o autor da chamada apresentar um token de autorização válida.
+Para proteger os dados armazenados na sua conta, o Azure Cosmos DB suporta um modelo de autorização baseado em segredo que utiliza um forte Código de Autenticação de Mensagens (HMAC) baseado em Hash. Além disso, o Azure Cosmos DB suporta controlos de acesso baseados em IP para suporte de firewall de entrada. Este modelo é semelhante às regras de firewall de um sistema de base de dados tradicional e fornece um nível adicional de segurança à sua conta. Com firewalls, pode configurar a sua conta Azure Cosmos para estar acessível apenas a partir de um conjunto aprovado de máquinas e/ou serviços na nuvem. O acesso aos dados armazenados na sua base de dados Azure Cosmos a partir destes conjuntos aprovados de máquinas e serviços ainda exigirá que o chamador apresente um sinal de autorização válido.
 
-## <a id="ip-access-control-overview"></a>Descrição geral de controlo de acesso IP
+## <a name="ip-access-control-overview"></a><a id="ip-access-control-overview"></a>Visão geral do controlo de acesso IP
 
-Por predefinição, sua conta do Cosmos do Azure é acessível a partir da internet, desde que o pedido seja acompanhado por um token de autorização válida. Para configurar o controlo de acesso baseado em política IP, o utilizador tem de fornecer o conjunto de endereços IP ou intervalos de endereços IP no formulário CIDR (Classless Inter-Domain Routing) a serem incluídos como a lista de permitidos do cliente IPs para aceder a uma conta do Cosmos do Azure especificada. Depois desta configuração é aplicada, quaisquer pedidos provenientes de máquinas fora desta lista de permissões recebem 403 (proibido) resposta. Ao usar o firewall do IP, recomenda-se para permitir que o portal do Azure aceder à sua conta. O acesso é necessário para permitir a utilização do data explorer, bem como para obter métricas para a sua conta, que aparecem no portal do Azure. Quando utilizar o data explorer, além de permitir que o portal do Azure para aceder à sua conta, terá também de atualizar as definições da firewall para adicionar o seu endereço IP atual para as regras de firewall. Tenha em atenção que as alterações de firewall podem levar até 15 minutos para propagar. 
+Por padrão, a sua conta Azure Cosmos é acessível a partir da internet, desde que o pedido seja acompanhado por um sinal de autorização válido. Para configurar o controlo de acesso baseado na política IP, o utilizador deve fornecer o conjunto de endereços IP ou intervalos de endereços IP no formulário CIDR (Classless Inter-Domain Routing) para ser incluído como a lista permitida de IPs de cliente para aceder a uma determinada conta Azure Cosmos. Uma vez aplicada esta configuração, quaisquer pedidos originários de máquinas fora desta lista permitida recebem 403 respostas (proibidas). Ao utilizar firewall IP, é aconselhável permitir que o portal Azure aceda à sua conta. É necessário o acesso para permitir a utilização do explorador de dados, bem como para recuperar métricas para a sua conta que aparecem no portal Azure. Ao utilizar o explorador de dados, além de permitir que o portal Azure aceda à sua conta, também precisa de atualizar as definições da firewall para adicionar o seu endereço IP atual às regras de firewall. Note que as alterações de firewall podem demorar até 15 min para se propagar. 
 
-Pode combinar o firewall baseado em IP com a sub-rede e o controlo de acesso VNET. Ao combiná-los, pode limitar o acesso a qualquer origem de que tem um IP público e/ou de uma sub-rede específica na VNET. Para saber mais sobre como utilizar a sub-rede e o controlo de acesso com base na VNET, veja [recursos de acesso do Azure Cosmos DB a partir de redes virtuais](vnet-service-endpoint.md).
+Pode combinar firewall baseada em IP com subnet e controlo de acesso VNET. Ao combiná-los, pode limitar o acesso a qualquer fonte que tenha um IP público e/ou a partir de uma subnet específica dentro do VNET. Para saber mais sobre a utilização da subnet e do controlo de acesso baseado em VNET, consulte [os recursos DB do Access Azure Cosmos a partir de redes virtuais](vnet-service-endpoint.md).
 
-Para resumir, o token de autorização sempre é necessário para aceder a uma conta do Cosmos do Azure. Se a firewall do IP e a lista de controlo de acesso (ACLs) de VNET não estão definidas, a conta do Cosmos do Azure pode ser acessada com o token de autorização. Depois do firewall do IP, ACLs de VNET ou ambas são configuradas na conta do Cosmos do Azure, apenas pedidos com origem a partir de origens que especificou (e com o token de autorização) obtém respostas válidas. 
+Resumindo, o sinal de autorização é sempre necessário para aceder a uma conta Azure Cosmos. Se a firewall IP e a Lista de Controlo de Acesso VNET (ACLs) não estiverem configuradas, a conta Azure Cosmos pode ser acedida com o sinal de autorização. Depois de a firewall IP ou Os ACLs VNET ou ambos estarem configurados na conta Azure Cosmos, apenas os pedidos originários das fontes que especificou (e com o sinal de autorização) obtêm respostas válidas. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Em seguida pode configurar firewall do IP ou o ponto final de serviço VNET para a sua conta ao utilizar os seguintes documentos:
+Em seguida, pode configurar o ponto final do serviço IP firewall ou VNET para a sua conta utilizando os seguintes docs:
 
-* [Como configurar a firewall do IP para a sua conta do Cosmos do Azure](how-to-configure-firewall.md)
-* [Aceder a recursos do Azure Cosmos DB a partir de redes virtuais](vnet-service-endpoint.md)
-* [Como configurar o ponto final de serviço de rede virtual para a sua conta do Cosmos do Azure](how-to-configure-vnet-service-endpoint.md)
+* [Como configurar firewall IP para a sua conta Azure Cosmos](how-to-configure-firewall.md)
+* [Acesso aos recursos DB do Access Azure Cosmos de redes virtuais](vnet-service-endpoint.md)
+* [Como configurar o ponto final do serviço de rede virtual para a sua conta Azure Cosmos](how-to-configure-vnet-service-endpoint.md)
 
 
 

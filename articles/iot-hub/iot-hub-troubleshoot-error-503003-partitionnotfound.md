@@ -9,13 +9,13 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 438476171597c44dcc54d85bf1140f0a52bb2e58
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76960662"
 ---
-# <a name="503003-partitionnotfound"></a>503003 Partição Não Encontrada
+# <a name="503003-partitionnotfound"></a>503003 PartitionNotFound
 
 Este artigo descreve as causas e soluções para **503003 Erros Do Término Do Partição.**
 

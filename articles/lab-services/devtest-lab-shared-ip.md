@@ -1,6 +1,6 @@
 ---
-title: Compreender endereços IP partilhados no Azure DevTest Labs | Documentos da Microsoft
-description: Saiba como o Azure DevTest Labs utiliza endereços IP partilhados para minimizar os endereços IP públicos necessários para aceder às suas VMs do laboratório.
+title: Compreender endereços IP partilhados em Azure DevTest Labs / Microsoft Docs
+description: Saiba como o Azure DevTest Labs utiliza endereços IP partilhados para minimizar os endereços IP públicos necessários para aceder aos seus VMs de laboratório.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,46 +14,46 @@ ms.topic: article
 ms.date: 05/12/2019
 ms.author: spelluru
 ms.openlocfilehash: f7c9feedddab1aea031cb3a8879e868aae04df00
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65236899"
 ---
-# <a name="understand-shared-ip-addresses-in-azure-devtest-labs"></a>Compreender endereços IP partilhados no Azure DevTest Labs
+# <a name="understand-shared-ip-addresses-in-azure-devtest-labs"></a>Compreender endereços IP partilhados em Azure DevTest Labs
 
-O Azure DevTest Labs permite que as VMs do laboratório compartilham o mesmo endereço IP público para minimizar o número de endereços IP públicos, necessária para acessar seu laboratório individual VMs.  Este artigo descreve como partilhado de IPs de trabalho e as opções de configuração relacionados.
+A Azure DevTest Labs permite que os VMs de laboratório partilhem o mesmo endereço IP público para minimizar o número de endereços IP públicos necessários para aceder aos seus VMs de laboratório individuais.  Este artigo descreve como os IPs partilhados funcionam e as suas opções de configuração relacionadas.
 
-## <a name="shared-ip-setting"></a>Partilhado a definição do IP
+## <a name="shared-ip-setting"></a>Definição ip partilhada
 
-Quando criar um laboratório, é criada numa sub-rede de uma rede virtual.  Por predefinição, esta sub-rede é criada com **Enable partilhado IP público** definida como *Sim*.  Esta configuração cria um endereço IP público para toda a rede.  Para obter mais informações sobre como configurar redes virtuais e sub-redes, veja [configurar uma rede virtual no Azure DevTest Labs](devtest-lab-configure-vnet.md).
+Quando se cria um laboratório, é criado numa sub-rede de uma rede virtual.  Por padrão, esta sub-rede é criada com o conjunto **de IP público partilhado Enable** para *Sim*.  Esta configuração cria um endereço IP público para toda a subnet.  Para obter mais informações sobre a configuração de redes virtuais e subnets, consulte [Configure uma rede virtual em Azure DevTest Labs](devtest-lab-configure-vnet.md).
 
 ![Nova sub-rede de laboratório](media/devtest-lab-shared-ip/lab-subnet.png)
 
-Para obter laboratórios existentes, pode ativar esta opção, selecionando **Konfigurace a zásady > redes virtuais**. Em seguida, selecione uma rede virtual a partir da lista e escolha **ATIVAR PARTILHADO IP público** para uma sub-rede selecionada. Também pode desativar esta opção em qualquer laboratório se não quiser compartilhar um endereço IP público em VMs do laboratório.
+Para laboratórios existentes, pode ativar esta opção selecionando **Configuração e políticas > Redes Virtuais.** Em seguida, selecione uma rede virtual da lista e escolha **ENABLE SHARED PUBLIC IP** para uma sub-rede selecionada. Também pode desativar esta opção em qualquer laboratório se não quiser partilhar um endereço IP público através de VMs de laboratório.
 
-Todas as VMs criadas nesse padrão de laboratório para utilizar um IP partilhado.  Ao criar a VM, esta definição pode ser observada na **definições avançadas** página sob **configuração do endereço IP**.
+Quaisquer VMs criados neste laboratório padrão para usar um IP partilhado.  Ao criar o VM, esta definição pode ser observada na página de **definições Avançadas** na **configuração do endereço IP**.
 
-![Nova VM](media/devtest-lab-shared-ip/new-vm.png)
+![Novo VM](media/devtest-lab-shared-ip/new-vm.png)
 
-- **Partilhado:** Todas as VMs criadas como **partilhado** são colocados num grupo de recursos (RG). É atribuído um endereço IP único para que RG e todas as VMs no RG usará esse endereço IP.
-- **Público:** Cada VM que cria tem seu próprio endereço IP e é criada no seu próprio grupo de recursos.
-- **Privada:** Cada VM que criar utiliza um endereço IP privado. Não é possível ligar a esta VM diretamente a partir da internet com o ambiente de trabalho remoto.
+- **Partilhado:** Todos os VMs criados como **Shared** são colocados num grupo de recursos (RG). Um único endereço IP é atribuído para que RG e todos os VMs no RG usarão esse endereço IP.
+- **Público:** Cada VM que cria tem o seu próprio endereço IP e é criado no seu próprio grupo de recursos.
+- **Privado:** Cada VM que cria usa um endereço IP privado. Não é possível ligar-se a este VM diretamente a partir da internet com Remote Desktop.
 
-Sempre que uma VM com IP partilhado ativado é adicionada à sub-rede, o DevTest Labs é automaticamente adiciona a VM a um balanceador de carga e atribui um número de porta TCP no endereço IP público, reencaminhamento para a porta RDP na VM.  
+Sempre que um VM com IP partilhado é adicionado à subnet, o DevTest Labs adiciona automaticamente o VM a um equilibrista de carga e atribui um número de porta TCP no endereço IP público, reencaminhamento para a porta RDP no VM.  
 
-## <a name="using-the-shared-ip"></a>Utilizar o IP partilhado
+## <a name="using-the-shared-ip"></a>Usando o IP partilhado
 
-- **Utilizadores do Linux:** SSH para a VM ao utilizar o endereço IP ou nome de domínio completamente qualificado, seguido por dois-pontos, seguido da porta. Por exemplo, na imagem abaixo, o endereço RDP para ligar à VM é `mydevtestlab597975021002.eastus.cloudapp.azure.com:50661`.
+- **Utilizadores linux:** SSH para o VM utilizando o endereço IP ou nome de domínio totalmente qualificado, seguido de um cólon, seguido da porta. Por exemplo, na imagem abaixo, o endereço RDP `mydevtestlab597975021002.eastus.cloudapp.azure.com:50661`para ligar ao VM é .
 
-  ![Exemplo VM](media/devtest-lab-shared-ip/vm-info.png)
+  ![Exemplo vm](media/devtest-lab-shared-ip/vm-info.png)
 
-- **Usuários do Windows:** Selecione o **Connect** botão no portal do Azure para transferir um ficheiro RDP previamente configurado e aceder à VM.
+- **Utilizadores do Windows:** Selecione o botão **Connect** no portal Azure para descarregar um ficheiro RDP pré-configurado e aceder ao VM.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Definir políticas de laboratório no Azure DevTest Labs](devtest-lab-set-lab-policy.md)
-* [Configurar uma rede virtual no Azure DevTest Labs](devtest-lab-configure-vnet.md)
+* [Defina as políticas de laboratório em Laboratórios Azure DevTest](devtest-lab-set-lab-policy.md)
+* [Configure uma rede virtual em Azure DevTest Labs](devtest-lab-configure-vnet.md)
 
 
 

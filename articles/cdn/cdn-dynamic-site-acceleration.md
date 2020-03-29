@@ -1,6 +1,6 @@
 ---
-title: Aceleração de site dinâmico através da CDN do Azure
-description: A CDN do Azure suporta Otimização do dynamic site acceleration (DSA) para os ficheiros com conteúdo dinâmico.
+title: Aceleração do local dinâmico via Azure CDN
+description: O Azure CDN suporta a otimização dinâmica do site (DSA) para ficheiros com conteúdo dinâmico.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,175 +15,175 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: magattus
 ms.openlocfilehash: 08e705d3c3623d4d02ccaea609eb0555aa1c8e33
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593912"
 ---
-# <a name="dynamic-site-acceleration-via-azure-cdn"></a>Aceleração de site dinâmico através da CDN do Azure
+# <a name="dynamic-site-acceleration-via-azure-cdn"></a>Aceleração do local dinâmico via Azure CDN
 
-Com a enxurrada de mídia social, comércio eletrónico e a web hyper personalizada, uma percentagem aumentar rapidamente o conteúdo apresentado aos usuários finais é gerada em tempo real. Os utilizadores esperam uma experiência de web mais rápida, fiável e personalizadas, independentemente do seu browser, localização, dispositivo ou rede. No entanto, as inovações muita que fazer essas experiências, então, como também utilizar lento de página de downloads e colocam a qualidade da experiência do consumidor em risco. 
+Com a explosão das redes sociais, do comércio eletrónico e da web hiper-personalizada, uma percentagem cada vez maior do conteúdo servido aos utilizadores finais é gerada em tempo real. Os utilizadores esperam uma experiência web rápida, fiável e personalizada, independentemente do seu navegador, localização, dispositivo ou rede. No entanto, as próprias inovações que tornam estas experiências tão envolventes também descarregam lentamente as páginas e colocam em risco a qualidade da experiência do consumidor. 
 
-Capacidade de entrega de conteúdos standard de rede (CDN) inclui a capacidade de ficheiros de cache mais próximo para os utilizadores finais para acelerar a entrega de ficheiros estáticos. No entanto, com aplicativos web dinâmicos, que o conteúdo em localizações limítrofes de colocação em cache não é possível porque o servidor gera o conteúdo em resposta ao comportamento do utilizador. Acelerar a entrega do conteúdo é mais complexo do que tradicional em cache e requer uma solução de ponto-a-ponto que escalados ajusta cada elemento ao longo do caminho de dados inteiro desde o início para entrega. Com a otimização do CDN do Azure dynamic site acceleration (DSA), o desempenho das páginas da web com conteúdo dinâmico é significativamente melhorado.
+A capacidade padrão da rede de entrega de conteúdos (CDN) inclui a capacidade de cache ficheiros mais próximos dos utilizadores finais para acelerar a entrega de ficheiros estáticos. No entanto, com aplicações web dinâmicas, não é possível que o conteúdo em localizações de borda não seja possível porque o servidor gera o conteúdo em resposta ao comportamento do utilizador. Acelerar a entrega de tal conteúdo é mais complexo do que o tradicional entalador de bordas e requer uma solução de ponta a ponta que afina finamente cada elemento ao longo de todo o caminho dos dados desde o início até à entrega. Com a otimização dinâmica do site Azure CDN (DSA), o desempenho das páginas web com conteúdo dinâmico é mensuravelmente melhorado.
 
-**A CDN do Azure da Akamai** e **CDN do Azure da Verizon** ambos oferecem otimização DSA através da **otimizado para** menu durante a criação do ponto final. Aceleração de site dinâmico da Microsoft é oferecida [serviço do Azure desde início](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
+**O Azure CDN da Akamai** e **o Azure CDN da Verizon** oferecem otimização da DSA através do **Otimizado para** menu durante a criação de endpoint. A aceleração dinâmica do site da Microsoft é oferecida através do [Serviço de Porta Frontal Azure](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
 
 > [!Important]
-> Para **CDN do Azure da Akamai** perfis, pode alterar a otimização de um ponto final da CDN depois de este ter sido criado.
+> Para **o Azure CDN dos** perfis da Akamai, é permitido alterar a otimização de um ponto final da CDN após a sua criação.
 >   
 > Para os perfis de **CDN do Azure da Verizon**, não pode alterar a otimização de um ponto final de CDN após ter sido criado.
 
-## <a name="cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files"></a>Configuração do ponto final da CDN para acelerar o fornecimento de ficheiros dinâmicos
+## <a name="cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files"></a>Configuração do ponto final da CDN para acelerar a entrega de ficheiros dinâmicos
 
-Para configurar um ponto final da CDN para otimizar a entrega de ficheiros dinâmicos, pode utilizar o portal do Azure, as APIs REST ou qualquer um dos SDKs do cliente para fazer o mesmo programaticamente. 
+Para configurar um ponto final da CDN para otimizar a entrega de ficheiros dinâmicos, pode utilizar o portal Azure, as APIs rest, ou qualquer um dos SDKs do cliente para fazer a mesma coisa programáticamente. 
 
-**Para configurar um ponto final da CDN para a otimização de DSA com o portal do Azure:**
+**Para configurar um ponto final de CDN para otimização de DSA utilizando o portal Azure:**
 
-1. Na **perfil da CDN** página, selecione **Endpoint**.
+1. Na página de perfil da **CDN,** selecione **Endpoint**.
 
-   ![Adicionar um novo ponto final da CDN](./media/cdn-dynamic-site-acceleration/cdn-endpoint-profile.png) 
+   ![Adicione um novo ponto final da CDN](./media/cdn-dynamic-site-acceleration/cdn-endpoint-profile.png) 
 
    O painel **Adicionar um ponto final** aparece.
 
-2. Sob **otimizado para**, selecione **aceleração de sites dinâmicos**.
+2. Em **Otimizado para**, selecione **a aceleração do site Dynamic**.
 
-    ![Criar um novo ponto final da CDN com o DSA](./media/cdn-dynamic-site-acceleration/cdn-endpoint-dsa.png)
+    ![Criar um novo ponto final da CDN com a DSA](./media/cdn-dynamic-site-acceleration/cdn-endpoint-dsa.png)
 
-3. Para **caminho da sonda**, introduza um caminho válido para um ficheiro.
+3. Para o **caminho da sonda,** insira um caminho válido para um ficheiro.
 
-    Caminho da sonda é um recurso específico para o DSA e, é necessário para a criação de um caminho válido. DSA utiliza uma pequena *caminho da sonda* ficheiro colocado no servidor de origem para otimizar as configurações de encaminhamento de rede para a CDN. Para o ficheiro de caminho de pesquisa, pode transferir e carregar o ficheiro de exemplo para o seu site ou utilizar um elemento existente na origem que é aproximadamente 10 KB de tamanho.
+    O caminho da sonda é uma característica específica da DSA, e é necessário um caminho válido para a criação. A DSA utiliza um pequeno ficheiro de caminho de *sonda* colocado no servidor de origem para otimizar as configurações de encaminhamento da rede para o CDN. Para o ficheiro do caminho da sonda, pode descarregar e enviar o ficheiro de amostra para o seu site, ou utilizar um ativo existente na sua origem que tem cerca de 10 KB de tamanho.
 
-4. Introduza as outras opções de ponto final necessária (para obter mais informações, consulte [criar um novo ponto final da CDN](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)), em seguida, selecione **Add**.
+4. Introduza as outras opções de ponto final necessárias (para mais informações, consulte [Criar um novo ponto final do CDN),](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)em seguida, selecione **Adicionar**.
 
-   Depois de criar o ponto final da CDN, aplica-se as otimizações de DSA para todos os ficheiros que correspondem a determinados critérios. 
+   Após a criação do ponto final da CDN, aplica as otimizações da DSA para todos os ficheiros que correspondam a determinados critérios. 
 
 
-**Para configurar um ponto final existente para o DSA (CDN do Azure da Akamai apenas os perfis):**
+**Para configurar um ponto final existente para a DSA (Azure CDN apenas dos perfis da Akamai):**
 
-1. Na **perfil da CDN** página, selecione o ponto final que pretende modificar.
+1. Na página de **perfil da CDN,** selecione o ponto final que pretende modificar.
 
-2. No painel esquerdo, selecione **otimização**. 
+2. A partir do painel esquerdo, **selecione Otimização**. 
 
-   O **otimização** é apresentada a página.
+   A página de **Otimização** aparece.
 
-3. Sob **otimizado para**, selecione **aceleração de site dinâmico**, em seguida, selecione **guardar**.
+3. Em **otimizado para**, selecione **a aceleração do site Dynamic,** e, em seguida, selecione **Save**.
 
 > [!Note]
-> DSA incorre em Cobranças adicionais. Para obter mais informações, consulte [preços de rede de entrega de conteúdos](https://azure.microsoft.com/pricing/details/cdn/).
+> A DSA incorre em acusações extra. Para mais informações, consulte [os preços da Rede](https://azure.microsoft.com/pricing/details/cdn/)de Entrega de Conteúdos .
 
-## <a name="dsa-optimization-using-azure-cdn"></a>Otimização de DSA utilizar CDN do Azure
+## <a name="dsa-optimization-using-azure-cdn"></a>Otimização dSA usando CDN Azure
 
-Aceleração de sites dinâmica na CDN do Azure acelera a entrega de ativos dinâmicas por meio das seguintes técnicas:
+A aceleração do site dinâmico em Azure CDN acelera a entrega de ativos dinâmicos utilizando as seguintes técnicas:
 
--   [A Otimização da rota](#route-optimization)
+-   [Otimização de rotas](#route-optimization)
 -   [Otimizações de TCP](#tcp-optimizations)
--   [Obtenção prévia do objeto (CDN do Azure da Akamai apenas)](#object-prefetch-azure-cdn-from-akamai-only)
--   [Compressão de imagem adaptável (CDN do Azure da Akamai apenas)](#adaptive-image-compression-azure-cdn-from-akamai-only)
+-   [Prefetch de objetos (Azure CDN apenas da Akamai)](#object-prefetch-azure-cdn-from-akamai-only)
+-   [Compressão de imagem adaptável (Azure CDN apenas da Akamai)](#adaptive-image-compression-azure-cdn-from-akamai-only)
 
-### <a name="route-optimization"></a>A Otimização da rota
+### <a name="route-optimization"></a>Otimização de Rotas
 
-Otimização da rota é importante porque a Internet é um local dinâmico, onde o tráfego e temporariamente as falhas são constantemente alterar a topologia de rede. O protocolo BGP (Border Gateway) é o protocolo de encaminhamento de Internet, mas pode haver mais rápidas rotas através de servidores de ponto de presença (PoP) intermediários. 
+A otimização das rotas é importante porque a Internet é um local dinâmico, onde o tráfego e as interrupções temporárias estão constantemente a mudar a topologia da rede. O Border Gateway Protocol (BGP) é o protocolo de encaminhamento da Internet, mas pode haver rotas mais rápidas através de servidores intermediários do Ponto de Presença (PoP). 
 
-Otimização da rota escolhe o melhor caminho para a origem para que um site é continuamente conteúdo acessível e dinâmico é entregue aos utilizadores finais por meio da rota mais rápido e confiável possíveis. 
+A otimização do percurso escolhe o caminho mais ideal para a origem para que um site seja continuamente acessível e conteúdos dinâmicos seja entregue aos utilizadores finais através da rota mais rápida e fiável possível. 
 
-A rede de Akamai utiliza técnicas para recolher dados em tempo real e comparar vários caminhos através de diferentes nós do servidor do Akamai, bem como a rota do BGP padrão através da Internet aberta para determinar a rota mais rápida entre a origem e o limite CDN. Essas técnicas evitar Internet pontos de congestionamento e rotas longo. 
+A rede Akamai utiliza técnicas para recolher dados em tempo real e comparar vários caminhos através de diferentes nós no servidor Akamai, bem como a rota padrão de BGP através da Internet aberta para determinar a rota mais rápida entre a origem e a borda CDN. Estas técnicas evitam pontos de congestionamento da Internet e rotas longas. 
 
-Da mesma forma, as utilizações de rede da Verizon uma combinação de Anycast DNS, alta capacidade suportam PoPs e verificações de estado de funcionamento para determinar os melhor gateways para melhor encaminhar os dados do cliente para a origem.
+Da mesma forma, a rede Verizon utiliza uma combinação de DNS Anycast, PoPs de suporte de alta capacidade e verificações de saúde, para determinar os melhores gateways para melhor dados de rota do cliente para a origem.
  
-Como resultado, conteúdo totalmente dinâmico e transacional é entregue mais rapidamente e de forma mais fiável para os utilizadores finais, mesmo quando é atribuir. 
+Como resultado, conteúdos totalmente dinâmicos e transacionais são entregues de forma mais rápida e fiável aos utilizadores finais, mesmo quando não são cachepáveis. 
 
-### <a name="tcp-optimizations"></a>Otimizações de TCP
+### <a name="tcp-optimizations"></a>Otimizações tCP
 
-Protocolo de controlo de transmissão (TCP) é o padrão do conjunto de protocolos de Internet usado para fornecer informações entre aplicativos numa rede IP.  Por predefinição, vários pedidos back lado para o outro são necessários para configurar uma conexão TCP, bem como limites para evitar congestions de rede, que resultam em ineficiências em escala. **A CDN do Azure da Akamai** lida com esse problema ao otimizar em três áreas: 
+O Protocolo de Controlo de Transmissão (TCP) é o padrão do conjunto de protocolos de Internet utilizado para fornecer informações entre aplicações numa rede IP.  Por predefinição, são necessários vários pedidos de back-and-forth para estabelecer uma ligação TCP, bem como limites para evitar congestionamentos de rede, que resultam em ineficiências em escala. **O Azure CDN da Akamai** lida com este problema otimizando em três áreas: 
 
- - [Eliminando partida lenta do TCP](#eliminating-tcp-slow-start)
- - [Tirar partido das ligações persistentes](#leveraging-persistent-connections)
- - [Ajuste os parâmetros de pacotes TCP](#tuning-tcp-packet-parameters)
+ - [Eliminação do arranque lento do TCP](#eliminating-tcp-slow-start)
+ - [Aproveitando ligações persistentes](#leveraging-persistent-connections)
+ - [Parâmetros de pacote sintonizados do TCP](#tuning-tcp-packet-parameters)
 
-#### <a name="eliminating-tcp-slow-start"></a>Eliminando partida lenta do TCP
+#### <a name="eliminating-tcp-slow-start"></a>Eliminação do arranque lento do TCP
 
-TCP *lento início* é um algoritmo do protocolo TCP que o impede de congestionamento de rede ao limitar a quantidade de dados enviados através da rede. Ele começa com tamanhos de janela de congestionamento pequenas entre remetente e receptor até que o máximo foi atingido ou perda de pacotes é detectada.
+O *arranque lento* do TCP é um algoritmo do protocolo TCP que impede o congestionamento da rede limitando a quantidade de dados enviados através da rede. Começa com pequenos tamanhos de janela de congestionamento entre o remetente e o recetor até que o máximo seja atingido ou seja detetada a perda do pacote.
 
- Ambos **CDN do Azure da Akamai** e **CDN do Azure da Verizon** perfis eliminam partida lenta do TCP com os seguintes três passos:
+ Tanto **o Azure CDN da Akamai como** o **Azure CDN dos** perfis de Verizon eliminam o início lento do TCP com os seguintes três passos:
 
-1. Estado de funcionamento e monitorização de largura de banda é utilizada para medir a largura de banda de ligações entre os servidores de borda PoP.
+1. A monitorização da largura de banda e saúde é utilizada para medir a largura de banda das ligações entre os servidores PoP de borda.
     
-2. As métricas são partilhadas entre os servidores de borda PoP, para que cada servidor esteja ciente das condições de rede e estado de funcionamento do servidor dos outros PoPs em torno delas.  
+2. As métricas são partilhadas entre os servidores PoP de borda para que cada servidor esteja ciente das condições de rede e da saúde do servidor dos outros PoPs à sua volta.  
     
-3. Os servidores de borda CDN fazem suposições sobre alguns parâmetros de transmissão, por exemplo, o que o tamanho ideal da janela deve ser ao comunicar com outros servidores edge CDN seu proximidade. Este passo significa que o tamanho da janela de congestionamento inicial pode ser aumentado se o estado de funcionamento da ligação entre os servidores de borda CDN é capaz de transferências de dados superior do pacote.  
+3. Os servidores de borda CDN fazem suposições sobre alguns parâmetros de transmissão, tais como qual o tamanho ideal da janela deve ser ao comunicar com outros servidores de borda CDN na sua proximidade. Este passo significa que o tamanho inicial da janela de congestionamento pode ser aumentado se a saúde da ligação entre os servidores de borda CDN for capaz de transferências de dados de pacotes mais elevados.  
 
-#### <a name="leveraging-persistent-connections"></a>Tirar partido das ligações persistentes
+#### <a name="leveraging-persistent-connections"></a>Aproveitando ligações persistentes
 
-Utilizar uma CDN, menos máquinas exclusivas ligar-se ao seu servidor de origem diretamente em comparação com os utilizadores ligados diretamente para a sua origem. A CDN do Azure também agrupamentos pedidos de utilizador para estabelecer ligações menos com a origem.
+Utilizando um CDN, menos máquinas únicas conectam-se diretamente ao seu servidor de origem em comparação com os utilizadores que se conectam diretamente à sua origem. O Azure CDN também reúne pedidos de utilizadores para estabelecer menos ligações com a origem.
 
-Como mencionado anteriormente, várias solicitações de handshake são necessárias para estabelecer uma ligação de TCP. Ligações persistentes, o que são implementadas com o `Keep-Alive` cabeçalho HTTP, reutilização de ligações de TCP para vários pedidos HTTP guardar os tempos de ida e volta e acelerar a entrega existentes. 
+Como mencionado anteriormente, são necessários vários pedidos de aperto de mão para estabelecer uma ligação TCP. Ligações persistentes, que são `Keep-Alive` implementadas pelo cabeçalho HTTP, reutilizam as ligações TCP existentes para múltiplos pedidos http para poupar tempos de ida e volta e acelerar a entrega. 
 
-**A CDN do Azure da Verizon** também envia pacotes de keep-alive periódicas através da ligação de TCP para impedir que uma conexão aberta de que está a ser fechado.
+**O Azure CDN da Verizon** também envia pacotes periódicos de manutenção viva sobre a ligação TCP para evitar que uma ligação aberta seja fechada.
 
-#### <a name="tuning-tcp-packet-parameters"></a>Ajuste os parâmetros de pacotes TCP
+#### <a name="tuning-tcp-packet-parameters"></a>Parâmetros de pacote sintonizados do TCP
 
-**A CDN do Azure da Akamai** adaptável os parâmetros que controlam ligações de servidor para servidor e reduz a quantidade de viagens de longo prazo, necessário para obter o conteúdo incorporado no site utilizando as seguintes técnicas:
+**O Azure CDN da Akamai** afina os parâmetros que regem as ligações servidor-servidor e reduz a quantidade de viagens de ida e volta de longo curso necessárias para recuperar conteúdo incorporado no site utilizando as seguintes técnicas:
 
-- Aumentando a janela de congestionamento inicial para que mais pacotes podem ser enviados sem esperar por uma confirmação.
-- Diminuir o tempo limite de retransmissão inicial para que uma perda é detectada e retransmissão ocorre mais rapidamente.
-- Diminuir o tempo limite de retransmissão mínimos e máximos para reduzir o tempo de espera antes de partindo do princípio de que pacotes tenham sido perdidos devidos a transmissão.
+- Aumentar a janela inicial de congestionamento para que mais pacotes possam ser enviados sem esperar por um reconhecimento.
+- Diminuindo o tempo de retransmissão inicial para que uma perda seja detetada, e a retransmissão ocorre mais rapidamente.
+- Diminuindo o tempo mínimo e máximo de retransmissão para reduzir o tempo de espera antes de assumir que os pacotes foram perdidos na transmissão.
 
-### <a name="object-prefetch-azure-cdn-from-akamai-only"></a>Obtenção prévia do objeto (CDN do Azure da Akamai apenas)
+### <a name="object-prefetch-azure-cdn-from-akamai-only"></a>Prefetch de objetos (Azure CDN apenas da Akamai)
 
-A maioria dos sites consistem numa página HTML, que faz referência a vários outros recursos, como imagens e scripts. Normalmente, quando um cliente solicita uma página Web, o browser transfere primeiro analisa o objeto HTML e, em seguida, faz solicitações adicionais para ativos ligados que são necessárias para totalmente carregar a página. 
+A maioria dos websites é composta por uma página HTML, que refere vários outros recursos, como imagens e scripts. Normalmente, quando um cliente solicita uma página web, o navegador primeiro descarrega e analisa o objeto HTML, e depois faz pedidos adicionais para ativos ligados que são necessários para carregar totalmente a página. 
 
-*Obtenção prévia* é uma técnica para obter imagens e scripts incorporada na página HTML, enquanto o HTML é fornecido para o navegador e antes do navegador chega a fazer essas solicitações de objeto. 
+*A Prefetch* é uma técnica para recuperar imagens e scripts incorporados na página HTML enquanto o HTML é servido ao navegador, e antes mesmo de o navegador fazer estes pedidos de objeto. 
 
-Com a opção de obtenção prévia ativada ao tempo quando a CDN serve a página de base de HTML para o navegador do cliente, a CDN analisa o arquivo HTML e fazer pedidos adicionais para todos os recursos ligados e armazene-o em seu cache. Quando o cliente efetua os pedidos para os recursos de ligado, o servidor de borda CDN já tem os objectos solicitados e pode servi-los imediatamente sem uma ida e volta para a origem. Essa otimização beneficia conteúdos colocáveis em cache e não colocáveis em cache.
+Com a opção prefetch ligada no momento em que o CDN serve a página base HTML para o navegador do cliente, o CDN analisa o ficheiro HTML e faz pedidos adicionais para quaisquer recursos ligados e armazená-lo na sua cache. Quando o cliente faz os pedidos para os ativos ligados, o servidor de borda CDN já tem os objetos solicitados e pode servi-los imediatamente sem uma ida e volta à origem. Esta otimização beneficia conteúdo cacheable e não cacheable.
 
-### <a name="adaptive-image-compression-azure-cdn-from-akamai-only"></a>Compressão de imagem adaptável (CDN do Azure da Akamai apenas)
+### <a name="adaptive-image-compression-azure-cdn-from-akamai-only"></a>Compressão de imagem adaptável (Azure CDN apenas da Akamai)
 
-Alguns dispositivos, especialmente aqueles móveis, experiência de tempos em tempos de velocidades de rede mais lentas. Nestes cenários, é mais vantajoso para ao utilizador receber imagens menores na sua página da Web mais rapidamente, em vez de esperar muito tempo para imagens de resolução total.
+Alguns dispositivos, especialmente os móveis, experimentam velocidades de rede mais lentas de vez em quando. Nestes cenários, é mais benéfico para o utilizador receber imagens menores na sua página web mais rapidamente do que esperar muito tempo por imagens de resolução completa.
 
-Esta funcionalidade automaticamente monitoriza a qualidade de rede e utiliza os métodos de compactação padrão JPEG quando velocidades de rede são mais lentas melhorar o tempo de entrega.
+Esta funcionalidade monitoriza automaticamente a qualidade da rede e emprega métodos de compressão Padrão JPEG quando as velocidades de rede são mais lentas para melhorar o tempo de entrega.
 
-Compressão de imagem adaptável | Extensões de ficheiro  
+Compressão de imagem adaptável | Extensões de ficheiros  
 --- | ---  
-Compressão de JPEG | .jpg, .jpeg, .jpe, .jig, .jgig, .jgi
+Compressão JPEG | .jpg, .jpeg, .jpe, .jig, .jgig, .jgi
 
 ## <a name="caching"></a>Colocação em cache
 
-Com o DSA, colocação em cache está desativada por predefinição na CDN, mesmo quando a origem inclui `Cache-Control` ou `Expires` cabeçalhos na resposta. DSA é normalmente utilizado para os recursos dinâmicos que devem não ser colocado em cache porque eles são exclusivos para cada cliente. Colocação em cache pode quebrar a esse comportamento.
+Com a DSA, o cache é desligado por padrão no `Cache-Control` CDN, mesmo quando a origem inclui ou `Expires` cabeçalhos na resposta. A DSA é normalmente usada para ativos dinâmicos que não devem ser cached porque são únicos para cada cliente. O caching pode quebrar este comportamento.
 
-Se tiver um Web site com uma combinação de recursos estáticos e dinâmicos, é melhor usar uma abordagem híbrida para obter o melhor desempenho. 
+Se tem um website com uma mistura de ativos estáticos e dinâmicos, o melhor é ter uma abordagem híbrida para obter o melhor desempenho. 
 
-Para **CDN do Azure Standard da Verizon** e **CDN do Azure Standard da Akamai** perfis, pode ativar colocação em cache para os pontos finais DSA utilizando [regras de colocação em cache](cdn-caching-rules.md).
+Para **o Azure CDN Standard da Verizon** e **azure CDN Standard a partir de** perfis Akamai, você pode ligar o cache para pontos finais específicos da DSA usando regras de [cache](cdn-caching-rules.md).
 
-Para aceder a regras de colocação em cache:
+Para aceder às regras de cache:
 
-1. Partir do **perfil da CDN** página, em definições, selecione **regras de colocação em cache**.  
+1. A partir da página de **perfil cdN,** em definições, selecione **regras de Caching**.  
     
     ![Botão Regras de colocação em cache da CDN](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
 
-    O **regras de colocação em cache** é aberta a página.
+    A página de regras do **Caching** abre.
 
-2. Crie uma regra de colocação em cache global ou personalizada para ativar a colocação em cache para o ponto final DSA. 
+2. Crie uma regra global ou personalizada para ligar o cache para o seu ponto final da DSA. 
 
-Para **CDN do Azure Premium da Verizon** perfis, que ative a colocação em cache para os pontos finais DSA, utilizando o [motor de regras](cdn-rules-engine.md). Todas as regras que são criadas afetam apenas os pontos finais do seu perfil são otimizados para o DSA. 
+Para **o Azure CDN Premium apenas a partir dos** perfis de Verizon, liga-se o cache para pontos finais dSA específicos utilizando o motor de [regras](cdn-rules-engine.md). Quaisquer regras criadas afetam apenas os pontos finais do seu perfil que estão otimizados para a DSA. 
 
-Para acessar o mecanismo de regras:
+Para aceder ao motor de regras:
     
-1. Partir do **perfil da CDN** página, selecione **gerir**.  
+1. A partir da página de **perfil cdN,** selecione **Gerir**.  
     
-    ![Botão de gerir o perfil de CDN](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
+    ![Botão de gestão de perfil CDN](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
-    É aberto o portal de gestão da CDN.
+    Abre o portal de gestão da CDN.
 
-2. A partir do portal de gestão CDN, selecione **ADN**, em seguida, selecione **motor de regras**. 
+2. A partir do portal de gestão da CDN, selecione **ADN,** em seguida, selecione **Rules Engine**. 
 
-    ![Motor de regras para o DSA](./media/cdn-dynamic-site-acceleration/cdn-dsa-rules-engine.png)
+    ![Motor de regras para DSA](./media/cdn-dynamic-site-acceleration/cdn-dsa-rules-engine.png)
 
 
 
-Em alternativa, pode utilizar dois pontos finais de CDN: um ponto de extremidade otimizado com DSA para fornecer recursos dinâmicos e de outro ponto final otimizado com um tipo de otimização estático, como geral entrega web, a recursos em cache de entrega. Modificar suas URLs de página Web para ligar diretamente ao elemento no ponto final da CDN que pretende utilizar. 
+Em alternativa, pode utilizar dois pontos finais cdN: um ponto final otimizado com dSA para entregar ativos dinâmicos e outro ponto final otimizado com um tipo de otimização estática, como a entrega geral da Web, para fornecer ativos cacheáveis. Modifique os URLs da página web para ligar diretamente ao ativo no ponto final da CDN que planeia utilizar. 
 
-Por exemplo: `mydynamic.azureedge.net/index.html` é uma página dinâmica e são carregados a partir do ponto de extremidade DSA.  A página html faz referência a vários recursos estáticos, como bibliotecas JavaScript ou imagens que são carregadas a partir do ponto de final de CDN estático, tal como `mystatic.azureedge.net/banner.jpg` e `mystatic.azureedge.net/scripts.js`. 
+Por exemplo: `mydynamic.azureedge.net/index.html` é uma página dinâmica e é carregada a partir do ponto final da DSA.A página html refere vários ativos estáticos, tais como bibliotecas JavaScript ou `mystatic.azureedge.net/banner.jpg` `mystatic.azureedge.net/scripts.js`imagens que são carregadas a partir do ponto final estático do CDN, tais como e . 
 
 
 

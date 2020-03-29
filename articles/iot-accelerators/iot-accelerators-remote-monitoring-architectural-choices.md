@@ -1,6 +1,6 @@
 ---
-title: Remotas solução escolhas arquitetónicas da monitorização - Azure | Documentos da Microsoft
-description: Este artigo descreve as opções de arquiteturais e técnicas feitas na monitorização remota
+title: Escolhas arquitetónicas de solução de monitorização remota - Azure / Microsoft Docs
+description: Este artigo descreve as escolhas arquitetónicas e técnicas feitas na Monitorização Remota
 author: timlaverty
 manager: camerons
 ms.author: timlav
@@ -9,81 +9,81 @@ services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1bd08596a30db7322a72b4269fddfe0b9df19119
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61447190"
 ---
-# <a name="remote-monitoring-architectural-choices"></a>Escolhas arquitetónicas da monitorização remotas
+# <a name="remote-monitoring-architectural-choices"></a>Escolhas arquitetónicas da Monitorização Remota
 
-O acelerador de solução de monitorização remota do Azure IoT é um código fonte aberto, MIT licenciado, acelerador de solução. Para ajudar a acelerar o processo de desenvolvimento de IoT, mostra os cenários de IoT comuns, tais como:
+O acelerador de solução de monitorização remota Azure IoT é um acelerador de soluções licenciado pelo MIT. Para ajudá-lo a acelerar o seu processo de desenvolvimento de IoT, mostra cenários comuns de IoT tais como:
 
 - Conectividade dos dispositivos
 - Gestão de dispositivos
 - Processamento de fluxos
 
-A solução de monitorização remota segue o recomendado [arquitetura de referência do Azure IoT](https://aka.ms/iotrefarchitecture).
+A solução de monitorização remota segue a arquitetura de [referência Azure IoT](https://aka.ms/iotrefarchitecture)recomendada.
 
-Este artigo descreve as opções de arquiteturais e técnicas principais feitas em cada um dos subsistemas de monitorização remota. No entanto, as opções técnicas Microsoft feita na solução de monitorização remota não são a única forma de implementar uma solução de IoT de monitorização remota. Deve considerar a implementação técnica como uma linha de base para a criação de um aplicativo com êxito e deve modificá-lo para:
+Este artigo descreve as principais escolhas arquitetónicas e técnicas feitas em cada um dos subsistemas de Monitorização Remota. No entanto, as escolhas técnicas que a Microsoft fez na solução de Monitorização Remota não são a única forma de implementar uma solução IoT de monitorização remota. Deve considerar a implementação técnica como uma linha de base para a construção de uma aplicação bem sucedida e deve modificá-la para:
 
-- Ajustar as habilidades disponíveis e experiência em sua organização.
-- Atender às necessidades da sua aplicação vertical.
+- Ajuste as competências e experiência disponíveis na sua organização.
+- Satisfaça as suas necessidades verticais de aplicação.
 
 ## <a name="architectural-choices"></a>Opções de arquitetura
 
-A arquitetura que a Microsoft recomenda-se para uma aplicação IoT é a cloud nativos, microsserviços, e com base em sem servidor. Deve criar os diferentes subsistemas de uma aplicação IoT como serviços discretos que pode implementar e dimensionar de forma independente. Esses atributos ativar escala maior, mais flexibilidade na atualização subsistemas individuais e fornecem a flexibilidade de escolher uma tecnologia apropriada para cada subsistema.
+A arquitetura que a Microsoft recomenda para uma aplicação IoT é nativa, microserviço e baseada em servidores. Deve construir os diferentes subsistemas de uma aplicação IoT como serviços discretos que pode implementar e escalar de forma independente. Estes atributos permitem uma maior escala, mais flexibilidade na atualização dos subsistemas individuais e proporcionam a flexibilidade para escolher uma tecnologia adequada para cada subsistema.
 
-Pode implementar microsserviços que utilizam a tecnologia mais do que um. Por exemplo, pode escolher qualquer uma das seguintes opções para implementar um microsserviço:
+Pode implementar microserviços utilizando mais do que uma tecnologia. Por exemplo, pode escolher qualquer uma das seguintes opções para implementar um microserviço:
 
-- Use uma tecnologia de contentor, como o Docker com a tecnologia sem servidor, como as funções do Azure.
-- Aloje os microsserviços em serviços de PaaS como os serviços de aplicações do Azure.
+- Utilize uma tecnologia de contentores como o Docker com tecnologia sem servidores, como as Funções Azure.
+- Acolhou os seus microserviços em serviços PaaS, como os Serviços de Aplicações Azure.
 
 ## <a name="technology-choices"></a>Opções de tecnologia
 
-Esta secção fornece detalhes sobre as opções de tecnologia feitas na solução de monitorização remota para cada um nos principais subsistemas.
+Esta secção detalha as escolhas tecnológicas feitas na solução de Monitorização Remota para cada um dos subsistemas principais.
 
-![Diagrama de núcleo](./media/iot-accelerators-remote-monitoring-architectural-choices/subsystem.png)
+![Diagrama do núcleo](./media/iot-accelerators-remote-monitoring-architectural-choices/subsystem.png)
 
-### <a name="cloud-gateway"></a>Gateway de nuvem
+### <a name="cloud-gateway"></a>Cloud Gateway
 
-O IoT Hub do Azure é utilizado como o gateway de nuvem de solução de monitorização remota. [IoT Hub](https://azure.microsoft.com/services/iot-hub/) oferece comunicação bidirecional e segura com dispositivos.
+O Hub Azure IoT é utilizado como porta de entrada de nuvem de solução de monitorização remota. [O IoT Hub](https://azure.microsoft.com/services/iot-hub/) oferece uma comunicação segura e bidirecional com dispositivos.
 
-Para a conectividade do dispositivo de IoT, pode utilizar:
+Para a conectividade do dispositivo IoT, pode utilizar:
 
-- O [SDKs de dispositivo do IoT Hub](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) para implementar uma aplicação cliente nativa para o seu dispositivo. Os SDKs oferecem wrappers em torno da API de REST do Hub IoT e manipulam os cenários, tais como as repetições.
-- A integração com o Azure IoT Edge para implementar e gerir módulos personalizados em execução nos contentores nos seus dispositivos.
-- A integração com o gerenciamento automático de dispositivos no IoT Hub para gerir dispositivos ligados em massa.
+- O [dispositivo IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) implementa uma aplicação de cliente nativo para o seu dispositivo. Os SDKs oferecem invólucros em torno da IoT Hub REST API e lidam com cenários como repetições.
+- A integração com o Azure IoT Edge para implementar e gerir módulos personalizados em contentores nos seus dispositivos.
+- A integração com a gestão automática de dispositivos no IoT Hub para gerir dispositivos conectados a granel.
 
 ### <a name="stream-processing"></a>Processamento de fluxos
 
-Para processamento de fluxo, a solução de monitorização remota utiliza o Azure Stream Analytics para o processamento da regra complexa. Se pretender utilizar as regras mais simples, há um microsserviço personalizado com suporte para o processamento da regra simples, embora esta configuração não fazem parte da implementação de out-of-the-box. A arquitetura de referência recomenda as funções do Azure para o processamento da regra simples e o Azure Stream Analytics para o processamento da regra complexa.
+Para o processamento de fluxo, a solução de monitorização remota utiliza o Azure Stream Analytics para processamento de regras complexas. Se quiser usar regras mais simples, existe um microserviço personalizado com suporte para um simples processamento de regras, embora esta configuração não faça parte da implementação fora da caixa. A arquitetura de referência recomenda funções Azure para processamento simples de regras e Azure Stream Analytics para processamento de regras complexas.
 
-### <a name="storage"></a>Armazenamento
+### <a name="storage"></a>Storage
 
-Para armazenamento, o acelerador de solução de monitorização remota utiliza o Azure Time Series Insights e o Azure Cosmos DB. O Azure Time Series Insights armazena as mensagens recebidas pelo IoT Hub dos seus dispositivos ligados. O solution accelerator utiliza o Azure Cosmos DB para todos os outro armazenamento como armazenamento esporádico, definições de regras, alertas e as definições de configuração.
+Para armazenamento, o acelerador de solução de monitorização remota utiliza tanto a Azure Time Series Insights como a Azure Cosmos DB. A Azure Time Series Insights armazena as mensagens que chegam através do IoT Hub a partir dos seus dispositivos conectados. O acelerador de solução utiliza o Azure Cosmos DB para todos os outros armazenamentos, tais como armazenamento frio, definições de regras, alertas e configurações de configuração.
 
-O Azure Cosmos DB é a solução de armazenamento de acesso pouco frequente recomendado para fins gerais para aplicações de IoT. No entanto, as soluções como o Azure Time Series Insights e o Azure Data Lake são adequadas para muitos casos de utilização. Com o Azure Time Series Insights, pode obter informações mais detalhadas sobre os seus dados de séries temporais sensor ao detetar tendências e anomalias. Esta funcionalidade permite-lhe realizar análises de causa raiz e evitar períodos de indisponibilidade dispendiosos.
+Azure Cosmos DB é a solução de armazenamento quente recomendada para aplicações IoT. No entanto, soluções como a Azure Time Series Insights e o Azure Data Lake são apropriadas para muitos casos de utilização. Com o Azure Time Series Insights, pode obter informações mais profundas sobre os seus dados de sensores de série seleção de tempo, detetando tendências e anomalias. Esta funcionalidade permite-lhe realizar análises de causa-raiz e evitar tempos de paragem dispendiosos.
 
 > [!NOTE]
-> O Time Series Insights não está atualmente disponível na cloud do Azure China. Novas implementações de acelerador de solução de monitorização remota na cloud do Azure China utilizem Cosmos DB para todo o armazenamento.
+> A Time Series Insights não está atualmente disponível na nuvem Azure China. Novas implementações de aceleradores de solução de monitorização remota na nuvem Azure China utilizam cosmos DB para todo o armazenamento.
 
 ### <a name="business-integration"></a>Integração de negócios
 
-Integração de negócios na solução de monitorização remota está limitada à geração de alertas, que são colocadas no armazenamento de acesso pouco frequente. Conecte-se a solução Azure Logic Apps para implementar cenários de integração de negócios mais aprofundados.
+A integração empresarial na solução de Monitorização Remota limita-se à geração de alertas, que são colocados em armazenamento quente. Conecte a solução com as Apps Lógicas Azure para implementar cenários de integração de negócios mais profundos.
 
-### <a name="user-interface"></a>Interface do usuário
+### <a name="user-interface"></a>Interface de Utilizador
 
-O web IU é criada com reagir de JavaScript. React oferece uma estrutura de interface do Usuário da web de setor frequentemente utilizadas e é semelhante a outras arquiteturas populares, como o Angular.
+A UI web é construída com JavaScript React. O React oferece um quadro web de UI da indústria comumente usado e é semelhante a outros quadros populares, como o Angular.
 
 ### <a name="runtime-and-orchestration"></a>Tempo de execução e orquestração
 
-A solução de monitorização remota utiliza contentores do Docker para executar os subsistemas com o Kubernetes como o orchestrator para o dimensionamento horizontal. Esta arquitetura permite que as definições de dimensionamento individuais para cada subsistema. No entanto, esta arquitetura de incorrer em custos de DevOps para manter as máquinas virtuais e contentores, atualizados e seguros.
+A solução de monitorização remota utiliza os recipientes Docker para executar os subsistemas com Kubernetes como o orquestrador para escala horizontal. Esta arquitetura permite definições de escala individual para cada subsistema. No entanto, esta arquitetura incorre em custos de DevOps para manter as máquinas e contentores virtuais atualizados e seguros.
 
-As alternativas ao Docker incluem alojamento microsserviços em serviços de PaaS, como o serviço de aplicações do Azure. Alternativas para o Kubernetes incluem orquestradores, como o Service Fabric, DC/OS ou Swarm.
+Alternativas ao Docker incluem hospedagem de microserviços em serviços PaaS, como o Azure App Service. Alternativas a Kubernetes incluem orquestradores como Service Fabric, DC/OS ou Swarm.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Implemente a sua solução de monitorização remota [aqui](https://www.azureiotsolutions.com/).
-* Explore o código do GitHub na [c#](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) e [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/).  
-* Saiba mais sobre a arquitetura de referência do IoT [aqui](https://aka.ms/iotrefarchitecture).
+* Implemente [aqui](https://www.azureiotsolutions.com/)a sua solução de monitorização remota .
+* Explore o código GitHub em [C#](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) e [Java.](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/)  
+* Saiba mais sobre a Arquitetura de Referência IoT [aqui.](https://aka.ms/iotrefarchitecture)

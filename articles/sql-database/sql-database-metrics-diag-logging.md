@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ms.openlocfilehash: 3784b94a8571ab57d191d0bdb1e38aaa16d3cabb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255980"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-diagnostic-telemetry"></a>Configure a exportação de streaming da telemetria de diagnóstico da Base de Dados Azure SQL
@@ -25,8 +25,8 @@ Neste artigo, você aprenderá sobre as métricas de desempenho e registos de re
 Você também vai aprender sobre os destinos para os quais você pode transmitir esta telemetria de diagnóstico e como escolher entre estas escolhas. As suas opções de destino incluem:
 
 - [Log Analytics e SQL Analytics](#stream-into-sql-analytics)
-- [Hubs de Eventos](#stream-into-event-hubs)
-- [Armazenamento do Azure](#stream-into-azure-storage)
+- [Hubs de eventos](#stream-into-event-hubs)
+- [Storage do Azure](#stream-into-azure-storage)
 
 ## <a name="diagnostic-telemetry-for-export-for-azure-sql-database"></a>Telemetria de diagnóstico para exportação para base de dados Azure SQL
 
@@ -80,7 +80,7 @@ Pode ativar e gerir métricas e fazer telemetria de diagnóstico utilizando um d
 - Portal do Azure
 - PowerShell
 - CLI do Azure
-- Azure Monitor REST API
+- API REST do Azure Monitor
 - Modelo Azure Resource Manager
 
 > [!NOTE]
@@ -95,7 +95,7 @@ Pode utilizar o menu de **definições** de Diagnóstico no portal Azure para at
 
 Selecione um dos seguintes separadores para orientação passo a passo para configurar a exportação em streaming de telemetria de diagnóstico no portal Azure e para scripts para realizar o mesmo com powerShell e o Azure CLI.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/azure-portal)
+# <a name="azure-portal"></a>[Portal Azure](#tab/azure-portal)
 
 ### <a name="elastic-pools"></a>Conjuntos elásticos
 
@@ -103,7 +103,7 @@ Você pode configurar um recurso de piscina elástica para recolher a seguinte t
 
 | Recurso | Telemetria de monitorização |
 | :------------------- | ------------------- |
-| **Piscina elástica** | [As métricas básicas](sql-database-metrics-diag-logging.md#basic-metrics) contêm percentagem eDTU/CPU, limite eDTU/CPU, percentagem de leitura de dados físicos, percentagem de escrita de registo, percentagem de sessões, percentagem de trabalhadores, armazenamento, percentagem de armazenamento, limite de armazenamento e percentagem de armazenamento XTP. |
+| **Conjunto elástico** | [As métricas básicas](sql-database-metrics-diag-logging.md#basic-metrics) contêm percentagem eDTU/CPU, limite eDTU/CPU, percentagem de leitura de dados físicos, percentagem de escrita de registo, percentagem de sessões, percentagem de trabalhadores, armazenamento, percentagem de armazenamento, limite de armazenamento e percentagem de armazenamento XTP. |
 
 Para configurar o streaming de telemetria de diagnóstico para piscinas elásticas e bases de dados reunidas, é necessário configurar separadamente cada uma separadamente:
 
@@ -124,7 +124,7 @@ Para permitir o streaming de telemetria de diagnóstico para um recurso de pisci
 5. Selecione um recurso de destino para os dados de diagnóstico de streaming: **Archive para a conta de armazenamento,** Stream para um hub de **eventos,** ou Enviar para **Log Analytics**.
 6. Para análise de registos, **selecione Configure** e crie um novo espaço de trabalho selecionando **+Create New Workspace,** ou selecione um espaço de trabalho existente.
 7. Selecione a caixa de verificação para telemetria de diagnóstico de piscina elástica: Métricas **básicas.**
-   ![Configurar diagnósticos para piscinas elásticas](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
+   ![Configure diagnósticos para piscinas elásticas](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 
 8. Selecione **Guardar**.
 9. Além disso, configurar o streaming de telemetria de diagnóstico para cada base de dados dentro da piscina elástica que pretende monitorizar seguindo os passos descritos na secção seguinte.
@@ -218,7 +218,7 @@ Para permitir o streaming de telemetria de diagnóstico para uma base de dados p
 4. Introduza um nome de definição para a sua própria referência.
 5. Selecione um recurso de destino para os dados de diagnóstico de streaming: **Archive para a conta de armazenamento,** Stream para um hub de **eventos,** ou Enviar para **Log Analytics**.
 6. Selecione as caixas de verificação para telemetria de diagnóstico de base de dados: **SQLInsights,** **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, e **Errors**.
-   ![Configurar diagnósticos por exemplo bases de dados](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+   ![Configurar diagnósticos, por exemplo, bases de dados](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
 7. Selecione **Guardar**.
 8. Repita estes passos para cada base de dados de cada instância que pretende monitorizar.
 
@@ -248,7 +248,7 @@ Pode ativar o registo de métricas e diagnósticos utilizando o PowerShell.
   Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
   ```
 
-  O ID de regra de Azure Service Bus é uma cadeia de caracteres com este formato:
+  O ID da regra do Azure Service Bus é uma cadeia de caracteres com este formato:
 
   ```powershell
   {service bus resource ID}/authorizationrules/{key name}
@@ -260,7 +260,7 @@ Pode ativar o registo de métricas e diagnósticos utilizando o PowerShell.
   Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
   ```
 
-- Pode obter o ID de recurso da sua área de trabalho do Log Analytics, utilizando o seguinte comando:
+- Para obter o ID do recurso da área de trabalho do Log Analytics, utilize o seguinte comando:
 
   ```powershell
   (Get-AzOperationalInsightsWorkspace).ResourceId
@@ -272,18 +272,18 @@ Pode combinar estes parâmetros para ativar várias opções de saída.
 
 Para suportar várias subscrições, utilize o script PowerShell a partir de métricas de [recursos Enable Azure utilizando powerShell](https://blogs.technet.microsoft.com/msoms/20../../enable-azure-resource-metrics-logging-using-powershell/).
 
-Forneça o id de recursos do espaço de trabalho \<$WSID\> como parâmetro na execução do script `Enable-AzureRMDiagnostics.ps1` enviar dados de diagnóstico de vários recursos para o espaço de trabalho.
+Forneça o ID \<de\> recursos do espaço de `Enable-AzureRMDiagnostics.ps1` trabalho $WSID como parâmetro ao executar o script para enviar dados de diagnóstico de vários recursos para o espaço de trabalho.
 
-- Para obter o ID do espaço de trabalho \<$WSID\> do destino para os seus dados de diagnóstico, utilize o seguinte script:
+- Para obter o \<ID\> do espaço de trabalho $WSID do destino para os seus dados de diagnóstico, utilize o seguinte script:
 
   ```powershell
   $WSID = "/subscriptions/<subID>/resourcegroups/<RG_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>"
   .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
   ```
 
-  Substitua \<\> subID pelo ID de subscrição, \<RG_NAME\> com o nome do grupo de recursos e \<WS_NAME\> com o nome do espaço de trabalho.
+  Substitua \<\> o subID \<pelo\> ID de subscrição, RG_NAME pelo nome do grupo de recursos e \<WS_NAME\> pelo nome do espaço de trabalho.
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Pode ativar a exploração de métricas e diagnósticos utilizando o CLI Azure.
 
@@ -324,7 +324,7 @@ Pode combinar estes parâmetros para ativar várias opções de saída.
 
 As métricas de base de dados SQL e os registos de recursos que são transmitidos para um espaço de trabalho de Log Analytics podem ser consumidos pela Azure SQL Analytics. O Azure SQL Analytics é uma solução em nuvem que monitoriza o desempenho de bases de dados individuais, piscinas elásticas e bases de dados reunidas, e casos geridos e bases de dados de instâncias em escala e em várias subscrições. Pode ajudá-lo a recolher e visualizar as métricas de desempenho da Base de Dados Azure SQL, e tem inteligência incorporada para resolução de problemas de desempenho.
 
-![Descrição geral da análise SQL do Azure](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
+![Visão geral da Análise Azure SQL](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
 ### <a name="installation-overview"></a>Descrição geral da instalação
 
@@ -470,7 +470,7 @@ Os detalhes da telemetria disponíveis para todos os registos estão documentado
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de tempo quando o tronco foi gravado |
 |Tipo|Sempre: AzureDiagnostics |
-|ResourceProvider|Nome do fornecedor de recursos. Always: MICROSOFT.SQL |
+|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT. Rio SQL |
 |Categoria|Nome da categoria. Sempre: Estatísticas de Utilização de Recursos |
 |Recurso|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: MANAGEDINSTANCES |
@@ -495,7 +495,7 @@ Os detalhes da telemetria disponíveis para todos os registos estão documentado
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de tempo quando o tronco foi gravado |
 |Tipo|Sempre: AzureDiagnostics |
-|ResourceProvider|Nome do fornecedor de recursos. Always: MICROSOFT.SQL |
+|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT. Rio SQL |
 |Categoria|Nome da categoria. Sempre: QueryStoreRuntimeStatistics |
 |OperationName|Nome da operação. Sempre: QueryStoreRuntimeStatisticsEvent |
 |Recurso|O nome do recurso |
@@ -546,7 +546,7 @@ Saiba mais sobre os dados estatísticos do tempo de [execução da Consulta Stor
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de tempo quando o tronco foi gravado |
 |Tipo|Sempre: AzureDiagnostics |
-|ResourceProvider|Nome do fornecedor de recursos. Always: MICROSOFT.SQL |
+|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT. Rio SQL |
 |Categoria|Nome da categoria. Sempre: QueryStoreWaitStatistics |
 |OperationName|Nome da operação. Sempre: QueryStoreWaitStatisticsEvent |
 |Recurso|O nome do recurso |
@@ -584,7 +584,7 @@ Saiba mais sobre [os dados estatísticos](https://docs.microsoft.com/sql/relatio
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de tempo quando o tronco foi gravado |
 |Tipo|Sempre: AzureDiagnostics |
-|ResourceProvider|Nome do fornecedor de recursos. Always: MICROSOFT.SQL |
+|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT. Rio SQL |
 |Categoria|Nome da categoria. Sempre: Erros |
 |OperationName|Nome da operação. Sempre: ErrorEvent |
 |Recurso|O nome do recurso |
@@ -613,7 +613,7 @@ Saiba mais sobre as mensagens de [erro do Servidor SQL](https://docs.microsoft.c
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de tempo quando o tronco foi gravado |
 |Tipo|Sempre: AzureDiagnostics |
-|ResourceProvider|Nome do fornecedor de recursos. Always: MICROSOFT.SQL |
+|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT. Rio SQL |
 |Categoria|Nome da categoria. Sempre: DatabaseWaitStatistics |
 |OperationName|Nome da operação. Sempre: DatabaseWaitStatisticsEvent |
 |Recurso|O nome do recurso |
@@ -642,7 +642,7 @@ Saiba mais sobre as estatísticas de [espera da base de dados.](https://docs.mic
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de tempo quando o tronco foi gravado |
 |Tipo|Sempre: AzureDiagnostics |
-|ResourceProvider|Nome do fornecedor de recursos. Always: MICROSOFT.SQL |
+|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT. Rio SQL |
 |Categoria|Nome da categoria. Sempre: Intervalos |
 |OperationName|Nome da operação. Sempre: TimeoutEvent |
 |Recurso|O nome do recurso |
@@ -665,7 +665,7 @@ Saiba mais sobre as estatísticas de [espera da base de dados.](https://docs.mic
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de tempo quando o tronco foi gravado |
 |Tipo|Sempre: AzureDiagnostics |
-|ResourceProvider|Nome do fornecedor de recursos. Always: MICROSOFT.SQL |
+|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT. Rio SQL |
 |Categoria|Nome da categoria. Sempre: Blocos |
 |OperationName|Nome da operação. Sempre: BlockEvent |
 |Recurso|O nome do recurso |
@@ -689,7 +689,7 @@ Saiba mais sobre as estatísticas de [espera da base de dados.](https://docs.mic
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC] |Carimbo de tempo quando o tronco foi gravado |
 |Tipo|Sempre: AzureDiagnostics |
-|ResourceProvider|Nome do fornecedor de recursos. Always: MICROSOFT.SQL |
+|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT. Rio SQL |
 |Categoria|Nome da categoria. Sempre: Impasses |
 |OperationName|Nome da operação. Sempre: ImpasseEvento |
 |Recurso|O nome do recurso |
@@ -710,7 +710,7 @@ Saiba mais sobre as estatísticas de [espera da base de dados.](https://docs.mic
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de tempo quando o tronco foi gravado |
 |Tipo|Sempre: AzureDiagnostics |
-|ResourceProvider|Nome do fornecedor de recursos. Always: MICROSOFT.SQL |
+|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT. Rio SQL |
 |Categoria|Nome da categoria. Sempre: Afinação Automática |
 |Recurso|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. SEMPRE: SERVIDORES/BASES DE DADOS |

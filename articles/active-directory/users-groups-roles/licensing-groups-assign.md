@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 130ce05e332f4705feb4acd54cbeb25d25a82532
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253068"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Atribuir licenças aos utilizadores por associação de grupo seleções em Diretório Ativo Azure
@@ -61,7 +61,7 @@ Ao atribuir licenças a um grupo, a Azure AD processa todos os membros existente
 
 1. Vá a **Azure Ative Directory** > **Groups**. Selecione o grupo a que as licenças foram atribuídas.
 
-1. Na página do grupo, selecione **Licenças**. Isto permite-lhe confirmar rapidamente se as licenças foram totalmente atribuídas aos utilizadores e se existem erros que você precisa investigar. As informações seguintes estão disponíveis:
+1. Na página do grupo, selecione **Licenças**. Isto permite-lhe confirmar rapidamente se as licenças foram totalmente atribuídas aos utilizadores e se existem erros que você precisa investigar. As seguintes informações estão disponíveis:
 
    - Licenças de serviço que estão atualmente atribuídas ao grupo. Selecione uma entrada para mostrar os serviços específicos que foram ativados e para fazer alterações.
 
@@ -71,7 +71,7 @@ Ao atribuir licenças a um grupo, a Azure AD processa todos os membros existente
 
    ![erros de licenciamento e estatuto de licença](./media/licensing-groups-assign/assignment-errors.png)
 
-1. Consulte informações mais detalhadas sobre o processamento de licenças no âmbito do **Diretório Ativo do Azure** > **Utilizadores e grupos** > nome de *grupo* > **registos de auditoria.** Consulte as seguintes atividades:
+1. Consulte informações mais detalhadas sobre o processamento de licenças no âmbito dos utilizadores de **diretórios** > ativos do Azure e dos**grupos** > de > nome de*grupoRegistos*de**auditoria**. Consulte as seguintes atividades:
 
    - Atividade: `Start applying group based license to users`. Isto é registado quando o sistema apanha a alteração da atribuição de licenças no grupo e começa a aplicá-la a todos os utilizadores. Contém informações sobre a mudança que foi feita.
 

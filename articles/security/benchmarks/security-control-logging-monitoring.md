@@ -1,6 +1,6 @@
 ---
-title: Controle de segurança do Azure-registro em log e monitoramento
-description: Monitoramento e registro em log de controle de segurança
+title: Controlo de Segurança Azure - Exploração madeireira e monitorização
+description: Registo e monitorização de controlo de segurança
 author: msmbaldwin
 manager: rkarlin
 ms.service: security
@@ -9,176 +9,176 @@ ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.openlocfilehash: ae9c678d9dfca895ec74ed92bcb1b541db6b134e
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76545505"
 ---
-# <a name="security-control-logging-and-monitoring"></a>Controle de segurança: registro em log e monitoramento
+# <a name="security-control-logging-and-monitoring"></a>Controlo de Segurança: Exploração e Monitorização
 
-O monitoramento e o log de segurança se concentram em atividades relacionadas à habilitação, à aquisição e ao armazenamento de logs de auditoria para os serviços do Azure.
+O registo e monitorização de segurança centra-se em atividades relacionadas com a viabilizar, adquirir e armazenar registos de auditoria para os serviços Azure.
 
-## <a name="21-use-approved-time-synchronization-sources"></a>2,1: usar fontes de sincronização de tempo aprovadas
+## <a name="21-use-approved-time-synchronization-sources"></a>2.1: Utilize fontes de sincronização do tempo aprovadas
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
 | 2.1 | 6.1 | Microsoft |
 
-No entanto, a Microsoft mantém fontes de tempo para recursos do Azure. você tem a opção de gerenciar as configurações de sincronização de tempo para seus recursos de computação.
+No entanto, a Microsoft mantém fontes de tempo para os recursos do Azure, no entanto, tem a opção de gerir as definições de sincronização de tempo para os seus recursos computacionais.
 
-Como configurar a sincronização de horário para recursos de computação do Azure:
+Como configurar a sincronização do tempo para os recursos computacionais do Azure:
 
 https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
 
-## <a name="22-configure-central-security-log-management"></a>2,2: configurar o gerenciamento do log de segurança central
+## <a name="22-configure-central-security-log-management"></a>2.2: Configurar a gestão central de registos de segurança
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 2.2 | 6,5, 6,6 | Cliente |
+| 2,2 | 6.5, 6.6 | Cliente |
 
-Os logs de ingestão por meio de Azure Monitor para agregar dados de segurança gerados por dispositivos de ponto de extremidade, recursos de rede e outros sistemas de segurança. Em Azure Monitor, use Log Analytics espaços de trabalho para consultar e executar análises e use contas de armazenamento do Azure para armazenamento de longo prazo/arquivamento.
+Ingerir logs via Azure Monitor para agregar dados de segurança gerados por dispositivos de ponto final, recursos de rede e outros sistemas de segurança. Dentro do Monitor Azure, utilize log analytics workspace(s) para consultar e realizar análises, e utilize contas de armazenamento Azure para armazenamento a longo prazo/arquivo.
 
-Como alternativa, você pode habilitar e dados integrados para o Azure Sentinel ou um SIEM de terceiros. Como carregar o Azure Sentinel:
+Em alternativa, pode ativar e embarcar dados para o Azure Sentinel ou um SIEM de terceiros. Como embarcar no Azure Sentinel:
 
 https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
-Como coletar logs e métricas de plataforma com o Azure Monitor:
+Como recolher registos e métricas da plataforma com o Monitor Azure:
 
 https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings
 
-Como coletar logs de host interno da máquina virtual do Azure com o Azure Monitor:
+Como recolher registos internos de hospedas da Máquina Virtual Azure com o Monitor Azure:
 
 https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm
 
-Como começar a usar Azure Monitor e integração de SIEM de terceiros:
+Como começar com o Azure Monitor e a integração siem de terceiros:
 
 https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/
 
-## <a name="23-enable-audit-logging-for-azure-resources"></a>2,3: habilitar o log de auditoria para recursos do Azure
+## <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: Permitir a exploração de auditoria aos recursos do Azure
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 2.3 | 6,2, 6,3 | Cliente |
+| 2.3 | 6.2, 6.3 | Cliente |
 
-Habilite as configurações de diagnóstico nos recursos do Azure para acessar logs de auditoria, segurança e diagnóstico. Logs de atividade, que estão disponíveis automaticamente, incluem origem do evento, data, usuário, carimbo de data/hora, endereços de origem, endereços de destino e outros elementos úteis.
+Ativar Definições de Diagnóstico nos recursos do Azure para acesso a registos de auditoria, segurança e diagnóstico. Os registos de atividade, que estão automaticamente disponíveis, incluem fonte de evento, data, utilizador, carimbo de tempo, endereços de origem, endereços de destino e outros elementos úteis.
 
-Como coletar logs e métricas de plataforma com o Azure Monitor:
+Como recolher registos e métricas da plataforma com o Monitor Azure:
 
 https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings
 
-Entender o registro em log e diferentes tipos de log no Azure:
+Compreenda a exploração madeireira e diferentes tipos de registo em Azure:
 
 https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 
-## <a name="24-collect-security-logs-from-operating-systems"></a>2,4: coletar logs de segurança de sistemas operacionais
+## <a name="24-collect-security-logs-from-operating-systems"></a>2.4: Recolher registos de segurança dos sistemas operativos
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 2.4 | 6,2, 6,3 | Cliente |
+| 2.4 | 6.2, 6.3 | Cliente |
 
-Se o recurso de computação pertence à Microsoft, a Microsoft é responsável por monitorá-lo. Se o recurso de computação pertence à sua organização, é sua responsabilidade monitorá-lo. Você pode usar a central de segurança do Azure para monitorar o sistema operacional. Os dados coletados pela central de segurança do sistema operacional incluem o tipo e a versão do so, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP e usuário conectado. O agente de Log Analytics também coleta arquivos de despejo de memória.
+Se o recurso computacional for propriedade da Microsoft, então a Microsoft é responsável pela sua monitorização. Se o recurso computacional é propriedade da sua organização, é da sua responsabilidade monitorá-lo. Pode utilizar o Centro de Segurança Azure para monitorizar o Sistema Operativo. Os dados recolhidos pelo Security Center do sistema operativo incluem o tipo e versão OS, registos OS (Registos de Eventos do Windows), processos de execução, nome da máquina, endereços IP e registos registados no utilizador. O Agente Delog Analytics também recolhe ficheiros de despejo de acidentes.
 
-Como coletar logs de host interno da máquina virtual do Azure com o Azure Monitor:
+Como recolher registos internos de hospedas da Máquina Virtual Azure com o Monitor Azure:
 
 https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm
 
-Entender a coleta de dados da central de segurança do Azure:
+Compreender a recolha de dados do Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection
 
-## <a name="25-configure-security-log-storage-retention"></a>2,5: configurar retenção de armazenamento de log de segurança
+## <a name="25-configure-security-log-storage-retention"></a>2.5: Configurar a retenção de registos de segurança
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
 | 2.5 | 6.4 | Cliente |
 
-Em Azure Monitor, defina seu período de retenção de espaço de trabalho de Log Analytics de acordo com os regulamentos de conformidade de sua organização. Use contas de armazenamento do Azure para armazenamento de longo prazo/arquivamento.
+Dentro do Monitor Azure, detete o seu período de retenção do Espaço de Trabalho de Log Analytics de acordo com os regulamentos de conformidade da sua organização. Utilize contas de armazenamento Azure para armazenamento a longo prazo/arquivo.
 
-Como definir parâmetros de retenção de log para Log Analytics espaços de trabalho:
+Como definir parâmetros de retenção de registos para espaços de trabalho de Log Analytics:
 
 https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
-## <a name="26-monitor-and-review-logs"></a>2,6: monitorar e examinar os logs
+## <a name="26-monitor-and-review-logs"></a>2.6: Monitore e reveja registos
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
 | 2,6 | 6.7 | Cliente |
 
-Analise e monitore logs de comportamento anormal e Examine regularmente os resultados. Use o espaço de trabalho Log Analytics do Azure Monitor para examinar os logs e executar consultas nos dados de log.
+Analise e monitorize os registos para comportamentos anómalos e reveja regularmente os resultados. Utilize o log analytics workspace do Azure Monitor para rever os registos e executar consultas nos dados de registo.
 
-Como alternativa, você pode habilitar e dados integrados para o Azure Sentinel ou um SIEM de terceiros. 
+Em alternativa, pode ativar e embarcar dados para o Azure Sentinel ou um SIEM de terceiros. 
 
-Como carregar o Azure Sentinel:
+Como embarcar no Azure Sentinel:
 
 https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
-Entender Log Analytics espaço de trabalho:
+Compreender o espaço de trabalho de Log Analytics:
 
 https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
 
-Como executar consultas personalizadas no Azure Monitor:
+Como realizar consultas personalizadas no Monitor Azure:
 
 https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
 
-## <a name="27-enable-alerts-for-anomalous-activity"></a>2,7: habilitar alertas para atividade anômala
+## <a name="27-enable-alerts-for-anomalous-activity"></a>2.7: Ativar alertas para atividades anómalas
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
 | 2.7 | 6.8 | Cliente |
 
-Use a central de segurança do Azure com Log Analytics espaço de trabalho para monitoramento e alertas em atividade anômala encontrada em eventos e logs de segurança.
+Utilize o Azure Security Center com log analytics Workspace para monitorização e alerta sobre a atividade anómala encontrada em registos e eventos de segurança.
 
-Como alternativa, você pode habilitar e dados integrados para o Azure Sentinel.
+Em alternativa, pode ativar e embarcar dados para o Azure Sentinel.
 
-Como carregar o Azure Sentinel:
+Como embarcar no Azure Sentinel:
 
 https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
-Como gerenciar alertas na central de segurança do Azure:
+Como gerir alertas no Centro de Segurança Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts
 
-Como alertar sobre os dados de log do log Analytics:
+Como alertar sobre os dados de registo de análise de registo:
 
 https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
-## <a name="28-centralize-anti-malware-logging"></a>2,8: centralizar o registro em log de anti-malware
+## <a name="28-centralize-anti-malware-logging"></a>2.8: Centralizar a exploração anti-malware
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 2.8 | 8,6 | Cliente |
+| 2,8 | 8.6 | Cliente |
 
-Habilite a coleta de eventos antimalware para máquinas virtuais e serviços de nuvem do Azure.
+Ativar a recolha de eventos antimalware para Máquinas Virtuais Azure e Serviços cloud.
 
-Como configurar o Microsoft antimalware para máquinas virtuais:
+Como configurar o Microsoft Antimalware para Máquinas Virtuais:
 
 https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmmicrosoftantimalwareextension?view=azuresmps-4.0.0
 
-Como configurar o Microsoft antimalware para serviços de nuvem:
+Como configurar o Microsoft Antimalware para serviços em nuvem:
 
 https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension?view=azuresmps-4.0.0
 
-Entender o Microsoft AntiMalware:
+Compreenda o Antimalware da Microsoft:
 
 https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
-## <a name="29-enable-dns-query-logging"></a>2,9: habilitar o log de consultas DNS
+## <a name="29-enable-dns-query-logging"></a>2.9: Ativar a exploração de consultas dNS
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
 | 2.9 | 8.7 | Cliente |
 
-Implemente uma solução de terceiros para registro em log DNS.
+Implementar uma solução de terceiros para a exploração madeireira DNS.
 
-## <a name="210-enable-command-line-audit-logging"></a>2,10: habilitar o log de auditoria de linha de comando
+## <a name="210-enable-command-line-audit-logging"></a>2.10: Ativar a exploração de auditoria da linha de comando
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
 | 2.1 | 8.8 | Cliente |
 
-Configure manualmente o log do console e a transcrição do PowerShell em uma base por nó.
+Configure manualmente o registo de consolas e a transcrição powerShell numa base por nó.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o próximo controle de segurança: [identidade e controle de acesso](security-control-identity-access-control.md)
+Consulte o próximo controlo de segurança: [Controlo de Identidade e Acesso](security-control-identity-access-control.md)

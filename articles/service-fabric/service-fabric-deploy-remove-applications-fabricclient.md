@@ -1,16 +1,16 @@
 ---
-title: Implantação de Service Fabric do Azure com FabricClient
-description: Use as APIs do FabricClient para implantar e remover aplicativos no Service Fabric.
+title: Implantação de tecido de serviço Azure com FabricClient
+description: Utilize as APIs do FabricClient para implementar e remover aplicações no Tecido de Serviço.
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: 25b874d1be8ab50d8076ff8fe9423c8cc0187512
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75376975"
 ---
-# <a name="deploy-and-remove-applications-using-fabricclient"></a>Implantar e remover aplicativos usando o FabricClient
+# <a name="deploy-and-remove-applications-using-fabricclient"></a>Implementar e remover aplicações usando o FabricClient
 > [!div class="op_single_selector"]
 > * [Resource Manager](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
@@ -21,90 +21,90 @@ ms.locfileid: "75376975"
 
 <br/>
 
-Depois que um [tipo de aplicativo tiver sido empacotado][10], ele estará pronto para implantação em um cluster de Service Fabric do Azure. A implantação envolve as três etapas a seguir:
+Uma vez embalado um tipo de [aplicação,][10]está pronto para ser implantado num cluster Azure Service Fabric. A implantação envolve os seguintes três passos:
 
-1. Carregar o pacote de aplicativos no repositório de imagens
-2. Registrar o tipo de aplicativo
-3. Remover o pacote de aplicativos do repositório de imagens
-4. Criar a instância do aplicativo
+1. Faça upload do pacote de aplicações para a loja de imagens
+2. Registar o tipo de candidatura
+3. Retire o pacote de aplicação da loja de imagens
+4. Criar a instância de candidatura
 
-Depois de implantar um aplicativo e executar uma instância no cluster, você pode excluir a instância do aplicativo e seu tipo de aplicativo. Remova completamente um aplicativo do cluster seguindo estas etapas:
+Depois de implementar uma aplicação e executar uma instância no cluster, pode eliminar a instância de aplicação e o seu tipo de aplicação. Remova completamente uma aplicação do cluster seguindo estes passos:
 
-1. Remover (ou excluir) a instância do aplicativo em execução
-2. Cancelar o registro do tipo de aplicativo se você não precisar mais dele
+1. Remover (ou eliminar) a instância de aplicação em execução
+2. Desregistre o tipo de inscrição se já não precisar
 
-Se você usar o Visual Studio para implantar e depurar aplicativos no cluster de desenvolvimento local, todas as etapas anteriores serão tratadas automaticamente por meio de um script do PowerShell.  Esse script é encontrado na pasta *scripts* do projeto de aplicativo. Este artigo fornece informações sobre o que o script está fazendo para que você possa fazer as mesmas operações fora do Visual Studio. 
+Se utilizar o Visual Studio para implementar e depurar aplicações no seu cluster de desenvolvimento local, todos os passos anteriores são manuseados automaticamente através de um script PowerShell.  Este script encontra-se na pasta *scripts* do projeto de aplicação. Este artigo fornece antecedentes sobre o que esse guião está a fazer para que possa fazer as mesmas operações fora do Estúdio Visual. 
  
 ## <a name="connect-to-the-cluster"></a>Ligar ao cluster
-Conecte-se ao cluster criando uma instância de [FabricClient](/dotnet/api/system.fabric.fabricclient) antes de executar qualquer um dos exemplos de código neste artigo. Para obter exemplos de como se conectar a um cluster de desenvolvimento local ou a um cluster remoto ou a um cluster protegido usando Azure Active Directory, certificados X509 ou o Windows Active Directory consulte [conectar-se a um cluster seguro](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). Para se conectar ao cluster de desenvolvimento local, execute o seguinte exemplo:
+Ligue-se ao cluster criando uma instância [De FabricClient](/dotnet/api/system.fabric.fabricclient) antes de executar qualquer um dos exemplos de código neste artigo. Por exemplo, a ligação a um cluster de desenvolvimento local ou a um cluster remoto ou cluster protegido usando o Diretório Ativo Azure, certificados X509 ou Diretório Ativo do Windows ver [Connect a um cluster seguro](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). Para se ligar ao cluster de desenvolvimento local, corra o seguinte exemplo:
 
 ```csharp
 // Connect to the local cluster.
 FabricClient fabricClient = new FabricClient();
 ```
 
-## <a name="upload-the-application-package"></a>Carregar o pacote de aplicativos
-Suponha que você crie e empacote um aplicativo chamado *MyApplication* no Visual Studio. Por padrão, o nome do tipo de aplicativo listado no ApplicationManifest. xml é "myapplicationtype".  O pacote de aplicativos, que contém o manifesto do aplicativo, os manifestos do serviço e os pacotes de código/configuração/dados necessários, está localizado em *C:\Users\&lt; username&gt;\Documents\Visual Studio 2019 \ Projects\MyApplication\MyApplication\pkg\Debug*.
+## <a name="upload-the-application-package"></a>Faça upload do pacote de candidaturas
+Suponha que construa e empacote uma aplicação chamada *MyApplication* in Visual Studio. Por predefinição, o nome do tipo de aplicação listado no ApplicationManifest.xml é "MyApplicationType".  O pacote de aplicações, que contém o manifesto de aplicação necessário, manifestos de serviço e pacotes de código/config/dados, está localizado em *C:\Users\&&gt;lt;username \Documents\Visual Studio 2019\Projects\MyApplication\MyApplication\pkg\Debug*.
 
-O carregamento do pacote de aplicativos o coloca em um local acessível pelos componentes internos do Service Fabric. Service Fabric verifica o pacote de aplicativos durante o registro do pacote de aplicativos. No entanto, se você quiser verificar o pacote de aplicativos localmente (ou seja, antes de carregar), use o cmdlet [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) .
+O upload do pacote de aplicações coloca-o num local acessível pelos componentes internos do Tecido de Serviço. O Serviço Fabric verifica o pacote de candidaturas durante o registo do pacote de candidaturas. No entanto, se pretender verificar o pacote de aplicação localmente (isto é, antes de carregar), utilize o [cmdlet Test-ServiceFabricApplicationPackage.](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps)
 
-A API do [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) carrega o pacote de aplicativos no repositório de imagens do cluster. 
+O [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API envia o pacote de aplicações para a loja de imagens do cluster. 
 
-Se o pacote de aplicativos for grande e/ou tiver muitos arquivos, você poderá [compactá-lo](service-fabric-package-apps.md#compress-a-package) e copiá-lo para o repositório de imagens usando o PowerShell. A compactação reduz o tamanho e o número de arquivos.
+Se o pacote de aplicação for grande e/ou tiver muitos ficheiros, pode [comprimi-lo](service-fabric-package-apps.md#compress-a-package) e copiá-lo para a loja de imagens utilizando o PowerShell. A compressão reduz o tamanho e o número de ficheiros.
 
-Consulte [entender a cadeia de conexão do repositório de imagens](service-fabric-image-store-connection-string.md) para obter informações complementares sobre o repositório de imagens e a cadeia de conexão do repositório de imagens.
+Veja compreender a cadeia de [ligação da loja de imagens](service-fabric-image-store-connection-string.md) para obter informações suplementares sobre a loja de imagens e a cadeia de ligação da loja de imagens.
 
-## <a name="register-the-application-package"></a>Registrar o pacote de aplicativos
-O tipo de aplicativo e a versão declarados no manifesto do aplicativo tornam-se disponíveis para uso quando o pacote de aplicativos é registrado. O sistema lê o pacote carregado na etapa anterior, verifica o pacote, processa o conteúdo do pacote e copia o pacote processado para um local interno do sistema.  
+## <a name="register-the-application-package"></a>Registe o pacote de candidaturas
+O tipo de aplicação e a versão declaradas no manifesto de aplicação ficam disponíveis para utilização quando o pacote de candidatura sou registado. O sistema lê o pacote carregado na etapa anterior, verifica o pacote, processa o conteúdo do pacote e copia o pacote processado para uma localização interna do sistema.  
 
-A API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) registra o tipo de aplicativo no cluster e o torna disponível para implantação.
+A [API ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) regista o tipo de aplicação no cluster e disponibiliza-o para implantação.
 
-A API [GetApplicationTypeListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationtypelistasync) fornece informações sobre todos os tipos de aplicativos registrados com êxito. Você pode usar essa API para determinar quando o registro é feito.
+O [GetApplicationTypeListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationtypelistasync) API fornece informações sobre todos os tipos de aplicações registados com sucesso. Pode utilizar esta API para determinar quando o registo está feito.
 
-## <a name="remove-an-application-package-from-the-image-store"></a>Remover um pacote de aplicativos do repositório de imagens
-É recomendável que você remova o pacote de aplicativos depois que o aplicativo for registrado com êxito.  A exclusão de pacotes de aplicativos do repositório de imagens libera os recursos do sistema.  Manter pacotes de aplicativos não utilizados consome armazenamento em disco e leva a problemas de desempenho de aplicativos. Exclua o pacote de aplicativos do repositório de imagens usando a API [RemoveApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage) .
+## <a name="remove-an-application-package-from-the-image-store"></a>Remova um pacote de aplicação da loja de imagens
+Recomenda-se que remova o pacote de aplicação após a inscrição registada com sucesso.  A apagar pacotes de aplicações da loja de imagens liberta recursos do sistema.  Manter pacotes de aplicação não utilizados consome armazenamento de discos e leva a problemas de desempenho da aplicação. Elimine o pacote de aplicações da loja de imagens utilizando a API [RemoveApplicationPackage.](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage)
 
-## <a name="create-an-application-instance"></a>Criar uma instância do aplicativo
-Você pode criar uma instância de um aplicativo de qualquer tipo de aplicativo que tenha sido registrado com êxito usando a API [CreateApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync) . O nome de cada aplicativo deve começar com o esquema *"Fabric:"* e deve ser exclusivo para cada instância do aplicativo (dentro de um cluster). Todos os serviços padrão definidos no manifesto do aplicativo do tipo de aplicativo de destino também são criados.
+## <a name="create-an-application-instance"></a>Criar uma instância de candidatura
+Pode instantaneamente uma aplicação de qualquer tipo de aplicação que tenha sido registada com sucesso utilizando a API [CreateApplicationAsync.](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync) O nome de cada aplicação deve começar pelo esquema *"tecido:"* e deve ser único para cada instância de aplicação (dentro de um cluster). São também criados quaisquer serviços predefinidos definidos no manifesto de aplicação do tipo de aplicação-alvo.
 
-Várias instâncias de aplicativo podem ser criadas para qualquer versão específica de um tipo de aplicativo registrado. Cada instância do aplicativo é executada isoladamente, com seu próprio diretório de trabalho e conjunto de processos.
+Várias instâncias de aplicação podem ser criadas para qualquer versão de um tipo de aplicação registado. Cada instância de candidatura funciona isoladamente, com o seu próprio diretório de trabalho e conjunto de processos.
 
-Para ver quais aplicativos e serviços nomeados estão em execução no cluster, execute as APIs [GetApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync) e [GetServiceListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync) .
+Para ver quais as aplicações e serviços nomeados que estão a ser executados no cluster, execute as APIs [GetApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync) e [GetServiceListAsync.](/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
 
 ## <a name="create-a-service-instance"></a>Criar uma instância de serviço
-Você pode criar uma instância de um serviço a partir de um tipo de serviço usando a API [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) .  Se o serviço for declarado como um serviço padrão no manifesto do aplicativo, o serviço será instanciado quando o aplicativo for instanciado.  Chamar a API [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) para um serviço que já está instanciado retornará uma exceção do tipo fabricexception. A exceção conterá um código de erro com um valor de FabricErrorCode. ServiceAlreadyExists.
+Pode instantaneamente um serviço a partir de um tipo de serviço utilizando a API [CreateServiceAsync.](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync)  Se o serviço for declarado como um serviço predefinido no manifesto de aplicação, o serviço é instantâneo quando a aplicação é instantânea.  Chamar a [API CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) para um serviço já instantâneo devolverá uma exceção do tipo FabricException. A exceção conterá um código de erro com um valor de FabricErrorCode.ServiceAlreadyExists.
 
 ## <a name="remove-a-service-instance"></a>Remover uma instância de serviço
-Quando uma instância de serviço não for mais necessária, você poderá removê-la da instância do aplicativo em execução chamando a API [DeleteServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync) .  
+Quando uma instância de serviço já não é necessária, pode removê-la da instância de aplicação em execução, ligando para a [API DeleteServiceAsync.](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync)  
 
 > [!WARNING]
-> Esta operação não pode ser revertida e o estado do serviço não pode ser recuperado.
+> Esta operação não pode ser revertida e o estado de serviço não pode ser recuperado.
 
-## <a name="remove-an-application-instance"></a>Remover uma instância do aplicativo
-Quando uma instância do aplicativo não é mais necessária, você pode removê-la permanentemente pelo nome usando a API [DeleteApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync) . O [DeleteApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync) remove automaticamente todos os serviços que pertencem ao aplicativo, removendo permanentemente todos os Estados de serviço.
+## <a name="remove-an-application-instance"></a>Remover uma instância de candidatura
+Quando uma instância de aplicação já não é necessária, pode removê-la permanentemente pelo nome utilizando a API [DeleteApplicationAsync.](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync) [A DeleteApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync) remove automaticamente todos os serviços que pertencem à aplicação, removendo permanentemente todo o estado de serviço.
 
 > [!WARNING]
-> Esta operação não pode ser revertida e o estado do aplicativo não pode ser recuperado.
+> Esta operação não pode ser revertida e o estado de aplicação não pode ser recuperado.
 
-## <a name="unregister-an-application-type"></a>Cancelar o registro de um tipo de aplicativo
-Quando uma versão específica de um tipo de aplicativo não é mais necessária, você deve cancelar o registro dessa versão específica do tipo de aplicativo usando a API [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync) . O cancelamento do registro de versões não utilizadas de tipos de aplicativos libera o espaço de armazenamento usado pelo repositório de imagens. Uma versão de um tipo de aplicativo pode ter seu registro cancelado, desde que nenhum aplicativo seja instanciado em relação a essa versão do tipo de aplicativo. Além disso, o tipo de aplicativo pode não ter atualizações de aplicativo pendentes que fazem referência a essa versão do tipo de aplicativo.
+## <a name="unregister-an-application-type"></a>Não registar um tipo de candidatura
+Quando uma versão específica de um tipo de aplicação já não é necessária, deve desregistar essa versão específica do tipo de aplicação utilizando a [API Unregister-ServiceFabricApplicationType.](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync) O não registo de versões não utilizadas de tipos de aplicações liberta espaço de armazenamento utilizado pela loja de imagens. Uma versão de um tipo de aplicação pode não ser registada desde que nenhuma aplicação seja instantaneamente contra essa versão do tipo de aplicação. Além disso, o tipo de aplicação não pode ter atualizações de aplicações pendentes estão a referir essa versão do tipo de aplicação.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage solicita um ImageStoreConnectionString
-O ambiente SDK do Service Fabric já deve ter os padrões corretos configurados. Mas, se necessário, o ImageStoreConnectionString para todos os comandos deve corresponder ao valor que o Cluster Service Fabric está usando. Você pode encontrar o ImageStoreConnectionString no manifesto do cluster, recuperado usando os comandos [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps) e Get-ImageStoreConnectionStringFromClusterManifest:
+### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage pede uma ImageStoreConnectionString
+O ambiente SDK de tecido de serviço já deve ter as predefinições corretas. Mas se necessário, o ImageStoreConnectionString para todos os comandos deve corresponder ao valor que o cluster Service Fabric está a utilizar. Pode encontrar o ImageStoreConnectionString no manifesto do cluster, recuperado utilizando os comandos [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps) e Get-ImageStoreConnectionStringFromClusterManifest:
 
 ```powershell
 PS C:\> Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest)
 ```
 
-O cmdlet **Get-ImageStoreConnectionStringFromClusterManifest** , que faz parte do módulo Service Fabric SDK do PowerShell, é usado para obter a cadeia de conexão do repositório de imagens.  Para importar o módulo SDK, execute:
+O **Cmdlet Get-ImageStoreConnectionStringFromClusterManifest,** que faz parte do módulo PowerShell de tecido de serviço, é utilizado para obter a cadeia de ligação da loja de imagens.  Para importar o módulo SDK, corra:
 
 ```powershell
 Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
 ```
 
 
-O ImageStoreConnectionString é encontrado no manifesto do cluster:
+O ImageStoreConnectionString encontra-se no manifesto do cluster:
 
 ```xml
 <ClusterManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Name="Server-Default-SingleNode" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -118,29 +118,29 @@ O ImageStoreConnectionString é encontrado no manifesto do cluster:
     [...]
 ```
 
-Consulte [entender a cadeia de conexão do repositório de imagens](service-fabric-image-store-connection-string.md) para obter informações complementares sobre o repositório de imagens e a cadeia de conexão do repositório de imagens.
+Veja compreender a cadeia de [ligação da loja de imagens](service-fabric-image-store-connection-string.md) para obter informações suplementares sobre a loja de imagens e a cadeia de ligação da loja de imagens.
 
-### <a name="deploy-large-application-package"></a>Implantar pacote de aplicativo grande
-Problema: a API [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) atinge o tempo limite para um pacote de aplicativo grande (ordem de GB).
-Experimente:
-- Especifique um tempo limite maior para o método [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) com o parâmetro `timeout`. Por padrão, o tempo limite é de 30 minutos.
-- Verifique a conexão de rede entre o computador de origem e o cluster. Se a conexão estiver lenta, considere usar um computador com uma conexão de rede melhor.
-Se o computador cliente estiver em outra região do que o cluster, considere usar um computador cliente em uma região mais próxima ou igual à do cluster.
-- Verifique se você está atingindo a limitação externa. Por exemplo, quando o repositório de imagens é configurado para usar o armazenamento do Azure, o upload pode ser limitado.
+### <a name="deploy-large-application-package"></a>Implementar grande pacote de aplicações
+Problema: [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API horários para um pacote de aplicação grande (encomenda de GB).
+Tente:
+- Especifique um intervalo maior para `timeout` o método [CopyApplicationPackage,](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) com parâmetro. Por defeito, o tempo de paragem é de 30 minutos.
+- Verifique a ligação de rede entre a sua máquina de origem e o cluster. Se a ligação for lenta, considere utilizar uma máquina com uma melhor ligação de rede.
+Se a máquina cliente estiver noutra região que não o cluster, considere utilizar uma máquina cliente numa região mais próxima ou igual ao cluster.
+- Verifique se está a bater no acelerador externo. Por exemplo, quando a loja de imagens estiver configurada para utilizar o armazenamento azul, o upload pode ser estrangulado.
 
-Problema: o pacote de carregamento foi concluído com êxito, mas a API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) expira. Tente
-- [Compacte o pacote](service-fabric-package-apps.md#compress-a-package) antes de copiar para o repositório de imagens.
-A compactação reduz o tamanho e o número de arquivos, o que, por sua vez, reduz a quantidade de tráfego e o trabalho que o Service Fabric deve executar. A operação de upload pode ser mais lenta (especialmente se você incluir o tempo de compactação), mas registrar e cancelar o registro do tipo de aplicativo é mais rápido.
-- Especifique um tempo limite maior para a API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) com o parâmetro `timeout`.
+Problema: Pacote de upload concluído com sucesso, mas [API ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) horários fora. Tente:
+- [Comprima a embalagem](service-fabric-package-apps.md#compress-a-package) antes de copiar para a loja de imagens.
+A compressão reduz o tamanho e o número de ficheiros, o que por sua vez reduz a quantidade de tráfego e trabalho que o Tecido de Serviço deve realizar. O funcionamento de upload pode ser mais lento (especialmente se incluir o tempo de compressão), mas registar e desregistar o tipo de aplicação é mais rápido.
+- Especifique um intervalo maior para `timeout` [a API ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) com parâmetro.
 
-### <a name="deploy-application-package-with-many-files"></a>Implantar pacote de aplicativos com muitos arquivos
-Problema: [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) o tempo limite para um pacote de aplicativos com muitos arquivos (ordem de milhares).
-Experimente:
-- [Compacte o pacote](service-fabric-package-apps.md#compress-a-package) antes de copiar para o repositório de imagens. A compactação reduz o número de arquivos.
-- Especifique um tempo limite maior para [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) com o parâmetro `timeout`.
+### <a name="deploy-application-package-with-many-files"></a>Implementar pacote de aplicações com muitos ficheiros
+Emissão: [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) horários para um pacote de aplicação com muitos ficheiros (ordem de milhares).
+Tente:
+- [Comprima a embalagem](service-fabric-package-apps.md#compress-a-package) antes de copiar para a loja de imagens. A compressão reduz o número de ficheiros.
+- Especifique um intervalo maior `timeout` para [o ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) com parâmetro.
 
 ## <a name="code-example"></a>Exemplo de código
-O exemplo a seguir copia um pacote de aplicativos para o repositório de imagens e provisiona o tipo de aplicativo. Em seguida, o exemplo cria uma instância do aplicativo e cria uma instância de serviço. Por fim, o exemplo remove a instância do aplicativo, cancela o provisionamento do tipo de aplicativo e exclui o pacote de aplicativos do repositório de imagens.
+O exemplo seguinte copia um pacote de aplicação para a loja de imagens e prevê o tipo de aplicação. Em seguida, o exemplo cria uma instância de aplicação e cria uma instância de serviço. Por fim, o exemplo remove a instância de aplicação, desaprovisiona o tipo de aplicação e elimina o pacote de aplicação da loja de imagens.
 
 ```csharp
 using System;
@@ -321,13 +321,13 @@ static void Main(string[] args)
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-[Atualização do aplicativo Service Fabric](service-fabric-application-upgrade.md)
+[Upgrade de aplicação de tecido de serviço](service-fabric-application-upgrade.md)
 
-[Introdução à integridade Service Fabric](service-fabric-health-introduction.md)
+[Introdução à saúde do tecido de serviço](service-fabric-health-introduction.md)
 
-[Diagnosticar e solucionar problemas de um serviço de Service Fabric](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+[Diagnosticar e resolver problemas um serviço de Tecido de Serviço](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[Modelar um aplicativo no Service Fabric](service-fabric-application-model.md)
+[Modelo de uma aplicação em Tecido de Serviço](service-fabric-application-model.md)
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-package-apps.md

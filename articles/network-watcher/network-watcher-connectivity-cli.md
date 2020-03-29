@@ -14,18 +14,18 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: 842e58de8dbc06d3f045b0e9d0dc6b99e6b1e2fe
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76842891"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>Ligações de resolução de problemas com o Vigilante da Rede Azure utilizando o Azure CLI
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [CLI do Azure](network-watcher-connectivity-cli.md)
-> - [API de DESCANSO Azul](network-watcher-connectivity-rest.md)
+> - [Azure CLI](network-watcher-connectivity-cli.md)
+> - [API REST do Azure](network-watcher-connectivity-rest.md)
 
 Aprenda a utilizar problemas de ligação para verificar se pode ser estabelecida uma ligação TCP direta de uma máquina virtual a um determinado ponto final.
 
@@ -37,7 +37,7 @@ Este artigo assume que tem os seguintes recursos:
 * Máquinas virtuais para resolver ligações com.
 
 > [!IMPORTANT]
-> A resolução de problemas de ligação requer que o VM de que se desloque tem a extensão VM `AzureNetworkWatcherExtension` instalada. Para instalar a extensão de um Windows VM visite a extensão virtual do Agente observador de [rede Azure para windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e para o Linux VM visite a extensão virtual do Agente observador de rede [Azure para o Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). A extensão não é necessária no ponto final do destino.
+> A resolução de problemas de ligação `AzureNetworkWatcherExtension` requer que o VM de que se desloque tem a extensão VM instalada. Para instalar a extensão de um Windows VM visite a extensão virtual do Agente observador de [rede Azure para windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e para o Linux VM visite a extensão virtual do Agente observador de rede [Azure para o Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). A extensão não é necessária no ponto final do destino.
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Verifique a conectividade com uma máquina virtual
 
@@ -51,7 +51,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>Resposta
 
-A resposta que se segue é do exemplo anterior.  Nesta resposta, o `ConnectionStatus` é **inalcançável.** Pode ver que todas as sondas enviadas falharam. A conectividade falhou no aparelho virtual devido a um `NetworkSecurityRule` configurado pelo utilizador chamado **UserRule_Port80**, configurado para bloquear o tráfego de entrada na porta 80. Estas informações podem ser utilizadas para questões de ligação de investigação.
+A resposta que se segue é do exemplo anterior.  Nesta resposta, `ConnectionStatus` o é **inalcançável.** Pode ver que todas as sondas enviadas falharam. A conectividade falhou no aparelho virtual devido a `NetworkSecurityRule` um **UserRule_Port80**configurado pelo utilizador, configurado para bloquear o tráfego de entrada na porta 80. Estas informações podem ser utilizadas para questões de ligação de investigação.
 
 ```json
 {
@@ -132,7 +132,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>Resposta
 
-No exemplo seguinte, o `connectionStatus` é mostrado como **Inalcançável**. Nos detalhes `hops`, pode ver-se, em `issues`, que o trânsito foi bloqueado devido a uma `UserDefinedRoute`.
+No exemplo seguinte, `connectionStatus` o é mostrado como **Inalcançável**. Nos `hops` detalhes, pode ver-se que `issues` o trânsito `UserDefinedRoute`foi bloqueado devido a um .
 
 ```json
 {
@@ -190,7 +190,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>Resposta
 
-Na resposta seguinte, pode ver os `connectionStatus` mostra como **Alcançável**. Quando uma ligação é bem sucedida, os valores de latência são fornecidos.
+Na seguinte resposta, pode `connectionStatus` ver os espetáculos como **Alcançáveis**. Quando uma ligação é bem sucedida, os valores de latência são fornecidos.
 
 ```json
 {
@@ -236,7 +236,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>Resposta
 
-O seguinte json é a resposta exemplo de executar o cmdlet anterior. Como o cheque é bem sucedido, a propriedade `connectionStatus` mostra como **Reachable**.  São fornecidos os detalhes sobre o número de lúpulo necessário para chegar à bolha de armazenamento e latência.
+O seguinte json é a resposta exemplo de executar o cmdlet anterior. Como o cheque é `connectionStatus` bem sucedido, a propriedade mostra como **Reachable**.  São fornecidos os detalhes sobre o número de lúpulo necessário para chegar à bolha de armazenamento e latência.
 
 ```json
 {

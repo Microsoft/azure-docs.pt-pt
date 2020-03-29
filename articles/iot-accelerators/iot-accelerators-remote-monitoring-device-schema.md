@@ -1,5 +1,5 @@
 ---
-title: Esquema de dispositivo na solução de monitorização remota - Azure | Documentos da Microsoft
+title: Esquema do dispositivo em solução de monitorização remota - Azure / Microsoft Docs
 description: Este artigo descreve o esquema JSON que define um dispositivo simulado na solução de monitorização remota.
 author: dominicbetts
 manager: philmea
@@ -9,37 +9,37 @@ services: iot-accelerators
 ms.date: 12/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 0f9669d491648ecc621aab27d0908dcc3dc84438
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65823334"
 ---
 # <a name="understand-the-device-model-schema"></a>Compreender o esquema do modelo de dispositivo
 
-Pode utilizar dispositivos simulados na solução de monitorização remota para testar o seu comportamento. A solução de monitorização remota inclui um serviço de simulação de dispositivo para executar os dispositivos simulados. Ao implementar a solução de monitorização remota, uma coleção de dispositivos simulados é aprovisionada automaticamente. Pode personalizar os dispositivos simulados existentes ou criar os seus próprios.
+Pode utilizar dispositivos simulados na solução de Monitorização Remota para testar o seu comportamento. A solução de monitorização remota inclui um serviço de simulação de dispositivos para executar dispositivos simulados. Quando implementa a solução de monitorização remota, uma recolha de dispositivos simulados é aprovisionada automaticamente. Pode personalizar os dispositivos simulados existentes ou criar os seus próprios.
 
-Este artigo descreve o esquema do modelo de dispositivo Especifica as capacidades e comportamento de um dispositivo simulado. O modelo do dispositivo é armazenado num ficheiro JSON.
+Este artigo descreve o esquema do modelo do dispositivo que especifica as capacidades e o comportamento de um dispositivo simulado. O modelo do dispositivo é armazenado num ficheiro JSON.
 
 > [!NOTE]
-> Este esquema de modelo do dispositivo é apenas para dispositivos simulados alojados no serviço de simulação do dispositivo. Se quiser criar um dispositivo real, veja [ligar o seu dispositivo para o acelerador de solução de monitorização remota](iot-accelerators-connecting-devices.md).
+> Este esquema de modelo de dispositivo é apenas para dispositivos simulados hospedados no serviço de simulação do dispositivo. Se pretender criar um dispositivo real, consulte [A Ligação do seu dispositivo ao acelerador de solução](iot-accelerators-connecting-devices.md)de monitorização remota .
 
-Os artigos seguintes estão relacionados ao artigo atual:
+Os seguintes artigos estão relacionados com o artigo atual:
 
-* [Implementar o comportamento de modelo do dispositivo](iot-accelerators-remote-monitoring-device-behavior.md) descreve os ficheiros de JavaScript que utilizar para implementar o comportamento de um dispositivo simulado.
-* [Criar um novo dispositivo simulado](iot-accelerators-remote-monitoring-create-simulated-device.md) coloca tudo isso e mostra-lhe como implementar um novo tipo de dispositivo simulado à sua solução.
+* [Implementar o comportamento do modelo do dispositivo](iot-accelerators-remote-monitoring-device-behavior.md) descreve os ficheiros JavaScript que utiliza para implementar o comportamento de um dispositivo simulado.
+* [Criar um novo dispositivo simulado](iot-accelerators-remote-monitoring-create-simulated-device.md) junta tudo e mostra-lhe como implementar um novo tipo de dispositivo simulado para a sua solução.
 
 Neste artigo, vai aprender a:
 
 >[!div class="checklist"]
-> * Utilizar um ficheiro JSON para definir um modelo de dispositivo simulado
+> * Utilize um ficheiro JSON para definir um modelo de dispositivo simulado
 > * Especifique as propriedades do dispositivo simulado
-> * Especifique a telemetria que do dispositivo simulado envia
-> * Especifique os métodos de cloud para o dispositivo, que o dispositivo responde a
+> * Especifique a telemetria que o dispositivo simulado envia
+> * Especificar os métodos cloud-to-device a que o dispositivo responde
 
-## <a name="the-parts-of-the-device-model-schema"></a>As partes do esquema do modelo de dispositivo
+## <a name="the-parts-of-the-device-model-schema"></a>As partes do esquema do modelo do dispositivo
 
-Cada modelo do dispositivo, como um chiller ou camião, define um tipo de dispositivo que pode simular o serviço de simulação. Cada modelo do dispositivo é armazenado num ficheiro JSON com o esquema de nível superior seguinte:
+Cada modelo de dispositivo, como um refrigerador ou um caminhão, define um tipo de dispositivo que o serviço de simulação pode simular. Cada modelo de dispositivo é armazenado num ficheiro JSON com o seguinte esquema de alto nível:
 
 ```json
 {
@@ -64,33 +64,33 @@ Cada modelo do dispositivo, como um chiller ou camião, define um tipo de dispos
 }
 ```
 
-Pode ver os arquivos de esquema para os dispositivos simulado de predefinição na [devicemodels pasta](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels) no GitHub.
+Pode visualizar os ficheiros de esquemas para os dispositivos simulados predefinidos na pasta de [modelos de dispositivos](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels) no GitHub.
 
-A tabela seguinte descreve as entradas do esquema de nível superior:
+A tabela seguinte descreve as entradas de esquemade alto nível:
 
-| Entrada de esquema | Descrição |
+| Entrada de Schema | Descrição |
 | -- | --- |
-| `SchemaVersion` | A versão do esquema é sempre `1.0.0` e é específico para o formato deste ficheiro. |
-| `Id` | Um ID exclusivo para este modelo do dispositivo. |
-| `Version` | Identifica a versão do modelo de dispositivo. |
+| `SchemaVersion` | A versão schema `1.0.0` é sempre e é específica para o formato deste ficheiro. |
+| `Id` | Um ID único para este modelo de dispositivo. |
+| `Version` | Identifica a versão do modelo do dispositivo. |
 | `Name` | Um nome amigável para o modelo do dispositivo. |
-| `Description` | Uma descrição do modelo de dispositivo. |
-| `Protocol` | Utiliza o protocolo de ligação do dispositivo. Pode ser um dos `AMQP`, `MQTT`, e `HTTP`. |
+| `Description` | Uma descrição do modelo do dispositivo. |
+| `Protocol` | O protocolo de ligação que o dispositivo utiliza. Pode ser `AMQP`um `MQTT`dos. `HTTP` |
 
-As secções seguintes descrevem as outras secções no esquema JSON:
+As seguintes secções descrevem as outras secções do esquema JSON:
 
 ## <a name="simulation"></a>Simulação
 
-Na `Simulation` secção, vai definir o estado interno do dispositivo simulado. Quaisquer valores de telemetria enviadas pelo dispositivo tem de ser parte esse Estado do dispositivo.
+Na `Simulation` secção, define-se o estado interno do dispositivo simulado. Quaisquer valores de telemetria enviados pelo dispositivo devem fazer parte deste estado do dispositivo.
 
-A definição do Estado do dispositivo tem dois elementos:
+A definição do estado do dispositivo tem dois elementos:
 
-* `InitialState` Define os valores iniciais para todas as propriedades do objeto de estado do dispositivo.
-* `Script` identifica um arquivo JavaScript que é executada numa agenda, para atualizar o estado do dispositivo. Pode utilizar este ficheiro de script para tornar os valores de telemetria enviados pelo dispositivo.
+* `InitialState`define valores iniciais para todas as propriedades do objeto do estado do dispositivo.
+* `Script`identifica um ficheiro JavaScript que funciona numa programação para atualizar o estado do dispositivo. Pode utilizar este ficheiro de script para aleatoriamente os valores de telemetria enviados pelo dispositivo.
 
-Para saber mais sobre o ficheiro de JavaScript que atualiza o objeto de estado do dispositivo, veja [compreender o comportamento de modelo do dispositivo](../../articles/iot-accelerators/iot-accelerators-device-simulation-advanced-device.md).
+Para saber mais sobre o ficheiro JavaScript que atualiza o objeto do estado do dispositivo, consulte [Compreender o comportamento do modelo do dispositivo](../../articles/iot-accelerators/iot-accelerators-device-simulation-advanced-device.md).
 
-O exemplo seguinte mostra a definição do objeto de estado do dispositivo para um dispositivo simulado chiller:
+O exemplo seguinte mostra a definição do objeto de estado do dispositivo para um dispositivo de refrigeração simulado:
 
 ```json
 "Simulation": {
@@ -112,11 +112,11 @@ O exemplo seguinte mostra a definição do objeto de estado do dispositivo para 
 }
 ```
 
-O serviço de simulação executa o **chiller-01-state.js** ficheiro a cada cinco segundos para atualizar o estado do dispositivo. Pode ver os arquivos de JavaScript para os dispositivos simulado de predefinição na [pasta de scripts](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts) no GitHub. Por convenção, esses arquivos de JavaScript têm o sufixo **-estado** para distingui-los a partir dos ficheiros que implementam os comportamentos de método.
+O serviço de simulação executa o ficheiro **chiller-01-state.js** a cada cinco segundos para atualizar o estado do dispositivo. Pode ver os ficheiros JavaScript para os dispositivos simulados predefinidos na pasta de [scripts](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts) no GitHub. Por convenção, estes ficheiros JavaScript têm o sufixo **-estado** para distingui-los dos ficheiros que implementam comportamentos de método.
 
 ## <a name="properties"></a>Propriedades
 
-O `Properties` seção do esquema define os valores de propriedade, o dispositivo comunica à solução. Por exemplo:
+A `Properties` secção do esquema define os valores de propriedade que o dispositivo reporta à solução. Por exemplo:
 
 ```json
 "Properties": {
@@ -127,13 +127,13 @@ O `Properties` seção do esquema define os valores de propriedade, o dispositiv
 }
 ```
 
-Quando a solução é iniciado, ele consulta todos os dispositivos simulados para criar uma lista de `Type` valores a utilizar na interface do Usuário. A solução utiliza o `Latitude` e `Longitude` propriedades para adicionar a localização do dispositivo para o mapa no dashboard.
+Quando a solução começa, questiona todos os dispositivos `Type` simulados para construir uma lista de valores a utilizar na UI. A solução `Latitude` `Longitude` utiliza as propriedades e propriedades para adicionar a localização do dispositivo ao mapa no painel de instrumentos.
 
 ## <a name="telemetry"></a>Telemetria
 
-O `Telemetry` matriz apresenta uma lista de todos os tipos de telemetria que o dispositivo simulado envia para a solução.
+A `Telemetry` matriz lista todos os tipos de telemetria que o dispositivo simulado envia para a solução.
 
-O exemplo seguinte, envia uma mensagem de telemetria JSON com a cada 10 segundos `floor`, `vibration`, e `temperature` dados a partir de sensores do elevador:
+O exemplo seguinte envia uma mensagem de telemetria `floor` `vibration`JSON a cada 10 segundos com, e `temperature` dados dos sensores do elevador:
 
 ```json
 "Telemetry": [
@@ -155,21 +155,21 @@ O exemplo seguinte, envia uma mensagem de telemetria JSON com a cada 10 segundos
 ]
 ```
 
-`MessageTemplate` Define a estrutura da mensagem JSON enviada pelo dispositivo simulado. Os marcadores de posição `MessageTemplate` utilize a sintaxe `${NAME}` onde `NAME` é uma chave da [objeto de estado do dispositivo](#simulation). Cadeias de caracteres devem estar escritos entre aspas, não devem números.
+`MessageTemplate`define a estrutura da mensagem JSON enviada pelo dispositivo simulado. Os espaços reservados `MessageTemplate` usam a `${NAME}` `NAME` sintaxe onde é uma chave do [objeto de estado](#simulation)do dispositivo . As cordas devem ser citadas, os números não devem.
 
-`MessageSchema` Define o esquema da mensagem enviada pelo dispositivo simulado. O esquema de mensagem também é publicado no IoT Hub para permitir que as aplicações de back-end reutilizar as informações para interpretar a telemetria de entrada.
+`MessageSchema`define o esquema da mensagem enviada pelo dispositivo simulado. O esquema da mensagem também é publicado no IoT Hub para permitir que as aplicações de backend reutilizem a informação para interpretar a telemetria que está a chegar.
 
-Atualmente, só pode utilizar esquemas de mensagem JSON. Os campos apresentados no esquema podem ser dos seguintes tipos:
+Atualmente, só pode usar schemas de mensagens JSON. Os campos enumerados no esquema podem ser dos seguintes tipos:
 
-* Objeto - serializado utilizando o JSON
-* Binário - serializado utilizando o em base64
-* Text
-* Boolean
-* Integer
+* Objeto - serializado usando JSON
+* Binário - serializado usando base64
+* Texto
+* Booleano
+* Número inteiro
 * Double
 * DateTime
 
-Para enviar mensagens de telemetria em intervalos diferentes, adicionar vários tipos de telemetria para o `Telemetry` matriz. O exemplo seguinte envia dados de temperatura e humidade cada 10 segundos e o estado de luz de cada minuto:
+Para enviar mensagens de telemetria em intervalos diferentes, adicione vários tipos de telemetria à `Telemetry` matriz. O exemplo seguinte envia dados de temperatura e humidade a cada 10 segundos e o estado da luz a cada minuto:
 
 ```json
 "Telemetry": [
@@ -201,18 +201,18 @@ Para enviar mensagens de telemetria em intervalos diferentes, adicionar vários 
 ],
 ```
 
-## <a name="cloudtodevicemethods"></a>CloudToDeviceMethods
+## <a name="cloudtodevicemethods"></a>Métodos cloudtodevice
 
-Um dispositivo simulado pode responder a métodos de cloud-para-dispositivo chamados a partir de um hub IoT. O `CloudToDeviceMethods` seção no arquivo de esquema do modelo do dispositivo:
+Um dispositivo simulado pode responder a métodos cloud-to-device chamados de um hub IoT. A `CloudToDeviceMethods` secção do ficheiro esquema do modelo do dispositivo:
 
-* Define os métodos que o dispositivo simulado pode responder.
-* Identifica o ficheiro de JavaScript que contém a lógica para executar.
+* Define os métodos a que o dispositivo simulado pode responder.
+* Identifica o ficheiro JavaScript que contém a lógica a executar.
 
-O dispositivo simulado envia a lista de métodos que ele oferece suporte para o hub IoT que está ligado a.
+O dispositivo simulado envia a lista de métodos que suporta para o centro ioT a que está ligado.
 
-Para saber mais sobre o ficheiro de JavaScript que implementa o comportamento do dispositivo, veja [compreender o comportamento de modelo do dispositivo](../../articles/iot-accelerators/iot-accelerators-device-simulation-advanced-device.md).
+Para saber mais sobre o ficheiro JavaScript que implementa o comportamento do dispositivo, consulte [Compreender o comportamento do modelo do dispositivo](../../articles/iot-accelerators/iot-accelerators-device-simulation-advanced-device.md).
 
-O exemplo seguinte especifica três métodos suportados e os ficheiros de JavaScript que implementam os métodos:
+O exemplo que se segue especifica três métodos suportados e os ficheiros JavaScript que implementam esses métodos:
 
 ```json
 "CloudToDeviceMethods": {
@@ -231,22 +231,22 @@ O exemplo seguinte especifica três métodos suportados e os ficheiros de JavaSc
 }
 ```
 
-Pode ver os arquivos de JavaScript para os dispositivos simulado de predefinição na [pasta de scripts](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts) no GitHub. Por convenção, esses arquivos de JavaScript têm o sufixo **-método** para distingui-los a partir dos ficheiros que implementam o comportamento do Estado.
+Pode ver os ficheiros JavaScript para os dispositivos simulados predefinidos na pasta de [scripts](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts) no GitHub. Por convenção, estes ficheiros JavaScript têm o **método de** sufixo para distingui-los dos ficheiros que implementam o comportamento do Estado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Este artigo descreveu como criar seu próprio modelo personalizado de dispositivo simulado. Este artigo mostrou como para:
+Este artigo descreveu como criar o seu próprio modelo de dispositivo simulado personalizado. Este artigo mostrou-lhe como:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
-> * Utilizar um ficheiro JSON para definir um modelo de dispositivo simulado
+> * Utilize um ficheiro JSON para definir um modelo de dispositivo simulado
 > * Especifique as propriedades do dispositivo simulado
-> * Especifique a telemetria que do dispositivo simulado envia
-> * Especifique os métodos de cloud para o dispositivo, que o dispositivo responde a
+> * Especifique a telemetria que o dispositivo simulado envia
+> * Especificar os métodos cloud-to-device a que o dispositivo responde
 
-Agora que aprendeu sobre o esquema JSON, o passo seguinte sugerido é saber como [implementar o comportamento do seu dispositivo simulado](iot-accelerators-remote-monitoring-device-behavior.md).
+Agora que aprendeu sobre o esquema jSON, o próximo passo sugerido é aprender a [implementar o comportamento do seu dispositivo simulado.](iot-accelerators-remote-monitoring-device-behavior.md)
 
-Para obter mais informações para desenvolvedores sobre a solução de monitorização remota, consulte:
+Para obter mais informações sobre a solução de Monitorização Remota, consulte:
 
 * [Guia de Referência para Programadores](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
-* [Guia de Resolução de Problemas de Programadores](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
+* [Guia de Resolução de Problemas para Programadores](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 1/23/2020
 ms.author: enewman
 ms.openlocfilehash: 0c257589a2e93ac4c15a639e7156d0c0944b033c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76849789"
 ---
 # <a name="set-up-a-lab-to-teach-data-mobile-application-development-with-android-studio"></a>Criar um laboratório para ensinar o desenvolvimento de aplicações móveis de dados com o Android Studio
@@ -21,7 +21,7 @@ Este artigo irá mostrar-lhe como criar uma classe de desenvolvimento de aplica�
 
 ## <a name="lab-configuration"></a>Configuração do laboratório
 
-Para configurar este laboratório, você precisa de uma assinatura do Azure e uma conta de laboratório para começar. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Depois de obter uma assinatura do Azure, você poderá criar uma nova conta de laboratório no Azure Lab Services. Para obter mais informações sobre a criação de uma nova conta de laboratório, consulte o tutorial para criar uma conta de [laboratório.](tutorial-setup-lab-account.md)  Você também pode usar uma conta de laboratório existente.
+Para montar este laboratório, precisa de uma subscrição azure e uma conta de laboratório para começar. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Assim que conseguir uma subscrição do Azure, pode criar uma nova conta de laboratório nos Serviços de Laboratório Azure. Para obter mais informações sobre a criação de uma nova conta de laboratório, consulte o tutorial para criar uma conta de [laboratório.](tutorial-setup-lab-account.md)  Também pode usar uma conta de laboratório existente.
 
 Siga o tutorial de [laboratório de sala de aula para](tutorial-setup-classroom-lab.md) criar um novo laboratório e, em seguida, aplique as seguintes definições:
 
@@ -43,7 +43,7 @@ Quando a criação da máquina de modelo estiver completa, [ligue a máquina e l
 
 O Hyper-V deve ser ativado para a instalação bem sucedida de Emulator visual studio para Android.  Siga as instruções sobre [como ativar a virtualização aninhada num](how-to-enable-nested-virtualization-template-vm.md) artigo de máquina virtual modelo.
 
-## <a name="install-java"></a>Instalar o Java
+## <a name="install-java"></a>Instalar Java
 
 Android Studio requer Java.  Siga os passos abaixo para descarregar a versão mais recente de Java.
 
@@ -54,7 +54,7 @@ Android Studio requer Java.  Siga os passos abaixo para descarregar a versão ma
 
 ## <a name="install-visual-studio-emulator-for-android"></a>Instale o Emulador de Estúdio Visual para Android
 
-Para testar uma aplicação Android localmente, deve utilizar uma versão virtualizada de um dispositivo Android.  Existem alguns emuladores Android disponíveis que permitirão a um desenvolvedor testar a sua aplicação a partir da sua máquina.  Estamos a usar o Emulator visual studio para Android porque é um emulador que suporta a virtualização aninhada.  Como o VM do Serviço de Laboratório já é uma máquina virtual, precisamos de um emulador que suporte a virtualização aninhada.  O emulador incorporado para o Android Studio não suporta a virtualização aninhada.  Para ver quais os emuladores suportam a virtualização aninhada, consulte [a aceleração do hardware para o desempenho do emulador (Hyper-V & HAXM)](https://docs.microsoft.com/xamarin/android/get-started/installation/android-emulator/hardware-acceleration).
+Para testar uma aplicação Android localmente, deve utilizar uma versão virtualizada de um dispositivo Android.  Existem alguns emuladores Android disponíveis que permitirão a um desenvolvedor testar a sua aplicação a partir da sua máquina.  Estamos a usar o Emulator visual studio para Android porque é um emulador que suporta a virtualização aninhada.  Como o VM do Serviço de Laboratório já é uma máquina virtual, precisamos de um emulador que suporte a virtualização aninhada.  O emulador incorporado para o Android Studio não suporta a virtualização aninhada.  Para ver quais os emuladores que suportam a virtualização aninhada, consulte [a aceleração do hardware para o desempenho do emulador (Hyper-V & HAXM)](https://docs.microsoft.com/xamarin/android/get-started/installation/android-emulator/hardware-acceleration).
 
 Utilize as seguintes instruções para descarregar e instalar o Emulator do Estúdio Visual para Android.
 
@@ -99,7 +99,7 @@ Siga as instruções abaixo para descarregar e instalar [o Android Studio](https
 
 O Android Studio está quase pronto para ser utilizado.  Ainda precisamos de dizer ao Emulator visual Studio para Android onde o Android SDK está instalado.  Isto fará com que quaisquer emuladores em execução no Visual Studio para Android mostram como alvos de implementação para a depuração do Android Studio.
 
-Precisamos definir uma chave de registo específica para dizer visual studio emulator para Android onde o Android Sdk está localizado.  Para definir a chave de registo necessária, execute o script abaixo.  O script PowerShell abaixo assume a localização de instalação padrão para o Android Sdk.  Se instalou o seu Android Sdk noutro local, modifique o valor para `$androidSdkPath` antes de executar o script.
+Precisamos definir uma chave de registo específica para dizer visual studio emulator para Android onde o Android Sdk está localizado.  Para definir a chave de registo necessária, execute o script abaixo.  O script PowerShell abaixo assume a localização de instalação padrão para o Android Sdk.  Se instalou o seu Android Sdk noutro `$androidSdkPath` local, modifique o valor para antes de executar o script.
 
 ```powershell
 $androidSdkPath = Resolve-Path $(Join-Path "$($env:APPDATA)" "../Local/Android/Sdk")
@@ -119,16 +119,16 @@ Inicie a versão de que precisa no Emulator do Estúdio Visual.  Ele aparecerá 
 Se quiser estimar o custo deste laboratório, pode seguir o exemplo abaixo.
 Para uma turma de 25 alunos com 20 horas de horário de aulas programada e 10 horas de quota para trabalhos de casa ou tarefas, o preço para o laboratório seria  
 
-25 alunos \* (20 horas programadas + 10 quota) * 55 Unidades de Laboratório * 0,01 USD por hora = 412,5 USD
+25 \* alunos (20 programados + 10 quotas) horas * 55 Unidades de Laboratório * 0,01 USD por hora = 412,5 USD
 
-Mais detalhes sobre preços, consulte [preços de Azure Lab Services](https://azure.microsoft.com/pricing/details/lab-services/).
+Mais detalhes sobre os preços, consulte o [Preço dos Serviços do Laboratório Azure.](https://azure.microsoft.com/pricing/details/lab-services/)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-As próximas etapas são comuns à configuração de qualquer laboratório.
+Os próximos passos são comuns à criação de qualquer laboratório.
 
-- [Criar e gerenciar um modelo](how-to-create-manage-template.md)
+- [Criar e gerir um modelo](how-to-create-manage-template.md)
 - [Adicionar utilizadores](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Definir cota](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Definir um agendamento](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
-- [Links de registro de email para alunos](how-to-configure-student-usage.md#send-invitations-to-users)
+- [Definir quota](how-to-configure-student-usage.md#set-quotas-for-users)
+- [Definir um horário](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+- [Links de inscrição de e-mail para estudantes](how-to-configure-student-usage.md#send-invitations-to-users)

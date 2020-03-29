@@ -1,6 +1,6 @@
 ---
-title: Dimensionamento de aplicações de HPC - máquinas virtuais do Azure | Documentos da Microsoft
-description: Saiba como dimensionar aplicações HPC em VMs do Azure.
+title: Aplicações de HPC de escala - Máquinas Virtuais Azure / Microsoft Docs
+description: Saiba como dimensionar as aplicações de HPC em VMs Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -13,37 +13,37 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
 ms.openlocfilehash: 00d5b86c8cae01d342d55b7ad20ec59c3f7530bd
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67707846"
 ---
-# <a name="scaling-hpc-applications"></a>Dimensionamento de aplicações de HPC
+# <a name="scaling-hpc-applications"></a>Aplicações de HPC de escala
 
-Desempenho ideal de aumento vertical e horizontal das aplicações de HPC no Azure requer o ajuste de desempenho e otimização experimentações para a carga de trabalho específica. Esta secção e as páginas de série específicos VM oferecem orientação geral para dimensionar as suas aplicações.
+O ótimo desempenho de escala e escala das aplicações hpc no Azure requer experiências de afinação e otimização de desempenho para a carga de trabalho específica. Esta secção e as páginas específicas da série VM oferecem orientação geral para escalonar as suas aplicações.
 
-## <a name="compiling-applications"></a>Compilação de aplicativos
+## <a name="compiling-applications"></a>Compilação de aplicações
 
-Embora não necessário, compilar aplicativos com os sinalizadores de otimização apropriado fornece o melhor desempenho de aumentar verticalmente em HB e as VMs da série HC.
+Embora não seja necessário, a compilação de aplicações com bandeiras de otimização apropriadas proporciona o melhor desempenho em HB e HC-series VMs.
 
-### <a name="amd-optimizing-cc-compiler"></a>AMD otimizar C /C++ compilador
+### <a name="amd-optimizing-cc-compiler"></a>Compilador de otimização AMD C/C++
 
-A AMD otimizar C /C++ sistema de compilador do compilador (AOCC) oferece um elevado nível de otimizações avançadas, vários segmentos e o suporte de processador que inclui a otimização global, vetorização, análises de entre procedimentos, transformações de loop, e geração de código. Binários de compilador AOCC são adequados para sistemas Linux com a biblioteca de C do GNU (glibc) versão 2.17 e superior. O conjunto de compilador consiste num C /C++ compilador (clang), um compilador Fortran (FLANG) e um front-end de publicação na Fortran ' para Clang (Dragon ovo).
+O sistema compilador amd Optimizing C/C++ (AOCC) oferece um alto nível de otimizações avançadas, multi-threading e suporte ao processador que inclui otimização global, vectorização, análises interprocessutivas, transformações em loop e geração de códigos. Binários de compilação AOCC são adequados para sistemas Linux com a versão 2.17 da Biblioteca GNU C (glibc) 2.17. A suíte compilada é composta por um compilador C/C++ (clang), um compilador Fortran (FLANG) e uma extremidade frontal Fortran para Clang (Ovo de Dragão).
 
-### <a name="clang"></a>Clang
+### <a name="clang"></a>Rio Clang
 
-Clang é um C, C++e o compilador de Objective-C, manipulação de pré-processamento, análise, otimização, geração de código, assembly e de ligação. Clang suporta o `-march=znver1` sinalizador para ativar melhor geração de códigos e ajuste para o Zen da AMD com base em x86 arquitetura.
+Clang é um compilador C, C++, e compilador Objective-C que trata do pré-processamento, análise, otimização, geração de códigos, montagem e ligação. Clang suporta `-march=znver1` a bandeira para permitir a melhor geração de código e sintonização para a arquitetura zen x86 baseada em AMD.
 
 ### <a name="flang"></a>FLANG
 
-O compilador FLANG é uma adição recente para o conjunto AOCC (Abril de 2018 adicionado) e está atualmente em versões de pré-lançamento para desenvolvedores baixar e testar. Com base no Fortran 2008, AMD estende a versão do GitHub do FLANG (https://github.com/flangcompiler/flang). O compilador FLANG suporta todas as opções de compilador Clang e um número adicional de opções do compilador de FLANG específicas.
+O compilador FLANG é uma adição recente à suite AOCC (adicionada abril de 2018) e está atualmente em pré-lançamento para os desenvolvedores descarregarem e testarem. Com base no Fortran 2008, a AMD alargahttps://github.com/flangcompiler/flang)a versão GitHub da FLANG . O compilador FLANG suporta todas as opções de compilador Clang e um número adicional de opções de compilador específicas da FLANG.
 
-### <a name="dragonegg"></a>DragonEgg
+### <a name="dragonegg"></a>Ovo de Dragão
 
-DragonEgg é um plug-in de gcc que substitui do GCC otimizadores e geradores de código com os do projeto LLVM. DragonEgg que vem com AOCC funciona com gcc-4.8.x, foi testado para destinos de x86-32/x86-64 e tem sido usada com êxito em várias plataformas de Linux.
+DragonEgg é um plugin gcc que substitui os otimizadores e geradores de código da GCC com os do projeto LLVM. DragonEgg que vem com trabalhos ao AOCC com gcc-4.8.x, foi testado para alvos x86-32/x86-64 e tem sido usado com sucesso em várias plataformas Linux.
 
-GFortran é o front-end real para programas de Fortran responsáveis pelo processamento prévio de, análise e análises semântico geração da representação intermediária de GCC GIMPLE (IR). DragonEgg é um plug-in do GNU, conectando-se no flow de compilação GFortran. Ele implementa o plug-in do GNU API. Com a arquitetura de plug-in, o DragonEgg torna-se o controlador de compilador, orientando as diferentes fases da compilação.  Depois de seguir as instruções de transferência e instalação, Dragon ovo podem ser invocado usando: 
+GFortran é o frontend real para programas Fortran responsáveis por pré-processamento, análise e análise semântica gerando a representação intermédia GCC GIMPLE (IR). DragonEgg é um plugin GNU, ligando-se ao fluxo de compilação GFortran. Implementa a API de plugin gnu. Com a arquitetura plugin, dragonEgg torna-se o controlador, conduzindo as diferentes fases de compilação.  Após seguir as instruções de descarregamento e instalação, o Ovo de Dragão pode ser invocado usando: 
 
 ```bash
 $ gfortran [gFortran flags] 
@@ -52,22 +52,22 @@ $ gfortran [gFortran flags]
    -c xyz.f90 $ clang -O3 -lgfortran -o xyz xyz.o $./xyz
 ```
    
-### <a name="pgi-compiler"></a>Compilador PGI
-Comunidade PGI ver. de edição 17 foi confirmada para trabalhar com AMD EPYC. Uma versão de compilação PGI do fluxo de fornecer a largura de banda de memória cheia da plataforma. O 18.10 de edição de Comunidade (Novembro de 2018) mais recente da mesma forma deve funcionar bem. Segue-se da CLI de exemplo para o compilador de forma otimizada com o compilador Intel:
+### <a name="pgi-compiler"></a>Compilador de IGP
+PgI Community Edition ver. 17 está confirmado para trabalhar com amd EPYC. Uma versão compilada por IGP do STREAM oferece largura de banda de memória completa da plataforma. A mais recente Edição Comunitária 18.10 (nov 2018) também deverá funcionar bem. Abaixo está a amostra CLI para compilar da melhor forma com o Compilador intel:
 
 ```bash
 pgcc $(OPTIMIZATIONS_PGI) $(STACK) -DSTREAM_ARRAY_SIZE=800000000 stream.c -o stream.pgi
 ```
 
-### <a name="intel-compiler"></a>Compilador Intel
-Ver. de compilador Intel 18 foi confirmada para trabalhar com AMD EPYC. Segue-se da CLI de exemplo para o compilador de forma otimizada com o compilador Intel.
+### <a name="intel-compiler"></a>Compilador de Intel
+Intel Compiler ver. 18 está confirmado para trabalhar com amd EPYC. Abaixo está a amostra CLI para compilar da melhor forma com o Compilador Intel.
 
 ```bash
 icc -o stream.intel stream.c -DSTATIC -DSTREAM_ARRAY_SIZE=800000000 -mcmodel=large -shared-intel -Ofast –qopenmp
 ```
 
 ### <a name="gcc-compiler"></a>Compilador GCC 
-Para HPC, AMD recomenda o compilador GCC 7.3 ou mais recente. Versões mais antigas, como 4.8.5 incluído no RHEL/CentOS 7.4, não são recomendadas. GCC 7.3 e mais recente, irá fornecer um desempenho significativamente superior nos testes HPL HPCG e DGEMM.
+Para o HPC, a AMD recomenda o compilador GCC 7.3 ou mais recente. Versões mais antigas, como 4.8.5 incluídas com RHEL/CentOS 7.4, não são recomendadas. GCC 7.3, e mais recente, irá proporcionar um desempenho significativamente mais elevado nos testes HPL, HPCG e DGEMM.
 
 ```bash
 gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
@@ -75,15 +75,15 @@ gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
 
 ## <a name="scaling-applications"></a>Dimensionamento de aplicações 
 
-As sugestões seguintes aplicam-se para aumentar a eficiência, desempenho e consistência de aplicações ideal:
+As seguintes sugestões aplicam-se para uma ótima eficiência de dimensionamento de aplicações, desempenho e consistência:
 
-* PIN processos a serem núcleos 0-59 usando uma fixação sequenciais abordar (em vez de uma abordagem de saldo automática). 
-* A ligação Numa/Core/HwThread é melhor do que a vinculação padrão.
-* Nos aplicativos em paralelo híbrida (OpenMP + MPI), utilize 4 threads e 1 MPI classificação por CCX.
-* Para aplicações de MPI puras, experimente com 1 a 4 que MPI classifica por CCX para um desempenho ideal.
-* Alguns aplicativos com extremo sensibilidade a largura de banda de memória podem beneficiar da utilização de uma redução do número de núcleos por CCX. Para estas aplicações, o utilizar núcleos de 2 ou 3 por CCX pode reduzir a contenção de largura de banda de memória e resultar em desempenho mais elevado do mundo real ou escalabilidade mais consistente. Em particular, MPI Allreduce podem tirar partido desta.
-* Para execuções de dimensionamento significativamente maiores, é recomendado utilizar transportes de RC + UD UD ou híbrida. Muitas bibliotecas de bibliotecas/runtime MPI fazê-lo internamente (como UCX ou MVAPICH2). Verifique as configurações de transporte para execuções de grande escala.
+* Os processos de pin para os núcleos 0-59 utilizando uma abordagem sequencial de fixação (em oposição a uma abordagem de equilíbrio automático). 
+* A ligação por Numa/Core/HwThread é melhor do que a ligação padrão.
+* Para aplicações paralelas híbridas (OpenMP+MPI), utilize 4 fios e 1 classificação DE MPI por CCX.
+* Para aplicações de MPI puras, experimente 1-4 mpI por CCX para um desempenho ótimo.
+* Algumas aplicações com extrema sensibilidade à largura de banda da memória podem beneficiar da utilização de um número reduzido de núcleos por CCX. Para estas aplicações, a utilização de 3 ou 2 núcleos por CCX pode reduzir a contenção da largura de banda da memória e gerar um desempenho mais elevado no mundo real ou uma escalabilidade mais consistente. Em particular, o MPI Allreduce pode beneficiar disto.
+* Para corridas de escala significativamente maiores, recomenda-se a utilização de transportes ud ou híbridos RC+UD. Muitas bibliotecas/bibliotecas de tempo de execução do MPI fazem-no internamente (como ucX ou MVAPICH2). Verifique as configurações de transporte para obter corridas em larga escala.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) no Azure.
+Saiba mais sobre [o HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) no Azure.

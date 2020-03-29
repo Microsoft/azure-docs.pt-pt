@@ -1,6 +1,6 @@
 ---
-title: Planeje seu ambiente GA-Azure Time Series Insights | Microsoft Docs
-description: Práticas recomendadas para preparar, configurar e implantar seu ambiente Azure Time Series Insights GA.
+title: Planeie o seu ambiente GA - Azure Time Series Insights [ Microsoft Docs
+description: As melhores práticas para preparar, configurar e implementar o seu ambiente Azure Time Series Insights GA.
 services: time-series-insights
 ms.service: time-series-insights
 author: deepakpalled
@@ -12,121 +12,121 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: seodec18
 ms.openlocfilehash: 972bb2a804057037deedb448674abafcc175b21f
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76314815"
 ---
-# <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planeje seu ambiente Azure Time Series Insights GA
+# <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planeie o seu ambiente Ga da Série De Tempo Azure Insights
 
-Este artigo descreve como planejar seu Azure Time Series Insights ambiente de disponibilidade geral (GA) com base em sua taxa de entrada esperada e seus requisitos de retenção de dados.
+Este artigo descreve como planear o seu ambiente de disponibilidade geral da Série De Tempo Azure Insights (GA) com base na sua taxa de ingresso esperada e nos seus requisitos de retenção de dados.
 
 ## <a name="video"></a>Vídeo
 
-**Assista a este vídeo para saber mais sobre a retenção de dados em Azure Time Series insights e como planejar para ele**:<br /><br />
+Veja este vídeo para saber mais sobre a retenção de **dados em Azure Time Series Insights e como planeá-lo:**<br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
 ## <a name="best-practices"></a>Melhores práticas
 
-Para começar a usar o Azure Time Series Insights, é melhor se você souber a quantidade de dados que espera enviar por minuto e por quanto tempo precisa para armazenar seus dados.  
+Para começar com o Azure Time Series Insights, é melhor saber quantos dados espera pressionar ao minuto e quanto tempo precisa para armazenar os seus dados.  
 
-Para obter mais informações sobre capacidade e retenção para os Time Series Insights SKUs, leia [Time Series insights preços](https://azure.microsoft.com/pricing/details/time-series-insights/).
+Para obter mais informações sobre capacidade e retenção para ambas as Séries De Tempo Insights SKUs, leia os preços da [Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
-Para planejar melhor seu ambiente de Time Series Insights para o sucesso a longo prazo, considere os seguintes atributos:
+Para planear melhor o seu ambiente Time Series Insights para o sucesso a longo prazo, considere os seguintes atributos:
 
 - [Capacidade de armazenamento](#storage-capacity)
 - [Período de retenção de dados](#data-retention)
-- [Capacidade de entrada](#ingress-capacity)
-- [Moldando seus eventos](#shape-your-events)
-- [Garantindo que você tenha dados de referência em vigor](#ensure-that-you-have-reference-data)
+- [Capacidade ingresso](#ingress-capacity)
+- [Moldar os seus eventos](#shape-your-events)
+- [Garantindo que tem dados de referência no lugar](#ensure-that-you-have-reference-data)
 
 ## <a name="storage-capacity"></a>Capacidade de armazenamento
 
-Por padrão, Time Series Insights retém dados com base na quantidade de armazenamento que você provisiona (unidade &#215; de armazenamento por unidade) e entrada.
+Por padrão, a Time Series Insights retém dados baseados na quantidade de armazenamento que você fornecer (unidades &#215; a quantidade de armazenamento por unidade) e ingresso.
 
 ## <a name="data-retention"></a>Retenção de dados
 
-Você pode alterar a configuração de **tempo de retenção de dados** em seu ambiente de Azure Time Series insights. Você pode habilitar até 400 dias de retenção. 
+Pode alterar a definição de tempo de **retenção** de Dados no seu ambiente Azure Time Series Insights. Pode permitir até 400 dias de retenção. 
 
-Azure Time Series Insights tem dois modos:
+A Azure Time Series Insights tem dois modos:
 
-* Um modo otimiza para os dados mais atualizados. Ele impõe uma política para **limpar dados antigos** , deixando dados recentes disponíveis com a instância. Por padrão, esse modo é ativado. 
-* O outro otimiza os dados para permanecerem abaixo dos limites de retenção configurados. **Pausar a entrada** impede que novos dados sejam inseridos quando é selecionado como o **limite de armazenamento excedeu o comportamento**.
+* Um modo otimiza para os dados mais atualizados. Impõe uma política de **expurgação** de dados antigos, deixando dados recentes disponíveis com a instância. Este modo está ligado, por defeito. 
+* O outro otimiza os dados para permanecer abaixo dos limites de retenção configurados. **A pausa** impede que novos dados sejam ingressados quando são selecionados, uma vez que o limite de **armazenamento excedeu**o comportamento .
 
-Você pode ajustar a retenção e alternar entre os dois modos na página de configuração do ambiente no portal do Azure.
+Pode ajustar a retenção e alternar entre os dois modos na página de configuração do ambiente no portal Azure.
 
 > [!IMPORTANT]
-> Você pode configurar um máximo de 400 dias de retenção de dados em seu ambiente Azure Time Series Insights GA.
+> Pode configurar um máximo de 400 dias de retenção de dados no seu ambiente Azure Time Series Insights GA.
 
 ### <a name="configure-data-retention"></a>Configurar a retenção de dados
 
-1. Na [portal do Azure](https://portal.azure.com), selecione seu ambiente de time Series insights.
+1. No [portal Azure,](https://portal.azure.com)selecione o seu ambiente Time Series Insights.
 
-1. No painel **Time Series insights ambiente** , em **configurações**, selecione **configuração de armazenamento**.
+1. No painel ambiente **Time Series Insights,** em **Definições,** selecione **configuração de armazenamento**.
 
-1. Na caixa **tempo de retenção de dados (em dias)** , insira um valor entre 1 e 400.
+1. Na caixa de tempo de retenção de **Dados (em dias),** insira um valor entre 1 e 400.
 
-   [![configurar a retenção](media/data-retention/configure-data-retention.png)](media/data-retention/configure-data-retention.png#lightbox)
+   [![Configurar a retenção](media/data-retention/configure-data-retention.png)](media/data-retention/configure-data-retention.png#lightbox)
 
 > [!TIP]
-> Para saber mais sobre como implementar uma política de retenção de dados apropriada, leia [como configurar a retenção](./time-series-insights-how-to-configure-retention.md).
+> Para saber mais sobre como implementar uma política adequada de retenção de dados, leia [Como configurar a retenção.](./time-series-insights-how-to-configure-retention.md)
 
-## <a name="ingress-capacity"></a>Capacidade de entrada
+## <a name="ingress-capacity"></a>Capacidade ingresso
 
 [!INCLUDE [Azure Time Series Insights GA limits](../../includes/time-series-insights-ga-limits.md)]
 
-### <a name="environment-planning"></a>Planejamento de ambiente
+### <a name="environment-planning"></a>Planeamento ambiental
 
-A segunda área para se concentrar para planejar seu ambiente de Time Series Insights é a capacidade de entrada. A capacidade de entrada é um derivativo da alocação por minuto.
+A segunda área em que se concentrar para planear o seu ambiente Time Series Insights é a capacidade de ingresso. A capacidade de ingresso é um derivado da atribuição por minuto.
 
-De uma perspectiva de limitação, um pacote de dados de entrada que tem um tamanho de pacote de 32 KB é tratado como 32 eventos, cada um com tamanho de 1 KB. O tamanho máximo de evento permitido é de 32 KB. Pacotes de dados maiores que 32 KB são truncados.
+De uma perspetiva de estrangulamento, um pacote de dados ingressado que tem um pacote de tamanho de 32 KB é tratado como 32 eventos, cada 1 KB em tamanho. O tamanho máximo permitido do evento é de 32 KB. Os pacotes de dados superiores a 32 KB são truncados.
 
-Você pode aumentar a capacidade de uma SKU S1 ou S2 para 10 unidades em um único ambiente. Não é possível migrar de um ambiente S1 para um S2. Não é possível migrar de um ambiente S2 para um S1.
+Pode aumentar a capacidade de um S1 ou S2 SKU para 10 unidades num único ambiente. Não se pode migrar de um ambiente S1 para um S2. Não se pode migrar de um ambiente S2 para um S1.
 
-Para a capacidade de entrada, primeiro determine a entrada total que você precisa por mês. Em seguida, determine quais são suas necessidades por minuto. 
+Para a capacidade de ingresso, determine primeiro a entrada total que necessita por mês. Em seguida, determine quais são as suas necessidades por minuto. 
 
-A limitação e a latência desempenham uma função na capacidade por minuto. Se você tiver um pico em sua entrada de dados que dura menos de 24 horas, Time Series Insights poderá "se acumular" em uma taxa de entrada de duas vezes as tarifas listadas na tabela anterior.
+O estrangulamento e a latência desempenham um papel na capacidade por minuto. Se tiver um pico na entrada de dados que dure menos de 24 horas, a Time Series Insights pode "recuperar" a uma taxa de entrada de duas vezes as taxas listadas na tabela anterior.
 
-Por exemplo, se você tiver uma única SKU S1, você entrará dados em uma taxa de 720 eventos por minuto e os picos de taxa de dados por menos de uma hora a uma taxa de 1.440 eventos ou menos, não haverá latência perceptível em seu ambiente. No entanto, se você exceder 1.440 eventos por minuto por mais de uma hora, provavelmente haverá latência nos dados visualizados e disponíveis para consulta em seu ambiente.
+Por exemplo, se tiver um único S1 SKU, ingressa dados a uma taxa de 720 eventos por minuto, e a taxa de dados aumenta por menos de uma hora a uma taxa de 1.440 eventos ou menos, não há latência visível no seu ambiente. No entanto, se exceder 1.440 eventos por minuto por mais de uma hora, provavelmente sentirá latência em dados visualizados e disponíveis para consulta no seu ambiente.
 
-Talvez você não saiba com antecedência a quantidade de dados que espera enviar por push. Nesse caso, você pode encontrar a telemetria de dados para o [Hub IOT do Azure](../iot-hub/iot-hub-metrics.md) e [hubs de eventos do Azure](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) em sua assinatura portal do Azure. A telemetria pode ajudá-lo a determinar como provisionar seu ambiente. Use o painel **métricas** na portal do Azure da respectiva origem do evento para exibir sua telemetria. Se você entender suas métricas de origem de evento, poderá planejar e provisionar com mais eficiência seu ambiente de Time Series Insights.
+Pode não saber antecipadamente quantos dados espera pressionar. Neste caso, pode encontrar telemetria de dados para [O Hub Azure IoT](../iot-hub/iot-hub-metrics.md) e Hubs de [Eventos Azure](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) na subscrição do portal Azure. A telemetria pode ajudá-lo a determinar como fornecer o seu ambiente. Utilize o painel **Métricas** no portal Azure para que a respetiva fonte do evento veja a sua telemetria. Se compreender as suas métricas de origem de eventos, pode planear e fornecer mais eficazmente o seu ambiente Time Series Insights.
 
-### <a name="calculate-ingress-requirements"></a>Calcular os requisitos de entrada
+### <a name="calculate-ingress-requirements"></a>Calcular requisitos de ingresso
 
-Para calcular seus requisitos de entrada:
+Para calcular os seus requisitos de ingresso:
 
-- Verifique se a sua capacidade de entrada está acima da taxa média por minuto e se o ambiente é grande o suficiente para lidar com a sua entrada prevista equivalente a duas vezes sua capacidade por menos de uma hora.
+- Verifique se a sua capacidade de ingresso está acima da sua taxa média por minuto e que o seu ambiente é grande o suficiente para lidar com a sua entrada antecipada equivalente a duas vezes a sua capacidade durante menos de uma hora.
 
-- Se ocorrerem picos de entrada que duram mais de uma hora, use a taxa de pico como média. Provisione um ambiente com a capacidade de lidar com a taxa de pico.
+- Se ocorrerem picos de ingresso que durem mais de 1 hora, utilize a taxa de pico como a sua média. Providenciar um ambiente com capacidade para lidar com a taxa de pico.
 
-### <a name="mitigate-throttling-and-latency"></a>Reduzir a limitação e a latência
+### <a name="mitigate-throttling-and-latency"></a>Atenuar a estrangulamento e a latência
 
-Para obter informações sobre como evitar limitação e latência, leia [reduzir a latência e a limitação](time-series-insights-environment-mitigate-latency.md).
+Para obter informações sobre como evitar estrangulamentos e latências, leia [a latência e](time-series-insights-environment-mitigate-latency.md)a aceleração do Mitigate .
 
-## <a name="shape-your-events"></a>Formate seus eventos
+## <a name="shape-your-events"></a>Moldar os seus eventos
 
-É importante garantir que a maneira como você envia eventos para Time Series Insights dá suporte ao tamanho do ambiente que você está Provisionando. (Por outro lado, você pode mapear o tamanho do ambiente para quantos eventos Time Series Insights leituras e o tamanho de cada evento.) Também é importante pensar sobre os atributos que você pode querer usar para dividir e filtrar por quando você consulta seus dados.
+É importante garantir que a forma como envia eventos para time series Insights suporta o tamanho do ambiente que você está a fornecer. (Inversamente, você pode mapear o tamanho do ambiente para quantos eventos Time Series Insights lê e o tamanho de cada evento.) Também é importante pensar nos atributos que você pode querer usar para cortar e filtrar quando você consulta os seus dados.
 
 > [!TIP]
-> Examine a documentação do JSON Shaping em [enviando eventos](time-series-insights-send-events.md).
+> Reveja a documentação de formação jSON em [Eventos de Envio](time-series-insights-send-events.md).
 
-## <a name="ensure-that-you-have-reference-data"></a>Verifique se você tem dados de referência
+## <a name="ensure-that-you-have-reference-data"></a>Certifique-se de que tem dados de referência
 
-Um *conjunto* de uma referência é uma coleção de itens que aumentam os eventos da origem do evento. O Time Series Insights o mecanismo de entrada une cada evento de sua origem de evento com a linha de dados correspondente no DataSet de referência. O evento aumentado fica disponível para consulta. A junção é baseada nas colunas de **chave primária** que são definidas em seu conjunto de seus conjuntos de referência.
+Um conjunto de *dados de referência* é uma coleção de itens que aumentam os eventos a partir da sua fonte de evento. O motor de entrada Time Series Insights junta-se a cada evento a partir da fonte do seu evento com a linha de dados correspondente no seu conjunto de dados de referência. O evento aumentado está então disponível para consulta. A adesão baseia-se nas colunas **Chave Primária** que são definidas no seu conjunto de dados de referência.
 
 > [!NOTE]
-> Os dados de referência não são associados retroativamente. Somente os dados de entrada atuais e futuros são correspondidos e associados ao DataSet de referência depois de configurados e carregados. Se você planeja enviar uma grande quantidade de dados históricos para Time Series Insights e não carregar primeiro ou criar dados de referência no Time Series Insights, talvez seja necessário refazer seu trabalho (dica: não é divertido).  
+> Os dados de referência não são acompanhados retroativamente. Apenas os dados de ingresso atuais e futuros são combinados e unidos ao conjunto de dados de referência depois de configurado e carregado. Se planeia enviar uma grande quantidade de dados históricos para Time Series Insights e não enviar ou criar dados de referência em Time Series Insights, poderá ter de refazer o seu trabalho (dica: não divertido).  
 
-Para saber mais sobre como criar, carregar e gerenciar seus dados de referência em Time Series Insights, leia nossa [documentação de conjunto](time-series-insights-add-reference-data-set.md)de dado de referência.
+Para saber mais sobre como criar, carregar e gerir os seus dados de referência em Time Series Insights, leia a nossa [documentação de conjunto](time-series-insights-add-reference-data-set.md)de dados de referência .
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Comece criando [um novo ambiente de time Series insights no portal do Azure](time-series-insights-get-started.md).
+- Inicie-se com a criação [de um novo ambiente Time Series Insights no portal Azure.](time-series-insights-get-started.md)
 
-- Saiba como [Adicionar uma fonte de eventos de hubs de eventos](time-series-insights-how-to-add-an-event-source-eventhub.md) a Time Series insights.
+- Saiba como adicionar uma fonte de [evento saque](time-series-insights-how-to-add-an-event-source-eventhub.md) a Time Series Insights.
 
-- Leia sobre como [Configurar uma origem de evento do Hub IOT](time-series-insights-how-to-add-an-event-source-iothub.md).
+- Leia sobre como configurar uma fonte de [evento ioT Hub](time-series-insights-how-to-add-an-event-source-iothub.md).

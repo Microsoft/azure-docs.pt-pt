@@ -1,6 +1,6 @@
 ---
-title: Instalar o Azure AD Connect com permissões de administrador do SQL delegado | Documentos da Microsoft
-description: Este tópico descreve uma atualização para o Azure AD Connect, que permite a instalação utilizando uma conta que tem apenas permissões de dbo do SQL.
+title: Instale o Azure AD Connect utilizando permissões de administrador delegados DaSQL [ Microsoft Docs
+description: Este tópico descreve uma atualização do Azure AD Connect que permite a instalação utilizando uma conta que apenas tem permissões SQL dbo.
 documentationcenter: ''
 author: billmath
 manager: daveba
@@ -17,53 +17,53 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6269d00c9a6a8f827a4e31044d9d20efb0f8471b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60243520"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Instalar o Azure AD Connect com permissões de administrador do SQL delegado
-Antes da compilação mais recente do Azure AD Connect, a delegação administrativa, ao implementar as configurações necessárias do SQL, não era suportada.  Os utilizadores que pretendem instalar o Azure AD Connect é necessário ter permissões de administrador (SA) de servidor no SQL server.
+Antes da mais recente construção do Azure AD Connect, a delegação administrativa, ao implementar configurações que exigiam o SQL, não foi apoiada.  Os utilizadores que quisessem instalar o Azure AD Connect precisavam de ter permissões de administrador de servidores (SA) no servidor SQL.
 
-Com a versão mais recente do Azure AD Connect, o aprovisionamento da base de dados pode agora ser realizado fora de banda pelo administrador do SQL e, em seguida, instalado pelo administrador do Azure AD Connect com direitos de proprietário da base de dados.
+Com o mais recente lançamento do Azure AD Connect, o fornecimento da base de dados pode agora ser realizado fora de banda pelo administrador SQL e, em seguida, instalado pelo administrador Azure AD Connect com direitos de proprietário de base de dados.
 
 ## <a name="before-you-begin"></a>Antes de começar
-Para utilizar esta funcionalidade, terá de perceber que existem várias partes móveis e cada um deles pode envolver um administrador diferente na sua organização.  A tabela seguinte resume as funções individuais e as suas obrigações respectivas na implantação do Azure AD Connect com esta funcionalidade.
+Para utilizar esta funcionalidade, tem de perceber que existem várias partes móveis e cada uma pode envolver um administrador diferente na sua organização.  A tabela seguinte resume as funções individuais e as respetivas funções na implementação do Azure AD Connect com esta funcionalidade.
 
 |Função|Descrição|
 |-----|-----|
-|Domínio ou de administrador do AD de floresta|Cria a conta de serviço de nível de domínio que é utilizada pelo Azure AD Connect para executar o serviço de sincronização.  Para obter mais informações sobre contas de serviço, consulte [contas e permissões](reference-connect-accounts-permissions.md).
-|Administrador do SQL|Cria a base de dados ADSync e concede o início de sessão + dbo acesso ao administrador do Azure AD Connect e a conta de serviço criado pelo administrador de domínio/floresta.|
-Administrador do Azure AD Connect|Instala o Azure AD Connect e especifica a conta de serviço durante a instalação personalizada.
+|Administrador de Anúncios de Domínio ou Florestal|Cria a conta de serviço de nível de domínio que é usada pelo Azure AD Connect para executar o serviço de sincronização.  Para obter mais informações sobre contas de serviço, consulte [Contas e permissões.](reference-connect-accounts-permissions.md)
+|Administrador SQL|Cria a base de dados ADSync e concede acesso ao login + dbo ao administrador Azure AD Connect e à conta de serviço criada pelo domínio/administração florestal.|
+Administrador azure AD Connect|Instala o Azure AD Connect e especifica a conta de serviço durante a instalação personalizada.
 
-## <a name="steps-for-installing-azure-ad-connect-using-sql-delegated-permissions"></a>Permissões delegadas de passos para instalar o Azure AD Connect com o SQL
-Para aprovisionar a base de dados fora de banda e instale o Azure AD Connect com permissões de proprietário da base de dados, utilize os seguintes passos.
+## <a name="steps-for-installing-azure-ad-connect-using-sql-delegated-permissions"></a>Passos para instalar o Azure AD Connect utilizando permissões delegadas da SQL
+Para fornecer a base de dados fora da banda e instalar o Azure AD Connect com permissões do proprietário da base de dados, utilize os seguintes passos.
 
 >[!NOTE]
->Embora não seja necessário, é **vivamente recomendado** que o agrupamento de Latin1_General_CI_AS é selecionado ao criar a base de dados.
+>Embora não seja necessário, é **altamente recomendável** que a colagem Latin1_General_CI_AS seja selecionada na criação da base de dados.
 
 
-1. Que o administrador de SQL, criar a base de dados ADSync com uma sequência de agrupamento não sensível **(Latin1_General_CI_AS)** .  A base de dados deve ser nomeado **ADSync**.  O modelo de recuperação, o nível de compatibilidade e o tipo de contenção são atualizadas para os valores corretos quando o Azure AD Connect está instalado.  No entanto, a sequência de agrupamento tem de ser definida corretamente pelo administrador do SQL do Azure AD Connect irá bloquear a instalação.  Para recuperar o SA tem de eliminar e recriar a base de dados.
+1. Mande o Administrador SQL criar a base de dados ADSync com uma sequência de colagem insensível **(Latin1_General_CI_AS)**.  A base de dados deve ser denominada **ADSync**.  O modelo de recuperação, o nível de compatibilidade e o tipo de contenção são atualizados para os valores corretos quando o Azure AD Connect está instalado.  No entanto, a sequência de colagem deve ser corretamente definida pelo administrador SQL, caso contrário o Azure AD Connect bloqueia a instalação.  Para recuperar a SA deve eliminar e recriar a base de dados.
  
    ![Agrupamento](./media/how-to-connect-install-sql-delegation/sql4.png)
-2. Conceda o administrador do Azure AD Connect e a conta de serviço de domínio as seguintes permissões:
+2. Conceda ao administrador Azure AD Connect e à conta de serviço de domínio as seguintes permissões:
    - Início de sessão do SQL 
-   - **base de dados owner(dbo)** direitos.
+   - **direitos do proprietário da base de dados(dbo).**
  
    ![Permissões](./media/how-to-connect-install-sql-delegation/sql3a.png)
 
    >[!NOTE]
-   >O Azure AD Connect não suporta a inícios de sessão com uma associação aninhada.  Isso significa que a sua conta de administrador do Azure AD Connect e a conta de serviço de domínio têm de ser associadas a um início de sessão é direitos de dbo.  Simplesmente não pode ser o membro de um grupo que está atribuído a um início de sessão com direitos de dbo.
+   >O Azure AD Connect não suporta logins com uma adesão aninhada.  Isto significa que a sua conta de administrador AD Connect Azur e a conta de serviço de domínio devem estar ligadas a um login que lhe seja concedido direitos dbo.  Não pode ser simplesmente o membro de um grupo que é designado para um login com direitos dbo.
 
-3. Envie um e-mail para o administrador do Azure AD Connect que indica o nome de servidor e a instância SQL que deve ser utilizado quando instalar o Azure AD Connect.
+3. Envie um e-mail ao administrador Azure AD Connect indicando o servidor SQL e o nome da instância que deve ser usado na instalação do Azure AD Connect.
 
 ## <a name="additional-information"></a>Informações adicionais
-Assim que a base de dados é aprovisionado, o administrador do Azure AD Connect pode instalar e configurar sincronização no local a suas necessidades.
+Uma vez que a base de dados é aprovisionada, o administrador Azure AD Connect pode instalar e configurar a sincronização no local a seu bel-prazer.
 
-No caso do administrador do SQL tem restaurada ADSync base de dados a partir de uma cópia de segurança do Azure AD Connect anterior, terá de instalar o novo servidor do Azure AD Connect com a base de dados existente. Para obter mais informações sobre como instalar o Azure AD Connect com uma base de dados existente, consulte [instalar o Azure AD Connect com a base de dados ADSync existente](how-to-connect-install-existing-database.md).
+Caso o Administrador SQL tenha restaurado a base de dados ADSync de uma cópia de segurança anterior do Azure AD Connect, terá de instalar o novo servidor Azure AD Connect utilizando uma base de dados existente. Para obter mais informações sobre a instalação do Azure AD Connect com uma base de dados existente, consulte [a Instalação do Azure AD Connect utilizando uma base de dados ADSync existente](how-to-connect-install-existing-database.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Introdução ao Azure AD Connect com as definições rápidas](how-to-connect-install-express.md)
 - [Instalação personalizada do Azure AD Connect](how-to-connect-install-custom.md)
 - [Instalar o Azure AD Connect com uma base de dados ADSync existente](how-to-connect-install-existing-database.md)  

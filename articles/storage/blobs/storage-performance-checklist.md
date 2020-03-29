@@ -9,10 +9,10 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: e4103f8360f6fa80470b0f8002a61f8ac903bd8b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255434"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento blob
@@ -25,7 +25,7 @@ O Azure Storage tem metas de escalabilidade e desempenho para capacidade, taxa d
 
 Este artigo organiza práticas comprovadas para o desempenho numa lista de verificação que pode seguir enquanto desenvolve a sua aplicação de armazenamento Blob.
 
-| Feito | Categoria | Considerações de design |
+| Concluído | Categoria | Consideração de design |
 | --- | --- | --- |
 | &nbsp; |Metas de escalabilidade |[Pode projetar a sua aplicação para usar não mais do que o número máximo de contas de armazenamento?](#maximum-number-of-storage-accounts) |
 | &nbsp; |Metas de escalabilidade |[Está a evitar aproximar-se dos limites de capacidade e transação?](#capacity-and-transaction-targets) |
@@ -43,8 +43,8 @@ Este artigo organiza práticas comprovadas para o desempenho numa lista de verif
 | &nbsp; |configuração .NET |[Para aplicações .NET, configurou .NET para utilizar um número suficiente de fios?](#increase-minimum-number-of-threads) |
 | &nbsp; |Paralelismo |[Assegurou que o paralelismo está devidamente limitado para que não sobrecarregue as capacidades do seu cliente ou se aproxime dos alvos de escalabilidade?](#unbounded-parallelism) |
 | &nbsp; |Ferramentas |[Está a utilizar as versões mais recentes das bibliotecas e ferramentas fornecidas pela Microsoft?](#client-libraries-and-tools) |
-| &nbsp; |Repetições |[Estás a usar uma política de retry com um recuo exponencial para erros de estrangulamento e intervalos?](#timeout-and-server-busy-errors) |
-| &nbsp; |Repetições |[A sua aplicação está a evitar tentativas de erros não retáveis?](#non-retryable-errors) |
+| &nbsp; |Tentativas |[Estás a usar uma política de retry com um recuo exponencial para erros de estrangulamento e intervalos?](#timeout-and-server-busy-errors) |
+| &nbsp; |Tentativas |[A sua aplicação está a evitar tentativas de erros não retáveis?](#non-retryable-errors) |
 | &nbsp; |Bolhas de cópia |[Estás a copiar bolhas da maneira mais eficiente?](#blob-copy-apis) |
 | &nbsp; |Bolhas de cópia |[Está a utilizar a versão mais recente do AzCopy para operações de cópia a granel?](#use-azcopy) |
 | &nbsp; |Bolhas de cópia |[Está a usar a família Azure Data Box para importar grandes volumes de dados?](#use-azure-data-box) |
@@ -52,7 +52,7 @@ Este artigo organiza práticas comprovadas para o desempenho numa lista de verif
 | &nbsp; |Usar metadados |[Está a armazenar metadados frequentemente usados sobre bolhas nos seus metadados?](#use-metadata) |
 | &nbsp; |Upload rapidamente |[Ao tentar carregar uma bolha rapidamente, está a carregar blocos em paralelo?](#upload-one-large-blob-quickly) |
 | &nbsp; |Upload rapidamente |[Ao tentar carregar muitas bolhas rapidamente, está a carregar bolhas paralelas?](#upload-many-blobs-quickly) |
-| &nbsp; |Tipo de bolha |[Está a usar bolhas de página ou blocos quando apropriado?](#choose-the-correct-type-of-blob) |
+| &nbsp; |Tipo de blob |[Está a usar bolhas de página ou blocos quando apropriado?](#choose-the-correct-type-of-blob) |
 
 ## <a name="scalability-targets"></a>Metas de escalabilidade
 
@@ -236,13 +236,13 @@ O Azure Storage fornece uma série de soluções para copiar e mover bolhas dent
 
 ### <a name="blob-copy-apis"></a>Cópia blob APIs
 
-Para copiar bolhas através das contas de armazenamento, utilize o bloqueio de entrada da operação [URL.](/rest/api/storageservices/put-block-from-url) Esta operação copia os dados sincronizadamente de qualquer fonte de URL para uma bolha de bloco. A utilização da operação `Put Block from URL` pode reduzir significativamente a largura de banda necessária quando se está a migrar dados através de contas de armazenamento. Uma vez que a operação de cópia ocorre no lado do serviço, não precisa de descarregar e recarregar os dados.
+Para copiar bolhas através das contas de armazenamento, utilize o bloqueio de entrada da operação [URL.](/rest/api/storageservices/put-block-from-url) Esta operação copia os dados sincronizadamente de qualquer fonte de URL para uma bolha de bloco. A `Put Block from URL` utilização da operação pode reduzir significativamente a largura de banda necessária quando estiver a migrar dados através de contas de armazenamento. Uma vez que a operação de cópia ocorre no lado do serviço, não precisa de descarregar e recarregar os dados.
 
 Para copiar dados dentro da mesma conta de armazenamento, utilize a operação [Copy Blob.](/rest/api/storageservices/Copy-Blob) A cópia dos dados dentro da mesma conta de armazenamento é normalmente concluída rapidamente.  
 
 ### <a name="use-azcopy"></a>Utilizar o AZCopy
 
-O utilitário de linha de comando AzCopy é uma opção simples e eficiente para a transferência a granel de bolhas para, a partir e através de contas de armazenamento. A ZCopy está otimizada para este cenário e pode atingir altas taxas de transferência. A versão 10 do AzCopy utiliza a operação `Put Block From URL` para copiar dados blob através de contas de armazenamento. Para mais informações, consulte [Copiar ou mover dados para o Armazenamento Azure utilizando o AzCopy v10](/azure/storage/common/storage-use-azcopy-v10).  
+O utilitário de linha de comando AzCopy é uma opção simples e eficiente para a transferência a granel de bolhas para, a partir e através de contas de armazenamento. A ZCopy está otimizada para este cenário e pode atingir altas taxas de transferência. A versão AzCopy `Put Block From URL` 10 utiliza a operação para copiar dados blob através de contas de armazenamento. Para mais informações, consulte [Copiar ou mover dados para o Armazenamento Azure utilizando o AzCopy v10](/azure/storage/common/storage-use-azcopy-v10).  
 
 ### <a name="use-azure-data-box"></a>Utilize caixa de dados Azure
 
@@ -283,7 +283,7 @@ As bolhas de apêndice são semelhantes às bolhas de bloco, na medida em que s�
 
 As bolhas de página são apropriadas se a aplicação precisar de realizar escritos aleatórios nos dados. Por exemplo, os discos de máquinas virtuais Azure são armazenados como bolhas de página. Para mais informações, consulte [Understanding block blobs, apêndice blobs e page blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Metas de escalabilidade e desempenho para armazenamento blob](scalability-targets.md)
 - [Metas de escalabilidade e desempenho para contas de armazenamento padrão](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

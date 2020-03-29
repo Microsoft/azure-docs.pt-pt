@@ -1,5 +1,5 @@
 ---
-title: REST API - Azure Event Grid IoT Edge  Microsoft Docs
+title: REST API - Azure Event Grid IoT Edge [ Microsoft Docs
 description: REST API na grelha de eventos na Borda IoT.
 author: VidyaKukke
 manager: rajarv
@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 19f86b1d8233e05844201e1095c1f79324955cd7
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76841834"
 ---
 # <a name="rest-api"></a>API REST
@@ -21,11 +21,11 @@ Este artigo descreve as APIs REST da Grelha de Eventos Azure na Borda IoT
 
 ## <a name="common-api-behavior"></a>Comportamento comum da API
 
-### <a name="base-url"></a>Base URL
+### <a name="base-url"></a>URL Base
 A Grelha de Eventos na Borda IoT tem as seguintes APIs expostas sobre HTTP (porta 5888) e HTTPS (porta 4438).
 
-* URL base para HTTP: http://eventgridmodule:5888
-* URL base para HTTPS: https://eventgridmodule:4438
+* URL base para HTTP:http://eventgridmodule:5888
+* URL base para HTTPS:https://eventgridmodule:4438
 
 ### <a name="request-query-string"></a>Solicitar corda de consulta
 Todos os pedidos da API requerem o seguinte parâmetro de corda de consulta:
@@ -74,7 +74,7 @@ Todas as APIs devolvem um erro com a seguinte carga útil:
 
 ### <a name="put-topic-create--update"></a>Colocar tópico (criar /atualizar)
 
-**Pedido**: ``` PUT /topics/<topic_name>?api-version=2019-01-01-preview ```
+**Pedido:**``` PUT /topics/<topic_name>?api-version=2019-01-01-preview ```
 
 **Carga útil:**
 
@@ -107,7 +107,7 @@ Todas as APIs devolvem um erro com a seguinte carga útil:
 
 ### <a name="get-topic"></a>Obter tópico
 
-**Pedido**: ``` GET /topics/<topic_name>?api-version=2019-01-01-preview ```
+**Pedido:**``` GET /topics/<topic_name>?api-version=2019-01-01-preview ```
 
 **Resposta**: HTTP 200
 
@@ -127,7 +127,7 @@ Todas as APIs devolvem um erro com a seguinte carga útil:
 
 ### <a name="get-all-topics"></a>Obter todos os tópicos
 
-**Pedido**: ``` GET /topics?api-version=2019-01-01-preview ```
+**Pedido:**``` GET /topics?api-version=2019-01-01-preview ```
 
 **Resposta**: HTTP 200
 
@@ -159,16 +159,16 @@ Todas as APIs devolvem um erro com a seguinte carga útil:
 
 ### <a name="delete-topic"></a>Apagar tópico
 
-**Pedido**: ``` DELETE /topics/<topic_name>?api-version=2019-01-01-preview ```
+**Pedido:**``` DELETE /topics/<topic_name>?api-version=2019-01-01-preview ```
 
 **Resposta**: HTTP 200, carga útil vazia
 
 ## <a name="manage-event-subscriptions"></a>Gerir subscrições de eventos
-As amostras desta secção utilizam `EndpointType=Webhook;`. As amostras de json para `EndpointType=EdgeHub / EndpointType=EventGrid` estão na próxima secção. 
+As amostras `EndpointType=Webhook;`desta secção utilizam-se. As amostras de `EndpointType=EdgeHub / EndpointType=EventGrid` json estão na próxima secção. 
 
 ### <a name="put-event-subscription-create--update"></a>Colocar subscrição de evento (criar /atualizar)
 
-**Pedido**: ``` PUT /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
+**Pedido:**``` PUT /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
 **Carga útil:**
 ```json
@@ -373,7 +373,7 @@ As amostras desta secção utilizam `EndpointType=Webhook;`. As amostras de json
 
 ### <a name="get-event-subscription"></a>Obtenha subscrição de eventos
 
-**Pedido**: ``` GET /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
+**Pedido:**``` GET /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
 **Resposta**: HTTP 200
 
@@ -478,7 +478,7 @@ As amostras desta secção utilizam `EndpointType=Webhook;`. As amostras de json
 
 ### <a name="get-event-subscriptions"></a>Obtenha subscrições de eventos
 
-**Pedido**: ``` GET /topics/<topic_name>/eventSubscriptions?api-version=2019-01-01-preview ```
+**Pedido:**``` GET /topics/<topic_name>/eventSubscriptions?api-version=2019-01-01-preview ```
 
 **Resposta**: HTTP 200
 
@@ -496,7 +496,7 @@ As amostras desta secção utilizam `EndpointType=Webhook;`. As amostras de json
 
 ### <a name="delete-event-subscription"></a>Eliminar subscrição de eventos
 
-**Pedido**: ``` DELETE /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
+**Pedido:**``` DELETE /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
 **Resposta**: HTTP 200, sem carga útil
 
@@ -505,7 +505,7 @@ As amostras desta secção utilizam `EndpointType=Webhook;`. As amostras de json
 
 ### <a name="send-batch-of-events-in-event-grid-schema"></a>Enviar lote de eventos (em event grid schema)
 
-**Pedido**: ``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
+**Pedido:**``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
 
 ```json
 [
@@ -527,18 +527,18 @@ As amostras desta secção utilizam `EndpointType=Webhook;`. As amostras de json
 
 
 **Descrições do campo de carga útil**
-- ```Id``` é obrigatório. Pode ser qualquer valor de corda que seja povoado pelo chamador. A Grelha de Eventos NÃO faz qualquer deteção duplicada ou aplica qualquer semântica neste campo.
-- ```Topic``` é opcional, mas se especificado deve corresponder ao topic_name do URL de pedido
-- ```Subject``` é obrigatório, pode ser qualquer valor de cadeia
-- ```EventType``` é obrigatório, pode ser qualquer valor de cadeia
-- ```EventTime``` é obrigatório, não é validado, mas deve ser um DataTime adequado.
-- ```DataVersion``` é obrigatório
-- ```MetadataVersion``` é opcional, se especificado deve ser uma cadeia com o valor ```"1"```
-- ```Data``` é opcional, e pode ser qualquer símbolo JSON (número, corda, boolean, matriz, objeto)
+- ```Id```é obrigatório. Pode ser qualquer valor de corda que seja povoado pelo chamador. A Grelha de Eventos NÃO faz qualquer deteção duplicada ou aplica qualquer semântica neste campo.
+- ```Topic```é opcional, mas se especificado deve corresponder ao topic_name do URL de pedido
+- ```Subject```é obrigatório, pode ser qualquer valor de cadeia
+- ```EventType```é obrigatório, pode ser qualquer valor de cadeia
+- ```EventTime```é obrigatório, não é validado, mas deve ser um DataTime adequado.
+- ```DataVersion```é obrigatório
+- ```MetadataVersion```é opcional, se especificado DEVE ser uma corda com o valor```"1"```
+- ```Data```é opcional, e pode ser qualquer símbolo JSON (número, corda, boolean, matriz, objeto)
 
 ### <a name="send-batch-of-events-in-custom-schema"></a>Enviar lote de eventos (em esquema personalizado)
 
-**Pedido**: ``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
+**Pedido:**``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
 
 ```json
 [
@@ -572,7 +572,7 @@ Estabelece um tópico para exigir que os eventos sejam publicados em **eventgrid
 ```
 
 ### <a name="set-up-topic-with-custom-schema"></a>Configurar tópico com esquema personalizado
-Estabelece um tópico para exigir que os eventos sejam publicados em `customschema`.
+Estabelece um tópico para exigir que `customschema`os eventos sejam publicados em .
 
 ```json
     {
@@ -585,7 +585,7 @@ Estabelece um tópico para exigir que os eventos sejam publicados em `customsche
 ```
 
 ### <a name="set-up-topic-with-cloud-event-schema"></a>Configurar tópico com esquema de evento em nuvem
-Estabelece um tópico para exigir que os eventos sejam publicados em `cloudeventschema`.
+Estabelece um tópico para exigir que `cloudeventschema`os eventos sejam publicados em .
 
 ```json
     {
@@ -617,13 +617,13 @@ Utilize este tipo de destino para enviar eventos para qualquer outro módulo (qu
 }
 ```
 
-Constrangimentos no atributo `endpointUrl`:
+Restrições no `endpointUrl` atributo:
 - Deve ser não-nulo.
 - Deve ser uma URL absoluta.
 - Se outbound__webhook__httpsOnly for definido de forma verdadeira nas definições do EventGridModule, deve ser apenas HTTPS.
 - Se outbound__webhook__httpsOnly definido para falso, pode ser HTTP ou HTTPS.
 
-Constrangimentos na propriedade `eventDeliverySchema`:
+Constrangimentos na `eventDeliverySchema` propriedade:
 - Deve coincidir com o esquema de entrada do tópico de subscrição.
 - Pode ser nulo. Não se aplica ao esquema de entrada do tópico.
 
@@ -672,7 +672,7 @@ Utilize este destino para enviar eventos para a Rede de Eventos na nuvem (Azure)
 EndpointUrl:
 - Deve ser não-nulo.
 - Deve ser uma URL absoluta.
-- O caminho `/api/events` deve ser definido no caminho URL do pedido.
+- O `/api/events` caminho deve ser definido no caminho URL do pedido.
 - Deve ter `api-version=2018-01-01` na corda de consulta.
 - Se outbound__eventgrid__httpsOnly for definido para ser verdade nas definições do EventGridModule (verdadeira por defeito), deve ser apenas HTTPS.
 - Se outbound__eventgrid__httpsOnly for configurado como falso, pode ser HTTP ou HTTPS.
@@ -690,7 +690,7 @@ Nome tópico:
 
 ## <a name="set-up-event-hubs-as-a-destination"></a>Configurar Centros de Eventos como destino
 
-Para publicar num Event Hub, detete a `endpointType` para `eventHub` e fornecer:
+Para publicar num Event Hub, detete o `endpointType` para `eventHub` e fornecer:
 
 * conexãoString: Linha de ligação para o Hub de Evento específico que você está a visar gerado através de uma Política de Acesso Partilhado.
 
@@ -712,7 +712,7 @@ Para publicar num Event Hub, detete a `endpointType` para `eventHub` e fornecer:
 
 ## <a name="set-up-service-bus-queues-as-a-destination"></a>Configurar as filas de ônibus de serviço como um destino
 
-Para publicar numa fila de ônibus de serviço, detete a `endpointType` para `serviceBusQueue` e fornecer:
+Para publicar numa fila de `endpointType` ônibus de serviço, detete o para `serviceBusQueue` e fornecer:
 
 * ligaçãoString: Linha de ligação para a fila específica do ônibus de serviço que você está a visar gerada através de uma Política de Acesso Partilhado.
 
@@ -734,7 +734,7 @@ Para publicar numa fila de ônibus de serviço, detete a `endpointType` para `se
 
 ## <a name="set-up-service-bus-topics-as-a-destination"></a>Configurar tópicos de ônibus de serviço como um destino
 
-Para publicar num Tópico de Autocarro de Serviço, detete a `endpointType` para `serviceBusTopic` e fornecer:
+Para publicar num Tópico de `endpointType` Autocarro `serviceBusTopic` de Serviço, detete o para e fornecer:
 
 * conexãoString: Linha de ligação para o tópico específico do ônibus de serviço que você está a visar gerado através de uma Política de Acesso Partilhado.
 
@@ -756,7 +756,7 @@ Para publicar num Tópico de Autocarro de Serviço, detete a `endpointType` para
 
 ## <a name="set-up-storage-queues-as-a-destination"></a>Configurar filas de armazenamento como destino
 
-Para publicar numa fila de armazenamento, delineie a `endpointType` para `storageQueue` e fornecer:
+Para publicar numa fila de `endpointType` `storageQueue` armazenamento, delineie o para e fornecer:
 
 * nome da fila de armazenamento para a qual está a publicar.
 * ligaçãoString: Fio de ligação para a conta de armazenamento em que a fila de armazenamento está dentro.

@@ -1,81 +1,81 @@
 ---
-title: Criar & implantar projetos do grupo de recursos do Visual Studio
-description: Use o Visual Studio para criar um projeto de grupo de recursos do Azure e implantar os recursos no Azure.
+title: Criar & implementar projetos do grupo de recursos do Estúdio Visual
+description: Use o Estúdio Visual para criar um projeto de grupo de recursos Azure e implementar os recursos para o Azure.
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.openlocfilehash: 5127732ac0c33d4b27f70bd616fb23aaec5c871f
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76152736"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criar e implementar grupos de recursos do Azure através do Visual Studio
 
-Com o Visual Studio, pode criar um projeto que implementa a sua infraestrutura e o código para o Azure. Por exemplo, você pode implantar o host da Web, o site e o código para o site. O Visual Studio fornece muitos modelos de introdução diferentes para cenários comuns de implementação. Neste artigo, você implantará um aplicativo Web.
+Com o Visual Studio, pode criar um projeto que implementa a sua infraestrutura e o código para o Azure. Por exemplo, pode implementar o web host, website e código para o site. O Visual Studio fornece muitos modelos de introdução diferentes para cenários comuns de implementação. Neste artigo, você implementa uma aplicação web.
 
-Este artigo mostra como usar [o Visual Studio 2019 ou posterior com as cargas de trabalho de desenvolvimento e ASP.net do Azure instaladas](/visualstudio/install/install-visual-studio?view=vs-2019). Se você usar o Visual Studio 2017, sua experiência será basicamente a mesma.
+Este artigo mostra como usar o [Visual Studio 2019 ou mais tarde com o desenvolvimento do Azure e ASP.NET cargas de trabalho instaladas.](/visualstudio/install/install-visual-studio?view=vs-2019) Se utilizar o Visual Studio 2017, a sua experiência é em grande parte a mesma.
 
 ## <a name="create-azure-resource-group-project"></a>Criar projeto do Grupo de Recursos do Azure
 
-Nesta seção, você cria um projeto de grupo de recursos do Azure com um modelo de **aplicativo Web** .
+Nesta secção, cria-se um projeto do Grupo de Recursos Azure com um modelo de **aplicação Web.**
 
-1. No Visual Studio, escolha **arquivo**>**novo** **projeto**de>.
-1. Selecione o modelo de projeto do **grupo de recursos do Azure** e **Avançar**.
+1. No Estúdio Visual, escolha **File**>**New**>**Project**.
+1. Selecione o modelo de projeto do Grupo de **Recursos Azure** e **Seguinte**.
 
     ![Criar o projeto](./media/create-visual-studio-deployment-project/create-project.png)
 
-1. Dê um nome ao seu projeto. As outras configurações padrão provavelmente estão corretas, mas examine-as para que elas funcionem para o seu ambiente. Quando terminar, selecione **Criar**.
+1. Dê um nome ao seu projeto. As outras definições padrão provavelmente são boas, mas revê-las para que funcionem para o seu ambiente. Quando terminar, selecione **Criar**.
 
     ![Criar o projeto](./media/create-visual-studio-deployment-project/name-project.png)
 
-1. Escolha o modelo que pretende implementar no Azure Resource Manager. Tenha em atenção que existem muitas opções diferentes com base no tipo de projeto que pretende implementar. Para este artigo, escolha o modelo de **aplicativo Web** e **OK**.
+1. Escolha o modelo que pretende implementar no Azure Resource Manager. Tenha em atenção que existem muitas opções diferentes com base no tipo de projeto que pretende implementar. Para este artigo, escolha o modelo de **aplicação Web** e **OK**.
 
     ![Escolher um modelo](./media/create-visual-studio-deployment-project/select-project.png)
 
     O modelo que escolher é apenas um ponto de partida; pode adicionar e remover recursos para satisfazer o seu cenário.
 
-1. O Visual Studio cria um projeto de implantação de grupo de recursos para o aplicativo Web. Para ver os arquivos do seu projeto, examine o nó no projeto de implantação.
+1. O Visual Studio cria um projeto de implantação de grupos de recursos para a aplicação web. Para ver os ficheiros do seu projeto, veja o nó no projeto de implantação.
 
-    ![Mostrar nós](./media/create-visual-studio-deployment-project/show-items.png)
+    ![Mostrar nódosos](./media/create-visual-studio-deployment-project/show-items.png)
 
-    Como você escolheu o modelo de aplicativo Web, verá os seguintes arquivos:
+    Uma vez que escolheu o modelo de aplicação Web, vê os seguintes ficheiros:
 
    | Nome de ficheiro | Descrição |
    | --- | --- |
-   | Deploy-AzureResourceGroup.ps1 |Um script do PowerShell que executa comandos do PowerShell para implementar no Azure Resource Manager. O Visual Studio usa esse script do PowerShell para implantar seu modelo. |
+   | Deploy-AzureResourceGroup.ps1 |Um script do PowerShell que executa comandos do PowerShell para implementar no Azure Resource Manager. O Visual Studio usa este script PowerShell para implementar o seu modelo. |
    | WebSite.json |O modelo do Resource Manager que define a infraestrutura que pretende implementar no Azure e os parâmetros que pode fornecer durante a implementação. Define as dependências entre os recursos para que o Resource Manager os implemente na ordem correta. |
    | WebSite.parameters.json |Um ficheiro de parâmetros que tem os valores que são precisos para o modelo. Passa nos valores dos parâmetros para personalizar cada implementação. |
 
     Todos os projetos de implementação do grupo de recursos têm estes ficheiros básicos. Outros projetos poderão ter ficheiros adicionais para suportar outras funcionalidades.
 
-## <a name="customize-resource-manager-template"></a>Personalizar modelo do Resource Manager
+## <a name="customize-resource-manager-template"></a>Personalizar modelo de gestor de recursos
 
-Você pode personalizar um projeto de implantação modificando o modelo do Resource Manager que descreve os recursos que você deseja implantar. Para saber mais sobre os elementos do modelo do Resource Manager, consulte [Criação de modelos do Azure Resource Manager](template-syntax.md).
+Pode personalizar um projeto de implementação modificando o modelo de Gestor de Recursos que descreve os recursos que pretende implementar. Para saber mais sobre os elementos do modelo do Resource Manager, consulte [Criação de modelos do Azure Resource Manager](template-syntax.md).
 
-1. Para trabalhar em seu modelo, abra **site. JSON**.
+1. Para trabalhar no seu modelo, abra **webSite.json**.
 
 1. O editor do Visual Studio fornece ferramentas para o ajudar a editar o modelo do Resource Manager. A janela **Contorno de JSON** faz com que seja mais fácil ver os elementos definidos no seu modelo.
 
-   ![Mostrar estrutura de tópicos JSON](./media/create-visual-studio-deployment-project/show-json-outline.png)
+   ![Mostrar contorno jSON](./media/create-visual-studio-deployment-project/show-json-outline.png)
 
-1. Selecione um elemento na estrutura de tópicos para ir para essa parte do modelo.
+1. Selecione um elemento no contorno para ir a essa parte do modelo.
 
-   ![Navegar pelo JSON](./media/create-visual-studio-deployment-project/navigate-json.png)
+   ![Navegar JSON](./media/create-visual-studio-deployment-project/navigate-json.png)
 
 1. Pode adicionar um recurso, selecionando o botão **Adicionar Recurso** na parte superior da janela Contorno de JSON ou clicando com o botão direito do rato em **recursos** e selecionando **Adicionar Novo Recurso**.
 
    ![Adicionar recurso](./media/create-visual-studio-deployment-project/add-resource.png)
 
-1. Selecione **conta de armazenamento** e dê a ela um nome. Forneça um nome com um máximo de 11 carateres e apenas números e letras minúsculas.
+1. Selecione **Conta de Armazenamento** e dê-lhe um nome. Forneça um nome com um máximo de 11 carateres e apenas números e letras minúsculas.
 
    ![Adicionar armazenamento](./media/create-visual-studio-deployment-project/add-storage.png)
 
 1. Tenha em atenção que o recurso foi adicionado, mas também um parâmetro para a conta do Storage do tipo e uma variável para o nome da conta do Storage.
 
-   ![Mostrar estrutura de tópicos](./media/create-visual-studio-deployment-project/show-new-items.png)
+   ![Mostrar contorno](./media/create-visual-studio-deployment-project/show-new-items.png)
 
-1. O parâmetro para o tipo de conta de armazenamento é predefinido com tipos permitidos e um tipo padrão. Pode deixar estes valores ou editá-los para o seu cenário. Se não pretender que ninguém implemente uma conta de armazenamento **Premium_LRS** através deste modelo, remova-a dos tipos permitidos.
+1. O parâmetro para o tipo de conta de armazenamento é pré-definido com tipos permitidos e um tipo predefinido. Pode deixar estes valores ou editá-los para o seu cenário. Se não pretender que ninguém implemente uma conta de armazenamento **Premium_LRS** através deste modelo, remova-a dos tipos permitidos.
 
    ```json
    "demoaccountType": {
@@ -90,11 +90,11 @@ Você pode personalizar um projeto de implantação modificando o modelo do Reso
    }
    ```
 
-1. O Visual Studio também fornece IntelliSense para ajudá-lo a entender as propriedades disponíveis ao editar o modelo. Por exemplo, para editar as propriedades para o seu plano do Serviço de Aplicações, navegue até ao recurso **HostingPlan** e adicione um valor para as **propriedades**. Repare que o intellisense mostra os valores disponíveis e fornece uma descrição desse valor.
+1. O Visual Studio também fornece intellisense para ajudá-lo a entender as propriedades que estão disponíveis ao editar o modelo. Por exemplo, para editar as propriedades para o seu plano do Serviço de Aplicações, navegue até ao recurso **HostingPlan** e adicione um valor para as **propriedades**. Repare que o intellisense mostra os valores disponíveis e fornece uma descrição desse valor.
 
-   ![Mostrar IntelliSense](./media/create-visual-studio-deployment-project/show-intellisense.png)
+   ![Mostrar intellisense](./media/create-visual-studio-deployment-project/show-intellisense.png)
 
-   Você pode definir **numberOfWorkers** como 1 e salvar o arquivo.
+   Pode definir **o número OfWorkers** para 1 e guardar o ficheiro.
 
    ```json
    "properties": {
@@ -103,7 +103,7 @@ Você pode personalizar um projeto de implantação modificando o modelo do Reso
    }
    ```
 
-1. Abra o arquivo **site. Parameters. JSON** . Você usa o arquivo de parâmetros para passar valores durante a implantação que personalizam o recurso que está sendo implantado. Dê um nome ao plano de hospedagem e salve o arquivo.
+1. Abra o ficheiro **WebSite.parameters.json.** Utiliza o ficheiro de parâmetros para passar em valores durante a implementação que personalizam o recurso que está a ser implantado. Dê um nome ao plano de acolhimento e guarde o ficheiro.
 
    ```json
    {
@@ -117,19 +117,19 @@ Você pode personalizar um projeto de implantação modificando o modelo do Reso
    }
    ```
 
-## <a name="deploy-project-to-azure"></a>Implantar projeto no Azure
+## <a name="deploy-project-to-azure"></a>Implementar projeto para o Azure
 
-Agora você está pronto para implantar seu projeto em um grupo de recursos.
+Está pronto para lançar o seu projeto para um grupo de recursos.
 
-Por padrão, o script do PowerShell (Deploy-azureresourcegroup. ps1) no projeto usa o módulo AzureRM. Se você ainda tiver o módulo AzureRM instalado e quiser continuar a usá-lo, poderá usar esse script padrão. Com esse script, você pode usar a interface do Visual Studio para implantar sua solução.
+Por predefinição, o script PowerShell (Deploy-AzureResourceGroup.ps1) no projeto utiliza o módulo AzureRM. Se ainda tiver o módulo AzureRM instalado e pretender continuar a utilizá-lo, pode utilizar este script predefinido. Com este script, pode utilizar a interface Do Estúdio Visual para implementar a sua solução.
 
-No entanto, se você migrou para o novo [módulo AZ](/powershell/azure/new-azureps-module-az), precisará adicionar um novo script ao seu projeto. Para adicionar um script que usa o módulo AZ, copie o script [Deploy-AzTemplate. ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzTemplate.ps1) e adicione-o ao seu projeto. Para usar esse script para implantação, você deve executá-lo em um console do PowerShell, em vez de usar a interface de implantação do Visual Studio.
+No entanto, se emigrou para o novo [módulo Az,](/powershell/azure/new-azureps-module-az)precisa adicionar um novo script ao seu projeto. Para adicionar um script que utiliza o módulo Az, copie o script [Deploy-AzTemplate.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzTemplate.ps1) e adicione-o ao seu projeto. Para utilizar este script para implementação, deve executá-lo a partir de uma consola PowerShell, em vez de usar a interface de implementação do Visual Studio.
 
-Ambas as abordagens são mostradas neste artigo. Este artigo refere-se ao script padrão como o script de módulo AzureRM e o novo script como o script de módulo AZ.
+Ambas as abordagens são mostradas neste artigo. Este artigo refere-se ao script padrão como o script do módulo AzureRM, e o novo script como o script do módulo Az.
 
-### <a name="az-module-script"></a>Script de módulo AZ
+### <a name="az-module-script"></a>Script de módulo Az
 
-Para o script de módulo AZ, abra um console do PowerShell e execute:
+Para o script do módulo Az, abra uma consola PowerShell e corra:
 
 ```powershell
 .\Deploy-AzTemplate.ps1 -ArtifactStagingDirectory . -Location centralus -TemplateFile WebSite.json -TemplateParametersFile WebSite.parameters.json
@@ -137,15 +137,15 @@ Para o script de módulo AZ, abra um console do PowerShell e execute:
 
 ### <a name="azurerm-module-script"></a>Script de módulo AzureRM
 
-Para o script do módulo AzureRM, use o Visual Studio:
+Para o script do módulo AzureRM, utilize o Estúdio Visual:
 
-1. No menu de atalho do nó do projeto de implementação, selecione **Implementar** > **Novo**.
+1. No menu de atalho do nó do projeto de implantação, escolha **Deploy** > **New**.
 
-    ![Novo item de menu de implantação](./media/create-visual-studio-deployment-project/deploy.png)
+    ![Novo item do menu de implementação](./media/create-visual-studio-deployment-project/deploy.png)
 
 1. É apresentada a caixa de diálogo **Implementar no Grupo de Recursos**. Na caixa de diálogo pendente **Grupo de recursos**, escolha um grupo de recursos existente ou crie um novo. Selecione **Implementar**.
 
-    ![Caixa de diálogo implantar no grupo de recursos](./media/create-visual-studio-deployment-project/show-deployment.png)
+    ![Desdobre para caixa de diálogo de grupo de recursos](./media/create-visual-studio-deployment-project/show-deployment.png)
 
 1. O estado da implementação é apresentado nas janelas **Saída**. Após concluir a implementação, a última mensagem indicará uma implementação bem sucedida com algo semelhante a:
 
@@ -153,13 +153,13 @@ Para o script do módulo AzureRM, use o Visual Studio:
    18:00:58 - Successfully deployed template 'website.json' to resource group 'ExampleAppDeploy'.
    ```
 
-## <a name="view-deployed-resources"></a>Exibir recursos implantados
+## <a name="view-deployed-resources"></a>Ver recursos implantados
 
 Vamos verificar os resultados.
 
 1. Num browser, abra o [Portal do Azure](https://portal.azure.com/) e inicie sessão na sua conta. Para ver o grupo de recursos, selecione **Grupos de recursos** e o grupo de recursos no qual implementou.
 
-1. Veja todos os recursos implementados. Repare que o nome da conta de armazenamento não é exatamente aquele que especificou quando adicionou esse recurso. A conta de armazenamento deve ser exclusiva. O modelo adiciona automaticamente uma cadeia de caracteres ao nome que você forneceu para criar um nome exclusivo.
+1. Veja todos os recursos implementados. Repare que o nome da conta de armazenamento não é exatamente aquele que especificou quando adicionou esse recurso. A conta de armazenamento deve ser exclusiva. O modelo adiciona automaticamente uma série de caracteres ao nome que forneceu para criar um nome único.
 
     ![Mostrar recursos](./media/create-visual-studio-deployment-project/show-deployed-resources.png)
 
@@ -167,27 +167,27 @@ Vamos verificar os resultados.
 
 Neste momento, implementou a infraestrutura para a sua aplicação, mas não existe qualquer código real implementado com o projeto.
 
-1. Adicione um projeto à sua solução do Visual Studio. Clique com o botão direito do rato na solução e selecione **Adicionar** > **Novo Projeto**.
+1. Adicione um projeto à sua solução do Visual Studio. Clique na solução e selecione **Adicionar** > **Novo Projeto**.
 
     ![Adicionar projeto](./media/create-visual-studio-deployment-project/add-project.png)
 
-1. Adicione um **aplicativo Web ASP.NET Core**.
+1. Adicione uma **aplicação web ASP.NET Core**.
 
-    ![Adicionar aplicativo Web](./media/create-visual-studio-deployment-project/add-app.png)
+    ![Adicionar aplicativo web](./media/create-visual-studio-deployment-project/add-app.png)
 
-1. Dê um nome ao seu aplicativo Web e selecione **criar**.
+1. Dê um nome à sua aplicação web e selecione **Criar**.
 
-    ![Nomear aplicativo Web](./media/create-visual-studio-deployment-project/name-web-app.png)
+    ![Aplicativo web de nome](./media/create-visual-studio-deployment-project/name-web-app.png)
 
-1. Selecione **aplicativo Web** e **criar**.
+1. Selecione **aplicação web** e **criar**.
 
-    ![Selecionar aplicativo Web](./media/create-visual-studio-deployment-project/select-project-type.png)
+    ![Selecione aplicação Web](./media/create-visual-studio-deployment-project/select-project-type.png)
 
 1. Depois de o Visual Studio ter criado a sua aplicação Web, verá ambos os projetos na solução.
 
     ![Mostrar projetos](./media/create-visual-studio-deployment-project/show-projects.png)
 
-1. Agora, tem de verificar se o projeto do grupo de recursos deteta o novo projeto. Volte para o projeto do grupo de recursos (ExampleAppDeploy). Clique com o botão direito do rato em **Referências** e selecione **Adicionar Referência**.
+1. Agora, tem de verificar se o projeto do grupo de recursos deteta o novo projeto. Volte ao seu projeto de grupo de recursos (ExemploAppDeploy). Clique com o botão direito do rato em **Referências** e selecione **Adicionar Referência**.
 
     ![Adicionar referência](./media/create-visual-studio-deployment-project/add-new-reference.png)
 
@@ -195,23 +195,23 @@ Neste momento, implementou a infraestrutura para a sua aplicação, mas não exi
 
    ![Adicionar referência](./media/create-visual-studio-deployment-project/add-reference.png)
 
-   Ao adicionar uma referência, você vincula o projeto do aplicativo Web ao projeto do grupo de recursos e define automaticamente algumas propriedades. Pode ver estas propriedades na janela **Propriedades** da referência. O **Incluir Caminho do Ficheiro** tem o caminho onde o pacote é criado. Anote a pasta (ExampleApp) e o ficheiro (package.zip). É necessário saber estes valores, uma vez que os fornece como parâmetros ao implementar a aplicação.
+   Ao adicionar uma referência, liga o projeto da aplicação web ao projeto do grupo de recursos e configura automaticamente algumas propriedades. Pode ver estas propriedades na janela **Propriedades** da referência. O **Incluir Caminho do Ficheiro** tem o caminho onde o pacote é criado. Anote a pasta (ExampleApp) e o ficheiro (package.zip). É necessário saber estes valores, uma vez que os fornece como parâmetros ao implementar a aplicação.
 
-   ![Consulte a referência](./media/create-visual-studio-deployment-project/see-reference.png)
+   ![Ver referência](./media/create-visual-studio-deployment-project/see-reference.png)
 
-1. Volte para o modelo (site. JSON) e adicione um recurso ao modelo.
+1. Volte para o seu modelo (WebSite.json) e adicione um recurso ao modelo.
 
     ![Adicionar recurso](./media/create-visual-studio-deployment-project/add-resource-2.png)
 
 1. Desta vez, selecione **Implementação Web de Aplicações Web**.
 
-    ![Adicionar implantação da Web](./media/create-visual-studio-deployment-project/add-web-deploy.png)
+    ![Adicionar implementação web](./media/create-visual-studio-deployment-project/add-web-deploy.png)
 
-   Salve seu modelo.
+   Guarde o seu modelo.
 
-1. Há alguns novos parâmetros em seu modelo. Elas foram adicionadas na etapa anterior. Você não precisa fornecer valores para **_artifactsLocation** ou **_artifactsLocationSasToken** porque esses valores são gerados automaticamente. No entanto, você precisa definir a pasta e o nome do arquivo para o caminho que contém o pacote de implantação. Os nomes desses parâmetros terminam com **PackageFolder** e **PackageFileName**. A primeira parte do nome é o nome do Implantação da Web recurso que você adicionou. Neste artigo, eles são nomeados **ExampleAppPackageFolder** e **ExampleAppPackageFileName**.
+1. Há alguns novos parâmetros no seu modelo. Foram adicionados no passo anterior. Não é necessário fornecer valores para **_artifactsLocation** ou **_artifactsLocationSasToken** porque esses valores são gerados automaticamente. No entanto, tem de definir a pasta e o nome do ficheiro para o caminho que contém o pacote de implementação. Os nomes destes parâmetros terminam com **PackageFolder** e **PackageFileName**. A primeira parte do nome é o nome do recurso Web Deploy que adicionou. Neste artigo, são nomeados **ExemploAppPackageFolder** e **ExampleAppPackageFileName**.
 
-   Abra **website. Parameters. JSON** e defina esses parâmetros para os valores que você viu nas propriedades de referência. Defina **ExampleAppPackageFolder** como o nome da pasta. Defina **ExampleAppPackageFileName** como o nome do arquivo zip.
+   Abra o **Site.parameters.json** e defina esses parâmetros para os valores que viu nas propriedades de referência. Defino **o ExemploAppPackageFolder** para o nome da pasta. **Delineie o nome do** Ficheiro Pacote de Pacotes de Exemplo para o nome do ficheiro zip.
 
    ```json
    {
@@ -231,13 +231,13 @@ Neste momento, implementou a infraestrutura para a sua aplicação, mas não exi
    }
    ```
 
-## <a name="deploy-code-with-infrastructure"></a>Implantar código com infraestrutura
+## <a name="deploy-code-with-infrastructure"></a>Implementar código com infraestrutura
 
-Como você adicionou código ao projeto, sua implantação é um pouco diferente desta vez. Durante a implantação, você pode preparar artefatos para o seu projeto para um local que o Resource Manager possa acessar. Os artefatos são preparados para uma conta de armazenamento.
+Como adicionou código ao projeto, a sua implementação é um pouco diferente desta vez. Durante a implantação, você encena artefactos para o seu projeto para um lugar a que o Gestor de Recursos pode aceder. Os artefactos são encenados numa conta de armazenamento.
 
-### <a name="az-module-script"></a>Script de módulo AZ
+### <a name="az-module-script"></a>Script de módulo Az
 
-Há uma pequena alteração que você precisa fazer em seu modelo se estiver usando o script de módulo AZ. Esse script adiciona uma barra ao local dos artefatos, mas o modelo não espera essa barra. Abra WebSite. JSON e localize as propriedades da extensão MSDeploy. Ele tem uma propriedade chamada **packageUri**. Remova a barra entre o local dos artefatos e a pasta do pacote.
+Há uma pequena mudança que precisa fazer ao seu modelo se estiver a usar o script do módulo Az. Este script adiciona um corte à localização dos artefactos, mas o seu modelo não espera que corte. Abra o WebSite.json e encontre as propriedades para a extensão MSDeploy. Tem uma propriedade chamada **packageUri.** Retire a barra entre a localização dos artefactos e a pasta do pacote.
 
 Deverá ter o seguinte aspeto:
 
@@ -245,11 +245,11 @@ Deverá ter o seguinte aspeto:
 "packageUri": "[concat(parameters('_artifactsLocation'), parameters('ExampleAppPackageFolder'), '/', parameters('ExampleAppPackageFileName'), parameters('_artifactsLocationSasToken'))]",
 ```
 
-Observe que no exemplo anterior não há nenhum `'/',` entre os **parâmetros (' _artifactsLocation ')** e os **parâmetros (' ExampleAppPackageFolder ')** .
+Note no exemplo anterior `'/',` que não há entre **os parâmetros ('_artifactsLocation')** e os **parâmetros ('ExampleAppPackageFolder')**.
 
-Recompile o projeto. A criação do projeto garante que os arquivos que você precisa implantar sejam adicionados à pasta de preparo.
+Reconstruir o projeto. A construção do projeto garante que os ficheiros necessários para implantar são adicionados à pasta de encenação.
 
-Agora, abra um console do PowerShell e execute:
+Agora, abra uma consola PowerShell e corra:
 
 ```powershell
 .\Deploy-AzTemplate.ps1 -ArtifactStagingDirectory .\bin\Debug\staging\ExampleAppDeploy -Location centralus -TemplateFile WebSite.json -TemplateParametersFile WebSite.parameters.json -UploadArtifacts -StorageAccountName <storage-account-name>
@@ -257,21 +257,21 @@ Agora, abra um console do PowerShell e execute:
 
 ### <a name="azurerm-module-script"></a>Script de módulo AzureRM
 
-Para o script do módulo AzureRM, use o Visual Studio:
+Para o script do módulo AzureRM, utilize o Estúdio Visual:
 
-1. Para reimplantar, escolha **implantar**e o grupo de recursos que você implantou anteriormente.
+1. Para reimplantar, escolha **deploy**, e o grupo de recursos que implementou anteriormente.
 
-    ![Reimplantar projeto](./media/create-visual-studio-deployment-project/redeploy.png)
+    ![Projeto de reimplantação](./media/create-visual-studio-deployment-project/redeploy.png)
 
-1. Selecione a conta de armazenamento que você implantou com esse grupo de recursos para a **conta de armazenamento de artefatos**.
+1. Selecione a conta de armazenamento que implementou com este grupo de recursos para a conta de **armazenamento de Artefactos**.
 
-   ![Reimplantar a implantação da Web](./media/create-visual-studio-deployment-project/redeploy-web-app.png)
+   ![Reimplantar a web deploy](./media/create-visual-studio-deployment-project/redeploy-web-app.png)
 
-## <a name="view-web-app"></a>Exibir aplicativo Web
+## <a name="view-web-app"></a>Ver aplicativo web
 
 1. Após concluir a implementação, selecione a aplicação Web no portal. Selecione o URL para navegar para o site.
 
-   ![Procurar site](./media/create-visual-studio-deployment-project/browse-site.png)
+   ![Procurar no site](./media/create-visual-studio-deployment-project/browse-site.png)
 
 1. Repare que implementou com sucesso a aplicação ASP.NET predefinida.
 
@@ -281,7 +281,7 @@ Para o script do módulo AzureRM, use o Visual Studio:
 
 Não está limitado apenas aos recursos disponíveis através da interface do Visual Studio. Pode personalizar a sua implementação, ao adicionar um recurso personalizado ao seu modelo. Para mostrar a adição de um recurso, adicione um dashboard operacional para gerir os recursos que implementou.
 
-1. Abra o arquivo site. JSON e adicione o JSON a seguir após o recurso de conta de armazenamento, mas antes do `]` de fechamento da seção de recursos.
+1. Abra o ficheiro WebSite.json e adicione o seguinte JSON `]` após o recurso da conta de armazenamento, mas antes do fecho da secção de recursos.
 
    ```json
     ,{
@@ -360,13 +360,13 @@ Não está limitado apenas aos recursos disponíveis através da interface do Vi
     }
    ```
 
-1. Reimplante o projeto.
+1. Reimplemente o seu projeto.
 
-1. Após a conclusão da implantação, exiba seu painel no Portal. Selecione **painel** e escolha aquele que você implantou.
+1. Depois de a implantação ter terminado, veja o seu painel no portal. Selecione **Dashboard** e escolha o que implementou.
 
    ![Dashboard Personalizado](./media/create-visual-studio-deployment-project/view-custom-dashboards.png)
 
-1. Você verá o painel personalizado.
+1. Vê o painel personalizado.
 
    ![Dashboard Personalizado](./media/create-visual-studio-deployment-project/Ops-DemoSiteGroup-dashboard.png)
 
@@ -376,15 +376,15 @@ Pode gerir o acesso ao dashboard através de grupos do RBAC. Também pode person
 
 Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos.
 
-1. No portal do Azure, selecione **grupos de recursos** no menu à esquerda.
+1. A partir do portal Azure, selecione **Grupos de Recursos** do menu esquerdo.
 
 1. Selecione o nome do grupo de recursos.
 
-1. Selecione **Eliminar grupo de recursos** no menu superior.
+1. **Selecione Eliminar** o grupo de recursos do menu superior.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu a criar e implantar modelos usando o Visual Studio. Para saber mais sobre o desenvolvimento de modelos, consulte nossa nova série de tutoriais iniciantes:
+Neste artigo, aprendeu a criar e implementar modelos usando o Visual Studio. Para saber mais sobre o desenvolvimento do modelo, consulte a nossa nova série tutorial de principiante:
 
 > [!div class="nextstepaction"]
-> [Tutoriais para iniciantes](./template-tutorial-create-first-template.md)
+> [Tutoriais para principiantes](./template-tutorial-create-first-template.md)

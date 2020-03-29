@@ -1,5 +1,5 @@
 ---
-title: Lotação de saída em Azure Event Grid IoT Edge  Microsoft Docs
+title: Lotação de saída em Azure Event Grid IoT Edge [ Microsoft Docs
 description: Lotação de saída em Rede de Eventos na Borda IoT.
 author: HiteshMadan
 manager: rajarv
@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: a6f033af34088081090251f2e5e7cd4a07ce43cc
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76841752"
 ---
 # <a name="output-batching"></a>Criação de batches de saída
@@ -77,16 +77,16 @@ O comportamento de lotação da Rede de Eventos pode ser personalizado por assin
 
 As seguintes definições de tempo de implementação controlam o valor máximo permitido na criação de uma subscrição de evento.
 
-| Nome da propriedade | Descrição |
+| Nome da Propriedade | Descrição |
 | ------------- | ----------- | 
-| `api__deliveryPolicyLimits__maxpreferredBatchSizeInKilobytes` | Valor máximo permitido para o botão `PreferredBatchSizeInKilobytes`. `1033`padrão .
-| `api__deliveryPolicyLimits__maxEventsPerBatch` | Valor máximo permitido para o botão `MaxEventsPerBatch`. `50`padrão .
+| `api__deliveryPolicyLimits__maxpreferredBatchSizeInKilobytes` | Valor máximo permitido `PreferredBatchSizeInKilobytes` para o botão. Padrão `1033`.
+| `api__deliveryPolicyLimits__maxEventsPerBatch` | Valor máximo permitido `MaxEventsPerBatch` para o botão. Padrão `50`.
 
 ## <a name="configuring-runtime-default-values"></a>Configurar os valores padrão do tempo de execução
 
 As seguintes definições de tempo de implementação controlam o valor predefinido de cada botão quando não é especificado na Subscrição do Evento. Para reiterar, deve ser definido pelo menos um botão na Subscrição do Evento para ligar o comportamento do loteamento.
 
-| Nome da propriedade | Descrição |
+| Nome da Propriedade | Descrição |
 | ------------- | ----------- |
-| `broker__defaultMaxBatchSizeInBytes` | Tamanho máximo do pedido de entrega quando apenas `MaxEventsPerBatch` é especificado. `1_058_576`padrão .
-| `broker__defaultMaxEventsPerBatch` | Número máximo de eventos para adicionar a um lote quando apenas `MaxBatchSizeInBytes` é especificado. `10`padrão .
+| `broker__defaultMaxBatchSizeInBytes` | Tamanho máximo do `MaxEventsPerBatch` pedido de entrega quando apenas é especificado. Padrão `1_058_576`.
+| `broker__defaultMaxEventsPerBatch` | Número máximo de eventos a `MaxBatchSizeInBytes` adicionar a um lote quando apenas é especificado. Padrão `10`.

@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
 ms.openlocfilehash: f5ebb8874b7e277d15ef89aa419c4d26560a6e76
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75386736"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 Este tutorial mostra como criar uma aplicação do .NET de várias camadas com um front-end do MVC do ASP.NET e como implementá-lo num [serviço em nuvem do Azure](cloud-services-choose-me.md). A aplicação utiliza a [Base de Dados SQL do Azure](/previous-versions/azure/ee336279(v=azure.100)), o [serviço Blob do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e o [serviço Fila do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Pode [transferir o projeto do Visual Studio](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) da Galeria de Códigos do MSDN.
 
 O tutorial mostra como compilar e executar a aplicação localmente, como implementá-la no Azure e executá-la na cloud e como compilá-la do zero. Pode começar por compilar do zero e, posteriormente, realizar os passos de teste e implementação, se preferir.
@@ -31,8 +31,8 @@ A aplicação é um BBS de publicidade. Os utilizadores criam um anúncio atrav�
 
 A aplicação utiliza o [padrão de trabalho centrado em filas](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para transferir o trabalho intensivo da CPU de criar miniaturas para um processo de back-end.
 
-## <a name="alternative-architecture-app-service-and-webjobs"></a>Arquitetura alternativa: serviço de aplicativo e trabalhos Web
-Este tutorial mostra como executar front-end e back-end num serviço em nuvem do Azure. Uma alternativa é executar o front-end no [serviço Azure app](/azure/app-service/) e usar o recurso [webjobs](https://go.microsoft.com/fwlink/?LinkId=390226) para o back-end. Para obter um tutorial que utiliza WebJobs, consulte [Introdução ao SDK de WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obter informações sobre como escolher os serviços que melhor se adaptam ao seu cenário, consulte [comparação de serviço Azure app, serviços de nuvem e máquinas virtuais](/azure/architecture/guide/technology-choices/compute-decision-tree).
+## <a name="alternative-architecture-app-service-and-webjobs"></a>Arquitetura alternativa: App Service e WebJobs
+Este tutorial mostra como executar front-end e back-end num serviço em nuvem do Azure. Uma alternativa é executar a frente no Serviço de [Aplicações Azure](/azure/app-service/) e usar a funcionalidade [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) para o back-end. Para obter um tutorial que utiliza WebJobs, consulte [Introdução ao SDK de WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obter informações sobre como escolher os serviços que melhor se adequam ao seu cenário, consulte o [Azure App Service, os Cloud Services e a comparação de máquinas virtuais.](/azure/architecture/guide/technology-choices/compute-decision-tree)
 
 ## <a name="what-youll-learn"></a>O que irá aprender
 * Como ativar o computador para a programação do Azure instalando o Azure SDK.
@@ -47,7 +47,7 @@ O tutorial parte do princípio de que compreende os [conceitos básicos dos Clou
 
 Pode executar a aplicação localmente sem precisar de uma subscrição do Azure, mas necessitará de uma para implementar a aplicação na cloud. Se não tiver uma conta, pode [ativar os seus benefícios de subscritor MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) ou [inscrever-se numa avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
-As instruções do tutorial funcionam com qualquer um dos seguintes produtos:
+As instruções tutoriais funcionam com qualquer um dos seguintes produtos:
 
 * Visual Studio 2013
 * Visual Studio 2015
@@ -229,10 +229,10 @@ As cadeias de ligação da conta do Storage do Azure para o projeto da função 
 1. No **Explorador de Soluções**, clique com o botão direito do rato em **ContosoAdsWeb**, em **Funções** no projeto **ContosoAdsCloudService**, e clique em **Propriedades**.
 
     ![Propriedades da função](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. Clique na guia **configurações** . Na caixa suspensa **configuração de serviço** , escolha **nuvem**.
+2. Clique no separador **Definições.** Na caixa de entrega de configuração de **serviço,** escolha **Cloud**.
 
     ![Configuração da nuvem](./media/cloud-services-dotnet-get-started/sccloud.png)
-3. Selecione a entrada **StorageConnectionString**, verá um botão de reticências ( **…** ) na extremidade direita da linha. Clique no botão de reticências para abrir a caixa de diálogo **Criar Cadeia de Ligação da Conta do Storage**.
+3. Selecione a entrada **StorageConnectionString**, verá um botão de reticências (**…**) na extremidade direita da linha. Clique no botão de reticências para abrir a caixa de diálogo **Criar Cadeia de Ligação da Conta do Storage**.
 
     ![Abrir a caixa Criar cadeia de ligação](./media/cloud-services-dotnet-get-started/opencscreate.png)
 4. Na caixa de diálogo **Criar Cadeia de Ligação de Armazenamento**, clique em **Sua subscrição**, selecione a conta do Storage que criou anteriormente e, em seguida, clique em **OK**. Se ainda não tiver sessão iniciada, ser-lhe-ão solicitadas as credenciais da conta do Azure.
@@ -322,7 +322,7 @@ Após criar a solução, deverá consultar o código que é exclusivo para os pr
 
 ### <a name="create-a-cloud-service-visual-studio-solution"></a>Criar uma solução do Visual Studio do serviço em nuvem
 1. No Visual Studio, selecione **Novo Projeto** no menu **Ficheiro**.
-2. No painel esquerdo da caixa de diálogo **Novo Projeto**, expanda **Visual c#** , escolha os modelos **Nuvem** e, em seguida, escolha o modelo **Serviço em Nuvem do Azure**.
+2. No painel esquerdo da caixa de diálogo **Novo Projeto**, expanda **Visual c#**, escolha os modelos **Nuvem** e, em seguida, escolha o modelo **Serviço em Nuvem do Azure**.
 3. Nomeie o projeto e a solução ContosoAdsCloudService e clique em **OK**.
 
     ![Novo Projeto](./media/cloud-services-dotnet-get-started/newproject.png)
@@ -353,8 +353,8 @@ Após criar a solução, deverá consultar o código que é exclusivo para os pr
 6. Localize o pacote NuGet *Microsoft.WindowsAzure.ConfigurationManager* e instale-o num projeto da função de trabalho.
 
 ### <a name="set-project-references"></a>Definir referências do projeto
-1. No projeto ContosoAdsWeb, defina uma referência para o projeto ContosoAdsCommon. Clique com o botão direito do rato no projeto ContosoAdsWeb e, em seguida, em **Referências** - **Adicionar Referências**. Na caixa de diálogo **Gestor de Referências**, selecione **Solução – Projetos** no painel esquerdo, selecione **ContosoAdsCommon** e clique em **OK**.
-2. No projeto ContosoAdsWorker, defina uma referência para o projeto ContosoAdsCommon.
+1. No projeto ContosoAdsWeb, defina uma referência para o projeto ContosoAdsCommon. Clique no projeto ContosoAdsWeb e, em seguida, clique em **Referências** - **Adicionar Referências**. Na caixa de diálogo **Gestor de Referências**, selecione **Solução – Projetos** no painel esquerdo, selecione **ContosoAdsCommon** e clique em **OK**.
+2. No projeto ContosoAdsWorker, estabeleceu uma referência ao projeto ContosoAdsCommon.
 
     O ContosoAdsCommon conterá o modelo de dados e a classe de contexto do Entity Framework, que serão utilizados no front-end e back-end.
 3. No projeto ContosoAdsWorker, defina uma referência para `System.Drawing`.
@@ -377,7 +377,7 @@ Nesta secção, deverá configurar o Armazenamento do Azure e as cadeias de liga
 3. No projeto ContosoAdsCloudService, clique com o botão direito do rato em ContosoAdsWeb em **Funções** e, em seguida, clique em **Propriedades**.
 
     ![Propriedades da função](./media/cloud-services-dotnet-get-started/roleproperties.png)
-4. Na janela Propriedades de **ContosoAdsWeb [função]** , clique na guia **configurações** e, em seguida, clique em **Adicionar configuração**.
+4. Na janela de propriedades **ContosoAdsWeb [Role],** clique no separador **Definições** e, em seguida, clique em **Adicionar Definição**.
 
     Deixe **Configuração do Serviço** definida para **Todas as Configurações**.
 5. Adicione uma definição denominada *StorageConnectionString*. Defina o **Tipo** para *ConnectionString* e o **Valor** para *UseDevelopmentStorage = true*.
@@ -385,7 +385,7 @@ Nesta secção, deverá configurar o Armazenamento do Azure e as cadeias de liga
     ![Nova cadeia de ligação](./media/cloud-services-dotnet-get-started/scall.png)
 6. Guarde as alterações.
 7. Siga o mesmo procedimento para adicionar uma cadeia de ligação de armazenamento nas propriedades da função ContosoAdsWorker.
-8. Ainda na janela de propriedades **ContosoAdsWorker [Função]** , adicione outra cadeia de ligação:
+8. Ainda na janela de propriedades **ContosoAdsWorker [Função]**, adicione outra cadeia de ligação:
 
    * Nome: ContosoAdsDbConnectionString
    * Tipo: Cadeia
@@ -398,7 +398,7 @@ Nesta secção, deverá configurar o Armazenamento do Azure e as cadeias de liga
 ### <a name="add-code-files"></a>Adicionar ficheiros de código
 Nesta secção, deverá copiar os ficheiros de código da solução transferida para a solução nova. As secções seguintes irão mostrar e explicar as partes principais deste código.
 
-Para adicionar ficheiros a um projeto ou a uma pasta, clique com o botão direito do rato no projeto ou na pasta e clique em **Adicionar** - **Item Existente**. Selecione os ficheiros desejados e clique em **Adicionar**. Caso lhe seja perguntado se pretende substituir os ficheiros existentes, clique em **Sim**.
+Para adicionar ficheiros a um projeto ou a uma pasta, clique no projeto ou na pasta e clique em **Adicionar** - **Item Existente**. Selecione os ficheiros desejados e clique em **Adicionar**. Caso lhe seja perguntado se pretende substituir os ficheiros existentes, clique em **Sim**.
 
 1. No projeto ContosoAdsCommon, elimine o ficheiro *Class1.cs* e adicione no seu lugar os ficheiros *Ad.cs* e *ContosoAdscontext.cs* do projeto transferido.
 2. No projeto ContosoAdsWeb, adicione os seguintes ficheiros do projeto transferido.
@@ -696,7 +696,7 @@ public override void Run()
 }
 ```
 
-Após cada iteração do ciclo, se não for encontrada nenhuma mensagem de fila, o programa permanecerá suspenso durante um segundo. Isto impede que a função de trabalho incorra em custos excessivos de tempo de CPU e de transações de armazenamento. A Equipa de Consultadora dos Clientes da Microsoft conta uma história de um programador, que se esqueceu de incluir isto, implementou para produção e partiu para férias. Quando eles são revertidos, seu custo de supervisão é maior do que as férias.
+Após cada iteração do ciclo, se não for encontrada nenhuma mensagem de fila, o programa permanecerá suspenso durante um segundo. Isto impede que a função de trabalho incorra em custos excessivos de tempo de CPU e de transações de armazenamento. A Equipa de Consultadora dos Clientes da Microsoft conta uma história de um programador, que se esqueceu de incluir isto, implementou para produção e partiu para férias. Quando voltaram, a supervisão deles custou mais do que as férias.
 
 Por vezes, o conteúdo de uma mensagem de fila causa um erro no processamento. Esta mensagem é designada *mensagem não processável*, e se acabou de registar um erro e reiniciou o ciclo, poderá ter de processar essa mensagem vezes sem conta.  Por conseguinte, o bloco catch inclui uma instrução Se que verifica o número de ocorrências que a aplicação tentou processar a mensagem atual e, se o número ultrapassar as 5 tentativas, a mensagem é eliminada da fila.
 
@@ -773,7 +773,7 @@ Para obter uma introdução em vídeo aos padrões e melhores práticas do Stora
 Para obter mais informações, consulte os seguintes recursos:
 
 * [Parte 1 dos Cloud Services do Azure: Introdução](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [Como gerir Serviços Cloud](cloud-services-how-to-manage-portal.md)
+* [Como gerir os Serviços cloud](cloud-services-how-to-manage-portal.md)
 * [Storage do Azure](https://docs.microsoft.com/azure/storage/)
 * [Como escolher um fornecedor de serviços cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
 

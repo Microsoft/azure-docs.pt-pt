@@ -1,6 +1,6 @@
 ---
-title: Privacidade do Azure de Connect e o utilizador de AD | Documentos da Microsoft
-description: Este documento descreve como obter a conformidade do GDPR com o Azure AD Connect.
+title: Azure AD Connect e privacidade do utilizador Microsoft Docs
+description: Este documento descreve como obter a complibilidade do RGPD com o Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,44 +16,44 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f5d3125b7b77e8ce7a943f640c44615049ab160
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60455789"
 ---
-# <a name="user-privacy-and-azure-ad-connect"></a>Privacidade do utilizador e do Azure AD Connect 
+# <a name="user-privacy-and-azure-ad-connect"></a>Privacidade do utilizador e Ligação AD Azure 
 
 [!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 >[!NOTE] 
->Este artigo trata da privacidade do Azure AD Connect e o utilizador.  Para obter informações sobre privacidade do Azure AD Connect Health e utilizador, consulte o artigo [aqui](reference-connect-health-user-privacy.md).
+>Este artigo trata do Azure AD Connect e da privacidade do utilizador.  Para obter informações sobre a Azure AD Connect Health e a privacidade do utilizador consulte o artigo [aqui](reference-connect-health-user-privacy.md).
 
-Melhore a privacidade dos utilizadores para o Azure AD Connect instalações de duas formas:
+Melhorar a privacidade do utilizador para as instalações da Azure AD Connect de duas formas:
 
-1.  Mediante solicitação, extrair dados para uma pessoa e remover dados de que a pessoa das instalações
-2.  Certifique-se de que nenhum dado é mantido para além de 48 horas.
+1.  Mediante solicitação, extrair dados para uma pessoa e remover dados dessa pessoa das instalações
+2.  Certifique-se de que nenhum dado é retido para além de 48 horas.
 
-A equipa do Azure AD Connect recomenda a segunda opção, pois é muito mais fácil de implementar e manter.
+A equipa Azure AD Connect recomenda a segunda opção, uma vez que é muito mais fácil implementar e manter.
 
-Um servidor de sincronização do Azure AD Connect armazena os dados de privacidade do utilizador seguintes:
-1.  Dados sobre um objeto person no **base de dados do Azure AD Connect**
-2.  Dados do **registo de eventos do Windows** arquivos que podem conter informações sobre uma pessoa
-3.  Dados do **ficheiros de registo de instalação do Azure AD Connect** que pode conter sobre uma pessoa
+Um servidor de sincronização Azure AD Connect armazena os seguintes dados de privacidade do utilizador:
+1.  Dados sobre uma pessoa na **base de dados Azure AD Connect**
+2.  Dados nos ficheiros de **registo do Windows Event** que podem conter informações sobre uma pessoa
+3.  Dados nos ficheiros de registo de **instalação Azure AD Connect** que podem conter cerca de uma pessoa
 
-Clientes do Azure AD Connect devem utilizar as seguintes diretrizes quando a remoção de dados de utilizador:
-1.  Elimine o conteúdo da pasta que contém os ficheiros de registo de instalação do Azure AD Connect regularmente – pelo menos a cada 48 horas
-2.  Este produto também pode criar registos de eventos.  Para saber mais sobre os registos de registos de eventos, consulte a [a documentação aqui presente](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx).
+Os clientes da Azure AD Connect devem utilizar as seguintes diretrizes ao remover os dados dos utilizadores:
+1.  Elimine regularmente o conteúdo da pasta que contém os ficheiros de registo de instalação Azure AD Connect – pelo menos a cada 48 horas
+2.  Este produto também pode criar Registos de Eventos.  Para saber mais sobre os registos de registos de eventos, consulte a [documentação aqui](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx).
 
-Dados sobre uma pessoa são removidos automaticamente da base de dados do Azure AD Connect quando dados essa pessoa são removidos do sistema de origem em que foi gerado. É necessária nenhuma ação específica de administradores para estar em conformidade do GDPR.  No entanto, ele exige que os dados do Azure AD Connect estão sincronizados com a sua origem de dados, pelo menos, em dois dias.
+Os dados sobre uma pessoa são automaticamente removidos da base de dados Azure AD Connect quando os dados dessa pessoa são removidos do sistema de origem de onde se originou. Não é necessária qualquer ação específica por parte dos administradores para ser compatível com o RGPD.  No entanto, requer que os dados do Azure AD Connect sejam sincronizados com a sua fonte de dados pelo menos de dois em dois dias.
 
-## <a name="delete-the-azure-ad-connect-installation-log-file-folder-contents"></a>Eliminar o conteúdo de pasta do ficheiro de registo do instalação do Azure AD Connect
-Regularmente Verifique e elimine o conteúdo da **c:\programdata\aadconnect** pasta – exceto para o **PersistedState.Xml** ficheiro. Este ficheiro mantém o estado da instalação anterior do Azure A Connect e é utilizado quando é efetuada uma instalação de atualização. Este ficheiro não contém quaisquer dados sobre uma pessoa e não deve ser eliminado.
+## <a name="delete-the-azure-ad-connect-installation-log-file-folder-contents"></a>Eliminar o conteúdo da pasta de ficheiros de registo de instalação Azure AD Connect
+Verifique e elimine regularmente o conteúdo da pasta **c:\programdata\aadconnect** – exceto no ficheiro **PersistedState.Xml.** Este ficheiro mantém o estado da instalação anterior do Azure A Connect e é utilizado quando é realizada uma instalação de atualização. Este ficheiro não contém dados sobre uma pessoa e não deve ser apagado.
 
 >[!IMPORTANT]
->Não elimine o ficheiro de PersistedState.xml.  Este ficheiro não contêm nenhuma informação de utilizador e mantém o estado da instalação anterior.
+>Não elimine o ficheiro PersistedState.xml.  Este ficheiro não contém informações do utilizador e mantém o estado da instalação anterior.
 
-Pode rever e eliminar estes ficheiros ao utilizar o Explorador do Windows, ou pode usar um script semelhante ao seguinte para executar as ações necessárias:
+Pode rever e eliminar estes ficheiros utilizando o Windows Explorer ou pode utilizar um script como o seguinte para executar as ações necessárias:
 
 
 ```
@@ -64,24 +64,24 @@ If ($File.ToUpper() -ne "$env:programdata\aadconnect\PERSISTEDSTATE.XML".toupper
     } 
 ```
 
-### <a name="schedule-this-script-to-run-every-48-hours"></a>Agendar este script para executar cada 48 horas
-Utilize os seguintes passos para agendar o script seja executado a cada 48 horas.
+### <a name="schedule-this-script-to-run-every-48-hours"></a>Agende este script a cada 48 horas
+Utilize os seguintes passos para agendar o script a cada 48 horas.
 
-1.  Guarde o script num arquivo com a extensão  **&#46;PS1**, em seguida, abra o painel de controlo e clique em **sistemas e segurança**.
-    ![System](./media/reference-connect-user-privacy/gdpr2.png)
+1.  Guarde o script num ficheiro com a extensão **&#46;PS1,** abra o Painel de Controlo e clique em **Sistemas e Segurança**.
+    ![Sistema](./media/reference-connect-user-privacy/gdpr2.png)
 
-2.  Sob o cabeçalho de ferramentas administrativas, clique em **agendamento de tarefas**.
+2.  Sob a rubrica Ferramentas Administrativas, clique em **Tarefas de Agenda**.
     ![Tarefa](./media/reference-connect-user-privacy/gdpr3.png)
-3.  No agendador de tarefas, clique em **biblioteca de agendamento de tarefas** e clique em **tarefa básica de criar...**
-4.  Introduza o nome para a nova tarefa e clique em **seguinte**.
-5.  Selecione **diária** para o acionador de tarefa e clique em **próxima**.
-6.  Definir periodicidade **2 dias** e clique em **próxima**.
-7.  Selecione **iniciar um programa** como a ação e clique em **próxima**.
-8.  Tipo **PowerShell** na caixa para o programa/script e, na caixa com a etiqueta **Adicione argumentos (opcional)** , introduza o caminho completo para o script que criou anteriormente, em seguida, clique em **próxima**.
-9.  O ecrã seguinte mostra um resumo da tarefa que está prestes a criar. Verifique os valores e clique em **concluir** para criar a tarefa.
+3.  No Agendador de Tarefas, clique à direita na Biblioteca de **Agendas** de Tarefas e clique em **Criar tarefa Básica...**
+4.  Introduza o nome para a nova tarefa e clique em **Next**.
+5.  Selecione **Diariamente** para o gatilho de tarefae clique em **Next**.
+6.  Desloque a recorrência para **2 dias** e clique em **Seguinte**.
+7.  Selecione **Iniciar um programa** como ação e clicar em **Next**.
+8.  Digite **powerShell** na caixa para o Programa/script, e na caixa rotulada **Adicionar argumentos (opcional)**, insira o caminho completo para o script que criou anteriormente, em seguida, clique em **Seguinte**.
+9.  O ecrã seguinte mostra um resumo da tarefa que está prestes a criar. Verifique os valores e clique em **Terminar** para criar a tarefa.
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Rever a política de Privacy da Microsoft no Centro de fidedignidade](https://www.microsoft.com/trustcenter)
-* [Estado de funcionamento e a privacidade dos utilizadores do Azure AD Connect](reference-connect-health-user-privacy.md)
+## <a name="next-steps"></a>Passos seguintes
+* [Reveja a política de privacidade da Microsoft no Trust Center](https://www.microsoft.com/trustcenter)
+* [Azure AD Connect Health and User Privacy](reference-connect-health-user-privacy.md)

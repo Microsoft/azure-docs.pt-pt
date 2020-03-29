@@ -1,6 +1,6 @@
 ---
-title: Atributos do cópias de sombra de serviço de sincronização do Azure AD Connect | Documentos da Microsoft
-description: Descreve como funcionam os atributos de cópias de sombra no serviço de sincronização do Azure AD Connect.
+title: Ad Connect do Azure Connect atribui asinções de sombra de sincronização / Microsoft Docs
+description: Descreve como os atributos de sombra funcionam no serviço de sincronização Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,63 +17,63 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60384722"
 ---
-# <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Atributos do cópias de sombra de serviço de sincronização do Azure AD Connect
-A maioria dos atributos são representados da mesma maneira no Azure AD, como estão no Active Directory no local. Mas alguns atributos têm alguns tratamento especial e o valor do atributo no Azure AD pode ser diferente daquelas que o Azure AD Connect sincroniza.
+# <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Ad AD Connect atributos de sombra de sincronização do serviço
+A maioria dos atributos são representados da mesma forma em Azure AD como estão no seu Diretório Ativo no local. Mas alguns atributos têm algum manuseamento especial e o valor do atributo em Azure AD pode ser diferente do que o Azure AD Connect sincroniza.
 
-## <a name="introducing-shadow-attributes"></a>Apresentando os atributos de cópias de sombra
-Alguns atributos têm duas representações no Azure AD. O valor no local e um valor calculado são armazenados. Esses atributos adicionais são chamados de atributos de cópias de sombra. Os dois atributos mais comuns onde vir este comportamento são **userPrincipalName** e **proxyAddress**. A alteração nos valores de atributo acontece quando há valores nesses atributos que representam os domínios não verificados. Mas o motor de sincronização no Connect lê o valor no atributo de cópias de sombra, da perspectiva do WF, o atributo foi confirmado pelo Azure AD.
+## <a name="introducing-shadow-attributes"></a>Introduzindo atributos de sombra
+Alguns atributos têm duas representações em Azure AD. Tanto o valor no local como o valor calculado são armazenados. Estes atributos extra são chamados atributos de sombra. Os dois atributos mais comuns onde vê este comportamento são **userPrincipalName** e **proxyAddress**. A alteração dos valores de atributos acontece quando há valores nestes atributos que representam domínios não verificados. Mas o motor sincronizado em Connect lê o valor no atributo sombra assim, do seu ponto de vista, o atributo foi confirmado pela Azure AD.
 
-Não é possível ver os atributos de cópias de sombra através do Azure no portal ou com o PowerShell. Mas a compreensão do conceito ajuda-o a resolver problemas de determinados cenários em que o atributo tem valores diferentes no local e na cloud.
+Não é possível ver os atributos de sombra usando o portal Azure ou com powerShell. Mas compreender o conceito ajuda-o a resolver certos cenários onde o atributo tem valores diferentes no local e na nuvem.
 
-Para compreender melhor o comportamento, veja este exemplo do Fabrikam:  
+Para entender melhor o comportamento, olhe para este exemplo de Fabrikam:  
 ![Domínios](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
-Têm vários sufixos UPN no seu Active Directory no local, mas apenas tem verificado uma.
+Eles têm vários sufixos UPN no seu Diretório Ativo no local, mas eles só verificaram um.
 
 ### <a name="userprincipalname"></a>userPrincipalName
 Um utilizador tem os seguintes valores de atributo num domínio não verificado:
 
-| Atributo | Value |
+| Atributo | Valor |
 | --- | --- |
-| userPrincipalName no local | lee.sperry@fabrikam.com |
-| O Azure AD shadowUserPrincipalName | lee.sperry@fabrikam.com |
-| UserPrincipalName do Azure AD | lee.sperry@fabrikam.onmicrosoft.com |
+| no local userPrincipalName | lee.sperry@fabrikam.com |
+| Nome principal do shadowUserPrincipada da AD Azure | lee.sperry@fabrikam.com |
+| Nome principal do utilizador azure AD | lee.sperry@fabrikam.onmicrosoft.com |
 
-O atributo userPrincipalName é o valor visto quando utilizar o PowerShell.
+O atributo do userPrincipalName é o valor que se vê ao utilizar o PowerShell.
 
-Uma vez que o valor do atributo real no local é armazenado no Azure AD, quando verificar o domínio fabrikam.com, do Azure AD atualiza o atributo userPrincipalName com o valor da shadowUserPrincipalName. Não é necessário que sincronizar as alterações do Azure AD Connect, para esses valores sejam atualizadas.
+Uma vez que o valor real do atributo no local é armazenado no Azure AD, quando verificar o domínio fabrikam.com, o Azure AD atualiza o atributo do userPrincipalName com o valor do shadowUserPrincipalName. Não é necessário sincronizar quaisquer alterações do Azure AD Connect para que estes valores sejam atualizados.
 
 ### <a name="proxyaddresses"></a>proxyAddresses
-O mesmo processo para apenas, incluindo domínios verificados também ocorre para o proxyAddresses, mas com alguma lógica adicional. A verificação de domínios verificados só acontece para usuários de caixa de correio. Um utilizador de capacidade de correio ou contacte representar um utilizador na sua organização do Exchange e pode adicionar quaisquer valores em proxyAddresses a esses objetos.
+O mesmo processo para apenas incluir domínios verificados também ocorre para proxyAddresses, mas com alguma lógica adicional. O cheque para domínios verificados só acontece para os utilizadores de caixas de correio. Um utilizador ou contacto ativado por correio representa um utilizador noutra organização do Exchange e pode adicionar quaisquer valores em proxyAddresss a estes objetos.
 
-Para um utilizador de caixa de correio, no local ou no Exchange Online, são apresentados apenas os valores para domínios verificados. Ele pode ter um aspeto semelhante a esta:
+Para um utilizador de caixa de correio, quer no local quer no Exchange Online, apenas aparecem valores para domínios verificados. Pode parecer assim:
 
-| Atributo | Value |
+| Atributo | Valor |
 | --- | --- |
-| proxyAddresses no local | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
-| ProxyAddresses Exchange Online | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
+| no local proxyAddresss | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
+| Troca de endereços de procuração online | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-Neste caso **smtp:abbie.spencer\@fabrikam.com** foi removida uma vez que esse domínio não foi verificado. Mas o Exchange também adicionada **SIP:abbie.spencer\@fabrikamonline.com**. A Fabrikam não utilizado Lync/Skype no local, mas do Azure AD e preparar o Exchange Online para o mesmo.
+Neste caso, **a fabrikam.com\@smtp:abbie.spencer** foi removida, uma vez que esse domínio não foi verificado. Mas a Exchange também acrescentou **fabrikamonline.com SIP:abbie.spencer\@**. Fabrikam não usou lync/Skype no local, mas Azure AD e Exchange Online preparam-se para isso.
 
-Essa lógica para o proxyAddresses é referida como **ProxyCalc**. ProxyCalc é invocado com cada alteração de um utilizador quando:
+Esta lógica para proxyAddresses é referida como **ProxyCalc**. ProxyCalc é invocado com todas as alterações num utilizador quando:
 
-- O utilizador foi atribuído um plano de serviço que inclua o Exchange Online, mesmo que o utilizador não foi licenciado para o Exchange. Por exemplo, se o utilizador é atribuído o SKU de E3 do Office, mas apenas lhe foi atribuído SharePoint Online. Isso vale mesmo que sua caixa de correio ainda esteja no local.
+- Foi atribuído ao utilizador um plano de serviço que inclui o Exchange Online mesmo que o utilizador não tenha sido licenciado para a Troca. Por exemplo, se o utilizador for atribuído ao Office E3 SKU, mas apenas foi atribuído o SharePoint Online. Isto é verdade mesmo que a sua caixa de correio ainda esteja no local.
 - O atributo msExchRecipientTypeDetails tem um valor.
-- Fazer uma alteração para o proxyAddresses ou userPrincipalName.
+- Efetua uma alteração para proxyAddresss ou userPrincipalName.
 
-ProxyCalc poderá demorar algum tempo a processar uma alteração de um utilizador e não é síncrona com o processo de exportação do Azure AD Connect.
+ProxyCalc pode demorar algum tempo a processar uma mudança num utilizador e não é sincronizado com o processo de exportação azure AD Connect.
 
 > [!NOTE]
-> A lógica de ProxyCalc tem alguns comportamentos adicionais para cenários avançados não documentados neste tópico. Este tópico é fornecido para que possa compreender o comportamento e não o documentou lógica interna tudo.
+> A lógica ProxyCalc tem alguns comportamentos adicionais para cenários avançados não documentados neste tópico. Este tópico é fornecido para que compreenda o comportamento e não documente toda a lógica interna.
 
-### <a name="quarantined-attribute-values"></a>Valores de atributo em quarentena
-Atributos de cópias de sombra também são utilizados quando existem valores de atributos duplicados. Para obter mais informações, consulte [resiliência de atributos duplicados](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
+### <a name="quarantined-attribute-values"></a>Valores de atributo sem quarentena
+Os atributos sombra também são usados quando existem valores de atributo duplicado. Para mais informações, consulte a [resiliência do atributo duplicado.](how-to-connect-syncservice-duplicate-attribute-resiliency.md)
 
 ## <a name="see-also"></a>Consulte também
-* [Sincronização do Azure AD Connect](how-to-connect-sync-whatis.md)
-* [Integrar as identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).
+* [Sincronização azure AD Connect](how-to-connect-sync-whatis.md)
+* [Integrando as suas identidades no local com o Diretório Ativo Azure.](whatis-hybrid-identity.md)

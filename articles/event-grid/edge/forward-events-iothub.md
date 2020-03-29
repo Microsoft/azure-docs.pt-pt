@@ -1,5 +1,5 @@
 ---
-title: Eventos forward Event Grid para IoTHub - Azure Event Grid IoT Edge  Microsoft Docs
+title: Eventos forward Event Grid para IoTHub - Azure Event Grid IoT Edge [ Microsoft Docs
 description: Eventos forward Event Grid para IoTHub
 author: VidyaKukke
 manager: rajarv
@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: d0034810ff86de2a40e275ca54a2f0f9cbc856c2
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76844705"
 ---
 # <a name="tutorial-forward-events-to-iothub"></a>Tutorial: Eventos para a frente para IoTHub
@@ -29,9 +29,9 @@ Para completar este tutorial, precisa entender os seguintes conceitos:
 - [Hub IoT Edge](../../iot-edge/module-composition.md) 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
-Para concluir este tutorial, você precisará de:
+Para completar este tutorial, necessitará:
 
-* **Assinatura do Azure** – crie uma [conta gratuita](https://azure.microsoft.com/free) se você ainda não tiver uma. 
+* **Assinatura Azure** - Crie uma [conta gratuita](https://azure.microsoft.com/free) se ainda não tiver uma. 
 * **Dispositivo Azure IoT Hub e IoT Edge** - Siga os passos no arranque rápido dos [dispositivos](../../iot-edge/quickstart.md) [Linux](../../iot-edge/quickstart-linux.md) ou Windows se ainda não tiver um.
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)]
@@ -50,13 +50,13 @@ Como editor de um evento, você precisa criar um tópico de grelha de eventos. O
           }
     }
     ```
-1. Executar o seguinte comando para criar o tópico. O código de status HTTP de 200 OK deve ser retornado.
+1. Executar o seguinte comando para criar o tópico. Http Status Code of 200 OK deve ser devolvido.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic4.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4?api-version=2019-01-01-preview
     ```
 
-1. Executar o seguinte comando para verificar o tópico foi criado com sucesso. O código de status HTTP de 200 OK deve ser retornado.
+1. Executar o seguinte comando para verificar o tópico foi criado com sucesso. Http Status Code of 200 OK deve ser devolvido.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4?api-version=2019-01-01-preview
@@ -78,9 +78,9 @@ Como editor de um evento, você precisa criar um tópico de grelha de eventos. O
         ]
    ```
 
-## <a name="create-event-subscription"></a>Criar assinatura de evento
+## <a name="create-event-subscription"></a>Criar subscrição de eventos
 
-Os assinantes podem se registrar para eventos publicados em um tópico. Para receber qualquer evento, terão de criar uma subscrição da grelha de eventos sobre um tema de interesse.
+Os assinantes podem inscrever-se para eventos publicados num tópico. Para receber qualquer evento, terão de criar uma subscrição da grelha de eventos sobre um tema de interesse.
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
@@ -100,13 +100,13 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
    ```
 
    >[!NOTE]
-   > O `endpointType` especifica que o assinante é `edgeHub`. O `outputName` especifica a saída em que o módulo Event Grid irá encaminhar eventos que correspondam a esta subscrição ao edgeHub. Por exemplo, os eventos que correspondam à subscrição acima serão escritos para `/messages/modules/eventgridmodule/outputs/sampleSub4`.
-2. Executar o seguinte comando para criar a subscrição. O código de status HTTP de 200 OK deve ser retornado.
+   > Os `endpointType` especificações que `edgeHub`o assinante é . A `outputName` saída especifica a saída em que o módulo Event Grid irá encaminhar eventos que correspondam a esta subscrição ao edgeHub. Por exemplo, os eventos que correspondam `/messages/modules/eventgridmodule/outputs/sampleSub4`à subscrição acima serão escritos para .
+2. Executar o seguinte comando para criar a subscrição. Http Status Code of 200 OK deve ser devolvido.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription4.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4/eventSubscriptions/sampleSubscription4?api-version=2019-01-01-preview
     ```
-3. Execute o comando a seguir para verificar se a assinatura foi criada com êxito. O código de status HTTP de 200 OK deve ser retornado.
+3. Executar o seguinte comando para verificar se a subscrição foi criada com sucesso. Http Status Code of 200 OK deve ser devolvido.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4/eventSubscriptions/sampleSubscription4?api-version=2019-01-01-preview
@@ -135,11 +135,11 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
 
 Atualize a rota do edge hub para encaminhar os eventos de subscrição de eventos a serem encaminhados para o IoTHub da seguinte forma:
 
-1. Inicie sessão no [portal do Azure](https://ms.portal.azure.com)
+1. Inscreva-se no [portal Azure](https://ms.portal.azure.com)
 1. Navegue até ao **Hub IoT.**
 1. Selecione **IoT Edge** do menu
 1. Selecione a identificação do dispositivo-alvo da lista de dispositivos.
-1. Selecione **Definir Módulos**.
+1. Selecione **Módulos de Conjunto**.
 1. Selecione **Next** e à secção rotas.
 1. Nas rotas, adicione uma nova rota
 
@@ -192,7 +192,7 @@ Consulte o tutorial de [encaminhamento do IoT Hub](../../iot-hub/tutorial-routin
     curl -k -H "Content-Type: application/json" -X POST -g -d @event4.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4/events?api-version=2019-01-01-preview
     ```
 
-## <a name="verify-event-delivery"></a>Verificar a entrega de eventos
+## <a name="verify-event-delivery"></a>Verificar a entrega do evento
 
 Consulte o tutorial de [encaminhamento](../../iot-hub/tutorial-routing.md) do IoT Hub para ver os eventos.
 

@@ -1,6 +1,6 @@
 ---
-title: Gerir volumes através do serviço ficheiros do Azure NetApp | Documentos da Microsoft
-description: Descreve como gerir volumes através do serviço de ficheiros do Azure NetApp.
+title: Gerir volumes utilizando ficheiros Azure NetApp [ Microsoft Docs
+description: Descreve como gerir volumes utilizando o serviço Deficheiros Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -15,23 +15,23 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
 ms.openlocfilehash: c8ac14f11d7f2eeed050997de42da4f512b46bc5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60254748"
 ---
-# <a name="manage-volumes-by-using-azure-netapp-files"></a>Gerir volumes através do serviço ficheiros do Azure NetApp
-Pode gerir um volume ao visualizar, atualizar ou eliminar o volume. 
+# <a name="manage-volumes-by-using-azure-netapp-files"></a>Gerir volumes utilizando ficheiros Azure NetApp
+Pode gerir um volume visualizando, atualizando ou apagando o volume. 
 
-Se quiser eliminar um volume, tem primeiro de eliminar todos os objetos de frações de um volume. 
+Se pretender eliminar um volume, tem primeiro de eliminar todos os sub-objectos de um volume. 
 
 1.  Clique no painel **Volumes**, a partir do painel Gerir Conjuntos de Capacidade. 
-2.  Utilize o **procurar Volumes** vista a vista, atualizar ou eliminar os volumes existentes. 
+2.  Utilize a vista **'Navegar'** para visualizar, atualizar ou eliminar volumes existentes. 
 
 
 
-## <a name="next-steps"></a>Passos Seguintes 
+## <a name="next-steps"></a>Passos seguintes 
 
 * [Montar ou desmontar um volume para máquinas virtuais](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Gerir instantâneos](azure-netapp-files-manage-snapshots.md)

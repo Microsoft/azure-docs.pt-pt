@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: 92671206a4171ca838423f55b526191ef30e5c35
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254732"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Use a UI Web para administrar o seu StorSimple Virtual Array
@@ -40,7 +40,7 @@ Uma chave de encriptação de dados de serviço é gerada quando regista o seu p
 Se tiver perdido a chave de encriptação de dados do seu serviço e precisar de recuperá-la, execute os seguintes passos na UI web local do dispositivo registado no seu serviço.
 
 #### <a name="to-get-the-service-data-encryption-key"></a>Para obter a chave de encriptação de dados de serviço
-1. Ligue-se à UI web local. Vá para **configurar** **definições** de nuvem > .
+1. Ligue-se à UI web local. Vá para **configurar** > **definições de nuvem**.
 2. Na parte inferior da página, clique em Obter a chave de **encriptação**de dados do serviço . Uma chave aparecerá. Copie e guarde esta chave.
    
     ![obter chave de encriptação de dados de serviço 1](./media/storsimple-ova-web-ui-admin/image27.png)
@@ -49,7 +49,7 @@ Se tiver perdido a chave de encriptação de dados do seu serviço e precisar de
 Em alguns casos, quando configurar o dispositivo através da UI web local, pode ter erros. Para diagnosticar e resolver tais erros, pode fazer os testes de diagnóstico.
 
 #### <a name="to-run-the-diagnostic-tests"></a>Para realizar os testes de diagnóstico
-1. Na Web UI local, vá a testes de resolução de **problemas** > **diagnóstico.**
+1. Na Web UI local, vá a testes de diagnóstico **de resolução de problemas.** > **Diagnostic tests**
    
     ![executar diagnósticos 1](./media/storsimple-ova-web-ui-admin/image29.png)
 2. Na parte inferior da página, clique em **Executar Testes de Diagnóstico**. Isto irá iniciar testes para diagnosticar quaisquer problemas possíveis com a sua rede, dispositivo, proxy web, tempo ou configurações de nuvem. Será notificado de que o dispositivo está a fazer testes.
@@ -61,7 +61,7 @@ Em alguns casos, quando configurar o dispositivo através da UI web local, pode 
 Um pacote de registo é composto por todos os registos relevantes que podem ajudar o Microsoft Support a resolver problemas com qualquer problema do dispositivo. Nesta versão, um pacote de log pode ser gerado através da UI web local.
 
 #### <a name="to-generate-the-log-package"></a>Para gerar o pacote de registo
-1. Na web local UI, vá a registos de **resolução** de **problemas** > System .
+1. Na Web UI local, vá a registos do Sistema **de Resolução de** > **Problemas.**
    
     ![gerar pacote de log 1](./media/storsimple-ova-web-ui-admin/image31.png)
 2. Na parte inferior da página, clique em **Criar pacote de registo**. Será criado um pacote de registos do sistema. Isto vai levar alguns minutos.
@@ -80,7 +80,7 @@ Um pacote de registo é composto por todos os registos relevantes que podem ajud
 Pode desligar ou reiniciar o seu dispositivo virtual utilizando a UI web local. Recomendamos que antes de reiniciar, desative os volumes ou partilhas offline no hospedeiro e, em seguida, no dispositivo. Isto minimizará qualquer possibilidade de corrupção de dados. 
 
 #### <a name="to-shut-down-your-virtual-device"></a>Para desligar o seu dispositivo virtual
-1. Na web local UI, vá para as **definições**de **Manutenção** > Energia .
+1. Na ui web local, vá para**as definições**de **Alimentação** > De Energia .
 2. Na parte inferior da página, clique em **Shutdown**.
    
     ![paragem do dispositivo 1](./media/storsimple-ova-web-ui-admin/image36.png)
@@ -95,7 +95,7 @@ Pode desligar ou reiniciar o seu dispositivo virtual utilizando a UI web local. 
     O dispositivo vai agora desligar-se. Se quiser ligar o seu dispositivo, terá de o fazer através do Hyper-V Manager.
 
 #### <a name="to-restart-your-virtual-device"></a>Para reiniciar o seu dispositivo virtual
-1. Na web local UI, vá para as **definições**de **Manutenção** > Energia .
+1. Na ui web local, vá para**as definições**de **Alimentação** > De Energia .
 2. Na parte inferior da página, clique em **Reiniciar**.
    
     ![reiniciar dispositivo](./media/storsimple-ova-web-ui-admin/image36.png)

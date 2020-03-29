@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
 ms.openlocfilehash: 06ebcfdf3d6a3815908752153acb09437d745d15
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76986755"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric-preview"></a>Utilização de identidades geridas para Azure com tecido de serviço (Pré-visualização)
@@ -24,11 +24,11 @@ Um desafio comum ao construir aplicações em nuvem é como gerir de forma segur
 
 As identidades geridas para o Azure baseiam-se em vários conceitos-chave:
 
-- **ID do cliente** – um identificador exclusivo gerado pelo Azure AD que está vinculado a um aplicativo e uma entidade de serviço durante seu provisionamento inicial (também veja a [ID do aplicativo](/azure/active-directory/develop/developer-glossary#application-id-client-id)).
+- **ID do cliente** - um identificador único gerado pela Azure AD que está ligado a uma aplicação e ao principal de serviço durante o seu fornecimento inicial (consulte também o ID da [aplicação](/azure/active-directory/develop/developer-glossary#application-id-client-id).)
 
-- **ID da entidade de segurança** – a ID de objeto do objeto de entidade de serviço para sua identidade gerenciada que é usada para conceder acesso baseado em função a um recurso do Azure.
+- **ID principal** - o objeto de identificação do objeto principal do serviço para a sua Identidade Gerida que é usado para conceder acesso baseado em papéis a um recurso Azure.
 
-- **Entidade de serviço** -um objeto Azure Active Directory, que representa a projeção de um aplicativo AAD em um determinado locatário (também consulte a [entidade de serviço](../active-directory/develop/developer-glossary.md#service-principal-object).)
+- **Serviço Principal** - um objeto de Diretório Ativo Azure, que representa a projeção de uma aplicação AAD em um determinado inquilino (ver [também diretor](../active-directory/develop/developer-glossary.md#service-principal-object)de serviço .)
 
 Existem dois tipos de identidades geridas:
 
@@ -37,15 +37,15 @@ Existem dois tipos de identidades geridas:
 
 Para compreender melhor a diferença entre os tipos de identidade [geridos, veja como funcionam as identidades geridas para os recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work)
 
-## <a name="supported-scenarios-for-service-fabric-applications"></a>Cenários com suporte para aplicativos Service Fabric
+## <a name="supported-scenarios-for-service-fabric-applications"></a>Cenários suportados para aplicações de Tecido de Serviço
 
 As identidades geridas para o Tecido de Serviço são suportadas apenas em clusters de Tecidos de Serviço implantados no Azure, e apenas para aplicações implementadas como recursos Azure; uma aplicação que não seja implementada como recurso Azure não pode ser atribuída uma identidade. Conceptualmente falando, o apoio a identidades geridas num cluster azure service fabric consiste em duas fases:
 
-1. Atribuir uma ou mais identidades gerenciadas ao recurso de aplicativo; um aplicativo pode receber uma única identidade atribuída pelo sistema e/ou até 32 identidades atribuídas pelo usuário, respectivamente.
+1. Atribuir uma ou mais identidades geridas ao recurso de aplicação; Pode ser atribuída uma aplicação com uma única identidade atribuída ao sistema e/ou até 32 identidades atribuídas ao utilizador, respectivamente.
 
-2. Na definição do aplicativo, mapeie uma das identidades atribuídas ao aplicativo para qualquer serviço individual que compõe o aplicativo.
+2. Dentro da definição da aplicação, mapeie uma das identidades atribuídas à aplicação a qualquer serviço individual que coma a aplicação.
 
-A identidade atribuída pelo sistema de um aplicativo é exclusiva para esse aplicativo; uma identidade atribuída pelo usuário é um recurso autônomo, que pode ser atribuído a vários aplicativos. Dentro de um aplicativo, uma única identidade (se atribuído pelo sistema ou atribuído pelo usuário) pode ser atribuída a vários serviços do aplicativo, mas cada serviço pode ser atribuído apenas a uma identidade. Por fim, um serviço deve ser atribuído explicitamente a uma identidade para ter acesso a esse recurso. Com efeito, o mapeamento das identidades de uma aplicação aos seus serviços constituintes permite o isolamento na aplicação — um serviço só pode utilizar a identidade mapeada para a mesma.  
+A identidade atribuída pelo sistema de uma aplicação é única a essa aplicação; uma identidade atribuída ao utilizador é um recurso autónomo, que pode ser atribuído a várias aplicações. Dentro de uma aplicação, uma única identidade (atribuída pelo sistema ou atribuída ao utilizador) pode ser atribuída a vários serviços da aplicação, mas cada serviço individual só pode ser atribuído a uma identidade. Por último, deve ser atribuído um serviço a uma identidade explicitamente para ter acesso a esta funcionalidade. Com efeito, o mapeamento das identidades de uma aplicação aos seus serviços constituintes permite o isolamento na aplicação — um serviço só pode utilizar a identidade mapeada para a mesma.  
 
 Atualmente, os seguintes cenários são suportados para esta funcionalidade de pré-visualização:
 
@@ -53,9 +53,9 @@ Atualmente, os seguintes cenários são suportados para esta funcionalidade de p
 
 - Atribuir uma ou mais identidades geridas a uma aplicação existente (implantada pelo Azure) a fim de aceder aos recursos do Azure
 
-Os cenários a seguir não têm suporte ou não são recomendados; Observe que essas ações podem não ser bloqueadas, mas podem levar a interrupções em seus aplicativos:
+Os seguintes cenários não são suportados ou não são recomendados; Note que estas ações podem não ser bloqueadas, mas podem levar a interrupções nas suas aplicações:
 
-- Remover ou alterar as identidades atribuídas a um aplicativo; Se você precisar fazer alterações, envie implantações separadas para primeiro adicionar uma nova atribuição de identidade e, em seguida, para remover uma anteriormente atribuída. A remoção de uma identidade de um aplicativo existente pode ter efeitos indesejáveis, incluindo deixar seu aplicativo em um estado que não seja atualizável. É seguro excluir o aplicativo completamente se a remoção de uma identidade for necessária; Observação isso excluirá a identidade atribuída pelo sistema (se for definida) associada ao aplicativo e removerá todas as associações com as identidades atribuídas ao usuário atribuídas ao aplicativo.
+- Remover ou alterar as identidades atribuídas a um pedido; se tiver de fazer alterações, submeta-se a uma nova atribuição de identidade e, em seguida, a remover uma anteriormente atribuída. A remoção de uma identidade de uma aplicação existente pode ter efeitos indesejáveis, incluindo deixar a sua aplicação num estado que não é atualizável. É seguro suprimir completamente o pedido se for necessária a remoção de uma identidade; Note que eliminará a identidade atribuída pelo sistema (se tal for definida) associada à aplicação, e removerá quaisquer associações com as identidades atribuídas ao utilizador atribuídas à aplicação.
 
 - O suporte do Serviço Tecido para identidades geridas não está integrado neste momento no [AzureServiceTokenProvider;](../key-vault/service-to-service-authentication.md) a integração será alcançada até ao final do período de pré-visualização para a funcionalidade de identidade gerida.
 
@@ -66,10 +66,10 @@ Os cenários a seguir não têm suporte ou não são recomendados; Observe que e
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Implantar um novo cluster de Service Fabric do Azure com suporte de identidade gerenciada](./configure-new-azure-service-fabric-enable-managed-identity.md)
-- [Habilitar o suporte de identidade gerenciada em um cluster existente do Azure Service Fabric](./configure-existing-cluster-enable-managed-identity-token-service.md)
-- [Implantar um aplicativo de Service Fabric do Azure com uma identidade gerenciada atribuída pelo sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-- [Implantar um aplicativo de Service Fabric do Azure com uma identidade gerenciada atribuída pelo usuário](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-- [Aproveite a identidade gerenciada de um aplicativo Service Fabric do código de serviço](./how-to-managed-identity-service-fabric-app-code.md)
-- [Conceder a um aplicativo de Service Fabric do Azure acesso a outros recursos do Azure](./how-to-grant-access-other-resources.md)
-- [Declarando e usando os segredos do aplicativo como KeyVaultReferences](./service-fabric-keyvault-references.md)
+- [Implementar um novo cluster azure service fabric com suporte de identidade gerido](./configure-new-azure-service-fabric-enable-managed-identity.md)
+- [Ativar suporte de identidade gerido num cluster de tecido de serviço Azure existente](./configure-existing-cluster-enable-managed-identity-token-service.md)
+- [Implementar uma aplicação Azure Service Fabric com uma identidade gerida atribuída pelo sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
+- [Implementar uma aplicação Azure Service Fabric com uma identidade gerida atribuída pelo utilizador](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+- [Alavancar a identidade gerida de uma aplicação Service Fabric a partir do código de serviço](./how-to-managed-identity-service-fabric-app-code.md)
+- [Conceder um acesso à aplicação Azure Service Fabric a outros recursos azure](./how-to-grant-access-other-resources.md)
+- [Declarar e usar segredos de aplicação como KeyVaultReferences](./service-fabric-keyvault-references.md)

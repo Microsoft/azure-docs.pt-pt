@@ -1,6 +1,6 @@
 ---
-title: Saiba mais sobre os modos de orquestração para conjuntos de dimensionamento de máquinas virtuais no Azure
-description: Saiba mais sobre modos de orquestração para conjuntos de dimensionamento de máquinas virtuais no Azure.
+title: Saiba mais sobre modos de orquestração para conjuntos de escala de máquinas virtuais em Azure
+description: Saiba mais sobre os modos de orquestração para conjuntos de escala de máquinas virtuais em Azure.
 author: shandilvarun
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
@@ -8,55 +8,55 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: vashan
 ms.openlocfilehash: 4a0be30f181921461ad0bacea6f18ce439d22353
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76279052"
 ---
-# <a name="orchestration-mode-preview"></a>Modo de orquestração (versão prévia)
+# <a name="orchestration-mode-preview"></a>Modo de orquestração (pré-visualização)
 
-Os conjuntos de dimensionamento de máquinas virtuais fornecem um agrupamento lógico de máquinas virtuais gerenciadas por plataforma. Com os conjuntos de dimensionamento, você cria um modelo de configuração de máquina virtual, adiciona ou remove automaticamente instâncias adicionais com base na carga de CPU ou memória e atualiza automaticamente para a versão mais recente do sistema operacional. Tradicionalmente, os conjuntos de dimensionamento permitem que você crie máquinas virtuais usando um modelo de configuração de VM fornecido no momento da criação do conjunto de dimensionamento, e o conjunto de dimensionamento só pode gerenciar máquinas virtuais criadas implicitamente com base no modelo de configuração.
+Os conjuntos de escala de máquinas virtuais proporcionam um agrupamento lógico de máquinas virtuais geridas por plataformas. Com conjuntos de escala, cria-se um modelo de configuração de máquina virtual, adiciona-se ou remove automaticamente instâncias adicionais com base no CPU ou na carga de memória e atualiza-se automaticamente para a versão mais recente do SISTEMA. Tradicionalmente, os conjuntos de escala permitem criar máquinas virtuais utilizando um modelo de configuração VM fornecido no momento da criação do conjunto de escala, e o conjunto de escala só pode gerir máquinas virtuais que são criadas implicitamente com base no modelo de configuração.
 
-Com o modo de orquestração do conjunto de dimensionamento (versão prévia), agora você pode escolher se o conjunto de dimensionamento deve orquestrar máquinas virtuais que são criadas explicitamente fora de um modelo de configuração de conjunto de dimensionamento ou instâncias de máquina virtual criadas implicitamente com base no modelo de configuração. O modo de orquestração do conjunto de dimensionamento também ajuda a projetar sua infraestrutura de VM para alta disponibilidade implantando essas VMs em domínios de falha e Zonas de Disponibilidade.
+Com o modo de orquestração definido em escala (pré-visualização), pode agora escolher se o conjunto de escala deve orquestrar máquinas virtuais que são criadas explicitamente fora de um modelo de configuração de conjunto de escala, ou casos de máquinas virtuais criados implicitamente com base no modelo de configuração. O modo de orquestração de conjuntos de escala também o ajuda a projetar a sua infraestrutura VM para uma elevada disponibilidade, implantando estes VMs em domínios de falhas e Zonas de Disponibilidade.
 
 
-Os conjuntos de dimensionamento de máquinas virtuais oferecerão suporte a dois modos de orquestração distintos:
+Os conjuntos de escala de máquinavirtual suportam 2 modos de orquestração distintos:
 
-- ScaleSetVM – as instâncias de máquina virtual adicionadas ao conjunto de dimensionamento são baseadas no modelo de configuração do conjunto de dimensionamento. O ciclo de vida da instância de máquina virtual – criação, atualização, exclusão-é gerenciado pelo conjunto de dimensionamento.
-- VM (máquinas virtuais) – máquinas virtuais criadas fora do conjunto de dimensionamento podem ser adicionadas explicitamente ao ScaleMode. 
+- ScaleSetVM – As instâncias de máquinavirtual adicionadas ao conjunto de escala baseiam-se no modelo de configuração do conjunto de escala. O ciclo de vida da instância de máquina virtual - criação, atualização, eliminação - é gerido pelo conjunto de escala.
+- VM (máquinas virtuais) – As máquinas virtuais criadas fora do conjunto de escala podem ser explicitamente adicionadas ao conjunto de escala. 
  
 
 > [!IMPORTANT]
-> O modo de orquestração é definido quando você cria o conjunto de dimensionamento e não pode ser alterado ou atualizado posteriormente. 
+> O modo de orquestração é definido quando cria o conjunto de escala e não pode ser alterado ou atualizado mais tarde. 
 > 
-> Esse recurso dos conjuntos de dimensionamento de máquinas virtuais está atualmente em visualização pública.
+> Esta funcionalidade de conjuntos de escala de máquinas virtuais está atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 
 ## <a name="orchestration-modes"></a>Modos de orquestração
 
-|                             | "orchestrationMode": "VM" (VirtualMachine) | "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
+|                             | "OrchestrationMode": "VM" (VirtualMachine) | "modo de orquestração": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|
-| Modelo de configuração de VM      | Nenhuma                                       | Obrigatório |
-| Adicionando Nova VM ao conjunto de dimensionamento  | As VMs são adicionadas explicitamente ao conjunto de dimensionamento quando a VM é criada. | As VMs são criadas implicitamente e adicionadas ao conjunto de dimensionamento com base nas regras modelo de configuração de VM, contagem de instâncias e dimensionamento automático | |
-| Excluir VM                   | As VMs precisam ser excluídas individualmente, o conjunto de dimensionamento não será excluído se tiver alguma VM nela. | As VMs podem ser excluídas individualmente, a exclusão do conjunto de dimensionamento excluirá todas as instâncias de VM.  |
-| Anexar/desanexar VMs           | Não suportado                              | Não suportado |
-| Ciclo de vida da instância (criação por meio de exclusão) | As VMs e seus artefatos (como discos e NICs) podem ser gerenciados de forma independente. | Instâncias e seus artefatos (como discos e NICs) são implícitos para as instâncias do conjunto de dimensionamento que os criam. Eles não podem ser desanexados ou gerenciados separadamente fora do conjunto de dimensionamento |
-| Domínios de falha               | Pode definir domínios de falha. 2 ou 3 com base no suporte regional e 5 para a zona de disponibilidade. | Pode definir domínios de falha indo de 1 a 5 |
-| Domínios de atualização              | Os domínios de atualização são mapeados automaticamente para domínios de falha | Os domínios de atualização são mapeados automaticamente para domínios de falha |
-| Zonas de Disponibilidade          | Dá suporte à implantação regional ou a VMs em uma zona de disponibilidade | Dá suporte à implantação regional ou a vários Zonas de Disponibilidade; Pode definir a estratégia de balanceamento de zona |
-| DimensionamentoAutomático                   | Não suportado                              | Suportadas |
-| Atualização do so                  | Não suportado                              | Suportadas |
-| Atualizações de modelo               | Não suportado                              | Suportadas |
-| Controle de instância            | Controle de VM completo. As VMs têm um URI totalmente qualificado que oferece suporte a toda a gama de recursos de gerenciamento de VM do Azure (como Azure Policy, backup do Azure e Azure Site Recovery) | As VMs são recursos dependentes do conjunto de dimensionamento. As instâncias podem ser acessadas para gerenciamento somente por meio do conjunto de dimensionamento. |
-| Modelo de instância              | Definição do modelo Microsoft. Compute/VirtualMachines. | Definição do modelo Microsoft. Compute/VirtualMachineScaleSets/VirtualMachines. |
-| Capacidade                    | Um conjunto de dimensionamento vazio pode ser criado; até 200 VMs podem ser adicionadas ao conjunto de dimensionamento | Os conjuntos de dimensionamento podem ser definidos com uma contagem de instâncias 0-1000 |
-| Mover                        | Suportadas                                  | Suportadas |
-| Grupo de posicionamento único = = falso | Não suportado                          | Suportadas |
+| Modelo de configuração VM      | Nenhuma                                       | Necessário |
+| Adicionar novo VM ao conjunto de escala  | Os VMs são explicitamente adicionados à escala definida quando o VM é criado. | Os VMs são implicitamente criados e adicionados à escala definida com base no modelo de configuração VM, contagem de instâncias e regras de autoscalcificação | |
+| Eliminar VM                   | Os VMs têm de ser eliminados individualmente, o conjunto de escala não será eliminado se tiver quaisquer VMs nele. | Os VMs podem ser eliminados individualmente, eliminando o conjunto de escala eliminará todas as instâncias vM.  |
+| VMs anexados/desapegos           | Não suportado                              | Não suportado |
+| Ciclo de Vida da Instância (Criação através da Eliminação) | Os VMs e os seus artefactos (como discos e NICs) podem ser geridos de forma independente. | As instâncias e os seus artefactos (como discos e NICs) estão implícitos nas instâncias de conjunto de escala que os criam. Não podem ser separadas ou geridas separadamente fora do conjunto de escala |
+| Domínios de falha               | Pode definir domínios de falha. 2 ou 3 com base no apoio regional e 5 na zona de disponibilidade. | Pode definir domínios de falha que vão de 1 a 5 |
+| Domínios de atualização              | Os domínios de atualização são automaticamente mapeados para domínios de falha | Os domínios de atualização são automaticamente mapeados para domínios de falha |
+| Zonas de Disponibilidade          | Apoia a implantação regional ou VMs numa zona de disponibilidade | Apoia a implantação regional ou múltiplas Zonas de Disponibilidade; Pode definir a estratégia de equilíbrio da zona |
+| Escala Automática                   | Não suportado                              | Suportado |
+| Atualização do OS                  | Não suportado                              | Suportado |
+| Atualizações de modelos               | Não suportado                              | Suportado |
+| Controlo de instâncias            | Controlo VM completo. Os VMs têm URI totalmente qualificado que suporta mInuários full leque de capacidades de gestão De VM Azure (como Política Azure, Backup Azure e Recuperação de Site Azure) | Os VMs são recursos dependentes da escala definida. Os casos só podem ser acedidos para gestão através do conjunto de escala. |
+| Modelo de instância              | Definição do modelo Microsoft.Compute/VirtualMachines. | Microsoft.Compute/VirtualMachineScaleSets/VirtualMachines definição do modelo. |
+| Capacidade                    | Pode ser criado um conjunto de escala vazia; até 200 VMs podem ser adicionados ao conjunto de escala | Conjuntos de escala podem ser definidos com uma contagem de exemplo0 - 1000 |
+| Mover                        | Suportado                                  | Suportado |
+| Grupo de colocação única == falso | Não suportado                          | Suportado |
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações, consulte a [visão geral das opções de disponibilidade](availability.md).
+Para mais informações, consulte a [visão geral das opções de disponibilidade.](availability.md)
