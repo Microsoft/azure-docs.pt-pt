@@ -15,10 +15,10 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 403f589702fd7142f0515a3b6f19ee1b9bbb6420
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76701557"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Cenário: Web app que assina nos utilizadores
@@ -31,28 +31,28 @@ Saiba tudo o que precisa para construir uma aplicação web que utilize a plataf
 
 ## <a name="getting-started"></a>Introdução
 
-# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 Se quiser criar a sua primeira aplicação web portátil (ASP.NET Core) que assina nos utilizadores, siga este quickstart:
 
 > [!div class="nextstepaction"]
 > [Quickstart: ASP.NET aplicação web Core que assina nos utilizadores](quickstart-v2-aspnet-core-webapp.md)
 
-# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+# <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 Se quiser entender como adicionar o início de sessão a uma aplicação web ASP.NET existente, tente o seguinte arranque rápido:
 
 > [!div class="nextstepaction"]
 > [Quickstart: ASP.NET aplicação web que assina nos utilizadores](quickstart-v2-aspnet-webapp.md)
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Se é um desenvolvedor de Java, tente o seguinte arranque rápido:
 
 > [!div class="nextstepaction"]
 > [Quickstart: Adicione o sessão com a Microsoft a uma aplicação web java](quickstart-v2-java-webapp.md)
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 Se desenvolver com python, tente o seguinte arranque rápido:
 
@@ -61,7 +61,7 @@ Se desenvolver com python, tente o seguinte arranque rápido:
 
 ---
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 Adiciona autenticação à sua aplicação web para que possa inscrever os utilizadores. A adição de autenticação permite à sua aplicação web aceder a informações de perfil limitados de forma a personalizar a experiência para os utilizadores. 
 
@@ -74,7 +74,7 @@ Como segunda fase, pode ativar a sua aplicação para ligar para a Web APIs em n
 > [!NOTE]
 > Adicionar sessão a uma aplicação web é proteger a aplicação web e validar um token do utilizador, que é o que as bibliotecas **middleware** fazem. No caso de .NET, este cenário ainda não requer a Microsoft Authentication Library (MSAL), que tem a ver com a aquisição de um símbolo para chamar APIs protegidos. As bibliotecas de autenticação serão introduzidas no cenário de seguimento, quando a aplicação web necessitar de chamadas de APIs web.
 
-## <a name="specifics"></a>Especificações
+## <a name="specifics"></a>Especificidades
 
 - Durante o registo da aplicação, terá de fornecer um ou vários (se implementar a sua aplicação em vários locais) responder a URIs. Em alguns casos (ASP.NET e ASP.NET Core), terá de ativar o símbolo de identificação. Por fim, vai querer configurar um URI de inscrição para que a sua aplicação reaja aos utilizadores que se inscrevam.
 - No código da sua aplicação, terá de fornecer a autoridade para a qual a sua aplicação web delega o seu acesso. É possível personalizar a validação de token (em particular, em cenários de parceiros).
@@ -82,22 +82,22 @@ Como segunda fase, pode ativar a sua aplicação para ligar para a Web APIs em n
 
 ## <a name="next-steps"></a>Passos seguintes
 
-# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 > [!div class="nextstepaction"]
 > [Registo da aplicação](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=aspnetcore)
 
-# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+# <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 > [!div class="nextstepaction"]
 > [Registo da aplicação](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=aspnet)
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 > [!div class="nextstepaction"]
 > [Registo da aplicação](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=java)
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 > [!div class="nextstepaction"]
 > [Registo da aplicação](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=python)

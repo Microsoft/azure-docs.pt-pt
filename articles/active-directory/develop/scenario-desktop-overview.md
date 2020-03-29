@@ -1,6 +1,6 @@
 ---
-title: Criar um aplicativo de área de trabalho que chama APIs da Web-plataforma de identidade da Microsoft | Azure
-description: Saiba como criar um aplicativo de área de trabalho que chama APIs da Web (visão geral)
+title: Construa uma aplicação de desktop que chama APIs web - plataforma de identidade microsoft / Azure
+description: Saiba como construir uma aplicação de desktop que chama APIs web (visão geral)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,59 +15,59 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 196102769c1f5f68df316918a63079b09baad32d
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76702152"
 ---
-# <a name="scenario-desktop-app-that-calls-web-apis"></a>Cenário: aplicativo de desktop que chama APIs da Web
+# <a name="scenario-desktop-app-that-calls-web-apis"></a>Cenário: Aplicação de ambiente de trabalho que chama APIs web
 
-Saiba tudo o que você precisa para criar um aplicativo de desktop que chama APIs da Web.
+Aprenda tudo o que precisa para construir uma aplicação de desktop que chama APIs web.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="get-started"></a>Começar
+## <a name="get-started"></a>Introdução
 
-Se você ainda não fez isso, crie seu primeiro aplicativo seguindo o guia de início rápido da área de trabalho do .NET, o início rápido do Plataforma Universal do Windows (UWP) ou o início rápido do aplicativo macOS nativo:
-
-> [!div class="nextstepaction"]
-> [Início rápido: adquirir um token e chamar Microsoft Graph API de um aplicativo de área de trabalho do Windows](./quickstart-v2-windows-desktop.md)
-
+Se ainda não o fez, crie a sua primeira aplicação seguindo o arranque rápido do ambiente de trabalho .NET, o quickstart da Plataforma Universal Windows (UWP) ou a aplicação nativa macOS:
 
 > [!div class="nextstepaction"]
-> [Início rápido: adquirir um token e chamar Microsoft Graph API de um aplicativo UWP](./quickstart-v2-uwp.md)
+> [Início rápido: Adquirir um token e chamar a Microsoft Graph API a partir de uma aplicação de ambiente de trabalho do Windows](./quickstart-v2-windows-desktop.md)
+
 
 > [!div class="nextstepaction"]
-> [Início rápido: adquirir um token e chamar Microsoft Graph API de um aplicativo nativo do macOS](./quickstart-v2-ios.md)
+> [Quickstart: Adquira um símbolo e ligue para a Microsoft Graph API de uma aplicação UWP](./quickstart-v2-uwp.md)
 
-## <a name="overview"></a>Visão geral
+> [!div class="nextstepaction"]
+> [Quickstart: Adquira um símbolo e ligue para a Microsoft Graph API a partir de uma aplicação nativa macOS](./quickstart-v2-ios.md)
 
-Você escreve um aplicativo de área de trabalho e deseja conectar usuários ao seu aplicativo e chamar APIs da Web, como Microsoft Graph, outras APIs da Microsoft ou sua própria API Web. Você tem várias possibilidades:
+## <a name="overview"></a>Descrição geral
 
-- Você pode usar a aquisição de token interativo:
+Escreve uma aplicação para desktop e pretende inscrever os utilizadores na sua aplicação e ligar para apis web como o Microsoft Graph, outras APIs da Microsoft ou a sua própria API web. Tem várias possibilidades:
 
-  - Se o seu aplicativo de área de trabalho oferecer suporte a controles gráficos, por exemplo, se for um aplicativo Windows. Form, um aplicativo WPF ou um aplicativo macOS nativo.
-  - Ou, se for um aplicativo .NET Core e você concordar em ter a interação de autenticação com o Azure Active Directory (Azure AD) acontecerá no navegador do sistema.
+- Pode utilizar a aquisição interativa de fichas:
 
-- Para aplicativos hospedados do Windows, também é possível para aplicativos em execução em computadores ingressados em um domínio do Windows ou o Azure AD ingressado para adquirir um token silenciosamente usando a autenticação integrada do Windows.
-- Por fim, embora não seja recomendado, você pode usar um nome de usuário e uma senha em aplicativos cliente públicos. Ainda é necessário em alguns cenários como o DevOps. O uso de impõe restrições em seu aplicativo. Por exemplo, ele não pode entrar em um usuário que precisa executar a autenticação multifator (acesso condicional). Além disso, seu aplicativo não se beneficiará do SSO (logon único).
+  - Se a sua aplicação de ambiente de trabalho suportar controlos gráficos, por exemplo, se for uma aplicação Windows.Form, uma aplicação WPF ou uma aplicação nativa macOS.
+  - Ou, se for uma aplicação .NET Core e concordar em que a interação de autenticação com o Azure Ative Directory (Azure AD) aconteça no navegador do sistema.
 
-  Ele também está relacionado aos princípios da autenticação moderna e é fornecido apenas por motivos herdados.
+- Para aplicações hospedadas pelo Windows, também é possível que as aplicações em execução em computadores unidos a um domínio Windows ou Azure AD se juntem para adquirir um símbolo silenciosamente utilizando a Autenticação Integrada do Windows.
+- Finalmente, e embora não seja recomendado, pode usar um nome de utilizador e uma palavra-passe em aplicações de clientes públicos. Ainda é necessário em alguns cenários como DevOps. Usá-lo impõe restrições à sua aplicação. Por exemplo, não pode assinar num utilizador que precisa de realizar a autenticação multifactor (acesso condicional). Além disso, a sua aplicação não beneficiará de um único sign-on (SSO).
 
-  ![Aplicativo de desktop](media/scenarios/desktop-app.svg)
+  É também contra os princípios da autenticação moderna e só é fornecido por razões antigas.
 
-- Se você escrever uma ferramenta de linha de comando portátil, provavelmente um aplicativo .NET Core que é executado no Linux ou no Mac, e se você aceitar que a autenticação será delegada ao navegador do sistema, poderá usar a autenticação interativa. O .NET Core não fornece um [navegador da Web](https://aka.ms/msal-net-uses-web-browser), portanto, a autenticação ocorre no navegador do sistema. Caso contrário, a melhor opção nesse caso é usar o fluxo de código do dispositivo. Esse fluxo também é usado para aplicativos sem um navegador, como aplicativos de IoT.
+  ![Aplicação de ambiente de trabalho](media/scenarios/desktop-app.svg)
 
-  ![Aplicativo com navegador](media/scenarios/device-code-flow-app.svg)
+- Se escrever uma ferramenta portátil de linha de comando, provavelmente uma aplicação .NET Core que funciona no Linux ou Mac, e se aceitar que a autenticação será delegada no navegador do sistema, pode utilizar a autenticação interativa. .NET Core não fornece um [navegador web](https://aka.ms/msal-net-uses-web-browser), por isso a autenticação acontece no navegador do sistema. Caso contrário, a melhor opção neste caso é utilizar o fluxo de código do dispositivo. Este fluxo também é utilizado para aplicações sem browser, como aplicações IoT.
 
-## <a name="specifics"></a>Especificações
+  ![Aplicação sem navegador](media/scenarios/device-code-flow-app.svg)
 
-Os aplicativos de área de trabalho têm várias especificidades. Eles dependem principalmente se seu aplicativo usa autenticação interativa ou não.
+## <a name="specifics"></a>Especificidades
+
+As aplicações para desktop têm uma série de especificidades. Dependem principalmente da utilização da sua aplicação ou não.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Aplicativo de desktop: registro de aplicativo](scenario-desktop-app-registration.md)
+> [Aplicativo de ambiente de trabalho: Registo de aplicativos](scenario-desktop-app-registration.md)

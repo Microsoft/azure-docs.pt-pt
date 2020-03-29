@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: c9c76e9c06d4c45a096cff79dac82bb80ebe25d1
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840745"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Analise a sua segurança da Máquina Virtual com vista de grupo de segurança usando a API REST
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [CLI do Azure](network-watcher-security-group-view-cli.md)
-> - [API REST](network-watcher-security-group-view-rest.md)
+> - [Azure CLI](network-watcher-security-group-view-cli.md)
+> - [REST API](network-watcher-security-group-view-rest.md)
 
 A visão do grupo de segurança devolução de devoluções configuradas e eficazes de segurança da rede que são aplicadas a uma máquina virtual. Esta capacidade é útil para auditar e diagnosticar Grupos de Segurança da Rede e regras que estão configuradas num VM para garantir que o tráfego está a ser corretamente permitido ou negado. Neste artigo, mostramos-lhe como recuperar as regras de segurança eficazes e aplicadas a uma máquina virtual usando a API REST
 
@@ -33,15 +33,15 @@ A visão do grupo de segurança devolução de devoluções configuradas e efica
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Neste cenário, você liga para a API de descanso de vigilante de rede para obter a visão do grupo de segurança para uma máquina virtual. ARMclient é usado para chamar a API REST usando o PowerShell. ARMClient é encontrado no Chocolatey em [ARMClient no Chocolatey](https://chocolatey.org/packages/ARMClient)
+Neste cenário, você liga para a API de descanso de vigilante de rede para obter a visão do grupo de segurança para uma máquina virtual. O ARMclient é usado para chamar a API REST usando powerShell. ARMClient é encontrado em chocolate na [ARMClient na Chocolatey](https://chocolatey.org/packages/ARMClient)
 
-Este cenário pressupõe que você já seguiu as etapas em [criar um observador de rede](network-watcher-create.md) para criar um observador de rede. O cenário também pressupõe que existe um Grupo de Recursos com uma máquina virtual válida para ser utilizado.
+Este cenário pressupõe que já seguiu os passos na [Create a Network Watcher](network-watcher-create.md) para criar um Observador de Rede. O cenário também pressupõe que existe um Grupo de Recursos com uma máquina virtual válida para ser utilizado.
 
 ## <a name="scenario"></a>Cenário
 
 O cenário abordado neste artigo recupera as regras de segurança eficazes e aplicadas para uma determinada máquina virtual.
 
-## <a name="log-in-with-armclient"></a>Fazer logon com ARMClient
+## <a name="log-in-with-armclient"></a>Iniciar sessão com a ARMClient
 
 ```powershell
 armclient login
@@ -61,7 +61,7 @@ $resourceGroupName = '<resource group name>'
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-A informação necessária é o **id** sob o tipo `Microsoft.Compute/virtualMachines` em resposta, como se pode ver no seguinte exemplo:
+A informação necessária é a `Microsoft.Compute/virtualMachines` **identificação** sob o tipo de resposta, como se pode ver no seguinte exemplo:
 
 ```json
 ...,

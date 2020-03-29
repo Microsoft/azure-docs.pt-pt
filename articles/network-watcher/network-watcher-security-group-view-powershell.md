@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 4cba2c7e25b5f76b0638da1c551514f102247ae0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840796"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>Analise a sua segurança da Máquina Virtual com vista de grupo de segurança usando powerShell
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [CLI do Azure](network-watcher-security-group-view-cli.md)
-> - [API REST](network-watcher-security-group-view-rest.md)
+> - [Azure CLI](network-watcher-security-group-view-cli.md)
+> - [REST API](network-watcher-security-group-view-rest.md)
 
 A visão do grupo de segurança devolução de devoluções configuradas e eficazes de segurança da rede que são aplicadas a uma máquina virtual. Esta capacidade é útil para auditar e diagnosticar Grupos de Segurança da Rede e regras que estão configuradas num VM para garantir que o tráfego está a ser corretamente permitido ou negado. Neste artigo, mostramos-lhe como recuperar as regras de segurança configuradas e eficazes a uma máquina virtual usando powerShell
 
@@ -33,9 +33,9 @@ A visão do grupo de segurança devolução de devoluções configuradas e efica
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Neste cenário, executa a `Get-AzNetworkWatcherSecurityGroupView` cmdlet para recuperar a informação da regra de segurança.
+Neste cenário, você `Get-AzNetworkWatcherSecurityGroupView` executa o cmdlet para recuperar a informação da regra de segurança.
 
-Este cenário pressupõe que você já seguiu as etapas em [criar um observador de rede](network-watcher-create.md) para criar um observador de rede.
+Este cenário pressupõe que já seguiu os passos na [Create a Network Watcher](network-watcher-create.md) para criar um Observador de Rede.
 
 ## <a name="scenario"></a>Cenário
 
@@ -43,7 +43,7 @@ O cenário abordado neste artigo recupera as regras de segurança configuradas e
 
 ## <a name="retrieve-network-watcher"></a>Observador de rede de recuperação
 
-O primeiro passo é recuperar a instância do Observador da Rede. Esta variável é passada para o `Get-AzNetworkWatcherSecurityGroupView` cmdlet.
+O primeiro passo é recuperar a instância do Observador da Rede. Esta variável é `Get-AzNetworkWatcherSecurityGroupView` passada para o cmdlet.
 
 ```powershell
 $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
@@ -51,7 +51,7 @@ $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network
 
 ## <a name="get-a-vm"></a>Obter um VM
 
-É necessária uma máquina virtual para executar a `Get-AzNetworkWatcherSecurityGroupView` cmdlet contra. O exemplo que se segue recebe um objeto VM.
+É necessária uma máquina virtual `Get-AzNetworkWatcherSecurityGroupView` para passar o cmdlet contra. O exemplo que se segue recebe um objeto VM.
 
 ```powershell
 $VM = Get-AzVM -ResourceGroupName testrg -Name testvm1

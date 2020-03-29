@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: damendo
 ms.openlocfilehash: c48d5a02cdb8ef63904642c6c2c76cb5d61e1f9d
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840915"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gerir e analisar registos de fluxo do Grupo de Segurança da Rede usando o Network Watcher e o Grafana
@@ -36,13 +36,13 @@ Os registos de fluxo NSG são ativados utilizando o Network Watcher e são armaz
 
 ![NSG Network Watcher Grafana](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig1.png)
 
-## <a name="installation-steps"></a>Etapas de instalação
+## <a name="installation-steps"></a>Passos de instalação
 
 ### <a name="enable-network-security-group-flow-logging"></a>Ativar a exploração de fluxo do Grupo de Segurança da Rede
 
 Para este cenário, deve ter o Fluxo de Registo do Grupo de Segurança da Rede ativado em pelo menos um Grupo de Segurança de Rede na sua conta. Para obter instruções sobre a ativação de registos de fluxo de segurança da rede, consulte o seguinte artigo [Introdução ao fluxo de registo sinuoso para grupos](network-watcher-nsg-flow-logging-overview.md)de segurança da rede .
 
-### <a name="setup-considerations"></a>Considerações de configuração
+### <a name="setup-considerations"></a>Considerações sobre configuração
 
 Neste exemplo Grafana, ElasticSearch e Logstash estão configurados num Ubuntu 16.04 LTS Server implantado em Azure. Esta configuração mínima é utilizada para executar os três componentes – todos eles estão a funcionar no mesmo VM. Esta configuração só deve ser utilizada para testes e cargas de trabalho não críticas. Logstash, Elasticsearch e Grafana podem ser arquitetados para escalar independentemente em muitos casos. Para mais informações, consulte a documentação para cada um destes componentes.
 
@@ -189,7 +189,7 @@ Em seguida, é necessário adicionar o índice ElasticSearch contendo registos d
 
 ![Adicionar origem de dados](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig2.png)
 
-#### <a name="create-a-dashboard"></a>Criar um dashboard
+#### <a name="create-a-dashboard"></a>Create a dashboard (Criar um dashboard)
 
 Agora que configuraste grafana com sucesso para ler a partir do índice ElasticSearch contendo registos de fluxo NSG, pode criar e personalizar dashboards. Para criar um novo dashboard, selecione **Criar o seu primeiro dashboard**. A configuração do gráfico de amostra seguem mostrar fluxos segmentados pela regra NSG:
 

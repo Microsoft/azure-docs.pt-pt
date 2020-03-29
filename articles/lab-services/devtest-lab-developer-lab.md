@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: ae44696f62a085bf1e798f0915e2bd1e27c3a78f
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76760152"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Utilize o Azure DevTest Labs para programadores
@@ -43,7 +43,7 @@ Neste artigo, você aprende sobre várias funcionalidades do Azure DevTest Labs 
    
    | Tarefa | O que irá aprender |
    | --- | --- |
-   | [Criar um laboratório em Azure DevTest Labs](devtest-lab-create-lab.md) |Aprenda a criar um laboratório em Azure DevTest Labs no portal Azure. |
+   | [Criar um laboratório no Azure DevTest Labs](devtest-lab-create-lab.md) |Aprenda a criar um laboratório em Azure DevTest Labs no portal Azure. |
 2. **Crie VMs em minutos usando imagens de mercado prontas e imagens personalizadas** 
    
     Você pode escolher imagens prontas a partir de uma grande variedade de imagens no Mercado Azure e disponibilizá-las em laboratório. Se as imagens prontas não cumprirem os seus requisitos, pode criar uma imagem personalizada criando um VM de laboratório utilizando uma imagem pronta do Azure Marketplace, instalando todo o software de que necessita e guardando o VM como uma imagem personalizada no laboratório.
@@ -54,7 +54,7 @@ Neste artigo, você aprende sobre várias funcionalidades do Azure DevTest Labs 
    
    | Tarefa | O que irá aprender |
    | --- | --- |
-   | [Configure imagens do Mercado Azure](devtest-lab-configure-marketplace-images.md) |Saiba como pode imagens do Azure Marketplace de lista aprovada, tornando disponíveis para seleção apenas as imagens desejadas para os desenvolvedores.|
+   | [Configurar imagens do Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Saiba como pode whitelist Imagens do Azure Marketplace, disponibilizando para seleção apenas as imagens que pretende para os desenvolvedores.|
    | [Criar uma imagem personalizada](devtest-lab-create-template.md) |Crie uma imagem personalizada pré-instalando o software de que necessita para que os desenvolvedores possam criar rapidamente um VM usando a imagem personalizada.|
    | [Saiba mais sobre a fábrica de imagem](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |Veja um vídeo que descreve como configurar e usar uma fábrica de imagem.|
 
@@ -70,11 +70,11 @@ Neste artigo, você aprende sobre várias funcionalidades do Azure DevTest Labs 
 
 4. **Criar artefactos para permitir a personalização flexível de VM**
 
-   Os artefatos são usados para implantar e configurar seu aplicativo depois que uma VM é provisionada. Os artefactos podem ser:
+   Os artefactos são usados para implantar e configurar a sua aplicação depois de um VM ser provisionado. Os artefactos podem ser:
 
-   - Ferramentas que você deseja instalar na VM, como agentes, Fiddler e Visual Studio.
-   - Ações que você deseja executar na VM, como clonar um repositório.
-   - Aplicações que pretende testar.
+   - Ferramentas que pretende instalar no VM - como agentes, Fiddler e Visual Studio.
+   - Ações que pretende executar no VM - como clonar um repo.
+   - Aplicações que quer testar.
 
    Muitos artefactos já estão disponíveis fora da caixa. Pode criar os seus próprios artefactos personalizados se quiser mais personalização para as suas necessidades específicas.
 

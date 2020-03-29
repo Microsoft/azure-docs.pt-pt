@@ -1,6 +1,6 @@
 ---
-title: Como depurar UDFs – gêmeos digital do Azure | Microsoft Docs
-description: Saiba mais sobre as abordagens recomendadas para depurar funções definidas pelo usuário no Azure digital gêmeos.
+title: Como depurar UDFs - Azure Digital Twins Microsoft Docs
+description: Saiba mais sobre as abordagens recomendadas para depurar funções definidas pelo utilizador em Gémeos Digitais Azure.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -10,79 +10,79 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: seodec18
 ms.openlocfilehash: 518383488aa878dab75aec7ad5da664332b62ad0
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76511642"
 ---
-# <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Como depurar funções definidas pelo usuário no Azure digital gêmeos
+# <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Como depurar funções definidas pelo utilizador em Gémeos Digitais Azure
 
-Este artigo resume como diagnosticar e depurar funções definidas pelo usuário no Azure digital gêmeos. Em seguida, ele identifica alguns dos cenários mais comuns encontrados ao depurá-los.
+Este artigo resume como diagnosticar e depurar funções definidas pelo utilizador em Gémeos Digitais Azure. Depois, identifica alguns dos cenários mais comuns encontrados ao depura-los.
 
 >[!TIP]
-> Leia [como configurar o monitoramento e o log](./how-to-configure-monitoring.md) para saber mais sobre como configurar ferramentas de depuração no Azure digital gêmeos usando logs de atividade, logs de diagnóstico e Azure monitor.
+> Leia [Como configurar a monitorização e](./how-to-configure-monitoring.md) o registo de registos para saber mais sobre a criação de ferramentas de depuração em Gémeos Digitais Azure utilizando Registos de Atividade, Registos de Diagnóstico e Monitor Azure.
 
 ## <a name="debug-issues"></a>Problemas de depuração
 
-Saber como diagnosticar problemas no Azure digital gêmeos permite que você analise problemas com eficiência, identifique as causas dos problemas e forneça as soluções apropriadas para eles.
+Saber diagnosticar problemas dentro das Gémeas Digitais Azure permite-lhe analisar eficazmente os problemas, identificar as causas dos problemas e fornecer-lhes soluções adequadas.
 
-Uma variedade de ferramentas de log, análise e diagnóstico é fornecida para esse fim.
+Para o efeito, são fornecidas uma variedade de ferramentas de exploração madeireira, análise e diagnóstico.
 
-### <a name="enable-logging-for-your-instance"></a>Habilitar o registro em log para sua instância
+### <a name="enable-logging-for-your-instance"></a>Ativar a exploração madeireira por exemplo
 
-O Azure digital gêmeos dá suporte ao registro em log, monitoramento e análise robustos. As soluções que os desenvolvedores podem usar Azure Monitor logs, logs de diagnóstico, logs de atividades e outros serviços para dar suporte às necessidades complexas de monitoramento de um aplicativo de IoT. As opções de log podem ser combinadas para consultar ou exibir registros em vários serviços e para fornecer cobertura de log granular para muitos serviços.
+A Azure Digital Twins suporta a exploração madeireira, monitorização e análise robustas. Os desenvolvedores de soluções podem utilizar registos do Monitor Azure, registos de diagnóstico, registos de atividade e outros serviços para suportar as complexas necessidades de monitorização de uma aplicação IoT. As opções de exploração madeireira podem ser combinadas para consultar ou exibir registos em vários serviços e fornecer cobertura de registo granular para muitos serviços.
 
-* Para a configuração de log específica do Azure digital gêmeos, leia [como configurar o monitoramento e o registro em log](./how-to-configure-monitoring.md).
-* Consulte a visão geral de [Azure monitor](../azure-monitor/overview.md) para saber mais sobre configurações de log avançadas habilitadas por meio de Azure monitor.
-* Examine o artigo [coletar e consumir dados de log dos recursos do Azure](../azure-monitor/platform/platform-logs-overview.md) para definir as configurações de log de diagnóstico no gêmeos digital do Azure por meio do portal do Azure, CLI do Azure ou PowerShell.
+* Para registar uma configuração específica para as Gémeas Digitais Azure, leia [como configurar a monitorização e a exploração madeireira](./how-to-configure-monitoring.md).
+* Consulte a visão geral do [Monitor Azure](../azure-monitor/overview.md) para saber sobre as configurações de registo poderosas ativadas através do Monitor Azure.
+* Reveja o artigo [Recolher e consumir dados de registo dos seus recursos Azure](../azure-monitor/platform/platform-logs-overview.md) para configurar definições de registo de diagnóstico em Gémeos Digitais Azure através do portal Azure, Azure CLI ou PowerShell.
 
-Uma vez configurado, você poderá selecionar todas as categorias de log, métricas e usar espaços de trabalho de Azure Monitor do log Analytics eficientes para dar suporte aos seus esforços de depuração.
+Uma vez configurado, poderá selecionar todas as categorias de registo, métricas e utilizar poderosos espaços de trabalho de análise de log Monitor Azure monitor para suportar os seus esforços de depuração.
 
-### <a name="trace-sensor-telemetry"></a>Telemetria do sensor de rastreamento
+### <a name="trace-sensor-telemetry"></a>Telemetria do sensor de vestígios
 
-Para rastrear a telemetria do sensor, verifique se as configurações de diagnóstico estão habilitadas para sua instância de gêmeos digital do Azure. Em seguida, verifique se todas as categorias de log desejadas estão selecionadas. Por fim, confirme se os logs desejados estão sendo enviados aos logs de Azure Monitor.
+Para rastrear a telemetria do sensor, verifique se as definições de diagnóstico estão ativadas para a sua instância De Gémeos Digitais Azure. Em seguida, certifique-se de que todas as categorias de registo desejadas são selecionadas. Por último, confirme que os registos desejados estão a ser enviados para os registos do Monitor Azure.
 
-Para fazer a correspondência de uma mensagem de telemetria do sensor com seus respectivos logs, você pode especificar uma ID de correlação nos dados do evento que estão sendo enviados. Para fazer isso, defina a propriedade `x-ms-client-request-id` como um GUID.
+Para combinar uma mensagem de telemetria do sensor com os respetivos registos, pode especificar um ID da Correlação nos dados do evento que estão a ser enviados. Para tal, coloque `x-ms-client-request-id` a propriedade num GUID.
 
-Depois de enviar telemetria, abra Azure Monitor log Analytics para consultar logs usando a ID de correlação do conjunto:
+Depois de enviar telemetria, abra a análise de registo do Monitor Azure para consultar os registos utilizando o id de correlação definido:
 
 ```Kusto
 AzureDiagnostics
 | where CorrelationId == 'YOUR_CORRELATION_IDENTIFIER'
 ```
 
-| Valor da consulta | Substituir |
+| Valor de consulta | Substituir |
 | --- | --- |
-| YOUR_CORRELATION_IDENTIFIER | A ID de correlação especificada nos dados do evento |
+| YOUR_CORRELATION_IDENTIFIER | O ID da Correlação especificado nos dados do evento |
 
-Para ler a consulta de todos os logs de telemetria recentes:
+Para ler todas as consultas recentes de registos de telemetria:
 
 ```Kusto
 AzureDiagnostics
 | order by CorrelationId desc
 ```
 
-Se você habilitar o registro em log para a função definida pelo usuário, esses logs aparecerão na instância do log Analytics com a categoria `UserDefinedFunction`. Para recuperá-los, insira a seguinte condição de consulta no log Analytics:
+Se ativar o registo da função definida pelo utilizador, esses `UserDefinedFunction`registos aparecem na sua instância de análise de registo com a categoria . Para recuperá-los, insira a seguinte condição de consulta na análise de registo:
 
 ```Kusto
 AzureDiagnostics
 | where Category == 'UserDefinedFunction'
 ```
 
-Para obter mais informações sobre operações de consulta avançadas, leia [introdução às consultas](../azure-monitor/log-query/get-started-queries.md).
+Para mais informações sobre operações de consulta poderosas, leia [Começar com consultas](../azure-monitor/log-query/get-started-queries.md).
 
-## <a name="identify-common-issues"></a>Identificar problemas comuns
+## <a name="identify-common-issues"></a>Identificar questões comuns
 
-Tanto o diagnóstico quanto a identificação de problemas comuns são importantes ao solucionar problemas de sua solução. Vários problemas que normalmente são encontrados durante o desenvolvimento de funções definidas pelo usuário são resumidos nas subseções a seguir.
+Tanto diagnosticar como identificar questões comuns são importantes para resolver problemas na sua solução. Várias questões que são comumente encontradas no desenvolvimento de funções definidas pelo utilizador são resumidas nas seguintes subsecções.
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-### <a name="check-if-a-role-assignment-was-created"></a>Verificar se uma atribuição de função foi criada
+### <a name="check-if-a-role-assignment-was-created"></a>Verifique se foi criada uma atribuição de funções
 
-Sem uma atribuição de função criada dentro da API de gerenciamento, a função definida pelo usuário não tem acesso para executar nenhuma ação, como enviar notificações, recuperar metadados e definir valores computados na topologia.
+Sem uma atribuição de funções criada dentro da API de Gestão, a função definida pelo utilizador não tem acesso a quaisquer ações como o envio de notificações, a recuperação de metadados e a definição de valores computacionais dentro da topologia.
 
-Verifique se existe uma atribuição de função para sua função definida pelo usuário por meio da API de gerenciamento:
+Verifique se existe uma atribuição de funções para a sua função definida pelo utilizador através da Sua API de Gestão:
 
 ```URL
 GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
@@ -90,13 +90,13 @@ GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_U
 
 | Valor do parâmetro | Substituir |
 | --- | --- |
-| YOUR_USER_DEFINED_FUNCTION_ID | A ID da função definida pelo usuário para a qual recuperar atribuições de função|
+| YOUR_USER_DEFINED_FUNCTION_ID | A identificação da função definida pelo utilizador para recuperar atribuições de funções para|
 
-Saiba [como criar uma atribuição de função para sua função definida pelo usuário](./how-to-user-defined-functions.md), se não existir nenhuma atribuição de função.
+Saiba como criar uma atribuição de [funções para a sua função definida pelo utilizador,](./how-to-user-defined-functions.md)caso não existam atribuições de funções.
 
-### <a name="check-if-the-matcher-works-for-a-sensors-telemetry"></a>Verificar se o correspondente funciona para a telemetria de um sensor
+### <a name="check-if-the-matcher-works-for-a-sensors-telemetry"></a>Verifique se o matcher trabalha para a telemetria de um sensor
 
-Com a seguinte chamada em relação à API de gerenciamento de instâncias do Azure digital gêmeos, você pode determinar se uma determinada correspondência se aplica ao sensor fornecido.
+Com a seguinte chamada contra a API de Gestão de Gémeos Digitais Azure, é possível determinar se um dado matcher se aplica ao sensor dado.
 
 ```URL
 GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
@@ -104,8 +104,8 @@ GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSO
 
 | Parâmetro | Substituir |
 | --- | --- |
-| *YOUR_MATCHER_IDENTIFIER* | A ID do correspondente que você deseja avaliar |
-| *YOUR_SENSOR_IDENTIFIER* | A ID do sensor que você deseja avaliar |
+| *YOUR_MATCHER_IDENTIFIER* | A identificação do mais compatível que deseja avaliar |
+| *YOUR_SENSOR_IDENTIFIER* | A identificação do sensor que pretende avaliar |
 
 Resposta:
 
@@ -118,9 +118,9 @@ Resposta:
 }
 ```
 
-### <a name="check-what-a-sensor-triggers"></a>Verificar o que um sensor dispara
+### <a name="check-what-a-sensor-triggers"></a>Verifique o que um sensor dispara
 
-Com a seguinte chamada em relação às APIs de gerenciamento de gêmeos digital do Azure, você pode determinar os identificadores de suas funções definidas pelo usuário disparadas pela telemetria de entrada do sensor fornecido:
+Com a seguinte chamada contra as APIs de Gestão de Gémeos Digitais Azure, é possível determinar os identificadores das suas funções definidas pelo utilizador desencadeadas pela telemetria de entrada do sensor dada:
 
 ```URL
 GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
@@ -128,7 +128,7 @@ GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=Use
 
 | Parâmetro | Substituir |
 | --- | --- |
-| *YOUR_SENSOR_IDENTIFIER* | A ID do sensor para enviar telemetria |
+| *YOUR_SENSOR_IDENTIFIER* | A identificação do sensor para enviar telemetria |
 
 Resposta:
 
@@ -159,11 +159,11 @@ Resposta:
 ]
 ```
 
-### <a name="issue-with-receiving-notifications"></a>Problema com notificações de recebimento
+### <a name="issue-with-receiving-notifications"></a>Problema com notificações de receção
 
-Quando você não estiver recebendo notificações da função definida pelo usuário disparada, confirme se o parâmetro de tipo de objeto de topologia corresponde ao tipo de identificador que está sendo usado.
+Quando não estiver a receber notificações da função definida pelo utilizador, confirme que o parâmetro do tipo de objeto de topodeologia corresponde ao tipo de identificador que está a ser utilizado.
 
-**Incorreto** Exemplo
+**Incorreto** Exemplo:
 
 ```JavaScript
 var customNotification = {
@@ -173,9 +173,9 @@ var customNotification = {
 sendNotification(telemetry.SensorId, "Space", JSON.stringify(customNotification));
 ```
 
-Esse cenário surge porque o identificador usado se refere a um sensor enquanto o tipo de objeto de topologia especificado é `Space`.
+Este cenário surge porque o identificador usado refere-se a um `Space`sensor enquanto o tipo de objeto de topológico especificado é .
 
-**Corrigir** Exemplo
+**Correto** Exemplo:
 
 ```JavaScript
 var customNotification = {
@@ -185,7 +185,7 @@ var customNotification = {
 sendNotification(telemetry.SensorId, "Sensor", JSON.stringify(customNotification));
 ```
 
-A maneira mais fácil de não encontrar esse problema é usar o método `Notify` no objeto de metadados.
+A maneira mais fácil de não se `Notify` deparar com este problema é usar o método no objeto de metadados.
 
 Exemplo:
 
@@ -202,18 +202,18 @@ function process(telemetry, executionContext) {
 }
 ```
 
-## <a name="common-diagnostic-exceptions"></a>Exceções comuns de diagnóstico
+## <a name="common-diagnostic-exceptions"></a>Exceções de diagnóstico comuns
 
-Se você habilitar as configurações de diagnóstico, poderá encontrar essas exceções comuns:
+Se ativar as definições de diagnóstico, poderá encontrar estas exceções comuns:
 
-1. **Limitação**: se a função definida pelo usuário exceder os limites de taxa de execução descritos no artigo [limites de serviço](./concepts-service-limits.md) , ela será limitada. Nenhuma outra operação é executada com êxito até que os limites de limitação expirem.
+1. **Estrangulamento:** se a sua função definida pelo utilizador exceder os limites de taxa de execução descritos no artigo limites de [serviço,](./concepts-service-limits.md) será estrangulado. Nenhuma outra operação é executada com sucesso até que os limites de estrangulamento expirem.
 
-1. **Dados não encontrados**: se a função definida pelo usuário tentar acessar metadados que não existem, a operação falhará.
+1. **Dados Não Encontrados**: se a função definida pelo utilizador tentar aceder a metadados que não existam, a operação falha.
 
-1. **Não autorizado**: se sua função definida pelo usuário não tem uma atribuição de função definida ou não tem permissão suficiente para acessar determinados metadados da topologia, a operação falha.
+1. **Não Autorizado**: se a sua função definida pelo utilizador não tiver um conjunto de tarefas ou não tiver autorização suficiente para aceder a certos metadados a partir da topologia, a operação falha.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como habilitar o [monitoramento e os logs](./how-to-configure-monitoring.md) no gêmeos digital do Azure.
+- Saiba como ativar [a monitorização e os registos](./how-to-configure-monitoring.md) em Gémeos Digitais Azure.
 
-- Leia o artigo [visão geral do log de atividades do Azure](../azure-monitor/platform/platform-logs-overview.md) para obter mais opções de log do Azure.
+- Leia o artigo [de registo da Atividade Azure](../azure-monitor/platform/platform-logs-overview.md) para mais opções de exploração madeireira Azure.

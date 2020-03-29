@@ -1,6 +1,6 @@
 ---
-title: Operações de cópia de tabela no Azure Cosmos DB API do Cassandra do Spark
-description: Este artigo fornece detalhes sobre como copiar dados entre tabelas no Azure Cosmos DB API do Cassandra
+title: Operações de cópia de mesa no Azure Cosmos DB Cassandra API da Spark
+description: Este artigo detalha como copiar dados entre as tabelas da Azure Cosmos DB Cassandra API
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
@@ -9,15 +9,15 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 32714e216e59565c787f92bf1e8da62957bc7233
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75445615"
 ---
-# <a name="table-copy-operations-on-azure-cosmos-db-cassandra-api-from-spark"></a>Operações de cópia de tabela no Azure Cosmos DB API do Cassandra do Spark
+# <a name="table-copy-operations-on-azure-cosmos-db-cassandra-api-from-spark"></a>Operações de cópia de mesa no Azure Cosmos DB Cassandra API da Spark
 
-Este artigo descreve como copiar dados entre tabelas no Azure Cosmos DB API do Cassandra do Spark. Os comandos descritos neste artigo também podem ser usados para copiar dados de tabelas do Apache Cassandra para Azure Cosmos DB API do Cassandra tabelas.
+Este artigo descreve como copiar dados entre as tabelas em Azure Cosmos DB Cassandra API da Spark. Os comandos descritos neste artigo também podem ser usados para copiar dados das tabelas Apache Cassandra para as tabelas API da Azure Cosmos DB Cassandra.
 
 ## <a name="cassandra-api-configuration"></a>Configuração da API de Cassandra
 
@@ -46,7 +46,7 @@ spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
 spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
 
-## <a name="insert-sample-data"></a>Inserir dados de exemplo 
+## <a name="insert-sample-data"></a>Inserir dados da amostra 
 ```scala
 val booksDF = Seq(
    ("b00001", "Arthur Conan Doyle", "A study in scarlet", 1887,11.33),
@@ -65,7 +65,7 @@ booksDF.write
 
 ## <a name="copy-data-between-tables"></a>Copiar dados entre tabelas
 
-### <a name="copy-data-between-tables-destination-table-exists"></a>Copiar dados entre tabelas (a tabela de destino existe)
+### <a name="copy-data-between-tables-destination-table-exists"></a>Copiar dados entre tabelas (tabela de destino existe)
 
 ```scala
 //1) Create destination table
@@ -93,7 +93,7 @@ sqlContext
   .show
 ```
 
-### <a name="copy-data-between-tables-destination-table-does-not-exist"></a>Copiar dados entre tabelas (a tabela de destino não existe)
+### <a name="copy-data-between-tables-destination-table-does-not-exist"></a>Copiar dados entre tabelas (tabela de destino não existe)
 
 ```scala
 import com.datastax.spark.connector._
@@ -127,7 +127,7 @@ sqlContext
   .load
   .show
 ```
-A saída-
+A saída...
 ```
 +-------+------------------+--------------------+----------+-------------+
 |book_id|       book_author|           book_name|book_price|book_pub_year|

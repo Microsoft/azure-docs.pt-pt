@@ -1,6 +1,6 @@
 ---
-title: Saída e pontos de extremidade – Azure digital gêmeos | Microsoft Docs
-description: Saiba como criar e saída de pontos de extremidade de evento no Azure digital gêmeos.
+title: Egress e pontos finais - Azure Digital Twins Microsoft Docs
+description: Aprenda a criar e a obter pontos finais de eventos em Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,23 +9,23 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: 3803802a3d81655091d8be543ae9cb17221a98d8
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76511574"
 ---
-# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Saída e pontos de extremidade no Azure digital gêmeos
+# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Egress e pontos finais em Gémeos Digitais Azure
 
-Os pontos de *extremidade* do Azure digital gêmeos representam uma mensagem ou um agente de evento dentro de uma assinatura do Azure do usuário. Eventos e mensagens podem ser enviados para os tópicos hubs de eventos do Azure, grade de eventos do Azure e barramento de serviço do Azure.
+Os *pontos finais* da Azure Digital Twins representam uma mensagem ou corretor de eventos dentro da subscrição do Azure de um utilizador. Eventos e mensagens podem ser enviados para os tópicos Azure Event Hubs, Azure Event Grid e Azure Service Bus.
 
-Os eventos são roteados para pontos de extremidade de acordo com as preferências de roteamento predefinidas. Os usuários especificam quais *tipos de eventos* cada ponto de extremidade pode receber.
+Os eventos são encaminhados para pontos finais de acordo com as preferências predefinidas de encaminhamento. Os utilizadores especificam quais os tipos de *eventos* que cada ponto final pode receber.
 
-Para saber mais sobre eventos, roteamento e tipos de evento, consulte [roteando eventos e mensagens no Azure digital gêmeos](./concepts-events-routing.md).
+Para saber mais sobre eventos, encaminhamento e tipos de eventos, consulte [eventos e mensagens de encaminhamento em Gémeos Digitais Azure](./concepts-events-routing.md).
 
 ## <a name="events"></a>Eventos
 
-Os eventos são enviados por objetos IoT (como dispositivos e sensores) para processamento por mensagens do Azure e agentes de evento. Os eventos são definidos pela seguinte [referência do esquema de eventos da grade de eventos do Azure](../event-grid/event-schema.md).
+Os eventos são enviados por objetos IoT (como dispositivos e sensores) para processamento por mensagens Azure e corretores de eventos. Os eventos são definidos pela seguinte referência de esquema de [evento sinuoso do evento Azure Event Grid](../event-grid/event-schema.md).
 
 ```JSON
 {
@@ -49,56 +49,56 @@ Os eventos são enviados por objetos IoT (como dispositivos e sensores) para pro
 
 | Atributo | Tipo | Descrição |
 | --- | --- | --- |
-| ID | string | Identificador exclusivo do evento. |
-| subject | string | Caminho definido pelo publicador para o assunto do evento. |
-| data | objeto | Dados de evento específicos para o provedor de recursos. |
+| ID | string | Identificador único para o evento. |
+| Assunto | string | Caminho definido pelo publicador para o assunto do evento. |
+| data | objeto | Dados do evento específicos do fornecedor de recursos. |
 | eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
-| eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
 | dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | string | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
-| tópico | string | Caminho completo do recurso para a origem do evento. Este campo não é gravável. O Event Grid fornece este valor. |
+| tópico | string | Caminho de recursos completos para a fonte do evento. Este campo não é reelegível. O Event Grid fornece este valor. |
 
-Para obter mais informações sobre o esquema de evento da grade de eventos:
+Para mais informações sobre o event grid schema:
 
-- Examine a [referência do esquema de eventos da grade de eventos do Azure](../event-grid/event-schema.md).
-- Leia a [referência EventGridEvent do SDK do node. js do Azure EventGrid](https://docs.microsoft.com/javascript/api/@azure/eventgrid/eventgridevent?view=azure-node-latest).
+- Reveja a [referência schema](../event-grid/event-schema.md)do evento Azure Event Grid .
+- Leia a [referência azure EventGrid Node.js SDK EventGridEvent](https://docs.microsoft.com/javascript/api/@azure/eventgrid/eventgridevent?view=azure-node-latest).
 
 ## <a name="event-types"></a>Tipos de evento
 
-Os tipos de eventos classificam a natureza do evento e são definidos no campo **EventType** . Os tipos de evento disponíveis são fornecidos pela lista a seguir:
+Os tipos de eventos classificam a natureza do evento e são definidos no campo **eventType.** Os tipos de eventos disponíveis são dados pela seguinte lista:
 
-- TopologyOperation
+- Operação Topologia
 - UdfCustom
 - SensorChange
 - SpaceChange
-- DeviceMessage
+- Mensagem de dispositivo
 
-Os formatos de evento para cada tipo de evento são descritos mais detalhadamente nas subseções a seguir.
+Os formatos de evento para cada tipo de evento são descritos nas seguintes subsecções.
 
-### <a name="topologyoperation"></a>TopologyOperation
+### <a name="topologyoperation"></a>Operação Topologia
 
-**TopologyOperation** se aplica a alterações de gráfico. A propriedade **Subject** especifica o tipo de objeto afetado. Os seguintes tipos de objetos podem disparar este evento:
+**TopologiaOperação** aplica-se a alterações de gráfico. A propriedade **do sujeito** especifica o tipo de objeto afetado. Os seguintes tipos de objetos podem desencadear este evento:
 
 - Dispositivo
 - DeviceBlobMetadata
-- DeviceExtendedProperty
+- DispositivoExtendedProperty
 - ExtendedPropertyKey
-- ExtendedType
-- Repositório
+- Tipo alargado
+- KeyStore
 - Relatório
-- RoleDefinition
-- Sensores
+- Definição de papéis
+- Sensor
 - SensorBlobMetadata
 - SensorExtendedProperty
 - Espaço
 - SpaceBlobMetadata
 - SpaceExtendedProperty
-- SpaceResource
-- SpaceRoleAssignment
+- Recurso Espacial
+- Atribuição de Funções Espaciais
 - Sistema
 - Utilizador
 - UserBlobMetadata
-- Extended
+- UserExtendedProperty
 
 #### <a name="example"></a>Exemplo
 
@@ -128,10 +128,10 @@ Os formatos de evento para cada tipo de evento são descritos mais detalhadament
 
 ### <a name="udfcustom"></a>UdfCustom
 
-**UdfCustom** é um evento enviado por uma UDF (função definida pelo usuário).
+**UdfCustom** é um evento enviado por uma função definida pelo utilizador (UDF).
   
 > [!IMPORTANT]  
-> Esse evento deve ser enviado explicitamente do próprio UDF.
+> Este evento deve ser explicitamente enviado da própria UDF.
 
 #### <a name="example"></a>Exemplo
 
@@ -159,7 +159,7 @@ Os formatos de evento para cada tipo de evento são descritos mais detalhadament
 
 ### <a name="sensorchange"></a>SensorChange
 
-**SensorChange** é uma atualização para o estado de um sensor com base nas alterações de telemetria.
+**SensorChange** é uma atualização do estado de um sensor com base em alterações de telemetria.
 
 #### <a name="example"></a>Exemplo
 
@@ -194,7 +194,7 @@ Os formatos de evento para cada tipo de evento são descritos mais detalhadament
 
 ### <a name="spacechange"></a>SpaceChange
 
-**SpaceChange** é uma atualização para o estado de um espaço com base nas alterações de telemetria.
+**SpaceChange** é uma atualização para o estado de um espaço com base em alterações de telemetria.
 
 #### <a name="example"></a>Exemplo
 
@@ -227,32 +227,32 @@ Os formatos de evento para cada tipo de evento são descritos mais detalhadament
 | --- | --- |
 | YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
-### <a name="devicemessage"></a>DeviceMessage
+### <a name="devicemessage"></a>Mensagem de dispositivo
 
-Usando o **DeviceMessage**, você pode especificar uma conexão do **EventHub** para a qual os eventos brutos de telemetria também podem ser roteados do Azure digital gêmeos.
+Ao utilizar o **DeviceMessage,** pode especificar uma ligação **EventHub** à qual os eventos de telemetria crus podem ser encaminhados também a partir de Gémeos Digitais Azure.
 
 > [!NOTE]
-> - **DeviceMessage** é combinável somente com o **EventHub**. Não é possível combinar **DeviceMessage** com nenhum dos outros tipos de evento.
-> - Você pode especificar apenas um ponto de extremidade da combinação do tipo **EventHub** ou **DeviceMessage**.
+> - **O DeviceMessage** só é combinável com **eventHub**. Não é possível combinar o **DeviceMessage** com nenhum dos outros tipos de eventos.
+> - Pode especificar apenas um ponto final da combinação do tipo **EventHub** ou **DeviceMessage**.
 
 ## <a name="configure-endpoints"></a>Configurar pontos finais
 
-O gerenciamento de ponto de extremidade é exercido por meio da API de pontos de extremidades.
+A gestão do endpoint é exercida através da API Endpoints.
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-Os exemplos a seguir demonstram como configurar os pontos de extremidade com suporte.
+Os seguintes exemplos demonstram como configurar os pontos finais suportados.
 
 >[!IMPORTANT]
-> Preste muita atenção ao atributo **EventTypes** . Ele define quais tipos de eventos são manipulados pelo ponto de extremidade e, portanto, determinam seu roteamento.
+> Preste atenção ao **eventoTipos** atributos. Define quais os tipos de eventos que são tratados pelo ponto final e, assim, determina o seu encaminhamento.
 
-Uma solicitação HTTP POST autenticada em relação a:
+Um pedido http post autenticado contra:
 
 ```URL
 YOUR_MANAGEMENT_API_URL/endpoints
 ```
 
-- Rotear para tipos de evento do barramento de serviço **SensorChange**, **SpaceChange**e **TopologyOperation**:
+- Rota para eventos de ônibus de serviço tipo **SensorChange,** **SpaceChange**, e **TopologiaOperation**:
 
   ```JSON
   {
@@ -270,12 +270,12 @@ YOUR_MANAGEMENT_API_URL/endpoints
 
     | Valor | Substituir |
     | --- | --- |
-    | YOUR_NAMESPACE | O namespace do seu ponto de extremidade |
-    | YOUR_PRIMARY_KEY | A cadeia de conexão primária usada para autenticar |
-    | YOUR_SECONDARY_KEY | A cadeia de conexão secundária usada para autenticar |
+    | YOUR_NAMESPACE | O espaço de nome do seu ponto final |
+    | YOUR_PRIMARY_KEY | A cadeia de ligação primária usada para autenticar |
+    | YOUR_SECONDARY_KEY | A corda de ligação secundária usada para autenticar |
     | YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
-- Rotear para tipos de evento da grade de eventos **SensorChange**, **SpaceChange**e **TopologyOperation**:
+- Rota para eventos de grelha de eventos tipo **SensorChange,** **SpaceChange**e **TopologiaOperation**:
 
   ```JSON
   {
@@ -293,11 +293,11 @@ YOUR_MANAGEMENT_API_URL/endpoints
 
     | Valor | Substituir |
     | --- | --- |
-    | YOUR_PRIMARY_KEY | A cadeia de conexão primária usada para autenticar|
-    | YOUR_SECONDARY_KEY | A cadeia de conexão secundária usada para autenticar |
+    | YOUR_PRIMARY_KEY | A cadeia de ligação primária usada para autenticar|
+    | YOUR_SECONDARY_KEY | A corda de ligação secundária usada para autenticar |
     | YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
-- Rotear para tipos de evento de hubs de eventos **SensorChange**, **SpaceChange**e **TopologyOperation**:
+- Rota para eventos hubs tipo **sensorChange,** **SpaceChange**e **TopologiaOperation**:
 
   ```JSON
   {
@@ -315,12 +315,12 @@ YOUR_MANAGEMENT_API_URL/endpoints
 
     | Valor | Substituir |
     | --- | --- |
-    | YOUR_NAMESPACE | O namespace do seu ponto de extremidade |
-    | YOUR_PRIMARY_KEY | A cadeia de conexão primária usada para autenticar |
-    | YOUR_SECONDARY_KEY | A cadeia de conexão secundária usada para autenticar |
-    | YOUR_EVENT_HUB_NAME | O nome do hub de eventos |
+    | YOUR_NAMESPACE | O espaço de nome do seu ponto final |
+    | YOUR_PRIMARY_KEY | A cadeia de ligação primária usada para autenticar |
+    | YOUR_SECONDARY_KEY | A corda de ligação secundária usada para autenticar |
+    | YOUR_EVENT_HUB_NAME | O nome do seu centro de eventos |
 
-- Rota para o tipo de evento de hubs de eventos **DeviceMessage**. A inclusão de `EntityPath` em **ConnectionString** é obrigatória:
+- Rota para eventos do tipo evento **DispositivoMessage**. A inclusão `EntityPath` na **conexãoString** é obrigatória:
 
   ```JSON
   {
@@ -336,28 +336,28 @@ YOUR_MANAGEMENT_API_URL/endpoints
 
     | Valor | Substituir |
     | --- | --- |
-    | YOUR_NAMESPACE | O namespace do seu ponto de extremidade |
-    | YOUR_PRIMARY_KEY | A cadeia de conexão primária usada para autenticar |
-    | YOUR_SECONDARY_KEY | A cadeia de conexão secundária usada para autenticar |
-    | YOUR_EVENT_HUB_NAME | O nome do hub de eventos |
+    | YOUR_NAMESPACE | O espaço de nome do seu ponto final |
+    | YOUR_PRIMARY_KEY | A cadeia de ligação primária usada para autenticar |
+    | YOUR_SECONDARY_KEY | A corda de ligação secundária usada para autenticar |
+    | YOUR_EVENT_HUB_NAME | O nome do seu centro de eventos |
 
 > [!NOTE]  
-> Após a criação de um novo ponto de extremidade, pode levar até 5 a 10 minutos para começar a receber eventos no ponto de extremidade.
+> Após a criação de um novo ponto final, pode levar até 5 a 10 minutos para começar a receber eventos no ponto final.
 
-## <a name="primary-and-secondary-connection-keys"></a>Chaves de conexão primária e secundária
+## <a name="primary-and-secondary-connection-keys"></a>Chaves de ligação primária e secundária
 
-Quando uma chave de conexão primária se torna não autorizada, o sistema tenta automaticamente a chave de conexão secundária. Isso fornece um backup e permite a possibilidade de autenticar e atualizar normalmente a chave primária por meio da API de pontos de extremidade.
+Quando uma chave de ligação primária se torna não autorizada, o sistema tenta automaticamente a chave de ligação secundária. Isto fornece uma cópia de segurança e permite a possibilidade de autenticar graciosamente e atualizar a chave primária através da API Endpoints.
 
-Se as chaves de conexão primária e secundária não forem autorizadas, o sistema entrará em um tempo de espera de retirada exponencial de até 30 minutos. Os eventos são descartados em cada tempo de espera de retirada disparada.
+Se as teclas de ligação primária e secundária não forem autorizadas, o sistema entra num tempo exponencial de espera de back-off de até 30 minutos. Os acontecimentos são deixados em cada tempo de espera desencadeado.
 
-Sempre que o sistema estiver em um estado de espera de retirada, atualizar as chaves de conexão por meio da API de pontos de extremidade pode levar até 30 minutos para entrar em vigor.
+Sempre que o sistema estiver em estado de espera, atualizar as teclas de ligação através da API endpoints pode demorar até 30 minutos a fazer efeito.
 
-## <a name="unreachable-endpoints"></a>Pontos de extremidade inacessíveis
+## <a name="unreachable-endpoints"></a>Pontos finais inacessíveis
 
-Quando um ponto de extremidade fica inacessível, o sistema entra em um tempo de espera de retirada exponencial de até 30 minutos. Os eventos são descartados em cada tempo de espera de retirada disparada.
+Quando um ponto final se torna inacessível, o sistema entra num tempo exponencial de espera de até 30 minutos. Os acontecimentos são deixados em cada tempo de espera desencadeado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba [como usar o Azure digital gêmeos Swagger](how-to-use-swagger.md).
+- Aprenda [a usar as Gémeas Digitais Azure Swagger.](how-to-use-swagger.md)
 
-- Saiba mais sobre como [rotear eventos e mensagens](concepts-events-routing.md) no gêmeos digital do Azure.
+- Saiba mais sobre [eventos de encaminhamento e mensagens](concepts-events-routing.md) em Azure Digital Twins.

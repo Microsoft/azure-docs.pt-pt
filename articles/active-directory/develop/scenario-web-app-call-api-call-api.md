@@ -15,19 +15,19 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 28b4be46dc686c6e1b55f1ab36e0607057ebdbbd
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76758976"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Uma aplicação web que chama APIs web: Ligue para uma Web API
 
-Agora que você tem um token, você pode chamar uma API Web protegida.
+Agora que tem um símbolo, pode chamar uma API protegida.
 
-# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Aqui está o código simplificado para a ação do `HomeController`. Este código recebe um símbolo para ligar para o Microsoft Graph. O código foi adicionado para mostrar como chamar o Microsoft Graph como um Rest API. O URL para o Microsoft Graph API é fornecido no ficheiro appsettings.json e é lido numa variável chamada `webOptions`:
+Aqui está o código simplificado `HomeController`para a ação do . Este código recebe um símbolo para ligar para o Microsoft Graph. O código foi adicionado para mostrar como chamar o Microsoft Graph como um Rest API. O URL para o Microsoft Graph API é fornecido no ficheiro appsettings.json e é lido numa variável chamada: `webOptions`
 
 ```JSon
 {
@@ -86,7 +86,7 @@ public async Task<IActionResult> Profile()
 >
 > A maioria das APIs web Azure fornecem um SDK que simplifica a chamada API. Isto também é verdade no Microsoft Graph. No próximo artigo, você vai aprender onde encontrar um tutorial que ilustra o uso da API.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```Java
 private String getUserInfoFromGraph(String accessToken) throws Exception {
@@ -112,7 +112,7 @@ private String getUserInfoFromGraph(String accessToken) throws Exception {
 
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 ```Python
 @app.route("/graphcall")
