@@ -1,26 +1,24 @@
 ---
 title: Migrar bases de conhecimento - QnA Maker
-titleSuffix: Azure Cognitive Services
 description: Migrar uma base de conhecimentos requer a exportação de uma base de conhecimento, importando depois para outra.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/28/2020
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: 942932c229ace82a0bf66da7a5421f936b028088
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.date: 03/25/2020
+ms.openlocfilehash: 13e5e79bf4eaf6ec59e41b3e12aa1bb23f2c1578
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78302564"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80258095"
 ---
-# <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar uma base de dados de conhecimento através de importação-exportação
+# <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar uma base de conhecimentos utilizando a importação de exportação
 
-Migrar uma base de conhecimentos requer a exportação de uma base de conhecimento, importando depois para outra.
+A migração é o processo de criação de uma nova base de conhecimento a partir de uma base de conhecimento existente. Pode fazê-lo por várias razões:
+
+* backup e restaurar processo
+* Gasoduto CI/CD
+* mover regiões
+
+A migração de uma base de conhecimentos requer a exportação de uma base de conhecimentos existente, importando depois para outra.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,7 +33,7 @@ Migrar uma base de conhecimentos requer a exportação de uma base de conhecimen
 
 1. Selecione **Criar uma base** de conhecimento a partir do menu superior e, em seguida, criar uma base de conhecimento _vazia._ Está vazio porque quando o criar, não vai adicionar urLs ou ficheiros. Estes são adicionados durante o passo de importação, após a criação.
 
-    Configure a base de conhecimento. Desloque apenas o nome da nova base de conhecimento. São suportados nomes duplicados e carateres especiais são também suportados.
+    Configure a base de conhecimento. Desloque apenas o nome da nova base de conhecimento. Os nomes duplicados são suportados e os caracteres especiais também são suportados.
 
     Não selecione nada do Passo 4 porque esses valores serão substituídos quando importar o ficheiro.
 
@@ -44,11 +42,25 @@ Migrar uma base de conhecimentos requer a exportação de uma base de conhecimen
 1. Nesta nova base de conhecimentos, abra o separador **Definições** e selecione base de **conhecimentos de Importação**. Isto importa as perguntas, respostas, metadados, instruções de acompanhamento e retém os nomes de origem de dados a partir dos quais foram extraídos.
 
    > [!div class="mx-imgBorder"]
-   > [![base de conhecimentos de importação](../media/qnamaker-how-to-migrate-kb/Import.png)](../media/qnamaker-how-to-migrate-kb/Import.png#lightbox)
+   > [![Base de conhecimentos de importação](../media/qnamaker-how-to-migrate-kb/Import.png)](../media/qnamaker-how-to-migrate-kb/Import.png#lightbox)
 
 1. **Teste** a nova base de conhecimentos utilizando o painel de teste. Aprenda a testar a [sua base de conhecimento.](../How-To/test-knowledge-base.md)
 
 1. **Publique** a base de conhecimento e crie um chat bot. Aprenda a publicar a sua base de [conhecimento.](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base)
+
+## <a name="programmatically-migrate-a-knowledge-base-from-qna-maker"></a>Migrar programáticamente uma base de conhecimento da QnA Maker
+
+O processo de migração está disponível programáticamente utilizando as seguintes APIs REST:
+
+**Exportar**
+
+* [Descarregue a base de conhecimentos API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download)
+
+**Importar**
+
+* [Substitua a API (recarregar por o mesmo ID base de conhecimento)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace)
+* [Criar API (carga com novo ID base de conhecimento)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
+
 
 ## <a name="chat-logs-and-alterations"></a>Registos e alterações de chat
 Alterações insensíveis a casos (sinónimos) não são importadas automaticamente. Utilize as [APIs V4](https://go.microsoft.com/fwlink/?linkid=2092179) para mover as alterações na nova base de conhecimentos.
@@ -58,4 +70,4 @@ Não há forma de migrar registos de chat, uma vez que a nova base de conhecimen
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Editar uma base de conhecimento](../How-To/edit-knowledge-base.md)
+> [Editar uma base de dados de conhecimento](../How-To/edit-knowledge-base.md)

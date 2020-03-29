@@ -4,10 +4,10 @@ description: A configuração do serviço inclui como o serviço trata recompens
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.openlocfilehash: ac31a9f907defeb44dbd4748a4395d3aec34d30c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79219359"
 ---
 # <a name="configure-personalizer-learning-loop"></a>Configure ciclo de aprendizagem personalizador
@@ -54,7 +54,7 @@ A frequência de **atualização** do Modelo define a frequência com que o mode
 |--|--|
 |1 minuto|As frequências de atualização de um minuto são úteis ao **depurar** o código de uma aplicação usando o Personalizer, fazendo demos ou testando interativamente aspetos de aprendizagem automática.|
 |15 minutos|As frequências de atualização de modelos elevados são úteis para situações em que pretende **acompanhar de perto as mudanças** nos comportamentos dos utilizadores. Exemplos incluem sites que funcionam em notícias ao vivo, conteúdo viral ou licitação de produtos ao vivo. Precisa de uma frequência de 15 minutos nestes cenários. |
-|1 hora|Para a maioria dos casos de utilização, uma frequência de atualização mais baixa é eficaz.|
+|Uma hora|Para a maioria dos casos de utilização, uma frequência de atualização mais baixa é eficaz.|
 
 ![A frequência de atualização do modelo define a frequência com que um novo modelo Personalizer é retreinado.](media/settings/configure-model-update-frequency-settings-15-minutes.png)
 

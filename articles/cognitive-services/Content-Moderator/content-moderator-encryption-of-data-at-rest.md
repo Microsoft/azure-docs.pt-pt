@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
 ms.openlocfilehash: b41d822791f61fce274f628b87c478c3a986f4c3
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79372163"
 ---
 # <a name="content-moderator-encryption-of-data-at-rest"></a>Encriptação moderadora de conteúdo de dados em repouso

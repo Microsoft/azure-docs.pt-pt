@@ -4,10 +4,10 @@ description: Este artigo discute a utilização de eventos ativos e inativos den
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: a8f27542208965e2b820b9fc45cfcc5353a7f193
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77624255"
 ---
 # <a name="active-and-inactive-events"></a>Eventos ativos e inativos
@@ -37,9 +37,9 @@ Mais tarde na sua lógica de negócio, se a aplicação usar a informação da c
 
 ## <a name="inactive-events"></a>Eventos inativos
 
-Para desativar o treino para um evento, ligue para rank usando `learningEnabled = False`.
+Para desativar o treino para `learningEnabled = False`um evento, ligue para rank usando .
 
-Para um evento inativo, a aprendizagem é ativada implicitamente se enviar uma recompensa para o eventoId ou chamar a API `activate` para esse eventoId.
+Para um evento inativo, a aprendizagem é ativada implicitamente `activate` se enviar uma recompensa para o eventoId ou chamar a API para esse eventoId.
 
 ## <a name="next-steps"></a>Passos seguintes
 

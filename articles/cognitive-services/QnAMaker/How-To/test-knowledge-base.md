@@ -1,63 +1,63 @@
 ---
-title: Como testar uma base de dados de conhecimento - QnA Maker
-description: Teste a sua base de dados de conhecimento do QnA Maker é uma parte importante de um processo iterativo para melhorar a precisão das respostas a ser devolvido. Pode testar a base de dados de conhecimento através de uma interface de bate-papo avançada também permite que faça edições.
+title: Como testar uma base de conhecimento - QnA Maker
+description: Testar a sua base de conhecimento qnA Maker é uma parte importante de um processo iterativo para melhorar a precisão das respostas que estão sendo devolvidas. Pode testar a base de conhecimento através de uma interface de chat melhorada que também lhe permite fazer edificações.
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.openlocfilehash: da4988ced0b077952ce64e6227d16e58d40ae329
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78927264"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Teste a sua base de conhecimentos em QnA Maker
 
-Teste a sua base de dados de conhecimento do QnA Maker é uma parte importante de um processo iterativo para melhorar a precisão das respostas a ser devolvido. Pode testar a base de dados de conhecimento através de uma interface de bate-papo avançada também permite que faça edições.
+Testar a sua base de conhecimento qnA Maker é uma parte importante de um processo iterativo para melhorar a precisão das respostas que estão sendo devolvidas. Pode testar a base de conhecimento através de uma interface de chat melhorada que também lhe permite fazer edificações.
 
 ## <a name="interactively-test-in-qna-maker-portal"></a>Teste interativo no portal QnA Maker
 
 1. Aceda à sua base de conhecimento selecionando o seu nome na página **base de conhecimento Do meu conhecimento.**
 1. Para aceder ao painel de diapositivos do Teste, selecione **Test** no painel superior da sua aplicação.
 1. Introduza uma consulta na caixa de texto e selecione Enter.
-1. A resposta mais correspondente a partir da base de dados de conhecimento é retornada como a resposta.
+1. A resposta mais bem igualada da base de conhecimento é devolvida como resposta.
 
-### <a name="clear-test-panel"></a>Painel de teste clara
+### <a name="clear-test-panel"></a>Painel de teste claro
 
 Para limpar todas as consultas de teste e os resultados da consola de teste, selecione **Iniciar de novo** no canto superior esquerdo do painel de teste.
 
-### <a name="close-test-panel"></a>Painel de teste fechar
+### <a name="close-test-panel"></a>Painel de teste de encerramento
 
-Para fechar o painel de teste, selecione novamente o botão **Teste.** Enquanto o painel de teste estiver aberto, não é possível editar o conteúdo de Base de dados de conhecimento.
+Para fechar o painel de teste, selecione novamente o botão **Teste.** Enquanto o painel de Teste estiver aberto, não é possível editar o conteúdo da Base de Conhecimento.
 
-### <a name="inspect-score"></a>Inspecionar a pontuação
+### <a name="inspect-score"></a>Inspecionar pontuação
 
 Inspecione os detalhes do resultado do teste no painel de inspeção.
 
 1.  Com o painel de diapositivos do teste aberto, **selecione Inspecione** mais detalhes sobre essa resposta.
 
-    ![Inspecionar as respostas](../media/qnamaker-how-to-test-kb/inspect.png)
+    ![Inspecionar respostas](../media/qnamaker-how-to-test-kb/inspect.png)
 
-2.  O painel de inspeção aparece. O painel inclui a parte superior de classificação intenção, bem como qualquer entidades identificadas. O painel mostra o resultado da expressão selecionada.
+2.  O painel de inspeção aparece. O painel inclui a intenção de pontuação superior, bem como quaisquer entidades identificadas. O painel mostra o resultado da expressão selecionada.
 
-### <a name="correct-the-top-scoring-answer"></a>Corrija o superior de resposta de classificação
+### <a name="correct-the-top-scoring-answer"></a>Corrija a resposta de pontuação superior
 
 Se a resposta de pontuação superior estiver incorreta, selecione a resposta correta da lista e selecione **Guardar e Treinar**.
 
-![Corrija o superior de resposta de classificação](../media/qnamaker-how-to-test-kb/choose-answer.png)
+![Corrija a resposta de pontuação superior](../media/qnamaker-how-to-test-kb/choose-answer.png)
 
 ### <a name="add-alternate-questions"></a>Adicionar perguntas alternativas
 
-Pode adicionar formas alternativas de uma pergunta para uma determinada resposta. Tipo a alternativa respostas na caixa de texto e clique em Inserir para adicioná-los. Selecione **Guardar e Treinar** para armazenar as atualizações.
+Pode adicionar formas alternativas de uma pergunta a uma determinada resposta. Digite as respostas alternativas na caixa de texto e clique em introduzir para as adicionar. Selecione **Guardar e Treinar** para armazenar as atualizações.
 
 ![Adicionar perguntas alternativas](../media/qnamaker-how-to-test-kb/add-alternate-question.png)
 
-### <a name="add-a-new-answer"></a>Adicionar uma nova resposta
+### <a name="add-a-new-answer"></a>Adicione uma nova resposta
 
-Pode adicionar uma nova resposta, se qualquer uma das respostas existentes que foram correspondidas estão incorretas ou a resposta não existe na base de dados de conhecimento (encontrada nenhuma correspondência boa no KB).
+Pode adicionar uma nova resposta se alguma das respostas existentes que foram correspondidas estiver incorreta ou se a resposta não existir na base de conhecimentos (nenhuma boa correspondência encontrada no KB).
 
 Na parte inferior da lista de respostas, utilize a caixa de texto para introduzir uma nova resposta e prima introduzir para adicioná-la.
 
-Selecione **Guardar e Treinar** para persistir nesta resposta. Agora foi adicionado um novo par de pergunta-resposta à sua base de dados de conhecimento.
+Selecione **Guardar e Treinar** para persistir nesta resposta. Um novo par de respostas à pergunta foi agora adicionado à sua base de conhecimento.
 
 > [!NOTE]
 > Todas as edificações na sua base de conhecimento só são guardadas quando premir o botão **Save and Train.**
@@ -77,7 +77,7 @@ Utilize a ferramenta de teste do lote quando quiser:
 
 Leia o [tutorial](../Quickstarts/batch-testing.md) de teste do lote para obter instruções passo a passo.
 
-Os ensaios do lote são fornecidos com a ferramenta de teste do lote. Esta ferramenta está disponível como um [executável com fecho](https://aka.ms/qnamakerbatchtestingtool) de preços para download ou como [ C# código fonte](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting).
+Os ensaios do lote são fornecidos com a ferramenta de teste do lote. Esta ferramenta está disponível como um [executável zipped](https://aka.ms/qnamakerbatchtestingtool) para download ou como [código fonte C#](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting).
 
 [A documentação de referência sobre a ferramenta](../reference-tsv-format-batch-testing.md) inclui:
 

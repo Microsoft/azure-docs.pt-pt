@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: donkim
 ms.openlocfilehash: e109955774722da7f55defe1417de35ff202cce8
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79367754"
 ---
 # <a name="fulfill-commands-from-a-client-with-the-speech-sdk-preview"></a>Cumprir comandos de um cliente com o SDK de Fala (Pré-visualização)
@@ -24,11 +24,11 @@ Para completar as tarefas utilizando uma aplicação de Comandos Personalizados,
 Neste artigo, vai:
 
 - Defina e envie uma carga útil personalizada da JSON a partir da sua aplicação De comandos personalizados
-- Receba e visualize os conteúdos de carga C# útil personalizados da JSON a partir de uma aplicação de cliente SDK de Discurso UWP
+- Receba e visualize os conteúdos de carga útil personalizados da JSON a partir de uma aplicação de cliente C# UWP Speech SDK
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Estúdio Visual 2019](https://visualstudio.microsoft.com/downloads/)
+- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 - Uma chave de subscrição Azure para o serviço de Fala
   - [Obtenha um de graça](get-started.md) ou crie-o no [portal Azure](https://portal.azure.com)
 - Uma aplicação de Comandos Personalizados previamente criada
@@ -47,16 +47,16 @@ Este artigo descreve, passo a passo, como fazer uma aplicação de cliente para 
 1. Para enviar uma carga diretamente ao cliente, crie uma nova regra com uma ação de Atividade de Envio
 
    > [!div class="mx-imgBorder"]
-   > ![Enviar](media/custom-speech-commands/fulfill-sdk-completion-rule.png) de regra de conclusão da atividade
+   > ![Enviar regra de conclusão da atividade](media/custom-speech-commands/fulfill-sdk-completion-rule.png)
 
    | Definição | Valor sugerido | Descrição |
    | ------- | --------------- | ----------- |
    | Nome da Regra | UpdateDeviceState | Um nome que descreve o propósito da regra |
-   | Condições | Parâmetro necessário - `OnOff` e `SubjectDevice` | Condições que determinam quando a regra pode ser executada |
-   | Ações | `SendActivity` (ver abaixo) | A ação a tomar quando a condição da regra é verdadeira |
+   | Condições | Parâmetro necessário - `OnOff` e`SubjectDevice` | Condições que determinam quando a regra pode ser executada |
+   | Ações | `SendActivity`(ver abaixo) | A ação a tomar quando a condição da regra é verdadeira |
 
    > [!div class="mx-imgBorder"]
-   > ![Enviar](media/custom-speech-commands/fulfill-sdk-send-activity-action.png) de carga de atividade
+   > ![Enviar carga útil da Atividade](media/custom-speech-commands/fulfill-sdk-send-activity-action.png)
 
    ```json
    {
@@ -69,9 +69,9 @@ Este artigo descreve, passo a passo, como fazer uma aplicação de cliente para 
 
 ## <a name="create-visuals-for-device-on-or-off-state"></a>Criar visuais para dispositivo dentro ou fora do estado
 
-Em [Quickstart: Connect to a Custom Command application with the Speech SDK (Preview)](./quickstart-custom-speech-commands-speech-sdk.md) you created a Speech SDK client application that handled commands such `turn on the tv`, `turn off the fan`. Adicione alguns visuais para que possa ver o resultado desses comandos.
+Em [Quickstart: Ligue-se a uma aplicação de Comando Personalizado com o SDK de Fala (Pré-visualização)](./quickstart-custom-speech-commands-speech-sdk.md) criou uma aplicação de cliente SDK de Discurso que lidou com comandos como `turn on the tv`, `turn off the fan`. Adicione alguns visuais para que possa ver o resultado desses comandos.
 
-Adicione caixas etiquetadas com texto indicando **On** ou **Off** utilizando o seguinte XML adicionado à `MainPage.xaml.cs`
+Adicione caixas etiquetadas com texto indicando **On** ou **Off** utilizando o seguinte XML adicionado a`MainPage.xaml.cs`
 
 ```xml
 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
@@ -95,9 +95,9 @@ Adicione caixas etiquetadas com texto indicando **On** ou **Off** utilizando o s
 Agora que criou uma carga útil JSON, pode adicionar uma referência à biblioteca [JSON.NET](https://www.newtonsoft.com/json) para lidar com a desserialização.
 
 > [!div class="mx-imgBorder"]
-> ![Enviar](media/custom-speech-commands/fulfill-sdk-json-nuget.png) de carga de atividade
+> ![Enviar carga útil da Atividade](media/custom-speech-commands/fulfill-sdk-json-nuget.png)
 
-Em `InitializeDialogServiceConnector` adicione o seguinte ao seu manipulador de eventos `ActivityReceived`. O código adicional extrairá a carga útil da atividade e alterará o estado visual da televisão ou do ventilador em conformidade.
+Adicione `InitializeDialogServiceConnector` o seguinte `ActivityReceived` ao seu manipulador de eventos. O código adicional extrairá a carga útil da atividade e alterará o estado visual da televisão ou do ventilador em conformidade.
 
 ```C#
 connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
@@ -131,12 +131,12 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 };
 ```
 
-## <a name="try-it-out"></a>Experimentar
+## <a name="try-it-out"></a>Experimente
 
 1. Iniciar a aplicação
 1. Selecione ativar o microfone
 1. Selecione o botão Falar
-1. Diga `turn on the tv`
+1. Dizer`turn on the tv`
 1. O estado visual da televisão deve mudar para "On"
 
 ## <a name="next-steps"></a>Passos seguintes

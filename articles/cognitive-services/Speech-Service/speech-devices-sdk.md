@@ -1,7 +1,7 @@
 ---
 title: Dispositivos de Fala SDK - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Comece com o SDK de dispositivos de voz. O serviço Speech funciona com uma grande variedade de dispositivos e fontes de áudio. O SDK de dispositivos de voz é uma biblioteca previamente atento que se encontra emparelhada com finalidade específica, kits de desenvolvimento de matriz de microfone.
+description: Começa com o SDK dos Dispositivos de Fala. O serviço Speech funciona com uma grande variedade de dispositivos e fontes de áudio. O SDK de Dispositivos de Fala é uma biblioteca pré-afinada que é emparelhada com kits de desenvolvimento de matrizes de microfone sintetizados de propósito.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,27 +11,27 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
 ms.openlocfilehash: add0d27ae6a612fed0320b5329d19236b7bbbd01
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79370649"
 ---
 # <a name="what-is-the-speech-devices-sdk"></a>O que é o SDK dos Dispositivos de Fala?
 
-O [serviço Speech](overview.md) funciona com uma grande variedade de dispositivos e fontes de áudio. Agora, pode tirar seus aplicativos de fala para o próximo nível com correspondentes de hardware e software. O SDK de dispositivos de voz é uma biblioteca previamente atento que se encontra emparelhada com finalidade específica, kits de desenvolvimento de matriz de microfone.
+O [serviço Speech](overview.md) funciona com uma grande variedade de dispositivos e fontes de áudio. Agora, pode levar as suas aplicações de fala para o próximo nível com hardware e software combinados. O SDK de Dispositivos de Fala é uma biblioteca pré-afinada que é emparelhada com kits de desenvolvimento de matrizes de microfone sintetizados de propósito.
 
-O SDK de dispositivos de voz pode ajudá-lo a:
+O SDK dispositivos de fala pode ajudá-lo:
 
-- Teste rapidamente a novos cenários de voz.
-- Integre mais facilmente o serviço de voz com base na cloud no seu dispositivo.
-- Crie uma experiência de usuário excecional para os seus clientes.
+- Teste rapidamente novos cenários de voz.
+- Integre mais facilmente o serviço de Fala baseado na nuvem no seu dispositivo.
+- Crie uma experiência excecional de utilizador para os seus clientes.
 
 O SDK dispositivos de fala consome o [SDK](speech-sdk.md)da Fala . Utilizando os nossos algoritmos avançados de processamento de áudio com a matriz do microfone do dispositivo para enviar o áudio para o [serviço De Fala](overview.md). Proporciona [um reconhecimento](speech-to-text.md) preciso da fala no campo através da supressão de ruído, cancelamento de eco, feixe e dereverberação.
 
 Também pode utilizar o SDK dos Dispositivos de Fala para construir dispositivos ambiente que tenham a sua própria [palavra-chave personalizada](speech-devices-sdk-create-kws.md). Uma palavra-chave personalizada fornece uma deixa que inicia uma interação do utilizador que é única para a sua marca.
 
-O SDK dos Dispositivos de Fala permite uma variedade de cenários ativados por voz, tais como assistentes de [voz, sistemas](https://aka.ms/bots/speech/va)de encomenda drive-thru, [transcrição](conversation-transcription-service.md)de conversas e colunas inteligentes. Pode responder aos utilizadores com texto, falar-lhes com uma voz por defeito ou [personalizada,](how-to-customize-voice-font.md)fornecer resultados de pesquisa, [traduzir](speech-translation.md) para outros idiomas, e muito mais. Estamos ansiosos por ver o que cria!
+O SDK dos Dispositivos de Fala permite uma variedade de cenários ativados por voz, tais como assistentes de [voz, sistemas](https://aka.ms/bots/speech/va)de encomenda drive-thru, [transcrição](conversation-transcription-service.md)de conversas e colunas inteligentes. Pode responder aos utilizadores com texto, falar-lhes com uma voz por defeito ou [personalizada,](how-to-customize-voice-font.md)fornecer resultados de pesquisa, [traduzir](speech-translation.md) para outros idiomas, e muito mais. Estamos ansiosos para ver o que constrói!
 
 ## <a name="get-the-speech-devices-sdk"></a>Obter o SDK de Dispositivos de Voz
 

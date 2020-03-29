@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
 ms.openlocfilehash: 41efe4592c65ae3cdd85ce1b212554e50691905a
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78330724"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Criar um recurso Imersivo do Leitor e configurar a autenticação do Diretório Ativo Azure
@@ -29,7 +29,7 @@ O guião foi concebido para ser flexível. Procurará primeiro os recursos adsim
 
 ## <a name="set-up-powershell-environment"></a>Configurar o ambiente PowerShell
 
-1. Comece por abrir a [Casca de Nuvem Azure.](https://docs.microsoft.com/azure/cloud-shell/overview) Certifique-se de que a casca de nuvem está definida para powerShell no dropdown da mão superior esquerda ou digitando `pwsh`.
+1. Comece por abrir a [Casca de Nuvem Azure.](https://docs.microsoft.com/azure/cloud-shell/overview) Certifique-se de que a casca de nuvem está definida para `pwsh`PowerShell no dropdown da mão superior esquerda ou digitando .
 
 1. Copie e cole o seguinte corte de código na concha.
 
@@ -141,7 +141,7 @@ O guião foi concebido para ser flexível. Procurará primeiro os recursos adsim
     }
     ```
 
-1. Executar a função `Create-ImmersiveReaderResource`, fornecendo os parâmetros conforme apropriado.
+1. Executar a `Create-ImmersiveReaderResource`função, fornecendo os parâmetros conforme apropriado.
 
     ```azurepowershell-interactive
     Create-ImmersiveReaderResource
@@ -163,14 +163,14 @@ O guião foi concebido para ser flexível. Procurará primeiro os recursos adsim
     | ResourceName |  Deve ser alfanumérico, e pode conter '-', desde que o '-' não seja o primeiro ou último personagem. O comprimento não pode exceder 63 caracteres.|
     | Subdomínio de Recursos |Um subdomínio personalizado é necessário para o seu recurso Imersivo reader. O subdomínio é utilizado pelo SDK quando chama o serviço De leitor imersivo para lançar o Leitor. O subdomínio deve ser globalmente único. O subdomínio deve ser alfanumérico e pode conter '-', desde que o '-' não seja o primeiro ou último personagem. O comprimento não pode exceder 63 caracteres. Este parâmetro é opcional se o recurso já existir. |
     | RecursosKU |Opções: `S0`. Visite a nossa página de [preços dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) para saber mais sobre cada SKU disponível. Este parâmetro é opcional se o recurso já existir. |
-    | ResourceLocation |Opções: `eastus`, `eastus2`, `southcentralus`, `westus`, `westus2`, `australiaeast`, `southeastasia`, `centralindia`, `japaneast`, `northeurope`, `uksouth`, `westeurope`. Este parâmetro é opcional se o recurso já existir. |
+    | ResourceLocation |`eastus`Opções: `eastus2` `southcentralus`, `westus` `westus2`, `australiaeast` `southeastasia`, `centralindia` `japaneast`, `northeurope` `uksouth`, `westeurope`, , , , . Este parâmetro é opcional se o recurso já existir. |
     | ResourceGroupName |Os recursos são criados em grupos de recursos dentro de subscrições. Forneça o nome de um grupo de recursos existente. Se o grupo de recursos ainda não existir, será criado um novo com este nome. |
-    | ResourceGroupLocation |Se o seu grupo de recursos não existir, precisa fornecer um local para criar o grupo. Para encontrar uma lista de locais, gere`az account list-locations`. Utilize a *propriedade do nome* (sem espaços) do resultado devolvido. Este parâmetro é opcional se o seu grupo de recursos já existir. |
+    | Localização de Grupo de Recursos |Se o seu grupo de recursos não existir, precisa fornecer um local para criar o grupo. Para encontrar uma lista de `az account list-locations`locais, corra. Utilize a *propriedade do nome* (sem espaços) do resultado devolvido. Este parâmetro é opcional se o seu grupo de recursos já existir. |
     | Nome de exibição adappapp |O nome de exibição da aplicação Azure Ative Diretório. Se não for encontrada uma aplicação Azure AD existente, será criada uma nova com este nome. Este parâmetro é opcional se a aplicação Azure AD já existir. |
     | AADAppIdentifierUri |O URI para a aplicação Azure AD. Se não for encontrada uma aplicação Azure AD existente, será criada uma nova com este URI. Por exemplo, `https://immersivereaderaad-mycompany`. |
     | AADAppClientSecret |Uma palavra-passe que criará que será usada mais tarde para autenticar ao adquirir um símbolo para lançar o Leitor Imersivo. A palavra-passe deve ter pelo menos 16 caracteres de comprimento, conter pelo menos 1 caracteres especiais e conter pelo menos 1 caracteres numéricos. |
 
-1. Copie a saída JSON num ficheiro de texto para posterior utilização. O resultado deverá ser semelhante ao seguinte.
+1. Copie a saída JSON num ficheiro de texto para posterior utilização. A saída deve parecer a seguinte.
 
     ```json
     {

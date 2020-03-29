@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 11/21/2019
 ms.author: dapine
 ms.openlocfilehash: 2a99f85cf861c0c36ffac136cdf1f792b40719b2
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78261955"
 ---
 ### <a name="deploy-the-sentiment-analysis-container-to-an-aks-cluster"></a>Desloque o recipiente de Análise de Sentimentos para um cluster AKS
@@ -24,7 +24,7 @@ ms.locfileid: "78261955"
     az login
     ```
 
-1. Inscreva-se no aglomerado AKS. Substitua `your-cluster-name` e `your-resource-group` os valores apropriados.
+1. Inscreva-se no aglomerado AKS. `your-cluster-name` Substitua `your-resource-group` e com os valores apropriados.
 
     ```azurecli
     az aks get-credentials -n your-cluster-name -g -your-resource-group
@@ -37,7 +37,7 @@ ms.locfileid: "78261955"
     ```
 
     > [!WARNING]
-    > Se tiver várias subscrições disponíveis na sua conta Azure e o comando `az aks get-credentials` retorna com um erro, um problema comum é que está a usar a subscrição errada. Detete o contexto da sua sessão Azure CLI para usar a mesma subscrição com que criou os recursos e tentar novamente.
+    > Se tiver várias subscrições disponíveis na sua `az aks get-credentials` conta Azure e o comando devolver com um erro, um problema comum é que está a usar a subscrição errada. Detete o contexto da sua sessão Azure CLI para usar a mesma subscrição com que criou os recursos e tentar novamente.
     > ```azurecli
     >  az account set -s subscription-id
     > ```
@@ -48,7 +48,7 @@ ms.locfileid: "78261955"
     code .
     ```
 
-1. Dentro do editor de texto, crie um novo ficheiro chamado *sentiment.yaml*, e cola o seguinte YAML nele. Certifique-se de substituir `billing/value` e `apikey/value` com as suas próprias informações.
+1. Dentro do editor de texto, crie um novo ficheiro chamado *sentiment.yaml*, e cola o seguinte YAML nele. Certifique-se `billing/value` de `apikey/value` substituir e com as suas próprias informações.
 
     ```yaml
     apiVersion: apps/v1beta1
@@ -95,7 +95,7 @@ ms.locfileid: "78261955"
     ```
 
 1. Guarde o ficheiro e feche o editor de texto.
-1. Executar os Kubernetes `apply` comando com o ficheiro *sentiment.yaml* como alvo:
+1. Executar o comando `apply` Kubernetes com o ficheiro *sentiment.yaml* como alvo:
 
     ```console
     kubectl apply -f sentiment.yaml

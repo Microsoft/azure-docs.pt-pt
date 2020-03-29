@@ -4,10 +4,10 @@ description: Uma base de conhecimento deve ser publicada. Uma vez publicada, a b
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: cb777aa16fada50811cce1bbf49f28662c62b49b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220723"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Consulta da base de conhecimento para respostas
@@ -29,7 +29,7 @@ O processo é explicado na tabela seguinte.
 |1|A aplicação do cliente envia a consulta do utilizador para a [API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
 |2|O QnA Maker pré-processa a consulta do utilizador com deteção de idiomas, soletradores e quebra-palavras.|
 |3|Este pré-processamento é tomado para alterar a consulta do utilizador para obter os melhores resultados de pesquisa.|
-|4|Esta consulta alterada é enviada para um Índice de Pesquisa Cognitiva Azure, que recebe o número `top` de resultados. Se a resposta correta não estiver nestes resultados, aumente ligeiramente o valor da `top`. Geralmente, um valor de 10 para `top` trabalha em 90% das consultas.|
+|4|Esta consulta alterada é enviada para um Índice de Pesquisa `top` Cognitiva Azure, que recebe o número de resultados. Se a resposta correta não estiver nestes `top` resultados, aumente ligeiramente o valor. Geralmente, um valor de `top` 10 para obras em 90% das consultas.|
 |5|QnA Maker usa característica sintática e semântica baseada para determinar a semelhança entre a consulta do utilizador e os resultados de QnA rebuscados.|
 |6|O modelo de classificação aprendido com máquinas utiliza as diferentes características, desde o passo 5, para determinar as pontuações de confiança e a nova ordem de classificação.|
 |7|Os novos resultados são devolvidos à aplicação do cliente por ordem classificada.|
@@ -42,7 +42,7 @@ Ao publicar a sua base de conhecimentos, o serviço cria um ponto final HTTP bas
 
 ### <a name="the-user-query-request-to-generate-an-answer"></a>O pedido de consulta do utilizador para gerar uma resposta
 
-Uma consulta do utilizador é a questão que o utilizador final faz da base de conhecimento, como `How do I add a collaborator to my app?`. A consulta é frequentemente num formato de linguagem natural ou em algumas palavras-chave que representam a questão, como `help with collaborators`. A consulta é enviada para a sua base de conhecimento a partir de um pedido http no seu pedido de cliente.
+Uma consulta do utilizador é a questão que o `How do I add a collaborator to my app?`utilizador final faz à base de conhecimentos, como . A consulta é frequentemente em formato linguístico natural ou `help with collaborators`algumas palavras-chave que representam a questão, como . A consulta é enviada para a sua base de conhecimento a partir de um pedido http no seu pedido de cliente.
 
 ```json
 {
@@ -65,7 +65,7 @@ Use o contexto de [conversação](../how-to/metadata-generateanswer-usage.md#use
 
 ### <a name="the-response-from-a-call-to-generate-an-answer"></a>A resposta de uma chamada para gerar uma resposta
 
-A resposta HTTP é a resposta obtida da base de conhecimento, com base na melhor correspondência para uma determinada consulta de utilizador. A resposta inclui a resposta e a pontuação de previsão. Se você pediu mais do que uma resposta de topo com a propriedade `top`, você obtém mais do que uma resposta de topo, cada um com uma pontuação.
+A resposta HTTP é a resposta obtida da base de conhecimento, com base na melhor correspondência para uma determinada consulta de utilizador. A resposta inclui a resposta e a pontuação de previsão. Se você pediu mais do que `top` uma resposta de topo com a propriedade, você obtém mais do que uma resposta de topo, cada um com uma pontuação.
 
 ```json
 {
@@ -96,7 +96,7 @@ A resposta HTTP é a resposta obtida da base de conhecimento, com base na melhor
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Pontuação de confiança](./confidence-score.md)

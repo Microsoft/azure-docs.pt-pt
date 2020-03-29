@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 3/13/2020
 ms.author: swmachan
 ms.openlocfilehash: 4180dc6127fb2d31465400b1b25fb7e2d68f4754
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79369170"
 ---
 # <a name="translator-text-api-v30"></a>Texto tradutor API v3.0
@@ -41,7 +41,7 @@ Os pedidos à API de Texto do Tradutor da Microsoft são, na maioria dos casos, 
 
 Para forçar o pedido a ser tratado por uma geografia específica do Azure, altere o ponto final global no pedido da API para o ponto final regional desejado:
 
-|Descrição|Geografia azul|Base URL|
+|Descrição|Geografia azul|URL Base|
 |:--|:--|:--|
 |Azure|Global (não regional)|   api.cognitive.microsofttranslator.com|
 |Azure|Estados Unidos|   api-nam.cognitive.microsofttranslator.com|
@@ -56,12 +56,12 @@ Existem três cabeçalhos que pode usar para autenticar a sua subscrição. Esta
 
 |Cabeçalhos|Descrição|
 |:----|:----|
-|OCP-Apim-Subscription-Key|*Utilize com a subscrição dos Serviços Cognitivos se estiver*a passar a sua chave secreta .<br/>O valor é a chave secreta Azure para a sua subscrição da API de Texto tradutor.|
-|Autorização|*Utilize com subscrição de Serviços Cognitivos se estiver a passar um símbolo de autenticação.*<br/>O valor é o símbolo do Portador: `Bearer <token>`.|
+|Ocp-Apim-Subscription-Key|*Utilize com a subscrição dos Serviços Cognitivos se estiver*a passar a sua chave secreta .<br/>O valor é a chave secreta Azure para a sua subscrição da API de Texto tradutor.|
+|Autorização|*Utilize com subscrição de Serviços Cognitivos se estiver a passar um símbolo de autenticação.*<br/>O valor é o `Bearer <token>`símbolo do Portador: .|
 |Ocp-Apim-Região de Assinatura|*Utilizar com recursos multi-serviços e tradutores regionais de Serviços Cognitivos.*<br/>O valor é a região do recurso tradutor multi-serviço ou regional. Este valor é opcional quando se utiliza um recurso de tradutor global.|
 
 ###  <a name="secret-key"></a>Chave secreta
-A primeira opção é autenticar usando o cabeçalho `Ocp-Apim-Subscription-Key`. Adicione o cabeçalho `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` ao seu pedido.
+A primeira opção é autenticar usando o `Ocp-Apim-Subscription-Key` cabeçalho. Adicione `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` o cabeçalho ao seu pedido.
 
 #### <a name="authenticating-with-a-global-resource"></a>Autenticação com recurso global
 
@@ -69,7 +69,7 @@ Quando utiliza um [recurso de tradutor global,](https://ms.portal.azure.com/#cre
 
 |Cabeçalhos|Descrição|
 |:-----|:----|
-|OCP-Apim-Subscription-Key| O valor é a chave secreta Azure para a sua subscrição da API de Texto tradutor.|
+|Ocp-Apim-Subscription-Key| O valor é a chave secreta Azure para a sua subscrição da API de Texto tradutor.|
 
 Aqui está um pedido de exemplo para chamar a API tradutora usando o recurso de tradutor global
 
@@ -88,7 +88,7 @@ Há 2 cabeçalhos que precisa chamar de tradutor API.
 
 |Cabeçalhos|Descrição|
 |:-----|:----|
-|OCP-Apim-Subscription-Key| O valor é a chave secreta Azure para a sua subscrição da API de Texto tradutor.|
+|Ocp-Apim-Subscription-Key| O valor é a chave secreta Azure para a sua subscrição da API de Texto tradutor.|
 |Ocp-Apim-Região de Assinatura| O valor é a região do recurso tradutor. |
 
 Aqui está um pedido de exemplo para chamar a API tradutora usando o recurso tradutor regional
@@ -110,17 +110,17 @@ Quando utilizar uma chave secreta multi-serviço, deve incluir dois cabeçalhos 
 
 |Cabeçalhos|Descrição|
 |:-----|:----|
-|OCP-Apim-Subscription-Key| O valor é a chave secreta Azure para o seu recurso multi-serviço.|
+|Ocp-Apim-Subscription-Key| O valor é a chave secreta Azure para o seu recurso multi-serviço.|
 |Ocp-Apim-Região de Assinatura| O valor é a região do recurso multi-serviço. |
 
 A região é necessária para a subscrição de Texto API multi-serviço. A região que seleciona é a única região que pode utilizar para tradução de texto quando utilizar a chave de subscrição multi-serviço, e deve ser a mesma região selecionada quando se inscreveu para a sua assinatura multi-serviço através do portal Azure.
 
-As regiões disponíveis são `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `francecentral`, `japaneast`, `japanwest`, `koreacentral`, `northcentralus`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, `westus2`e `southafricanorth`.
+As regiões `australiaeast` `brazilsouth`disponíveis `canadacentral` `centralindia` `centralus`são, `centraluseuap` `eastasia` `eastus` `eastus2` `francecentral` `westcentralus` `westeurope` `westus` `westus2` `southafricanorth`e, , , , , , , , , , , , , , , , , , e . `japaneast` `japanwest` `koreacentral` `northcentralus` `northeurope` `southcentralus` `southeastasia` `uksouth`
 
-Se passar a chave secreta na corda de consulta com o parâmetro `Subscription-Key`, então deve especificar a região com parâmetro de consulta `Subscription-Region`.
+Se passar a chave secreta na corda de `Subscription-Key`consulta com o parâmetro, então `Subscription-Region`deve especificar a região com parâmetro de consulta .
 
 ### <a name="authenticating-with-an-access-token"></a>Autenticação com ficha de acesso
-Em alternativa, pode trocar a sua chave secreta por um sinal de acesso. Esta ficha está incluída a cada pedido como cabeçalho `Authorization`. Para obter um sinal de autorização, faça um pedido de `POST` para o seguinte URL:
+Em alternativa, pode trocar a sua chave secreta por um sinal de acesso. Esta ficha está incluída a cada `Authorization` pedido como cabeçalho. Para obter um sinal de `POST` autorização, faça um pedido para o seguinte URL:
 
 | Tipo de recurso     | URL do serviço de autenticação                                |
 |-----------------|-----------------------------------------------------------|
@@ -145,9 +145,9 @@ Authorization: Bearer <Base64-access_token>
 
 Um símbolo de autenticação é válido por 10 minutos. O símbolo deve ser reutilizado ao fazer várias chamadas para as APIs tradutoras. No entanto, se o seu programa fizer pedidos à API tradutordurante um longo período de tempo, o seu programa deve solicitar um novo sinal de acesso a intervalos regulares (por exemplo, a cada 8 minutos).
 
-## <a name="virtual-network-support"></a>Suporte à Rede Virtual
+## <a name="virtual-network-support"></a>Suporte de Rede Virtual
 
-O serviço de tradutor esnows está agora disponível com capacidades de Rede Virtual em regiões limitadas (`WestUS2`, `EastUS`, `SouthCentralUS`, `WestUS`, `Central US EUAP`, `global`). Para ativar a Rede Virtual, consulte configurar redes virtuais de [Serviços Cognitivos Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+O serviço de tradutor está agora disponível`WestUS2`com `EastUS` `SouthCentralUS`capacidades de Rede Virtual em regiões limitadas ( , , `WestUS`, `Central US EUAP`, , ). `global` Para ativar a Rede Virtual, consulte configurar redes virtuais de [Serviços Cognitivos Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
 
 Uma vez ligado esta capacidade, deve utilizar o ponto final personalizado para chamar a API tradutora. Não é possível utilizar o ponto final do tradutor global ("api.cognitive.microsofttranslator.com") e não pode autenticar com um símbolo de acesso.
 
@@ -155,8 +155,8 @@ Pode encontrar o ponto final personalizado assim que criar o [recurso tradutor.]
 
 |Cabeçalhos|Descrição|
 |:-----|:----|
-|OCP-Apim-Subscription-Key| O valor é a chave secreta Azure para a sua subscrição da API de Texto tradutor.|
-|Ocp-Apim-Região de Assinatura| O valor é a região do recurso tradutor. Este valor é opcional se o recurso estiver `global`|
+|Ocp-Apim-Subscription-Key| O valor é a chave secreta Azure para a sua subscrição da API de Texto tradutor.|
+|Ocp-Apim-Região de Assinatura| O valor é a região do recurso tradutor. Este valor é opcional se o recurso for`global`|
 
 Aqui está um pedido de exemplo para chamar o Tradutor API usando o ponto final personalizado
 
@@ -171,7 +171,7 @@ curl -X POST "https://<your-custom-domain>.cognitiveservices.azure.com/translato
 
 ## <a name="errors"></a>Erros
 
-Uma resposta padrão de erro é um objeto JSON com nome/par de valor chamado `error`. O valor é também um objeto JSON com propriedades:
+Uma resposta padrão de erro é um objeto `error`JSON com nome/par de valor chamado . O valor é também um objeto JSON com propriedades:
 
   * `code`: Um código de erro definido pelo servidor.
   * `message`: Uma corda que dá uma representação legível pelo homem do erro.
@@ -227,7 +227,7 @@ O código de erro é um número de 6 dígitos que combina o código de estado HT
 | 415000| O cabeçalho do Tipo conteúdo está em falta ou inválido.|
 | 429000, 429001, 429002| O servidor rejeitou o pedido porque o cliente excedeu os limites de pedido.|
 | 500000| Ocorreu um erro inesperado. Se o erro persistir, informe-o com data/hora de erro, solicite o identificador do cabeçalho de resposta X-RequestId e identificador de cliente do cabeçalho de pedido X-ClientTraceId.|
-| 503000| Serviço está temporariamente indisponível. Tente novamente. Se o erro persistir, informe-o com data/hora de erro, solicite o identificador do cabeçalho de resposta X-RequestId e identificador de cliente do cabeçalho de pedido X-ClientTraceId.|
+| 503000| O serviço está temporariamente indisponível. Tente novamente. Se o erro persistir, informe-o com data/hora de erro, solicite o identificador do cabeçalho de resposta X-RequestId e identificador de cliente do cabeçalho de pedido X-ClientTraceId.|
 
 ## <a name="metrics"></a>Métricas 
 As métricas permitem-lhe visualizar a informação de utilização e disponibilidade do tradutor no portal Azure, na secção de métricas, como mostra a imagem abaixo. Para mais informações, consulte [data e métricas da plataforma.](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics)
@@ -241,9 +241,9 @@ Esta tabela lista métricas disponíveis com descrição de como são usadas par
 | Totalcall| Número total de chamadas da API.|
 | TotalTokenCalls| Número total de chamadas API através de serviço simbólico usando ficha de autenticação.|
 | Chamadas bem sucedidas| Número de chamadas bem sucedidas.|
-| TotalErrors| Número de chamadas com resposta a erros.|
-| BlockedCalls| Número de chamadas que excederam a taxa ou o limite de quota.|
+| Erros Totais| Número de chamadas com resposta a erros.|
+| Chamadas Bloqueadas| Número de chamadas que excederam a taxa ou o limite de quota.|
 | Erros de servidor| Número de chamadas com erro interno do servidor (5XX).|
 | Erros de cliente| Número de chamadas com erro do lado do cliente (4XX).|
 | Latência| Duração para completar o pedido em milissegundos.|
-| CharactersTranslated| Número total de caracteres no pedido de texto.|
+| CaracteresTraduzidos| Número total de caracteres no pedido de texto.|

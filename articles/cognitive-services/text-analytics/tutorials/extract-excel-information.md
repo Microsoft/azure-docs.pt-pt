@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
 ms.openlocfilehash: fd70fe14d3765fb7c21b92f62b4d73564176baa2
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78201190"
 ---
 # <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Extrair informações em Excel usando Análise de Texto e Automatização de Energia 
@@ -62,7 +62,7 @@ Na Página de **fluxo seletiva,** inicialize o seu fluxo com os seguintes campos
 |---------|---------|
 |**Nome do fluxo**     | **Revisão agendada** ou outro nome.         |
 |**Início**     |  Insira a data e hora atuais.       |
-|**Repita cada**     | **1 hora**        |
+|**Repita cada**     | **Uma hora**        |
 
 ## <a name="add-variables-to-the-flow"></a>Adicione variáveis ao fluxo
 
@@ -78,10 +78,10 @@ Adicione as seguintes informações às variáveis que criou. Representam as col
 
 | Ação |Nome   | Tipo | Valor |
 |---------|---------|---|---|
-| Inicializar variável | var_person | String | Pessoa |
-| Inicializar variável 2 | var_phone | String | Phone_Number |
-| Inicializar variável 3 | var_plumbing | String | canalização |
-| Inicializar a variável 4 | var_other | String | outro | 
+| Inicializar variável | var_person | Cadeia | Pessoa |
+| Inicializar variável 2 | var_phone | Cadeia | Phone_Number |
+| Inicializar variável 3 | var_plumbing | Cadeia | canalização |
+| Inicializar a variável 4 | var_other | Cadeia | outro | 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="informação contida nas variáveis de fluxo":::
@@ -160,7 +160,7 @@ Na janela Condição, clique na primeira caixa de texto. Na janela de conteúdo 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/choose-entities-value.png" alt-text="Adicione credenciais de Análise de Texto ao seu fluxo.":::
 
-Certifique-se de que a segunda caixa está definida **é igual a**. Em seguida, selecione a terceira caixa e procure `var_person` na janela de conteúdo Dinâmico. 
+Certifique-se de que a segunda caixa está definida **é igual a**. Em seguida, selecione `var_person` a terceira caixa e procure na janela de conteúdo Dinâmica. 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/choose-variable-value.png" alt-text="Adicione credenciais de Análise de Texto ao seu fluxo.":::
@@ -182,7 +182,7 @@ Minimize a **Aplicação a cada 2** açãoclicando o nome. Em seguida, adicione 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/add-apply-action-3.png" alt-text="Adicione credenciais de Análise de Texto ao seu fluxo.":::
 
-Dentro **Aplicar a cada 3**, adicione um controlo de **condição.** Será nomeado **Condição 2**. Na primeira caixa de texto, procure e adicione **Entidades Tipo** a partir da janela de conteúdo Dinâmico. Certifique-se de que a caixa central está definida **é igual a**. Em seguida, na caixa de texto certa, introduza `var_phone`. 
+Dentro **Aplicar a cada 3**, adicione um controlo de **condição.** Será nomeado **Condição 2**. Na primeira caixa de texto, procure e adicione **Entidades Tipo** a partir da janela de conteúdo Dinâmico. Certifique-se de que a caixa central está definida **é igual a**. Em seguida, na caixa `var_phone`de texto certa, introduza . 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Adicione credenciais de Análise de Texto ao seu fluxo.":::
@@ -203,22 +203,22 @@ Na condição **Se sim,** adicione uma **atualização de** linha. Em seguida, i
 
 Em seguida, o fluxo verificará se a descrição do problema da tabela Excel contém a palavra "canalização". Se sim, adicionará "canalização" na coluna IssueType. Se não, entraremos em "outro".
 
-No interior do **Aplicar a cada 4** ação, adicione um Controlo de **Condições.** Chamar-se-á **Condição 3**. Na primeira caixa de texto, procure e adicione **descrição** do ficheiro Excel, utilizando a janela de conteúdo Dinâmica. Certifique-se de que a caixa central diz **que contém**. Em seguida, na caixa de texto certa, encontre e selecione `var_plumbing`. 
+No interior do **Aplicar a cada 4** ação, adicione um Controlo de **Condições.** Chamar-se-á **Condição 3**. Na primeira caixa de texto, procure e adicione **descrição** do ficheiro Excel, utilizando a janela de conteúdo Dinâmica. Certifique-se de que a caixa central diz **que contém**. Em seguida, na caixa de `var_plumbing`texto certa, encontrar e selecionar . 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Adicione credenciais de Análise de Texto ao seu fluxo.":::
 
 
-Na condição **Se sim,** clique em **Adicionar uma ação**, e selecione Atualizar uma **linha**. Em seguida, insira a informação como antes. Na coluna IssueType, selecione `var_plumbing`. Isto aplicará uma etiqueta de "canalização" na linha.
+Na condição **Se sim,** clique em **Adicionar uma ação**, e selecione Atualizar uma **linha**. Em seguida, insira a informação como antes. Na coluna IssueType, `var_plumbing`selecione . Isto aplicará uma etiqueta de "canalização" na linha.
 
-No **Caso não exista** qualquer condição, clique em **Adicionar uma ação**, e selecione Atualizar uma **linha**. Em seguida, insira a informação como antes. Na coluna IssueType, selecione `var_other`. Isto aplicará uma etiqueta "outra" na fila.
+No **Caso não exista** qualquer condição, clique em **Adicionar uma ação**, e selecione Atualizar uma **linha**. Em seguida, insira a informação como antes. Na coluna IssueType, `var_other`selecione . Isto aplicará uma etiqueta "outra" na fila.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/plumbing-issue-condition.png" alt-text="Adicione credenciais de Análise de Texto ao seu fluxo.":::
 
 ## <a name="test-the-workflow"></a>Testar o fluxo de trabalho
 
-No canto superior direito do ecrã, clique em **Guardar**, em **seguida, testar**. Selecione **vou executar a ação do gatilho.** Clique em **Guardar e Testar,** **executar o fluxo,** em **seguida, pronto**.
+No canto superior direito do ecrã, clique em **Guardar**, em **seguida, testar**. Selecione **vou executar a ação do gatilho.** Clique em **Guardar & Teste,** **executar o fluxo,** em **seguida, pronto**.
 
 O ficheiro Excel será atualizado na sua conta OneDrive. Vai parecer o que se segue.
 

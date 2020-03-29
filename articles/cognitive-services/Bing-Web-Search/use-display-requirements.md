@@ -1,7 +1,7 @@
 ---
-title: Utilizar e apresentam os requisitos para as APIs de pesquisa do Bing
+title: Requisitos de utilização e visualização para as APIs de pesquisa de Bing
 titleSuffix: Azure Cognitive Services
-description: Os requisitos para apresentar os resultados das APIs de pesquisa do Bing da pesquisa nas suas aplicações.
+description: Os requisitos para exibir os resultados da pesquisa a partir das APIs de pesquisa de Bing nas suas aplicações.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "60499890"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Requisitos de utilização e apresentação da API de Pesquisa do Bing
 
-Estes requisitos de utilização e a exibição de aplicar a qualquer implementação do conteúdo e informações associadas nas APIs de pesquisa do Bing seguintes, incluindo as relações, metadados e outros sinais.
+Estes requisitos de utilização e exibição aplicam-se a qualquer implementação do conteúdo e informações associadas a partir das seguintes APIs de Pesquisa bing, incluindo relacionamentos, metadados e outros sinais.
 
 - Pesquisa Personalizada do Bing
 - Pesquisa de Entidades do Bing
 - Pesquisa de Imagens do Bing
-- Pesquisa de Notícias do Bing
+- Pesquisa do Bing Notícias
 - Pesquisa de Vídeos do Bing
 - Pesquisa Visual do Bing
 - Pesquisa Web do Bing
@@ -36,136 +36,136 @@ Estes requisitos de utilização e a exibição de aplicar a qualquer implementa
 
 |Termo  |Descrição  |
 |---------|---------|
-|Resposta     | Uma categoria de resultados retornados numa resposta. Por exemplo, uma resposta da API de pesquisa Web do Bing pode incluir respostas nas categorias de resultados de página Web, imagem, vídeo, visual e notícias. |
-|Resposta     | Quaisquer e todas as respostas e os dados associados recebidos em resposta a uma única chamada para uma API de pesquisa. |
-|Resultado    | Um item de informações numa resposta. Por exemplo, o conjunto de dados ligados com um artigo de notícias único é um resultado numa resposta de notícias. |
-|APIs de pesquisa    | coletivamente, a pesquisa personalizada do Bing, pesquisa de entidades, pesquisa de imagens, pesquisa de notícias, pesquisa de vídeos, pesquisa Visual, Local de negócios de pesquisa e as APIs de pesquisa Web. |
+|Resposta     | Uma categoria de resultados voltou numa resposta. Por exemplo, uma resposta da API de Pesquisa Web bing pode incluir respostas nas categorias de resultados da página web, imagem, vídeo, visual e notícias. |
+|Resposta     | Todas e quaisquer respostas e dados associados recebidos em resposta a uma única chamada para uma API de pesquisa. |
+|Resultado    | Um item de informação numa resposta. Por exemplo, o conjunto de dados ligados a um único artigo noticioso é resultado de uma resposta noticiosa. |
+|Pesquisar APIs    | coletivamente, a Pesquisa Personalizada bing, pesquisa de entidades, pesquisa de imagem, pesquisa de notícias, pesquisa de vídeo, pesquisa visual, pesquisa de negócios locais e APIs de pesquisa web. |
 
-## <a name="bing-spell-check-and-bing-autosuggest-api-restrictions"></a>Restrições de verificação ortográfica do Bing e API de sugestão automática do Bing
+## <a name="bing-spell-check-and-bing-autosuggest-api-restrictions"></a>Bing Spell Check e Bing Autosuggest API restrições
 
 Não:
 
-- Copiar, armazenar ou colocar em cache quaisquer dados recebidos da verificação de ortografia do Bing ou APIs de sugestão automática do Bing.
-- Utilize dados recebidos de verificação ortográfica do Bing ou APIs de sugestão automática do Bing como parte de qualquer machine learning ou de uma atividade de algoritmo semelhante. Não utilize estes dados para treinar, avaliar ou melhorar os serviços de novos ou existentes que pode oferecer a ou de terceiros.
+- Copiar, armazenar ou cache quaisquer dados que receba do Bing Spell Check ou Bing Autosuggest APIs.
+- Utilize os dados que receber de Bing Spell Check ou Bing Autosuggest APIs como parte de qualquer aprendizagem automática ou atividade algorítmica semelhante. Não utilize estes dados para treinar, avaliar ou melhorar os serviços novos ou existentes que você ou terceiros possam oferecer.
 
 ## <a name="bing-search-apis"></a>APIs de Pesquisa do Bing
 
 > [!NOTE]
-> Os requisitos nesta secção aplicam-se para apenas as APIs de pesquisa, que não inclui verificação ortográfica do Bing ou sugestão automática do Bing. 
+> Os requisitos nesta secção aplicam-se apenas às APIs de pesquisa, que não incluem bing Spell Check ou Bing Autosuggest. 
 
-### <a name="internet-search-experience-requirements"></a>Requisitos de experiência de pesquisa de Internet
+### <a name="internet-search-experience-requirements"></a>Requisitos de experiência de pesquisa na Internet
 
-Todos os dados retornados em respostas só podem ser utilizados em experiências de pesquisa da internet. Uma experiência de pesquisa da internet significa que o conteúdo exibido: 
+Todos os dados devolvidos em respostas só podem ser utilizados em experiências de pesquisa na Internet. Uma experiência de pesquisa na Internet significa o conteúdo apresentado: 
 
-- É relevante e capacidade de resposta a consulta direta do utilizador final ou outra indicação do seu interesse de pesquisa e a intenção (por exemplo, uma consulta de pesquisa indicado por utilizador). 
+- É relevante e sensível à consulta direta do utilizador final, ou outra indicação do seu interesse e intenção de pesquisa (por exemplo, uma consulta de pesquisa indicada pelo utilizador). 
 
-- Ajuda os usuários a localizar e navegue para origens de dados da resposta. Por exemplo, fornecendo links clicáveis de hiperlinks na resposta.
+- Ajuda os utilizadores a encontrar e navegar para as fontes de dados da resposta. Por exemplo, fornecer links clicáveis a partir de hiperligações na resposta.
 
-- Inclui vários resultados para o utilizador selecionar a partir de. 
+- Inclui vários resultados para o utilizador escolher. 
 
-- Estão num posicionamento que permite aos utilizadores procurar.
+- Estão numa colocação que permite aos utilizadores pesquisar.
 
-- Inclui uma indicação visível que o conteúdo é um resultado de pesquisa da internet. Por exemplo, uma instrução que o conteúdo é "a partir da web".
+- Inclui uma indicação visível de que o conteúdo é um resultado de pesquisa na Internet. Por exemplo, uma afirmação de que o conteúdo é "da web".
 
-- Inclui quaisquer outras medidas apropriadas para garantir que os dados da API de pesquisa do Bing não viole qualquer leis aplicáveis ou direitos de terceiros. Consulte os consultores legais para determinar o que podem ser medidas adequadas.
+- Inclui quaisquer outras medidas apropriadas para garantir que os seus dados da API de Pesquisa de Bing não violem quaisquer leis ou direitos de terceiros aplicáveis. Consulte os seus assessores jurídicos para determinar quais as medidas adequadas.
 
-A única exceção a esses requisitos de experiência de pesquisa de internet é para a deteção de URL, conforme descrito neste artigo. 
+A única exceção a estes requisitos de experiência de pesquisa na Internet é a descoberta de URL, como descrito mais tarde neste artigo. 
 
 ### <a name="restrictions"></a>Restrições
 
 Não:
 
-- Copiar, armazenar ou quaisquer dados a partir de respostas em cache (exceto a retenção até ao limite permitido pela [continuidade do serviço](#continuity-of-service). 
+- Copiar, armazenar ou cache quaisquer dados de respostas (exceto a retenção na medida permitida pela [continuidade do serviço](#continuity-of-service). 
 
-- Utilize dados recebidos a partir as APIs de pesquisa como parte de qualquer machine learning ou de uma atividade de algoritmo semelhante. Não utilize estes dados para treinar, avaliar ou melhorar os serviços de novos ou existentes que pode oferecer a ou de terceiros.
+- Utilize os dados recebidos das APIs de pesquisa como parte de qualquer aprendizagem automática ou atividade algorítmica semelhante. Não utilize estes dados para treinar, avaliar ou melhorar os serviços novos ou existentes que você ou terceiros possam oferecer.
 
-- Modificar o conteúdo de resultados (exceto ao reformatá-los de forma que não viole a qualquer outro requisito), a menos que o exigido por lei ou acordado pela Microsoft. 
+- Modificar o conteúdo dos resultados (além de reformá-los de uma forma que não viole qualquer outro requisito), a menos que exigido por lei ou acordado pela Microsoft. 
 
-- Omitir informações de atribuição e URLs associadas com conteúdo de resultado.
+- Omite informações de atribuição e URLs associados ao conteúdo do resultado.
 
-- Reordene, incluindo a omissão, os resultados exibidos numa resposta quando uma ordem ou a classificação é fornecida, a menos que o exigido por lei ou acordado pela Microsoft. 
+- Reordenar, incluindo por omissão, os resultados apresentados numa resposta quando uma ordem ou classificação é fornecida, a menos que exigido por lei ou acordado pela Microsoft. 
 
     > [!NOTE]
-    > Este requisito não é aplicável a reordenação implementado através do portal para a API de pesquisa personalizada do Bing.
+    > Este requisito não se aplica ao reordenamento implementado através do portal para a API de Pesquisa Personalizada bing.
 
-- Exiba outros tipos de conteúdo dentro de qualquer parte de uma resposta de uma forma que poderia levar um utilizador para acreditar que o outro tipo de conteúdo é parte da resposta. 
+- Exiba outros conteúdos dentro de qualquer parte de uma resposta de uma forma que leve um utilizador a acreditar que o outro conteúdo faz parte da resposta. 
 
-- Apresentar anúncios que não é fornecido pela Microsoft em qualquer página que apresenta qualquer parte de uma resposta. 
+- Exiba publicidade que não seja fornecida pela Microsoft em nenhuma página que apresente qualquer parte de uma resposta. 
 
-- Apresenta publicidade nas páginas com respostas:
-    - Do imagens do Bing, pesquisa de notícias, pesquisa de vídeos ou APIs de pesquisa Visual
-    - Que são filtrados ou limitada principalmente (ou unicamente) para imagens, notícias e/ou os resultados da pesquisa de vídeo ou visual.
+- Mostrar qualquer publicidade em páginas com respostas:
+    - A partir da Imagem bing, pesquisa de notícias, pesquisa de vídeo ou APIs de pesquisa visual
+    - São filtrados ou limitados principalmente (ou exclusivamente) a resultados de imagem, notícias e/ou vídeo ou pesquisa visual.
 
-### <a name="notices-and-branding"></a>Avisos e de imagem corporativa 
+### <a name="notices-and-branding"></a>Avisos e marca 
 Fazer:
 
-- Destaque incluir um hiperlink funcional para o [declaração de privacidade do Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839), junto a cada ponto na experiência do usuário (UX) que oferece a capacidade de inserir uma consulta de pesquisa de um utilizador. Etiquetar o hiperlink **declaração de privacidade do Microsoft**.
+- Em destaque incluem uma hiperligação funcional à Declaração de Privacidade da [Microsoft,](https://go.microsoft.com/fwlink/?LinkId=521839)perto de cada ponto da experiência do utilizador (UX) que oferece a um utilizador a capacidade de inserir uma consulta de pesquisa. Rotule a hiperligação **da Declaração**de Privacidade da Microsoft .
 
-- Destaque apresentar Bing identidade visual, consistente com o [diretrizes de utilização de marcas registadas do Bing](https://go.microsoft.com/fwlink/?linkid=833278), junto a cada ponto na UX que oferece a capacidade de inserir uma consulta de pesquisa de um utilizador. Essa imagem corporativa tem claramente estado para o usuário que a Microsoft está incluindo a experiência de pesquisa da internet.
+- Exiba de forma proeminente a marca Bing, consistente com as Diretrizes de Utilização da [Marca Bing,](https://go.microsoft.com/fwlink/?linkid=833278)perto de cada ponto do UX que oferece a um utilizador a capacidade de inserir uma consulta de pesquisa. Esta marca deve indicar claramente ao utilizador que a Microsoft está a alimentar a experiência de pesquisa na Internet.
 
-- Pode atributo cada resposta (ou parte de uma resposta) apresentados a partir de pesquisa Web Bing, pesquisa de imagens, pesquisa de notícias, pesquisa de vídeos e APIs de pesquisa Visual à Microsoft, a menos que a Microsoft especifique o contrário escrever para a sua utilização. Isso é descrito em [diretrizes de utilização de marcas registadas do Bing](https://go.microsoft.com/fwlink/?linkid=833278). 
+- Pode atribuir cada resposta (ou parte de uma resposta) exibida a partir da Pesquisa web do Bing, Pesquisa de Imagens, Pesquisa de Notícias, Pesquisa de Vídeo e APIs de Pesquisa Visual à Microsoft, a menos que a Microsoft especifique o contrário por escrito para a sua utilização. Isto é descrito nas Diretrizes de [Utilização](https://go.microsoft.com/fwlink/?linkid=833278)da Marca Bing . 
 
 Não:
 
-- Respostas de atributo (ou partes de respostas) apresentados a partir do API de pesquisa personalizada do Bing para a Microsoft, a menos que a Microsoft especifique o contrário escrever para a sua utilização particular.
+- Atribui respostas (ou partes de respostas) exibidas a partir da API de Pesquisa Personalizada Bing para a Microsoft, a menos que a Microsoft especifique o contrário por escrito para a sua utilização específica.
 
 ### <a name="transferring-responses"></a>Transferência de respostas
 
-Se ativar um utilizador para transferir uma resposta de uma API de pesquisa para outro utilizador, tal como através de uma aplicação de mensagens ou lançamento de mídia social, situações seguintes: 
+Se permitir que um utilizador transfira uma resposta de uma API de pesquisa para outro utilizador, como por exemplo através de uma aplicação de mensagens ou de publicação nas redes sociais, aplicam-se as seguintes: 
 
-- Tem de respostas transferidas:
-  - Consistem em conteúdo que é sem modificações do conteúdo das respostas apresentada ao utilizador a transferir. Alterações de formatação são permitidas.
-  - Não inclua quaisquer dados em formato de metadados.
-  - Para as respostas da Web do Bing, imagem, notícias, vídeo e Visual APIs, o idioma de apresentação que indica que a resposta foi obtido através de uma experiência de pesquisa da internet com tecnologia Bing. Por exemplo, pode exibir o idioma, como "Ligado ao Bing" ou "Saiba mais" mais informações sobre esta imagem no Bing, ou pode utilizar o logótipo do Bing.
-  - Para as respostas da API de pesquisa personalizada do Bing, o idioma de apresentação que indica que a resposta foi obtido através de uma experiência de pesquisa da internet. Por exemplo, pode exibir o idioma, como "Saiba mais sobre este resultado de pesquisa."
-  - Destaque-apresente a consulta completa utilizada para gerar a resposta.
-  - Inclua um link proeminente ou atribuição semelhante para a origem subjacente da resposta, diretamente ou por meio do mecanismo de pesquisa (bing.com, m.bing.com ou seu serviço de pesquisa personalizada, conforme aplicável).
-- Não, pode automatizar a transferência de respostas. Uma transferência tem de ser iniciada por uma ação do utilizador evidencing claramente uma intenção de transferência de uma resposta.
-- Apenas pode ativar um utilizador para transferir as respostas que foram apresentadas em resposta à consulta de transferência do utilizador.
+- As respostas transferidas devem:
+  - Consistir em conteúdo que não seja modificado a partir do conteúdo das respostas apresentadas ao utilizador transferidor. As alterações de formatação são admissíveis.
+  - Não incluir quaisquer dados no formulário de metadados.
+  - Para respostas da Bing Web, Image, News, Video e Visual APIs, a linguagem de exibição indicando que a resposta foi obtida através de uma experiência de pesquisa na Internet alimentada por Bing. Por exemplo, pode exibir linguagem como "Powered by Bing" ou "Saiba mais sobre esta imagem no Bing", ou pode usar o logótipo Bing.
+  - Para respostas da API de pesquisa personalizada bing, a linguagem de exibição indicando que a resposta foi obtida através de uma experiência de pesquisa na Internet. Por exemplo, pode exibir linguagem como "Saiba mais sobre este resultado de pesquisa".
+  - Exibia de forma proeminente a consulta completa usada para gerar a resposta.
+  - Inclua um link proeminente ou atribuição semelhante à fonte subjacente da resposta, quer diretamente quer através do motor de busca (bing.com, m.bing.com ou o seu serviço de pesquisa personalizado, conforme aplicável).
+- Não pode automatizar a transferência de respostas. Uma transferência deve ser iniciada por uma ação do utilizador que evidencia claramente a intenção de transferir uma resposta.
+- Só pode permitir que um utilizador transfira respostas que foram apresentadas em resposta à consulta do utilizador transferido.
 
 ### <a name="continuity-of-service"></a>Continuidade do serviço 
 
-Não copiar, armazenar ou colocar em cache todos os dados de respostas de API de pesquisa. No entanto, para ativar a continuidade de acesso de serviço e composição de dados, pode manter os resultados apenas nas seguintes condições:
+Não copie, armazene ou cache quaisquer dados das respostas da Search API. No entanto, para permitir a continuidade do acesso ao serviço e da renderização de dados, poderá conservar os resultados unicamente nas seguintes condições:
 
 #### <a name="device"></a>Dispositivo
 
-Pode permitir que um utilizador manter os resultados num dispositivo para o menor de (i) 24 horas desde o momento da consulta, ou (ii) até que um usuário envia outra consulta para obter resultados atualizados, desde que manteve resultados podem ser utilizados apenas:
+Pode permitir que um utilizador retenha resultados num dispositivo durante o menor de (i) 24 horas a partir da hora da consulta, ou (ii) até que um utilizador submeta outra consulta para resultados atualizados, desde que os resultados retidos possam ser utilizados apenas:
 
-- Para permitir que o usuário acessar os resultados devolvidos anteriormente para esse utilizador nesse dispositivo (por exemplo, em caso de interrupção do serviço).
-- Para armazenar os resultados devolvidos na sua consulta proativa personalizadas antes das necessidades do usuário, com base em sinais desse usuário (por exemplo, em caso de interrupção do serviço antecipado).
+- Para permitir ao utilizador aceder aos resultados anteriormente devolvidos a esse utilizador naquele dispositivo (por exemplo, em caso de interrupção do serviço).
+- Para armazenar os resultados devolvidos para a sua consulta proactiva personalizada em antecipação às necessidades do utilizador, com base nos sinais desse utilizador (por exemplo, em caso de interrupção prevista do serviço).
 
-#### <a name="server"></a>Servidor
+#### <a name="server"></a>Server
 
-Pode manter os resultados específicos para um único utilizador em segurança num servidor que controla e exibir os resultados retidos apenas:
+Pode reter resultados específicos de um único utilizador de forma segura num servidor que controla e exibir apenas os resultados retidos:
 
-- Para permitir que o utilizador aceder a um relatório de histórico de resultados devolvido anteriormente ao que o utilizador na sua solução. Os resultados podem não ser (i) mantidos durante mais de 21 dias a partir da hora de consulta de inicial do usuário final e (ii) exibidos em resposta a consulta de um utilizador novo ou repetidas.
-- Para armazenar os resultados devolvidos na sua consulta proativa personalizadas antes das necessidades do usuário, com base em sinais desse utilizador. Pode armazenar estes resultados para o menor de (i) 24 horas desde o momento da consulta, ou (ii) até que um usuário envia outra consulta para obter resultados atualizados.
+- Para permitir ao utilizador aceder a um relatório histórico de resultados anteriormente devolvidos a esse utilizador na sua solução. Os resultados podem não ser (i) retidos por mais de 21 dias a partir da hora da consulta inicial do utilizador final, e (ii) apresentados em resposta à nova ou repetida consulta de um utilizador.
+- Para armazenar os resultados devolvidos para a sua consulta proativa personalizada em antecipação às necessidades do utilizador, com base nos sinais desse utilizador. Pode armazenar estes resultados durante o menor de (i) 24 horas a partir do momento da consulta, ou (ii) até que um utilizador submeta outra consulta para resultados atualizados.
 
-Sempre que estiverem, resultados de um utilizador específico não podem ser commingled com resultados para outro utilizador. Ou seja, os resultados de cada utilizador devem ser retidos e entregue em separado.
+Sempre que retido, os resultados para um utilizador específico não podem ser misturados com resultados para outro utilizador. Ou seja, os resultados de cada utilizador devem ser retidos e entregues separadamente.
 
 ### <a name="general"></a>Geral 
 
-Para todos os apresentação de resultados retidos:
+Para toda a apresentação dos resultados retidos:
 
-- Inclua um aviso claro e visível do tempo que a consulta foi enviada.
-- Atualizar o presente, significa que o utilizador com um botão ou semelhante para efetuar uma nova consulta e obter resultados. 
-- Manter o Bing a imagem corporativa na apresentação dos resultados.
-- Eliminar (e atualizar com uma nova consulta, se necessário) os resultados armazenados dentro os períodos de tempo especificados.
+- Inclua um aviso claro e visível da hora em que a consulta foi enviada.
+- Apresente ao utilizador um botão ou meios semelhantes para re-consulta e obter resultados atualizados. 
+- Mantenha a marca Bing na apresentação dos resultados.
+- Eliminar (e refrescar com uma nova consulta, se necessário) os resultados armazenados dentro dos prazos especificados.
 
-### <a name="non-display-url-discovery"></a>Deteção de URL de apresentação não 
+### <a name="non-display-url-discovery"></a>Descoberta de URL não-exibida 
 
-Só poderá utilizar as respostas da pesquisa numa experiência de pesquisa não internet para o único propósito de URLs de fontes de informações de capacidade de resposta a uma consulta do cliente ou utilizador a detetar. Pode copiar esses URLs num relatório ou resposta semelhante que é fornecer:
+Só pode utilizar respostas de pesquisa numa experiência de pesquisa não na Internet com o único propósito de descobrir URLs de fontes de informação que respondam a uma consulta do seu utilizador ou cliente. Pode copiar esses URLs num relatório ou resposta semelhante que forneça:
 
-- Apenas para esse utilizador ou o cliente, em resposta a essa consulta.
-- Apenas se ele inclui significativo valiosos conteúdos adicionais, relevantes para a consulta.
+- Apenas a esse utilizador ou cliente, em resposta a essa consulta.
+- Só se incluir conteúdo adicional significativo e valioso, relevante para a consulta.
 
-Utilizam as secções anteriores das APIs de pesquisa e requisitos de apresentação não são aplicáveis a esta utilização não apresentar, exceto para o seguinte: 
+As secções anteriores de utilização e os requisitos de visualização das APIs de pesquisa não se aplicam a esta utilização anti-visualização, exceto nas seguintes: 
 
-- Não colocar em cache, copiar ou armazenar quaisquer dados ou conteúdo a partir de, ou derivada, a resposta da pesquisa, que não seja a URL limitado cópia descrito anteriormente.
-- Certifique-se de que a utilização de dados (incluindo os URLs) recebida das APIs de pesquisa não viole qualquer leis aplicáveis ou direitos de terceiros.
-- Não utilize os dados (incluindo os URLs) recebidos das APIs de pesquisa como parte de qualquer aprendizado de máquina ou índice de pesquisa ou de uma atividade de algoritmo semelhante. Não utilize estes dados para criar a treinar, avaliar ou melhorar os serviços que ou de terceiros pode oferecer.
+- Não cache, copy ou guarde quaisquer dados ou conteúdos da resposta de pesquisa, que não seja a cópia de URL limitada descrita anteriormente.
+- Garantir que a sua utilização de dados (incluindo os URLs) recebidos das APIs de Pesquisa não viola quaisquer leis ou direitos de terceiros aplicáveis.
+- Não utilize os dados (incluindo os URLs) recebidos das APIs de pesquisa como parte de qualquer índice de pesquisa ou aprendizagem automática ou atividade algorítmica semelhante. Não utilize estes dados para criar comboio, avaliar ou melhorar os serviços que você ou terceiros possam oferecer.
 
 ## <a name="gdpr-compliance"></a>Conformidade com o RGPD  
 
-Em relação a quaisquer dados pessoais sujeitos a União Europeia geral regulamento de proteção de dados (GDPR) e que é processado juntamente com chamadas a APIs de pesquisa, a API de verificação ortográfica do Bing ou a API de sugestão automática do Bing, compreende que a Microsoft e são controladores de dados independente no GDPR. É responsável independentemente de sua conformidade com o GDPR.  
+No que diz respeito a quaisquer dados pessoais sujeitos ao Regulamento Geral de Proteção de Dados (RGPD) da União Europeia e que é processado em relação a chamadas para as APIs de Pesquisa, Bing Spell Check API ou Bing Autosuggest API, você entende que você e microsoft são controladores de dados independentes no âmbito do RGPD. É responsável independentemente pelo seu cumprimento ao RGPD.  
 

@@ -9,10 +9,10 @@ ms.date: 03/11/2020
 ms.author: egeaney
 ms.custom: include
 ms.openlocfilehash: e5e1755e6351d308c041de5cefe943e9874c8ebd
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79372196"
 ---
 ### <a name="enable-customer-managed-keys"></a>Ativar chaves geridas pelo cliente

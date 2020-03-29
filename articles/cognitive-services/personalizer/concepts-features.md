@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
 ms.openlocfilehash: 408501232891a7971d03c89acc647d9ed19609b3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77026154"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Características são informações sobre ações e contexto
@@ -25,9 +25,9 @@ O Personalizer utiliza **funcionalidades,** que são informações sobre o **con
 
 Por exemplo, pode ter uma **característica** sobre:
 
-* A _persona utilizadora,_ como uma `Sports_Shopper`. Isto não deve ser um ID individual do utilizador. 
-* O _conteúdo,_ como se um vídeo é um `Documentary`, um `Movie`ou um `TV Series`, ou se um artigo de retalho está disponível na loja.
-* O atual período de tempo, como o dia da semana.
+* A _persona utilizadora,_ como a `Sports_Shopper`. Isto não deve ser um ID individual do utilizador. 
+* O _conteúdo,_ como se `Documentary`um `Movie`vídeo é `TV Series`um , a , ou a , ou se um artigo de retalho está disponível na loja.
+* O _current_ atual período de tempo, como o dia da semana.
 
 O personalizer não prescreve, limita ou corrige quais as funcionalidades que pode enviar para ações e contexto:
 
@@ -56,7 +56,7 @@ Personalizer acolhe funcionalidades organizadas em espaços de nome. Você deter
 Seguem-se exemplos de espaços de nome de recurso utilizados pelas aplicações:
 
 * User_Profile_from_CRM
-* Tempo
+* Hora
 * Mobile_Device_Info
 * http_user_agent
 * Resolução de Vídeo
@@ -69,10 +69,10 @@ Seguem-se exemplos de espaços de nome de recurso utilizados pelas aplicações:
 Pode nomear espaços de nome sinuosos seguindo as suas próprias convenções, desde que sejam chaves JSON válidas. Espaços de nome são usados para organizar funcionalidades em conjuntos distintos, e para desambiguar características com nomes semelhantes. Pode pensar nos espaços de nome como um 'prefixo' que é adicionado aos nomes de recurso. Espaços de nome não podem ser aninhados.
 
 
-Nos seguintes JSON, `user`, `state`e `device` são espaços de nome sinuoso. 
+No seguinte `user`JSON, `state`e `device` são espaços de nome sinuoso. 
 
 > [!Note]
-> Atualmente recomendamos vivamente o uso de nomes para espaços de nome sinuosos que são baseados em UTF-8 e começam com letras diferentes. Por exemplo, `user`, `state`e `device` começar com `u`, `s`e `d`. Atualmente ter espaços com nomes com os mesmos primeiros caracteres pode resultar em colisões em índices utilizados para aprendizagem automática.
+> Atualmente recomendamos vivamente o uso de nomes para espaços de nome sinuosos que são baseados em UTF-8 e começam com letras diferentes. Por `user`exemplo, `state`e `device` comece `u` `s`com, `d`e . Atualmente ter espaços com nomes com os mesmos primeiros caracteres pode resultar em colisões em índices utilizados para aprendizagem automática.
 
 Os objetos JSON podem incluir objetos JSON aninhados e propriedade/valores simples. Uma matriz só pode ser incluída se os itens da matriz forem números. 
 
@@ -154,10 +154,10 @@ Por exemplo:
 
 Você pode usar vários outros [Serviços Cognitivos Azure,](https://www.microsoft.com/cognitive-services)como
 
-* [Ligação de Entidades](../entitylinking/home.md)
+* [Ligar à Entidade](../entitylinking/home.md)
 * [Análise de Texto](../text-analytics/overview.md)
-* [Emoção](../emotion/home.md)
-* [Imagem Digitalizada](../computer-vision/home.md)
+* [Emoções](../emotion/home.md)
+* [Visão Computorizada](../computer-vision/home.md)
 
 ## <a name="actions-represent-a-list-of-options"></a>As ações representam uma lista de opções
 
@@ -181,7 +181,7 @@ As ações que enviar para a API de grau dependerá do que está a tentar person
 
 Eis alguns exemplos:
 
-|Finalidade|Ação|
+|Objetivo|Ação|
 |--|--|
 |Personalize qual o artigo que é destacado num site de notícias.|Cada ação é um artigo de notícias em potencial.|
 |Otimizar a colocação de anúncios num site.|Cada ação será um layout ou regras para criar um layout para os anúncios (por exemplo, no topo, à direita, pequenas imagens, grandes imagens).|
@@ -324,4 +324,4 @@ Os objetos JSON podem incluir objetos JSON aninhados e propriedade/valores simpl
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Aprendizagem de reforço](concepts-reinforcement-learning.md) 
+[Aprendizagem por reforço](concepts-reinforcement-learning.md) 

@@ -1,5 +1,5 @@
 ---
-title: Use o ponto de extremidade de previsão para testar programaticamente imagens com o classificador-Visão Personalizada
+title: Utilize o ponto final da previsão para testar programáticamente imagens com classificador - Visão Personalizada
 titleSuffix: Azure Cognitive Services
 description: Saiba como utilizar a API para testar imagens de forma programática com o nosso classificador Serviço de Visão Personalizada.
 services: cognitive-services
@@ -11,45 +11,45 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: anroth
 ms.openlocfilehash: dcb12da680d70e1f0ce4cd763bee340bb3416c6b
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76169939"
 ---
-# <a name="use-your-model-with-the-prediction-api"></a>Usar seu modelo com a API de previsão
+# <a name="use-your-model-with-the-prediction-api"></a>Use o seu modelo com a previsão API
 
-Depois de treinar seu modelo, você pode testar imagens programaticamente enviando-as ao ponto de extremidade da API de previsão.
+Depois de treinar o seu modelo, pode testar as imagens programáticamente, submetendo-as ao ponto final da Previsão API.
 
 > [!NOTE]
-> Este documento demonstra como utilizar a linguagem de programação C# para enviar uma imagem para a API de Predição. Para obter mais informações e exemplos, consulte a [referência da API de previsão](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).
+> Este documento demonstra como utilizar a linguagem de programação C# para enviar uma imagem para a API de Predição. Para mais informações e exemplos, consulte a referência da [Previsão API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).
 
-## <a name="publish-your-trained-iteration"></a>Publicar sua iteração treinada
+## <a name="publish-your-trained-iteration"></a>Publique a sua iteração treinada
 
 Na [página Web do Serviço de Visão Personalizada](https://customvision.ai), selecione o seu projeto e, em seguida, selecione o separador __Performance__ (Desempenho).
 
-Para enviar imagens para a API de previsão, primeiro você precisará publicar sua iteração para previsão, o que pode ser feito selecionando __publicar__ e especificando um nome para a iteração publicada. Isso tornará seu modelo acessível para a API de previsão de seu Visão Personalizada recurso do Azure.
+Para submeter imagens à API de Previsão, primeiro terá de publicar a sua iteração para previsão, o que pode ser feito selecionando __publicar__ e especificando um nome para a iteração publicada. Isto tornará o seu modelo acessível à API de Previsão do seu recurso Custom Vision Azure.
 
-![A guia desempenho é mostrada, com um retângulo vermelho ao redor do botão publicar.](./media/use-prediction-api/unpublished-iteration.png)
+![O separador de desempenho é mostrado, com um retângulo vermelho em torno do botão Publicar.](./media/use-prediction-api/unpublished-iteration.png)
 
-Depois que o modelo tiver sido publicado com êxito, você verá que um rótulo "publicado" aparece ao lado de sua iteração na barra lateral esquerda e seu nome aparecerá na descrição da iteração.
+Uma vez publicado com sucesso o seu modelo, verá aparecer uma etiqueta "Publicada" ao lado da sua iteração na barra lateral esquerda, e o seu nome aparecerá na descrição da iteração.
 
-![A guia desempenho é mostrada, com um retângulo vermelho ao redor do rótulo publicado e o nome da iteração publicada.](./media/use-prediction-api/published-iteration.png)
+![O separador de desempenho é mostrado, com um retângulo vermelho em torno da etiqueta publicada e o nome da iteração publicada.](./media/use-prediction-api/published-iteration.png)
 
 ## <a name="get-the-url-and-prediction-key"></a>Obter o URL e a chave de predição
 
-Depois que o modelo tiver sido publicado, você poderá recuperar as informações necessárias selecionando __URL de previsão__. Isso abrirá uma caixa de diálogo com informações para usar a API de previsão, incluindo a __URL de previsão__ e a __chave de previsão__.
+Uma vez publicado o seu modelo, pode recuperar as informações necessárias selecionando __o URL__de Previsão . Isto abrirá um diálogo com informações para a utilização da API de previsão, incluindo o __URL__ de Previsão e __a Chave de Previsão__.
 
-![A guia desempenho é mostrada com um retângulo vermelho ao redor do botão URL de previsão.](./media/use-prediction-api/published-iteration-prediction-url.png)
+![O separador de desempenho é mostrado com um retângulo vermelho em torno do botão URL de previsão.](./media/use-prediction-api/published-iteration-prediction-url.png)
 
-![A guia desempenho é mostrada com um retângulo vermelho ao redor do valor da URL de previsão para usar um arquivo de imagem e o valor da chave de previsão.](./media/use-prediction-api/prediction-api-info.png)
+![O separador de desempenho é mostrado com um retângulo vermelho em torno do valor URL de Previsão para a utilização de um ficheiro de imagem e do valor de Previsão-Chave.](./media/use-prediction-api/prediction-api-info.png)
 
 
-Neste guia, você usará uma imagem local, portanto, copie a URL em **se você tiver um arquivo de imagem** em um local temporário. Copie também o valor da __chave de previsão__ correspondente.
+Neste guia, utilizará uma imagem local, por isso copie o URL em **se tiver um ficheiro** de imagem para um local temporário. Copie também o valor correspondente da __Chave de Previsão.__
 
 ## <a name="create-the-application"></a>Criar a aplicação
 
-1. No Visual Studio, crie um novo C# aplicativo de console.
+1. No Visual Studio, crie uma nova aplicação de consola C#.
 
 1. Utilize o seguinte código como o corpo do ficheiro __Program.cs__.
 
@@ -109,13 +109,13 @@ Neste guia, você usará uma imagem local, portanto, copie a URL em **se você t
     ```
 
 1. Altere as seguintes informações:
-   * Defina o campo `namespace` como o nome do seu projeto.
-   * Substitua o espaço reservado `<Your prediction key>` pelo valor de chave que você recuperou anteriormente.
-   * Substitua o espaço reservado `<Your prediction URL>` pela URL que você recuperou anteriormente.
+   * Desloque o `namespace` campo ao nome do seu projeto.
+   * Substitua o `<Your prediction key>` espaço reservado pelo valor-chave que recuperou anteriormente.
+   * Substitua o `<Your prediction URL>` espaço reservado pelo URL que recuperou anteriormente.
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Ao executar o aplicativo, você será solicitado a inserir um caminho para um arquivo de imagem no console do. A imagem é então enviada para a API de previsão e os resultados da previsão são retornados como uma cadeia de caracteres formatada em JSON. Veja a seguir um exemplo de resposta.
+Ao executar a aplicação, é-lhe solicitado que entre num caminho para um ficheiro de imagem na consola. A imagem é então submetida à API de previsão, e os resultados da previsão são devolvidos como uma cadeia formada pela JSON. Segue-se uma resposta exemplo.
 
 ```json
 {
@@ -132,10 +132,10 @@ Ao executar o aplicativo, você será solicitado a inserir um caminho para um ar
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia, você aprendeu como enviar imagens para o classificador/detector de imagem personalizada e receber uma resposta programaticamente C# com o SDK. Em seguida, saiba como concluir cenários de ponta a ponta com C#o ou comece a usar um SDK de linguagem diferente.
+Neste guia, aprendeu a submeter imagens ao seu classificador/detetor de imagem personalizado e a receber uma resposta programática com o C# SDK. Em seguida, aprenda a completar cenários de ponta a ponta com C#, ou começar a usar um SDK de linguagem diferente.
 
-* [Início rápido: SDK do .NET](csharp-tutorial.md)
-* [Início rápido: SDK do Python](python-tutorial.md)
-* [Início rápido: SDK do Java](java-tutorial.md)
-* [Início rápido: node SDK](node-tutorial.md)
-* [Início rápido: SDK go](go-tutorial.md)
+* [Quickstart: .NET SDK](csharp-tutorial.md)
+* [Quickstart: Python SDK](python-tutorial.md)
+* [Quickstart: Java SDK](java-tutorial.md)
+* [Quickstart: Nó SDK](node-tutorial.md)
+* [Quickstart: Go SDK](go-tutorial.md)

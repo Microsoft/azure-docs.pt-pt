@@ -1,7 +1,7 @@
 ---
 title: Referência de domínio pré-construído - LUIS
 titleSuffix: Azure Cognitive Services
-description: Referência para os domínios criados previamente, que são coleções pré-criados de objetivos e entidades do Language Understanding Intelligent Service (LUIS).
+description: Referência para os domínios pré-construídos, que são coleções pré-construídas de intenções e entidades de Serviços Inteligentes de Compreensão de Línguas (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,16 +12,16 @@ ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ms.openlocfilehash: 05ad340b3856291832ba0521c7da70ad55260384
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270605"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referência de domínio pré-construído para a sua app LUIS
 Esta referência fornece informações sobre os [domínios pré-construídos,](luis-how-to-use-prebuilt-domains.md)que são coleções pré-construídas de intenções e entidades que a LUIS oferece.
 
-[Os domínios personalizados,](luis-how-to-start-new-app.md)pelo contrário, começam sem intenções e modelos. Pode adicionar qualquer intenções de domínio pré-criado e entidades para um modelo personalizado.
+[Os domínios personalizados,](luis-how-to-start-new-app.md)pelo contrário, começam sem intenções e modelos. Pode adicionar quaisquer intenções e entidades de domínio pré-construídas a um modelo personalizado.
 
 ## <a name="custom-domains-per-language"></a>Domínios personalizados por idioma
 
@@ -32,12 +32,12 @@ A tabela abaixo resume os domínios atualmente suportados. O apoio ao inglês é
 | Calendário  | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 |Comunicação  | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 | Email     | ✓    | ✓       | ✓   | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
-| HomeAutomation          | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
+| Domótica          | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 | Notas     | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 | Locais   | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
-| RestaurantReservation  | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
+| Restauração Reserva  | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 | Todo     | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
-| Serviços Públicos      | ✓    | ✓        | ✓    | ✓      | ✓     | ✓       | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
+| Utilitários      | ✓    | ✓        | ✓    | ✓      | ✓     | ✓       | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 | Meteorologia        | ✓    | ✓        | ✓    | ✓      | ✓     | ✓       | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 | Web    | ✓    | ✓        | ✓    | ✓      | ✓     | ✓       | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 

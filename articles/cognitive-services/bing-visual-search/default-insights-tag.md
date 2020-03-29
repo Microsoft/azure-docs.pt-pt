@@ -1,7 +1,7 @@
 ---
-title: Etiqueta de informações padrão – pesquisa Visual do Bing
+title: Etiqueta de insights padrão - Bing Visual Search
 titleSuffix: Azure Cognitive Services
-description: Fornece detalhes sobre as informações de padrão de pesquisa Visual do Bing devolve sobre uma imagem.
+description: Fornece detalhes sobre as informações padrão que bing Visual Search retorna sobre uma imagem.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: scottwhi
 ms.openlocfilehash: b6bc323f4e8deaf975c292f92d862b1fbe0e2714
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "60510127"
 ---
-# <a name="default-insights-tag"></a>Etiqueta de insights predefinida
+# <a name="default-insights-tag"></a>Etiqueta de insights padrão
 
-A marca de informações do padrão é aquela que acompanha o `displayName` campo definido como uma cadeia vazia. O exemplo seguinte mostra a lista de possíveis de informações de predefinição (ações). A lista de ações que a resposta inclui depende da imagem. E para cada ação, a lista de propriedades pode variar de acordo com a imagem, por isso, verifique se a propriedade existe antes de tentar usá-lo.
+A etiqueta de insights padrão `displayName` é a que tem o campo definido para uma corda vazia. O exemplo que se segue mostra a possível lista de insights por defeito (ações). A lista de ações que a resposta inclui depende da imagem. E para cada ação, a lista de propriedades pode variar por imagem, por isso verifique se a propriedade existe antes de tentar usá-la.
 
 ```json
 {
@@ -98,9 +98,9 @@ A marca de informações do padrão é aquela que acompanha o `displayName` camp
 }
 ```
 
-## <a name="pagesincluding-insight"></a>PagesIncluding insight
+## <a name="pagesincluding-insight"></a>PáginasIncluindo insights
 
-A informação de PagesIncluding fornece uma lista de páginas da Web que incluem esta imagem. É, na verdade, uma lista de `Image` objetos e o `hostPageUrl` campo contém o URL para a página Web que inclui a imagem. Para o exemplo de utilização, consulte [exemplo de informações de PagesIncluding](./bing-insights-usage.md#pagesincluding-insight-example).
+As páginas Incluindo a insight fornece uma lista de páginas web que incluem esta imagem. Na verdade, é `Image` uma lista `hostPageUrl` de objetos, e o campo contém o URL para a página web que inclui a imagem. Por exemplo, utilização, ver [PagesIncluindo exemplo de insight](./bing-insights-usage.md#pagesincluding-insight-example).
 
 ```json
       {
@@ -137,9 +137,9 @@ A informação de PagesIncluding fornece uma lista de páginas da Web que inclue
       }
 ```
 
-## <a name="shoppingsources-insight"></a>ShoppingSources insight
+## <a name="shoppingsources-insight"></a>Insights de Fontes de Compras
 
-A informação de ShoppingSources fornece uma lista de Web sites em que o utilizador pode comprar o item mostrado na imagem. A lista de ofertas inclui o URL da página Web onde o utilizador pode comprar o item, o preço do item e detalhes de classificação ou uma crítica. Para o exemplo de utilização, consulte [ShoppingSources exemplo](./bing-insights-usage.md#shoppingsources-insight-example).
+A informação do ShoppingSources fornece uma lista de websites onde o utilizador pode comprar o item mostrado na imagem. A lista de ofertas inclui o URL da página web onde o utilizador pode comprar o item, o preço do item, e detalhes de classificação ou revisão. Por exemplo, utilização, consulte [o exemplo das Fontes de Compras.](./bing-insights-usage.md#shoppingsources-insight-example)
 
 ```json
       {
@@ -166,9 +166,9 @@ A informação de ShoppingSources fornece uma lista de Web sites em que o utiliz
       }
 ```
 
-## <a name="moresizes-insight"></a>MoreSizes insight
+## <a name="moresizes-insight"></a>Insights moreSizes
 
-A informação de MoreSizes identifica o número de dimensões (maiores ou menores) da imagem que Bing encontrado na Internet (consulte a `availableSizesCount` campo):
+A visão moreSizes identifica o número de tamanhos (maiores ou menores) da `availableSizesCount` imagem que Bing encontrou na Internet (ver campo):
 
 ```json
       {
@@ -201,9 +201,9 @@ A informação de MoreSizes identifica o número de dimensões (maiores ou menor
       },
 ```
 
-## <a name="visualsearch-insight"></a>VisualSearch insight
+## <a name="visualsearch-insight"></a>Insight visualSearch
 
-A informação de VisualSearch fornece uma lista de imagens que são visualmente semelhante à imagem original (possui conteúdo que é semelhante ao conteúdo mostrado na imagem original). Para o exemplo de utilização, consulte [exemplo de informações de VisualSearch](./bing-insights-usage.md#visualsearch-insight-example).
+A visão visualSearch fornece uma lista de imagens que são visualmente semelhantes à imagem original (contém conteúdo semelhante ao conteúdo mostrado na imagem original). Por exemplo, utilização, consulte o [exemplo de insight do VisualSearch](./bing-insights-usage.md#visualsearch-insight-example).
 
 ```json
       {
@@ -241,9 +241,9 @@ A informação de VisualSearch fornece uma lista de imagens que são visualmente
       }
 ```
 
-## <a name="recipes-insight"></a>Informações de receitas
+## <a name="recipes-insight"></a>Insight de receitas
 
-A informação de receitas fornece uma lista de páginas da Web que incluem uma receita para tornar o alimento mostrado na imagem. Para o exemplo de utilização, consulte [exemplo de informações de receitas](./bing-insights-usage.md#recipes-insight-example).
+A insight Recipes fornece uma lista de páginas web que incluem uma receita para fazer a comida mostrada na imagem. Por exemplo, utilização, consulte o [exemplo de insight das Receitas.](./bing-insights-usage.md#recipes-insight-example)
 
 ```json
       {
@@ -276,9 +276,9 @@ A informação de receitas fornece uma lista de páginas da Web que incluem uma 
 ```
 
 
-## <a name="imagebyid-insight"></a>ImageById insight
+## <a name="imagebyid-insight"></a>Insight ImageById
 
-A informação de ImageById fornece um `Image` objeto da imagem solicitada insights para:
+A perceção ImageById `Image` fornece um objeto da imagem que solicitou insights para:
 
 ```json
       {
@@ -311,9 +311,9 @@ A informação de ImageById fornece um `Image` objeto da imagem solicitada insig
       },
 ```
 
-## <a name="productvisualsearch-insight"></a>ProductVisualSearch insight
+## <a name="productvisualsearch-insight"></a>Insight productVisualSearch
 
-A informação de ProductVisualSearch fornece uma lista de imagens de produtos visualmente semelhantes aos produtos mostrados na imagem original. O `insightsMetadata` campo pode conter informações sobre ofertas em que pode adquirir o produto e o preço do produto.
+A insight ProductVisualSearch fornece uma lista de imagens de produtos visualmente semelhantes aos produtos mostrados na imagem original. O `insightsMetadata` campo pode conter informações sobre ofertas onde pode comprar o produto e o preço do produto.
 
 ```json
       {
@@ -375,9 +375,9 @@ A informação de ProductVisualSearch fornece uma lista de imagens de produtos v
       }
 ```
 
-## <a name="relatedsearches-insight"></a>RelatedSearches insight
+## <a name="relatedsearches-insight"></a>Informação de Pesquisas Relacionadas
 
-A informação de RelatedSearches fornece uma lista de pesquisas relacionadas realizadas por outras pessoas (com base em termos de pesquisa de outros usuários). Para o exemplo de utilização, consulte [exemplo de informações de RelatedSearches](./bing-insights-usage.md#relatedsearches-insight-example).
+O insight RelatedSearches fornece uma lista de pesquisas relacionadas realizadas por outros (com base nos termos de pesquisa de outros utilizadores). Por exemplo, utilização, consulte o exemplo de [insight RelatedSearches](./bing-insights-usage.md#relatedsearches-insight-example).
 
 ```json
       {
@@ -398,9 +398,9 @@ A informação de RelatedSearches fornece uma lista de pesquisas relacionadas re
       }
 ```
 
-## <a name="documentlevelsuggestions-insight"></a>DocumentLevelSuggestions insight
+## <a name="documentlevelsuggestions-insight"></a>Informação documentlevelSuggestions
 
-A informação de DocumentLevelSuggestions fornece uma lista de termos de pesquisa sugerida com base no conteúdo da imagem:
+A insight DocumentLevelSuggestions fornece uma lista de termos de pesquisa sugeridos com base no conteúdo da imagem:
 
 ```json
       {
@@ -421,8 +421,8 @@ A informação de DocumentLevelSuggestions fornece uma lista de termos de pesqui
       }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Confira [utilização de informações de exemplos do Bing](bing-insights-usage.md) para ver como o Bing pode apresentar os insights do visual.
+Confira [exemplos de utilização de insights bing](bing-insights-usage.md) para ver como Bing pode mostrar os insights visuais.
 
-Para começar rapidamente com o primeiro pedido, veja os inícios rápidos: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
+Para começar rapidamente com o seu primeiro pedido, veja os quickstarts: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).

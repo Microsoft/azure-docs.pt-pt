@@ -1,7 +1,7 @@
 ---
-title: Detecção facial-Pesquisa Visual Computacional
+title: Deteção facial - Visão Computacional
 titleSuffix: Azure Cognitive Services
-description: Conheça os conceitos relacionados ao recurso de detecção facial do API da Pesquisa Visual Computacional.
+description: Aprenda conceitos relacionados com a funcionalidade de deteção facial da API computer Vision.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,23 +11,23 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 3675acf59c6889dd00c8f26089f509bbcd3c724e
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: d10e4c98d3e2f00e7139063c8263e65ffd015d7c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945239"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80244706"
 ---
-# <a name="face-detection-with-computer-vision"></a>Detecção facial com Pesquisa Visual Computacional
+# <a name="face-detection-with-computer-vision"></a>Deteção facial com visão de computador
 
-Pesquisa Visual Computacional pode detectar faces humanas dentro de uma imagem e gerar a idade, o sexo e o retângulo para cada face detectada. 
+A Visão Computacional pode detetar rostos humanos dentro de uma imagem e gerar a idade, sexo e retângulo para cada rosto detetado. 
 
 > [!NOTE]
-> Esse recurso também é oferecido pelo serviço de [face](/azure/cognitive-services/face/) do Azure. Consulte essa alternativa para análise facial mais detalhada, incluindo identificação de face e detecção de pose. 
+> Esta funcionalidade também é oferecida pelo serviço Azure [Face.](/azure/cognitive-services/face/) Consulte esta alternativa para uma análise facial mais detalhada, incluindo identificação facial e deteção de poses. 
 
-## <a name="face-detection-examples"></a>Exemplos de detecção facial
+## <a name="face-detection-examples"></a>Exemplos de deteção facial
 
-O exemplo a seguir demonstra a resposta JSON retornada por Pesquisa Visual Computacional para uma imagem que contém uma única face humana.
+O exemplo que se segue demonstra a resposta da JSON devolvida pela Computer Vision para uma imagem que contenha um único rosto humano.
 
 ![Análise de imagem de rosto de mulher num terraço](./Images/woman_roof_face.png)
 
@@ -54,9 +54,9 @@ O exemplo a seguir demonstra a resposta JSON retornada por Pesquisa Visual Compu
 }
 ```
 
-O exemplo a seguir demonstra a resposta JSON retornada para uma imagem que contém várias faces humanas.
+O exemplo seguinte demonstra a resposta da JSON devolvida para uma imagem que contém múltiplos rostos humanos.
 
-![Visão de foto da família analisar análise](./Images/family_photo_face.png)
+![Visão analisar rosto de foto de família](./Images/family_photo_face.png)
 
 ```json
 {
@@ -111,6 +111,9 @@ O exemplo a seguir demonstra a resposta JSON retornada para uma imagem que cont�
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="use-the-api"></a>Utilizar a API
 
-Consulte a documentação de referência de [imagem de análise](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para saber mais sobre como usar o recurso de detecção facial.
+A funcionalidade de deteção facial faz parte da [API de Imagem de Análise.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) Você pode chamar isto de API através de um SDK nativo ou através de chamadas REST. Incluir `Faces` no parâmetro de consulta **visualFeatures.** Em seguida, quando obtém a resposta completa da JSON, `"faces"` basta analisar a corda para o conteúdo da secção.
+
+* [Quickstart: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Quickstart: Analise uma imagem (REST API)](./quickstarts/csharp-analyze.md)

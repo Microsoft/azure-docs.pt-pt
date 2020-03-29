@@ -3,12 +3,12 @@ title: O que há de novo - Compreensão da Linguagem (LUIS)
 description: Este artigo é regularmente atualizado com notícias sobre a API de Compreensão da Linguagem dos Serviços Cognitivos Do Azure.
 ms.topic: conceptual
 ms.date: 02/11/2020
-ms.openlocfilehash: 716860b54e7d8e75984c0365cac61d14153c09ff
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 562f7f8b4974363daab91991e6a8219b352432fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137793"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156009"
 ---
 # <a name="whats-new-in-language-understanding"></a>O que há de novo na compreensão da linguagem
 
@@ -16,9 +16,13 @@ Saiba o que há de novo no serviço. Estes itens incluem notas de lançamento, v
 
 ## <a name="release-notes"></a>Notas de versão
 
+### <a name="march-2020"></a>março de 2020
+
+* TLS 1.2 é agora aplicado para todos os pedidos http para este serviço. Para mais informações, consulte a [segurança dos Serviços Cognitivos Azure.](../cognitive-services-security.md)
+
 ### <a name="november-4-2019---ignite"></a>4 de novembro de 2019 - Ignição
 
-* Vídeo - [Modelos avançados de Compreensão da Linguagem Natural (NLU) utilizando os Serviços Cognitivos LUIS e Azure  BRK2188](https://www.youtube.com/watch?v=JdJEV2jV0_Y)
+* Vídeo - [Modelos avançados de Compreensão da Linguagem Natural (NLU) utilizando os Serviços Cognitivos LUIS e Azure [ BRK2188](https://www.youtube.com/watch?v=JdJEV2jV0_Y)
 
 * Melhoria da produtividade do desenvolvedor
     * Disponibilidade geral do nosso [ponto final de previsão V3](luis-migration-api-v3.md).
@@ -74,13 +78,13 @@ As seguintes características foram lançadas na Conferência Build 2019:
 
 ## <a name="blogs"></a>Blogues
 
-[Quadro Bot](https://blog.botframework.com/)
+[Bot Framework](https://blog.botframework.com/)
 
 ## <a name="videos"></a>Vídeos
 
 ### <a name="2019-ignite-videos"></a>Vídeos ignite 2019
 
-[Modelos avançados de Compreensão da Linguagem Natural (NLU) utilizando os Serviços Cognitivos LUIS e Azure  BRK2188](https://www.youtube.com/watch?v=JdJEV2jV0_Y)
+[Modelos avançados de Compreensão da Linguagem Natural (NLU) utilizando os Serviços Cognitivos LUIS e Azure [ BRK2188](https://www.youtube.com/watch?v=JdJEV2jV0_Y)
 
 ### <a name="2019-build-videos"></a>2019 Construir vídeos
 

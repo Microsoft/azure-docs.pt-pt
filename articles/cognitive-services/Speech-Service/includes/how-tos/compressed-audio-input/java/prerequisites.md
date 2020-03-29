@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: dapine
 ms.openlocfilehash: e77e61fc977231effb098c1cbe80cf2e6666c489
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78943825"
 ---
 O manuseamento do áudio comprimido é implementado utilizando [gStreamer](https://gstreamer.freedesktop.org). Por razões de licenciamento, os binários GStreamer não são compilados e ligados ao SDK da Fala. Em vez disso, terá de usar os binários pré-construídos para Android. Para descarregar as bibliotecas pré-construídas, consulte [a instalação para desenvolvimento android](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
 
-`libgstreamer_android.so` é necessário. Certifique-se de que os seus plugins GStreamer estão ligados em `libgstreamer_android.so`.
+`libgstreamer_android.so` é obrigatório. Certifique-se de que os seus plugins GStreamer estão ligados em `libgstreamer_android.so`.
 
 ```makefile
 GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 \
@@ -21,7 +21,7 @@ GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 \
     opus wavparse alaw mulaw flac
 ```
 
-Um exemplo `Android.mk` e `Application.mk` ficheiro são fornecidos abaixo. Siga estes passos para criar o objeto partilhado `gstreamer`:`libgstreamer_android.so`.
+Um `Android.mk` exemplo `Application.mk` e arquivo são fornecidos abaixo. Siga estes passos `gstreamer` para`libgstreamer_android.so`criar o objeto partilhado: .
 
 ```makefile
 # Android.mk
@@ -76,7 +76,7 @@ APP_PLATFORM = android-21
 APP_BUILD_SCRIPT = Android.mk
 ```
 
-Pode construir `libgstreamer_android.so` utilizando o seguinte comando em Ubuntu 16.04 ou 18.04. As seguintes linhas de comando foram testadas apenas para a [versão 1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/gstreamer-1.0-android-universal-1.14.4.tar.bz2) do Android Android com [o Android NDK b16b.](https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip)
+Pode construir `libgstreamer_android.so` usando o seguinte comando em Ubuntu 16.04 ou 18.04. As seguintes linhas de comando foram testadas apenas para a [versão 1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/gstreamer-1.0-android-universal-1.14.4.tar.bz2) do Android Android com [o Android NDK b16b.](https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip)
 
 ```sh
 # Assuming wget and unzip already installed on the system
@@ -108,4 +108,4 @@ ndk-build -C $(pwd)/gstreamer "NDK_APPLICATION_MK=Application.mk" APP_ABI=armeab
 #ndk-build -C $(pwd)/gstreamer "NDK_APPLICATION_MK=Application.mk" APP_ABI=x86 NDK_LIBS_OUT=$(pwd)
 ```
 
-Uma vez que o objeto partilhado (`libgstreamer_android.so`) é construído, o desenvolvedor de aplicações precisa colocar o objeto partilhado na aplicação Android, para que possa ser carregado por sdk de fala.
+Uma vez que`libgstreamer_android.so`o objeto partilhado () é construído o desenvolvedor de aplicações precisa colocar o objeto partilhado na aplicação Android, para que possa ser carregado por sdk de fala.

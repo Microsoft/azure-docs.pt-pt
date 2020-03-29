@@ -4,10 +4,10 @@ description: A pontuação da recompensa indica o quão bem a escolha de persona
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.openlocfilehash: 734e4d0fdcec25884f8535ec61ccd10569fa8890
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79219370"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Notas de recompensa indicam sucesso da personalização
@@ -107,6 +107,6 @@ Siga estas recomendações para obter melhores resultados.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Aprendizagem de reforço](concepts-reinforcement-learning.md)
+* [Aprendizagem por reforço](concepts-reinforcement-learning.md)
 * [Experimente a API rank](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank/console)
 * [Experimente a API recompensa](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward)

@@ -12,15 +12,15 @@ ms.date: 03/09/2020
 ms.author: aahi
 ms.reviewer: jdesousa
 ms.openlocfilehash: 6e404c710a244f06676edf50c3f5c95a7d681e35
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79219238"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Compensações de texto na saída da API de Análise de Texto
 
-O suporte multilingual e emoji levou a codificações unicode que usam mais de um [ponto de código](https://wikipedia.org/wiki/Code_point) para representar um único personagem exibido, chamado grafeme. Por exemplo, emojis como 🌷 e 👍 podem usar vários caracteres para compor a forma com caracteres adicionais para atributos visuais, como o tom de pele. Da mesma forma, a palavra hindi `अनुच्छेद` é codificada como cinco letras e três marcas combinadas.
+O suporte multilingual e emoji levou a codificações unicode que usam mais de um [ponto de código](https://wikipedia.org/wiki/Code_point) para representar um único personagem exibido, chamado grafeme. Por exemplo, emojis 👍 como 🌷 e podem usar vários caracteres para compor a forma com caracteres adicionais para atributos visuais, como o tom de pele. Da mesma forma, `अनुच्छेद` a palavra hindi é codificada como cinco letras e três marcas combinadas.
 
 Devido aos diferentes comprimentos de possíveis codificações multilingues e emojis, a API text Analytics pode devolver compensações na resposta.
 
@@ -45,5 +45,5 @@ A API text Analytics devolve estes elementos texuais também, por conveniência.
 * [Descrição Geral da Análise de Texto](../overview.md)
 * [Análise de sentimento](../how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Reconhecimento de entidades](../how-tos/text-analytics-how-to-entity-linking.md)
-* [Detetar linguagem](../how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Detetar idioma](../how-tos/text-analytics-how-to-keyword-extraction.md)
 * [Reconhecimento linguístico](../how-tos/text-analytics-how-to-language-detection.md)

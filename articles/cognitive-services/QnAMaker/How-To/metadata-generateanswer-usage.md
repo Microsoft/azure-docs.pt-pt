@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: diberry
 ms.openlocfilehash: 6a8cbabfd4e47c50d2c2e6f4a23c50a931e645a0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220646"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API GenerateAnswer e metadados
@@ -46,9 +46,9 @@ Utiliza a [API GenerateAnswer](https://docs.microsoft.com/rest/api/cognitiveserv
 Depois de publicar a sua base de conhecimento, quer a partir do [portal QnA Maker,](https://www.qnamaker.ai)quer através da Utilização da [API,](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish)poderá obter os detalhes do seu ponto final GenerateAnswer.
 
 Para obter os seus detalhes de ponto final:
-1. Inicie sessão em [https://www.qnamaker.ai](https://www.qnamaker.ai).
+1. Inscreva-se [https://www.qnamaker.ai](https://www.qnamaker.ai)em .
 1. Nas **minhas bases de conhecimento,** selecione **'Código de visão'** para a sua base de conhecimentos.
-    ![Screenshot das bases de conhecimento](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
+    ![Screenshot das minhas bases de conhecimento](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. Obtenha os detalhes do ponto final da GenerateAnswer.
 
     ![Screenshot dos detalhes do ponto final](../media/qnamaker-how-to-metadata-usage/view-code.png)
@@ -64,7 +64,7 @@ Ligue para a GenerateAnswer com um pedido HTTP POST. Para obter um código de am
 O pedido post utiliza:
 
 * Parâmetros [URI necessários](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
-* Propriedade de cabeçalho necessária, `Authorization`, para segurança
+* Propriedade de cabeçalho necessária, `Authorization`para segurança
 * Propriedades [corporais necessárias.](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)
 
 O URL GenerateAnswer tem o seguinte formato:
@@ -73,7 +73,7 @@ O URL GenerateAnswer tem o seguinte formato:
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-Lembre-se de definir a propriedade de cabeçalho HTTP de `Authorization` com um valor da cadeia `EndpointKey` com um espaço de trailing e, em seguida, a chave de ponto final encontrada na página **Definições.**
+Lembre-se de definir `Authorization` a propriedade do `EndpointKey` cabeçalho HTTP com um valor da corda com um espaço de trailing e, em seguida, a chave de ponto final encontrada na página **Definições.**
 
 Um exemplo do corpo jSON parece:
 
@@ -127,7 +127,7 @@ A [resposta](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerrunti
 
 A anterior JSON respondeu com uma resposta com uma pontuação de 38,5%.
 
-## <a name="use-qna-maker-with-a-bot-in-c"></a>Use O Fabricante QnA com um bot emC#
+## <a name="use-qna-maker-with-a-bot-in-c"></a>Use o Fabricante QnA com um bot em C #
 
 A estrutura bot proporciona acesso às propriedades do Fabricante qnA com a [getAnswer API:](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__)
 
@@ -172,7 +172,7 @@ O bot de suporte tem [um exemplo](https://github.com/microsoft/BotBuilder-Sample
 
 ## <a name="use-metadata-to-filter-answers-by-custom-metadata-tags"></a>Utilize metadados para filtrar respostas através de etiquetas de metadados personalizados
 
-Adicionar metadados permite filtrar as respostas através destas etiquetas de metadados. Adicione a coluna de metadados do menu **'Ver Opções'.** Adicione metadados à sua base de conhecimentos selecionando os metadados **+** ícone para adicionar um par de metadados. Este par consiste numa chave e num valor.
+Adicionar metadados permite filtrar as respostas através destas etiquetas de metadados. Adicione a coluna de metadados do menu **'Ver Opções'.** Adicione metadados à sua base de **+** conhecimentos selecionando o ícone dos metadados para adicionar um par de metadados. Este par consiste numa chave e num valor.
 
 ![Screenshot da adição de metadados](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
@@ -230,9 +230,9 @@ A resposta ao GenerateAnswer contém as informações correspondentes dos metada
 
 ## <a name="match-questions-only-by-text"></a>Apenas perguntas de jogo, por texto
 
-Por padrão, o QnA Maker procura através de perguntas e respostas. Se quiser pesquisar apenas através de perguntas, para gerar uma resposta, utilize o `RankerType=QuestionOnly` no corpo POST do pedido GenerateAnswer.
+Por padrão, o QnA Maker procura através de perguntas e respostas. Se quiser pesquisar apenas através de perguntas, `RankerType=QuestionOnly` para gerar uma resposta, utilize o corpo post do pedido GenerateAnswer.
 
-Pode pesquisar através do kb publicado, utilizando `isTest=false`, ou no kb de teste utilizando `isTest=true`.
+Pode pesquisar através do kb `isTest=false`publicado, utilizando , `isTest=true`ou no kb de teste utilizando .
 
 ```json
 {
@@ -248,11 +248,11 @@ Pode pesquisar através do kb publicado, utilizando `isTest=false`, ou no kb de 
 |Código|Explicação|
 |:--|--|
 |2xx|Êxito|
-|400|parâmetros do pedido estão incorretos, que significa que os parâmetros necessários estão em falta, com formato incorreto ou é demasiado grande|
-|400|corpo do pedido está incorreto, que significa que o JSON é demasiado grande, com formato incorreto ou em falta|
+|400|Os parâmetros do pedido são incorretos, o que significa que os parâmetros necessários estão em falta, mal formados ou muito grandes|
+|400|O corpo do pedido está incorreto, o que significa que o JSON está desaparecido, mal formado ou muito grande|
 |401|Chave inválida|
 |403|Proibido - não tem permissões corretas|
-|404|Não existe KB|
+|404|KB não existe|
 |410|Esta API está depreciada e já não está disponível|
 
 ## <a name="next-steps"></a>Passos seguintes

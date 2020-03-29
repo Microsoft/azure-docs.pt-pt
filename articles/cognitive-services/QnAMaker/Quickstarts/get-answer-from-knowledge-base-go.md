@@ -6,10 +6,10 @@ ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: 37a8925f8460e448dce3b66354f5181fe103a6a8
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78851797"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-go"></a>Quickstart: Obtenha respostas para uma pergunta de uma base de conhecimento com Go
@@ -21,17 +21,17 @@ Este quickstart leva-o programáticamente a obter uma resposta de uma base de co
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Go 1.10.1](https://golang.org/dl/)
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Código de estúdio visual](https://code.visualstudio.com/)
 * Tem de ter um [serviço Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md). Para recuperar a sua chave, selecione **Keys** sob **Gestão** de Recursos no seu painel Azure para o seu recurso QnA Maker.
 * **Publique** as definições da página. Se não tiver uma base de conhecimento publicada, crie uma base de conhecimento vazia e, em seguida, importe uma base de conhecimento na página **Definições** e, em seguida, publique. Pode descarregar e utilizar [esta base de conhecimentos básicos.](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/basic-kb.tsv)
 
     As definições da página de publicação incluem o valor da rota POST, o valor do anfitrião e o valor EndpointKey.
 
-    ![Definições de publicação](../media/qnamaker-quickstart-get-answer/publish-settings.png)
+    ![Publish settings (Definições de publicação)](../media/qnamaker-quickstart-get-answer/publish-settings.png)
 
-## <a name="create-a-go-file"></a>Crie um ficheiro de Go
+## <a name="create-a-go-file"></a>Criar um ficheiro Go
 
-Abra o VSCode e crie um novo ficheiro chamado `get-answer.go` e adicione a seguinte classe:
+Abra o VSCode e `get-answer.go` crie um novo ficheiro nomeado e adicione a seguinte classe:
 
 ```Go
 package main
@@ -43,13 +43,13 @@ func main() {
 
 ## <a name="add-the-required-dependencies"></a>Adicionar as dependências necessárias
 
-Acima da função `main`, no topo do ficheiro `get-answer.go`, adicione as dependências necessárias ao projeto:
+Acima `main` da função, no `get-answer.go` topo do ficheiro, adicione as dependências necessárias ao projeto:
 
 [!code-go[Add the required dependencies](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=3-9 "Add the required dependencies")]
 
 ## <a name="add-the-required-constants"></a>Adicionar as constantes necessárias
 
-No topo da função `main`, adicione as constantes necessárias para aceder ao QnA Maker. Estes valores estão na página **Publicar** depois de publicar a base de conhecimento.
+No topo da `main` função, adicione as constantes necessárias para aceder ao Fabricante de QnA. Estes valores estão na página **Publicar** depois de publicar a base de conhecimento.
 
 [!code-go[Add the required constants](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=17-33 "Add the required constants")]
 
@@ -59,21 +59,21 @@ O seguinte código faz um pedido HTTPS à API do Fabricante de QnA para enviar a
 
 [!code-go[Add a POST request to send question to knowledge base](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=35-48 "Add a POST request to send question to knowledge base")]
 
-O valor do cabeçalho `Authorization` inclui a cadeia `EndpointKey`.
+O `Authorization` valor do cabeçalho `EndpointKey`inclui a corda .
 
 Saiba mais sobre o [pedido](../how-to/metadata-generateanswer-usage.md#generateanswer-request) e [resposta.](../how-to/metadata-generateanswer-usage.md#generateanswer-response)
 
-## <a name="build-and-run-the-program"></a>Criar e executar o programa
+## <a name="build-and-run-the-program"></a>Compilar e executar o programa
 
-Crie e execute o programa a partir da linha de comando. Ele enviará automaticamente o pedido para a API QnA Maker, em seguida, será impresso para a janela da consola.
+Construa e execute o programa a partir da linha de comando. Enviará automaticamente o pedido para a API do Fabricante qnA, e depois irá imprimir para a janela da consola.
 
-1. Crie o ficheiro:
+1. Construa o ficheiro:
 
     ```bash
     go build get-answer.go
     ```
 
-1. Execute o ficheiro:
+1. Executar o ficheiro:
 
     ```bash
     ./get-answer
@@ -87,4 +87,4 @@ Crie e execute o programa a partir da linha de comando. Ele enviará automaticam
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Referência da API REST para o Criador de FAQ (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)
+> [Referência à API REST do Criador de FAQ](https://go.microsoft.com/fwlink/?linkid=2092179)

@@ -1,7 +1,7 @@
 ---
 title: Melhores práticas com a API do Detetor de Anomalias
 titleSuffix: Azure Cognitive Services
-description: Saiba mais sobre as melhores práticas quando detetar anomalias, com a API de detetor de anomalias.
+description: Aprenda sobre as melhores práticas ao detetar anomalias com a API do Detetor de Anomalias.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,50 +11,50 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: aahi
 ms.openlocfilehash: 9407f2fc9375765efb6eb9688b3ebfeef24ba90a
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67721616"
 ---
-# <a name="best-practices-for-using-the-anomaly-detector-api"></a>Melhores práticas para utilizar a API de detetor de anomalias
+# <a name="best-practices-for-using-the-anomaly-detector-api"></a>Boas práticas para usar a API do Detetor de Anomalias
 
-A API de detetor de anomalias é um serviço de deteção de anomalias sem monitoração de estado. A precisão e o desempenho de seus resultados podem ser afetados por:
+O Detetor de Anomalias API é um serviço de deteção de anomalias apátridas. A precisão e desempenho dos seus resultados pode ser impactada por:
 
-* Como os seus dados de séries de tempo são preparados.
-* Os parâmetros da API de detetor de anomalias que foram utilizados.
+* Como os dados da série de tempo são preparados.
+* Os parâmetros DaPI do Detetor de Anomalias que foram usados.
 * O número de pontos de dados no seu pedido de API. 
 
-Utilize este artigo para saber mais sobre as melhores práticas para utilizar a API de obter os melhores resultados para os seus dados. 
+Use este artigo para aprender sobre as melhores práticas para usar a API obtendo os melhores resultados para os seus dados. 
 
-## <a name="when-to-use-batch-entire-or-latest-last-point-anomaly-detection"></a>Quando utilizar o batch (completa) ou a versão mais recente (última) do ponto de deteção de anomalias
+## <a name="when-to-use-batch-entire-or-latest-last-point-anomaly-detection"></a>Quando utilizar o lote (inteiro) ou a última (última) deteção de anomalias de ponto
 
-Ponto final de deteção do batch a API de detetor de anomalias permite-lhe detetar anomalias por meio de toda vezes dados de séries. Neste modo de deteção, um único modelo estatístico é criado e aplicado a cada ponto no conjunto de dados. Se tiver de sua série de tempo a abaixo características, recomendamos que utilize a deteção de batch para pré-visualizar os dados numa chamada de API.
+O ponto final de deteção do lote do Detetor de Anomalias permite detetar anomalias através de dados inteiros da série de horários. Neste modo de deteção, é criado e aplicado um único modelo estatístico em cada ponto do conjunto de dados. Se a sua série de tempo tiver as características abaixo, recomendamos a utilização da deteção de lotes para pré-visualizar os seus dados numa chamada API.
 
-* Uma série de tempo sazonais, com anomalias ocasionais.
-* Uma série de tempo tendência simples, com picos ocasionais/dips. 
+* Uma série de horáriosazonal, com anomalias ocasionais.
+* Uma série de tempo de tendência plana, com picos/mergulhos ocasionais. 
 
-Não é recomendado utilizar a deteção de anomalias de batch para dados em tempo real, monitorização, ou usá-lo em dados de séries de tempo que não tem acima características. 
+Não recomendamos a utilização da deteção de anomalias de lote para monitorização de dados em tempo real, ou a sua utilização em dados de séries temporais que não tenham características acima. 
 
-* Deteção de batch cria e aplica-se apenas um modelo, a deteção de cada ponto é feita no contexto da série completa. Se as tendências de dados da série tempo, e reduza verticalmente sem sazonalidade, alguns pontos de alterar (dips e aumento de dados) podem ser omitidas pelo modelo. Da mesma forma, alguns pontos de alteração que são menos significativos do que aqueles mais tarde no conjunto de dados não podem ser contabilizados como significativa o suficiente para ser incorporadas no modelo de.
+* A deteção de lotes cria e aplica apenas um modelo, a deteção para cada ponto é feita no contexto de séries inteiras. Se os dados da série de tempo forem para cima e para baixo sem sazonalidade, alguns pontos de mudança (dips e picos nos dados) podem ser perdidos pelo modelo. Do mesmo modo, alguns pontos de alteração menos significativos do que os mais tarde no conjunto de dados não podem ser contabilizados como significativos o suficiente para serem incorporados no modelo.
 
-* Deteção de batch é mais lenta do que detetar o estado de anomalias do ponto mais recente ao efetuar a monitorização de dados em tempo real, devido ao número de pontos a ser analisados.
+* A deteção do lote é mais lenta do que detetar o estado de anomalia do último ponto ao fazer a monitorização de dados em tempo real, devido ao número de pontos que estão a ser analisados.
 
-Para a monitorização de dados em tempo real, recomendamos que o estado de anomalias do seu mais recente ponto de dados apenas a detetar. Aplicando continuamente mais recente ponto de deteção, monitorização de dados de transmissão em fluxo pode ser feito com mais eficiência e eficácia.
+Para monitorização de dados em tempo real, recomendamos a deteção do estado de anomalia do seu último ponto de dados. Ao aplicar continuamente a deteção de pontos mais recentes, a monitorização de dados de streaming pode ser feita de forma mais eficiente e precisa.
 
-O exemplo a seguir descreve o impacto que desses modos de deteção podem ter no desempenho. A primeira imagem mostra o resultado de forma contínua a detetar o ponto mais recente de estado de anomalias ao longo de pontos de dados anteriormente vista 28. Os pontos de vermelhos são anomalias.
+O exemplo abaixo descreve o impacto que estes modos de deteção podem ter no desempenho. A primeira imagem mostra o resultado da deteção contínua do estado da anomalia no último ponto ao longo de 28 pontos de dados previamente vistos. Os pontos vermelhos são anomalias.
 
-![Uma imagem que mostra a deteção de anomalias utilizando o ponto mais recente](../media/last.png)
+![Uma imagem que mostra a deteção de anomalias usando o ponto mais recente](../media/last.png)
 
-Segue-se o mesmo conjunto de dados com a deteção de anomalias do batch. O modelo criado para a operação tenha ignorado vários anomalias, marcadas pelo retângulos.
+Abaixo está o mesmo conjunto de dados utilizando a deteção de anomalias do lote. O modelo construído para a operação tem ignorado várias anomalias, marcadas por retângulos.
 
-![Uma imagem que mostra a deteção de anomalias usando o método de batch](../media/entire.png)
+![Uma imagem que mostra a deteção de anomalias utilizando o método do lote](../media/entire.png)
 
 ## <a name="data-preparation"></a>Preparação de dados
 
-A API de detetor de anomalias aceita séries de tempo dados formatados num objeto de pedido do JSON. Uma série de tempo pode ser quaisquer dados numéricos registados ao longo do tempo, em ordem sequencial. Pode enviar windows dos seus dados de séries de tempo para o ponto final da API de detetor de anomalias para melhorar o desempenho da API. O número mínimo de pontos de dados, que pode enviar é 12 e o máximo é 8640 pontos. [Granularidade](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) é definido como a velocidade a que os dados são objeto de amostragem em. 
+O Detetor de Anomalias API aceita dados da série de tempo formatados num objeto de pedido JSON. Uma série de tempo pode ser qualquer dado numérico registado ao longo do tempo em ordem sequencial. Pode enviar janelas dos dados da sua série de tempo para o ponto final da API do Detetor de Anomalias para melhorar o desempenho da API. O número mínimo de pontos de dados que pode enviar é de 12 pontos, e o máximo é de 8640 pontos. [A granularidade](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) é definida como a taxa a que os seus dados são amostrados. 
 
-Pontos de dados enviados para a API de detetor de anomalias tem de ter um válido timestamp de hora Universal Coordenada (UTC) e um valor numérico. 
+Os pontos de dados enviados para a API do Detetor de Anomalias devem ter um carimbo de tempo universal coordenado válido (UTC) e um valor numérico. 
 
 ```json
 {
@@ -72,7 +72,7 @@ Pontos de dados enviados para a API de detetor de anomalias tem de ter um válid
 }
 ```
 
-Se os dados são objeto de amostragem num intervalo de tempo não padrão, pode especificá-lo ao adicionar o `customInterval` atributo no seu pedido. Por exemplo, se sua série é objeto de amostragem a cada 5 minutos, pode adicionar o seguinte ao seu pedido JSON:
+Se os seus dados forem recolhidos num intervalo de tempo `customInterval` não padrão, pode especificá-lo adicionando o atributo no seu pedido. Por exemplo, se a sua série for amostrada a cada 5 minutos, pode adicionar o seguinte ao seu pedido JSON:
 
 ```json
 {
@@ -83,25 +83,25 @@ Se os dados são objeto de amostragem num intervalo de tempo não padrão, pode 
 
 ### <a name="missing-data-points"></a>Pontos de dados em falta
 
-Os pontos de dados em falta são comuns em conjuntos de dados série de tempo uniformemente distribuído, especialmente aqueles com uma granularidade fina (um intervalo de amostragem pequeno. Por exemplo, dados de objeto de amostragem intervalos de poucos minutos). Em falta menos de 10% do número esperado de pontos de dados não deve ter um impacto negativo sobre os resultados de deteção. Considere a preenchendo as lacunas nos seus dados com base em suas características, como substituindo os pontos de dados a partir de um período anterior, interpolação linear ou uma média móvel.
+Os pontos de dados em falta são comuns em conjuntos de dados de séries de tempo uniformemente distribuídos, especialmente aqueles com uma granularidade fina (um pequeno intervalo de amostragem. Por exemplo, os dados recolhidos a cada poucos minutos). Perder menos de 10% do número esperado de pontos nos seus dados não deve ter um impacto negativo nos resultados da deteção. Considere preencher lacunas nos seus dados com base nas suas características como substituir pontos de dados de um período anterior, interpolação linear ou uma média móvel.
 
-### <a name="aggregate-distributed-data"></a>Agregação de dados distribuídos
+### <a name="aggregate-distributed-data"></a>Dados distribuídos agregados
 
-A API de detetor de anomalias funciona melhor numa série de tempo uniformemente distribuída. Se seus dados aleatoriamente são distribuídos, deve agregá-la por uma unidade de tempo, como por minuto, horário ou diário por exemplo.
+O Detetor de Anomalias API funciona melhor numa série de tempo distribuída uniformemente. Se os seus dados forem distribuídos aleatoriamente, deverá agregar por uma unidade de tempo, como por minuto, hora ou diariamente, por exemplo.
 
-## <a name="anomaly-detection-on-data-with-seasonal-patterns"></a>Deteção de anomalias nos dados com padrões sazonais
+## <a name="anomaly-detection-on-data-with-seasonal-patterns"></a>Deteção de anomalias em dados com padrões sazonais
 
-Se sabe que os seus dados de séries de tempo tem um padrão sazonal (um que ocorre em intervalos regulares), pode melhorar a precisão e tempo de resposta de API. 
+Se souber que os dados da série tem um padrão sazonal (um que ocorre em intervalos regulares), pode melhorar a precisão e o tempo de resposta da API. 
 
-Especificar um `period` ao construir o seu pedido do JSON pode reduzir a latência de deteção de anomalias em até 50%. O `period` é um número inteiro que especifica a série de tempo de pontos de dados aproximadamente quantos demora a repetir um padrão. Por exemplo, uma série de tempo com um ponto de dados por dia seria ter uma `period` como `7`, e uma série de tempo com um ponto por hora (com o mesmo padrão semanal) teria um `period` de `7*24`. Se tiver a certeza de padrões de seus dados, não tem de especificar este parâmetro.
+Especificar um `period` quando constrói o seu pedido JSON pode reduzir a latência de deteção de anomalias em até 50%. O `period` é um inteiro que especifica aproximadamente quantos pontos de dados a série de tempo leva para repetir um padrão. Por exemplo, uma série de tempo com `period` um `7`ponto de dados por dia teria uma série de tempo `period` `7*24`com um ponto por hora (com o mesmo padrão semanal) teria um de . Se não tem a certeza dos padrões dos seus dados, não precisa especificar este parâmetro.
 
-Para obter melhores resultados, fornecer 4 `period`do valor do ponto de dados, mais uma adicional. Por exemplo, dados por hora com um padrão semanal, tal como descrito acima devem fornecer 673 pontos de dados no corpo do pedido (`7 * 24 * 4 + 1`).
+Para obter os `period`melhores resultados, forneça 4's de ponto de dados, mais um adicional. Por exemplo, os dados horários com um padrão semanal descrito acima devem`7 * 24 * 4 + 1`fornecer 673 pontos de dados no organismo de pedido ().
 
-### <a name="sampling-data-for-real-time-monitoring"></a>Dados de amostragem de monitorização em tempo real
+### <a name="sampling-data-for-real-time-monitoring"></a>Dados de amostragem para monitorização em tempo real
 
-Se os dados de transmissão em fluxo são amostrados num curto intervalo (por exemplo, segundos ou minutos), a enviar o número recomendado de pontos de dados pode exceder máximos número permitidos (8640 pontos de dados) a API de detetor de anomalias. Se seus dados mostram um padrão sazonal estável, considere enviar uma amostra dos seus dados de séries de tempo num intervalo de tempo maior, como horas. Os dados dessa forma de amostragem também visivelmente pode melhorar o tempo de resposta de API. 
+Se os seus dados de streaming forem recolhidos num curto intervalo (por exemplo, segundos ou minutos), o envio do número recomendado de pontos de dados pode exceder o número máximo permitido pela API do Detetor de Anomalias (8640 pontos de dados). Se os seus dados mostrarem um padrão sazonal estável, considere enviar uma amostra dos dados da sua série de tempo num intervalo de tempo maior, como horas. A amostragem dos seus dados desta forma também pode melhorar visivelmente o tempo de resposta da API. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [O que é a API de detetor de anomalias?](../overview.md)
-* [Quickstart: Detetar anomalias nos seus dados de séries de tempo com a API de REST de detetor de anomalias](../quickstarts/detect-data-anomalies-csharp.md)
+* [O que é a API do Detetor de Anomalias?](../overview.md)
+* [Quickstart: Detete anomalias nos dados da série de tempo utilizando a API DO DETETOR de Anomalias](../quickstarts/detect-data-anomalies-csharp.md)

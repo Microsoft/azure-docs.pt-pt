@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: dapine
 ms.openlocfilehash: b3802e66b0ba5a68c898e69ec64b01edce1541c1
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371363"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>O que é conversação multi-dispositivo (Pré-visualização)?
@@ -60,7 +60,7 @@ A transcrição e tradução em tempo real podem ajudar a tornar as conversas ac
 Também pode fornecer legendas para apresentações e palestras tanto no ecrã como nos próprios dispositivos dos membros do público. Depois de o público se juntar ao código de conversação, podem ver a transcrição na sua língua preferida, no seu próprio dispositivo.
 
 > [!NOTE]
-> Para ver um exemplo, consulte o Tradutor de [Apresentação,](https://www.microsoft.com/translator/apps/presentation-translator/)um add-in PowerPoint que utiliza o serviço de conversação multi-dispositivos. Pode descarregá-lo [aqui.](https://www.microsoft.com/download/details.aspx?id=55024)
+> Para ver um exemplo, consulte o Tradutor de [Apresentação,](https://www.microsoft.com/translator/apps/presentation-translator/)um add-in PowerPoint que utiliza o serviço de conversação multi-dispositivos. Pode transferi-lo [aqui](https://www.microsoft.com/download/details.aspx?id=55024).
 
 ## <a name="how-it-works"></a>Como funciona
 

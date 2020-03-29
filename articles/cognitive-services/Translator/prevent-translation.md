@@ -1,30 +1,29 @@
 ---
-title: Impedir a conversão de conteúdo-API de Tradução de Texto
+title: Impedir a tradução de conteúdos - API de Texto tradutor
 titleSuffix: Azure Cognitive Services
-description: Impedir a tradução de conteúdo com o API de Tradução de Texto. O API de Tradução de Texto permite que você marque o conteúdo para que ele não seja traduzido.
+description: Impedir a tradução de conteúdos com a API de Texto tradutor. A API de Texto tradutor permite-lhe marcar conteúdo para que não seja traduzido.
 services: cognitive-services
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 03/20/2020
 ms.author: swmachan
-ms.openlocfilehash: 15a36451c18d65df6667f24284f3f69f3d1c06b8
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c7be4a0ea1a9d24a8b262132632a0bbb63ae1b96
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326765"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80052476"
 ---
-# <a name="how-to-prevent-translation-of-content-with-the-translator-text-api"></a>Como impedir a tradução de conteúdo com o API de Tradução de Texto
+# <a name="how-to-prevent-translation-of-content-with-the-translator-text-api"></a>Como impedir a tradução de conteúdos com a API de Texto tradutor
 
-O API de Tradução de Texto permite que você marque o conteúdo para que ele não seja traduzido. Por exemplo, você pode querer marcar o código, um nome da marca ou uma palavra/frase que não faça sentido quando localizada.
+A API de Texto tradutor permite-lhe marcar conteúdo para que não seja traduzido. Por exemplo, pode querer marcar código, uma marca ou uma palavra/frase que não faça sentido quando localizada.
 
-## <a name="methods-for-preventing-translation"></a>Métodos para impedir a tradução
-1. Escape para uma marca do Twitter @somethingtopassthrough ou #somethingtopassthrough. Cancele o escape após a tradução. Esta é a expressão regular para as marcas válidas do Twitter: `\B@[A-Za-z]+[A-Za-z0-9_]+)`. Uma marca deve começar com um sinal de "@", seguido por um caractere e seguida por um ou vários caracteres, dígitos ou sublinhado. É recomendável manter as marcas curtas e a marca de abertura deve ser precedida por um espaço.
+## <a name="methods-for-preventing-translation"></a>Métodos de prevenção da tradução
 
-2. Marque seu conteúdo com `notranslate`. É por design que isso funciona somente quando o TextType de entrada é definido como HTML
+1. Marque o `notranslate`seu conteúdo com . É por design que isto funciona apenas quando o texto de entradaType é definido como HTML
 
    Exemplo:
 
@@ -38,13 +37,13 @@ O API de Tradução de Texto permite que você marque o conteúdo para que ele n
    <div>This will be translated. </div>
    ```
 
-3. Use o [dicionário dinâmico](dynamic-dictionary.md) para prescrever uma tradução específica.
+2. Utilize o [dicionário dinâmico](dynamic-dictionary.md) para prescrever uma tradução específica.
 
-4. Não transmita a cadeia de caracteres para a API de Tradução de Texto para tradução.
+3. Não passe a corda para a API de Texto tradutor para tradução.
 
-5. Tradutor personalizado: Use um [dicionário no Tradutor personalizado](custom-translator/what-is-dictionary.md) para prescrever a tradução de uma frase com uma probabilidade de 100%.
+4. Tradutor personalizado: Utilize um [dicionário em Tradutor Personalizado](custom-translator/what-is-dictionary.md) para prescrever a tradução de uma frase com 100% de probabilidade.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
-> [Evite a tradução em sua chamada à API do Tradutor](reference/v3-0-translate.md)
+> [Evite a tradução na chamada da API tradutora](reference/v3-0-translate.md)

@@ -1,7 +1,7 @@
 ---
-title: Tipo de entidade de expressão regular-LUIS
+title: Tipo de entidade de expressão regular - LUIS
 titleSuffix: Azure Cognitive Services
-description: Uma expressão regular é melhor para texto bruto expressão. Ele ignora caso e ignora a variante cultural.  Correspondência de expressões regulares é aplicada após a verificação ortográfica alterações ao nível do caráter, não no nível de token.
+description: Uma expressão regular é melhor para texto de expressão crua. Ignora o caso e ignora a variante cultural.  A correspondência de expressão regular é aplicada após alterações de verificação ortográfica ao nível do carácter, e não no nível do símbolo.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,46 +11,46 @@ ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
 ms.openlocfilehash: b9da76a80183f353a74d43e667bf6c9219eb6c05
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74841222"
 ---
 # <a name="regular-expression-entity"></a>Entidade de expressão regular
 
-Uma entidade de expressão regular extrai uma entidade com base em um padrão de expressão regular fornecido por você.
+Uma entidade de expressão regular extrai uma entidade com base num padrão de expressão regular que fornece.
 
-Uma expressão regular é melhor para texto bruto expressão. Ele ignora caso e ignora a variante cultural.  Correspondência de expressões regulares é aplicada após a verificação ortográfica alterações ao nível do caráter, não no nível de token. Se a expressão regular for muito complexa, como usar muitos colchetes, não será possível adicionar a expressão ao modelo. Usa parte, mas não toda a biblioteca [Regex .net](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) .
+Uma expressão regular é melhor para texto de expressão crua. Ignora o caso e ignora a variante cultural.  A correspondência de expressão regular é aplicada após alterações de verificação ortográfica ao nível do carácter, e não no nível do símbolo. Se a expressão regular for demasiado complexa, como usar muitos suportes, não é capaz de adicionar a expressão ao modelo. Usa parte, mas não toda a biblioteca [.NET Regex.](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions)
 
-**A entidade é uma boa opção quando:**
+**A entidade é um bom ajuste quando:**
 
-* Os dados são formatados consistentemente com qualquer variação que também seja consistente.
-* A expressão regular não precisa de mais de 2 níveis de aninhamento.
+* Os dados são consistentemente formatados com qualquer variação que também seja consistente.
+* A expressão regular não necessita de mais de 2 níveis de nidificação.
 
 ![Entidade de expressão regular](./media/luis-concept-entities/regex-entity.png)
 
-## <a name="usage-considerations"></a>Considerações de uso
+## <a name="usage-considerations"></a>Considerações de utilização
 
-Expressões regulares podem corresponder a mais do que você espera corresponder. Um exemplo disso é a correspondência de palavras numéricas, como `one` e `two`. Um exemplo é o seguinte Regex, que corresponde ao número `one` juntamente com outros números:
+Expressões regulares podem corresponder mais do que espera. Um exemplo disso é a correspondência `one` `two`de palavras numéricas como e . Um exemplo é o seguinte regex, que combina com o número `one` juntamente com outros números:
 
 ```javascript
 (plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
 ```
 
-Essa expressão Regex também corresponde a quaisquer palavras que terminem com esses números, como `phone`. Para corrigir problemas como esse, verifique se as correspondências de Regex levam em conta limites de palavras. O Regex para usar limites de palavras para este exemplo é usado no seguinte Regex:
+Esta expressão regex também combina com quaisquer `phone`palavras que terminam com estes números, tais como . Para corrigir problemas como este, certifique-se de que os fósforos regex têm em conta os limites das palavras. O regex para utilizar limites de palavras para este exemplo é utilizado no seguinte regex:
 
 ```javascript
 \b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
 ```
 
-### <a name="example-json"></a>JSON de exemplo
+### <a name="example-json"></a>Exemplo JSON
 
-Ao usar `kb[0-9]{6}`, como a definição de entidade de expressão regular, a resposta JSON a seguir é um exemplo de expressão com as entidades de expressão regular retornadas para a consulta:
+Ao `kb[0-9]{6}`utilizar, como definição de entidade de expressão regular, a seguinte resposta JSON é um exemplo de expressão com as entidades de expressão regular devolvidas para a consulta:
 
 `When was kb123456 published?`:
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Resposta final de previsão V2](#tab/V2)
 
 ```JSON
 "entities": [
@@ -64,10 +64,10 @@ Ao usar `kb[0-9]{6}`, como a definição de entidade de expressão regular, a re
 ```
 
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão v3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Resposta final de previsão V3](#tab/V3)
 
 
-Esse é o JSON se `verbose=false` for definido na cadeia de caracteres de consulta:
+Este é o JSON se `verbose=false` estiver definido na corda de consulta:
 
 ```json
 "entities": {
@@ -77,7 +77,7 @@ Esse é o JSON se `verbose=false` for definido na cadeia de caracteres de consul
 }
 ```
 
-Esse é o JSON se `verbose=true` for definido na cadeia de caracteres de consulta:
+Este é o JSON se `verbose=true` estiver definido na corda de consulta:
 
 ```json
 "entities": {
@@ -106,4 +106,4 @@ Esse é o JSON se `verbose=true` for definido na cadeia de caracteres de consult
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste [tutorial](tutorial-regex-entity.md), crie um aplicativo para extrair dados formatados de forma consistente de um expressão usando a entidade **expressão regular** .
+Neste [tutorial,](tutorial-regex-entity.md)crie uma app para extrair dados consistentemente formatados de uma expressão utilizando a entidade **De Expressão Regular.**

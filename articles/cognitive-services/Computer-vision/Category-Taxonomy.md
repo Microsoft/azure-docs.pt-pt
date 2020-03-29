@@ -1,7 +1,7 @@
 ---
-title: Taxonomia de categorias de imagem – Pesquisa Visual Computacional
+title: Taxonomia das categorias de imagem - Visão Computacional
 titleSuffix: Azure Cognitive Services
-description: Obtenha as categorias 86 de taxonomia para o API da Pesquisa Visual Computacional nos serviços cognitivas do Azure.
+description: Obtenha as 86 categorias de taxonomia para a API de Visão Computacional em Serviços Cognitivos Azure.
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -12,15 +12,15 @@ ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 42562f3e19844621cb3893cb4ce185e85cf7e0ab
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68565750"
 ---
-# <a name="computer-vision-86-category-taxonomy"></a>Pesquisa Visual Computacional 86-taxonomia de categoria
+# <a name="computer-vision-86-category-taxonomy"></a>Taxonomia de 86 categorias da Visão Computacional
 
-resume
+abstract_
 
 abstract_net
 
@@ -44,7 +44,7 @@ animal_horse
 
 animal_panda
 
-elaboração
+building_
 
 building_arch
 
@@ -62,9 +62,9 @@ building_stair
 
 building_street
 
-escuro
+dark_
 
-bebida
+drink_
 
 drink_can
 
@@ -74,7 +74,7 @@ dark_fireworks
 
 sky_object
 
-alimentos
+food_
 
 food_bread
 
@@ -84,7 +84,7 @@ food_grilled
 
 food_pizza
 
-uso
+indoor_
 
 indoor_churchwindow
 
@@ -100,9 +100,9 @@ indoor_venue
 
 dark_light
 
-outros
+others_
 
-externa
+outdoor_
 
 outdoor_city
 
@@ -132,7 +132,7 @@ outdoor_water
 
 outdoor_waterside
 
-porta
+people_
 
 people_baby
 
@@ -152,7 +152,7 @@ people_tattoo
 
 people_young
 
-Plant
+plant_
 
 plant_branch
 

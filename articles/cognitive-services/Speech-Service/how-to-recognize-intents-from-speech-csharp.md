@@ -1,7 +1,7 @@
 ---
-title: Como reconhecer as intenções da fala usando o SDK da falaC#
+title: 'Como reconhecer as intenções da fala usando o Discurso SDK C #'
 titleSuffix: Azure Cognitive Services
-description: Neste guia, aprende-se a reconhecer as intenções da C#fala usando o SDK da fala para .
+description: Neste guia, aprende-se a reconhecer as intenções da fala usando o SDK de Fala para C#.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: dapine
 ms.openlocfilehash: 5d3c77c307739f9014010a592aa496a1cc83b333
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77120033"
 ---
-# <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Como reconhecer as intenções da fala usando o SDK da fala paraC#
+# <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Como reconhecer as intenções da fala usando o SDK do Discurso para C #
 
 O [SDK de Serviços](speech-sdk.md) Cognitivos integra-se com o serviço de Compreensão da [Língua (LUIS)](https://www.luis.ai/home) para fornecer **reconhecimento de intenções.** Uma intenção é algo que o utilizador quer fazer, seja reservar um voo, ver tempo ou fazer uma chamada. O utilizador pode utilizar qualquer termo que pareça natural. Utilizando machine learning, o LUIS mapeia os pedidos dos utilizadores às intenções que definiu.
 
 > [!NOTE]
 > Uma aplicação do LUIS define as intenções e entidades que quer ver reconhecidas. É separada da aplicação C# que utiliza o serviço Voz. Neste artigo, “aplicação LUIS” significa a aplicação do LUIS e “aplicação” significa o código C#.
 
-Neste guia, utiliza o Speech SDK C# para desenvolver uma aplicação de consola que obtém intenções de declarações do utilizador através do microfone do seu dispositivo. Vai aprender a:
+Neste guia, utiliza o SDK de Speech para desenvolver uma aplicação de consola C# que obtém intenções de declarações do utilizador através do microfone do seu dispositivo. Vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -87,11 +87,11 @@ Em seguida, adicione código ao projeto.
 
 1. Do **Solution Explorer,** abra o ficheiro **Program.cs**.
 
-1. Substitua o bloco de declarações `using` no início do processo pelas seguintes declarações:
+1. Substitua o `using` bloco de declarações no início do processo pelas seguintes declarações:
 
    [!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#toplevel)]
 
-1. Substitua o método `Main()` fornecido, com o seguinte equivalente assíncrono:
+1. Substitua `Main()` o método fornecido, com o seguinte equivalente assíncrono:
 
    ```csharp
    public static async Task Main()
@@ -102,7 +102,7 @@ Em seguida, adicione código ao projeto.
    }
    ```
 
-1. Crie um método assíncrono vazio `RecognizeIntentAsync()`, como mostrado aqui:
+1. Crie um método `RecognizeIntentAsync()`assíncrono vazio, como mostrado aqui:
 
    ```csharp
    static async Task RecognizeIntentAsync()
@@ -128,7 +128,7 @@ As secções seguintes incluem abordagens ao código.
 
 ## <a name="create-an-intent-recognizer"></a>Criar um reconhecedor de intenções
 
-Em primeiro lugar, é necessário criar uma configuração de fala a partir da sua chave e região de ponto final LUIS. Pode usar configurações de fala para criar reconhecíveis para as várias capacidades do SDK de Fala. A configuração da fala tem várias formas de especificar a subscrição que pretende utilizar; aqui, utilizamos `FromSubscription`, que leva a chave de subscrição e a região.
+Em primeiro lugar, é necessário criar uma configuração de fala a partir da sua chave e região de ponto final LUIS. Pode usar configurações de fala para criar reconhecíveis para as várias capacidades do SDK de Fala. A configuração da fala tem várias formas de especificar a subscrição que pretende utilizar; aqui, usamos `FromSubscription`, que leva a chave de subscrição e região.
 
 > [!NOTE]
 > Utilize a chave e região da sua assinatura LUIS, não uma subscrição do serviço Speech.
@@ -139,9 +139,9 @@ Em seguida, crie um reconhecedor de intenções com `new IntentRecognizer(config
 
 Agora, utilize `LanguageUnderstandingModel.FromAppId()` para importar o modelo da aplicação LUIS e adicione as intenções que pretende reconhecer através do método `AddIntent()` do reconhecedor. Estes dois passos indicam as palavras que o utilizador irá provavelmente utilizar nos pedidos, o que melhora a precisão do reconhecimento de voz. Não precisa de adicionar todas as intenções da aplicação se não precisar de as reconhecer todas na sua aplicação.
 
-Para adicionar intenções, deve apresentar três argumentos: o modelo LUIS (que foi criado e é nomeado `model`), o nome de intenção e uma identificação intencional. A diferença entre o ID e o nome da intenção é a seguinte.
+Para adicionar intenções, deve apresentar três argumentos: o modelo LUIS `model`(que foi criado e nomeado), o nome da intenção e um ID de intenção. A diferença entre o ID e o nome da intenção é a seguinte.
 
-| `AddIntent()`argumento &nbsp; | Objetivo |
+| `AddIntent()`&nbsp;argumento | Objetivo |
 | --------------------------- | ------- |
 | `intentName` | O nome da intenção, conforme definido na aplicação LUIS. Este valor deve corresponder exatamente ao nome de intenção do LUIS. |
 | `intentID` | Um ID que o SDK de Voz atribui a uma intenção reconhecida. Este valor pode ser o que quiser; não precisa de corresponder ao nome de intenção definido na aplicação LUIS. Se o mesmo código processar várias intenções, pode, por exemplo, utilizar o mesmo ID para essas intenções. |
@@ -153,7 +153,7 @@ recognizer.AddIntent(model, "HomeAutomation.TurnOff", "off");
 recognizer.AddIntent(model, "HomeAutomation.TurnOn", "on");
 ```
 
-Em vez de adicionar intenções individuais, também pode usar o método `AddAllIntents` para adicionar todas as intenções de um modelo ao reconhecedor.
+Em vez de adicionar intenções individuais, também pode usar o `AddAllIntents` método para adicionar todas as intenções de um modelo ao reconhecedor.
 
 ## <a name="start-recognition"></a>Iniciar o reconhecimento
 
@@ -162,9 +162,9 @@ Com o reconhecedor criado e as intenções adicionadas, o reconhecimento pode co
 | Modo de reconhecimento | Métodos a chamar | Resultado |
 | ---------------- | --------------- | ------ |
 | Único | `RecognizeOnceAsync()` | Devolve a intenção reconhecida, se existir, após uma expressão. |
-| Contínuo | `StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()` | Reconhece várias expressões; emite eventos (por exemplo, `IntermediateResultReceived`) quando os resultados estão disponíveis. |
+| Contínuo | `StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()` | Reconhece várias expressões; emite eventos `IntermediateResultReceived`(por exemplo, ) quando os resultados estão disponíveis. |
 
-A aplicação utiliza o modo single-shot e, por isso, as chamadas `RecognizeOnceAsync()` para iniciar o reconhecimento. O resultado é um objeto `IntentRecognitionResult` que inclui informações sobre a intenção reconhecida. Extrai a resposta LUIS JSON utilizando a seguinte expressão:
+A aplicação utiliza o modo `RecognizeOnceAsync()` single-shot e assim chamadas para iniciar o reconhecimento. O resultado é um objeto `IntentRecognitionResult` que inclui informações sobre a intenção reconhecida. Extrai a resposta LUIS JSON utilizando a seguinte expressão:
 
 ```csharp
 result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_JsonResult)
@@ -176,15 +176,15 @@ A aplicação não analisa o resultado da JSON. Apenas exibe o texto JSON na jan
 
 ## <a name="specify-recognition-language"></a>Especificar o idioma do reconhecimento
 
-Por predefinição, o LUIS reconhece intenções em inglês dos E.U.A. (`en-us`). Se atribuir um código de região à propriedade `SpeechRecognitionLanguage` da configuração da voz, poderá reconhecer intenções noutros idiomas. Por exemplo, adicione `config.SpeechRecognitionLanguage = "de-de";` na nossa aplicação antes de criar o reconhecível para reconhecer as intenções em alemão. Para mais informações, consulte o [suporte linguístico da LUIS.](../LUIS/luis-language-support.md#languages-supported)
+Por predefinição, o LUIS reconhece intenções em inglês dos E.U.A. (`en-us`). Se atribuir um código de região à propriedade `SpeechRecognitionLanguage` da configuração da voz, poderá reconhecer intenções noutros idiomas. Por exemplo, `config.SpeechRecognitionLanguage = "de-de";` adicione a nossa aplicação antes de criar o reconhecível para reconhecer as intenções em alemão. Para mais informações, consulte o [suporte linguístico da LUIS.](../LUIS/luis-language-support.md#languages-supported)
 
 ## <a name="continuous-recognition-from-a-file"></a>Reconhecimento contínuo a partir de um ficheiro
 
-O código seguinte ilustra duas capacidades extra do reconhecimento de intenções quando é utilizado o SDK Voz. O primeiro, já referido antes, é o reconhecimento contínuo, no qual o reconhecedor emite eventos quando há resultados disponíveis. Esses eventos podem, depois, ser processados pelos processadores de eventos que fornecer. Com reconhecimento contínuo, chama ao método `StartContinuousRecognitionAsync()` do reconheço para iniciar o reconhecimento em vez de `RecognizeOnceAsync()`.
+O código seguinte ilustra duas capacidades extra do reconhecimento de intenções quando é utilizado o SDK Voz. O primeiro, já referido antes, é o reconhecimento contínuo, no qual o reconhecedor emite eventos quando há resultados disponíveis. Esses eventos podem, depois, ser processados pelos processadores de eventos que fornecer. Com reconhecimento contínuo, chama-se `StartContinuousRecognitionAsync()` método do reconhecedor `RecognizeOnceAsync()`para iniciar o reconhecimento em vez de .
 
 A outra capacidade é ler o áudio que contém a voz que vai ser processada a partir de um ficheiro WAV. A implementação envolve a criação de uma configuração áudio que pode ser usada na criação do reconhecedor de intenções. O ficheiro só pode ter um canal (mono) com uma taxa de amostragem de 16 kHz.
 
-Para experimentar estas funcionalidades, elimine ou comente o corpo do método `RecognizeIntentAsync()` e adicione o seguinte código no seu lugar.
+Para experimentar estas funcionalidades, elimine ou `RecognizeIntentAsync()` comente o corpo do método e adicione o seguinte código no seu lugar.
 
 [!code-csharp[Intent recognition by using events from a file](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 

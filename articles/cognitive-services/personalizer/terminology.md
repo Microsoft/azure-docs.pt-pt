@@ -4,10 +4,10 @@ description: O personalizer usa terminologia a partir da aprendizagem de reforç
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: f75437c5afd5d3fd7f7570079be410d3db1ca8db
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77624277"
 ---
 # <a name="terminology"></a>Terminologia
@@ -47,7 +47,7 @@ O personalizer está configurado a partir do [portal Azure.](https://portal.azur
 
         A sua aplicação específica pode ter diferentes informações de contexto.
 
-    * **[Características](concepts-features.md)** : Uma unidade de informação sobre um item de conteúdo ou um contexto de utilizador. Certifique-se de que utiliza apenas as funcionalidades agregadas. Não utilize tempos específicos, iDs de utilizador ou outros dados não agregados como funcionalidades.
+    * **[Características](concepts-features.md)**: Uma unidade de informação sobre um item de conteúdo ou um contexto de utilizador. Certifique-se de que utiliza apenas as funcionalidades agregadas. Não utilize tempos específicos, iDs de utilizador ou outros dados não agregados como funcionalidades.
 
         * Uma _funcionalidade de ação_ são metadados sobre o conteúdo.
         * Uma _característica de contexto_ são metadados sobre o contexto em que o conteúdo é apresentado.

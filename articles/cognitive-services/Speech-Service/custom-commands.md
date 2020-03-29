@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
 ms.openlocfilehash: 2e1b6ee0bd6c392804915fac6ff23278a00b6d33
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79367844"
 ---
 # <a name="what-are-custom-commands-preview"></a>O que são Comandos Personalizados (Pré-visualização)?
 
-Aplicações de voz como [assistentes](voice-assistants.md) de voz ouvem os utilizadores e tomam uma ação em resposta, muitas vezes falando de volta. Usam [o discurso ao texto](speech-to-text.md) para transcrever o discurso do utilizador e, em seguida, tomam medidas sobre a compreensão da linguagem natural do texto. Esta ação inclui frequentemente a saída falada do assistente gerado com [texto-a-fala](text-to-speech.md). Os dispositivos ligam-se aos assistentes com o objeto `DialogServiceConnector` do SDK do Discurso.
+Aplicações de voz como [assistentes](voice-assistants.md) de voz ouvem os utilizadores e tomam uma ação em resposta, muitas vezes falando de volta. Usam [o discurso ao texto](speech-to-text.md) para transcrever o discurso do utilizador e, em seguida, tomam medidas sobre a compreensão da linguagem natural do texto. Esta ação inclui frequentemente a saída falada do assistente gerado com [texto-a-fala](text-to-speech.md). Os dispositivos ligam-se aos assistentes `DialogServiceConnector` com o objeto do SDK de Fala.
 
 **Comandos Personalizados (Pré-visualização)** é uma solução simplificada para a criação de aplicações de voz. Proporciona uma experiência de autoria unificada, um modelo de hospedagem automático, e uma complexidade relativamente menor em relação a outras opções como [Direct Line Speech](direct-line-speech.md). No entanto, esta simplificação vem com uma redução da flexibilidade. Assim, os Comandos Personalizados (Pré-visualização) são mais adequados para a conclusão da tarefa ou cenários de comando e controlo. É particularmente bem combinado para Internet das Coisas (IoT) e dispositivos sem cabeça.
 
@@ -39,14 +39,14 @@ Oferecemos quickstarts projetados para tê-lo em funcionamento código em menos 
 
 * [Criar uma aplicação de Comandos Personalizados (Pré-visualização)](quickstart-custom-speech-commands-create-new.md)
 * [Criar uma aplicação de Comandos Personalizados (Pré-visualização) com parâmetros](quickstart-custom-speech-commands-create-parameters.md)
-* [Ligue-se a uma aplicação de Comandos Personalizados (Pré-visualização) com o SDK de Fala,C#](quickstart-custom-speech-commands-speech-sdk.md)
+* [Ligue-se a uma aplicação de Comandos Personalizados (Pré-visualização) com o SDK de Fala, C #](quickstart-custom-speech-commands-speech-sdk.md)
 
 Assim que terminar com os quickstarts, explore os nossos "how-tos".
 
 - [Adicionar validações aos parâmetros de Comando Personalizado](./how-to-custom-speech-commands-validations.md)
 - [Cumprir comandos sobre o cliente com o SDK de Fala](./how-to-custom-speech-commands-fulfill-sdk.md)
-- [Adicione uma confirmação a um Comando Personalizado](./how-to-custom-speech-commands-confirmations.md)
-- [Adicione uma correção de um passo a um Comando Personalizado](./how-to-custom-speech-commands-one-step-correction.md)
+- [Adicionar uma confirmação a um Comando Personalizado](./how-to-custom-speech-commands-confirmations.md)
+- [Adicionar uma correção de um passo a um Comando Personalizado](./how-to-custom-speech-commands-one-step-correction.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,7 +1,7 @@
 ---
 title: Todas as entidades pré-construídas - LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém listas de entidades pré-criadas que estão incluídas na compreensão de idiomas (LUIS).
+description: Este artigo contém listas das entidades pré-construídas que estão incluídas na Compreensão da Língua (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,21 +12,21 @@ ms.topic: reference
 ms.date: 10/03/2019
 ms.author: diberry
 ms.openlocfilehash: a49452653f8ac4bcc62758d801a235be0929d314
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79219722"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entidades por cultura no seu modelo LUIS
 
-Compreensão de idiomas (LUIS) fornece entidades pré-concebidas. Quando uma entidade pré-criados está incluída na sua aplicação, o LUIS inclui a predição de entidade correspondente na resposta do ponto final. Todas as expressões de exemplo também são rotuladas com a entidade. O comportamento de entidades pré-construídas **não pode** ser modificado. Salvo indicação em contrário, entidades pré-concebidas estão disponíveis em todas as localidades de aplicação LUIS (culturas). A tabela seguinte mostra as entidades pré-concebidas que são suportadas para cada cultura.
+A Compreensão da Língua (LUIS) fornece entidades pré-construídas. Quando uma entidade pré-construída está incluída na sua aplicação, a LUIS inclui a previsão correspondente da entidade na resposta ao ponto final. Todas as declarações de exemplo também são rotuladas com a entidade. O comportamento de entidades pré-construídas **não pode** ser modificado. Salvo indicação em contrário, as entidades pré-construídas estão disponíveis em todos os locais de aplicação LUIS (culturas). A tabela que se segue mostra as entidades pré-construídas que são apoiadas por cada cultura.
 
-|Cultura|Subcultures|Notas|
+|Cultura|Subculturas|Notas|
 |--|--|--|
 |Chinês|[zh-CN](#chinese-entity-support)||
-|Neerlandês|[NL-NL](#dutch-entity-support)||
-|Português|[en-EUA (Americano)](#english-american-entity-support)||
+|Neerlandês|[nl-NL](#dutch-entity-support)||
+|Inglês|[en-EUA (Americano)](#english-american-entity-support)||
 |Francês|[fr-CA (Canadá)](#french-canadian-entity-support), [fr-FR (França)](#french-france-entity-support), ||
 |Alemão|[de-DE](#german-entity-support)||
 |Italiano|[it-IT](#italian-entity-support)||
@@ -40,16 +40,16 @@ Compreensão de idiomas (LUIS) fornece entidades pré-concebidas. Quando uma ent
 
 A disponibilidade de uma entidade pré-construída numa língua específica é determinada pela versão de prazo de execução do ponto final de previsão.
 
-## <a name="chinese-entity-support"></a>Suporte de entidade chinês
+## <a name="chinese-entity-support"></a>Apoio à entidade chinesa
 
-As entidades a seguir são suportadas:
+São apoiadas as seguintes entidades:
 
-|Entidade pré-criados|```zh-CN``` |
+|Entidade pré-construída|```zh-CN``` |
 ------|:------:|
-[Idade:](luis-reference-prebuilt-age.md)<br>ano<br>mês<br>semana<br>dia   |    V2, V3   |
-[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>Dólar<br>unidade fracionária (ex: mínima)  |    V2, V3   |
-[DataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>daterange<br>hora<br>timerange   |    V2, V3   |
-[Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informações (ex: bits/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: lá por hora)  |    V2, V3   |
+[Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
+[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
+[DataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>datarange<br>hora<br>intervalo de tempo   |    V2, V3   |
+[Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informações (ex: bit/byte)<br>comprimento (ex: contador)<br>velocidade (ex: milha por hora)  |    V2, V3   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase-chave](luis-reference-prebuilt-keyphrase.md)   |    -   |
@@ -59,19 +59,19 @@ As entidades a seguir são suportadas:
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [Nome de pessoa](luis-reference-prebuilt-person.md)   |    V2, V3   |
 [Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperature](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>Kelvin<br>Rankine<br>delisle<br>Celsius   |    V2, V3   |
+[Temperatura:](luis-reference-prebuilt-temperature.md)<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
-## <a name="dutch-entity-support"></a>Suporte de entidade Holandês
+## <a name="dutch-entity-support"></a>Apoio à entidade holandesa
 
-As entidades a seguir são suportadas:
+São apoiadas as seguintes entidades:
 
-|Entidade pré-criados|```nl-NL``` |
+|Entidade pré-construída|```nl-NL``` |
 ------|:------:|
-[Idade:](luis-reference-prebuilt-age.md)<br>ano<br>mês<br>semana<br>dia   |    V2, V3   |
-[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>Dólar<br>unidade fracionária (ex: mínima)  |    V2, V3   |
+[Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
+[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
 [Data de data](luis-reference-prebuilt-deprecated.md)   |    -   |
-[Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informações (ex: bits/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: lá por hora)  |    V2, V3   |
+[Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informações (ex: bit/byte)<br>comprimento (ex: contador)<br>velocidade (ex: milha por hora)  |    V2, V3   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase-chave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
@@ -81,19 +81,19 @@ As entidades a seguir são suportadas:
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [Nome de pessoa](luis-reference-prebuilt-person.md)   |    -   |
 [Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperature](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>Kelvin<br>Rankine<br>delisle<br>Celsius   |    V2, V3   |
+[Temperatura:](luis-reference-prebuilt-temperature.md)<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
-## <a name="english-american-entity-support"></a>Suporte de entidade (americano) em inglês
+## <a name="english-american-entity-support"></a>Apoio à entidade inglesa (americana)
 
-As entidades a seguir são suportadas:
+São apoiadas as seguintes entidades:
 
-|Entidade pré-criados|```en-US``` |
+|Entidade pré-construída|```en-US``` |
 ------|:------:|
-[Idade:](luis-reference-prebuilt-age.md)<br>ano<br>mês<br>semana<br>dia   |    V2, V3   |
-[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>Dólar<br>unidade fracionária (ex: mínima)  |    V2, V3   |
-[DataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>daterange<br>hora<br>timerange   |    V2, V3   |
-[Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informações (ex: bits/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: lá por hora)  |    V2, V3   |
+[Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
+[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
+[DataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>datarange<br>hora<br>intervalo de tempo   |    V2, V3   |
+[Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informações (ex: bit/byte)<br>comprimento (ex: contador)<br>velocidade (ex: milha por hora)  |    V2, V3   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    V2, V3   |
 [Frase-chave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
@@ -103,19 +103,19 @@ As entidades a seguir são suportadas:
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [Nome de pessoa](luis-reference-prebuilt-person.md)   |    V2, V3   |
 [Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperature](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>Kelvin<br>Rankine<br>delisle<br>Celsius   |    V2, V3   |
+[Temperatura:](luis-reference-prebuilt-temperature.md)<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
-## <a name="french-france-entity-support"></a>Suporte de entidade do francês (França)
+## <a name="french-france-entity-support"></a>Apoio da entidade francesa (França)
 
-As entidades a seguir são suportadas:
+São apoiadas as seguintes entidades:
 
-|Entidade pré-criados|```fr-FR``` |
+|Entidade pré-construída|```fr-FR``` |
 ------|:------:|
-[Idade:](luis-reference-prebuilt-age.md)<br>ano<br>mês<br>semana<br>dia   |    V2, V3   |
-[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>Dólar<br>unidade fracionária (ex: mínima)  |    V2, V3   |
-[DataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>daterange<br>hora<br>timerange   |    V2, V3   |
-[Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informações (ex: bits/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: lá por hora)  |    V2, V3   |
+[Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
+[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
+[DataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>datarange<br>hora<br>intervalo de tempo   |    V2, V3   |
+[Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informações (ex: bit/byte)<br>comprimento (ex: contador)<br>velocidade (ex: milha por hora)  |    V2, V3   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase-chave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
@@ -125,19 +125,19 @@ As entidades a seguir são suportadas:
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [Nome de pessoa](luis-reference-prebuilt-person.md)   |   -   |
 [Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperature](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>Kelvin<br>Rankine<br>delisle<br>Celsius   |    V2, V3   |
+[Temperatura:](luis-reference-prebuilt-temperature.md)<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
-## <a name="french-canadian-entity-support"></a>Suporte de francês entidade (canadense)
+## <a name="french-canadian-entity-support"></a>Apoio à entidade francesa (canadiana)
 
-As entidades a seguir são suportadas:
+São apoiadas as seguintes entidades:
 
-|Entidade pré-criados|```fr-CA``` |
+|Entidade pré-construída|```fr-CA``` |
 ------|:------:|
-[Idade:](luis-reference-prebuilt-age.md)<br>ano<br>mês<br>semana<br>dia   |    V2, V3   |
-[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>Dólar<br>unidade fracionária (ex: mínima)  |    V2, V3   |
-[DataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>daterange<br>hora<br>timerange   |    V2, V3   |
-[Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informações (ex: bits/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: lá por hora)  |    V2, V3   |
+[Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
+[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
+[DataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>datarange<br>hora<br>intervalo de tempo   |    V2, V3   |
+[Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informações (ex: bit/byte)<br>comprimento (ex: contador)<br>velocidade (ex: milha por hora)  |    V2, V3   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase-chave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
@@ -147,19 +147,19 @@ As entidades a seguir são suportadas:
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [Nome de pessoa](luis-reference-prebuilt-person.md)   |    -   |
 [Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperature](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>Kelvin<br>Rankine<br>delisle<br>Celsius   |    V2, V3   |
+[Temperatura:](luis-reference-prebuilt-temperature.md)<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
-## <a name="german-entity-support"></a>Suporte de entidade alemão
+## <a name="german-entity-support"></a>Apoio da entidade alemã
 
-As entidades a seguir são suportadas:
+São apoiadas as seguintes entidades:
 
-|Entidade pré-criados|```de-DE``` |
+|Entidade pré-construída|```de-DE``` |
 ------|:------:|
-[Idade:](luis-reference-prebuilt-age.md)<br>ano<br>mês<br>semana<br>dia   |    V2, V3   |
-[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>Dólar<br>unidade fracionária (ex: mínima)  |    V2, V3   |
-[DataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>daterange<br>hora<br>timerange   |    V2, V3   |
-[Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informações (ex: bits/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: lá por hora)  |    V2, V3   |
+[Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
+[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
+[DataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>datarange<br>hora<br>intervalo de tempo   |    V2, V3   |
+[Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informações (ex: bit/byte)<br>comprimento (ex: contador)<br>velocidade (ex: milha por hora)  |    V2, V3   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase-chave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
@@ -169,21 +169,21 @@ As entidades a seguir são suportadas:
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [Nome de pessoa](luis-reference-prebuilt-person.md)   |    -   |
 [Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperature](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>Kelvin<br>Rankine<br>delisle<br>Celsius   |    V2, V3   |
+[Temperatura:](luis-reference-prebuilt-temperature.md)<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
-## <a name="italian-entity-support"></a>Suporte de entidade italiano
+## <a name="italian-entity-support"></a>Apoio da entidade italiana
 
 Idade pré-construída italiana, moeda, dimensão, número, _resolução_ percentual alterada da pré-visualização V2 e V3.
 
-As entidades a seguir são suportadas:
+São apoiadas as seguintes entidades:
 
-|Entidade pré-criados|```it-IT``` |
+|Entidade pré-construída|```it-IT``` |
 ------|:------:|
-[Idade:](luis-reference-prebuilt-age.md)<br>ano<br>mês<br>semana<br>dia   |    V2, V3   |
-[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>Dólar<br>unidade fracionária (ex: mínima)  |    V2, V3   |
+[Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
+[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
 [Data de data](luis-reference-prebuilt-deprecated.md)   |    -   |
-[Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informações (ex: bits/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: lá por hora)  |    V2, V3   |
+[Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informações (ex: bit/byte)<br>comprimento (ex: contador)<br>velocidade (ex: milha por hora)  |    V2, V3   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase-chave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
@@ -193,19 +193,19 @@ As entidades a seguir são suportadas:
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [Nome de pessoa](luis-reference-prebuilt-person.md)   |    -   |
 [Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperature](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>Kelvin<br>Rankine<br>delisle<br>Celsius   |    V2, V3   |
+[Temperatura:](luis-reference-prebuilt-temperature.md)<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
-## <a name="japanese-entity-support"></a>Suporte de entidade japonês
+## <a name="japanese-entity-support"></a>Apoio à entidade japonesa
 
-As entidades a seguir são suportadas:
+São apoiadas as seguintes entidades:
 
-|Entidade pré-criados|```ja-JP``` |
+|Entidade pré-construída|```ja-JP``` |
 ------|:------:|
-[Idade:](luis-reference-prebuilt-age.md)<br>ano<br>mês<br>semana<br>dia   |    V2, -   |
-[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>Dólar<br>unidade fracionária (ex: mínima)  |    V2, -   |
+[Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, -   |
+[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, -   |
 [Data de data](luis-reference-prebuilt-deprecated.md)   |    -   |
-[Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informações (ex: bits/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: lá por hora)  |    V2, -   |
+[Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informações (ex: bit/byte)<br>comprimento (ex: contador)<br>velocidade (ex: milha por hora)  |    V2, -   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase-chave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
@@ -215,19 +215,19 @@ As entidades a seguir são suportadas:
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    V2, -   |
 [Nome de pessoa](luis-reference-prebuilt-person.md)   |    -   |
 [Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperature](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>Kelvin<br>Rankine<br>delisle<br>Celsius   |    V2, -   |
+[Temperatura:](luis-reference-prebuilt-temperature.md)<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, -   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
-## <a name="korean-entity-support"></a>Suporte de entidade coreano
+## <a name="korean-entity-support"></a>Apoio à entidade coreana
 
-As entidades a seguir são suportadas:
+São apoiadas as seguintes entidades:
 
-|Entidade pré-criados|```ko-KR``` |
+|Entidade pré-construída|```ko-KR``` |
 ------|:------:|
-[Idade:](luis-reference-prebuilt-age.md)<br>ano<br>mês<br>semana<br>dia   |    -   |
-[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>Dólar<br>unidade fracionária (ex: mínima)  |    -   |
+[Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    -   |
+[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    -   |
 [Data de data](luis-reference-prebuilt-deprecated.md)   |    -   |
-[Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informações (ex: bits/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: lá por hora)  |    -   |
+[Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informações (ex: bit/byte)<br>comprimento (ex: contador)<br>velocidade (ex: milha por hora)  |    -   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase-chave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
@@ -237,19 +237,19 @@ As entidades a seguir são suportadas:
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    -   |
 [Nome de pessoa](luis-reference-prebuilt-person.md)   |    -   |
 [Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperature](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>Kelvin<br>Rankine<br>delisle<br>Celsius   |    -   |
+[Temperatura:](luis-reference-prebuilt-temperature.md)<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
-## <a name="portuguese-brazil-entity-support"></a>Suporte de entidade de Português (Brasil)
+## <a name="portuguese-brazil-entity-support"></a>Apoio da entidade portuguesa (Brasil)
 
-As entidades a seguir são suportadas:
+São apoiadas as seguintes entidades:
 
-|Entidade pré-criados|```pt-BR``` |
+|Entidade pré-construída|```pt-BR``` |
 ------|:------:|
-[Idade:](luis-reference-prebuilt-age.md)<br>ano<br>mês<br>semana<br>dia   |    V2, V3   |
-[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>Dólar<br>unidade fracionária (ex: mínima)  |    V2, V3   |
-[DataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>daterange<br>hora<br>timerange   |    V2, V3   |
-[Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informações (ex: bits/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: lá por hora)  |    V2, V3   |
+[Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
+[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
+[DataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>datarange<br>hora<br>intervalo de tempo   |    V2, V3   |
+[Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informações (ex: bit/byte)<br>comprimento (ex: contador)<br>velocidade (ex: milha por hora)  |    V2, V3   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase-chave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
@@ -259,19 +259,19 @@ As entidades a seguir são suportadas:
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [Nome de pessoa](luis-reference-prebuilt-person.md)   |    -   |
 [Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperature](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>Kelvin<br>Rankine<br>delisle<br>Celsius   |    V2, V3   |
+[Temperatura:](luis-reference-prebuilt-temperature.md)<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
-## <a name="spanish-spain-entity-support"></a>Suporte de entidade de espanhol (Espanha)
+## <a name="spanish-spain-entity-support"></a>Apoio à entidade espanhola (Espanha)
 
-As entidades a seguir são suportadas:
+São apoiadas as seguintes entidades:
 
-|Entidade pré-criados|```es-ES``` |
+|Entidade pré-construída|```es-ES``` |
 ------|:------:|
-[Idade:](luis-reference-prebuilt-age.md)<br>ano<br>mês<br>semana<br>dia   |    V2, V3   |
-[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>Dólar<br>unidade fracionária (ex: mínima)  |    V2, V3   |
-[DataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>daterange<br>hora<br>timerange   |    V2, V3   |
-[Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informações (ex: bits/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: lá por hora)  |    V2, V3   |
+[Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
+[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
+[DataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>datarange<br>hora<br>intervalo de tempo   |    V2, V3   |
+[Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informações (ex: bit/byte)<br>comprimento (ex: contador)<br>velocidade (ex: milha por hora)  |    V2, V3   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase-chave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
@@ -281,19 +281,19 @@ As entidades a seguir são suportadas:
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [Nome de pessoa](luis-reference-prebuilt-person.md)   |    -   |
 [Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperature](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>Kelvin<br>Rankine<br>delisle<br>Celsius   |    V2, V3   |
+[Temperatura:](luis-reference-prebuilt-temperature.md)<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
-## <a name="spanish-mexico-entity-support"></a>Suporte de entidade de espanhol (México)
+## <a name="spanish-mexico-entity-support"></a>Apoio à entidade espanhola (México)
 
-As entidades a seguir são suportadas:
+São apoiadas as seguintes entidades:
 
-|Entidade pré-criados|```es-MX``` |
+|Entidade pré-construída|```es-MX``` |
 ------|:------:|
-[Idade:](luis-reference-prebuilt-age.md)<br>ano<br>mês<br>semana<br>dia   |    -   |
-[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>Dólar<br>unidade fracionária (ex: mínima)  |    -   |
-[DataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>daterange<br>hora<br>timerange   |    -   |
-[Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informações (ex: bits/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: lá por hora)  |    -   |
+[Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    -   |
+[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    -   |
+[DataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>datarange<br>hora<br>intervalo de tempo   |    -   |
+[Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informações (ex: bit/byte)<br>comprimento (ex: contador)<br>velocidade (ex: milha por hora)  |    -   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase-chave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
@@ -303,12 +303,12 @@ As entidades a seguir são suportadas:
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    -   |
 [Nome de pessoa](luis-reference-prebuilt-person.md)   |    -   |
 [Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperature](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>Kelvin<br>Rankine<br>delisle<br>Celsius   |    -   |
+[Temperatura:](luis-reference-prebuilt-temperature.md)<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 Ver notas sobre [entidades pré-construídas deprecatadas](luis-reference-prebuilt-deprecated.md)
 
-KeyPhrase não está disponível em todas as subculturas do português (Brasil) - ```pt-BR```.
+KeyPhrase não está disponível em todas as ```pt-BR```subculturas do português (Brasil) - .
 
 ## <a name="turkish-entity-support"></a>Apoio da entidade turca
 
@@ -339,10 +339,10 @@ See notes on [Deprecated prebuilt entities](luis-reference-prebuilt-deprecated.m
 KeyPhrase is not available.
 -->
 
-## <a name="contribute-to-prebuilt-entity-cultures"></a>Contribuir para culturas de entidade predefinidos
-As entidades pré-concebidas são desenvolvidas no projeto de código-fonte aberto reconhecedores-texto. [Contribuir](https://github.com/Microsoft/Recognizers-Text) para o projeto. Esse projeto inclui exemplos de moeda por cultura.
+## <a name="contribute-to-prebuilt-entity-cultures"></a>Contribuir para culturas de entidades pré-construídas
+As entidades pré-construídas são desenvolvidas no projeto Recognisers-Text open-source. [Contribuir](https://github.com/Microsoft/Recognizers-Text) para o projeto. Este projeto inclui exemplos de moeda por cultura.
 
-GeographyV2 e PersonName não estão incluídos no projeto reconhecedores-texto. Para problemas com estas entidades pré-construídas, por favor abra um pedido de [apoio.](../../azure-portal/supportability/how-to-create-azure-support-request.md)
+GeografiaV2 e PersonName não estão incluídos no projeto Recognisers-Text. Para problemas com estas entidades pré-construídas, por favor abra um pedido de [apoio.](../../azure-portal/supportability/how-to-create-azure-support-request.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

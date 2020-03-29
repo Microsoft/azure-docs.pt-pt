@@ -1,23 +1,22 @@
 ### YamlMime:Landing
-title: Documentação dos dispositivos de voz
-summary: O SDK de dispositivos de voz é uma biblioteca pretuned que se encontra emparelhada com finalidade específica, kits de desenvolvimento de matriz de microfone.
+title: Documentação de dispositivos de fala
+summary: O SDK de Dispositivos de Fala é uma biblioteca pré-afinada que é emparelhada com kits de desenvolvimento de matrizes de microfone sintetizados.
 metadata:
-  title: Documentação de dispositivos de fala - Tutoriais, Referência API - Serviços Cognitivos Azure  Microsoft Docs
+  title: Documentação de dispositivos de fala - Tutoriais, Referência API - Serviços Cognitivos Azure [ Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: cbdbcce25d357530775140bc8b5fdf82808c64ad
-  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+  ms.openlocfilehash: 5fc9e045162c03585f20e0b06a01524480070050
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/14/2020
-  ms.locfileid: "79369255"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "79415364"
 landingContent:
 - title: Sobre os dispositivos de Fala SDK
   linkLists:

@@ -1,5 +1,5 @@
 ---
-title: Exportação e exclusão de dados - LUIS
+title: Export& apagar dados - LUIS
 titleSuffix: Azure Cognitive Services
 description: Tem total controlo sobre visualização, exportação e aparas os seus dados. Elimine os dados do cliente para garantir a privacidade e conformidade.
 services: cognitive-services
@@ -12,41 +12,41 @@ ms.topic: reference
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: 4e3e0d04b0086905b80e26fb4f838c36b5b5545e
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273365"
 ---
-# <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exportar e eliminar os dados dos clientes na compreensão de idiomas (LUIS) nos serviços cognitivos
+# <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exportar e eliminar os dados dos seus clientes em Compreensão linguística (LUIS) em Serviços Cognitivos
 
 Elimine os dados do cliente para garantir a privacidade e conformidade.
 
-## <a name="summary-of-customer-data-request-features"></a>Resumo das funcionalidades de pedido de dados do cliente
-Language Understanding Intelligent Service (LUIS) preserva o conteúdo de cliente para operar o serviço, mas o utilizador de LUIS tem controlo total sobre a exibição, exportar e eliminar os seus dados. Isto pode ser feito através do [portal](luis-reference-regions.md) da LUIS ou da [Autoria LUIS (também conhecida como Programática) APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
+## <a name="summary-of-customer-data-request-features"></a>Resumo das funcionalidades de pedido de dados dos clientes
+O Serviço Inteligente de Compreensão linguística (LUIS) preserva o conteúdo do cliente para operar o serviço, mas o utilizador da LUIS tem total controlo sobre visualização, exportação e apagamento dos seus dados. Isto pode ser feito através do [portal](luis-reference-regions.md) da LUIS ou da [Autoria LUIS (também conhecida como Programática) APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-Conteúdo de cliente é armazenado encriptada no armazenamento do Microsoft regional do Azure e inclui:
+O conteúdo do cliente é armazenado encriptado no armazenamento regional do Microsoft Azure e inclui:
 
-- Conteúdo de conta de utilizador recolhidas no registo
+- Conteúdo da conta de utilizador recolhido no registo
 - Dados de formação necessários para construir os modelos
 - Consultas de utilizadores registadas usadas pela [aprendizagem ativa](luis-concept-review-endpoint-utterances.md) para ajudar a melhorar o modelo
-  - Os utilizadores podem desativar a consulta de registo através da `&log=false` ao pedido, detalhes [aqui](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
+  - Os utilizadores podem desativar `&log=false` a consulta de registo através da aplicação do pedido, detalhes [aqui](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
 
-## <a name="deleting-customer-data"></a>A eliminação de dados do cliente
-Os utilizadores da LUIS têm controlo total para eliminar qualquer conteúdo do utilizador, seja através do portal web LUIS ou da LUIS Authoring (também conhecida como Programática) APIs. A tabela seguinte apresenta links ajudá-lo com ambos:
+## <a name="deleting-customer-data"></a>Apagar dados dos clientes
+Os utilizadores da LUIS têm controlo total para eliminar qualquer conteúdo do utilizador, seja através do portal web LUIS ou da LUIS Authoring (também conhecida como Programática) APIs. A tabela seguinte apresenta links de assistência com ambos:
 
-| | **Conta de Utilizador** | **Candidatura** | **Exemplo de expressão(s)** | **Consultas de utilizador final** |
+| | **Conta de Utilizador** | **Aplicação** | **Exemplo de expressão(s)** | **Consultas de utilizador final** |
 | --- | --- | --- | --- | --- |
 | **Portal** | [Ligação](luis-concept-data-storage.md#delete-an-account) | [Ligação](luis-how-to-start-new-app.md#delete-app) | [Ligação](luis-concept-data-storage.md#utterances-in-an-intent) | [Expressões de aprendizagem ativa](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[Expressões registadas](luis-concept-data-storage.md#disable-logging-utterances) |
 | **APIs** | [Ligação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Ligação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Ligação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Ligação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
 
 
-## <a name="exporting-customer-data"></a>Exportar dados do cliente
+## <a name="exporting-customer-data"></a>Exportação de dados dos clientes
 Os utilizadores da LUIS têm controlo total para visualizar os dados no portal, no entanto devem ser exportados através das APIs de Autor (também conhecidas como Programáticas). A tabela seguinte apresenta links de assistência à exportação de dados através da AUTORÇÃO LUIS (também conhecida como Programática) APIs:
 
-| | **Conta de Utilizador** | **Candidatura** | **Proclamação(s)** | **Consultas de utilizador final** |
+| | **Conta de Utilizador** | **Aplicação** | **Proclamação(s)** | **Consultas de utilizador final** |
 | --- | --- | --- | --- | --- |
 | **APIs** | [Ligação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c48) | [Ligação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) | [Ligação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) | [Ligação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36) |
 
@@ -56,7 +56,7 @@ Para permitir a [aprendizagem ativa](luis-how-to-review-endpoint-utterances.md#e
 
 * [Europa](#europe)
 * [Austrália](#australia)
-* [Estados Unidos](#united-states)
+* [E.U.A.](#united-states)
 
 Com exceção dos dados de aprendizagem ativa (detalhados abaixo), a LUIS segue as práticas de armazenamento de [dados dos serviços regionais.](https://azuredatacentermap.azurewebsites.net/)
 

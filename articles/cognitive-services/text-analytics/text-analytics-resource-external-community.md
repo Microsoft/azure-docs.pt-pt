@@ -1,5 +1,5 @@
 ---
-title: Conteúdo externo e comunitário para API de Análise de Texto
+title: Conteúdo comunitário de & externo para API de Análise de Texto
 titleSuffix: Azure Cognitive Services
 description: Blogs parceiros, vídeos do YouTube, formação para API de Texto de Serviços Cognitivos Azure.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: aahi
 ms.openlocfilehash: 4cdf58974cd8fa9d7813df7e970caea260409225
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78251313"
 ---
-# <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Conteúdo externo e comunitário para o Serviço Cognitivo de Análise de Texto
+# <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Conteúdo comunitário de & externo para o Serviço Cognitivo de Análise de Texto
 
  As ligações neste artigo levam-no a conteúdos web úteis desenvolvidos e produzidos por parceiros e profissionais com experiência na utilização da API text analytics.
 
@@ -53,5 +53,5 @@ Está à procura de informações sobre um recurso ou caso de uso que não cobri
 
 ## <a name="see-also"></a>Consulte também
 
- [StackOverflow: API analítica](https://stackoverflow.com/questions/tagged/text-analytics-api) de texto azul   
+ [StackOverflow: API de análise de texto azure](https://stackoverflow.com/questions/tagged/text-analytics-api)   
  [StackOverflow: Serviços Cognitivos Azure](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

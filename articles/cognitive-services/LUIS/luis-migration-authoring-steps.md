@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: diberry
 ms.openlocfilehash: f5197ae79670e4543c58224a33838706edae6218
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78194648"
 ---
 # <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>Passos para migrar para o recurso de autoria azure
@@ -35,7 +35,7 @@ Se não tiver uma assinatura Azure, [inscreva-se.](https://azure.microsoft.com/f
 Semanalmente, é-lhe solicitado que emigraasse as suas apps. Pode cancelar esta janela sem migrar. Se quiser migrar antes do próximo período programado, pode iniciar o processo de migração a partir do ícone **Azure** na barra de ferramentas superior esbarrada do portal LUIS.
 
 > [!div class="mx-imgBorder"]
-> ![ícone da migração](./media/migrate-authoring-key/migration-button.png)
+> ![Ícone de migração](./media/migrate-authoring-key/migration-button.png)
 
 ## <a name="app-owner-begins-the-migration-process"></a>Dono de app inicia o processo de migração
 
@@ -68,7 +68,7 @@ O processo de migração está disponível se for proprietário de quaisquer apl
 1. Opte por criar um recurso de autoria LUIS selecionando para utilizar um recurso de autoria existente ou para criar um novo recurso de autoria.
 
     > [!div class="mx-imgBorder"]
-    > ![Criar](./media/migrate-authoring-key/choose-existing-authoring-resource.png) de recursos de autoria
+    > ![Criar recurso de autoria](./media/migrate-authoring-key/choose-existing-authoring-resource.png)
 
 1. Na janela seguinte, introduza a informação da chave de recursos. Depois de introduzir a informação, selecione **Criar recurso**. Pode ter 10 recursos de autoria gratuitos por região, por subscrição.
 
@@ -93,7 +93,7 @@ O processo de migração está disponível se for proprietário de quaisquer apl
 
     A lista **de aplicações My** mostra que as aplicações migraram para o novo recurso de autoria.
 
-    Não é necessário conhecer a chave do recurso de autor para continuar a editar as suas apps no portal LUIS. Se planeia editar as suas apps programáticamente, precisa dos valores-chave da autoria. Estes valores são apresentados na página **de recursos Manage &> Azure** no portal LUIS e estão também disponíveis no portal Azure na página **Chaves** do recurso.
+    Não é necessário conhecer a chave do recurso de autor para continuar a editar as suas apps no portal LUIS. Se planeia editar as suas apps programáticamente, precisa dos valores-chave da autoria. Estes valores são apresentados na página de **recursos Do Manage -> Azure** no portal LUIS e estão também disponíveis no portal Azure na página **Chaves** do recurso.
 
 1. Antes de aceder às suas apps, selecione a subscrição e o recurso de autor da LUIS para ver as aplicações que pode ser autor.
 
@@ -102,7 +102,7 @@ O processo de migração está disponível se for proprietário de quaisquer apl
 
 ## <a name="app-contributor-begins-the-migration-process"></a>Colaborador da App inicia o processo de migração
 
-Siga os mesmos passos que o proprietário da aplicação para migração. O processo cria um novo recurso de autoria de tipo `LUIS.Authoring`.
+Siga os mesmos passos que o proprietário da aplicação para migração. O processo cria um novo `LUIS.Authoring`recurso de autoria do tipo.
 
 É necessário migrar a sua conta para ser adicionada como contribuinte para aplicações migratórias detidas por outras pessoas.
 
@@ -114,7 +114,7 @@ Saiba [como adicionar colaboradores.](luis-how-to-collaborate.md)
 
 ## <a name="troubleshooting-errors-with-the-migration-process"></a>Erros de resolução de problemas com o processo de migração
 
-Se receber um erro `MissingSubscriptionRegistration` no portal LUIS com uma barra de notificação vermelha durante o processo de migração, crie um recurso do Serviço Cognitivo no [portal Azure](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) ou [azure CLI](luis-how-to-azure-subscription.md#create-resources-in-azure-cli). Saiba mais sobre [as causas deste erro.](../../azure-resource-manager/templates/error-register-resource-provider.md#cause)
+Se receber `MissingSubscriptionRegistration` um erro no portal LUIS com uma barra de notificação vermelha durante o processo de migração, crie um recurso do Serviço Cognitivo no [portal Azure](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) ou [azure CLI](luis-how-to-azure-subscription.md#create-resources-in-azure-cli). Saiba mais sobre [as causas deste erro.](../../azure-resource-manager/templates/error-register-resource-provider.md#cause)
 
 ## <a name="next-steps"></a>Passos seguintes
 

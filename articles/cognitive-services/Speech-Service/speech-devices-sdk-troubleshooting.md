@@ -1,7 +1,7 @@
 ---
-title: Solucionar problemas do SDK de dispositivos de fala-serviço de fala
+title: Troubleshoot the Speech Devices SDK - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Este artigo fornece informações para ajudá-lo a resolver problemas que você pode encontrar ao usar o SDK de dispositivos de fala.
+description: Este artigo fornece informações para ajudá-lo a resolver problemas que pode encontrar quando utiliza o SDK de Dispositivos de Fala.
 services: cognitive-services
 author: mswellsi
 manager: nitinme
@@ -11,30 +11,30 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: wellsi
 ms.openlocfilehash: c590e0972de289a36890a75b220eddbded701ea8
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74815575"
 ---
 # <a name="troubleshoot-the-speech-devices-sdk"></a>Resolver problemas do SDK de Dispositivos de Voz
 
-Este artigo fornece informações para ajudá-lo a resolver problemas que você pode encontrar ao usar o SDK de dispositivos de fala.
+Este artigo fornece informações para ajudá-lo a resolver problemas que pode encontrar quando utiliza o SDK de Dispositivos de Fala.
 
-## <a name="certificate-failures"></a>Falhas de certificado
+## <a name="certificate-failures"></a>Falhas no certificado
 
-Se você obtiver falhas de certificado ao usar o serviço de fala, verifique se o dispositivo tem a data e a hora corretas:
+Se tiver falhas no certificado ao utilizar o serviço Defala, certifique-se de que o seu dispositivo tem a data e a hora corretas:
 
-1. Aceda a **definições**. Sob **System**, selecione **data e hora**.
+1. Ir para **Definições**. No **sistema,** selecione **Data & tempo**.
 
-    ![Em definições, selecione a data e hora](media/speech-devices-sdk/qsg-12.png)
+    ![Em Definições, selecione Data & tempo](media/speech-devices-sdk/qsg-12.png)
 
-1. Manter o **automática data e hora** opção selecionada. Sob **fuso de horário selecione**, selecione o seu fuso horário atual.
+1. Mantenha a **data Automática &** opção de tempo selecionada. Em **fuso horário, selecione**o fuso horário atual.
 
-    ![Selecione as opções de data e fuso horário](media/speech-devices-sdk/qsg-13.png)
+    ![Selecione opções de data e fuso horário](media/speech-devices-sdk/qsg-13.png)
 
-    Quando vir que o tempo o kit de desenvolvimento corresponde a hora no seu PC, o kit de desenvolvimento está ligado à internet.
+    Quando você vê que o tempo do dev kit corresponde ao tempo no seu PC, o dev kit está ligado à internet.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Reveja as notas de versão](devices-sdk-release-notes.md)
+* [Reveja as notas de lançamento](devices-sdk-release-notes.md)

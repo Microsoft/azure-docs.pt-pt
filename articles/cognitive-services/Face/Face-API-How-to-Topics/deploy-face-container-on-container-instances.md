@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: dapine
 ms.openlocfilehash: 4f8a08697443ec6920b3fa73de19a950e54e7f40
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76716256"
 ---
 # <a name="deploy-the-face-container-to-azure-container-instances"></a>Desloque o recipiente Face para as instâncias do contentor azure
 
-Aprenda a implantar o recipiente [Face](../face-how-to-install-containers.md) dos Serviços Cognitivos para as [instâncias](https://docs.microsoft.com/azure/container-instances/)do contentor azure . Este procedimento demonstra a criação de um recurso Azure Face. Em seguida, discutimos a extração da imagem de contêiner associada. Por fim, destacamos a capacidade de exercitar a orquestração dos dois em um navegador. O uso de contêineres pode mudar a atenção dos desenvolvedores para longe de gerenciar a infraestrutura para se concentrar no desenvolvimento de aplicativos.
+Aprenda a implantar o recipiente [Face](../face-how-to-install-containers.md) dos Serviços Cognitivos para as [instâncias](https://docs.microsoft.com/azure/container-instances/)do contentor azure . Este procedimento demonstra a criação de um recurso Azure Face. Depois discutimos a imagem do contentor associado. Finalmente, destacamos a capacidade de exercer a orquestração dos dois a partir de um browser. A utilização de contentores pode desviar a atenção dos desenvolvedores da gestão da infraestrutura para, em vez disso, concentrar-se no desenvolvimento de aplicações.
 
 [!INCLUDE [Prerequisites](../../containers/includes/container-preview-prerequisites.md)]
 
-## <a name="request-access-to-the-private-container-registry"></a>Pedir acesso para o registo de contentor privado
+## <a name="request-access-to-the-private-container-registry"></a>Solicitar acesso ao registo de contentores privados
 
 [!INCLUDE [Request access to private container registry](../../../../includes/cognitive-services-containers-request-access.md)]
 

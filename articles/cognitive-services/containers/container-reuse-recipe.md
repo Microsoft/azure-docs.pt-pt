@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: dapine
 ms.openlocfilehash: 97342f1dd4f6ce343626ba6c294f09dabe3db5c0
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76717199"
 ---
 # <a name="create-containers-for-reuse"></a>Criar contentores para reutilização
@@ -25,33 +25,33 @@ Assim que tiver esta nova camada de recipiente (com configurações), e tiver te
 
 ## <a name="docker-run-syntax"></a>Docker executar sintaxe
 
-Qualquer `docker run` exemplos deste documento assumem uma consola Windows com um carácter de continuação de linha `^`. Considere o seguinte para seu próprio uso:
+Quaisquer `docker run` exemplos neste documento assumem `^` uma consola Windows com um carácter de continuação de linha. Considere o seguinte para seu próprio uso:
 
-* Não altere a ordem dos argumentos, a menos que está bastante familiarizada com contentores do docker.
+* Não altere a ordem dos argumentos a menos que esteja muito familiarizado com os recipientes de estivadores.
 * Se estiver a utilizar um sistema operativo diferente do Windows, ou uma consola que não seja a consola do Windows, utilize a consola/terminal correto, a sintaxe de pastas para suportes e o carácter de continuação da linha para a consola e o sistema.  Como o recipiente dos Serviços Cognitivos é um sistema operativo Linux, o suporte-alvo usa uma sintaxe de pasta ao estilo Linux.
-* `docker run` exemplos usam o diretório fora da unidade `c:` para evitar quaisquer conflitos de permissões no Windows. Se precisar de utilizar um diretório específico como a entrada de diretório, poderá ter de conceder o docker permissão de serviço.
+* `docker run`exemplos usam o diretório fora da `c:` unidade para evitar quaisquer conflitos de permissões no Windows. Se precisar de usar um diretório específico como diretório de entrada, poderá ter de conceder a permissão de serviço do estivador.
 
 ## <a name="store-no-configuration-settings-in-image"></a>Não guarde nenhuma definição de configuração na imagem
 
-O exemplo `docker run` comandos para cada serviço não armazenam quaisquer configurações de configuração no recipiente. Quando iniciar o recipiente a partir de um serviço de consola ou registo, essas definições de configuração têm de passar. O recipiente de registo privado fornece espaço de configuração para que você passe essas definições.
+Os `docker run` comandos de exemplo para cada serviço não armazenam quaisquer configurações de configuração no recipiente. Quando iniciar o recipiente a partir de um serviço de consola ou registo, essas definições de configuração têm de passar. O recipiente de registo privado fornece espaço de configuração para que você passe essas definições.
 
 ## <a name="reuse-recipe-store-all-configuration-settings-with-container"></a>Receita de reutilização: guarde todas as definições de configuração com recipiente
 
-Para armazenar todas as configurações de configuração, crie uma `Dockerfile` com essas definições.
+Para armazenar todas as configurações `Dockerfile` de configuração, crie um com essas definições.
 
 Questões com esta abordagem:
 
 * O novo recipiente tem um nome e etiqueta separados do recipiente original.
 * Para alterar estas definições, terá de alterar os valores do Dockerfile, reconstruir a imagem e republicar para o seu registo.
 * Se alguém tiver acesso ao seu registo de contentores ou ao seu anfitrião local, pode executar o contentor e usar os pontos finais dos Serviços Cognitivos.
-* Se o seu Serviço Cognitivo não necessitar de suportes de entrada, não adicione as linhas `COPY` ao seu Dockerfile.
+* Se o seu Serviço Cognitivo não necessitar de suportes `COPY` de entrada, não adicione as linhas ao seu Dockerfile.
 
 Crie o Dockerfile, retirando do recipiente de Serviços Cognitivos existente que pretende utilizar, em seguida, use comandos de estivador no Dockerfile para definir ou puxar informações que o recipiente precisa.
 
 Este exemplo:
 
-* Define o ponto final da faturação, `{BILLING_ENDPOINT}` da chave ambiental do hospedeiro usando `ENV`.
-* Define a chave API de faturação, `{ENDPOINT_KEY}` da chave ambiental do hospedeiro utilizando a 'ENV.
+* Define o ponto final `{BILLING_ENDPOINT}` da faturação, a `ENV`partir da chave ambiental do hospedeiro utilizando .
+* Define a chave API de `{ENDPOINT_KEY}` faturação, a partir da chave ambiental do hospedeiro utilizando a ENV.
 
 ### <a name="reuse-recipe-store-billing-settings-with-container"></a>Receita de reutilização: configurações de faturação de loja com recipiente
 
@@ -70,9 +70,9 @@ Construa e corra o recipiente [localmente](#how-to-use-container-on-your-local-h
 
 Este exemplo mostra como usar a Compreensão da Linguagem, poupando faturação e modelos do Dockerfile.
 
-* Copie o ficheiro do modelo Language Understanding (LUIS) do sistema de ficheiros do anfitrião utilizando `COPY`.
-* O recipiente LUIS suporta mais do que um modelo. Se todos os modelos estiverem armazenados na mesma pasta, todos precisam de uma declaração `COPY`.
-* Execute o ficheiro do estivador do parente do diretório de entrada do modelo. Para o seguinte exemplo, execute os comandos `docker build` e `docker run` do progenitor relativo da `/input`. A primeira `/input` no comando `COPY` é o diretório do computador anfitrião. A segunda `/input` é o diretório do contentor.
+* Copia o ficheiro do modelo Language Understanding (LUIS) do sistema de ficheiros do anfitrião utilizando `COPY`.
+* O recipiente LUIS suporta mais do que um modelo. Se todos os modelos estiverem armazenados `COPY` na mesma pasta, todos precisam de uma declaração.
+* Execute o ficheiro do estivador do parente do diretório de entrada do modelo. Para o seguinte exemplo, executar os `docker build` comandos e comandos `docker run` do progenitor relativo de `/input`. O `/input` primeiro `COPY` no comando é o diretório do computador anfitrião. O `/input` segundo é o diretório do contentor.
 
 ```Dockerfile
 FROM <container-registry>/<cognitive-service-container-name>:<tag>
@@ -86,13 +86,13 @@ Construa e corra o recipiente [localmente](#how-to-use-container-on-your-local-h
 
 ## <a name="how-to-use-container-on-your-local-host"></a>Como usar o recipiente no seu hospedeiro local
 
-Para construir o ficheiro Docker, substitua `<your-image-name>` com o novo nome da imagem e, em seguida, use:
+Para construir o ficheiro `<your-image-name>` Docker, substitua-o pelo novo nome da imagem e, em seguida, use:
 
 ```console
 docker build -t <your-image-name> .
 ```
 
-Para executar a imagem e removê-la quando o recipiente parar (`--rm`):
+Para executar a imagem e removê-la`--rm`quando o recipiente parar ( ):
 
 ```console
 docker run --rm <your-image-name>
@@ -102,13 +102,13 @@ docker run --rm <your-image-name>
 
 Siga estes passos para utilizar o Dockerfile e coloque a nova imagem no registo de contentores privados.  
 
-1. Crie um `Dockerfile` com o texto da receita de reutilização. Um `Dockerfile` não tem uma extensão.
+1. Crie `Dockerfile` um com o texto da receita de reutilização. A `Dockerfile` não tem uma extensão.
 
 1. Substitua quaisquer valores nos suportes angulares com os seus próprios valores.
 
-1. Construa o ficheiro numa imagem na linha de comando ou terminal, utilizando o seguinte comando. Substitua os valores nos suportes angulares, `<>`, com o seu próprio nome e etiqueta do recipiente.  
+1. Construa o ficheiro numa imagem na linha de comando ou terminal, utilizando o seguinte comando. Substitua os valores nos `<>`suportes angulares, com o seu próprio nome e etiqueta do recipiente.  
 
-    A opção de etiqueta, `-t`, é uma forma de adicionar informações sobre o que mudou para o recipiente. Por exemplo, um nome de recipiente de `modified-LUIS` indica que o recipiente original foi colocado em camadas. Um nome de etiqueta de `with-billing-and-model` indica como o recipiente de Compreensão linguística (LUIS) foi modificado.
+    A opção `-t`de etiqueta, é uma forma de adicionar informações sobre o que mudou para o recipiente. Por exemplo, um `modified-LUIS` nome de recipiente indica que o recipiente original foi colocado em camadas. Um nome `with-billing-and-model` de etiqueta indica como o recipiente de Compreensão linguística (LUIS) foi modificado.
 
     ```Bash
     docker build -t <your-new-container-name>:<your-new-tag-name> .
@@ -122,7 +122,7 @@ Siga estes passos para utilizar o Dockerfile e coloque a nova imagem no registo 
 
 1. Inscreva-se no seu registo privado com o Azure CLI a partir de uma consola.
 
-    Substitua os valores nos suportes angulares, `<my-registry>`, com o seu próprio nome de registo.  
+    Substitua os valores nos `<my-registry>`suportes angulares, com o seu próprio nome de registo.  
 
     ```azurecli
     az acr login --name <my-registry>
@@ -134,13 +134,13 @@ Siga estes passos para utilizar o Dockerfile e coloque a nova imagem no registo 
     docker login <my-registry>.azurecr.io
     ```
 
-1. Marque o recipiente com a localização do registo privado. Substitua os valores nos suportes angulares, `<my-registry>`, com o seu próprio nome de registo. 
+1. Marque o recipiente com a localização do registo privado. Substitua os valores nos `<my-registry>`suportes angulares, com o seu próprio nome de registo. 
 
     ```Bash
     docker tag <your-new-container-name>:<your-new-tag-name> <my-registry>.azurecr.io/<your-new-container-name-in-registry>:<your-new-tag-name>
     ```
 
-    Se não usar um nome de etiqueta, `latest` está implícito.
+    Se não usar um nome `latest` de etiqueta, está implícito.
 
 1. Empurre a nova imagem para o seu registo de contentores privados. Quando visualizar o seu registo de contentores privados, o nome do recipiente utilizado no seguinte comando CLI será o nome do repositório.
 
@@ -148,7 +148,7 @@ Siga estes passos para utilizar o Dockerfile e coloque a nova imagem no registo 
     docker push <my-registry>.azurecr.io/<your-new-container-name-in-registry>:<your-new-tag-name>
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar e utilizar a Instância de Contentores Azure](azure-container-instance-recipe.md)

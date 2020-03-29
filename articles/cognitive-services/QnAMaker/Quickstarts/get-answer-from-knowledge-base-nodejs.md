@@ -6,10 +6,10 @@ ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: 9031c320b055c0a7191655d6531eaa31d9cc8bb8
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78851731"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-nodejs"></a>Quickstart: Obtenha respostas para uma pergunta de uma base de conhecimento com Node.js
@@ -20,22 +20,22 @@ Este quickstart leva-o programáticamente a obter uma resposta de uma base de co
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Node.js](https://nodejs.org/en/download/)
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Nó.js](https://nodejs.org/en/download/)
+* [Código de estúdio visual](https://code.visualstudio.com/)
 * Tem de ter um [serviço Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md). Para recuperar a sua chave, selecione **Keys** sob **Gestão** de Recursos no seu painel Azure para o seu recurso QnA Maker.
 * **Publique** as definições da página. Se não tiver uma base de conhecimento publicada, crie uma base de conhecimento vazia e, em seguida, importe uma base de conhecimento na página **Definições** e, em seguida, publique. Pode descarregar e utilizar [esta base de conhecimentos básicos.](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/basic-kb.tsv)
 
     As definições da página de publicação incluem o valor da rota POST, o valor do anfitrião e o valor EndpointKey.
 
-    ![Definições de publicação](../media/qnamaker-quickstart-get-answer/publish-settings.png)
+    ![Publish settings (Definições de publicação)](../media/qnamaker-quickstart-get-answer/publish-settings.png)
 
 ## <a name="create-a-nodejs-file"></a>Crie um ficheiro Node.js
 
-Abra o VSCode e crie um novo ficheiro chamado `get-answer.js`.
+Abra o VSCode e `get-answer.js`crie um novo ficheiro chamado .
 
 ## <a name="add-the-required-dependencies"></a>Adicionar as dependências necessárias
 
-No topo do ficheiro `get-answer.js`, adicione as dependências necessárias ao projeto:
+No topo do `get-answer.js` ficheiro, adicione as dependências necessárias ao projeto:
 
 [!code-nodejs[Add the required dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/get-answer/get-answer.js?range=1-4 "Add the required dependencies")]
 
@@ -51,7 +51,7 @@ O seguinte código faz um pedido HTTPS à API do Fabricante de QnA para enviar a
 
 [!code-nodejs[Add a POST request to send question to knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/get-answer/get-answer.js?range=24-49 "Add a POST request to send question to knowledge base")]
 
-O valor do cabeçalho `Authorization` inclui a cadeia `EndpointKey`.
+O `Authorization` valor do cabeçalho `EndpointKey`inclui a corda .
 
 ## <a name="install-the-dependencies"></a>Instalar as dependências
 
@@ -63,9 +63,9 @@ npm install request request-promise
 
 ## <a name="run-the-program"></a>Execute o programa
 
-Executar o programa a partir da linha de comando. Ele enviará automaticamente o pedido para a API QnA Maker, em seguida, será impresso para a janela da consola.
+Executar o programa a partir da linha de comando. Enviará automaticamente o pedido para a API do Fabricante qnA, e depois irá imprimir para a janela da consola.
 
-Execute o ficheiro:
+Executar o ficheiro:
 
 ```bash
 node get-answer.js
@@ -80,4 +80,4 @@ Saiba mais sobre o [pedido](../how-to/metadata-generateanswer-usage.md#generatea
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Referência da API REST para o Criador de FAQ (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)
+> [Referência à API REST do Criador de FAQ](https://go.microsoft.com/fwlink/?linkid=2092179)

@@ -1,7 +1,7 @@
 ---
 title: Características - LUIS
 titleSuffix: Azure Cognitive Services
-description: Adicione recursos para um modelo de idioma para fornecer sugestões sobre como a reconhecer a entrada que deseja identificar ou classificar.
+description: Adicione funcionalidades a um modelo de idioma para fornecer dicas sobre como reconhecer a entrada que pretende rotular ou classificar.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: diberry
 ms.openlocfilehash: b151043babd6c67a17f704bb671a415fcc3ba7b2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220998"
 ---
 # <a name="machine-learned-features"></a>Características aprendidas por máquinas 
 
-No machine learning, uma _característica_ é um traço distintivo ou atributo de dados que o seu sistema observa e aprende através. Na Compreensão da Linguagem (LUIS), uma funcionalidade descreve e explica o que é significativo sobre as suas intenções e entidades.
+No machine learning, uma _característica_ é um traço distintivo ou atributo de dados que o seu sistema observa & aprende através. Na Compreensão da Linguagem (LUIS), uma funcionalidade descreve e explica o que é significativo sobre as suas intenções e entidades.
 
 No [portal DE pré-visualização LUIS,](https://preview.luis.ai)as funcionalidades são _descritores_ porque são usadas para _descrever_ a intenção ou entidade.  
 
@@ -43,7 +43,7 @@ Com uma lista de frases, a LUIS considera o contexto e generaliza para identific
 
 Quando pretende reconhecer novos casos, como um programador de reuniões que deve reconhecer os nomes de novos contactos, ou uma app de inventário que deve reconhecer novos produtos, comece por uma entidade aprendida por máquinas. Em seguida, crie uma lista de frases que ajude LUIS a encontrar palavras com significado semelhante. Esta lista de frases guia luis a reconhecer exemplos adicionando significado adicional ao valor dessas palavras. 
 
-Listas de frase são como vocabulário específicas de domínio que o ajudam a com a melhorar a qualidade da compreensão dos objetivos e entidades. 
+As listas de frases são como vocabulário específico do domínio que ajudam a melhorar a qualidade de compreensão tanto das intenções como das entidades. 
 
 ## <a name="considerations-when-using-a-phrase-list"></a>Considerações ao usar uma lista de frases
 
@@ -51,7 +51,7 @@ Uma lista de frases é aplicada, por padrão, a todos os modelos da aplicação.
 
 Se criar uma lista de frases (criada globalmente por padrão), depois aplice-a como descritor (recurso) a um modelo específico, é removida dos outros modelos. Esta remoção acrescenta relevância à lista de frases para o modelo a que é aplicada, ajudando a melhorar a precisão que proporciona no modelo. 
 
-A bandeira `enabledForAllModels` controla este âmbito de modelo na API. 
+A `enabledForAllModels` bandeira controla este âmbito de modelo na API. 
 
 <a name="how-to-use-phrase-lists"></a>
 

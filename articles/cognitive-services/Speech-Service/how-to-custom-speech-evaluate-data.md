@@ -1,7 +1,7 @@
 ---
-title: Avaliar a precisão do serviço de Fala Personalizada-fala
+title: Avaliar a precisão para discurso personalizado - Serviço de discurso
 titleSuffix: Azure Cognitive Services
-description: Neste documento, você aprenderá a medir de forma quantitativa a qualidade do nosso modelo de fala-para-texto ou do modelo personalizado. Áudio e dados de transcrição com rótulo humano são necessários para testar a precisão e 30 minutos a 5 horas de áudio representativo devem ser fornecidos.
+description: Neste documento, você vai aprender a medir quantitativamente a qualidade do nosso modelo de discurso a texto ou o seu modelo personalizado. Os dados de transcrição audio + com etiqueta humana são necessários para testar a precisão, devendo ser fornecidos 30 minutos a 5 horas de áudio representativo.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,65 +11,65 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: f710b8bfdd4dcfd3b7a63aa0b457036ab7037016
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74806101"
 ---
-# <a name="evaluate-custom-speech-accuracy"></a>Avaliar a precisão de Fala Personalizada
+# <a name="evaluate-custom-speech-accuracy"></a>Avaliar a precisão da fala personalizada
 
-Neste documento, você aprenderá a medir de forma quantitativa a qualidade do modelo de fala-para-texto da Microsoft ou de seu modelo personalizado. Áudio e dados de transcrição com rótulo humano são necessários para testar a precisão e 30 minutos a 5 horas de áudio representativo devem ser fornecidos.
+Neste documento, você aprenderá a medir quantitativamente a qualidade do modelo de discurso-texto da Microsoft ou do seu modelo personalizado. Os dados de transcrição audio + com etiqueta humana são necessários para testar a precisão, devendo ser fornecidos 30 minutos a 5 horas de áudio representativo.
 
-## <a name="what-is-word-error-rate-wer"></a>O que é a taxa de erros do Word (WER)?
+## <a name="what-is-word-error-rate-wer"></a>O que é taxa de erro de palavra (WER)?
 
-O padrão do setor para medir a precisão do modelo é o WER ( *taxa de erros do Word* ). O WER conta o número de palavras incorretas identificadas durante o reconhecimento e divide pelo número total de palavras fornecidas na transcrição de rótulo humano. Por fim, esse número é multiplicado por 100% para calcular o WER.
+O padrão da indústria para medir a precisão do modelo é a Taxa de *Erro de Palavras* (WER). O WER conta o número de palavras incorretas identificadas durante o reconhecimento e divide-se pelo número total de palavras fornecidas na transcrição com rótulo humano. Finalmente, esse número é multiplicado em 100% para calcular o WER.
 
-![Fórmula do WER](./media/custom-speech/custom-speech-wer-formula.png)
+![Fórmula WER](./media/custom-speech/custom-speech-wer-formula.png)
 
-Palavras incorretamente identificadas se enquadram em três categorias:
+As palavras incorretamente identificadas enquadram-se em três categorias:
 
-* Inserção (I): palavras que são adicionadas incorretamente na transcrição de hipótese
-* Exclusão (D): palavras que não são detectadas na transcrição da hipótese
-* Substituição (ões): palavras que foram substituídas entre referência e hipótese
+* Inserção (I): Palavras que são incorretamente adicionadas na transcrição da hipótese
+* Eliminação (D): Palavras que não são detetadas na transcrição da hipótese
+* Substituição (S): Palavras que foram substituídas entre referência e hipótese
 
 Segue-se um exemplo:
 
-![Exemplo de palavras identificadas incorretamente](./media/custom-speech/custom-speech-dis-words.png)
+![Exemplo de palavras mal identificadas](./media/custom-speech/custom-speech-dis-words.png)
 
-## <a name="resolve-errors-and-improve-wer"></a>Resolver erros e aprimorar o WER
+## <a name="resolve-errors-and-improve-wer"></a>Resolver erros e melhorar o WER
 
-Você pode usar o WER nos resultados de reconhecimento do computador para avaliar a qualidade do modelo que você está usando com seu aplicativo, ferramenta ou produto. Um WER de 5% a 10% é considerado uma boa qualidade e está pronto para uso. Um WER de 20% é aceitável, mas talvez você queira considerar treinamento adicional. Um WER de 30% ou mais sinais de baixa qualidade e requer personalização e treinamento.
+Pode utilizar o WER a partir dos resultados de reconhecimento da máquina para avaliar a qualidade do modelo que está a utilizar com a sua aplicação, ferramenta ou produto. Um WER de 5%-10% é considerado de boa qualidade e está pronto a ser usado. Um WER de 20% é aceitável, no entanto, você deve considerar formação adicional. Um WER de 30% ou mais sinaliza má qualidade e requer personalização e formação.
 
-A forma como os erros são distribuídos é importante. Quando muitos erros de exclusão são encontrados, isso geralmente ocorre devido à intensidade do sinal de áudio fraco. Para resolver esse problema, você precisará coletar dados de áudio mais perto da origem. Erros de inserção significam que o áudio foi registrado em um ambiente barulhento e crosstalk pode estar presente, causando problemas de reconhecimento. Erros de substituição geralmente são encontrados quando uma amostra insuficiente de termos específicos do domínio foi fornecida como transcrições com rótulo humano ou texto relacionado.
+A forma como os erros são distribuídos é importante. Quando muitos erros de eliminação são encontrados, é geralmente devido à fraca força do sinal de áudio. Para resolver este problema, terá de recolher dados áudio mais próximos da fonte. Erros de inserção significam que o áudio foi gravado num ambiente ruidoso e que o crosstalk pode estar presente, causando problemas de reconhecimento. Os erros de substituição são frequentemente encontrados quando uma amostra insuficiente de termos específicos de domínio foi fornecida como transcrições com rótulo humano ou texto relacionado.
 
-Ao analisar arquivos individuais, você pode determinar quais tipos de erros existem e quais erros são exclusivos para um arquivo específico. Entender os problemas no nível de arquivo ajudará você a aprimorar as melhorias.
+Ao analisar ficheiros individuais, pode determinar que tipo de erros existem e quais os erros que são exclusivos de um ficheiro específico. Compreender problemas ao nível dos ficheiros irá ajudá-lo a direcionar melhorias.
 
 ## <a name="create-a-test"></a>Criar um teste
 
-Se você quiser testar a qualidade do modelo de linha de base de fala para texto da Microsoft ou de um modelo personalizado que você tenha treinado, você pode comparar dois modelos lado a lado para avaliar a precisão. A comparação inclui resultados de WER e de reconhecimento. Normalmente, um modelo personalizado é comparado com o modelo de linha de base da Microsoft.
+Se quiser testar a qualidade do modelo de linha de base de voz para texto da Microsoft ou um modelo personalizado que treinou, pode comparar dois modelos lado a lado para avaliar a precisão. A comparação inclui o WER e os resultados do reconhecimento. Tipicamente, um modelo personalizado é comparado com o modelo de base da Microsoft.
 
-Para avaliar modelos lado a lado:
+Para avaliar os modelos lado a lado:
 
-1. Entre no portal de [fala personalizada](https://speech.microsoft.com/customspeech).
-2. Navegue até a **> de fala para texto fala personalizada teste de >** .
-3. Clique em **Adicionar teste**.
-4. Selecione **avaliar exatidão**. Dê ao teste um nome, uma descrição e selecione seu conjunto de testes de áudio e de transcrição com rótulo humano.
-5. Selecione até dois modelos que você gostaria de testar.
+1. Inscreva-se no [portal da Fala Personalizada.](https://speech.microsoft.com/customspeech)
+2. Navegue para **o discurso-a-texto > discurso personalizado > teste**.
+3. Clique no **Teste adicionar**.
+4. **Selecione Avaliar a precisão**. Dê ao teste um nome, descrição e selecione o seu conjunto de dados de transcrição com rótulo humano+ humano.
+5. Selecione até dois modelos que gostaria de testar.
 6. Clique em **Criar**.
 
-Depois que o teste tiver sido criado com êxito, você poderá comparar os resultados lado a lado.
+Depois de o seu teste ter sido criado com sucesso, pode comparar os resultados lado a lado.
 
 ## <a name="side-by-side-comparison"></a>Comparação lado a lado
 
-Depois que o teste for concluído, indicado pela alteração do status para *êxito*, você encontrará um número do WER para ambos os modelos incluídos no teste. Clique no nome do teste para exibir a página de detalhes de teste. Essa página de detalhes lista todos os declarações no conjunto de seus conjuntos de anotações, indicando os resultados de reconhecimento dos dois modelos junto com a transcrição do conjunto de resultados enviado. Para ajudar a inspecionar a comparação lado a lado, você pode alternar vários tipos de erro, incluindo inserção, exclusão e substituição. Ao ouvir o áudio e comparar os resultados de reconhecimento em cada coluna, que mostra a transcrição com rótulo humano e os resultados de dois modelos de fala em texto, você pode decidir qual modelo atende às suas necessidades e em que outros treinamentos e aprimoramentos são Necessário.
+Uma vez concluído o teste, indicado pela alteração de estado para *Sucesso,* encontrará um número WER para ambos os modelos incluídos no seu teste. Clique no nome do teste para ver a página de detalhes de teste. Esta página de detalhes lista todas as expressões no seu conjunto de dados, indicando os resultados de reconhecimento dos dois modelos juntamente com a transcrição do conjunto de dados submetido. Para ajudar a inspecionar a comparação lado a lado, pode alternar vários tipos de erros, incluindo inserção, eliminação e substituição. Ao ouvir o áudio e comparar os resultados do reconhecimento em cada coluna, que mostra a transcrição com rótulo humano e os resultados de dois modelos de fala a texto, pode decidir qual o modelo que satisfaz as suas necessidades e onde estão formações e melhorias adicionais Necessário.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Treinar seu modelo](how-to-custom-speech-train-model.md)
-* [Implantar seu modelo](how-to-custom-speech-deploy-model.md)
+* [Preparar o seu modelo](how-to-custom-speech-train-model.md)
+* [Implante o seu modelo](how-to-custom-speech-deploy-model.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Preparar e testar seus dados](how-to-custom-speech-test-data.md)
-* [Inspecione seus dados](how-to-custom-speech-inspect-data.md)
+* [Prepare e teste os seus dados](how-to-custom-speech-test-data.md)
+* [Inspecione os seus dados](how-to-custom-speech-inspect-data.md)

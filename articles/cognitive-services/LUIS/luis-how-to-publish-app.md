@@ -1,7 +1,7 @@
 ---
 title: Publicar app - LUIS
 titleSuffix: Azure Cognitive Services
-description: Quando terminar de criar e testar a sua aplicação LUIS Active Directory, torná-lo disponível para a aplicação de cliente, publicá-la para o ponto final.
+description: Quando terminar de construir e testar a sua aplicação ATIVE LUIS, disponibilize-a à sua aplicação de cliente publicando-a no ponto final.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 676c6d15c4f439543a3ed74627001725632fecfa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c91a3ca73d70dd5fd2848bed0f43f14a817087d7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79220888"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80053442"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publique a sua app ativa e treinada para um ponto final de encenação ou produção
 
@@ -24,7 +24,7 @@ Quando terminar de construir, treinar e testar a sua aplicação ATIVE LUIS, dis
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
-## <a name="publishing"></a>A publicar
+## <a name="publishing"></a>Publicar
 
 1. Para publicar no ponto final, **selecione Publicar** no painel superior, direito. 
 
@@ -38,14 +38,14 @@ Quando terminar de construir, treinar e testar a sua aplicação ATIVE LUIS, dis
 
 Selecione a ranhura correta quando a janela pop-up aparecer: 
 
-* Encenação
+* Teste
 * Produção 
 
 Ao utilizar ambas as ranhuras de publicação, isto permite-lhe ter duas versões diferentes da sua aplicação disponíveis nos pontos finais publicados ou a mesma versão em dois pontos finais diferentes. 
 
-### <a name="publishing-regions"></a>Regiões de publicação
+### <a name="publishing-regions"></a>Regiões editoriais
 
-A aplicação é publicada em todas as regiões associadas aos recursos finais de previsão do LUIS adicionados no portal LUIS a partir da página **Gerir** ->  **[Recursos Azure.](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** 
+A aplicação é publicada em todas as regiões associadas aos recursos finais de previsão do LUIS adicionados no portal LUIS a partir da página **Gerir** -> **[Recursos Azure.](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** 
 
 Por exemplo, para uma aplicação criada na [www.luis.ai](https://www.luis.ai), se criar um recurso LUIS em duas regiões, **westus** e **eastus**- e adicioná-las à app como recursos, a app é publicada em ambas as regiões. Para mais informações sobre as regiões do LUIS, consulte [Regiões.](luis-reference-regions.md)
 
@@ -53,7 +53,7 @@ Por exemplo, para uma aplicação criada na [www.luis.ai](https://www.luis.ai), 
 > Existem 3 regiões autorais. Deve ser autor na região a que pretende publicar. Se precisa de publicar em todas as regiões, precisa de gerir o seu processo de autoria e o modelo treinado resultante em todas as 3 regiões autorais. 
 
 
-## <a name="configuring-publish-settings"></a>Configurar definições de publicação
+## <a name="configuring-publish-settings"></a>Configurar as definições de publicação
 
 Depois de selecionar a ranhura, configure as definições de publicação para:
 
@@ -67,7 +67,7 @@ Depois de publicar, estas definições estão disponíveis para revisão a parti
 
 Quando a sua aplicação é publicada com sucesso, uma notificação de sucesso aparece no topo do navegador. A notificação também inclui um link para os pontos finais. 
 
-Se precisar do URL de ponto de extremidade, selecione a ligação. Também pode chegar aos URLs de ponto final selecionando **Gerir** no menu superior e, em seguida, selecione **Os Recursos Azure** no menu esquerdo. 
+Se precisar do URL do ponto final, selecione o link. Também pode chegar aos URLs de ponto final selecionando **Gerir** no menu superior e, em seguida, selecione **Os Recursos Azure** no menu esquerdo. 
 
 ## <a name="sentiment-analysis"></a>Análise de sentimentos
 
@@ -75,9 +75,9 @@ Se precisar do URL de ponto de extremidade, selecione a ligação. Também pode 
 
 A análise de sentimento permite que a LUIS se integre com o [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para fornecer sentimento e análise de frases-chave. 
 
-Não é necessário fornecer uma chave de análise de texto e não sem custos de faturação para este serviço para a sua conta do Azure. 
+Não tem de fornecer uma chave Text Analytics e não existe qualquer taxa de faturação para este serviço na sua conta Azure. 
 
-Dados de sentimento são uma pontuação entre 1 e 0 indicando o positivo (mais de perto como 1) nem negativa (mais próximo de 0) sentimentos dos dados. O rótulo de sentimento de `positive`, `neutral`, e `negative` é por cultura apoiada. Atualmente, apenas o inglês suporta rótulos de sentimento. 
+Os dados de sentimento são uma pontuação entre 1 e 0 indicando o sentimento positivo (mais próximo de 1) ou negativo (mais próximo de 0) dos dados. O rótulo `positive`de `neutral`sentimento `negative` de , e é por cultura apoiada. Atualmente, apenas o inglês suporta rótulos de sentimento. 
 
 Para mais informações sobre a resposta do ponto final da JSON com análise de sentimento, consulte [a análise](luis-concept-data-extraction.md#sentiment-analysis) do sentimento
 

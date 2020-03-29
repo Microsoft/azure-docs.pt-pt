@@ -1,7 +1,7 @@
 ---
-title: Padrão. qualquer tipo de entidade-LUIS
+title: Padrão.qualquer tipo de entidade - LUIS
 titleSuffix: Azure Cognitive Services
-description: Padrão. any é um espaço reservado de comprimento variável usado somente no modelo de um padrão expressão para marcar onde a entidade começa e termina.
+description: Pattern.any é um espaço reservado de comprimento variável usado apenas na expressão do modelo de um padrão para marcar onde a entidade começa e termina.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,49 +11,49 @@ ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
 ms.openlocfilehash: 5164bf55ef8233cf34a470524da3bc852678d79a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75979170"
 ---
 # <a name="patternany-entity"></a>Entidade Pattern.any
 
-Padrão. any é um espaço reservado de comprimento variável usado somente no modelo de um padrão expressão para marcar onde a entidade começa e termina.  
+Pattern.any é um espaço reservado de comprimento variável usado apenas na expressão do modelo de um padrão para marcar onde a entidade começa e termina.  
 
-Padrão. todas as entidades precisam ser marcadas nos exemplos de modelo de [padrão](luis-how-to-model-intent-pattern.md) , não nos exemplos de usuário de intenção.
+Padrão.qualquer entidade precisa de ser marcada nos exemplos do modelo [Padrão,](luis-how-to-model-intent-pattern.md) não nos exemplos de utilizadores intencionais.
 
-**A entidade é uma boa opção quando:**
+**A entidade é um bom ajuste quando:**
 
-* O final da entidade pode ser confundido com o texto restante do expressão.
+* O final da entidade pode ser confundido com o texto restante da expressão.
 
 ## <a name="usage"></a>Utilização
 
-Dado um aplicativo cliente que pesquisa livros com base no título, o padrão. qualquer extração do título completo. Um modelo expressão usando o padrão. qualquer para essa pesquisa de catálogo é `Was {BookTitle} written by an American this year[?]`.
+Dada uma aplicação de cliente que procura livros com base no título, o padrão.qualquer extrai o título completo. Uma expressão de modelo usando o padrão.qualquer para esta pesquisa de livro é `Was {BookTitle} written by an American this year[?]`.
 
-Na tabela a seguir, cada linha tem duas versões do expressão. A principal expressão é como a LUIS inicialmente vê o expressão. Não fica claro onde o título do livro começa e termina. O expressão inferior usa um padrão. qualquer entidade para marcar o início e o fim da entidade.
+Na tabela seguinte, cada linha tem duas versões da expressão. A expressão superior é como LUIS vê inicialmente a expressão. Não está claro onde o título do livro começa e termina. A expressão inferior usa um Padrão.qualquer entidade para marcar o início e o fim da entidade.
 
-|Expressão com a entidade em negrito|
+|Proclamação com entidade em negrito|
 |--|
-|`Was The Man Who Mistook His Wife for a Hat and Other Clinical Tales written by an American this year?`<br><br>Foi **o homem que assumiu sua esposa por um chapéu e outras histórias clínicas** escritas por um American este ano?|
-|`Was Half Asleep in Frog Pajamas written by an American this year?`<br><br>A **metade estava em suspensão no Frog Pajamas** escrito por um American este ano?|
-|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br><br>**O tristeza particular do bolo de limão: um romance** escrito por um American este ano?|
-|`Was There's A Wocket In My Pocket! written by an American this year?`<br><br>Foi **um wocket em meu bolso!** escrito por um American este ano?|
+|`Was The Man Who Mistook His Wife for a Hat and Other Clinical Tales written by an American this year?`<br><br>O homem que confundiu a **sua mulher com um chapéu e outros contos clínicos** foi escrito por um americano este ano?|
+|`Was Half Asleep in Frog Pajamas written by an American this year?`<br><br>**Half Asleep in Frog Pasjamas** foi escrito por um americano este ano?|
+|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br><br>Foi **a tristeza particular do bolo de limão: um romance** escrito por um americano este ano?|
+|`Was There's A Wocket In My Pocket! written by an American this year?`<br><br>Estava **lá um Wocket no meu bolso!** escrito por um americano este ano?|
 ||
 
 
 
-## <a name="example-json"></a>JSON de exemplo
+## <a name="example-json"></a>Exemplo JSON
 
 Considere a consulta seguinte:
 
 `where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
 
-Pelo nome do formulário inserido a ser extraído como padrão. any:
+Com o nome de formulário incorporado para extrair como padrão.qualquer:
 
 `Understand your responsibilities as a member of the community`
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Resposta final de previsão V2](#tab/V2)
 
 ```JSON
 "entities": [
@@ -67,9 +67,9 @@ Pelo nome do formulário inserido a ser extraído como padrão. any:
 ```
 
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão v3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Resposta final de previsão V3](#tab/V3)
 
-Esse é o JSON se `verbose=false` for definido na cadeia de caracteres de consulta:
+Este é o JSON se `verbose=false` estiver definido na corda de consulta:
 
 ```json
 "entities": {
@@ -79,7 +79,7 @@ Esse é o JSON se `verbose=false` for definido na cadeia de caracteres de consul
 }
 ```
 
-Esse é o JSON se `verbose=true` for definido na cadeia de caracteres de consulta:
+Este é o JSON se `verbose=true` estiver definido na corda de consulta:
 
 ```json
 "entities": {
@@ -108,4 +108,4 @@ Esse é o JSON se `verbose=true` for definido na cadeia de caracteres de consult
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste [tutorial](luis-tutorial-pattern.md), use o **padrão. qualquer** entidade para extrair dados de declarações em que o declarações está bem formatado e onde o final dos dados pode ser facilmente confundido com as palavras restantes do expressão.
+Neste [tutorial,](luis-tutorial-pattern.md)utilize o **Padrão.qualquer** entidade para extrair dados de expressões onde as expressões estão bem formatadas e onde o fim dos dados pode ser facilmente confundido com as restantes palavras da expressão.

@@ -1,7 +1,7 @@
 ---
 title: Entidades pré-construídas depreciadas - LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém informações de entidade pré-criados preterido na compreensão de idiomas (LUIS).
+description: Este artigo contém informações preconstruídas de entidades preconstruídas preconstruídas em Compreensão da Linguagem (LUIS).
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
@@ -12,25 +12,25 @@ ms.topic: reference
 ms.date: 07/29/2019
 ms.author: diberry
 ms.openlocfilehash: 46da828b7553fdf9cdded817febd3bb95cd4cbb9
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270666"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Entidades pré-construídas depreciadas numa aplicação DA
-As seguintes entidades pré-criados foram preteridas e não não possível adicionar novas aplicações de LUIS.
+As seguintes entidades pré-construídas são depreciadas e não podem ser adicionadas às novas apps DA.
 
 * **Data de data**: As aplicações EXISTENTES DA QUE utilizam o tempo de **data** devem ser migradas para **dataV2**, embora a entidade da data continue a funcionar em aplicações pré-existentes que a utilizam.
 * **Geografia**: As aplicações EXISTENTES DA QUE utilizam **geografia** são suportadas até dezembro de 2018.
 * **Enciclopédia**: As aplicações EXISTENTES LUIS que utilizam **enciclopédia** são suportadas até dezembro de 2018.
 
-## <a name="geography-culture"></a>Cultura de geografia
+## <a name="geography-culture"></a>Cultura da geografia
 **A geografia** está disponível apenas no `en-us` local.
 
-#### <a name="3-geography-subtypes"></a>3 subtipos de geografia
+#### <a name="3-geography-subtypes"></a>3 Subtipos de geografia
 
-Entidade pré-criados   |   Expressão de exemplo   |   JSON
+Entidade pré-construída   |   Expressão de exemplo   |   JSON
 ------|------|------|
 `builtin.geography.city`   |  `seattle`    |`{ "type": "builtin.geography.city", "entity": "seattle" }`|
 `builtin.geography.city`   |  `paris`    |`{ "type": "builtin.geography.city", "entity": "paris" }`|
@@ -40,10 +40,10 @@ Entidade pré-criados   |   Expressão de exemplo   |   JSON
 `builtin.geography.pointOfInterest`   |   `sahara desert`|`{ "type": "builtin.geography.pointOfInterest", "entity": "sahara desert" }`|
 
 ## <a name="encyclopedia-culture"></a>Cultura enciclopédia
-**A enciclopédia** está disponível apenas no local `en-US`.
+**A enciclopédia** está disponível apenas no `en-US` local.
 
-#### <a name="encyclopedia-subtypes"></a>Subtipos enciclopédia
-Entidade incorporada da enciclopédia inclui mais de 100 tipos de secundárias na seguinte tabela: Além disso, as entidades de enciclopédia são, muitas vezes, mapeiam para vários tipos. Por exemplo, a consulta Ronald Reagan resulta em:
+#### <a name="encyclopedia-subtypes"></a>Subtipos de enciclopédia
+A entidade enciclopédia incorporada inclui mais de 100 subtipos na tabela seguinte: Além disso, as entidades enciclopédias frequentemente mapeiam vários tipos. Por exemplo, a consulta que Ronald Reagan cede:
 
 ```json
 {
@@ -65,7 +65,7 @@ Entidade incorporada da enciclopédia inclui mais de 100 tipos de secundárias n
  ```
 
 
-Entidade pré-criados   |   Entidade pré-criados (secundárias tipos)   |   Expressão de exemplo
+Entidade pré-construída   |   Entidade pré-construída (subtipos)   |   Expressão de exemplo
 ------|------|------|
 `builtin.encyclopedia.people.person`| `builtin.encyclopedia.people.person`| `bryan adams` |
 `builtin.encyclopedia.people.person`| `builtin.encyclopedia.film.producer`| `walt disney` |

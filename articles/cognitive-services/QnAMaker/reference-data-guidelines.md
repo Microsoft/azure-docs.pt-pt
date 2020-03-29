@@ -4,10 +4,10 @@ description: Compreenda como os tipos de URLs são usados para importar e criar 
 ms.topic: reference
 ms.date: 01/02/2020
 ms.openlocfilehash: 6560a43a6fbcf9fbd2ce021d782f00f916442bfd
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77651852"
 ---
 # <a name="import-and-export-data-reference"></a>Referência dos dados de importação e exportação

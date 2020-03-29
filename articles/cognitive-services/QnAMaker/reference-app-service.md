@@ -4,10 +4,10 @@ description: Entenda como e onde configurar recursos.
 ms.topic: reference
 ms.date: 02/21/2020
 ms.openlocfilehash: 8ef6fecbfeb119d0c68ec5bc3bbc90ec449dbb7d
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77651863"
 ---
 # <a name="service-configuration"></a>Configuração do serviço
@@ -38,7 +38,7 @@ Saiba [como adicionar o seu serviço](./how-to/set-up-qnamaker-service-azure.md#
 
 É necessário **reiniciar** o serviço a partir da página **de visão geral** do portal Azure, uma vez que esteja a fazer alterações.
 
-## <a name="qna-maker-service"></a>Serviço QnA Maker
+## <a name="qna-maker-service"></a>Serviço de Fabricante QnA
 
 O serviço QnA Maker fornece configuração para que os seguintes utilizadores colaborem num único serviço QnA Maker e em todas as suas bases de conhecimento.
 

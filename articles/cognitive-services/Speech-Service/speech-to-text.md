@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: dapine
-ms.openlocfilehash: c5befcade944ff481b5f55e3a4afe11672dad117
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 2854f4e8d91164c8ae1f35761d6f605cae725245
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79371261"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80052637"
 ---
 # <a name="what-is-speech-to-text"></a>O que é a conversão de voz em texto?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 O discurso a texto do serviço speech, também conhecido como reconhecimento da fala, permite a transcrição em tempo real de streams de áudio em texto. As suas aplicações, ferramentas ou dispositivos podem consumir, exibir e tomar medidas sobre este texto como entrada de comando. Este serviço é alimentado pela mesma tecnologia de reconhecimento que a Microsoft utiliza para produtos Cortana e Office. Funciona perfeitamente com as ofertas de serviço de <a href="./speech-translation.md" target="_blank">tradução <span class="docon docon-navigate-external x-hidden-focus"></span> </a> e <a href="./text-to-speech.md" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> texto-para-fala.</a> Para obter uma lista completa das línguas de fala a texto disponíveis, consulte [as línguas apoiadas.](language-support.md#speech-to-text)
 
@@ -41,7 +43,7 @@ Se preferir utilizar o serviço de DESCANSO da fala-a-texto, consulte [ASAP](res
 
 Depois de ter tido a oportunidade de usar o serviço de Fala, experimente o nosso tutorial que o ensina a reconhecer as intenções da fala usando o SDK da Fala e o LUIS.
 
-- [Tutorial: Reconhecer as intenções do discurso com o SDK de Fala e LUIS, usandoC#](how-to-recognize-intents-from-speech-csharp.md)
+- [Tutorial: Reconhecer as intenções do discurso com o Discurso SDK e LUIS, usando C #](how-to-recognize-intents-from-speech-csharp.md)
 
 O código de amostra para o SDK do Discurso está disponível no GitHub. Estas amostras cobrem cenários comuns como ler áudio de um ficheiro ou stream, reconhecimento contínuo e de tiro único, e trabalhar com modelos personalizados.
 

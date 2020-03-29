@@ -1,7 +1,7 @@
 ---
 title: Padrões de design de divulgação
 titleSuffix: Azure Cognitive Services
-description: Padrões de design e práticas recomendadas para divulgação.
+description: Padrões de design e boas práticas para divulgação.
 services: cognitive-services
 author: sharonlo101
 manager: nitinme
@@ -11,247 +11,247 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: angle
 ms.openlocfilehash: 3e7d8ee2b156a30b11cda79798a8af8a8ecf4f64
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74776627"
 ---
 # <a name="disclosure-design-patterns"></a>Padrões de conceção de divulgação
-Agora que você&#39;já determinou o [nível certo de divulgação](concepts-disclosure-guidelines.md#disclosure-assessment) para sua experiência de voz sintética&#39;, é um bom momento para explorar os possíveis padrões de design.
-## <a name="overview"></a>Visão geral
-Há um espectro de padrões de design de divulgação que você pode aplicar à sua experiência de voz sintética. Se o resultado da sua avaliação de divulgação foi ' alta divulgação ', recomendamos a [**divulgação explícita**](#explicit-disclosure), o que significa comunicar as origens da voz sintética imediatamente. A [**divulgação implícita**](#implicit-disclosure) inclui indicações e padrões de interação que beneficiam experiências de voz se os níveis de divulgação necessários são altos ou baixos.
-![espectro de padrões de divulgação](media/responsible-ai/disclosure-patterns/affordances.png)
+Agora que&#39;determinou o nível certo [de divulgação](concepts-disclosure-guidelines.md#disclosure-assessment) para a sua experiência de voz sintética,&#39;é uma boa altura para explorar potenciais padrões de design.
+## <a name="overview"></a>Descrição geral
+Há um espectro de padrões de design de divulgação que pode aplicar à sua experiência de voz sintética. Se o resultado da sua avaliação de divulgação foi "Alta Divulgação", recomendamos [**a divulgação explícita,**](#explicit-disclosure)o que significa comunicar as origens da voz sintética. [**A divulgação implícita**](#implicit-disclosure) inclui pistas e padrões de interação que beneficiam experiências de voz se os níveis de divulgação exigidos ou não são altos ou baixos.
+![Espectro de padrões de divulgação](media/responsible-ai/disclosure-patterns/affordances.png)
 
 
 
 
 
 
-| Padrões de divulgação explícitos                                                                                                                                                                                    | Padrões de divulgação implícita                                                                 |
+| Padrões de divulgação explícitos                                                                                                                                                                                    | Padrões de divulgação implícitos                                                                 |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-|[Introdução transparente](#transparent-introduction)<br> [Introdução transparente verbal](#verbal-transparent-introduction)<br>  [Autor explícito](#explicit-byline)<br>  [Personalização e calibragem](#customization-and-calibration)<br> [Divulgação de pais](#parental-disclosure)<br> [Fornecendo oportunidades para saber mais sobre como a voz foi feita](#providing-opportunities-to-learn-more-about-how-the-voice-was-made) | [Divulgação de capacidade](#capability-disclosure)<br>[Sugestões e comentários implícitos](#implicit-cues--feedback)<br> [Transparência da conversa](#conversational-transparency) |
+|[Introdução Transparente](#transparent-introduction)<br> [Introdução Verbal Transparente](#verbal-transparent-introduction)<br>  [Linha explícita](#explicit-byline)<br>  [Personalização e Calibração](#customization-and-calibration)<br> [Divulgação Parental](#parental-disclosure)<br> [Proporcionando oportunidades para aprender mais sobre como a voz foi feita](#providing-opportunities-to-learn-more-about-how-the-voice-was-made) | [Divulgação de Capacidades](#capability-disclosure)<br>[Pistas implícitas e feedback](#implicit-cues--feedback)<br> [Transparência conversacional](#conversational-transparency) |
 
 
 
-Use o gráfico a seguir para consultar diretamente os padrões que se aplicam à sua voz sintética. Algumas das outras condições neste gráfico também podem se aplicar ao seu cenário:<br/>
+Utilize o gráfico seguinte para se referir diretamente aos padrões que se aplicam à sua voz sintética. Algumas das outras condições deste gráfico também podem aplicar-se ao seu cenário:<br/>
 
 
 
-| Se sua experiência de voz sintética... | Recomendações | Padrões de estrutura |
+| Se a sua experiência de voz sintética... | Recomendações | Padrões de estrutura |
 | --- | --- | --- |
-| Requer alta divulgação  | Use pelo menos um padrão explícito e indicações implícitas até o início para ajudar os usuários a criarem associações. |[Divulgação explícita](#explicit-disclosure)<br>[Divulgação implícita](#implicit-disclosure)  |
-| Requer baixa divulgação | A divulgação pode ser mínima ou desnecessária, mas pode se beneficiar de alguns padrões implícitos. | [Divulgação de capacidade](#capability-disclosure)<br>[Transparência da conversa](#conversational-transparency)  |
-| Tem um alto nível de envolvimento | Crie a longo prazo e ofereça vários pontos de entrada para divulgação ao longo do percurso do usuário. É altamente recomendável ter uma experiência de integração. | [Introdução transparente](#transparent-introduction)<br>[Personalização e calibragem](#customization-and-calibration)<br>[Divulgação de capacidade](#capability-disclosure) |
-| Inclui filhos como o público-alvo principal | Direcione os pais como o público de divulgação principal e garanta que eles possam comunicar efetivamente a divulgação para os filhos.  | [Divulgação de pais](#parental-disclosure)<br>[Introdução transparente verbal](#verbal-transparent-introduction)<br> [Divulgação implícita](#implicit-disclosure)<br> [Transparência da conversa](#conversational-transparency)  |
-| Inclui usuários cegos ou pessoas com deficiência visual como o público-alvo principal  | Ser inclusivo de todos os usuários e garantir que qualquer forma de divulgação Visual tenha associado um texto alternativo ou efeitos sonoros. Aderir aos padrões de acessibilidade para taxa de contraste e tamanho de exibição. Use indicações de auditoria para comunicar a divulgação.  | [Introdução transparente verbal](#verbal-transparent-introduction) <br>[Indicações de auditoria](#implicit-cues--feedback)<br>[Indicações de Haptic](#implicit-cues--feedback)<br>[Transparência da conversa](#conversational-transparency)<br>[Padrões de acessibilidade](https://www.microsoft.com/accessibility) |
-| É sem tela, sem dispositivo ou usa voz como o modo de interação principal ou somente | Use indicações de auditoria para comunicar a divulgação. | [Introdução transparente verbal](#verbal-transparent-introduction) <br> [Indicações de auditoria](#implicit-cues--feedback)  |
-| Potencialmente inclui vários usuários/ouvintes (por exemplo, assistente pessoal em vários residências)  | Lembre-se de vários contextos de usuário e níveis de compreensão e oferta de várias oportunidades de divulgação na jornada do usuário.  | [Introdução transparente (usuário de retorno)](#transparent-introduction)<br> [Fornecendo oportunidades para saber mais sobre como a voz foi feita](#providing-opportunities-to-learn-more-about-how-the-voice-was-made)<br> [Transparência da conversa](#conversational-transparency)  |
+| Requer alta divulgação  | Use pelo menos um padrão explícito e pistas implícitas na frente para ajudar os utilizadores a construir associações. |[Divulgação Explícita](#explicit-disclosure)<br>[Divulgação Implícita](#implicit-disclosure)  |
+| Requer baixa divulgação | A divulgação pode ser mínima ou desnecessária, mas pode beneficiar de alguns padrões implícitos. | [Divulgação de Capacidades](#capability-disclosure)<br>[Transparência conversacional](#conversational-transparency)  |
+| Tem um alto nível de compromisso | Construa a longo prazo e ofereça vários pontos de entrada para a divulgação ao longo da viagem do utilizador. É altamente recomendado ter uma experiência de embarque. | [Introdução Transparente](#transparent-introduction)<br>[Personalização e Calibração](#customization-and-calibration)<br>[Divulgação de Capacidades](#capability-disclosure) |
+| Inclui as crianças como o público principal pretendido | Os pais visam como o público principal de divulgação e asseguram que podem comunicar efetivamente a divulgação às crianças.  | [Divulgação Parental](#parental-disclosure)<br>[Introdução Verbal Transparente](#verbal-transparent-introduction)<br> [Divulgação Implícita](#implicit-disclosure)<br> [Transparência conversacional](#conversational-transparency)  |
+| Inclui utilizadores cegos ou pessoas com baixa visão como o público principal pretendido  | Seja inclusivo para todos os utilizadores e certifique-se de que qualquer forma de divulgação visual tenha efeitos de texto alternativo ou som associados. Respeite as normas de acessibilidade para a relação de contraste e o tamanho do ecrã. Use pistas auditivas para comunicar a divulgação.  | [Introdução Verbal Transparente](#verbal-transparent-introduction) <br>[Pistas Auditivas](#implicit-cues--feedback)<br>[Pistas Hapticas](#implicit-cues--feedback)<br>[Transparência conversacional](#conversational-transparency)<br>[Normas de acessibilidade](https://www.microsoft.com/accessibility) |
+| É sem ecrã, sem dispositivo ou usa a voz como o modo primário ou único de interação | Use pistas auditivas para comunicar a divulgação. | [Introdução Verbal Transparente](#verbal-transparent-introduction) <br> [Pistas Auditivas](#implicit-cues--feedback)  |
+| Potencialmente inclui vários utilizadores/ouvintes (por exemplo, assistente pessoal em várias casas)  | Esteja atento a vários contextos e níveis de compreensão do utilizador e ofereça múltiplas oportunidades de divulgação na viagem do utilizador.  | [Introdução Transparente (Utilizador de Retorno)](#transparent-introduction)<br> [Proporcionando oportunidades para aprender mais sobre como a voz foi feita](#providing-opportunities-to-learn-more-about-how-the-voice-was-made)<br> [Transparência conversacional](#conversational-transparency)  |
 
 
 
 ## <a name="explicit-disclosure"></a>Divulgação explícita
-Se sua experiência de voz sintética exigir uma divulgação alta, é melhor usar pelo menos um dos padrões explícitos a seguir para declarar claramente a natureza sintética.
-### <a name="transparent-introduction"></a>Introdução transparente
+Se a sua experiência de voz sintética requer alta divulgação, o melhor é usar pelo menos um dos seguintes padrões explícitos para afirmar claramente a natureza sintética.
+### <a name="transparent-introduction"></a>Introdução Transparente
 
-Antes que a experiência de voz comece, apresente o assistente digital ao ser totalmente transparente sobre as origens de sua voz e seus recursos. O melhor momento para usar esse padrão é ao integrar um novo usuário ou ao introduzir novos recursos a um usuário de retorno. A implementação de indicações implícitas durante uma introdução ajuda os usuários a formar um modelo mental sobre a natureza sintética do agente digital.
+Antes do início da experiência de voz, introduza o assistente digital por ser totalmente transparente sobre as origens da sua voz e das suas capacidades. O momento ideal para utilizar este padrão é quando embarcar num novo utilizador ou ao introduzir novas funcionalidades a um utilizador retornado. Implementar pistas implícitas durante uma introdução ajuda os utilizadores a formar um modelo mental sobre a natureza sintética do agente digital.
 
-#### <a name="first-time-user-experience"></a>Primeira experiência do usuário
+#### <a name="first-time-user-experience"></a>Experiência de utilizador pela primeira vez
 
-![introdução transparente durante a experiência de primeira execução](media/responsible-ai/disclosure-patterns/transparent-intro-first.png) <br>
-*A voz sintética é introduzida durante a integração de um novo usuário.*
+![Introdução transparente durante a experiência de primeira execução](media/responsible-ai/disclosure-patterns/transparent-intro-first.png) <br>
+*A voz sintética é introduzida ao embarcar num novo utilizador.*
 
 Recomendações
-- Descreva que a voz é artificial (por exemplo, &quot;&quot;digital)
-- Descrever o que o agente é capaz de fazer
-- Declarar explicitamente as origens&#39;da voz s
-- Oferecer um ponto de entrada para saber mais sobre a voz sintética
+- Descreva que a voz é &quot;&quot;artificial (por exemplo, digital)
+- Descreva o que o agente é capaz de fazer
+- Explicitamente, declarar a voz&#39;origens
+- Ofereça um ponto de entrada para saber mais sobre a voz sintética
 
-#### <a name="returning-user-experience"></a>Retornando a experiência do usuário
+#### <a name="returning-user-experience"></a>Retornar a experiência do utilizador
 
-Se um usuário ignorar a experiência de integração, continue a oferecer pontos de entrada para a experiência de introdução transparente até que o usuário dispare a voz pela primeira vez.
+Se um utilizador não passar pela experiência de embarque, continue a oferecer pontos de entrada para a experiência Introdução Transparente até que o utilizador desencadeie a voz pela primeira vez.
 <br/>
 
-![introdução transparente durante a experiência do usuário de retorno](media/responsible-ai/disclosure-patterns/transparent-intro-return.png)<br/>
-*Forneça um ponto de entrada consistente para a experiência de voz sintética. Permita que o usuário retorne à experiência de integração quando disparar a voz pela primeira vez em qualquer ponto do percurso do usuário.*
+![Introdução transparente durante a experiência do utilizador de retorno](media/responsible-ai/disclosure-patterns/transparent-intro-return.png)<br/>
+*Forneça um ponto de entrada consistente para a experiência de voz sintética. Permita ao utilizador voltar à experiência de embarque quando acionar a voz pela primeira vez em qualquer ponto da viagem do utilizador.*
 
 
-### <a name="verbal-transparent-introduction"></a>Introdução transparente verbal
+### <a name="verbal-transparent-introduction"></a>Introdução Verbal Transparente
 
-Um aviso falado informando que as origens da&#39;voz do assistente digital são explícitas o suficiente para obter divulgação. Esse padrão é melhor para cenários de alta divulgação em que a voz é o único modo de interação disponível.
+Um pedido falado que afirma as origens do assistente digital&#39;voz é explícito o suficiente por si só para conseguir a divulgação. Este padrão é o melhor para cenários de alta divulgação onde a voz é o único modo de interação disponível.
 <br/>
 
-![introdução transparente, verbalmente falado](media/responsible-ai/disclosure-patterns/spoken-prompt-1.png)
-<br/>*Use uma introdução transparente quando houver momentos na experiência do usuário em que você já pode introduzir ou atribuir uma voz&#39;s da pessoa.*
+![Introdução transparente verbalmente falada](media/responsible-ai/disclosure-patterns/spoken-prompt-1.png)
+<br/>*Utilize uma introdução transparente quando houver momentos na experiência do utilizador em que já pode introduzir ou atribuir uma pessoa&#39;voz.*
 
 
-![introdução transparente, verbalmente falado na primeira pessoa](media/responsible-ai/disclosure-patterns/spoken-prompt-2.png)<br/>
-*Para obter mais transparência, o ator de voz pode divulgar as origens da voz sintética na primeira pessoa.*
+![Introdução transparente verbalmente falada na primeira pessoa](media/responsible-ai/disclosure-patterns/spoken-prompt-2.png)<br/>
+*Para maior transparência, o ator de voz pode divulgar as origens da voz sintética na primeira pessoa.*
 
-### <a name="explicit-byline"></a>Autor explícito
+### <a name="explicit-byline"></a>Linha explícita
 
-Use esse padrão se o usuário estiver interagindo com um player de áudio ou um componente interativo para disparar a voz.
+Utilize este padrão se o utilizador estiver a interagir com um leitor de áudio ou componente interativo para ativar a voz.
 
 
-![o subtítulo explícito em um cenário de mídia de notícias](media/responsible-ai/disclosure-patterns/explicit-byline.png) <br/>
-*Um subtítulo explícito é a atribuição de onde veio a voz.*
-
-Recomendações
-
-- Ponto de entrada da oferta para saber mais sobre a voz sintetizada
-
-### <a name="customization-and-calibration"></a>Personalização e calibragem
-
-Fornecer aos usuários o controle sobre como o assistente digital responde a eles (ou seja, como os sons de voz).  Quando um usuário interage com um sistema em seus próprios termos e com metas específicas em mente, por definição, eles já compreenderam que não é&#39;uma pessoa real.
-
-#### <a name="user-control"></a>Controle de usuário
-
-Ofereça opções que tenham um impacto significativo e perceptível sobre a experiência de voz sintética.
-
-![preferências do usuário](media/responsible-ai/disclosure-patterns/customization-user-control.png)<br/>
-*As preferências do usuário permitem que os usuários personalizem e aprimorem sua experiência.*
+![Line explícito em um cenário de mídia de notícias](media/responsible-ai/disclosure-patterns/explicit-byline.png) <br/>
+*Um byline explícito é a atribuição de de onde a voz veio.*
 
 Recomendações
 
-- Permitir que os usuários personalizem a voz (por exemplo, selecione o tipo de idioma e voz)
-- Fornecer aos usuários uma maneira de ensinar o sistema a responder à sua voz exclusiva (por exemplo, calibragem de voz, comandos personalizados)
-- Otimizar para interações contextuais ou geradas pelo usuário (por exemplo, lembretes)
+- Ofereça ponto de entrada para saber mais sobre a voz sintetizada
 
-#### <a name="persona-customization"></a>Personalização de persona
+### <a name="customization-and-calibration"></a>Personalização e Calibração
 
-Oferecem maneiras de personalizar o Digital Assistant&#39;s Voice. Se a voz for baseada em um celebridade ou uma pessoa amplamente reconhecível, considere o uso de introduções visuais e faladas quando os usuários visualizarem a voz.
+Fornecer aos utilizadores o controlo sobre a forma como o assistente digital lhes responde (isto é, como soa a voz).  Quando um utilizador interage com um sistema nos seus próprios termos e com objetivos específicos em mente, então, por definição, eles já entenderam que&#39;não é uma pessoa real.
 
-](media/responsible-ai/disclosure-patterns/customization-voice-type.png) ![personalização de voz<br/>
-*A oferta da capacidade de selecionar a partir de um conjunto de vozes ajuda a transmitir a natureza artificial.*
+#### <a name="user-control"></a>Controlo do Utilizador
 
-Recomendações
-- Permitir que os usuários visualizem o som de cada voz
-- Usar uma introdução autêntica para cada voz
-- Pontos de entrada da oferta para saber mais sobre a voz sintetizada
+Ofereça escolhas que tenham um impacto significativo e percetível na experiência de voz sintética.
 
-### <a name="parental-disclosure"></a>Divulgação de pais
-
-Além de estar em conformidade com as normas de COPPA, forneça divulgação para os pais se seu público-alvo principal for crianças pequenas e seu nível de exposição for alto. Para usos confidenciais, considere a possibilidade de obter a experiência até que um adulto confirme o uso da voz sintética. Incentive os pais a comunicar a mensagem com seus filhos.
-
-Divulgação de ![para os pais](media/responsible-ai/disclosure-patterns/parental-disclosure.png)<br/>
-*Uma introdução transparente otimizada para pais garante que um adulto tenha consciência da natureza sintética da voz antes que um filho interaja com ela.*
+![Preferências dos utilizadores](media/responsible-ai/disclosure-patterns/customization-user-control.png)<br/>
+*As preferências dos utilizadores permitem aos utilizadores personalizar e melhorar a sua experiência.*
 
 Recomendações
 
-- Direcionar os pais como o público-alvo principal para divulgação
-- Incentive os pais a comunicar a divulgação para seus filhos
-- Pontos de entrada da oferta para saber mais sobre a voz sintetizada
-- Portão a experiência fazendo com que os pais tenham uma &quot;proteção simples&quot; pergunta para mostrar que eles lerem a divulgação
+- Permitir que os utilizadores personalizem a voz (por exemplo, selecione o idioma e o tipo de voz)
+- Fornecer aos utilizadores uma forma de ensinar o sistema a responder à sua voz única (por exemplo, calibração de voz, comandos personalizados)
+- Otimizar para interações geradas pelo utilizador ou contextual (por exemplo, lembretes)
 
-### <a name="providing-opportunities-to-learn-more-about-how-the-voice-was-made"></a>Fornecendo oportunidades para saber mais sobre como a voz foi feita
+#### <a name="persona-customization"></a>Personala Personalizização
 
-Ofereça pontos de entrada sensíveis ao contexto a uma página, pop-up ou site externo que fornece mais informações sobre a tecnologia de voz sintética. Por exemplo, você pode retonar um link para saber mais durante a integração ou quando o usuário solicitar mais informações durante a conversa.
+Ofereça formas de personalizar o assistente digital&#39;voz. Se a voz for baseada numa celebridade ou numa pessoa amplamente reconhecível, considere usar introduções visuais e faladas quando os utilizadores visualizarem a voz.
 
-![ponto de entrada para saber mais](media/responsible-ai/disclosure-patterns/learn-more-entry-point.png)<br/>
-*Exemplo de um ponto de entrada para oferecer a oportunidade de saber mais sobre a voz sintetizada.*
+![Personalização de voz](media/responsible-ai/disclosure-patterns/customization-voice-type.png)<br/>
+*Oferecer a capacidade de selecionar a partir de um conjunto de vozes ajuda a transmitir a natureza artificial.*
 
-Quando um usuário solicita mais informações sobre a voz sintética, o objetivo principal é instruí-los sobre as origens da voz sintética e ser transparente sobre a tecnologia.
+Recomendações
+- Permitir que os utilizadores pré-visualizam o som de cada voz
+- Use uma introdução autêntica para cada voz
+- Ofereça pontos de entrada para saber mais sobre a voz sintetizada
 
-![fornecer aos usuários mais informações sobre](media/responsible-ai/disclosure-patterns/learn-more.png) de voz sintéticas<br/>
-*Mais informações podem ser oferecidas em um site de ajuda do site externo.*
+### <a name="parental-disclosure"></a>Divulgação Parental
+
+Além de cumprir os regulamentos da COPPA, forneça a divulgação aos pais se o seu público principal pretendido for em crianças pequenas e o seu nível de exposição for elevado. Para utilizações sensíveis, considere gaing a experiência até que um adulto reconheça o uso da voz sintética. Encoraje os pais a comunicar a mensagem aos seus filhos.
+
+![Divulgação para os pais](media/responsible-ai/disclosure-patterns/parental-disclosure.png)<br/>
+*Uma introdução transparente otimizada para os pais garante que um adulto foi sensibilizado para a natureza sintética da voz antes que uma criança interaja com ela.*
 
 Recomendações
 
-- Simplifique conceitos complexos e evite usar o legalese e o jargão técnico
-- Não encontram esse conteúdo em termos de privacidade e de instruções de uso
-- Manter o conteúdo conciso e usar imagens quando disponível
+- Pais-alvo como o público principal para a divulgação
+- Encorajar os pais a comunicar em comunicado aos seus filhos
+- Ofereça pontos de entrada para saber mais sobre a voz sintetizada
+- Gate the experience, fazendo aos pais uma simples &quot;questão de salvaguarda&quot; para mostrar que leram a divulgação
+
+### <a name="providing-opportunities-to-learn-more-about-how-the-voice-was-made"></a>Proporcionando oportunidades para aprender mais sobre como a voz foi feita
+
+Ofereça pontos de entrada sensíveis ao contexto para uma página, pop-up ou site externo que forneça mais informações sobre a tecnologia de voz sintética. Por exemplo, pode surgir um link para saber mais durante o embarque ou quando o utilizador pede mais informações durante a conversação.
+
+![Ponto de entrada para saber mais](media/responsible-ai/disclosure-patterns/learn-more-entry-point.png)<br/>
+*Exemplo de um ponto de entrada para oferecer a oportunidade de aprender mais sobre a voz sintetizada.*
+
+Uma vez que um utilizador pede mais informações sobre a voz sintética, o objetivo principal é educá-los sobre as origens da voz sintética e ser transparente sobre a tecnologia.
+
+![Fornecer aos utilizadores mais informações sobre a voz sintética](media/responsible-ai/disclosure-patterns/learn-more.png)<br/>
+*Mais informações podem ser oferecidas num site de ajuda ao site externo.*
+
+Recomendações
+
+- Simplificar conceitos complexos e evitar o uso de jargão legal e técnico
+- Não enterre este conteúdo em privacidade e termos de uso declarações
+- Mantenha o conteúdo conciso e use imagens quando disponível
 
 ## <a name="implicit-disclosure"></a>Divulgação implícita
 
-A consistência é a chave para alcançar a divulgação implicitamente durante o percurso do usuário. O uso consistente de indicações visuais e auditivas em dispositivos e modos de interação pode ajudar a criar associações entre padrões implícitos e divulgação explícita.
+A consistência é a chave para alcançar a divulgação implicitamente ao longo da viagem do utilizador. O uso consistente de pistas visuais e auditivas entre dispositivos e modos de interação pode ajudar a construir associações entre padrões implícitos e divulgação explícita.
 
-![Consistência de indicações implícitas](media/responsible-ai/disclosure-patterns/consistency.png)
+![Consistência das pistas implícitas](media/responsible-ai/disclosure-patterns/consistency.png)
 
-### <a name="implicit-cues--feedback"></a>Sugestões de & de indicações implícitas
+### <a name="implicit-cues--feedback"></a>Pistas implícitas & Feedback
 
-O anthropomorphism pode manifestar de maneiras diferentes, desde a representação visual real do agente até a voz, sons, padrões de luz, formas saltadoras ou até mesmo a vibração de um dispositivo. Ao definir sua pessoa, utilize indicações implícitas e padrões de comentários em vez de visar um avatar muito humano. Essa é uma maneira de minimizar a necessidade de divulgação mais explícita.
+O antropomorfismo pode manifestar-se de diferentes maneiras, desde a representação visual real do agente, à voz, sons, padrões de luz, formas saltitantes ou até mesmo a vibração de um dispositivo. Ao definir a sua persona, aproveite pistas implícitas e padrões de feedback em vez de apontar para um avatar muito humano. Esta é uma forma de minimizar a necessidade de uma divulgação mais explícita.
 
-dicas visuais de ![e comentários](media/responsible-ai/disclosure-patterns/visual-affordances.png)<br/>
-*Essas indicações ajudam a anthropomorphizer o agente sem ser muito humano. Eles também podem se tornar mecanismos de divulgação efetivos por conta própria quando usados consistentemente ao longo do tempo.*
+![Pistas visuais e feedback](media/responsible-ai/disclosure-patterns/visual-affordances.png)<br/>
+*Estas pistas ajudam a antropomorfisar o agente sem ser demasiado humano. Podem também tornar-se mecanismos de divulgação eficazes por si sóquando utilizados de forma consistente ao longo do tempo.*
 
-Considere os diferentes modos de interações de sua experiência ao incorporar os seguintes tipos de indicações:
+Considere os diferentes modos de interação da sua experiência ao incorporar os seguintes tipos de pistas:
 
-| Indicações visuais                                                                                                                                                               | Indicações de auditoria                                                      | Indicações de Haptic |
+| Pistas Visuais                                                                                                                                                               | Pistas Auditivas                                                      | Pistas Hapticas |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|-------------|
-|  Avatar <br>Indicações em tempo real responsivas (por exemplo, animações)<br> Indicações de não tela (por exemplo, luzes e padrões em um dispositivo)<br>  | Sonic (por exemplo, um breve som distintivo, série de observações musicais) | Vibração   |
+|  Avatar <br>Pistas em tempo real responsivas (por exemplo, animações)<br> Pistas não-ecrã (por exemplo, luzes e padrões num dispositivo)<br>  | Sonicon (por exemplo, um breve som distinto, série de notas musicais) | Vibração   |
 
-### <a name="capability-disclosure"></a>Divulgação de capacidade
+### <a name="capability-disclosure"></a>Divulgação de Capacidades
 
-A divulgação pode ser obtida implicitamente definindo expectativas precisas para o que o assistente digital é capaz de fazer. Forneça comandos de exemplo para que os usuários possam aprender a interagir com o assistente digital e oferecer ajuda contextual para saber mais sobre a voz sintética durante os estágios iniciais da experiência.
+A divulgação pode ser alcançada implicitamente, estabelecendo expectativas precisas para o que o assistente digital é capaz de fazer. Forneça comandos de amostra para que os utilizadores possam aprender a interagir com o assistente digital e oferecer ajuda contextual para saber mais sobre a voz sintética durante as fases iniciais da experiência.
 
-![Dicas visuais e comentários](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
+![Pistas visuais e feedback](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
 
-### <a name="conversational-transparency"></a>Transparência da conversa
+### <a name="conversational-transparency"></a>Transparência conversacional
 
-Quando as conversas se enquadram em caminhos inesperados, considere a criação de respostas padrão que podem ajudar a redefinir as expectativas, reforçar a transparência e direcionar os usuários para caminhos bem-sucedidos. Também há oportunidades para usar a divulgação explícita em conversa.
+Quando as conversas caem em caminhos inesperados, considere criar respostas padrão que possam ajudar a repor as expectativas, reforçar a transparência e orientar os utilizadores para caminhos bem sucedidos. Há oportunidades de usar a divulgação explícita na conversa.
 
-![Manipulando caminhos inesperados](media/responsible-ai/disclosure-patterns/conversational-transparency-1.png)<br/>
+![Manuseamento de caminhos inesperados](media/responsible-ai/disclosure-patterns/conversational-transparency-1.png)<br/>
 
 <br/>
-As perguntas&quot;s fora da tarefa ou &quot;pessoais direcionadas para o agente são um bom momento para lembrar os usuários da natureza sintética do agente e direcioná-los para que se envolvam adequadamente ou Redirecione-os para uma pessoa real.
+Perguntas fora &quot;&quot; de tarefa ou pessoais dirigidas ao agente são uma boa altura para lembrar aos utilizadores a natureza sintética do agente e guiá-los a envolvê-los adequadamente ou redirecioná-los para uma pessoa real.
 
-![Tratamento de perguntas de tarefas](media/responsible-ai/disclosure-patterns/conversational-transparency-2.png)<br/>
+![Lidar com questões de tarefa](media/responsible-ai/disclosure-patterns/conversational-transparency-2.png)<br/>
 
 ## <a name="when-to-disclose"></a>Quando divulgar
 
-Há muitas oportunidades de divulgação durante o percurso do usuário. Design para o primeiro uso, segundo uso, enésimo uso..., mas também adotar momentos de &quot;falha&quot; para realçar a transparência — como quando o sistema cometer um erro ou quando o usuário descobre uma limitação dos recursos&#39;do agente.
+Existem muitas oportunidades de divulgação ao longo da viagem do utilizador. Design para a primeira utilização, segunda utilização, nono uso..., mas também abraçar momentos de &quot;falha&quot; em destacar a transparência — como quando o sistema comete um erro ou quando o utilizador descobre uma limitação das capacidades do agente&#39;.
 
-![Oportunidades de divulgação em toda a jornada do usuário](media/responsible-ai/disclosure-patterns/touchpoints.png)<br/>
+![Oportunidades de divulgação ao longo de uma viagem de utilizador](media/responsible-ai/disclosure-patterns/touchpoints.png)<br/>
 
-Exemplo de um percurso de usuário do assistente digital padrão destacando várias oportunidades de divulgação.
+Exemplo de uma viagem de utilizador assistente digital padrão destacando várias oportunidades de divulgação.
 
-### <a name="up-front"></a>Início
+### <a name="up-front"></a>Na frente
 
-O momento ideal para a divulgação é a primeira vez que uma pessoa interage com a voz sintética.  Em um cenário de assistente de voz pessoal, isso seria durante a integração ou na primeira vez que o usuário praticamente não caixa a experiência. Em outros cenários, pode ser a primeira vez que uma voz sintética lê o conteúdo em um site ou na primeira vez que um usuário interage com um caractere virtual.
+O momento ideal para a divulgação é a primeira vez que uma pessoa interage com a voz sintética.Num cenário pessoal de assistente de voz, este seria durante o embarque, ou a primeira vez que o utilizador praticamente desencaixota a experiência. Noutros cenários, pode ser a primeira vez que uma voz sintética lê conteúdo num website ou a primeira vez que um utilizador interage com um personagem virtual.
 
-- [Introdução transparente](#transparent-introduction)
-- [Divulgação de capacidade](#capability-disclosure)
-- [Personalização e calibragem](#customization-and-calibration)
-- [Indicações implícitas](#implicit-cues--feedback)
+- [Introdução Transparente](#transparent-introduction)
+- [Divulgação de Capacidades](#capability-disclosure)
+- [Personalização e Calibração](#customization-and-calibration)
+- [Pistas Implícitas](#implicit-cues--feedback)
 
-### <a name="upon-request"></a>Mediante solicitação
+### <a name="upon-request"></a>Mediante pedido
 
-Os usuários devem ser capazes de acessar facilmente informações adicionais, preferências de controle e receber comunicação transparente a qualquer momento durante o percurso do usuário quando solicitado.
+Os utilizadores devem poder aceder facilmente a informações adicionais, controlar preferências e receber uma comunicação transparente em qualquer ponto durante a viagem do utilizador quando solicitado.
 
-- [Fornecendo oportunidades para saber mais sobre como a voz foi feita](#providing-opportunities-to-learn-more-about-how-the-voice-was-made)
-- [Personalização e calibragem](#customization-and-calibration)
-- [Transparência da conversa](#conversational-transparency)
+- [Proporcionando oportunidades para aprender mais sobre como a voz foi feita](#providing-opportunities-to-learn-more-about-how-the-voice-was-made)
+- [Personalização e Calibração](#customization-and-calibration)
+- [Transparência conversacional](#conversational-transparency)
 
-### <a name="continuously"></a>Constantemente
+### <a name="continuously"></a>Continuamente
 
-Use os padrões de design implícitos que melhoram a experiência do usuário continuamente.
+Utilize os padrões de design implícitos que melhoram a experiência do utilizador continuamente.
 
-- [Divulgação de capacidade](#capability-disclosure)
-- [Indicações implícitas](#implicit-cues--feedback)
+- [Divulgação de Capacidades](#capability-disclosure)
+- [Pistas Implícitas](#implicit-cues--feedback)
 
 ### <a name="when-the-system-fails"></a>Quando o sistema falha
 
-Use a divulgação como uma oportunidade de falhar normalmente.
+Use a divulgação como uma oportunidade para falhar graciosamente.
 
-- [Transparência da conversa](#conversational-transparency)
-- [Fornecendo oportunidades para saber mais sobre como a voz foi feita](#providing-opportunities-to-learn-more-about-how-the-voice-was-made)
-- [Entrega ao humano](#conversational-transparency)
+- [Transparência conversacional](#conversational-transparency)
+- [Proporcionando oportunidades para aprender mais sobre como a voz foi feita](#providing-opportunities-to-learn-more-about-how-the-voice-was-made)
+- [Entrega para humano](#conversational-transparency)
 
 
 
 ## <a name="additional-resources"></a>Recursos adicionais
-- [Diretrizes de bot da Microsoft](https://www.microsoft.com/research/uploads/prod/2018/11/Bot_Guidelines_Nov_2018.pdf)
-- [Diretrizes de design da Cortana](https://docs.microsoft.com/cortana/voice-commands/voicecommand-design-guidelines)
-- [Diretrizes de design de fala do Microsoft Windows UWP](https://docs.microsoft.com/windows/uwp/design/input/speech-interactions)
-- [Diretrizes de comando de voz do Microsoft Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
+- [Diretrizes do Microsoft Bot](https://www.microsoft.com/research/uploads/prod/2018/11/Bot_Guidelines_Nov_2018.pdf)
+- [Diretrizes de Design cortana](https://docs.microsoft.com/cortana/voice-commands/voicecommand-design-guidelines)
+- [Diretrizes de design de discurso supor o Microsoft Windows UWP](https://docs.microsoft.com/windows/uwp/design/input/speech-interactions)
+- [Microsoft Windows Mixed Reality Voice Commanding Guidelines](https://docs.microsoft.com/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
 
-## <a name="reference-docs"></a>Documentos de referência
+## <a name="reference-docs"></a>Doutorados de referência
 
-* [Divulgação para talento de voz](https://aka.ms/disclosure-voice-talent)
+* [Divulgação de Talento de Voz](https://aka.ms/disclosure-voice-talent)
 * [Diretrizes para a implantação responsável da tecnologia de voz sintética](concepts-guidelines-responsible-deployment-synthetic.md)
-* [Visão geral da retenção](concepts-gating-overview.md)
-* [Como divulgar](concepts-disclosure-guidelines.md)
+* [Visão geral de Gating](concepts-gating-overview.md)
+* [Como Divulgar](concepts-disclosure-guidelines.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Divulgação para talento de voz](https://aka.ms/disclosure-voice-talent)
+* [Divulgação de Talento de Voz](https://aka.ms/disclosure-voice-talent)

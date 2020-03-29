@@ -5,48 +5,48 @@ ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
 ms.openlocfilehash: dc5e251fee00ee22edb2261c1abd8404714834ba
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78669243"
 ---
 ## <a name="authentication"></a>Autenticação
 
-Cada pedido requer um cabeçalho de autorização. Esta tabela mostra quais cabeçalhos são suportados para cada serviço:
+Cada pedido requer um cabeçalho de autorização. Esta tabela ilustra quais os cabeçalhos suportados para cada serviço:
 
 | Cabeçalhos de autorização suportados | Conversão de voz em texto | Conversão de texto em voz |
 |------------------------|----------------|----------------|
-| OCP-Apim-Subscription-Key | Sim | Não |
-| Autorização: portador | Sim | Sim |
+| Ocp-Apim-Subscription-Key | Sim | Não |
+| Autorização: Portador | Sim | Sim |
 
-Ao utilizar o cabeçalho `Ocp-Apim-Subscription-Key`, só é necessário fornecer a sua chave de subscrição. Por exemplo:
+Ao utilizar `Ocp-Apim-Subscription-Key` o cabeçalho, só é necessário fornecer a sua chave de subscrição. Por exemplo:
 
 ```http
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
-Ao utilizar o cabeçalho `Authorization: Bearer`, é-lhe exigido que faça um pedido para o ponto final `issueToken`. Neste pedido, trocar a chave de subscrição para um token de acesso que é válido durante 10 minutos. Nas próximas secções, aprenderás a obter um símbolo e a usar um símbolo.
+Ao utilizar `Authorization: Bearer` o cabeçalho, é-lhe exigido `issueToken` que faça um pedido até ao ponto final. Neste pedido, você troca a sua chave de subscrição por um token de acesso válido por 10 minutos. Nas próximas secções, aprenderás a obter um símbolo e a usar um símbolo.
 
-### <a name="how-to-get-an-access-token"></a>Como obter um token de acesso
+### <a name="how-to-get-an-access-token"></a>Como obter um sinal de acesso
 
-Para obter um sinal de acesso, terá de fazer um pedido para o ponto final `issueToken` utilizando o `Ocp-Apim-Subscription-Key` e a sua chave de subscrição.
+Para obter um sinal de acesso, terá de `issueToken` fazer um `Ocp-Apim-Subscription-Key` pedido para o ponto final utilizando a chave de subscrição e a sua chave de subscrição.
 
-O ponto final `issueToken` tem este formato:
+O `issueToken` ponto final tem este formato:
 
 ```http
 https://<REGION_IDENTIFIER>.api.cognitive.microsoft.com/sts/v1.0/issueToken
 ```
 
-Substitua `<REGION_IDENTIFIER>` pelo identificador que corresponde à região da sua subscrição a partir desta tabela:
+Substitua-o `<REGION_IDENTIFIER>` pelo identificador que corresponde à região da sua subscrição a partir desta tabela:
 
 [!INCLUDE [](cognitive-services-speech-service-region-identifier.md)]
 
-Utilize estes exemplos para criar o seu pedido de token de acesso.
+Use estas amostras para criar o seu pedido de acesso.
 
-#### <a name="http-sample"></a>Exemplo HTTP
+#### <a name="http-sample"></a>Amostra http
 
-Neste exemplo é uma solicitação HTTP simples para obter um token. Substitua `YOUR_SUBSCRIPTION_KEY` com a sua chave de subscrição do Serviço de Fala. Se a sua subscrição não estiver na região oeste dos EUA, substitua o cabeçalho `Host` com o nome de anfitrião da sua região.
+Este exemplo é um simples pedido http para obter um símbolo. Substitua-a `YOUR_SUBSCRIPTION_KEY` com a chave de subscrição do Serviço de Fala. Se a sua subscrição não estiver na `Host` região oeste dos EUA, substitua o cabeçalho com o nome de anfitrião da sua região.
 
 ```http
 POST /sts/v1.0/issueToken HTTP/1.1
@@ -60,7 +60,7 @@ O corpo da resposta contém o símbolo de acesso no formato JSON Web Token (JWT)
 
 #### <a name="powershell-sample"></a>Exemplo do PowerShell
 
-Neste exemplo é um script do PowerShell simple para obter um token de acesso. Substitua `YOUR_SUBSCRIPTION_KEY` com a sua chave de subscrição do Serviço de Fala. Certifique-se utilizar o ponto final correto para a região que corresponde à sua subscrição. Neste exemplo está definido para E.U.A. oeste.
+Este exemplo é um simples script PowerShell para obter um sinal de acesso. Substitua-a `YOUR_SUBSCRIPTION_KEY` com a chave de subscrição do Serviço de Fala. Certifique-se de que utiliza o ponto final correto para a região que corresponde à sua subscrição. Este exemplo está atualmente definido para os EUA Ocidentais.
 
 ```powershell
 $FetchTokenHeader = @{
@@ -77,9 +77,9 @@ $OAuthToken
 
 ```
 
-#### <a name="curl-sample"></a>exemplo de cURL
+#### <a name="curl-sample"></a>amostra cURL
 
-cURL é uma ferramenta da linha de comandos disponível no Linux (e no subsistema Windows para Linux). Este comando cURL ilustra como obter um token de acesso. Substitua `YOUR_SUBSCRIPTION_KEY` com a sua chave de subscrição do Serviço de Fala. Certifique-se utilizar o ponto final correto para a região que corresponde à sua subscrição. Neste exemplo está definido para E.U.A. oeste.
+cURL é uma ferramenta de linha de comando disponível em Linux (e no Subsistema Windows para Linux). Este comando cURL ilustra como obter um sinal de acesso. Substitua-a `YOUR_SUBSCRIPTION_KEY` com a chave de subscrição do Serviço de Fala. Certifique-se de que utiliza o ponto final correto para a região que corresponde à sua subscrição. Este exemplo está atualmente definido para os EUA Ocidentais.
 
 ```console
 curl -v -X POST
@@ -91,7 +91,7 @@ curl -v -X POST
 
 #### <a name="c-sample"></a>Exemplo C#
 
-Isso C# classe ilustra como obter um token de acesso. Passe a chave de subscrição do serviço de voz ao instanciar a classe. Se a sua subscrição não estiver na região dos EUA Ocidentais, altere o valor da `FetchTokenUri` para corresponder à região para a sua subscrição.
+Esta aula de C# ilustra como obter um sinal de acesso. Passe a sua chave de assinatura do Speech Service quando instantaneamente a aula. Se a sua subscrição não estiver na região dos EUA Ocidentais, altere o valor de `FetchTokenUri` corresponder à região para a sua subscrição.
 
 ```csharp
 public class Authentication
@@ -147,11 +147,11 @@ def get_token(subscription_key):
     print(access_token)
 ```
 
-### <a name="how-to-use-an-access-token"></a>Como utilizar um token de acesso
+### <a name="how-to-use-an-access-token"></a>Como usar um sinal de acesso
 
-O sinal de acesso deve ser enviado para o serviço como cabeçalho `Authorization: Bearer <TOKEN>`. Cada token de acesso é válido durante 10 minutos. Pode obter um novo token em qualquer altura, no entanto, para minimizar o tráfego de rede e a latência, recomendamos que utilize o mesmo token para nove minutos.
+O sinal de acesso deve ser `Authorization: Bearer <TOKEN>` enviado para o serviço como cabeçalho. Cada ficha de acesso é válida por 10 minutos. No entanto, pode obter um novo símbolo a qualquer momento, para minimizar o tráfego de rede e a latência, recomendamos a utilização do mesmo símbolo durante nove minutos.
 
-Este é um pedido HTTP de exemplo para a API REST do texto para voz:
+Aqui está uma amostra http pedido para a API REST text-to-speech:
 
 ```http
 POST /cognitiveservices/v1 HTTP/1.1

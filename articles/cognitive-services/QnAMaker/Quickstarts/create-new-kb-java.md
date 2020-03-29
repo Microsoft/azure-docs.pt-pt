@@ -6,21 +6,21 @@ ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: 90ab36389ceac2e8aad12332db433732525c62f5
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78851830"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Início Rápido: criar uma base de dados de conhecimento no Criador de FAQ com o Java
 
 Este início rápido descreve a criação, através de programação, de uma base de dados de conhecimento do Criador de FAQ. O Criador de FAQ extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como FAQs, a partir de [origens de dados](../Concepts/knowledge-base.md). O modelo da base de dados de conhecimento é definido no JSON enviado no corpo do pedido da API.
 
-Este início rápido chama as APIs do Criador de FAQ:
+Este início rápido chama as API do Criador de FAQ:
 * [Criar KB](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
-* [Obter Detalhes da Operação](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
+* [Obter Detalhes da operação](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
 
-[Documentação de referência](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [amostra java](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/blob/master/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java)
+[Documentação de referência](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Amostra java](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/blob/master/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -37,7 +37,7 @@ Crie um ficheiro com o nome `CreateKB.java`
 
 ## <a name="add-the-required-dependencies"></a>Adicionar as dependências necessárias
 
-Na parte superior de `CreateKB.java`, adicione as linhas seguintes para adicionar as dependências necessárias ao projeto:
+Na parte superior do `CreateKB.java`, adicione as seguintes linhas para adicionar as dependências necessárias ao projeto:
 
 [!code-java[Add the required dependencies](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=1-5 "Add the required dependencies")]
 
@@ -48,8 +48,8 @@ Tem de ter um [serviço Criador de FAQ](../How-To/set-up-qnamaker-service-azure.
 
 Defina os seguintes valores:
 
-* `<your-qna-maker-subscription-key>` - A **chave** é uma cadeia de caracteres de 32 caracteres e está disponível no portal Azure, no recurso QnA Maker, na página Quickstart. Isto não é o mesmo que a chave final da previsão.
-* `<your-resource-name>` - O seu nome de **recurso** é utilizado para construir o URL de ponto final de autoria para autoria, no formato de `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Este não é o mesmo URL usado para consultar o ponto final da previsão.
+* `<your-qna-maker-subscription-key>`- A **chave** é uma cadeia de caracteres de 32 caracteres e está disponível no portal Azure, no recurso QnA Maker, na página Quickstart. Isto não é o mesmo que a chave final da previsão.
+* `<your-resource-name>`- O seu nome de **recurso** é utilizado para construir o `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`URL de ponto final de autoria para autoria, no formato de . Este não é o mesmo URL usado para consultar o ponto final da previsão.
 
 Não precisa de adicionar a chaveta de segurança final para terminar a classe; ela encontra-se no fragmento de código final no fim deste início rápido.
 
@@ -65,7 +65,7 @@ Depois das constantes, adicione as seguintes classes e funções dentro da class
 
 Em seguida, adicione as funções de suporte seguintes dentro da classe `CreateKB`.
 
-1. Adicione a função seguinte para imprimir JSON num formato legível:
+1. Adicione a seguinte função para imprimir JSON num formato legível:
 
     [!code-java[Add the PrettyPrint function](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=82-87 "Add the KB model definition classes")]
 
@@ -103,7 +103,7 @@ Adicione o seguinte método para verificar o estado de criação.
 
 [!code-java[Add GetStatus method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=146-150 "Add GetStatus method")]
 
-Repita a chamada até obter êxito ou falhar:
+Repita a chamada até ter êxito ou falhar:
 
 ```JSON
 {
@@ -117,7 +117,7 @@ Repita a chamada até obter êxito ou falhar:
 ```
 
 ## <a name="add-a-main-method"></a>Adicione um método principal
-O método principal cria o KB e, em seguida, consulta o estado. O ID de funcionamento é devolvido no campo de cabeçalho de resposta POST **Localização,** e depois utilizado como parte da rota no pedido GET. O laço `while` volta a tentar o estado se não estiver concluído.
+O método principal cria o KB e, em seguida, consulta o estado. O ID de funcionamento é devolvido no campo de cabeçalho de resposta POST **Localização,** e depois utilizado como parte da rota no pedido GET. O `while` laço volta a tentar o estado se não estiver concluído.
 
 [!code-java[Add main method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=152-191 "Add main method")]
 
@@ -129,7 +129,7 @@ O método principal cria o KB e, em seguida, consulta o estado. O ID de funciona
     javac -cp ".;libs/*" CreateKB.java
     ```
 
-2. Introduza o comando seguinte numa linha de comandos para executar o programa. Enviará o pedido à API do Criador de FAQ para criar a KB e, em seguida, irá consultar para obter os resultados a cada 30 segundos. Cada resposta é impressa na janela da consola.
+2. Introduza o seguinte comando numa linha de comandos para executar o programa. Enviará o pedido à API do Criador de FAQ para criar a KB e, em seguida, irá consultar para obter os resultados a cada 30 segundos. Cada resposta é impressa na janela da consola.
 
     ```bash
     java -cp ",;libs/*" CreateKB
@@ -142,4 +142,4 @@ Assim que a sua base de dados de conhecimento é criada, pode visualizá-la no s
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Referência da API REST para o Criador de FAQ (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)
+> [Referência à API REST do Criador de FAQ](https://go.microsoft.com/fwlink/?linkid=2092179)

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/09/2020
 ms.author: dapine
 ms.openlocfilehash: 969c1450966d2754e6e8f00126da52a1e88181fc
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78942695"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para discurso personalizado
@@ -58,12 +58,12 @@ Utilize esta tabela para garantir que os seus ficheiros áudio estão formatados
 | Propriedade                 | Valor                 |
 |--------------------------|-----------------------|
 | Formato de ficheiro              | RIFF (WAV)            |
-| Taxa de amostragem              | 8\.000 Hz ou 16.000 Hz |
+| Taxa de amostragem              | 8.000 Hz ou 16.000 Hz |
 | Canais                 | 1 (mono)              |
-| Comprimento máximo por áudio | 2 horas               |
+| Comprimento máximo por áudio | Duas horas               |
 | Formato de amostra            | PCM, 16-bit           |
 | Formato de arquivo           | .zip                  |
-| Tamanho máximo do arquivo     | 2 GB                  |
+| Tamanho máximo do arquivo     | 2GB                  |
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
@@ -84,12 +84,12 @@ Para medir a precisão da precisão do discurso ao texto da Microsoft ao process
 | Propriedade                 | Valor                               |
 |--------------------------|-------------------------------------|
 | Formato de ficheiro              | RIFF (WAV)                          |
-| Taxa de amostragem              | 8\.000 Hz ou 16.000 Hz               |
+| Taxa de amostragem              | 8.000 Hz ou 16.000 Hz               |
 | Canais                 | 1 (mono)                            |
 | Comprimento máximo por áudio | 2 horas (testes) / 60 s (treino) |
 | Formato de amostra            | PCM, 16-bit                         |
 | Formato de arquivo           | .zip                                |
-| Tamanho máximo do fecho         | 2 GB                                |
+| Tamanho máximo do fecho         | 2GB                                |
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
@@ -143,7 +143,7 @@ Utilize esta tabela para garantir que o seu ficheiro de dados relacionado para a
 Além disso, irá prestar contas das seguintes restrições:
 
 * Evite repetir caracteres mais de quatro vezes. Por exemplo: "aaaa" ou "uuuuu".
-* Não utilize caracteres especiais ou caracteres UTF-8 acima `U+00A1`.
+* Não utilize caracteres especiais ou caracteres `U+00A1`UTF-8 acima .
 * Os URIs serão rejeitados.
 
 ### <a name="guidelines-to-create-a-pronunciation-file"></a>Diretrizes para criar um ficheiro de pronúncia
@@ -155,7 +155,7 @@ Se houver termos incomuns sem pronúncias padrão que os seus utilizadores irão
 
 Isto inclui exemplos de uma expressão falada, e uma pronúncia personalizada para cada um:
 
-| Formulário reconhecido/exibido | Formulário falado |
+| Formulário reconhecido/exibido | Forma falada |
 |--------------|--------------------------|
 | 3CPO | três c p o |
 | CNTK | c n t k |
@@ -163,11 +163,11 @@ Isto inclui exemplos de uma expressão falada, e uma pronúncia personalizada pa
 
 O formulário falado é a sequência fonética escrita. Pode ser composto por letras, palavras, silabáveis, ou uma combinação de todos os três.
 
-A pronúncia personalizada está disponível em inglês (`en-US`) e alemão (`de-DE`). Esta tabela mostra caracteres suportados por linguagem:
+A pronúncia personalizada está`en-US`disponível`de-DE`em inglês ( ) e alemão . Esta tabela mostra caracteres suportados por linguagem:
 
-| Linguagem | Região | Carateres |
+| Idioma | Região | Personagens |
 |----------|--------|------------|
-| Português | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
+| Inglês | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | Alemão | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 
 Utilize a tabela seguinte para garantir que o seu ficheiro de dados relacionado para pronúncias está corretamente formatado. Os ficheiros de pronúncia são pequenos e devem ter apenas alguns quilobytes de tamanho.
@@ -178,9 +178,9 @@ Utilize a tabela seguinte para garantir que o seu ficheiro de dados relacionado 
 | # de pronúncias por linha | 1 |
 | Tamanho máximo do ficheiro | 1 MB (1 KB para o nível livre) |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Inspecione os seus dados](how-to-custom-speech-inspect-data.md)
 * [Avaliar os seus dados](how-to-custom-speech-evaluate-data.md)
-* [Treine o seu modelo](how-to-custom-speech-train-model.md)
+* [Preparar o seu modelo](how-to-custom-speech-train-model.md)
 * [Implante o seu modelo](how-to-custom-speech-deploy-model.md)

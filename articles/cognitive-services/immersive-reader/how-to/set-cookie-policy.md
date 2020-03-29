@@ -1,7 +1,7 @@
 ---
-title: Definir política de cookie de leitor de imersão
+title: Definir política imersiva de cookies de leitor
 titleSuffix: Azure Cognitive Services
-description: Este artigo mostrará como definir a política de cookie para o leitor de imersão.
+description: Este artigo irá mostrar-lhe como definir a política de cookies para o Leitor Imersivo.
 services: cognitive-services
 author: pasta
 manager: guillasi
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: pasta
 ms.openlocfilehash: 6de651f1eb51ea1bc941c2af675c8a8d5b0f9cd7
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75946113"
 ---
-# <a name="how-to-set-the-cookie-policy-for-the-immersive-reader"></a>Como definir a política de cookie para o leitor de imersão
+# <a name="how-to-set-the-cookie-policy-for-the-immersive-reader"></a>Como definir a política de cookies para o Leitor Imersivo
 
-O leitor de imersão desabilitará o uso do cookie por padrão. Se você habilitar o uso do cookie, o leitor de imersão poderá usar cookies para manter as preferências do usuário e controlar o uso do recurso. Se você habilitar o uso de cookies no leitor de imersão, considere os requisitos da política de conformidade do cookie da UE. É responsabilidade do aplicativo host obter qualquer consentimento do usuário necessário de acordo com a política de conformidade do cookie da UE.
+O Leitor Imersivo irá desativar o uso de cookies por padrão. Se ativar a utilização de cookies, o Leitor Imersivo poderá utilizar cookies para manter as preferências do utilizador e rastrear a utilização da funcionalidade. Se ativar o uso de cookies no Leitor Imersivo, considere os requisitos da Política de Conformidade de Cookies da UE. É da responsabilidade da aplicação anfitriã obter o consentimento necessário do utilizador de acordo com a Política de Conformidade de Cookies da UE.
 
-A política de cookie pode ser definida por meio das [Opções](../reference.md#options)de leitura imersiva. Consulte [CookiePolicy enum](../reference.md#cookiepolicy-enum) para obter mais informações.
+A política de cookies pode ser definida através das [opções](../reference.md#options)do Leitor Imersivo. Consulte [cookiePolicy enum](../reference.md#cookiepolicy-enum) para mais informações.
 
-## <a name="enable-cookie-usage"></a>Habilitar uso de cookie
+## <a name="enable-cookie-usage"></a>Ativar a utilização de cookies
 
 ```javascript
 var options = {
@@ -33,7 +33,7 @@ var options = {
 ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, YOUR_DATA, options);
 ```
 
-## <a name="disable-cookie-usage"></a>Desabilitar o uso do cookie
+## <a name="disable-cookie-usage"></a>Desativar o uso de cookies
 
 ```javascript
 var options = {
@@ -45,7 +45,7 @@ ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, YOUR_DATA, options);
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Veja o guia de [início rápido do node. js](../quickstart-nodejs.md) para ver o que mais você pode fazer com o SDK do leitor de imersão usando node. js
-* Veja o [tutorial do Python](../tutorial-python.md) para ver o que mais você pode fazer com o SDK do leitor de imersão usando o Python
-* Veja o [tutorial do Swift](../tutorial-ios-picture-immersive-reader.md) para ver o que mais você pode fazer com o SDK do leitor de imersão usando o Swift
-* Explore o [SDK do leitor de imersão](https://github.com/microsoft/immersive-reader-sdk) e a [referência do SDK do leitor de imersão](../reference.md)
+* Veja o [Node.js quickstart](../quickstart-nodejs.md) para ver o que mais pode fazer com o SDK de Leitor Imersivo usando Node.js
+* Veja o [tutorial](../tutorial-python.md) python para ver o que mais pode fazer com o SDK de Leitor Imersivo usando Python
+* Veja o [tutorial Swift](../tutorial-ios-picture-immersive-reader.md) para ver o que mais pode fazer com o SDK de Leitor Imersivo usando Swift
+* Explore o [SDK imersivo do leitor](https://github.com/microsoft/immersive-reader-sdk) e a [referência SDK do leitor imersivo](../reference.md)

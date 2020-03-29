@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
 ms.openlocfilehash: 9219c9a72ce9e1cfba3504b0b8e16ade77f8a5e5
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79369901"
 ---
 # <a name="what-is-a-voice-assistant"></a>O que é um assistente de voz?
@@ -31,7 +31,7 @@ As aplicações ligam-se ao serviço de assistente de voz com o Kit de Desenvolv
 
 O primeiro passo para criar um assistente de voz é decidir o que deve fazer. O serviço De Fala fornece múltiplas soluções complementares para criar as suas interações assistentes. Quer queira a flexibilidade e versatilidade que o canal de discurso de [linha direta](direct-line-speech.md) do Bot Framework proporciona ou a simplicidade dos [Comandos Personalizados (Pré-visualização)](custom-commands.md) para cenários simples, a seleção das ferramentas certas irá começar.
 
-| Se pretender... | Então considere... | Por exemplo... |
+| Se quiseres... | Então considere... | Por exemplo... |
 |-------------------|------------------|----------------|
 |Conversa aberta com integração robusta de competências e controlo total de implementação | O canal de discurso de [linha direta](direct-line-speech.md) do Quadro Bot | <ul><li>"Preciso de ir a Seattle"</li><li>"Que tipo de pizza posso pedir?"</li></ul>
 |Comando e controlo ou conversa orientada para tarefas com autore hospedagem simplificada | [Comandos Personalizados (Pré-visualização)](custom-commands.md) | <ul><li>"Ligue a luz aérea"</li><li>"Torná-lo 5 graus mais quente"</ul>
@@ -67,7 +67,7 @@ Oferecemos quickstarts projetados para tê-lo em funcionamento código em menos 
 O código de amostra para a criação de um assistente de voz está disponível no GitHub. Estas amostras cobrem o pedido do cliente para a ligação ao seu assistente em várias línguas de programação populares.
 
 * [Amostras de assistente de voz (SDK)](https://aka.ms/csspeech/samples)
-* [Tutorial: Voz habilita o seu assistente com o SDK de Fala,C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+* [Tutorial: Voz habilita o seu assistente com o SDK de Fala, C #](tutorial-voice-enable-your-bot-speech-sdk.md)
 
 ## <a name="tutorial"></a>Tutorial
 
@@ -82,7 +82,7 @@ Os assistentes de voz construídos com o serviço Speech podem usar toda a gama 
 
 ## <a name="reference-docs"></a>Doutorados de referência
 
-* [SDK de Voz](speech-sdk-reference.md)
+* [API de Voz](speech-sdk-reference.md)
 * [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
 
 ## <a name="next-steps"></a>Passos seguintes

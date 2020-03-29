@@ -1,7 +1,7 @@
 ---
-title: Suporte ao idioma-API de Pesquisa de Imagem do Bing
+title: Suporte linguístico - Bing Image Search API
 titleSuffix: Azure Cognitive Services
-description: Descubra quais países/regiões e idiomas são suportados pelo API de Pesquisa de Imagem do Bing.
+description: Descubra quais países/regiões e línguas são apoiados pela API de Pesquisa de Imagem bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,37 +11,37 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: ca3821b6088e45730334d1b0971e270b1d86dfce
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68881912"
 ---
-# <a name="language-and-region-support-for-the-bing-image-search-api"></a>Suporte a idiomas e regiões para o API de Pesquisa de Imagem do Bing
+# <a name="language-and-region-support-for-the-bing-image-search-api"></a>Suporte de língua e região para a API de Pesquisa de Imagem bing
 
-O API de Pesquisa de Imagem do Bing dá suporte a mais de três dezenas de países/regiões, muitos com mais de um idioma. A especificação de um país/região com uma consulta serve principalmente para refinar os resultados da pesquisa com base nos interesses desse país/região. Além disso, os resultados podem conter links para o Bing, e esses links podem localizar a experiência do usuário do Bing de acordo com o país/região ou idioma especificado.
+A API bing image search suporta mais de três dezenas de países/regiões, muitos com mais de uma língua. Especificar um país/região com uma consulta serve principalmente para refinar resultados de pesquisa baseados em interesses nesse país/região. Além disso, os resultados podem conter ligações ao Bing, e estas ligações podem localizar a experiência do utilizador Bing de acordo com o país/regiões ou língua especificados.
 
-Para especificar o país/região e idioma, defina o `mkt` parâmetro de consulta (Market) para um código da tabela Markets abaixo. O mercado especifica um país/região e um idioma. Se o usuário preferir ver exibir texto em um idioma diferente, defina `setLang` o parâmetro de consulta para o código de idioma apropriado.
+Para especificar o país/região `mkt` e a língua, coloque o parâmetro de consulta (mercado) num código da tabela **Markets** abaixo. O mercado especifica tanto um país/região como uma língua. Se o utilizador preferir ver texto de exibição num idioma diferente, defina `setLang` o parâmetro de consulta para o código de idioma apropriado.
 
-Como alternativa, você pode especificar o país/região usando o `cc` parâmetro de consulta. Se você especificar um país/região, também deverá especificar um ou mais códigos de idioma usando o `Accept-Language` cabeçalho http. Os idiomas com suporte variam de acordo com o país/região; Eles são fornecidos para cada país/região na tabela de mercados.
+Em alternativa, pode especificar o país/região utilizando o `cc` parâmetro de consulta. Se especificar um país/região, também deve especificar um `Accept-Language` ou mais códigos linguísticos utilizando o cabeçalho HTTP. As línguas apoiadas variam por país/região; são dadas para cada país/região na tabela Mercados.
 
 > [!NOTE]
-> A API de imagens de tendências atualmente dá suporte apenas aos seguintes mercados:
-> - en-US (Inglês, Estados Unidos)
+> A API trending Images suporta atualmente apenas os seguintes mercados:
+> - en-EUA (Inglês, Estados Unidos)
 > - en-CA (Inglês, Canadá)
-> - en-AU (Inglês, Austrália)
-> - ZH-CN (chinês, China)
+> - en-UA (Inglês, Austrália)
+> - zh-CN (China, China)
 
 ## <a name="countriesregions"></a>Países/Regiões
 
-|País/região|Código|
+|Pais/região|Código|
 |-------|----|
 |Argentina|AR|
 |Austrália|AU|
 |Áustria|AT|
 |Bélgica|BE|
 |Brasil|BR|
-|Canadá|AC|
+|Canadá|CA|
 |Chile|CL|
 |Dinamarca|DK|
 |Finlândia|FI|
@@ -49,8 +49,8 @@ Como alternativa, você pode especificar o país/região usando o `cc` parâmetr
 |Alemanha|DE|
 |RAE de Hong Kong|HK|
 |Índia|IN|
-|Indonésia|id|
-|Itália|it|
+|Indonésia|ID|
+|Itália|TI|
 |Japão|JP|
 |Coreia|KR|
 |Malásia|MY|
@@ -76,47 +76,47 @@ Como alternativa, você pode especificar o país/região usando o `cc` parâmetr
 
 ## <a name="markets"></a>Mercados
 
-|País/região|Idioma|Código do mercado|
+|Pais/região|Idioma|Código de Mercado|
 |-------|--------|-----------|
 |Argentina|Espanhol|es-AR|
-|Austrália|Português|EN-AU|
-|Áustria|Alemão|Alemanha-AT|
-|Bélgica|Neerlandês|NL-ser|
-|Bélgica|Francês|fr-ser|
+|Austrália|Inglês|en-UA|
+|Áustria|Alemão|de-AT|
+|Bélgica|Neerlandês|nl-BE|
+|Bélgica|Francês|fr-BE|
 |Brasil|Português|pt-BR|
-|Canadá|Português|en-CA|
+|Canadá|Inglês|en-CA|
 |Canadá|Francês|fr-CA|
 |Chile|Espanhol|es-CL|
 |Dinamarca|Dinamarquês|da-DK|
 |Finlândia|Finlandês|fi-FI|
-|França|Francês|FR-FR|
+|França|Francês|fr-FR|
 |Alemanha|Alemão|de-DE|
-|RAE de Hong Kong|Chinês tradicional|zh-HK|
-|Índia|Português|EN-IN|
-|Indonésia|Português|ID do en|
+|RAE de Hong Kong|Chinês Tradicional|zh-HK|
+|Índia|Inglês|en-IN|
+|Indonésia|Inglês|en-ID|
 |Itália|Italiano|it-IT|
 |Japão|Japonês|ja-JP|
 |Coreia|Coreano|ko-KR|
-|Malásia|Português|EN-MY|
+|Malásia|Inglês|en-MY|
 |México|Espanhol|es-MX|
-|Países Baixos|Neerlandês|NL-NL|
-|Nova Zelândia|Português|EN-NZ|
+|Países Baixos|Neerlandês|nl-NL|
+|Nova Zelândia|Inglês|en-NZ|
 |China|Chinês|zh-CN|
 |Polónia|Polaco|pl-PL|
 |Portugal|Português|pt-PT|
-|Filipinas|Português|EN-PH|
+|Filipinas|Inglês|en-PH|
 |Rússia|Russo|ru-RU|
-|Arábia Saudita|Árabe|ar SA|
-|África do Sul|Português|EN-ZA|
+|Arábia Saudita|Árabe|ar-SA|
+|África do Sul|Inglês|en-ZA|
 |Espanha|Espanhol|es-ES|
-|Suécia|Sueco|SV-SE|
-|Suíça|Francês|FR-CH|
-|Suíça|Alemão|Alemanha-CH|
-|Taiwan|Chinês tradicional|zh-TW|
+|Suécia|Sueco|sv-SE|
+|Suíça|Francês|fr-CH|
+|Suíça|Alemão|de-CH|
+|Taiwan|Chinês Tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
-|Reino Unido|Português|en-GB|
-|Estados Unidos|Português|en-US|
+|Reino Unido|Inglês|en-GB|
+|Estados Unidos|Inglês|pt-PT|
 |Estados Unidos|Espanhol|es-EUA|
 
-## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações sobre os pontos de extremidade de Pesquisa de Notícias do Bing, consulte [referência do API v7 de notícias pesquisa de imagem](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
+## <a name="next-steps"></a>Passos seguintes
+Para mais informações sobre os pontos finais da Pesquisa de Notícias bing, consulte [a referência da API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)de Pesquisa de Imagens de Notícias .

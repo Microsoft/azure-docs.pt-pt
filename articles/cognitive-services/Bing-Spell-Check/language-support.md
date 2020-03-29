@@ -1,7 +1,7 @@
 ---
-title: Suporte a idiomas – a API de verificação ortográfica do Bing
+title: Suporte linguístico - Bing Spell Check API
 titleSuffix: Azure Cognitive Services
-description: Uma lista de idiomas suportados pela API de verificação de ortografia do Bing.
+description: Uma lista de línguas naturais apoiadas pela Bing Spell Check API.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,30 +11,30 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: 5ffd9f05bb429ba611a08d7985dbc9d509a9df0c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "66390172"
 ---
-# <a name="language-and-region-support-for-bing-spell-check-api"></a>Suporte de idioma e região para a API de verificação ortográfica do Bing
+# <a name="language-and-region-support-for-bing-spell-check-api"></a>Apoio à língua e à região para bing spell check API
 
-Esses idiomas são suportados pela API de verificação de ortografia do Bing (apenas em `spell` modo).
+Estas línguas são suportadas pela API bing `spell` spell check (apenas em modo).
 
-Tenha em atenção que para funcionar com qualquer outra linguagem que `en-US`, o `mkt` deve ser definida e qualquer um dos `Accept-Language` ou `setLang` deve ser definido como foi descrito na [v7 referência da API de verificação ortográfica](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+Por favor, note que para `en-US`trabalhar `mkt` com qualquer `Accept-Language` outro `setLang` idioma que não seja , o deve ser definido e ou deve ser definido como foi descrito na [referência API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference) spell check
 
 | Idioma    | Código do idioma |
 |:----------- |:-------------:|
 | Árabe      | `ar`          |
 | Chinês (República Popular da China)     | `zh-CN`          |
-| Chinês (RAE de Hong Kong)    | `zh-HK`          |
+| Chinês (Hong Kong SAR)    | `zh-HK`          |
 | Chinês (Taiwan)     | `zh-TW`          |
 | Dinamarquês      | `da`          |
-| Holandês (Bélgica)       | `nl-BE`          |
-| Holandês (Países Baixos)      | `nl-NL`          |
+| Neerlandês (Bélgica)       | `nl-BE`          |
+| Neerlandês (Países Baixos)      | `nl-NL`          |
 | Inglês (Austrália)    | `en-AU`          |
 | Inglês (Canadá)     | `en-CA`          |
-| English (India)    | `en-IN`          |
+| Inglês (Índia)    | `en-IN`          |
 | Inglês (Indonésia)     | `en-ID`          |
 | Inglês (Malásia)     | `en-MY`          |
 | Inglês (Nova Zelândia)    | `en-NZ`          |

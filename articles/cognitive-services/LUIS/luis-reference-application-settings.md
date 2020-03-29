@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 11/12/2019
 ms.author: diberry
 ms.openlocfilehash: d1ead09f6248a6ad14646371aa70b42b57cf8e3f
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270810"
 ---
 # <a name="application-settings"></a>Definições da aplicação
@@ -24,12 +24,12 @@ Estas definições de aplicação são armazenadas na aplicação [exportada](ht
 
 |Definição|Valor predefinido|Notas|
 |--|--|--|
-|NormalizePunctuation|Verdadeiro|Remove a pontuação.|
-|NormalizeDiacritics|Verdadeiro|Remove os diacritics.|
+|Normalizar Punctuação|Verdadeiro|Remove a pontuação.|
+|Normalizar Os críticos da Diadia|Verdadeiro|Remove os diacritics.|
 
 ## <a name="diacritics-normalization"></a>Normalização dos diacríticos
 
-Ligue a normalização da expressão dos diacríticos ao ficheiro de aplicações LUIS JSON no `settings` parâmetro.
+Ligue a normalização da expressão para os diacríticos `settings` do seu ficheiro de aplicação LUIS JSON no parâmetro.
 
 ```JSON
 "settings": [
@@ -46,7 +46,7 @@ As seguintes declarações mostram como a normalização dos diacritics tem impa
 
 ### <a name="language-support-for-diacritics"></a>Suporte linguístico para diacríticos
 
-#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Diacritics `pt-br` portugueses brasileiros
+#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Diacríticos portugueses `pt-br` brasileiros
 
 |Diacritics definido para falso|Diacritics definido para verdade|
 |-|-|
@@ -64,7 +64,7 @@ As seguintes declarações mostram como a normalização dos diacritics tem impa
 |`ú`|`u`|
 |||
 
-#### <a name="dutch-nl-nl-diacritics"></a>Diacríticos `nl-nl` holandeses
+#### <a name="dutch-nl-nl-diacritics"></a>Diacríticos holandeses `nl-nl`
 
 |Diacritics definido para falso|Diacritics definido para verdade|
 |-|-|
@@ -81,7 +81,7 @@ As seguintes declarações mostram como a normalização dos diacritics tem impa
 |`ü`|`u`|
 |||
 
-#### <a name="french-fr--diacritics"></a>Diacríticos de `fr-` francês
+#### <a name="french-fr--diacritics"></a>Diacríticos franceses `fr-`
 
 Isto inclui subculturas francesas e canadianas.
 
@@ -102,7 +102,7 @@ Isto inclui subculturas francesas e canadianas.
 |`ü`|`u`|
 |`ÿ`|`y`|
 
-#### <a name="german-de-de-diacritics"></a>Diacríticos `de-de` alemães
+#### <a name="german-de-de-diacritics"></a>Diacríticos alemães `de-de`
 
 |Diacritics definido para falso|Diacritics definido para verdade|
 |--|--|
@@ -110,7 +110,7 @@ Isto inclui subculturas francesas e canadianas.
 |`ö`|`o`|
 |`ü`|`u`|
 
-#### <a name="italian-it-it-diacritics"></a>Os `it-it` diacríticos italianos
+#### <a name="italian-it-it-diacritics"></a>Diacríticos italianos `it-it`
 
 |Diacritics definido para falso|Diacritics definido para verdade|
 |--|--|
@@ -125,7 +125,7 @@ Isto inclui subculturas francesas e canadianas.
 |`ù`|`u`|
 |`ú`|`u`|
 
-#### <a name="spanish-es--diacritics"></a>Os críticos `es-` espanhóis
+#### <a name="spanish-es--diacritics"></a>Diacríticos espanhóis `es-`
 
 Isto inclui tanto o espanhol como o mexicano canadiano.
 
@@ -142,7 +142,7 @@ Isto inclui tanto o espanhol como o mexicano canadiano.
 
 ## <a name="punctuation-normalization"></a>Normalização da pontuação
 
-Ligue a normalização da expressão para pontuação no ficheiro da aplicação LUIS JSON no parâmetro `settings`.
+Ligue a normalização da expressão para pontuação no ficheiro da `settings` aplicação LUIS JSON no parâmetro.
 
 ```JSON
 "settings": [
@@ -159,7 +159,7 @@ As seguintes declarações mostram como a pontuação impacta as expressões:
 
 ### <a name="punctuation-removed"></a>Pontuação removida
 
-A pontuação que se segue é removida com `NormalizePunctuation` é definida como verdadeira.
+A pontuação a seguir `NormalizePunctuation` é removida com a verdadeira.
 
 |Pontuação|
 |--|

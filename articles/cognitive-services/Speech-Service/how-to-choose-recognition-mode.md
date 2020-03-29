@@ -12,10 +12,10 @@ ms.date: 03/10/2020
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: d997cb592d9d648998f2b44d9f61f465f05faeb0
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79079824"
 ---
 # <a name="choose-a-speech-recognition-mode"></a>Escolha um modo de reconhecimento de voz
@@ -30,7 +30,7 @@ No final de uma expressão reconhecida, o serviço deixa de processar áudio a p
 
 ::: zone pivot="programming-language-csharp"
 
-Para obter mais informações sobre a utilização da função `RecognizeOnceAsync`, consulte os [docs .NET Speech SDK](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechRecognizer_RecognizeOnceAsync).
+Para obter mais `RecognizeOnceAsync` informações sobre a utilização da função, consulte os [docs .NET Speech SDK](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechRecognizer_RecognizeOnceAsync).
 
 ```csharp
 var result = await recognizer.RecognizeOnceAsync();
@@ -39,7 +39,7 @@ var result = await recognizer.RecognizeOnceAsync();
 ::: zone-end
 ::: zone pivot="programming-language-cpp"
 
-Para obter mais informações sobre a utilização da função `RecognizeOnceAsync`, consulte os [ C++ docs do Speech SDK](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#recognizeonceasync).
+Para obter mais `RecognizeOnceAsync` informações sobre a utilização da função, consulte os [docs C++ Speech SDK](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#recognizeonceasync).
 
 ```cpp
 auto result = recognize->RecognizeOnceAsync().get();
@@ -48,7 +48,7 @@ auto result = recognize->RecognizeOnceAsync().get();
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-Para obter mais informações sobre a utilização da função `recognizeOnceAsync`, consulte os [docs Java Speech SDK](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.SpeechRecognizer.recognizeOnceAsync?view=azure-java-stable).
+Para obter mais `recognizeOnceAsync` informações sobre a utilização da função, consulte os [docs Java Speech SDK](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.SpeechRecognizer.recognizeOnceAsync?view=azure-java-stable).
 
 ```java
 SpeechRecognitionResult result = recognizer.recognizeOnceAsync().get();
@@ -57,7 +57,7 @@ SpeechRecognitionResult result = recognizer.recognizeOnceAsync().get();
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-Para obter mais informações sobre a utilização da função `recognize_once`, consulte os [docs Python Speech SDK](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python#recognize-once------azure-cognitiveservices-speech-speechrecognitionresult).
+Para obter mais `recognize_once` informações sobre a utilização da função, consulte os [docs python Speech SDK](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python#recognize-once------azure-cognitiveservices-speech-speechrecognitionresult).
 
 ```python
 result = speech_recognizer.recognize_once()
@@ -164,7 +164,7 @@ Ao utilizar um reconhecimento contínuo, pode ativar o processamento de ditados 
 
 ::: zone pivot="programming-language-csharp"
 
-Para obter mais informações sobre a utilização da função `EnableDictation`, consulte os [docs .NET Speech SDK](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.enabledictation?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechConfig_EnableDictation).
+Para obter mais `EnableDictation` informações sobre a utilização da função, consulte os [docs .NET Speech SDK](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.enabledictation?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechConfig_EnableDictation).
 
 ```csharp
 // Enable diction
@@ -174,7 +174,7 @@ SpeechConfig.EnableDictation();
 ::: zone-end
 ::: zone pivot="programming-language-cpp"
 
-Para obter mais informações sobre a utilização da função `EnableDictation`, consulte os [ C++ docs do Speech SDK](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#enabledictation).
+Para obter mais `EnableDictation` informações sobre a utilização da função, consulte os [docs C++ Speech SDK](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#enabledictation).
 
 ```cpp
 // Enable diction
@@ -184,7 +184,7 @@ SpeechConfig->EnableDictation();
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-Para obter mais informações sobre a utilização da função `enableDictation`, consulte os [docs Java Speech SDK](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.SpeechConfig.enableDictation?view=azure-java-stable).
+Para obter mais `enableDictation` informações sobre a utilização da função, consulte os [docs Java Speech SDK](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.SpeechConfig.enableDictation?view=azure-java-stable).
 
 ```java
 // Enable diction
@@ -194,7 +194,7 @@ SpeechConfig.enableDictation();
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-Para obter mais informações sobre a utilização da função `enable_dictation`, consulte os [docs Python Speech SDK](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#enable-dictation--).
+Para obter mais `enable_dictation` informações sobre a utilização da função, consulte os [docs python Speech SDK](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#enable-dictation--).
 
 ```python
 # Enable diction

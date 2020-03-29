@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: aahi
 ms.openlocfilehash: 243086ddaae47eba20eea6877fe6d7f8f9889290
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79203496"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como utilizar o Reconhecimento de EntidadeS Nomeadas em Análise de Texto
@@ -23,7 +23,7 @@ A API text Analytics permite-lhe obter texto não estruturado e devolve uma list
 
 ### <a name="entity-linking"></a>Ligar à Entidade
 
-A ligação da entidade é a capacidade de identificar e desambigar a identidade de uma entidade encontrada em texto (por exemplo, determinando se uma ocorrência da palavra `Mars` se refere ao planeta, ou ao deus romano da guerra). Este processo requer a presença de uma base de conhecimento numa linguagem apropriada, para ligar entidades reconhecidas em texto. A Entidade Que Liga a Wikipédia usa a [Wikipédia](https://www.wikipedia.org/) como base de conhecimento.
+A ligação da entidade é a capacidade de identificar e desambigar a identidade de uma entidade `Mars` encontrada em texto (por exemplo, determinando se uma ocorrência da palavra se refere ao planeta, ou ao deus romano da guerra). Este processo requer a presença de uma base de conhecimento numa linguagem apropriada, para ligar entidades reconhecidas em texto. A Entidade Que Liga a Wikipédia usa a [Wikipédia](https://www.wikipedia.org/) como base de conhecimento.
 
 
 ### <a name="named-entity-recognition-ner"></a>Reconhecimento de Entidades Nomeada (NER)
@@ -49,7 +49,7 @@ Consulte o [suporte linguístico](../language-support.md#sentiment-analysis-key-
 
 #### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
-### <a name="entity-types"></a>Tipos de entidade
+### <a name="entity-types"></a>Tipos de entidades
 
 O chamado Reconhecimento de Entidades v3 fornece deteção expandida em vários tipos. Atualmente, ner v3 pode reconhecer as seguintes categorias de entidades:
 
@@ -63,9 +63,9 @@ Para obter uma lista detalhada de entidades e línguas apoiadas, consulte o arti
 O chamado Reconhecimento de Entidades v3 utiliza pontos finais separados para pedidos de NER e entidades que ligam. Utilize um formato URL abaixo com base no seu pedido:
 
 NER
-* Entidades gerais - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
+* Entidades gerais -`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
 
-* Informações pessoais - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
+* Informações pessoais -`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
 
 Ligação de entidades
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
@@ -76,36 +76,36 @@ Ligação de entidades
 
 #### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
-### <a name="entity-types"></a>Tipos de entidade
+### <a name="entity-types"></a>Tipos de entidades
 
 > [!NOTE]
 > Denominada Versão 2 de Reconhecimento de Entidades (NER) suporta apenas as seguintes entidades. O NER v3 está em pré-visualização pública, e amplia consideravelmente o número e a profundidade das entidades reconhecidas em texto.   
 
 | Tipo  | SubTipo | Exemplo |
 |:-----------   |:------------- |:---------|
-| Pessoa        | N/A\*         | "Jeff", "Bill Gates"     |
-| Localização      | N/A\*         | "Redmond, Washington", "Paris"  |
-| Organização  | N/A\*         | "Microsoft"   |
-| Quantidade      | Number        | "6", "six"     |
+| Pessoa        | N/D\*         | "Jeff", "Bill Gates"     |
+| Localização      | N/D\*         | "Redmond, Washington", "Paris"  |
+| Organização  | N/D\*         | "Microsoft"   |
+| Quantidade      | Número        | "6", "seis"     |
 | Quantidade      | Percentagem    | "50%", "cinquenta por cento"|
 | Quantidade      | Ordinal       | "2º", "segundo"     |
 | Quantidade      | Idade           | "90 dias de idade", "30 anos"    |
 | Quantidade      | Moeda      | "$10,99"     |
 | Quantidade      | Dimensão     | "10 milhas", "40 cm"     |
 | Quantidade      | Temperatura   | "32 graus"    |
-| DateTime      | N/A\*         | "18:30 H 4 de fevereiro de 2012"      |
-| DateTime      | Data          | "2 de maio de 2017", "05/02/2017"   |
+| DateTime      | N/D\*         | "18:30 H 4 de fevereiro de 2012"      |
+| DateTime      | Date          | "2 de maio de 2017", "05/02/2017"   |
 | DateTime      | Hora          | "8:00", "8:00"  |
 | DateTime      | DataRange     | "2 de maio a 5 de maio"    |
 | DateTime      | Intervalo de tempo     | "18h00 às 19h"     |
 | DateTime      | Duração      | "1 minuto e 45 segundos"   |
 | DateTime      | Definir           | "todas as terças-feiras"     |
-| do IdP           | N/A\*         | "https:\//www.bing.com"    |
-| Email         | N/A\*         | "support@contoso.com" |
-| Número de telefone dos EUA  | N/A\*         | (apenas números de telefone dos EUA) "(312) 555-0176" |
-| Endereço IP    | N/A\*         | "10.0.0.100" |
+| do IdP           | N/D\*         | "https:\//www.bing.com"    |
+| Email         | N/D\*         | "support@contoso.com" |
+| Número de telefone dos EUA  | N/D\*         | (apenas números de telefone dos EUA) "(312) 555-0176" |
+| Endereço IP    | N/D\*         | "10.0.0.100" |
 
-\* Dependendo da entrada e das entidades extraídas, algumas entidades podem omiti-lo `SubType`.  Todos os tipos de entidades apoiadas listados estão disponíveis apenas para as línguas inglesa, chinesa- simplificada, francesa, alemã e espanhola.
+\*Dependendo da entrada e das entidades extraídas, certas `SubType`entidades podem omitida a .  Todos os tipos de entidades apoiadas listados estão disponíveis apenas para as línguas inglesa, chinesa- simplificada, francesa, alemã e espanhola.
 
 ### <a name="request-endpoints"></a>Pontos finais de pedido
 
@@ -125,7 +125,7 @@ Cada documento deve ter menos de 5.120 caracteres, podendo ter até 1.000 itens 
 
 ### <a name="structure-the-request"></a>Estruturar o pedido
 
-Crie um pedido post. Pode [utilizar](text-analytics-how-to-call-api.md) o Carteiro ou a consola de **teste API** nos seguintes links para estruturar e enviar uma. 
+Crie um pedido POST. Pode [utilizar](text-analytics-how-to-call-api.md) o Carteiro ou a consola de **teste API** nos seguintes links para estruturar e enviar uma. 
 
 > [!NOTE]
 > Pode encontrar a sua chave e ponto final para o seu recurso Text Analytics no portal azul. Eles estarão localizados na página de **arranque rápida** do recurso, sob gestão de **recursos.** 
@@ -137,9 +137,9 @@ Crie um pedido post. Pode [utilizar](text-analytics-how-to-call-api.md) o Cartei
 A versão 3 utiliza pontos finais separados para pedidos de NER e entidades que ligam. Utilize um formato URL abaixo com base no seu pedido:
 
 NER
-* Entidades gerais - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
+* Entidades gerais -`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
 
-* Entidades de informação pessoal - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
+* Entidades de informação pessoal -`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
 
 Ligação de entidades
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`

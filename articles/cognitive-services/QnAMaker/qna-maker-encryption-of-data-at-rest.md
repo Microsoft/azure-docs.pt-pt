@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
 ms.openlocfilehash: bd64321a6a7afbac61a63365c77a75120f837e83
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79372097"
 ---
 # <a name="qna-maker-encryption-of-data-at-rest"></a>QnA Maker encriptação de dados em repouso
@@ -37,12 +37,12 @@ O serviço QnA Maker utiliza CMK do serviço De Pesquisa Azure. Siga estes passo
 
    ![Ver definições de encriptação](../media/cognitive-services-encryption/qna-encryption-1.png)
 
-2. Quando cria um recurso QnA Maker, está automaticamente associado a uma instância de Pesquisa Azure. Isto não pode ser utilizado com CMK. Para utilizar a CMK, terá de associar a sua recém-criada instância de Pesquisa Azure que foi criada no passo 1. Especificamente, terá de atualizar a `AzureSearchAdminKey` e `AzureSearchName` no seu recurso QnA Maker.
+2. Quando cria um recurso QnA Maker, está automaticamente associado a uma instância de Pesquisa Azure. Isto não pode ser utilizado com CMK. Para utilizar a CMK, terá de associar a sua recém-criada instância de Pesquisa Azure que foi criada no passo 1. Especificamente, terá de atualizar `AzureSearchAdminKey` `AzureSearchName` o e no seu recurso QnA Maker.
 
    ![Ver definições de encriptação](../media/cognitive-services-encryption/qna-encryption-2.png)
 
 3. Em seguida, criar uma nova definição de aplicação:
-   * **Nome**: Desloque isto para `CustomerManagedEncryptionKeyUrl`
+   * **Nome**: Definir isto para`CustomerManagedEncryptionKeyUrl`
    * **Valor**: Este é o valor que obteve no Passo 1 ao criar a sua instância de Pesquisa Azure.
 
    ![Ver definições de encriptação](../media/cognitive-services-encryption/qna-encryption-3.png)

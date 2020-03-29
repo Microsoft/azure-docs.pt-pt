@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: diberry
 ms.openlocfilehash: 1f2b293acdc77e25e6b932c47d466cc28a04a2b6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220910"
 ---
 # <a name="add-entities-to-extract-data"></a>Adicionar entidades para extrair dados 
 
 Criar entidades para extrair dados-chave de declarações de utilizadores em aplicações de Compreensão de Idiomas (LUIS). Os dados da entidade extraída são utilizados pela sua aplicação de cliente para pedidos de clientes fullfil.
 
-A entidade representa uma palavra ou frase dentro da expressão que pretende que sejam extraídos. Entidades descrevem informações relevantes para a intenção e, às vezes, são essenciais para a sua aplicação realizar suas tarefas. Pode criar entidades quando adiciona um exemplo de expressão a uma intenção ou para além de (antes ou depois) adicionar um exemplo de expressão a uma intenção.
+A entidade representa uma palavra ou frase dentro da expressão que quer extraída. As entidades descrevem informações relevantes para a intenção, e por vezes são essenciais para que a sua app execute a sua tarefa. Pode criar entidades quando adiciona um exemplo de expressão a uma intenção ou para além de (antes ou depois) adicionar um exemplo de expressão a uma intenção.
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
@@ -49,7 +49,7 @@ Utilize a tabela seguinte para entender quais as entidades onde criar ou adicion
 |Entidade de lista|Entidades ou detalhes de intenções|
 |Entidade de expressão regular|Entidades|
 |Entidade Pattern.any|Entidades|
-|Entidade pré-criados|Entidades|
+|Entidade pré-construída|Entidades|
 |Entidade de domínio pré-construído|Entidades|
 
 Pode criar todas as entidades a partir da página **Entidades,** ou pode criar algumas entidades como parte da rotulagem da entidade na página de detalhes de **Intenção.** Só é possível _rotular_ uma entidade num exemplo da página de **detalhes intenta.** 
@@ -64,7 +64,7 @@ Utilize entidades que correspondam a textos fornecem várias formas de extrair d
 
 |Entidades que correspondem a texto|Objetivo|
 |--|--|
-|[Entidade da lista](#add-list-entities-for-exact-matches)|lista de nomes canónicos, juntamente com sinónimos como formas alternativas|
+|[Entidade de lista](#add-list-entities-for-exact-matches)|lista de nomes canónicos, juntamente com sinónimos como formas alternativas|
 |Entidade de expressão regular|texto de jogo usando uma entidade de expressão regular|
 |[Entidade pré-construída](tutorial-machine-learned-entity.md#add-prebuilt-number-to-help-extract-data)|combinar tipos de dados comuns, tais como número, e-mail, data|
 |Entidade de domínio pré-construído|combinar usando domínios de assunto selecionados|
@@ -82,7 +82,7 @@ As entidades pré-construídas trabalham sem fornecer quaisquer dados de formaç
 
 ### <a name="add-list-entities-for-exact-matches"></a>Adicionar entidades da lista para jogos exatos
 
-Lista de entidades representam um conjunto de palavras relacionadas fixo e fechado. Enquanto você, como autor, pode mudar a lista, LUIS não vai crescer ou encolher a lista. Também pode importar para uma entidade de lista existente utilizando um formato [entidade da lista .json (reference-entity-list.md#example-json-to-import-into-list-entity). 
+As entidades da lista representam um conjunto fixo e fechado de palavras relacionadas. Enquanto você, como autor, pode mudar a lista, LUIS não vai crescer ou encolher a lista. Também pode importar para uma entidade de lista existente utilizando um formato [entidade da lista .json (reference-entity-list.md#example-json-to-import-into-list-entity). 
 
 A lista que se segue demonstra o nome canónico e os sinónimos. 
 
@@ -96,11 +96,11 @@ Utilize o procedimento para criar uma entidade de lista. Uma vez criada a entida
 
 1. A partir da secção **Construir,** selecione **Entidades** no painel esquerdo e, em seguida, selecione **+ Criar**.
 
-1. Na caixa de diálogo **criar uma entidade,** introduza o nome da entidade, como `Colors` e selecione **Lista**.
-1. Na caixa de diálogo criar **uma entidade de lista,** na **nova sublista Adicionar....** introduza o nome do item da lista, como `Green`, em seguida, adicione sinónimos.
+1. Na caixa de diálogo **criar uma entidade,** introduza o `Colors` nome da entidade, por exemplo e selecione **Lista**.
+1. Na caixa de diálogo criar **uma entidade de lista,** na **nova sublista Adicionar....** introduza o nome do item da lista, como, `Green`em seguida, adicione sinónimos.
 
     > [!div class="mx-imgBorder"]
-    > ![Criar uma lista de cores como entidade de lista na página de detalhes da Entidade.](media/how-to-add-entities/create-list-entity-of-colors.png) 
+    > ![Crie uma lista de cores como entidade de lista na página de detalhes da Entidade.](media/how-to-add-entities/create-list-entity-of-colors.png) 
 
 1. Quando terminar de adicionar itens de lista e sinónimos, selecione **Criar**.
 
@@ -115,11 +115,11 @@ Um papel é um subtipo nomeado de uma entidade, baseada no contexto.
 
 ### <a name="add-a-role-to-distinguish-different-contexts"></a>Adicione um papel para distinguir diferentes contextos
 
-Na seguinte expressão, existem dois locais, e cada um é especificado semânticamente pelas palavras à sua volta, tais como `to` e `from`: 
+Na seguinte expressão, existem dois locais, e cada um é especificado semânticamente pelas palavras à sua volta tais como: `to` `from` 
 
 `Pick up the package from Seattle and deliver to New York City.`
 
-Neste procedimento, adicione `origin` e `destination` funções a uma entidade de geografia pré-construídaV2.
+Neste procedimento, `origin` adicione `destination` e funções a uma entidade de geografia pré-construídaV2.
 
 1. A partir da secção **Build,** selecione **Entidades** no painel esquerdo.
 
@@ -128,8 +128,8 @@ Neste procedimento, adicione `origin` e `destination` funções a uma entidade d
     Se chegar à conclusão que o seu padrão, ao incluir uma entidade Pattern.any, extrai as entidades incorretamente, utilize uma [lista explícita](reference-pattern-syntax.md#explicit-lists) para corrigir este problema. 
 
 1. Selecione a entidade de geografia pré-construída recém-construída V2 da lista de entidades da **Página entidades.** 
-1. Para adicionar um novo papel, selecione **+** ao lado de **nenhuma função adicionada**.
-1. Na **função Tipo...** caixa de texto, introduza o nome do papel `Origin` depois entre. Adicione um segundo nome de `Destination`, em seguida, entre. 
+1. Para adicionar um novo **+** papel, selecione ao lado de **nenhuma função adicionada**.
+1. Na **função Tipo...** caixa de texto, `Origin` introduza o nome da função e depois entre. Adicione um segundo `Destination` nome de papel de então insira. 
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot de adicionar papel de Origem à entidade de localização](media/how-to-add-entities//add-role-to-prebuilt-geographyv2-entity.png)
@@ -142,20 +142,20 @@ Neste procedimento, adicione `origin` e `destination` funções a uma entidade d
 1. Para rotular com a função, selecione o rótulo da entidade (linha sólida em texto) na expressão do exemplo e, em seguida, selecione **View in entity palette** from the drop-down list. 
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot de selecionar Vista na entidade Paleta](media/how-to-add-entities/select-text-label-with-entity-palette-for-role.png)   
+    > ![Screenshot de selecionar Vista na paleta de entidade](media/how-to-add-entities/select-text-label-with-entity-palette-for-role.png)   
 
     A paleta de entidades abre-se para a direita. 
 
 1. Selecione a entidade, depois vá para a parte inferior da paleta e selecione o papel. 
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot de selecionar Vista na entidade Paleta](media/how-to-add-entities/select-role-from-entity-palette-entity-inspector.png)
+    > ![Screenshot de selecionar Vista na paleta de entidade](media/how-to-add-entities/select-role-from-entity-palette-entity-inspector.png)
 
 <a name="add-pattern-any-entities"></a>
 
 ## <a name="add-a-patternany-entity"></a>Adicione um padrão.qualquer entidade
 
-[Padrão.qualquer](luis-concept-entity-types.md) entidade só é válida em [padrões,](luis-how-to-model-intent-pattern.md)não em declarações exemplo de intenções. Este tipo de entidade ajuda LUIS encontrar o fim de entidades de comprimento variável e a escolha do word. Como esta entidade é utilizada num padrão, o LUIS sabe onde o fim da entidade é o modelo de expressão.
+[Padrão.qualquer](luis-concept-entity-types.md) entidade só é válida em [padrões,](luis-how-to-model-intent-pattern.md)não em declarações exemplo de intenções. Este tipo de entidade ajuda a LUIS a encontrar o fim de entidades de comprimento e escolha de palavras variadas. Como esta entidade é usada num padrão, a LUIS sabe onde está o fim da entidade no modelo de expressão.
 
 ### <a name="steps-to-create-a-patternany-entity"></a>Passos para criar um padrão.qualquer entidade
 
@@ -167,20 +167,20 @@ Neste procedimento, adicione `origin` e `destination` funções a uma entidade d
 
 ### <a name="create-a-pattern-template-utterance-to-use-patternany-entity"></a>Criar uma expressão de modelo de padrão para usar o padrão.qualquer entidade
 
-Para utilizar o padrão.qualquer entidade, adicione um padrão na página **Patterns,** na secção de desempenho da **aplicação Improve,** com a sintaxe de cinta encaracolada correta, como `Where is **{HumanResourcesFormTitle}** on the server?`.
+Para utilizar o padrão.qualquer entidade, adicione um padrão na página **Padrões,** na secção de desempenho da `Where is **{HumanResourcesFormTitle}** on the server?` **aplicação Improve,** com a sintaxe de cinta encaracolada correta, como .
 
 Se chegar à conclusão que o seu padrão, ao incluir uma entidade Pattern.any, extrai as entidades incorretamente, utilize uma [lista explícita](reference-pattern-syntax.md#explicit-lists) para corrigir este problema. 
 
 ## <a name="do-not-change-entity-type"></a>Não alterar o tipo de entidade
 
-LUIS não permite-lhe alterar o tipo da entidade, porque ele não sabe o que adicionar ou remover para construir essa entidade. Para alterar o tipo, é melhor criar uma nova entidade do tipo correto com um nome de um pouco diferente. Assim que a entidade é criada, em cada ocorrência de pronunciação, remova o nome da entidade com nome antigo e adicionar o novo nome de entidade. Depois de tem sido relabeled todas as expressões, elimine a entidade antiga. 
+A LUIS não lhe permite alterar o tipo de entidade porque não sabe o que adicionar ou remover para construir essa entidade. Para alterar o tipo, é melhor criar uma nova entidade do tipo correto com um nome ligeiramente diferente. Uma vez criada a entidade, em cada expressão, remova o nome da antiga entidade rotulada e adicione o nome da nova entidade. Uma vez remarcadas todas as declarações, apague a antiga entidade. 
 
 <a name="create-a-pattern-from-an-utterance"></a>
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
-> [Utilizar modelos pré-construídos](howto-add-prebuilt-models.md) 
+> [Utilizar modelos pré-concebidos](howto-add-prebuilt-models.md) 
 
 Saiba mais sobre:
 * Como [treinar](luis-how-to-train.md)

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: diberry
 ms.openlocfilehash: ce85c2d264b2b4849a4a36ed757150292fdf39f0
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77622784"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Analise o seu ciclo de aprendizagem com uma avaliação offline
@@ -55,7 +55,7 @@ Uma vez concluída, pode selecionar a avaliação da lista de avaliações e, em
 1. Reveja o desempenho das políticas de [aprendizagem.](concepts-offline-evaluation.md#discovering-the-optimized-learning-policy)
 
     > [!div class="mx-imgBorder"]
-    > [resultados da avaliação da revisão de ![](./media/offline-evaluation/evaluation-results.png)](./media/offline-evaluation/evaluation-results.png#lightbox)
+    > [![Resultados da avaliação de revisão](./media/offline-evaluation/evaluation-results.png)](./media/offline-evaluation/evaluation-results.png#lightbox)
 
 1. Selecione **Aplicar** para aplicar a política que melhora o modelo melhor para os seus dados.
 

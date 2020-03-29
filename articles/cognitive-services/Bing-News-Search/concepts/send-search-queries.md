@@ -1,7 +1,7 @@
 ---
-title: Enviando consultas para o API de Pesquisa de Notícias do Bing
+title: Envio de consultas para a API de Pesquisa de Notícias bing
 titleSuffix: Azure Cognitive Services
-description: O API de Pesquisa de Notícias do Bing permite pesquisar itens de notícias relevantes na Web. Use este artigo para saber mais sobre como enviar consultas de pesquisa para a API.
+description: A API de Pesquisa de Notícias Bing permite-lhe pesquisar na web novidades relevantes. Use este artigo para saber mais sobre o envio de consultas de pesquisa para a API.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: aahi
 ms.openlocfilehash: f59c924caca86505e9f1e91bf58095b271475794
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75383724"
 ---
-# <a name="sending-queries-to-the-bing-news-search-api"></a>Enviando consultas para o API de Pesquisa de Notícias do Bing
+# <a name="sending-queries-to-the-bing-news-search-api"></a>Envio de consultas para a API de Pesquisa de Notícias bing
 
-O API de Pesquisa de Notícias do Bing permite pesquisar itens de notícias relevantes na Web. Use este artigo para saber mais sobre como enviar consultas de pesquisa para a API.
+A API de Pesquisa de Notícias Bing permite-lhe pesquisar na web novidades relevantes. Use este artigo para saber mais sobre o envio de consultas de pesquisa para a API.
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-## <a name="sending-a-request"></a>Enviando uma solicitação
+## <a name="sending-a-request"></a>Envio de um pedido
 
 Para obter os resultados da pesquisa de notícias, enviaria um pedido GET ao seguinte ponto final:
 
@@ -35,11 +35,11 @@ O pedido tem de utilizar o protocolo HTTPS.
 
 Recomendamos que todos os pedidos tenham origem num servidor. Distribuir a chave como parte de uma aplicação cliente abre mais oportunidades de acesso à mesma a terceiros mal-intencionados. Além disso, fazer chamadas a partir de um servidor fornece um único ponto de atualização para as futuras versões da API.
 
-O pedido tem de especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query), que contém o termo de pesquisa do utilizador. Embora seja opcional, o pedido também deve especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#mkt), que identifica o mercado de onde pretende que os resultados provenham. Para obter uma lista de parâmetros de consulta opcionais, como `freshness` e `textDecorations`, veja [Parâmetros de Consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters). Todos os valores de parâmetro de consulta têm de estar codificados com URL.
+O pedido tem de especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query), que contém o termo de pesquisa do utilizador. Embora seja opcional, o pedido deve também especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#mkt), que identifica o mercado de onde pretende que os resultados provenham. Para obter uma lista de parâmetros de consulta opcionais, como `freshness` e `textDecorations`, veja [Parâmetros de Consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters). Todos os valores de parâmetro de consulta têm de estar codificados com URL.
 
 O pedido tem de especificar o cabeçalho [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#subscriptionkey). Embora seja opcional, recomenda-se que especifique também os seguintes cabeçalhos:
 
-- [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#useragent)
+- [Agente-utilizador](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#useragent)
 - [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#clientid)
 - [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#clientip)
 - [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#location)
@@ -60,7 +60,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-## <a name="bing-news-search-api-response"></a>API de Pesquisa de Notícias do Bing resposta
+## <a name="bing-news-search-api-response"></a>Resposta da API de Pesquisa de Notícias bing
 
 O código a seguir mostra a resposta ao pedido anterior. O exemplo também mostra os cabeçalhos de resposta.
 
@@ -284,7 +284,7 @@ BingAPIs-Market: en-US
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [O que é pesquisa de notícias do Bing?](../search-the-web.md). 
-* [Obtenha as principais notícias de hoje](search-for-news.md#get-todays-top-news)
-* [Obter notícias por categoria](search-for-news.md#get-news-by-category)
+* [O que é Bing News Search?](../search-the-web.md). . . 
+* [Obtenha as melhores notícias de hoje](search-for-news.md#get-todays-top-news)
+* [Obtenha notícias por categoria](search-for-news.md#get-news-by-category)
 * [Obtenha notícias de tendência](search-for-news.md#get-trending-news)

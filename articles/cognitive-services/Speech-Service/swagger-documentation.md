@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.openlocfilehash: fcc43caf895dadfaf832a47c3254f9b828bcb71a
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77430810"
 ---
 # <a name="swagger-documentation"></a>Documentação do Swagger
@@ -32,7 +32,7 @@ Terá de colocar swagger na mesma região que a sua assinatura de serviço speec
 
 1. Ir para https://editor.swagger.io
 2. Clique em **Ficheiro,** em seguida, clique **em Importar**
-3. Introduza o URL swagger incluindo a região para a sua subscrição de serviço de Discurso `https://<your-region>.cris.ai/docs/v2.0/swagger`
+3. Introduza o URL swagger incluindo a região para a sua subscrição de serviço speech`https://<your-region>.cris.ai/docs/v2.0/swagger`
 4. Clique em **Gerar Cliente** e selecione Python
 5. Salve a biblioteca de clientes
 

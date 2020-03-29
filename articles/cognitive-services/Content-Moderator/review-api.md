@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
 ms.openlocfilehash: 1aba86efb9ea76fbf060e80b47f9f2f6cdf8ee71
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79221152"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Avaliações de moderação de conteúdos, fluxos de trabalho e empregos
@@ -35,7 +35,7 @@ Um fluxo de trabalho é um filtro personalizado baseado em nuvem para conteúdo.
 
 ### <a name="view-workflows"></a>Ver fluxos de trabalho
 
-Para visualizar os fluxos de trabalho existentes, vá à [ferramenta 'Rever'](https://contentmoderator.cognitive.microsoft.com/) e selecione **Definições** > **Fluxos de Trabalho**.
+Para visualizar os fluxos de trabalho existentes, vá à [ferramenta 'Rever'](https://contentmoderator.cognitive.microsoft.com/) e selecione**Fluxos de trabalho**de **Definições** > .
 
 ![Fluxo de trabalho padrão](images/default-workflow-listed.PNG)
 
@@ -74,6 +74,6 @@ Consulte o [guia REST API](./try-review-api-job.md) para começar a usar trabalh
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Teste a [consola Job API](try-review-api-job.md)e utilize as amostras de código REST API. Se estiver familiarizado com o C#Visual Studio e , consulte também o [Arranque Rápido Jobs .NET](moderation-jobs-quickstart-dotnet.md). 
+* Teste a [consola Job API](try-review-api-job.md)e utilize as amostras de código REST API. Se estiver familiarizado com o Visual Studio e c#, consulte também o [Jobs .NET quickstart](moderation-jobs-quickstart-dotnet.md). 
 * Para comentários, inicie-se com a [consola API review](try-review-api-review.md)e utilize as amostras de código REST API. Em seguida, consulte a secção de comentários do [arranque rápido .NET](dotnet-sdk-quickstart.md).
 * Para análises de vídeo, utilize a análise de [vídeo quickstart](video-reviews-quickstart-dotnet.md), e aprenda a [adicionar transcrições à análise de vídeo](video-transcript-reviews-quickstart-dotnet.md).

@@ -4,10 +4,10 @@ description: A QnA Maker integra-se em aplicações de clientes, como bots de ch
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: 38b275aa2b8cf5768a2bc95634a7ff4892893eda
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78300524"
 ---
 # <a name="design-knowledge-base-for-client-applications"></a>Base de conhecimento de design para aplicações de clientes

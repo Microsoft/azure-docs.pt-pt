@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Documentação do alojamento
+title: Documentação de hospedagem
 summary: Os recipientes de serviço de fala estão disponíveis para cenários de discurso a texto e texto-a-fala, abrangendo modelos standard ou personalizados.
 metadata:
   title: Documentação de hospedagem - Tutoriais, Referência API - Serviços Cognitivos Azure / Microsoft Docs
@@ -7,17 +7,16 @@ metadata:
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: ff12c357ba273c6965b11db4eabc1890925439be
-  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+  ms.openlocfilehash: 8298a2e37520e7920f18b7ffd5b49074098e0243
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/14/2020
-  ms.locfileid: "79366705"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "79415910"
 landingContent:
 - title: Sobre hospedagem
   linkLists:
@@ -43,5 +42,5 @@ landingContent:
     links:
     - text: Regiões suportadas
       url: regions.md
-    - text: Clouds soberanas
+    - text: Nuvens soberanas
       url: sovereign-clouds.md

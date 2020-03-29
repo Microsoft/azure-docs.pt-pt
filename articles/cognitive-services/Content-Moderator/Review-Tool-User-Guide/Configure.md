@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
 ms.openlocfilehash: 2d685683bdc359b31a5a6c550c19e8c0d858f12a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220129"
 ---
 # <a name="configure-the-review-tool"></a>Configurar a Ferramenta de revisão
@@ -25,7 +25,7 @@ A [ferramenta 'Rever'](https://contentmoderator.cognitive.microsoft.com) tem vá
 
 ## <a name="manage-team-and-subteams"></a>Gerir equipas e subequipas
 
-O separador **Team** permite-lhe gerir a sua equipa e subequipa&mdash;grupos de utilizadores que podem ser notificados quando determinadas [avaliações humanas](../review-api.md#reviews) são iniciadas. Só pode ter uma equipa (que cria quando se inscreve na ferramenta Review), mas pode criar várias subequipas. O administrador da equipa pode convidar os membros, definir as suas permissões e atribuí-los a diferentes subequipas.
+O separador **Team** permite-lhe gerir&mdash;a sua equipa e subequipagrupos de utilizadores que podem ser notificados quando determinadas [avaliações humanas](../review-api.md#reviews) são iniciadas. Só pode ter uma equipa (que cria quando se inscreve na ferramenta Review), mas pode criar várias subequipas. O administrador da equipa pode convidar os membros, definir as suas permissões e atribuí-los a diferentes subequipas.
 
 ![Rever as definições da equipa de ferramentas](images/settings-2-team.png)
 
@@ -66,7 +66,7 @@ Se for membro de mais de um subteam, pode alternar entre esses sub-teams para al
 
 ## <a name="tags"></a>Etiquetas
 
-O separador **Tags** permite definir etiquetas de moderação personalizadas para além das duas etiquetas de moderação padrão&mdash;**é adulto** (**a**) e **isracia** **(r).** Quando cria uma etiqueta personalizada, fica disponível em comentários ao lado das etiquetas predefinidas. Pode alterar quais as etiquetas que aparecem nas avaliações, mudando as suas definições de visibilidade.
+O separador **Tags** permite definir etiquetas de moderação personalizadas&mdash;para além das duas etiquetas de moderação padrão**é adulto** (**a**) e **isracia** **(r).** Quando cria uma etiqueta personalizada, fica disponível em comentários ao lado das etiquetas predefinidas. Pode alterar quais as etiquetas que aparecem nas avaliações, mudando as suas definições de visibilidade.
 
 ![Vista de etiquetas, incluindo as caixas de verificação "É visível"](images/tags-4-disable.png)
 

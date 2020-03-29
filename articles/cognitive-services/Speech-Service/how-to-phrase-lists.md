@@ -1,7 +1,7 @@
 ---
 title: Listas de Frases - Serviço de Fala
 titleSuffix: Azure Cognitive Services
-description: Aprenda a fornecer o serviço de Fala com uma Lista de Frases usando o `PhraseListGrammar` oobjeto para melhorar os resultados de reconhecimento de discurso-texto.
+description: Aprenda a fornecer o serviço de `PhraseListGrammar` Fala com uma Lista de Frases usando o objeto para melhorar os resultados de reconhecimento de discurso-texto.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -12,10 +12,10 @@ ms.date: 02/04/2020
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: f84ea6b2b0f1e8246e1d765e54f663cd01f29b1d
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77560852"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>Listas de frases para discurso-texto
@@ -31,7 +31,7 @@ Palavras simples ou frases completas podem ser adicionadas a uma Lista de Frases
 
 ## <a name="how-to-use-phrase-lists"></a>Como usar listas de frases
 
-As amostras abaixo ilustram como construir uma Lista de Frases usando o objeto `PhraseListGrammar`.
+As amostras abaixo ilustram como `PhraseListGrammar` construir uma Lista de Frases usando o objeto.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -91,7 +91,7 @@ phraseListGrammar.addPhrase("Move to Ted");
 >[!Note]
 > O número máximo de Listas de Frases que o serviço de Fala usará para combinar a fala é de 1024 frases.
 
-Também pode limpar as frases associadas à `PhraseListGrammar`, chamando claro().
+Também pode limpar as frases `PhraseListGrammar` associadas ao chamar claro().
 
 ::: zone pivot="programming-language-csharp"
 
@@ -134,7 +134,7 @@ phraseListGrammar.clear();
 ::: zone-end
 
 > [!NOTE]
-> As alterações a um objeto `PhraseListGrammar` têm efeito no próximo reconhecimento ou na sequência de uma reconexão ao serviço da Fala.
+> As alterações a um `PhraseListGrammar` objeto têm efeito no próximo reconhecimento ou na sequência de uma reconexão ao serviço da Fala.
 
 ## <a name="next-steps"></a>Passos seguintes
 

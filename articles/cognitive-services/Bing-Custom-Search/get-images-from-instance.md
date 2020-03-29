@@ -1,7 +1,7 @@
 ---
-title: Obter imagens de exibição personalizado - pesquisa personalizada do Bing
+title: Obtenha imagens da sua vista personalizada - Bing Custom Search
 titleSuffix: Azure Cognitive Services
-description: Visão geral sobre como utilizar a pesquisa personalizada do Bing para obter imagens de exibição personalizado da Web.
+description: Visão geral de alto nível sobre a utilização de Bing Custom Search para obter imagens da sua visão personalizada da Web.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: scottwhi
 ms.openlocfilehash: 5fa71c62969e0f1ff7e98f374eca63efa051c041
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "66390336"
 ---
-# <a name="get-images-from-your-custom-view"></a>Obter imagens de exibição personalizado
+# <a name="get-images-from-your-custom-view"></a>Obtenha imagens da sua vista personalizada
 
-Pesquisa de imagens personalizada do Bing permite-lhe aprimorar sua experiência de pesquisa personalizada com imagens. À semelhança dos resultados da Web, a pesquisa personalizada suporta a pesquisa de imagens na lista de sites da sua instância. Pode obter as imagens usando a API de pesquisa de imagens de personalizada do Bing ou através da IU hospedado de recursos. Utilizar a funcionalidade de hospedado da interface do Usuário é simples de usar e recomendados para colocar sua experiência de pesquisa em funcionamento, em Resumo, ordem.  Para obter informações sobre como configurar a sua interface do Usuário alojados a incluir imagens, consulte [configurar a sua experiência de interface do Usuário alojada](hosted-ui.md).
+Bing Custom Images Search permite-lhe enriquecer a sua experiência de pesquisa personalizada com imagens. À semelhança dos resultados da Web, a pesquisa personalizada suporta a pesquisa de imagens na lista de sites da sua instância. Pode obter as imagens utilizando a API de Pesquisa de Imagens Personalizadas do Bing ou através da funcionalidade UI hospedada. A utilização da funcionalidade UI hospedada é simples de utilizar e recomendada para que a sua experiência de pesquisa esteja a funcionar em ordem curta.  Para obter informações sobre a configuração do Seu UI hospedado para incluir imagens, consulte [Configurar a sua experiência de UI hospedada](hosted-ui.md).
 
-Se quiser mais controle sobre exibindo os resultados de pesquisa, pode utilizar a API de pesquisa de imagens de personalizada do Bing. Como chamar a API é semelhante a chamar a API de pesquisa de imagens Bing, Check-out [pesquisa de imagens Bing](../Bing-Image-Search/overview.md) para chamar a API de exemplos. Mas antes de o fazer, familiarize-se com o [referência da API de pesquisa de imagens personalizada](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) conteúdo. As principais diferenças são os parâmetros de consulta suportados (tem de incluir o parâmetro de consulta customConfig) e envia pedidos para o ponto de extremidade.
+Se pretender mais controlo sobre a exibição dos resultados da pesquisa, pode utilizar a API de Pesquisa de Imagens Personalizadas do Bing. Porque chamar a API é semelhante a chamar a API de Pesquisa de Imagem bing, check-out [Bing Image Search](../Bing-Image-Search/overview.md) por exemplo, chamando a API. Mas antes disso, familiarize-se com o conteúdo de referência da API de [Imagens Personalizadas.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) As principais diferenças são os parâmetros de consulta suportados (deve incluir o parâmetro de consulta personalizado Config) e o ponto final para o que envia pedidos.
 
 <!--
 ## Next steps

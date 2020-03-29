@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.openlocfilehash: c14376cc80373371ec5fcb8f22a00584a6b2f714
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220217"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configure a sua experiência de pesquisa personalizada bing
@@ -27,7 +27,7 @@ Utilize o seguinte ao definir as suas fatias da web:
 
 | Nome da fatia | Descrição                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain     | Uma fatia de domínio inclui todos os conteúdos encontrados dentro de um domínio de internet. Por exemplo, `www.microsoft.com`. Omitindo `www.` faz com que Bing também procure os subdomínios do domínio. Por exemplo, se especificar `microsoft.com`, o Bing também devolve resultados de `support.microsoft.com` ou `technet.microsoft.com`. |
+| Domain     | Uma fatia de domínio inclui todos os conteúdos encontrados dentro de um domínio de internet. Por exemplo, `www.microsoft.com`. Omitindo `www.` faz com que Bing também procure os subdomínios do domínio. Por exemplo, se `microsoft.com`especificar, bing `support.microsoft.com` também `technet.microsoft.com`devolve resultados de ou . |
 | Subpágina    | Uma fatia de subpágina inclui todos os conteúdos encontrados na subpágina e caminhos abaixo dela. Pode especificar um máximo de duas subpáginas no caminho. Por exemplo, `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Página Web    | Uma fatia de página web pode incluir apenas essa página web numa pesquisa personalizada. Pode especificar opcionalmente se deve incluir subpáginas.                                                                                                                                                                                  |
 
@@ -76,7 +76,7 @@ Depois de adicionar fatias web à lista **Ativa,** o portal Bing Custom Search g
 
 Pode pesquisar imagens e vídeos similarmente ao conteúdo web utilizando a [API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) de Pesquisa de Imagem Personalizada Bing ou a [API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)de Pesquisa de Vídeo Personalizada bing . Pode apresentar estes resultados com os [UI hospedeiros,](hosted-ui.md)ou as APIs. 
 
-Estas APIs são semelhantes às APIs de Pesquisa de [Imagem bing](../Bing-Image-Search/overview.md) não personalizadas e bing [video search,](../Bing-Video-Search/search-the-web.md) mas procurem toda a web, e não requerem o parâmetro de consulta `customConfig`. Consulte estes conjuntos de documentação para obter mais informações sobre o trabalho com imagens e vídeos. 
+Estas APIs são semelhantes às APIs de Pesquisa de [Imagem bing](../Bing-Image-Search/overview.md) não personalizadas e Bing [Video Search,](../Bing-Video-Search/search-the-web.md) mas procurem toda a web, e não requerem o `customConfig` parâmetro de consulta. Consulte estes conjuntos de documentação para obter mais informações sobre o trabalho com imagens e vídeos. 
 
 ## <a name="test-your-search-instance-with-the-preview-pane"></a>Teste a sua instância de pesquisa com o painel de pré-visualização
 
@@ -96,7 +96,7 @@ O portal permite-lhe ajustar o ranking de pesquisa de conteúdos a partir de dom
 |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Bloquear      | Move o domínio, subpágina ou página web para a lista bloqueada. Bing excluirá o conteúdo do site selecionado de aparecer nos resultados da pesquisa.                    |
 | Impulsionar      | Aumenta o conteúdo do domínio ou subpágina para ser mais elevado nos resultados da pesquisa.                                                                                        |
-| Despromovido     | Despromova o conteúdo do domínio ou subpágina mais baixo nos resultados da pesquisa. Selecione se despromover o conteúdo do domínio ou subpágina a que a página web pertence. |
+| Despromover     | Despromova o conteúdo do domínio ou subpágina mais baixo nos resultados da pesquisa. Selecione se despromover o conteúdo do domínio ou subpágina a que a página web pertence. |
 | Pin para cima | Move o domínio, subpágina ou página web para a lista **pinned.** Isto força a página web a aparecer como o resultado de pesquisa superior para uma determinada consulta de pesquisa.                   |
 
 O ajuste do ranking não está disponível para pesquisas de imagem ou vídeo.
@@ -131,8 +131,8 @@ Por padrão, as páginas web só são fixadas no topo dos resultados de pesquisa
 
 | Valor | Descrição                                                                          |
 |---------------|----------------------------------------------------------------------------------|
-| Começa com | O pino é compatível se a corda de consulta do utilizador começar com a corda de consulta do pino |
-| termina com   | O pino é compatível se a corda de consulta do utilizador terminar com a corda de consulta do pino.  |
+| Starts with | O pino é compatível se a corda de consulta do utilizador começar com a corda de consulta do pino |
+| Termina com   | O pino é compatível se a corda de consulta do utilizador terminar com a corda de consulta do pino.  |
 | Contains    | O pino é compatível se a corda de consulta do utilizador contiver a corda de consulta do pino.   |
 
 

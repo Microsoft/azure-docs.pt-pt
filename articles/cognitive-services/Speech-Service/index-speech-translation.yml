@@ -1,23 +1,22 @@
 ### YamlMime:Landing
-title: Documentação da tradução de voz
+title: Documentação de tradução da fala
 summary: A tradução da fala do serviço Speech permite a tradução em tempo real, multi-linguagem da fala à fala e da tradução fala-a-texto de fluxos áudio
 metadata:
-  title: Documentação de tradução da fala - Tutoriais, Referência API - Serviços Cognitivos Azure  Microsoft Docs
+  title: Documentação de tradução da fala - Tutoriais, Referência API - Serviços Cognitivos Azure [ Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: 742b9710fc7ab396aa906c956d6809df9440c78e
-  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+  ms.openlocfilehash: 75f620d5210f5ba0dc61ac1c5be2f30aa23dea9c
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/14/2020
-  ms.locfileid: "79367980"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "79415331"
 landingContent:
 - title: Sobre a tradução da fala
   linkLists:
@@ -29,7 +28,7 @@ landingContent:
     links:
     - text: Traduzir voz para texto
       url: quickstarts/translate-speech-to-text.md
-    - text: Traduzir voz para vários idiomas de destino
+    - text: Traduzir o discurso em várias línguas-alvo
       url: quickstarts/translate-speech-to-text-multiple-languages.md
     - text: Traduzir voz para voz
       url: quickstarts/translate-speech-to-speech.md

@@ -1,7 +1,7 @@
 ---
-title: Implantar um modelo para o serviço de Fala Personalizada-fala
+title: Implementar um modelo para discurso personalizado - serviço de discurso
 titleSuffix: Azure Cognitive Services
-description: Neste documento, você aprenderá a criar e implantar um ponto de extremidade usando o portal de Fala Personalizada.
+description: Neste documento, você vai aprender a criar e implementar um ponto final usando o portal de Discurso Personalizado.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,43 +11,43 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: e41653e4644b09cc357510223e5ee86c3806ae2c
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74806118"
 ---
 # <a name="deploy-a-custom-model"></a>Implementar um modelo personalizado
 
-Depois de carregar e inspecionar dados, avaliar a precisão e treinar um modelo personalizado, você pode implantar um ponto de extremidade personalizado para usar com seus aplicativos, ferramentas e produtos. Neste documento, você aprenderá a criar e implantar um ponto de extremidade usando o [portal de fala personalizada](https://speech.microsoft.com/customspeech).
+Depois de ter carregado e inspecionado dados, avaliado a precisão e treinado um modelo personalizado, pode implementar um ponto final personalizado para usar com as suas apps, ferramentas e produtos. Neste documento, você vai aprender a criar e implementar um ponto final usando o [portal de Discurso Personalizado](https://speech.microsoft.com/customspeech).
 
-## <a name="create-a-custom-endpoint"></a>Criar um ponto de extremidade personalizado
+## <a name="create-a-custom-endpoint"></a>Criar um ponto final personalizado
 
-Para criar um novo ponto de extremidade personalizado, entre no [portal de fala personalizada](https://speech.microsoft.com/customspeech) e selecione **implantação** no menu fala personalizada na parte superior da página. Se esta for sua primeira execução, você observará que não há nenhum ponto de extremidade listado na tabela. Depois de criar um ponto de extremidade, você usará essa página para acompanhar cada ponto de extremidade implantado.
+Para criar um novo ponto final personalizado, inscreva-se no [portal de Discurso Personalizado](https://speech.microsoft.com/customspeech) e selecione **Deployment** do menu de Discurso Personalizado no topo da página. Se esta for a sua primeira corrida, vai notar que não há pontos finais listados na tabela. Depois de criar um ponto final, usará esta página para rastrear cada ponto final implantado.
 
-Em seguida, selecione **Adicionar ponto de extremidade** e insira um **nome** e uma **Descrição** para o ponto de extremidade personalizado. Em seguida, selecione o modelo personalizado que você deseja associar a esse ponto de extremidade. Nessa página, você também pode habilitar o registro em log. O registro em log permite monitorar o tráfego do ponto de extremidade. Se desabilitado, o tráfego não será armazenado.
+Em seguida, selecione **Adicionar ponto final** e introduza um **nome** e **descrição** para o seu ponto final personalizado. Em seguida, selecione o modelo personalizado que gostaria de associar a este ponto final. A partir desta página, também pode ativar o registo. O registo permite-lhe monitorizar o tráfego de pontos finais. Se estiver incapacitado, o tráfego não será armazenado.
 
-![Como implantar um modelo](./media/custom-speech/custom-speech-deploy-model.png)
+![Como implementar um modelo](./media/custom-speech/custom-speech-deploy-model.png)
 
 > [!NOTE]
-> Não se esqueça de aceitar os termos de uso e os detalhes de preços.
+> Não se esqueça de aceitar os termos de uso e detalhes de preços.
 
-Em seguida, selecione **criar**. Essa ação retorna para a página de **implantação** . A tabela agora inclui uma entrada que corresponde ao seu ponto de extremidade personalizado. O status do ponto de extremidade mostra seu estado atual. Pode levar até 30 minutos para criar uma instância de um novo ponto de extremidade usando seus modelos personalizados. Quando o status da implantação for alterado para **concluído**, o ponto de extremidade estará pronto para uso.
+Em seguida, selecione **Criar**. Esta ação devolve-o à página **de Implantação.** A tabela agora inclui uma entrada que corresponde ao seu ponto final personalizado. O estado do ponto final mostra o seu estado atual. Pode levar até 30 minutos para instantaneamente um novo ponto final usando os seus modelos personalizados. Quando o estado da implantação muda para **Completar,** o ponto final está pronto a ser utilizado.
 
-Depois que o ponto de extremidade for implantado, o nome do ponto de extremidade aparecerá como um link. Clique no link para exibir informações específicas para seu ponto de extremidade, como a chave do ponto de extremidade, a URL do ponto de extremidade e o código de exemplo.
+Depois de o seu ponto final ser implantado, o nome final aparece como um link. Clique no link para visualizar informações específicas do seu ponto final, tais como a chave de ponto final, URL de ponto final e código de amostra.
 
-## <a name="view-logging-data"></a>Exibir dados de log
+## <a name="view-logging-data"></a>Ver dados de registo
 
-Os dados de log estão disponíveis para download em **detalhes do ponto de extremidade >** .
+Os dados de registo estão disponíveis para download em **Dados > Endpoint**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Usar seu ponto de extremidade personalizado com o [SDK de fala](speech-sdk.md)
+* Use o seu ponto final personalizado com o [SDK](speech-sdk.md) do Discurso
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Preparar e testar seus dados](how-to-custom-speech-test-data.md)
-* [Inspecione seus dados](how-to-custom-speech-inspect-data.md)
-* [Avalie seus dados](how-to-custom-speech-evaluate-data.md)
-* [Treinar seu modelo](how-to-custom-speech-train-model.md)
-* [Implantar seu modelo](how-to-custom-speech-deploy-model.md)
+* [Prepare e teste os seus dados](how-to-custom-speech-test-data.md)
+* [Inspecione os seus dados](how-to-custom-speech-inspect-data.md)
+* [Avaliar os seus dados](how-to-custom-speech-evaluate-data.md)
+* [Preparar o seu modelo](how-to-custom-speech-train-model.md)
+* [Implante o seu modelo](how-to-custom-speech-deploy-model.md)

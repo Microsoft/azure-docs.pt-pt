@@ -1,7 +1,7 @@
 ---
-title: Usar trabalhos de moderação usando o .NET-Content Moderator
+title: Utilize trabalhos de moderação usando .NET - Moderador de Conteúdo
 titleSuffix: Azure Cognitive Services
-description: Use o SDK do .NET Content Moderator para iniciar trabalhos de moderação de conteúdo de ponta a ponta para conteúdo de imagem ou texto na Content Moderator do Azure.
+description: Utilize o Moderador de Conteúdo .NET SDK para iniciar trabalhos de moderação de conteúdo de ponta a ponta para conteúdos de imagem ou texto no Moderador de Conteúdo Do Azure.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: fe1b5b4171dc5e61c1c82abfd723d0b77a05a5b9
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76294342"
 ---
-# <a name="define-and-use-moderation-jobs-net"></a>Definir e usar trabalhos de moderação (.NET)
+# <a name="define-and-use-moderation-jobs-net"></a>Defina e use trabalhos de moderação (.NET)
 
-Um trabalho de moderação serve como um tipo de wrapper para a funcionalidade de moderação de conteúdo, fluxos de trabalho e revisões. Este guia fornece informações e exemplos de código para ajudá-lo a começar a usar o [SDK do Content moderator para .net](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
+Um trabalho de moderação serve como uma espécie de invólucro para a funcionalidade de moderação de conteúdos, fluxos de trabalho e revisões. Este guia fornece informações e amostras de código para ajudá-lo a começar a usar o [SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) moderador de conteúdo para .NET para:
 
 - Iniciar uma tarefa de moderação para analisar e criar as revisões para moderadores humanos
 - Obter o estado da revisão pendente
 - Monitorizar e obter o estado final da revisão
-- Enviar os resultados da revisão para a URL de retorno de chamada
+- Envie os resultados da revisão para o URL de callback
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Entre ou crie uma conta no site da [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
+- Inscreva-se ou crie uma conta no site da ferramenta Content Moderator [Review.](https://contentmoderator.cognitive.microsoft.com/)
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Certifique-se de que a chave de API pode chamar a API de revisão para a criação de revisões
 
@@ -36,7 +36,7 @@ Depois de concluir os passos anteriores, pode ficar com duas chaves do Content M
 
 Se planear utilizar a chave de API dada pelo Azure no seu exemplo de SDK, siga os passos mencionados na secção [Utilizar a chave do Azure com a API de revisão](./review-tool-user-guide/configure.md#use-your-azure-account-with-the-review-apis) para permitir que a aplicação chame a API de revisão e crie as revisões.
 
-Se utilizar a chave de avaliação gratuita gerada pela ferramenta de revisão, a sua conta da ferramenta de revisão já conhece a chave e, por conseguinte, não são necessários passos adicionais.
+Se utilizar a chave de avaliação gratuita gerada pela ferramenta de revisão, a sua conta da ferramenta de revisão já conhece a chave e, por conseguinte, não são precisos passos adicionais.
 
 ## <a name="define-a-custom-moderation-workflow"></a>Definir um fluxo de trabalho de moderação personalizado
 
@@ -80,7 +80,7 @@ using System.Threading;
 Adicione o seguinte código para criar um cliente do Content Moderator para a sua subscrição.
 
 > [!IMPORTANT]
-> Atualize os campos **AzureEndpoint** e **CMSubscriptionKey** com os valores da URL do ponto de extremidade e da chave de assinatura.
+> Atualize os campos **AzureEndpoint** e **CMSubscriptionKey** com os valores do URL final e chave de subscrição.
 
 ```csharp
 /// <summary>
@@ -124,7 +124,7 @@ public static class Clients
 Adicione as seguintes constantes e campos estáticos à classe **Programa** em Program.cs.
 
 > [!NOTE]
-> Defina a constante TeamName com o nome que utilizou quando criou a sua subscrição do Content Moderator. Você recupera o teamname no site da Content Moderator.
+> Defina a constante TeamName com o nome que utilizou quando criou a sua subscrição do Content Moderator. Pode obter o TeamName do site do Content Moderator.
 > Depois de iniciar sessão, selecione **Credenciais** no menu **Definições** (ícone de roda dentada).
 >
 > O nome da sua equipa é o valor do campo **Id** na secção **API**.
@@ -316,4 +316,4 @@ Verá uma resposta semelhante ao seguinte exemplo:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Obtenha o [SDK .NET do Content Moderator](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e a [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros inícios rápidos do Content Moderator para .NET e comece a trabalhar na sua integração.
+Obtenha o [SDK do Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e a [solução Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros inícios rápidos do Content Moderator para .NET e comece a trabalhar na sua integração.

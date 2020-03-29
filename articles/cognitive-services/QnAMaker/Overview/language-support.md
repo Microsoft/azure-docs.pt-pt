@@ -1,7 +1,7 @@
 ---
-title: Suporte de idiomas - QnA Maker
+title: Suporte linguístico - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Uma lista de cultura, idiomas suportados pelo QnA Maker para sua base de dados de conhecimento. Não misture idiomas na mesma base de dados de conhecimento.
+description: Uma lista de cultura, línguas naturais apoiadas pela QnA Maker para a sua base de conhecimento. Não misture línguas na mesma base de conhecimento.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 09/24/2019
 ms.author: diberry
 ms.openlocfilehash: 96440bf0e9c26e6f222f3bc94c8fabb0bc8f488d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220558"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Suporte linguístico para um recurso qna maker e bases de conhecimento
@@ -29,12 +29,12 @@ Saiba mais sobre o [impacto da seleção linguística.](../how-to/language-knowl
 
 A lista seguinte contém as línguas suportadas para um recurso QnA Maker. 
 
-|Linguagem|
+|Idioma|
 |--|
 |Árabe|
 |Arménio|
-|Bengali|
-|Basco (Basco)|
+|Bengalês|
+|Basco|
 |Búlgaro|
 |Catalão|
 |Chinese_Simplified|
@@ -43,14 +43,14 @@ A lista seguinte contém as línguas suportadas para um recurso QnA Maker.
 |Checo|
 |Dinamarquês|
 |Neerlandês|
-|Português|
+|Inglês|
 |Estónio|
 |Finlandês|
 |Francês|
 |Galego|
 |Alemão|
 |Grego|
-|Guzarate|
+|Guzerate|
 |Hebraico|
 |Hindi|
 |Húngaro|
@@ -59,11 +59,11 @@ A lista seguinte contém as línguas suportadas para um recurso QnA Maker.
 |Irlandês|
 |Italiano|
 |Japonês|
-|Canarim|
+|Canarês|
 |Coreano|
 |Letão|
 |Lituano|
-|Malayalam|
+|Malaiala|
 |Malaio|
 |Norueguês|
 |Polaco|
@@ -77,15 +77,15 @@ A lista seguinte contém as línguas suportadas para um recurso QnA Maker.
 |Esloveno|
 |Espanhol|
 |Sueco|
-|Tamil|
-|Télego|
+|Tâmil|
+|Telugu|
 |Tailandês|
 |Turco|
 |Ucraniano|
 |Urdu|
 |Vietnamita|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Seleção de idiomas](../how-to/language-knowledge-base.md)
+> [Seleção de idioma](../how-to/language-knowledge-base.md)

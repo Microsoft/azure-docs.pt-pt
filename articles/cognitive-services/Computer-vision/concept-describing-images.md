@@ -1,7 +1,7 @@
 ---
-title: Descrições de imagem-Pesquisa Visual Computacional
+title: Descrições da imagem - Visão computorizada
 titleSuffix: Azure Cognitive Services
-description: Conceitos relacionados ao recurso de descrição da imagem do API da Pesquisa Visual Computacional.
+description: Conceitos relacionados com a característica de descrição da imagem da API da Visão Computacional.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: dcf61c642a9f8ad7aa68d72736ce8fdb0e9a6e3c
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 7bf95a2b49608ef1f031a3b443db92b42cdae624
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945269"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80244720"
 ---
-# <a name="describe-images-with-human-readable-language"></a>Descrever imagens com linguagem legível
+# <a name="describe-images-with-human-readable-language"></a>Descreva imagens com linguagem legível pelo homem
 
-Pesquisa Visual Computacional pode analisar uma imagem e gerar uma frase legível que descreve seu conteúdo. O algoritmo realmente retorna várias descrições com base em diferentes recursos visuais, e cada descrição recebe uma pontuação de confiança. A saída final é uma lista de descrições ordenadas da mais alta para a mais baixa confiança.
+A Visão Computacional pode analisar uma imagem e gerar uma frase legível pelo homem que descreve o seu conteúdo. O algoritmo realmente devolve várias descrições com base em diferentes características visuais, e cada descrição é dada uma pontuação de confiança. A saída final é uma lista de descrições ordenadas da maior e mais baixa confiança.
 
 ## <a name="image-description-example"></a>Exemplo de descrição da imagem
 
-A resposta JSON a seguir ilustra o que Pesquisa Visual Computacional retorna ao descrever a imagem de exemplo com base em seus recursos visuais.
+A resposta json seguinte ilustra o que a Visão de Computador retorna ao descrever a imagem de exemplo com base nas suas características visuais.
 
-![Uma imagem em preto e branco de edifícios no Manhattan](./Images/bw_buildings.png)
+![Uma imagem a preto e branco de edifícios em Manhattan](./Images/bw_buildings.png)
 
 ```json
 {
@@ -56,6 +56,13 @@ A resposta JSON a seguir ilustra o que Pesquisa Visual Computacional retorna ao 
 }
 ```
 
+## <a name="use-the-api"></a>Utilizar a API
+
+A característica de descrição da imagem faz parte da [API de Imagem de Análise.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) Você pode chamar isto de API através de um SDK nativo ou através de chamadas REST. Incluir `Description` no parâmetro de consulta **visualFeatures.** Em seguida, quando obtém a resposta completa da JSON, `"description"` basta analisar a corda para o conteúdo da secção.
+
+* [Quickstart: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Quickstart: Analise uma imagem (REST API)](./quickstarts/csharp-analyze.md)
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Aprenda conceitos sobre como [Marcar imagens](concept-tagging-images.md) e [categorizar imagens](concept-categorizing-images.md).
+Conheça os conceitos relacionados de [marcar imagens](concept-tagging-images.md) e [categorizar imagens.](concept-categorizing-images.md)

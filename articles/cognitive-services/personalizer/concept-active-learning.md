@@ -4,10 +4,10 @@ description: As definições de aprendizagem determinam os *hiperparâmetros* do
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: abe6a2a2ec9b9978230d894c69193469f6e932e6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79219348"
 ---
 # <a name="learning-policy-and-settings"></a>Política de aprendizagem e configurações
@@ -28,7 +28,7 @@ As configurações da política de aprendizagem não se destinam a ser alteradas
 
 Personalizer usa [vowpalwabbit](https://github.com/VowpalWabbit) para treinar e marcar os eventos. Consulte a [documentação da vowpalwabbit](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Command-line-arguments) sobre como editar as definições de aprendizagem usando o vowpalwabbit. Assim que tiver os argumentos corretos da linha de comando, guarde o comando para um ficheiro com o seguinte formato (substitua o valor da propriedade dos argumentos pelo comando pretendido) e faça o upload do ficheiro para importar definições de aprendizagem no painel de Definições de **Modelo e Aprendizagem** no portal Azure para o seu recurso Personalizer.
 
-O seguinte `.json` é um exemplo de uma política de aprendizagem.
+Segue-se `.json` um exemplo de uma política de aprendizagem.
 
 ```json
 {

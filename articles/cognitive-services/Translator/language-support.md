@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/10/2020
 ms.author: swmachan
 ms.openlocfilehash: a4f9833e8dd14dc7c8ec5849cb809bf2089a5dae
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77206128"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Apoio à língua e à região para a API de Texto tradutor
@@ -31,8 +31,8 @@ A API de Texto tradutor suporta as seguintes línguas para a tradução de texto
 > A V2 foi depreciada a 30 de abril de 2018. Por favor, emigre as suas aplicações para v3 de forma a tirar partido das novas funcionalidades disponíveis exclusivamente em V3.
 
 * Apenas estatístico: Não existe nenhum sistema neural disponível para esta língua.
-* Neural disponível: Um sistema neural está disponível. Utilize o parâmetro `category=generalnn` para aceder ao sistema neural.
-* Padrão neural: Neural é o sistema de tradução padrão. Utilize o parâmetro `category=smt` para aceder ao sistema estatístico para utilização com o Microsoft Tradutor Hub.
+* Neural disponível: Um sistema neural está disponível. Utilize o `category=generalnn` parâmetro para aceder ao sistema neural.
+* Padrão neural: Neural é o sistema de tradução padrão. Utilize o `category=smt` parâmetro para aceder ao sistema estatístico para utilização com o Microsoft Tradutor Hub.
 * Apenas neural: Apenas a tradução neural está disponível.
 
 **V3 Tradutor API** A API tradutora V3 é neural por padrão e os sistemas estatísticos só estão disponíveis quando não existe nenhum sistema neural.
@@ -44,10 +44,10 @@ A API de Texto tradutor suporta as seguintes línguas para a tradução de texto
 |:-----|:-----:|:-----|
 |Afrikaans| `af`|   Neural|
 |Árabe|    `ar`    |   Neural|
-|Bangla|    `bn`    |   Neural|
+|Rio Bangla|    `bn`    |   Neural|
 |Bósnio (Latim)|   `bs`    |   Neural|
 |Búlgaro| `bg`    |   Neural|
-|Cantonês (tradicional)|   `yue`|  Estatística|
+|Cantonês (Tradicional)|   `yue`|  Estatística|
 |Catalão|   `ca`    |   Estatística|
 |Chinês simplificado|    `zh-Hans`|Neural|
 |Chinês tradicional|   `zh-Hant`       |Neural|
@@ -55,7 +55,7 @@ A API de Texto tradutor suporta as seguintes línguas para a tradução de texto
 |Checo| `cs`    |   Neural|
 |Dinamarquês|    `da`        |Neural|
 |Neerlandês| `nl`|   Neural|
-|Português|   `en`    |   Neural|
+|Inglês|   `en`    |   Neural|
 |Estónio|  `et`    |   Neural|
 |Fijian|    `fj`    |   Estatística|
 |Filipino|  `fil`   |   Estatística|
@@ -63,7 +63,7 @@ A API de Texto tradutor suporta as seguintes línguas para a tradução de texto
 |Francês|    `fr`    |   Neural|
 |Alemão|    `de`    |   Neural|
 |Grego| `el`    |   Neural|
-|Haitian Creole|    `ht`        |Estatística|
+|Crioulo haitiano|    `ht`        |Estatística|
 |Hebraico |`he`   |Neural
 |Hindi| `hi`    |   Neural|
 |Hmong Daw| `mww`   |   Estatística|
@@ -73,16 +73,16 @@ A API de Texto tradutor suporta as seguintes línguas para a tradução de texto
 |Irlandês | `ga`| Neural
 |Italiano|   `it`    |   Neural|
 |Japonês|  `ja`    |   Neural|
-|Canarim|`kn`| Neural
-|Suaíli| `sw`    |   Estatística|
-|Klingon|   `tlh`   |   Estatística|
+|Canarês|`kn`| Neural
+|Rio Kiswahili| `sw`    |   Estatística|
+|Rio Klingon|   `tlh`   |   Estatística|
 |Klingon (plqaD)|   `tlh-Qaak`  |   Estatística|
 |Coreano |`ko`   |   Neural|
 |Letão|   `lv`    |   Neural|
 |Lituano|    `lt`    |   Neural|
-|Ariary|  `mg`    |   Estatística|
+|Malgaxe|  `mg`    |   Estatística|
 |Malaio| `ms`        |Estatística|
-|Malayalam| `ml` | Neural
+|Malaiala| `ml` | Neural
 |Maltês|   `mt`    |   Estatística|
 |Maori| `mi`  | Neural|
 |Norueguês| `nb`    |   Neural|
@@ -94,16 +94,16 @@ A API de Texto tradutor suporta as seguintes línguas para a tradução de texto
 |Queretaro Otomi|   `otq`   |   Estatística|
 |Romeno|  `ro`    |   Neural|
 |Russo|   `ru`    |   Neural|
-|Samoan|    `sm`    |   Estatística|
+|Samoano|    `sm`    |   Estatística|
 |Sérvio (Cirílico)|    `sr-Cyrl`|  Estatística|
 |Sérvio (Latim)|   `sr-Latn`       |Estatística|
 |Eslovaco|    `sk`    |   Neural|
 |Esloveno| `sl`    |   Neural|
 |Espanhol|   `es`    |   Neural|
 |Sueco|   `sv`    |Neural|
-|Tahitian|  `ty`    |Estatística|
-|Tamil| `ta`    |   Neural|
-|Télego|    `te`    |   Neural|
+|Taitiano|  `ty`    |Estatística|
+|Tâmil| `ta`    |   Neural|
+|Telugu|    `te`    |   Neural|
 |Tailandês|  `th`    |   Neural|
 |Tongan|    `to`    |   Estatística|
 |Turco|   `tr`        |Neural|
@@ -111,37 +111,37 @@ A API de Texto tradutor suporta as seguintes línguas para a tradução de texto
 |Urdu|  `ur`    |   Estatística|
 |Vietnamita|    `vi`    |   Neural|
 |Galês| `cy`    |   Neural|
-|Yucatec Maya|  `yua`   |   Estatística|
+|Maia yucateca|  `yua`   |   Estatística|
 
 > [!NOTE]
-> O código linguístico `pt` será incumprido rédo a `pt-br`, Português (Brasil).
+> O `pt` código linguístico será indefinido para `pt-br`, Português (Brasil).
 
 ## <a name="transliteration"></a>Transliteração
 
-O método transliterado suporta as seguintes línguas. No "To/From", "<->" indica que a língua pode ser transliterada de ou para qualquer um dos scripts listados. O "-&gt"," indica que a língua só pode ser transliterada de um guião para outro.
+O método transliterado suporta as seguintes línguas. No "To/From", "<-->" indica que a língua pode ser transliterada de ou para qualquer um dos scripts listados. O "-->" indica que a língua só pode ser transliterada de um guião para outro.
 
-| Idioma    | Código do idioma | Script | Para/de | Script|
+| Idioma    | Código do idioma | Script | Para/De | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
-| Árabe | `ar` | `Arab` árabe | <--> | `Latn` latino |
-|Bangla  | `bn` | `Beng` de Bengali | <--> | `Latn` latino |
-| Chinês (Simplificado) | `zh-Hans` | `Hans` simplificado chinês| <--> | `Latn` latino |
-| Chinês (Simplificado) | `zh-Hans` | `Hans` simplificado chinês| <--> | `Hant` tradicional chinês|
-| Chinês (Tradicional) | `zh-Hant` | `Hant` tradicional chinês| <--> | `Latn` latino |
-| Chinês (Tradicional) | `zh-Hant` | `Hant` tradicional chinês| <--> | `Hans` simplificado chinês |
-| Guzarate | `gu`  | `Gujr` Gujarati | --> | `Latn` latino |
-| Hebraico | `he` | `Hebr` hebraico | <--> | `Latn` latino |
-| Hindi | `hi` | Devanagari `Deva` | <--> | `Latn` latino |
-| Japonês | `ja` | `Jpan` japonesa | <--> | `Latn` latino |
-| Canarim | `kn` | `Knda` de Kannada | --> | `Latn` latino |
-| Malayalam | `ml` | `Mlym` malaia | --> | `Latn` latino |
-| Marata | `mr` | Devanagari `Deva` | --> | `Latn` latino |
-| odia | `or` | odia `Orya` | <--> | `Latn` latino |
-| Punjabi | `pa` | `Guru` de Gurmukhi  | <--> | `Latn` latino  |
-| Sérvio (Cirílico) | `sr-Cyrl` | `Cyrl` cirílico  | --> | `Latn` latino |
-| Sérvio (Latim) | `sr-Latn` | `Latn` latino | --> | `Cyrl` cirílico|
-| Tamil | `ta` | `Taml` Tamil | --> | `Latn` latino |
-| Télego | `te` | `Telu` de Telugu | --> | `Latn` latino |
-| Tailandês | `th` | `Thai` tailandeses | --> | `Latn` latino |
+| Árabe | `ar` | Árabe`Arab` | <--> | Latim`Latn` |
+|Rio Bangla  | `bn` | Bengalês`Beng` | <--> | Latim`Latn` |
+| Chinês (Simplificado) | `zh-Hans` | Chinês simplificado`Hans`| <--> | Latim`Latn` |
+| Chinês (Simplificado) | `zh-Hans` | Chinês simplificado`Hans`| <--> | Chinês tradicional`Hant`|
+| Chinês (Tradicional) | `zh-Hant` | Chinês tradicional`Hant`| <--> | Latim`Latn` |
+| Chinês (Tradicional) | `zh-Hant` | Chinês tradicional`Hant`| <--> | Chinês simplificado`Hans` |
+| Guzerate | `gu`  | Guzerate`Gujr` | --> | Latim`Latn` |
+| Hebraico | `he` | Hebraico`Hebr` | <--> | Latim`Latn` |
+| Hindi | `hi` | Rio Devanagari`Deva` | <--> | Latim`Latn` |
+| Japonês | `ja` | Japonês`Jpan` | <--> | Latim`Latn` |
+| Canarês | `kn` | Canarês`Knda` | --> | Latim`Latn` |
+| Malaiala | `ml` | Malaiala`Mlym` | --> | Latim`Latn` |
+| Marata | `mr` | Rio Devanagari`Deva` | --> | Latim`Latn` |
+| Oriya | `or` | Oriya`Orya` | <--> | Latim`Latn` |
+| Punjabi | `pa` | Rio Gurmukhi`Guru`  | <--> | Latim`Latn`  |
+| Sérvio (Cirílico) | `sr-Cyrl` | Cirílico`Cyrl`  | --> | Latim`Latn` |
+| Sérvio (Latim) | `sr-Latn` | Latim`Latn` | --> | Cirílico`Cyrl`|
+| Tâmil | `ta` | Tâmil`Taml` | --> | Latim`Latn` |
+| Telugu | `te` | Telugu`Telu` | --> | Latim`Latn` |
+| Tailandês | `th` | Tailandês`Thai` | --> | Latim`Latn` |
 
 ## <a name="dictionary"></a>Dicionário
 
@@ -151,7 +151,7 @@ O dicionário suporta as seguintes línguas de ou para inglês utilizando os mé
 |:----------- |:-------------:|
 | Afrikaans      | `af`          |
 | Árabe       | `ar`          |
-| Bangla      | `bn`          |
+| Rio Bangla      | `bn`          |
 | Bósnio (Latim)      | `bs`          |
 | Búlgaro      | `bg`          |
 | Catalão      | `ca`          |
@@ -165,7 +165,7 @@ O dicionário suporta as seguintes línguas de ou para inglês utilizando os mé
 | Francês      | `fr`          |
 | Alemão      | `de`          |
 | Grego      | `el`          |
-| Haitian Creole      | `ht`          |
+| Crioulo haitiano      | `ht`          |
 | Hebraico      | `he`          |
 | Hindi      | `hi`          |
 | Hmong Daw      | `mww`          |
@@ -174,8 +174,8 @@ O dicionário suporta as seguintes línguas de ou para inglês utilizando os mé
 | Indonésio      | `id`          |
 | Italiano      | `it`          |
 | Japonês      | `ja`          |
-| Suaíli      | `sw`          |
-| Klingon      | `tlh`          |
+| Rio Kiswahili      | `sw`          |
+| Rio Klingon      | `tlh`          |
 | Coreano      | `ko`          |
 | Letão      | `lv`          |
 | Lituano      | `lt`          |
@@ -192,7 +192,7 @@ O dicionário suporta as seguintes línguas de ou para inglês utilizando os mé
 | Esloveno      | `sl`          |
 | Espanhol      | `es`          |
 | Sueco      | `sv`          |
-| Tamil      | `ta`          |
+| Tâmil      | `ta`          |
 | Tailandês      | `th`          |
 | Turco      | `tr`          |
 | Ucraniano      | `uk`          |
@@ -218,7 +218,7 @@ Os seguintes idiomas estão disponíveis para personalização de ou para inglê
 | Idioma    | Código do idioma |
 |:----------- |:-------------:|
 | Árabe       | `ar`          |
-| Bangla      | `bn`          |
+| Rio Bangla      | `bn`          |
 | Bósnio (Latim)      | `bs`          |
 | Búlgaro      | `bg`          |
 | Chinês simplificado      | `zh-Hans`          |
@@ -227,7 +227,7 @@ Os seguintes idiomas estão disponíveis para personalização de ou para inglê
 | Checo      | `cs`          |
 | Dinamarquês      | `da`          |
 | Neerlandês      | `nl`          |
-| Português    | `en`     |
+| Inglês    | `en`     |
 | Estónio      | `et`          |
 | Finlandês      | `fi`          |
 | Francês      | `fr`          |
@@ -241,11 +241,11 @@ Os seguintes idiomas estão disponíveis para personalização de ou para inglê
 | Irlandês | `ga`  |
 | Italiano      | `it`          |
 | Japonês      | `ja`          |
-| Suaíli|    `sw`    |
+| Rio Kiswahili|    `sw`    |
 | Coreano      | `ko`          |
 | Letão      | `lv`          |
 | Lituano      | `lt`          |
-| Ariary| `mg`    |
+| Malgaxe| `mg`    |
 | Maori| `mi`  |
 | Norueguês      | `nb`          |
 | Persa      | `fa`          |
@@ -253,7 +253,7 @@ Os seguintes idiomas estão disponíveis para personalização de ou para inglê
 | Português (Brasil) | `pt-br` |
 | Romeno      | `ro`          |
 | Russo      | `ru`          |
-| Samoan|   `sm`    |
+| Samoano|   `sm`    |
 | Sérvio (Latim)      | `sr-Latn`          |
 | Eslovaco     | `sk`          |
 | Esloveno      | `sl`          |

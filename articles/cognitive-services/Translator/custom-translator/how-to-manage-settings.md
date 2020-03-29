@@ -1,5 +1,5 @@
 ---
-title: Como gerir as definições? -Tradutor personalizado
+title: Como gerir as definições? - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
 description: Como gerir as definições, criar espaço de trabalho, partilhar espaço de trabalho e gerir a chave de subscrição em Tradutor Personalizado.
 author: swmachan
@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: f90ada6b6cd1760b3b779010625f252533fa611d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79219513"
 ---
 # <a name="how-to-manage-settings"></a>Como gerir as definições
@@ -51,13 +51,13 @@ Se não tiver uma subscrição, siga os passos abaixo:
 
     ![Chave de subscrição após adicionar](media/how-to/subscription-key-after-add.png)
 
-## <a name="manage-your-workspace"></a>Gerencie o seu espaço de trabalho
+## <a name="manage-your-workspace"></a>Gerir a sua área de trabalho
 
 Um espaço de trabalho é uma área de trabalho para compor e construir o seu sistema de tradução personalizada. Um espaço de trabalho pode conter vários projetos, modelos e documentos.
 
 Se uma parte diferente do seu trabalho precisa de ser partilhada com pessoas diferentes, então criar vários espaços de trabalho pode ser útil.
 
-## <a name="create-a-new-workspace"></a>Criar uma nova área de trabalho
+## <a name="create-a-new-workspace"></a>Crie uma nova área de trabalho
 
 1.  Navegue para a página "Definições" do espaço de trabalho.
 2.  Clique no botão "Novo espaço de trabalho" na secção "Criar novo espaço de trabalho".

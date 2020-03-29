@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fa12febe99e77efde45bcd2d538de78f618e641
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220327"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Procure notícias com a API de Pesquisa de Notícias bing
@@ -107,7 +107,7 @@ Se o Bing conseguir determinar a categoria do artigo, este incluirá o campo `ca
 
 ## <a name="get-todays-top-news"></a>Obtenha as melhores notícias de hoje
 
-Para obter os principais artigos de notícias de hoje, pode enviar o mesmo pedido de notícias gerais de antes, deixando o parâmetro `q` desmontado.
+Para obter os principais artigos de notícias de hoje, pode `q` enviar o mesmo pedido de notícias gerais de antes, deixando o parâmetro desmontado.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=&mkt=en-us HTTP/1.1
@@ -119,7 +119,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-A resposta para receber notícias de topo é quase a mesma para receber notícias gerais. No entanto, a resposta `news` não inclui o campo `totalEstimatedMatches` porque existe um número definido de resultados. O número de artigos principais pode variar consoante o ciclo de notícias. Certifique-se de usar o campo `provider` para atribuir o artigo.
+A resposta para receber notícias de topo é quase a mesma para receber notícias gerais. No entanto, a resposta `news` não inclui o campo `totalEstimatedMatches` porque existe um número definido de resultados. O número de artigos principais pode variar consoante o ciclo de notícias. Certifique-se de `provider` usar o campo para atribuir o artigo.
 
 ## <a name="get-news-by-category"></a>Obtenha notícias por categoria
 

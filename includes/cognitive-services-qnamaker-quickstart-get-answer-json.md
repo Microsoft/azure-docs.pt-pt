@@ -11,15 +11,15 @@ ms.custom: include file
 ms.date: 11/12/2018
 ms.author: diberry
 ms.openlocfilehash: fd6a4a4e2d779047d252fdc5e3eae8e3fba8b507
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67184559"
 ---
 ## <a name="request-and-response-json"></a>Pedido e resposta JSON
 
-Uma exemplo formatado em JSON pergunta para a API REST:
+Uma pergunta autoformada pela JSON para a API REST:
 
 ```json
 {
@@ -28,7 +28,7 @@ Uma exemplo formatado em JSON pergunta para a API REST:
 }
 ```
 
-A pergunta inclui uma propriedade para retornar as respostas de três principais. 
+A pergunta inclui uma propriedade para devolver as três respostas principais. 
 
 A resposta é devolvida num objeto JSON:
 
