@@ -1,14 +1,14 @@
 ---
 title: Trabalhar com grandes conjuntos de dados
 description: Compreenda como obter, formato, página e saltar registos em grandes conjuntos de dados enquanto trabalha com o Azure Resource Graph.
-ms.date: 10/18/2019
+ms.date: 03/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2c6aca0c468630cee79222bc77bdc20dc9d95b19
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: be15a6234935627ca748276e6330c50c3ee5a775
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79259802"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064747"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabalhar com grandes conjuntos de dados de recursos Azure
 
@@ -21,7 +21,7 @@ Para obter orientações sobre o trabalho com consultas de alta frequência, con
 Por padrão, o Resource Graph limita qualquer consulta à devolução de apenas **100** registos. Este controlo protege tanto o utilizador como o serviço de consultas não intencionais que resultariam em grandes conjuntos de dados. Este evento acontece mais frequentemente como um cliente está experimentando consultas para encontrar e filtrar recursos da forma que se adequa às suas necessidades particulares. Este controlo é diferente de utilizar os [operadores](/azure/kusto/query/topoperator) de línguas do Top Ou [limite](/azure/kusto/query/limitoperator) o Azure Data Explorer para limitar os resultados.
 
 > [!NOTE]
-> Ao utilizar **primeiro,** recomenda-se encomendar os resultados por pelo menos uma coluna com `asc` ou `desc`. Sem triagem, os resultados devolvidos são aleatórios e não repetíveis.
+> Ao utilizar **primeiro,** recomenda-se encomendar os resultados `asc` por `desc`pelo menos uma coluna com ou . Sem triagem, os resultados devolvidos são aleatórios e não repetíveis.
 
 O limite padrão pode ser ultrapassado através de todos os métodos de interação com o Resource Graph. Os seguintes exemplos mostram como alterar o limite de tamanho do conjunto de dados para _200:_
 
@@ -63,7 +63,7 @@ Na [API REST,](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/re
 Quando for necessário quebrar um resultado definido em registos menores para processamento ou porque um conjunto de resultados excederia o valor máximo permitido de _1000_ registos devolvidos, use a paging. O [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) **QueryResponse** fornece valores que indicam que foi quebrado um conjunto de resultados: **resultadoTruncated** e **$skipToken**.
 **resultadoTruncated** é um valor booleano que informa o consumidor se houver registos adicionais não devolvidos na resposta. Esta condição também pode ser identificada quando a propriedade **contada** é inferior à propriedade **total da Records.** **totalRecords** define quantos registos correspondem à consulta.
 
-Quando **o resultadoTruncated** é **verdadeiro,** a **propriedade $skipToken** é definida na resposta. Este valor é usado com os mesmos valores de consulta e subscrição para obter o próximo conjunto de registos que correspondem à consulta.
+ **resultadoTruncated** é **verdade** quando ou a pagagem é `id` desativada ou não é possível devido a nenhuma coluna ou quando há menos recursos disponíveis do que uma consulta está solicitando. Quando **o resultadoTruncado** é **verdadeiro,** a **propriedade $skipToken** não está definida.
 
 Os seguintes exemplos mostram como **saltar** os primeiros 3000 discos e devolver os **primeiros** 1000 registos depois de esses registos terem saltado com o Azure CLI e o Azure PowerShell:
 
@@ -84,7 +84,7 @@ Por exemplo, consulte a [consulta da página seguinte](/rest/api/azureresourcegr
 
 Os resultados de uma consulta de gráfico de recursos são fornecidos em dois formatos, _Tabela_ e _ObjectArray_. O formato é configurado com o parâmetro **formato de resultados** como parte das opções de pedido. O formato _Tabela_ é o valor padrão para **o resultadoFormat**.
 
-Os resultados do Azure CLI são fornecidos em JSON por padrão. Os resultados em Azure PowerShell são um **PSCustomObject** por padrão, mas podem ser rapidamente convertidos para JSON usando o `ConvertTo-Json` cmdlet. Para outros SDKs, os resultados da consulta podem ser configurados para a saída do formato _ObjectArray._
+Os resultados do Azure CLI são fornecidos em JSON por padrão. Os resultados em Azure PowerShell são um **PSCustomObject** por padrão, `ConvertTo-Json` mas podem ser rapidamente convertidos para JSON usando o cmdlet. Para outros SDKs, os resultados da consulta podem ser configurados para a saída do formato _ObjectArray._
 
 ### <a name="format---table"></a>Formato - Tabela
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: b6351fade23f1671573964f946005d57671d3cc7
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76761071"
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Criar um espaço de nomes do Service Bus com o portal do Azure
@@ -31,7 +31,7 @@ Parabéns! Criou um espaço de nomes de Mensagens do Service Bus.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Confira as amostras do Bus [GitHub][github-samples]de serviço, que mostram algumas das funcionalidades mais avançadas das mensagens Service Bus.
+Veja os [exemplos do GitHub][github-samples] do Service Bus, que mostram algumas das funcionalidades mais avançadas das mensagens do Service Bus.
 
 [create-namespace-using-arm]: service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure/azure-service-bus/tree/master/samples

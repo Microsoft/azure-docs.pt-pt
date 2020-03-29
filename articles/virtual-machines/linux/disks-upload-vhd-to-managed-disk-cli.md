@@ -8,12 +8,12 @@ ms.date: 03/13/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: f2eb0f59d460fbf8d6595db658bb3f5f9c4a6ad0
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: d89a4279d425e4b12e92aae81edfd6c1514c3eef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79365854"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062673"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Faça upload de um vhd para Azure usando o Azure CLI
 
@@ -40,13 +40,13 @@ Este tipo de disco gerido tem dois estados únicos:
 - ReadToUpload, o que significa que o disco está pronto para receber um upload mas não foi gerada nenhuma assinatura de [acesso segura](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS).
 - ActiveUpload, o que significa que o disco está pronto para receber um upload e o SAS foi gerado.
 
-Enquanto em qualquer um destes estados, o disco gerido será faturado com [preços HDD padrão,](https://azure.microsoft.com/pricing/details/managed-disks/)independentemente do tipo real de disco. Por exemplo, um P10 será cobrado como um S10. Isto será verdade até que seja chamado `revoke-access` no disco gerido, que é necessário para fixar o disco a um VM.
+Enquanto em qualquer um destes estados, o disco gerido será faturado com [preços HDD padrão,](https://azure.microsoft.com/pricing/details/managed-disks/)independentemente do tipo real de disco. Por exemplo, um P10 será cobrado como um S10. Isto será verdade `revoke-access` até que seja chamado no disco gerido, que é necessário para ligar o disco a um VM.
 
-Antes de poder criar um HDD padrão vazio para fazer upload, terá de ter o tamanho do ficheiro do vhd que pretende fazer o upload, em bytes. Para conseguir isso, pode usar `wc -c <yourFileName>.vhd` ou `ls -al <yourFileName>.vhd`. Este valor é utilizado ao especificar o parâmetro **--upload-size-bytes.**
+Antes de poder criar um HDD padrão vazio para fazer upload, terá de ter o tamanho do ficheiro do vhd que pretende fazer o upload, em bytes. Para conseguir isso, pode `wc -c <yourFileName>.vhd` `ls -al <yourFileName>.vhd`usar qualquer um ou. Este valor é utilizado ao especificar o parâmetro **--upload-size-bytes.**
 
 Crie um HDD padrão vazio para o upload especificando tanto o parâmetro **---para upload** como o parâmetro **--upload-size-bytes** em um [disco criar](/cli/azure/disk#az-disk-create) cmdlet:
 
-```bash
+```azurecli
 az disk create -n mydiskname -g resourcegroupname -l westus2 --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
 ```
 
@@ -56,13 +56,13 @@ Criou agora um disco gerido vazio que está configurado para o processo de uploa
 
 Para gerar um SAS writável do seu disco gerido vazio, utilize o seguinte comando:
 
-```bash
+```azurecli
 az disk grant-access -n mydiskname -g resourcegroupname --access-level Write --duration-in-seconds 86400
 ```
 
 Valor devolvido da amostra:
 
-```
+```output
 {
   "accessSas": "https://md-impexp-t0rdsfgsdfg4.blob.core.windows.net/w2c3mj0ksfgl/abcd?sv=2017-04-17&sr=b&si=600a9281-d39e-4cc3-91d2-923c4a696537&sig=xXaT6mFgf139ycT87CADyFxb%2BnPXBElYirYRlbnJZbs%3D"
 }
@@ -82,7 +82,7 @@ AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 
 Depois de o upload estar completo e já não precisar de escrever mais dados para o disco, revogar o SAS. A revogação do SAS alterará o estado do disco gerido e permitirá que prenda o disco a um VM.
 
-```bash
+```azurecli
 az disk revoke-access -n mydiskname -g resourcegroupname
 ```
 
@@ -95,9 +95,9 @@ O guião seguinte fará isto por si, o processo é semelhante aos passos descrit
 > [!IMPORTANT]
 > Tem de adicionar uma compensação de 512 quando estiver a fornecer o tamanho do disco em bytes de um disco gerido a partir do Azure. Isto porque Azure omite o rodapé ao devolver o tamanho do disco. A cópia falhará se não fizer isto. O seguinte guião já faz isto por ti.
 
-Substitua os `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`e `<yourTargetLocationHere>` (um exemplo de um valor de localização seria uswest2) com os seus valores e, em seguida, executar o seguinte script para copiar um disco gerido.
+Substitua `<sourceResourceGroupHere>` `<sourceDiskNameHere>`o `<targetDiskNameHere>` `<targetResourceGroupHere>`, `<yourTargetLocationHere>` , , e (um exemplo de um valor de localização seria uswest2) com os seus valores, em seguida, executar o seguinte script para copiar um disco gerido.
 
-```bash
+```azurecli
 sourceDiskName = <sourceDiskNameHere>
 sourceRG = <sourceResourceGroupHere>
 targetDiskName = <targetDiskNameHere>

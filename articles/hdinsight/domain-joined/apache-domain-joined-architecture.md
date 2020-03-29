@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/11/2020
 ms.openlocfilehash: 452a3b04637126b40aca907178bebd6f74ec4481
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79365794"
 ---
-# <a name="use-enterprise-security-package-in-hdinsight"></a>Utilize o pacote de segurança da empresa no HDInsight
+# <a name="use-enterprise-security-package-in-hdinsight"></a>Utilizar o Pacote de Segurança Enterprise no HDInsight
 
 O cluster Standard Azure HDInsight é um cluster de um único utilizador. É adequado para a maioria das empresas que têm equipas de aplicação mais pequenas construindo grandes cargas de dados. Cada utilizador pode criar um cluster dedicado a pedido e destruí-lo quando já não é necessário.
 

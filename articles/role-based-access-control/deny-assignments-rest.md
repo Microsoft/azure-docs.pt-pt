@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9e6214b3cb2cdca2d80ebae43771b206e3396d8b
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 0f648405a3d71bf27c64dacbb3fd78f3e9801137
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137329"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063023"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Lista nega atribuições para recursos Azure utilizando a API REST
 
@@ -33,7 +33,7 @@ ms.locfileid: "77137329"
 
 Para obter informações sobre uma atribuição de negação, deve ter:
 
-- `Microsoft.Authorization/denyAssignments/read` permissão, que está incluída na maioria das [funções incorporadas para os recursos Azure.](built-in-roles.md)
+- `Microsoft.Authorization/denyAssignments/read`permissão, que está incluída na maioria das [funções incorporadas para os recursos Azure.](built-in-roles.md)
 
 ## <a name="list-a-single-deny-assignment"></a>Enumerar uma única atribuição de negação
 
@@ -45,11 +45,12 @@ Para obter informações sobre uma atribuição de negação, deve ter:
 
 1. Dentro do URI, substitua *{scope}* com o âmbito para o qual pretende enumerar as atribuições de negação.
 
-    | Âmbito | Tipo |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscrição |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    > [!div class="mx-tableFixed"]
+    > | Âmbito | Tipo |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId}` | Subscrição |
+    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
+    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Recurso |
 
 1. Substitua *{deny-assignment-id}* com o identificador de atribuição de negação que pretende recuperar.
 
@@ -69,25 +70,30 @@ Para obter informações sobre uma atribuição de negação, deve ter:
 
 1. Dentro do URI, substitua *{scope}* com o âmbito para o qual pretende enumerar as atribuições de negação.
 
-    | Âmbito | Tipo |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscrição |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    > [!div class="mx-tableFixed"]
+    > | Âmbito | Tipo |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId}` | Subscrição |
+    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
+    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Recurso |
 
 1. Substitua *{filter}* com a condição que pretende aplicar para filtrar a lista de atribuição de negação.
 
-    | Filtro | Descrição |
-    | --- | --- |
-    | (sem filtro) | Enumerar todas as atribuições de negação em, acima e abaixo do âmbito especificado. |
-    | `$filter=atScope()` | A lista nega atribuições apenas para o âmbito especificado e acima. Não inclui as missões de negação nos subscópios. |
-    | `$filter=denyAssignmentName%20eq%20'{deny-assignment-name}'` | Lista nega atribuições com o nome especificado. |
+    > [!div class="mx-tableFixed"]
+    > | Filtro | Descrição |
+    > | --- | --- |
+    > | (sem filtro) | Lista todas as atribuições de negação em, acima e abaixo do âmbito especificado. |
+    > | `$filter=atScope()` | As listas negam atribuições apenas para o âmbito especificado e acima. Não inclui as missões de negação nos subscópios. |
+    > | `$filter=assignedTo('{objectId}')` | As listas negam atribuições para o utilizador ou diretor de serviço especificado.<br/>Se o utilizador for membro de um grupo que tenha uma atribuição de negação, essa atribuição de negação também está listada. Este filtro é transitório para grupos, o que significa que se o utilizador for membro de um grupo e esse grupo for membro de outro grupo que tem uma atribuição de negação, essa missão de negação também está listada.<br/>Este filtro só aceita um ID de objeto para um utilizador ou um diretor de serviço. Não pode passar uma identificação de objeto para um grupo. |
+    > | `$filter=atScope()+and+assignedTo('{objectId}')` | As listas negam as atribuições para o utilizador ou diretor de serviço especificado e no âmbito especificado. |
+    > | `$filter=denyAssignmentName+eq+'{deny-assignment-name}'` | As listas negam atribuições com o nome especificado. |
+    > | `$filter=principalId+eq+'{objectId}'` | As listas negam atribuições para o utilizador, grupo ou diretor de serviço especificado. |
 
 ## <a name="list-deny-assignments-at-the-root-scope-"></a>Lista nega atribuições no âmbito raiz (/)
 
 1. Eleve o seu acesso como descrito no [acesso elevado a um Administrador Global em Diretório Ativo Azure](elevate-access-global-admin.md).
 
-1. Utilize o seguinte pedido:
+1. utilize o seguinte pedido:
 
     ```http
     GET https://management.azure.com/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview&$filter={filter}
@@ -95,10 +101,11 @@ Para obter informações sobre uma atribuição de negação, deve ter:
 
 1. Substitua *{filter}* com a condição que pretende aplicar para filtrar a lista de atribuição de negação. É necessário um filtro.
 
-    | Filtro | Descrição |
-    | --- | --- |
-    | `$filter=atScope()` | Lista nega atribuições apenas para o âmbito de raiz. Não inclui as missões de negação nos subscópios. |
-    | `$filter=denyAssignmentName%20eq%20'{deny-assignment-name}'` | Lista nega atribuições com o nome especificado. |
+    > [!div class="mx-tableFixed"]
+    > | Filtro | Descrição |
+    > | --- | --- |
+    > | `$filter=atScope()` | Lista nega atribuições apenas para o âmbito de raiz. Não inclui as missões de negação nos subscópios. |
+    > | `$filter=denyAssignmentName+eq+'{deny-assignment-name}'` | Lista nega atribuições com o nome especificado. |
 
 1. Remova o acesso elevado.
 
@@ -106,4 +113,4 @@ Para obter informações sobre uma atribuição de negação, deve ter:
 
 - [Entenda negar atribuições para recursos Azure](deny-assignments.md)
 - [Elevate access for a Global Administrator in Azure Active Directory](elevate-access-global-admin.md) (Elevar o acesso para um Administrador Global no Azure Active Directory)
-- [Referência à API REST do Azure](/rest/api/azure/)
+- [Referência da API do Rest Azure](/rest/api/azure/)

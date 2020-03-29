@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 07/03/2019
 ms.author: cynthn
 ms.openlocfilehash: ed29c92d20a6b0d749ec44a22f42ec446ec58650
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919571"
 ---
-# <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Mova um VM Windows para outro grupo de subscrição ou recursos Do Azure
+# <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Mover uma VM do Windows para outra subscrição ou grupo de recursos do Azure
 Este artigo explica-o como mover uma máquina virtual do Windows (VM) entre grupos de recursos ou subscrições. Mover-se entre subscrições pode ser útil se criou originalmente um VM numa subscrição pessoal e agora quer movê-lo para a subscrição da sua empresa para continuar o seu trabalho. Não é necessário iniciar o VM para o mover e deve continuar a funcionar durante a mudança.
 
 > [!IMPORTANT]

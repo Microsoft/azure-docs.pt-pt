@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 0380689ae6ca81e3f31a07f1e205c7773fdea8c6
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773944"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-redash"></a>Visualizar dados do Azure Data Explorer em Redash
@@ -30,7 +30,7 @@ ms.locfileid: "76773944"
 1. Inscreva-se no [Redash.](https://www.redash.io/) Selecione **Get Started** para criar uma conta.
 1. Em **Let's start**, Selecione **Ligar uma Fonte de Dados**.
 
-    ![Ligar uma fonte de dados](media/redash/connect-data-source.png)
+    ![Ligar a uma origem de dados](media/redash/connect-data-source.png)
 
 1. Em Criar uma nova janela **Data Source,** selecione **Azure Data Explorer (Kusto)** e, em seguida, selecione **Criar**. 
 
@@ -44,7 +44,7 @@ ms.locfileid: "76773944"
 
 ## <a name="create-queries-in-redash"></a>Criar consultas em Redash
 
-1. Em cima à esquerda do Redash, selecione **Criar** > **Consulta**. Clique em **New Consulta** e mude o nome da consulta.
+1. Em cima à esquerda do Redash, selecione **Create** > **Query**. Clique em **New Consulta** e mude o nome da consulta.
 
     ![Criar consulta](media/redash/create-query.png)
 
@@ -64,7 +64,7 @@ ms.locfileid: "76773944"
 
 ### <a name="create-a-query-using-a-parameter"></a>Criar uma consulta usando um parâmetro
 
-1. **Crie** > **Consulta** para criar uma nova consulta. Adicione-lhe um parâmetro utilizando {{}} suportes encaracolados. Selecione **{{}}** para abrir a janela adicionar **parâmetro.** Também pode selecionar o ícone de *definições* para modificar os atributos de um parâmetro existente e abrir a janela **<parameter_name>** 
+1. **Crie** > **consulta** para criar uma nova consulta. Adicione-lhe um parâmetro{}utilizando { } suportes encaracolados. Selecione **{}{ }** para abrir a janela **adicionar parâmetro.** Também pode selecionar o ícone de *definições* para modificar os atributos de um parâmetro existente e abrir a **janela<parameter_name>.** 
 
     ![inserir parâmetro](media/redash/insert-parameter.png)
 
@@ -73,15 +73,15 @@ ms.locfileid: "76773944"
     ![consulta lista de dropdown baseado](media/redash/query-based-dropdown-list.png)
 
     > [!NOTE]
-    > A consulta utiliza vários valores, pelo que deve incluir a seguinte `| where Type in ((split('{{Type}}', ',')))`de sintaxe . Para mais informações, consulte [o operador.](/azure/kusto/query/inoperator) Isto resulta em [várias opções de parâmetros de consulta na aplicação redash](https://redash.io/help/user-guide/querying/query-parameters#Serialized-Multi-Select-Query-Parametersredash.io)
+    > A consulta utiliza vários valores, pelo que `| where Type in ((split('{{Type}}', ',')))`deve incluir a seguinte sintaxe . Para mais informações, consulte [o operador.](/azure/kusto/query/inoperator) Isto resulta em [várias opções de parâmetros de consulta na aplicação redash](https://redash.io/help/user-guide/querying/query-parameters#Serialized-Multi-Select-Query-Parametersredash.io)
 
 ## <a name="create-a-dashboard-in-redash"></a>Crie um dashboard em Redash
 
-1. Para criar o seu painel de instrumentos, **Crie** > **Dashboard**. Em alternativa, selecione dashboard existente, **Dashboards** > selecione um dashboard da lista.
+1. Para criar o seu dashboard, **Crie** > **dashboard**. Em alternativa, selecione dashboard existente, **os Dashboards** > selecione um dashboard da lista.
 
     ![Criar painel de instrumentos](media/redash/create-dashboard.png)
 
-1. Na janela **New Dashboard,** nomeie o seu painel de instrumentos e selecione **Guardar**. In **<Dashboard_name>** janela, **selecione Add Widget** para criar um novo widget. 
+1. Na janela **New Dashboard,** nomeie o seu painel de instrumentos e selecione **Guardar**. Em<Dashboard_name janela **>,** selecione **Add Widget** para criar um novo widget. 
 
 1. Na janela **Add Widget,** selecione o nome da consulta, **escolha visualização,** e **parâmetros**. **Selecione Adicionar ao Dashboard**
 

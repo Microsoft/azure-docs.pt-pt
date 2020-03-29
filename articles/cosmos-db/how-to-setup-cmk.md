@@ -4,33 +4,31 @@ description: Saiba como configurar as chaves geridas pelo cliente para a sua con
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 03/19/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
-ms.openlocfilehash: 02b1009a69a8a408581ce23b3845881bba6bb51e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 6e2a90b8f81b9b945905ee98beb1686c54a62e8a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79252015"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063765"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configure as chaves geridas pelo cliente para a sua conta Azure Cosmos com o Cofre chave Azure
 
 > [!NOTE]
-> Neste momento, deve solicitar o acesso à utilização desta capacidade. Para isso, contacte [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com).
+> Neste momento, deve solicitar o acesso à utilização desta capacidade. Para isso, por [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com)favor contacte.
 
-Os dados armazenados na sua conta Azure Cosmos são encriptados automaticamente e sem problemas. A Azure Cosmos DB oferece duas opções para gerir as chaves utilizadas para encriptar os dados em repouso:
+Os dados armazenados na sua conta Azure Cosmos são automaticamente e sem problemas encriptados com chaves geridas pela Microsoft **(chaves geridas**pelo serviço). Opcionalmente, pode optar por adicionar uma segunda camada de encriptação com chaves que gere **(chaves geridas pelo cliente).**
 
-- **Chaves geridas pelo serviço**: Por padrão, a Microsoft gere as chaves que são usadas para encriptar os dados na sua conta Azure Cosmos.
-
-- **Chaves geridas pelo cliente (CMK)** : Pode optar opcionalmente por adicionar uma segunda camada de encriptação com as suas próprias chaves.
+![Camadas de encriptação em torno dos dados do cliente](./media/how-to-setup-cmk/cmk-intro.png)
 
 Você deve armazenar chaves geridas pelo cliente no [Cofre de Chaves Azure](../key-vault/key-vault-overview.md) e fornecer uma chave para cada conta Azure Cosmos que está ativada com chaves geridas pelo cliente. Esta chave é usada para encriptar todos os dados armazenados nessa conta.
 
 > [!NOTE]
 > Atualmente, as chaves geridas pelo cliente estão disponíveis apenas para novas contas Azure Cosmos. Deve configurá-los durante a criação de conta.
 
-## <a id="register-resource-provider"></a>Registe o fornecedor de recursos Azure Cosmos DB para a sua subscrição Azure
+## <a name="register-the-azure-cosmos-db-resource-provider-for-your-azure-subscription"></a><a id="register-resource-provider"></a>Registe o fornecedor de recursos Azure Cosmos DB para a sua subscrição Azure
 
 1. Inscreva-se no [portal Azure,](https://portal.azure.com/)vá à subscrição do Azure e selecione **fornecedores** de Recursos no separador **Definições:**
 
@@ -61,7 +59,7 @@ Para aprender a permitir estas propriedades numa instância existente do Cofre c
 
    ![Selecionando as permissões certas](./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png)
 
-1. Em **selecionar o diretor,** selecione **Nenhum selecionado**. Em seguida, procure o diretor do **Azure Cosmos DB** e selecione-o (para facilitar a sua descoberta, também pode pesquisar pelo PRINCIPAL ID: `a232010e-820c-4083-83bb-3ace5fc29d0b` para qualquer região azure, exceto regiões do Governo Azure onde o ID principal é `57506a73-e302-42a9-b869-6f12d9ec29e9`). Por fim, escolha **Selecionar** na parte inferior. Se o diretor do **Azure Cosmos DB** não estiver na lista, poderá ter de voltar a registar o fornecedor de recursos **Microsoft.DocumentDB,** tal como descrito no Registo da secção de [fornecedor de recursos](#register-resource-provider) deste artigo.
+1. Em **selecionar o diretor,** selecione **Nenhum selecionado**. Em seguida, procure o principal do **Azure Cosmos DB** e selecione-o `a232010e-820c-4083-83bb-3ace5fc29d0b` (para facilitar a sua descoberta, também pode `57506a73-e302-42a9-b869-6f12d9ec29e9`pesquisar pelo PRINCIPAL ID: para qualquer região azure, exceto regiões do Governo Azure onde está o ID principal). Por fim, escolha **Selecionar** na parte inferior. Se o diretor do **Azure Cosmos DB** não estiver na lista, poderá ter de voltar a registar o fornecedor de recursos **Microsoft.DocumentDB,** tal como descrito no Registo da secção de [fornecedor de recursos](#register-resource-provider) deste artigo.
 
    ![Selecione o diretor do Azure Cosmos DB](./media/how-to-setup-cmk/portal-akv-add-ap.png)
 
@@ -75,7 +73,7 @@ Para aprender a permitir estas propriedades numa instância existente do Cofre c
 
 1. Selecione **Generate/Import,** forneça um nome para a nova tecla e selecione um tamanho de chave RSA. Um mínimo de 3072 é recomendado para uma melhor segurança. Em seguida, selecione **Criar:**
 
-   ![Criar uma chave nova](./media/how-to-setup-cmk/portal-akv-gen.png)
+   ![Criar uma nova chave](./media/how-to-setup-cmk/portal-akv-gen.png)
 
 1. Depois de criada a chave, selecione a chave recém-criada e, em seguida, a sua versão atual.
 
@@ -91,7 +89,7 @@ Quando criar uma nova conta Azure Cosmos DB a partir do portal Azure, escolha a 
 
 ![Definição de parâmetros CMK no portal Azure](./media/how-to-setup-cmk/portal-cosmos-enc.png)
 
-### <a name="using-azure-powershell"></a>Com o Azure PowerShell
+### <a name="using-azure-powershell"></a>Utilizar o Azure PowerShell
 
 Quando cria uma nova conta Azure Cosmos DB com a PowerShell:
 
@@ -100,7 +98,7 @@ Quando cria uma nova conta Azure Cosmos DB com a PowerShell:
 - Utilize **2019-12-12** como versão API.
 
 > [!IMPORTANT]
-> Deve definir o parâmetro `Location` explicitamente para que a conta seja criada com sucesso com chaves geridas pelo cliente.
+> Deve definir `Location` o parâmetro explicitamente para que a conta seja criada com sucesso com chaves geridas pelo cliente.
 
 ```powershell
 $resourceGroupName = "myResourceGroup"
@@ -131,7 +129,7 @@ Quando cria uma nova conta Azure Cosmos através de um modelo de Gestor de Recur
 - Utilize **2019-12-12** como versão API.
 
 > [!IMPORTANT]
-> Deve definir o parâmetro `Location` explicitamente para que a conta seja criada com sucesso com chaves geridas pelo cliente.
+> Deve definir `Location` o parâmetro explicitamente para que a conta seja criada com sucesso com chaves geridas pelo cliente.
 
 ```json
 {
@@ -233,7 +231,7 @@ Não atualmente, mas as chaves ao nível do contentor estão a ser consideradas.
 
 ### <a name="how-do-customer-managed-keys-affect-a-backup"></a>Como é que as chaves geridas pelo cliente afetam uma cópia de segurança?
 
-A Azure Cosmos DB recebe cópias de [segurança regulares e automáticas](./online-backup-and-restore.md) dos dados armazenados na sua conta. Esta operação apoia os dados encriptados. Para utilizar a cópia de segurança restaurada, é necessária a chave de encriptação que utilizou no momento da cópia de segurança. Isto significa que não foi feita qualquer revogação e que a versão da chave que foi utilizada no momento da cópia de segurança ainda estará ativada.
+A Azure Cosmos DB recebe cópias de [segurança regulares e automáticas](../synapse-analytics/sql-data-warehouse/backup-and-restore.md) dos dados armazenados na sua conta. Esta operação apoia os dados encriptados. Para utilizar a cópia de segurança restaurada, é necessária a chave de encriptação que utilizou no momento da cópia de segurança. Isto significa que não foi feita qualquer revogação e que a versão da chave que foi utilizada no momento da cópia de segurança ainda estará ativada.
 
 ### <a name="how-do-i-revoke-an-encryption-key"></a>Como revoguei uma chave de encriptação?
 

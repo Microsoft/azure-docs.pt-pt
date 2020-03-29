@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 37615e39577ef60cccc9df91b61a6aa24ca794d0
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76759633"
 ---
 # <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>Referência sintaxe SQLRuleAction para ônibus de serviço Azure
@@ -65,7 +65,7 @@ Este artigo lista detalhes sobre a gramática de ação de regra SQL.
   
 ## <a name="arguments"></a>Argumentos  
   
--   `<scope>` é uma cadeia opcional que indica o alcance do `<property_name>`. Os valores válidos são `sys` ou `user`. O valor `sys` indica o âmbito do sistema onde `<property_name>` é um nome de propriedade pública da [Classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica o âmbito do utilizador onde `<property_name>` é uma chave do dicionário [brokeredMessage Class.](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) `user` âmbito é o âmbito padrão se não for especificado `<scope>`.  
+-   `<scope>`é uma cadeia opcional que `<property_name>`indica o alcance do . Valores `sys` válidos são ou `user`. O `sys` valor indica `<property_name>` o âmbito do sistema onde é um nome de propriedade pública da [Classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`indica o `<property_name>` âmbito do utilizador onde é uma chave do dicionário [classe BrokeredMessage.](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) `user`âmbito é o `<scope>` âmbito padrão se não for especificado.  
   
 ### <a name="remarks"></a>Observações  
 
@@ -84,7 +84,7 @@ Uma tentativa de aceder a uma propriedade do sistema inexistente é um erro, enq
 ```  
   
 ### <a name="arguments"></a>Argumentos  
- `<regular_identifier>` é uma cadeia representada pela seguinte expressão regular:  
+ `<regular_identifier>`é uma cadeia representada pela seguinte expressão regular:  
   
 ```  
 [[:IsLetter:]][_[:IsLetter:][:IsDigit:]]*  
@@ -92,13 +92,13 @@ Uma tentativa de aceder a uma propriedade do sistema inexistente é um erro, enq
   
  Isto significa qualquer corda que comece com uma letra e seja seguida por um ou mais sublinhados/letra/dígito.  
   
- `[:IsLetter:]` significa qualquer personagem Unicode que seja categorizado como uma letra Unicode. `System.Char.IsLetter(c)` devolve `true` se `c` é uma letra Unicode.  
+ `[:IsLetter:]`significa qualquer personagem Unicode que seja categorizado como uma letra Unicode. `System.Char.IsLetter(c)``true` devoluções `c` se for uma letra Unicode.  
   
- `[:IsDigit:]` significa qualquer personagem unicode que seja categorizado como um dígito decimal. `System.Char.IsDigit(c)` retorna `true` se `c` for um dígito Unicode.  
+ `[:IsDigit:]`significa qualquer personagem Unicode que seja categorizado como um dígito decimal. `System.Char.IsDigit(c)``true` devoluções `c` se for um dígito Unicode.  
   
- Um `<regular_identifier>` não pode ser uma palavra-chave reservada.  
+ A `<regular_identifier>` não pode ser uma palavra-chave reservada.  
   
- `<delimited_identifier>` é qualquer corda que seja fechada com suportes quadrados esquerdo/direito ([]). Um suporte quadrado direito é representado como dois suportes quadrados direito. Seguem-se exemplos de `<delimited_identifier>`:  
+ `<delimited_identifier>`é qualquer corda que seja fechada com suportes quadrados esquerdo/direito ([]). Um suporte quadrado direito é representado como dois suportes quadrados direito. Seguem-se exemplos de: `<delimited_identifier>`  
   
 ```  
 [Property With Space]  
@@ -106,7 +106,7 @@ Uma tentativa de aceder a uma propriedade do sistema inexistente é um erro, enq
   
 ```  
   
- `<quoted_identifier>` é qualquer corda que seja fechada com duas aspas. Uma marca dupla de citação no identificador é representada como duas marcas duplas de citação. Não é aconselhável utilizar identificadores citados porque pode facilmente ser confundido com uma constante de corda. Utilize um identificador delimitado, se possível. Segue-se um exemplo de `<quoted_identifier>`:  
+ `<quoted_identifier>`é qualquer corda que seja fechada com duas aspas. Uma marca dupla de citação no identificador é representada como duas marcas duplas de citação. Não é aconselhável utilizar identificadores citados porque pode facilmente ser confundido com uma constante de corda. Utilize um identificador delimitado, se possível. Segue-se um `<quoted_identifier>`exemplo de:  
   
 ```  
 "Contoso & Northwind"  
@@ -121,11 +121,11 @@ Uma tentativa de aceder a uma propriedade do sistema inexistente é um erro, enq
   
 ### <a name="remarks"></a>Observações
   
- `<pattern>` deve ser uma expressão que é avaliada como uma corda. É usado como um padrão para o operador LIKE.      Pode conter os seguintes caracteres wildcard:  
+ `<pattern>`deve ser uma expressão que é avaliada como uma corda. É usado como um padrão para o operador LIKE.      Pode conter os seguintes caracteres wildcard:  
   
 -   `%`: Qualquer série de caracteres zero ou mais.  
   
--   `_`: Qualquer personagem.  
+-   `_`: Qualquer personagem único.  
   
 ## <a name="escape_char"></a>escape_char  
   
@@ -136,9 +136,9 @@ Uma tentativa de aceder a uma propriedade do sistema inexistente é um erro, enq
   
 ### <a name="remarks"></a>Observações
   
- `<escape_char>` deve ser uma expressão que é avaliada como uma cadeia de comprimento 1. É usado como um personagem de fuga para o operador LIKE.  
+ `<escape_char>`deve ser uma expressão que é avaliada como uma cadeia de comprimento 1. É usado como um personagem de fuga para o operador LIKE.  
   
- Por exemplo, `property LIKE 'ABC\%' ESCAPE '\'` corresponde `ABC%` em vez de uma corda que começa com `ABC`.  
+ Por `property LIKE 'ABC\%' ESCAPE '\'` exemplo, `ABC%` combina em vez `ABC`de uma corda que começa com .  
   
 ## <a name="constant"></a>constante  
   
@@ -149,7 +149,7 @@ Uma tentativa de aceder a uma propriedade do sistema inexistente é um erro, enq
   
 ### <a name="arguments"></a>Argumentos  
   
--   `<integer_constant>` é uma série de números que não estão fechados em aspas e não contêm pontos decimais. Os valores são armazenados como `System.Int64` internamente, e seguem a mesma gama.  
+-   `<integer_constant>`é uma série de números que não estão fechados em aspas e não contêm pontos decimais. Os valores são `System.Int64` armazenados internamente e seguem a mesma gama.  
   
      Seguem-se exemplos de longas constantes:  
   
@@ -158,9 +158,9 @@ Uma tentativa de aceder a uma propriedade do sistema inexistente é um erro, enq
     2  
     ```  
   
--   `<decimal_constant>` é uma série de números que não estão fechados em aspas, e contêm um ponto decimal. Os valores são armazenados como `System.Double` internamente, e seguem a mesma gama/precisão.  
+-   `<decimal_constant>`é uma série de números que não estão fechados em aspas, e contêm um ponto decimal. Os valores são `System.Double` armazenados internamente e seguem a mesma gama/precisão.  
   
-     Numa versão futura, este número pode ser armazenado num tipo de dados diferente para suportar a semântica exata dos números, pelo que não deve confiar no facto de o tipo de dados subjacente estar `System.Double` para `<decimal_constant>`.  
+     Numa versão futura, este número pode ser armazenado num tipo de dados diferente para suportar a semântica `System.Double` `<decimal_constant>`exata dos números, pelo que não deve confiar no facto de o tipo de dados subjacente ser para .  
   
      Seguem-se exemplos de constantes decimais:  
   
@@ -169,7 +169,7 @@ Uma tentativa de aceder a uma propriedade do sistema inexistente é um erro, enq
     2.0  
     ```  
   
--   `<approximate_number_constant>` é um número escrito em notação científica. Os valores são armazenados como `System.Double` internamente, e seguem a mesma gama/precisão. Seguem-se exemplos de constantes de número supressão:  
+-   `<approximate_number_constant>`é um número escrito em notação científica. Os valores são `System.Double` armazenados internamente e seguem a mesma gama/precisão. Seguem-se exemplos de constantes de número supressão:  
   
     ```  
     101.5E5  
@@ -185,7 +185,7 @@ Uma tentativa de aceder a uma propriedade do sistema inexistente é um erro, enq
   
 ### <a name="remarks"></a>Observações
   
-As constantes booleanas são representadas pelas palavras-chave `TRUE` ou `FALSE`. Os valores são armazenados como `System.Boolean`.  
+As constantes booleanas são `TRUE` representadas pelas palavras-chave ou `FALSE`. Os valores são `System.Boolean`armazenados como .  
   
 ## <a name="string_constant"></a>string_constant  
   
@@ -207,9 +207,9 @@ As constantes de cordas são fechadas em letras únicas e incluem quaisquer cara
   
 ### <a name="remarks"></a>Observações  
 
-A função `newid()` devolve um **System.Guid** gerado pelo método `System.Guid.NewGuid()`.  
+A `newid()` função devolve um **System.Guid** gerado pelo `System.Guid.NewGuid()` método.  
   
-A função `property(name)` devolve o valor do imóvel referenciado por `name`. O valor `name` pode ser qualquer expressão válida que retorne um valor de cadeia.  
+A `property(name)` função devolve o valor `name`do imóvel referenciado por . O `name` valor pode ser qualquer expressão válida que retorne um valor de cadeia.  
   
 ## <a name="considerations"></a>Considerações
 

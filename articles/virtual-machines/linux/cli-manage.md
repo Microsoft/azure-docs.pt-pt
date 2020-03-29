@@ -1,5 +1,5 @@
 ---
-title: Comandos ClI Azure Comuns
+title: Comandos comuns da CLI Azure
 description: Aprenda alguns dos comandos comuns do Azure CLI para que você tenha começado a gerir os seus VMs no modo Azure Resource Manager
 author: RicksterCDN
 ms.service: virtual-machines-linux
@@ -7,25 +7,25 @@ ms.topic: article
 ms.date: 05/12/2017
 ms.author: rclaus
 ms.openlocfilehash: 253f2ab1b192d22f43e4082766adf4ec4f86fe71
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969257"
 ---
-# <a name="common-azure-cli-commands-for-managing-azure-resources"></a>Comandos Common Azure CLI para gestão de recursos Azure
+# <a name="common-azure-cli-commands-for-managing-azure-resources"></a>Comandos comuns da CLI do Azure para gerir recursos do Azure
 
 O Azure CLI permite-lhe criar e gerir os seus recursos Azure em macOS, Linux e Windows. Este artigo detalha alguns dos comandos mais comuns para criar e gerir máquinas virtuais (VMs).
 
 Este artigo requer a versão Azure CLI 2.0.4 ou posterior. Executar `az --version` para localizar a versão. Se precisar de fazer o upgrade, consulte [Instalar o Azure CLI](/cli/azure/install-azure-cli). Também pode utilizar [a Cloud Shell](/azure/cloud-shell/quickstart) a partir do seu navegador.
 
 ## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Comandos básicos do Azure Resource Manager na CLI do Azure
-Para obter uma ajuda mais detalhada com interruptores e opções específicos da linha de comando, pode utilizar a ajuda e opções de comando on-line digitando `az <command> <subcommand> --help`.
+Para obter uma ajuda mais detalhada com interruptores e opções específicos `az <command> <subcommand> --help`da linha de comando, pode utilizar a ajuda e opções de comando on-line digitando .
 
 ### <a name="create-vms"></a>Criar VMs
 | Tarefa | Comandos da CLI Azure |
 | --- | --- |
-| Criar um grupo de recursos: | `az group create --name myResourceGroup --location eastus` |
+| Criar um grupo de recursos | `az group create --name myResourceGroup --location eastus` |
 | Criar uma VM do Linux | `az vm create --resource-group myResourceGroup --name myVM --image ubuntults` |
 | Criar uma VM do Windows | `az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter` |
 

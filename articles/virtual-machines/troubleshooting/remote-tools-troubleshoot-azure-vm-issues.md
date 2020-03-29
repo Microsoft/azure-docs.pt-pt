@@ -1,5 +1,5 @@
 ---
-title: Use ferramentas remotas para resolver problemas com problemas da Azure VM  Microsoft Docs
+title: Use ferramentas remotas para resolver problemas com problemas da Azure VM [ Microsoft Docs
 description: ''
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
 ms.openlocfilehash: b86b1a2d8a49554cc3df99e0a32a2c0ccaacb560
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77920013"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Use ferramentas remotas para resolver problemas com problemas de Azure VM
@@ -39,11 +39,11 @@ psexec \\<computer>-u user -s cmd
 
 >[!NOTE]
 >* O comando deve ser executado num computador que esteja na mesma rede virtual.
->* Dip ou HostName podem ser usados para substituir \<computador>.
+>* Dip ou HostName podem \<ser usados para substituir> de computador.
 >* O parâmetro -s certifica-se de que o comando é invocado utilizando a Conta do Sistema (permissão do administrador).
 >* O PsExec utiliza as portas TCP 135 e 445. Como resultado, as duas portas têm de estar abertas na firewall.
 
-## <a name="run-command"></a>Executar comando
+## <a name="run-command"></a>Execute o comando 
 
 Para obter mais informações sobre como utilizar a funcionalidade de comando de execução para executar scripts no VM, consulte [scripts Run PowerShell no seu Windows VM com comando](../windows/run-command.md)de execução .
 
@@ -165,7 +165,7 @@ cmd.exe /C $command
 
 Para VMs do Gestor de Recursos Azure, utilize comandos de execução do portal para executar o script EnableRemotePS:
 
-![Executar comando](./media/remote-tools-troubleshoot-azure-vm-issues/run-command.png)
+![Execute o comando ](./media/remote-tools-troubleshoot-azure-vm-issues/run-command.png)
 
 ### <a name="connect-to-the-vm"></a>Ligar à VM
 
@@ -214,7 +214,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 1. De outro VM na mesma rede virtual, abra o editor de registo (regedit.exe).
 
-2. Selecione Registo de **rede** > **Ligar**.
+2. Selecione**Registo de Rede de Rede de Ligação**de **Ficheiros** > .
 
    ![Editor de registo](./media/remote-tools-troubleshoot-azure-vm-issues/remote-registry.png) 
 
@@ -237,7 +237,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 1. De outro VM na mesma rede virtual, abra uma instância de **Services.msc**.
 
-2. Serviços de clique à direita **(Local)** .
+2. Serviços de clique à direita **(Local)**.
 
 3. Selecione **Ligar a outro computador**.
 

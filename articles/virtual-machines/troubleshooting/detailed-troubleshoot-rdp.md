@@ -16,13 +16,13 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: ea448b87f9e6954abecead2934bfb7f4ed04a9c5
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77920149"
 ---
-# <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Passos detalhados de resolução de problemas para problemas de ligação remota de desktop a VMs do Windows em Azure
+# <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Passos de resolução de problemas detalhados para problemas de ligação de ambiente de trabalho remoto para VMs do Windows no Azure
 Este artigo fornece passos detalhados de resolução de problemas para diagnosticar e corrigir complexos erros de ambiente de trabalho remoto para máquinas virtuais Azure baseadas no Windows.
 
 > [!IMPORTANT]
@@ -41,7 +41,7 @@ Os seguintes componentes estão envolvidos numa ligação PDR:
 Antes de prosseguir, pode ajudar a rever mentalmente o que mudou desde a última ligação bem sucedida do Ambiente de Trabalho Remoto ao VM. Por exemplo:
 
 * O endereço IP público do VM ou o serviço de nuvem que contém o VM (também chamado de endereço IP virtual [VIP)](https://en.wikipedia.org/wiki/Virtual_IP_address)mudou. A falha do RDP pode ser porque a sua cache de cliente DNS ainda tem o *antigo endereço IP* registado para o nome DNS. Lave a cache do seu cliente DNS e tente ligar novamente o VM. Ou tente ligar-se diretamente com o novo VIP.
-* Está a utilizar uma aplicação de terceiros para gerir as suas ligações Remote Desktop em vez de utilizar a ligação gerada pelo portal Azure. Verifique se a configuração da aplicação inclui a porta TCP correta para o tráfego de Ambiente de Trabalho Remoto. Pode verificar esta porta por uma máquina virtual clássica no [portal Azure,](https://portal.azure.com)clicando nas Definições > Endpoints do VM.
+* Está a utilizar uma aplicação de terceiros para gerir as suas ligações Remote Desktop em vez de utilizar a ligação gerada pelo portal Azure. Verifique se a configuração da aplicação inclui a porta TCP correta para o tráfego de Ambiente de Trabalho Remoto. Pode verificar se esta porta tem uma máquina virtual clássica no [portal Azure,](https://portal.azure.com)clicando nas Definições do VM > Pontos Finais.
 
 ## <a name="preliminary-steps"></a>Etapas preliminares
 Antes de prosseguir com a resolução detalhada de problemas,
@@ -59,7 +59,7 @@ O cliente Remote Desktop pode não conseguir contactar o serviço Remote Desktop
 * [Computador cliente de desktop remoto](#source-1-remote-desktop-client-computer)
 * [Dispositivo de borda intranet da organização](#source-2-organization-intranet-edge-device)
 * [Cloud service endpoint e lista de controlo de acesso (ACL)](#source-3-cloud-service-endpoint-and-acl)
-* [Grupos de segurança de rede](#source-4-network-security-groups)
+* [Grupos de segurança da rede](#source-4-network-security-groups)
 * [VM Azure baseado no Windows](#source-5-windows-based-azure-vm)
 
 ## <a name="source-1-remote-desktop-client-computer"></a>Fonte 1: Computador cliente do ambiente de trabalho remoto
@@ -137,7 +137,7 @@ Em seguida, instale o Azure PowerShell se ainda não o fez. Consulte [Como insta
 
 Em seguida, abra um pedido de comando Azure PowerShell e altere a pasta atual para a localização do ficheiro de script **InstallWinRMCertAzureVM.ps1.** Para executar um script Azure PowerShell, tem de definir a política de execução correta. Execute o comando **Get-ExecutionPolicy** para determinar o seu nível de política atual. Para obter informações sobre a definição do nível adequado, consulte [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
 
-Em seguida, preencha o nome da subscrição Azure, o nome do serviço na nuvem e o seu nome de máquina virtual (removendo os caracteres < e > e, em seguida, execute estes comandos.
+Em seguida, preencha o nome de subscrição Do Azure, o nome do serviço na nuvem e o nome da máquina virtual (removendo os caracteres < e >), e, em seguida, execute estes comandos.
 
 ```powershell
 $subscr="<Name of your Azure subscription>"

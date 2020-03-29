@@ -1,6 +1,6 @@
 ---
-title: Carregar arquivos em uma conta dos serviços de mídia do Azure v3 usando REST | Microsoft Docs
-description: Saiba como obter conteúdo de mídia nos serviços de mídia criando e carregando ativos.
+title: Faça upload de ficheiros numa conta V3 do Azure Media Services utilizando o REST [ Microsoft Docs
+description: Aprenda a obter conteúdos de mídia nos Media Services criando e carregando ativos.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,53 +14,53 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: 38d46978e37ead59deb17a86f643df041452e497
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76705773"
 ---
 # <a name="upload-files-into-a-media-services-v3-account-using-rest"></a>Faça upload de ficheiros numa conta V3 dos Media Services utilizando o REST
 
-Nos serviços de mídia, você carrega seus arquivos digitais em um contêiner de blob associado a um ativo. A entidade [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) pode conter vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legenda codificada (e os metadados sobre esses arquivos). Depois que os arquivos são carregados no contêiner do ativo, seu conteúdo é armazenado com segurança na nuvem para processamento e streaming adicionais.
+Nos Serviços de Media, envia os seus ficheiros digitais para um contentor blob associado a um ativo. A entidade [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) pode conter vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e ficheiros de legendas fechados (e os metadados sobre estes ficheiros). Uma vez que os ficheiros são enviados para o recipiente do ativo, o seu conteúdo é armazenado de forma segura na nuvem para posterior processamento e streaming.
 
-Este artigo mostra como carregar um arquivo local usando REST.
+Este artigo mostra-lhe como carregar um ficheiro local usando o REST.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir os passos descritos neste tópico, tem de:
+Para completar os passos descritos neste tópico, tem de:
 
-- Examine o [conceito de ativo](assets-concept.md).
-- [Configurar o Postman para chamar a API de REST de serviços de multimédia do Azure](media-rest-apis-with-postman.md).
+- Rever o [conceito de Ativo.](assets-concept.md)
+- [Configure Postman para Azure Media Services REST API chamadas](media-rest-apis-with-postman.md).
     
-    Certifique-se de seguir a última etapa no tópico [obter token do Azure ad](media-rest-apis-with-postman.md#get-azure-ad-token). 
+    Certifique-se de seguir o último passo no tópico [Get Azure AD Token](media-rest-apis-with-postman.md#get-azure-ad-token). 
 
 ## <a name="create-an-asset"></a>Criar um ativo
 
-Esta seção mostra como criar um novo ativo.
+Esta secção mostra como criar um novo Ativo.
 
-1. Selecione **ativos** -> **criar ou atualizar um ativo**.
+1. Selecione **Ativos** -> **Criar ou atualizar um Ativo**.
 2. Prima **Enviar**.
 
     ![Criar um ativo](./media/upload-files/postman-create-asset.png)
 
-Você verá a **resposta** com as informações sobre o ativo recém-criado.
+Você vê a **Resposta** com a informação sobre o ativo recém-criado.
 
-## <a name="get-a-sas-url-with-read-write-permissions"></a>Obter uma URL SAS com permissões de leitura/gravação 
+## <a name="get-a-sas-url-with-read-write-permissions"></a>Obtenha um URL SAS com permissões de leitura 
 
-Esta seção mostra como obter uma URL SAS que foi gerada para o ativo criado. A URL SAS foi criada com permissões de leitura/gravação e pode ser usada para carregar arquivos digitais no contêiner de ativos.
+Esta secção mostra como obter um URL SAS que foi gerado para o ativo criado. O URL SAS foi criado com permissões de leitura e pode ser usado para carregar ficheiros digitais no recipiente Asset.
 
-1. Selecione **ativos** -> **listar as URLs de ativo**.
+1. Selecione **Ativos** -> **Listar os URLs de Ativos**.
 2. Prima **Enviar**.
 
     ![Carregar um ficheiro](./media/upload-files/postman-create-sas-locator.png)
 
-Você verá a **resposta** com as informações sobre URLs do ativo. Copie a primeira URL e use-a para carregar o arquivo.
+Você vê a **Resposta** com a informação sobre urls de ativos. Copie o primeiro URL e use-o para fazer upload do seu ficheiro.
 
-## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>Carregar um arquivo no armazenamento de BLOBs usando a URL de carregamento
+## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>Faça upload de um ficheiro para o armazenamento de blob usando o URL de upload
 
-Use as APIs de armazenamento do Azure ou SDKs (por exemplo, a [API REST de armazenamento](../../storage/common/storage-rest-api-auth.md) ou o [SDK do .net](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
+Utilize as APIs ou SDKs de armazenamento azure (por exemplo, o [Storage REST API](../../storage/common/storage-rest-api-auth.md) ou [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Tutorial: codificar um arquivo remoto com base na URL e transmitir o vídeo-REST](stream-files-tutorial-with-rest.md)
+[Tutorial: Codificar um ficheiro remoto com base em URL e transmitir o vídeo - REST](stream-files-tutorial-with-rest.md)

@@ -1,6 +1,6 @@
 ---
-title: Criar um Gateway de aplicação do Azure - CLI clássica do Azure
-description: Saiba como criar um Gateway de aplicação com a CLI clássica do Azure no Resource Manager
+title: Criar um Gateway de Aplicação Azure - ClI clássico azure
+description: Saiba como criar um Gateway de Aplicação utilizando o CLI clássico do Azure em Gestor de Recursos
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,61 +8,61 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: victorh
 ms.openlocfilehash: 7107f45253c4f13b3378489726bf5034e104fa30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "62095987"
 ---
-# <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Criar um gateway de aplicação com a CLI do Azure
+# <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Criar um portal de aplicação utilizando o Azure CLI
 
-O Application Gateway do Azure é um balanceador de carga de 7 camadas. Fornece ativação pós-falha, pedidos HTTP de encaminhamento de desempenho entre diversos servidores, quer estejam na nuvem ou no local. Gateway de aplicação tem as seguintes funcionalidades de entrega de aplicação: Balanceamento de carga HTTP, afinidade por sessões com base no cookie e descarga de Secure Sockets Layer (SSL), sondas de estado de funcionamento personalizados e suporte para múltiplos sites.
+O Application Gateway do Azure é um balanceador de carga de 7 camadas. Fornece ativação pós-falha, pedidos HTTP de encaminhamento de desempenho entre diversos servidores, quer estejam na nuvem ou no local. O gateway da aplicação tem as seguintes funcionalidades de entrega de aplicações: equilíbrio de carga HTTP, afinidade de sessão baseada em cookies e descarregamento de camada de tomadas seguras (SSL), sondas de saúde personalizadas e suporte para multi-site.
 
-## <a name="prerequisite-install-the-azure-cli"></a>Pré-requisito: Instalar a CLI do Azure
+## <a name="prerequisite-install-the-azure-cli"></a>Pré-requisito: Instalar o Azure CLI
 
-Para efetuar os passos neste artigo, precisa [instalar a CLI do Azure](../xplat-cli-install.md) e precisa [inicie sessão no Azure](/cli/azure/authenticate-azure-cli). 
+Para realizar os passos neste artigo, precisa de [instalar o Azure CLI](../xplat-cli-install.md) e precisa de [assinar no Azure](/cli/azure/authenticate-azure-cli). 
 
 > [!NOTE]
-> Se não tiver uma conta do Azure, precisa de um. Subscreva [uma avaliação gratuita aqui](../active-directory/fundamentals/sign-up-organization.md).
+> Se não tem uma conta Azure, precisa de uma. Subscreva [uma avaliação gratuita aqui](../active-directory/fundamentals/sign-up-organization.md).
 
 ## <a name="scenario"></a>Cenário
 
-Neste cenário, saiba como criar um gateway de aplicação do portal do Azure.
+Neste cenário, aprende-se a criar um portal de aplicação utilizando o portal Azure.
 
-Neste cenário irão:
+Este cenário irá:
 
-* Crie um gateway de aplicação médios com duas instâncias.
-* Crie uma rede virtual denominada ContosoVNET com um bloco CIDR reservado de 10.0.0.0/16.
-* Crie uma sub-rede denominada subnet01 que utiliza 10.0.0.0/28 como bloco CIDR.
+* Crie um gateway de aplicação média com duas instâncias.
+* Crie uma rede virtual chamada ContosoVNET com um bloco CIDR reservado de 10.0.0.0.0/16.
+* Crie uma subnet chamada subnet01 que utilize 10.0.0.0.0/28 como o seu bloco CIDR.
 
 > [!NOTE]
-> Sondas de configuração adicional do gateway de aplicação, incluindo o estado de funcionamento personalizado, o conjunto de endereços de back-end e regras adicionais são configurados após a configuração do gateway de aplicação e não durante a implementação inicial.
+> Configuração adicional do gateway da aplicação, incluindo sondas de saúde personalizadas, endereços de piscina de backend, e regras adicionais são configuradas após a configuração do gateway da aplicação e não durante a implementação inicial.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-O Gateway de aplicação do Azure requer a sua própria sub-rede. Ao criar uma rede virtual, certifique-se de que deixe espaço suficiente no endereço ter várias sub-redes. Depois de implementar um gateway de aplicação a uma sub-rede, gateways de aplicação apenas adicionais podem ser adicionados à sub-rede.
+O Portal de Aplicação Azure requer a sua própria sub-rede. Ao criar uma rede virtual, certifique-se de que deixa espaço de endereço suficiente para ter várias subredes. Uma vez implementada uma porta de aplicação para uma subneta, apenas os gateways de aplicação adicionais são capazes de ser adicionados à sub-rede.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Abra o **linha de comandos do Microsoft Azure**e iniciar sessão.
+Abra o **Microsoft Azure Command Prompt**e inscreva-se.
 
 ```azurecli-interactive
 az login
 ```
 
-Depois de digitar o exemplo anterior, é fornecido um código. Navegue para https://aka.ms/devicelogin num browser para continuar o início de sessão no processo.
+Uma vez que digite o exemplo anterior, é fornecido um código. Navegue https://aka.ms/devicelogin para um browser para continuar o sinal no processo.
 
-![o início de sessão do cmd que mostra dispositivos][1]
+![cmd mostrando login dispositivo][1]
 
-No browser, introduza o código que recebeu. Será redirecionado para uma página de início de sessão.
+No navegador, introduza o código que recebeu. É redirecionado para uma página de inscrição.
 
-![browser para introduzir o código][2]
+![navegador para introduzir código][2]
 
-Uma vez que foi introduzido o código tem sessão iniciada, feche o navegador para, avance para o cenário.
+Uma vez que o código tenha sido introduzido, você é assinado, feche o navegador para continuar com o cenário.
 
-![iniciar sessão com êxito][3]
+![assinado com sucesso em][3]
 
-## <a name="switch-to-resource-manager-mode"></a>Mudar para o modo do Resource Manager
+## <a name="switch-to-resource-manager-mode"></a>Mude para o modo de gestor de recursos
 
 ```azurecli-interactive
 azure config mode arm
@@ -70,7 +70,7 @@ azure config mode arm
 
 ## <a name="create-the-resource-group"></a>Criar o grupo de recursos
 
-Antes de criar o gateway de aplicação, é criado um grupo de recursos para conter o gateway de aplicação. O seguinte mostra o comando.
+Antes de criar o gateway de aplicação, é criado um grupo de recursos para conter o gateway da aplicação. O seguinte mostra o comando.
 
 ```azurecli-interactive
 azure group create \
@@ -80,7 +80,7 @@ azure group create \
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Depois de criar o grupo de recursos, uma rede virtual é criada para o gateway de aplicação.  No exemplo a seguir, o espaço de endereços era como 10.0.0.0/16, conforme definido nas notas para o cenário anterior.
+Uma vez criado o grupo de recursos, é criada uma rede virtual para o gateway da aplicação.  No exemplo seguinte, o espaço de endereço foi de 10.0.0.0.0/16, tal como definido nas notas de cenário anteriores.
 
 ```azurecli-interactive
 azure network vnet create \
@@ -92,7 +92,7 @@ azure network vnet create \
 
 ## <a name="create-a-subnet"></a>Criar uma sub-rede
 
-Depois de criar a rede virtual, é adicionada uma sub-rede para o gateway de aplicação.  Se planeia utilizar o gateway de aplicação com uma aplicação web alojada na mesma rede virtual que o gateway de aplicação, certifique-se de que deixar espaço suficiente para outra sub-rede.
+Após a criação da rede virtual, é adicionada uma subnet para o gateway da aplicação.  Se planeia utilizar o gateway da aplicação com uma aplicação web alojada na mesma rede virtual que o gateway da aplicação, certifique-se de deixar espaço suficiente para outra subnet.
 
 ```azurecli-interactive
 azure network vnet subnet create \
@@ -104,7 +104,7 @@ azure network vnet subnet create \
 
 ## <a name="create-the-application-gateway"></a>Criar o gateway de aplicação
 
-Assim que a rede virtual e sub-rede são criados, os pré-requisitos para o gateway de aplicação estão completos. Além de um certificado. pfx exportado anteriormente e a palavra-passe para o certificado são necessários para o passo seguinte: Os endereços IP utilizados para o back-end são os endereços IP para o seu servidor de back-end. Estes valores podem ser IPs privados na rede virtual, ips públicos ou nomes de domínio completamente qualificado para os servidores de back-end.
+Uma vez criada a rede virtual e a subnet, os pré-requisitos para o gateway da aplicação estão completos. Adicionalmente, um certificado .pfx previamente exportado e a palavra-passe para o certificado são necessários para a seguinte etapa: Os endereços IP utilizados para o backend são os endereços IP para o seu servidor de backend. Estes valores podem ser iPs privados na rede virtual, ips públicos ou nomes de domínio totalmente qualificados para os seus servidores de backend.
 
 ```azurecli-interactive
 azure network application-gateway create \
@@ -126,16 +126,16 @@ azure network application-gateway create \
 ```
 
 > [!NOTE]
-> Para obter uma lista de parâmetros que podem ser fornecidas durante a criação, execute o seguinte comando: **criar gateway de aplicação de rede do azure – ajudar**.
+> Para uma lista de parâmetros que podem ser fornecidos durante a criação executar o seguinte comando: **azure network application-gateway criar --help**.
 
-Este exemplo cria um gateway de aplicação básico com configurações padrão para o serviço de escuta, o conjunto de back-end, definições de http de back-end e regras. Pode modificar estas definições de acordo com a implementação após o aprovisionamento é efetuada com êxito.
-Se já tiver a sua aplicação web definida com o conjunto de back-end nos passos anteriores, uma vez criada, balanceamento de carga começa.
+Este exemplo cria um gateway de aplicação básico com definições padrão para o ouvinte, piscina de backend, configurações de vídeo de backend e regras. Pode modificar estas definições de acordo com a sua implementação uma vez que o fornecimento seja bem sucedido.
+Se já tem a sua aplicação web definida com o backend pool nos passos anteriores, uma vez criado, começa o equilíbrio de carga.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba como criar sondas de estado de funcionamento personalizadas, visite a página [criar uma sonda de estado de funcionamento personalizados](application-gateway-create-probe-portal.md)
+Saiba como criar sondas de saúde personalizadas visitando [Criar uma sonda de saúde personalizada](application-gateway-create-probe-portal.md)
 
-Saiba como configurar a descarga de SSL e tomar a descriptografia SSL dispendiosa para os servidores web, visite a página [configurar a descarga de SSL](application-gateway-ssl-arm.md)
+Saiba como configurar o Descarregamento sSL e tirar a dispendiosa desencriptação sSL dos seus servidores web visitando a [Configure SSL Offload](application-gateway-ssl-arm.md)
 
 <!--Image references-->
 

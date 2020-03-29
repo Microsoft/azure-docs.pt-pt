@@ -1,6 +1,6 @@
 ---
-title: Conteúdo de diretivas de chave nos serviços de multimédia - Azure | Documentos da Microsoft
-description: Este artigo fornece uma explicação das quais são as diretivas de chave de conteúdo e como elas são usadas pelos serviços de multimédia do Azure.
+title: Políticas-chave de conteúdo nos Serviços de Media - Azure Microsoft Docs
+description: Este artigo dá uma explicação sobre quais são as Políticas Chave de Conteúdo e como são usadas pela Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,53 +13,53 @@ ms.date: 07/26/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 7ddef1e78b4f8f62145e10b4cabc4537e28aba2f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74969909"
 ---
 # <a name="content-key-policies"></a>Políticas de Chave de Conteúdo
 
-Com os serviços de multimédia, pode fornecer seu conteúdo ao vivo e sob demanda dinamicamente encriptado com o Advanced Encryption Standard (AES-128) ou qualquer um dos sistemas de gestão (DRM) três direitos digitais principais: Microsoft PlayReady, Widevine da Google e Apple FairPlay. Serviços de multimédia também fornecem um serviço para entrega de chaves AES e o DRM (PlayReady, Widevine e FairPlay) licenças para os clientes autorizados. 
+Com os Media Services, pode fornecer os seus conteúdos ao vivo e a pedido encriptados dinamicamente com advanced Encryption Standard (AES-128) ou qualquer um dos três principais sistemas de gestão de direitos digitais (DRM): Microsoft PlayReady, Google Widevine e Apple FairPlay. A Media Services também fornece um serviço para a entrega de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) a clientes autorizados. 
 
-Para especificar as opções de criptografia em seu fluxo, você precisa criar uma [política de streaming](streaming-policy-concept.md) e associá-la ao seu [localizador de streaming](streaming-locators-concept.md). Você cria a [política de chave de conteúdo](https://docs.microsoft.com/rest/api/media/contentkeypolicies) para configurar como a chave de conteúdo (que fornece acesso seguro aos seus [ativos](assets-concept.md)) é entregue aos clientes finais. Você precisa definir os requisitos (restrições) na política de chave de conteúdo que deve ser atendida para que as chaves com a configuração especificada sejam entregues aos clientes. A política de chave de conteúdo não é necessária para streaming ou download claro. 
+Para especificar opções de encriptação no seu stream, precisa criar uma Política de [Streaming](streaming-policy-concept.md) e associá-la ao seu Localizador de [Streaming](streaming-locators-concept.md). Cria a [Política chave](https://docs.microsoft.com/rest/api/media/contentkeypolicies) de conteúdo para configurar como a chave de conteúdo (que fornece acesso seguro aos seus [Ativos)](assets-concept.md)é entregue aos clientes finais. É necessário definir os requisitos (restrições) na Política de Chave de Conteúdo que devem ser cumpridas para que as chaves com a configuração especificada sejam entregues aos clientes. A política chave de conteúdo não é necessária para um streaming ou download claros. 
 
-Normalmente, você associa a política de chave de conteúdo ao seu [localizador de streaming](streaming-locators-concept.md). Como alternativa, você pode especificar a política de chave de conteúdo dentro de uma [política de streaming](streaming-policy-concept.md) (ao criar uma política de streaming personalizada para cenários avançados). 
+Normalmente, associa a sua política de chave de conteúdo ao seu Localizador de [Streaming.](streaming-locators-concept.md) Em alternativa, pode especificar a política de chave de conteúdo dentro de uma Política de [Streaming](streaming-policy-concept.md) (quando criar uma política de streaming personalizada para cenários avançados). 
 
-## <a name="best-practices-and-considerations"></a>Práticas recomendadas e considerações
+## <a name="best-practices-and-considerations"></a>Boas práticas e considerações
 
 > [!IMPORTANT]
-> Examine as recomendações a seguir.
+> Por favor, reveja as seguintes recomendações.
 
-* Você deve criar um conjunto limitado de políticas para sua conta de serviço de mídia e reutilizá-las para seus localizadores de streaming sempre que as mesmas opções forem necessárias. Para obter mais informações, consulte [cotas e limitações](limits-quotas-constraints.md).
-* As políticas de chave de conteúdo são atualizáveis. Pode levar até 15 minutos para que os caches de entrega de chaves sejam atualizados e selecione a política atualizada. 
+* Deverá conceber um conjunto limitado de políticas para a sua conta de Serviço de Media e reutilizá-las para os seus localizadores de streaming sempre que forem necessárias as mesmas opções. Para mais informações, consulte [Quotas e limitações.](limits-quotas-constraints.md)
+* As políticas-chave de conteúdo são instáveis. Pode levar até 15 minutos para os caches de entrega chave atualizarem e pegarem na política atualizada. 
 
-   Ao atualizar a política, você está substituindo o cache da CDN existente, o que pode causar problemas de reprodução para clientes que estão usando conteúdo armazenado em cache.  
-* Recomendamos que você não crie uma nova política de chave de conteúdo para cada ativo. Os principais benefícios de compartilhar a mesma política de chave de conteúdo entre os ativos que precisam das mesmas opções de política são:
+   Ao atualizar a apólice, está a sobrepor-se ao seu cache CDN existente, o que pode causar problemas de reprodução para os clientes que estão a utilizar conteúdo em cache.  
+* Recomendamos que não crie uma nova política de chave de conteúdo para cada ativo. Os principais benefícios da partilha da mesma política de conteúdo entre ativos que necessitam das mesmas opções políticas são:
    
-   * É mais fácil gerenciar um pequeno número de políticas.
-   * Se você precisar fazer atualizações na política de chave de conteúdo, as alterações entrarão em vigor em todas as novas solicitações de licença quase que imediatamente.
-* Se você precisar criar uma nova política, precisará criar um novo localizador de streaming para o ativo.
-* É recomendável permitir que os serviços de mídia geram automaticamente a chave de conteúdo. 
+   * É mais fácil gerir um pequeno número de políticas.
+   * Se precisar de fazer atualizações sobre a política chave de conteúdo, as alterações entram em vigor em todos os novos pedidos de licença quase imediatamente.
+* Se precisa de criar uma nova política, tem de criar um novo localizador de streaming para o ativo.
+* Recomenda-se que os Serviços de Media gerem automaticamente a chave de conteúdo. 
 
-   Normalmente, você usaria uma chave de vida longa e verifica a existência da política de chave de conteúdo com [Get](https://docs.microsoft.com/rest/api/media/contentkeypolicies/get). Para obter a chave, você precisa chamar um método de ação separado para obter segredos ou credenciais, consulte o exemplo a seguir.
+   Normalmente, você usaria uma chave de longa duração e verificaria a existência da política chave de conteúdo com [get](https://docs.microsoft.com/rest/api/media/contentkeypolicies/get). Para obter a chave, você precisa chamar um método de ação separado para obter segredos ou credenciais, ver o exemplo que se segue.
 
 ## <a name="example"></a>Exemplo
 
-Para obter a chave, use `GetPolicyPropertiesWithSecretsAsync`, conforme mostrado no exemplo [obter uma chave de assinatura a partir da política existente](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) .
+Para chegar à chave, utilize `GetPolicyPropertiesWithSecretsAsync`, como mostra a chave de assinatura Do [B.](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets)
 
-## <a name="filtering-ordering-paging"></a>Paginação de filtragem, ordenação,
+## <a name="filtering-ordering-paging"></a>Filtragem, encomenda, paging
 
-Consulte [filtragem, ordenação, paginação de entidades de serviços de mídia](entities-overview.md).
+Ver [Filtragem, encomenda, paging de entidades dos Serviços de Media.](entities-overview.md)
 
 ## <a name="additional-notes"></a>Notas adicionais
 
-* As propriedades das políticas de chave de conteúdo do tipo `Datetime` estão sempre no formato UTC.
-* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+* As propriedades das Políticas chave `Datetime` de conteúdo que são do tipo estão sempre em formato UTC.
+* A Widevine é um serviço prestado pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave](protect-with-aes128.md)
-* [Use DRM dynamic encryption and license delivery service](protect-with-drm.md) (Procedimentos: utilizar a encriptação dinâmica e o serviço de entrega de licenças do DRM)
-* [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted)
+* [Utilize encriptação dinâmica DRM e serviço de entrega de licenças](protect-with-drm.md)
+* [EncodeHTTPAndPublishAESEncriptado](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted)

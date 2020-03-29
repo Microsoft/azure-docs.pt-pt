@@ -5,13 +5,13 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: bec2a40d8cf5fb178418ec6bb59a52a0bfe3eb8c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 3/16/2020
+ms.openlocfilehash: fa48ca287c248155a0271b5134be782d8db1c785
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79280446"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063107"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Escala de um grupo de servidores de hiperescala (Citus)
 
@@ -36,11 +36,16 @@ Para tirar partido dos nós recém-adicionados, é preciso reequilibrar os fragm
 SELECT rebalance_table_shards('distributed_table_name');
 ```
 
-A função `rebalance_table_shards` reequilibra todas as tabelas do grupo de [co-localização](concepts-hyperscale-colocation.md) da tabela nomeada no seu argumento. Assim, não é necessário ligar para a função de cada mesa distribuída, basta chamá-la numa tabela representativa de cada grupo de co-localização.
+A `rebalance_table_shards` função reequilibra todas as tabelas do grupo de [co-localização](concepts-hyperscale-colocation.md) da tabela nomeada no seu argumento. Assim, não é necessário ligar para a função de cada mesa distribuída, basta chamá-la numa tabela representativa de cada grupo de co-localização.
 
-## <a name="increase-vcores"></a>Aumentar vCores
+## <a name="increase-or-decrease-vcores-on-nodes"></a>Aumentar ou diminuir vCores em nódosos
 
-Além de adicionar novos nós, pode aumentar as capacidades dos nós existentes. Esta funcionalidade encontra-se atualmente em pré-visualização — para solicitar vCores aumentados para nós no seu grupo de servidores, contacte o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> [!NOTE]
+> Esta funcionalidade encontra-se em pré-visualização. Para solicitar uma alteração nos vCores para nós no seu grupo de servidores, contacte o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+Além de adicionar novos nós, pode aumentar as capacidades dos nós existentes. Ajustar a capacidade computacional para cima e para baixo pode ser útil para experiências de desempenho, bem como alterações a curto ou longo prazo nas exigências de tráfego.
+
+Para alterar os vCores para todos os nós dos trabalhadores, ajuste o slider **vCores** em **Configuração (por nó de trabalhador)**. Os vCores do nó coordenador podem ser ajustados de forma independente. Clique no link de **configuração Alterar** sob **o nó do coordenador**. Aparecerá um diálogo com sliders para os vCores e capacidade de armazenamento do coordenador. Mude os sliders conforme desejado e selecione **OK**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

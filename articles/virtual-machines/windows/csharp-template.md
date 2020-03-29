@@ -1,6 +1,6 @@
 ---
 title: Implementar um VM usando C# e um modelo de Gestor de Recursos
-description: Aprenda a C# usar e um modelo de Gestor de Recursos para implementar um VM Azure.
+description: Aprenda a usar C# e um modelo de Gestor de Recursos para implementar um VM Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
 ms.openlocfilehash: 6d99c5ae91b80b9b6b9af08001b3a7c57bc7ca8f
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944535"
 ---
-# <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Implementar uma máquina virtual C# Azure usando e um modelo de Gestor de Recursos
+# <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Implementar uma máquina virtual Azure usando C# e um modelo de Gestor de Recursos
 
-Este artigo mostra-lhe como implementar um C#modelo de Gestor de Recursos Azure usando . O modelo que cria implementa uma única máquina virtual que executa o Windows Server numa nova rede virtual com uma única sub-rede.
+Este artigo mostra-lhe como implementar um modelo de Gestor de Recursos Azure usando C#. O modelo que cria implementa uma única máquina virtual que executa o Windows Server numa nova rede virtual com uma única sub-rede.
 
 Para uma descrição detalhada do recurso virtual da máquina, consulte [máquinas virtuais num modelo de Gestor](template-description.md)de Recursos Azure . Para obter mais informações sobre todos os recursos num modelo, consulte o modelo do Gestor de [Recursos Azure](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
@@ -34,14 +34,14 @@ Leva cerca de 10 minutos para fazer estes passos.
 Neste passo, certifique-se de que o Estúdio Visual está instalado e cria uma aplicação de consola usada para implementar o modelo.
 
 1. Se ainda não o fez, instale [o Estúdio Visual.](https://docs.microsoft.com/visualstudio/install/install-visual-studio) Selecione o desenvolvimento do ambiente de **trabalho .NET** na página Workloads e, em seguida, clique em **Instalar**. No resumo, pode ver que as ferramentas de **desenvolvimento .NET Framework 4 - 4.6** são automaticamente selecionadas para si. Se já instalou o Visual Studio, pode adicionar a carga de trabalho .NET utilizando o Visual Studio Launcher.
-2. No Visual Studio, clique em **Ficheiro** > **Novo** > **Projeto**.
-3. Em **Modelos** > **C#Visual**, selecione **App consola (.NET Framework)** , introduza *myDotnetProject* para o nome do projeto, selecione a localização do projeto e, em seguida, clique EM **OK**.
+2. No Estúdio Visual, clique em **File** > **New** > **Project**.
+3. Em **Modelos** > **Visuais C#**, selecione App consola **(.NET Framework)**, introduza *myDotnetProject* para o nome do projeto, selecione a localização do projeto e, em seguida, clique **EM OK**.
 
 ## <a name="install-the-packages"></a>Instale as embalagens
 
 Os pacotes NuGet são a forma mais fácil de instalar as bibliotecas que precisa para terminar estes passos. Para obter as bibliotecas que precisa no Estúdio Visual, faça estes passos:
 
-1. Clique em **Ferramentas** > **Nuget Package Manager**e, em seguida, clique na consola do Gestor de **Pacotes**.
+1. Clique em **Ferramentas** > **Nuget Package Manager**e, em seguida, clique em Consola de Gestor de **Pacotes**.
 2. Digite estes comandos na consola:
 
     ```powershell
@@ -55,7 +55,7 @@ Neste passo, cria-se um ficheiro de modelo que implementa os recursos e um fiche
 
 ### <a name="create-the-template-file"></a>Criar o ficheiro do modelo
 
-1. No Solution Explorer, clique no *myDotnetProject* > **Adicionar** > **Novo Item**, e, em seguida, selecione **Ficheiro de Texto** em Itens *Visuais C#* . Nomeie o ficheiro *CreateVMTemplate.json*e, em seguida, clique em **Adicionar**.
+1. No Solution Explorer, clique no *myDotnetProject* > **Add** > **New Item**, e, em seguida, selecione **Ficheiro de Texto** em Itens *Visuais C#*. Nomeie o ficheiro *CreateVMTemplate.json*e, em seguida, clique em **Adicionar**.
 2. Adicione este código JSON ao ficheiro que criou:
 
     ```json
@@ -167,7 +167,7 @@ Neste passo, cria-se um ficheiro de modelo que implementa os recursos e um fiche
 
 Para especificar valores para os parâmetros de recursos no modelo, cria-se um ficheiro de parâmetros que contém os valores.
 
-1. No Solution Explorer, clique no *myDotnetProject* > **Adicionar** > **Novo Item**, e, em seguida, selecione **Ficheiro de Texto** em Itens *Visuais C#* . Nomeie o ficheiro *Parâmetros.json*e, em seguida, clique em **Adicionar**.
+1. No Solution Explorer, clique no *myDotnetProject* > **Add** > **New Item**, e, em seguida, selecione **Ficheiro de Texto** em Itens *Visuais C#*. Nomeie o ficheiro *Parâmetros.json*e, em seguida, clique em **Adicionar**.
 2. Adicione este código JSON ao ficheiro que criou:
 
     ```json
@@ -187,7 +187,7 @@ Para especificar valores para os parâmetros de recursos no modelo, cria-se um f
 
 Antes de poder implementar um modelo, certifique-se de que tem acesso a um diretor de serviço de [Diretório Ativo](../../active-directory/develop/howto-authenticate-service-principal-powershell.md). A partir do diretor de serviço, adquire um símbolo para autenticação de pedidos ao Gestor de Recursos Azure. Também deve registar o ID da aplicação, a chave de autenticação e o ID do inquilino que você precisa no arquivo de autorização.
 
-1. No Solution Explorer, clique no *myDotnetProject* > **Adicionar** > **Novo Item**, e, em seguida, selecione **Ficheiro de Texto** em Itens *Visuais C#* . Nomeie o ficheiro *azureauth.properties,* e depois clique em **Adicionar**.
+1. No Solution Explorer, clique no *myDotnetProject* > **Add** > **New Item**, e, em seguida, selecione **Ficheiro de Texto** em Itens *Visuais C#*. Nomeie o ficheiro *azureauth.properties,* e depois clique em **Adicionar**.
 2. Adicione estas propriedades de autorização:
 
     ```
@@ -201,7 +201,7 @@ Antes de poder implementar um modelo, certifique-se de que tem acesso a um diret
     graphURL=https://graph.microsoft.com/
     ```
 
-    Substitua **&lt;&gt;de identificação de assinatura** seleção pelo seu identificador de assinatura,&lt;&gt;de identificação de **aplicação** com o identificador de aplicação Ative Directory, **&lt;&gt;chave de autenticação** com a chave de aplicação e **&lt;&gt;de identificação de inquilino** com o identificador de inquilino.
+    Substitua ** &lt;o&gt; id de subscrição** pelo seu identificador de subscrição, ** &lt;o id&gt; de aplicação** com o identificador de aplicação Ative Directory, ** &lt;&gt; ** ** &lt;&gt; ** a chave de autenticação com a chave de aplicação e o id do inquilino com o identificador de inquilino.
 
 3. Guarde o ficheiro azureauth.properties.
 4. Defino uma variável ambiental no Windows com AZURE_AUTH_LOCATION com o caminho completo para o ficheiro de autorização que criou, por exemplo, pode utilizar o seguinte comando PowerShell:
@@ -252,7 +252,7 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
     .Create();
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
 O modelo e os parâmetros são implantados a partir de uma conta de armazenamento em Azure. Neste passo, cria-se a conta e faz o upload dos ficheiros. 
 
@@ -329,7 +329,7 @@ Deve levar cerca de cinco minutos para que esta aplicação da consola decorra c
 
 2. Antes de pressionar **Enter** para começar a apagar recursos, poderá demorar alguns minutos a verificar a criação dos recursos no portal Azure. Clique no estado de implementação para ver informações sobre a implementação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Se houvesse problemas com a implantação, um próximo passo seria analisar os erros comuns de implantação do [Azure com o Azure Resource Manager.](../../resource-manager-common-deployment-errors.md)
-* Aprenda a implementar uma máquina virtual e os seus recursos de apoio através da revisão da [implementação de uma máquina virtual Azure C#Utilizando ](csharp.md).
+* Aprenda a implementar uma máquina virtual e os seus recursos de apoio através da revisão de [implantação de uma máquina virtual Azure utilizando C#](csharp.md).

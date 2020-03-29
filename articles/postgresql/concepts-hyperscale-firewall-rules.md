@@ -1,56 +1,56 @@
 ---
-title: Regras de firewall-hiperescala (Citus)-banco de dados do Azure para PostgreSQL
-description: Este artigo descreve as regras de firewall para o banco de dados do Azure para PostgreSQL-Citus (hiperescala).
+title: Regras de firewall - Hiperescala (Citus) - Base de Dados Azure para PostgreSQL
+description: Este artigo descreve as regras de firewall para a Base de Dados Azure para PostgreSQL - Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 9/12/2019
 ms.openlocfilehash: b843cd1528630a21255053f623356a0379daacf6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74975572"
 ---
-# <a name="firewall-rules-in-azure-database-for-postgresql---hyperscale-citus"></a>Regras de firewall no banco de dados do Azure para PostgreSQL-Citus (hiperescala)
-O firewall de servidor do banco de dados do Azure para PostgreSQL impede todo o acesso ao nó do coordenador de hiperescala (Citus) até que você especifique quais computadores têm permissão. O firewall concede acesso ao servidor com base no endereço IP de origem de cada solicitação.
-Para configurar a firewall, crie as regras de firewall que especificam intervalos de endereços IP aceitáveis. Você pode criar regras de firewall no nível do servidor.
+# <a name="firewall-rules-in-azure-database-for-postgresql---hyperscale-citus"></a>Regras de firewall na Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
+A Base de Dados Azure para firewall do servidor PostgreSQL impede todo o acesso ao seu nó coordenador de Hiperescala (Citus) até especificar quais os computadores que têm permissão. A firewall concede acesso ao servidor com base no endereço IP originário de cada pedido.
+Para configurar a firewall, crie as regras de firewall que especificam intervalos de endereços IP aceitáveis. Pode criar regras de firewall ao nível do servidor.
 
-**Regras de firewall:** Essas regras permitem que os clientes acessem seu nó de coordenador de hiperescala (Citus), ou seja, todos os bancos de dados dentro do mesmo servidor lógico. As regras de firewall no nível de servidor podem ser configuradas usando o portal do Azure. Para criar regras de firewall no nível de servidor, você deve ser o proprietário da assinatura ou um colaborador da assinatura.
+**Regras de firewall:** Estas regras permitem aos clientes aceder ao seu nó coordenador de Hiperescala (Citus), isto é, todas as bases de dados dentro do mesmo servidor lógico. As regras de firewall ao nível do servidor podem ser configuradas utilizando o portal Azure. Para criar regras de firewall ao nível do servidor, deve ser o proprietário da subscrição ou um colaborador de subscrição.
 
 ## <a name="firewall-overview"></a>Descrição geral das firewalls
-Todos os acessos ao banco de dados ao seu nó de coordenador são bloqueados pelo firewall por padrão. Para começar a usar o servidor de outro computador, você precisa especificar uma ou mais regras de firewall no nível de servidor para habilitar o acesso ao servidor. Use as regras de firewall para especificar quais intervalos de endereços IP da Internet permitir. O acesso ao site portal do Azure em si não é afetado pelas regras de firewall.
-As tentativas de conexão da Internet e do Azure devem passar pela primeira vez pelo firewall antes que possam acessar seu banco de dados PostgreSQL, conforme mostrado no diagrama a seguir:
+Todo o acesso à base de dados do nó do seu coordenador é bloqueado por predefinição da firewall. Para começar a utilizar o seu servidor a partir de outro computador, é necessário especificar uma ou mais regras de firewall ao nível do servidor para permitir o acesso ao seu servidor. Utilize as regras de firewall para especificar qual o endereço IP que vai da Internet para permitir. O acesso ao próprio portal Azure não é afetado pelas regras de firewall.
+As tentativas de ligação da Internet e do Azure devem primeiro passar pela firewall antes de poderem chegar à base de dados PostgreSQL, como mostra o seguinte diagrama:
 
-![Fluxo de exemplo de como o firewall funciona](media/concepts-hyperscale-firewall-rules/1-firewall-concept.png)
+![Fluxo de exemplo de como a firewall funciona](media/concepts-hyperscale-firewall-rules/1-firewall-concept.png)
 
-## <a name="connecting-from-the-internet-and-from-azure"></a>Conectando da Internet e do Azure
+## <a name="connecting-from-the-internet-and-from-azure"></a>Ligação a partir da Internet e do Azure
 
-Um firewall de grupo de servidores de hiperescala (Citus) controla quem pode se conectar ao nó de coordenador do grupo. O firewall determina o acesso consultando uma lista configurável de regras. Cada regra é um endereço IP ou um intervalo de endereços que são permitidos no.
+Um grupo de firewall de grupo de hiperescala (Citus) que pode ligar-se ao nó coordenador do grupo. A firewall determina o acesso consultando uma lista de regras configuráveis. Cada regra é um endereço IP, ou um intervalo de endereços, que são permitidos dentro
 
-Quando o firewall bloqueia conexões, ele pode causar erros de aplicativo. O uso do driver JDBC do PostgreSQL, por exemplo, gera um erro como este:
+Quando a firewall bloqueia as ligações, pode causar erros de aplicação. A utilização do condutor Do P.R. PostgreSQL JDBC, por exemplo, levanta um erro como este:
 
-> Java. util. Concurrent. Execuexception: Java. lang. RuntimeException: org. PostgreSQL. util. PSQLException: FATAL: no PG\_entrada de HBA. conf para o host "123.45.67.890", usuário "citus", banco de dados "citus", SSL
+> java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: NO\_pg hba.conf entry for host "123.45.67.890", user "citus", base de dados "citus", SSL
 
-Consulte [criar e gerenciar regras de firewall](howto-hyperscale-manage-firewall-using-portal.md) para saber como as regras são definidas.
+Consulte [criar e gerir as regras de firewall](howto-hyperscale-manage-firewall-using-portal.md) para saber como as regras são definidas.
 
-## <a name="troubleshooting-the-database-server-firewall"></a>Solucionando problemas do firewall do servidor de banco de dados
-Quando o acesso ao banco de dados de Microsoft Azure para PostgreSQL-Citus (serviço de hiperescala) não se comportar conforme o esperado, considere estes pontos:
+## <a name="troubleshooting-the-database-server-firewall"></a>Resolução de problemas na firewall do servidor de base de dados
+Quando o acesso à Base de Dados Microsoft Azure para o serviço PostgreSQL - Hyperscale (Citus) não se comportar como espera, considere estes pontos:
 
-* **As alterações na lista de permissões ainda não entraram em vigor:** Pode haver um atraso de até cinco minutos para que as alterações na configuração do firewall de hiperescala (Citus) entrem em vigor.
+* **As alterações à lista de autorizações ainda não produziram efeito:** Pode haver até um atraso de cinco minutos para que as alterações na configuração de firewall hyperscale (Citus) façam efeito.
 
-* **O usuário não está autorizado ou uma senha incorreta foi usada:** Se um usuário não tiver permissões no servidor ou a senha usada estiver incorreta, a conexão com o servidor será negada. A criação de uma configuração de firewall apenas fornece aos clientes uma oportunidade de tentar se conectar ao servidor; cada cliente ainda deve fornecer as credenciais de segurança necessárias.
+* **O utilizador não está autorizado ou foi utilizada uma senha incorreta:** Se um utilizador não tiver permissões no servidor ou se a palavra-passe utilizada estiver incorreta, a ligação ao servidor é negada. A criação de uma definição de firewall apenas proporciona aos clientes a oportunidade de tentar ligar-se ao seu servidor; cada cliente deve ainda fornecer as credenciais de segurança necessárias.
 
-Por exemplo, usando um cliente JDBC, o erro a seguir pode aparecer.
-> Java. util. Concurrent. Execuexception: Java. lang. RuntimeException: org. PostgreSQL. util. PSQLException: FATAL: falha na autenticação de senha para o usuário "seunomedeusuário"
+Por exemplo, utilizando um cliente JDBC, pode aparecer o seguinte erro.
+> java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: FATAL: a autenticação de senha falhou para o utilizador "yourusername"
 
 * **Endereço IP dinâmico:** se tiver uma ligação à Internet com endereçamento IP dinâmico e estiver a ter dificuldades em passar a firewall, pode experimentar uma das soluções seguintes.
 
-* Pergunte ao seu provedor de serviços de Internet (ISP) o intervalo de endereços IP atribuído aos seus computadores cliente que acessam o nó de coordenador de hiperescala (Citus) e, em seguida, adicione o intervalo de endereços IP como uma regra de firewall.
+* Peça ao seu Fornecedor de Serviços de Internet (ISP) a gama de endereços IP atribuída aos seus computadores clientes que acedam ao nó coordenador de Hiperescala (Citus) e adicione a gama de endereços IP como regra de firewall.
 
-* Obtenha o endereçamento IP estático em vez de seus computadores cliente e, em seguida, adicione o endereço IP estático como uma regra de firewall.
+* Obtenha endereço IP estático em vez dos seus computadores clientes e, em seguida, adicione o endereço IP estático como regra de firewall.
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter artigos sobre como criar regras de firewall no nível de servidor e de banco de dados, consulte:
-* [Criar e gerir a base de dados do Azure para as regras de firewall de PostgreSQL no portal do Azure](howto-hyperscale-manage-firewall-using-portal.md)
+Para artigos sobre a criação de regras de firewall ao nível do servidor e de nível de base de dados, consulte:
+* [Crie e gerea Base de Dados Azure para regras de firewall PostgreSQL usando o portal Azure](howto-hyperscale-manage-firewall-using-portal.md)

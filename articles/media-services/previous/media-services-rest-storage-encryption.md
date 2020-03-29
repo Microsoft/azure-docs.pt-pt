@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 2a5ef1837375cc395a871f9a9860fa8bde572a94
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773591"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Encriptar o seu conteúdo com encriptação de armazenamento 
 
 > [!NOTE]
-> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não estão a ser adicionadas novas funcionalidades ou funcionalidades aos Media Services v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não estão a ser adicionadas novas funcionalidades ou funcionalidades aos Serviços de Media v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 >   
 
 É altamente recomendado encriptar o seu conteúdo localmente usando encriptação de bit AES-256 e, em seguida, carregá-lo para o Armazenamento Azure onde é armazenado encriptado em repouso.
@@ -48,15 +48,15 @@ Ao aceder a entidades em Serviços de Media, deve definir campos e valores espec
 
 |Opção de encriptação|Descrição|Serviços de Multimédia v2|Serviços de Multimédia v3|
 |---|---|---|---|
-|Encriptação de armazenamento dos serviços de multimédia|Encriptação AES-256, chave gerida pelos serviços de multimédia|Suportado<sup>(1)</sup>|Não suportado<sup>(2)</sup>|
-|[Encriptação do serviço de armazenamento para dados Inativos](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Chave de encriptação do lado do servidor oferecidas pelo armazenamento do Azure, gerida pelo Azure ou pelo cliente|Suportadas|Suportadas|
-|[Encriptação do lado do cliente de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Oferecidas pelo armazenamento do Azure, chave gerida pelo cliente no Cofre de chaves de encriptação do lado do cliente|Não suportado|Não suportado|
+|Encriptação de armazenamento de serviços de mídia|Encriptação AES-256, chave gerida pela Media Services|Suportado<sup>(1)</sup>|Não suportado<sup>(2)</sup>|
+|[Encriptação do serviço de armazenamento para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Encriptação do lado do servidor oferecida pelo Azure Storage, chave gerida pelo Azure ou pelo cliente|Suportado|Suportado|
+|[Encriptação do lado do cliente de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Encriptação do lado do cliente oferecida pelo armazenamento Azure, chave gerida pelo cliente em Key Vault|Não suportado|Não suportado|
 
-<sup>1</sup> enquanto os serviços de multimédia oferece suporte à manipulação de conteúdo de forma/sem qualquer outra forma de encriptação, ao fazê-lo por isso, não é recomendado.
+<sup>1</sup> Enquanto os Serviços de Media suportam o manuseamento de conteúdos na clara/sem qualquer forma de encriptação, não é recomendado fazê-lo.
 
-<sup>2</sup> em serviços de multimédia v3, a encriptação de armazenamento (encriptação AES-256) só é suportada para em versões anteriores compatibilidade quando os recursos foram criados com os serviços de multimédia v2. O que significa v3 funciona com o armazenamento existente encriptado ativos, mas não permitirá que a criação de novos itens.
+<sup>2</sup> Nos Serviços de Media v3, a encriptação de armazenamento (encriptação AES-256) só é suportada para retrocompatibilidade quando os seus Ativos foram criados com Media Services v2. O que significa que a V3 trabalha com os ativos encriptados de armazenamento existentes, mas não permitirá a criação de novos.
 
-## <a name="connect-to-media-services"></a>Ligue-se aos Serviços Multimédia
+## <a name="connect-to-media-services"></a>Ligar aos Media Services
 
 Para obter informações sobre como se conectar à AMS API, consulte [Aceda à API dos Serviços de Mídia Azure com autenticação Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
@@ -115,12 +115,12 @@ Seguem-se passos gerais para gerar chaves de conteúdo que associa com ativos qu
 
     Solicitar propriedade do corpo    | Descrição
     ---|---
-    Id | O ID ContentKey é gerado utilizando o seguinte formato, "nb:kid:UUID:\<NEW GUID>".
-    ContentKeyType | O tipo de chave de conteúdo é um inteiro que define a chave. Para o formato de encriptação de armazenamento, o valor é 1.
-    EncryptedContentKey | Criamos um novo valor-chave de conteúdo que é um valor de 256 bits (32 bytes). A chave é encriptada utilizando o certificado de encriptação de armazenamento X.509 que recuperamos dos Serviços de Media Microsoft Azure executando um pedido HTTP GET para os Métodos GetProtectionKeyId e GetProtectionKey. Como exemplo, consulte o seguinte código .NET: o método **EncryptSymmetricKeyData** definido [aqui](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-    ProtectionKeyId | Este é o ID da chave de proteção para o certificado de encriptação de armazenamento X.509 que foi usado para encriptar a nossa chave de conteúdo.
-    ProtectionKeyType | Este é o tipo de encriptação para a chave de proteção que foi usada para encriptar a chave de conteúdo. Este valor é StorageEncryption(1) para o nosso exemplo.
-    Chequeum |O MD5 calculou a verificação da chave de conteúdo. É calculado encriptando o ID do conteúdo com a chave de conteúdo. O código de exemplo demonstra como calcular a verificação.
+    Id | O ID ContentKey é gerado utilizando o seguinte formato,\<"nb:kid:UUID: NEW GUID>".
+    Tipo de chave de conteúdo | O tipo de chave de conteúdo é um inteiro que define a chave. Para o formato de encriptação de armazenamento, o valor é 1.
+    Chave de Conteúdo Encriptado | Criamos um novo valor-chave de conteúdo que é um valor de 256 bits (32 bytes). A chave é encriptada utilizando o certificado de encriptação de armazenamento X.509 que recuperamos dos Serviços de Media Microsoft Azure executando um pedido HTTP GET para os Métodos GetProtectionKeyId e GetProtectionKey. Como exemplo, consulte o seguinte código .NET: o método **EncryptSymmetricKeyData** definido [aqui](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+    ProtecçãoKeyid | Este é o ID da chave de proteção para o certificado de encriptação de armazenamento X.509 que foi usado para encriptar a nossa chave de conteúdo.
+    Protecção-ChaveTipo | Este é o tipo de encriptação para a chave de proteção que foi usada para encriptar a chave de conteúdo. Este valor é StorageEncryption(1) para o nosso exemplo.
+    Soma de verificação |O MD5 calculou a verificação da chave de conteúdo. É calculado encriptando o ID do conteúdo com a chave de conteúdo. O código de exemplo demonstra como calcular a verificação.
 
 
 ### <a name="retrieve-the-protectionkeyid"></a>Recuperar o ProtectionKeyId
@@ -245,7 +245,7 @@ Resposta:
 ## <a name="create-an-asset"></a>Criar um ativo
 O exemplo que se segue mostra como criar um ativo.
 
-**Pedido http**
+**Pedido de HTTP**
 
     POST https://media.windows.net/api/Assets HTTP/1.1
     Content-Type: application/json
@@ -317,7 +317,7 @@ A instância **AssetFile** e o ficheiro de mídia real são dois objetos distint
 
 Depois de enviar o seu ficheiro de mídia digital para um recipiente blob, utilizará o pedido **MERGE** HTTP para atualizar o AssetFile com informações sobre o seu ficheiro de mídia (não mostrados neste artigo). 
 
-**Pedido http**
+**Pedido de HTTP**
 
     POST https://media.windows.net/api/Files HTTP/1.1
     Content-Type: application/json

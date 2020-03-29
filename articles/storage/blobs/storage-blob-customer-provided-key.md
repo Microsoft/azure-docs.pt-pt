@@ -1,6 +1,6 @@
 ---
-title: Especifique uma chave fornecida pelo cliente em uma solicitação para o armazenamento de BLOBs com o .NET-armazenamento do Azure
-description: Saiba como especificar uma chave fornecida pelo cliente em uma solicitação para o armazenamento de BLOBs usando o .NET.
+title: Especifique uma chave fornecida pelo cliente num pedido de armazenamento Blob com .NET - Armazenamento Azure
+description: Saiba como especificar uma chave fornecida pelo cliente num pedido de armazenamento Blob utilizando .NET.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,25 +10,25 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: ea8254f108aed9d40e6970a27409035b1e10ab41
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74807005"
 ---
-# <a name="specify-a-customer-provided-key-on-a-request-to-blob-storage-with-net"></a>Especifique uma chave fornecida pelo cliente em uma solicitação para o armazenamento de BLOBs com o .NET
+# <a name="specify-a-customer-provided-key-on-a-request-to-blob-storage-with-net"></a>Especifique uma chave fornecida pelo cliente num pedido de armazenamento blob com .NET
 
-Os clientes que fazem solicitações no armazenamento de BLOBs do Azure têm a opção de fornecer uma chave de criptografia em uma solicitação individual. Incluir a chave de criptografia na solicitação fornece controle granular das configurações de criptografia para operações de armazenamento de BLOBs. As chaves fornecidas pelo cliente (versão prévia) podem ser armazenadas em Azure Key Vault ou em outro repositório de chaves.
+Os clientes que fazem pedidos contra o armazenamento do Blob Azure têm a opção de fornecer uma chave de encriptação num pedido individual. A inclusão da chave de encriptação no pedido fornece controlo granular sobre as definições de encriptação para operações de armazenamento blob. As chaves fornecidas pelo cliente (pré-visualização) podem ser armazenadas no Cofre de Chaves Azure ou noutra loja-chave.
 
-Este artigo mostra como especificar uma chave fornecida pelo cliente em uma solicitação com o .NET.
+Este artigo mostra como especificar uma chave fornecida pelo cliente num pedido com .NET.
 
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
-Para saber mais sobre como autenticar com a biblioteca de cliente de identidade do Azure do armazenamento do Azure, consulte a seção intitulada **autenticar com a biblioteca de identidades** do Azure em [autorizar o acesso a BLOBs e filas com Azure Active Directory e identidades gerenciadas para recursos do Azure](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library).
+Para saber mais sobre como autenticar com a biblioteca de clientes Azure Identity a partir do Armazenamento Azure, consulte a secção intitulada **Authenticate com a biblioteca Identidade Azure** em [Autorizar o acesso a blobs e filas com o Azure Ative Directory e identidades geridas para a Azure Resources.](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library)
 
-## <a name="example-use-a-customer-provided-key-to-upload-a-blob"></a>Exemplo: usar uma chave fornecida pelo cliente para carregar um blob
+## <a name="example-use-a-customer-provided-key-to-upload-a-blob"></a>Exemplo: Utilize uma chave fornecida pelo cliente para carregar uma bolha
 
-O exemplo a seguir cria uma chave fornecida pelo cliente e usa essa chave para carregar um blob. O código carrega um bloco e, em seguida, confirma a lista de blocos para gravar o blob no armazenamento do Azure.
+O exemplo seguinte cria uma chave fornecida pelo cliente e utiliza essa chave para carregar uma bolha. O código envia um bloco e, em seguida, compromete a lista de blocos para escrever a bolha para o Armazenamento Azure.
 
 ```csharp
 async static Task UploadBlobWithClientKey(string accountName, string containerName,
@@ -74,5 +74,5 @@ async static Task UploadBlobWithClientKey(string accountName, string containerNa
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Criptografia de armazenamento do Azure para dados em repouso](../common/storage-service-encryption.md)
-- [Autorizar o acesso a BLOBs e filas com Azure Active Directory e identidades gerenciadas para recursos do Azure](../common/storage-auth-aad-msi.md)
+- [Encriptação azure storage para dados em repouso](../common/storage-service-encryption.md)
+- [Autorizar acesso a blobs e filas com diretório ativo azure e identidades geridas para os Recursos Azure](../common/storage-auth-aad-msi.md)

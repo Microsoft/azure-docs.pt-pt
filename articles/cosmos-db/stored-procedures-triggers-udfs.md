@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 706f52a6cda2bbcb0e5ca1cfe9372600fa6709d0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 23a14e7590eca6f63c92acdf6336ffaef8b54381
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79246529"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065900"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimentos armazenados, gatilhos e funções definidas pelo utilizador
 
@@ -41,7 +41,7 @@ A escrita de procedimentos, gatilhos e funções definidas pelo utilizador (UDFs
 
 ## <a name="transactions"></a>Transações
 
-Transação numa base de dados típica pode ser definida como uma seqüência de operações executadas como uma unidade lógica única de trabalho. Cada transação fornece **garantias de propriedade acid.** ACID é um acrónimo bem conhecido que significa: **Uma**tomicidade, onsistency **C,** **solção,** e urabilidade **D.** 
+A transação numa base de dados típica pode ser definida como uma sequência de operações realizadas como uma única unidade lógica de trabalho. Cada transação fornece **garantias de propriedade acid.** ACID é um acrónimo bem conhecido que significa: **Uma**tomicidade, onsistency **C,** **solção,** e urabilidade **D.** 
 
 * A atomicidade garante que todas as operações efetuadas dentro de uma transação são tratadas como uma única unidade, e ou todas estão comprometidas ou nenhuma delas. 
 
@@ -55,21 +55,21 @@ Em Azure Cosmos DB, o tempo de execução do JavaScript está hospedado dentro d
 
 ### <a name="scope-of-a-transaction"></a>Âmbito de uma transação
 
-Se um procedimento armazenado estiver associado a um recipiente Azure Cosmos, então o procedimento armazenado é executado no âmbito de transação de uma chave de partição lógica. Cada execução de procedimento armazenado deve incluir um valor-chave de partição lógica que corresponda ao âmbito da transação. Para mais informações, consulte o artigo de [partição da Azure Cosmos DB.](partition-data.md)
+Os procedimentos armazenados estão associados a um contentor Azure Cosmos e a execução do procedimento armazenado é telescópio numa chave de partição lógica. Os procedimentos armazenados devem incluir um valor-chave de partição lógica durante a execução que defina a divisão lógica para o âmbito da transação. Para mais informações, consulte o artigo de [partição da Azure Cosmos DB.](partition-data.md)
 
-### <a name="commit-and-rollback"></a>Confirmação e reversão
+### <a name="commit-and-rollback"></a>Comprometer e reverter
 
-As transações estão integradas de forma nativa no modelo de programação Azure Cosmos DB JavaScript. Dentro de uma função JavaScript, todas as operações são automaticamente embrulhadas numa única transação. Se a lógica JavaScript num procedimento armazenado estiver concluída sem exceções, todas as operações dentro da transação estão comprometidas com a base de dados. Declarações como `BEGIN TRANSACTION` e `COMMIT TRANSACTION` (familiares a bases de dados relacionais) estão implícitas no Azure Cosmos DB. Se houver alguma exceção do script, o tempo de execução do Azure Cosmos DB JavaScript reverterá toda a transação. Como tal, lançar uma exceção é efetivamente equivalente a uma `ROLLBACK TRANSACTION` em Azure Cosmos DB.
+As transações estão integradas de forma nativa no modelo de programação Azure Cosmos DB JavaScript. Dentro de uma função JavaScript, todas as operações são automaticamente embrulhadas numa única transação. Se a lógica JavaScript num procedimento armazenado estiver concluída sem exceções, todas as operações dentro da transação estão comprometidas com a base de dados. Declarações `BEGIN TRANSACTION` `COMMIT TRANSACTION` como e (familiares a bases de dados relacionais) estão implícitas no Azure Cosmos DB. Se houver alguma exceção do script, o tempo de execução do Azure Cosmos DB JavaScript reverterá toda a transação. Como tal, lançar uma exceção `ROLLBACK TRANSACTION` é efetivamente equivalente a um em Azure Cosmos DB.
 
-### <a name="data-consistency"></a>Consistência dos dados
+### <a name="data-consistency"></a>Consistência de dados
 
 Os procedimentos e gatilhos armazenados são sempre executados na réplica primária de um contentor Azure Cosmos. Esta funcionalidade garante que as leituras dos procedimentos armazenados oferecem [uma forte consistência.](consistency-levels-tradeoffs.md) As consultas utilizando funções definidas pelo utilizador podem ser executadas na réplica primária ou secundária. Os procedimentos e gatilhos armazenados destinam-se a apoiar as escritas transacionais – entretanto, a lógica apenas de leitura é melhor implementada como lógica do lado da aplicação e consultas utilizando os [SDKs API Do MS BDM Azure Cosmos](sql-api-dotnet-samples.md), irá ajudá-lo a saturar a entrada da base de dados. 
 
-## <a name="bounded-execution"></a>Execução estagnação
+## <a name="bounded-execution"></a>Execução vinculada
 
 Todas as operações da Azure Cosmos DB devem ser concluídas dentro da duração prevista do tempo limite. Esta restrição aplica-se às funções JavaScript - procedimentos armazenados, gatilhos e funções definidas pelo utilizador. Se uma operação não estiver concluída dentro desse prazo, a transação é rerolada.
 
-Pode garantir que as funções JavaScript terminem dentro do prazo ou implementem um modelo baseado na continuação para executar o lote/retomar. A fim de simplificar o desenvolvimento de procedimentos e gatilhos armazenados para cumprir os prazos, todas as funções sob o recipiente Azure Cosmos (por exemplo, criar, ler, atualizar e eliminar itens) devolvem um valor booleano que representa se essa operação irá completo. Se este valor for falso, é uma indicação de que o procedimento deve terminar a execução porque o script está a consumir mais tempo ou a provisão do que o valor configurado. Operações em fila antes da primeira operação de arquivo não aceite são garantidas para concluir o procedimento armazenado é concluído no tempo e não colocar em fila mais pedidos. Assim, as operações devem ser em fila uma de cada vez, utilizando a convenção de callback do JavaScript para gerir o fluxo de controlo do script. Como os scripts são executados num ambiente do lado do servidor, são estritamente governados. Scripts que violam repetidamente os limites de execução podem ser marcados inativos e não podem ser executados, e devem ser recriados para honrar os limites de execução.
+Pode garantir que as funções JavaScript terminem dentro do prazo ou implementem um modelo baseado na continuação para executar o lote/retomar. A fim de simplificar o desenvolvimento de procedimentos e gatilhos armazenados para cumprir os prazos, todas as funções sob o recipiente Azure Cosmos (por exemplo, criar, ler, atualizar e eliminar itens) devolvem um valor booleano que representa se essa operação irá completo. Se este valor for falso, é uma indicação de que o procedimento deve terminar a execução porque o script está a consumir mais tempo ou a provisão do que o valor configurado. As operações em fila antes da primeira operação não aceite da loja são garantidas para completar se o procedimento armazenado estiver concluído a tempo e não fizer mais pedidos. Assim, as operações devem ser em fila uma de cada vez, utilizando a convenção de callback do JavaScript para gerir o fluxo de controlo do script. Como os scripts são executados num ambiente do lado do servidor, são estritamente governados. Scripts que violam repetidamente os limites de execução podem ser marcados inativos e não podem ser executados, e devem ser recriados para honrar os limites de execução.
 
 As funções JavaScript também estão sujeitas à [capacidade de entrada prevista](request-units.md). As funções JavaScript podem potencialmente acabar por utilizar um grande número de unidades de pedido num curto espaço de tempo e podem ser limitadas se o limite de capacidade de entrada previsto for atingido. É importante notar que os scripts consomem um adicional de entrada para além da entrada gasta a executar operações de base de dados, embora estas operações de base de dados sejam ligeiramente menos caras do que executar as mesmas operações do cliente.
 
@@ -77,22 +77,22 @@ As funções JavaScript também estão sujeitas à [capacidade de entrada previs
 
 O Azure Cosmos DB suporta dois tipos de acionadores:
 
-### <a name="pre-triggers"></a>Pré-gatilhos
+### <a name="pre-triggers"></a>Pré-acionadores
 
-O Azure Cosmos DB fornece acionadores que podem ser invocados ao executar uma operação num item do Azure Cosmos. Por exemplo, pode especificar um pré-acionador quando cria um item. Neste caso, o pré-acionador será executado antes da criação do item. Os pré-acionadores não podem ter parâmetros de entrada. Se necessário, pode ser utilizado o objeto de pedido para atualizar o corpo do documento no pedido original. Quando os acionadores são registados, os utilizadores podem especificar as operações com as quais estes podem ser executados. Se um gatilho foi criado com `TriggerOperation.Create`, isto significa que não será permitido utilizar o gatilho numa operação de substituição. Por exemplo, ver [Como escrever desencadeia](how-to-write-stored-procedures-triggers-udfs.md#triggers) artigo.
+O Azure Cosmos DB fornece acionadores que podem ser invocados ao executar uma operação num item do Azure Cosmos. Por exemplo, pode especificar um pré-acionador quando cria um item. Neste caso, o pré-acionador será executado antes da criação do item. Os pré-acionadores não podem ter parâmetros de entrada. Se necessário, pode ser utilizado o objeto de pedido para atualizar o corpo do documento no pedido original. Quando os acionadores são registados, os utilizadores podem especificar as operações com as quais estes podem ser executados. Se um gatilho `TriggerOperation.Create`foi criado com , isto significa que a utilização do gatilho numa operação de substituição não será permitida. Por exemplo, ver [Como escrever desencadeia](how-to-write-stored-procedures-triggers-udfs.md#triggers) artigo.
 
-### <a name="post-triggers"></a>Pós-gatilhos
+### <a name="post-triggers"></a>Pós-acionadores
 
 Semelhantes aos pré-gatilhos, os pós-gatilhos, também estão associados a uma operação num item Azure Cosmos e não requerem parâmetros de entrada. Funcionam *depois* de concluída a operação e têm acesso à mensagem de resposta que é enviada ao cliente. Por exemplo, ver [Como escrever desencadeia](how-to-write-stored-procedures-triggers-udfs.md#triggers) artigo.
 
 > [!NOTE]
 > Os gatilhos registados não funcionam automaticamente quando as suas operações correspondentes (criar/eliminar / substituir/atualizar) acontecem. Têm de ser chamados quando estas operações estiverem em execução. Para saber mais, veja como executar o artigo de [gatilhos.](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers)
 
-## <a id="udfs"></a>Funções definidas pelo utilizador
+## <a name="user-defined-functions"></a><a id="udfs"></a>Funções definidas pelo utilizador
 
 As funções definidas pelo utilizador (UDFs) são usadas para estender a sintaxe de linguagem de consulta SQL API e implementar facilmente a lógica de negócio personalizada. Só podem ser chamados dentro de consultas. Os UDFs não têm acesso ao objeto de contexto e destinam-se a ser usados apenas como computação JavaScript. Portanto, os UDFs podem ser executados em réplicas secundárias. Por exemplo, consulte como escrever o artigo de [funções definidas pelo utilizador.](how-to-write-stored-procedures-triggers-udfs.md#udfs)
 
-## <a id="jsqueryapi"></a>API de consulta integrada em linguagem JavaScript
+## <a name="javascript-language-integrated-query-api"></a><a id="jsqueryapi"></a>API de consulta integrada em linguagem JavaScript
 
 Além de emitir consultas utilizando sintaxe de consulta SQL API, o [SDK do lado do servidor permite-lhe](https://azure.github.io/azure-cosmosdb-js-server) realizar consultas utilizando uma interface JavaScript sem qualquer conhecimento do SQL. A Consulta JavaScript API permite-lhe construir consultas programáticas, passando funções predicadas em sequência de chamadas de função. As consultas são analisadas pelo tempo de execução do JavaScript e são executadas eficientemente dentro do Azure Cosmos DB. Para saber mais sobre o suporte da API de consulta JavaScript, consulte Trabalhar com o artigo da API integrado em [linguagem JavaScript.](javascript-query-api.md) Por exemplo, consulte Como escrever procedimentos e gatilhos armazenados usando o artigo [da Javascript Query API.](how-to-write-javascript-query-api.md)
 

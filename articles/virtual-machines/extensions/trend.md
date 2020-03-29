@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: akjosh
 ms.openlocfilehash: cffd2eab3a616b4d16d847d0f2e1a26655f40459
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919928"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Como instalar e configurar a Trend Micro Deep Security como um serviço num VM windows
@@ -57,10 +57,10 @@ Quando chegar à lâmina **definições** do assistente, faça os seguintes pass
 ## <a name="install-the-deep-security-agent-on-an-existing-vm"></a>Instale o Agente de Segurança Profunda num VM existente
 Para instalar o agente num VM existente, precisa dos seguintes itens:
 
-* O módulo Azure PowerShell, versão 0.8.2 ou mais recente, instalado no seu computador local. Pode verificar a versão do Azure PowerShell que instalou utilizando o comando da **versão get-module azure  formato-table** comando. Para obter instruções e um link para a versão mais recente, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Inicie sessão na subscrição do Azure utilizando `Add-AzureAccount`.
+* O módulo Azure PowerShell, versão 0.8.2 ou mais recente, instalado no seu computador local. Pode verificar a versão do Azure PowerShell que instalou utilizando o comando da **versão get-module azure [ formato-table** comando. Para obter instruções e um link para a versão mais recente, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Inicie sessão na subscrição do Azure utilizando `Add-AzureAccount`.
 * O Agente VM instalado na máquina virtual alvo.
 
-Primeiro, verifique se o Agente VM já está instalado. Preencha o nome do serviço na nuvem e o nome da máquina virtual e, em seguida, execute os seguintes comandos num pedido de comando Azure PowerShell de nível administrador. Substitua tudo dentro das cotações, incluindo os caracteres < e >
+Primeiro, verifique se o Agente VM já está instalado. Preencha o nome do serviço na nuvem e o nome da máquina virtual e, em seguida, execute os seguintes comandos num pedido de comando Azure PowerShell de nível administrador. Substitua tudo dentro das citações, incluindo os caracteres < e >.
 
     $CSName = "<cloud service name>"
     $VMName = "<virtual machine name>"

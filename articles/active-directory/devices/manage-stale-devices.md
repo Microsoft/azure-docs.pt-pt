@@ -1,5 +1,5 @@
 ---
-title: Como gerir dispositivos velhos em Azure AD  Microsoft Docs
+title: Como gerir dispositivos velhos em Azure AD [ Microsoft Docs
 description: Saiba como remover dispositivos velhos da sua base de dados de dispositivos registados no Diretório Ativo Azure.
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 46be728216ed4b9c9e84c1c7f68c5ddf2051f42b
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672312"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Como: Gerir dispositivos velhos em Azure AD

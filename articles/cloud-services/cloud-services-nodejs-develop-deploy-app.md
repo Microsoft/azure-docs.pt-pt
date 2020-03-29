@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: tagore
 ms.openlocfilehash: 23fbb0b4c506b2f72000add9704618337b8b24cf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75386192"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Compilar e implementar uma aplicação Node.js num Serviço em Nuvem do Azure
@@ -29,13 +29,13 @@ Este tutorial descreve como compilar uma aplicação Web simples alojada numa fu
 
 A aplicação é uma aplicação “olá, mundo” simples:
 
-![Um browser a apresentar a página Web “Olá, Mundo”][A web browser displaying the Hello World web page]
+![A web browser displaying the Hello World web page][A web browser displaying the Hello World web page]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 > [!NOTE]
 > Este tutorial utiliza o Azure PowerShell, que requer o Windows.
 
-* Instale e configure o [Azure PowerShell].
+* Instale e configure [a Powershell Azure].
 * Transfira e instale o [Azure SDK para .NET 2.7]. Na configuração da instalação, selecione:
   * MicrosoftAzureAuthoringTools
   * MicrosoftAzureComputeEmulator
@@ -155,13 +155,13 @@ Depois de implementar a aplicação, poderá pretender desativá-la, para evitar
    > A eliminação do serviço não elimina a conta do Storage que foi criada quando o serviço foi inicialmente publicado. por isso, continuará a ser-lhe cobrado o armazenamento utilizado. Se mais nada estiver a utilizar o armazenamento, poderá querer eliminá-lo.
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações, consulte o [Centro de Programadores do Node.js].
+Para mais informações, consulte o [Centro de Programadores de Node.js].
 
 <!-- URL List -->
 
 [Comparação de Web Sites, Cloud Services e Virtual Machines do Azure]: /azure/architecture/guide/technology-choices/compute-decision-tree
 [utilização de uma aplicação Web simples]: ../app-service/app-service-web-get-started-nodejs.md
-[Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[Casca de Potência Azure]: /powershell/azureps-cmdlets-docs
 [Azure SDK para .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
 [Ligue o PowerShell]: /powershell/azureps-cmdlets-docs
 [nodejs.org]: https://nodejs.org/

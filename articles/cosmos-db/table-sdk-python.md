@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB Table API para Python
-description: Saiba tudo sobre a API tabela do Azure Cosmos DB incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão.
+description: Saiba tudo sobre o API da Tabela DD Do Azure Cosmos, incluindo datas de lançamento, datas de reforma e alterações feitas entre cada versão.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: python
@@ -9,10 +9,10 @@ ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
 ms.openlocfilehash: 420c9e5a1e86f54e52905e7d7d2459fa2f68e405
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76771275"
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Azure Cosmos DB Table API SDK para Python: Notas de lançamento e recursos
@@ -20,13 +20,13 @@ ms.locfileid: "76771275"
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
 > * [Java](table-sdk-java.md)
-> * [Node.js](table-sdk-nodejs.md)
-> * [Python](table-sdk-python.md)
+> * [Nó.js](table-sdk-nodejs.md)
+> * [Pitão](table-sdk-python.md)
  
 
 |   |   |
 |---|---|
-|**Transferência de SDK**|[PyPI](https://pypi.python.org/pypi/azure-cosmosdb-table/)|
+|**Download sDK**|[PyPI](https://pypi.python.org/pypi/azure-cosmosdb-table/)|
 |**Documentação da API**|[Documentação de referência da API python](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
 |**Instruções de instalação SDK**|[Instruções de instalação Python SDK](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Contribuir para o SDK**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
@@ -38,28 +38,28 @@ ms.locfileid: "76771275"
 
 ## <a name="release-notes"></a>Notas de versão
 
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* Versão de disponibilidade geral
+### <a name="100"></a><a name="1.0.0"/>1.0.0
+* Libertação geral de disponibilidade
 
-### <a name="a-name03710371"></a><a name="0.37.1"/>0.37.1
+### <a name="0371"></a><a name="0.37.1"/>0.37.1
 * SDK pré-lançamento
 
-## <a name="release-and-retirement-dates"></a>Datas de lançamento e de extinção
-A Microsoft irá fornecer, pelo menos, notificação **12 meses** antecedência extinguir um SDK para facilitar a transição para uma versão mais recente/suportadas.
+## <a name="release-and-retirement-dates"></a>Datas de lançamento e de reforma
+A Microsoft irá notificar com pelo menos **12 meses** de antecedência a retirada de um SDK de forma a suavizar a transição para uma versão mais recente/suportada.
 
-Novos recursos e funcionalidade e otimizações, apenas são adicionadas ao SDK atual, como tal, é recomendável que sempre atualiza para a versão mais recente SDK mais cedo possível. 
+Novas funcionalidades e funcionalidades e otimizações só são adicionadas ao SDK atual, como tal é recomendado que você sempre atual ize para a versão Mais recente SDK o mais cedo possível. 
 
 <br/>
 
-| Versão | Data de lançamento | Data de retirada |
+| Versão | Data de Lançamento | Data de Aposentadoria |
 | --- | --- | --- |
-| [1.0.0](#1.0.0) |15 de Novembro de 2017 |--- |
+| [1.0.0](#1.0.0) |15 de novembro de 2017 |--- |
 | [0.37.1](#0.37.1) |05 de outubro de 2017 |--- |
 
 
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Ver também
-Para saber mais sobre o Cosmos DB, veja [do Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) página do serviço. 
+## <a name="see-also"></a>Consulte também
+Para saber mais sobre cosmos DB, consulte a página de serviço [do Microsoft Azure Cosmos DB.](https://azure.microsoft.com/services/cosmos-db/) 
 

@@ -1,5 +1,5 @@
 ---
-title: Problema configurar inscrição única federada para aplicação não-galeria  Microsoft Docs
+title: Problema configurar inscrição única federada para aplicação não-galeria [ Microsoft Docs
 description: Resolva alguns dos problemas comuns que pode encontrar ao configurar um único sign-on federado para a sua aplicação SAML personalizada que não está listada na Galeria de Aplicações da AD Azure
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7894bfada4d363e89f526280e2925b4f4c6180a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76711889"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>Problema configurar inscrição única federada para aplicação não-galeria
@@ -70,5 +70,5 @@ A Azure AD não fornece um URL para obter os metadados. Os metadados só podem s
 
 Para saber como personalizar as reclamações de atributos SAML enviadas para a sua aplicação, consulte [o mapeamento de Reclamações no Diretório Ativo Azure](../develop/active-directory-claims-mapping.md) para obter mais informações.
 
-## <a name="next-steps"></a>Passos Seguintes
-[Managing Applications with Azure Active Directory](what-is-application-management.md) (Gerir Aplicações com o Azure Active Directory)
+## <a name="next-steps"></a>Passos seguintes
+[Gestão de Aplicações com Diretório Ativo Azure](what-is-application-management.md)

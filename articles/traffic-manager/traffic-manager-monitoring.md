@@ -1,5 +1,5 @@
 ---
-title: Monitorização do ponto final do Gestor de Tráfego azure  Microsoft Docs
+title: Monitorização do ponto final do Gestor de Tráfego azure [ Microsoft Docs
 description: Este artigo pode ajudá-lo a entender como o Traffic Manager utiliza a monitorização de pontos finais e falha automática do ponto final para ajudar os clientes azure a implementar aplicações de alta disponibilidade
 services: traffic-manager
 author: rohinkoul
@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: rohink
 ms.openlocfilehash: fcc9c5333b37c041342c2d20a53cf5d3908d1a26
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938564"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitorização do ponto final do Gestor de Tráfego
@@ -40,7 +40,7 @@ Para configurar a monitorização do ponto final, deve especificar as seguintes 
 
 ## <a name="how-endpoint-monitoring-works"></a>Como funciona a monitorização do ponto final
 
-Se o protocolo de monitorização for definido como HTTP ou HTTPS, o agente de sondagem do Gestor de Tráfego faz um pedido GET ao ponto final utilizando o protocolo, porta e caminho relativo dado. Se recuperar uma resposta de 200 OK, ou qualquer uma das respostas configuradas no código de **estado esperado \*intervalos,** então esse ponto final é considerado saudável. Se a resposta for de um valor diferente, ou, se não for recebida qualquer resposta dentro do prazo de tempo especificado, então o Gestor de Tráfego que sonda re-tente de acordo com a definição de Número tolerado de Falhas (não são feitas retentativas se esta definição for de 0). Se o número de falhas consecutivas for superior à definição de Número tolerado de Falhas, então esse ponto final é marcado como insalubre. 
+Se o protocolo de monitorização for definido como HTTP ou HTTPS, o agente de sondagem do Gestor de Tráfego faz um pedido GET ao ponto final utilizando o protocolo, porta e caminho relativo dado. Se recuperar uma resposta de 200 OK, ou qualquer uma das respostas configuradas nas **gamas de \*código de estado esperados,** então esse ponto final é considerado saudável. Se a resposta for de um valor diferente, ou, se não for recebida qualquer resposta dentro do prazo de tempo especificado, então o Gestor de Tráfego que sonda re-tente de acordo com a definição de Número tolerado de Falhas (não são feitas retentativas se esta definição for de 0). Se o número de falhas consecutivas for superior à definição de Número tolerado de Falhas, então esse ponto final é marcado como insalubre. 
 
 Se o protocolo de monitorização for TCP, o gestor de sons do Gestor de Tráfego inicia um pedido de ligação TCP utilizando a porta especificada. Se o ponto final responder ao pedido com uma resposta para estabelecer a ligação, esse exame de saúde é marcado como um sucesso e o agente de sondagem do Gestor de Tráfego repõe a ligação TCP. Se a resposta for de um valor diferente, ou se não for recebida qualquer resposta dentro do prazo de tempo especificado, o Gestor de Tráfego que sonda re-tentativas de acordo com a definição de Número tolerado de Falhas (não são feitas retentativas se esta definição for de 0). Se o número de falhas consecutivas for superior à definição de Número tolerado de Falhas, então esse ponto final é marcado como insalubre.
 
@@ -69,7 +69,7 @@ O estado do monitor endpoint é um valor gerado pelo Gestor de Tráfego que most
 
 | Estado do perfil | Estado do ponto final | Estado do monitor endpoint | Notas |
 | --- | --- | --- | --- |
-| Desativado |Ativado |Inativo |O perfil foi desativado. Embora o estado do ponto final esteja ativado, o estado do perfil (Desativado) tem precedência. Os pontos finais dos perfis desativados não são monitorizados. Um código de resposta NXDOMAIN é devolvido para a consulta dNS. |
+| Desativado |Ativado |Inativa |O perfil foi desativado. Embora o estado do ponto final esteja ativado, o estado do perfil (Desativado) tem precedência. Os pontos finais dos perfis desativados não são monitorizados. Um código de resposta NXDOMAIN é devolvido para a consulta dNS. |
 | &lt;qualquer&gt; |Desativado |Desativado |O ponto final foi desativado. Os pontos finais desativados não são monitorizados. O ponto final não está incluído nas respostas do DNS, portanto, não recebe tráfego. |
 | Ativado |Ativado |Online |O ponto final é monitorizado e saudável. Está incluído nas respostas do DNS e pode receber tráfego. |
 | Ativado |Ativado |Degradado |Os controlos de saúde do ponto final estão a falhar. O ponto final não está incluído nas respostas do DNS e não recebe tráfego. <br>Uma exceção a esta situação é se todos os pontos finais forem degradados, caso em que todos eles são considerados devolvidos na resposta à consulta).</br>|
@@ -87,11 +87,11 @@ O estado do monitor de perfil é uma combinação do estado do perfil configurad
 
 | Estado do perfil (conforme configurado) | Estado do monitor endpoint | Estado do monitor de perfil | Notas |
 | --- | --- | --- | --- |
-| Desativado |&lt;qualquer&gt; ou perfil sem pontos finais definidos. |Desativado |O perfil foi desativado. |
+| Desativado |&lt;qualquer&gt; ou um perfil sem pontos finais definidos. |Desativado |O perfil foi desativado. |
 | Ativado |O estatuto de pelo menos um ponto final está degradado. |Degradado |Reveja os valores de estado do ponto final individuais para determinar quais os pontos finais que requerem mais atenção. |
 | Ativado |O estado de pelo menos um ponto final está online. Nenhum ponto final tem um estatuto degradado. |Online |O serviço está a aceitar o trânsito. Não são necessárias mais ações. |
 | Ativado |O estado de pelo menos um ponto final é verificar endpoint. Não existem pontos finais em estado online ou degradado. |Verificação de Pontos Finais |Este estado de transição ocorre quando um perfil se criado ou ativado. A saúde do ponto final está a ser verificada pela primeira vez. |
-| Ativado |Os estatutos de todos os pontos finais do perfil são desativados ou parados, ou o perfil não tem pontos finais definidos. |Inativo |Não existem pontos finais ativos, mas o perfil ainda está ativado. |
+| Ativado |Os estatutos de todos os pontos finais do perfil são desativados ou parados, ou o perfil não tem pontos finais definidos. |Inativa |Não existem pontos finais ativos, mas o perfil ainda está ativado. |
 
 ## <a name="endpoint-failover-and-recovery"></a>Falha e recuperação de endpoint
 
@@ -153,7 +153,7 @@ Para obter mais informações, consulte [os métodos de encaminhamento de tráfe
 
 Para obter mais informações sobre a resolução de problemas, consulte o estado degradado de Resolução de Problemas no Gestor de [Tráfego de Azure.](traffic-manager-troubleshooting-degraded.md)
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQs
 
 * [O Gestor de Tráfego é resiliente às falhas da região de Azure?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-traffic-manager-resilient-to-azure-region-failures)
 

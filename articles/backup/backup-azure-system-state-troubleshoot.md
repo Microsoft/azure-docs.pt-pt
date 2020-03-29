@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
 ms.openlocfilehash: 28647b72334d592692c5fe1b031735330d1a0509
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969583"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Backup do Estado do Sistema de Resolução de Problemas
@@ -27,7 +27,7 @@ Recomendamos que execute a validação abaixo, antes de iniciar a resolução de
 - [A cópia de segurança agendada falha, mas a cópia de segurança manual funciona](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#backups-dont-run-according-to-schedule)
 - Certifique-se de que o seu SO tem as atualizações mais recentes
 - [Certifique-se de que unidades e ficheiros não suportados com atributos não suportados são excluídos da cópia de segurança](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
-- Certifique-se de que o **Relógio do Sistema** do sistema protegido está configurado para o fuso horário correto <br>
+- Certifique-se de que o Relógio do **Sistema** no sistema protegido está configurado para corrigir o fuso horário <br>
 - [Certifique-se de que o servidor tem, pelo menos, a versão 4.5.2 ou superior do .Net Framework](https://www.microsoft.com/download/details.aspx?id=30653)<br>
 - Se está a tentar **reregistar o seu servidor** num cofre, então: <br>
   - Certifique-se de que o agente está desinstalado no servidor e é eliminado do portal <br>
@@ -72,17 +72,17 @@ Para instalar o Windows Server Backup utilizando o Server Manager, execute os pa
 
 2. Selecione **Tipo de Instalação** e clique **em Seguinte**.
 
-    ![Tipo de instalação](./media/backup-azure-system-state-troubleshoot/install_type.jpg)
+    ![Tipo de Instalação](./media/backup-azure-system-state-troubleshoot/install_type.jpg)
 
 3. Selecione um servidor a partir da piscina do servidor e clique em **Next**. Na Função Servidor, deixe a seleção predefinida e clique **em Next**.
 4. Selecione **a cópia de segurança do Servidor do Windows** no separador **'Funcionalidades'** e clique em **Next**.
 
-    ![características](./media/backup-azure-system-state-troubleshoot/features.png)
+    ![funcionalidades](./media/backup-azure-system-state-troubleshoot/features.png)
 
 5. No separador **Confirmação,** clique **em Instalar** para iniciar o processo de instalação.
 6. No separador **Resultados,** irá exibir a funcionalidade de backup do Windows Server, instalada com sucesso no seu Servidor Windows.
 
-    ![Resultado](./media/backup-azure-system-state-troubleshoot/results.jpg)
+    ![result](./media/backup-azure-system-state-troubleshoot/results.jpg)
 
 ### <a name="system-volume-information-permission"></a>Permissão de informação do Volume do Sistema
 
@@ -92,7 +92,7 @@ Certifique-se de que o SISTEMA Local tem controlo total sobre a pasta **informa�
 
 Certifique-se de que os serviços abaixo estão em estado de funcionamento:
 
-**Nome de serviço** | **Tipo de arranque**
+**Nome do Serviço** | **Tipo de Arranque**
 --- | ---
 Chamada de procedimento remoto (RPC) | Automático
 Sistema de Eventos COM+ (Sistema de Eventos) | Automático
@@ -106,7 +106,7 @@ Para validar o estado de backup do Servidor do Windows, execute os seguintes pas
 
 - Certifique-se de que a WSB PowerShell está a funcionar
 
-  - Executar `Get-WBJob` a partir de um PowerShell elevado e certifique-se de que não devolve o seguinte erro:
+  - Corra `Get-WBJob` a partir de um PowerShell elevado e certifique-se de que não devolve o seguinte erro:
 
     > [!WARNING]
     > Get-WBJob: O termo 'Get-WBJob' não é reconhecido como o nome de um programa cmdlet, função, script ou operável. Verifique a ortografia do nome, ou se um caminho foi incluído, verifique se o caminho está correto e tente novamente.
@@ -120,8 +120,8 @@ Para validar o estado de backup do Servidor do Windows, execute os seguintes pas
       > [!NOTE]
       >Substitua X pela letra de unidade do volume onde pretende armazenar a imagem de back up do estado do sistema.
 
-    - Verifique periodicamente o estado do trabalho executando `Get-WBJob` comando da PowerShell elevada
-    - Após o trabalho de backup concluir, verifique o estado final do trabalho executando `Get-WBJob -Previous 1` comando
+    - Verifique periodicamente o estado do `Get-WBJob` trabalho executando o comando da PowerShell elevada
+    - Após o trabalho de backup concluir, verifique `Get-WBJob -Previous 1` o estado final do trabalho executando o comando
 
 Se o trabalho falhar, indica um problema wsb que resultaria na falha dos backups do estado do agente MARS.
 

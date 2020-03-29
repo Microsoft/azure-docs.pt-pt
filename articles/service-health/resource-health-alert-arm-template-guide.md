@@ -1,59 +1,59 @@
 ---
-title: Fazer alertas do Azure Resource Health – modelos do Resource Manager
-description: Crie alertas programaticamente que o notifiquem quando os recursos do Azure ficarem indisponíveis.
+title: Modelo para criar alertas de saúde de recursos
+description: Crie alertas programáticamente que o notifiquem quando os seus recursos Azure ficam indisponíveis.
 ms.topic: conceptual
 ms.date: 9/4/2018
-ms.openlocfilehash: d42dfdc5806fa6340cf4bb7051b53764e98c26e3
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: c01934cc88dc29d0503abfafc203ab0f04bf1761
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922762"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062901"
 ---
-# <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurar alertas do Resource Health usando modelos do Resource Manager
+# <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configure alertas de saúde de recursos usando modelos de Gestor de Recursos
 
-Este artigo mostrará como criar Resource Health alertas do log de atividades programaticamente usando Azure Resource Manager modelos e Azure PowerShell.
+Este artigo irá mostrar-lhe como criar alertas de log de atividade de saúde de recursos programáticamente usando modelos de Gestor de Recursos Azure e Azure PowerShell.
 
-Azure Resource Health mantém você informado sobre o status de integridade atual e histórico dos recursos do Azure. Azure Resource Health alertas podem notificá-lo quase em tempo real quando esses recursos têm uma alteração no status de integridade. Criar Resource Health alertas programaticamente permitem que os usuários criem e personalizem alertas em massa.
+A Azure Resource Health mantém-no informado sobre o estado de saúde atual e histórico dos seus recursos Azure. Os alertas de Saúde de Recursos Azure podem notificá-lo em tempo real quando estes recursos têm uma mudança no seu estado de saúde. Criar alertas de Saúde de Recursos, permite que os utilizadores criem e personalizem alertas a granel.
 
 > [!NOTE]
-> Resource Health alertas estão atualmente em versão prévia.
+> Os alertas de Saúde de Recursos estão atualmente em pré-visualização.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir as instruções nesta página, você precisará configurar algumas coisas com antecedência:
+Para seguir as instruções desta página, terá de configurar algumas coisas com antecedência:
 
-1. Você precisa instalar o [módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
-2. Você precisa [criar ou reutilizar um grupo de ações](../azure-monitor/platform/action-groups.md) configurado para notificá-lo
+1. Precisa de instalar o [módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
+2. Você precisa [criar ou reutilizar um Grupo](../azure-monitor/platform/action-groups.md) de Ação configurado para notificá-lo
 
 ## <a name="instructions"></a>Instruções
-1. Usando o PowerShell, faça logon no Azure usando sua conta e selecione a assinatura com a qual você deseja interagir
+1. Utilizando o PowerShell, inicie sessão no Azure utilizando a sua conta e selecione a subscrição com a quais pretende interagir
 
         Login-AzAccount
         Select-AzSubscription -Subscription <subscriptionId>
 
-    > Você pode usar `Get-AzSubscription` para listar as assinaturas às quais você tem acesso.
+    > Pode utilizar `Get-AzSubscription` para listar as subscrições a que tem acesso.
 
-2. Localizar e salvar a ID de Azure Resource Manager completa para o grupo de ação
+2. Encontre e guarde o ID completo do Gestor de Recursos Azure para o seu Grupo de Ação
 
         (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
 
-3. Crie e salve um modelo do Resource Manager para alertas de Resource Health como `resourcehealthalert.json` ([Veja os detalhes abaixo](#resource-manager-template-options-for-resource-health-alerts))
+3. Criar e guardar um modelo de Gestor `resourcehealthalert.json` de Recursos para alertas de Saúde de Recursos como[(ver detalhes abaixo)](#resource-manager-template-options-for-resource-health-alerts)
 
-4. Criar uma nova implantação de Azure Resource Manager usando este modelo
+4. Crie uma nova implementação do Gestor de Recursos Azure usando este modelo
 
         New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
 
-5. Você será solicitado a digitar o nome do alerta e a ID do recurso do grupo de ações copiado anteriormente:
+5. Será solicitado a escrever o Nome de Alerta e identificação de recurso do Grupo de Ação que copiou anteriormente:
 
         Supply values for the following parameters:
         (Type !? for Help.)
         activityLogAlertName: <Alert Name>
         actionGroupResourceId: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.insights/actionGroups/<actionGroup>
 
-6. Se tudo funcionou com êxito, você receberá uma confirmação no PowerShell
+6. Se tudo funcionar com sucesso, terá uma confirmação no PowerShell
 
         DeploymentName          : ExampleDeployment
         ResourceGroupName       : <resourceGroup>
@@ -71,13 +71,13 @@ Para seguir as instruções nesta página, você precisará configurar algumas c
         Outputs                 :
         DeploymentDebugLogLevel :
 
-Observe que, se você estiver planejando automatizar completamente esse processo, basta editar o modelo do Resource Manager para não solicitar os valores na etapa 5.
+Note que se estiver a planear automatizar totalmente este processo, basta editar o modelo do Gestor de Recursos para não solicitar os valores no Passo 5.
 
-## <a name="resource-manager-template-options-for-resource-health-alerts"></a>Opções de modelo do Resource Manager para alertas de Resource Health
+## <a name="resource-manager-template-options-for-resource-health-alerts"></a>Opções de modelo de gestor de recursos para alertas de saúde de recursos
 
-Você pode usar esse modelo base como um ponto de partida para criar Resource Health alertas. Este modelo funcionará como escrito e o inscreverá para receber alertas para todos os eventos de integridade de recursos ativados recentemente em todos os recursos em uma assinatura.
+Pode usar este modelo de base como ponto de partida para criar alertas de Saúde de Recursos. Este modelo funcionará como escrito, e irá inscrevê-lo para receber alertas para todos os eventos de saúde de recursos recentemente ativados em todos os recursos numa subscrição.
 
-> Na parte inferior deste artigo, também incluímos um modelo de alerta mais complexo que deve aumentar o sinal para a taxa de ruído para alertas de Resource Health em comparação com esse modelo.
+> Na parte inferior deste artigo também incluímos um modelo de alerta mais complexo que deve aumentar a relação sinal/ruído para alertas de saúde de recursos em comparação com este modelo.
 
 ```json
 {
@@ -134,26 +134,26 @@ Você pode usar esse modelo base como um ponto de partida para criar Resource He
 }
 ```
 
-No entanto, um alerta amplo como este geralmente não é recomendado. Saiba como é possível desfocar esse alerta para se concentrar nos eventos que nos preocupamos abaixo.
+No entanto, um alerta geralmente deste não é recomendado. Saiba como podemos analisar este alerta para nos concentrarmos nos eventos com que nos preocupamos abaixo.
 
-### <a name="adjusting-the-alert-scope"></a>Ajustando o escopo do alerta
+### <a name="adjusting-the-alert-scope"></a>Ajustar o âmbito do alerta
 
-Resource Health alertas podem ser configurados para monitorar eventos em três escopos diferentes:
+Os alertas de saúde de recursos podem ser configurados para monitorizar eventos em três âmbitos diferentes:
 
- * Nível de Subscrição
- * Nível do grupo de recursos
- * Nível de recurso
+ * Nível de subscrição
+ * Nível de Grupo de Recursos
+ * Nível de Recursos
 
-O modelo de alerta é configurado no nível de assinatura, mas se você quiser configurar seu alerta para apenas notificar sobre determinados recursos ou recursos em um determinado grupo de recursos, bastará modificar a seção `scopes` no modelo acima.
+O modelo de alerta está configurado ao nível da subscrição, mas se quiser configurar o seu alerta para apenas `scopes` notificá-lo sobre certos recursos, ou recursos dentro de um determinado grupo de recursos, simplesmente precisa modificar a secção no modelo acima.
 
-Para um escopo de nível de grupo de recursos, a seção Escopos deve ser semelhante a:
+Para um âmbito de nível de grupo de recursos, a secção de âmbitos deve parecer:
 ```json
 "scopes": [
     "/subscriptions/<subscription id>/resourcegroups/<resource group>"
 ],
 ```
 
-E para um escopo de nível de recurso, a seção de escopo deve ser semelhante a:
+E para um âmbito de nível de recursos, a secção de âmbito deve parecer:
 
 ```json
 "scopes": [
@@ -163,11 +163,11 @@ E para um escopo de nível de recurso, a seção de escopo deve ser semelhante a
 
 Por exemplo: `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
 
-> Você pode acessar o portal do Azure e examinar a URL ao exibir o recurso do Azure para obter essa cadeia de caracteres.
+> Pode ir ao Portal Azure e ver o URL ao visualizar o seu recurso Azure para obter esta cadeia.
 
-### <a name="adjusting-the-resource-types-which-alert-you"></a>Ajustando os tipos de recursos que alertam você
+### <a name="adjusting-the-resource-types-which-alert-you"></a>Ajustar os tipos de recursos que o alertam
 
-Os alertas na assinatura ou no nível do grupo de recursos podem ter tipos diferentes de recursos. Se você quiser limitar os alertas a serem fornecidos apenas de um determinado subconjunto de tipos de recursos, poderá defini-los na seção `condition` do modelo, desta forma:
+Os alertas a nível de subscrição ou grupo de recursos podem ter diferentes tipos de recursos. Se quiser limitar os alertas a apenas provenientes de um determinado `condition` subconjunto de tipos de recursos, pode defini-lo na secção do modelo como:
 
 ```json
 "condition": {
@@ -192,12 +192,12 @@ Os alertas na assinatura ou no nível do grupo de recursos podem ter tipos difer
 },
 ```
 
-Aqui, usamos o wrapper `anyOf` para permitir que o alerta de integridade do recurso corresponda a qualquer uma das condições que especificamos, permitindo alertas que se destinam a tipos de recursos específicos.
+Aqui usamos `anyOf` o invólucro para permitir que o alerta de saúde do recurso corresponda a qualquer uma das condições que especificamos, permitindo alertas que visam tipos de recursos específicos.
 
-### <a name="adjusting-the-resource-health-events-that-alert-you"></a>Ajustar os eventos de Resource Health que alertam você
-Quando os recursos passam por um evento de integridade, eles podem percorrer uma série de estágios que representam o estado do evento de integridade: `Active`, `In Progress`, `Updated`e `Resolved`.
+### <a name="adjusting-the-resource-health-events-that-alert-you"></a>Ajustar os eventos de Saúde de Recursos que o alertam
+Quando os recursos são submetidos a um evento de saúde, podem `Active`passar `In Progress` `Updated`por `Resolved`uma série de etapas que representam o estado do evento de saúde: , , e .
 
-Você pode querer ser notificado apenas quando um recurso se tornar não íntegro; nesse caso, você deseja configurar o alerta para notificar apenas quando o `status` for `Active`. No entanto, se você também quiser ser notificado sobre os outros estágios, poderá adicionar esses detalhes da seguinte maneira:
+Só pode querer ser notificado quando um recurso se torna insalubre, caso em `status` `Active`que pretende configurar o seu alerta apenas para notificar quando o for . No entanto, se também quiser ser notificado nos outros palcos, pode adicionar esses detalhes como o seguinte:
 
 ```json
 "condition": {
@@ -227,13 +227,13 @@ Você pode querer ser notificado apenas quando um recurso se tornar não íntegr
 }
 ```
 
-Se você quiser ser notificado para todos os quatro estágios de eventos de integridade, poderá remover essa condição, e o alerta o notificará independentemente da propriedade `status`.
+Se quiser ser notificado para as quatro fases dos eventos de saúde, pode remover `status` esta condição todas juntas, e o alerta irá notificá-lo independentemente da propriedade.
 
-### <a name="adjusting-the-resource-health-alerts-to-avoid-unknown-events"></a>Ajuste dos alertas de Resource Health para evitar eventos "desconhecidos"
+### <a name="adjusting-the-resource-health-alerts-to-avoid-unknown-events"></a>Ajustar os alertas de Saúde de Recursos para evitar eventos "desconhecidos"
 
-Azure Resource Health pode relatar a integridade mais recente de seus recursos, monitorando-os constantemente usando executores de teste. Os status de integridade informados relevantes são: "disponível", "não disponível" e "degradado". No entanto, em situações em que o executor e o recurso do Azure não conseguem se comunicar, um status de integridade "desconhecido" é relatado para o recurso e isso é considerado um evento de integridade "ativo".
+A Azure Resource Health pode informar-lhe a mais recente saúde dos seus recursos, monitorizando-os constantemente utilizando corredores de teste. Os estatutos de saúde relevantes são: "Disponível", "Indisponível" e "Degradado". No entanto, em situações em que o corredor e o recurso Azure não conseguem comunicar, é reportado um estado de saúde "desconhecido" para o recurso, que é considerado um evento de saúde "ativo".
 
-No entanto, quando um recurso relata "desconhecido", é provável que seu status de integridade não tenha sido alterado desde o último relatório preciso. Se você quiser eliminar alertas em eventos "desconhecidos", poderá especificar essa lógica no modelo:
+No entanto, quando um recurso reporta "Desconhecido", é provável que o seu estado de saúde não tenha mudado desde o último relatório preciso. Se quiser eliminar alertas sobre eventos "desconhecidos", pode especificar essa lógica no modelo:
 
 ```json
 "condition": {
@@ -281,15 +281,15 @@ No entanto, quando um recurso relata "desconhecido", é provável que seu status
 },
 ```
 
-Neste exemplo, estamos apenas notificando eventos em que o status de integridade atual e anterior não tem "desconhecido". Essa alteração pode ser uma adição útil se os alertas forem enviados diretamente para seu telefone celular ou email. 
+Neste exemplo, estamos apenas a notificar os acontecimentos em que o estado de saúde atual e anterior não tem "Desconhecido". Esta alteração pode ser uma adição útil se os seus alertas forem enviados diretamente para o seu telemóvel ou e-mail. 
 
-Observe que é possível que as propriedades currentHealthStatus e previousHealthStatus sejam nulas em alguns eventos. Por exemplo, quando um evento atualizado ocorre, é provável que o status de integridade do recurso não tenha sido alterado desde o último relatório, apenas que informações adicionais do evento estejam disponíveis (por exemplo, causa). Portanto, usar a cláusula acima pode resultar em alguns alertas não sendo disparados, pois os valores de Properties. currentHealthStatus e Properties. previousHealthStatus serão definidos como NULL.
+Note que é possível que as propriedades atuais do HealthStatus e anteriores do HealthStatus sejam nulas em alguns eventos. Por exemplo, quando ocorre um evento atualizado é provável que o estado de saúde do recurso não tenha mudado desde o último relatório, apenas que a informação adicional do evento está disponível (por exemplo, causa). Portanto, a utilização da cláusula acima pode resultar em alguns alertas não serem desencadeados, porque as propriedades.actualHealthStatus e propriedades.os valores anteriores do HealthStatus serão definidos como nulos.
 
-### <a name="adjusting-the-alert-to-avoid-user-initiated-events"></a>Ajustando o alerta para evitar eventos iniciados pelo usuário
+### <a name="adjusting-the-alert-to-avoid-user-initiated-events"></a>Ajustar o alerta para evitar eventos iniciados pelo utilizador
 
-Resource Health eventos podem ser disparados por eventos iniciados pela plataforma e pelo usuário. Pode fazer sentido enviar apenas uma notificação quando o evento de integridade é causado pela plataforma do Azure.
+Os eventos de Saúde de Recursos podem ser desencadeados pela plataforma iniciada e eventos iniciados pelo utilizador. Pode fazer sentido enviar apenas uma notificação quando o evento de saúde for causado pela plataforma Azure.
 
-É fácil configurar seu alerta para filtrar apenas esses tipos de eventos:
+É fácil configurar o seu alerta para filtrar apenas para este tipo de eventos:
 
 ```json
 "condition": {
@@ -303,11 +303,11 @@ Resource Health eventos podem ser disparados por eventos iniciados pela platafor
     ]
 }
 ```
-Observe que é possível que o campo de causa seja nulo em alguns eventos. Ou seja, ocorre uma transição de integridade (por exemplo, disponível para indisponível) e o evento é registrado imediatamente para evitar atrasos de notificação. Portanto, o uso da cláusula acima pode resultar em um alerta não ser disparado, pois o valor da Propriedade Properties. cláusula será definido como NULL.
+Note que é possível que o campo causa seja nulo em alguns eventos. Ou seja, realiza-se uma transição para a saúde (por exemplo, disponível para indisponíveis) e o evento é imediatamente registado para evitar atrasos na notificação. Portanto, a utilização da cláusula acima pode resultar em um alerta não ser desencadeado, porque o valor da propriedade.cláusula será definido como nulo.
 
-## <a name="complete-resource-health-alert-template"></a>Concluir Resource Health modelo de alerta
+## <a name="complete-resource-health-alert-template"></a>Modelo completo de alerta de saúde de recursos
 
-Usando os diferentes ajustes descritos na seção anterior, aqui está um modelo de exemplo que é configurado para maximizar o sinal para a taxa de ruído. Tenha em mente as advertências indicadas acima em que os valores de propriedade currentHealthStatus, previousHealthStatus e causa podem ser nulos em alguns eventos.
+Utilizando os diferentes ajustes descritos na secção anterior, aqui está um modelo de amostra que é configurado para maximizar a relação sinal/ruído. Tenha em mente as ressalvas acima referidas onde o atual HealthStatus, anteriorHealthStatus, e causar valores de propriedade podem ser nulos em alguns eventos.
 
 ```json
 {
@@ -431,15 +431,15 @@ Usando os diferentes ajustes descritos na seção anterior, aqui está um modelo
 }
 ```
 
-No entanto, você saberá melhor quais configurações são eficazes para você, portanto, use as ferramentas ensinadas nesta documentação para fazer sua própria personalização.
+No entanto, saberá melhor quais as configurações que são eficazes para si, por isso use as ferramentas que lhe são ensinadas nesta documentação para fazer a sua própria personalização.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o Resource Health:
--  [Visão geral de Azure Resource Health](Resource-health-overview.md)
+Saiba mais sobre a Saúde dos Recursos:
+-  [Visão geral da Saúde dos Recursos Azure](Resource-health-overview.md)
 -  [Os tipos de recursos e verificações do estado de funcionamento disponíveis através do Azure Resource Health](resource-health-checks-resource-types.md)
 
 
-Criar alertas de integridade do serviço:
--  [Configurar alertas para integridade do serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
--  [Esquema de evento do log de atividades do Azure](../azure-monitor/platform/activity-log-schema.md)
+Criar Alertas de Saúde de Serviço:
+-  [Configurar alertas para a saúde do serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
+-  [Esquema de evento de log de atividade azure](../azure-monitor/platform/activity-log-schema.md)

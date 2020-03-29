@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 653b12ddd54c5ec9e4e7dd23a323f34460daa962
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77920421"
 ---
 # <a name="multiclass-neural-network-module"></a>Módulo de Rede Neural Multiclasse
@@ -56,7 +56,7 @@ Para calcular a saída da rede para uma determinada entrada, calcula-se um valor
         - A camada de saída está totalmente ligada à camada escondida.
         - A camada escondida está totalmente ligada à camada de entrada.
         - O número de nós na camada de entrada é determinado pelo número de funcionalidades nos dados de formação.
-        - O número de nós na camada escondida pode ser definido pelo utilizador. O padrão é 100.
+        - O número de nós na camada escondida pode ser definido pelo utilizador. A predefinição é 100.
         - O número de nós na camada de saída depende do número de classes.
   
    

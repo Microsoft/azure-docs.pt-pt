@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: f5c6125b850062450516e7fc0b19c2e0d5d6f577
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77916069"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Ligue para as operações da API REST com autorização de chave partilhada
@@ -27,7 +27,7 @@ A aplicação da amostra lista os recipientes blob para uma conta de armazenamen
 
 - Instale o [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) com a carga de trabalho de **desenvolvimento do Azure.**
 
-- Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+- Uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 - Uma conta de armazenamento de uso geral. Se ainda não tiver uma conta de armazenamento, consulte [Criar uma conta](storage-account-create.md)de armazenamento .
 
@@ -35,9 +35,9 @@ A aplicação da amostra lista os recipientes blob para uma conta de armazenamen
 
 ## <a name="download-the-sample-application"></a>Transferir a aplicação de exemplo
 
-A aplicação da amostra é C#uma aplicação de consola escrita em .
+A aplicação da amostra é uma aplicação de consola escrita em C#.
 
-Utilize o [git](https://git-scm.com/) para transferir uma cópia da aplicação para o seu ambiente de desenvolvimento.
+Use [git](https://git-scm.com/) para descarregar uma cópia da aplicação para o seu ambiente de desenvolvimento.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
@@ -65,7 +65,7 @@ Reveja a referência para a operação [ListContainers.](/rest/api/storageservic
 
 **Método de Pedido**: GET. Este verbo é o método HTTP que especifica como propriedade do objeto de pedido. Outros valores para este verbo incluem HEAD, PUT e DELETE, dependendo da API que está a chamar.
 
-**Pedido URI**: `https://myaccount.blob.core.windows.net/?comp=list`.  O pedido URI é criado a partir do ponto final da conta de armazenamento blob `http://myaccount.blob.core.windows.net` e da cadeia de recursos `/?comp=list`.
+**Pedido**URI `https://myaccount.blob.core.windows.net/?comp=list`: .O pedido URI é criado a partir `http://myaccount.blob.core.windows.net` do ponto `/?comp=list`final da conta de armazenamento blob e da cadeia de recursos .
 
 [Parâmetros URI](/rest/api/storageservices/List-Containers2#uri-parameters): Existem parâmetros de consulta adicionais que pode utilizar ao ligar para listContainers. Alguns destes parâmetros são *tempo de paragem* para a chamada (em segundos) e *prefixo*, que é usado para filtrar.
 
@@ -77,13 +77,13 @@ Para utilizar parâmetros adicionais, acomode-os à cadeia de recursos com o val
 /?comp=list&timeout=60&maxresults=100
 ```
 
-[Cabeçalhos de pedido](/rest/api/storageservices/List-Containers2#request-headers) **:** Esta secção lista os cabeçalhos de pedido necessários e opcionais. São necessários três cabeçalhos: um cabeçalho de *autorização,* *x-ms-data* (contém o tempo UTC para o pedido) e *a versão x-ms* (especifica a versão da API REST a utilizar). Incluir *x-ms-cliente-request-id* nos cabeçalhos é opcional – você pode definir o valor para este campo para qualquer coisa; está escrito nos registos de análise de armazenamento quando o registo está ativado.
+[Cabeçalhos de pedido](/rest/api/storageservices/List-Containers2#request-headers)**:** Esta secção lista os cabeçalhos de pedido necessários e opcionais. São necessários três cabeçalhos: um cabeçalho de *autorização,* *x-ms-data* (contém o tempo UTC para o pedido) e *a versão x-ms* (especifica a versão da API REST a utilizar). Incluir *x-ms-cliente-request-id* nos cabeçalhos é opcional – você pode definir o valor para este campo para qualquer coisa; está escrito nos registos de análise de armazenamento quando o registo está ativado.
 
-[Órgão de Pedido](/rest/api/storageservices/List-Containers2#request-body) **:** Não existe nenhum órgão de pedido para ListContainers. Request Body é usado em todas as operações PUT ao carregar bolhas, bem como SetContainerAccessPolicy, que lhe permite enviar uma lista XML de políticas de acesso armazenadas a aplicar. As políticas de acesso armazenadas são discutidas no artigo Utilizando Assinaturas de [Acesso Partilhada (SAS)](storage-sas-overview.md).
+[Órgão de Pedido](/rest/api/storageservices/List-Containers2#request-body)**:** Não existe nenhum órgão de pedido para ListContainers. Request Body é usado em todas as operações PUT ao carregar bolhas, bem como SetContainerAccessPolicy, que lhe permite enviar uma lista XML de políticas de acesso armazenadas a aplicar. As políticas de acesso armazenadas são discutidas no artigo Utilizando Assinaturas de [Acesso Partilhada (SAS)](storage-sas-overview.md).
 
 [Código do Estado](/rest/api/storageservices/List-Containers2#status-code)de Resposta **:** Indica quaisquer códigos de estado que precisa de saber. Neste exemplo, um código de estado HTTP de 200 está ok. Para obter uma lista completa dos códigos de estado http, consulte as [definições](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)do Código de Estado . Para ver códigos de erro específicos das APIs de repouso de armazenamento, consulte códigos de [erro DaPI Rest Comuns](/rest/api/storageservices/common-rest-api-error-codes)
 
-[Cabeçalhos de resposta](/rest/api/storageservices/List-Containers2#response-headers) **:** Estes incluem tipo de *conteúdo;* *x-ms-request-id*, que é o ID de pedido que passou; *x-ms-versão*, que indica a versão do serviço Blob utilizado; e a *Data*, que está na UTC e diz a que horas o pedido foi feito.
+[Cabeçalhos de resposta](/rest/api/storageservices/List-Containers2#response-headers)**:** Estes incluem tipo de *conteúdo;* *x-ms-request-id*, que é o ID de pedido que passou; *x-ms-versão*, que indica a versão do serviço Blob utilizado; e a *Data*, que está na UTC e diz a que horas o pedido foi feito.
 
 [Corpo de Resposta](/rest/api/storageservices/List-Containers2#response-body): Este campo é uma estrutura XML que fornece os dados solicitados. Neste exemplo, a resposta é uma lista de contentores e suas propriedades.
 
@@ -102,14 +102,14 @@ Para construir o pedido, que é um objeto HttpRequestMessage, vá ao ListContain
 
 Algumas informações básicas que precisa:
 
-- Para os ListContainers, o **método** é `GET`. Este valor é definido ao instantaneamente o pedido.
-- O **recurso** é a parte de consulta do URI que indica a chamada API, pelo que o valor é `/?comp=list`. Como notado anteriormente, o recurso está na página de documentação de referência que mostra as informações sobre a [API listContainers](/rest/api/storageservices/List-Containers2).
-- O URI é construído através da criação do ponto final do serviço Blob para essa conta de armazenamento e concatenação do recurso. O valor para **pedido URI** acaba por ser `http://contosorest.blob.core.windows.net/?comp=list`.
+- Para os ListContainers, `GET`o **método** é . Este valor é definido ao instantaneamente o pedido.
+- O **recurso** é a parte de consulta do URI que indica qual `/?comp=list`a API que está a ser chamada, pelo que o valor é . Como notado anteriormente, o recurso está na página de documentação de referência que mostra as informações sobre a [API listContainers](/rest/api/storageservices/List-Containers2).
+- O URI é construído através da criação do ponto final do serviço Blob para essa conta de armazenamento e concatenação do recurso. O valor para **pedido** URI `http://contosorest.blob.core.windows.net/?comp=list`acaba por ser .
 - Para ListContainers, **requestBody** é nulo e não há **cabeçalhos**extra .
 
 APIs diferentes podem ter outros parâmetros para passar, tais como *se Match*. Um exemplo de onde pode usar se o Match for quando ligar para PutBlob. Nesse caso, define seMatch para um eTag, e só atualiza a bolha se o eTag que fornece corresponder ao eTag atual na bolha. Se alguém tiver atualizado a bolha desde que recuperou o eTag, a mudança não será ultrapassada.
 
-Primeiro, desloque a `uri` e a `payload`.
+Primeiro, definir `uri` o `payload`e o.
 
 ```csharp
 // Construct the URI. It will look like this:
@@ -121,7 +121,7 @@ String uri = string.Format("http://{0}.blob.core.windows.net?comp=list", storage
 Byte[] requestPayload = null;
 ```
 
-Em seguida, instantaneamente o pedido, definindo o método para `GET` e fornecendo o URI.
+Em seguida, instantaneamente o pedido, definindo o método e `GET` fornecendo o URI.
 
 ```csharp
 // Instantiate the request message with a null payload.
@@ -175,7 +175,7 @@ Agora que construiu o pedido, pode ligar para o método SendAsync para enviá-lo
 }
 ```
 
-Se executar um sniffer de rede como [o Fiddler](https://www.telerik.com/fiddler) ao fazer a chamada para SendAsync, pode ver as informações de pedido e resposta. Vamos dar uma olhada. O nome da conta de armazenamento é *contosorest.*
+Se executar um sniffer de rede como [o Fiddler](https://www.telerik.com/fiddler) ao fazer a chamada para SendAsync, pode ver as informações de pedido e resposta. Vamos dar uma vista de olhos. O nome da conta de armazenamento é *contosorest.*
 
 **Pedido:**
 
@@ -300,7 +300,7 @@ StringToSign = VERB + "\n" +
                CanonicalizedResource;  
 ```
 
-A maioria destes campos raramente são usados. Para armazenamento blob, especifice VERB, md5, comprimento de conteúdo, Cabeçalhos Canonicalizados e Recurso Canonicalizado. Pode deixar os outros em branco (mas colocar no `\n` para que saiba que estão em branco).
+A maioria destes campos raramente são usados. Para armazenamento blob, especifice VERB, md5, comprimento de conteúdo, Cabeçalhos Canonicalizados e Recurso Canonicalizado. Pode deixar os outros em branco `\n` (mas coloque-os para saber que estão em branco).
 
 O que são Cabeçalhos Canonicalizados e Recursos Canonicalizados? Boa pergunta. Na verdade, o que significa canonicalizado? O Microsoft Word nem sequer o reconhece como uma palavra. Eis o que a [Wikipédia diz sobre a canonicalização](https://en.wikipedia.org/wiki/Canonicalization): *Na ciência da computação, a canonicalização (por vezes normalização ou normalização) é um processo de conversão de dados que tem mais do que uma possível representação numa forma "normal", "normal" ou canónica.* Em termos normais, isto significa pegar na lista de itens (como cabeçalhos no caso dos Cabeçalhos Canonicalizados) e padronizá-los num formato exigido. Basicamente, a Microsoft decidiu um formato e é preciso compará-lo.
 
@@ -308,7 +308,7 @@ Vamos começar com esses dois campos canonicalizados, porque eles são obrigados
 
 ### <a name="canonicalized-headers"></a>Cabeçalhos canonicalizados
 
-Para criar este valor, recupere os cabeçalhos que começam com "x-ms-" e os separe, em seguida, forte-os numa série de `[key:value\n]` instâncias, concatenadas numa corda. Para este exemplo, os cabeçalhos canonicalizados são assim:
+Para criar este valor, recupere os cabeçalhos que começam com "x-ms-" e os separe, em seguida, forte-os em uma série de `[key:value\n]` instâncias, concatenadas em uma corda. Para este exemplo, os cabeçalhos canonicalizados são assim:
 
 ```
 x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
@@ -353,7 +353,7 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
 
 ### <a name="canonicalized-resource"></a>Recurso canonicalizado
 
-Esta parte da cadeia de assinatura representa a conta de armazenamento visada pelo pedido. Lembre-se que o Pedido URI é `<http://contosorest.blob.core.windows.net/?comp=list>`, com o nome real da conta (`contosorest` neste caso). Neste exemplo, este é devolvido:
+Esta parte da cadeia de assinatura representa a conta de armazenamento visada pelo pedido. Lembre-se que `<http://contosorest.blob.core.windows.net/?comp=list>`o Pedido URI é, com o nome real da conta (neste`contosorest` caso). Neste exemplo, este é devolvido:
 
 ```
 /contosorest/\ncomp:list
@@ -569,7 +569,7 @@ Neste artigo, aprendeu a fazer um pedido à API de armazenamento de blob REST. C
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Blob Serviço REST API](/rest/api/storageservices/blob-service-rest-api)
-- [Serviço de Arquivo REST API](/rest/api/storageservices/file-service-rest-api)
-- [Serviço de Fila REST API](/rest/api/storageservices/queue-service-rest-api)
-- [Serviço de Mesa REST API](/rest/api/storageservices/table-service-rest-api)
+- [API REST de Serviço Blob](/rest/api/storageservices/blob-service-rest-api)
+- [API REST de Serviço de Ficheiros](/rest/api/storageservices/file-service-rest-api)
+- [API REST de Serviço de Filas](/rest/api/storageservices/queue-service-rest-api)
+- [API REST de Serviço de Tabelas](/rest/api/storageservices/table-service-rest-api)

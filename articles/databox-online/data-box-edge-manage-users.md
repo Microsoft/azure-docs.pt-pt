@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: alkohli
 ms.openlocfilehash: 443ed983a0eec5dfd8f7a917fbc1440cd66c3db3
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78946129"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-edge"></a>Utilize o portal Azure para gerir os utilizadores no seu Edge de Caixa de Dados Azure
@@ -39,7 +39,7 @@ As permissões de utilizador são definidas pela primeira vez quando o utilizado
 
 Efetue os seguintes passos no portal do Azure para adicionar um utilizador.
 
-1. No portal Azure, vá ao seu recurso Data Box Edge e depois vá ao **Overview > Users**. Selecione **+ Adicione** o utilizador na barra de comando.
+1. No portal Azure, vá ao seu recurso Data Box Edge e depois vá ao **Overview > Utilizadores**. Selecione **+ Adicione** o utilizador na barra de comando.
 
     ![Selecione adicionar utilizador](media/data-box-edge-manage-users/add-user-1.png)
 
@@ -65,7 +65,7 @@ Pode alterar a palavra-passe associada a um utilizador depois de o utilizador se
 Efetue os seguintes passos no portal do Azure para eliminar um utilizador.
 
 
-1. No portal Azure, vá ao seu recurso Data Box Edge e depois vá ao **Overview > Users**.
+1. No portal Azure, vá ao seu recurso Data Box Edge e depois vá ao **Overview > Utilizadores**.
 
     ![Selecione utilizador para eliminar](media/data-box-edge-manage-users/delete-user-1.png)
 
@@ -82,6 +82,6 @@ A lista de utilizadores é atualizada para refletir o utilizador eliminado.
 ![Lista atualizada de utilizadores](media/data-box-edge-manage-users/delete-user-4.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [Gerir a largura de banda](data-box-edge-manage-bandwidth-schedules.md).

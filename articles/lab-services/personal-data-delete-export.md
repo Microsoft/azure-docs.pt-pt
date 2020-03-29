@@ -1,6 +1,6 @@
 ---
-title: Como excluir e exportar dados pessoais do Azure DevTest Labs
-description: Saiba como excluir e exportar dados pessoais do serviço do Azure DevLast Labs para dar suporte às suas obrigações no Regulamento Geral sobre a Proteção de Dados (GDPR).
+title: Como eliminar e exportar dados pessoais da Azure DevTest Labs
+description: Saiba como eliminar e exportar dados pessoais do serviço Azure DevLast Labs para apoiar as suas obrigações ao abrigo do Regulamento Geral de Proteção de Dados (RGPD).
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,72 +13,72 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: c87e2fb534480bbf9bbe625d67782e5a11eda18c
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169686"
 ---
-# <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exportar ou excluir dados pessoais do Azure DevTest Labs
-Este artigo fornece etapas para excluir e exportar dados pessoais do serviço de Azure DevTest Labs. 
+# <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exportar ou eliminar dados pessoais da Azure DevTest Labs
+Este artigo fornece medidas para a apagar e exportar dados pessoais do serviço Azure DevTest Labs. 
 
-## <a name="what-personal-data-does-devtest-labs-collect"></a>Quais dados pessoais o DevTest Labs coleta?
-O DevTest Labs coleta duas partes principais de dados pessoais do usuário. Eles são: endereço de email do usuário e ID de objeto de usuário. Essas informações são essenciais para que o serviço forneça recursos no serviço para administradores de laboratório e usuários de laboratório.
+## <a name="what-personal-data-does-devtest-labs-collect"></a>Que dados pessoais a DevTest Labs recolhe?
+A DevTest Labs recolhe duas peças principais de dados pessoais do utilizador. São: endereço de e-mail do utilizador e ID do objeto do utilizador. Esta informação é fundamental para que o serviço forneça funcionalidades em serviço a administrações de laboratório e utilizadores de laboratório.
 
-### <a name="user-email-address"></a>Endereço de email do usuário
-O DevTest Labs usa o endereço de email do usuário para enviar notificações por email de desligamento automático para os usuários do laboratório. O email notifica os usuários sobre seu computador que está sendo desligado. Os usuários podem adiar ou ignorar o desligamento se desejarem fazer isso. Você configura o endereço de email no nível de laboratório ou no nível da VM.
+### <a name="user-email-address"></a>Endereço de e-mail do utilizador
+A DevTest Labs utiliza o endereço de e-mail do utilizador para enviar notificações de e-mail de encerramento automático para utilizadores de laboratório. O e-mail identifica os utilizadores da sua máquina a ser desligada. Os utilizadores podem adiar ou saltar a paralisação se assim o desejarem. Configura o endereço de e-mail ao nível do laboratório ou ao nível de VM.
 
-**Configurando email no laboratório:**
+**Definição de e-mail no laboratório:**
 
-![Configurando email no nível do laboratório](./media/personal-data-delete-export/lab-user-email.png)
+![Definição de e-mail ao nível do laboratório](./media/personal-data-delete-export/lab-user-email.png)
 
-**Configurando email na VM:**
+**Definição de e-mail no VM:**
 
-![Configurando email no nível da VM](./media/personal-data-delete-export/vm-user-email.png)
+![Definição de e-mail ao nível vM](./media/personal-data-delete-export/vm-user-email.png)
 
-### <a name="user-object-id"></a>ID de objeto de usuário
-O DevTest Labs usa a ID de objeto de usuário para mostrar as tendências de custo mês a mês e o custo pelas informações de recursos para os administradores de laboratório. Ele permite controlar os custos e gerenciar os limites de seu laboratório. 
+### <a name="user-object-id"></a>ID do objeto do utilizador
+A DevTest Labs usa o ID do objeto do utilizador para mostrar tendências de custos mensais e custos por informações de recursos para administrações de laboratório. Permite-lhes controlar os custos e gerir os limiares para o laboratório. 
 
-**Tendência de custo estimado para o mês do calendário atual:** 
-![tendência de custo estimado para o mês do calendário atual](./media/personal-data-delete-export/estimated-cost-trend-per-month.png)
+**Tendência de custos estimada para o mês civil em curso:**
+![Tendência estimada de custos para o mês civil em curso](./media/personal-data-delete-export/estimated-cost-trend-per-month.png)
 
-**Custo estimado acumulado no mês por recurso:** 
-![custo estimado de mês até a data por recurso](./media/personal-data-delete-export/estimated-month-to-date-cost-by-resource.png)
+**Custo estimado**
+![mensal mente por recurso: Custo estimado mensal por recurso](./media/personal-data-delete-export/estimated-month-to-date-cost-by-resource.png)
 
 
-## <a name="why-do-we-need-this-personal-data"></a>Por que precisamos desses dados pessoais?
-O serviço DevTest Labs usa os dados pessoais para fins operacionais. Esses dados são essenciais para que o serviço forneça os principais recursos. Se você definir uma política de retenção no endereço de email do usuário, os usuários do laboratório não receberão notificações de email de desligamento automático em tempo hábil depois que seu endereço de email for excluído do nosso sistema. Da mesma forma, o administrador do laboratório não poderá exibir as tendências de custo do mês a mês e o custo por recurso para os computadores em seus laboratórios se as IDs de objeto do usuário forem excluídas com base em uma política de retenção. Portanto, esses dados precisam ser retidos, desde que o recurso do usuário esteja ativo no laboratório.
+## <a name="why-do-we-need-this-personal-data"></a>Por que precisamos destes dados pessoais?
+O serviço DevTest Labs utiliza os dados pessoais para fins operacionais. Estes dados são fundamentais para que o serviço entregue as principais funcionalidades. Se definir uma política de retenção no endereço de e-mail do utilizador, os utilizadores do laboratório não recebem notificações de e-mail de encerramento automático atempada após o seu endereço de e-mail ser eliminado do nosso sistema. Da mesma forma, a administração do laboratório não pode ver as tendências de custos mensais e os custos por recurso para máquinas nos seus laboratórios se as identidades do objeto do utilizador forem eliminadas com base numa política de retenção. Portanto, estes dados precisam de ser conservados enquanto o recurso do utilizador estiver ativo no Laboratório.
 
-## <a name="how-can-i-have-the-system-to-forget-my-personal-data"></a>Como posso ter o sistema para esquecer meus dados pessoais?
-Como um usuário do laboratório, se você quiser que esses dados pessoais sejam excluídos, poderá fazer isso excluindo o recurso correspondente no laboratório. O serviço DevTest Labs torna anônimas os dados pessoais excluídos 30 dias após sua exclusão pelo usuário.
+## <a name="how-can-i-have-the-system-to-forget-my-personal-data"></a>Como posso ter o sistema para esquecer os meus dados pessoais?
+Como utilizador de laboratório, se gosta de ter estes dados pessoais eliminados, pode fazê-lo eliminando o recurso correspondente no Laboratório. O serviço DevTest Labs anonimiza os dados pessoais apagados 30 dias após o seu lançamento.
 
-Por exemplo, se você excluir sua VM ou removido seu endereço de email, o serviço DevTest Labs torna anônimas esses dados 30 dias após a exclusão do recurso. A política de retenção de 30 dias após a exclusão é certificar-se de que fornecemos uma projeção de custo de mês a mês precisa para o administrador do laboratório.
+Por exemplo, se eliminar o seu VM ou remover o seu endereço de e-mail, o serviço DevTest Labs anonimiza estes dados 30 dias após a eliminação do recurso. A política de retenção de 30 dias após a eliminação é para garantir que fornecemos uma projeção exata de custos mensais ao administrador do laboratório.
 
-## <a name="how-can-i-request-an-export-on-my-personal-data"></a>Como posso solicitar uma exportação em meus dados pessoais?
-Você pode exportar dados de uso pessoais e de laboratório usando o portal do Azure ou o PowerShell. Os dados são exportados como dois arquivos CSV diferentes:
+## <a name="how-can-i-request-an-export-on-my-personal-data"></a>Como posso pedir uma exportação dos meus dados pessoais?
+Pode exportar dados pessoais e de utilização de laboratório utilizando o portal Azure ou powerShell. Os dados são exportados como dois ficheiros CSV diferentes:
 
-- **disks. csv** -contém informações sobre os discos que estão sendo usados pelas diferentes VMs
-- **VirtualMachines. csv** -contém informações sobre as VMs no laboratório.
+- **disks.csv** - contém informações sobre os discos que estão a ser utilizados pelos diferentes VMs
+- **virtualmachines.csv** - contém informações sobre os VMs no laboratório.
 
 ### <a name="azure-portal"></a>Portal do Azure
-Como um usuário do laboratório, você pode solicitar uma exportação dos dados pessoais que o serviço do DevTest Labs armazena. Para solicitar uma exportação, navegue até a opção **dados pessoais** na página **visão geral** do seu laboratório. Selecionar o botão de **exportação de solicitação** ativa a criação de um arquivo do Excel para download na conta de armazenamento do administrador do laboratório. Em seguida, você pode entrar em contato com o administrador do laboratório para exibir esses dados.
+Como utilizador de laboratório, pode solicitar uma exportação dos dados pessoais que o serviço DevTest Labs armazena. Para solicitar uma exportação, navegue para a opção **de dados pessoais** na página **de visão geral** do seu laboratório. Selecione o botão **de exportação do Pedido** inicia a criação de um ficheiro excel descarregado na conta de armazenamento do seu administrador lab. Em seguida, pode contactar o administrador do seu laboratório para ver estes dados.
 
-1. Selecione **dados pessoais** no menu à esquerda. 
+1. Selecione **dados pessoais** no menu esquerdo. 
 
     ![Página de dados pessoais](./media/personal-data-delete-export/personal-data-page.png)
 2. Selecione o **grupo de recursos** que contém o laboratório.
 
     ![Selecionar grupo de recursos](./media/personal-data-delete-export/select-resource-group.png)
 3. Selecione a **conta de armazenamento** no grupo de recursos.
-4. Na página **conta de armazenamento** , selecione **BLOBs**.
+4. Na página da **conta de Armazenamento,** selecione **Blobs**.
 
-    ![Selecionar bloco de BLOBs](./media/personal-data-delete-export/select-blobs-tile.png)
-5. Selecione o contêiner chamado **labresourceusage** na lista de contêineres.
+    ![Selecione azulejoblos](./media/personal-data-delete-export/select-blobs-tile.png)
+5. Selecione o recipiente denominado **utilização** de recursos laboratoriais na lista de recipientes.
 
-    ![Selecionar contêiner de BLOB](./media/personal-data-delete-export/select-blob-container.png)
-6. Selecione a **pasta** nomeada após o laboratório. Você encontra arquivos **CSV** para **discos** e **máquinas virtuais** em seu laboratório nesta pasta. Você pode baixar esses arquivos CSV, filtrar o conteúdo para o usuário do laboratório que solicita um acesso e compartilhá-lo com eles.
+    ![Selecione recipiente de bolha](./media/personal-data-delete-export/select-blob-container.png)
+6. Selecione a **pasta** com o nome do seu laboratório. Encontra **ficheiros** **CSV** para discos e **máquinas virtuais** no seu laboratório nesta pasta. Pode descarregar estes ficheiros csv, filtrar o conteúdo para o utilizador do laboratório que solicita um acesso e partilhá-lo com eles.
 
-    ![Baixar arquivo CSV](./media/personal-data-delete-export/download-csv-file.png)
+    ![Baixar ficheiro CSV](./media/personal-data-delete-export/download-csv-file.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -144,7 +144,7 @@ else
 }
 ```
 
-Os principais componentes no exemplo acima são:
+Os componentes-chave da amostra acima são:
 
 - O comando Invoke-AzureRmResourceAction.
    
@@ -152,68 +152,68 @@ Os principais componentes no exemplo acima são:
     Invoke-AzureRmResourceAction -Action 'exportLabResourceUsage' -ResourceId $resourceId -Parameters $actionParameters -Force
     ```
 - Dois parâmetros de ação
-    - **blobStorageAbsoluteSasUri** -o URI da conta de armazenamento com o token SAS (assinatura de acesso compartilhado). No script do PowerShell, esse valor pode ser passado em vez da chave de armazenamento.
-    - **usageStartDate** -a data de início para efetuar pull de dados, com a data de término sendo a data atual em que a ação é executada. A granularidade está no nível do dia, portanto, mesmo que você adicione informações de tempo, elas serão ignoradas.
+    - **blobStorageAbsoluteSasUri** - A conta de armazenamento URI com o símbolo de Assinatura de Acesso Partilhado (SAS). No script PowerShell, este valor poderia ser passado em vez da chave de armazenamento.
+    - **utilizaçãoStartDate** - A data de início para puxar os dados, sendo a data de fim a data atual em que a ação é executada. A granularidade está ao nível do dia, por isso mesmo que adicione informações de tempo, será ignorada.
 
-### <a name="exported-data---a-closer-look"></a>Dados exportados-uma análise mais detalhada
-Agora, vamos examinar mais de perto os dados exportados. Conforme mencionado anteriormente, depois que os dados são exportados com êxito, haverá dois arquivos CSV. 
+### <a name="exported-data---a-closer-look"></a>Dados exportados - um olhar mais atento
+Agora vamos ver mais de perto os dados exportados. Como mencionado anteriormente, uma vez exportados com sucesso os dados, haverá dois ficheiros CSV. 
 
-O **VirtualMachines. csv** contém as seguintes colunas de dados:
+As **virtualmachines.csv** contém as seguintes colunas de dados:
 
 | Nome da coluna | Descrição |
 | ----------- | ----------- | 
-| SubscriptionId | O identificador de assinatura no qual o laboratório existe. |
-| LabUId | Identificador de GUID exclusivo para o laboratório. |
-| LabName | Nome do laboratório. |
-| LabResourceId | ID de recurso de laboratório totalmente qualificado. |
-| ResourceGroupName | Nome do grupo de recursos que contém a VM | 
-| ResourceId | ID de recurso totalmente qualificado para a VM. |
-| ResourceUId | GUID da VM |
-| Nome | Nome da máquina virtual. |
-| CreatedTime | A data e hora em que a VM foi criada. |
-| DeletedDate | A data e hora em que a VM foi excluída. Se estiver vazio, a exclusão ainda não ocorreu. |
-| ResourceOwner | Proprietário da VM. Se o valor estiver vazio, será uma VM declarável ou criada por uma entidade de serviço. |
-| pricingTier | Tipo de preço da VM |
-| ResourceStatus | Estado de disponibilidade da VM. Ativo, se ainda existir ou inativo, se a VM tiver sido excluída. |
-| ComputeResourceId | Identificador de recurso de computação de máquina virtual totalmente qualificado. |
-| Declarável | Definir como true se a VM for uma VM declarável | 
-| Ambienteid | O identificador de recurso de ambiente no qual a máquina virtual foi criada. Ele está vazio quando a VM não foi criada como parte de um recurso de ambiente. |
-| ExpirationDate | Data de validade da VM. Ele será definido como vazio se uma data de expiração não tiver sido definida.
-| GalleryImageReferenceVersion |  Versão da imagem base da VM. |
-| GalleryImageReferenceOffer | Oferta da imagem base da VM. |
-| GalleryImageReferencePublisher | Editor da imagem base da VM. |
-| GalleryImageReferenceSku | SKU da imagem base da VM |
-| GalleryImageReferenceOsType | Tipo de so da imagem base da VM |
-| CustomImageId | ID totalmente qualificada da imagem personalizada base da VM. |
+| SubscriptionId | O identificador de assinatura em que o laboratório existe. |
+| Labuídio | Identificador GUIA único para o laboratório. |
+| Nome de laboratório | Nome do laboratório. |
+| LabResourceid | Identificação de recursos de laboratório totalmente qualificados. |
+| ResourceGroupName | Nome do grupo de recursos que contém o VM | 
+| ResourceId | Id de recursos totalmente qualificado sacar para o VM. |
+| Resourceuid | GUID para o VM |
+| Nome | Nome de máquina virtual. |
+| CreatedTime | A data-data em que o VM foi criado. |
+| Data eliminada | A data-data em que o VM foi apagado. Se está vazio, a eliminação ainda não ocorreu. |
+| Proprietário de Recursos | Dono da VM. Se o valor estiver vazio, então ou é um VM repreensível ou criado por um diretor de serviço. |
+| PreçoTier | Nível de preços do VM |
+| Estatuto de Recursos | Estado de disponibilidade do VM. Ativo, se ainda existir ou Inativo, se o VM tiver sido eliminado. |
+| ComputeResourceId | Identificador de recursos de computação virtual totalmente qualificado. |
+| Reclamação | Definido para verdade se o VM é um VM reivindicavel | 
+| AmbienteId | O identificador de recursos ambientais no qual a máquina Virtual foi criada. Está vazio quando o VM não foi criado como parte de um recurso ambiental. |
+| Data de Validade | Data de validade para o VM. Está programado para esvaziar, se não tiver sido fixada uma data de validade.
+| GalleryImageReferenceVersion |  Versão da imagem base VM. |
+| GalleryImageReferenceOffer | Oferta da imagem base vm. |
+| GalleryImageReferencePublisher | Editor da imagem base vm. |
+| GalleryImageReferenceSku | Sku da imagem base VM |
+| GaleriaImageReferenceosType | Tipo OS da imagem base VM |
+| CustomImageid | Identificação totalmente qualificada da imagem personalizada da base VM. |
 
-As colunas de dados contidas em **disks. csv** estão listadas abaixo:
+As colunas de dados contidas em **discos.csv** estão listadas abaixo:
 
 | Nome da coluna | Descrição | 
 | ----------- | ----------- | 
-| SubscriptionId | ID da assinatura que contém o laboratório |
-| LabUId | GUID do laboratório |
-| LabName | nome do laboratório | 
-| LabResourceId | ID de recurso totalmente qualificado para o laboratório | 
+| SubscriptionId | ID da subscrição que contém o laboratório |
+| Labuídio | GUID para o laboratório |
+| Nome de laboratório | Nome do laboratório | 
+| LabResourceid | Id de recursos totalmente qualificados para o laboratório | 
 | ResourceGroupName | Nome do grupo de recursos que contém o laboratório | 
-| ResourceId | ID de recurso totalmente qualificado para a VM. |
-| ResourceUId | GUID da VM |
- |Nome | O nome do disco anexado |
+| ResourceId | Id de recursos totalmente qualificado sacar para o VM. |
+| Resourceuid | GUID para o VM |
+ |Nome | O nome do disco anexo |
 | CreatedTime |A data e a hora em que o disco de dados foi criado. |
-| DeletedDate | A data e a hora em que o disco de dados foi excluído. |
-| ResourceStatus | Status do recurso. Ativo, se o recurso existir. Inativo, quando excluído. |
-| DiskBlobName | Nome do blob para o disco de dados. |
+| Data eliminada | A data e a hora em que o disco de dados foi eliminado. |
+| Estatuto de Recursos | Estado do recurso. Ativo, se o recurso existir. Inativo, quando apagado. |
+| DiskBlobName | Nome blob para o disco de dados. |
 | DiskSizeGB | O tamanho do disco de dados. |
-| DiskType | Tipo de disco de dados. 0 para Standard, 1 para Premium. |
-| LeasedByVmId | ID de recurso da VM à qual o disco de dados foi anexado. |
+| DiskType | Tipo do disco de dados. 0 para Standard, 1 para Premium. |
+| LeasedByVmId | Identificação de recursos do VM ao qual o disco de dados foi anexado. |
 
 
 > [!NOTE]
-> Se você estiver lidando com vários laboratórios e quiser obter informações gerais, as duas colunas de chave serão o **LabUID** e o **ResourceUId**, que são as IDs exclusivas entre as assinaturas.
+> Se você está lidando com vários laboratórios e quer obter informações globais, as duas colunas-chave são o **LabUID** e o **ResourceUId**, que são os ids únicos em subscrições.
 
-Os dados exportados podem ser manipulados e visualizados usando ferramentas, como SQL Server, Power BI, etc. Esse recurso é especialmente útil quando você deseja relatar o uso de seu laboratório para sua equipe de gerenciamento que talvez não esteja usando a mesma assinatura do Azure que você faz.
+Os dados exportados podem ser manipulados e visualizados usando ferramentas, como O Servidor SQL, Power BI, etc. Esta funcionalidade é especialmente útil quando pretende reportar o uso do seu laboratório à sua equipa de gestão que pode não estar a usar a mesma subscrição Azure que você.
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos: 
 
 - [Definir políticas para um laboratório](devtest-lab-get-started-with-lab-policies.md)
-- [Perguntas mais frequentes](devtest-lab-faq.md)
+- [Perguntas frequentes](devtest-lab-faq.md)

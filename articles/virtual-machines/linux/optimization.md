@@ -1,5 +1,5 @@
 ---
-title: Otimize o seu Linux VM no Azure
+title: Otimizar a VM do Linux no Azure
 description: Aprenda algumas dicas de otimização para se certificar de que configura o seu VM Linux para um desempenho ideal no Azure
 keywords: Máquina virtual linux,máquina virtual linux,ubuntu máquina virtual
 services: virtual-machines-linux
@@ -17,13 +17,13 @@ ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
 ms.openlocfilehash: a80446317a289f27cdbbff3b2939cfe0db45748f
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77918058"
 ---
-# <a name="optimize-your-linux-vm-on-azure"></a>Otimize o seu Linux VM no Azure
+# <a name="optimize-your-linux-vm-on-azure"></a>Otimizar a VM do Linux no Azure
 A criação de uma máquina virtual Linux (VM) é fácil de fazer a partir da linha de comando ou do portal. Este tutorial mostra-lhe como garantir que o configurapara otimizar o seu desempenho na plataforma Microsoft Azure. Este tópico utiliza um Ubuntu Server VM, mas também pode criar uma máquina virtual Linux usando [as suas próprias imagens como modelos](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -37,9 +37,9 @@ Com base no tamanho vm, pode anexar até 16 discos adicionais numa Série A, 32 
 
 Para obter os iOps mais elevados em discos de armazenamento premium onde as suas definições de cache foram definidas para **ReadOnly** ou **None,** deve **desativar as barreiras** enquanto monta o sistema de ficheiros em Linux. Não precisa de barreiras porque os escritos para discos apoiados por Armazenamento Premium são duráveis para estas definições de cache.
 
-* Se utilizar **reiserFS,** desative barreiras utilizando a opção de montagem `barrier=none` (Para permitir barreiras, utilize `barrier=flush`)
-* Se utilizar **o ext3/ext4,** desative as barreiras utilizando a opção de montagem `barrier=0` (Para permitir barreiras, utilize `barrier=1`)
-* Se utilizar **o XFS,** desative barreiras utilizando a opção de montagem `nobarrier` (Para ativar barreiras, utilize a opção `barrier`)
+* Se utilizar **reiserFS,** desative barreiras utilizando a `barrier=none` opção `barrier=flush`de montagem (Para ativar barreiras, utilize)
+* Se utilizar **ext3/ext4,** desative barreiras utilizando a `barrier=0` opção `barrier=1`de montagem (Para permitir barreiras, utilize)
+* Se utilizar **o XFS,** desative `nobarrier` as barreiras utilizando a `barrier`opção de montagem (Para ativar barreiras, utilize a opção)
 
 ## <a name="unmanaged-storage-account-considerations"></a>Considerações de conta de armazenamento não geridas
 A ação predefinida quando cria um VM com o AZURE CLI é utilizar discos geridos azure.  Estes discos são manuseados pela plataforma Azure e não requerem qualquer preparação ou localização para os armazenar.  Os discos não geridos requerem uma conta de armazenamento e têm algumas considerações adicionais de desempenho.  Para mais informações sobre discos geridos, veja [Managed Disks Overview (Descrição geral dos Managed Disks)](../windows/managed-disks-overview.md).  A secção seguinte descreve considerações de desempenho apenas quando utiliza discos não geridos.  Mais uma vez, a solução de armazenamento predefinido e recomendada é utilizar discos geridos.
@@ -59,14 +59,14 @@ No Ubuntu Cloud Images, deve utilizar cloud-init para configurar a divisória de
 
 Para imagens sem suporte para cloud-init, as imagens VM implantadas do Azure Marketplace têm um Agente VM Linux integrado com o OS. Este agente permite que o VM interaja com vários serviços Azure. Assumindo que implementou uma imagem padrão do Mercado Azure, teria de fazer o seguinte para configurar corretamente as definições de ficheiros de swap do Linux:
 
-Localize e modifique duas entradas no ficheiro **/etc/waagent.conf.** Controlam a existência de um ficheiro de permuta dedicado e o tamanho do ficheiro swap. Os parâmetros que precisa de verificar são `ResourceDisk.EnableSwap` e `ResourceDisk.SwapSizeMB` 
+Localize e modifique duas entradas no ficheiro **/etc/waagent.conf.** Controlam a existência de um ficheiro de permuta dedicado e o tamanho do ficheiro swap. Os parâmetros que precisa `ResourceDisk.EnableSwap` de verificar são e`ResourceDisk.SwapSizeMB` 
 
 Para ativar um disco devidamente ativado e um ficheiro de troca montado, certifique-se de que os parâmetros têm as seguintes definições:
 
-* ResourceDisk.EnableSwap=Y
+* Resourcedisk.Enableswap=Y
 * ResourceDisk.SwapSizeMB={size in MB para satisfazer as suas necessidades} 
 
-Depois de ter feito a alteração, tem de reiniciar o waagent ou reiniciar o vM Linux para refletir essas alterações.  Sabe que as alterações foram implementadas e que foi criado um ficheiro de troca quando utiliza o comando `free` para visualizar o espaço livre. O exemplo seguinte tem um ficheiro de troca de 512MB criado como resultado da modificação do ficheiro **waagent.conf:**
+Depois de ter feito a alteração, tem de reiniciar o waagent ou reiniciar o vM Linux para refletir essas alterações.  Sabe que as alterações foram implementadas e foi criado `free` um ficheiro de troca quando utiliza o comando para visualizar o espaço livre. O exemplo seguinte tem um ficheiro de troca de 512MB criado como resultado da modificação do ficheiro **waagent.conf:**
 
 ```bash
 azuseruser@myVM:~$ free
@@ -134,5 +134,5 @@ Lembre-se, como em todas as discussões de otimização, precisa realizar testes
 
 Alguns links úteis para recursos adicionais:
 
-* [Guia de utilizador do agente Azure Linux](../extensions/agent-linux.md)
+* [Guia de Utilizador de Agente Azure Linux](../extensions/agent-linux.md)
 * [Configure Software RAID em Linux](configure-raid.md)

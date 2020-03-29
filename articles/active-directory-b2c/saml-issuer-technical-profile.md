@@ -12,10 +12,10 @@ ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c35f85b9ec5d86d1cd61f165b891c576c06a03db
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78967275"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico para um emitente de token SAML numa política personalizada do Diretório Ativo Azure B2C
@@ -26,9 +26,9 @@ O Azure Ative Directory B2C (Azure AD B2C) emite vários tipos de fichas de segu
 
 ## <a name="protocol"></a>Protocolo
 
-O **nome** atributo do elemento **protocolo** tem de ser definido para `None`. Detete o elemento **OutputTokenFormat** para `SAML2`.
+O **atributo** nome do elemento **protocolo** `None`tem de ser definido para . Desajuste o elemento `SAML2` **OutputTokenFormat** para .
 
-O exemplo que se segue mostra um perfil técnico para `Saml2AssertionIssuer`:
+O exemplo que se `Saml2AssertionIssuer`segue mostra um perfil técnico para:
 
 ```XML
 <TechnicalProfile Id="Saml2AssertionIssuer">
@@ -65,11 +65,11 @@ O elemento CryptographicKeys contém os seguintes atributos:
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | MetadadosSigning | Sim | O certificado X509 (conjunto de chaves RSA) para usar para assinar metadados SAML. O Azure AD B2C utiliza esta chave para assinar os metadados. |
-| SamlMessageSigning| Sim| Especifique o certificado X509 (conjunto de teclas RSA) para utilizar para assinar mensagens SAML. O Azure AD B2C usa esta chave para assinar a resposta `<samlp:Response>` enviar para o partido que confia.|
+| SamlMessageSigning| Sim| Especifique o certificado X509 (conjunto de teclas RSA) para utilizar para assinar mensagens SAML. O Azure AD B2C usa `<samlp:Response>` esta chave para assinar o envio de resposta para o grupo que confia.|
 
 ## <a name="session-management"></a>Gestão de sessões
 
-Para configurar as sessões SAML Azure AD B2C entre uma aplicação de parte dependente, o atributo do elemento `UseTechnicalProfileForSessionManagement`, referência à sessão [SamlSSOSessionProvider](custom-policy-reference-sso.md#samlssosessionprovider) SSO.
+Para configurar as sessões SAML Azure AD B2C entre uma `UseTechnicalProfileForSessionManagement` aplicação de parte dependente, o atributo do elemento, referência à sessão [SamlSSOSessionProvider](custom-policy-reference-sso.md#samlssosessionprovider) SSO.
 
 ## <a name="next-steps"></a>Passos seguintes
 

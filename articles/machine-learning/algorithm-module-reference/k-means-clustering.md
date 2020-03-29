@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/19/2020
 ms.openlocfilehash: 9606768288cc74afc24491149eb471944f45e2dc
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921169"
 ---
 # <a name="module-k-means-clustering"></a>Módulo: Clustering K-Means
@@ -74,7 +74,7 @@ Quando processa os dados de treino, o algoritmo K-means começa com um conjunto 
 
          Este método também é chamado de método *de partição aleatória.*  
   
-    -   **K-Means++** : Este é o método padrão para inicializar clusters.  
+    -   **K-Means++**: Este é o método padrão para inicializar clusters.  
   
          O algoritmo **K-means++** foi proposto em 2007 por David Arthur e Sergei Vassilvitskii para evitar o mau agrupamento pelo algoritmo padrão k-means. **K-means++** melhora os meios K padrão utilizando um método diferente para escolher os centros de cluster iniciais.  
   
@@ -101,7 +101,7 @@ Quando processa os dados de treino, o algoritmo K-means começa com um conjunto 
 
 8.  Selecione a opção **Normalize** se pretender normalizar as funcionalidades antes do treino.
   
-     Se aplicar a normalização, antes do treino, os pontos de dados são normalizados para `[0,1]` pela MinMaxNormalizer.
+     Se aplicar a normalização, antes do treino, `[0,1]` os pontos de dados são normalizados pelo MinMaxNormalizer.
 
 10. Treine o modelo.  
   

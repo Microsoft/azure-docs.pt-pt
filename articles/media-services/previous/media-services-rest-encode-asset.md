@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 6854400f2152a5952a7b24dbd860d7ad4bfc943d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76774925"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Como codificar um ativo utilizando o Media Encoder Standard
@@ -29,11 +29,11 @@ ms.locfileid: "76774925"
 >
 >
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 Para entregar vídeo digital através da Internet, deve comprimir os meios de comunicação. Os ficheiros de vídeo digitais são grandes e podem ser demasiado grandes para serem entregues através da Internet, ou para que os dispositivos dos seus clientes apresentem corretamente. A codificação é o processo de compressão de vídeo e áudio para que os seus clientes possam ver os seus meios de comunicação.
 
-Os postos de trabalho de codificação são uma das operações de processamento mais comuns nos Serviços De Mídia Azure. Estes Serviços permitem-lhe criar tarefas de codificação para converter ficheiros de multimédia de uma codificação para outra. Quando codificar, pode utilizar o codificador incorporado dos Serviços de Media (Media Encoder Standard). Também pode utilizar um codificador fornecido por um parceiro de Serviços de Media. Os codificadores de terceiros estão disponíveis através do Mercado Azure. Pode especificar os detalhes das tarefas de codificação utilizando cordas predefinidas definidas para o seu codificador, ou utilizando ficheiros de configuração predefinidos. Para ver os tipos de predefinições disponíveis, consulte [Predefinições de Tarefas para Media Encoder Standard](https://msdn.microsoft.com/library/mt269960).
+Os postos de trabalho de codificação são uma das operações de processamento mais comuns nos Serviços De Mídia Azure. Cria-se trabalhos de codificação para converter ficheiros de mídia de uma codificação para outra. Quando codificar, pode utilizar o codificador incorporado dos Serviços de Media (Media Encoder Standard). Também pode utilizar um codificador fornecido por um parceiro de Serviços de Media. Os codificadores de terceiros estão disponíveis através do Mercado Azure. Pode especificar os detalhes das tarefas de codificação utilizando cordas predefinidas definidas para o seu codificador, ou utilizando ficheiros de configuração predefinidos. Para ver os tipos de predefinições disponíveis, consulte [Predefinições de Tarefas para Media Encoder Standard](https://msdn.microsoft.com/library/mt269960).
 
 Cada trabalho pode ter uma ou mais tarefas dependendo do tipo de processamento que pretende realizar. Através da API REST, você pode criar empregos e suas tarefas relacionadas de uma de duas maneiras:
 
@@ -50,7 +50,7 @@ Ao aceder a entidades em Serviços de Media, deve definir campos e valores espec
 
 Antes de começar a fazer referência aos processadores de mídia, verifique se tem o ID correto do processador de mídia. Para mais informações, consulte [Obter processadores de mídia](media-services-rest-get-media-processor.md).
 
-## <a name="connect-to-media-services"></a>Ligue-se aos Serviços Multimédia
+## <a name="connect-to-media-services"></a>Ligar aos Media Services
 
 Para obter informações sobre como se conectar à AMS API, consulte [Aceda à API dos Serviços de Mídia Azure com autenticação Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
@@ -94,14 +94,14 @@ O exemplo que se segue mostra como definir o atributo do nome do ativo:
 
 ## <a name="considerations"></a>Considerações
 * As propriedades do TaskBody devem usar o XML literal para definir o número de entrada, ou ativos de saída que são utilizados pela tarefa. O artigo de tarefa contém a Definição XML Schema para o XML.
-* Na definição TaskBody, cada valor interno para `<inputAsset>` e `<outputAsset>` deve ser definido como JobInputAsset(valor) ou JobOutputAsset (valor).
+* Na definição TaskBody, cada `<inputAsset>` `<outputAsset>` valor interior para e deve ser definido como JobInputAsset(valor) ou JobOutputAsset (valor).
 * Uma tarefa pode ter vários ativos de produção. Um JobOutputAsset(x) só pode ser usado uma vez como uma saída de uma tarefa num trabalho.
 * Pode especificar JobInputAsset ou JobOutputAsset como um ativo de entrada de uma tarefa.
 * As tarefas não devem formar um ciclo.
 * O parâmetro de valor que passa para JobInputAsset ou JobOutputAsset representa o valor de índice para um ativo. Os ativos reais são definidos nas propriedades de navegação InputMediaAssets e OutputMediaAssets na definição da entidade de trabalho.
 * Uma vez que os Serviços de Media são construídos com base no OData v3, os ativos individuais nas coleções de propriedades de navegação InputMediaAssets e OutputMediaAssets são referenciados através de um par de nomes "__metadata: uri".
 * O InputMediaAssets mapeia um ou mais ativos que criou nos Serviços de Media. OutputMediaAssets são criados pelo sistema. Não referenciam um ativo existente.
-* OutputMediaAssets pode ser nomeado usando o atributo assetName. Se este atributo não estiver presente, então o nome do OutputMediaAsset é qualquer que seja o valor de texto interno do elemento `<outputAsset>` com um sufixo do valor do Nome de Trabalho, ou o valor do Id de Trabalho (no caso em que a propriedade Nome não está definida). Por exemplo, se definir um valor para o nome do ativo para "Sample", então a propriedade OutputMediaAsset Name está definida para "Sample". No entanto, se não definisse um valor para o assetName, mas definisse o nome de trabalho para "NewJob", então o nome OutputMediaAsset seria "JobOutputAsset(valor)_NewJob".
+* OutputMediaAssets pode ser nomeado usando o atributo assetName. Se este atributo não estiver presente, então o nome do OutputMediaAsset é qualquer que seja o valor de texto interno do `<outputAsset>` elemento com um sufixo do valor do Nome de Trabalho, ou o valor do Id de Trabalho (no caso em que a propriedade Nome não está definida). Por exemplo, se definir um valor para o nome do ativo para "Sample", então a propriedade OutputMediaAsset Name está definida para "Sample". No entanto, se não definisse um valor para o assetName, mas definisse o nome de trabalho para "NewJob", então o nome OutputMediaAsset seria "JobOutputAsset(valor)_NewJob".
 
 ## <a name="create-a-job-with-chained-tasks"></a>Criar um trabalho com tarefas acorrentadas
 Em muitos cenários de aplicação, os desenvolvedores querem criar uma série de tarefas de processamento. Nos Serviços de Media, pode criar uma série de tarefas acorrentadas. Cada tarefa executa diferentes etapas de processamento e pode utilizar diferentes processadores de mídia. As tarefas acorrentadas podem entregar um ativo de uma tarefa para outra, executando uma sequência linear de tarefas sobre o ativo. No entanto, as tarefas executadas num trabalho não são necessárias para estar em sequência. Quando se cria uma tarefa acorrentada, os objetos **ITask** acorrentados são criados num único objeto **IJob.**
@@ -279,5 +279,5 @@ Se for bem sucedido, devolve-se a seguinte resposta:
 ## <a name="next-steps"></a>Passos seguintes
 Agora que sabe como criar um emprego para codificar um ativo, veja como verificar o progresso do trabalho com os [Media Services.](media-services-rest-check-job-progress.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 [Obtenha processadores de mídia](media-services-rest-get-media-processor.md)

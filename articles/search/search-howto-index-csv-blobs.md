@@ -1,7 +1,7 @@
 ---
-title: Pesquisar em BLOBs CSV
+title: Pesquisar por blobs CSV
 titleSuffix: Azure Cognitive Search
-description: Extraia e importe CSV do armazenamento de BLOBs do Azure usando o modo de análise delimitedText.
+description: Extrair e importar CSV do armazenamento Azure Blob utilizando o modo de análise detexto delimitado.
 manager: nitinme
 author: mgottein
 ms.author: magottei
@@ -10,27 +10,27 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: bf600890bfed570e712a159005b8ef5267298cc0
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76122326"
 ---
-# <a name="how-to-index-csv-blobs-using-delimitedtext-parsing-mode-and-blob-indexers-in-azure-cognitive-search"></a>Como indexar BLOBs CSV usando o modo de análise de delimitedText e indexadores de blob no Azure Pesquisa Cognitiva
+# <a name="how-to-index-csv-blobs-using-delimitedtext-parsing-mode-and-blob-indexers-in-azure-cognitive-search"></a>Como indexar as bolhas CSV utilizando o modo de análise detexto delimitado e os indexadores blob em Pesquisa Cognitiva Azure
 
-Por padrão, o [indexador de blob pesquisa cognitiva do Azure](search-howto-indexing-azure-blob-storage.md) analisa blobs de texto delimitados como uma única parte do texto. No entanto, com os blobs que contêm dados CSV, muitas vezes você deseja tratar cada linha no blob como um documento separado. Por exemplo, considerando o seguinte texto delimitado, talvez você queira analisá-lo em dois documentos, cada um contendo os campos "ID", "datePublished" e "tags": 
+Por padrão, [o indexante blob de pesquisa cognitiva Azure](search-howto-indexing-azure-blob-storage.md) analisa bolhas de texto delimitadas como um único pedaço de texto. No entanto, com bolhas que contêm dados de CSV, muitas vezes pretende tratar cada linha na bolha como um documento separado. Por exemplo, dado o seguinte texto delimitado, é melhor analisá-lo em dois documentos, cada um contendo campos "id", "datePublished" e "tags": 
 
     id, datePublished, tags
     1, 2016-01-12, "azure-search,azure,cloud" 
     2, 2016-07-07, "cloud,mobile" 
 
-Neste artigo, você aprenderá a analisar BLOBs CSV com um indexador de blob Pesquisa Cognitiva do Azure definindo o modo de análise de `delimitedText`. 
+Neste artigo, você aprenderá a analisar bolhas CSV com um indexador de `delimitedText` blob de pesquisa cognitiva Azure, definindo o modo de análise. 
 
 > [!NOTE]
-> Siga as recomendações de configuração do indexador em [indexação de um para muitos](search-howto-index-one-to-many-blobs.md) para produzir vários documentos de pesquisa de um blob do Azure.
+> Siga as recomendações de configuração do indexante em [indexação de um a muitos](search-howto-index-one-to-many-blobs.md) para obter vários documentos de pesquisa a partir de uma bolha Azure.
 
-## <a name="setting-up-csv-indexing"></a>Configurando a indexação de CSV
-Para indexar BLOBs CSV, crie ou atualize uma definição de indexador com o modo de análise de `delimitedText` em uma solicitação [criar indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer) :
+## <a name="setting-up-csv-indexing"></a>Configuração da indexação do CSV
+Para indexar as bolhas CSV, crie ou `delimitedText` atualize uma definição indexante com o modo de análise num pedido de [Create Indexer:](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
     {
       "name" : "my-csv-indexer",
@@ -38,27 +38,27 @@ Para indexar BLOBs CSV, crie ou atualize uma definição de indexador com o modo
       "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "firstLineContainsHeaders" : true } }
     }
 
-`firstLineContainsHeaders` indica que a primeira linha (não em branco) de cada blob contém cabeçalhos.
-Se os BLOBs não contiverem uma linha de cabeçalho inicial, os cabeçalhos deverão ser especificados na configuração do indexador: 
+`firstLineContainsHeaders`indica que a primeira linha (não em branco) de cada bolha contém cabeçalhos.
+Se as bolhas não contiverem uma linha inicial do cabeçalho, os cabeçalhos devem ser especificados na configuração do indexante: 
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-Você pode personalizar o caractere delimitador usando a definição de configuração `delimitedTextDelimiter`. Por exemplo:
+Pode personalizar o carácter delimitador utilizando a `delimitedTextDelimiter` definição de configuração. Por exemplo:
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
 
 > [!NOTE]
-> Atualmente, há suporte apenas para a codificação UTF-8. Se você precisar de suporte para outras codificações, vote nela no [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> Atualmente, apenas a codificação UTF-8 é suportada. Se precisar de apoio para outras codificações, vote no [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 > [!IMPORTANT]
-> Quando você usa o modo de análise de texto delimitado, o Azure Pesquisa Cognitiva pressupõe que todos os BLOBs em sua fonte de dados serão CSV. Se você precisar dar suporte a uma combinação de BLOBs CSV e não CSV na mesma fonte de dados, vote para ele no [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> Quando utiliza o modo de análise de texto delimitado, a Pesquisa Cognitiva Azure assume que todas as bolhas na sua fonte de dados serão CSV. Se necessitar de suportar uma mistura de bolhas CSV e não-CSV na mesma fonte de dados, por favor vote nele no [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 > 
 > 
 
-## <a name="request-examples"></a>Exemplos de solicitação
-Reunindo tudo isso, aqui estão os exemplos de conteúdo completo. 
+## <a name="request-examples"></a>Solicitar exemplos
+Juntando tudo isto, aqui estão os exemplos completos da carga útil. 
 
-Fonte 
+Fonte de dados: 
 
     POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
@@ -71,7 +71,7 @@ Fonte
         "container" : { "name" : "my-container", "query" : "<optional, my-folder>" }
     }   
 
-Indexador
+Indexante:
 
     POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
@@ -84,6 +84,6 @@ Indexador
       "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } }
     }
 
-## <a name="help-us-make-azure-cognitive-search-better"></a>Ajude-nos a tornar o Azure Pesquisa Cognitiva melhor
-Se você tiver solicitações de recursos ou ideias para melhorias, forneça sua entrada no [UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
+## <a name="help-us-make-azure-cognitive-search-better"></a>Ajude-nos a tornar a Pesquisa Cognitiva Azure melhor
+Se tiver pedidos de funcionalidades ou ideias para melhorias, forneça a sua entrada no [UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 

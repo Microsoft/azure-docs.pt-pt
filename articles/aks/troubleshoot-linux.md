@@ -9,17 +9,17 @@ ms.topic: troubleshooting
 ms.date: 02/10/2020
 ms.author: aleldeib
 ms.openlocfilehash: eb6b126b4d1794adf0380432040190b91a17a675
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77925608"
 ---
 # <a name="linux-performance-troubleshooting"></a>Tiroteio em Problemas de Desempenho linux
 
 A exaustão de recursos nas máquinas Linux é uma questão comum e pode manifestar-se através de uma grande variedade de sintomas. Este documento fornece uma visão geral de alto nível das ferramentas disponíveis para ajudar a diagnosticar tais questões.
 
-Muitas destas ferramentas aceitam um intervalo para produzir a produção de rolamento. Este formato de saída normalmente torna os padrões de spotting muito mais fáceis. Quando aceite, a invocação do exemplo incluirá `[interval]`.
+Muitas destas ferramentas aceitam um intervalo para produzir a produção de rolamento. Este formato de saída normalmente torna os padrões de spotting muito mais fáceis. Quando aceite, a invocação `[interval]`do exemplo incluirá .
 
 Muitas destas ferramentas têm um vasto histórico e um vasto conjunto de opções de configuração. Esta página fornece apenas um simples subconjunto de invocações para destacar problemas comuns. A fonte canónica de informação é sempre a documentação de referência para cada ferramenta em particular. Essa documentação será muito mais completa do que a fornecida aqui.
 
@@ -31,7 +31,7 @@ Alguns exemplos de questões e indicadores comuns para diagnosticá-los:
 - Aceleração do IOPS: utilize iostat para medir os IOPS por dispositivo. Certifique-se de que nenhum disco individual está acima do seu limite, e a soma para todos os discos é inferior ao limite para a máquina virtual.
 - Estrangulamento da largura de banda: use iostat como para IOPS, mas medindo a entrada de leitura/escrita. Certifique-se de que tanto por dispositivo como a produção agregada estão abaixo dos limites de largura de banda.
 - Exaustão sNAT: isto pode manifestar-se como ligações ativas elevadas (de saída) na Rase. 
-- Perda de pacote: isto pode ser medido por procuração através da contagem de retransmissão de TCP relativamente à contagem enviada/recebida. Tanto `sar` como `netstat` podem mostrar esta informação.
+- Perda de pacote: isto pode ser medido por procuração através da contagem de retransmissão de TCP relativamente à contagem enviada/recebida. Ambos `sar` `netstat` podem mostrar esta informação.
 
 ## <a name="general"></a>Geral
 
@@ -47,7 +47,7 @@ $ uptime
 uptime fornece sistema uptime e médias de carga de 1, 5 e 15 minutos. Estas médias de carga correspondem aproximadamente a fios que fazem trabalho ou esperam que o trabalho ininterrupto esteja concluído. Em absoluto estes números podem ser difíceis de interpretar, mas medidos ao longo do tempo podem dizer-nos informações úteis:
 
 - Média de 1 minuto > média de 5 minutos significa que a carga está a aumentar.
-- Média de 1 minuto e média de 5 minutos significa que a carga está a diminuir.
+- Média de 1 minuto < média de 5 minutos significa que a carga está a diminuir.
 
 o tempo de início também pode esclarecer por que razão a informação não está disponível: o problema pode ter sido resolvido por si próprio ou por um reinício antes de o utilizador poder aceder à máquina.
 
@@ -62,7 +62,7 @@ $ dmesg --level=err | tail
 
 dmesg despeja o tampão de kernel. Eventos como o OOMKill adicionam uma entrada para o tampão do núcleo. Encontrar um OOMKill ou outras mensagens de exaustão de recursos em registos dmesg é um forte indicador de um problema.
 
-### <a name="top"></a>Início
+### <a name="top"></a>superior
 
 ```
 $ top
@@ -78,13 +78,13 @@ KiB Swap:        0 total,        0 free,        0 used. 62739060 avail Mem
      ...
 ```
 
-`top` fornece uma visão geral do estado atual do sistema. Os cabeçalhos fornecem algumas informações agregadas úteis:
+`top`fornece uma visão geral ampla do estado atual do sistema. Os cabeçalhos fornecem algumas informações agregadas úteis:
 
 - estado das tarefas: correr, dormir, parar.
 - Utilização do CPU, neste caso, mostrando principalmente tempo inativo.
 - memória total, livre e usada do sistema.
 
-`top` podem perder processos de curta duração; alternativas como `htop` e `atop` fornecer interfaces semelhantes, ao mesmo tempo que fixam algumas destas deficiências.
+`top`pode perder processos de curta duração; alternativas `htop` `atop` como e fornecem interfaces semelhantes, ao mesmo tempo que fixaalgumas destas deficiências.
 
 ## <a name="cpu"></a>CPU
 
@@ -108,7 +108,7 @@ Linux 4.15.0-1064-azure (aks-main-10212767-vmss000001)  02/10/20        _x86_64_
 19:49:04       7    1.98    0.00    0.99    0.00    0.00    0.00    0.00    0.00    0.00   97.03
 ```
 
-`mpstat` imprime informações semelhantes do CPU ao topo, mas desagregadas por fio CPU. Ver todos os núcleos ao mesmo tempo pode ser útil para detetar uma utilização de CPU altamente desequilibrada, por exemplo, quando uma única aplicação roscada utiliza um núcleo a 100% de utilização. Este problema pode ser mais difícil de detetar quando agregado sobre todos os CPUs do sistema.
+`mpstat`imprime informações semelhantes do CPU para cima, mas desagregadas por fio CPU. Ver todos os núcleos ao mesmo tempo pode ser útil para detetar uma utilização de CPU altamente desequilibrada, por exemplo, quando uma única aplicação roscada utiliza um núcleo a 100% de utilização. Este problema pode ser mais difícil de detetar quando agregado sobre todos os CPUs do sistema.
 
 ### <a name="vmstat"></a>vmstat
 
@@ -119,11 +119,11 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  2  0      0 43300372 545716 19691456    0    0     3    50    3    3  2  1 95  1  0
 ```
 
-`vmstat` fornece informações semelhantes `mpstat` e `top`, enumerando o número de processos à espera da CPU (coluna R), estatísticas de memória e por cento do tempo de CPU gasto em cada estado de trabalho.
+`vmstat`fornece informações `mpstat` `top`semelhantes e, enumerando o número de processos à espera da CPU (coluna R), estatísticas de memória e por cento do tempo de CPU gasto em cada estado de trabalho.
 
 ## <a name="memory"></a>Memória
 
-A memória é um recurso muito importante, e felizmente fácil de rastrear. Algumas ferramentas podem reportar cpU e memória, como `vmstat`. Mas ferramentas como `free` ainda podem ser úteis para depuração rápida.
+A memória é um recurso muito importante, e felizmente fácil de rastrear. Algumas ferramentas podem reportar cpU e memória, como `vmstat`. Mas ferramentas como `free` podem ainda ser úteis para depuração rápida.
 
 ### <a name="free"></a>livre
 
@@ -134,7 +134,7 @@ Mem:          64403        2338       42485           1       19579       61223
 Swap:             0           0           0
 ```
 
-`free` apresenta informações básicas sobre a memória total, bem como a memória usada e gratuita. `vmstat` pode ser mais útil mesmo para a análise básica da memória devido à sua capacidade de fornecer saída de rolamento.
+`free`apresenta informações básicas sobre a memória total, bem como a memória usada e livre. `vmstat`pode ser mais útil mesmo para a análise básica da memória devido à sua capacidade de fornecer saída de rolamento.
 
 ## <a name="disk"></a>Disco
 
@@ -157,21 +157,21 @@ sda               0.00    56.00    0.00   65.00     0.00   504.00    15.51     0
 scd0              0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00    0.00    0.00    0.00   0.00   0.00
 ```
 
-`iostat` fornece informações profundas sobre a utilização do disco. Esta invocação passa `-x` para estatísticas estendidas, `-y` para saltar as médias iniciais do sistema de impressão de saída desde o arranque, e `1 1` especificar que queremos um intervalo de 1 segundo, terminando após um bloco de saída. 
+`iostat`fornece insights profundos sobre a utilização do disco. Esta invocação `-x` passa por `-y` estatísticas estendidas, para saltar as `1 1` médias iniciais do sistema de impressão de saída desde o arranque, e especificar que queremos um intervalo de 1 segundo, terminando após um bloco de saída. 
 
-`iostat` expõe muitas estatísticas úteis:
+`iostat`expõe muitas estatísticas úteis:
 
-- `r/s` e `w/s` são leituras por segundo e escreve por segundo. A soma destes valores é IOPS.
-- `rkB/s` e `wkB/s` são quilobytes lidos/escritos por segundo. A soma destes valores é a sua entrada.
-- `await` é o tempo médio de iowait em milissegundos para pedidos em fila.
-- `avgqu-sz` é o tamanho médio da fila durante o intervalo fornecido.
+- `r/s`e `w/s` são leituras por segundo e escreve por segundo. A soma destes valores é IOPS.
+- `rkB/s`e `wkB/s` são quilobytes lidos/escritos por segundo. A soma destes valores é a sua entrada.
+- `await`é o tempo médio de iowait em milissegundos para pedidos em fila.
+- `avgqu-sz`é o tamanho médio da fila sobre o intervalo fornecido.
 
 Num VM Azure:
 
-- a soma de `r/s` e `w/s` para um dispositivo de bloco individual não pode exceder os limites de SKU desse disco.
-- a soma de `rkB/s` e `wkB/s` para um dispositivo de bloco individual não pode exceder os limites de SKU do disco
-- a soma de `r/s` e `w/s` para todos os dispositivos de blocos não pode exceder os limites para o VM SKU.
-- a soma de `rkB/s` e 'wkB/s para todos os dispositivos de blocos não pode exceder os limites para o VM SKU.
+- a soma `r/s` de `w/s` e para um dispositivo de bloco individual não pode exceder os limites de SKU do disco.
+- a soma `rkB/s` de `wkB/s` e para um dispositivo de bloco individual não pode exceder os limites sKU do disco
+- a soma `r/s` de `w/s` e para todos os dispositivos de bloco sem pode exceder os limites para o VM SKU.
+- a soma `rkB/s` e 'wkB/s para todos os dispositivos de blocos não pode exceder os limites para o VM SKU.
 
 Note que o disco OS conta como um disco gerido do menor SKU correspondente à sua capacidade. Por exemplo, um Disco OS de 1024GB corresponde a um disco P30. Os discos efémeros e os discos temporários não têm limites individuais de disco; são limitados apenas pelos limites vm completos.
 
@@ -199,10 +199,10 @@ $ sar -n DEV [interval]
 22:36:58    azvdbf16b0b2fc      9.00     19.00      3.36      1.18      0.00      0.00      0.00      0.00
 ```
 
-`sar` é uma ferramenta poderosa para uma ampla gama de análises. Embora este exemplo utilize a sua capacidade de medir estatísticas de rede, é igualmente poderoso para medir cpu e consumo de memória. Este exemplo invoca `sar` com `-n` bandeira para especificar a palavra-chave `DEV` (dispositivo de rede), exibindo a entrada da rede por dispositivo.
+`sar`é uma ferramenta poderosa para uma ampla gama de análises. Embora este exemplo utilize a sua capacidade de medir estatísticas de rede, é igualmente poderoso para medir cpu e consumo de memória. Este exemplo `sar` invoca `-n` com bandeira `DEV` para especificar a palavra-chave (dispositivo de rede) que exibe a entrada da rede por dispositivo.
 
-- A soma de `rxKb/s` e `txKb/s` é a produção total para um determinado dispositivo. Quando este valor exceder o limite para o Azure NIC provisionado, as cargas de trabalho na máquina sofrerão um aumento da latência da rede.
-- `%ifutil` mede a utilização de um determinado dispositivo. À medida que este valor se aproxima dos 100%, as cargas de trabalho sentirão um aumento da latência da rede.
+- A soma `rxKb/s` de `txKb/s` e é a produção total para um determinado dispositivo. Quando este valor exceder o limite para o Azure NIC provisionado, as cargas de trabalho na máquina sofrerão um aumento da latência da rede.
+- `%ifutil`mede a utilização de um determinado dispositivo. À medida que este valor se aproxima dos 100%, as cargas de trabalho sentirão um aumento da latência da rede.
 
 ```
 $ sar -n TCP,ETCP [interval]
@@ -221,9 +221,9 @@ Average:     atmptf/s  estres/s retrans/s isegerr/s   orsts/s
 Average:         0.00      0.00      0.00      0.00      0.00
 ```
 
-Esta invocação de `sar` utiliza as palavras-chave `TCP,ETCP` para examinar as ligações TCP. A terceira coluna da última linha, "retrans", é o número de retransmissões de TCP por segundo. Valores elevados para este campo indicam uma ligação de rede pouco fiável. Na primeira e terceira filas, "ativo" significa uma ligação originária do dispositivo local, enquanto "remota" indica uma ligação de entrada.  Uma questão comum em Azure é a exaustão da porta SNAT, que `sar` pode ajudar a detetar. A exaustão portuário SNAT manifestar-se-ia como valores "ativos" elevados, uma vez que o problema se deve a uma elevada taxa de ligações tCP de saída, iniciadas localmente.
+Esta invocação `sar` de `TCP,ETCP` utiliza as palavras-chave para examinar as ligações TCP. A terceira coluna da última linha, "retrans", é o número de retransmissões de TCP por segundo. Valores elevados para este campo indicam uma ligação de rede pouco fiável. Na primeira e terceira filas, "ativo" significa uma ligação originária do dispositivo local, enquanto "remota" indica uma ligação de entrada.  Uma questão comum em Azure é `sar` a exaustão da porta SNAT, que pode ajudar a detetar. A exaustão portuário SNAT manifestar-se-ia como valores "ativos" elevados, uma vez que o problema se deve a uma elevada taxa de ligações tCP de saída, iniciadas localmente.
 
-À medida que `sar` leva um intervalo, imprime a saída de rolamento e, em seguida, imprime as linhas finais de saída contendo os resultados médios da invocação.
+Como `sar` leva um intervalo, imprime a saída de rolamento e, em seguida, imprime as linhas finais de saída contendo os resultados médios da invocação.
 
 ### <a name="netstat"></a>netstat
 
@@ -323,4 +323,4 @@ IpExt:
     InECT0Pkts: 14
 ```
 
-`netstat` pode introspecr uma grande variedade de estatísticas de rede, aqui invocadas com saída sumária. Há aqui muitos domínios úteis, dependendo da questão. Um dos domínios úteis na secção TCP são as "tentativas de ligação falhadas". Isto pode ser uma indicação da exaustão da porta SNAT ou de outras questões que fazem ligações de saída. Uma elevada taxa de segmentos retransmitidos (também sob a secção TCP) pode indicar problemas com a entrega de pacotes. 
+`netstat`pode introspect uma grande variedade de estatísticas de rede, aqui invocado com saída sumária. Há aqui muitos domínios úteis, dependendo da questão. Um dos domínios úteis na secção TCP são as "tentativas de ligação falhadas". Isto pode ser uma indicação da exaustão da porta SNAT ou de outras questões que fazem ligações de saída. Uma elevada taxa de segmentos retransmitidos (também sob a secção TCP) pode indicar problemas com a entrega de pacotes. 

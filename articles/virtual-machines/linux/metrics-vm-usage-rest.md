@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
 ms.openlocfilehash: 07e91f3d9fd32f01db91415bfd90746cd1aef403
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944742"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Obtenha métricas de utilização da Máquina Virtual utilizando a API REST
@@ -35,10 +35,10 @@ Os seguintes cabeçalhos são obrigatórios:
 
 |Cabeçalho do pedido|Descrição|  
 |--------------------|-----------------|  
-|*Content-Type:*|Necessário. Definido como `application/json`.|  
-|*Authorization:*|Necessário. Definido como um `Bearer`token de acesso [ ](/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |  
+|*Tipo de conteúdo:*|Necessário. Definido como `application/json`.|  
+|*Authorization:*|Necessário. Definido como um  [token de acesso `Bearer`](/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |  
 
-### <a name="uri-parameters"></a>Parâmetros do URI
+### <a name="uri-parameters"></a>Parâmetros URI
 
 | Nome | Descrição |
 | :--- | :---------- |
@@ -46,8 +46,8 @@ Os seguintes cabeçalhos são obrigatórios:
 | resourceGroupName | O nome do grupo de recursos Azure associado ao recurso. Pode obter este valor a partir do Azure Resource Manager API, CLI ou do portal. |
 | vmname | O nome da Máquina Virtual Azure. |
 | nomes métricos | Lista separada da vírmeta das [métricas válidas](/azure/load-balancer/load-balancer-standard-diagnostics)do Balancer de Carga . |
-| api-version | A versão API a utilizar para o pedido.<br /><br /> Este documento abrange `2018-01-01`de versão api, incluído sem elásga.  |
-| TimeSpan | String com o formato seguinte `startDateTime_ISO/endDateTime_ISO` que define a gama de tempo das métricas devolvidas. Este parâmetro opcional está definido para devolver um dia de dados no exemplo. |
+| api-version | A versão API a utilizar para o pedido.<br /><br /> Este documento abrange a `2018-01-01`versão api, incluída no URL acima.  |
+| tempospan | String com o `startDateTime_ISO/endDateTime_ISO` seguinte formato que define a gama de tempo das métricas devolvidas. Este parâmetro opcional está definido para devolver um dia de dados no exemplo. |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>Corpo do pedido

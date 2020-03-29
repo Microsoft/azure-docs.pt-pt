@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/23/2020
 ms.author: victorh
 ms.openlocfilehash: bc34afe82c1b73afb5f3d5d1a07f2a5059590146
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76705999"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Amostras de análise de log Azure Firewall
@@ -28,7 +28,7 @@ Execute os seguintes passos para adicionar a vista ao seu espaço de trabalho Lo
 
 1. Abra o espaço de trabalho log Analytics no portal Azure.
 2. Open **View Designer** abaixo do **General.**
-3. Clique em **importar**.
+3. Clique **em Importar**.
 4. Navegue e selecione o ficheiro **AzureFirewall.omsview** que descarregou antes.
 5. Clique em **Guardar**.
 

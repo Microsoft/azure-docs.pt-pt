@@ -1,6 +1,6 @@
 ---
-title: Integração do Azure Data Explorer com o Azure Data Factory
-description: Neste tópico, integre o Azure Data Explorer com Azure Data Factory para usar as atividades de cópia, pesquisa e comando
+title: Integração do Azure Data Explorer com a Azure Data Factory
+description: Neste tópico, integre o Azure Data Explorer com a Azure Data Factory para utilizar as atividades de cópia, procura e comando
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -9,176 +9,176 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/20/2020
 ms.openlocfilehash: bb08cf4db45a378b35a8245eadd56a2ab3e48bab
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76293628"
 ---
-# <a name="integrate-azure-data-explorer-with-azure-data-factory"></a>Integrar Data Explorer do Azure com Azure Data Factory
+# <a name="integrate-azure-data-explorer-with-azure-data-factory"></a>Integrar o Explorador de Dados Azure com a Azure Data Factory
 
-[Azure data Factory](/azure/data-factory/) (ADF) é um serviço de integração de dados baseado em nuvem que permite a integração de diferentes armazenamentos de dados e a realização de atividades nos dados. O ADF permite que você crie fluxos de trabalho controlados por dados para orquestrar e automatizar a movimentação de dados e a transformação de dados. O Azure Data Explorer é um dos [armazenamentos de dados com suporte](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) no Azure data Factory. 
+[A Azure Data Factory](/azure/data-factory/) (ADF) é um serviço de integração de dados baseado na nuvem que lhe permite integrar diferentes lojas de dados e realizar atividades nos dados. A ADF permite-lhe criar fluxos de trabalho orientados para dados para orquestrar e automatizar o movimento de dados e a transformação de dados. O Azure Data Explorer é uma das lojas de [dados suportadas](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) na Azure Data Factory. 
 
-## <a name="azure-data-factory-activities-for-azure-data-explorer"></a>Azure Data Factory atividades do Azure Data Explorer
+## <a name="azure-data-factory-activities-for-azure-data-explorer"></a>Atividades da Azure Data Factory para o Azure Data Explorer
 
-Várias integrações com Azure Data Factory estão disponíveis para usuários do Azure Data Explorer:
+Várias integrações com a Azure Data Factory estão disponíveis para utilizadores do Azure Data Explorer:
 
 ### <a name="copy-activity"></a>Atividade Copiar
  
-Azure Data Factory atividade de cópia é usada para transferir dados entre armazenamentos de dados. O Azure Data Explorer tem suporte como uma origem, onde os dados são copiados do Azure Data Explorer para qualquer armazenamento de dados com suporte e um coletor, no qual os dados são copiados de qualquer armazenamento de dados com suporte para o Azure Data Explorer. Para obter mais informações, consulte [copiar dados de ou para o Azure data Explorer usando Azure data Factory](/azure/data-factory/connector-azure-data-explorer). e para obter instruções detalhadas, consulte [carregar dados de Azure data Factory para o Azure data Explorer](data-factory-load-data.md).
-O Data Explorer do Azure é compatível com Azure IR (Integration Runtime), usado quando os dados são copiados no Azure e o IR hospedado internamente, usado ao copiar dados de/para armazenamentos de dados localizados localmente ou em uma rede com controle de acesso, como uma rede virtual do Azure. Para obter mais informações, consulte [qual ir usar](/azure/data-factory/concepts-integration-runtime#determining-which-ir-to-use)
+A atividade da Azure Data Factory Copy é utilizada para transferir dados entre lojas de dados. O Azure Data Explorer é suportado como fonte, onde os dados são copiados do Azure Data Explorer para qualquer loja de dados suportada, e um lavatório, onde os dados são copiados de qualquer loja de dados suportada para o Azure Data Explorer. Para mais informações, consulte [os dados de cópia de ou para o Azure Data Explorer utilizando](/azure/data-factory/connector-azure-data-explorer)a Azure Data Factory . e para um walk-through detalhado ver [dados de carga da Azure Data Factory para o Azure Data Explorer](data-factory-load-data.md).
+O Azure Data Explorer é suportado pelo Azure IR (Integration Runtime), utilizado quando os dados são copiados dentro do Azure, e o IR auto-hospedado, utilizado na cópia de dados de/para lojas de dados localizadas no local ou numa rede com controlo de acesso, como uma Rede Virtual Azure. Para mais informações, consulte [qual ir a utilizar](/azure/data-factory/concepts-integration-runtime#determining-which-ir-to-use)
  
 > [!TIP]
-> Ao usar a atividade de cópia e criar um **serviço vinculado** ou um **conjunto**de dados, selecione a data Explorer do Azure de Data Store **(Kusto)** e não o armazenamento de dados antigo **Kusto**.  
+> Ao utilizar a atividade de cópia e criar um **Serviço Linked** ou um **Dataset,** selecione a loja de dados **Azure Data Explorer (Kusto)** e não a antiga loja de dados **Kusto**.  
 
-### <a name="lookup-activity"></a>Atividade de pesquisa
+### <a name="lookup-activity"></a>Atividade de procura
  
-A atividade de pesquisa é usada para executar consultas no Azure Data Explorer. O resultado da consulta será retornado como a saída da atividade de pesquisa e poderá ser usado na próxima atividade no pipeline, conforme descrito na [documentação de pesquisa do ADF](/azure/data-factory/control-flow-lookup-activity#use-the-lookup-activity-result-in-a-subsequent-activity).  
-Além do limite de tamanho de resposta de 5.000 linhas e 2 MB, a atividade também tem um limite de tempo limite de consulta de 1 hora.
+A atividade de lookup é usada para executar consultas no Azure Data Explorer. O resultado da consulta será devolvido como a saída da atividade de Lookup, e pode ser utilizado na próxima atividade no oleoduto, conforme descrito na [documentação de ADF Lookup](/azure/data-factory/control-flow-lookup-activity#use-the-lookup-activity-result-in-a-subsequent-activity).  
+Além do limite de tamanho da resposta de 5.000 linhas e 2 MB, a atividade também tem um limite de tempo limite de consulta de 1 hora.
 
 ### <a name="command-activity"></a>Atividade de comando
 
-A atividade Command permite a execução de comandos do [controle](/azure/kusto/concepts/#control-commands)de data Explorer do Azure. Ao contrário das consultas, os comandos de controle podem potencialmente modificar dados ou metadados. Alguns dos comandos de controle são destinados a ingerir dados no Azure Data Explorer, usando comandos como `.ingest`ou `.set-or-append`) ou copiar dados do Azure Data Explorer para armazenamentos de dados externos usando comandos como `.export`.
-Para obter um passo a passo detalhado da atividade de comando, consulte [usar Azure data Factory atividade de comando para executar comandos de controle de data Explorer do Azure](data-factory-command-activity.md).  O uso de um comando de controle para copiar dados pode, às vezes, ser uma opção mais rápida e barata do que a atividade de cópia. Para determinar quando usar a atividade de comando versus a atividade de cópia, confira [selecionar entre atividades de cópia e comando ao copiar dados](#select-between-copy-and-azure-data-explorer-command-activities-when-copy-data).
+A atividade do Comando permite a execução de [comandos](/azure/kusto/concepts/#control-commands)de controlo do Explorador de Dados Azure . Ao contrário das consultas, os comandos de controlo podem potencialmente modificar dados ou metadados. Alguns dos comandos de controlo são direcionados para ingerir dados `.ingest`no `.set-or-append`Azure Data Explorer, utilizando comandos como ou `.export`) ou copiar dados do Azure Data Explorer para lojas de dados externas utilizando comandos como .
+Para um walk-through detalhado da atividade do comando, consulte a utilização da atividade de comando da [Azure Data Factory para executar comandos](data-factory-command-activity.md)de controlo do Azure Data Explorer .  Usar um comando de controlo para copiar dados pode, por vezes, ser uma opção mais rápida e barata do que a atividade copy. Para determinar quando utilizar a atividade do Comando contra a atividade da Cópia, consulte [a selecione entre as atividades de Cópia e Comando ao copiar dados](#select-between-copy-and-azure-data-explorer-command-activities-when-copy-data).
 
-### <a name="copy-in-bulk-from-a-database-template"></a>Copiar em massa de um modelo de banco de dados
+### <a name="copy-in-bulk-from-a-database-template"></a>Copiar a granel a partir de um modelo de base de dados
 
-A [cópia em massa de um banco de dados para o Azure data Explorer usando o modelo de Azure data Factory](data-factory-template.md) é um pipeline de Azure data Factory predefinido. O modelo é usado para criar vários pipelines por banco de dados ou por tabela para uma cópia mais rápida. 
+A [Cópia a granel de uma base de dados para o Azure Data Explorer utilizando o modelo Azure Data Factory](data-factory-template.md) é um pipeline pré-definido da Fábrica de Dados Azure. O modelo é usado para criar muitos oleodutos por base de dados ou por tabela para uma cópia de dados mais rápida. 
 
 ### <a name="mapping-data-flows"></a>Fluxos de dados de mapeamento 
 
-[Fluxos de dados de mapeamento de Azure data Factory](/azure/data-factory/concepts-data-flow-overview) são transformações de dados projetadas visualmente que permitem que os engenheiros de dados desenvolvam a lógica de transformação de dados gráficos sem escrever código Para criar um fluxo de dados e ingerir dados para o Azure Data Explorer, use o seguinte método:
+Os fluxos de dados de [mapeamento da Azure Data Factory](/azure/data-factory/concepts-data-flow-overview) são transformações de dados projetadas visualmente que permitem aos engenheiros de dados desenvolver lógica de transformação de dados gráficos sem escrever código. Para criar um fluxo de dados e ingerir dados ao Azure Data Explorer, utilize o seguinte método:
 
-1. Crie o [fluxo de dados de mapeamento](/azure/data-factory/data-flow-create).
-1. [Exporte os dados para o blob do Azure](/azure/data-factory/data-flow-sink). 
-1. Defina a [grade de eventos](/azure/data-explorer/ingest-data-event-grid) ou a atividade de cópia do [ADF](/azure/data-explorer/data-factory-load-data) para ingerir os dados para o Azure data Explorer.
+1. Criar o fluxo de dados de [mapeamento.](/azure/data-factory/data-flow-create)
+1. [Exportar os dados para Azure Blob.](/azure/data-factory/data-flow-sink) 
+1. Defina a atividade de cópia [da Rede de Eventos](/azure/data-explorer/ingest-data-event-grid) ou [ADF](/azure/data-explorer/data-factory-load-data) para ingerir os dados ao Azure Data Explorer.
 
-## <a name="select-between-copy-and-azure-data-explorer-command-activities-when-copy-data"></a>Selecione entre as atividades de comando copiar e Data Explorer do Azure ao copiar dados 
+## <a name="select-between-copy-and-azure-data-explorer-command-activities-when-copy-data"></a>Selecione entre as atividades do Comando copy e Azure Data Explorer quando copiar dados 
 
-Esta seção ajudará você a selecionar a atividade correta para suas necessidades de cópia de dados.
+Esta secção irá ajudá-lo a selecionar a atividade correta para as suas necessidades de cópia de dados.
 
-Ao copiar dados de ou para o Azure Data Explorer, há duas opções disponíveis no Azure Data Factory:
+Ao copiar dados de ou para o Azure Data Explorer, existem duas opções disponíveis na Azure Data Factory:
 * Atividade de cópia.
-* A atividade de comando Data Explorer do Azure, que executa um dos comandos de controle que transferem dados no Azure Data Explorer. 
+* Atividade do Comando Azure Data Explorer, que executa um dos comandos de controlo que transferem dados no Azure Data Explorer. 
 
 ### <a name="copy-data-from-azure-data-explorer"></a>Copiar dados do Azure Data Explorer
   
-Você pode copiar dados do Azure Data Explorer usando a atividade de cópia ou o comando [`.export`](/azure/kusto/management/data-export/) . O comando `.export` executa uma consulta e, em seguida, exporta os resultados da consulta. 
+Pode copiar dados do Azure Data Explorer [`.export`](/azure/kusto/management/data-export/) utilizando a atividade de cópia ou o comando. O `.export` comando executa uma consulta, e depois exporta os resultados da consulta. 
 
-Consulte a tabela a seguir para obter uma comparação da atividade de cópia e `.export` comando para copiar dados do Data Explorer do Azure.
+Consulte a tabela seguinte para uma `.export` comparação da atividade da Cópia e do comando para copiar dados do Azure Data Explorer.
 
-| | Atividade Copiar | comando. Export |
+| | Atividade Copiar | .comando de exportação |
 |---|---|---|
-| **Descrição do fluxo** | O ADF executa uma consulta em Kusto, processa o resultado e o envia para o armazenamento de dados de destino. <br>(**ADX > ADF > armazenamento de dados do coletor**) | O ADF envia um comando de controle de `.export` para Data Explorer do Azure, que executa o comando e envia os dados diretamente para o armazenamento de dados de destino. <br>(**ADX > armazenamento de dados do coletor**) |
-| **Armazenamentos de dados de destino com suporte** | Uma ampla variedade de [armazenamentos de dados com suporte](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) | ADLSv2, BLOB do Azure, banco de dados SQL |
-| **Performance** (Desempenho) | Centralizado | <ul><li>Distribuído (padrão), exportando dados de vários nós simultaneamente</li><li>Mais rápido e COGS eficientes.</li></ul> |
-| **Limites do servidor** | [Os limites de consulta](/azure/kusto/concepts/querylimits) podem ser estendidos/desabilitados. Por padrão, as consultas do ADF contêm: <ul><li>Limite de tamanho de 500.000 registros ou 64 MB.</li><li>Limite de tempo de 10 minutos.</li><li>`noTruncation` definido como false.</li></ul> | Por padrão, o estende ou desabilita os limites de consulta: <ul><li>Os limites de tamanho estão desabilitados.</li><li>O tempo limite do servidor é estendido para uma hora.</li><li>`MaxMemoryConsumptionPerIterator` e `MaxMemoryConsumptionPerQueryPerNode` são estendidos para Max (5 GB, TotalPhysicalMemory/2).</li></ul>
+| **Descrição do fluxo** | A ADF executa uma consulta sobre Kusto, processa o resultado e envia-o para a loja de dados alvo. <br>**(ADX > ADF > loja de dados do lavatório)** | A ADF `.export` envia um comando de controlo para o Azure Data Explorer, que executa o comando, e envia os dados diretamente para a loja de dados alvo. <br>**(ADX > loja de dados afundada)** |
+| **Lojas de dados-alvo suportadas** | Uma grande variedade de lojas de [dados suportadas](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) | ADLSv2, Blob Azure, Base de Dados SQL |
+| **Desempenho** | Centralizado | <ul><li>Distribuídos (predefinidos), dados de exportação de vários nódosos simultaneamente</li><li>Mais rápido e eficiente COGS.</li></ul> |
+| **Limites do servidor** | [Os limites](/azure/kusto/concepts/querylimits) de consulta podem ser prolongados/desativados. Por predefinição, as consultas da ADF contêm: <ul><li>Limite de tamanho de 500.000 registos ou 64 MB.</li><li>Limite de tempo de 10 minutos.</li><li>`noTruncation`definido para falso.</li></ul> | Por predefinição, alarga ou desativa os limites de consulta: <ul><li>Os limites de tamanho estão desativados.</li><li>O tempo de tempo do servidor é prolongado para 1 hora.</li><li>`MaxMemoryConsumptionPerIterator`e `MaxMemoryConsumptionPerQueryPerNode` são estendidos ao máximo (5 GB, TotalPhysicalMemory/2).</li></ul>
 
 > [!TIP]
-> Se o destino da cópia for um dos armazenamentos de dados com suporte pelo comando `.export` e se nenhum dos recursos da atividade de cópia for crucial para suas necessidades, selecione o comando `.export`.
+> Se o seu destino de cópia for `.export` uma das lojas de dados suportadas pelo comando, `.export` e se nenhuma das funcionalidades de atividade da Cópia for crucial para as suas necessidades, selecione o comando.
 
-### <a name="copying-data-to-azure-data-explorer"></a>Copiando dados para o Azure Data Explorer
+### <a name="copying-data-to-azure-data-explorer"></a>Copiar dados para o Azure Data Explorer
 
-Você pode copiar dados para o Azure Data Explorer usando a atividade de cópia ou comandos de ingestão, como [ingestão de consulta](/azure/kusto/management/data-ingestion/ingest-from-query) (`.set-or-append`, `.set-or-replace`, `.set`, `.replace)`e [ingestão de armazenamento](/azure/kusto/management/data-ingestion/ingest-from-storage) (`.ingest`). 
+Pode copiar dados para o Azure Data Explorer utilizando a atividade de cópia ou `.set-or-replace` `.set`comandos de ingestão, tais como ingerir a partir [de consulta](/azure/kusto/management/data-ingestion/ingest-from-query) (`.set-or-append`, , `.replace)`, e [ingerir a partir do armazenamento](/azure/kusto/management/data-ingestion/ingest-from-storage) ).`.ingest` 
 
-Consulte a tabela a seguir para obter uma comparação da atividade de cópia e os comandos de ingestão para copiar dados para o Azure Data Explorer.
+Consulte a tabela seguinte para uma comparação da atividade da Cópia e comandos de ingestão para copiar dados ao Azure Data Explorer.
 
-| | Atividade Copiar | Ingerir da consulta<br> `.set-or-append` / `.set-or-replace` / `.set` / `.replace` | Ingestão do armazenamento <br> `.ingest` |
+| | Atividade Copiar | Ingest de consulta<br> `.set-or-append` / `.set-or-replace` / `.set` / `.replace` | Ingestão a partir do armazenamento <br> `.ingest` |
 |---|---|---|---|
-| **Descrição do fluxo** | O ADF Obtém os dados do armazenamento de dados de origem, converte-os em um formato tabular e faz as alterações necessárias no mapeamento de esquema. Em seguida, o ADF carrega os dados nos BLOBs do Azure, divide-os em partes e, em seguida, baixa os BLOBs para ingerir na tabela ADX. <br> (**Armazenamento de dados de origem > ADF > BLOBs do Azure > ADX**) | Esses comandos podem executar uma consulta ou um comando `.show` e ingerir os resultados da consulta em uma tabela (**ADX > ADX**). | Esse comando ingere dados em uma tabela por meio da "extração" dos dados de um ou mais artefatos de armazenamento em nuvem. |
-| **Armazenamentos de dados de origem com suporte** |  [variedade de opções](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) | ADLS Gen 2, BLOB do Azure, SQL (usando o plug-in sql_request), Cosmos (usando o plug-in cosmosdb_sql_request) e qualquer outro armazenamento de dados que forneça APIs HTTP ou Python. | FileSystem, armazenamento de BLOBs do Azure, ADLS Gen 1, ADLS Gen 2 |
-| **Performance** (Desempenho) | As ingestãos são enfileiradas e gerenciadas, o que garante ingestãos de tamanho pequeno e assegura alta disponibilidade fornecendo balanceamento de carga, tentativas e tratamento de erros. | <ul><li>Esses comandos não foram projetados para a importação de dados de alto volume.</li><li>Funciona como esperado e mais barato. Mas para cenários de produção e quando as taxas de tráfego e os tamanhos de dados são grandes, use a atividade de cópia.</li></ul> |
-| **Limites do servidor** | <ul><li>Sem limite de tamanho.</li><li>Limite de tempo limite máximo: 1 hora por blob ingerido. |<ul><li>Há apenas um limite de tamanho na parte de consulta, que pode ser ignorado com a especificação de `noTruncation=true`.</li><li>Limite de tempo limite máximo: 1 hora.</li></ul> | <ul><li>Sem limite de tamanho.</li><li>Limite de tempo limite máximo: 1 hora.</li></ul>|
+| **Descrição do fluxo** | A ADF obtém os dados da loja de dados de origem, converte-os num formato tabular, e faz as alterações necessárias ao mapeamento do esquema. Em seguida, a ADF envia os dados para as bolhas Azure, divide-os em pedaços e, em seguida, descarrega as bolhas para ingerir na tabela ADX. <br> (Loja de**dados de origem > ADF > blobs Azure > ADX**) | Estes comandos podem executar uma `.show` consulta ou um comando, e ingerir os resultados da consulta numa tabela **(ADX > ADX**). | Este comando ingere dados numa tabela "puxando" os dados de um ou mais artefactos de armazenamento em nuvem. |
+| **Lojas de dados de origem suportada** |  [variedade de opções](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) | ADLS Gen 2, Azure Blob, SQL (utilizando o plugin sql_request), cosmos (utilizando o plugin cosmosdb_sql_request) e qualquer outra loja de dados que forneça APIs HTTP ou Python. | Sistema de ficheiros, Armazenamento De Blob Azure, ADLS Gen 1, ADLS Gen 2 |
+| **Desempenho** | As ingestão são em fila e geridas, o que garante ingestão de pequenadimensão e assegura uma elevada disponibilidade, proporcionando equilíbrio de carga, tentativas e manuseamento de erros. | <ul><li>Esses comandos não foram concebidos para importar dados de grande volume.</li><li>Funciona como esperado e mais barato. Mas para cenários de produção e quando as taxas de tráfego e os tamanhos de dados são grandes, use a atividade Copy.</li></ul> |
+| **Limites do servidor** | <ul><li>Sem limite de tamanho.</li><li>Limite máximo: 1 hora por bolha ingerida. |<ul><li>Há apenas um limite de tamanho na parte da consulta, `noTruncation=true`que pode ser ignorado especificando .</li><li>Limite máximo: 1 hora.</li></ul> | <ul><li>Sem limite de tamanho.</li><li>Limite máximo: 1 hora.</li></ul>|
 
 > [!TIP]
-> * Ao copiar dados do ADF para o Azure Data Explorer use os comandos `ingest from query`.  
-> * Para conjuntos de dados grandes (> 1GB), use a atividade de cópia.  
+> * Ao copiar dados da ADF para o `ingest from query` Azure Data Explorer, utilize os comandos.  
+> * Para grandes conjuntos de dados (>1GB), utilize a atividade Copy.  
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 
-A tabela a seguir lista as permissões necessárias para várias etapas na integração com o Azure Data Factory.
+A tabela seguinte enumera as permissões necessárias para várias etapas na integração com a Azure Data Factory.
 
 | Passo | Operação | Nível mínimo de permissões | Notas |
 |---|---|---|---|
-| **Criar um serviço vinculado** | Navegação de banco de dados | *Visualizador de banco de dados* <br>O usuário conectado usando o ADF deve ser autorizado a ler os metadados do banco de dados. | O usuário pode fornecer o nome do banco de dados manualmente. |
-| | Testar Ligação | *Monitor de banco de dados* ou *ingestão de tabela* <br>A entidade de serviço deve ser autorizada a executar comandos de `.show` no nível do banco de dados ou ingestão de nível de tabela. | <ul><li>TestConnection verifica a conexão com o cluster e não com o banco de dados. Ele pode ter sucesso mesmo que o banco de dados não exista.</li><li>As permissões de administrador de tabela não são suficientes.</li></ul>|
-| **Criando um conjunto de uma** | Navegação de tabela | *monitor de banco de dados* <br>O usuário conectado usando o ADF deve estar autorizado a executar comandos de `.show` no nível do banco de dados. | O usuário pode fornecer o nome da tabela manualmente.|
-| **Criando um conjunto de um DataSet ou uma atividade de** **cópia** | Visualizar dados | *Visualizador de banco de dados* <br>A entidade de serviço deve ser autorizada a ler metadados do banco de dados. | | 
-|   | Importar esquema | *Visualizador de banco de dados* <br>A entidade de serviço deve ser autorizada a ler metadados do banco de dados. | Quando ADX é a origem de uma cópia de tabela a tabular, o ADF importará o esquema automaticamente, mesmo que o usuário não tenha importado explicitamente o esquema. |
-| **ADX como coletor** | Criar um mapeamento de coluna por nome | *monitor de banco de dados* <br>A entidade de serviço deve ser autorizada a executar comandos de `.show` no nível do banco de dados. | <ul><li>Todas as operações obrigatórias funcionarão com o *ingeridor de tabela*.</li><li> Algumas operações opcionais podem falhar.</li></ul> |
-|   | <ul><li>Criar um mapeamento de CSV na tabela</li><li>Remover o mapeamento</li></ul>| *ingerirr de tabela* ou *administrador de banco de dados* <br>A entidade de serviço deve ser autorizada a fazer alterações em uma tabela. | |
-|   | Ingerir dados | *ingerirr de tabela* ou *administrador de banco de dados* <br>A entidade de serviço deve ser autorizada a fazer alterações em uma tabela. | | 
-| **ADX como fonte** | Executar consulta | *Visualizador de banco de dados* <br>A entidade de serviço deve ser autorizada a ler metadados do banco de dados. | |
+| **Criar um Serviço Linked** | Navegação na base de dados | *visualizador de bases de dados* <br>O utilizador de entrada em sessão que utilize a ADF deve ser autorizado a ler metadados de base de dados. | O utilizador pode fornecer o nome da base de dados manualmente. |
+| | Testar Ligação | *monitor de base de dados* ou *ingestor de tabela* <br>O diretor de serviço deve `.show` ser autorizado a executar comandos de nível de base de dados ou ingestão de nível de tabela. | <ul><li>TestConnection verifica a ligação ao cluster e não à base de dados. Pode ter sucesso mesmo que a base de dados não exista.</li><li>Permissões de administração de mesa não são suficientes.</li></ul>|
+| **Criação de um Conjunto de Dados** | Navegação à mesa | *monitor de base de dados* <br>O utilizador registado no utilizador que utilize ADF `.show` deve ser autorizado a executar comandos de nível de base de dados. | O utilizador pode fornecer o nome da mesa manualmente.|
+| **Criação de um Conjunto de Dados** ou Atividade de **Cópia** | Dados de pré-visualização | *visualizador de bases de dados* <br>O diretor de serviço deve ser autorizado a ler metadados de base de dados. | | 
+|   | Esquema de importação | *visualizador de bases de dados* <br>O diretor de serviço deve ser autorizado a ler metadados de base de dados. | Quando a ADX é a fonte de uma cópia tabular-a-tabular, a ADF importará o esquema automaticamente, mesmo que o utilizador não tenha importado explicitamente o esquema. |
+| **ADX como Pia** | Criar um mapeamento de coluna de nome próprio | *monitor de base de dados* <br>O diretor de serviço deve `.show` ser autorizado a executar comandos de nível de base de dados. | <ul><li>Todas as operações obrigatórias funcionarão com *a ingestorde tabela.*</li><li> Algumas operações opcionais podem falhar.</li></ul> |
+|   | <ul><li>Crie um mapeamento CSV na mesa</li><li>Largue o mapeamento</li></ul>| *ingestor de tabela* ou *administração* de base de dados <br>O diretor de serviço deve ser autorizado a fazer alterações numa tabela. | |
+|   | Ingerir dados | *ingestor de tabela* ou *administração* de base de dados <br>O diretor de serviço deve ser autorizado a fazer alterações numa tabela. | | 
+| **ADX como fonte** | Executar consulta | *visualizador de bases de dados* <br>O diretor de serviço deve ser autorizado a ler metadados de base de dados. | |
 | **Comando Kusto** | | De acordo com o nível de permissões de cada comando. |
 
 ## <a name="performance"></a>Desempenho 
 
-Se o Azure Data Explorer for a origem e você usar a atividade de pesquisa, cópia ou comando que contém uma consulta em que, consulte [práticas recomendadas de consulta](/azure/kusto/query/best-practices) para obter informações de desempenho e [documentação do ADF para a atividade de cópia](/azure/data-factory/copy-activity-performance).
+Se o Azure Data Explorer for a fonte e utilizar a atividade de Lookup, copy ou command que contenha uma consulta onde, consulte [as melhores práticas](/azure/kusto/query/best-practices) de consulta para informações de desempenho e [documentação ADF para a atividade](/azure/data-factory/copy-activity-performance)de cópia .
   
-Esta seção aborda o uso da atividade de cópia em que o Azure Data Explorer é o coletor. A taxa de transferência estimada para o coletor de Data Explorer do Azure é de 11-13 MBps. A tabela a seguir detalha os parâmetros que influenciam o desempenho do coletor de Data Explorer do Azure.
+Esta secção aborda a utilização da atividade de cópia onde o Azure Data Explorer é o lavatório. O resultado estimado para o afundatório Azure Data Explorer é de 11-13 MBps. A tabela que se segue detalha os parâmetros que influenciam o desempenho da pia do Azure Data Explorer.
 
 | Parâmetro | Notas |
 |---|---|
-| **Proximidade geográfica dos componentes** | Coloque todos os componentes na mesma região:<ul><li>armazenamentos de dados de origem e de coletor.</li><li>Tempo de execução de integração do ADF.</li><li>Seu cluster ADX.</li></ul>Verifique se pelo menos o Integration Runtime está na mesma região que o cluster ADX. |
-| **Número de DIUs** | 1 VM para cada 4 DIUs usada pelo ADF. <br>Aumentar o DIUs ajudará apenas se sua fonte for um armazenamento baseado em arquivo com vários arquivos. Cada VM, em seguida, processará um arquivo diferente em paralelo. Portanto, copiar um único arquivo grande terá uma latência maior do que copiar vários arquivos menores.|
-|**Quantidade e SKU do seu cluster ADX** | O número alto de nós ADX aumentará o tempo de processamento de ingestão.|
-| **Paralelismo** | Para copiar uma quantidade muito grande de dados de um banco de dados do, Particione-os e use um loop ForEach que copia cada partição em paralelo ou use o [modelo cópia em massa do banco de dados para o Azure data Explorer](data-factory-template.md). Observação: **as configurações** > **grau de paralelismo** na atividade de cópia não são relevantes para ADX. |
-| **Complexidade do processamento de dados** | A latência varia de acordo com o formato do arquivo de origem, o mapeamento de coluna e a compactação.|
-| **A VM que executa o Integration Runtime** | <ul><li>Para a cópia do Azure, as VMs do ADF e as SKUs do computador não podem ser alteradas.</li><li> Para a cópia local para o Azure, determine se a VM que hospeda o IR auto-hospedado é forte o suficiente.</li></ul>|
+| **Componentes proximidade geográfica** | Coloque todos os componentes na mesma região:<ul><li>fonte e lojas de dados afundadas.</li><li>Tempo de execução de integração ADF.</li><li>O seu cluster ADX.</li></ul>Certifique-se de que, pelo menos, o seu tempo de integração está na mesma região que o seu cluster ADX. |
+| **Número de DIUs** | 1 VM por cada 4 DIUs utilizados pela ADF. <br>Aumentar os DIUs só ajudará se a sua fonte for uma loja baseada em ficheiros com vários ficheiros. Cada VM processará então um ficheiro diferente em paralelo. Portanto, copiar um único ficheiro grande terá uma latência maior do que copiar vários ficheiros menores.|
+|**Quantidade e SKU do seu cluster ADX** | Um elevado número de nós ADX aumentará o tempo de processamento da ingestão.|
+| **Paralelismo** | Para copiar uma quantidade muito grande de dados de uma base de dados, dividir os seus dados e, em seguida, usar um loop ForEach que copia cada partição paralelamente ou use a cópia a granel da Base de Dados para o Modelo de Explorador de [Dados Azure](data-factory-template.md). **Nota: Definições** > **O grau de paralelismo** na atividade da Cópia não é relevante para o ADX. |
+| **Complexidade do processamento de dados** | A latência varia de acordo com o formato de ficheiro de origem, o mapeamento da coluna e a compressão.|
+| **O VM executando o seu tempo de funcionamento de integração** | <ul><li>Para cópia azure, VMs ADF e skus da máquina não podem ser alterados.</li><li> Para a cópia do Azure, determine que o VM que acolhe o seu IR auto-hospedado é suficientemente forte.</li></ul>|
 
 ## <a name="tips-and-common-pitfalls"></a>Dicas e armadilhas comuns
 
-### <a name="monitor-activity-progress"></a>Monitorar o andamento da atividade
+### <a name="monitor-activity-progress"></a>Monitorizar o progresso da atividade
 
-* Ao monitorar o andamento da atividade, a propriedade de *dados gravados* pode ser muito maior do que a propriedade de *leitura* de dados porque a *leitura de dados* é calculada de acordo com o tamanho do arquivo binário, enquanto os *dados gravados* são calculados de acordo com o tamanho da memória, depois que os dados são desserializados e descompactados.
+* Ao monitorizar o progresso da atividade, a propriedade *escrita* data pode ser muito maior do que a propriedade *de leitura* de Dados porque a leitura de *Dados* é calculada de acordo com o tamanho do ficheiro binário, enquanto os *Dados escritos* são calculados de acordo com o tamanho da memória, depois de os dados serem desserializados e descomprimidos.
 
-* Ao monitorar o andamento da atividade, você pode ver que os dados são gravados no coletor de Data Explorer do Azure. Ao consultar a tabela de Data Explorer do Azure, você verá que os dados não chegaram. Isso ocorre porque há dois estágios ao copiar para o Azure Data Explorer. 
-    * O primeiro estágio lê os dados de origem, divide-os em blocos de 900 MB e carrega cada bloco em um blob do Azure. O primeiro estágio é visto pelo modo de exibição progresso da atividade do ADF. 
-    * O segundo estágio começa quando todos os dados são carregados nos BLOBs do Azure. Os nós do mecanismo de Data Explorer do Azure baixam os BLOBs e ingerim os dados na tabela de coletor. Os dados são então vistos em sua tabela de Data Explorer do Azure.
+* Ao monitorizar o progresso da atividade, pode ver que os dados são escritos para o lavatório Azure Data Explorer. Ao consultar a tabela Azure Data Explorer, vê que os dados ainda não chegaram. Isto porque há duas fases para copiar para o Azure Data Explorer. 
+    * A primeira fase lê os dados de origem, divide-os em pedaços de 900 MB, e envia cada pedaço para um Azure Blob. A primeira fase é vista pela visão de progresso da atividade da ADF. 
+    * A segunda fase começa assim que todos os dados são enviados para O Blobs Azure. Os nódos os nódosos do motor Azure Data Explorer descarregam as bolhas e ingestão os dados na mesa de sumidouro. Os dados são então vistos na sua tabela Azure Data Explorer.
 
-### <a name="failure-to-ingest-csv-files-due-to-improper-escaping"></a>Falha ao ingerir arquivos CSV devido à saída incorreta
+### <a name="failure-to-ingest-csv-files-due-to-improper-escaping"></a>Falha na intenção de ficheiros CSV devido a fuga imprópria
 
-O Azure Data Explorer espera que os arquivos CSV se alinhem com a [RFC 4180](https://www.ietf.org/rfc/rfc4180.txt).
+O Azure Data Explorer espera que os ficheiros CSV se alinhem com o [RFC 4180](https://www.ietf.org/rfc/rfc4180.txt).
 Espera:
-* Os campos que contêm caracteres que exigem escape (como "e novas linhas) devem começar e terminar com um caractere **"** , sem espaço em branco. Todos os **"** caracteres *dentro* do campo têm escape usando um **"** caractere "duplo ( **" "** ). Por exemplo, _"Olá", "mundo" ""_ é um arquivo CSV válido com um único registro com um único campo ou coluna com o conteúdo _Olá, "mundo"_ .
-* Todos os registros no arquivo devem ter o mesmo número de colunas e campos.
+* Os campos que contenham caracteres que exijam escapar (como " e novas linhas) devem começar e terminar com um **"** personagem, sem espaço branco. Todos **os "** caracteres *dentro* do campo são escapados usando um personagem duplo **"** **(").** Por exemplo, _"Hello, "World""_ é um ficheiro CSV válido com um único disco com uma única coluna ou campo com o conteúdo _Hello, "World"._
+* Todos os registos do ficheiro devem ter o mesmo número de colunas e campos.
 
-Azure Data Factory permite o caractere de barra invertida (escape). Se você gerar um arquivo CSV com um caractere de barra invertida usando Azure Data Factory, a ingestão do arquivo para o Azure Data Explorer falhará.
+A Azure Data Factory permite o caráter backslash (escape). Se gerar um ficheiro CSV com um personagem backslash utilizando a Azure Data Factory, a ingestão do ficheiro ao Azure Data Explorer falhará.
 
 #### <a name="example"></a>Exemplo
 
-Os seguintes valores de texto: Olá, "mundo"<br/>
-DEF. DE ABC<br/>
-"ABC\D" EF<br/>
+Os seguintes valores de texto: Olá, "Mundo"<br/>
+ABC DEF<br/>
+"ABC\D"EF<br/>
 "ABC DEF<br/>
 
-Deve aparecer em um arquivo CSV apropriado da seguinte maneira: "Olá", "mundo" ""<br/>
+Deve aparecer num ficheiro CSV adequado da seguinte forma: "Olá, "Mundo""<br/>
 "ABC DEF"<br/>
-"" ABC DEF "<br/>
-"" "ABC\D" "EF"<br/>
+""ABC DEF"<br/>
+""ABC\D""EF"<br/>
 
-Usando o caractere de escape padrão (barra invertida), o CSV a seguir não funcionará com o Azure Data Explorer: "Olá, \"mundo\""<br/>
+Ao usar o personagem de fuga padrão (backslash), o seguinte CSV \"não\"funcionará com o Azure Data Explorer: "Olá, Mundo"<br/>
 "ABC DEF"<br/>
-"\"ABC DEF"<br/>
-"\"ABC\D\"EF"<br/>
+"ABC\"DEF"<br/>
+\""ABC\D\"EF"<br/>
 
 ### <a name="nested-json-objects"></a>Objetos JSON aninhados
 
-Ao copiar um arquivo JSON para o Azure Data Explorer, observe que:
-* Não há suporte para matrizes.
-* Se sua estrutura JSON contiver tipos de dados de objeto, Azure Data Factory mesclará os itens filho do objeto e tentará mapear cada item filho para uma coluna diferente em sua tabela de Data Explorer do Azure. Se você quiser que todo o item de objeto seja mapeado para uma única coluna no Azure Data Explorer:
-    * Ingerir a linha JSON inteira em uma única coluna dinâmica no Azure Data Explorer.
-    * Edite manualmente a definição de pipeline usando o editor de JSON do Azure Data Factory. Em **mapeamentos**
-       * Remova os vários mapeamentos que foram criados para cada item filho e adicione um único mapeamento que mapeie o tipo de objeto para a coluna da tabela.
-       * Após o colchete de fechamento, adicione uma vírgula seguida por:<br/>
+Ao copiar um ficheiro JSON para o Azure Data Explorer, note que:
+* As matrizes não são apoiadas.
+* Se a sua estrutura JSON contiver tipos de dados de objetos, a Azure Data Factory irá aplainar os itens infantis do objeto e tentar mapear cada item de criança para uma coluna diferente na tabela Azure Data Explorer. Se quiser que todo o objeto seja mapeado para uma única coluna no Azure Data Explorer:
+    * Insere toda a linha JSON numa única coluna dinâmica no Azure Data Explorer.
+    * Editar manualmente a definição do pipeline utilizando o editor JSON da Azure Data Factory. Em **Mapeamentos**
+       * Remova os mapeamentos múltiplos que foram criados para cada item infantil e adicione um único mapeamento que mapeie o seu tipo de objeto à sua coluna de mesa.
+       * Depois do suporte quadrado de fecho, adicione uma vírnia seguida de:<br/>
        `"mapComplexValuesToString": true`.
 
-### <a name="specify-additionalproperties-when-copying-to-azure-data-explorer"></a>Especifique asproperties adicionais ao copiar para o Azure Data Explorer
+### <a name="specify-additionalproperties-when-copying-to-azure-data-explorer"></a>Especificar Propriedades Adicionais ao copiar para o Azure Data Explorer
 
 > [!NOTE]
-> Esse recurso está disponível no momento por meio da edição manual da carga JSON. 
+> Esta funcionalidade encontra-se atualmente disponível através da edição manual da carga útil JSON. 
 
-Adicione uma única linha na seção "coletor" da atividade de cópia da seguinte maneira:
+Adicione uma única linha sob a secção "pia" da atividade da cópia da seguinte forma:
 
 ```json
 "sink": {
@@ -187,7 +187,7 @@ Adicione uma única linha na seção "coletor" da atividade de cópia da seguint
 },
 ```
 
-A saída do valor pode ser complicada. Use o seguinte trecho de código como uma referência:
+Escapar do valor pode ser complicado. Utilize o seguinte código de corte como referência:
 
 ```csharp
 static void Main(string[] args)
@@ -213,10 +213,10 @@ O valor impresso:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba como [copiar dados para o Azure data Explorer usando Azure data Factory](data-factory-load-data.md).
-* Saiba como usar o [modelo Azure data Factory para cópia em massa do banco de dados para o Azure data Explorer](data-factory-template.md).
-* Saiba mais sobre como usar [Azure data Factory atividade de comando para executar comandos do controle de data Explorer do Azure](data-factory-command-activity.md).
-* Saiba mais sobre as [consultas do Azure data Explorer](/azure/data-explorer/web-query-data) para consulta de dados.
+* Saiba como [copiar dados para o Azure Data Explorer utilizando](data-factory-load-data.md)a Azure Data Factory .
+* Saiba mais sobre a utilização do [modelo azure data factory para cópia a granel da base de dados para o Azure Data Explorer](data-factory-template.md).
+* Saiba utilizar a atividade de comando da [Azure Data Factory para executar comandos](data-factory-command-activity.md)de controlo do Azure Data Explorer .
+* Saiba mais sobre as consultas do [Azure Data Explorer](/azure/data-explorer/web-query-data) para consulta de dados.
 
 
 

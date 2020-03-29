@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 7a74635551d8416bf60689b1f1403f29883e81bd
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78851365"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Arquiteturas baseadas em eventos sem servidores com funções Azure Cosmos DB e Azure
@@ -30,7 +30,7 @@ Com o [gatilho das Funções Azure para cosmos DB,](../azure-functions/functions
 Para implementar um fluxo baseado em eventos sem servidor, precisa de:
 
 * **O recipiente monitorizado**: O contentor monitorizado é o contentor Azure Cosmos a ser monitorizado e armazena os dados a partir dos quais o feed de mudança é gerado. Quaisquer inserções, as atualizações do recipiente monitorizado refletem-se na alimentação de alterações do recipiente.
-* **O contentor de aluguer**: O contentor de aluguer mantém o estado em várias e dinâmicas instâncias de função Azure sem servidor e permite uma escala dinâmica. Este recipiente de aluguer pode ser criado manualmente ou automaticamente pelo gatilho funções Azure para Cosmos DB. Para criar automaticamente o recipiente de aluguer, detete a bandeira *CreateLeaseCollectionIfNotExist* na [configuração](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration). Os recipientes de locação divisória são obrigados a ter uma definição chave de divisória `/id`.
+* **O contentor de aluguer**: O contentor de aluguer mantém o estado em várias e dinâmicas instâncias de função Azure sem servidor e permite uma escala dinâmica. Este recipiente de aluguer pode ser criado manualmente ou automaticamente pelo gatilho funções Azure para Cosmos DB. Para criar automaticamente o recipiente de aluguer, detete a bandeira *CreateLeaseCollectionIfNotExist* na [configuração](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration). Os recipientes de locação divisória são obrigados a ter uma `/id` definição chave de partição.
 
 ## <a name="create-your-azure-functions-trigger-for-cosmos-db"></a>Crie o gatilho de Funções Azure para Cosmos DB
 

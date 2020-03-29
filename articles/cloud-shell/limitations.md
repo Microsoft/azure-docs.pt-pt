@@ -1,6 +1,6 @@
 ---
-title: Limitações de Azure Cloud Shell | Microsoft Docs
-description: Visão geral das limitações do Azure Cloud Shell
+title: Limitações da Casca de Nuvem Azure [ Microsoft Docs
+description: Visão geral das limitações da Casca de Nuvem Azure
 services: azure
 documentationcenter: ''
 author: maertendMSFT
@@ -15,76 +15,76 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: damaerte
 ms.openlocfilehash: 092dccab82326bb9983f11ff64fe50aee7b1084d
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74951484"
 ---
-# <a name="limitations-of-azure-cloud-shell"></a>Limitações de Azure Cloud Shell
+# <a name="limitations-of-azure-cloud-shell"></a>Limitações da Casca de Nuvem Azure
 
-Azure Cloud Shell tem as seguintes limitações conhecidas:
+A Azure Cloud Shell tem as seguintes limitações conhecidas:
 
 ## <a name="general-limitations"></a>Limitações gerais
 
 ### <a name="system-state-and-persistence"></a>Estado do sistema e persistência
 
-O computador que fornece sua sessão de Cloud Shell é temporário e é reciclado depois que a sessão está inativa por 20 minutos. Cloud Shell requer que um compartilhamento de arquivos do Azure seja montado. Como resultado, sua assinatura deve ser capaz de configurar recursos de armazenamento para acessar Cloud Shell. Outras considerações incluem:
+A máquina que fornece a sua sessão Cloud Shell é temporária e é reciclada após a sua sessão estar inativa durante 20 minutos. Cloud Shell requer que uma parte de ficheiro Azure seja montada. Como resultado, a sua subscrição deve ser capaz de configurar recursos de armazenamento para aceder à Cloud Shell. Outras considerações incluem:
 
-* Com o armazenamento montado, somente as modificações dentro do diretório `$Home` são mantidas.
-* Os compartilhamentos de arquivos do Azure podem ser montados somente de dentro de sua [região atribuída](persisting-shell-storage.md#mount-a-new-clouddrive).
-  * No bash, execute `env` para localizar sua região definida como `ACC_LOCATION`.
+* Com armazenamento montado, apenas `$Home` persistem modificações dentro do diretório.
+* As ações de ficheiros Azure só podem ser montadas a partir da [sua região atribuída](persisting-shell-storage.md#mount-a-new-clouddrive).
+  * Em Bash, `env` corra para encontrar `ACC_LOCATION`a sua região definida como .
 
 ### <a name="browser-support"></a>Browser support (Suporte do browser)
 
-O Cloud Shell dá suporte às versões mais recentes do Microsoft Edge, do Microsoft Internet Explorer, do Google Chrome, do Mozilla Firefox e do Apple Safari. Não há suporte para o Safari no modo privado.
+A Cloud Shell suporta as versões mais recentes do Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozilla Firefox e Apple Safari. O Safari em modo privado não é suportado.
 
 ### <a name="copy-and-paste"></a>Copiar e colar
 
 [!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
-### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Para um determinado usuário, apenas um shell pode estar ativo
+### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Para um determinado utilizador, apenas uma concha pode estar ativa
 
-Os usuários só podem iniciar um tipo de shell por vez, **bash** ou **PowerShell**. No entanto, você pode ter várias instâncias do bash ou do PowerShell em execução ao mesmo tempo. Alternar entre o bash ou o PowerShell usando o menu faz com que Cloud Shell reiniciar, o que encerra as sessões existentes. Como alternativa, você pode executar o bash dentro do PowerShell digitando `bash`e pode executar o PowerShell dentro do bash digitando `pwsh`.
+Os utilizadores só podem lançar um tipo de concha de cada vez, seja **a Bash** ou a **PowerShell.** No entanto, pode ter vários casos de Bash ou PowerShell a funcionar de uma só vez. Trocar entre Bash ou PowerShell utilizando o menu faz com que a Cloud Shell reinicie, o que encerra as sessões existentes. Em alternativa, pode correr bash dentro `bash`da PowerShell digitando , `pwsh`e pode executar PowerShell dentro da festa digitando .
 
 ### <a name="usage-limits"></a>Limites de utilização
 
-O Cloud Shell destina-se a casos de uso interativos. Como resultado, todas as sessões não interativas de longa execução são encerradas sem aviso.
+Cloud Shell destina-se a casos de uso interativo. Como resultado, quaisquer sessões não interativas de longa duração terminam sem aviso prévio.
 
-## <a name="bash-limitations"></a>Limitações do bash
+## <a name="bash-limitations"></a>Limitações de bash
 
 ### <a name="user-permissions"></a>Permissões de utilizador
 
-As permissões são definidas como usuários regulares sem acesso ao sudo. Qualquer instalação fora de seu diretório `$Home` não é persistente.
+As permissões são definidas como utilizadores regulares sem acesso sudo. Qualquer instalação `$Home` fora do seu diretório não é persistiu.
 
-### <a name="editing-bashrc-or-profile"></a>Editando. bashrc ou $PROFILE
+### <a name="editing-bashrc-or-profile"></a>Edição .bashrc ou $PROFILE
 
-Tenha cuidado ao editar o arquivo de $PROFILE do. bashrc ou do PowerShell, fazer isso pode causar erros inesperados no Cloud Shell.
+Tenha cuidado ao editar .bashrc ou ficheiro $PROFILE da PowerShell, fazê-lo pode causar erros inesperados na Cloud Shell.
 
-## <a name="powershell-limitations"></a>Limitações do PowerShell
+## <a name="powershell-limitations"></a>Limitações powerShell
 
-### <a name="azuread-module-name"></a>nome do módulo de `AzureAD`
+### <a name="azuread-module-name"></a>`AzureAD`nome do módulo
 
-O nome do módulo de `AzureAD` está `AzureAD.Standard.Preview`no momento, o módulo fornece a mesma funcionalidade.
+O `AzureAD` nome do `AzureAD.Standard.Preview`módulo é atualmente , o módulo fornece a mesma funcionalidade.
 
-### <a name="sqlserver-module-functionality"></a>`SqlServer` funcionalidade do módulo
+### <a name="sqlserver-module-functionality"></a>`SqlServer`funcionalidade do módulo
 
-O módulo `SqlServer` incluído no Cloud Shell tem apenas suporte de pré-lançamento para o PowerShell Core. Em particular, `Invoke-SqlCmd` ainda não está disponível.
+O `SqlServer` módulo incluído na Cloud Shell tem apenas suporte de pré-lançamento para PowerShell Core. Em particular, `Invoke-SqlCmd` ainda não está disponível.
 
-### <a name="default-file-location-when-created-from-azure-drive"></a>Local do arquivo padrão quando criado na unidade do Azure:
+### <a name="default-file-location-when-created-from-azure-drive"></a>Localização do ficheiro predefinido quando criada a partir da unidade Azure:
 
-Usando os cmdlets do PowerShell, os usuários não podem criar arquivos na unidade Azure:. Quando os usuários criam novos arquivos usando outras ferramentas, como vim ou nano, os arquivos são salvos no `$HOME` por padrão. 
+Utilizando cmdlets PowerShell, os utilizadores não podem criar ficheiros sob o Azure: unidade. Quando os utilizadores criam novos ficheiros utilizando outras ferramentas, `$HOME` como o vim ou o nano, os ficheiros são guardados por defeito. 
 
-### <a name="gui-applications-are-not-supported"></a>Não há suporte para aplicativos de GUI
+### <a name="gui-applications-are-not-supported"></a>As aplicações gui não são suportadas
 
-Se o usuário executar um comando que criaria uma caixa de diálogo do Windows, um verá uma mensagem de erro como: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+Se o utilizador tiver um comando que crie uma caixa de diálogo `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`Windows, vê-se uma mensagem de erro como: .
 
-### <a name="large-gap-after-displaying-progress-bar"></a>Lacuna grande após a exibição da barra de progresso
+### <a name="large-gap-after-displaying-progress-bar"></a>Grande Lacuna após exibir barra de progresso
 
-Se o usuário executar uma ação que exibe uma barra de progresso, como uma Tabulação sendo concluída enquanto estiver na unidade de `Azure:`, é possível que o cursor não esteja definido corretamente e um intervalo apareça onde a barra de progresso foi anteriormente.
+Se o utilizador executar uma ação que apresenta uma barra de `Azure:` progresso, como um separador que está a completar durante a unidade, então é possível que o cursor não esteja corretamente definido e apareça uma lacuna onde a barra de progresso estava anteriormente.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Solução de problemas Cloud Shell](troubleshooting.md) <br>
+[Resolução de problemas Cloud Shell](troubleshooting.md) <br>
 [Início Rápido para o Bash](quickstart.md) <br>
 [Início rápido para o PowerShell](quickstart-powershell.md)

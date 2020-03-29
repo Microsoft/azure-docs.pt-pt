@@ -1,94 +1,109 @@
 ---
 title: Operadores de consulta SQL para Azure Cosmos DB
-description: Saiba mais sobre os operadores SQL, como igualdade, comparação e operadores lógicos com suporte pelo Azure Cosmos DB.
-author: markjbrown
+description: Conheça operadores SQL como igualdade, comparação e operadores lógicos apoiados pela Azure Cosmos DB.
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.author: mjbrown
-ms.openlocfilehash: f3efe4bee749f0d3132206ca68a33a60f0e16b81
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.date: 03/19/2020
+ms.author: tisande
+ms.openlocfilehash: 8ef41edb687a5df39243880c897d12e83c008ec9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74870943"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063561"
 ---
-# <a name="operators-in-azure-cosmos-db"></a>Operadores no Azure Cosmos DB
+# <a name="operators-in-azure-cosmos-db"></a>Operadores em Azure Cosmos DB
 
-Este artigo fornece detalhes sobre os vários operadores com suporte pelo Azure Cosmos DB.
+Este artigo detalha os vários operadores apoiados pela Azure Cosmos DB.
 
 ## <a name="equality-and-comparison-operators"></a>Operadores de igualdade e comparação
 
-A tabela seguinte mostra o resultado de comparações de igualdade na API do SQL entre quaisquer dois tipos JSON.
+O quadro seguinte mostra o resultado das comparações de igualdade no SQL API entre qualquer dois tipos JSON.
 
-| **OP** | **Não definido** | **Nulo** | **valor booleano** | **Número** | **Cadeia de caracteres** | **Objeto** | **Matriz** |
+| **Op** | **Indefinido** | **Nulo** | **Boolean** | **Número** | **String** | **Objeto** | **Matriz** |
 |---|---|---|---|---|---|---|---|
-| **Não definido** | Não definido | Não definido | Não definido | Não definido | Não definido | Não definido | Não definido |
-| **Nulo** | Não definido | **OK** | Não definido | Não definido | Não definido | Não definido | Não definido |
-| **valor booleano** | Não definido | Não definido | **OK** | Não definido | Não definido | Não definido | Não definido |
-| **Número** | Não definido | Não definido | Não definido | **OK** | Não definido | Não definido | Não definido |
-| **Cadeia de caracteres** | Não definido | Não definido | Não definido | Não definido | **OK** | Não definido | Não definido |
-| **Objeto** | Não definido | Não definido | Não definido | Não definido | Não definido | **OK** | Não definido |
-| **Matriz** | Não definido | Não definido | Não definido | Não definido | Não definido | Não definido | **OK** |
+| **Indefinido** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido |
+| **Nulo** | Indefinido | **Ok** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido |
+| **Boolean** | Indefinido | Indefinido | **Ok** | Indefinido | Indefinido | Indefinido | Indefinido |
+| **Número** | Indefinido | Indefinido | Indefinido | **Ok** | Indefinido | Indefinido | Indefinido |
+| **String** | Indefinido | Indefinido | Indefinido | Indefinido | **Ok** | Indefinido | Indefinido |
+| **Objeto** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | **Ok** | Indefinido |
+| **Matriz** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | **Ok** |
 
-Para operadores de comparação como `>`, `>=`, `!=`, `<`e `<=`, a comparação entre os tipos ou entre dois objetos ou matrizes produz `Undefined`.  
+Para operadores `>`de `>=` `!=`comparação como , e `<` `<=`, comparação `Undefined`entre tipos ou entre dois objetos ou matrizes produzem.  
 
-Se o resultado da expressão escalar for `Undefined`, o item não será incluído no resultado, porque `Undefined` não é igual `true`.
+Se o resultado da expressão `Undefined`escalar for , o item não `Undefined` está incluído `true`no resultado, porque não é igual .
 
-## <a name="logical-and-or-and-not-operators"></a>Lógicos (AND, OR e não) operadores
+## <a name="logical-and-or-and-not-operators"></a>Operadores lógicos (E, OU e NÃO)
 
-Operadores lógicos operam em valores booleanos. As tabelas a seguir mostram as tabelas lógicas da verdade para esses operadores:
+Os operadores lógicos operam com valores booleanos. As tabelas que se seguem mostram as tabelas lógicas da verdade para estes operadores:
 
-**OU o operador**
+**Operador ou**
 
-| OU | Verdadeiro | Falso | Não definido |
+Devoluções `true` quando qualquer `true`uma das condições é .
+
+|  | **Verdadeiro** | **Falso** | **Indefinido** |
 | --- | --- | --- | --- |
-| Verdadeiro |Verdadeiro |Verdadeiro |Verdadeiro |
-| Falso |Verdadeiro |Falso |Não definido |
-| Não definido |Verdadeiro |Não definido |Não definido |
+| **Verdadeiro** |Verdadeiro |Verdadeiro |Verdadeiro |
+| **Falso** |Verdadeiro |Falso |Indefinido |
+| **Indefinido** |Verdadeiro |Indefinido |Indefinido |
 
-**E o operador**
+**E operador**
 
-| E | Verdadeiro | Falso | Não definido |
+Devoluções `true` quando ambas `true`as expressões são .
+
+|  | **Verdadeiro** | **Falso** | **Indefinido** |
 | --- | --- | --- | --- |
-| Verdadeiro |Verdadeiro |Falso |Não definido |
-| Falso |Falso |Falso |Falso |
-| Não definido |Não definido |Falso |Não definido |
+| **Verdadeiro** |Verdadeiro |Falso |Indefinido |
+| **Falso** |Falso |Falso |Falso |
+| **Indefinido** |Indefinido |Falso |Indefinido |
 
-**Operador NOT**
+**NÃO operador**
 
-| NÃO |  |
+Inverte o valor de qualquer expressão booleana.
+
+|  | **NÃO.** |
 | --- | --- |
-| Verdadeiro |Falso |
-| Falso |Verdadeiro |
-| Não definido |Não definido |
+| **Verdadeiro** |Falso |
+| **Falso** |Verdadeiro |
+| **Indefinido** |Indefinido |
 
+**Precedência do operador**
+
+Os operadores lógicos, `OR` `AND`e `NOT` têm o nível de precedência abaixo indicado:
+
+| **Operador** | **Prioridade** |
+| --- | --- |
+| **NÃO.** |1 |
+| **E E** |2 |
+| **OU** |3 |
 
 ## <a name="-operator"></a>* operador
 
-O operador especial * projeta o item inteiro como está. Quando utilizado, tem de ser o único campo previsto. Uma consulta como `SELECT * FROM Families f` é válida, mas `SELECT VALUE * FROM Families f` e `SELECT *, f.id FROM Families f` não são válidos.
+O operador especial * projeta todo o item como está. Quando utilizado, deve ser o único campo projetado. Uma consulta `SELECT * FROM Families f` como é `SELECT VALUE * FROM Families f` válida, mas não `SELECT *, f.id FROM Families f` é válida.
 
-## <a name="-and--operators"></a>? e?? operadores
+## <a name="-and--operators"></a>? e ?? operadores
 
-Você pode usar os operadores ternário (?) e de União (??) para criar expressões condicionais, como em linguagens C# de programação como o e o JavaScript. 
+Você pode usar os operadores Ternary (?) e Coalesce (??) para construir expressões condicionais, como em linguagens de programação como C# e JavaScript.
 
-Você pode usar o? operador para construir novas propriedades JSON em tempo real. Por exemplo, a consulta a seguir classifica os níveis de nível em `elementary` ou `other`:
+Pode utilizar o ? operador para construir novas propriedades JSON em movimento. Por exemplo, a seguinte consulta classifica os `elementary` `other`níveis de nota em ou:
 
 ```sql
      SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel
      FROM Families.children[0] c
 ```
 
-Você também pode aninhar chamadas para o? como na consulta a seguir: 
+Também pode fazer ninhos de chamadas para o? operador, como na seguinte consulta: 
 
 ```sql
     SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high") AS gradeLevel
     FROM Families.children[0] c
 ```
 
-Como ocorre com outros operadores de consulta, o? o operador exclui itens se as propriedades referenciadas estiverem ausentes ou os tipos que estão sendo comparados forem diferentes.
+Como com outros operadores de consulta, o? operador exclui itens se faltarem as propriedades referenciadas ou se os tipos que estão a ser comparados forem diferentes.
 
-Usar o?? para verificar com eficiência uma propriedade em um item ao consultar dados semiestruturados ou de tipo misto. Por exemplo, a consulta a seguir retorna `lastName`, se presente, ou `surname` se `lastName` não estiver presente.
+Usar o ?? operador verificar eficazmente um imóvel num item quando se consulta com dados semi-estruturados ou mistos. Por exemplo, a seguinte `lastName` consulta retorna se presente, ou `surname` se `lastName` não estiver presente.
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName
@@ -97,6 +112,6 @@ Usar o?? para verificar com eficiência uma propriedade em um item ao consultar 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Exemplos do Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [palavras-chave](sql-query-keywords.md)
+- [Amostras Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [Palavras-chave](sql-query-keywords.md)
 - [Cláusula SELECT](sql-query-select.md)

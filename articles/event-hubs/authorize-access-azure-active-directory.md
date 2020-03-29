@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 16d8faa1f20227241d1a582dd4d80e0123f7a31e
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 1fa8f7a48c03ead7e939185b23834b3049b3e21c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368488"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064866"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizar acesso aos recursos do Event Hubs utilizando o Diretório Ativo Azure
 O Azure Event Hubs apoia a utilização do Azure Ative Directory (Azure AD) para autorizar pedidos de recursos do Event Hubs. Com o Azure AD, pode utilizar o controlo de acesso baseado em funções (RBAC) para conceder permissões a um diretor de segurança, que pode ser um utilizador, ou um diretor de serviço de aplicação. Para saber mais sobre papéis e atribuições de papéis, consulte [compreender os diferentes papéis.](../role-based-access-control/overview.md)
@@ -21,7 +21,7 @@ O Azure Event Hubs apoia a utilização do Azure Ative Directory (Azure AD) para
 ## <a name="overview"></a>Descrição geral
 Quando um diretor de segurança (um utilizador, ou uma aplicação) tenta aceder a um recurso do Event Hubs, o pedido deve ser autorizado. Com a AD Azure, o acesso a um recurso é um processo em duas etapas. 
 
- 1. Primeiro, a identidade do diretor de segurança é autenticada, e um token OAuth 2.0 é devolvido. O nome do recurso para solicitar um símbolo é `https://eventhubs.azure.net/`.
+ 1. Primeiro, a identidade do diretor de segurança é autenticada, e um token OAuth 2.0 é devolvido. O nome do recurso para `https://eventhubs.azure.net/`pedir um símbolo é . Para os clientes Kafka, o recurso `https://<namespace>.servicebus.windows.net`para solicitar um símbolo é.
  1. Em seguida, o símbolo é passado como parte de um pedido ao serviço De Eventos Hubs para autorizar o acesso ao recurso especificado.
 
 A etapa de autenticação requer que um pedido de pedido contenha um sinal de acesso OAuth 2.0 no prazo de execução. Se uma aplicação estiver a funcionar dentro de uma entidade Azure, como um Azure VM, um conjunto de escala de máquina virtual ou uma aplicação Azure Function, pode usar uma identidade gerida para aceder aos recursos. Para saber autenticar pedidos feitos por uma identidade gerida ao serviço De Eventos Hubs, consulte o [acesso authenticado aos recursos do Azure Event Hubs com o Azure Ative Directory e identidades geridas para a Azure Resources.](authenticate-managed-identity.md) 

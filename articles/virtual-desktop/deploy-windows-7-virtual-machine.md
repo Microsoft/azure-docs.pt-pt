@@ -9,10 +9,10 @@ ms.date: 10/03/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 158dd9d6a38cc1aaf7667c0b16518e23b3f7cecf
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79366688"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Implementar uma máquina virtual do Windows 7 no Windows Virtual Desktop
@@ -36,7 +36,7 @@ Para configurar um VM Windows 7 no Windows Virtual Desktop:
 5. Vá ao Windows Update no seu VM.
 6. Instale todas as Atualizações do Windows na categoria Importante.
 7. Instale todas as Atualizações do Windows na categoria Opcional (excluindo pacotes de idiomas). Isto instala a atualização Do Protocolo de Ambiente de Trabalho Remoto 8.0[(KB2592687)](https://www.microsoft.com/download/details.aspx?id=35387)que necessita para completar estas instruções.
-8. Abra o Editor de Política do Grupo Local e navegue para **modelos administrativos** de **configuração** de computador >  > componentes do Windows > **serviços** de ambiente de **trabalho remotos** > anfitrião de **sessão** remota de secretária > **ambiente de sessão remota**.
+8. Open the Local Group Policy Editor and navigate to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Remote Session Environment**.
 9. Ativar a política do Protocolo de Ambiente de Trabalho Remoto 8.0.
 10. Junte-se a este VM ao seu domínio de Diretório Ativo.
 11. Reiniciar a máquina virtual executando o seguinte comando:

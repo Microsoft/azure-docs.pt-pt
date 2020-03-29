@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: 449096590df6145c9f80dcf2c97726931909a2ae
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77914811"
 ---
 # <a name="threat-protection-for-azure-key-vault-preview"></a>Proteção contra ameaças para cofre de chaves Azure (pré-visualização)
@@ -27,15 +27,15 @@ Por predefinição, a proteção de ameaças avançada está ativada para todas 
 
 Para ativar ou desativar a proteção para uma subscrição específica:
 
-1. A partir do painel esquerdo no Centro de Segurança, selecione **Preços e configurações**.
+1. A partir do painel esquerdo no Centro de Segurança, selecione **definições de preços &**.
 
 1. Selecione a subscrição com as contas de armazenamento para as quais pretende ativar ou desativar a proteção contra ameaças.
 
-1. Selecione **Escalão de preço**.
+1. Selecione **o nível de preços**.
 
 1. Do **nível** de preços Select por grupo de tipo de recurso, encontre a linha **Key Vaults** e selecione **Ativado** ou **Desativado**.
 
-    [![habilitação ou desativação de proteção avançada de ameaças para o cofre chave no Centro de Segurança Azure](media/advanced-threat-protection-key-vault/atp-for-akv-enable-atp-for-akv.png)](media/advanced-threat-protection-key-vault/atp-for-akv-enable-atp-for-akv.png#lightbox)
+    [![Habilitar ou desativar proteção avançada de ameaças para o cofre chave no Centro de Segurança Azure](media/advanced-threat-protection-key-vault/atp-for-akv-enable-atp-for-akv.png)](media/advanced-threat-protection-key-vault/atp-for-akv-enable-atp-for-akv.png#lightbox)
 
 1. Selecione **Guardar**.
 

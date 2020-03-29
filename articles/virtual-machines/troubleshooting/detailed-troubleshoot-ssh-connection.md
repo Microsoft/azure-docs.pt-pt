@@ -1,5 +1,5 @@
 ---
-title: Resolução detalhada de problemas do SSH para um Azure VM  Microsoft Docs
+title: Resolução detalhada de problemas do SSH para um Azure VM [ Microsoft Docs
 description: Passos de resolução de problemas mais detalhados do SSH para problemas de ligação a uma máquina virtual Azure
 keywords: ssh conexão recusada,ssh error,azure ssh,SSH ligação falhou
 services: virtual-machines-linux
@@ -16,13 +16,13 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: ee6d437915f6c87ce9ef5f9c711d90793a96048c
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77920132"
 ---
-# <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Etapas detalhadas de resolução de problemas do SSH para problemas que ligam a um Linux VM em Azure
+# <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Detailed SSH troubleshooting steps for issues connecting to a Linux VM in Azure (Passos de resolução de problemas de SSH detalhados relacionados com a ligação a uma VM do Linux no Azure)
 Existem muitas razões possíveis para que o cliente SSH possa não ser capaz de chegar ao serviço SSH no VM. Se seguiu as etapas mais gerais de resolução de problemas da [SSH,](troubleshoot-ssh-connection.md)precisa de resolver ainda mais o problema da ligação. Este artigo guia-o através de medidas detalhadas de resolução de problemas para determinar onde a ligação SSH está falhando e como resolvê-la.
 
 ## <a name="take-preliminary-steps"></a>Dê passos preliminares
@@ -33,13 +33,13 @@ O diagrama seguinte mostra os componentes envolvidos.
 Os seguintes passos ajudam-no a isolar a origem da falha e a descobrir soluções ou soluções.
 
 1. Verifique o estado do VM no portal.
-   No [portal Azure, selecione](https://portal.azure.com) **máquinas virtuais** > *nome VM*.
+   No [portal Azure,](https://portal.azure.com)selecione o nome > *VM*das **máquinas virtuais.**
 
    O painel de estado do VM deve mostrar **Running**. Desça para mostrar atividade recente para computação, armazenamento e recursos de rede.
 
 2. Selecione **Definições** para examinar pontos finais, endereços IP, grupos de segurança de rede e outras definições.
 
-   O VM deve ter um ponto final definido para o tráfego sSH que você pode ver em **Endpoints** ou grupo de **[segurança de rede](../../virtual-network/security-overview.md)** . Os pontos finais em VMs que foram criados através do Recurso Manager são armazenados num grupo de segurança de rede. Verifique se as regras foram aplicadas ao grupo de segurança da rede e são referenciadas na sub-rede.
+   O VM deve ter um ponto final definido para o tráfego sSH que você pode ver em **Endpoints** ou grupo de **[segurança de rede](../../virtual-network/security-overview.md)**. Os pontos finais em VMs que foram criados através do Recurso Manager são armazenados num grupo de segurança de rede. Verifique se as regras foram aplicadas ao grupo de segurança da rede e são referenciadas na sub-rede.
 
 Para verificar a conectividade da rede, verifique os pontos finais configurados e veja se consegue ligar-se ao VM através de outro protocolo, como http ou outro serviço.
 
@@ -51,7 +51,7 @@ O cliente SSH no seu computador pode não conseguir ligar-se ao serviço SSH no 
 * [Computador cliente SSH](#source-1-ssh-client-computer)
 * [Dispositivo de borda da organização](#source-2-organization-edge-device)
 * [Cloud service endpoint e lista de controlo de acesso (ACL)](#source-3-cloud-service-endpoint-and-acl)
-* [Grupos de segurança de rede](#source-4-network-security-groups)
+* [Grupos de segurança da rede](#source-4-network-security-groups)
 * [Azure VM baseado em Linux](#source-5-linux-based-azure-virtual-machine)
 
 ## <a name="source-1-ssh-client-computer"></a>Fonte 1: Computador cliente SSH
@@ -105,7 +105,7 @@ Se não tiver outro VM na mesma rede virtual, pode facilmente criar um. Para mai
 
 Se conseguir criar uma ligação SSH com um VM na mesma rede virtual, verifique as seguintes áreas:
 
-* **A configuração do ponto final para o tráfego ssh no VM alvo.** A porta privada TCP do ponto final deve coincidir com a porta TCP em que o serviço SSH do VM está a ouvir. (A porta predefinida é de 22). Verifique o número da porta SSH TCP no portal Azure selecionando **máquinas virtuais** > *nome VM* > **Definições** > **Pontos Finais**.
+* **A configuração do ponto final para o tráfego ssh no VM alvo.** A porta privada TCP do ponto final deve coincidir com a porta TCP em que o serviço SSH do VM está a ouvir. (A porta predefinida é de 22). Verifique o número da porta SSH TCP no portal Azure selecionando **as máquinas virtuais** > *VM* > **Definições** > de pontos**finais**.
 * **O ACL para o ponto final de tráfego SSH na máquina virtual alvo.** Um ACL permite especificar ou negar o tráfego de entrada da Internet, com base no seu endereço IP fonte. Os ACLs mal configurados podem impedir a entrada do tráfego de SSH até ao ponto final. Verifique os seus ACLs para garantir que o tráfego de entrada a partir dos endereços IP públicos do seu proxy ou de outro servidor de borda é permitido. Para mais informações, consulte as listas de controlo de acesso à [rede (ACLs)](../../virtual-network/virtual-networks-acl.md).
 
 Para eliminar o ponto final como fonte do problema, remova o ponto final atual, crie outro ponto final e especifique o nome SSH (porta TCP 22 para o número de porta pública e privada). Para mais informações, consulte [A configuração de pontos finais numa máquina virtual em Azure](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

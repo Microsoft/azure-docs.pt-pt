@@ -1,5 +1,5 @@
 ---
-title: Desenvolver para android things plataforma usando SDKs Azure IoT  Microsoft Docs
+title: Desenvolver para android things plataforma usando SDKs Azure IoT [ Microsoft Docs
 description: Guia de desenvolvedores - Saiba como desenvolver-se em Android Things usando SDKs Azure IoT Hub.
 author: robinsh
 ms.service: iot-hub
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: robinsh
 ms.openlocfilehash: a06583e9aab4b082517d47c1022f7bec5184b9bc
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78673389"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Desenvolver para android things plataforma usando SDKs Azure IoT
@@ -49,7 +49,7 @@ Este tutorial descreve os passos para construir uma aplicação lateral do dispo
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyAndroidThingsDevice
     ```
 
-2. Execute os seguintes comandos em Azure Cloud Shell para obter a *cadeia de ligação* do dispositivo para o dispositivo que acabou de registar. Substitua `YourIoTHubName` abaixo pelo nome que escolher para o seu hub IoT.
+2. Execute os seguintes comandos em Azure Cloud Shell para obter a *cadeia de ligação* do dispositivo para o dispositivo que acabou de registar. Substitua `YourIoTHubName` abaixo o nome que escolher para o seu hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyAndroidThingsDevice --output table

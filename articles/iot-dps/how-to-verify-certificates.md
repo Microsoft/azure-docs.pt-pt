@@ -1,6 +1,6 @@
 ---
-title: Verificar certificados de autoridade de certificação X. 509 com o serviço de provisionamento de dispositivos no Hub IoT do Azure
-description: Como fazer a prova de posse para certificados de AC X. 509 com o serviço de provisionamento de dispositivos do Hub IoT do Azure (DPS)
+title: Verifique os certificados X.509 CA com o Serviço de Provisionamento de Dispositivos Hub Azure IoT
+description: Como fazer a prova de posse para certificados X.509 CA com o Serviço de Provisionamento de Dispositivos Hub Azure IoT (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 02/26/2018
@@ -8,71 +8,71 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: b008c4ebc83200043d51fc8ef367f1983c549949
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74973446"
 ---
-# <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Como fazer a prova de posse para certificados de AC X. 509 com o serviço de provisionamento de dispositivos
+# <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Como fazer a prova de posse para certificados X.509 CA com o seu Serviço de Provisionamento de Dispositivos
 
-Um certificado de autoridade de certificação (CA) do X. 509 verificado é um certificado de autoridade de certificação que foi carregado e registrado no serviço de provisionamento e passou pela prova de posse com o serviço. 
+Um certificado verificado X.509 Certificate Authority (CA) é um certificado CA que foi carregado e registado no seu serviço de provisionamento e passou por uma prova de posse com o serviço. 
 
-A prova de posse envolve as seguintes etapas:
-1. Obtenha um código de verificação exclusivo gerado pelo serviço de provisionamento para seu certificado de autoridade de certificação X. 509. Você pode fazer isso na portal do Azure.
-2. Crie um certificado de verificação X. 509 com o código de verificação como seu assunto e assine o certificado com a chave privada associada ao seu certificado de autoridade de certificação X. 509.
-3. Carregue o certificado de verificação assinado para o serviço. O serviço valida o certificado de verificação usando a parte pública do certificado de autoridade de certificação a ser verificado, comprovando que você está em posse da chave privada do certificado de autoridade de certificação.
+A prova de posse envolve os seguintes passos:
+1. Obtenha um código de verificação único gerado pelo serviço de provisionamento para o seu certificado X.509 CA. Pode fazê-lo a partir do portal do Azure.
+2. Crie um certificado de verificação X.509 com o código de verificação como seu sujeito e assine o certificado com a chave privada associada ao seu certificado X.509 CA.
+3. Faça o upload do certificado de verificação assinado para o serviço. O serviço valida o certificado de verificação utilizando a parte pública do certificado CA a verificar, provando assim que está na posse da chave privada do certificado CA.
 
-Os certificados verificados desempenham uma função importante ao usar grupos de registro. Verificar a propriedade do certificado fornece uma camada de segurança adicional, garantindo que o carregador do certificado esteja em posse da chave privada do certificado. A verificação impede que um ator mal-intencionado farejando o tráfego de extrair um certificado intermediário e usar esse certificado para criar um grupo de registro em seu próprio serviço de provisionamento, seqüestrando efetivamente seus dispositivos. Ao provar a propriedade da raiz ou um certificado intermediário em uma cadeia de certificados, você está provando que tem permissão para gerar certificados de folha para os dispositivos que serão registrados como parte desse grupo de registro. Por esse motivo, o certificado raiz ou intermediário configurado em um grupo de registro deve ser um certificado verificado ou deve ser acumulado em um certificado verificado na cadeia de certificados que um dispositivo apresenta quando é autenticado com o serviço. Para saber mais sobre grupos de registro, consulte [certificados x. 509](concepts-security.md#x509-certificates) e [controlando o acesso do dispositivo ao serviço de provisionamento com certificados x. 509](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+Os certificados verificados desempenham um papel importante na utilização de grupos de matrícula. A verificação da propriedade do certificado fornece uma camada de segurança adicional, garantindo que o carregador do certificado está na posse da chave privada do certificado. A verificação impede um ator malicioso de cheirar o seu tráfego de extrair um certificado intermédio e usar esse certificado para criar um grupo de inscrições no seu próprio serviço de provisionamento, sequestrando efetivamente os seus dispositivos. Ao provar a propriedade da raiz ou de um certificado intermédio numa cadeia de certificados, está a provar que tem permissão para gerar certificados de folhas para os dispositivos que se registarão como parte desse grupo de matrículas. Por esta razão, o certificado raiz ou intermédio configurado num grupo de matrícula deve ser um certificado verificado ou deve ser enrolado num certificado verificado na cadeia de certificados que um dispositivo apresenta quando autentica com o serviço. Para saber mais sobre os grupos de matrícula, consulte [os certificados X.509](concepts-security.md#x509-certificates) e o acesso do [dispositivo de controlo ao serviço de provisionamento com certificados X.509](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
-## <a name="register-the-public-part-of-an-x509-certificate-and-get-a-verification-code"></a>Registrar a parte pública de um certificado X. 509 e obter um código de verificação
+## <a name="register-the-public-part-of-an-x509-certificate-and-get-a-verification-code"></a>Registe a parte pública de um certificado X.509 e obtenha um código de verificação
 
-Para registrar um certificado de autoridade de certificação no serviço de provisionamento e obter um código de verificação que você pode usar durante a prova de posse, siga estas etapas. 
+Para registar um certificado ca com o seu serviço de provisionamento e obter um código de verificação que pode usar durante a prova de posse, siga estes passos. 
 
-1. No portal do Azure, navegue até o serviço de provisionamento e abra **certificados** no menu à esquerda. 
+1. No portal Azure, navegue para o seu serviço de provisionamento e abra **certificados** do menu à esquerda. 
 2. Clique em **Adicionar** para adicionar um novo certificado.
-3. Insira um nome de exibição amigável para seu certificado. Navegue até o arquivo. cer ou. pem que representa a parte pública do seu certificado X. 509. Clique em **Carregar**.
-4. Depois de receber uma notificação de que o certificado foi carregado com êxito, clique em **salvar**.
+3. Introduza um nome de exibição amigável para o seu certificado. Navegue no ficheiro .cer ou .pem que representa a parte pública do seu certificado X.509. Clique em **Carregar**.
+4. Assim que receber uma notificação de que o seu certificado é carregado com sucesso, clique em **Guardar**.
 
     ![Carregar certificado](./media/how-to-verify-certificates/add-new-cert.png)  
 
-   Seu certificado será exibido na lista **Gerenciador de certificados** . Observe que o **status** desse certificado não é *verificado*.
+   O seu certificado aparecerá na lista do Explorador de **Certificados.** Note que o **ESTADO** deste certificado não é *verificado*.
 
-5. Clique no certificado que você adicionou na etapa anterior.
+5. Clique no certificado que adicionou no passo anterior.
 
-6. Em **detalhes do certificado**, clique em **gerar código de verificação**.
+6. Em **Detalhes do Certificado,** clique em **Gerar Código de Verificação**.
 
-7. O serviço de provisionamento cria um **código de verificação** que você pode usar para validar a propriedade do certificado. Copie o código para a área de transferência. 
+7. O serviço de provisionamento cria um Código de **Verificação** que pode utilizar para validar a propriedade do certificado. Copie o código para a sua prancheta. 
 
    ![Verificar certificado](./media/how-to-verify-certificates/verify-cert.png)  
 
-## <a name="digitally-sign-the-verification-code-to-create-a-verification-certificate"></a>Assinar digitalmente o código de verificação para criar um certificado de verificação
+## <a name="digitally-sign-the-verification-code-to-create-a-verification-certificate"></a>Assine digitalmente o código de verificação para criar um certificado de verificação
 
-Agora, você precisa assinar o *código de verificação* com a chave privada associada ao seu certificado de autoridade de certificação X. 509, que gera uma assinatura. Isso é conhecido como [prova de posse](https://tools.ietf.org/html/rfc5280#section-3.1) e resulta em um certificado de verificação assinado.
+Agora, você precisa assinar o Código de *Verificação* com a chave privada associada com o seu certificado De Ca X.509, que gera uma assinatura. Isto é conhecido como [Prova de Posse](https://tools.ietf.org/html/rfc5280#section-3.1) e resulta num certificado de verificação assinado.
 
-A Microsoft fornece ferramentas e exemplos que podem ajudá-lo a criar um certificado de verificação assinado: 
+A Microsoft fornece ferramentas e amostras que podem ajudá-lo a criar um certificado de verificação assinado: 
 
-- O **SDK C do Hub IOT do Azure** fornece scripts do PowerShell (Windows) e bash (Linux) para ajudá-lo a criar certificados de autoridade de certificação e folha para desenvolvimento e para executar a prova de posse usando um código de verificação. Você pode baixar os [arquivos](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) relevantes para o seu sistema para uma pasta de trabalho e seguir as instruções no [Leiame de gerenciamento de certificados de autoridade de certificação](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) para executar a prova de posse em um certificado de autoridade de certificação. 
-- O **SDK do Hub C# IOT do Azure** contém o [exemplo de verificação de certificado de grupo](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample), que você pode usar para fazer uma prova de posse.
+- O **Azure IoT Hub C SDK** fornece scripts PowerShell (Windows) e Bash (Linux) para ajudá-lo a criar certificados CA e folhas para desenvolvimento e executar a prova de posse usando um código de verificação. Pode transferir os [ficheiros relevantes](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) para o seu sistema para uma pasta de trabalho e seguir as instruções nos [certificados de Gestão](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) de CA que se podem ler para executar a prova de posse num certificado CA. 
+- O **Azure IoT Hub C# SDK** contém a amostra de verificação de certificados de [grupo,](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample)que pode utilizar para fazer a prova de posse.
  
 > [!IMPORTANT]
-> Além de executar a prova de posse, os scripts do PowerShell e bash citados anteriormente também permitem que você crie certificados raiz, certificados intermediários e certificados folha que podem ser usados para autenticar e provisionar dispositivos. Esses certificados devem ser usados somente para desenvolvimento. Eles nunca devem ser usados em um ambiente de produção. 
+> Além de realizar provas de posse, os scripts PowerShell e Bash citados anteriormente também permitem criar certificados de raiz, certificados intermédios e certificados de folha que podem ser usados para autenticar e fornecer dispositivos. Estes certificados devem ser utilizados apenas para o desenvolvimento. Nunca devem ser usados num ambiente de produção. 
 
-Os scripts do PowerShell e bash fornecidos na documentação e nos SDKs dependem do [OpenSSL](https://www.openssl.org/). Você também pode usar o OpenSSL ou outras ferramentas de terceiros para ajudá-lo a fazer uma prova de posse. Para obter mais informações sobre as ferramentas fornecidas com os SDKs, consulte [como usar as ferramentas fornecidas nos SDKs](how-to-use-sdk-tools.md). 
+Os scripts PowerShell e Bash fornecidos na documentação e SDKs dependem da [OpenSSL](https://www.openssl.org/). Também pode utilizar o OpenSSL ou outras ferramentas de terceiros para o ajudar a fazer a prova de posse. Para obter mais informações sobre a ferramenta fornecida com os SDKs, consulte [como utilizar as ferramentas fornecidas nos SDKs](how-to-use-sdk-tools.md). 
 
 
-## <a name="upload-the-signed-verification-certificate"></a>Carregar o certificado de verificação assinado
+## <a name="upload-the-signed-verification-certificate"></a>Faça upload do certificado de verificação assinado
 
-1. Carregue a assinatura resultante como um certificado de verificação para o serviço de provisionamento no Portal. Em **detalhes do certificado** no portal do Azure, use o ícone _Explorador de arquivos_ ao lado do campo arquivo. **PEM ou. cer do certificado de verificação** para carregar o certificado de verificação assinado do seu sistema.
+1. Faça upload da assinatura resultante como certificado de verificação para o seu serviço de provisionamento no portal. Em **Dados de Certificado** no portal Azure, utilize o ícone do Explorador de _Ficheiros_ junto ao Certificado de **Verificação .pem ou no campo de ficheiros .cer** para fazer o upload do certificado de verificação assinado do seu sistema.
 
-2. Depois que o certificado for carregado com êxito, clique em **verificar**. O **status** do seu certificado é alterado para **_verificado_** na lista do **Gerenciador de certificados** . Clique em **Atualizar** se ele não for atualizado automaticamente.
+2. Assim que o certificado for carregado com sucesso, clique em **Verificar**. O **ESTADO** do seu certificado altera-se a **_Verificado_** na lista do Explorador de **Certificados.** Clique em **Refresh** se não atualizar automaticamente.
 
-   ![Carregar verificação de certificado](./media/how-to-verify-certificates/upload-cert-verification.png)  
+   ![Verificação de certificado de upload](./media/how-to-verify-certificates/upload-cert-verification.png)  
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para saber mais sobre como usar o portal para criar um grupo de registro, consulte [Gerenciando registros de dispositivo com o portal do Azure](how-to-manage-enrollments.md).
-- Para saber mais sobre como usar os SDKs de serviço para criar um grupo de registro, consulte [Gerenciando registros de dispositivo com SDKs de serviço](how-to-manage-enrollments-sdks.md).
+- Para saber como usar o portal para criar um grupo de inscrições, consulte a Gestão de [inscrições de dispositivos com o portal Azure.](how-to-manage-enrollments.md)
+- Para saber como utilizar os SDKs de serviço para criar um grupo de inscrições, consulte a Gestão de [inscrições de dispositivos com SDKs](how-to-manage-enrollments-sdks.md)de serviço .
 
 
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/09/2020
 ms.subservice: alerts
 ms.openlocfilehash: 4f840d3771c2520e239d8ff3416722429f9502f3
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79037231"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica clássico com um modelo do Resource Manager
@@ -29,7 +29,7 @@ Os passos básicos são os seguintes:
 Abaixo descrevemos como criar um modelo de Gestor de Recursos primeiro para um alerta apenas, em seguida, para um alerta durante a criação de outro recurso.
 
 ## <a name="resource-manager-template-for-a-classic-metric-alert"></a>Modelo de Gestor de Recursos para um alerta métrico clássico
-Para criar um alerta usando um modelo de Gestor de Recursos, você cria um recurso de tipo `Microsoft.Insights/alertRules` e preenche todas as propriedades relacionadas. Abaixo está um modelo que cria uma regra de alerta.
+Para criar um alerta usando um modelo de `Microsoft.Insights/alertRules` Gestor de Recursos, você cria um recurso de tipo e preenche todas as propriedades relacionadas. Abaixo está um modelo que cria uma regra de alerta.
 
 ```json
 {
@@ -179,7 +179,7 @@ Para criar um alerta usando um modelo de Gestor de Recursos, você cria um recur
 Uma explicação do esquema e propriedades para uma regra de alerta [está disponível aqui](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="resource-manager-template-for-a-resource-with-a-classic-metric-alert"></a>Modelo de Gestor de Recursos para um recurso com um alerta métrico clássico
-Um alerta sobre um modelo de Gestor de Recursos é mais frequentemente útil quando se cria um alerta ao criar um recurso. Por exemplo, pode querer garantir que seja criada uma regra "CPU % > 80" sempre que implementar uma Máquina Virtual. Para isso, adicione a regra de alerta como recurso na matriz de recursos para o seu modelo VM e adicione uma dependência usando a propriedade `dependsOn` ao ID de recursos VM. Aqui está um exemplo completo que cria um VM do Windows e adiciona um alerta que notifica os administradores de subscrição quando a utilização do CPU ultrapassa os 80%.
+Um alerta sobre um modelo de Gestor de Recursos é mais frequentemente útil quando se cria um alerta ao criar um recurso. Por exemplo, pode querer garantir que seja criada uma regra "CPU % > 80" sempre que implementar uma Máquina Virtual. Para isso, adicione a regra de alerta como recurso na matriz de recursos `dependsOn` para o seu modelo VM e adicione uma dependência usando a propriedade ao ID de recursos VM. Aqui está um exemplo completo que cria um VM do Windows e adiciona um alerta que notifica os administradores de subscrição quando a utilização do CPU ultrapassa os 80%.
 
 ```json
 {

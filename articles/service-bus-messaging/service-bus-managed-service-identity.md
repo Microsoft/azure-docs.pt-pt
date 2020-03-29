@@ -14,34 +14,34 @@ ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 89de6bf80d14ec77fe6b1f98b6e1d15c6e573fbe
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76756288"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticar uma identidade gerida com o Diretório Ativo Azure para aceder aos recursos do Azure Service Bus
-[Gerido identidades para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) é uma funcionalidade de entre o Azure permite-lhe criar uma identidade segura associada à implementação em que o código da aplicação é executado. Em seguida, pode associar essa identidade com funções de controlo de acesso que concedem permissões personalizadas para aceder a recursos específicos do Azure que a aplicação precisa.
+[Identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/overview.md) é uma funcionalidade cross-Azure que lhe permite criar uma identidade segura associada à implementação sob a qual o seu código de aplicação é executado. Pode então associar essa identidade a funções de controlo de acesso que concedem permissões personalizadas para aceder a recursos específicos do Azure de que a sua aplicação necessita.
 
-Com identidades geridas, a plataforma do Azure gere esta identidade de tempo de execução. Não é necessário armazenar e proteger chaves de acesso no seu código da aplicação ou a configuração, para a identidade propriamente dita, ou para os recursos que precisa acessar. Uma aplicação de cliente de ônibus de serviço que funciona dentro de uma aplicação Azure App Service ou numa máquina virtual com entidades geridas ativadas para suporte a recursos Azure não precisa de lidar com as regras e chaves SAS, ou quaisquer outros tokens de acesso. A aplicação do cliente só precisa do endereço final do espaço de nome de Mensagens de Autocarro de Serviço. Quando a aplicação se conecta, o Service Bus liga o contexto da entidade gerida ao cliente numa operação que é mostrada num exemplo mais tarde neste artigo. Uma vez associado a uma identidade gerida, o seu cliente De ônibus de serviço pode fazer todas as operações autorizadas. A autorização é concedida associando uma entidade gerida com funções de Ônibus de serviço. 
+Com identidades geridas, a plataforma Azure gere esta identidade de tempo de corrido. Não precisa de armazenar e proteger as chaves de acesso no seu código de aplicação ou configuração, quer para a identidade em si, quer para os recursos a que necessita aceder. Uma aplicação de cliente de ônibus de serviço que funciona dentro de uma aplicação Azure App Service ou numa máquina virtual com entidades geridas ativadas para suporte a recursos Azure não precisa de lidar com as regras e chaves SAS, ou quaisquer outros tokens de acesso. A aplicação do cliente só precisa do endereço final do espaço de nome de Mensagens de Autocarro de Serviço. Quando a aplicação se conecta, o Service Bus liga o contexto da entidade gerida ao cliente numa operação que é mostrada num exemplo mais tarde neste artigo. Uma vez associado a uma identidade gerida, o seu cliente De ônibus de serviço pode fazer todas as operações autorizadas. A autorização é concedida associando uma entidade gerida com funções de Ônibus de serviço. 
 
-## <a name="overview"></a>Visão geral
-Quando um diretor de segurança (utilizador, grupo ou aplicação) tenta aceder a uma entidade do Ônibus de serviço, o pedido deve ser autorizado. Com o Azure AD, o acesso a um recurso é um processo de duas etapas. 
+## <a name="overview"></a>Descrição geral
+Quando um diretor de segurança (utilizador, grupo ou aplicação) tenta aceder a uma entidade do Ônibus de serviço, o pedido deve ser autorizado. Com a AD Azure, o acesso a um recurso é um processo em duas etapas. 
 
- 1. Primeiro, a identidade do diretor de segurança é autenticada, e um token OAuth 2.0 é devolvido. O nome do recurso para solicitar um símbolo é `https://servicebus.azure.net`.
+ 1. Primeiro, a identidade do diretor de segurança é autenticada, e um token OAuth 2.0 é devolvido. O nome do recurso para `https://servicebus.azure.net`pedir um símbolo é .
  1. Em seguida, o símbolo é passado como parte de um pedido ao serviço de ônibus de serviço para autorizar o acesso ao recurso especificado.
 
 A etapa de autenticação requer que um pedido de pedido contenha um sinal de acesso OAuth 2.0 no prazo de execução. Se uma aplicação estiver a funcionar dentro de uma entidade Azure, como um Azure VM, um conjunto de escala de máquina virtual ou uma aplicação Azure Function, pode usar uma identidade gerida para aceder aos recursos. 
 
-A etapa de autorização requer que uma ou mais funções RBAC sejam atribuídas à entidade de segurança. O Azure Service Bus fornece funções RBAC que englobam conjuntos de permissões para recursos de ônibus de serviço. As funções atribuídas a uma entidade de segurança determinam as permissões que o principal terá. Para saber mais sobre a atribuição de funções RBAC ao Azure Service Bus, consulte [as funções RBAC incorporadas para o Azure Service Bus.](#built-in-rbac-roles-for-azure-service-bus) 
+O passo de autorização requer que uma ou mais funções RBAC sejam atribuídas ao diretor de segurança. O Azure Service Bus fornece funções RBAC que englobam conjuntos de permissões para recursos de ônibus de serviço. As funções atribuídas a um diretor de segurança determinam as permissões que o diretor terá. Para saber mais sobre a atribuição de funções RBAC ao Azure Service Bus, consulte [as funções RBAC incorporadas para o Azure Service Bus.](#built-in-rbac-roles-for-azure-service-bus) 
 
 Aplicações nativas e aplicações web que fazem pedidos para O Ônibus de Serviço também podem autorizar com a Azure AD. Este artigo mostra-lhe como solicitar um sinal de acesso e usá-lo para autorizar pedidos de recursos de ônibus de serviço. 
 
 
 ## <a name="assigning-rbac-roles-for-access-rights"></a>Atribuição de funções RBAC para direitos de acesso
-O Azure Active Directory (AD do Azure) autoriza os direitos de acesso a recursos protegidos por meio [do RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md). O Azure Service Bus define um conjunto de funções RBAC incorporadas que englobam conjuntos comuns de permissões usadas para aceder a entidades de ônibus de serviço e também pode definir funções personalizadas para aceder aos dados.
+O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos garantidos através do [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/overview.md). O Azure Service Bus define um conjunto de funções RBAC incorporadas que englobam conjuntos comuns de permissões usadas para aceder a entidades de ônibus de serviço e também pode definir funções personalizadas para aceder aos dados.
 
-Quando uma função RBAC é atribuída a uma entidade de segurança do Azure AD, o Azure concede acesso a esses recursos para essa entidade de segurança. O acesso pode ser consultado ao nível de subscrição, ao grupo de recursos ou ao espaço de nome do Bus de Serviço. Um diretor de segurança da AD Azure pode ser um utilizador, um grupo, um diretor de serviço de aplicação ou uma identidade gerida para os recursos Azure.
+Quando uma função RBAC é atribuída a um diretor de segurança da AD Azure, o Azure concede acesso a esses recursos para esse diretor de segurança. O acesso pode ser consultado ao nível de subscrição, ao grupo de recursos ou ao espaço de nome do Bus de Serviço. Um diretor de segurança da AD Azure pode ser um utilizador, um grupo, um diretor de serviço de aplicação ou uma identidade gerida para os recursos Azure.
 
 ## <a name="built-in-rbac-roles-for-azure-service-bus"></a>Funções RBAC incorporadas para ônibus de serviço Azure
 Para o Azure Service Bus, a gestão de espaços de nome e todos os recursos conexos através do portal Azure e da API de gestão de recursos Azure já está protegida utilizando o modelo de controlo de acesso baseado *em funções* (RBAC). O Azure fornece as funções RBAC incorporadas abaixo para autorizar o acesso a um espaço de nome de autocarro de serviço:
@@ -50,8 +50,8 @@ Para o Azure Service Bus, a gestão de espaços de nome e todos os recursos cone
 - Remetente de dados do [ônibus azure](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender)service : Use esta função para dar acesso ao espaço de nome do Bus de Serviço e suas entidades.
 - Recetor de dados de [ônibus de serviço Azure](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver): Use esta função para dar acesso ao espaço de nome do Bus de Serviço e suas entidades. 
 
-## <a name="resource-scope"></a>Escopo de recurso 
-Antes de atribuir uma função de RBAC a uma entidade de segurança, determine o escopo de acesso que a entidade de segurança deve ter. As práticas recomendadas ditam que é sempre melhor conceder apenas o escopo mais estreito possível.
+## <a name="resource-scope"></a>Âmbito de recurso 
+Antes de atribuir uma função RBAC a um diretor de segurança, determine o alcance de acesso que o diretor de segurança deve ter. As melhores práticas ditam que é sempre melhor conceder apenas o âmbito mais estreito possível.
 
 A lista seguinte descreve os níveis a que pode aceder aos recursos do Ônibus de serviço, começando pelo âmbito mais restrito:
 
@@ -70,16 +70,16 @@ A lista seguinte descreve os níveis a que pode aceder aos recursos do Ônibus d
 > [!NOTE]
 > Tenha em mente que as atribuições de funções RBAC podem demorar até cinco minutos para se propagar. 
 
-Para obter mais informações sobre como os papéis incorporados são definidos, consulte [compreender definições](../role-based-access-control/role-definitions.md#management-and-data-operations)de papéis . Para obter informações sobre como criar funções RBAC personalizadas, consulte [criar funções personalizadas para o controle de acesso baseado em função do Azure](../role-based-access-control/custom-roles.md).
+Para obter mais informações sobre como os papéis incorporados são definidos, consulte [compreender definições](../role-based-access-control/role-definitions.md#management-and-data-operations)de papéis . Para obter informações sobre a criação de funções RBAC personalizadas, consulte [Criar papéis personalizados para o Controlo de Acesso baseado em papel Azure](../role-based-access-control/custom-roles.md).
 
-## <a name="enable-managed-identities-on-a-vm"></a>Habilitar identidades gerenciadas em uma VM
-Antes de poder utilizar identidades geridas para a Azure Resources para autorizar recursos de ônibus de serviço a partir do seu VM, você deve primeiro ativar identidades geridas para os Recursos Azure no VM. Para saber como habilitar identidades gerenciadas para recursos do Azure, consulte um destes artigos:
+## <a name="enable-managed-identities-on-a-vm"></a>Ativar identidades geridas num VM
+Antes de poder utilizar identidades geridas para a Azure Resources para autorizar recursos de ônibus de serviço a partir do seu VM, você deve primeiro ativar identidades geridas para os Recursos Azure no VM. Para aprender a ativar identidades geridas para os Recursos Azure, consulte um destes artigos:
 
-- [Portal do Azure](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
-- [O Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
-- [CLI do Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Modelo do Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
-- [Bibliotecas de cliente Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
+- [Portal Azure](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
+- [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+- [Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+- [Modelo Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Bibliotecas de clientes do Gestor de Recursos Azure](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Conceder permissões a uma identidade gerida em Azure AD
 Para autorizar um pedido ao serviço de ônibus de serviço a partir de uma identidade gerida na sua aplicação, primeiro configurar as definições de controlo de acesso baseado em funções (RBAC) para essa identidade gerida. O Azure Service Bus define funções RBAC que englobam permissões para envio e leitura a partir de Service Bus. Quando a função RBAC é atribuída a uma identidade gerida, a identidade gerida tem acesso às entidades de ônibus de serviço no âmbito adequado.
@@ -113,12 +113,12 @@ Para atribuir uma função a um espaço de nome de ônibus de serviço, navegue 
 
 1. No portal Azure, navegue para o seu espaço de nome do Bus de Serviço e exiba a **visão geral** para o espaço de nome. 
 1. Selecione **Access Control (IAM)** no menu esquerdo para visualizar as definições de controlo de acesso para o espaço de nome do Bus de Serviço.
-1.  Selecione a guia **atribuições de função** para ver a lista de atribuições de função.
+1.  Selecione o separador de **atribuições de funções** para ver a lista de atribuições de papéis.
 3.  Selecione **Adicionar** para adicionar um novo papel.
 4.  Na página de atribuição de **funções Add,** selecione as funções de Ônibus de Serviço Azure que pretende atribuir. Em seguida, procure localizar a identidade de serviço que tinha registado para atribuir o papel.
     
     ![Adicionar página de atribuição de papéis](./media/service-bus-managed-service-identity/add-role-assignment-page.png)
-5.  Selecione **Guardar**. A identidade para a qual você atribuiu a função aparece listada sob essa função. Por exemplo, a imagem que se segue mostra que a identidade de serviço tem o proprietário de Dados de Ônibus de Serviço Azure.
+5.  Selecione **Guardar**. A identidade a quem atribuiu o papel aparece listada nesse papel. Por exemplo, a imagem que se segue mostra que a identidade de serviço tem o proprietário de Dados de Ônibus de Serviço Azure.
     
     ![Identidade atribuída a um papel](./media/service-bus-managed-service-identity/role-assigned.png)
 
@@ -130,9 +130,9 @@ Agora, modifique a página predefinida da aplicação ASP.NET que criou. Pode ut
 
 A página Default.aspx é a sua página de aterragem. O código pode ser encontrado no ficheiro Default.aspx.cs. O resultado é uma aplicação web mínima com alguns campos de entrada, e com botões **de envio** e **receção** que ligam ao Service Bus para enviar ou receber mensagens.
 
-Observe como o [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) objeto é inicializado. Em vez de utilizar o fornecedor do token de acesso partilhado Token (SAS), o código cria um provedor de token para a identidade gerida com o `var msiTokenProvider = TokenProvider.CreateManagedIdentityTokenProvider();` chamar. Como tal, não há segredos para reter e usar. O fluxo do contexto de identidade gerido para o Service Bus e o aperto de mão de autorização são automaticamente tratados pelo fornecedor simbólico. É um modelo mais simples do que usar sas.
+Note como o objeto da Fábrica de [Mensagens](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) é inicializado. Em vez de utilizar o fornecedor de fichas de acesso partilhado (SAS), o `var msiTokenProvider = TokenProvider.CreateManagedIdentityTokenProvider();` código cria um fornecedor simbólico para a identidade gerida com a chamada. Como tal, não há segredos para reter e usar. O fluxo do contexto de identidade gerido para o Service Bus e o aperto de mão de autorização são automaticamente tratados pelo fornecedor simbólico. É um modelo mais simples do que usar sas.
 
-Depois de efetuar estas alterações, publicar e executar a aplicação. Pode obter facilmente os dados de publicação corretos, descarregando e importando um perfil editorial no Visual Studio:
+Depois de efazer estas alterações, publique e execute a aplicação. Pode obter facilmente os dados de publicação corretos, descarregando e importando um perfil editorial no Visual Studio:
 
 ![Obtenha perfil de publicação](./media/service-bus-managed-service-identity/msi3.png)
  
@@ -146,8 +146,8 @@ Para enviar ou receber mensagens, insira o nome do espaço de nome e o nome da e
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre as mensagens do barramento de serviço, consulte os seguintes tópicos:
+Para saber mais sobre as mensagens de ônibus de serviço, consulte os seguintes tópicos:
 
 * [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)
-* [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
+* [Começar com as filas de ônibus de serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Como utilizar os tópicos e as subscrições do Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)

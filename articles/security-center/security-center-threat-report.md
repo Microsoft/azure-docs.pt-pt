@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
 ms.openlocfilehash: f8b4063d87fa9a89dccd42eddea644609bd6ff27
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921254"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Relatório de Informações Sobre Ameaças do Centro de Segurança do Azure
@@ -68,6 +68,6 @@ A partir daqui, pode transferir o PDF para este relatório e ler mais informaç�
 ## <a name="see-also"></a>Consulte também
 Neste documento, aprendeu como os Relatórios de Informações Sobre Ameaças do Centro de Segurança do Azure podem ajudar durante uma investigação sobre alertas de segurança. Para saber mais acerca do Centro de Segurança do Azure, consulte o seguinte:
 
-* [Guia de operações e planeamento do Centro de Segurança do Azure](security-center-planning-and-operations-guide.md). Saiba como planear e compreender as considerações de conceção para adoção do Centro de Segurança do Azure.
-* [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md). Saiba como gerir e responder a alertas de segurança.
+* Guia de [planeamento e operações do Azure Security Center.](security-center-planning-and-operations-guide.md) Saiba como planear e compreender as considerações de conceção para adoção do Centro de Segurança do Azure.
+* [Gestão e resposta a alertas](security-center-managing-and-responding-alerts.md)de segurança no Centro de Segurança Azure. Saiba como gerir e responder a alertas de segurança.
 * [Lidar com Incidentes de Segurança no Centro de Segurança do Azure](security-center-incident.md)

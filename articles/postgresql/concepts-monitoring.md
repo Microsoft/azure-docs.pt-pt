@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.openlocfilehash: 2d2bb5440e6d23a4cb5781244ba33ab4c5be2612
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252575"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Monitor e sintonize base de dados Azure para PostgreSQL - Servidor Único
@@ -22,7 +22,7 @@ A Base de Dados Azure para PostgreSQL fornece várias métricas que dão uma vis
 ### <a name="list-of-metrics"></a>Lista de métricas
 Estas métricas estão disponíveis para a Base de Dados Azure para PostgreSQL:
 
-|Métrica|Nome a apresentar de métrica|Unidade|Descrição|
+|Métrica|Nome de exibição métrica|Unidade|Descrição|
 |---|---|---|---|
 |cpu_percent|Por cento do CPU|Percentagem|A percentagem de CPU em uso.|
 |memory_percent|Por cento da memória|Percentagem|A percentagem de memória em uso.|
@@ -33,7 +33,7 @@ Estas métricas estão disponíveis para a Base de Dados Azure para PostgreSQL:
 |serverlog_storage_percent|Percentagem de armazenamento de registo do servidor|Percentagem|A percentagem de armazenamento de registo do servidor usado a partir do armazenamento máximo de registo do servidor.|
 |serverlog_storage_usage|Armazenamento de registo do servidor utilizado|Bytes|A quantidade de armazenamento de registo do servidor em uso.|
 |serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|O armazenamento máximo de registo do servidor para este servidor.|
-|active_connections|Conexões ativas|Contagem|O número de ligações ativas ao servidor.|
+|active_connections|Conexões Ativas|Contagem|O número de ligações ativas ao servidor.|
 |connections_failed|Ligações com Falhas|Contagem|O número de ligações falhadas ao servidor.|
 |network_bytes_egress|Saída da Rede|Bytes|Rede Para fora através de conexões ativas.|
 |network_bytes_ingress|Entrada na Rede|Bytes|Rede Em todas as ligações ativas.|

@@ -1,6 +1,6 @@
 ---
-title: Extensão do chefe para VMs do Azure
-description: Implante o cliente chefe em uma máquina virtual usando a extensão de VM chefe.
+title: Extensão de chef para VMs Azure
+description: Desloque o Chef Client para uma máquina virtual usando a extensão Chef VM.
 services: virtual-machines-linux
 documentationcenter: ''
 author: axayjo
@@ -14,29 +14,29 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
 ms.openlocfilehash: a21b8f2fea7433e9f65fd790321a28ea47a38c79
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76544723"
 ---
-# <a name="chef-vm-extension-for-linux-and-windows"></a>Extensão de VM chefe para Linux e Windows
+# <a name="chef-vm-extension-for-linux-and-windows"></a>Extensão Chef VM para Linux e Windows
 
-O Chef Software fornece uma plataforma de automatização DevOps para Linux e Windows que permite gerir configurações de servidor tanto físicas como virtuais. A extensão de VM chefe é uma extensão que habilita o chefe nas máquinas virtuais.
+O Chef Software fornece uma plataforma de automatização DevOps para Linux e Windows que permite gerir configurações de servidor tanto físicas como virtuais. A Extensão Chef VM é uma extensão que permite chef em máquinas virtuais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operativo
 
-A extensão de VM chefe tem suporte em todos os [sistemas operacionais com suporte de extensão](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems) no Azure.
+A Extensão Chef VM é suportada em todos os [Os's suportados](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems) por extensão em Azure.
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
-A extensão de VM chefe requer que a máquina virtual de destino esteja conectada à Internet para recuperar a carga do cliente chefe da rede de distribuição de conteúdo (CDN).  
+A Extensão VM do Chef requer que a máquina virtual alvo esteja ligada à internet de forma a recuperar a carga útil do Chef Client da rede de entrega de conteúdos (CDN).  
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON a seguir mostra o esquema para a extensão de VM chefe. A extensão requer no mínimo a URL do servidor chefe, o nome do cliente de validação e a chave de validação para o servidor chefe; esses valores podem ser encontrados no arquivo de `knife.rb` no Starter-Kit. zip que é baixado quando você instala o [chefe Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) ou um [servidor chefe](https://downloads.chef.io/chef-server)autônomo. Como a chave de validação deve ser tratada como dados confidenciais, ela deve ser configurada no elemento **protectedSettings** , o que significa que ela só será descriptografada na máquina virtual de destino.
+O seguinte JSON mostra o esquema para a extensão chef VM. A extensão requer no mínimo o URL do Chef Server, o Nome do Cliente de Validação e a Chave de Validação para o Servidor do Chef; estes valores podem `knife.rb` ser encontrados no ficheiro no starter-kit.zip que é descarregado quando você instala [chef automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) ou um [Chef Server](https://downloads.chef.io/chef-server)autónomo. Uma vez que a chave de validação deve ser tratada como dados sensíveis, deve ser configurada sob o elemento **Definições protegidas,** o que significa que só será desencriptada na máquina virtual alvo.
 
 ```json
 {
@@ -65,28 +65,28 @@ O JSON a seguir mostra o esquema para a extensão de VM chefe. A extensão reque
 }  
 ```
 
-### <a name="core-property-values"></a>Valores de propriedade de núcleo
+### <a name="core-property-values"></a>Valores de propriedade central
 
-| Nome | Valor / exemplo | Tipo de Dados
+| Nome | Valor / Exemplo | Tipo de Dados
 | ---- | ---- | ----
-| apiVersion | `2017-12-01` | string (data) |
+| apiVersion | `2017-12-01` | corda (data) |
 | publicador | `Chef.Bootstrap.WindowsAzure` | string |
-| tipo | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
-| typeHandlerVersion | `1210.13` | string (double) |
+| tipo | `LinuxChefClient`(Linux), `ChefClient` (Janelas) | string |
+| typeHandlerVersion | `1210.13` | corda (duplo) |
 
 ### <a name="settings"></a>Definições
 
-| Nome | Valor / exemplo | Tipo de Dados | Necessário?
+| Nome | Valor / Exemplo | Tipo de Dados | Necessário?
 | ---- | ---- | ---- | ----
-| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | S |
-| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | S |
-| configurações/runlist | `recipe[mycookbook::default]` | string | S |
+| definições/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | cadeia (url) | S |
+| definições/bootstrap_options/validation_client_name | `myorg-validator` | string | S |
+| definições/lista de execução | `recipe[mycookbook::default]` | string | S |
 
-### <a name="protected-settings"></a>Configurações protegidas
+### <a name="protected-settings"></a>Definições protegidas
 
 | Nome | Exemplo | Tipo de Dados | Necessário?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | S |
+| definições/validation_key protegidos | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | S |
 
 <!--
 ### Linux-specific settings
@@ -102,15 +102,15 @@ O JSON a seguir mostra o esquema para a extensão de VM chefe. A extensão reque
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. Os modelos podem ser usados para implantar uma ou mais máquinas virtuais, instalar o cliente chefe, conectar-se ao servidor chefe e executar a configuração inicial no servidor, conforme definido pela [lista de execução](https://docs.chef.io/run_lists.html)
+As extensões VM azure podem ser implantadas com modelos de Gestor de Recursos Azure. Os modelos podem ser usados para implantar uma ou mais máquinas virtuais, instalar o Chef Client, ligar ao Chef Server e executar a configuração inicial no servidor como definido pela [Lista de Execução](https://docs.chef.io/run_lists.html)
 
-Um modelo do Resource Manager de exemplo que inclui a extensão de VM chefe pode ser encontrado na [Galeria de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
+Um modelo de Gestor de Recursos de amostra que inclui a extensão Do Chef VM pode ser encontrado na [galeria Azure quickstart.](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm)
 
-A configuração do JSON para uma extensão de máquina virtual pode ser aninhada dentro do recurso de máquina virtual ou colocada na raiz ou de nível superior de um modelo do Resource Manager JSON. A colocação da configuração do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [defina o nome e tipo para recursos subordinados](../../azure-resource-manager/resource-manager-template-child-resource.md).
+A configuração JSON para uma extensão virtual da máquina pode ser aninhada dentro do recurso virtual da máquina, ou colocada no nível raiz ou superior de um modelo JSON do Gestor de Recursos. A colocação da configuração JSON afeta o valor do nome e do tipo de recursos. Para mais informações, consulte o nome e o [tipo de definição para os recursos infantis.](../../azure-resource-manager/resource-manager-template-child-resource.md)
 
-## <a name="azure-cli-deployment"></a>Implementação de CLI do Azure
+## <a name="azure-cli-deployment"></a>Implantação Azure CLI
 
-O CLI do Azure pode ser usado para implantar a extensão de VM chefe em uma VM existente. Substitua o **validation_key** pelo conteúdo da sua chave de validação (esse arquivo como uma extensão `.pem`).  Substitua **validation_client_name**, **chef_server_url** e **run_list** com esses valores do arquivo `knife.rb` no kit do iniciante.
+O Azure CLI pode ser usado para implantar a extensão Do Chef VM a um VM existente. Substitua a **validation_key** pelo conteúdo da sua `.pem` chave de validação (este ficheiro como uma extensão).  Substitua **validation_client_name,** **chef_server_url** e **run_list** com os valores do `knife.rb` ficheiro do seu Kit de Arranque.
 
 ```azurecli
 az vm extension set \
@@ -122,15 +122,15 @@ az vm extension set \
   --settings '{ "bootstrap_options": { "chef_server_url": "<chef_server_url>", "validation_client_name": "<validation_client_name>" }, "runlist": "<run_list>" }'
 ```
 
-## <a name="troubleshooting-and-support"></a>Resolução de problemas e suporte
+## <a name="troubleshooting-and-support"></a>Resolução de problemas e apoio
 
-Podem ser obtidos dados sobre o estado das implementações de extensão do portal do Azure e com a CLI do Azure. Para ver o estado de implementação de extensões para uma determinada VM, execute o seguinte comando com a CLI do Azure.
+Os dados sobre o estado das extensões podem ser recuperados do portal Azure e utilizando o Azure CLI. Para ver o estado de implantação das extensões para um dado VM, execute o seguinte comando utilizando o Azure CLI.
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myExistingVM -o table
 ```
 
-Resultado da execução de extensão é registado para o ficheiro seguinte:
+A saída de execução de extensão é registada no seguinte ficheiro:
 
 ### <a name="linux"></a>Linux
 
@@ -146,15 +146,15 @@ C:\Packages\Plugins\Chef.Bootstrap.WindowsAzure.ChefClient\
 
 ### <a name="error-codes-and-their-meanings"></a>Códigos de erro e seus significados
 
-| Código de Erro | Significado | Ação possível |
+| Código de Erro | Significado | Ação Possível |
 | :---: | --- | --- |
-| 51 | Não há suporte para essa extensão no sistema operacional da VM | |
+| 51 | Esta extensão não é suportada no sistema operativo da VM | |
 
-Informações adicionais de solução de problemas podem ser encontradas no [Leiame da extensão de VM chefe](https://github.com/chef-partners/azure-chef-extension).
+Informações adicionais de resolução de problemas podem ser encontradas no leume de [extensão chef VM.](https://github.com/chef-partners/azure-chef-extension)
 
 > [!NOTE]
-> Para qualquer outra coisa diretamente relacionada ao chefe, entre em contato com o [suporte do chefe](https://www.chef.io/support/).
+> Para qualquer outra coisa diretamente relacionada com chef, contacte [chef suporte.](https://www.chef.io/support/)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os especialistas do Azure sobre o [fóruns do Azure do MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia os [FAQ do suporte Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode apresentar um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para obter informações sobre a utilização do Suporte Azure, leia o suporte do [Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).

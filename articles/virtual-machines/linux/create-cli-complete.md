@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 12/14/2017
 ms.author: cynthn
 ms.openlocfilehash: 7ee4674f5e7c04709256459c3417a1379a65aedc
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969550"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Crie uma máquina virtual Linux completa com o Azure CLI
@@ -21,13 +21,13 @@ Certifique-se de que instalou o mais recente [Azure CLI](/cli/azure/install-az-c
 Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo pelos seus próprios valores. Exemplo nomes de parâmetros incluem *myResourceGroup,* *myVnet,* e *myVM*.
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
-Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Um grupo de recursos deve ser criado antes de uma máquina virtual e apoiar os recursos de rede virtuais. Crie o grupo de recursos com o [grupo Az criar](/cli/azure/group). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
+Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Um grupo de recursos deve ser criado antes de uma máquina virtual e apoiar os recursos de rede virtuais. Crie o grupo de recursos com o [grupo Az criar](/cli/azure/group). O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* na localização *oriental:*
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Por predefinição, a saída dos comandos Azure CLI está em JSON (Notação de Objetos JavaScript). Para alterar a saída predefinida para uma lista ou tabela, por exemplo, utilize [az configurar --output](/cli/azure/reference-index). Também pode adicionar `--output` a qualquer comando para uma alteração de uma vez no formato de saída. O exemplo seguinte mostra a saída JSON do comando `az group create`:
+Por predefinição, a saída dos comandos Azure CLI está em JSON (Notação de Objetos JavaScript). Para alterar a saída predefinida para uma lista ou tabela, por exemplo, utilize [az configurar --output](/cli/azure/reference-index). Também pode `--output` adicionar a qualquer comando para uma alteração de uma vez no formato de saída. O exemplo seguinte mostra a saída `az group create` JSON do comando:
 
 ```json                       
 {
@@ -94,7 +94,7 @@ A saída mostra que a subneta é logicamente criada dentro da rede virtual:
 
 
 ## <a name="create-a-public-ip-address"></a>Crie um endereço IP público
-Agora vamos criar um endereço IP público com a [rede az public-ip criar](/cli/azure/network/public-ip). Este endereço IP público permite-lhe ligar-se aos seus VMs a partir da Internet. Como o endereço predefinido é dinâmico, crie uma entrada DNS com o parâmetro `--domain-name-label`. O exemplo seguinte cria um IP público chamado *myPublicIP* com o nome DNS dos *meus publicdns*. Como o nome DNS deve ser único, forneça o seu próprio nome DNS único:
+Agora vamos criar um endereço IP público com a [rede az public-ip criar](/cli/azure/network/public-ip). Este endereço IP público permite-lhe ligar-se aos seus VMs a partir da Internet. Como o endereço predefinido é dinâmico, crie uma entrada DNS com o `--domain-name-label` parâmetro. O exemplo seguinte cria um IP público chamado *myPublicIP* com o nome DNS dos *meus publicdns*. Como o nome DNS deve ser único, forneça o seu próprio nome DNS único:
 
 ```azurecli
 az network public-ip create \
@@ -436,7 +436,7 @@ Os domínios de atualização indicam grupos de máquinas virtuais e hardware f�
 
 O Azure distribui automaticamente VMs através da falha e atualiza os domínios ao colocá-los num conjunto de disponibilidade. Para mais informações, consulte [a gestão da disponibilidade de VMs](manage-availability.md).
 
-Crie um conjunto de disponibilidade para o seu VM com [az vm disponibilidade-set criar](/cli/azure/vm/availability-set). O exemplo seguinte cria um conjunto de disponibilidade designado *myAvailabilitySet*:
+Crie um conjunto de disponibilidade para o seu VM com [az vm disponibilidade-set criar](/cli/azure/vm/availability-set). O exemplo seguinte cria um conjunto de disponibilidade com o nome *myAvailabilitySet*:
 
 ```azurecli
 az vm availability-set create \
@@ -471,9 +471,9 @@ A saída nota domínios de falha e atualização de domínios:
 ## <a name="create-a-vm"></a>Criar uma VM
 Criou os recursos da rede para apoiar vMs acessíveis à Internet. Agora crie um VM e prenda-o com uma chave SSH. Neste exemplo, vamos criar um Ubuntu VM baseado no MAIS recente LTS. Pode encontrar imagens adicionais com a lista de [imagens az vm,](/cli/azure/vm/image)como descrito na descoberta de [imagens Azure VM](cli-ps-findimage.md).
 
-Especifique uma tecla SSH para a autenticação. Se não tiver um par de chaves públicas SSH, pode [criá-los](mac-create-ssh-keys.md) ou utilizar o parâmetro `--generate-ssh-keys` para criá-los para si. Se já tiver um par de chaves, este parâmetro utiliza as chaves existentes em `~/.ssh`.
+Especifique uma tecla SSH para a autenticação. Se não tiver um par de chaves públicas SSH, `--generate-ssh-keys` pode [criá-los](mac-create-ssh-keys.md) ou utilizar o parâmetro para criá-los para si. Se já tiver um par de chaves, este `~/.ssh`parâmetro utiliza as teclas existentes em .
 
-Crie o VM reunindo todos os recursos e informações com o comando [az vm criar.](/cli/azure/vm) O exemplo seguinte cria uma VM com o nome *myVM*:
+Crie o VM reunindo todos os recursos e informações com o comando [az vm criar.](/cli/azure/vm) O exemplo seguinte cria um VM chamado *myVM:*
 
 ```azurecli
 az vm create \
@@ -487,7 +487,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-SSH para o seu VM com a entrada DNS que forneceu quando criou o endereço IP público. Esta `fqdn` é mostrada na saída à medida que cria o seu VM:
+SSH para o seu VM com a entrada DNS que forneceu quando criou o endereço IP público. Isto `fqdn` é mostrado na saída à medida que cria o seu VM:
 
 ```json
 {
@@ -556,7 +556,7 @@ E se quiser agora criar um ambiente de desenvolvimento adicional com os mesmos p
 az group export --name myResourceGroup > myResourceGroup.json
 ```
 
-Este comando cria o ficheiro `myResourceGroup.json` no seu atual diretório de trabalho. Quando você cria um ambiente a partir deste modelo, você é solicitado para todos os nomes de recursos. Pode povoar estes nomes no seu ficheiro de modelo adicionando o parâmetro `--include-parameter-default-value` ao comando `az group export`. Edite o seu modelo JSON para especificar os nomes dos recursos ou [crie um ficheiro parameters.json](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que especifica os nomes dos recursos.
+Este comando `myResourceGroup.json` cria o ficheiro no seu atual diretório de trabalho. Quando você cria um ambiente a partir deste modelo, você é solicitado para todos os nomes de recursos. Pode povoar estes nomes no `--include-parameter-default-value` seu ficheiro `az group export` de modelo adicionando o parâmetro ao comando. Edite o seu modelo JSON para especificar os nomes dos recursos ou [crie um ficheiro parameters.json](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que especifica os nomes dos recursos.
 
 Para criar um ambiente a partir do seu modelo, use a implementação do [grupo Az criar](/cli/azure/group/deployment) da seguinte forma:
 

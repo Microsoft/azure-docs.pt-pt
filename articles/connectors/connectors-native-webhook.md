@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 tags: connectors
 ms.openlocfilehash: 1578ca030bc8bab971a44e1afcce1d1ab9e1d5e9
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78674122"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Criar e executar fluxos de trabalho automatizados baseados em eventos utilizando webhooks HTTP em Aplicações lógicas azure
@@ -47,7 +47,7 @@ Por exemplo, a ação de email de [**envio**](connectors-create-api-office365-ou
 > * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 > * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
-Para mais informações, consulte estes tópicos:
+Para obter mais informações, veja estes tópicos:
 
 * [PARÂMETROS do gatilho http Webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)
 * [Webhooks e subscrições](../logic-apps/logic-apps-workflow-actions-triggers.md#webhooks-and-subscriptions)
@@ -65,15 +65,15 @@ Para mais informações, consulte estes tópicos:
 
 ## <a name="add-an-http-webhook-trigger"></a>Adicione um gatilho http Webhook
 
-Este gatilho incorporado chama o ponto final de subscrição no serviço alvo e regista um URL de callback com o serviço alvo. A sua aplicação lógica aguarda então que o serviço alvo envie um pedido de `HTTP POST` para o URL de callback. Quando este evento acontece, o gatilho dispara e passa quaisquer dados no pedido junto ao fluxo de trabalho.
+Este gatilho incorporado chama o ponto final de subscrição no serviço alvo e regista um URL de callback com o serviço alvo. A sua aplicação lógica aguarda então `HTTP POST` que o serviço alvo envie um pedido para o URL de callback. Quando este evento acontece, o gatilho dispara e passa quaisquer dados no pedido junto ao fluxo de trabalho.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica em branco no Logic App Designer.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica em branco no Logic App Designer.
 
-1. Na caixa de pesquisa do designer, introduza `http webhook` como filtro. A partir da lista **de Gatilhos,** selecione o gatilho **HTTP Webhook.**
+1. Na caixa de pesquisa do `http webhook` designer, introduza como filtro. A partir da lista **de Gatilhos,** selecione o gatilho **HTTP Webhook.**
 
    ![Selecione o gatilho http Webhook](./media/connectors-native-webhook/select-http-webhook-trigger.png)
 
-   Este exemplo renomea o gatilho para `HTTP Webhook trigger` para que o passo tenha um nome mais descritivo. Além disso, o exemplo adiciona mais tarde uma ação http Webhook, e ambos os nomes devem ser únicos.
+   Este exemplo renomea `HTTP Webhook trigger` o gatilho para que o passo tenha um nome mais descritivo. Além disso, o exemplo adiciona mais tarde uma ação http Webhook, e ambos os nomes devem ser únicos.
 
 1. Forneça os valores para os parâmetros do [gatilho http Webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) que pretende utilizar para as chamadas de subscrição e cancelamento de subscrição.
 
@@ -85,10 +85,10 @@ Este gatilho incorporado chama o ponto final de subscrição no serviço alvo e 
    |----------|----------|-------------|
    | **Subscrição - Método** | Sim | O método a utilizar ao subscrever o ponto final do alvo |
    | **Inscreva-se - URI** | Sim | O URL a utilizar para subscrever o ponto final do alvo |
-   | **Subscrever - Corpo** | Não | Qualquer organismo de mensagem a incluir no pedido de subscrição. Este exemplo inclui o URL de callback que identifica exclusivamente o assinante, que é a sua aplicação lógica, utilizando a expressão `@listCallbackUrl()` para recuperar o URL de callback da sua aplicação lógica. |
+   | **Subscrever - Corpo** | Não | Qualquer organismo de mensagem a incluir no pedido de subscrição. Este exemplo inclui o URL de callback que identifica exclusivamente o `@listCallbackUrl()` assinante, que é a sua aplicação lógica, utilizando a expressão para recuperar o URL de callback da sua aplicação lógica. |
    | **Cancelar a subscrição - Método** | Não | O método a utilizar ao cancelar a subscrição do ponto final-alvo |
    | **Cancelar a subscrição - URI** | Não | O URL a utilizar para dessubscrever a partir do ponto final do alvo |
-   | **Cancelar a subscrição - Corpo** | Não | Um organismo de mensagem opcional para incluir no pedido de cancelamento de subscrição <p><p>**Nota:** Esta propriedade não suporta utilizando a função `listCallbackUrl()`. No entanto, o gatilho inclui e envia automaticamente os cabeçalhos, `x-ms-client-tracking-id` e `x-ms-workflow-operation-name`, que o serviço-alvo pode usar para identificar exclusivamente o assinante. |
+   | **Cancelar a subscrição - Corpo** | Não | Um organismo de mensagem opcional para incluir no pedido de cancelamento de subscrição <p><p>**Nota:** Esta propriedade não suporta `listCallbackUrl()` a utilização da função. No entanto, o gatilho inclui e `x-ms-client-tracking-id` `x-ms-workflow-operation-name`envia automaticamente os cabeçalhos, e , que o serviço-alvo pode usar para identificar exclusivamente o assinante. |
    ||||
 
 1. Para adicionar outras propriedades do gatilho, abra a **lista de novos parâmetros Adicionar.**
@@ -101,21 +101,21 @@ Este gatilho incorporado chama o ponto final de subscrição no serviço alvo e 
 
 1. Quando terminar, pronto, lembre-se de guardar a sua aplicação lógica. Na barra de ferramentas de design, selecione **Guardar**.
 
-   Salvar a sua aplicação lógica chama o ponto final de subscrição no serviço alvo e regista o URL de callback. A sua aplicação lógica aguarda então que o serviço alvo envie um pedido de `HTTP POST` para o URL de callback. Quando este evento acontece, o gatilho dispara e passa quaisquer dados no pedido junto ao fluxo de trabalho. Se esta operação terminar com sucesso, o gatilho desabre a partir do ponto final, e a sua aplicação lógica continua o fluxo de trabalho restante.
+   Salvar a sua aplicação lógica chama o ponto final de subscrição no serviço alvo e regista o URL de callback. A sua aplicação lógica aguarda então `HTTP POST` que o serviço alvo envie um pedido para o URL de callback. Quando este evento acontece, o gatilho dispara e passa quaisquer dados no pedido junto ao fluxo de trabalho. Se esta operação terminar com sucesso, o gatilho desabre a partir do ponto final, e a sua aplicação lógica continua o fluxo de trabalho restante.
 
 ## <a name="add-an-http-webhook-action"></a>Adicione uma ação http Webhook
 
-Esta ação incorporada chama o ponto final de subscrição no serviço alvo e regista um URL de callback com o serviço alvo. A sua aplicação lógica faz então uma pausa e aguarda que o serviço alvo envie um pedido de `HTTP POST` para o URL de chamada. Quando este evento acontece, a ação passa quaisquer dados no pedido junto ao fluxo de trabalho. Se a operação terminar com sucesso, a ação desabre a partir do ponto final, e a sua aplicação lógica continua a executar o fluxo de trabalho restante.
+Esta ação incorporada chama o ponto final de subscrição no serviço alvo e regista um URL de callback com o serviço alvo. A sua aplicação lógica faz então uma `HTTP POST` pausa e aguarda que o serviço alvo envie um pedido para o URL de callback. Quando este evento acontece, a ação passa quaisquer dados no pedido junto ao fluxo de trabalho. Se a operação terminar com sucesso, a ação desabre a partir do ponto final, e a sua aplicação lógica continua a executar o fluxo de trabalho restante.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica no Logic App Designer.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica no Logic App Designer.
 
    Este exemplo utiliza o gatilho HTTP Webhook como primeiro passo.
 
 1. Sob o passo onde pretende adicionar a ação HTTP Webhook, selecione **Novo passo**.
 
-   Para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre os degraus. Selecione o sinal plus **(+** ) que aparece e, em seguida, **selecione Adicionar uma ação**.
+   Para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre os degraus. Selecione o**+** sinal de mais ( ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
-1. Na caixa de pesquisa do designer, introduza `http webhook` como filtro. Na lista **de Ações,** selecione a ação **HTTP Webhook.**
+1. Na caixa de pesquisa do `http webhook` designer, introduza como filtro. Na lista **de Ações,** selecione a ação **HTTP Webhook.**
 
    ![Selecione ação http Webhook](./media/connectors-native-webhook/select-http-webhook-action.png)
 
@@ -131,10 +131,10 @@ Esta ação incorporada chama o ponto final de subscrição no serviço alvo e r
    |----------|----------|-------------|
    | **Subscrição - Método** | Sim | O método a utilizar ao subscrever o ponto final do alvo |
    | **Inscreva-se - URI** | Sim | O URL a utilizar para subscrever o ponto final do alvo |
-   | **Subscrever - Corpo** | Não | Qualquer organismo de mensagem a incluir no pedido de subscrição. Este exemplo inclui o URL de callback que identifica exclusivamente o assinante, que é a sua aplicação lógica, utilizando a expressão `@listCallbackUrl()` para recuperar o URL de callback da sua aplicação lógica. |
+   | **Subscrever - Corpo** | Não | Qualquer organismo de mensagem a incluir no pedido de subscrição. Este exemplo inclui o URL de callback que identifica exclusivamente o `@listCallbackUrl()` assinante, que é a sua aplicação lógica, utilizando a expressão para recuperar o URL de callback da sua aplicação lógica. |
    | **Cancelar a subscrição - Método** | Não | O método a utilizar ao cancelar a subscrição do ponto final-alvo |
    | **Cancelar a subscrição - URI** | Não | O URL a utilizar para dessubscrever a partir do ponto final do alvo |
-   | **Cancelar a subscrição - Corpo** | Não | Um organismo de mensagem opcional para incluir no pedido de cancelamento de subscrição <p><p>**Nota:** Esta propriedade não suporta utilizando a função `listCallbackUrl()`. No entanto, a ação inclui e envia automaticamente os cabeçalhos, `x-ms-client-tracking-id` e `x-ms-workflow-operation-name`, que o serviço-alvo pode usar para identificar exclusivamente o assinante. |
+   | **Cancelar a subscrição - Corpo** | Não | Um organismo de mensagem opcional para incluir no pedido de cancelamento de subscrição <p><p>**Nota:** Esta propriedade não suporta `listCallbackUrl()` a utilização da função. No entanto, a ação inclui e `x-ms-client-tracking-id` `x-ms-workflow-operation-name`envia automaticamente os cabeçalhos, e , que o serviço alvo pode usar para identificar exclusivamente o assinante. |
    ||||
 
 1. Para adicionar outras propriedades de ação, abra a **lista adicionar novo parâmetro.**
@@ -145,7 +145,7 @@ Esta ação incorporada chama o ponto final de subscrição no serviço alvo e r
 
 1. Quando terminar, lembre-se de guardar a sua aplicação lógica. Na barra de ferramentas de design, selecione **Guardar**.
 
-   Agora, quando esta ação corre, a sua aplicação lógica chama o ponto final de subscrição no serviço alvo e regista o URL de callback. A aplicação lógica interrompe então o fluxo de trabalho e aguarda que o serviço alvo envie um pedido de `HTTP POST` para o URL de callback. Quando este evento acontece, a ação passa quaisquer dados no pedido junto ao fluxo de trabalho. Se a operação terminar com sucesso, a ação desabre a partir do ponto final, e a sua aplicação lógica continua a executar o fluxo de trabalho restante.
+   Agora, quando esta ação corre, a sua aplicação lógica chama o ponto final de subscrição no serviço alvo e regista o URL de callback. A aplicação lógica interrompe então o fluxo de trabalho `HTTP POST` e aguarda que o serviço alvo envie um pedido para o URL de callback. Quando este evento acontece, a ação passa quaisquer dados no pedido junto ao fluxo de trabalho. Se a operação terminar com sucesso, a ação desabre a partir do ponto final, e a sua aplicação lógica continua a executar o fluxo de trabalho restante.
 
 ## <a name="connector-reference"></a>Referência do conector
 
@@ -158,7 +158,7 @@ Aqui está mais informações sobre as saídas de um gatilho ou ação http Webh
 | Nome da propriedade | Tipo | Descrição |
 |---------------|------|-------------|
 | cabeçalhos | objeto | Os cabeçalhos do pedido |
-| corpo | objeto | Objeto JSON | O objeto com o conteúdo do corpo a partir do pedido |
+| body | objeto | Objeto JSON | O objeto com o conteúdo do corpo a partir do pedido |
 | código de estado | int | O código de estado do pedido |
 |||
 
@@ -166,10 +166,10 @@ Aqui está mais informações sobre as saídas de um gatilho ou ação http Webh
 |-------------|-------------|
 | 200 | OK |
 | 202 | Aceite |
-| 400 | Pedido incorreto |
+| 400 | Mau pedido |
 | 401 | Não autorizado |
 | 403 | Proibido |
-| 404 | Não foi encontrado |
+| 404 | Não encontrado |
 | 500 | Erro interno do servidor. Erro desconhecido ocorreu. |
 |||
 

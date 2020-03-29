@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: d2cc8e32152f6930c9c250e2811668cc2c924616
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78673281"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Sobre o agente microsoft Azure Recovery Services (MARS)
@@ -37,7 +37,7 @@ O agente MARS suporta os seguintes cenários de restauro:
   - **Nível de Volume:** Escolha o ponto de volume e recuperação que pretende restaurar para outro local. Crie uma cópia dos ficheiros existentes, sobrepor ficheiros existentes ou ignore a recuperação dos ficheiros existentes.
   - **Nível do sistema:** Escolha o estado do sistema e o ponto de recuperação para restaurar como ficheiro System State para uma máquina alternativa.
 
-## <a name="backup-process"></a>Processo de backup
+## <a name="backup-process"></a>Processo de cópia de segurança
 
 1. A partir do portal Azure, crie um cofre de Serviços de [Recuperação](install-mars-agent.md#create-a-recovery-services-vault), e escolha ficheiros, pastas e o estado do sistema a partir dos objetivos de Backup.
 2. [Descarregue as credenciais do cofre dos Serviços](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) de Recuperação e o instalador de agentes para uma máquina no local.

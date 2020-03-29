@@ -1,28 +1,28 @@
 ---
-title: Manipulando eventos externos no Durable Functions-Azure
-description: Saiba como lidar com eventos externos na extensão de Durable Functions para Azure Functions.
+title: Tratamento de eventos externos em Funções Duráveis - Azure
+description: Saiba lidar com eventos externos na extensão funções duráveis para funções azure.
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 0877161f8d668141c8efb7c06b10643bf209341f
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76262967"
 ---
-# <a name="handling-external-events-in-durable-functions-azure-functions"></a>Manipulando eventos externos em Durable Functions (Azure Functions)
+# <a name="handling-external-events-in-durable-functions-azure-functions"></a>Manuseamento de eventos externos em Funções Duráveis (Funções Azure)
 
-As funções de orquestrador têm a capacidade de aguardar e escutar eventos externos. Esse recurso do [Durable Functions](durable-functions-overview.md) geralmente é útil para lidar com a interação humana ou com outros gatilhos externos.
+As funções de orquestrador têm a capacidade de esperar e ouvir eventos externos. Esta característica das [Funções Duráveis é muitas vezes](durable-functions-overview.md) útil para lidar com a interação humana ou outros gatilhos externos.
 
 > [!NOTE]
-> Os eventos externos são operações assíncronas unidirecionais. Eles não são adequados para situações em que o cliente que envia o evento precisa de uma resposta síncrona da função de orquestrador.
+> Eventos externos são operações assíncronas de sentido único. Não são adequados para situações em que o cliente que envia o evento precisa de uma resposta sincronizada da função orquestradora.
 
-## <a name="wait-for-events"></a>Aguardar eventos
+## <a name="wait-for-events"></a>Aguarde os eventos
 
-Os métodos `WaitForExternalEvent` (.NET) e `waitForExternalEvent` (JavaScript) da [Associação de gatilho de orquestração](durable-functions-bindings.md#orchestration-trigger) permitem que uma função de orquestrador Espere e escute um evento externo de forma assíncrona. A função de orquestrador de escuta declara o *nome* do evento e a *forma dos dados* que espera receber.
+Os `WaitForExternalEvent` métodos (.NET) e `waitForExternalEvent` (JavaScript) da ligação do gatilho da [orquestração](durable-functions-bindings.md#orchestration-trigger) permitem que uma função orquestradora aguarde e ouça um evento externo. A função de orquestrador de escuta declara o *nome* do evento e a *forma dos dados* que espera receber.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -42,9 +42,9 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> O código C# anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> O código C# anterior é para Funções Duráveis 2.x. Para funções duráveis 1.x, deve utilizar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo de [versões De Funções Duráveis.](durable-functions-versions.md)
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -61,11 +61,11 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-O exemplo anterior escuta um único evento específico e executa uma ação quando ele é recebido.
+O exemplo anterior ouve um único evento específico e toma medidas quando é recebido.
 
-Você pode escutar vários eventos simultaneamente, como no exemplo a seguir, que aguarda uma das três notificações de eventos possíveis.
+Pode ouvir vários eventos em simultâneo, como no seguinte exemplo, que aguarda uma das três notificações possíveis do evento.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("Select")]
@@ -93,9 +93,9 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> O código C# anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> O código C# anterior é para Funções Duráveis 2.x. Para funções duráveis 1.x, deve utilizar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo de [versões De Funções Duráveis.](durable-functions-versions.md)
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -118,9 +118,9 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-O exemplo anterior escuta *qualquer um* dos vários eventos. Também é possível aguardar *todos os* eventos.
+O exemplo anterior ouve *qualquer* um dos múltiplos eventos. Também é possível esperar por *todos os* eventos.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("NewBuildingPermit")]
@@ -141,11 +141,11 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> O código anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> O código anterior é para Funções Duráveis 2.x. Para funções duráveis 1.x, deve utilizar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo de [versões De Funções Duráveis.](durable-functions-versions.md)
 
-No .NET, se a carga do evento não puder ser convertida no tipo esperado `T`, uma exceção será lançada.
+Em .NET, se a carga útil do `T`evento não puder ser convertida no tipo esperado, é lançada uma exceção.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -166,18 +166,18 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-`WaitForExternalEvent` aguarda indefinidamente por alguma entrada.  O aplicativo de funções pode ser descarregado com segurança enquanto aguarda. Se e quando um evento chega para essa instância de orquestração, ele é ativado automaticamente e processa imediatamente o evento.
+`WaitForExternalEvent`espera indefinidamente por alguma entrada.  A aplicação de funções pode ser descarregada com segurança enquanto espera. Se e quando um evento chega para esta instância de orquestração, é despertado automaticamente e imediatamente processa o evento.
 
 > [!NOTE]
-> Se seu aplicativo de funções usar o plano de consumo, não haverá encargos de cobrança enquanto uma função de orquestrador estiver aguardando uma tarefa de `WaitForExternalEvent` (.NET) ou `waitForExternalEvent` (JavaScript), não importa quanto tempo ele espera.
+> Se a sua aplicação de funções utilizar o Plano de Consumo, não `WaitForExternalEvent` são incorridos encargos de faturação enquanto uma função de orquestrador aguarda uma tarefa de (.NET) ou `waitForExternalEvent` (JavaScript), não importa quanto tempo espere.
 
 ## <a name="send-events"></a>Enviar eventos
 
-O método `RaiseEventAsync` (.NET) ou `raiseEvent` (JavaScript) da [Associação de cliente de orquestração](durable-functions-bindings.md#orchestration-client) envia os eventos que o `WaitForExternalEvent` (.net) ou `waitForExternalEvent` (JavaScript) aguarda.  O método `RaiseEventAsync` usa *EventName* e *EVENTDATA* como parâmetros. Os dados do evento devem ser serializáveis em JSON.
+O `RaiseEventAsync` método (.NET) `raiseEvent` ou (JavaScript) da ligação do cliente de [orquestração](durable-functions-bindings.md#orchestration-client) envia os eventos que `WaitForExternalEvent` (.NET) ou `waitForExternalEvent` (JavaScript) esperam.  O `RaiseEventAsync` método toma o *nome do evento* e o *eventoData* como parâmetros. Os dados do evento devem ser jSON-serializáveis.
 
-Abaixo está um exemplo de função disparada por fila que envia um evento de "aprovação" para uma instância de função de orquestrador. A ID da instância de orquestração vem do corpo da mensagem da fila.
+Abaixo está uma função de exemplo desencadeada pela fila que envia um evento de "Aprovação" para uma instância de função orquestradora. A identificação da instância de orquestração vem do corpo da mensagem da fila.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("ApprovalQueueProcessor")]
@@ -190,9 +190,9 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> O código C# anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar o atributo `OrchestrationClient` em vez do atributo `DurableClient`, e deve usar o tipo de parâmetro `DurableOrchestrationClient` em vez de `IDurableOrchestrationClient`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> O código C# anterior é para Funções Duráveis 2.x. Para funções duráveis 1.x, deve `OrchestrationClient` utilizar `DurableClient` o atributo em `DurableOrchestrationClient` vez do atributo, e deve utilizar o tipo de parâmetro em vez de `IDurableOrchestrationClient`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo de [versões De Funções Duráveis.](durable-functions-versions.md)
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -205,10 +205,10 @@ module.exports = async function(context, instanceId) {
 
 ---
 
-Internamente, `RaiseEventAsync` (.NET) ou `raiseEvent` (JavaScript) enfileira uma mensagem que é selecionada pela função de orquestrador em espera. Se a instância não estiver aguardando o *nome do evento especificado,* a mensagem de evento será adicionada a uma fila na memória. Se a instância de orquestração mais tarde começar a escutar o *nome do evento,* ele verificará a fila em busca de mensagens de evento.
+Internamente, `RaiseEventAsync` (.NET) `raiseEvent` ou (JavaScript) enfila uma mensagem que é captada pela função de orquestrador de espera. Se a instância não estiver à espera do nome do *evento especificado,* a mensagem do evento é adicionada a uma fila na memória. Se a instância de orquestração começar mais tarde a ouvir o nome do *evento,* verificará a fila para obter mensagens de evento.
 
 > [!NOTE]
-> Se não houver nenhuma instância de orquestração com a *ID de instância*especificada, a mensagem de evento será descartada.
+> Se não houver uma instância de orquestração com o ID de *instância*especificado, a mensagem do evento é descartada.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -216,4 +216,4 @@ Internamente, `RaiseEventAsync` (.NET) ou `raiseEvent` (JavaScript) enfileira um
 > [Saiba como implementar o tratamento de erros](durable-functions-error-handling.md)
 
 > [!div class="nextstepaction"]
-> [Executar um exemplo que aguarda interação humana](durable-functions-phone-verification.md)
+> [Executar uma amostra que espera pela interação humana](durable-functions-phone-verification.md)

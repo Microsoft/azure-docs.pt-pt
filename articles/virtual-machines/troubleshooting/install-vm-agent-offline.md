@@ -1,5 +1,5 @@
 ---
-title: Instale o Agente Azure VM em modo offline  Microsoft Docs
+title: Instale o Agente Azure VM em modo offline [ Microsoft Docs
 description: Aprenda a instalar o Agente Azure VM em modo offline.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 8ea85b560f35c79b3d5066d794f587345810b5d0
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77920863"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Instale o Agente De Máquina Virtual Azure em modo offline 
@@ -39,7 +39,7 @@ Utilize os seguintes passos para instalar o Agente VM no modo offline.
 
 1. Pegue uma foto para o disco OS do VM afetado, crie um disco a partir do instantâneo e, em seguida, prenda o disco a um VM de resolução de problemas. Para mais informações, consulte [Troubleshoot a Windows VM, ligando o disco OS a um VM de recuperação utilizando o portal Azure](troubleshoot-recovery-disks-portal-windows.md). Para o VM clássico, elimine o VM e guarde o disco OS e, em seguida, prenda o disco OS ao VM de resolução de problemas.
 
-2.  Ligue-se ao VM de resolução de problemas. Gestão **de computador** aberto > **gestão do disco.** Confirme que o disco DE SO está on-line e que as cartas de acionamento são atribuídas às divisórias do disco.
+2.  Ligue-se ao VM de resolução de problemas. Gestão de discos de**gestão** **de** > computador aberto. Confirme que o disco DE SO está on-line e que as cartas de acionamento são atribuídas às divisórias do disco.
 
 ### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>Passo 2: Modificar o disco OS para instalar o Agente VM Azure
 
@@ -69,9 +69,9 @@ Utilize os seguintes passos para instalar o Agente VM no modo offline.
 8.  Utilize os ficheiros existentes no VM de resolução de problemas como um repositório para a instalação do Agente VM. Conclua os seguintes passos:
 
     1. A partir do Problemático VM, exporte os seguintes subchaves em formato de registo (.reg): 
-        - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
-        - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
-        - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\RdAgent
+        - HKEY_LOCAL_MACHINE \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
+        - HKEY_LOCAL_MACHINE \SYSTEM\ControlSet001\Services\WindowsAzureTelemettryService
+        - HKEY_LOCAL_MACHINE \SYSTEM\ControlSet001\Services\RdAgent
 
           ![Exportar as subchaves do registo](./media/install-vm-agent-offline/backup-reg.png)
 
@@ -83,7 +83,7 @@ Utilize os seguintes passos para instalar o Agente VM no modo offline.
 
     4. Confirme que as seguintes três subteclas são importadas com êxito para a colmeia **BROKENSYSTEM:**
         - WindowsAzureGuestAgent
-        - WindowsAzureTelemetryService
+        - WindowsAzureTelemettryService
         - RdAgent
 
     5. Copie a pasta de instalação do atual Agente VM para o disco OS anexo: 
@@ -94,9 +94,9 @@ Utilize os seguintes passos para instalar o Agente VM no modo offline.
 
              ![Copiar pasta GuestAgent](./media/install-vm-agent-offline/copy-files.png)
 
-9.  Selecione **BrokenSYSTEM**. No menu, selecione **File** > **Descarregar Colmeia**.
+9.  Selecione **BrokenSYSTEM**. No menu, selecione **File** > **Unload Hive**.
 
-10.  Selecione **brokensoftware**. No menu, selecione **File** > **Descarregar Colmeia**.
+10.  Selecione **brokensoftware**. No menu, selecione **File** > **Unload Hive**.
 
 11.  Retire o disco OS [e,](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm)em seguida, mude o disco OS para o VM afetado . Para o VM clássico, crie um novo VM utilizando o disco OS reparado.
 
@@ -118,7 +118,7 @@ Para definir a propriedade **ProvisionGuestAgent,** execute os seguintes comando
    Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>
    ```
 
-Em seguida, executar o comando `Get-AzureVM`. Note que a propriedade **GuestAgentStatus** está agora povoada com dados:
+Então `Get-AzureVM` comande o comando. Note que a propriedade **GuestAgentStatus** está agora povoada com dados:
 
    ```powershell
    Get-AzureVM –ServiceName <cloud service name> –Name <VM name>

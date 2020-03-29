@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
 ms.openlocfilehash: 164f07f6545c1c225814958bba5722536b11a9b4
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78269427"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Instale controladores GPU AMD em VMs da série N executando Windows
@@ -44,14 +44,14 @@ Para especificações básicas, capacidades de armazenamento e detalhes do disco
 
 4. Faça o download e instale o mais recente controlador.
 
-5. Reinicie a VM.
+5. Reiniciar o VM.
 
 ## <a name="verify-driver-installation"></a>Verificar a instalação do condutor
 
 Pode verificar a instalação do controlador no Gestor de Dispositivos. O exemplo seguinte mostra uma configuração bem sucedida do cartão Radeon Instinct MI25 num VM Azure NVv4.
 <br />
-![propriedades do condutor da GPU](./media/n-series-amd-driver-setup/device-manager.png)
+![Propriedades do condutor da GPU](./media/n-series-amd-driver-setup/device-manager.png)
 
 Pode utilizar o dxdiag para verificar as propriedades de exibição de GPU, incluindo a RAM de vídeo. O exemplo seguinte mostra uma partição de 1/8 do cartão Radeon Instinct MI25 num VM Azure NVv4.
 <br />
-![propriedades do condutor da GPU](./media/n-series-amd-driver-setup/dxdiag.png)
+![Propriedades do condutor da GPU](./media/n-series-amd-driver-setup/dxdiag.png)

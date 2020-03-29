@@ -8,15 +8,15 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: d293b76e004d693813a074cb8551a86cb3c0bec2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76772337"
 ---
 # <a name="ingest-json-formatted-sample-data-into-azure-data-explorer"></a>Ingerir dados de amostras formatadoj no Azure Data Explorer
 
-Este artigo mostra-lhe como ingerir dados formatados JSON numa base de dados do Azure Data Explorer. Você começará com exemplos simples de JSON cru e mapeado, continuará a json multi-lined, e depois abordará schemas JSON mais complexos contendo matrizes e dicionários.  Os exemplos detalham o processo de ingerir dados formados JSON usando C#a linguagem de consulta Kusto (KQL), ou Python. A linguagem de consulta Kusto `ingest` comandos de controlo são executados diretamente no ponto final do motor. Em cenários de produção, a ingestão é executada ao serviço de Gestão de Dados utilizando bibliotecas de clientes ou ligações de dados. Leia [os dados da Ingest utilizando a biblioteca Azure Data Explorer Python](/azure/data-explorer/python-ingest-data) e os dados [ingest utilizando o Azure Data Explorer .NET Standard SDK](/azure/data-explorer/net-standard-ingest-data) para um walk-through no que diz respeito à ingestão de dados com estas bibliotecas de clientes.
+Este artigo mostra-lhe como ingerir dados formatados JSON numa base de dados do Azure Data Explorer. Você começará com exemplos simples de JSON cru e mapeado, continuará a json multi-lined, e depois abordará schemas JSON mais complexos contendo matrizes e dicionários.  Os exemplos detalham o processo de ingestão de dados formatados JSON usando a linguagem de consulta Kusto (KQL), C#, ou Python. Os comandos de `ingest` controlo de linguagem de consulta Kusto são executados diretamente no ponto final do motor. Em cenários de produção, a ingestão é executada ao serviço de Gestão de Dados utilizando bibliotecas de clientes ou ligações de dados. Leia [os dados da Ingest utilizando a biblioteca Azure Data Explorer Python](/azure/data-explorer/python-ingest-data) e os dados [ingest utilizando o Azure Data Explorer .NET Standard SDK](/azure/data-explorer/net-standard-ingest-data) para um walk-through no que diz respeito à ingestão de dados com estas bibliotecas de clientes.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,7 +30,7 @@ O Azure Data Explorer suporta dois formatos de ficheiroJ:
 
 ### <a name="ingest-and-map-json-formatted-data"></a>Ingerir e mapear dados formatados JSON
 
-A ingestão de dados formatados JSON requer que especifique o *formato* utilizando propriedade de [ingestão](/azure/kusto/management/data-ingestion/index#ingestion-properties). A ingestão de dados da JSON requer [mapeamento,](/azure/kusto/management/mappings)que mapeia uma entrada de fonte JSON na sua coluna alvo. Ao ingerir dados, utilize a propriedade pré-definida `jsonMappingReference` ingestão ou especifique a propriedade `jsonMapping`ingestão. Este artigo utilizará a propriedade `jsonMappingReference` ingestão, que é predefinida na tabela utilizada para a ingestão. Nos exemplos abaixo, começaremos por ingerir registos JSON como dados brutos para uma única tabela de colunas. Então usaremos o mapeamento para ingerir cada propriedade na sua coluna mapeada. 
+A ingestão de dados formatados JSON requer que especifique o *formato* utilizando propriedade de [ingestão](/azure/kusto/management/data-ingestion/index#ingestion-properties). A ingestão de dados da JSON requer [mapeamento,](/azure/kusto/management/mappings)que mapeia uma entrada de fonte JSON na sua coluna alvo. Ao ingerir dados, utilize o `jsonMappingReference` imóvel de ingestão pré-definido ou especifique o `jsonMapping`imóvel de ingestão. Este artigo utilizará a `jsonMappingReference` propriedade de ingestão, que é predefinida na tabela utilizada para a ingestão. Nos exemplos abaixo, começaremos por ingerir registos JSON como dados brutos para uma única tabela de colunas. Então usaremos o mapeamento para ingerir cada propriedade na sua coluna mapeada. 
 
 ### <a name="simple-json-example"></a>Exemplo JSON simples
 
@@ -50,15 +50,15 @@ O exemplo seguinte é um JSON simples, com uma estrutura plana. Os dados têm in
 
 Neste exemplo, ingere os registos da JSON como dados brutos numa única tabela de colunas. A manipulação de dados, utilizando consultas e atualizar a política é feita após a ingestão dos dados.
 
-# <a name="kqltabkusto-query-language"></a>[KQL](#tab/kusto-query-language)
+# <a name="kql"></a>[KQL](#tab/kusto-query-language)
 
 Use a linguagem de consulta Kusto para ingerir dados num formato JSON cru.
 
-1. Inicie sessão em [https://dataexplorer.azure.com](https://dataexplorer.azure.com).
+1. Inscreva-se [https://dataexplorer.azure.com](https://dataexplorer.azure.com)em .
 
 1. Selecione **Adicionar cluster**.
 
-1. Na caixa de diálogo do **cluster Adicionar,** introduza o URL do cluster na forma `https://<ClusterName>.<Region>.kusto.windows.net/`, e, em seguida, selecione **Adicionar**.
+1. Na caixa de diálogo do **cluster Adicionar,** `https://<ClusterName>.<Region>.kusto.windows.net/`introduza o URL do cluster no formulário, em seguida, selecione **Adicionar**.
 
 1. Colhe no comando seguinte e selecione **Executar** para criar a tabela.
 
@@ -66,7 +66,7 @@ Use a linguagem de consulta Kusto para ingerir dados num formato JSON cru.
     .create table RawEvents (Event: dynamic)
     ```
 
-    Esta consulta cria uma tabela com uma única coluna `Event` de um tipo de dados [dinâmico.](/azure/kusto/query/scalar-data-types/dynamic)
+    Esta consulta cria uma tabela `Event` com uma única coluna de um tipo de dados [dinâmico.](/azure/kusto/query/scalar-data-types/dynamic)
 
 1. Crie o mapeamento JSON.
 
@@ -74,19 +74,19 @@ Use a linguagem de consulta Kusto para ingerir dados num formato JSON cru.
     .create table RawEvents ingestion json mapping 'RawEventMapping' '[{"column":"Event","path":"$"}]'
     ```
 
-    Este comando cria um mapeamento, e mapeia o caminho raiz JSON `$` para a coluna `Event`.
+    Este comando cria um mapeamento, e `$` mapeia o caminho raiz jSON para a `Event` coluna.
 
-1. Ingerir dados na tabela `RawEvents`.
+1. Ingerir dados `RawEvents` na tabela.
 
     ```Kusto
     .ingest into table RawEvents h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=RawEventMapping)
     ```
 
-# <a name="ctabc-sharp"></a>[C#](#tab/c-sharp)
+# <a name="c"></a>[C #](#tab/c-sharp)
 
 Utilize C# para ingerir dados em formato JSON cru.
 
-1. Crie a mesa `RawEvents`.
+1. Crie `RawEvents` a mesa.
 
     ```C#
     var kustoUri = "https://<ClusterName>.<Region>.kusto.windows.net:443/";
@@ -128,9 +128,9 @@ Utilize C# para ingerir dados em formato JSON cru.
 
     kustoClient.ExecuteControlCommand(command);
     ```
-    Este comando cria um mapeamento, e mapeia o caminho raiz JSON `$` para a coluna `Event`.
+    Este comando cria um mapeamento, e `$` mapeia o caminho raiz jSON para a `Event` coluna.
 
-1. Ingerir dados na tabela `RawEvents`.
+1. Ingerir dados `RawEvents` na tabela.
 
     ```C#
     var ingestUri = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/";
@@ -159,11 +159,11 @@ Utilize C# para ingerir dados em formato JSON cru.
 > [!NOTE]
 > Os dados são agregados de acordo com a política de [lotação,](/azure/kusto/concepts/batchingpolicy)resultando numa latência de alguns minutos.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 Use python para ingerir dados em formato JSON cru.
 
-1. Crie a mesa `RawEvents`.
+1. Crie `RawEvents` a mesa.
 
     ```Python
     KUSTO_URI = "https://<ClusterName>.<Region>.kusto.windows.net:443/"
@@ -185,7 +185,7 @@ Use python para ingerir dados em formato JSON cru.
     dataframe_from_result_table(RESPONSE.primary_results[0])
     ```
 
-1. Ingerir dados na tabela `RawEvents`.
+1. Ingerir dados `RawEvents` na tabela.
 
     ```Python
     INGEST_URI = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/"
@@ -208,7 +208,7 @@ Use python para ingerir dados em formato JSON cru.
 
 Neste exemplo, ingere dados de registos da JSON. Cada propriedade JSON é mapeada para uma única coluna na tabela. 
 
-# <a name="kqltabkusto-query-language"></a>[KQL](#tab/kusto-query-language)
+# <a name="kql"></a>[KQL](#tab/kusto-query-language)
 
 1. Crie uma nova tabela, com um esquema semelhante aos dados de entrada da JSON. Usaremos esta mesa para todos os seguintes exemplos e comandos ingerir. 
 
@@ -222,17 +222,17 @@ Neste exemplo, ingere dados de registos da JSON. Cada propriedade JSON é mapead
     .create table Events ingestion json mapping 'FlatEventMapping' '[{"column":"Time","path":"$.timestamp"},{"column":"Device","path":"$.deviceId"},{"column":"MessageId","path":"$.messageId"},{"column":"Temperature","path":"$.temperature"},{"column":"Humidity","path":"$.humidity"}]'
     ```
 
-    Neste mapeamento, tal como definido pelo esquema de mesa, as entradas `timestamp` serão ingeridas para a coluna `Time` como `datetime` tipos de dados.
+    Neste mapeamento, tal como definido pelo `timestamp` esquema de mesa, as `Time` entradas `datetime` serão ingeridas para a coluna como tipos de dados.
 
-1. Ingerir dados na tabela `Events`.
+1. Ingerir dados `Events` na tabela.
 
     ```Kusto
     .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=FlatEventMapping)
     ```
 
-    O ficheiro 'simple.json' tem alguns registos JSON separados de linha. O formato é `json`, e o mapeamento utilizado no comando ingerir é o `FlatEventMapping` que criou.
+    O ficheiro 'simple.json' tem alguns registos JSON separados de linha. O formato é `json`, e o mapeamento `FlatEventMapping` utilizado no comando ingerir é o que você criou.
 
-# <a name="ctabc-sharp"></a>[C#](#tab/c-sharp)
+# <a name="c"></a>[C #](#tab/c-sharp)
 
 1. Crie uma nova tabela, com um esquema semelhante aos dados de entrada da JSON. Usaremos esta mesa para todos os seguintes exemplos e comandos ingerir. 
 
@@ -273,9 +273,9 @@ Neste exemplo, ingere dados de registos da JSON. Cada propriedade JSON é mapead
     kustoClient.ExecuteControlCommand(command);
     ```
 
-    Neste mapeamento, tal como definido pelo esquema de mesa, as entradas `timestamp` serão ingeridas para a coluna `Time` como `datetime` tipos de dados.    
+    Neste mapeamento, tal como definido pelo `timestamp` esquema de mesa, as `Time` entradas `datetime` serão ingeridas para a coluna como tipos de dados.    
 
-1. Ingerir dados na tabela `Events`.
+1. Ingerir dados `Events` na tabela.
 
     ```C#
     var blobPath = "https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
@@ -289,9 +289,9 @@ Neste exemplo, ingere dados de registos da JSON. Cada propriedade JSON é mapead
     ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
     ```
 
-    O ficheiro 'simple.json' tem alguns registos JSON separados de linha. O formato é `json`, e o mapeamento utilizado no comando ingerir é o `FlatEventMapping` que criou.
+    O ficheiro 'simple.json' tem alguns registos JSON separados de linha. O formato é `json`, e o mapeamento `FlatEventMapping` utilizado no comando ingerir é o que você criou.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 1. Crie uma nova tabela, com um esquema semelhante aos dados de entrada da JSON. Usaremos esta mesa para todos os seguintes exemplos e comandos ingerir. 
 
@@ -311,7 +311,7 @@ Neste exemplo, ingere dados de registos da JSON. Cada propriedade JSON é mapead
     dataframe_from_result_table(RESPONSE.primary_results[0])
     ```
 
-1. Ingerir dados na tabela `Events`.
+1. Ingerir dados `Events` na tabela.
 
     ```Python
     BLOB_PATH = 'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D'
@@ -322,24 +322,24 @@ Neste exemplo, ingere dados de registos da JSON. Cada propriedade JSON é mapead
         BLOB_DESCRIPTOR, ingestion_properties=INGESTION_PROPERTIES)
     ```
 
-    O ficheiro 'simple.json' tem alguns registos jSON separados. O formato é `json`, e o mapeamento utilizado no comando ingerir é o `FlatEventMapping` que criou.    
+    O ficheiro 'simple.json' tem alguns registos jSON separados. O formato é `json`, e o mapeamento `FlatEventMapping` utilizado no comando ingerir é o que você criou.    
 ---
 
 ## <a name="ingest-multi-lined-json-records"></a>Ingerir registos JSON multi-lined
 
-Neste exemplo, ingere sontes JSON multi-lineados. Cada propriedade JSON é mapeada para uma única coluna na tabela. O ficheiro 'multilined.json' tem alguns registos da JSON. O formato `multijson` diz ao motor para ler os registos pela estrutura JSON.
+Neste exemplo, ingere sontes JSON multi-lineados. Cada propriedade JSON é mapeada para uma única coluna na tabela. O ficheiro 'multilined.json' tem alguns registos da JSON. O `multijson` formato diz ao motor para ler os registos pela estrutura JSON.
 
-# <a name="kqltabkusto-query-language"></a>[KQL](#tab/kusto-query-language)
+# <a name="kql"></a>[KQL](#tab/kusto-query-language)
 
-Ingerir dados na tabela `Events`.
+Ingerir dados `Events` na tabela.
 
 ```Kusto
 .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/multilined.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=FlatEventMapping)
 ```
 
-# <a name="ctabc-sharp"></a>[C#](#tab/c-sharp)
+# <a name="c"></a>[C #](#tab/c-sharp)
 
-Ingerir dados na tabela `Events`.
+Ingerir dados `Events` na tabela.
 
 ```C#
 var tableMapping = "FlatEventMapping";
@@ -354,9 +354,9 @@ var properties =
 ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
-Ingerir dados na tabela `Events`.
+Ingerir dados `Events` na tabela.
 
 ```Python
 MAPPING = "FlatEventMapping"
@@ -371,7 +371,7 @@ INGESTION_CLIENT.ingest_from_blob(
 
 ## <a name="ingest-json-records-containing-arrays"></a>Registos JSON que contêm matrizes
 
-Tipos de dados de matriz são uma coleção ordenada de valores. A ingestão de um array JSON é feita por uma política de [atualização.](/azure/kusto/management/update-policy) O JSON é ingerido como está numa mesa intermédia. Uma política de atualização executa uma função pré-definida na tabela `RawEvents`, reinteando os resultados para a tabela-alvo. Ingeriremos dados com a seguinte estrutura:
+Os tipos de dados matrizes são uma recolha ordenada de valores. A ingestão de um array JSON é feita por uma política de [atualização.](/azure/kusto/management/update-policy) O JSON é ingerido como está numa mesa intermédia. Uma política de atualização executa `RawEvents` uma função pré-definida na tabela, reinteando os resultados para a tabela-alvo. Ingeriremos dados com a seguinte estrutura:
 
 ```json
 {
@@ -395,9 +395,9 @@ Tipos de dados de matriz são uma coleção ordenada de valores. A ingestão de 
 }
 ```
 
-# <a name="kqltabkusto-query-language"></a>[KQL](#tab/kusto-query-language)
+# <a name="kql"></a>[KQL](#tab/kusto-query-language)
 
-1. Crie uma função `update policy` que expanda a recolha de `records` para que cada valor da coleção receba uma linha separada, utilizando o operador `mv-expand`. Usaremos `RawEvents` de mesa como mesa de origem e `Events` como mesa-alvo.
+1. Criar `update policy` uma função que `records` expanda a recolha de modo a que cada `mv-expand` valor da coleção receba uma linha separada, utilizando o operador. Usaremos a `RawEvents` mesa como uma `Events` mesa de origem e como uma mesa-alvo.
 
     ```Kusto
     .create function EventRecordsExpand() {
@@ -412,33 +412,33 @@ Tipos de dados de matriz são uma coleção ordenada de valores. A ingestão de 
     }
     ```
 
-1. O esquema recebido pela função deve coincidir com o esquema da mesa-alvo. Utilize `getschema` operador para rever o esquema.
+1. O esquema recebido pela função deve coincidir com o esquema da mesa-alvo. Utilize `getschema` o operador para rever o esquema.
 
     ```Kusto
     EventRecordsExpand() | getschema
     ```
 
-1. Adicione a política de atualização à tabela-alvo. Esta política irá automaticamente executar a consulta sobre quaisquer dados recentemente ingeridos na tabela intermédia `RawEvents` e ingerir os resultados na tabela `Events`. Defina uma política de retenção zero para evitar a persistência da tabela intermédia.
+1. Adicione a política de atualização à tabela-alvo. Esta política irá automaticamente executar a consulta sobre quaisquer `RawEvents` dados recentemente ingeridos `Events` na tabela intermédia e ingerir os resultados na tabela. Defina uma política de retenção zero para evitar a persistência da tabela intermédia.
 
     ```Kusto
     .alter table Events policy update @'[{"Source": "RawEvents", "Query": "EventRecordsExpand()", "IsEnabled": "True"}]'
     ```
 
-1. Ingerir dados na tabela `RawEvents`.
+1. Ingerir dados `RawEvents` na tabela.
 
     ```Kusto
     .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/array.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=RawEventMapping)
     ```
 
-1. Reveja os dados na tabela `Events`.
+1. Reveja os `Events` dados na tabela.
 
     ```Kusto
     Events
     ```
 
-# <a name="ctabc-sharp"></a>[C#](#tab/c-sharp)
+# <a name="c"></a>[C #](#tab/c-sharp)
 
-1. Crie uma função de atualização que expanda a recolha de `records` para que cada valor da coleção receba uma linha separada, utilizando o operador `mv-expand`. Usaremos `RawEvents` de mesa como mesa de origem e `Events` como mesa-alvo.   
+1. Criar uma função de atualização que expanda a recolha de `records` modo a `mv-expand` que cada valor da coleção receba uma linha separada, utilizando o operador. Usaremos a `RawEvents` mesa como uma `Events` mesa de origem e como uma mesa-alvo.   
 
     ```C#
     var command =
@@ -463,7 +463,7 @@ Tipos de dados de matriz são uma coleção ordenada de valores. A ingestão de 
     > [!NOTE]
     > O esquema recebido pela função deve coincidir com o esquema da mesa-alvo.
 
-1. Adicione a política de atualização à tabela-alvo. Esta política irá automaticamente executar a consulta sobre quaisquer dados recentemente ingeridos na tabela intermédia `RawEvents` e ingerir os seus resultados na tabela `Events`. Defina uma política de retenção zero para evitar a persistência da tabela intermédia.
+1. Adicione a política de atualização à tabela-alvo. Esta política irá automaticamente executar a consulta sobre quaisquer `RawEvents` dados recentemente ingeridos `Events` na tabela intermédia e ingerir os seus resultados na tabela. Defina uma política de retenção zero para evitar a persistência da tabela intermédia.
 
     ```C#
     var command =
@@ -472,7 +472,7 @@ Tipos de dados de matriz são uma coleção ordenada de valores. A ingestão de 
     kustoClient.ExecuteControlCommand(command);
     ```
 
-1. Ingerir dados na tabela `RawEvents`.
+1. Ingerir dados `RawEvents` na tabela.
 
     ```C#
     var table = "RawEvents";
@@ -488,11 +488,11 @@ Tipos de dados de matriz são uma coleção ordenada de valores. A ingestão de 
     ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
     ```
     
-1. Reveja os dados na tabela `Events`.
+1. Reveja os `Events` dados na tabela.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
-1. Crie uma função de atualização que expanda a recolha de `records` para que cada valor da coleção receba uma linha separada, utilizando o operador `mv-expand`. Usaremos `RawEvents` de mesa como mesa de origem e `Events` como mesa-alvo.   
+1. Criar uma função de atualização que expanda a recolha de `records` modo a `mv-expand` que cada valor da coleção receba uma linha separada, utilizando o operador. Usaremos a `RawEvents` mesa como uma `Events` mesa de origem e como uma mesa-alvo.   
 
     ```Python
     CREATE_FUNCTION_COMMAND = 
@@ -513,7 +513,7 @@ Tipos de dados de matriz são uma coleção ordenada de valores. A ingestão de 
     > [!NOTE]
     > O esquema recebido pela função tem de coincidir com o esquema da mesa-alvo.
 
-1. Adicione a política de atualização à tabela-alvo. Esta política irá automaticamente executar a consulta sobre quaisquer dados recentemente ingeridos na tabela intermédia `RawEvents` e ingerir os seus resultados na tabela `Events`. Defina uma política de retenção zero para evitar a persistência da tabela intermédia.
+1. Adicione a política de atualização à tabela-alvo. Esta política irá automaticamente executar a consulta sobre quaisquer `RawEvents` dados recentemente ingeridos `Events` na tabela intermédia e ingerir os seus resultados na tabela. Defina uma política de retenção zero para evitar a persistência da tabela intermédia.
 
     ```Python
     CREATE_UPDATE_POLICY_COMMAND = 
@@ -522,7 +522,7 @@ Tipos de dados de matriz são uma coleção ordenada de valores. A ingestão de 
     dataframe_from_result_table(RESPONSE.primary_results[0])
     ```
 
-1. Ingerir dados na tabela `RawEvents`.
+1. Ingerir dados `RawEvents` na tabela.
 
     ```Python
     TABLE = "RawEvents"
@@ -534,13 +534,13 @@ Tipos de dados de matriz são uma coleção ordenada de valores. A ingestão de 
         BLOB_DESCRIPTOR, ingestion_properties=INGESTION_PROPERTIES)
     ```
 
-1. Reveja os dados na tabela `Events`.
+1. Reveja os `Events` dados na tabela.
 
 ---    
 
 ## <a name="ingest-json-records-containing-dictionaries"></a>Registos JSON que contêm dicionários
 
-JSON estruturado no dicionário contém pares de valor-chave. Os registos json são submetidos a mapeamento de ingestão usando expressão lógica no `JsonPath`. Pode ingerir dados com a seguinte estrutura:
+JSON estruturado no dicionário contém pares de valor-chave. Os registos json são submetidos `JsonPath`a mapeamento de ingestão usando expressão lógica na . Pode ingerir dados com a seguinte estrutura:
 
 ```json
 {
@@ -570,7 +570,7 @@ JSON estruturado no dicionário contém pares de valor-chave. Os registos json s
 }
 ```
 
-# <a name="kqltabkusto-query-language"></a>[KQL](#tab/kusto-query-language)
+# <a name="kql"></a>[KQL](#tab/kusto-query-language)
 
 1. Crie um mapeamento JSON.
 
@@ -578,13 +578,13 @@ JSON estruturado no dicionário contém pares de valor-chave. Os registos json s
     .create table Events ingestion json mapping 'KeyValueEventMapping' '[{"column":"Time","path":"$.event[?(@.Key == 'timestamp')]"},{"column":"Device","path":"$.event[?(@.Key == 'deviceId')]"},{"column":"MessageId","path":"$.event[?(@.Key == 'messageId')]"},{"column":"Temperature","path":"$.event[?(@.Key == 'temperature')]"},{"column":"Humidity","path":"$.event[?(@.Key == 'humidity')]"}]'
     ```
 
-1. Ingerir dados na tabela `Events`.
+1. Ingerir dados `Events` na tabela.
 
     ```Kusto
     .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/dictionary.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=KeyValueEventMapping)
     ```
 
-# <a name="ctabc-sharp"></a>[C#](#tab/c-sharp)
+# <a name="c"></a>[C #](#tab/c-sharp)
 
 1. Crie um mapeamento JSON.
 
@@ -607,7 +607,7 @@ JSON estruturado no dicionário contém pares de valor-chave. Os registos json s
     kustoClient.ExecuteControlCommand(command);
     ```
 
-1. Ingerir dados na tabela `Events`.
+1. Ingerir dados `Events` na tabela.
 
     ```C#
     var blobPath = "https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/dictionary.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
@@ -621,7 +621,7 @@ JSON estruturado no dicionário contém pares de valor-chave. Os registos json s
     ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
     ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 1. Crie um mapeamento JSON.
 
@@ -632,7 +632,7 @@ JSON estruturado no dicionário contém pares de valor-chave. Os registos json s
     dataframe_from_result_table(RESPONSE.primary_results[0])
     ```
 
-1. Ingerir dados na tabela `Events`.
+1. Ingerir dados `Events` na tabela.
 
      ```Python
     MAPPING = "KeyValueEventMapping"
@@ -647,5 +647,5 @@ JSON estruturado no dicionário contém pares de valor-chave. Os registos json s
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Visão geral da ingestão de dados](ingest-data-overview.md)
+* [Descrição geral da ingestão de dados](ingest-data-overview.md)
 * [Escrever consultas](write-queries.md)

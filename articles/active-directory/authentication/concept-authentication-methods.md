@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5a82c69575e82a7cf397955f08c3f114e449ba6b
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78968778"
 ---
 # <a name="what-are-authentication-methods"></a>O que são métodos de autenticação?
@@ -26,16 +26,16 @@ Os administradores podem definir na política quais os métodos de autenticaçã
 
 A Microsoft recomenda vivamente que os administradores permitam aos utilizadores selecionar mais do que o número mínimo exigido de métodos de autenticação caso não tenham acesso a um.
 
-|Método de Autenticação|Utilização|
+|Método de autenticação|Utilização|
 | --- | --- |
 | Palavra-passe | MFA e SSPR |
-| Questões de segurança | SSPR apenas |
+| Perguntas de segurança | SSPR apenas |
 | Endereço de e-mail | SSPR apenas |
 | Aplicação Microsoft Authenticator | MFA e SSPR |
 | Ficha de hardware do JURAMENTO | Pré-visualização pública para MFA e SSPR |
 | SMS | MFA e SSPR |
 | Chamada de voz | MFA e SSPR |
-| Palavras-passe de aplicativos | MFA apenas em certos casos |
+| Palavras-passe da aplicação | MFA apenas em certos casos |
 
 ![Métodos de autenticação em uso no ecrã de início de sessão](media/concept-authentication-methods/overview-login.png)
 
@@ -48,7 +48,7 @@ A Microsoft recomenda vivamente que os administradores permitam aos utilizadores
 
 A sua senha De AD Azure é considerada um método de autenticação. É o único método que **não pode ser desativado.**
 
-## <a name="security-questions"></a>Questões de segurança
+## <a name="security-questions"></a>Perguntas de segurança
 
 As questões de segurança só estão disponíveis **na palavra-passe do autosserviço Azure AD reset** para contas não administradoras.
 
@@ -126,7 +126,7 @@ A aplicação Microsoft Authenticator fornece um nível adicional de segurança 
 A aplicação Microsoft Authenticator está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) e [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
 
 > [!NOTE]
-> Os utilizadores não terão a opção de registar a sua aplicação móvel ao registarem-se para redefinir a palavra-passe de self-service. Em vez disso, os utilizadores podem registar a sua aplicação móvel em [https://aka.ms/mfasetup](https://aka.ms/mfasetup) ou na pré-visualização do registo de informações de segurança em [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
+> Os utilizadores não terão a opção de registar a sua aplicação móvel ao registarem-se para redefinir a palavra-passe de self-service. Em vez disso, os [https://aka.ms/mfasetup](https://aka.ms/mfasetup) utilizadores podem registar a [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)sua aplicação móvel na pré-visualização do registo de informações de segurança em .
 >
 
 ### <a name="notification-through-mobile-app"></a>Notificação através de aplicação móvel
@@ -146,7 +146,7 @@ Se permitir a utilização de notificações através de aplicações móveis e 
 
 ### <a name="verification-code-from-mobile-app"></a>Código de verificação da aplicação móvel
 
-A aplicação Microsoft Authenticator ou outras aplicações de terceiros podem ser usadas como um símbolo de software para gerar um código de verificação DOPR. Depois de introduzir o seu nome de utilizador e palavra-passe, introduza o código fornecido pela aplicação no ecrã de entrada. O código de verificação fornece uma segunda forma de autenticação.
+A aplicação Microsoft Authenticator ou outras aplicações de terceiros podem ser usadas como um símbolo de software para gerar um código de verificação DOPR. Depois de introduzir o seu nome de utilizador e palavra-passe, introduza o código fornecido pela aplicação no ecrã de entrada. O código de verificação proporciona uma segunda forma de autenticação.
 
 > [!WARNING]
 > Para redefinir a palavra-passe self-service quando só é necessário um método para redefinir o código de verificação é a única opção disponível para os utilizadores **garantirem o mais alto nível de segurança**.
@@ -172,7 +172,7 @@ Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
 > [!NOTE]
 > Certifique-se de que inclui a linha do cabeçalho no seu ficheiro CSV.
 
-Uma vez devidamente formatado como ficheiro CSV, um administrador pode então iniciar sessão no portal Azure, navegar para **o Azure Ative Directory** > **Security** > **MFA** > **tokens DO JURAMENTO,** e carregar o ficheiro CSV resultante.
+Uma vez devidamente formatado como ficheiro CSV, um administrador pode então iniciar sessão no portal Azure, navegar para as**fichas**do**Juramento** > de**Segurança** > do >  **Diretório Ativo Azure,** e carregar o ficheiro CSV resultante.
 
 Dependendo do tamanho do ficheiro CSV, pode levar alguns minutos para processar. Clique no botão **Refresh** para obter o estado atual. Se houver algum erro no ficheiro, terá a opção de descarregar um ficheiro CSV que enumera quaisquer erros para que possa resolver. Os nomes de campo no ficheiro CSV descarregado são diferentes da versão carregada.
 
@@ -224,7 +224,7 @@ O atributo do telefone do escritório é gerido pelo seu administrador.
 >
 > O reset da palavra-passe não suporta extensões de telefone. Mesmo no formato +1 4255551234X12345, as extensões são removidas antes da chamada ser colocada.
 
-### <a name="troubleshooting-phone-options"></a>Opções de telefone de resolução de problemas
+### <a name="troubleshooting-phone-options"></a>Troubleshooting phone options (Resolução de problemas das opções de telefone)
 
 Problemas comuns relacionados com métodos de autenticação utilizando um número de telefone:
 

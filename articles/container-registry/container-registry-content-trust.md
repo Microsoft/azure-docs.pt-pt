@@ -4,10 +4,10 @@ description: Saiba como ativar a confiança dos conteúdos no registo de content
 ms.topic: article
 ms.date: 09/06/2019
 ms.openlocfilehash: ce1e9e5cce0de58703e69df8db14cfbf3ecf04f3
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78249930"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Confiança do conteúdo no Azure Container Registry
@@ -29,16 +29,16 @@ A confiança do conteúdo funciona com as **etiquetas** num repositório. Os rep
 
 ### <a name="signing-keys"></a>Chaves de assinatura
 
-A confiança do conteúdo é gerida com um conjunto de chaves de assinatura criptográficas. Essas chaves são associadas a um repositório específico num registo. Os clientes do Docker e o seu registo utilizam vários tipos de chaves de assinatura para a gestão da confiança das etiquetas num repositório. Quando ativa a confiança do conteúdo e a integra no pipeline de publicação e consumo do seu contentor, tem de gerir as chaves com cuidado. Para mais informações, consulte a [gestão chave](#key-management) mais tarde neste artigo e [Gereas chaves para a confiança][docker-manage-keys] de conteúdo na documentação do Docker.
+A confiança do conteúdo é gerida com um conjunto de chaves de assinatura criptográficas. Essas chaves são associadas a um repositório específico num registo. Os clientes do Docker e o seu registo utilizam vários tipos de chaves de assinatura para a gestão da confiança das etiquetas num repositório. Quando ativa a confiança do conteúdo e a integra no pipeline de publicação e consumo do seu contentor, tem de gerir as chaves com cuidado. Para obter mais informações, veja [Gestão de chaves](#key-management), mais à frente no artigo, e [Manage keys for content trust][docker-manage-keys] (Gerir chaves para a confiança do conteúdo), na documentação do Docker.
 
 > [!TIP]
-> Esta é uma descrição geral bastante genérica do modelo de confiança do conteúdo do Docker. Para uma discussão aprofundada sobre a confiança dos conteúdos, consulte a [confiança do Conteúdo no Docker.][docker-content-trust]
+> Esta é uma descrição geral bastante genérica do modelo de confiança do conteúdo do Docker. Para uma discussão mais aprofundada da confiança do conteúdo, veja [Content trust in Docker][docker-content-trust] (Confiança do conteúdo no Docker).
 
 ## <a name="enable-registry-content-trust"></a>Ativar a confiança do conteúdo do registo
 
 O primeiro passo é ativar a confiança do conteúdo ao nível do registo. Depois de ativar a confiança do conteúdo, os clientes (utilizadores ou serviços) podem enviar imagens assinadas para o seu registo. A ativação da confiança do conteúdo no seu registo não limita a utilização do mesmo apenas aos consumidores que tenham a confiança ativada. Os consumidores que não a tenham ativada continuam a poder utilizar o seu registo como normalmente. Contudo, os consumidores que tenham ativado a confiança do conteúdo nos clientes deles conseguirão ver *apenas* as imagens assinadas no seu registo.
 
-Para ativar a confiança do conteúdo no seu registo, navegue primeiro para o mesmo no portal do Azure. Em **Termos de Políticas,** selecione **Content Trust** > **Ativado** > **Save**. Também pode utilizar o comando de [atualização az acr config trust][az-acr-config-content-trust-update] no Azure CLI.
+Para ativar a confiança do conteúdo no seu registo, navegue primeiro para o mesmo no portal do Azure. Em **Termos de Políticas,** selecione **Content Trust** > **Enabled** > **Save**. Também pode utilizar o comando de [atualização az acr config trust][az-acr-config-content-trust-update] no Azure CLI.
 
 ![Ativar a confiança do conteúdo num registo no portal do Azure][content-trust-01-portal]
 
@@ -69,7 +69,7 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 
 ## <a name="grant-image-signing-permissions"></a>Conceder permissões de assinatura de imagens
 
-Só os utilizadores ou sistemas aos quais tenha concedido permissão podem enviar imagens fiáveis para o seu registo. Para conceder permissão de envio de imagens fiáveis a um utilizador (ou a um sistema com um principal de serviço), dê às respetivas identidades do Azure Active Directory a função `AcrImageSigner`. Isto para além da função `AcrPush` (ou equivalente) necessária para empurrar imagens para o registo. Para mais detalhes, consulte [as funções e permissões](container-registry-roles.md)do Registo de Contentores de Azure .
+Só os utilizadores ou sistemas aos quais tenha concedido permissão podem enviar imagens fiáveis para o seu registo. Para conceder permissão de envio de imagens fiáveis a um utilizador (ou a um sistema com um principal de serviço), dê às respetivas identidades do Azure Active Directory a função `AcrImageSigner`. Isto para além `AcrPush` da (ou equivalente) função necessária para empurrar imagens para o registo. Para mais detalhes, consulte [as funções e permissões](container-registry-roles.md)do Registo de Contentores de Azure .
 
 > [!NOTE]
 > Não pode conceder autorização de pressão de imagem confiável para a [conta de administração](container-registry-authentication.md#admin-account) de um registo de contentores Azure.
@@ -78,7 +78,7 @@ Pode ver abaixo os detalhes para conceder a função `AcrImageSigner` no portal 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Navegue para o seu registo no portal Azure e, em seguida, selecione controlo de **acesso (IAM)**  > **Adicionar atribuição de funções**. Sob **a atribuição de funções Add**, selecione `AcrImageSigner` em **Funções,** em **seguida, selecione** um ou mais utilizadores ou diretores de serviço e, em seguida, **guarde**.
+Navegue para o seu registo no portal Azure e, em seguida, selecione controlo de **acesso (IAM)** > **Adicionar atribuição de funções**. Sob **a atribuição de funções Add**, selecione `AcrImageSigner` sob **função**, em **seguida, selecione** um ou mais utilizadores ou diretores de serviço e, em seguida, **guarde**.
 
 Neste exemplo, foi atribuída a duas entidades a função `AcrImageSigner`: um principal de serviço denominado “service-principal” e um utilizador com o nome “Azure user”.
 
@@ -114,7 +114,7 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 `<service principal ID>` pode ser **appId** ou **objectId** do principal de serviço ou um dos respetivos **servicePrincipalNames**. Para obter mais informações sobre como trabalhar com os principais de serviço e o Azure Container Registry, veja [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md) (Autenticação do Azure Container Registry com principais de serviço).
 
 > [!IMPORTANT]
-> Após qualquer mudança de papel, execute `az acr login` para refrescar o símbolo de identidade local para o Azure CLI para que as novas funções possam produzir efeitos. Para obter informações sobre a verificação de funções para uma identidade, consulte [Gerir o acesso aos recursos do Azure utilizando o RBAC e o Azure CLI](../role-based-access-control/role-assignments-cli.md) e o [Troubleshoot RBAC para recursos Azure](../role-based-access-control/troubleshooting.md).
+> Depois de qualquer `az acr login` mudança de papel, corra para refrescar o símbolo de identidade local para o Azure CLI para que as novas funções possam produzir efeitos. Para obter informações sobre a verificação de funções para uma identidade, consulte [Gerir o acesso aos recursos do Azure utilizando o RBAC e o Azure CLI](../role-based-access-control/role-assignments-cli.md) e o [Troubleshoot RBAC para recursos Azure](../role-based-access-control/troubleshooting.md).
 
 ## <a name="push-a-trusted-image"></a>Enviar uma imagem fiável
 
@@ -144,7 +144,7 @@ Após o seu primeiro `docker push` com a confiança do conteúdo ativada, o clie
 
 ## <a name="pull-a-trusted-image"></a>Extrair uma imagem fiável
 
-Para extrair uma imagem fiável, ative a confiança do conteúdo e execute o comando `docker pull` normalmente. Para puxar imagens fidedignas, o papel `AcrPull` é suficiente para os utilizadores normais. Não são necessários papéis adicionais como um papel `AcrImageSigner`. Os consumidores que tenham a confiança do conteúdo ativada só podem extrair imagens com etiquetas assinadas. Eis um exemplo de extração de uma etiqueta assinada:
+Para extrair uma imagem fiável, ative a confiança do conteúdo e execute o comando `docker pull` normalmente. Para puxar imagens `AcrPull` fidedignas, o papel é suficiente para os utilizadores normais. Não são necessários papéis adicionais como um `AcrImageSigner` papel. Os consumidores que tenham a confiança do conteúdo ativada só podem extrair imagens com etiquetas assinadas. Eis um exemplo de extração de uma etiqueta assinada:
 
 ```console
 $ docker pull myregistry.azurecr.io/myimage:signed
@@ -165,7 +165,7 @@ No valid trust data for unsigned
 
 ### <a name="behind-the-scenes"></a>Nos bastidores
 
-Quando executa `docker pull`, o cliente Docker usa a mesma biblioteca que no [Notary CLI][docker-notary-cli] para solicitar o mapeamento de digestão tag-to-SHA-256 para a etiqueta que você está puxando. Depois de validar as assinaturas nos dados fiáveis, o cliente diz ao Docker Engine para fazer uma “extração por resumo”. Durante a extração, o Engine utiliza a soma de verificação SHA-256 como endereço do conteúdo para pedir e validar o manifesto da imagem do registo de contentor do Azure.
+Quando executa `docker pull`, o cliente do Docker utiliza a mesma biblioteca do [Notary CLI][docker-notary-cli] para pedir o mapeamento de resumo da etiqueta para SHA-256 relativo à etiqueta que está a extrair. Depois de validar as assinaturas nos dados fiáveis, o cliente diz ao Docker Engine para fazer uma “extração por resumo”. Durante a extração, o Engine utiliza a soma de verificação SHA-256 como endereço do conteúdo para pedir e validar o manifesto da imagem do registo de contentor do Azure.
 
 ## <a name="key-management"></a>Gestão de chaves
 
@@ -181,7 +181,7 @@ Volte a fazer a sua raiz e chaves de repositório, comprimindo-as num arquivo e 
 umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; umask 022
 ```
 
-Juntamente com as chaves raiz e do repositório geradas localmente, o Azure Container Registry gera e armazena muitas outras quando envia uma imagem fiável. Para uma discussão detalhada das várias chaves na implementação da confiança de conteúdo do Docker, incluindo orientação adicional de gestão, consulte [Gerir as chaves para][docker-manage-keys] a confiança do conteúdo na documentação do Docker.
+Juntamente com as chaves raiz e do repositório geradas localmente, o Azure Container Registry gera e armazena muitas outras quando envia uma imagem fiável. Para uma discussão detalhada das várias chaves na implementação da confiança do conteúdo do Docker, incluindo orientações de gestão adicionais, veja [Manage keys for content trust][docker-manage-keys] (Gerir chaves para a confiança do conteúdo), na documentação do Docker.
 
 ### <a name="lost-root-key"></a>Chave raiz perdida
 
@@ -190,7 +190,7 @@ Se perder o acesso à chave raiz, perde acesso às etiquetas assinadas em todos 
 > [!WARNING]
 > A desativação e reativação da confiança do conteúdo no registo **elimina todos os dados fiáveis de todas as etiquetas assinadas em todos os repositórios no seu registo**. Esta ação é irreversível. O Azure Container Registry não consegue recuperar os dados fiáveis eliminados. A desativação da confiança do conteúdo não elimina as imagens.
 
-Para desativar a confiança do conteúdo no seu registo, navegue para o mesmo no portal do Azure. Em **Termos de Políticas**, selecione Content **Trust** > **Desativado** > **Save**. Recebe um aviso de que todas as assinaturas no registo se vão perder. Selecione **OK** para eliminar permanentemente todas as assinaturas no seu registo.
+Para desativar a confiança do conteúdo no seu registo, navegue para o mesmo no portal do Azure. Em **Termos de Políticas,** selecione **Content Trust** > **Disabled** > **Save**. Recebe um aviso de que todas as assinaturas no registo se vão perder. Selecione **OK** para eliminar permanentemente todas as assinaturas no seu registo.
 
 ![Desativar a confiança do conteúdo num registo no portal do Azure][content-trust-03-portal]
 

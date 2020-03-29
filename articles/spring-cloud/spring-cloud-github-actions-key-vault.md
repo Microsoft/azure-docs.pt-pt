@@ -7,10 +7,10 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/20/2019
 ms.openlocfilehash: 78cd5945e394219be0551bbe97afef07f18b61f7
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78945473"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Authenticate Azure Spring Cloud com cofre chave em ações GitHub
@@ -21,7 +21,7 @@ Para gerar uma chave para aceder ao cofre chave, execute o comando abaixo na sua
 ```
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.KeyVault/vaults/<KEY_VAULT> --sdk-auth
 ```
-O âmbito especificado pelo parâmetro `--scopes` limita o acesso chave ao recurso.  Só pode aceder à caixa forte.
+O âmbito especificado `--scopes` pelo parâmetro limita o acesso chave ao recurso.  Só pode aceder à caixa forte.
 
 Com resultados:
 ```
@@ -42,13 +42,13 @@ Em seguida, guarde os resultados para os **segredos** do GitHub, conforme descri
 ## <a name="add-access-policies-for-the-credential"></a>Adicionar Políticas de Acesso para a Credencial
 A credencial que criou acima só pode obter informações gerais sobre o Cofre chave, não sobre o conteúdo que armazena.  Para obter segredos guardados no Cofre chave, precisa de definir políticas de acesso para a credencial.
 
-Vá ao painel de instrumentos **key vault** no portal Azure, clique no menu de controlo de **acesso** e abra o separador de **atribuições de funções.** Selecione **Apps** para **Tipo** e `This resource` para **âmbito**.  Deve ver a credencial que criou em passo anterior:
+Vá ao painel de instrumentos **key vault** no portal Azure, clique no menu de `This resource` controlo de **acesso** e abra o separador de **atribuições de funções.** Selecione **Apps** para **Tipo** e para **âmbito**.  Deve ver a credencial que criou em passo anterior:
 
  ![Definir política de acesso](./media/github-actions/key-vault1.png)
 
-Copiar o nome credencial, por exemplo, `azure-cli-2020-01-19-04-39-02`. Abra o menu de políticas de **acesso,** clique em **+Adicionar link política de acesso.**  Selecione `Secret Management` para **modelo,** em seguida, selecione **Principal**. Colar o nome da credencial no **/Principal** Selecione a caixa de **entrada:**
+Copie o nome credencial, `azure-cli-2020-01-19-04-39-02`por exemplo, . Abra o menu de políticas de **acesso,** clique em **+Adicionar link política de acesso.**  Selecione `Secret Management` para **Modelo,** em seguida, selecione **Principal**. Colar o nome credencial na caixa de entrada **Principal**/**Select:**
 
- ![Selecionar](./media/github-actions/key-vault2.png)
+ ![Selecione](./media/github-actions/key-vault2.png)
 
  Clique no botão **Adicionar** no diálogo da **política de acesso adicionar** e, em seguida, clique em **Guardar**.
 
@@ -73,7 +73,7 @@ Mais uma vez, resultados:
     "managementEndpointUrl": "https://management.core.windows.net/"
 }
 ```
-Copie toda a corda JSON.  Bo de volta ao painel **key vault.** Abra o menu **Segredos** e, em seguida, clique no botão **Geração/Importação.** Insera o nome secreto, como `AZURE-CRENDENTIALS-FOR-SPRING`. Colar a corda credencial JSON à caixa de entrada **Value.** Pode notar que a caixa de entrada de valor é um campo de texto de uma linha, em vez de uma área de texto de várias linhas.  Pode colar a corda JSON completa.
+Copie toda a corda JSON.  Bo de volta ao painel **key vault.** Abra o menu **Segredos** e, em seguida, clique no botão **Geração/Importação.** Insera o nome `AZURE-CRENDENTIALS-FOR-SPRING`secreto, como. Colar a corda credencial JSON à caixa de entrada **Value.** Pode notar que a caixa de entrada de valor é um campo de texto de uma linha, em vez de uma área de texto de várias linhas.  Pode colar a corda JSON completa.
 
  ![Credencial de âmbito completo](./media/github-actions/key-vault3.png)
 
@@ -108,5 +108,5 @@ jobs:
 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Ações gitHub da nuvem de primavera](./spring-cloud-howto-github-actions.md)

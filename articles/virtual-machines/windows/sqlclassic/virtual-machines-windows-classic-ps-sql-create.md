@@ -16,13 +16,13 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 5bfdcfab37091a5f581ce147c0a6af5ccd8147a0
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77914794"
 ---
-# <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Provisionar uma máquina virtual SQL Server utilizando o Azure PowerShell (Clássico)
+# <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Aprovisionar uma máquina virtual do SQL Server no Azure PowerShell (Clássico)
 
 [!INCLUDE [classic-vm-deprecation](../../../../includes/classic-vm-deprecation.md)]
 
@@ -80,7 +80,7 @@ A sua Máquina Virtual SQL Server será hospedada num serviço de nuvem que resi
    ```
 
    > [!NOTE]
-   > Se necessitar de uma nova conta de armazenamento, crie primeiro um nome de conta de armazenamento com o comando New-AzureStorageAccount como no seguinte exemplo: `New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
+   > Se necessitar de uma nova conta de armazenamento, crie primeiro um nome de conta de armazenamento com o comando New-AzureStorageAccount, como no seguinte exemplo:`New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
 
 4. Designar o nome da conta de armazenamento-alvo para o **$staccount**. Em seguida, utilize a **Subscrição Set-Azure** para definir a conta de subscrição e armazenamento corrente.
 
@@ -142,7 +142,7 @@ Finalmente, crie a máquina virtual com powerShell:
 > [!NOTE]
 > Para obter opções adicionais de explicação e configuração, consulte a secção **'Construir** o conjunto de comandos' em [Use Azure PowerShell para criar e reconfigurar máquinas virtuais baseadas no Windows](../classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## <a name="example-powershell-script"></a>Exemplo, script PowerShell
+## <a name="example-powershell-script"></a>Exemplo de script do PowerShell
 
 O seguinte script fornece um exemplo de um script completo que cria um **SQL Server 2016 RTM Enterprise na máquina virtual Do Windows Server 2012 R2.** Se utilizar este script, deve personalizar as variáveis iniciais com base nos passos anteriores neste tópico.
 

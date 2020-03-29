@@ -1,6 +1,6 @@
 ---
-title: Início de sessão único para aplicações - Azure Active Directory | Documentos da Microsoft
-description: Saiba como escolher um método de início de sessão único, quando configurar as aplicações no Azure Active Directory (Azure AD). Utilize o início de sessão único para que os usuários não precisam se lembrar de senhas para cada aplicativo e para simplificar a administração de gestão de contas.
+title: Inscrição única para candidaturas - Diretório Ativo Azure / Microsoft Docs
+description: Saiba escolher um único método de inscrição ao configurar aplicações no Azure Ative Directory (Azure AD). Utilize um único sinal para que os utilizadores não precisem de se lembrar de senhas para cada aplicação e para simplificar a administração da gestão da conta.
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -13,42 +13,42 @@ ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f46bcf412403d8f911e484e12a9d1f421b1666f0
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79366075"
 ---
-# <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Início de sessão único para aplicações no Azure Active Directory
+# <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Inscrição única para candidaturas no Diretório Ativo do Azure
 
 O único sinal de inscrição (SSO) adiciona segurança e comodidade quando os utilizadores assinam aplicações no Azure Ative Directory (Azure AD). Este artigo descreve os métodos de inscrição únicos e ajuda-o a escolher o método SSO mais adequado ao configurar as suas aplicações.
 
-- **Com um único registo,** os utilizadores assinam uma vez com uma conta para aceder a dispositivos ligados ao domínio, recursos da empresa, software como aplicações de serviço (SaaS) e aplicações web. Depois de iniciar sessão, o utilizador pode iniciar as aplicações do portal do Office 365 ou o painel de acesso do Azure AD MyApps. Os administradores podem centralizar a gestão de contas de utilizador e automaticamente adicionar ou remover o acesso de utilizador para aplicações com base na associação de grupo.
+- **Com um único registo,** os utilizadores assinam uma vez com uma conta para aceder a dispositivos ligados ao domínio, recursos da empresa, software como aplicações de serviço (SaaS) e aplicações web. Após a essão, o utilizador pode lançar aplicações a partir do portal Office 365 ou do painel de acesso Azure AD MyApps. Os administradores podem centralizar a gestão da conta do utilizador e adicionar ou remover automaticamente o acesso dos utilizadores a aplicações com base na adesão ao grupo.
 
-- **Sem um único sinal,** os utilizadores devem lembrar-se de senhas específicas da aplicação e iniciar sessão em cada aplicação. Necessidades de pessoal de TI para criar e atualizar as contas de utilizador para cada aplicativo, como o Office 365, a caixa e o Salesforce. Os utilizadores têm de se lembrar de suas senhas, além de perder tempo a iniciar sessão em cada aplicação.
+- **Sem um único sinal,** os utilizadores devem lembrar-se de senhas específicas da aplicação e iniciar sessão em cada aplicação. O pessoal de TI precisa de criar e atualizar as contas dos utilizadores para cada aplicação, como o Office 365, Box e Salesforce. Os utilizadores precisam de se lembrar das suas palavras-passe, além de passarem o tempo a iniciar sessão em cada aplicação.
 
-## <a name="choosing-a-single-sign-on-method"></a>Escolher um método de início de sessão único
+## <a name="choosing-a-single-sign-on-method"></a>Escolher um único método de inscrição
 
-Existem várias formas de configurar uma aplicação para início de sessão único. A escolha de um único método de inscrição depende de como a aplicação está configurada para autenticação.
+Existem várias formas de configurar um pedido de inscrição única. A escolha de um único método de inscrição depende de como a aplicação está configurada para autenticação.
 
 - As aplicações em nuvem podem utilizar métodos OpenID Connect, OAuth, SAML, baseados em palavras-passe, ligados ou desativados para um único sinal. 
-- Aplicações no local podem utilizar a autenticação de Windows integrada, com base em palavra-passe, métodos com base no cabeçalho, ligados ou desativadas para início de sessão único. As opções de locais de trabalho quando aplicativos são configurados para Proxy de aplicações.
+- As aplicações no local podem utilizar métodos integrados de autenticação do Windows baseados em palavras-passe, baseados em cabeçalhos, ligados ou desativados para um único sinal. As escolhas no local funcionam quando as aplicações são configuradas para procuração de aplicação.
 
-Este fluxograma ajuda-o a decidir que método de início de início de sessão único é melhor para sua situação.
+Este fluxograma ajuda-o a decidir qual o método único de inscrição é o melhor para a sua situação.
 
 ![Fluxograma de decisão para método único de sinalização](./media/what-is-single-sign-on/choose-single-sign-on-method-040419.png)
 
-A tabela seguinte resume os métodos de início de sessão únicos e ligações para obter mais detalhes.
+A tabela seguinte resume os métodos de inscrição simples e liga-se a mais detalhes.
 
-| Método de início de sessão único | Tipos de aplicação | Quando utilizar |
+| Método único de inscrição | Tipos de aplicação | Quando utilizar |
 | :------ | :------- | :----- |
 | [OpenID Connect e OAuth](#openid-connect-and-oauth) | nuvem apenas | Utilize o OpenID Connect e o OAuth quando desenvolver uma nova aplicação. Este protocolo simplifica a configuração da aplicação, tem SDKs fáceis de usar e permite que a sua aplicação utilize o MS Graph.
-| [SAML](#saml-sso) | na cloud e no local | Escolha o SAML sempre que possível para aplicações existentes que não utilizem OpenID Connect ou OAuth. A SAML trabalha para aplicações que autenticam utilizando um dos protocolos SAML.|
-| [Baseado em palavra-passe](#password-based-sso) | na cloud e no local | Escolha com base em palavra-passe quando a aplicação autentica com nome de utilizador e palavra-passe. Com base em palavra-passe de início de sessão único permite o armazenamento de palavra-passe de aplicação segura e de repetição com uma extensão de browser ou aplicação móvel. Este método utiliza o início de sessão no processo existente fornecido pela aplicação, mas permite que um administrador gerir as palavras-passe. |
-| [Ligado](#linked-sign-on) | na cloud e no local | Escolha o sign-on ligado quando a aplicação estiver configurada para um único sinal num outro serviço de fornecedor de identidade. Esta opção não adiciona o início de sessão único para a aplicação. No entanto, a aplicação já pode ter início de sessão único implementado através de outro serviço, como serviços de Federação do Active Directory.|
-| [Desativado](#disabled-sso) | na cloud e no local | Escolha um único sinal de saque desativado quando a aplicação não estiver pronta para ser configurada para um único sinal. Este modo é o padrão quando cria a aplicação.|
-| [Autenticação Integrada do Windows (IWA)](#integrated-windows-authentication-iwa-sso) | apenas no local | Escolha o iWA de um único sinal para aplicações que utilizem autenticação integrada do [Windows (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication)ou aplicações que tenham conhecimento de sinistros. Para a IWA, os conectores proxy de aplicação utilizam a Delegação Limitada kerberos (KCD) para autenticar os utilizadores na aplicação. |
-| [Baseado em cabeçalho](#header-based-sso) | apenas no local | Utilize com base no cabeçalho de início de sessão único quando o aplicativo usa cabeçalhos para autenticação. O único sinal baseado no cabeçalho requer o PingAccess para a AD Azure. Proxy de aplicações utiliza o Azure AD para autenticar o utilizador e, em seguida, passa o tráfego através do serviço de conector.  |
+| [SAML](#saml-sso) | nuvem e no local | Escolha o SAML sempre que possível para aplicações existentes que não utilizem OpenID Connect ou OAuth. A SAML trabalha para aplicações que autenticam utilizando um dos protocolos SAML.|
+| [Baseado em palavra-passe](#password-based-sso) | nuvem e no local | Escolha com base em palavra-passe quando a aplicação autentica com nome de utilizador e palavra-passe. O único sign-on baseado em palavra-passe permite o armazenamento e repetição de palavras-passe de aplicação segura usando uma extensão do navegador web ou uma aplicação móvel. Este método utiliza o processo de entrada existente fornecido pela aplicação, mas permite a um administrador gerir as palavras-passe. |
+| [Ligado](#linked-sign-on) | nuvem e no local | Escolha o sign-on ligado quando a aplicação estiver configurada para um único sinal num outro serviço de fornecedor de identidade. Esta opção não adiciona um único sinal de inscrição à aplicação. No entanto, a aplicação pode já ter um único sign-on implementado utilizando outro serviço, como os Serviços da Federação de DirectórioActivo.|
+| [Desativado](#disabled-sso) | nuvem e no local | Escolha um único sinal de saque desativado quando a aplicação não estiver pronta para ser configurada para um único sinal. Este modo é o padrão quando cria a aplicação.|
+| [Autenticação Integrada do Windows (IWA)](#integrated-windows-authentication-iwa-sso) | no local apenas | Escolha o iWA de um único sinal para aplicações que utilizem autenticação integrada do [Windows (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication)ou aplicações que tenham conhecimento de sinistros. Para a IWA, os conectores proxy de aplicação utilizam a Delegação Limitada kerberos (KCD) para autenticar os utilizadores na aplicação. |
+| [Baseado em cabeçalho](#header-based-sso) | no local apenas | Utilize um único sinal baseado no cabeçalho quando a aplicação utilizar cabeçalhos para autenticação. O único sinal baseado no cabeçalho requer o PingAccess para a AD Azure. Aplicação Proxy usa AD Azure para autenticar o utilizador e, em seguida, passa o tráfego através do serviço de conector.  |
 
 ## <a name="openid-connect-and-oauth"></a>OpenID Connect e OAuth
 
@@ -62,18 +62,18 @@ Para obter mais informações, consulte:
 
 ## <a name="saml-sso"></a>SAML SSO
 
-Com um único sinal de **entrada saml,** a Azure AD autentica a aplicação utilizando a conta Azure AD do utilizador. O Azure AD comunica as informações de início de sessão para a aplicação através de um protocolo de ligação. Com um único sign-on baseado em SAML, pode mapear os utilizadores para funções específicas de aplicação com base em regras que define nas suas reivindicações SAML.
+Com um único sinal de **entrada saml,** a Azure AD autentica a aplicação utilizando a conta Azure AD do utilizador. A Azure AD comunica a informação de início de sessão à aplicação através de um protocolo de ligação. Com um único sign-on baseado em SAML, pode mapear os utilizadores para funções específicas de aplicação com base em regras que define nas suas reivindicações SAML.
 
 Escolha um único sinal baseado em SAML quando a aplicação o suporta.
 
-Baseado em SAML início de sessão único é suportada para aplicações que utilizam estes protocolos de:
+A inscrição única baseada na SAML é suportada para aplicações que utilizam qualquer um destes protocolos:
 
 - SAML 2.0
 - WS-Federation
 
 Para configurar uma aplicação SaaS para um único sign-on baseado em SAML, consulte configurar um [único sign-on baseado em SAML](configure-single-sign-on-non-gallery-applications.md). Além disso, muitas aplicações de Software como Serviço (SaaS) têm um [tutorial específico para aplicações](../saas-apps/tutorial-list.md) que o pisam na configuração para um único sign-on baseado em SAML.
 
-Para configurar um pedido para a WS-Federation, siga as mesmas orientações para configurar a aplicação para um único sign-on baseado em SAML, consulte o [signo único baseado em Configuração SAML](configure-single-sign-on-non-gallery-applications.md). Na etapa para configurar a aplicação para utilizar o Azure AD, terá de substituir o URL de login Azure AD para o ponto final da WS-Federação `https://login.microsoftonline.com/<tenant-ID>/wsfed`.
+Para configurar um pedido para a WS-Federation, siga as mesmas orientações para configurar a aplicação para um único sign-on baseado em SAML, consulte o [signo único baseado em Configuração SAML](configure-single-sign-on-non-gallery-applications.md). Na etapa para configurar a aplicação para utilizar o Azure AD, terá de substituir o URL `https://login.microsoftonline.com/<tenant-ID>/wsfed`de login Azure AD para o ponto final da WS-Federação.
 
 Para configurar um pedido no local para um único sign-on baseado em SAML, consulte o [saml single-sign-on para aplicações no local com procuração](application-proxy-configure-single-sign-on-on-premises-apps.md)de aplicação .
 
@@ -83,24 +83,24 @@ Para obter mais informações sobre o protocolo SAML, consulte o [protocolo SAML
 
 Com o registo baseado em palavra-passe, os utilizadores acedem à aplicação com um nome de utilizador e uma senha na primeira vez que acedem à sua aplicação. Após o primeiro início de inscrição, a Azure AD fornece o nome de utilizador e a palavra-passe para a aplicação.
 
-Com base em palavra-passe de início de sessão único usa o processo de autenticação existentes fornecido pelo aplicativo. Quando ativa a palavra-passe início de sessão único para uma aplicação, o AD do Azure recolhe e armazena em segurança os nomes de utilizador e palavras-passe para a aplicação. As credenciais do usuário são armazenadas num estado encriptado no diretório.
+O único sign-on baseado em palavra-passe utiliza o processo de autenticação existente fornecido pela aplicação. Quando ativa o início de um único sinal de senha para uma aplicação, o Azure AD recolhe e armazena de forma segura os nomes e senhas de utilizador para a aplicação. As credenciais dos utilizadores são armazenadas num estado encriptado no diretório.
 
 Escolha um único sign-on baseado em palavra-passe quando:
 
 - Uma aplicação não suporta o protocolo de inscrição individual da SAML.
-- Uma aplicação autentica-se com um nome de utilizador e palavra-passe em vez de tokens de acesso e cabeçalhos.
+- Uma aplicação autentica com um nome de utilizador e senha em vez de fichas de acesso e cabeçalhos.
 
-Com base em palavra-passe de início de sessão único é suportado para qualquer aplicativo baseado na nuvem que tem uma baseada em HTML início de sessão na página. O utilizador pode utilizar qualquer um dos seguintes browsers:
+O único sign-on baseado em palavra-passe é suportado para qualquer aplicação baseada na nuvem que tenha uma página de entrada baseada em HTML. O utilizador pode utilizar qualquer um dos seguintes navegadores:
 
-- No Windows 7 ou posterior do Internet Explorer 11
+- Internet Explorer 11 no Windows 7 ou mais tarde
    > [!NOTE]
    > O Internet Explorer está em suporte limitado e já não recebe novas atualizações de software. O Microsoft Edge é o navegador recomendado.
 
 - Microsoft Edge na Edição de Aniversário do Windows 10 ou mais tarde
 - Microsoft Edge para iOS e Android
-- Navegador Gerido intune
-- No Windows 7 ou posterior e no MacOS X ou posterior do Chrome
-- Firefox 26.0 ou posterior no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior
+- Browser Gerido do Intune
+- Chrome no Windows 7 ou mais tarde, e no MacOS X ou mais tarde
+- Firefox 26.0 ou mais tarde no Windows XP SP2 ou mais tarde, e em Mac OS X 10.6 ou mais tarde
 
 Para configurar uma aplicação em nuvem para um único sinal baseado em palavra-passe, consulte configurar o [acesso individual da palavra-passe Configurar](configure-password-single-sign-on-non-gallery-applications.md).
 
@@ -108,88 +108,88 @@ Para configurar um pedido no local para um único sinal através do Proxy de Apl
 
 ### <a name="how-authentication-works-for-password-based-sso"></a>Como funciona a autenticação para SSO baseado em palavra-passe
 
-Para autenticar um utilizador numa aplicação, a Azure AD recupera as credenciais do utilizador do diretório e introduz-as na página de inscrição da aplicação.  O Azure AD passa em segurança as credenciais de utilizador através de uma extensão de browser ou aplicação móvel. Este processo permite que um administrador gerir as credenciais de utilizador e não exige que os usuários não se esqueça da palavra-passe.
+Para autenticar um utilizador numa aplicação, a Azure AD recupera as credenciais do utilizador do diretório e introduz-as na página de inscrição da aplicação.  A Azure AD passa de forma segura as credenciais do utilizador através de uma extensão do navegador web ou de uma aplicação móvel. Este processo permite a um administrador gerir as credenciais do utilizador e não exige que os utilizadores se lembrem da sua palavra-passe.
 
 > [!IMPORTANT]
-> As credenciais são obfuscadas do utilizador durante o processo de início automático. No entanto, as credenciais são Detetáveis usando as ferramentas de depuração de web. Os utilizadores e administradores tem de seguir as mesmas políticas de segurança, como se as credenciais foram introduzidas diretamente pelo utilizador.
+> As credenciais são obfuscadas do utilizador durante o processo de início automático. No entanto, as credenciais são detetáveis usando ferramentas de depuração web. Os utilizadores e administradores devem seguir as mesmas políticas de segurança que se as credenciais fossem introduzidas diretamente pelo utilizador.
 
-### <a name="managing-credentials-for-password-based-sso"></a>Gerir credenciais para SSO baseado em palavra-passe
+### <a name="managing-credentials-for-password-based-sso"></a>Gestão de credenciais para SSO baseado em palavra-passe
 
-Palavras-passe para cada aplicativo também podem ser geridas pelo administrador do Azure AD ou pelos utilizadores.
+As palavras-passe para cada aplicação podem ser geridas pelo administrador da AD Azure ou pelos utilizadores.
 
-Quando o administrador do Azure AD gere as credenciais:  
+Quando o administrador da AD Azure gere as credenciais:  
 
-- O utilizador não tem de repor ou não se esqueça de que o nome de utilizador e palavra-passe. O utilizador pode aceder à aplicação ao clicar no mesmo no seu painel de acesso ou através de uma ligação fornecida.
-- O administrador pode efetuar tarefas de gestão nas credenciais. Por exemplo, o administrador pode atualizar o acesso a aplicações, de acordo com as associações de grupo do utilizador e o estado de funcionários.
-- O administrador pode utilizar as credenciais administrativas para fornecer acesso a aplicativos compartilhados entre vários usuários. Por exemplo, o administrador pode permitir que todos os utilizadores podem aceder a uma aplicação para ter acesso a uma de redes sociais ou a aplicação de partilha de documentos.
+- O utilizador não necessita de redefinir ou lembrar-se do nome de utilizador e da palavra-passe. O utilizador pode aceder à aplicação clicando nela no seu painel de acesso ou através de um link fornecido.
+- O administrador pode fazer tarefas de gestão sobre as credenciais. Por exemplo, o administrador pode atualizar o acesso da aplicação de acordo com os membros do grupo de utilizadores e o estado do empregado.
+- O administrador pode usar credenciais administrativas para fornecer acesso a aplicações partilhadas entre muitos utilizadores. Por exemplo, o administrador pode permitir que todos os que podem aceder a uma aplicação tenham acesso a uma aplicação de partilha de redes sociais ou documentos.
 
 Quando o utilizador final gere as credenciais:
 
-- Os utilizadores podem gerir as palavras-passe por atualizar ou excluí-los conforme necessário.
-- Os administradores são ainda pode definir novas credenciais para a aplicação.
+- Os utilizadores podem gerir as suas palavras-passe atualizando ou apagando-as conforme necessário.
+- Os administradores ainda podem definir novas credenciais para a aplicação.
 
 ## <a name="linked-sign-on"></a>Inscrição ligada
-O início de sessão ligado permite ao Azure AD fornecer início de sessão único para uma aplicação que já está configurada para início de sessão único em outro serviço. O aplicativo vinculado pode aparecer aos utilizadores finais no portal do Office 365 ou portal do Azure AD MyApps. Por exemplo, um utilizador pode iniciar uma aplicação que está configurada para início de sessão único no Active Directory Federation Services 2.0 (AD FS) no portal do Office 365. Relatórios adicionais também estão disponíveis para aplicações ligadas que são iniciadas a partir do portal do Office 365 ou do portal do Azure AD MyApps. Para configurar uma aplicação para o sign-on ligado, consulte o ['sign-on' ligado](configure-linked-sign-on.md)à Configuração .
+O sign-on linked permite que a Azure AD forneça um único sinal a uma aplicação que já está configurada para um único início de sessão noutro serviço. A aplicação ligada pode parecer acabar com os utilizadores no portal Do Office 365 ou no portal Azure AD MyApps. Por exemplo, um utilizador pode lançar uma aplicação configurada para um único sign-on no Ative Directory Federation Services 2.0 (AD FS) do portal Office 365. Estão também disponíveis relatórios adicionais para aplicações ligadas que são lançadas a partir do portal Office 365 ou do portal Azure AD MyApps. Para configurar uma aplicação para o sign-on ligado, consulte o ['sign-on' ligado](configure-linked-sign-on.md)à Configuração .
 
 ### <a name="linked-sign-on-for-application-migration"></a>Inscrição ligada para migração de candidaturas
 
-O sign-on linked pode proporcionar uma experiência consistente ao utilizador enquanto migra aplicações durante um período de tempo. Se estiver a migrar aplicações para o Azure Ative Directory, pode utilizar o signon ligado para publicar rapidamente links para todas as aplicações que pretende migrar.  Os utilizadores podem encontrar todos os links no [portal MyApps](../user-help/active-directory-saas-access-panel-introduction.md) ou no lançador de [aplicações do Office 365.](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) Usuários não saberia que estão a aceder a um aplicativo vinculado ou aplicações migradas.  
+O sign-on linked pode proporcionar uma experiência consistente ao utilizador enquanto migra aplicações durante um período de tempo. Se estiver a migrar aplicações para o Azure Ative Directory, pode utilizar o signon ligado para publicar rapidamente links para todas as aplicações que pretende migrar.  Os utilizadores podem encontrar todos os links no [portal MyApps](../user-help/active-directory-saas-access-panel-introduction.md) ou no lançador de [aplicações do Office 365.](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) Os utilizadores não saberão que estão a aceder a uma aplicação ligada ou a uma aplicação migrada.  
 
-Assim que um usuário foi autenticado com um aplicativo vinculado, um registo de conta tem de ser criado antes do utilizador final é fornecido o acesso de início de sessão único. Este registo de conta de aprovisionamento pode um ocorrem automaticamente ou podem ocorrer manualmente por um administrador.
+Uma vez que um utilizador tenha autenticado com uma aplicação ligada, é necessário criar um registo de conta antes de o utilizador final ter acesso único ao sinal. O fornecimento deste registo de conta pode ocorrer automaticamente, ou pode ocorrer manualmente por um administrador.
 
-## <a name="disabled-sso"></a>SSO desativado
+## <a name="disabled-sso"></a>SSO deficiente
 
-Modo desativado significa o início de sessão único não é utilizado para a aplicação. Quando o início de sessão único está desativada, os utilizadores poderão ter de se autenticar duas vezes. Em primeiro lugar, os usuários são autenticados para o Azure AD e, em seguida, iniciam sessão na aplicação.
+Modo desativado significa que o único sinal não é utilizado para a aplicação. Quando o único sinal é desativado, os utilizadores podem precisar de autenticar duas vezes. Primeiro, os utilizadores autenticam a AD Azure e depois assinam a aplicação.
 
-Utilização desativada modo de início de sessão único:
+Utilize o modo de sinalização individual desativado:
 
-- Se não estiver pronto para integrar esta aplicação com o Azure AD início de sessão único, ou
-- Se estiver a testar outros aspectos do aplicativo, ou
-- Como uma camada de segurança para uma aplicação no local que não requer que os utilizadores autenticar. Com desativado, o utilizador tem de autenticar.
+- Se não estiver pronto para integrar esta aplicação com o Azure AD single sign-on, ou
+- Se estiver a testar outros aspetos da aplicação, ou
+- Como uma camada de segurança para uma aplicação no local que não requer que os utilizadores autentiquem. Com desativado, o utilizador precisa de autenticar.
 
 Note que se configurar a aplicação para sp-iniciado saml single sign-on e você alterar o modo SSO para desativar, não impedirá os utilizadores de assinar em aplicação fora do portal MyApps. Para isso, é necessário [desativar a capacidade de os utilizadores iniciarem sessão](disable-user-sign-in-portal.md)
 
-## <a name="integrated-windows-authentication-iwa-sso"></a>Autenticação do Windows (IWA) integrada SSO
+## <a name="integrated-windows-authentication-iwa-sso"></a>Autenticação Integrada do Windows (IWA) SSO
 
-[Application Proxy](application-proxy.md) fornece um único sinal on (SSO) a aplicações que utilizam [autenticação integrada do Windows (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication)ou aplicações conscientes de sinistros. Se a sua aplicação utilizar o IWA, autentica o Proxy de aplicações para a aplicação utilizando o Kerberos Constrained Delegation (KCD). Para um aplicativo compatível com declarações que confianças de entidades do Azure Active Directory, início de sessão único funciona porque o utilizador já foi autenticado através do Azure AD.
+[Application Proxy](application-proxy.md) fornece um único sinal on (SSO) a aplicações que utilizam [autenticação integrada do Windows (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication)ou aplicações conscientes de sinistros. Se a sua aplicação utilizar o IWA, o Application Proxy autentica a aplicação utilizando a Delegação Limitada kerberos (KCD). Para uma aplicação consciente de sinistros que confia no Azure Ative Directory, as obras de inscrição únicas porque o utilizador já estava autenticado utilizando a Azure AD.
 
 Escolha o modo de inscrição individual integrado do Windows Authentication para fornecer um único sinal de acesso a uma aplicação no local que autentica com o IWA.
 
 Para configurar uma aplicação no local para iWA, consulte [a Delegação Limitada kerberos para obter um único sessão nas suas aplicações com procuração](application-proxy-configure-single-sign-on-with-kcd.md)de aplicação .
 
-### <a name="how-single-sign-on-with-kcd-works"></a>Como início de sessão único com KCD funciona
+### <a name="how-single-sign-on-with-kcd-works"></a>Como funciona um único sinal com a KCD
 Este diagrama explica o fluxo quando um utilizador acede a uma aplicação no local que utiliza o IWA.
 
 ![Diagrama de fluxo de fluxo de autenticação aditiva do Microsoft Azure](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
 1. O utilizador introduz o URL para aceder à aplicação no local através do Proxy de Aplicação.
-1. Proxy da aplicação redireciona o pedido para serviços de autenticação do Azure AD para preauthenticate. Neste momento, aplica-se do Azure AD qualquer autenticação aplicável e políticas de autorização, como a autenticação multifator. Se o utilizador for validado, o Azure AD cria um token e envia-os para o utilizador.
-1. O utilizador passa o token para o Proxy de aplicações.
-1. Proxy da aplicação valida o token e recupera o nome Principal de utilizador (UPN) do token. -Lo, em seguida, envia o pedido, o UPN e o nome Principal do serviço (SPN) para o conector através de um canal seguro dually autenticado.
+1. Aplicação Proxy redireciona o pedido para os serviços de autenticação Da Azure para pré-autenticação. Neste momento, a Azure AD aplica quaisquer políticas de autenticação e autorização aplicáveis, tais como a autenticação multifactor. Se o utilizador for validado, o Azure AD cria um símbolo e envia-o para o utilizador.
+1. O utilizador passa o símbolo para o Application Proxy.
+1. Aplicação Proxy valida o símbolo e recupera o Nome Principal do Utilizador (UPN) do símbolo. Em seguida, envia o pedido, a UPN e o Nome Principal de Serviço (SPN) para o Conector através de um canal seguro duplamente autenticado.
 1. O conector utiliza a negociação da Delegação Limitada kerberos (KCD) com a AD no local, fazendo-se passar pelo utilizador para obter um símbolo kerberos para a aplicação.
-1. Do Active Directory envia o token de Kerberos para a aplicação para o conector.
-1. O conector envia a solicitação original para o servidor de aplicações, com o token Kerberos que recebeu do AD.
-1. A aplicação envia a resposta para o conector, que, em seguida, é devolvido para o serviço de Proxy da aplicação e, finalmente, para o usuário.
+1. O Diretório Ativo envia o símbolo Kerberos para a aplicação ao conector.
+1. O conector envia o pedido original para o servidor de aplicações, utilizando o símbolo Kerberos que recebeu da AD.
+1. A aplicação envia a resposta ao conector, que é depois devolvido ao serviço Proxy de Aplicação e, finalmente, ao utilizador.
 
 ## <a name="header-based-sso"></a>SSO baseado em cabeçalho
 
-Com base no cabeçalho de início de sessão único funciona para as aplicações que utilizam cabeçalhos HTTP para autenticação. Este método de início de sessão utiliza um serviço de autenticação de terceiros chamado PingAccess. Um utilizador só tem de autenticar para o Azure AD.
+O único sinal de inscrição baseado em cabeçalho funciona para aplicações que utilizam cabeçalhos HTTP para autenticação. Este método de inscrição utiliza um serviço de autenticação de terceiros chamado PingAccess. Um utilizador só precisa de autenticar a AD Azure.
 
 Escolha um único sinal baseado em cabeçalho quando o Proxy de Aplicação e o PingAccess estiverem configurados para a aplicação.
 
 Para configurar a autenticação baseada em cabeçalhos, consulte a [autenticação baseada em cabeçalho para um único sinal com procuração](application-proxy-configure-single-sign-on-with-ping-access.md)de aplicação .
 
-### <a name="what-is-pingaccess-for-azure-ad"></a>O que é o PingAccess para o Azure AD?
+### <a name="what-is-pingaccess-for-azure-ad"></a>O que é PingAccess para Azure AD?
 
-Usando o PingAccess para o Azure AD, os utilizadores podem acesso e o único início de sessão em aplicações que utilizam cabeçalhos para autenticação. Proxy de aplicações trata esses aplicativos, como qualquer outro, utilizar o Azure AD para autenticar o acesso e, em seguida, passar o tráfego através do serviço de conector. Após a ocorrência da autenticação, o serviço do PingAccess traduz-se o token de acesso do Azure AD para um formato de cabeçalho que é enviado para a aplicação.
+Utilizando o PingAccess para AD Azure, os utilizadores podem aceder e iniciar um único sessão a aplicações que utilizem cabeçalhos para autenticação. Aplicação Proxy trata estas aplicações como qualquer outra, usando a AD Azure para autenticar o acesso e, em seguida, passar o tráfego através do serviço de conector. Após a autenticação, o serviço PingAccess traduz o token de acesso Azure AD para um formato de cabeçalho que é enviado para a aplicação.
 
-Os usuários não notará nada diferente quando iniciam sessão para utilizar as suas aplicações empresariais. Pode ainda trabalham de qualquer lugar em qualquer dispositivo. Os conectores de Proxy de aplicações direcionar o tráfego remoto a todas as aplicações, e eles continuarão automaticamente o balanceamento de carga.
+Os seus utilizadores não notarão nada diferente quando iniciarem o seu contrato para utilizarem as suas aplicações corporativas. Ainda podem trabalhar em qualquer lugar em qualquer dispositivo. Os conectores Proxy de aplicação direcionam o tráfego remoto para todas as aplicações, e continuarão a carregar o equilíbrio automaticamente.
 
-### <a name="how-do-i-get-a-license-for-pingaccess"></a>Como posso obter uma licença para o PingAccess?
+### <a name="how-do-i-get-a-license-for-pingaccess"></a>Como consigo uma licença para o PingAccess?
 
-Uma vez que este cenário é oferecido através de uma parceria entre a Azure AD e o PingAccess, precisa de licenças para ambos os serviços. No entanto, as subscrições do Azure AD Premium incluem uma licença básica do PingAccess que cobre até 20 aplicações. Se precisar de mais de 20 aplicativos baseados no cabeçalho de publicar, pode adquirir uma licença adicional do PingAccess.
+Uma vez que este cenário é oferecido através de uma parceria entre a Azure AD e o PingAccess, precisa de licenças para ambos os serviços. No entanto, as subscrições do Azure AD Premium incluem uma licença básica do PingAccess que cobre até 20 aplicações. Se precisar de publicar mais de 20 aplicações baseadas em cabeçalhos, pode adquirir uma licença adicional do PingAccess.
 
-Para obter mais informações, consulte [Edições do Azure Active Directory](../fundamentals/active-directory-whatis.md).
+Para mais informações, consulte edições de [Diretório Ativo Azure.](../fundamentals/active-directory-whatis.md)
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md) (Tutoriais para integrar aplicações SaaS no Azure Active Directory)

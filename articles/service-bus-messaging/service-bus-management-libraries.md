@@ -15,32 +15,32 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: d0e90d9278ede97de04ad8efeaa59d94a4567f66
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76756271"
 ---
 # <a name="service-bus-management-libraries"></a>Bibliotecas de gestão do Service Bus
 
-As bibliotecas de gestão de ônibus de serviço Azure podem fornecer espaços e entidades de ônibus de serviço dinamicamente. Isto permite implementações complexas e cenários de mensagens, e permite determinar programáticamente quais as entidades a fornecer. Essas bibliotecas estão atualmente disponíveis para .NET.
+As bibliotecas de gestão de ônibus de serviço Azure podem fornecer espaços e entidades de ônibus de serviço dinamicamente. Isto permite implementações complexas e cenários de mensagens, e permite determinar programáticamente quais as entidades a fornecer. Estas bibliotecas estão atualmente disponíveis para .NET.
 
-## <a name="supported-functionality"></a>Funcionalidades suportadas
+## <a name="supported-functionality"></a>Funcionalidade suportada
 
-* Criação de espaço de nomes, atualização, eliminação
+* Criação de espaço de nome, atualização, eliminação
 * Criação de fila, atualização, eliminação
 * Criação de tópicos, atualização, eliminação
 * Criação de assinaturas, atualização, eliminação
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar a utilizar as bibliotecas de gestão de ônibus de serviço, você deve autenticar com o serviço Azure Ative Directory (Azure AD). A Azure AD exige que se autentique como diretor de serviço, que fornece acesso aos seus recursos Azure. Para obter informações sobre a criação de um serviço principal, consulte um dos seguintes artigos:  
+Para começar a utilizar as bibliotecas de gestão de ônibus de serviço, você deve autenticar com o serviço Azure Ative Directory (Azure AD). A Azure AD exige que se autentique como diretor de serviço, que fornece acesso aos seus recursos Azure. Para obter informações sobre a criação de um diretor de serviço, consulte um destes artigos:  
 
-* [Utilizar o portal do Azure para criar um principal de serviço que pode aceder aos recursos e de aplicação do Active Directory](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
-* [Utilizar o Azure PowerShell para criar um principal de serviço para aceder aos recursos](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Utilizar a CLI do Azure para criar um principal de serviço para aceder aos recursos](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Utilize o portal Azure para criar aplicação e diretor ativo e diretor de serviço que possa aceder a recursos](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Utilize o Azure PowerShell para criar um principal de serviço para aceder aos recursos](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
+* [Utilize o CLI do Azure para criar um principal de serviço para aceder aos recursos](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 
-Estes tutoriais fornecem uma `AppId` (ID de cliente), `TenantId`, e `ClientSecret` (chave de autenticação), as quais são utilizadas para autenticação, as bibliotecas de gestão. Deve ter permissões do **Proprietário** para o grupo de recursos em que deseja executar.
+Estes tutoriais `AppId` fornecem-lhe `TenantId`um `ClientSecret` (ID do cliente), e (chave de autenticação), todos eles utilizados para autenticação pelas bibliotecas de gestão. Deve ter permissões do **Proprietário** para o grupo de recursos em que deseja executar.
 
 ## <a name="programming-pattern"></a>Padrão de programação
 
@@ -52,7 +52,7 @@ O padrão para manipular qualquer recurso de ônibus de serviço segue um protoc
 
    var result = await context.AcquireTokenAsync("https://management.azure.com/", new ClientCredential(clientId, clientSecret));
    ```
-2. Crie o objeto `ServiceBusManagementClient`:
+2. Criar `ServiceBusManagementClient` o objeto:
 
    ```csharp
    var creds = new TokenCredentials(token);
@@ -61,7 +61,7 @@ O padrão para manipular qualquer recurso de ônibus de serviço segue um protoc
        SubscriptionId = SettingsCache["SubscriptionId"]
    };
    ```
-3. Defina os parâmetros `CreateOrUpdate` aos valores especificados:
+3. Defina `CreateOrUpdate` os parâmetros para os valores especificados:
 
    ```csharp
    var queueParams = new QueueCreateOrUpdateParameters()

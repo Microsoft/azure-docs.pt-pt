@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 7e68f12ce062831ad361c88345188aca61922c4c
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77925712"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>Mova uma app de Serviço de Aplicações para outra região
@@ -46,7 +46,7 @@ Certos recursos, tais como certificados importados ou ligações híbridas, cont
 1. [Crie um back up da aplicação de origem.](manage-backup.md)
 1. Crie uma aplicação num novo plano de Serviço de [Aplicações, na região alvo.](app-service-plan-manage.md#create-an-app-service-plan)
 2. [Restaurar a parte de trás na app alvo](web-sites-restore.md)
-2. Se utilizar um domínio personalizado, [ligue-o preventivamente à aplicação alvo](manage-custom-dns-migrate-domain.md#bind-the-domain-name-preemptively) com `awverify.` e [ative o domínio na aplicação alvo](manage-custom-dns-migrate-domain.md#enable-the-domain-for-your-app).
+2. Se utilizar um domínio personalizado, [ligue-o preventivamente à aplicação alvo](manage-custom-dns-migrate-domain.md#bind-the-domain-name-preemptively) e `awverify.` [ative o domínio na aplicação alvo](manage-custom-dns-migrate-domain.md#enable-the-domain-for-your-app).
 3. Configure tudo o resto na sua aplicação alvo para ser o mesmo que a aplicação de origem e verifique a sua configuração.
 4. Quando estiver pronto para que o domínio personalizado aponte para a aplicação alvo, [remape o nome de domínio](manage-custom-dns-migrate-domain.md#remap-the-active-dns-name).
 

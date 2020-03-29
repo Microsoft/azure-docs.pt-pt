@@ -1,5 +1,5 @@
 ---
-title: Segurança do Event Grid e autenticação do Azure
+title: Segurança e autenticação da Rede de Eventos Azure
 description: Descreve o Azure Event Grid e respetivos conceitos.
 services: event-grid
 author: banisadr
@@ -9,31 +9,31 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
 ms.openlocfilehash: 03bc2f9de6f50f08c9f62f86a3d1791a067cecd0
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78899285"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorizar o acesso aos recursos da Rede de Eventos
-O Azure Event Grid permite-lhe controlar o nível de acesso que é atribuído aos usuários diferentes para fazer várias operações de gestão, tais como as subscrições de eventos da lista, criar novos e gerar as chaves. Grelha de eventos utiliza o controlo de acesso baseado em funções do Azure (RBAC).
+A Azure Event Grid permite controlar o nível de acesso dado aos diferentes utilizadores para fazer várias operações de gestão, tais como subscrições de eventos de listas, criar novas e gerar chaves. A Event Grid utiliza o controlo de acesso baseado em papéis da Azure (RBAC).
 
 ## <a name="operation-types"></a>Tipos de operação
 
-Event Grid suporta as seguintes ações:
+A Rede de Eventos apoia as seguintes ações:
 
 * Microsoft.EventGrid/*/read
 * Microsoft.EventGrid/*/write
 * Microsoft.EventGrid/*/delete
 * Microsoft.EventGrid/eventSubscriptions/getFullUrl/action
 * Microsoft.EventGrid/topics/listKeys/action
-* Microsoft.EventGrid/topics/regenerateKey/action
+* Microsoft.EventGrid/topics/regeneraçãoChave/ação
 
-As últimas três operações devolvem informações potencialmente secretas, que obtém filtradas dos operações de leitura normais. Recomenda-se que restringir o acesso a essas operações. 
+As últimas três operações devolvem informações potencialmente secretas, que são filtradas das operações normais de leitura. Recomenda-se que restrinja o acesso a estas operações. 
 
 ## <a name="built-in-roles"></a>Funções incorporadas
 
-Event Grid fornece duas funções incorporadas para gerir subscrições de eventos. São importantes na implementação de domínios de [eventos](event-domains.md) porque dão aos utilizadores as permissões necessárias para subscrever em tópicos no domínio do seu evento. Estas funções estão focalizadas em subscrições de eventos e não a conceder acesso para ações como a criação de tópicos.
+O Event Grid fornece duas funções incorporadas para a gestão de subscrições de eventos. São importantes na implementação de domínios de [eventos](event-domains.md) porque dão aos utilizadores as permissões necessárias para subscrever em tópicos no domínio do seu evento. Estas funções estão focadas nas subscrições de eventos e não concedem acesso a ações como a criação de tópicos.
 
 Pode [atribuir estas funções a um utilizador ou grupo](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
@@ -107,9 +107,9 @@ Leitor de **Subscrição de EventosGrid**: leia as subscrições da Grelha de Ev
 
 ## <a name="custom-roles"></a>Funções personalizadas
 
-Se tiver de especificar permissões que são diferentes de funções incorporadas, pode criar funções personalizadas.
+Se precisar especificar permissões diferentes das funções incorporadas, pode criar papéis personalizados.
 
-Seguem-se as definições de funções de grelha de eventos de exemplo que permitem aos utilizadores efetuar ações diferentes. Estas funções personalizadas são diferentes das funções incorporadas, porque eles concedem um acesso mais abrangente do que apenas as subscrições de eventos.
+Seguem-se as definições de funções da Rede de Eventos de Amostra que permitem aos utilizadores tomar diferentes ações. Estas funções personalizadas são diferentes das funções incorporadas porque concedem um acesso mais amplo do que apenas subscrições de eventos.
 
 **EventGridReadOnlyRole.json**: Só permita operações apenas de leitura.
 

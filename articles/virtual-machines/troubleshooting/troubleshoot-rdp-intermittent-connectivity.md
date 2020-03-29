@@ -13,13 +13,13 @@ ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
 ms.openlocfilehash: c22a401a6b25f7bb2c27a10e52214fa42ac6089b
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77918228"
 ---
-# <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>O ambiente de trabalho remoto desliga-se frequentemente em Azure VM
+# <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Remote Desktop disconnects frequently in Azure VM (O Ambiente de Trabalho Remoto desliga-se muitas vezes na VM do Azure)
 
 Este artigo explica como resolver as desconexões frequentes a uma máquina virtual Azure (VM) através do Protocolo de Ambiente de Trabalho Remoto RDP).
 
@@ -85,12 +85,12 @@ Para resolver este problema, utilize o controlo em série ou [repare o VM offlin
 
 12. Reinicie o VM e tente voltar a ligá-lo utilizando RDP.
 
-### <a name="repair-the-vm-offline"></a>Repare a VM offline
+### <a name="repair-the-vm-offline"></a>Reparar o VM offline
 
 1. [Fixe o disco OS a um VM](../windows/troubleshoot-recovery-disks-portal.md)de recuperação .
-2. Depois de o disco OS estar ligado ao VM de recuperação, certifique-se de que o disco está sinalizado como **Online** na consola de Gestão de Discos. Tenha em atenção a letra de unidade que está atribuída ao disco do SO anexado.
+2. Depois de o disco OS estar ligado ao VM de recuperação, certifique-se de que o disco está sinalizado como **Online** na consola de Gestão de Discos. Note a letra de unidade que é atribuída ao disco osso anexado.
 3. No disco OS que anexou, navegue para a pasta **\windows\system32\config.** Copie todos os ficheiros desta pasta como cópia de segurança, caso seja necessário um reversão.
-4. Iniciar editor de registo (regedit.exe).
+4. Inicie o Editor de registo (regedit.exe).
 5. Selecione a tecla **HKEY_LOCAL_MACHINE.** No menu, selecione **File** > **Load Hive:**
 6. Navegue na pasta **\windows\system32\config\SYSTEM** no disco OS que anexou. Para o nome da colmeia, introduza **BROKENSYSTEM**. A nova colmeia de registo é exibida sob a chave **HKEY_LOCAL_MACHINE.** Em seguida, carregue a colmeia de software **\windows\system32\config\SOFTWARE** sob a chave **HKEY_LOCAL_MACHINE.** Para o nome do software da colmeia, **introduza BROKENSOFTWARE**. 
 7. Abra uma janela de comando elevado (**Executar como administrador)** e executar comandos nos passos restantes para redefinir as configurações rdp. 

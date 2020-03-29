@@ -16,10 +16,10 @@ ms.date: 03/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4b469c098db4f8d90147b491bcb54bd55d326b03
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79080313"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento da máquina virtual do Azure do SAP HANA
@@ -27,7 +27,7 @@ ms.locfileid: "79080313"
 O Azure fornece diferentes tipos de armazenamento que são adequados para VMs Azure que estão a executar SAP HANA. Os tipos de **armazenamento Azure certificados SAP HANA** que podem ser considerados para a lista de implementações sap HANA como: 
 
 - Azure Premium SSD  
-- [Disco ultra](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd)
+- [Disco Ultra](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd)
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
 Para saber sobre estes tipos de disco, consulte o artigo [Selecione um tipo](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types) de disco
@@ -107,14 +107,14 @@ As recomendações excedem frequentemente os requisitos mínimos do SAP, tal com
 
 **Recomendação: As configurações recomendadas para cenários de produção parecem:**
 
-| SKU da VM | RAM | Um máximo de VM I/O<br /> Débito | /hana/dados | /hana/log | /hana/compartilhado | /volume de raiz | /usr/sap | hana/backup |
+| SKU da VM | RAM | Um máximo de VM I/O<br /> Débito | /hana/dados | /hana/log | /hana/compartilhado | /volume de raiz | /usr/seiva | hana/backup |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
 | M32ts | 192 GiB | 500 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
 | M32ls | 256 GiB | 500 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
 | M64ls | 512 GiB | 1000 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P30 |
-| M64s | 1000 GiB | 1000 MB/s | 4 x P20 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 |2 x P30 |
-| M64ms | 1750 GiB | 1000 MB/s | 3 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 3 x P30 |
-| M128s | 2000 GiB | 2000 MB/s |3 x P30 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 2 x P40 |
+| M64s | 1000 Gib | 1000 MB/s | 4 x P20 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 |2 x P30 |
+| M64ms | 1750 Gib | 1000 MB/s | 3 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 3 x P30 |
+| M128s | GiB de 2000 | 2000 MB/s |3 x P30 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 2 x P40 |
 | M128ms | 3800 GiB | 2000 MB/s | 5 x P30 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 4 x P40 |
 | M208s_v2 | 2850 GiB | 1000 MB/s | 4 x P30 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 3 x P40 |
 | M208ms_v2 | 5700 GiB | 1000 MB/s | 4 x P40 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 3 x P50 |
@@ -149,24 +149,24 @@ A tabela seguinte mostra uma configuração de tipos VM que os clientes também 
 
 As recomendações excedem frequentemente os requisitos mínimos do SAP, tal como referido no início do presente artigo. As recomendações listadas são um compromisso entre as recomendações de tamanho da SAP e o máximo de armazenamento que os diferentes tipos de VM fornecem.
 
-| SKU da VM | RAM | Um máximo de VM I/O<br /> Débito | /hana/data e /hana/log<br /> listrado com LVM ou MDADM | /hana/compartilhado | /volume de raiz | /usr/sap | hana/backup |
+| SKU da VM | RAM | Um máximo de VM I/O<br /> Débito | /hana/data e /hana/log<br /> listrado com LVM ou MDADM | /hana/compartilhado | /volume de raiz | /usr/seiva | hana/backup |
 | --- | --- | --- | --- | --- | --- | --- | -- |
 | DS14v2 | 112 GiB | 768 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E15 |
 | E16v3 | 128 GiB | 384 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E15 |
 | E32v3 | 256 GiB | 768 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E20 |
-| E64v3 | 432 GiB | 1\.200 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E30 |
-| GS5 | 448 GiB | 2\.000 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E30 |
+| E64v3 | 432 GiB | 1.200 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E30 |
+| GS5 | 448 GiB | 2.000 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E30 |
 | M32ts | 192 GiB | 500 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E20 |
 | M32ls | 256 GiB | 500 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E20 |
-| M64ls | 512 GiB | 1\.000 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 |1 x E30 |
-| M64s | 1\.000 GiB | 1\.000 MB/s | 2 x P30 | 1 x E30 | 1 x E6 | 1 x E6 |2 x E30 |
-| M64ms | 1\.750 GiB | 1\.000 MB/s | 3 x P30 | 1 x E30 | 1 x E6 | 1 x E6 | 3 x E30 |
-| M128s | 2\.000 GiB | 2\.000 MB/s |3 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | 2 x E40 |
-| M128ms | 3\.800 GiB | 2\.000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | 2 x E50 |
-| M208s_v2 | 2\.850 GiB | 1\.000 MB/s | 4 x P30 | 1 x E30 | 1 x E10 | 1 x E6 |  3 x E40 |
-| M208ms_v2 | 5\.700 GiB | 1\.000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E40 |
-| M416s_v2 | 5\.700 GiB | 2\.000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E40 |
-| M416ms_v2 | 11400 GiB | 2\.000 MB/s | 8 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E50 |
+| M64ls | 512 GiB | 1.000 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 |1 x E30 |
+| M64s | 1.000 GiB | 1.000 MB/s | 2 x P30 | 1 x E30 | 1 x E6 | 1 x E6 |2 x E30 |
+| M64ms | 1.750 GiB | 1.000 MB/s | 3 x P30 | 1 x E30 | 1 x E6 | 1 x E6 | 3 x E30 |
+| M128s | 2.000 GiB | 2.000 MB/s |3 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | 2 x E40 |
+| M128ms | 3.800 GiB | 2.000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | 2 x E50 |
+| M208s_v2 | 2.850 GiB | 1.000 MB/s | 4 x P30 | 1 x E30 | 1 x E10 | 1 x E6 |  3 x E40 |
+| M208ms_v2 | 5.700 GiB | 1.000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E40 |
+| M416s_v2 | 5.700 GiB | 2.000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E40 |
+| M416ms_v2 | 11400 GiB | 2.000 MB/s | 8 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E50 |
 
 
 Os discos recomendados para os tipos de VM mais pequenos com 3 x P20 oversize os volumes relativos às recomendações espaciais de acordo com o [SAP TDI Storage Whitepaper](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). No entanto, a escolha, tal como apresentada na tabela, foi feita para fornecer uma entrada de disco suficiente para o SAP HANA. Se necessitar de alterações no volume **/hana/backup,** que foi dimensionado para manter cópias de segurança que representam o dobro do volume de memória, sinta-se à vontade para ajustar.   
@@ -201,18 +201,18 @@ As recomendações excedem frequentemente os requisitos mínimos do SAP, tal com
 
 | SKU da VM | RAM | Um máximo de VM I/O<br /> Débito | /hana/volume de dados | /hana/dados I/O | /hana/data IOPS | /hana/volume de registo | /hana/log I/O | /hana/log IOPS |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
-| E64s_v3 | 432 GiB | 1\.200 MB/s | 600 GB | 700 MBps | 7\.500 | 512 GB | 500 MBps  | 2,000 |
-| M32ts | 192 GiB | 500 MB/s | 250 GB | 400 MBps | 7\.500 | 256 GB | 250 MBps  | 2,000 |
-| M32ls | 256 GiB | 500 MB/s | 300 GB | 400 MBps | 7\.500 | 256 GB | 250 MBps  | 2,000 |
-| M64ls | 512 GiB | 1\.000 MB/s | 600 GB | 600 MBps | 7\.500 | 512 GB | 400 MBps  | 2,500 |
-| M64s | 1\.000 GiB | 1\.000 MB/s |  1\.200 GB | 600 MBps | 7\.500 | 512 GB | 400 MBps  | 2,500 |
-| M64ms | 1\.750 GiB | 1\.000 MB/s | 2\.100 GB | 600 MBps | 7\.500 | 512 GB | 400 MBps  | 2,500 |
-| M128s | 2\.000 GiB | 2\.000 MB/s |2\.400 GB | 1\.200 MBps |9,000 | 512 GB | 800 MBps  | 3\.000 | 
-| M128ms | 3\.800 GiB | 2\.000 MB/s | 4\.800 GB | 1200 MBps |9,000 | 512 GB | 800 MBps  | 3\.000 | 
-| M208s_v2 | 2\.850 GiB | 1\.000 MB/s | 3\.500 GB | 1\.000 MBps | 9,000 | 512 GB | 400 MBps  | 2,500 | 
-| M208ms_v2 | 5\.700 GiB | 1\.000 MB/s | 7\.200 GB | 1\.000 MBps | 9,000 | 512 GB | 400 MBps  | 2,500 | 
-| M416s_v2 | 5\.700 GiB | 2\.000 MB/s | 7\.200 GB | 1\.500 MBps | 9,000 | 512 GB | 800 MBps  | 3\.000 | 
-| M416ms_v2 | 11.400 GiB | 2\.000 MB/s | 14.400 GB | 1\.500 MBps | 9,000 | 512 GB | 800 MBps  | 3\.000 |   
+| E64s_v3 | 432 GiB | 1.200 MB/s | 600 GB | 700 MBps | 7.500 | 512 GB | 500 MBps  | 2.000 |
+| M32ts | 192 GiB | 500 MB/s | 250 GB | 400 MBps | 7.500 | 256 GB | 250 MBps  | 2.000 |
+| M32ls | 256 GiB | 500 MB/s | 300 GB | 400 MBps | 7.500 | 256 GB | 250 MBps  | 2.000 |
+| M64ls | 512 GiB | 1.000 MB/s | 600 GB | 600 MBps | 7.500 | 512 GB | 400 MBps  | 2.500 |
+| M64s | 1.000 GiB | 1.000 MB/s |  1.200 GB | 600 MBps | 7.500 | 512 GB | 400 MBps  | 2.500 |
+| M64ms | 1.750 GiB | 1.000 MB/s | 2.100 GB | 600 MBps | 7.500 | 512 GB | 400 MBps  | 2.500 |
+| M128s | 2.000 GiB | 2.000 MB/s |2.400 GB | 1.200 MBps |9000 | 512 GB | 800 MBps  | 3.000 | 
+| M128ms | 3.800 GiB | 2.000 MB/s | 4.800 GB | 1200 MBps |9000 | 512 GB | 800 MBps  | 3.000 | 
+| M208s_v2 | 2.850 GiB | 1.000 MB/s | 3.500 GB | 1.000 MBps | 9000 | 512 GB | 400 MBps  | 2.500 | 
+| M208ms_v2 | 5.700 GiB | 1.000 MB/s | 7.200 GB | 1.000 MBps | 9000 | 512 GB | 400 MBps  | 2.500 | 
+| M416s_v2 | 5.700 GiB | 2.000 MB/s | 7.200 GB | 1.500 MBps | 9000 | 512 GB | 800 MBps  | 3.000 | 
+| M416ms_v2 | 11.400 GiB | 2.000 MB/s | 14.400 GB | 1.500 MBps | 9000 | 512 GB | 800 MBps  | 3.000 |   
 
 Os valores enumerados destinam-se a ser um ponto de partida e precisam de ser avaliados em comparação com as reais exigências. A vantagem com o disco Azure Ultra é que os valores para iOPS e produção podem ser adaptados sem a necessidade de desligar o VM ou parar a carga de trabalho aplicada ao sistema.   
 
@@ -226,18 +226,18 @@ As recomendações excedem frequentemente os requisitos mínimos do SAP, tal com
 
 | SKU da VM | RAM | Um máximo de VM I/O<br /> Débito | Volume para /hana/data e /log | /hana/data e log I/O | /hana/data e iOPS de log |
 | --- | --- | --- | --- | --- | --- |
-| E64s_v3 | 432 GiB | 1\.200 MB/s | 1\.200 GB | 1\.200 MBps | 9,500 | 
+| E64s_v3 | 432 GiB | 1.200 MB/s | 1.200 GB | 1.200 MBps | 9,500 | 
 | M32ts | 192 GiB | 500 MB/s | 512 GB | 400 MBps | 9,500 | 
 | M32ls | 256 GiB | 500 MB/s | 600 GB | 400 MBps | 9,500 | 
-| M64ls | 512 GiB | 1\.000 MB/s | 1\.100 GB | 900 MBps | 10,000 | 
-| M64s | 1\.000 GiB | 1\.000 MB/s |  1\.700 GB | 900 MBps | 10,000 | 
-| M64ms | 1\.750 GiB | 1\.000 MB/s | 2\.600 GB | 900 MBps | 10,000 | 
-| M128s | 2\.000 GiB | 2\.000 MB/s |2\.900 GB | 1\.800 MBps |12.000 | 
-| M128ms | 3\.800 GiB | 2\.000 MB/s | 5\.300 GB | 1\.800 MBps |12.000 |  
-| M208s_v2 | 2\.850 GiB | 1\.000 MB/s | 4\.000 GB | 900 MBps | 10,000 |  
-| M208ms_v2 | 5\.700 GiB | 1\.000 MB/s | 7\.700 GB | 900 MBps | 10,000 | 
-| M416s_v2 | 5\.700 GiB | 2\.000 MB/s | 7\.700 GB | 1\.800MBps | 12.000 |  
-| M416ms_v2 | 11.400 GiB | 2\.000 MB/s | 15.000 GB | 1\.800 MBps | 12.000 |    
+| M64ls | 512 GiB | 1.000 MB/s | 1.100 GB | 900 MBps | 10,000 | 
+| M64s | 1.000 GiB | 1.000 MB/s |  1.700 GB | 900 MBps | 10,000 | 
+| M64ms | 1.750 GiB | 1.000 MB/s | 2.600 GB | 900 MBps | 10,000 | 
+| M128s | 2.000 GiB | 2.000 MB/s |2.900 GB | 1.800 MBps |12.000 | 
+| M128ms | 3.800 GiB | 2.000 MB/s | 5.300 GB | 1.800 MBps |12.000 |  
+| M208s_v2 | 2.850 GiB | 1.000 MB/s | 4.000 GB | 900 MBps | 10,000 |  
+| M208ms_v2 | 5.700 GiB | 1.000 MB/s | 7.700 GB | 900 MBps | 10,000 | 
+| M416s_v2 | 5.700 GiB | 2.000 MB/s | 7.700 GB | 1.800MBps | 12.000 |  
+| M416ms_v2 | 11.400 GiB | 2.000 MB/s | 15.000 GB | 1.800 MBps | 12.000 |    
 
 Os valores enumerados destinam-se a ser um ponto de partida e precisam de ser avaliados em comparação com as reais exigências. A vantagem com o disco Azure Ultra é que os valores para iOPS e produção podem ser adaptados sem a necessidade de desligar o VM ou parar a carga de trabalho aplicada ao sistema.  
 
@@ -255,16 +255,16 @@ Ao considerar os Ficheiros Azure NetApp para o SAP Netweaver e SAP HANA, esteja 
 - Os Ficheiros Azure NetApp e todas as máquinas virtuais, onde serão montados volumes de Ficheiros Azure NetApp, devem estar na mesma Rede Virtual Azure ou em [redes virtuais na](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) mesma região.  
 - A rede virtual selecionada deve ter uma subnet, delegada nos Ficheiros Azure NetApp.
 - A produção de um volume Azure NetApp é uma função do nível de quota de volume e de serviço, tal como documentado no nível de [Serviço para Ficheiros Azure NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). Ao dimensionar os volumes HANA Azure NetApp, certifique-se de que a entrada resultante satisfaz os requisitos do sistema HANA.  
-- O Azure NetApp Files oferece política de [exportação:](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy)pode controlar os clientes permitidos, o tipo de acesso (Read&Write, Read Only, etc.). 
+- O Azure NetApp Files oferece política de [exportação:](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy)pode controlar os clientes permitidos, o tipo de acesso (Ler&Escrever, Ler Apenas, etc.). 
 - A funcionalidade De Ficheiros Azure NetApp ainda não está ciente da zona. Atualmente, a funcionalidade Azure NetApp Files não está implementada em todas as zonas de disponibilidade de uma região do Azure. Esteja ciente das potenciais implicações de latência em algumas regiões de Azure.  
 - É importante que as máquinas virtuais se desloque nas proximidades do armazenamento Azure NetApp para baixa latência. 
-- O ID do utilizador para <b>sid</b>adm e o ID do grupo para `sapsys` nas máquinas virtuais devem corresponder à configuração nos Ficheiros Azure NetApp. 
+- O ID <b>sid</b>do utilizador para sid `sapsys` adm e o ID do grupo para as máquinas virtuais devem coincidir com a configuração em Ficheiros Azure NetApp. 
 
 > [!IMPORTANT]
 > Para as cargas de trabalho da SAP HANA, a baixa latência é crítica. Trabalhe com o seu representante da Microsoft para garantir que as máquinas virtuais e os volumes de Ficheiros Azure NetApp são implantados nas proximidades.  
 
 > [!IMPORTANT]
-> Se houver um desfasamento entre o ID do utilizador para <b>sid</b>adm e o ID do grupo para `sapsys` entre a máquina virtual e a configuração Azure NetApp, as permissões para ficheiros em volumes Azure NetApp, montados em máquinas virtuais, serão apresentadas como `nobody`. Certifique-se de especificar o ID de utilizador correto para <b>sid</b>adm e o ID do grupo para `sapsys`, quando [embarcar um novo sistema](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) para Ficheiros Azure NetApp.
+> Se houver um desfasamento entre o `sapsys` ID do utilizador para <b>sid</b>adm e o ID do grupo entre a máquina virtual e a configuração `nobody`Azure NetApp, as permissões para ficheiros em volumes Azure NetApp, montados em máquinas virtuais, serão apresentadas como . Certifique-se de especificar o <b>sid</b>ID de utilizador `sapsys`correto para sid adm e o ID do grupo para, quando [embarcar um novo sistema](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) para Ficheiros Azure NetApp.
 
 ### <a name="sizing-for-hana-database-on-azure-netapp-files"></a>Dimensionamento para base de dados HANA em Ficheiros Azure NetApp
 
@@ -283,7 +283,7 @@ Os limites de produção dos [Ficheiros Azure NetApp](https://docs.microsoft.com
 > [!IMPORTANT]
 > Independentemente da capacidade que desloque num único volume NFS, espera-se que o planalto atinja a largura de banda de 1,2-1,4 GB/seg alavancada por um consumidor numa máquina virtual. Isto tem a ver com a arquitetura subjacente da oferta da ANF e os limites de sessão linux relacionados em torno do NFS. Os números de desempenho e de desempenho, tal como documentados no artigo, foram realizados resultados de testes de [referência de desempenho para Ficheiros Azure NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-performance-benchmarks) contra um volume NFS partilhado com vários VMs de clientes e como resultado com várias sessões. Este cenário é diferente do cenário que medimos no SAP. Quando medimos a entrada de um único VM contra um volume NFS. hospedado na ANF.
 
-Para satisfazer os requisitos mínimos de entrada de dados e registo sapeianos e, de acordo com as diretrizes para `/hana/shared`, os tamanhos recomendados seriam:
+Para satisfazer os requisitos mínimos de entrada de dados e `/hana/shared`registo sapeios os dados e registos, e de acordo com as diretrizes para, os tamanhos recomendados seriam:
 
 | Volume | Tamanho<br /> Nível de armazenamento premium | Tamanho<br /> Nível ultra armazenamento | Protocolo NFS suportado |
 | --- | --- | --- |
@@ -298,7 +298,7 @@ Para satisfazer os requisitos mínimos de entrada de dados e registo sapeianos e
 Por isso, pode considerar a implementação de um misto semelhante para os volumes ANF listados para armazenamento de discos Ultra já. Considere também os tamanhos dos tamanhos listados para os volumes para as diferentes VM SKUs já feitas nas tabelas de discos Ultra.
 
 > [!TIP]
-> Pode redimensionar os volumes do Azure NetApp Files de forma dinâmica, sem a necessidade de `unmount` os volumes, parar as máquinas virtuais ou parar o SAP HANA. Isso permite flexibilidade para satisfazer a sua aplicação, tanto esperadas como imprevistas exigências de entrada.
+> Pode redimensionar os volumes do Azure NetApp `unmount` Files de forma dinâmica, sem a necessidade dos volumes, parar as máquinas virtuais ou parar o SAP HANA. Isso permite flexibilidade para satisfazer a sua aplicação, tanto esperadas como imprevistas exigências de entrada.
 
 A documentação sobre como implementar uma configuração de escala SAP HANA com nó de standby utilizando volumes NFS v4.1 que estão hospedados na ANF é publicada em [escala SAP HANA com nó de standby em VMs Azure com Ficheiros Azure NetApp no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse).
 

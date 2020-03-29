@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 04/17/2019
 ms.openlocfilehash: 74177136a7a61186ab1d273b57dbfce550a18ecf
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77914539"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Pré-visualização - Proteja o seu cluster utilizando políticas de segurança do pod no Serviço Azure Kubernetes (AKS)
@@ -25,7 +25,7 @@ Para melhorar a segurança do seu cluster AKS, pode limitar o que as cápsulas p
 
 Este artigo assume que você tem um aglomerado AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
-Precisa da versão Azure CLI 2.0.61 ou posteriormente instalada e configurada. Execute `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
+Precisa da versão Azure CLI 2.0.61 ou posteriormente instalada e configurada. Corra `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
 
 ### <a name="install-aks-preview-cli-extension"></a>Instale a extensão CLI de pré-visualização de aks
 
@@ -132,7 +132,7 @@ subjects:
 
 ## <a name="create-a-test-user-in-an-aks-cluster"></a>Criar um utilizador de teste num cluster AKS
 
-Por padrão, quando se utiliza o comando de [credenciais az aks,][az-aks-get-credentials] as credenciais *de administração* para o cluster AKS são adicionadas ao seu `kubectl` config. O utilizador administrativo ignora a aplicação das políticas de segurança do pod. Se utilizar a integração do Diretório Ativo Azure para os seus clusters AKS, poderá iniciar sessão com as credenciais de um utilizador não administrador para ver a aplicação das políticas em ação. Neste artigo, vamos criar uma conta de utilizador de teste no cluster AKS que pode usar.
+Por padrão, quando se utiliza o comando [az aks get-credentials,][az-aks-get-credentials] as credenciais *de administração* para o cluster AKS são adicionadas ao seu `kubectl` config. O utilizador administrativo ignora a aplicação das políticas de segurança do pod. Se utilizar a integração do Diretório Ativo Azure para os seus clusters AKS, poderá iniciar sessão com as credenciais de um utilizador não administrador para ver a aplicação das políticas em ação. Neste artigo, vamos criar uma conta de utilizador de teste no cluster AKS que pode usar.
 
 Crie um espaço de nome de amostra chamado *PSP-aks* para testar recursos usando o [kubectl criar][kubectl-create] comando espaço de nome. Em seguida, crie uma conta de serviço chamada *nonadmin-user* usando o comando de conta de [serviço de criação kubectl:][kubectl-create]
 
@@ -153,7 +153,7 @@ kubectl create rolebinding \
 
 ### <a name="create-alias-commands-for-admin-and-non-admin-user"></a>Criar comandos de pseudónimos para administração e utilizador não-administrador
 
-Para realçar a diferença entre o utilizador administrativo regular ao utilizar `kubectl` e o utilizador não administrador criado nos passos anteriores, crie dois pseudónimos de linha de comando:
+Para realçar a diferença entre o `kubectl` utilizador administrativo regular ao utilizar e o utilizador não administrador criado nos passos anteriores, crie dois pseudónimos de linha de comando:
 
 * O pseudónimo **kubectl-admin** é para o utilizador administrativo regular, e é mirado para o espaço de nome da *PSP-aks.*
 * O pseudónimo **kubectl-nonadminuser destina-se** ao utilizador de *nonadmin* criado no passo anterior, e é orientado para o espaço de nome saque da *PSP-AKS.*
@@ -167,9 +167,9 @@ alias kubectl-nonadminuser='kubectl --as=system:serviceaccount:psp-aks:nonadmin-
 
 ## <a name="test-the-creation-of-a-privileged-pod"></a>Teste a criação de uma cápsula privilegiada
 
-Vamos primeiro testar o que acontece quando se marca uma cápsula com o contexto de segurança de `privileged: true`. Este contexto de segurança aumenta os privilégios da cápsula. Na secção anterior que mostrou as políticas de segurança padrão do casulo AKS, a política *restrita* deve negar este pedido.
+Vamos primeiro testar o que acontece quando se marca `privileged: true`uma cápsula com o contexto de segurança de . Este contexto de segurança aumenta os privilégios da cápsula. Na secção anterior que mostrou as políticas de segurança padrão do casulo AKS, a política *restrita* deve negar este pedido.
 
-Crie um ficheiro chamado `nginx-privileged.yaml` e cola o seguinte manifesto YAML:
+Crie um `nginx-privileged.yaml` ficheiro nomeado e cola o seguinte manifesto YAML:
 
 ```yaml
 apiVersion: v1
@@ -204,7 +204,7 @@ A cápsula não chega à fase de agendamento, por isso não há recursos para ap
 
 No exemplo anterior, a especificação do pod solicitou uma escalada privilegiada. Este pedido é negado pela política de segurança *restrita* do pod, pelo que a cápsula não está programada. Vamos tentar agora executar a mesma cápsula NGINX sem o pedido de escalada de privilégios.
 
-Crie um ficheiro chamado `nginx-unprivileged.yaml` e cola o seguinte manifesto YAML:
+Crie um `nginx-unprivileged.yaml` ficheiro nomeado e cola o seguinte manifesto YAML:
 
 ```yaml
 apiVersion: v1
@@ -223,7 +223,7 @@ Crie a cápsula utilizando o [kubectl aplique][kubectl-apply] o comando e especi
 kubectl-nonadminuser apply -f nginx-unprivileged.yaml
 ```
 
-O programador kubernetes aceita o pedido da cápsula. No entanto, se olharmos para o estado da cápsula usando `kubectl get pods`, há um erro:
+O programador kubernetes aceita o pedido da cápsula. No entanto, se olharpara o `kubectl get pods`estado da cápsula usando, há um erro:
 
 ```console
 $ kubectl-nonadminuser get pods
@@ -264,9 +264,9 @@ kubectl-nonadminuser delete -f nginx-unprivileged.yaml
 
 ## <a name="test-creation-of-a-pod-with-a-specific-user-context"></a>Testar a criação de um casulo com um contexto específico do utilizador
 
-No exemplo anterior, a imagem do recipiente tentou automaticamente utilizar a raiz para ligar o NGINX à porta 80. Este pedido foi negado pela política de segurança *restrita* do pod, pelo que a cápsula não começou. Vamos tentar agora executar o mesmo casulo NGINX com um contexto de utilizador específico, como `runAsUser: 2000`.
+No exemplo anterior, a imagem do recipiente tentou automaticamente utilizar a raiz para ligar o NGINX à porta 80. Este pedido foi negado pela política de segurança *restrita* do pod, pelo que a cápsula não começou. Vamos tentar agora executar o mesmo casulo NGINX `runAsUser: 2000`com um contexto específico de utilizador, como .
 
-Crie um ficheiro chamado `nginx-unprivileged-nonroot.yaml` e cola o seguinte manifesto YAML:
+Crie um `nginx-unprivileged-nonroot.yaml` ficheiro nomeado e cola o seguinte manifesto YAML:
 
 ```yaml
 apiVersion: v1
@@ -287,7 +287,7 @@ Crie a cápsula utilizando o [kubectl aplique][kubectl-apply] o comando e especi
 kubectl-nonadminuser apply -f nginx-unprivileged-nonroot.yaml
 ```
 
-O programador kubernetes aceita o pedido da cápsula. No entanto, se olharmos para o estado da cápsula usando `kubectl get pods`, há um erro diferente do exemplo anterior:
+O programador kubernetes aceita o pedido da cápsula. No entanto, se olharmos para `kubectl get pods`o estado da cápsula utilizando, há um erro diferente do exemplo anterior:
 
 ```console
 $ kubectl-nonadminuser get pods
@@ -349,7 +349,7 @@ Agora que viu o comportamento das políticas de segurança padrão do pod, vamos
 
 Vamos criar uma política para rejeitar pods que pedem acesso privilegiado. Outras opções, tais como *runAsUser* ou *volumes permitidos,* não são explicitamente restritas. Este tipo de política nega um pedido de acesso privilegiado, mas de outra forma permite que o cluster execute as cápsulas solicitadas.
 
-Crie um ficheiro chamado `psp-deny-privileged.yaml` e cola o seguinte manifesto YAML:
+Crie um `psp-deny-privileged.yaml` ficheiro nomeado e cola o seguinte manifesto YAML:
 
 ```yaml
 apiVersion: policy/v1beta1
@@ -390,7 +390,7 @@ psp-deny-privileged   false          RunAsAny   RunAsAny           RunAsAny    R
 
 No passo anterior, criou uma política de segurança para rejeitar cápsulas que solicitam acesso privilegiado. Para permitir a sua adoção da política, cria-se um *Papel* ou um *ClusterRole*. Em seguida, associa uma destas funções usando uma *RoleBinding* ou *ClusterRoleBinding*.
 
-Para este exemplo, crie um ClusterRole que lhe permita *utilizar* a política privilegiada da *PSP* criada no passo anterior. Crie um ficheiro chamado `psp-deny-privileged-clusterrole.yaml` e cola o seguinte manifesto YAML:
+Para este exemplo, crie um ClusterRole que lhe permita *utilizar* a política privilegiada da *PSP* criada no passo anterior. Crie um `psp-deny-privileged-clusterrole.yaml` ficheiro nomeado e cola o seguinte manifesto YAML:
 
 ```yaml
 kind: ClusterRole
@@ -414,7 +414,7 @@ Crie o ClusterRole utilizando o comando de [aplicação kubectl][kubectl-apply] 
 kubectl apply -f psp-deny-privileged-clusterrole.yaml
 ```
 
-Agora crie um ClusterRoleBinding para utilizar o ClusterRole criado no passo anterior. Crie um ficheiro chamado `psp-deny-privileged-clusterrolebinding.yaml` e cola o seguinte manifesto YAML:
+Agora crie um ClusterRoleBinding para utilizar o ClusterRole criado no passo anterior. Crie um `psp-deny-privileged-clusterrolebinding.yaml` ficheiro nomeado e cola o seguinte manifesto YAML:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1beta1
@@ -442,7 +442,7 @@ kubectl apply -f psp-deny-privileged-clusterrolebinding.yaml
 
 ## <a name="test-the-creation-of-an-unprivileged-pod-again"></a>Teste a criação de uma cápsula desfavorecida novamente
 
-Com a sua política de segurança de pod personalizada aplicada e uma ligação para a conta de utilizador usar a apólice, vamos tentar criar uma cápsula desprivilegiada novamente. Utilize o mesmo manifesto `nginx-privileged.yaml` para criar a cápsula utilizando o [comando de aplicação kubectl:][kubectl-apply]
+Com a sua política de segurança de pod personalizada aplicada e uma ligação para a conta de utilizador usar a apólice, vamos tentar criar uma cápsula desprivilegiada novamente. Utilize o `nginx-privileged.yaml` mesmo manifesto para criar a cápsula utilizando o [comando de aplicação kubectl:][kubectl-apply]
 
 ```console
 kubectl-nonadminuser apply -f nginx-unprivileged.yaml

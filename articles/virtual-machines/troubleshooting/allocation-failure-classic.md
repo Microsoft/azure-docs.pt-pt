@@ -13,13 +13,13 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 20e64e5225987a8045e406a0e8fcae098c580c61
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77913383"
 ---
-# <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Passos de resolução de problemas específicos para cenários de falha de alocação no modelo clássico de implementação
+# <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Passos de resolução de problemas específicos para cenários de falha de alocação no modelo de implementação clássica
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
@@ -50,7 +50,7 @@ Upgrade_VMSizeNotSupported ou GeneralError
 
 Um pedido para redimensionar um VM ou adicionar um VM ou uma instância de papel a um serviço de nuvem existente tem que ser tentado no cluster original que acolhe o serviço de nuvem existente. A criação de um novo serviço na nuvem permite à plataforma Azure encontrar outro cluster que tenha recursos gratuitos ou suporte o tamanho VM que solicitou.
 
-**Solução**
+**Supor**
 
 Se o erro for Upgrade_VMSizeNotSupported*, tente um tamanho VM diferente. Se utilizar um tamanho VM diferente não é uma opção, mas se for aceitável usar um diferente endereço IP virtual (VIP), crie um novo serviço na nuvem para acolher o novo VM e adicione o novo serviço de nuvem à rede virtual regional onde estão a funcionar os VMs existentes. Se o seu serviço de nuvem existente não utilizar uma rede virtual regional, ainda pode criar uma nova rede virtual para o novo serviço de nuvem e, em seguida, ligar a sua [rede virtual existente à nova rede virtual](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Veja mais sobre [as redes virtuais regionais.](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)
 
@@ -65,7 +65,7 @@ Erro Geral*
 
 Desalocação parcial significa que parou (deallocated) um ou mais, mas não todos, VMs em um serviço na nuvem. Quando para (desalocar) um VM, os recursos associados são libertados. Reiniciar essa VM interrompida (negociada) é, portanto, um novo pedido de atribuição. Reiniciar vMs num serviço de nuvem parcialmente deallocated é equivalente a adicionar VMs a um serviço de nuvem existente. O pedido de atribuição deve ser tentado no cluster original que acolhe o serviço de nuvem existente. A criação de um serviço de nuvem diferente permite à plataforma Azure encontrar outro cluster que tenha recursos gratuitos ou suporte o tamanho VM que solicitou.
 
-**Solução**
+**Supor**
 
 Se for aceitável utilizar um VIP diferente, elimine os VMs parados (mas mantenha os discos associados) e adicione os VMs de volta através de um serviço de nuvem diferente. Utilize uma rede virtual regional para ligar os seus serviços na nuvem:
 
@@ -81,7 +81,7 @@ Erro Geral*
 
 Desalocação total significa que parou (deallocated) todos os VMs de um serviço na nuvem. Os pedidos de atribuição para reiniciar estes VMs têm de ser tentados no cluster original que acolhe o serviço de nuvem. A criação de um novo serviço na nuvem permite à plataforma Azure encontrar outro cluster que tenha recursos gratuitos ou suporte o tamanho VM que solicitou.
 
-**Solução**
+**Supor**
 
 Se for aceitável utilizar um VIP diferente, elimine os VMs originais parados (mas mantenham os discos associados) e elimine o serviço de nuvem correspondente (os recursos de cálculo associados já foram lançados quando parou (deallocated) os VMs). Crie um novo serviço de nuvem para adicionar os VMs de volta.
 
@@ -94,7 +94,7 @@ New_General* ou New_VMSizeNotSupported*
 
 A implantação da encenação e a implantação da produção de um serviço em nuvem estão alojadas no mesmo cluster. Quando adicionar a segunda implantação, o pedido de atribuição correspondente será tentado no mesmo cluster que acolhe a primeira implantação.
 
-**Solução**
+**Supor**
 
 Elimine a primeira implementação e o serviço original de nuvem e reimplante o serviço de nuvem. Esta ação pode aterrar a primeira implantação num cluster que tem recursos livres suficientes para se adaptar tanto a implantações como a um cluster que suporta os tamanhos vm que solicitou.
 
@@ -107,7 +107,7 @@ New_General* ou New_VMSizeNotSupported*
 
 Qualquer recurso computacional atribuído a um grupo de afinidade está ligado a um cluster. Novos pedidos de recursos computacionais nesse grupo de afinidade são tentados no mesmo cluster onde os recursos existentes são hospedados. Isto é verdade se os novos recursos são criados através de um novo serviço na nuvem ou através de um serviço de nuvem existente.
 
-**Solução**
+**Supor**
 
 Se um grupo de afinidade não for necessário, não utilize um grupo de afinidade, nem agrupa os seus recursos de computação em múltiplos grupos de afinidade.
 
@@ -120,7 +120,7 @@ New_General* ou New_VMSizeNotSupported*
 
 Antes da introdução das redes virtuais regionais, era necessário associar uma rede virtual a um grupo de afinidades. Como resultado, os recursos computacionais colocados num grupo de afinidade estão vinculados pelos mesmos constrangimentos descritos na secção "Alocação: Grupo affinity (VM/proximidade de serviço)" acima. Os recursos computacionais estão ligados a um cluster.
 
-**Solução**
+**Supor**
 
 Se não precisa de um grupo de afinidades, crie uma nova rede virtual regional para os novos recursos que adiciona e, em seguida, [ligue a sua rede virtual existente à nova rede virtual](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Veja mais sobre [as redes virtuais regionais.](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)
 

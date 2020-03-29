@@ -16,10 +16,10 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga
 ms.openlocfilehash: a79e718c04f81b1552d63ab98b6dcd6bb428fb50
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77918342"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Use miniaturas de vídeo azure media para criar uma sumtualização de vídeo  
@@ -63,7 +63,7 @@ Atualmente, pode alterar os seguintes parâmetros:
 | --- | --- |
 | outputAudio |Especifica se o vídeo resultante contém ou não algum áudio. <br/>Os valores permitidos são: Verdadeiros ou Falsos. O padrão é verdade. |
 | fadeInFadeOut |Especifica se as transições desvanecimento são ou não utilizadas entre as miniaturas de movimento separadas.  <br/>Os valores permitidos são: Verdadeiros ou Falsos.  O padrão é verdade. |
-| maxMotionThumbnailDurationInSecs |Inteiro que especifica quanto tempo todo o vídeo resultante deve ser.  O padrão depende da duração original do vídeo. |
+| maxMotionMiniaturaDurationInSecs |Inteiro que especifica quanto tempo todo o vídeo resultante deve ser.  O padrão depende da duração original do vídeo. |
 
 A tabela seguinte descreve a duração predefinida, quando não é utilizado **maxMotionMiniaturaInSecs.**
 

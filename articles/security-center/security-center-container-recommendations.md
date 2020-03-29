@@ -14,13 +14,13 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: memildin
 ms.openlocfilehash: b1e1402f58b103570d6a98a5f9a01c8168abf749
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77912367"
 ---
-# <a name="understand-azure-security-center-container-recommendations"></a>Compreender as recomendações do centro de segurança Azure
+# <a name="understand-azure-security-center-container-recommendations"></a>Compreender as recomendações do contentor do Centro de Segurança do Azure
 
 À medida que migra as suas aplicações monólitos para executar aplicações nativas em nuvem em produção, pode aproveitar as características dos contentores, incluindo fácil e rápida implantação e atualização. À medida que o número de contentores implantados continua a aumentar, as soluções de segurança precisam de estar em vigor para lhe proporcionar visibilidade para o estado de segurança dos seus contentores e ajudar a protegê-los de ameaças.
 
@@ -48,9 +48,9 @@ Utilize as tabelas abaixo como referência para ajudá-lo a entender os recipien
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte o seguinte:
+Para saber mais sobre recomendações aplicáveis a outros tipos de recursos Azure, consulte o seguinte:
 
-* [Monitor identity and access in Azure Security Center](security-center-identity-access.md) (Monitorizar a identidade e o acesso no Centro de Segurança do Azure)
+* [Monitorizar a identidade e o acesso no Centro de Segurança do Azure](security-center-identity-access.md)
 * [Proteger a sua rede no Centro de Segurança do Azure](security-center-network-recommendations.md)
 * [Proteger o seu serviço Azure SQL no Azure Security Center](security-center-sql-service-recommendations.md)
 
@@ -58,4 +58,4 @@ Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
 * [Proteger as máquinas e aplicações no Centro de Segurança do Azure](security-center-virtual-machine-protection.md)
 * [Definir políticas de segurança no Centro de Segurança do Azure](tutorial-security-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
-* [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.
+* [Gerir e responder a alertas](security-center-managing-and-responding-alerts.md) de segurança no Centro de Segurança Azure -- Aprenda a gerir e responder a alertas de segurança.

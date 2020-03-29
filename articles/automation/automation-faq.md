@@ -8,17 +8,17 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/25/2020
 ms.openlocfilehash: 129a5316c2e7be329b479c79706791e993d20b74
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77925816"
 ---
 # <a name="azure-automation-frequently-asked-questions"></a>A Automação Azure frequentemente fez perguntas
 
-Esta FAQ da Microsoft é uma lista de perguntas comumente feitas sobre a Automação Azure. Se tiver alguma dúvida adicional sobre as suas capacidades, vá ao fórum de discussão e publique as suas perguntas. Quando uma pergunta é colocada frequentemente, adicionamo-la a este artigo para que ele pode ser encontrado rapidamente e facilmente.
+Esta FAQ da Microsoft é uma lista de perguntas comumente feitas sobre a Automação Azure. Se tiver alguma dúvida adicional sobre as suas capacidades, vá ao fórum de discussão e publique as suas perguntas. Quando uma pergunta é frequentemente feita, adicionamo-la a este artigo para que possa ser encontrado de forma rápida e fácil.
 
-## <a name="update-management-solution"></a>Solução de Gestão de Atualização
+## <a name="update-management-solution"></a>Solução de Gestão de Atualizações
 
 ### <a name="can-i-prevent-unexpected-os-level-upgrades"></a>Posso evitar atualizações inesperadas ao nível do OS?
 
@@ -38,8 +38,8 @@ Implementar atualizações por classificação de atualização não funciona em
 
 ### <a name="can-i-deploy-updates-across-azure-tenants"></a>Posso implementar atualizações entre os inquilinos do Azure?
 
-Se tiver máquinas noutro inquilino azure a reportar à Atualização de Gestão que precisa de corrigir, terá de utilizar a seguinte seleção para as marcar. Pode utilizar o [cmdlet New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) com o interruptor `-ForUpdate` para criar uma programação e utilizar o [cmdlet New-AzureRmAutomationSoftwareUpdateE](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
-) e passar as máquinas do outro inquilino para o parâmetro `-NonAzureComputer`. O exemplo que se segue mostra como fazê-lo:
+Se tiver máquinas noutro inquilino azure a reportar à Atualização de Gestão que precisa de corrigir, terá de utilizar a seguinte seleção para as marcar. Pode utilizar o [cmdlet New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) com o `-ForUpdate` interruptor para criar uma programação e utilizar o [cmdlet New-AzureRmAutomationSoftwareUpdateE](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
+) e passar as máquinas do outro inquilino para o `-NonAzureComputer` parâmetro. O exemplo que se segue mostra como fazê-lo:
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")

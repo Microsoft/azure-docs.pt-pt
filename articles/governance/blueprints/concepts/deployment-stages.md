@@ -1,58 +1,58 @@
 ---
 title: Fases da implementação de um esquema
-description: Conheça as etapas relacionadas à segurança e ao artefato que os serviços de plantas do Azure passam ao criar uma atribuição de plano gráfico.
+description: Aprenda as etapas relacionadas com a segurança e artefactos que os serviços Azure Blueprints passam enquanto criam uma atribuição de plantas.
 ms.date: 11/13/2019
 ms.topic: conceptual
 ms.openlocfilehash: daa7722fa37547929aa21b76b870f70143ae71ab
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76156629"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Fases da implementação de um esquema
 
-Quando um plano gráfico é implantado, uma série de ações é realizada pelo serviço de plantas do Azure para implantar os recursos definidos no plano gráfico. Este artigo fornece detalhes sobre o que cada etapa envolve.
+Quando uma planta é implementada, uma série de ações é tomada pelo serviço Azure Blueprints para implementar os recursos definidos no projeto. Este artigo fornece detalhes sobre o que cada passo envolve.
 
-A implantação Blueprint é disparada atribuindo um plano gráfico a uma assinatura ou [atualizando uma atribuição existente](../how-to/update-existing-assignments.md). Durante a implantação, os planos gráficos assumem as seguintes etapas de alto nível:
+A implementação do projeto é desencadeada atribuindo uma planta a uma subscrição ou [atualizando uma atribuição existente](../how-to/update-existing-assignments.md). Durante a implantação, as Plantas toma os seguintes passos de alto nível:
 
 > [!div class="checklist"]
-> - Direitos de proprietário concedidos aos plantas
-> - O objeto de atribuição Blueprint é criado
-> - Opcional-os planos gráficos criam identidade gerenciada **atribuída pelo sistema**
-> - A identidade gerenciada implanta artefatos do Blueprint
-> - O serviço Blueprint e direitos de identidade gerenciada **atribuídos pelo sistema** são revogados
+> - Plantas concedidas direitos de proprietário
+> - O objeto de atribuição de plantas é criado
+> - Opcional - Plantas criam identidade gerida **atribuída pelo sistema**
+> - A identidade gerida implementa artefactos de plantas
+> - O serviço de plantas e os direitos de identidade geridos **atribuídos** pelo sistema são revogados
 
-## <a name="blueprints-granted-owner-rights"></a>Direitos de proprietário concedidos aos plantas
+## <a name="blueprints-granted-owner-rights"></a>Plantas concedidas direitos de proprietário
 
-A entidade de serviço de plantas do Azure recebe direitos de proprietário para a assinatura ou assinaturas atribuídas quando uma identidade gerenciada de identidade gerenciada [atribuída pelo sistema](../../../active-directory/managed-identities-azure-resources/overview.md) é usada. A função concedida permite que plantas criem e, posteriormente, revogam a identidade gerenciada **atribuída pelo sistema** . Se estiver usando uma identidade gerenciada **atribuída pelo usuário** , a entidade de serviço dos planos gráficos do Azure não obterá nem precisará de direitos de proprietário na assinatura.
+O diretor de serviço seletiva azure é concedido direitos de proprietário para a subscrição ou subscrições atribuídas quando uma identidade gerida por identidade gerida [pelo sistema](../../../active-directory/managed-identities-azure-resources/overview.md) é utilizada. O papel concedido permite que as Plantas criem, e mais tarde, a identidade gerida atribuída pelo **sistema.** Se utilizar uma identidade gerida atribuída ao **utilizador,** o diretor de serviço seletiva do Azure Blueprints não obtém e não precisa dos direitos do proprietário na subscrição.
 
-Os direitos serão concedidos automaticamente se a atribuição for feita por meio do Portal. No entanto, se a atribuição for feita por meio da API REST, a concessão dos direitos precisará ser feita com uma chamada à API separada. A AppId dos planos gráficos do Azure é `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`, mas a entidade de serviço varia de acordo com o locatário. Use [Azure Active Directory API do Graph](../../../active-directory/develop/active-directory-graph-api.md) e os serviços [de ponto de](/graph/api/resources/serviceprincipal) extremidade REST para obter a entidade de serviço. Em seguida, conceda ao Azure plantas a função de _proprietário_ por meio do [portal](../../../role-based-access-control/role-assignments-portal.md), [CLI do Azure](../../../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), [API REST](../../../role-based-access-control/role-assignments-rest.md)ou um [modelo do Resource Manager](../../../role-based-access-control/role-assignments-template.md).
+Os direitos são concedidos automaticamente se a atribuição for feita através do portal. No entanto, se a atribuição for feita através da API REST, a concessão dos direitos deve ser feita com uma chamada separada da API. O Azure Blueprints `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`AppId é, mas o diretor de serviço varia de acordo com o inquilino. Utilize o [Azure Ative Directory Graph API](../../../active-directory/develop/active-directory-graph-api.md) e os [serviços](/graph/api/resources/serviceprincipal) endpoint REST para obter o diretor de serviço. Em seguida, conceda ao Azure Blueprints a função _Proprietário_ através do [Portal](../../../role-based-access-control/role-assignments-portal.md), [Azure CLI,](../../../role-based-access-control/role-assignments-cli.md) [Azure PowerShell,](../../../role-based-access-control/role-assignments-powershell.md) [REST API,](../../../role-based-access-control/role-assignments-rest.md)ou um modelo de Gestor de [Recursos](../../../role-based-access-control/role-assignments-template.md).
 
-O serviço de plantas não implanta diretamente os recursos.
+O serviço Blueprints não implanta diretamente os recursos.
 
-## <a name="the-blueprint-assignment-object-is-created"></a>O objeto de atribuição Blueprint é criado
+## <a name="the-blueprint-assignment-object-is-created"></a>O objeto de atribuição de plantas é criado
 
-Um usuário, grupo ou entidade de serviço atribui um plano gráfico a uma assinatura. O objeto de atribuição existe no nível de assinatura em que o plano gráfico foi atribuído. Os recursos criados pela implantação não são feitos no contexto da entidade de implantação.
+Um utilizador, grupo ou diretor de serviço atribui uma planta a uma subscrição. O objeto de atribuição existe ao nível da subscrição onde a planta foi atribuída. Os recursos criados pela implantação não são feitos no contexto da entidade de implantação.
 
-Ao criar a atribuição Blueprint, o tipo de [identidade gerenciada](../../../active-directory/managed-identities-azure-resources/overview.md) é selecionado. O padrão é uma identidade gerenciada **atribuída pelo sistema** . Uma identidade gerenciada **atribuída pelo usuário** pode ser escolhida. Ao usar uma identidade gerenciada **atribuída pelo usuário** , ela deve ser definida e ter permissões concedidas antes que a atribuição Blueprint seja criada. As funções internas do [operador](../../../role-based-access-control/built-in-roles.md#blueprint-operator) de [proprietário](../../../role-based-access-control/built-in-roles.md#owner) e do Blueprint têm a permissão de `blueprintAssignment/write` necessária para criar uma atribuição que usa uma identidade gerenciada **atribuída pelo usuário** .
+Ao criar a atribuição da planta, o tipo de [identidade gerida](../../../active-directory/managed-identities-azure-resources/overview.md) é selecionado. O padrão é uma identidade gerida **atribuída pelo sistema.** Pode ser escolhida uma identidade gerida atribuída ao **utilizador.** Ao utilizar uma identidade gerida atribuída ao **utilizador,** deve ser definida e concedida permissões antes da criação da atribuição do projeto. Tanto as funções [de Proprietário](../../../role-based-access-control/built-in-roles.md#owner) como de Operador de [Plantas](../../../role-based-access-control/built-in-roles.md#blueprint-operator) têm a permissão necessária `blueprintAssignment/write` para criar uma atribuição que utilize uma identidade gerida atribuída ao **utilizador.**
 
-## <a name="optional---blueprints-creates-system-assigned-managed-identity"></a>Opcional-os planos gráficos criam identidade gerenciada atribuída pelo sistema
+## <a name="optional---blueprints-creates-system-assigned-managed-identity"></a>Opcional - Plantas criam identidade gerida atribuída pelo sistema
 
-Quando a [identidade gerenciada atribuída pelo sistema](../../../active-directory/managed-identities-azure-resources/overview.md) é selecionada durante a atribuição, plantas cria a identidade e concede à identidade gerenciada a função de [proprietário](../../../role-based-access-control/built-in-roles.md#owner) . Se uma [atribuição existente for atualizada](../how-to/update-existing-assignments.md), os planos gráficos usarão a identidade gerenciada criada anteriormente.
+Quando a [identidade gerida atribuída](../../../active-directory/managed-identities-azure-resources/overview.md) ao sistema é selecionada durante a atribuição, as Plantas criam a identidade e concedem à identidade gerida a função do [proprietário.](../../../role-based-access-control/built-in-roles.md#owner) Se uma [atribuição existente for atualizada,](../how-to/update-existing-assignments.md)as Plantas utilizam a identidade gerida anteriormente criada.
 
-A identidade gerenciada relacionada à atribuição Blueprint é usada para implantar ou reimplantar os recursos definidos no plano gráfico. Esse design evita que as atribuições interfiram inadvertidamente entre si.
-Esse design também dá suporte ao recurso de [bloqueio de recursos](./resource-locking.md) controlando a segurança de cada recurso implantado do plano gráfico.
+A identidade gerida relacionada com a atribuição do projeto é utilizada para implantar ou redistribuir os recursos definidos no projeto. Este desenho evita atribuições inadvertidamente interferindo entre si.
+Este design também suporta a funcionalidade de bloqueio de [recursos](./resource-locking.md) controlando a segurança de cada recurso implantado a partir da planta.
 
-## <a name="the-managed-identity-deploys-blueprint-artifacts"></a>A identidade gerenciada implanta artefatos do Blueprint
+## <a name="the-managed-identity-deploys-blueprint-artifacts"></a>A identidade gerida implementa artefactos de plantas
 
-Em seguida, a identidade gerenciada dispara as implantações do Resource Manager dos artefatos dentro do plano gráfico na [ordem de sequenciamento](./sequencing-order.md)definida. A ordem pode ser ajustada para garantir que os artefatos dependentes de outros artefatos sejam implantados na ordem correta.
+A identidade gerida desencadeia então as implantações do Gestor de Recursos dos artefactos dentro da planta na ordem de [sequenciação](./sequencing-order.md)definida . A ordem pode ser ajustada para garantir que os artefactos dependentes de outros artefactos sejam implantados na ordem correta.
 
-Uma falha de acesso por uma implantação é geralmente o resultado do nível de acesso concedido à identidade gerenciada. O serviço de plantas gerencia o ciclo de vida de segurança da identidade gerenciada **atribuída pelo sistema** . No entanto, o usuário é responsável por gerenciar os direitos e o ciclo de vida de uma identidade gerenciada **atribuída pelo usuário** .
+Uma falha de acesso por uma implantação é muitas vezes o resultado do nível de acesso concedido à identidade gerida. O serviço Blueprints gere o ciclo de vida de segurança da identidade gerida atribuída pelo **sistema.** No entanto, o utilizador é responsável pela gestão dos direitos e ciclo de vida de uma identidade gerida atribuída ao **utilizador.**
 
-## <a name="blueprint-service-and-system-assigned-managed-identity-rights-are-revoked"></a>O serviço Blueprint e direitos de identidade gerenciada atribuídos pelo sistema são revogados
+## <a name="blueprint-service-and-system-assigned-managed-identity-rights-are-revoked"></a>O serviço de plantas e os direitos de identidade geridos atribuídos pelo sistema são revogados
 
-Depois que as implantações forem concluídas, as plantas revogarão os direitos da identidade gerenciada **atribuída pelo sistema** da assinatura. Em seguida, o serviço de plantas revoga seus direitos da assinatura. A remoção de direitos impede que plantas se tornem um proprietário permanente em uma assinatura.
+Uma vez concluídas as implementações, as Plantas revogam os direitos da identidade gerida atribuída pelo **sistema** a partir da subscrição. Em seguida, o serviço Blueprints revoga os seus direitos da subscrição. A remoção de direitos impede que as Plantas se tornem proprietárias permanentes numa subscrição.
 
 ## <a name="next-steps"></a>Passos seguintes
 

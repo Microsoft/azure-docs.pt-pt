@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
 ms.openlocfilehash: d8309a69c9c38610fa7bea3fee202a60d836980c
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78945061"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale on Azure
@@ -73,13 +73,13 @@ Esta arquitetura executa os níveis de aplicação, armazenamento e dados em má
 
 -   O DB2 CF utiliza máquinas virtuais otimizadas pela memória, tais como séries E ou série S.
 
--   Um cluster de armazenamento partilhado que usa standard\_DS4\_máquinas virtuais v2 executando Linux.
+-   Um cluster de armazenamento\_partilhado\_que utiliza máquinas virtuais Standard DS4 v2 que executam o Linux.
 
--   A caixa de salto de gestão é uma máquina virtual Standard\_DS2\_v2 que executa o Linux.  Uma alternativa é a Azure Bastion, um serviço que fornece uma experiência segura de RDP/SSH para todos os VMs da sua rede virtual.
+-   A caixa de salto\_de\_gestão é uma máquina virtual Standard DS2 v2 que executa o Linux.  Uma alternativa é a Azure Bastion, um serviço que fornece uma experiência segura de RDP/SSH para todos os VMs da sua rede virtual.
 
--   O cliente é um Standard\_DS3\_máquina virtual v2 que executa o Windows (usada para testar).
+-   O cliente é\_uma\_máquina virtual Standard DS3 v2 que executa o Windows (utilizada para testar).
 
--   *Opcional*. Um servidor de testemunhas. Isto só é necessário com certas versões anteriores do Db2 pureScale. Este exemplo utiliza uma máquina virtual Standard\_DS3\_v2 que executa o Linux (utilizado para db2 pureScale).
+-   *Opcional.* Um servidor de testemunhas. Isto só é necessário com certas versões anteriores do Db2 pureScale. Este exemplo utiliza\_uma\_máquina virtual Standard DS3 v2 que executa o Linux (utilizado para db2 pureScale).
 
 > [!NOTE]
 > Um cluster DB2 pureScale requer pelo menos duas instâncias DB2. Também requer uma instância de cache e uma instância de lock manager.
@@ -104,6 +104,6 @@ Utilize [grupos](https://docs.microsoft.com/azure/virtual-network/virtual-networ
 
 No Azure, o DB2 pureScale precisa de utilizar o TCP/IP como ligação de rede para armazenamento.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 -   [Desloque esta arquitetura em Azure](deploy-ibm-db2-purescale-azure.md)

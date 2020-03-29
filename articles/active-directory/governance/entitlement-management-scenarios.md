@@ -17,17 +17,17 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d9d259c6e2a6ac9ced5f9a1c29d4aec08010f4dc
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78190556"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Cenários comuns na gestão de direitos da AD Azure
 
 Existem várias formas de configurar a gestão de direitos para a sua organização. No entanto, se está apenas a começar, é útil compreender os cenários comuns para administradores, proprietários de catálogos, gestores de pacotes de acesso, aprovadores e requestdores.
 
-## <a name="delegate"></a>Delegado
+## <a name="delegate"></a>Delegar
 
 ### <a name="administrator-delegate-management-of-resources"></a>Administrador: Delegar gestão de recursos
 
@@ -61,7 +61,7 @@ Existem várias formas de configurar a gestão de direitos para a sua organizaç
 
 1. [Inscreva-se no portal My Access](entitlement-management-request-access.md#sign-in-to-the-my-access-portal)
 1. Encontre pacote de acesso
-1. [Solicitar acesso](entitlement-management-request-access.md#request-an-access-package)
+1. [Pedir acesso](entitlement-management-request-access.md#request-an-access-package)
 
 ### <a name="approver-approve-requests-to-resources"></a>Aprovador: Aprovar pedidos de recursos
 
@@ -94,7 +94,7 @@ Existem várias formas de configurar a gestão de direitos para a sua organizaç
 
 1. Encontre o link do pacote de acesso que recebeu do seu contacto
 1. [Inscreva-se no portal My Access](entitlement-management-request-access.md#sign-in-to-the-my-access-portal)
-1. [Solicitar acesso](entitlement-management-request-access.md#request-an-access-package)
+1. [Pedir acesso](entitlement-management-request-access.md#request-an-access-package)
 
 ### <a name="approver-approve-requests-to-resources"></a>Aprovador: Aprovar pedidos de recursos
 
@@ -154,7 +154,7 @@ Existem várias formas de configurar a gestão de direitos para a sua organizaç
 
 ## <a name="programmatic-administration"></a>Administração programática
 
-Também pode gerir pacotes de acesso, catálogos, políticas, pedidos e atribuições usando o Microsoft Graph.  Um utilizador numa função adequada com uma aplicação que tenha a autorização delegada `EntitlementManagement.ReadWrite.All` pode chamar a API de gestão de [direitos.](https://docs.microsoft.com/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta)
+Também pode gerir pacotes de acesso, catálogos, políticas, pedidos e atribuições usando o Microsoft Graph.  Um utilizador numa função adequada com uma `EntitlementManagement.ReadWrite.All` aplicação que tenha a permissão delegada pode chamar a API de gestão de [direitos.](https://docs.microsoft.com/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 69bdd2d6825427597e9030a03aae7d219361ba25
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78671936"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acesso Condicional: Aplicações ou ações em nuvem
@@ -36,8 +36,8 @@ Os administradores podem atribuir uma política de Acesso Condicional às seguin
 - [Escritório 365 (pré-visualização)](#office-365-preview)
 - Azure Analysis Services
 - DevOps do Azure
-- [Base de Dados EArmazém de Dados Azure SQL](../../sql-database/sql-database-conditional-access.md)
-- Dinâmica CRM Online
+- [Base de Dados SQL do Azure e Azure SQL Data Warehouse](../../sql-database/sql-database-conditional-access.md)
+- Dynamics CRM Online
 - Microsoft Application Insights Analytics
 - [Proteção de Informação do Microsoft Azure](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - [Gestão Microsoft Azure](#microsoft-azure-management)
@@ -49,7 +49,7 @@ Os administradores podem atribuir uma política de Acesso Condicional às seguin
 - Microsoft Forms
 - Microsoft Intune
 - [Inscrição intune da Microsoft](/intune/enrollment/multi-factor-authentication)
-- Microsoft Planner
+- Planejador da Microsoft
 - Microsoft PowerApps
 - Pesquisa do Microsoft em Bing
 - Microsoft StaffHub
@@ -61,7 +61,7 @@ Os administradores podem atribuir uma política de Acesso Condicional às seguin
 - Office Delve
 - Poder de escritório
 - Grupos do Outlook
-- Serviço Power BI
+- Power BI Service (Serviço Power BI)
 - Project Online
 - Skype para Empresas Online
 - Rede Privada Virtual (VPN)
@@ -94,7 +94,7 @@ Aplicações-chave que estão incluídas na aplicação de clientes office 365 (
    - Skype para Empresas Online
    - Sway
 
-### <a name="microsoft-azure-management"></a>Microsoft Azure Management
+### <a name="microsoft-azure-management"></a>Gestão Microsoft Azure
 
 A aplicação Microsoft Azure Management inclui vários serviços subjacentes. 
 

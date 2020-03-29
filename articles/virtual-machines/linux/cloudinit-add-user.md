@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.openlocfilehash: f1782bfe0c14e3b44703f89ec7f78590c1bb74c5
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969229"
 ---
 # <a name="use-cloud-init-to-add-a-user-to-a-linux-vm-in-azure"></a>Use cloud-init para adicionar um utilizador a um Linux VM em Azure
@@ -33,7 +33,7 @@ users:
       - ssh-rsa AAAAB3<snip>
 ```
 > [!NOTE] 
-> O ficheiro #cloud-config inclui o parâmetro `- default` incluído. Isto irá anexar o utilizador ao utilizador administrativo existente criado durante o fornecimento. Se criar um utilizador sem o parâmetro `- default` - o utilizador de administração gerado por automóveis criado pela plataforma Azure seria substituído. 
+> O ficheiro #cloud-config `- default` inclui o parâmetro incluído. Isto irá anexar o utilizador ao utilizador administrativo existente criado durante o fornecimento. Se criar um utilizador `- default` sem o parâmetro - o utilizador de administração gerado automaticamente criado pela plataforma Azure seria substituído. 
 
 Antes de implementar esta imagem, precisa criar um grupo de recursos com o [grupo AZ criar](/cli/azure/group) comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
 
@@ -41,7 +41,7 @@ Antes de implementar esta imagem, precisa criar um grupo de recursos com o [grup
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora, crie um VM com [az vm criar](/cli/azure/vm) e especificar o ficheiro cloud-init com `--custom-data cloud_init_add_user.txt` seguinte:
+Agora, crie um VM com [az vm criar](/cli/azure/vm) `--custom-data cloud_init_add_user.txt` e especificar o ficheiro cloud-init com o seguinte:
 
 ```azurecli-interactive 
 az vm create \

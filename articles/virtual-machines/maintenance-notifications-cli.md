@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
 ms.openlocfilehash: 4ad57c1c71a51f948bd405a5487a1e27e36bfff7
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77920897"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-azure-cli"></a>Manuseamento de notificações de manutenção planeadas utilizando o Azure CLI
@@ -28,7 +28,7 @@ az vm get-instance-view -n myVM -g myResourceGroup --query instanceView.maintena
 
 ## <a name="start-maintenance"></a>Iniciar a manutenção
 
-A chamada seguinte iniciará a manutenção num VM se `IsCustomerInitiatedMaintenanceAllowed` for em vias de ser verdadeira.
+A chamada seguinte iniciará a manutenção `IsCustomerInitiatedMaintenanceAllowed` num VM se for definida como verdadeira.
 
 ```azurecli-interactive
 az vm perform-maintenance -g myResourceGroup -n myVM 

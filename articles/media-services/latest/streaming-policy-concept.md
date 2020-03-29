@@ -1,6 +1,6 @@
 ---
-title: Transmissão em fluxo políticas nos serviços de multimédia do Azure | Documentos da Microsoft
-description: Este artigo fornece uma explicação sobre o que são políticas de transmissão em fluxo e como elas são usadas pelos serviços de multimédia do Azure.
+title: Políticas de Streaming nos Serviços de Media Azure [ Microsoft Docs
+description: Este artigo dá uma explicação sobre o que são as Políticas de Streaming e como são usadas pela Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,29 +12,29 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.openlocfilehash: a813c77e81e51bfe13e75ed6c8d0e24b4d0fa645
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66392914"
 ---
 # <a name="streaming-policies"></a>Políticas de Transmissão em Fluxo
 
-Em serviços de multimédia do Azure v3, [políticas de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streamingpolicies) permitem-lhe definir os protocolos de transmissão em fluxo e opções de encriptação para sua [localizadores de transmissão em fluxo](streaming-locators-concept.md). Serviços de multimédia v3 fornece que alguns predefinidas políticas de transmissão em fluxo para que pode usá-los diretamente para a versão de avaliação ou de produção. 
+No Azure Media Services v3, [as Políticas de Streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) permitem-lhe definir protocolos de streaming e opções de encriptação para os seus [Localizadores de Streaming](streaming-locators-concept.md). O Media Services v3 fornece algumas Políticas de Streaming predefinidas para que possa usá-las diretamente para ensaio ou produção. 
 
-Atualmente disponível predefinidas políticas de transmissão em fluxo:<br/>
+As políticas de streaming predefinidas atualmente disponíveis:<br/>
 * 'Predefined_DownloadOnly'
-* 'Predefined_ClearStreamingOnly'
+* "Predefined_ClearStreamingOnly"
 * 'Predefined_DownloadAndClearStreaming'
 * 'Predefined_ClearKey'
-* 'Predefined_MultiDrmCencStreaming' 
-* 'Predefined_MultiDrmStreaming'
+* "Predefined_MultiDrmCencStreaming" 
+* "Predefined_MultiDrmStreaming"
 
-A seguinte "árvore de decisões" ajuda a escolher uma política predefinida de transmissão em fluxo para o seu cenário.
+A seguinte "Árvore de Decisão" ajuda-o a escolher uma Política de Streaming predefinida para o seu cenário.
 
 > [!IMPORTANT]
-> * Propriedades de **políticas de transmissão em fluxo** que são de Datetime tipo são sempre em formato UTC.
-> * Deve criar um conjunto limitado de políticas para a sua conta de serviço de multimédia e reutilizá-los para os localizadores de transmissão em fluxo sempre que as mesmas opções são necessárias. Para obter mais informações, consulte [Quotas e limitações](limits-quotas-constraints.md).
+> * Propriedades de Políticas de **Streaming** que são do tipo Datatime estão sempre em formato UTC.
+> * Deverá conceber um conjunto limitado de políticas para a sua conta de Serviço de Media e reutilizá-las para os seus Localizadores de Streaming sempre que forem necessárias as mesmas opções. Para mais informações, consulte [Quotas e limitações.](limits-quotas-constraints.md)
 
 ## <a name="decision-tree"></a>Árvore de decisões
 
@@ -42,13 +42,13 @@ Clique na imagem para visualizá-lo tamanho completo.
 
 <a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/large.png"></a> 
 
-Se a encriptar o seu conteúdo, terá de criar uma [política de chave de conteúdo](content-key-policy-concept.md), o **política de chave de conteúdo** não é necessária para limpar streaming ou baixar. 
+Se encriptar o seu conteúdo, precisa de criar uma [Política de Chave](content-key-policy-concept.md)de Conteúdo , a Política chave de **conteúdo** não é necessária para um streaming ou download claros. 
 
-Se tiver requisitos especiais (por exemplo, se pretende especificar diferentes protocolos, tem de utilizar um serviço de entrega de chave personalizado ou tem de utilizar um Roteiro claro áudio), pode [criar](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) uma política personalizada de transmissão em fluxo. 
+Se tiver requisitos especiais (por exemplo, se quiser especificar diferentes protocolos, precisa de utilizar um serviço de entrega de chaves personalizadas ou precisar de utilizar uma faixa de áudio clara), pode [criar](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) uma Política de Streaming personalizada. 
 
-## <a name="get-a-streaming-policy-definition"></a>Obter uma definição de política de transmissão em fluxo  
+## <a name="get-a-streaming-policy-definition"></a>Obtenha uma definição de Política de Streaming  
 
-Se quiser ver a definição de uma política de transmissão em fluxo, utilize [obter](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) e especifique o nome da política. Por exemplo:
+Se quiser ver a definição de uma Política de Streaming, use [Get](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) e especifique o nome da política. Por exemplo:
 
 ### <a name="rest"></a>REST
 
@@ -79,12 +79,12 @@ Resposta:
 }
 ```
 
-## <a name="filtering-ordering-paging"></a>Paginação de filtragem, ordenação,
+## <a name="filtering-ordering-paging"></a>Filtragem, encomenda, paging
 
-Ver [filtragem, ordenação, a paginação de entidades de serviços de multimédia](entities-overview.md).
+Ver [Filtragem, encomenda, paging de entidades dos Serviços de Media.](entities-overview.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Transmissão de um ficheiro](stream-files-dotnet-quickstart.md)
 * [Utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave](protect-with-aes128.md)
-* [Utilizar DRM dinâmico licença e de encriptação de serviço de entrega](protect-with-drm.md)
+* [Utilize encriptação dinâmica DRM e serviço de entrega de licenças](protect-with-drm.md)

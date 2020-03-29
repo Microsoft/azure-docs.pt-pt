@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6bbecf0e365ba7a8424da775245181fa64c21f6
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672685"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: Planear a sua adad Azure aderir à implementação
@@ -70,7 +70,7 @@ Um ambiente federado deve ter um fornecedor de identidade que apoie tanto os pro
 - **WS-Fed:** Este protocolo é necessário para aderir a um dispositivo à Azure AD.
 - **WS-Trust:** Este protocolo é necessário para iniciar sessão num dispositivo azure AD.
 
-Quando estiver a utilizar AD FS, tem de ativar os seguintes pontos finais wS-Trust: `/adfs/services/trust/2005/usernamemixed`
+Quando estiver a utilizar AD FS, tem de ativar os seguintes pontos finais wS-Trust:`/adfs/services/trust/2005/usernamemixed`
  `/adfs/services/trust/13/usernamemixed`
  `/adfs/services/trust/2005/certificatemixed`
  `/adfs/services/trust/13/certificatemixed`
@@ -195,11 +195,11 @@ Pode fornecer a adesão da Azure AD utilizando as seguintes abordagens:
  
 Aqui está uma comparação destas três abordagens 
  
-|   | Configuração de self-service | Piloto automático do Windows | Inscrição em massa |
+|   | Configuração de self-service | Windows Autopilot | Inscrição em massa |
 | --- | --- | --- | --- |
 | Exigir interação do utilizador para configurar | Sim | Sim | Não |
 | Exigir esforço de TI | Não | Sim | Sim |
-| Fluxos aplicáveis | OOBE e Configurações | Apenas oOBE | Apenas oOBE |
+| Fluxos aplicáveis | Definições de & OOBE | Apenas oOBE | Apenas oOBE |
 | Direitos de administração locais para o utilizador primário | Sim, por defeito | Configurável | Não |
 | Exigir suporte OEM do dispositivo | Não | Sim | Não |
 | Versões suportadas | 1511+ | 1709+ | 1703+ |
@@ -217,7 +217,7 @@ Escolha a sua abordagem de implantação ou abordagens, revendo o quadro acima e
 
 ## <a name="configure-your-device-settings"></a>Configure as definições do seu dispositivo
 
-O portal Azure permite controlar a implementação de dispositivos azure AD unidos na sua organização. Para configurar as definições relacionadas, na página do **Diretório Ativo Do Azure,** selecione `Devices > Device settings`.
+O portal Azure permite controlar a implementação de dispositivos azure AD unidos na sua organização. Para configurar as definições relacionadas, na página `Devices > Device settings`do **Diretório Ativo Azure,** selecione .
 
 ### <a name="users-may-join-devices-to-azure-ad"></a>Os utilizadores podem juntar dispositivos à Azure AD
 
@@ -243,7 +243,7 @@ Antes de configurar as definições de mobilidade, poderá ter de adicionar prim
 
 **Para adicionar um fornecedor de MDM:**
 
-1. Na página do **Diretório Ativo Azure,** na secção **Gerir,** clique em `Mobility (MDM and MAM)`. 
+1. Na página do **Diretório Ativo Azure,** `Mobility (MDM and MAM)`na secção **Gerir,** clique em . 
 1. Clique na **aplicação Adicionar**.
 1. Selecione o seu fornecedor de MDM da lista.
 
@@ -266,9 +266,9 @@ Com base no seu âmbito, um dos seguintes acontece:
 
 Existem três URLs que estão relacionados com a sua configuração de MDM:
 
-- MDM termos de URL de uso
-- URL de descoberta de MDM 
-- URL de conformidade com o MDM
+- URL dos termos de utilização da MDM
+- URL de deteção da MDM 
+- URL de conformidade da MDM
 
 ![Adicionar uma aplicação](./media/azureadjoin-plan/06.png)
 

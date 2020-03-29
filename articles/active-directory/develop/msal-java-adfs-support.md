@@ -1,7 +1,7 @@
 ---
-title: Suporte a AD FS (MSAL para Java)
+title: Suporte AD FS (MSAL for Java)
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre o suporte a Serviços de Federação do Active Directory (AD FS) (AD FS) na biblioteca de autenticação da Microsoft para Java (MSAL4j).
+description: Saiba mais sobre o suporte da Ative Directory Federation Services (AD FS) na Microsoft Authentication Library for Java (MSAL4j).
 services: active-directory
 author: sangonzal
 manager: CelesteDG
@@ -14,38 +14,38 @@ ms.author: sagonzal
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 3d834a8d1524595304c22fed9897094622dfd93f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76696219"
 ---
-# <a name="active-directory-federation-services-support-in-msal-for-java"></a>Suporte a Serviços de Federação do Active Directory (AD FS) no MSAL para Java
+# <a name="active-directory-federation-services-support-in-msal-for-java"></a>Apoio dos Serviços da Federação de Diretório Ativo na MSAL para Java
 
-O Serviços de Federação do Active Directory (AD FS) (AD FS) no Windows Server permite adicionar o OpenID Connect e a autenticação e autorização baseadas no OAuth 2,0 ao aplicativo da biblioteca de autenticação da Microsoft para Java (MSAL para Java). Uma vez integrado, seu aplicativo pode autenticar usuários no AD FS, federado por meio do Azure AD. Para obter mais informações sobre cenários, consulte [cenários de AD FS para desenvolvedores](/windows-server/identity/ad-fs/ad-fs-development).
+Os Serviços da Federação de Diretórios Ativos (AD FS) no Windows Server permitem-lhe adicionar autenticação e autorização baseadas em OpenID Connect e OAuth 2.0 à sua microsoft Authentication Library for Java (MSAL for Java). Uma vez integrada, a sua aplicação pode autenticar utilizadores em AD FS, federado através do Azure AD. Para obter mais informações sobre cenários, consulte [Cenários AD FS para Desenvolvedores](/windows-server/identity/ad-fs/ad-fs-development).
 
-Um aplicativo que usa MSAL para Java se comunicará com Azure Active Directory (Azure AD), que, em seguida, federará para AD FS.
+Uma aplicação que utiliza o MSAL para a Java falará com o Azure Ative Directory (Azure AD), que depois federa para a AD FS.
 
-O MSAL para Java se conecta ao Azure AD, que entra em usuários que são gerenciados no Azure AD (usuários gerenciados) ou usuários gerenciados por outro provedor de identidade, como AD FS (usuários federados). O MSAL para Java não sabe que um usuário é federado. Ele simplesmente se comunica com o Azure AD.
+A MSAL para a Java liga-se ao Azure AD, que assina em utilizadores que são geridos em Azure AD (utilizadores geridos) ou utilizadores geridos por outro fornecedor de identidade, como a AD FS (utilizadores federados). A MSAL para a Java não sabe que um utilizador é federado. Simplesmente fala com a AD Azure.
 
-A [autoridade](msal-client-application-configuration.md#authority) que você usa nesse caso é a autoridade usual (nome do host da autoridade + locatário, comum ou organizações).
+A [autoridade](msal-client-application-configuration.md#authority) que usa neste caso é a autoridade habitual (nome anfitrião da autoridade + inquilino, comum ou organizações).
 
-## <a name="acquire-a-token-interactively-for-a-federated-user"></a>Adquirir um token interativamente para um usuário federado
+## <a name="acquire-a-token-interactively-for-a-federated-user"></a>Adquirir um símbolo interativamente para um utilizador federado
 
-Quando você chama `ConfidentialClientApplication.AcquireToken()` ou `PublicClientApplication.AcquireToken()` com `AuthorizationCodeParameters` ou `DeviceCodeParameters`, a experiência do usuário normalmente é:
+Quando liga `ConfidentialClientApplication.AcquireToken()` `PublicClientApplication.AcquireToken()` ou `AuthorizationCodeParameters` `DeviceCodeParameters`com ou, a experiência do utilizador é tipicamente:
 
-1. O usuário insere a ID da conta.
-2. O Azure AD exibe brevemente "levando você para a página da sua organização", e o usuário é redirecionado para a página de entrada do provedor de identidade. A página de entrada geralmente é personalizada com o logotipo da organização.
+1. O utilizador introduz o ID da conta.
+2. A Azure AD exibe brevemente "Levando-o para a página da sua organização", e o utilizador é redirecionado para a página de entrada do fornecedor de identidade. A página de login é geralmente personalizada com o logótipo da organização.
 
-As versões de AD FS com suporte nesse cenário federado são:
-- Serviços de Federação do Active Directory (AD FS) FS v2
-- Serviços de Federação do Active Directory (AD FS) v3 (Windows Server 2012 R2)
-- Serviços de Federação do Active Directory (AD FS) V4 (AD FS 2016)
+As versões AD FS suportadas neste cenário federado são:
+- Serviços da Federação de Diretório SFS v2
+- Serviços da Federação de Diretórios Ativos v3 (Windows Server 2012 R2)
+- Serviços da Federação de Diretório Ativo v4 (AD FS 2016)
 
-## <a name="acquire-a-token-via-username-and-password"></a>Adquirir um token por nome de usuário e senha
+## <a name="acquire-a-token-via-username-and-password"></a>Adquirir um símbolo através do nome de utilizador e da palavra-passe
 
-Quando você adquire um token usando `ConfidentialClientApplication.AcquireToken()` ou `PublicClientApplication.AcquireToken()` com `IntegratedWindowsAuthenticationParameters` ou `UsernamePasswordParameters`, MSAL para Java Obtém o provedor de identidade para entrar em contato com base no nome de usuário. MSAL para Java Obtém um token de [token 1,1 SAML](reference-saml-tokens.md) do provedor de identidade, que ele fornece ao Azure AD, que retorna o JWT (token Web JSON).
+Quando adquire um símbolo `ConfidentialClientApplication.AcquireToken()` `PublicClientApplication.AcquireToken()` utilizando `IntegratedWindowsAuthenticationParameters` `UsernamePasswordParameters`ou com ou, mSAL para java recebe o fornecedor de identidade para contactar com base no nome de utilizador. MSAL for Java recebe um símbolo [SAML 1.1](reference-saml-tokens.md) do fornecedor de identidade, que fornece então à Azure AD que devolve o JSON Web Token (JWT).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para o caso federado, consulte [Configurar o comportamento de entrada Azure Active Directory para um aplicativo usando uma política de descoberta de realm inicial](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal)
+Para o caso federado, consulte [configure Azure Ative Directory sign in behavior for a application using a Home Realm Discovery policy](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal)

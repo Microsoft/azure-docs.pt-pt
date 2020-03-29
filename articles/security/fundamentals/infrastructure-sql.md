@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
 ms.openlocfilehash: ad6d3992f03802174eb03aa30b57b8d3dac1d6c4
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78942959"
 ---
 # <a name="azure-sql-database-security-features"></a>Funcionalidades de segurança da Base de Dados Azure SQL    
@@ -92,7 +92,7 @@ As mudanças são monitorizadas para o sucesso. Num cenário de falha, a mudanç
 
 Da mesma forma, as alterações de hardware e rede estabeleceram etapas de validação para avaliar a sua adesão aos requisitos de construção. As versões são revistas e autorizadas através de um conselho consultivo de mudança coordenada (CAB) dos respetivos grupos em toda a pilha.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre o que a Microsoft faz para garantir a infraestrutura Azure, consulte:
 
 - [Instalações, instalações e segurança física do Azure](physical-security.md)

@@ -1,6 +1,6 @@
 ---
-title: Gerenciar pontos de extremidade de streaming com o portal do Azure | Microsoft Docs
-description: Este artigo demonstra como gerenciar pontos de extremidade de streaming com o portal do Azure.
+title: Gerir pontos finais de streaming com o portal Azure [ Microsoft Docs
+description: Este artigo demonstra como gerir os pontos finais de streaming com o portal Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,102 +16,102 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 57ec22cb02512577f8737718cae9175403fb5603
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74900888"
 ---
-# <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Gerenciar pontos de extremidade de streaming com o portal do Azure 
+# <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Manage streaming endpoints with the Azure portal (Gerir os pontos finais de transmissão em fluxo com o portal do Azure) 
 
-Este artigo mostra como usar o portal do Azure para gerenciar pontos de extremidade de streaming. 
+Este artigo mostra como usar o portal Azure para gerir os pontos finais de streaming. 
 
 >[!NOTE]
->Certifique-se de examinar o artigo de [visão geral](media-services-streaming-endpoints-overview.md) . 
+>Certifique-se de rever o artigo sobre [visão geral.](media-services-streaming-endpoints-overview.md) 
 
-Para obter informações sobre como dimensionar o ponto de extremidade de streaming, consulte [este](media-services-portal-scale-streaming-endpoints.md) artigo.
+Para obter informações sobre como escalar o ponto final de streaming, consulte [este](media-services-portal-scale-streaming-endpoints.md) artigo.
 
-## <a name="start-managing-streaming-endpoints"></a>Começar a gerenciar pontos de extremidade de streaming 
+## <a name="start-managing-streaming-endpoints"></a>Comece a gerir os pontos finais de streaming 
 
-Para começar a gerenciar pontos de extremidade de streaming para sua conta, faça o seguinte.
+Para começar a gerir os pontos finais de streaming para a sua conta, faça o seguinte.
 
 1. No [portal do Azure](https://portal.azure.com/) selecione a sua conta de Serviços de Multimédia do Azure.
-2. Na folha **configurações** , selecione **pontos de extremidade de streaming**.
+2. Na lâmina **Definições,** selecione **pontos finais de streaming**.
    
     ![Ponto final de transmissão em fluxo](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
 
 > [!NOTE]
-> Você será cobrado somente quando o ponto de extremidade de streaming estiver em estado de execução.
+> Só é cobrado quando o seu Streaming Endpoint está em estado de funcionamento.
 
-## <a name="adddelete-a-streaming-endpoint"></a>Adicionar/excluir um ponto de extremidade de streaming
+## <a name="adddelete-a-streaming-endpoint"></a>Adicionar/eliminar um ponto final de streaming
 
 >[!NOTE]
->O ponto de extremidade de streaming padrão não pode ser excluído.
+>O ponto final de transmissão predefinido não pode ser eliminado.
 
-Para adicionar/excluir o ponto de extremidade de streaming usando o portal do Azure, faça o seguinte:
+Para adicionar/eliminar o ponto final de streaming utilizando o portal Azure, faça o seguinte:
 
-1. Para adicionar um ponto de extremidade de streaming, clique no **ponto de extremidade +** na parte superior da página. 
+1. Para adicionar um ponto final de streaming, clique no **ponto final +** no topo da página. 
 
-    Você pode querer vários pontos de extremidade de streaming se planeja ter diferentes CDNs ou uma CDN e acesso direto.
+    Pode querer vários Pontos Finais de Streaming se pretender ter CDNs diferentes ou um CDN e acesso direto.
 
-2. Para excluir um ponto de extremidade de streaming, pressione o botão **excluir** .      
-3. Clique no botão **Iniciar** para iniciar o ponto de extremidade de streaming.
+2. Para eliminar um ponto final de streaming, prima **Apagar** o botão.      
+3. Clique no botão **Iniciar** para iniciar o ponto final de streaming.
    
     ![Ponto final de transmissão em fluxo](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
-## <a id="configure_streaming_endpoints"></a>Configurando o ponto de extremidade de streaming
-O ponto de extremidade de streaming permite que você configure as seguintes propriedades:
+## <a name="configuring-the-streaming-endpoint"></a><a id="configure_streaming_endpoints"></a>Configurar o ponto final de streaming
+O Streaming Endpoint permite-lhe configurar as seguintes propriedades:
 
 * Controlo de acesso
 * Controlo de cache
-* Políticas de acesso entre sites
+* Políticas de acesso ao local transversal
 
-Para obter informações detalhadas sobre essas propriedades, consulte [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+Para obter informações detalhadas sobre estas propriedades, consulte [o StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
 
 >[!NOTE]
->Quando a CDN está habilitada, você não pode acessar o acesso a IP. O acesso a IP só é aplicável quando você não tem a CDN.
+>Quando o CDN está ativado, não é possível aceder ao acesso IP. O acesso IP só é aplicável quando não tem CDN.
 
-Você pode configurar o ponto de extremidade de streaming fazendo o seguinte:
+Pode configurar o ponto final de streaming fazendo o seguinte:
 
-1. Selecione o ponto de extremidade de streaming que você deseja configurar.
+1. Selecione o ponto final de streaming que pretende configurar.
 2. Clique em **Definições**.
 
-Segue uma breve descrição dos campos.
+Segue-se uma breve descrição dos campos.
 
 ![Ponto final de transmissão em fluxo](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
 
-1. Política de cache máxima: usada para configurar o tempo de vida do cache para ativos servidos por meio desse ponto de extremidade de streaming. Se nenhum valor for definido, o padrão será usado. Os valores padrão também podem ser definidos diretamente no armazenamento do Azure. Se a CDN do Azure estiver habilitada para o ponto de extremidade de streaming, você não deverá definir o valor da política de cache para menos de 600 segundos.  
-2. Endereços IP permitidos: usados para especificar os endereços IP que teriam permissão para se conectar ao ponto de extremidade de streaming publicado. Se não forem especificados endereços IP, qualquer endereço IP poderá se conectar. Os endereços IP podem ser especificados como um único endereço IP (por exemplo, ' 10.0.0.1 '), um intervalo de IP usando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, ' 10.0.0.1/22 ') ou um intervalo de IP usando o endereço IP e uma máscara de sub-rede decimal com pontos (por exemplo, ' 10.0.0.1 (255.255.255.0) ').
-3. Configuração da autenticação de cabeçalho de assinatura Akamai: usada para especificar como a solicitação de autenticação de cabeçalho de assinatura de servidores Akamai está configurada. A expiração está em UTC.
+1. Política máxima de cache: usada para configurar o tempo de vida da cache para os ativos servidos através deste ponto final de streaming. Se não for definido qualquer valor, o predefinido é utilizado. Os valores predefinidos também podem ser definidos diretamente no armazenamento do Azure. Se o Azure CDN estiver ativado para o ponto final de streaming, não deve definir o valor da política de cache para menos de 600 segundos.  
+2. Endereços IP permitidos: utilizados para especificar endereços IP que seriam autorizados a ligar-se ao ponto final de streaming publicado. Se não especificarem os endereços IP, qualquer endereço IP poderá ligar-se. Os endereços IP podem ser especificados como um único endereço IP (por exemplo, '10.0.0.1'), uma gama IP utilizando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, '10.0.0.1/22'), ou uma gama IP utilizando endereço IP e uma máscara de cimalol pontilhada (por exemplo, '10.0.0.1 (255.255.25).').
+3. Configuração para autenticação do cabeçalho de assinatura Akamai: usado para especificar como o pedido de autenticação do cabeçalho de assinatura dos servidores da Akamai está configurado. A expiração é na UTC.
 
-## <a name="scale-your-premium-streaming-endpoint"></a>Dimensionar seu ponto de extremidade de streaming Premium
+## <a name="scale-your-premium-streaming-endpoint"></a>Dimensione o seu ponto final de streaming Premium
 
-Para obter mais informações, veja [este](media-services-portal-scale-streaming-endpoints.md) artigo.
+Para mais informações, consulte [este](media-services-portal-scale-streaming-endpoints.md) artigo.
 
-## <a id="enable_cdn"></a>Habilitar a integração da CDN do Azure
+## <a name="enable-azure-cdn-integration"></a><a id="enable_cdn"></a>Permitir a integração do CDN azure
 
-Quando você cria uma nova conta, o ponto de extremidade de streaming padrão integração da CDN do Azure é habilitado por padrão.
+Quando cria uma nova conta, a integração padrão do Streaming Endpoint Endpoint Azure CDN é ativada por padrão.
 
-Se posteriormente você quiser desabilitar/habilitar a CDN, o ponto de extremidade de streaming deverá estar no estado **parado** . Pode levar até duas horas para que a integração da CDN do Azure seja habilitada e que as alterações estejam ativas em todos os POPs da CDN. No entanto, seu pode iniciar seu ponto de extremidade de streaming e transmitir sem interrupções do ponto de extremidade de streaming e, depois que a integração for concluída, o fluxo será entregue da CDN. Durante o período de provisionamento, o ponto de extremidade de streaming estará no estado **inicial** e você poderá observar o desempenho degradado.
+Se mais tarde pretender desativar/ativar o CDN, o seu ponto final de streaming deve estar no estado **de paragem.** Pode levar até duas horas para que a integração do CDN Azure seja ativada e que as alterações sejam ativas em todos os POPs da CDN. No entanto, pode iniciar o seu ponto final de streaming e transmitir sem interrupções do ponto final de streaming e uma vez concluída a integração, o fluxo é entregue a partir do CDN. Durante o período de provisionamento, o seu ponto final de streaming estará em estado **de partida** e poderá observar um desempenho degradado.
 
-A integração da CDN é habilitada em todos os data centers do Azure, exceto nas regiões da China e do governo federal.
+A integração da CDN é ativada em todos os centros de dados azure, exceto as regiões da China e do Governo Federal.
 
-Depois de habilitado, o **controle de acesso**, * * nome de host personalizado e configuração de **autenticação de assinatura Akamai** são desabilitados.
+Uma vez ativado, o Controlo de **Acesso,****Nome de anfitrião personalizado e configuração de **autenticação Da Assinatura Akamai** ficam desativados.
  
 > [!IMPORTANT]
-> A integração dos serviços de mídia do Azure com a CDN do Azure é implementada na **CDN do Azure da Verizon** para pontos de extremidade de streaming padrão. Os pontos de extremidade de streaming Premium podem ser configurados usando todos os **tipos de preços e provedores da CDN do Azure**. Para obter mais informações sobre os recursos da CDN do Azure, consulte a [visão geral da CDN](../../cdn/cdn-overview.md).
+> A integração da Azure Media Services com o Azure CDN é implementada no **Azure CDN da Verizon** para pontos finais de streaming padrão. Os pontos finais de streaming premium podem ser configurados utilizando todos os níveis e fornecedores de **preços Do CDN do Azure.** Para obter mais informações sobre as funcionalidades do CDN azure, consulte a visão geral do [CDN](../../cdn/cdn-overview.md).
  
 ### <a name="additional-considerations"></a>Considerações adicionais
 
-* Quando a CDN está habilitada para um ponto de extremidade de streaming, os clientes não podem solicitar conteúdo diretamente da origem. Se você precisar da capacidade de testar o conteúdo com ou sem CDN, poderá criar outro ponto de extremidade de streaming que não esteja habilitado para CDN.
-* O nome do host do ponto de extremidade de streaming permanece o mesmo depois de habilitar a CDN. Você não precisa fazer nenhuma alteração no fluxo de trabalho dos serviços de mídia após a CDN estar habilitada. Por exemplo, se o nome do host do ponto de extremidade de streaming for strasbourg.streaming.mediaservices.windows.net, depois de habilitar a CDN, exatamente o mesmo nome do host será usado.
-* Para os novos pontos de extremidade de streaming, você pode habilitar a CDN simplesmente criando um novo ponto de extremidade; para pontos de extremidade de streaming existentes, primeiro você precisa parar o ponto de interrupção e, em seguida, habilitar/desabilitar a CDN.
-* O ponto de extremidade de streaming standard só pode ser configurado usando o **provedor CDN padrão da Verizon** usando o portal clássico do Azure. No entanto, você pode habilitar outros provedores de CDN do Azure usando APIs REST.
+* Quando a CDN está ativada para um ponto final de streaming, os clientes não podem solicitar conteúdo diretamente da origem. Se precisar da capacidade de testar o seu conteúdo com ou sem CDN, pode criar outro ponto final de streaming que não esteja ativado pela CDN.
+* O seu nome de anfitrião de ponto final de streaming permanece o mesmo depois de ativar a CDN. Não é necessário fazer alterações no fluxo de trabalho dos seus serviços de media depois de a CDN estar ativada. Por exemplo, se o seu nome de anfitrião de ponto final de streaming for strasbourg.streaming.mediaservices.windows.net, depois de ativar a CDN, é utilizado exatamente o mesmo nome de anfitrião.
+* Para novos pontos finais de streaming, pode ativar o CDN simplesmente criando um novo ponto final; para os pontos finais de streaming existentes, é necessário primeiro parar o ponto final e, em seguida, ativar/desativar o CDN.
+* O ponto final de streaming padrão só pode ser configurado utilizando o **fornecedor Verizon Standard CDN** utilizando o portal clássico Azure. No entanto, pode permitir que outros fornecedores de CDN Azure utilizem APIs REST.
 
-## <a name="configure-cdn-profile"></a>Configurar o perfil CDN
+## <a name="configure-cdn-profile"></a>Configure o perfil CDN
 
-Você pode configurar o perfil CDN selecionando o botão **gerenciar CDN** na parte superior.
+Pode configurar o perfil CDN selecionando o botão **Manage CDN** a partir da parte superior.
 
 ![Ponto final de transmissão em fluxo](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints6.png)
 

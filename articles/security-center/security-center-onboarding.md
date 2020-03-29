@@ -14,13 +14,13 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: memildin
 ms.openlocfilehash: be26a9d4c66412518079de303ac0764d979c3e7c
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77912057"
 ---
-# <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Embarque para O Centro de Segurança Azure Standard para maior segurança
+# <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Inclusão do Centro de Segurança do Azure Standard para segurança avançada
 Atualize para o Security Center Standard para aproveitar a gestão de segurança reforçada e proteção contra ameaças para as suas cargas de trabalho híbridas em nuvem. Pode tentar sem Padrão. Consulte a [página](https://azure.microsoft.com/pricing/details/security-center/) de preços do Centro de Segurança para obter mais informações.
 
 O nível padrão do Centro de Segurança inclui:
@@ -48,7 +48,7 @@ Para atualizar uma subscrição ou espaço de trabalho para o padrão:
    -    Pode atualizar as subscrições e áreas de trabalho que não são elegíveis para avaliação.
    -    Pode selecionar as áreas de trabalho e subscrições elegíveis para iniciar a avaliação.
 3.  Clique em **Iniciar avaliação** para iniciar a avaliação nas subscrições selecionadas.
-  ![Selecione](./media/security-center-onboarding/select-subscription.png) de subscrição
+  ![Selecione subscrição](./media/security-center-onboarding/select-subscription.png)
 
 
    > [!NOTE]
@@ -94,8 +94,8 @@ Pode adicionar um computador seguindo o fluxo de trabalho do **Onboarding,** com
 
    ![Descrição geral][5]
 
-2. Selecione **Compute e apps.**
-3. Em **Compute e apps,** selecione **Adicionar computadores**.
+2. Selecione **aplicações de & compute**.
+3. Em **aplicações compute &,** selecione **Adicionar computadores**.
 
    ![Painel Computação][6]
 

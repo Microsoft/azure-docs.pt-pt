@@ -1,6 +1,6 @@
 ---
-title: Ingerir dados do Kafka no Explorador de dados do Azure
-description: Neste artigo, irá aprender a ingerir dados de (carga) no Explorador de dados do Azure do Kafka.
+title: Ingerir dados de Kafka para o Azure Data Explorer
+description: Neste artigo, aprende-se a ingerir (carregar) dados no Azure Data Explorer a partir de Kafka.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,33 +8,33 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 03b46ff50683149a22c71ccb155480a0f08455bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66497269"
 ---
-# <a name="ingest-data-from-kafka-into-azure-data-explorer"></a>Ingerir dados do Kafka no Explorador de dados do Azure
+# <a name="ingest-data-from-kafka-into-azure-data-explorer"></a>Ingerir dados de Kafka para o Azure Data Explorer
  
-O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Explorador de dados do Azure oferece ingestão (carregamento de dados) do Kafka. O Kafka é uma plataforma de transmissão em fluxo distribuída que permite a criação de pipelines em tempo real de dados transmissão em fluxo que fiável mover dados entre sistemas ou aplicativos.
+O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer oferece ingestão (carregamento de dados) de Kafka. Kafka é uma plataforma de streaming distribuída que permite a construção de pipelines de dados de streaming em tempo real que movem dados de forma fiável entre sistemas ou aplicações.
  
 ## <a name="prerequisites"></a>Pré-requisitos
  
 * Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar. 
  
-* [Um cluster de teste e a base de dados](create-cluster-database-portal.md).
+* [Um cluster de teste e base de dados.](create-cluster-database-portal.md)
  
-* [Uma aplicação de exemplo](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) que gera dados e envia-os para o Kafka.
+* [Uma aplicação de amostra](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) que gera dados e envia para Kafka.
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) para executar a aplicação de exemplo.
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) para executar a aplicação de amostras.
  
-## <a name="kafka-connector-setup"></a>Configuração do conector de Kafka
+## <a name="kafka-connector-setup"></a>Configuração do conector Kafka
 
-Ligar o Kafka é uma ferramenta para escalável e fiável de transmissão em fluxo de dados entre o Apache Kafka e outros sistemas. Ela torna simples definir rapidamente os conectores que mover grandes coleções de dados para dentro e fora do Kafka. O Sink de Kafka ADX serve como o conector do Kafka.
+Kafka Connect é uma ferramenta para o streaming escalável e fiável de dados entre Apache Kafka e outros sistemas. Torna simples definir rapidamente conectores que movem grandes coleções de dados para dentro e para fora de Kafka. O ADX Kafka Sink serve como conector de Kafka.
  
 ### <a name="bundle"></a>Pacote
 
-Kafka pode carregar um `.jar` como um plug-in que funcionará como um conector personalizado. Para produzir como, por exemplo um `.jar`, iremos clonar o código localmente e criar com o Maven. 
+Kafka pode `.jar` carregar um plugin que funcionará como um conector personalizado. Para produzir `.jar`tal a, clonamos o código localmente e construiremos usando Maven. 
 
 #### <a name="clone"></a>Clone
 
@@ -45,13 +45,13 @@ cd ./kafka-sink-azure-kusto/kafka/
 
 #### <a name="build"></a>Compilação
 
-Criar localmente com o Maven para produzir um `.jar` completo com dependências.
+Construa localmente com Maven para produzir um `.jar` completo com dependências.
 
-* JDK > = 1.8 [transferir](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* Maven [transferir](https://maven.apache.org/install.html)
+* JDK >= 1,8 [download](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* Download [de](https://maven.apache.org/install.html) Maven
  
 
-Dentro do diretório de raiz *kafka-sink do azure kusto*, execute:
+Dentro do diretório raiz *kafka-sink-azure-kusto,* corra:
 
 ```bash
 mvn clean compile assembly:single
@@ -59,10 +59,10 @@ mvn clean compile assembly:single
 
 ### <a name="deploy"></a>Implementação 
 
-Carregar o plug-in para o Kafka. Um exemplo de implementação com o docker pode ser encontrado em [kafka-sink do azure kusto](https://github.com/Azure/kafka-sink-azure-kusto#deploy)
+Carregue o plugin em Kafka. Um exemplo de implantação usando estivador pode ser encontrado em [kafka-sink-azure-kusto](https://github.com/Azure/kafka-sink-azure-kusto#deploy)
  
 
-Documentação em conectores de Kafka detalhada e como implementá-las pode ser encontrado em [ligar do Kafka](https://kafka.apache.org/documentation/#connect) 
+Documentação detalhada sobre conectores kafka e como implantá-los pode ser encontrada no [Kafka Connect](https://kafka.apache.org/documentation/#connect) 
 
 ### <a name="example-configuration"></a>Configuração de exemplo 
  
@@ -83,11 +83,11 @@ kusto.sink.tempdir=/var/tmp/
 kusto.sink.flush_size=1000
 ```
  
-## <a name="create-a-target-table-in-adx"></a>Criar uma tabela de destino no ADX
+## <a name="create-a-target-table-in-adx"></a>Criar uma tabela de alvos no ADX
  
-Crie uma tabela no ADX para o qual Kafka pode enviar dados. Criar a tabela no cluster e a base de dados aprovisionada no **pré-requisitos**.
+Crie uma tabela em ADX para a qual Kafka possa enviar dados. Criar a tabela no cluster e na base de dados aprovisionada nos **pré-requisitos.**
  
-1. No portal do Azure, navegue para o cluster e selecione **consulta**.
+1. No portal Azure, navegue para o seu cluster e selecione **Consulta**.
  
     ![Ligação da aplicação de consulta](media/ingest-data-event-hub/query-explorer-link.png)
  
@@ -110,11 +110,11 @@ Crie uma tabela no ADX para o qual Kafka pode enviar dados. Criar a tabela no cl
 
 ## <a name="generate-sample-data"></a>Gerar dados de exemplo
 
-Agora que o cluster de Kafka está ligado à ADX, utilizar o [aplicação de exemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) que transferiu para gerar dados.
+Agora que o cluster Kafka está ligado ao ADX, utilize a [aplicação de amostra](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) que descarregou para gerar dados.
 
 ### <a name="clone"></a>Clone
 
-Clone a aplicação de exemplo localmente:
+Clone a aplicação de amostra localmente:
 
 ```cmd
 git clone git://github.com:Azure/azure-kusto-samples-dotnet.git
@@ -125,25 +125,25 @@ cd ./azure-kusto-samples-dotnet/kafka/
 
 1. Abra a solução de aplicação de exemplo no Visual Studio.
 
-1. Na `Program.cs` de ficheiros, atualize o `connectionString` constante para a cadeia de ligação do Kafka.
+1. No `Program.cs` ficheiro, atualize a `connectionString` constante para a sua cadeia de ligação Kafka.
 
     ```csharp    
     const string connectionString = @"<YourConnectionString>";
     ```
 
-1. Compile e execute a aplicação. A aplicação envia mensagens para o cluster de Kafka e exibe o estado de cada 10 segundos.
+1. Compile e execute a aplicação. A aplicação envia mensagens para o cluster Kafka, e imprime o seu estado a cada 10 segundos.
 
-1. Depois da aplicação enviou algumas mensagens, avançar para o passo seguinte.
+1. Depois de a aplicação ter enviado algumas mensagens, passe para o próximo passo.
  
-## <a name="query-and-review-the-data"></a>Consultar e analisar os dados
+## <a name="query-and-review-the-data"></a>Consulta e revisão dos dados
 
-1. Para garantir que nenhum erro ocorreu durante a ingestão:
+1. Para garantir que não ocorreram erros durante a ingestão:
 
     ```Kusto
     .show ingestion failures
     ```
 
-1. Para ver os dados ingeridos recentemente:
+1. Para ver os dados recentemente ingeridos:
 
     ```Kusto
     TestTable 
@@ -156,10 +156,10 @@ cd ./azure-kusto-samples-dotnet/kafka/
     TestTable
     ```
  
-    O conjunto de resultados deve ter um aspeto semelhante ao seguinte:
+    O conjunto de resultados deve parecer o seguinte:
  
     ![Conjunto de resultados das mensagens](media/ingest-data-event-hub/message-result-set.png)
  
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
  
-* [Consultar dados no Explorador de dados do Azure](web-query-data.md)
+* [Dados de consulta no Explorador de Dados do Azure](web-query-data.md)

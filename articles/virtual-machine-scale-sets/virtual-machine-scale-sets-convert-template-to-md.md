@@ -1,6 +1,6 @@
 ---
 title: Converter um modelo de conjunto de dimensionamento para utilizar um disco gerido
-description: Converta um modelo de conjunto de dimensionamento de máquinas virtuais Azure Resource Manager em um modelo de conjunto de dimensionamento de disco gerenciado.
+description: Converta um modelo de conjunto de conjunto de máquinas virtual do Gestor de Recursos Azure para um modelo de conjunto de escala de disco gerido.
 keywords: conjuntos de dimensionamento de máquinas virtuais
 author: mayanknayar
 tags: azure-resource-manager
@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 5/18/2017
 ms.author: manayar
 ms.openlocfilehash: 4ab5c48c6673a2353c70fe808d09aa15675e0424
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278116"
 ---
-# <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Converter um modelo de conjunto de dimensionamento em um modelo de conjunto de dimensionamento de disco gerenciado
+# <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Converter um modelo de conjunto de escala para um modelo de conjunto de escala de disco gerido
 
-Os clientes com um modelo do Resource Manager para criar um conjunto de dimensionamento não usando disco gerenciado podem querer modificá-lo para usar o disco gerenciado. Este artigo mostra como usar discos gerenciados, usando como um exemplo de uma solicitação de pull dos [modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates), um repositório controlado pela Comunidade para modelos do Resource Manager de exemplo. A solicitação pull completa pode ser vista aqui: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998), e as partes relevantes da comparação estão abaixo, juntamente com explicações:
+Os clientes com um modelo de Gestor de Recursos para criar um conjunto de escala que não utilize o disco gerido podem querer modificá-lo para utilizar o disco gerido. Este artigo mostra como usar discos geridos, usando como exemplo um pedido de pull dos [Modelos De Arranque Rápido Azure](https://github.com/Azure/azure-quickstart-templates), um repo orientado pela comunidade para modelos de Gestor de Recursos de amostra. O pedido de puxão [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998)completo pode ser visto aqui: , e as partes relevantes do difusão estão abaixo, juntamente com explicações:
 
-## <a name="making-the-os-disks-managed"></a>Tornando os discos do sistema operacional gerenciados
+## <a name="making-the-os-disks-managed"></a>Fazer os discos de OS geridos
 
-Na comparação a seguir, várias variáveis relacionadas à conta de armazenamento e às propriedades do disco são removidas. O tipo de conta de armazenamento não é mais necessário (Standard_LRS é o padrão), mas você pode especificá-lo se desejado. Somente Standard_LRS e Premium_LRS têm suporte com o disco gerenciado. O novo sufixo de conta de armazenamento, a matriz de cadeia de caracteres exclusiva e a contagem SA foram usados no modelo antigo para gerar nomes de conta de armazenamento. Essas variáveis não são mais necessárias no novo modelo porque o disco gerenciado cria automaticamente contas de armazenamento em nome do cliente. Da mesma forma, o nome do contêiner do VHD e o nome do disco do so não são mais necessários porque o disco gerenciado nomeia automaticamente os contêineres e discos do blob de armazenamento subjacente.
+No seguinte difusão, várias variáveis relacionadas com a conta de armazenamento e propriedades do disco são removidas. O tipo de conta de armazenamento já não é necessário (Standard_LRS é o padrão), mas pode especificar se desejar. Apenas Standard_LRS e Premium_LRS são suportados com disco gerido. Novos sufixos de conta de armazenamento, conjunto de cordas únicos e contagem de sa foram usados no modelo antigo para gerar nomes de conta de armazenamento. Estas variáveis já não são necessárias no novo modelo porque o disco gerido cria automaticamente contas de armazenamento em nome do cliente. Da mesma forma, o nome do recipiente VHD e o nome do disco OS já não são necessários porque o disco gerido designa automaticamente os recipientes e discos de armazenamento subjacentes.
 
 ```diff
    "variables": {
@@ -46,7 +46,7 @@ Na comparação a seguir, várias variáveis relacionadas à conta de armazename
 ```
 
 
-Na comparação a seguir, a API de computação é atualizada para a versão 2016-04-30-Preview, que é a versão mais antiga necessária para suporte de disco gerenciado com conjuntos de dimensionamento. Você pode usar discos não gerenciados na nova versão de API com a sintaxe antiga, se desejado. Se você atualizar apenas a versão da API de computação e não alterar mais nada, o modelo deverá continuar a funcionar como antes.
+No seguinte difusão, calcula-se que a API seja atualizada para a pré-visualização da versão 2016-04-30, que é a versão mais antiga necessária para suporte de disco gerido com conjuntos de escala. Pode utilizar discos não geridos na nova versão API com a antiga sintaxe, se desejar. Se atualizar apenas a versão Compute API e não alterar mais nada, o modelo deve continuar a funcionar como antes.
 
 ```diff
 @@ -86,7 +74,7 @@
@@ -60,7 +60,7 @@ Na comparação a seguir, a API de computação é atualizada para a versão 201
    },
 ```
 
-Na comparação a seguir, o recurso de conta de armazenamento é removido da matriz de recursos completamente. O recurso não é mais necessário, pois o disco gerenciado os cria automaticamente.
+No seguinte difusão, o recurso da conta de armazenamento é completamente removido da matriz de recursos. O recurso já não é necessário, uma vez que o disco gerido os cria automaticamente.
 
 ```diff
 @@ -113,19 +101,6 @@
@@ -85,7 +85,7 @@ Na comparação a seguir, o recurso de conta de armazenamento é removido da mat
        "location": "[resourceGroup().location]",
 ```
 
-Na diferença a seguir, podemos ver que estamos removendo a cláusula depends on do conjunto de dimensionamento para o loop que estava criando contas de armazenamento. No modelo antigo, isso estava garantindo que as contas de armazenamento foram criadas antes da criação do conjunto de dimensionamento começar, mas essa cláusula não é mais necessária com o disco gerenciado. A propriedade contêineres VHD também é removida, juntamente com a propriedade nome do disco do sistema operacional, pois essas propriedades são manipuladas automaticamente nos bastidores pelo disco gerenciado. Você pode adicionar `"managedDisk": { "storageAccountType": "Premium_LRS" }` na configuração "osDisk" se quisesse discos do sistema operacional Premium. Somente as VMs com letras maiúsculas ou minúsculas no SKU da VM podem usar discos Premium.
+No seguinte difusão, podemos ver que estamos a remover as dependeda cláusula que se refere da escala definida para o loop que estava a criar contas de armazenamento. No modelo antigo, isto era garantir que as contas de armazenamento foram criadas antes do conjunto de escala começar a criação, mas esta cláusula já não é necessária com o disco gerido. A propriedade de contentores vhd também é removida, juntamente com a propriedade de nome de disco OS, uma vez que estas propriedades são automaticamente manuseadas sob o exaustor por disco gerido. Pode adicionar `"managedDisk": { "storageAccountType": "Premium_LRS" }` a configuração "osDisk" se quiser discos osso premium. Apenas Os VMs com um 's' maiúsculo ou minúsculo no SKu VM podem utilizar discos premium.
 
 ```diff
 @@ -183,7 +158,6 @@
@@ -114,12 +114,12 @@ Na diferença a seguir, podemos ver que estamos removendo a cláusula depends on
 
 ```
 
-Não há nenhuma propriedade explícita na configuração do conjunto de dimensionamento para se usar disco gerenciado ou não gerenciado. O conjunto de dimensionamento sabe qual usar com base nas propriedades presentes no perfil de armazenamento. Portanto, é importante ao modificar o modelo para garantir que as propriedades certas estejam no perfil de armazenamento do conjunto de dimensionamento.
+Não existe uma propriedade explícita na configuração do conjunto de escala para se utilizar o disco gerido ou não gerido. O conjunto de escala sabe qual usar com base nas propriedades que estão presentes no perfil de armazenamento. Assim, é importante modificar o modelo para garantir que as propriedades certas estão no perfil de armazenamento do conjunto de escala.
 
 
 ## <a name="data-disks"></a>Discos de dados
 
-Com as alterações acima, o conjunto de dimensionamento usa discos gerenciados para o disco do sistema operacional, mas e quanto aos discos de dados? Para adicionar discos de dados, adicione a propriedade "datadisks" em "storageProfile" no mesmo nível que "osDisk". O valor da propriedade é uma lista JSON de objetos, cada um com propriedades "LUN" (que deve ser exclusiva por disco de dados em uma VM), "createoption" ("Empty" atualmente a única opção com suporte) e "diskSizeGB" (o tamanho do disco em gigabytes; deve ser maior que 0 e menor que 1024) como no exemplo a seguir:
+Com as alterações acima, o conjunto de escala utiliza discos geridos para o disco OS, mas e os discos de dados? Para adicionar discos de dados, adicione a propriedade "dataDisks" em "storageProfile" ao mesmo nível que "osDisk". O valor do imóvel é uma lista JSON de objetos, cada um dos quais tem propriedades "lun" (que devem ser únicas por disco de dados num VM), "createOption" ("empty" é atualmente a única opção suportada) e "diskSizeGB" (o tamanho do disco em gigabytes; deve ser maior do que o tamanho do disco em gigabytes; 0 e menos de 1024) como no seguinte exemplo:
 
 ```
 "dataDisks": [
@@ -131,13 +131,13 @@ Com as alterações acima, o conjunto de dimensionamento usa discos gerenciados 
 ]
 ```
 
-Se você especificar `n` discos nessa matriz, cada VM no conjunto de dimensionamento obterá `n` discos de dados. No entanto, observe que esses discos de dados são dispositivos brutos. Eles não estão formatados. Cabe ao cliente anexar, particionar e formatar os discos antes de usá-los. Opcionalmente, você também pode especificar `"managedDisk": { "storageAccountType": "Premium_LRS" }` em cada objeto de disco de dados para especificar que ele deve ser um disco de dados Premium. Somente as VMs com letras maiúsculas ou minúsculas no SKU da VM podem usar discos Premium.
+Se especificar `n` os discos desta matriz, cada VM no conjunto de escala recebe `n` discos de dados. Note, no entanto, que estes discos de dados são dispositivos brutos. Não estão formatados. Cabe ao cliente anexar, dividir e formatar os discos antes de os utilizar. Opcionalmente, também pode `"managedDisk": { "storageAccountType": "Premium_LRS" }` especificar em cada objeto de disco de dados especificar que deve ser um disco de dados premium. Apenas Os VMs com um 's' maiúsculo ou minúsculo no SKu VM podem utilizar discos premium.
 
-Para saber mais sobre como usar discos de dados com conjuntos de dimensionamento, confira [Este artigo](./virtual-machine-scale-sets-attached-disks.md).
+Para saber mais sobre a utilização de discos de dados com conjuntos de escala, consulte [este artigo](./virtual-machine-scale-sets-attached-disks.md).
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter exemplos de modelos do Resource Manager usando conjuntos de dimensionamento, pesquise por "vmss" no [repositório GitHub de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
+Por exemplo, modelos de Gestor de Recursos utilizando conjuntos de escala, procure "vmss" nos [modelos de quickstart Azure GitHub repo](https://github.com/Azure/azure-quickstart-templates).
 
-Para obter informações gerais, confira a [página de aterrissagem principal para conjuntos de dimensionamento](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
+Para obter informações gerais, consulte a página principal de [aterragem para conjuntos](https://azure.microsoft.com/services/virtual-machine-scale-sets/)de escala .
 

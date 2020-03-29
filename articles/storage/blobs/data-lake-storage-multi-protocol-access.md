@@ -1,5 +1,5 @@
 ---
-title: Acesso multiprotocolo ao Armazenamento de Lagos De Dados Azure  Microsoft Docs
+title: Acesso multiprotocolo ao Armazenamento de Lagos De Dados Azure [ Microsoft Docs
 description: Utilize APIs blob e aplicações que usam APIs Blob com Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,10 +9,10 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: e3997fc215637175165402a926bffc6ac8d02771
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77914863"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Acesso multiprotocolo ao Armazenamento de Lagos De Dados Azure

@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ea90032b1f0cfe598ffdb3d35448a996f3111036
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78968753"
 ---
 # <a name="share-link-to-request-an-access-package-in-azure-ad-entitlement-management"></a>Link de partilha para solicitar um pacote de acesso na gestão de direitos da AD Azure
@@ -41,7 +41,7 @@ Enquanto o catálogo do pacote de acesso estiver [ativado para utilizadores exte
 
     ![Visão geral do pacote de acesso - My Access portal link](./media/entitlement-management-shared/my-access-portal-link.png)
 
-    É importante que copie todo o link do portal My Access ao enviá-lo a um parceiro de negócios interno. Isto garante que o parceiro terá acesso ao portal do seu diretório para fazer o seu pedido. O link começa com `myaccess`, inclui uma dica de diretório, e termina com um id de pacote de acesso.  (Para o Governo dos EUA, o domínio no portal My Access será `myaccess.microsoft.us`.)
+    É importante que copie todo o link do portal My Access ao enviá-lo a um parceiro de negócios interno. Isto garante que o parceiro terá acesso ao portal do seu diretório para fazer o seu pedido. O link `myaccess`começa com, inclui uma dica de diretório, e termina com um id de pacote de acesso.  (Para o Governo dos EUA, o domínio `myaccess.microsoft.us`no link do portal My Access será .)
 
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 

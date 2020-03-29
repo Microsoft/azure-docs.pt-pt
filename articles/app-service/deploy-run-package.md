@@ -3,11 +3,11 @@ title: Execute a sua aplicação a partir de um pacote ZIP
 description: Implemente o pacote ZIP da sua aplicação com atómico. Melhore a previsibilidade e fiabilidade do comportamento da sua aplicação durante o processo de implementação do ZIP.
 ms.topic: article
 ms.date: 01/14/2020
-ms.openlocfilehash: 316ada7700a5cf45ee90f515336039702bab48c0
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 5cc909d79b3f5ea2b4c6a3da12bc7250addbe00c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77920727"
 ---
 # <a name="run-your-app-in-azure-app-service-directly-from-a-zip-package"></a>Execute a sua aplicação no Serviço de Aplicações Azure diretamente de um pacote ZIP
@@ -31,13 +31,13 @@ Em contrapartida, quando se executa diretamente de um pacote, os ficheiros da em
 
 ## <a name="enable-running-from-package"></a>Ativar o funcionamento do pacote
 
-A definição de aplicações `WEBSITE_RUN_FROM_PACKAGE` permite funcionar a partir de um pacote. Para o definir, execute o seguinte comando com o Azure CLI.
+A `WEBSITE_RUN_FROM_PACKAGE` definição da aplicação permite a execução de um pacote. Para o definir, execute o seguinte comando com o Azure CLI.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITE_RUN_FROM_PACKAGE="1"
 ```
 
-`WEBSITE_RUN_FROM_PACKAGE="1"` permite executar a sua aplicação de um pacote local para a sua aplicação. Também pode correr a [partir de um pacote remoto.](#run-from-external-url-instead)
+`WEBSITE_RUN_FROM_PACKAGE="1"`Permite-lhe executar a sua aplicação de um pacote local para a sua aplicação. Também pode correr a [partir de um pacote remoto.](#run-from-external-url-instead)
 
 ## <a name="run-the-package"></a>Executar o pacote
 
@@ -47,7 +47,7 @@ The easiest way to run a package in your App Service is with the Azure CLI [az w
 az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src <filename>.zip
 ```
 
-Uma vez definida a definição de `WEBSITE_RUN_FROM_PACKAGE` aplicações, este comando não extrai o conteúdo do pacote para o *d:\home\site\wwwroot* diretório da sua aplicação. Em vez disso, ele envia o ficheiro ZIP como é para *D:\home\data\SitePackages*, e cria um *nome de pacote.txt* no mesmo diretório, que contém o nome do pacote ZIP para carregar no tempo de execução. Se fizer o upload do seu pacote ZIP de uma forma diferente (como [FTP),](deploy-ftp.md)tem de criar manualmente o diretório *D:\home\data\SitePackages* e o ficheiro *packagename.txt* manualmente.
+Como `WEBSITE_RUN_FROM_PACKAGE` a definição da aplicação está definida, este comando não extrai o conteúdo do pacote para o *d:\home\site\wwwroot* diretório da sua app. Em vez disso, ele envia o ficheiro ZIP como é para *D:\home\data\SitePackages*, e cria um *nome de pacote.txt* no mesmo diretório, que contém o nome do pacote ZIP para carregar no tempo de execução. Se fizer o upload do seu pacote ZIP de uma forma diferente (como [FTP),](deploy-ftp.md)tem de criar manualmente o diretório *D:\home\data\SitePackages* e o ficheiro *packagename.txt* manualmente.
 
 O comando também reinicia a aplicação. Como `WEBSITE_RUN_FROM_PACKAGE` está definido, o App Service monta o pacote carregado como o diretório *wwwroot* apenas de leitura e executa a app diretamente a partir desse diretório montado.
 
@@ -55,7 +55,7 @@ O comando também reinicia a aplicação. Como `WEBSITE_RUN_FROM_PACKAGE` está 
 
 Também pode executar uma embalagem a partir de um URL externo, como o Armazenamento De Blob Azure. Pode utilizar o [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) para fazer o upload de ficheiros de pacotes para a sua conta de armazenamento Blob. Deve utilizar um recipiente de armazenamento privado com uma Assinatura de [Acesso Partilhado (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) para permitir que o tempo de execução do Serviço de Aplicações aceda de forma segura à embalagem. 
 
-Assim que enviar o seu ficheiro para o armazenamento blob e tiver um URL SAS para o ficheiro, defina a definição de aplicação `WEBSITE_RUN_FROM_PACKAGE` para o URL. O exemplo seguinte fá-lo utilizando o Azure CLI:
+Assim que enviar o seu ficheiro para o armazenamento blob `WEBSITE_RUN_FROM_PACKAGE` e tiver um URL SAS para o ficheiro, defina a definição da aplicação para o URL. O exemplo seguinte fá-lo utilizando o Azure CLI:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_RUN_FROM_PACKAGE="https://myblobstorage.blob.core.windows.net/content/SampleCoreMVCApp.zip?st=2018-02-13T09%3A48%3A00Z&se=2044-06-14T09%3A48%3A00Z&sp=rl&sv=2017-04-17&sr=b&sig=bNrVrEFzRHQB17GFJ7boEanetyJ9DGwBSV8OM3Mdh%2FM%3D"
@@ -63,39 +63,12 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 Se publicar um pacote atualizado com o mesmo nome para o armazenamento Blob, precisa de reiniciar a sua aplicação para que o pacote atualizado seja carregado no Serviço de Aplicações.
 
-### <a name="use-key-vault-references"></a>Utilizar referências de cofre de chaves
-
-Para uma maior segurança, pode utilizar referências de cofre de chave em conjunto com o seu URL externo. Isto mantém o URL encriptado em repouso e permite alavancar o Key Vault para gestão e rotação secretas. Recomenda-se utilizar o armazenamento Azure Blob para que possa rodar facilmente a tecla SAS associada. O armazenamento do Azure Blob é encriptado em repouso, o que mantém os dados da sua aplicação seguros quando não é implementado no Serviço de Aplicações.
-
-1. Crie um cofre de chaves Azure.
-
-    ```azurecli
-    az keyvault create --name "Contoso-Vault" --resource-group <group-name> --location eastus
-    ```
-
-1. Adicione o seu URL externo como um segredo no Cofre chave.
-
-    ```azurecli
-    az keyvault secret set --vault-name "Contoso-Vault" --name "external-url" --value "<insert-your-URL>"
-    ```
-
-1. Crie a definição de aplicações `WEBSITE_RUN_FROM_PACKAGE` e defina o valor como uma referência de cofre chave ao URL externo.
-
-    ```azurecli
-    az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"
-    ```
-
-Consulte os seguintes artigos para obter mais informações.
-
-- [Referências chave vault para serviço de aplicações](app-service-key-vault-references.md)
-- [Encriptação azure storage para dados em repouso](../storage/common/storage-service-encryption.md)
-
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-- Correr diretamente de um pacote faz `wwwroot` apenas para leitura. A sua aplicação receberá um erro se tentar escrever ficheiros para este diretório.
+- Correr diretamente de `wwwroot` um pacote faz apenas leitura. A sua aplicação receberá um erro se tentar escrever ficheiros para este diretório.
 - Os formatos TAR e GZIP não são suportados.
 - Esta função não é compatível com [cache local](overview-local-cache.md).
-- Para um melhor desempenho a frio, utilize a opção Zip local (`WEBSITE_RUN_FROM_PACKAGE`=1).
+- Para um melhor desempenho a frio, utilize`WEBSITE_RUN_FROM_PACKAGE`a opção Zip local (=1).
 
 ## <a name="more-resources"></a>Mais recursos
 

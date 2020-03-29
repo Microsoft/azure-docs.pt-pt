@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 7386932f19eee064926184eb17f5e92e30add98e
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76760390"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Suspender e reativar entidades de mensagens (desativar)
@@ -47,7 +47,7 @@ Os estados que podem ser definidos para uma fila são:
 
 Para subscrições e tópicos, apenas o **Ative** and **Disabled** pode ser definido.
 
-A enumeração [do Status da Entidade](/dotnet/api/microsoft.servicebus.messaging.entitystatus) também define um conjunto de estados transitórios que só podem ser definidos pelo sistema. O comando PowerShell para desativar uma fila é mostrado no seguinte exemplo. O comando de reativação é equivalente, definindo `Status` a **Ativo**.
+A enumeração [do Status da Entidade](/dotnet/api/microsoft.servicebus.messaging.entitystatus) também define um conjunto de estados transitórios que só podem ser definidos pelo sistema. O comando PowerShell para desativar uma fila é mostrado no seguinte exemplo. O comando de reativação é equivalente, regulando-se `Status` para **Ativo**.
 
 ```powershell
 $q = Get-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue
@@ -59,10 +59,10 @@ Set-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre as mensagens do barramento de serviço, consulte os seguintes tópicos:
+Para saber mais sobre as mensagens de ônibus de serviço, consulte os seguintes tópicos:
 
 * [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)
-* [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
+* [Começar com as filas de ônibus de serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Como utilizar os tópicos e as subscrições do Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 [1]: ./media/entity-suspend/queue-disable.png

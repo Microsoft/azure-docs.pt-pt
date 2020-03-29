@@ -11,10 +11,10 @@ author: maxluk
 ms.date: 03/09/2020
 ms.custom: seodec18
 ms.openlocfilehash: bdd2cc400c3df75742689258caea8cb87ee8ccc6
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78942273"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Construa modelos de scikit-learn à escala com o Azure Machine Learning
@@ -32,7 +32,7 @@ Execute este código em qualquer um destes ambientes:
  - Instância computacional Azure Machine Learning - sem downloads ou instalação necessária
 
     - Complete o [Tutorial: Ambiente de configuração e espaço de trabalho](tutorial-1st-experiment-sdk-setup.md) para criar um servidor de portátil dedicado pré-carregado com o SDK e o repositório de amostras.
-    - Na pasta de formação de amostras no servidor de cadernos, encontre um caderno completo e expandido navegando para este diretório: **como usar-azureml > ml-frameworks > scikit-learn > training > train-hyperparameter-tune-deploy-with-sklearn** folder.
+    - Na pasta de formação de amostras no servidor de cadernos, encontre um caderno completo e expandido navegando para este diretório: **como usar-azureml > ml-quadros > sickit-learn > formação > pasta de metrémetro-hiperparâmetro-implantação-com-sklearn.**
 
  - O seu próprio servidor jupyter Notebook
 
@@ -66,15 +66,15 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>Inicializar um espaço de trabalho
 
-O espaço de [trabalho Azure Machine Learning](concept-workspace.md) é o recurso de alto nível para o serviço. Proporciona-lhe um lugar centralizado para trabalhar com todos os artefactos que cria. No Python SDK, você pode aceder aos artefactos do espaço de trabalho criando um objeto [`workspace`.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py)
+O espaço de [trabalho Azure Machine Learning](concept-workspace.md) é o recurso de alto nível para o serviço. Proporciona-lhe um lugar centralizado para trabalhar com todos os artefactos que cria. No Python SDK, você pode aceder aos artefactos do espaço de trabalho criando um [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) objeto.
 
-Crie um objeto espaço de trabalho a partir do ficheiro `config.json` criado na [secção pré-requisitos](#prerequisites).
+Crie um objeto `config.json` espaço de trabalho a partir do ficheiro criado na [secção pré-requisitos](#prerequisites).
 
 ```Python
 ws = Workspace.from_config()
 ```
 
-### <a name="create-a-machine-learning-experiment"></a>Criar uma experiência de aprendizagem automática
+### <a name="create-a-machine-learning-experiment"></a>Criar uma experimentação de machine learning
 
 Crie uma experiência e uma pasta para segurar os seus scripts de treino. Neste exemplo, crie uma experiência chamada "sklearn-íris".
 
@@ -89,9 +89,9 @@ exp = Experiment(workspace=ws, name='sklearn-iris')
 
 Neste tutorial, o roteiro de treino **train_iris.py** já está previsto para si. Na prática, você deve ser capaz de pegar qualquer script de treino personalizado como está e executá-lo com Azure ML sem ter que modificar o seu código.
 
-Para utilizar as capacidades de rastreio e métricas Do Azure ML, adicione uma pequena quantidade de código Azure ML dentro do seu script de treino.  O roteiro de treino **train_iris.py** mostra como registar algumas métricas na sua execução Azure ML utilizando o `Run` objeto dentro do script.
+Para utilizar as capacidades de rastreio e métricas Do Azure ML, adicione uma pequena quantidade de código Azure ML dentro do seu script de treino.  O script de treino **train_iris.py** mostra como registar algumas `Run` métricas na sua execução Azure ML utilizando o objeto dentro do script.
 
-O script de treino fornecido utiliza dados exemplo sada da função `iris = datasets.load_iris()`.  Para os seus próprios dados, poderá ter de utilizar passos como [o Upload dataset e scripts](how-to-train-keras.md#data-upload) para disponibilizar dados durante o treino.
+O script de treino fornecido `iris = datasets.load_iris()` utiliza dados de exemplo da função.  Para os seus próprios dados, poderá ter de utilizar passos como [o Upload dataset e scripts](how-to-train-keras.md#data-upload) para disponibilizar dados durante o treino.
 
 Copie o guião de treino **train_iris.py** no seu diretório de projeto.
 
@@ -126,9 +126,9 @@ Para obter mais informações sobre os alvos da computação, consulte o [que é
 
 ## <a name="create-a-scikit-learn-estimator"></a>Criar um estimador de aprendizagem de ficção
 
-O [estimador de aprendizagem de scikit](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn?view=azure-ml-py) fornece uma forma simples de lançar um trabalho de formação de ficção-aprendizagem num alvo de computação. É implementado através da classe [`SKLearn`,](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) que pode ser usada para apoiar a formação de CPU de nó único.
+O [estimador de aprendizagem de scikit](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn?view=azure-ml-py) fornece uma forma simples de lançar um trabalho de formação de ficção-aprendizagem num alvo de computação. É implementado através [`SKLearn`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) da classe, que pode ser usada para apoiar a formação de CPU de nó único.
 
-Se o seu script de treino precisar de pacotes adicionais de pip ou conda para executar, pode ter os pacotes instalados na imagem de estivador resultante, passando os seus nomes através dos argumentos `pip_packages` e `conda_packages`.
+Se o seu script de treino precisar de pacotes adicionais de pip ou conda para executar, pode ter os pacotes instalados na imagem do estivador resultante, passando os seus nomes através dos `pip_packages` argumentos e `conda_packages` argumentos.
 
 ```Python
 from azureml.train.sklearn import SKLearn
@@ -180,7 +180,7 @@ import joblib
 joblib.dump(svm_model_linear, 'model.joblib')
 ```
 
-Registe o modelo no seu espaço de trabalho com o seguinte código. Especificando os parâmetros `model_framework`, `model_framework_version`e `resource_configuration`, fica disponível a implementação do modelo sem código. Isto permite-lhe implementar diretamente o seu modelo como um serviço web a partir do modelo registado, e [o](https://docs.microsoft.com/python/api/azureml-core/azureml.core.resource_configuration.resourceconfiguration?view=azure-ml-py)`ResourceConfiguration`objeto define o recurso computacional para o serviço web.
+Registe o modelo no seu espaço de trabalho com o seguinte código. Especificando os parâmetros, `model_framework` `model_framework_version` `resource_configuration`e a implementação do modelo sem código fica disponível. Isto permite-lhe implementar diretamente o seu modelo como um [`ResourceConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.resource_configuration.resourceconfiguration?view=azure-ml-py) serviço web a partir do modelo registado, e o objeto define o recurso computacional para o serviço web.
 
 ```Python
 from azureml.core import Model
@@ -199,7 +199,7 @@ O modelo que acabou de registar pode ser implementado da mesma forma que qualque
 
 ### <a name="preview-no-code-model-deployment"></a>(Pré-visualização) Implementação do modelo sem código
 
-Em vez da rota de implantação tradicional, também pode utilizar a funcionalidade de implementação sem código (pré-visualização)para o scikit-learn. A implementação de modelos sem código é suportada para todos os tipos de modelos de aprendizagem de scikit incorporados. Ao registar o seu modelo como mostrado acima com os parâmetros `model_framework`, `model_framework_version`e `resource_configuration`, pode simplesmente utilizar [a](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) função`deploy()`estática para implementar o seu modelo.
+Em vez da rota de implantação tradicional, também pode utilizar a funcionalidade de implementação sem código (pré-visualização)para o scikit-learn. A implementação de modelos sem código é suportada para todos os tipos de modelos de aprendizagem de scikit incorporados. Ao registar o seu modelo como `model_framework` `model_framework_version`mostrado `resource_configuration` acima com os parâmetros [`deploy()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) e parâmetros, pode simplesmente utilizar a função estática para implementar o seu modelo.
 
 ```python
 web_service = Model.deploy(ws, "scikit-learn-service", [model])
@@ -217,10 +217,10 @@ NOTA: Estas dependências estão incluídas no recipiente de inferência de scik
 O completo [como cobrir](how-to-deploy-and-where.md) a implantação em Azure Machine Learning em maior profundidade.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, treinou e registou um modelo de aprendizagem de ficção científica, e aprendeu sobre opções de implementação. Veja estes outros artigos para saber mais sobre o Azure Machine Learning.
 
 * [Métricas de corrida de pista durante o treino](how-to-track-experiments.md)
-* [Hiperparâmetros de melodia](how-to-tune-hyperparameters.md)
+* [Otimizar hiperparâmetros](how-to-tune-hyperparameters.md)
 * [Arquitetura de referência para formação distribuída de aprendizagem profunda em Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

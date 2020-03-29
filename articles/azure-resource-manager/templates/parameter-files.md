@@ -1,22 +1,22 @@
 ---
 title: Criar ficheiro de parâmetros
-description: Criar arquivo de parâmetro para passar valores durante a implantação de um modelo de Azure Resource Manager
+description: Crie ficheiro de parâmetro para passar em valores durante a implementação de um modelo de Gestor de Recursos Azure
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: bb52d9c5ebcb0820362e5de3d6b24b0b18d742e9
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76155626"
 ---
-# <a name="create-resource-manager-parameter-file"></a>Criar arquivo de parâmetro do Resource Manager
+# <a name="create-resource-manager-parameter-file"></a>Criar ficheiro de parâmetro sinuoso do Gestor de Recursos
 
-Em vez de passar parâmetros como valores embutidos em seu script, você pode achar mais fácil usar um arquivo JSON que contenha os valores de parâmetro. Este artigo mostra como criar o arquivo de parâmetro.
+Em vez de passar parâmetros como valores inline no seu script, poderá ser mais fácil utilizar um ficheiro JSON que contenha os valores do parâmetro. Este artigo mostra como criar o ficheiro de parâmetros.
 
-## <a name="parameter-file"></a>Ficheiro de parâmetros
+## <a name="parameter-file"></a>Arquivo parâmetro
 
-O arquivo de parâmetro tem o seguinte formato:
+O ficheiro parâmetro tem o seguinte formato:
 
 ```json
 {
@@ -33,9 +33,9 @@ O arquivo de parâmetro tem o seguinte formato:
 }
 ```
 
-Observe que os valores de parâmetro são armazenados como texto sem formatação no arquivo de parâmetro. Essa abordagem funciona para valores que não são confidenciais, como especificar a SKU para um recurso. Ele não funciona para valores confidenciais, como senhas. Se você precisar passar um valor confidencial como um parâmetro, armazene o valor em um cofre de chaves e faça referência ao cofre de chaves em seu arquivo de parâmetro. O valor confidencial é recuperado com segurança durante a implantação.
+Note que os valores do parâmetro são armazenados como texto simples no ficheiro do parâmetro. Esta abordagem funciona para valores que não são sensíveis, como especificar o SKU para um recurso. Não funciona para valores sensíveis, como senhas. Se precisar passar um valor sensível como parâmetro, guarde o valor num cofre chave e faça referência ao cofre chave no seu ficheiro de parâmetros. O valor sensível é recuperado de forma segura durante a implantação.
 
-O arquivo de parâmetro a seguir inclui um valor de texto sem formatação e um valor que é armazenado em um cofre de chaves.
+O ficheiro de parâmetro si só inclui um valor de texto simples e um valor que é armazenado num cofre chave.
 
 ```json
 {
@@ -57,11 +57,11 @@ O arquivo de parâmetro a seguir inclui um valor de texto sem formatação e um 
 }
 ```
 
-Para obter mais informações sobre como usar valores de um cofre de chaves, consulte [usar Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](key-vault-parameter.md).
+Para obter mais informações sobre a utilização de valores a partir de um cofre chave, consulte [use o Cofre chave Azure para passar o valor do parâmetro seguro durante](key-vault-parameter.md)a implementação .
 
-## <a name="define-parameter-values"></a>Definir valores de parâmetro
+## <a name="define-parameter-values"></a>Definir valores de parâmetros
 
-Para descobrir como definir os valores de parâmetro, abra o modelo que você está implantando. Examine a seção de parâmetros do modelo. O exemplo a seguir mostra os parâmetros de um modelo.
+Para descobrir como definir os valores do parâmetro, abra o modelo que está a implementar. Olhe para a secção de parâmetros do modelo. O exemplo que se segue mostra os parâmetros de um modelo.
 
 ```json
 "parameters": {
@@ -82,7 +82,7 @@ Para descobrir como definir os valores de parâmetro, abra o modelo que você es
 }
 ```
 
-O primeiro detalhe a ser observado é o nome de cada parâmetro. Os valores em seu arquivo de parâmetro devem corresponder aos nomes.
+O primeiro detalhe a notar é o nome de cada parâmetro. Os valores do seu ficheiro de parâmetros devem coincidir com os nomes.
 
 ```json
 {
@@ -97,7 +97,7 @@ O primeiro detalhe a ser observado é o nome de cada parâmetro. Os valores em s
 }
 ```
 
-Observe o tipo do parâmetro. Os valores em seu arquivo de parâmetro devem ter os mesmos tipos. Para este modelo, você pode fornecer ambos os parâmetros como cadeias de caracteres.
+Reparem no tipo de parâmetro. Os valores do seu ficheiro de parâmetros devem ter os mesmos tipos. Para este modelo, pode fornecer ambos os parâmetros como cordas.
 
 ```json
 {
@@ -114,7 +114,7 @@ Observe o tipo do parâmetro. Os valores em seu arquivo de parâmetro devem ter 
 }
 ```
 
-Em seguida, procure um valor padrão. Se um parâmetro tiver um valor padrão, você poderá fornecer um valor, mas não precisará.
+Em seguida, procure um valor padrão. Se um parâmetro tiver um valor predefinido, pode fornecer um valor, mas não tem de o fazer.
 
 ```json
 {
@@ -131,7 +131,7 @@ Em seguida, procure um valor padrão. Se um parâmetro tiver um valor padrão, v
 }
 ```
 
-Por fim, examine os valores permitidos e as restrições como comprimento máximo. Eles informam o intervalo de valores que você pode fornecer para o parâmetro.
+Finalmente, olhe para os valores permitidos e quaisquer restrições como o comprimento máximo. Dizem-lhe o leque de valores que pode fornecer para o parâmetro.
 
 ```json
 {
@@ -148,9 +148,9 @@ Por fim, examine os valores permitidos e as restrições como comprimento máxim
 }
 ```
 
-## <a name="parameter-type-formats"></a>Formatos de tipo de parâmetro
+## <a name="parameter-type-formats"></a>Formatos do tipo parâmetro
 
-O exemplo a seguir mostra os formatos de tipos de parâmetros diferentes.
+O exemplo que se segue mostra os formatos de diferentes tipos de parâmetros.
 
 ```json
 {
@@ -184,23 +184,23 @@ O exemplo a seguir mostra os formatos de tipos de parâmetros diferentes.
 
 ## <a name="file-name"></a>Nome de ficheiro
 
-A Convenção geral para nomear o arquivo de parâmetro é adicionar **. Parameters** ao nome do modelo. Por exemplo, se seu modelo for denominado **azuredeploy. JSON**, o arquivo de parâmetro será chamado **azuredeploy. Parameters. JSON**. Essa convenção de nomenclatura ajuda a ver a conexão entre o modelo e os parâmetros.
+A convenção geral para nomear o ficheiro parâmetro é adicionar **.parâmetros** ao nome do modelo. Por exemplo, se o seu modelo for nomeado **azuredeploy.json,** o seu ficheiro de parâmetros é nomeado **azuredeploy.parameters.json**. Esta convenção de nomeação ajuda-o a ver a ligação entre o modelo e os parâmetros.
 
-Para implantar em ambientes diferentes, crie mais de um arquivo de parâmetro. Ao nomear o arquivo de parâmetro, adicione uma maneira de identificar seu uso. Por exemplo, use **azuredeploy. Parameters-dev. JSON** e **azuredeploy. Parameters-prod. JSON**
+Para implantar em diferentes ambientes, crie mais de um ficheiro de parâmetros. Ao nomear o ficheiro parâmetro, adicione uma forma de identificar a sua utilização. Por exemplo, utilize **azuredeploy.parameters-dev.json** e **azuredeploy.parameters-prod.json**
 
 
-## <a name="parameter-precedence"></a>Precedência de parâmetro
+## <a name="parameter-precedence"></a>Precedência do parâmetro
 
-Você pode usar parâmetros embutidos e um arquivo de parâmetro local na mesma operação de implantação. Por exemplo, você pode especificar alguns valores no arquivo de parâmetro local e adicionar outros valores embutidos durante a implantação. Se você fornecer valores para um parâmetro no arquivo de parâmetro local e embutido, o valor embutido terá precedência.
+Pode utilizar parâmetros inline e um ficheiro de parâmetro local na mesma operação de implantação. Por exemplo, pode especificar alguns valores no ficheiro parâmetro local e adicionar outros valores inline durante a implementação. Se fornecer valores para um parâmetro tanto no ficheiro de parâmetro local como na linha de dentro, o valor inline tem precedência.
 
-No entanto, quando você usa um arquivo de parâmetro externo, não pode passar outros valores embutidos ou de um arquivo local. Todos os parâmetros embutidos são ignorados. Forneça todos os valores de parâmetro no arquivo externo.
+No entanto, quando utiliza um ficheiro de parâmetro externo, não pode passar outros valores, quer em linha quer a partir de um ficheiro local. Todos os parâmetros inline são ignorados. Forneça todos os valores dos parâmetros no ficheiro externo.
 
-## <a name="parameter-name-conflicts"></a>Conflitos de nome de parâmetro
+## <a name="parameter-name-conflicts"></a>Conflitos de nome de parâmetros
 
-Se o modelo incluir um parâmetro com o mesmo nome de um dos parâmetros no comando do PowerShell, o PowerShell apresentará o parâmetro do seu modelo com o sufixo **detemplate**. Por exemplo, um parâmetro chamado **ResourceGroupName** em seu modelo está em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) . Você será solicitado a fornecer um valor para **ResourceGroupNameFromTemplate**. Você pode evitar essa confusão usando nomes de parâmetros que não são usados para comandos de implantação.
+Se o seu modelo incluir um parâmetro com o mesmo nome que um dos parâmetros do comando PowerShell, o PowerShell apresenta o parâmetro do seu modelo com o modelo de pós-fixação **FromTemplate**. Por exemplo, um parâmetro chamado **ResourceGroupName** no seu modelo entra em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzResourceGroupDeployment.](/powershell/module/az.resources/new-azresourcegroupdeployment) É-lhe pedido que forneça um valor para **o ResourceGroupNameFromTemplate**. Pode evitar esta confusão utilizando nomes de parâmetros que não são utilizados para comandos de implantação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para entender como definir parâmetros em seu modelo, consulte [parâmetros em modelos de Azure Resource Manager](template-parameters.md).
-- Para obter mais informações sobre como usar valores de um cofre de chaves, consulte [usar Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](key-vault-parameter.md).
-- Para obter mais informações sobre parâmetros, consulte [parâmetros em modelos de Azure Resource Manager](template-parameters.md).
+- Para entender como definir parâmetros no seu modelo, consulte [parâmetros nos modelos do Gestor](template-parameters.md)de Recursos Azure .
+- Para obter mais informações sobre a utilização de valores a partir de um cofre chave, consulte [use o Cofre chave Azure para passar o valor do parâmetro seguro durante](key-vault-parameter.md)a implementação .
+- Para obter mais informações sobre parâmetros, consulte [parâmetros nos modelos do Gestor de Recursos Azure](template-parameters.md).

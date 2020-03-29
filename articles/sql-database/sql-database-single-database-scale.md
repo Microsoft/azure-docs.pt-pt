@@ -1,5 +1,5 @@
 ---
-title: Dimensione os recursos de base de dados individuais
+title: Dimensionar recursos de base de dados única
 description: Este artigo descreve como escalar os recursos de cálculo e armazenamento disponíveis para uma única base de dados na Base de Dados Azure SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: 92d6dccec3ce6483072a81c8739b65e81ce2c7fe
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 84846e642fa102045b89eb12dbc85b0995867a3e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79268577"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061602"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Dimensionar recursos de base de dados individuais na Base de Dados Azure SQL
 
@@ -29,7 +29,7 @@ O vídeo seguinte mostra a alteração dinâmica do nível de serviço e do tama
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para mais informações, consulte Gerir o espaço de ficheiros na Base de [Dados Azure SQL](sql-database-file-space-management.md).
+> Em algumas circunstâncias, poderá ser necessário encolher uma base de dados para recuperar espaço não utilizado. Para mais informações, consulte Gerir o espaço de ficheiros na Base de [Dados Azure SQL](sql-database-file-space-management.md).
 
 ## <a name="impact"></a>Impacto
 
@@ -52,9 +52,9 @@ A latência estimada para alterar o nível de serviço ou redimensionar o tamanh
 
 |Camada de serviços|Base de dados única básica,</br>Padrão (S0-S1)|Piscina elástica básica,</br>Padrão (S2-S12), </br>Hiperescala, </br>Base de dados única de propósito geral ou piscina elástica|Premium ou Business Critical única base de dados ou piscina elástica|
 |:---|:---|:---|:---|
-|**Base de dados única básica,</br> Standard (S0-S1)**|&bull; &nbsp;latência de tempo constante independente do espaço utilizado</br>&bull; &nbsp;Tipicamente, menos de 5 minutos|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|
-|**Piscina elástica básica, </br>Standard (S2-S12), </br>Hiperescala, base de dados única </br>Propósito Geral ou piscina elástica**|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|&bull; &nbsp;latência de tempo constante independente do espaço utilizado</br>&bull; &nbsp;Tipicamente, menos de 5 minutos|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|
-|**Premium ou Business Critical única base de dados ou piscina elástica**|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|
+|**Base de</br> dados única básica, Standard (S0-S1)**|&bull;&nbsp;Latência de tempo constante independente do espaço utilizado</br>&bull;&nbsp;Tipicamente, menos de 5 minutos|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|
+|**Piscina elástica </br>básica, Standard (S2-S12), </br>Hiperescala, Base de </br>Dados Única de Propósito Geral ou piscina elástica**|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência de tempo constante independente do espaço utilizado</br>&bull;&nbsp;Tipicamente, menos de 5 minutos|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|
+|**Premium ou Business Critical única base de dados ou piscina elástica**|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|
 
 > [!TIP]
 > Para monitorizar as operações em curso, consulte: [Gerir as operações utilizando o SQL REST API](https://docs.microsoft.com/rest/api/sql/operations/list), [Gerir as operações utilizando cli,](/cli/azure/sql/db/op) [monitorizar as operações utilizando o T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e estes dois comandos PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) e [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
@@ -75,9 +75,9 @@ Em seguida, clique no botão rotulado **Cancele esta operação**.
 
 #### <a name="powershell"></a>PowerShell
 
-A partir de um pedido de comando PowerShell, desloque o `$resourceGroupName`, `$serverName`e `$databaseName`, e, em seguida, executar o seguinte comando:
+A partir de um pedido `$resourceGroupName` `$serverName`de `$databaseName`comando PowerShell, desloque o , e, em seguida, executar o seguinte comando:
 
-```powershell
+```azurecli
 $operationName = (az sql db op list --resource-group $resourceGroupName --server $serverName --database $databaseName --query "[?state=='InProgress'].name" --out tsv)
 if (-not [string]::IsNullOrEmpty($operationName)) {
     (az sql db op cancel --resource-group $resourceGroupName --server $serverName --database $databaseName --name $operationName)
@@ -109,11 +109,11 @@ else {
 - O armazenamento pode ser provisionado até ao limite de tamanho máximo de armazenamento de dados utilizando incrementos de 1 GB. O armazenamento mínimo de dados configuráveis é de 1 GB. Consulte as páginas de documentação limite de recursos para [bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md) e [piscinas elásticas](sql-database-vcore-resource-limits-elastic-pools.md) para os limites máximos de armazenamento de dados em cada objetivo de serviço.
 - O armazenamento de dados para uma única base de dados pode ser provisionado aumentando ou diminuindo o seu tamanho máximo utilizando o [portal Azure](https://portal.azure.com), [Transact-SQL,](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1) [PowerShell,](/powershell/module/az.sql/set-azsqldatabase) [Azure CLI](/cli/azure/sql/db#az-sql-db-update)ou [REST API](https://docs.microsoft.com/rest/api/sql/databases/update). Se o valor máximo de tamanho for especificado em bytes, deve ser um múltiplo de 1 GB (1073741824 bytes).
 - A quantidade de dados que podem ser armazenados nos ficheiros de dados de uma base de dados é limitada pelo tamanho máximo de armazenamento de dados configurado. Além desse armazenamento, a Base de Dados SQL atribui automaticamente mais 30% de armazenamento a ser utilizado para o registo de transações.
-- A Base de Dados SQL atribui automaticamente 32 GB por vCore para a base de dados `tempdb`. `tempdb` está localizado no armazenamento local de SSD em todos os níveis de serviço.
-- O preço de armazenamento de uma única base de dados ou de um pool elástico é a soma dos valores de armazenamento de dados e de armazenamento de registos de transações multiplicados pelo preço unitário de armazenamento do nível de serviço. O custo da `tempdb` está incluído no preço. Para mais detalhes sobre o preço de armazenamento, consulte os preços da Base de [Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+- A Base de Dados SQL atribui automaticamente `tempdb` 32 GB por vCore para a base de dados. `tempdb`encontra-se localizado no armazenamento local de SSD em todos os níveis de serviço.
+- O preço de armazenamento de uma única base de dados ou de um pool elástico é a soma dos valores de armazenamento de dados e de armazenamento de registos de transações multiplicados pelo preço unitário de armazenamento do nível de serviço. O custo `tempdb` está incluído no preço. Para mais detalhes sobre o preço de armazenamento, consulte os preços da Base de [Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para mais informações, consulte Gerir o espaço de ficheiros na Base de [Dados Azure SQL](sql-database-file-space-management.md).
+> Em algumas circunstâncias, poderá ser necessário encolher uma base de dados para recuperar espaço não utilizado. Para mais informações, consulte Gerir o espaço de ficheiros na Base de [Dados Azure SQL](sql-database-file-space-management.md).
 
 ### <a name="dtu-based-purchasing-model"></a>Modelo de compra baseado em DTU
 
@@ -122,7 +122,7 @@ else {
 - O preço do armazenamento extra para uma única base de dados é o valor extra de armazenamento multiplicado pelo preço extra de armazenamento do nível de serviço. Para mais detalhes sobre o preço do armazenamento extra, consulte os preços da Base de [Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para mais informações, consulte Gerir o espaço de ficheiros na Base de [Dados Azure SQL](sql-database-file-space-management.md).
+> Em algumas circunstâncias, poderá ser necessário encolher uma base de dados para recuperar espaço não utilizado. Para mais informações, consulte Gerir o espaço de ficheiros na Base de [Dados Azure SQL](sql-database-file-space-management.md).
 
 ### <a name="geo-replicated-database"></a>Base de dados geo-replicada
 

@@ -1,5 +1,5 @@
 ---
-title: Utilize o Moderador de Conteúdo dos Meios de Comunicação Social Azure para detetar possíveis conteúdos adultos e picantes  Microsoft Docs
+title: Utilize o Moderador de Conteúdo dos Meios de Comunicação Social Azure para detetar possíveis conteúdos adultos e picantes [ Microsoft Docs
 description: O processador de mídia Azure Media Moderador ajuda a detetar potenciais conteúdos adultos e picantes em vídeos.
 services: media-services
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: 83fe7867a3128ac82597c028452863a1ad681ace
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77914335"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Utilize o Moderador de Conteúdo dos Meios de Comunicação Azure para detetar possíveis conteúdos adultos e picantes 
@@ -49,13 +49,13 @@ A saída JSON inclui os seguintes elementos:
 
 | Elemento | Descrição |
 | --- | --- |
-| version |A versão de Moderador de Conteúdo. |
-| timescale |"Carrapatos" por segundo do vídeo. |
-| compensado |Desvio de tempo para carimbos de data/hora. Na versão 1.0 das APIs de Vídeo, este valor será sempre 0. Este valor pode mudar no futuro. |
+| versão |A versão de Moderador de Conteúdo. |
+| escala de tempo |"Carrapatos" por segundo do vídeo. |
+| offset |Desvio de tempo para carimbos de data/hora. Na versão 1.0 das APIs de Vídeo, este valor será sempre 0. Este valor pode mudar no futuro. |
 | framerate |Fotogramas por segundo do vídeo. |
-| Largura |A largura da moldura de vídeo de saída, em pixels.|
+| largura |A largura da moldura de vídeo de saída, em pixels.|
 | altura |A altura da moldura de vídeo de saída, em pixels.|
-| totalDuration |A duração do vídeo de entrada, em "tiques". |
+| totalDuração |A duração do vídeo de entrada, em "tiques". |
 | [fragmentos](#fragments-json-elements) |Os metadados são divididos em diferentes segmentos chamados fragmentos. Cada fragmento é um tiro detetado automaticamente com um início, duração, número de intervalo e eventos. |
 
 ### <a name="fragments-json-elements"></a>Fragmentos Elementos JSON
@@ -71,10 +71,10 @@ A saída JSON inclui os seguintes elementos:
 
 |Elemento|Descrição|
 |---|---|
-| reviewRecommended | `true` ou `false` dependendo se o **adultScore** ou **o racyScore** excedem os limiares internos. |
+| revisãoRecomendado | `true`ou `false` dependendo se o **adultScore** ou **o racyScore** excedem os limiares internos. |
 | adultScore | Pontuação de confiança para possível conteúdo adulto, numa escala de 0,00 a 0,99. |
 | racyScore | Pontuação de confiança para possível conteúdo picante, numa escala de 0,00 a 0,99. |
-| index | índice do quadro numa escala do primeiro índice de quadros para o último índice de quadros. |
+| índice | índice do quadro numa escala do primeiro índice de quadros para o último índice de quadros. |
 | carimbo de data/hora | A localização da moldura em "carrapatos". |
 | shotIndex | O índice da injeção dos pais. |
 

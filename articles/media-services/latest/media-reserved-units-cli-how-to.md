@@ -1,6 +1,6 @@
 ---
-title: Utilizar a CLI para dimensionar unidades reservadas de multimédia - Azure | Documentos da Microsoft
-description: Este tópico mostra como utilizar a CLI para dimensionar processamento de multimédia com serviços de multimédia do Azure.
+title: Utilize o CLI para escalar unidades reservadas de mídia - Azure [ Microsoft Docs
+description: Este tópico mostra como usar o CLI para escalar o processamento de meios de comunicação com a Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,15 +15,15 @@ ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 9f0a7425fc09d391828a748832f662f02c6022cf
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78970790"
 ---
-# <a name="scaling-media-processing"></a>Dimensionar processamento de multimédia
+# <a name="scaling-media-processing"></a>Scaling media processing (Dimensionar o processamento de multimédia)
 
-Os Serviços de Multimédia do Azure permitem-lhe dimensionar o processamento de multimédia na sua conta através da gestão de Unidades Reservadas de Multimédia (MRUs). As MrUs determinam a rapidez com que as suas tarefas de processamento de meios de comunicação são processadas. Pode escolher de entre os tipos de unidades reservadas **S1**, **S2** ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**. 
+Os Serviços de Multimédia do Azure permitem-lhe dimensionar o processamento de multimédia na sua conta através da gestão de Unidades Reservadas de Multimédia (MRUs). As MrUs determinam a rapidez com que as suas tarefas de processamento de meios de comunicação são processadas. Pode escolher entre os seguintes tipos de unidades reservados: **S1,** **S2,** ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**. 
 
 Além de especificar o tipo de unidade reservado, pode especificar para fornecer a sua conta com unidades reservadas. O número de unidades reservadas aprovisionadas determina o número de tarefas de multimédia que podem ser processadas em simultâneo numa determinada conta. Por exemplo, se a sua conta tiver cinco unidades reservadas, então cinco tarefas de mídia estarão em execução simultaneamente, desde que existam tarefas a serem processadas. As restantes tarefas vão esperar na fila e serão apanhadas para processamento sequencialmente quando uma tarefa de execução terminar. Se uma conta não tiver unidades reservadas, as tarefas serão recolhidas sequencialmente. Neste caso, o tempo de espera entre uma tarefa de conclusão e a próxima a partir dependerá da disponibilidade de recursos no sistema.
 
@@ -53,7 +53,7 @@ O resto do artigo mostra como usar os [Serviços de Media v3 CLI](https://aka.ms
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
-## <a name="scale-media-reserved-units-with-cli"></a>Unidades com a CLI reservadas de multimédia de dimensionamento
+## <a name="scale-media-reserved-units-with-cli"></a>Unidades Reservadas de Meios de Escala com CLI
 
 Execute o comando `mru`.
 
@@ -74,4 +74,4 @@ az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
 ## <a name="see-also"></a>Consulte também
 
 * [Quotas e limitações](limits-quotas-constraints.md)
-* [CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

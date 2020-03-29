@@ -12,35 +12,35 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: 9e499d609a3f78dc5f422b9ed90df09be30f2e7c
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79080416"
 ---
-# <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Utilizar modelos com aprendizagem automática na cloud
+# <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Preparar modelos com machine learning automatizado na cloud
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-No Azure Machine Learning, preparar o seu modelo em diferentes tipos de recursos de computação que gere. O alvo da computação pode ser um computador local ou um recurso na nuvem.
+No Azure Machine Learning, treina o seu modelo em diferentes tipos de recursos computacionais que gere. O alvo da computação pode ser um computador local ou um recurso na nuvem.
 
 Pode facilmente aumentar ou aumentar a sua experiência de aprendizagem automática adicionando alvos adicionais de computação, como o Azure Machine Learning Compute (AmlCompute). A AmlCompute é uma infraestrutura de computação gerida que lhe permite criar facilmente uma computação de nó único ou de vários nós.
 
 Neste artigo, aprende-se a construir um modelo utilizando ml automatizado com amlCompute.
 
-## <a name="how-does-remote-differ-from-local"></a>Remoto difere do local?
+## <a name="how-does-remote-differ-from-local"></a>Como é que o controlo remoto difere do local?
 
-O tutorial " Treinar um modelo de[classificação com machine learning automatizado](tutorial-auto-train-models.md)" ensina-o a usar um computador local para treinar um modelo com ML automatizado. O fluxo de trabalho ao treinar localmente também se aplica a também destinos remotos. No entanto, com computação remota, automatizadas iterações de experimentação do ML são executadas assincronamente. Esta funcionalidade permite-lhe cancelar uma iteração específica, ver o estado da execução ou continuar a trabalhar em outras células no bloco de notas do Jupyter. Para treinar remotamente, cria-se primeiro um alvo de computação remota, como o AmlCompute. Em seguida, configure o recurso remoto e submeter o seu código.
+O tutorial " Treinar um modelo de[classificação com machine learning automatizado](tutorial-auto-train-models.md)" ensina-o a usar um computador local para treinar um modelo com ML automatizado. O fluxo de trabalho quando se treina localmente também se aplica a alvos remotos. No entanto, com a computação remota, as iterações automatizadas da experiência ML são executadas assíncronamente. Esta funcionalidade permite cancelar uma determinada iteração, observar o estado da execução ou continuar a trabalhar noutras células do caderno Jupyter. Para treinar remotamente, cria-se primeiro um alvo de computação remota, como o AmlCompute. Em seguida, configura rumo o recurso remoto e envia o seu código lá.
 
-Este artigo mostra os passos adicionais necessários para executar uma experiência ml automatizada num alvo remoto de AmlCompute. O objeto espaço de trabalho, `ws`, do tutorial é usado em todo o código aqui.
+Este artigo mostra os passos adicionais necessários para executar uma experiência ml automatizada num alvo remoto de AmlCompute. O objeto espaço `ws`de trabalho, do tutorial é usado em todo o código aqui.
 
 ```python
 ws = Workspace.from_config()
 ```
 
-## <a name="create-resource"></a>Criar recurso
+## <a name="create-resource"></a>Criar um recurso
 
-Crie [o](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py)`AmlCompute`alvo no seu espaço de trabalho (`ws`) se já não existir.
+Crie [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py) o alvo no`ws`seu espaço de trabalho se já não existir.
 
 **Estimativa de tempo**: A criação do alvo AmlCompute demora aproximadamente 5 minutos.
 
@@ -79,17 +79,17 @@ else:
     print(compute_target.get_status().serialize())
 ```
 
-Agora pode usar o `compute_target` objeto como alvo de computação remota.
+Agora pode usar `compute_target` o objeto como alvo de computação remota.
 
 As restrições de nome do cluster incluem:
-+ Tem de ser menor do que 64 carateres.
-+ Não pode incluir nenhum dos seguintes caracteres: `\` ~ ~ ! @ % ^ & amp; ( ) = + _ [ ] { } \\\\ ; : \' \\", < > / ?. `
++ Deve ser mais curto que 64 caracteres.
++ Não pode incluir nenhum `\` dos seguintes caracteres: ~ ! @ % % & * . = ] \\ \\ [ ] ] ] } [ ] ; : \' \\"  < > / ?. `
 
 ## <a name="access-data-using-tabulardataset-function"></a>Dados de acesso utilizando a função TabularDataset
 
-Definidotraining_data como [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) e o rótulo, que são passados para ML automatizado no [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py). O método `TabularDataset` `from_delimited_files`, por padrão, define o `infer_column_types` verdadeiro, o que inferirá automaticamente o tipo de colunas. 
+Definidotraining_data [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) como e a etiqueta, que são [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py)passadas para ML automatizado na . O `TabularDataset` `from_delimited_files`método, por padrão, `infer_column_types` define o verdadeiro, que inferirá automaticamente o tipo de colunas. 
 
-Se desejar definir manualmente os tipos de colunas, pode definir o `set_column_types` argumento para definir manualmente o tipo de cada coluna. No exemplo de código a seguir, vêm os dados do pacote de sklearn.
+Se desejar definir manualmente os tipos de colunas, pode definir o `set_column_types` argumento para definir manualmente o tipo de cada coluna. Na seguinte amostra de código, os dados provêm do pacote sklearn.
 
 ```python
 from sklearn import datasets
@@ -122,8 +122,8 @@ ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progr
 training_data = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/digits.csv'))
 ```
 
-## <a name="configure-experiment"></a>Configurar experimentação
-Especifique as definições para `AutoMLConfig`.  (Ver uma [lista completa de parâmetros](how-to-configure-auto-train.md#configure-experiment) e os seus valores possíveis.)
+## <a name="configure-experiment"></a>Configurar experiência
+Especifique `AutoMLConfig`as definições para .  (Ver uma [lista completa de parâmetros](how-to-configure-auto-train.md#configure-experiment) e os seus valores possíveis.)
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -150,9 +150,9 @@ automl_config = AutoMLConfig(task='classification',
                              )
 ```
 
-## <a name="submit-training-experiment"></a>Submeter a experimentação de preparação
+## <a name="submit-training-experiment"></a>Submeter experiência de formação
 
-Submeta agora a configuração para selecionar automaticamente o algoritmo, os parâmetros de hyper e preparar o modelo.
+Agora submeta a configuração para selecionar automaticamente o algoritmo, hiper parâmetros e treinar o modelo.
 
 ```python
 from azureml.core.experiment import Experiment
@@ -160,7 +160,7 @@ experiment = Experiment(ws, 'automl_remote')
 remote_run = experiment.submit(automl_config, show_output=True)
 ```
 
-Verá o resultado semelhante ao seguinte exemplo:
+Verá a saída semelhante ao seguinte exemplo:
 
     Running on remote compute: mydsvmParent Run ID: AutoML_015ffe76-c331-406d-9bfd-0fd42d8ab7f6
     ***********************************************************************************************
@@ -194,7 +194,7 @@ Verá o resultado semelhante ao seguinte exemplo:
             19      Robust Scaler kNN                     0:02:32                  0.983     0.989
 
 
-## <a name="explore-results"></a>Explorar os resultados
+## <a name="explore-results"></a>Explore os resultados
 
 Você pode usar o mesmo [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) como mostrado no [tutorial de treino](tutorial-auto-train-models.md#explore-the-results) para ver um gráfico e tabela de resultados.
 
@@ -203,12 +203,12 @@ from azureml.widgets import RunDetails
 RunDetails(remote_run).show()
 ```
 
-Eis uma imagem estática do widget.  No bloco de notas, pode clicar em qualquer linha da tabela para ver as propriedades de execução e os registos de saída para que são executados.   Também pode utilizar a lista pendente acima do gráfico para ver um gráfico de cada métrica disponível para cada iteração.
+Eis uma imagem estática do widget.  No caderno, pode clicar em qualquer linha da tabela para ver propriedades de execução e registos de saída para essa execução.   Também pode utilizar a queda acima do gráfico para visualizar um gráfico de cada métrica disponível para cada iteração.
 
 ![tabela de widget](./media/how-to-auto-train-remote/table.png)
 ![desenho de widget](./media/how-to-auto-train-remote/plot.png)
 
-O widget apresenta um URL que pode utilizar para ver e explorar o indivíduo detalhes da execução.  
+O widget exibe um URL que pode usar para ver e explorar os detalhes de execução individuais.  
 
 Se não estiver num caderno jupyter, pode exibir o URL a partir da própria execução:
 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: dd73f42aaa0d0bd1884892143d96446935a401a5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: fd389c1e909e6875ead8410b5ca692b82c79e0de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79245710"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063079"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é Azure Private Endpoint?
 
@@ -53,15 +53,26 @@ Um recurso de ligação privada é o alvo de destino de um determinado ponto fin
 |Nome de recurso de ligação privada  |Tipo de recurso   |Subrecursos  |
 |---------|---------|---------|
 |**Serviço de Link Privado** (Seu próprio serviço)   |  Microsoft.Network/privateLinkServices       | vazio |
-|**Base de Dados SQL do Azure** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
-|**Análise synapse azure** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
-|**Armazenamento do Azure**  | Microsoft.Storage/storageAccounts    |  Blob (bolha, blob_secondary)<BR> Tabela (mesa, table_secondary)<BR> Fila (fila, queue_secondary)<BR> Arquivo (arquivo, file_secondary)<BR> Web (web, web_secondary)        |
+|**Base de Dados SQL do Azure** | Microsoft.Sql/servidores    |  Sql Server (sqlServer)        |
+|**Azure Synapse Analytics** | Microsoft.Sql/servidores    |  Sql Server (sqlServer)        | 
+|**Storage do Azure**  | Microsoft.Storage/storageAccounts    |  Blob (bolha, blob_secondary)<BR> Tabela (mesa, table_secondary)<BR> Fila (fila, queue_secondary)<BR> Arquivo (arquivo, file_secondary)<BR> Web (web, web_secondary)        |
 |**Azure Data Lake Storage Gen2** (Armazenamento do Azure Data Lake Gen2)  | Microsoft.Storage/storageAccounts    |  Blob (bolha, blob_secondary)<BR> Data Lake File System Gen2 (dfs, dfs_secondary)       |
 |**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseAccounts | Sql, MongoDB, Cassandra, Gremlin, Mesa|
-|**Base de Dados Azure para PostgreSQL -Servidor único** | Microsoft.DBforPostgreSQL/servers   | postgresqlServer |
-|**Base de Dados do Azure para MySQL** | Microsoft.DBforMySQL/servers    | mysqlServer |
-|**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers    | mariadbServer |
-|**Cofre de Chaves do Azure** | Microsoft.KeyVault/vaults    | vault |
+|**Base de Dados Azure para PostgreSQL -Servidor único** | Microsoft.DBforPostgreSQL/servidores   | postgresqlServer |
+|**Base de Dados do Azure para MySQL** | Microsoft.DBforMySQL/servidores    | mysqlServer |
+|**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servidores    | mariadbServer |
+|**Azure Key Vault** | Microsoft.KeyVault/cofres    | cofre |
+|**Serviço Azure Kubernetes - Kubernetes API** | Microsoft.ContainerService/managedClusters | managedCluster |
+|**Azure Search** | Microsoft.Search/searchService| pesquisaServiço|  
+|**Registo de Contentores Azure** | Microsoft.ContainerRegistry/registos  | registry |
+|**Configuração da Aplicação Azure** | Microsoft.Appconfiguration/configuraçãoStores   | configuraçãoLoja |
+|**Azure Backup** | Microsoft.RecoveryServices/cofres   | cofre |
+|**Hub de Eventos do Azure** | Microsoft.EventHub/espaços de nome    | espaço de nomes |
+|**Azure Service Bus** | Microsoft.ServiceBus/espaços de nome | espaço de nomes |
+|**Reencaminhamento do Azure** | Microsoft.Relay/namespaces | espaço de nomes |
+|**Azure Event Grid** | Microsoft.EventGrid/tópicos  | tópico |
+|**Azure Event Grid** | Microsoft.EventGrid/domínios | domínio |
+|**Azure WebApps** | Microsoft.Web/sites    | sites |
  
 ## <a name="network-security-of-private-endpoints"></a>Segurança da rede de pontos finais privados 
 Ao utilizar pontos finais privados para serviços Azure, o tráfego é garantido a um recurso de ligação privada específico. A plataforma executa um controlo de acesso para validar as ligações de rede atingindo apenas o recurso de ligação privada especificado. Para aceder a recursos adicionais dentro do mesmo serviço Azure, são necessários pontos finais privados adicionais. 
@@ -70,7 +81,7 @@ Pode bloquear completamente as suas cargas de trabalho desde o acesso a pontos f
  
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>Acesso a um recurso de ligação privada utilizando fluxo de trabalho de aprovação 
 Pode ligar-se a um recurso de ligação privada utilizando os seguintes métodos de aprovação de ligação:
-- **Aprovado automaticamente** quando possui ou tem permissão no recurso de ligação privada específico. A permissão necessária baseia-se no tipo de recurso de ligação privada no seguinte formato: Microsoft.\<Provider><resource_type>/privateEndpointConnectionApproval/action
+- **Aprovado automaticamente** quando possui ou tem permissão no recurso de ligação privada específico. A permissão necessária baseia-se no tipo de recurso de ligação privada no seguinte formato: Microsoft. \<Fornecedor>/<resource_type>/privateEndpointConnectionApproval/action
 - **Pedido manual** quando não tiver a permissão necessária e gostaria de solicitar acesso. Será iniciado um fluxo de trabalho de aprovação. O ponto final privado e a subsequente ligação do ponto final privado serão criados num estado “Pendente”. O proprietário do recurso de ligação privada é responsável por aprovar a ligação. Depois de aprovado, o ponto final privado está habilitado a enviar tráfego normalmente, como mostra o seguinte diagrama de fluxo de trabalho de aprovação.  
 
 ![aprovação de fluxo de trabalho](media/private-endpoint-overview/private-link-paas-workflow.png)
@@ -93,7 +104,7 @@ Ao ligar-se a um recurso de ligação privado utilizando um nome de domínio tot
 A interface de rede associada ao ponto final privado contém o conjunto completo de informações necessárias para configurar o seu DNS, incluindo endereços IP FQDN e privados atribuídos para um determinado recurso de ligação privada. 
  
 Pode utilizar as seguintes opções para configurar as definições de DNS para pontos finais privados: 
-- **Utilize o ficheiro Anfitrião (apenas recomendado para testes)** . Pode utilizar o ficheiro anfitrião numa máquina virtual para anular o DNS.  
+- **Utilize o ficheiro Anfitrião (apenas recomendado para testes)**. Pode utilizar o ficheiro anfitrião numa máquina virtual para anular o DNS.  
 - **Utilize uma zona Privada de DNS**. Você pode usar zonas privadas de DNS para anular a resolução DNS para um determinado ponto final privado. Uma zona privada de DNS pode ser ligada à sua rede virtual para resolver domínios específicos.
 - **Utilize o seu servidor DNS personalizado**. Pode utilizar o seu próprio servidor DNS para anular a resolução dNS para um determinado recurso de ligação privada. Se o seu [servidor DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) estiver hospedado numa rede virtual, pode criar uma regra de encaminhamento DNS para utilizar uma zona Privada de DNS para simplificar a configuração de todos os recursos de ligação privada.
  
@@ -104,7 +115,8 @@ Para os serviços Azure, utilize os nomes de zona recomendados descritos no quad
 
 |Tipo de recurso de ligação privada   |Subrecurso  |Nome da zona  |
 |---------|---------|---------|
-|SQL DB/DW (Microsoft.Sql/servidores)    |  Sql Server (sqlServer)        |   privatelink.database.windows.net       |
+|SQL DB (Microsoft.Sql/servidores)    |  Sql Server (sqlServer)        |   privatelink.database.windows.net       |
+|Azure Synapse Analytics (Microsoft.Sql/servidores)    |  Sql Server (sqlServer)        | privatelink.database.windows.net |
 |Conta de Armazenamento (Microsoft.Storage/storageAccounts)    |  Blob (bolha, blob_secondary)        |    privatelink.blob.core.windows.net      |
 |Conta de Armazenamento (Microsoft.Storage/storageAccounts)    |    Tabela (mesa, table_secondary)      |   privatelink.table.core.windows.net       |
 |Conta de Armazenamento (Microsoft.Storage/storageAccounts)    |    Fila (fila, queue_secondary)     |   privatelink.queue.core.windows.net       |
@@ -119,7 +131,18 @@ Para os serviços Azure, utilize os nomes de zona recomendados descritos no quad
 |Base de Dados Azure para PostgreSQL - Servidor único (Microsoft.DBforPostgreSQL/servidores)|postgresqlServer|privatelink.postgres.database.azure.com|
 |Base de Dados Azure para MySQL (Microsoft.DBforMySQL/servidores)|mysqlServer|privatelink.mysql.database.azure.com|
 |Base de Dados Azure para MariaDB (Microsoft.DBforMariaDB/servidores)|mariadbServer|privatelink.mariadb.database.azure.com|
-|Cofre de Chaves Azure (Microsoft.KeyVault/cofres)|vault|privatelink.vaultcore.azure.net|
+|Cofre de Chaves Azure (Microsoft.KeyVault/cofres)|cofre|privatelink.vaultcore.azure.net|
+|Serviço Azure Kubernetes - Kubernetes API (Microsoft.ContainerService/managedClusters) | managedCluster | {guid}.privatelink. <region>.azmk8s.io|
+|Pesquisa Azure (Microsoft.Search/searchServices)|pesquisaServiço|privatelink.search.windows.net|   
+|Registo de contentores azure (Microsoft.ContainerRegistry/registos) | registry | privatelink.azurecr.io |
+|Configuração de aplicativos Azure (Microsoft.Appconfiguration/configuraçãoStores)| configuraçãoLoja | privatelink.azconfig.io|
+|Backup Azure (Microsoft.RecoveryServices/cofres)| cofre |privatelink. {region}.backup.windowsazure.com|
+|Azure Event Hub (Microsoft.EventHub/espaços de nome)| espaço de nomes |privatelink.servicebus.windows.net|
+|Ônibus de serviço Azure (Microsoft.ServiceBus/espaços de nome) | espaço de nomes |privatelink.servicebus.windows.net|
+|Relé Azure (Microsoft.Relay/namespaces) | espaço de nomes |privatelink.servicebus.windows.net|
+|Grelha de Eventos Azure (Microsoft.EventGrid/tópicos)   | tópico | tópico. {region}.privatelink.eventgrid.azure.net|
+|Grelha de Eventos Azure (Microsoft.EventGrid/domínios) | domínio | domínio. {region}.privatelink.eventgrid.azure.net |
+|WebApps azure (Microsoft.Web/sites) | site | privatelink.azurewebsites.net |
  
 O Azure criará um registo de DNS de nome canónico (CNAME) no DNS público para redirecionar a resolução para os nomes de domínio sugeridos. Poderá anular a resolução com o endereço IP privado dos seus pontos finais privados. 
  

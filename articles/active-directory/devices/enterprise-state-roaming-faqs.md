@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ad76835b0c72b691e1ef8810f2c58dedb8f597d
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672376"
 ---
 # <a name="settings-and-data-roaming-faq"></a>FAQ de definições e roaming de dados
@@ -76,8 +76,8 @@ Em novembro de 2015 ou posteriores lançamentos do Windows 10, enterprise state 
 
 Quando várias contas azure ad de diferentes inquilinos da AD Azure estiverem no mesmo dispositivo, você deve atualizar o registo do dispositivo para comunicar com o serviço de Gestão de Direitos Azure para cada inquilino DaD Azure.  
 
-1. Encontre o GUID para cada inquilino da AD Azure. Abra o portal Azure e selecione um inquilino Azure AD. O GUID para o inquilino está na página Propriedades para o inquilino selecionado (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), identificado **Id de Diretório**. 
-2. Depois de ter o GUID, terá de adicionar a chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<id GUID&gt do inquilino;** .
+1. Encontre o GUID para cada inquilino da AD Azure. Abra o portal Azure e selecione um inquilino Azure AD. O GUID para o inquilino está na páginahttps://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)Propriedades para o inquilino selecionado ( , identificado **Id do Diretório**. 
+2. Depois de ter o GUID, terá de adicionar a chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<TENANT ID GUID>**.
    A partir da chave ID GUID do **inquilino,** crie um novo valor multi-string (REG-MULTI-SZ) denominado **AllowedRMSServerUrls**. Para os seus dados, especifique os URLs do ponto de distribuição de licenciamento dos outros inquilinos do Azure a que o dispositivo acede.
 3. Pode encontrar os URLs do ponto de distribuição de licenciamento executando o cmdlet **Get-AadrmConfiguration** do módulo AADRM. Se os valores para o **LicenciamentoIntranetDistributionPointUrl** e **LicenciamentoExtranetDistributionPointUrl** forem diferentes, especifique ambos os valores. Se os valores forem os mesmos, especifique o valor apenas uma vez.
 

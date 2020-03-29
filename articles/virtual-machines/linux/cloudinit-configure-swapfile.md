@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.openlocfilehash: 1247652e536042ee249054d86aed3c3f8e7aa7bf
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969206"
 ---
 # <a name="use-cloud-init-to-configure-a-swap-partition-on-a-linux-vm"></a>Use cloud-init para configurar uma divisória de troca num VM Linux
@@ -47,7 +47,7 @@ Antes de implementar esta imagem, precisa criar um grupo de recursos com o [grup
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora, crie um VM com [az vm criar](/cli/azure/vm) e especificar o ficheiro cloud-init com `--custom-data cloud_init_swappart.txt` seguinte:
+Agora, crie um VM com [az vm criar](/cli/azure/vm) `--custom-data cloud_init_swappart.txt` e especificar o ficheiro cloud-init com o seguinte:
 
 ```azurecli-interactive 
 az vm create \

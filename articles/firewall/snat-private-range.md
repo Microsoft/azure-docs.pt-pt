@@ -5,20 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 01/09/2020
+ms.date: 03/20/2020
 ms.author: victorh
-ms.openlocfilehash: b190d07ceadea43ca572f5eb5be3eeeafa616971
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: ed8cef00b7de67458c607373c724a3717f14a7cb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444462"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064817"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Gamas de endereços IP privados Azure Firewall SNAT
 
-O Azure Firewall não snaT quando o endereço IP de destino está numa gama de endereços IP privado por [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). 
+O Azure Firewall não snaT com regras de rede quando o endereço IP de destino está numa gama de endereços IP privado por [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). As regras de aplicação são sempre aplicadas utilizando um [representante transparente,](https://wikipedia.org/wiki/Proxy_server#Transparent_proxy) independentemente do endereço IP de destino.
 
-Se a sua organização utilizar uma gama pública de endereços IP para redes privadas, o Azure Firewall irá snat o tráfego para um dos endereços IP privados firewall em AzureFirewallSubnet. No entanto, pode configurar o Azure Firewall para **não** sNAT a sua gama pública de endereços IP.
+Se a sua organização utilizar uma gama pública de endereços IP para redes privadas, o Azure Firewall SNATs snats o tráfego para um dos endereços IP privados firewall em AzureFirewallSubnet. No entanto, pode configurar o Azure Firewall para **não** sNAT a sua gama pública de endereços IP.
 
 ## <a name="configure-snat-private-ip-address-ranges"></a>Configure gamas de endereços IP privados SNAT
 
@@ -41,13 +41,13 @@ Para configurar uma firewall existente, utilize os seguintes comandos Azure Powe
 
 ```azurepowershell
 $azfw = Get-AzFirewall -ResourceGroupName "Firewall Resource Group name"
-$azfw.PrivateRange = @(“IANAPrivateRanges”,“IPRange1”, “IPRange2”)
+$azfw.PrivateRange = @("IANAPrivateRanges","IPRange1", "IPRange2")
 Set-AzFirewall -AzureFirewall $azfw
 ```
 
 ### <a name="templates"></a>Modelos
 
-Pode adicionar o seguinte à secção `additionalProperties`:
+Pode adicionar o seguinte `additionalProperties` à secção:
 
 ```
 "additionalProperties": {

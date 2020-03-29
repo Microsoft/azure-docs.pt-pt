@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: labrenne
 ms.openlocfilehash: bdf0b3bfc955d8a2e2ce1b363c8699ca719b957c
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919010"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Monte um sistema de ficheiros virtual em uma piscina de lote
@@ -39,17 +39,17 @@ Considere um cenário com múltiplas tarefas que requerem acesso a um conjunto c
 
 A montagem de um sistema de ficheiros virtual numa piscina disponibiliza o sistema de ficheiros a todos os nódosos de computação na piscina. O sistema de ficheiros é configurado quando um nó computacional se junta a uma piscina, ou quando o nó é reiniciado ou reimagem.
 
-Para montar um sistema de ficheiros numa piscina, crie um objeto `MountConfiguration`. Escolha o objeto que se adapte ao seu sistema de ficheiros virtuais: `AzureBlobFileSystemConfiguration`, `AzureFileShareConfiguration`, `NfsMountConfiguration`ou `CifsMountConfiguration`.
+Para montar um sistema de ficheiros numa piscina, crie um `MountConfiguration` objeto. Escolha o objeto que se `AzureBlobFileSystemConfiguration`adequa `AzureFileShareConfiguration` `NfsMountConfiguration`ao `CifsMountConfiguration`seu sistema de ficheiros virtual: , ou .
 
 Todos os objetos de configuração do suporte precisam dos seguintes parâmetros de base. Algumas configurações de montagem têm parâmetros específicos para o sistema de ficheiros que estão a ser utilizados, que são discutidos com mais detalhes nos exemplos de código.
 
 - **Nome da conta ou fonte**: Para montar uma parte de ficheiro virtual, precisa do nome da conta de armazenamento ou da sua fonte.
-- **Caminho de montagem relativo ou Fonte**: A localização do sistema de ficheiros montado no nó da computação, em relação ao diretório de `fsmounts` padrão acessível no nó através de `AZ_BATCH_NODE_MOUNTS_DIR`. A localização exata varia consoante o sistema operativo utilizado no nó. Por exemplo, a localização física num nó Ubuntu está mapeada para `mnt\batch\tasks\fsmounts`, e num nó CentOS está mapeada para `mnt\resources\batch\tasks\fsmounts`.
+- **Caminho de montagem relativo ou Fonte**: A localização do sistema de `fsmounts` ficheiros montado no nó `AZ_BATCH_NODE_MOUNTS_DIR`da computação, em relação ao diretório padrão acessível no nó via . A localização exata varia consoante o sistema operativo utilizado no nó. Por exemplo, a localização física num nó Ubuntu `mnt\batch\tasks\fsmounts`é mapeada para , e `mnt\resources\batch\tasks\fsmounts`num nó CentOS é mapeada para .
 - **Opções de montagem ou blobfuse**: Estas opções descrevem parâmetros específicos para a montagem de um sistema de ficheiros.
 
-Assim que o `MountConfiguration` objeto for criado, atribua o objeto à propriedade `MountConfigurationList` quando criar a piscina. O sistema de ficheiros é montado quando um nó se junta a uma piscina ou quando o nó é reiniciado ou reimagem.
+Assim `MountConfiguration` que o objeto for criado, `MountConfigurationList` atribua o objeto à propriedade quando criar a piscina. O sistema de ficheiros é montado quando um nó se junta a uma piscina ou quando o nó é reiniciado ou reimagem.
 
-Quando o sistema de ficheiros é montado, é criada uma variável ambiente `AZ_BATCH_NODE_MOUNTS_DIR` que aponta para a localização dos sistemas de ficheiros montados, bem como ficheiros de registo, que são úteis para resolução de problemas e depuração. Os ficheiros de registo são explicados mais detalhadamente na secção de erros de [montagem diagnosticar.](#diagnose-mount-errors)  
+Quando o sistema de ficheiros `AZ_BATCH_NODE_MOUNTS_DIR` é montado, é criada uma variável ambiental que aponta para a localização dos sistemas de ficheiros montados, bem como ficheiros de registo, que são úteis para resolução de problemas e depuração. Os ficheiros de registo são explicados mais detalhadamente na secção de erros de [montagem diagnosticar.](#diagnose-mount-errors)  
 
 > [!IMPORTANT]
 > O número máximo de sistemas de ficheiros montados numa piscina é de 10. Consulte [quotas e limites](batch-quota-limit.md#other-limits) de serviço do Lote para detalhes e outros limites.
@@ -85,7 +85,7 @@ new PoolAddParameter
 
 ### <a name="azure-blob-file-system"></a>Sistema de ficheiros Azure Blob
 
-Outra opção é utilizar o armazenamento Azure Blob via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). A montagem de um sistema de ficheiros blob requer uma `AccountKey` ou `SasKey` para a sua conta de armazenamento. Para obter estas chaves, consulte Gerir as chaves de acesso à conta de [armazenamento,](../storage/common/storage-account-keys-manage.md)ou utilizar assinaturas de [acesso partilhado (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Para obter mais informações sobre o uso de blobfuse, consulte o blobfuse [Troubleshoot FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ). Para obter acesso padrão ao diretório montado blobfuse, execute a tarefa como **Administrador**. Blobfuse monta o diretório no espaço do utilizador, e na criação da piscina é montado como raiz. Em Linux todas as tarefas **do Administrador** são fundamentais. Todas as opções para o módulo FUSE são descritas na [página de referência FUSE](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
+Outra opção é utilizar o armazenamento Azure Blob via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). A montagem de um sistema `AccountKey` `SasKey` de ficheiros blob requer uma ou para a sua conta de armazenamento. Para obter estas chaves, consulte Gerir as chaves de acesso à conta de [armazenamento,](../storage/common/storage-account-keys-manage.md)ou utilizar assinaturas de [acesso partilhado (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Para obter mais informações sobre o uso de blobfuse, consulte o blobfuse [Troubleshoot FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ). Para obter acesso padrão ao diretório montado blobfuse, execute a tarefa como **Administrador**. Blobfuse monta o diretório no espaço do utilizador, e na criação da piscina é montado como raiz. Em Linux todas as tarefas **do Administrador** são fundamentais. Todas as opções para o módulo FUSE são descritas na [página de referência FUSE](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
 
 Além do guia de resolução de problemas, as questões do GitHub no repositório blobfuse são uma forma útil de verificar as questões e resoluções atuais da blobfuse. Para mais informações, consulte [os problemas de blobfuse](https://github.com/Azure/azure-storage-fuse/issues).
 
@@ -161,26 +161,26 @@ new PoolAddParameter
 
 ## <a name="diagnose-mount-errors"></a>Diagnosticar erros de montagem
 
-Se uma configuração de montagem falhar, o nó de computação na piscina falhará e o estado do nó torna-se inutilizável. Para diagnosticar uma falha de configuração do suporte, inspecione a [propriedade`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) para obter detalhes sobre o erro.
+Se uma configuração de montagem falhar, o nó de computação na piscina falhará e o estado do nó torna-se inutilizável. Para diagnosticar uma falha de [`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) configuração do suporte, inspecione a propriedade para obter detalhes sobre o erro.
 
-Para obter os ficheiros de registo para depuração, utilize o [OutputFiles](batch-task-output-files.md) para fazer o upload dos ficheiros `*.log`. Os ficheiros `*.log` contêm informações sobre o suporte do sistema de ficheiros no local `AZ_BATCH_NODE_MOUNTS_DIR`. Os ficheiros de registo de montagem têm o formato: `<type>-<mountDirOrDrive>.log` para cada montagem. Por exemplo, um `cifs` montado num diretório de montagem chamado `test` terá um ficheiro de registo de montagem chamado: `cifs-test.log`.
+Para obter os ficheiros de registo para depuração, utilize o [OutputFiles](batch-task-output-files.md) para fazer o upload dos `*.log` ficheiros. Os `*.log` ficheiros contêm informações sobre `AZ_BATCH_NODE_MOUNTS_DIR` o suporte do sistema de ficheiros no local. Os ficheiros de `<type>-<mountDirOrDrive>.log` registo de montagem têm o formato: para cada montagem. Por exemplo, `cifs` um suporte num `test` diretório de montagem nomeado `cifs-test.log`terá um ficheiro de registo de montagem chamado: .
 
 ## <a name="supported-skus"></a>SKUs suportados
 
 | Publicador | Oferta | SKU | Partilha de ficheiros Azure | Blobfuse | Montagem nFS | Montagem CIFS |
 |---|---|---|---|---|---|---|
-| lote | rendering-centos73 | renderização | :heavy_check_mark: <br>Nota: Compatível com CentOS 7.7</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| lote | renderização-centos73 | renderização | :heavy_check_mark: <br>Nota: Compatível com CentOS 7.7</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canónico | UbuntuServer | 16.04-LTS, 18.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| credativ | Debian | 8| :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
-| credativ | Debian | 9 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-ads | linux-data-science-vm | linuxdsvm | :heavy_check_mark: <br>Nota: Compatível com CentOS 7.4. </br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | centos-contentor | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | centos-contentor-rdma | 7.4 | :heavy_check_mark: <br>Nota: Suporta A_8 ou 9 armazenamento</br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | ubuntu-server-container | 16.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Credativ | Debian | 8| :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Credativ | Debian | 9 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| microsoft-anúncios | linux-data-science-vm | linuxdsvm | :heavy_check_mark: <br>Nota: Compatível com CentOS 7.4. </br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| microsoft-azure-lote | centos-contentor | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| microsoft-azure-lote | centos-contentor-rdma | 7.4 | :heavy_check_mark: <br>Nota: Suporta A_8 ou 9 armazenamento</br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| microsoft-azure-lote | ubuntu-servidor-contentor | 16.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-dsvm | linux-data-science-vm-ubuntu | linuxdsvmubuntu | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | OpenLogic | CentOS | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | OpenLogic | CentOS-HPC | 7.4, 7.3, 7.1 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Oracle | Oracle-Linux | 7.6 | :x: | :x: | :x: | :x: |
+| Oracle | Oráculo-Linux | 7.6 | :x: | :x: | :x: | :x: |
 | Windows | WindowsServer | 2012, 2016, 2019 | :heavy_check_mark: | :x: | :x: | :x: |
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -9,10 +9,10 @@ ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 05a155584f0cb69191883cb82b3db0af435ccc12
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78970106"
 ---
 # <a name="set-and-manage-immutability-policies-for-blob-storage"></a>Definir e gerir políticas de imutabilidade para armazenamento blob
@@ -41,7 +41,7 @@ Este artigo mostra como definir e gerir políticas de imutabilidade e detém dad
 
     O estado inicial da apólice está desbloqueado, permitindo-lhe testar a funcionalidade e fazer alterações na política antes de a bloquear. O bloqueio da política é essencial para o cumprimento de regulamentos como o SEC 17a-4.
 
-5. Bloqueie a apólice. Clique na elipse direita ( **...** ), e o seguinte menu aparece com ações adicionais:
+5. Bloqueie a apólice. Clique na elipse direita (**...**), e o seguinte menu aparece com ações adicionais:
 
     !["Política de bloqueio" no menu](media/storage-blob-immutability-policies-manage/portal-image-4-lock-policy.png)
 
@@ -59,9 +59,9 @@ Este artigo mostra como definir e gerir políticas de imutabilidade e detém dad
 
 9. Para limpar um porão legal, remova a etiqueta de identificação legal aplicada.
 
-### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-A funcionalidade está incluída nos seguintes grupos de comando: `az storage container immutability-policy` e `az storage container legal-hold`. Passa `-h` eles para verem os comandos.
+A funcionalidade está incluída nos seguintes grupos de comando: `az storage container immutability-policy` e `az storage container legal-hold`. Corre `-h` para eles ver os comandos.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -69,7 +69,7 @@ A funcionalidade está incluída nos seguintes grupos de comando: `az storage co
 
 O módulo Az.Storage suporta armazenamento imutável.  Para ativar a funcionalidade, siga estes passos:
 
-1. Certifique-se de que tem a versão mais recente do PowerShellGet instalada: `Install-Module PowerShellGet –Repository PSGallery –Force`.
+1. Certifique-se de que tem a versão `Install-Module PowerShellGet –Repository PSGallery –Force`mais recente do PowerShellGet instalada: .
 2. Remova qualquer instalação anterior da Azure PowerShell.
 3. Instale o Azure PowerShell: `Install-Module Az –Repository PSGallery –AllowClobber`.
 
@@ -132,7 +132,7 @@ Get-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -ContainerName $container
 ```
 
-Bloqueie as políticas de imutabilidade (adicione `-Force` para descartar o pedido):
+Bloqueie as políticas de `-Force` imutabilidade (adicione a descartar a solicitação):
 
 ```powershell
 # Lock immutability policies
@@ -154,7 +154,7 @@ Set-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy `
     $policy -ImmutabilityPeriod 11 -ExtendPolicy
 ```
 
-Remova uma política de imutabilidade desbloqueada (adicione `-Force` para descartar o pedido):
+Remova uma política de imutabilidade desbloqueada (adicione `-Force` para descartar a solicitação):
 
 ```powershell
 # Remove an unlocked immutability policy
@@ -172,9 +172,9 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 ![Permitir escritos adicionais de apêndice](media/storage-blob-immutability-policies-manage/immutable-allow-additional-append-writes.png)
 
-### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-A funcionalidade está incluída nos seguintes grupos de comando: `az storage container immutability-policy` e `az storage container legal-hold`. Passa `-h` eles para verem os comandos.
+A funcionalidade está incluída nos seguintes grupos de comando: `az storage container immutability-policy` e `az storage container legal-hold`. Corre `-h` para eles ver os comandos.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

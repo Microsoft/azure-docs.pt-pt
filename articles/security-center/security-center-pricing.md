@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/13/2019
 ms.author: memildin
 ms.openlocfilehash: 60a88e667918533f2c507846fa75b0e036ba5262
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921288"
 ---
 # <a name="upgrade-to-standard-tier-for-enhanced-security"></a>Upgrade para nível Standard para maior segurança
@@ -26,7 +26,7 @@ O Centro de Segurança do Azure oferece gestão de segurança unificada e prote�
 ## <a name="pricing-tiers"></a>Escalões de preço
 O Centro de Segurança é disponibilizado em dois escalões:
 
-- O free tier está ativado em todas as suas subscrições Azure uma vez que você visita o painel do Azure Security Center no portal Azure pela primeira vez, ou se ativado programáticamente via API. O nível livre fornece política de segurança, avaliação contínua de segurança e recomendações de segurança atoveis para ajudá-lo a proteger os seus recursos Azure.
+- O **Free** free tier está ativado em todas as suas subscrições Azure uma vez que você visita o painel do Azure Security Center no portal Azure pela primeira vez, ou se ativado programáticamente via API. O nível livre fornece política de segurança, avaliação contínua de segurança e recomendações de segurança atoveis para ajudá-lo a proteger os seus recursos Azure.
 - O nível **Standard** alarga as capacidades do free tier a cargas de trabalho em funcionamento em nuvens privadas e outras nuvens públicas, proporcionando uma gestão de segurança unificada e proteção contra ameaças em todas as suas cargas de trabalho híbridas em nuvem. O nível padrão também adiciona capacidades de proteção contra ameaças, que usam análises comportamentais incorporadas e machine learning para identificar ataques e explorações de zero dias, controlos de acesso e aplicações para reduzir a exposição a ataques de rede e malware, e muito mais. Além disso, o nível padrão adiciona a verificação de vulnerabilidade para as suas máquinas virtuais. Pode experimentar gratuitamente o nível padrão. O padrão do Security Center suporta recursos Azure, incluindo VMs, conjuntos de escala de máquinas virtuais, Serviço de Aplicações, servidores SQL e contas de Armazenamento. Se tiver o padrão do Azure Security Center, pode optar por não suportar com base no tipo de recurso. 
 
 A maioria das avaliações de segurança de nível livre para VMs, bem como muitos dos alertas de segurança padrão, requerem a instalação da capacidade do Microsoft Monitoring Agent (MMA). Pode ativar a prestação automática no Centro de Segurança para implementar automaticamente o agente para os seus VMs Azure.
@@ -38,13 +38,13 @@ Pode atualizar toda uma subscrição azure para o nível padrão, que é herdado
 
 Para obter o nível padrão:
 
-1. Selecione **Preços e configurações** no menu principal do **Security Center.**
+1. Selecione **definições de preços &** no menu principal do **Security Center.**
 2. Selecione a subscrição que pretende atualizar para o padrão.
-3. Selecione **Escalão de preço**.
+3. Selecione **o nível de preços**.
 4. Selecione **Standard** para atualizar.
 5. Clique em **Guardar**.
 
-[Preços do Centro de Segurança ![](media/security-center-pricing/pricing-tier-page.png)](media/security-center-pricing/pricing-tier-page.png#lightbox)
+[![Preços do Centro de Segurança](media/security-center-pricing/pricing-tier-page.png)](media/security-center-pricing/pricing-tier-page.png#lightbox)
 
 > [!NOTE]
 > Para ativar todas as funcionalidades do Security Center, deve aplicar o nível de preços padrão à subscrição que contém as máquinas virtuais aplicáveis. Configurar preços para um espaço de trabalho não permite o acesso a vm just-in-time, controlos adaptáveis de aplicações e deteções de rede para recursos Azure.
@@ -65,5 +65,5 @@ Neste artigo, foi apresentado aos preços do Centro de Segurança. Para saber ma
 
 - [Proteção contra ameaças no Centro de Segurança Azure](threat-protection.md)
 - [Controlo de acesso VM just-in-time](security-center-just-in-time.md)
-- [Visão geral da segurança dos contentores](container-security.md)
+- [Descrição geral da segurança do contentor](container-security.md)
 - [Detalhes de preços na sua moeda de eleição, e de acordo com a sua região](https://azure.microsoft.com/pricing/details/security-center/)

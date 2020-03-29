@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f61319a1d2a5d5599a4745979f3c5abc0a713ac7
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 9ce6440989cbf962c474de2a6c90db4c485bf4a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128129"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80292336"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Criar um conjunto de anfitriões com um modelo do Azure Resource Manager
 
@@ -43,7 +43,7 @@ Se estiver a implementar uma subscrição do Cloud Solution Provider, siga estes
 
 1. Desloque-se para baixo e clique à **direita, desloque-se para O Azure**e, em seguida, selecione **Copy Link Location**.
 2. Abra um editor de texto como o Notepad e colhe o link lá.
-3. Logo a seguir "https://portal.azure.com/" e antes da hashtag (#) introduzir um sinal de at sign (@) seguido pelo nome de domínio do inquilino. Aqui está um exemplo do formato que deve utilizar: https://portal.azure.com/@Contoso.onmicrosoft.com#create/.
+3. Logo ahttps://portal.azure.com/seguir " e antes da hashtag (#) introduzir um sinal de at sign (@) seguido pelo nome de domínio do inquilino. Aqui está um exemplo do formato `https://portal.azure.com/@Contoso.onmicrosoft.com#create/`que deve usar: .
 4. Inscreva-se no portal Azure como utilizador com permissões Admin/Contributor para a subscrição do Cloud Solution Provider.
 5. Colhe o link que copiou para o editor de texto na barra de endereços.
 
@@ -67,7 +67,7 @@ Depois disso, adicione os utilizadores ao grupo de aplicações de ambiente de t
 Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
-A UPN do utilizador deve corresponder à identidade do utilizador no Diretório Ativo Azure (por exemplo, user1@contoso.com). Se pretender adicionar vários utilizadores, tem de executar este cmdlet para cada utilizador.
+A UPN do utilizador deve corresponder à identidade do utilizador no user1@contoso.comDiretório Ativo Azure (por exemplo, ). Se pretender adicionar vários utilizadores, tem de executar este cmdlet para cada utilizador.
 
 Depois de ter concluído estes passos, os utilizadores adicionados ao grupo de aplicações para desktop podem iniciar sessão no Windows Virtual Desktop com clientes de ambiente de trabalho remoto suportados e ver um recurso para um ambiente de trabalho de sessão.
 

@@ -1,5 +1,5 @@
 ---
-title: Analise os registos e métricas na Nuvem de primavera de Azure  Microsoft Docs
+title: Analise os registos e métricas na Nuvem de primavera de Azure [ Microsoft Docs
 description: Saiba como analisar dados de diagnóstico na Nuvem de primavera do Azure
 author: bmitchell287
 ms.service: spring-cloud
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.openlocfilehash: 544de1b4ac46a58d533f71a46266807a3b93820a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77920047"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analisar registos e métricas com definições de diagnóstico
@@ -43,7 +43,7 @@ Para começar, permita que um destes serviços receba os dados. Para aprender so
 1. Introduza um nome para a definição e, em seguida, escolha para onde pretende enviar os registos. Pode selecionar qualquer combinação das seguintes três opções:
     * **Arquivar para uma conta de armazenamento**
     * **Stream para um centro de eventos**
-    * **Enviar para Log Analytics**
+    * **Enviar para o Log Analytics**
 
 1. Escolha qual a categoria de registo e a categoria métrica que pretende monitorizar e, em seguida, especifique o tempo de retenção (em dias). O tempo de retenção aplica-se apenas à conta de armazenamento.
 1. Selecione **Guardar**.
@@ -79,13 +79,13 @@ Existem vários métodos para visualizar troncos e métricas conforme descrito n
 1. Selecione o espaço de trabalho do Log Analytics que escolheu quando adicionou as definições de diagnóstico.
 1. Para abrir o painel de pesquisa de **registo,** selecione **Registos**.
 1. Na caixa de pesquisa **de Log,**
-   * Para visualizar registos, introduza uma consulta simples como:
+   * para ver registos, introduza uma consulta simples como:
 
     ```sql
     AppPlatformLogsforSpring
     | limit 50
     ```
-    * Para visualizar métricas, insira uma consulta simples como:
+    * para ver métricas, insira uma consulta simples como:
 
     ```sql
     AzureMetrics
@@ -101,7 +101,7 @@ Existem vários métodos para visualizar troncos e métricas conforme descrito n
     | limit 50
     ```
 > [!NOTE]  
-> `==` é sensível ao caso, mas `=~` não.
+> `==`é sensível ao `=~` caso, mas não é.
 
 Para saber mais sobre a linguagem de consulta que é usada no Log Analytics, consulte consultas de [registo do Monitor Azure](../azure-monitor/log-query/query-language.md).
 

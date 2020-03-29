@@ -10,10 +10,10 @@ ms.suite: infrastructure-services
 ms.topic: article
 ms.date: 11/14/2018
 ms.openlocfilehash: b85932bf0d4fd080afadef2bc28d6a218b2d627a
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898594"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Construir horários avançados e recorrências para empregos no Programador Azure
@@ -68,9 +68,9 @@ Esta tabela fornece uma visão geral de alto nível para os principais elementos
 |---------|----------|-------------|
 | **startTime** | Não | Um valor de string DateTime no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que especifica quando o trabalho começa pela primeira vez num horário básico. <p>Para horários complexos, o trabalho começa o mais cedo que **o início.** | 
 | **recurrence** | Não | A recorrência rege-se quando o trabalho funciona. O objeto **de recorrência** suporta estes elementos: **frequência,** **intervalo,** **agendamento,** **contagem,** contagem e **fim Tempo.** <p>Se utilizar o elemento **de recorrência,** deve também utilizar o elemento **de frequência,** enquanto outros elementos de **recorrência** são opcionais. |
-| **frequency** | Sim, quando se usa **a recorrência.** | A unidade de tempo entre ocorrências e apoios a estes valores: "Minuto", "Hora", "Dia", "Semana", "Mês" e "Ano" | 
-| **interval** | Não | Um inteiro positivo que determina o número de unidades de tempo entre ocorrências com base na **frequência**. <p>Por exemplo, se o **intervalo** for de 10 e a **frequência** for "Semana", o trabalho repete-se a cada 10 semanas. <p>Aqui está o maior número de intervalos para cada frequência: <p>- 18 meses <br>- 78 semanas <br>- 548 dias <br>- Durante horas e minutos, o intervalo é 1 <= <*intervalo*> <= 1000. | 
-| **schedule** | Não | Define alterações na recorrência com base nas notas de minutoespecificadas, marcas de horas, dias da semana e dias do mês | 
+| **frequência** | Sim, quando se usa **a recorrência.** | A unidade de tempo entre ocorrências e apoios a estes valores: "Minuto", "Hora", "Dia", "Semana", "Mês" e "Ano" | 
+| **intervalo** | Não | Um inteiro positivo que determina o número de unidades de tempo entre ocorrências com base na **frequência**. <p>Por exemplo, se o **intervalo** for de 10 e a **frequência** for "Semana", o trabalho repete-se a cada 10 semanas. <p>Aqui está o maior número de intervalos para cada frequência: <p>- 18 meses <br>- 78 semanas <br>- 548 dias <br>- Durante horas e minutos, o intervalo é de 1 <= *intervalo* <> <= 1000. | 
+| **agenda** | Não | Define alterações na recorrência com base nas notas de minutoespecificadas, marcas de horas, dias da semana e dias do mês | 
 | **count** | Não | Um inteiro positivo que especifica o número de vezes que o trabalho corre antes de terminar. <p>Por exemplo, quando um trabalho diário tem **contagem** marcada para 7, e a data de início é segunda-feira, o trabalho termina no domingo. Se a data de início já tiver passado, a primeira execução é calculada a partir do tempo de criação. <p>Sem **tempo final** ou **contagem,** o trabalho funciona infinitamente. Não podes usar a **contagem** e o fim do **tempo** no mesmo trabalho, mas a regra que termina em primeiro lugar é honrada. | 
 | **endTime** | Não | Um valor de cadeia de data ou datano [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que especifica quando o trabalho deixa de funcionar. Pode definir um valor para o **tempo final** que está no passado. <p>Sem **tempo final** ou **contagem,** o trabalho funciona infinitamente. Não podes usar a **contagem** e o fim do **tempo** no mesmo trabalho, mas a regra que termina em primeiro lugar é honrada. |
 |||| 
@@ -163,7 +163,7 @@ A tabela seguinte descreve os elementos de agenda detalhadamente:
 | Nome JSON | Descrição | Valores válidos |
 |:--- |:--- |:--- |
 | **minutes** |Minutos da hora em que o trabalho corre. |Uma série de inteiros. |
-| **hours** |Horas do dia em que o trabalho funciona. |Uma série de inteiros. |
+| **horas** |Horas do dia em que o trabalho funciona. |Uma série de inteiros. |
 | **weekDays** |Dias da semana o trabalho corre. Só pode ser especificado com frequência semanal. |Uma matriz de qualquer um dos seguintes valores (o tamanho máximo da matriz é 7):<br />- "Segunda-feira"<br />- "Terça-feira"<br />- "Quarta-feira"<br />- "Quinta-feira"<br />- "Sexta-feira"<br />- "Sábado"<br />- "Domingo"<br /><br />Não é sensível ao caso. |
 | **monthlyOccurrences** |Determina quais os dias do mês em que o trabalho corre. Só pode ser especificado com uma frequência mensal. |Uma variedade de **objetos mensais Ocorrências:**<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **dia** é o dia da semana o trabalho corre. Por exemplo, *{Domingo}* é todos os domingos do mês. Necessário.<br /><br />**ocorrência** é a ocorrência do dia durante o mês. Por exemplo, *{Domingo, -1}* é o último domingo do mês. Opcional. |
 | **monthDays** |Dia do mês o trabalho corre. Só pode ser especificado com uma frequência mensal. |Uma variedade dos seguintes valores:<br />- Qualquer valor <= -1 e >= -31<br />- Qualquer valor >= 1 e <= 31|
@@ -172,7 +172,7 @@ A tabela seguinte descreve os elementos de agenda detalhadamente:
 
 Os exemplos que se seguem mostram vários horários de recorrência. Os exemplos focam-se no objeto de agenda e nos seus subelementos.
 
-Estes horários pressupõem que o **intervalo** está definido para 1\. Os exemplos também assumem os valores de **frequência** corretos para os valores no **horário.** Por exemplo, não pode usar uma **frequência** de "dia" e ter uma modificação **mensal Dias** no **horário**. Descrevemos estas restrições no início do artigo.
+Estes horários assumem que o **intervalo** está definido para 1\. Os exemplos também assumem os valores de **frequência** corretos para os valores no **horário.** Por exemplo, não pode usar uma **frequência** de "dia" e ter uma modificação **mensal Dias** no **horário**. Descrevemos estas restrições no início do artigo.
 
 | Exemplo | Descrição |
 |:--- |:--- |
@@ -210,7 +210,7 @@ Estes horários pressupõem que o **intervalo** está definido para 1\. Os exemp
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Conceitos, terminologia e hierarquia de entidades do Azure Scheduler](scheduler-concepts-terms.md)
+* [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
 * [Referência da API REST do Azure Scheduler](/rest/api/scheduler)
-* [Referência de cmdlets do PowerShell do Azure Scheduler](scheduler-powershell-reference.md)
-* [Limites, predefinições e códigos de erro do Azure Scheduler](scheduler-limits-defaults-errors.md)
+* [Referência de cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md)
+* [Limites, predefinições e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)

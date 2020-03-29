@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
 ms.openlocfilehash: b23c210d7c8a9f1d42e6e1b46e0f7f81bda857b2
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77916087"
 ---
 # <a name="handling-planned-maintenance-using-powershell"></a>Manuseamento de manutenção planeada usando powerShell
 
 **Este artigo aplica-se a máquinas virtuais que executam tanto o Linux como o Windows.**
 
-Pode utilizar o Azure PowerShell para ver quando os VMs estão programados para [manutenção](maintenance-notifications.md). As informações de manutenção planeadas estão disponíveis a partir do cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) quando utilizar o parâmetro `-status`.
+Pode utilizar o Azure PowerShell para ver quando os VMs estão programados para [manutenção](maintenance-notifications.md). As informações de manutenção planeadas estão disponíveis a partir `-status` do cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) quando utilizar o parâmetro.
   
 As informações de manutenção só são devolvidas se houver manutenção planeada. Se não estiver prevista qualquer manutenção que tenha impacto no VM, o cmdlet não devolve nenhuma informação de manutenção. 
 
@@ -32,10 +32,10 @@ As seguintes propriedades são devolvidas sob o Estatuto de Reafectação de Man
 | Valor | Descrição   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indica se pode iniciar a manutenção no VM neste momento |
-| PreMaintenanceWindowStartTime         | O início da janela de self-service de manutenção quando pode iniciar a manutenção no seu VM |
-| PreMaintenanceWindowEndTime           | O fim da janela de self-service de manutenção quando pode iniciar a manutenção no seu VM |
-| MaintenanceWindowStartTime            | O início da manutenção programada em que o Azure inicia a manutenção no seu VM |
-| MaintenanceWindowEndTime              | O fim da janela programada de manutenção na qual o Azure inicia a manutenção no seu VM |
+| Pré-ManutençãoWindowStartTime         | O início da janela de self-service de manutenção quando pode iniciar a manutenção no seu VM |
+| PreManutençãoWindowEndTime           | O fim da janela de self-service de manutenção quando pode iniciar a manutenção no seu VM |
+| ManutençãoWindowStartTime            | O início da manutenção programada em que o Azure inicia a manutenção no seu VM |
+| ManutençãoWindowEndTime              | O fim da janela programada de manutenção na qual o Azure inicia a manutenção no seu VM |
 | LastOperationResultCode               | O resultado da última tentativa de iniciar a manutenção no VM |
 
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/10/2019
 ms.author: rohink
 ms.openlocfilehash: 8ba96a028d51e6e5503bb4a8e6735b48033c9ba1
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76937374"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Aplicativos web Azure equilibrados em carga no ápice da zona
@@ -20,11 +20,11 @@ O protocolo DNS impede a atribuição de qualquer outra coisa que não um regist
 
 Com registos de pseudónimos, este problema já não existe. Agora, os proprietários de aplicações podem indicar o seu registo de ápice de zona para um perfil do Gestor de Tráfego que tem pontos finais externos. Os proprietários de aplicações podem apontar para o mesmo perfil do Traffic Manager que é usado para qualquer outro domínio dentro da sua zona DNS.
 
-Por exemplo, contoso.com e www\.contoso.com podem apontar para o mesmo perfil do Gestor de Tráfego. É o caso, desde que o perfil do Gestor de Tráfego tenha apenas pontos finais externos configurados.
+Por exemplo, contoso.com\.e www contoso.com podem apontar para o mesmo perfil do Gestor de Tráfego. É o caso, desde que o perfil do Gestor de Tráfego tenha apenas pontos finais externos configurados.
 
 Neste artigo, aprende a criar um registo de pseudónimos para o seu ápice de domínio e configurar os pontos finais do seu perfil do Gestor de Tráfego para as suas aplicações web.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -60,8 +60,8 @@ Crie duas aplicações web, uma em cada plano de Serviço de Aplicações.
 
    |Nome<br>(deve ser único dentro de .azurewebsites.net)|Grupo de Recursos |Pilha de tempo de execução|Região|Plano de Serviço de Aplicações/Localização
    |---------|---------|-|-|-------|
-   |App-01|Usar existente<br>Selecione o seu grupo de recursos|.NET Core 2.2|E.U.A. Leste|ASP-01(D1)|
-   |App-02|Usar existente<br>Selecione o seu grupo de recursos|.NET Core 2.2|E.U.A. Central|ASP-02(D1)|
+   |App-01|Utilizar existente<br>Selecione o seu grupo de recursos|.NET Core 2.2|E.U.A. Leste|ASP-01(D1)|
+   |App-02|Utilizar existente<br>Selecione o seu grupo de recursos|.NET Core 2.2|E.U.A. Central|ASP-02(D1)|
 
 ### <a name="gather-some-details"></a>Reúna alguns detalhes
 
@@ -87,9 +87,9 @@ Agora pode criar os pontos finais para as duas aplicações web.
 3. Selecione **Adicionar**.
 4. Utilize o quadro seguinte para configurar os pontos finais:
 
-   |Tipo  |Nome  |Visar  |Localização  |Definições personalizadas do cabeçalho|
+   |Tipo  |Nome  |Destino  |Localização  |Definições personalizadas do cabeçalho|
    |---------|---------|---------|---------|---------|
-   |Ponto final externo     |Fim-01|Endereço IP que gravou para App-01|E.U.A. Leste|anfitrião:\<o URL que gravou para o App-01\><br>Exemplo: **host:app-01.azurewebsites.net**|
+   |Ponto final externo     |Fim-01|Endereço IP que gravou para App-01|E.U.A. Leste|anfitrião:\<o URL que gravou para app-01\><br>Exemplo: **host:app-01.azurewebsites.net**|
    |Ponto final externo     |Fim-02|Endereço IP que gravou para App-02|E.U.A. Central|anfitrião:\<o URL que gravou para app-02\><br>Exemplo: **host:app-02.azurewebsites.net**
 
 ## <a name="create-dns-zone"></a>Criar zona DNS
@@ -120,7 +120,7 @@ Adicione um domínio personalizado para ambas as aplicações web.
 5. Selecione **Validar**.
 
    O seu domínio deve passar na validação e mostrar marcas de verificação verdes ao lado da disponibilidade do **Hostname** e **da propriedade do Domínio**.
-5. Selecione **Adicionar domínio personalizado**.
+5. **Selecione Adicionar domínio personalizado**.
 6. Para ver o novo nome de anfitrião sob **nomes hostis atribuídos ao site,** atualize o seu navegador. A atualização na página nem sempre mostra mudanças de imediato.
 7. Repita este procedimento para a sua segunda aplicação web.
 
@@ -132,9 +132,9 @@ Agora adicione um recorde de pseudónimo para o ápice da zona.
 2. Selecione **Conjunto de registos**.
 3. Adicione o conjunto de registos utilizando a tabela seguinte:
 
-   |Nome  |Tipo  |Conjunto de recordes de alias  |Tipo de pseudónimo  |Recurso do Azure|
+   |Nome  |Tipo  |Conjunto de recordes de alias  |Tipo de pseudónimo  |Recurso Azure|
    |---------|---------|---------|---------|-----|
-   |@     |A|Sim|Recurso do Azure|Gestor de Tráfego - o seu perfil|
+   |@     |A|Sim|Recurso Azure|Gestor de Tráfego - o seu perfil|
 
 
 ## <a name="test-your-web-apps"></a>Teste as suas aplicações web
@@ -157,7 +157,7 @@ Agora pode testar para se certificar de que pode chegar à sua aplicação web e
 Para saber mais sobre os registos de pseudónimos, consulte os seguintes artigos:
 
 - [Tutorial: Configure um registo de pseudónimo para se referir a um endereço IP público do Azure](tutorial-alias-pip.md)
-- [Tutorial: Configure um registo de pseudónimo para apoiar nomes de domínio apex com Traffic Manager](tutorial-alias-tm.md)
+- [Tutorial: Configurar um registo de alias para suportar os nomes de domínio apex com o Gestor de Tráfego](tutorial-alias-tm.md)
 - [FAQ sobre DNS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)
 
 Para aprender a migrar um nome DNS ativo, consulte [Migrate um nome DNS ativo para o Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).

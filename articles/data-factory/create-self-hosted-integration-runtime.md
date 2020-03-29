@@ -10,15 +10,15 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 06/18/2019
-ms.openlocfilehash: 0d04ea7d7003f274b252e057b7afced7759bfaae
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/10/2020
+ms.openlocfilehash: 6302a7d6ffe7218d339121ec98a624f8e98356f6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79261219"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065598"
 ---
-# <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um tempo de execução de integração auto-hospedado
+# <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Create and configure a self-hosted integration runtime (Criar e configurar um runtime de integração autoalojado)
 
 O tempo de integração (IR) é a infraestrutura computacional que a Azure Data Factory utiliza para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para mais detalhes sobre o IR, consulte a visão geral do tempo de [integração.](concepts-integration-runtime.md)
 
@@ -72,7 +72,7 @@ Utilize os seguintes passos para criar um IR auto-hospedado utilizando a Azure D
 
     1. Copiar e colar a chave de autenticação. Selecione Baixar e instalar o tempo de **execução da integração.**
 
-    1. Descarregue o tempo de execução da integração auto-hospedado numa máquina local do Windows. Executar o instalador.
+    1. Transfira o integration runtime autoalojado num computador windows local. Execute o instalador.
 
     1. Na página 'Tempo de Execução de Integração do **Registo' (Auto-hospedado),** cola a chave que guardou anteriormente e selecione **Register**.
     
@@ -105,21 +105,21 @@ Aqui estão detalhes dos parâmetros e propriedades da aplicação:
 | Propriedade                                                    | Descrição                                                  | Necessário |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
 | **Registro Novo Nóde** "`<AuthenticationKey>`"                     | Registe um nó de tempo de integração auto-hospedado com a chave de autenticação especificada. | Não       |
-| **Registro Novo Nóde** "`<AuthenticationKey>`"`<NodeName>`"      | Registe um nó de tempo de integração auto-hospedado com a chave de autenticação especificada e o nome do nó. | Não       |
-| **EnableRemoteAccess** "`<port>`"`<thumbprint>`"]            | Ative o acesso remoto no nó atual para criar um cluster de alta disponibilidade. Ou ativar a definição de credenciais diretamente contra o IR auto-hospedado sem passar pela Azure Data Factory. Faça este último utilizando o cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** de uma máquina remota na mesma rede. | Não       |
-| **EnableRemoteAccessIncontainer** "`<port>`"`<thumbprint>`"] | Ative o acesso remoto ao nó atual quando o nó correr num recipiente. | Não       |
+| **Registro Novo Nóde** "`<AuthenticationKey>`" "`<NodeName>`"      | Registe um nó de tempo de integração auto-hospedado com a chave de autenticação especificada e o nome do nó. | Não       |
+| **EnableRemoteAccess** "`<port>`" ["`<thumbprint>`"]            | Ative o acesso remoto no nó atual para criar um cluster de alta disponibilidade. Ou ativar a definição de credenciais diretamente contra o IR auto-hospedado sem passar pela Azure Data Factory. Faça este último utilizando o cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** de uma máquina remota na mesma rede. | Não       |
+| **EnableRemoteAccessIncontainer** "`<port>`" ["`<thumbprint>`"] | Ative o acesso remoto ao nó atual quando o nó correr num recipiente. | Não       |
 | **Desativar O Telecomando**                                         | Desative o acesso remoto ao nó atual. É necessário acesso remoto para configuração de multinódos. O **Novo AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell cmdlet ainda funciona mesmo quando o acesso remoto é desativado. Este comportamento é verdadeiro desde que o cmdlet seja executado na mesma máquina que o nó de INFRAVERMELHOS auto-hospedado. | Não       |
 | **Chave** "`<AuthenticationKey>`"                                 | Sobrepor ou atualizar a chave de autenticação anterior. Cuidado com esta ação. O seu anterior nó de IR auto-hospedado pode ficar offline se a chave for um novo tempo de funcionação de integração. | Não       |
-| **GenerateBackupFile** "`<filePath>`"`<password>`"            | Gere um ficheiro de reserva para o nó atual. O ficheiro de reserva inclui a chave do nó e as credenciais da loja de dados. | Não       |
-| **ImportBackupFile** "`<filePath>`"`<password>`"              | Restaure o nó de um ficheiro de reserva.                          | Não       |
+| **GenerateBackupFile** "`<filePath>`" "`<password>`"            | Gere um ficheiro de reserva para o nó atual. O ficheiro de reserva inclui a chave do nó e as credenciais da loja de dados. | Não       |
+| **ImportBackupFile** "`<filePath>`" "`<password>`"              | Restaure o nó de um ficheiro de reserva.                          | Não       |
 | **Reiniciar**                                                     | Reinicie o serviço de hospedar-se em tempo de integração auto-hospedado.   | Não       |
-| **Começar**                                                       | Inicie o serviço de hospedar-se em tempo de integração auto-hospedado.     | Não       |
+| **Iniciar**                                                       | Inicie o serviço de hospedar-se em tempo de integração auto-hospedado.     | Não       |
 | **Parar**                                                        | Pare o serviço de hospedar-se em tempo de integração auto-hospedado.        | Não       |
 | **StartUpgradeService**                                         | Inicie o serviço de upgrade de tempo de integração auto-hospedado.       | Não       |
 | **Serviço StopUpgrade**                                          | Pare o serviço de atualização de tempo de integração auto-hospedado.        | Não       |
 | **Atualização TurnOnAuto**                                            | Ligue a atualização automática de tempo de execução de integração auto-hospedada.        | Não       |
 | **DesativarAutoUpdate**                                           | Desligue a atualização automática de tempo de integração auto-hospedada.       | Não       |
-| **Conta SwitchService** "`<domain\user>`"`<password>`"]           | Desplique o DIAHostService para funcionar como uma nova conta. Utilize a palavra-passe vazia "" para contas do sistema e contas virtuais. | Não       |
+| **Conta SwitchService** "`<domain\user>`" ["`<password>`"]           | Desplique o DIAHostService para funcionar como uma nova conta. Utilize a palavra-passe vazia "" para contas do sistema e contas virtuais. | Não       |
 
 
 ## <a name="command-flow-and-data-flow"></a>Fluxo de comando e fluxo de dados
@@ -146,14 +146,14 @@ Aqui está um resumo de alto nível dos passos de fluxo de dados para copiar com
 - Utilize um tempo de execução de integração auto-hospedado para apoiar a integração de dados dentro de uma rede virtual Azure.
 - Trate a sua fonte de dados como uma fonte de dados no local que está por trás de uma firewall, mesmo quando utiliza o Azure ExpressRoute. Utilize o tempo de execução de integração auto-hospedado para ligar o serviço à fonte de dados.
 - Utilize o tempo de execução de integração auto-hospedado mesmo que a loja de dados esteja na nuvem de uma infraestrutura Azure como uma máquina virtual de Serviço (IaaS).
-- As tarefas podem falhar num tempo de integração auto-hospedado que instalou num servidor Windows para o qual a encriptação compatível com FIPS está ativada. Para resolver este problema, desative a encriptação compatível com fips no servidor. Para desativar a encriptação compatível com fips, altere o valor da subchave de registo seguinte de 1 (ativada) para 0 (desativada): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
+- As tarefas podem falhar num tempo de integração auto-hospedado que instalou num servidor Windows para o qual a encriptação compatível com FIPS está ativada. Para resolver este problema, desative a encriptação compatível com fips no servidor. Para desativar a encriptação compatível com fips, altere o valor da subchave `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`de registo seguinte de 1 (ativada) para 0 (desativada): .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - As versões suportadas do Windows são:
   + Windows 7 Service Pack 1
   + Windows 8.1
-  + Windows 10
+  + Windows 10
   + Windows Server 2008 R2 SP1
   + Windows Server 2012
   + Windows Server 2012 R2
@@ -162,17 +162,17 @@ Aqui está um resumo de alto nível dos passos de fluxo de dados para copiar com
    
    A instalação do tempo de execução da integração auto-hospedada num controlador de domínio não é suportada.
 - .NET Quadro 4.6.1 ou posterior é necessário. Se estiver a instalar o tempo de execução de integração auto-hospedado numa máquina do Windows 7, instale .NET Framework 4.6.1 ou mais tarde. Consulte os requisitos do [sistema de enquadramento .NET](/dotnet/framework/get-started/system-requirements) para obter detalhes.
-- A configuração mínima recomendada para a máquina de tempo de execução de integração auto-hospedada é um processador de 2 GHz com quatro núcleos, 8 GB de RAM e 80 GB de espaço de disco rígido disponível.
+- A configuração mínima recomendada para a máquina de tempo de execução de integração auto-hospedada é um processador de 2 GHz com 4 núcleos, 8 GB de RAM e 80 GB de espaço de disco rígido disponível.
 - Se a máquina hospedeira hibernar, o tempo de funcionamento da integração auto-hospedado não responde aos pedidos de dados. Configure um plano de alimentação adequado no computador antes de instalar o tempo de execução de integração auto-hospedado. Se a máquina estiver configurada para hibernar, o instalador de tempo de integração auto-hospedado solicita com uma mensagem.
 - Deve ser um administrador na máquina para instalar e configurar com sucesso o tempo de execução de integração auto-hospedado.
 - As execuções de copy-activity acontecem com uma frequência específica. O uso do processador e da RAM na máquina segue o mesmo padrão com tempos de pico e ocioso. O uso de recursos também depende fortemente da quantidade de dados que são movidos. Quando vários trabalhos de cópia estão em andamento, você vê o uso de recursos subir durante os tempos de pico.
 - As tarefas podem falhar durante a extração de dados em formatos Parquet, ORC ou Avro. Para mais informações sobre o Parquet, consulte o [formato Parquet na Azure Data Factory.](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime) A criação de ficheiros funciona na máquina de integração auto-hospedada. Para funcionar como esperado, a criação de ficheiros requer os seguintes pré-requisitos:
-    - [Visual C++ 2010 Redistribuável](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) Pacote (x64)
-    - Java Runtime (JRE) versão 8 de um fornecedor JRE como [Adopt OpenJDK](https://adoptopenjdk.net/). Certifique-se de que a variável ambiente `JAVA_HOME` está definida.
+    - [Visual C++ 2010 Redistribuível](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) Pacote (x64)
+    - Java Runtime (JRE) versão 8 de um fornecedor JRE como [Adopt OpenJDK](https://adoptopenjdk.net/). Certifique-se `JAVA_HOME` de que a variável ambiental está definida.
 
-## <a name="installation-best-practices"></a>Instalação de boas práticas
+## <a name="installation-best-practices"></a>Melhores práticas de instalação
 
-Pode instalar o tempo de execução da integração auto-hospedado, descarregando um pacote de configuração MSI do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Consulte o artigo [Mova os dados entre as instalações e a nuvem](tutorial-hybrid-copy-powershell.md) para obter instruções passo a passo.
+Pode instalar o tempo de execução de integração auto-hospedado, descarregando um pacote de configuração de identidade gerida do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Consulte o artigo [Mova os dados entre as instalações e a nuvem](tutorial-hybrid-copy-powershell.md) para obter instruções passo a passo.
 
 - Configure um plano de energia na máquina hospedeira para o tempo de funcionação de integração auto-hospedado para que a máquina não hiberna. Se a máquina hospedeira hibernar, o tempo de funcionação de integração auto-hospedado fica offline.
 - Back up regularmente as credenciais associadas ao tempo de execução de integração auto-hospedado.
@@ -182,7 +182,7 @@ Pode instalar o tempo de execução da integração auto-hospedado, descarregand
 
 1. Vá à página de [descarregamento](https://www.microsoft.com/download/details.aspx?id=39717)do tempo de integração da Microsoft .
 1. **Selecione Baixar,** selecione a versão de 64 bits e selecione **Next**. A versão de 32 bits não é suportada.
-1. Execute o ficheiro MSI diretamente, ou guarde-o para o seu disco rígido e execute-o.
+1. Execute o ficheiro Identidade Gerida diretamente, ou guarde-o para o seu disco rígido e execute-o.
 1. Na janela **Welcome,** selecione um idioma e selecione **Next**.
 1. Aceite os Termos da Licença de Software da Microsoft e selecione **Next**.
 1. Selecione **pasta** para instalar o tempo de execução de integração auto-hospedado e selecione **Next**.
@@ -215,7 +215,7 @@ Pode associar vários nódosos instalando o software de tempo de execução de i
 > Não é necessário criar um novo tempo de integração auto-hospedado para associar cada nó. Pode instalar o tempo de funcionação de integração auto-hospedado noutra máquina e registá-lo utilizando a mesma chave de autenticação.
 
 > [!NOTE]
-> Antes de adicionar outro nó para alta disponibilidade e escalabilidade, certifique-se de que o **acesso remoto à opção intranet** está ativado no primeiro nó. Para isso, selecione **Microsoft Integration Runtime Configuration Manager** > **Definições** > **acesso remoto à intranet**.
+> Antes de adicionar outro nó para alta disponibilidade e escalabilidade, certifique-se de que o **acesso remoto à opção intranet** está ativado no primeiro nó. Para isso, selecione **Microsoft Integration Runtime ConfigurationTime Configuration** > **'Settings** > **Remote access to intranet**.
 
 ### <a name="scale-considerations"></a>Considerações de escala
 
@@ -236,7 +236,7 @@ Aqui estão os requisitos para o certificado TLS/SSL que utiliza para garantir a
 - O certificado deve ser um certificado X509 v3 de confiança pública. Recomendamos que utilize certificados emitidos por uma autoridade de certificação de parceiros públicos (CA).
 - Cada nó de tempo de integração deve confiar neste certificado.
 - Não recomendamos certificados de Nome Alternativo Sujeito (SAN) porque apenas o último item SAN é usado. Todos os outros itens da SAN são ignorados. Por exemplo, se tiver um certificado SAN cujos SANs são **node1.domain.contoso.com** e **node2.domain.contoso.com,** só pode utilizar este certificado numa máquina cujo nome de domínio totalmente qualificado (FQDN) seja **node2.domain.contoso.com**.
-- O certificado pode utilizar qualquer tamanho chave suportado pelo Windows Server 2012 R2 para certificados SSL.
+- O certificado pode utilizar qualquer tamanho de chave suportado pelo Windows Server 2012 R2 para certificados TLS/SSL.
 - Os certificados que usam chaves CNG não são suportados.  
 
 > [!NOTE]
@@ -283,7 +283,7 @@ Para partilhar um tempo de execução de integração auto-hospedado com várias
 
 ### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Limitações conhecidas da partilha de IR auto-hospedada
 
-* A fábrica de dados em que é criado um IR ligado deve ter um [MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Por padrão, as fábricas de dados criadas no portal Azure ou cmdlets PowerShell têm um MSI criado implicitamente. Mas quando uma fábrica de dados é criada através de um modelo de Gestor de Recursos Azure ou SDK, você deve definir a propriedade **identidade** explicitamente. Esta definição garante que o Gestor de Recursos cria uma fábrica de dados que contém um MSI.
+* A fábrica de dados em que é criado um IR ligado deve ter uma [Identidade Gerida.](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) Por padrão, as fábricas de dados criadas no portal Azure ou cmdlets PowerShell têm uma Identidade Gerida implicitamente criada. Mas quando uma fábrica de dados é criada através de um modelo de Gestor de Recursos Azure ou SDK, você deve definir a propriedade **identidade** explicitamente. Esta definição garante que o Gestor de Recursos cria uma fábrica de dados que contém uma Identidade Gerida.
 
 * A Data Factory .NET SDK que suporta esta funcionalidade deve ser a versão 1.1.0 ou posterior.
 
@@ -291,7 +291,7 @@ Para partilhar um tempo de execução de integração auto-hospedado com várias
 
 * A funcionalidade de partilha funciona apenas para fábricas de dados dentro do mesmo inquilino da AD Azure.
 
-* Para [os utilizadores de](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews)Anúncios Azure , a funcionalidade de pesquisa na UI, que lista todas as fábricas de dados utilizando uma palavra-chave de pesquisa, não [funciona.](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits) Mas enquanto o utilizador convidado for o proprietário da fábrica de dados, pode partilhar o IR sem a funcionalidade de pesquisa. Para o MSI da fábrica de dados que precisa de partilhar o IR, introduza esse MSI na caixa de autorização de **atribuição** e selecione **Adicionar** na UI da Fábrica de Dados.
+* Para [os utilizadores de](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews)Anúncios Azure , a funcionalidade de pesquisa na UI, que lista todas as fábricas de dados utilizando uma palavra-chave de pesquisa, não [funciona.](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits) Mas enquanto o utilizador convidado for o proprietário da fábrica de dados, pode partilhar o IR sem a funcionalidade de pesquisa. Para a Identidade Gerida da fábrica de dados que precisa de partilhar o IR, introduza essa Identidade Gerida na caixa de Autorização de **Atribuição** e selecione **Adicionar** na UI da Fábrica de Dados.
 
   > [!NOTE]
   > Esta funcionalidade está disponível apenas na Data Factory V2.
@@ -329,7 +329,7 @@ Certifique-se de que permite corretamente as regras de firewall na firewall corp
 Por exemplo, para copiar de uma loja de dados no local para um lavatório de base de dados SQL ou um depósito de dados Azure SQL, tome as seguintes medidas:
 
 1. Permita a comunicação tCP de saída na porta 1433 para a firewall do Windows e para a firewall corporativa.
-1. Configure as definições de firewall da base de dados SQL para adicionar o endereço IP da máquina de tempo de execução de integração auto-hospedada à lista de endereços IP permitidos.
+1. Configure as definições de firewall da Base de Dados SQL para adicionar o endereço IP da máquina de tempo de execução de integração auto-hospedada à lista de endereços IP permitidos.
 
 > [!NOTE]
 > Se a sua firewall não permitir a porta de saída 1433, o tempo de funcionação de integração auto-hospedado não pode aceder diretamente à base de dados SQL. Neste caso, pode utilizar uma [cópia encenada](copy-activity-performance.md) para a Base de Dados SQL e o Armazém de Dados SQL. Neste cenário, é necessário apenas HTTPS (porta 443) para o movimento de dados.
@@ -355,9 +355,9 @@ O serviço de anfitriões de tempo de integração reinicia automaticamente depo
 Depois de registar o tempo de execução de integração auto-hospedado, se pretender visualizar ou atualizar as definições de proxy, utilize o Microsoft Integration Runtime Configuration Manager.
 
 1. Abra **o Gestor de Configuração**de Tempo de Execução da Integração da Microsoft .
-1. Selecione o separador **Definições.**
+1. Selecione o separador **Settings** (Definições).
 1. Em **http proxy,** selecione o link **Alterar** para abrir a caixa de diálogo set **HTTP Proxy.**
-1. Selecione **Seguinte**. Em seguida, consulte um aviso que pede a sua permissão para salvar a definição de procuração e reiniciar o serviço de hospedar tempo de integração.
+1. Selecione **Next**. Em seguida, consulte um aviso que pede a sua permissão para salvar a definição de procuração e reiniciar o serviço de hospedar tempo de integração.
 
 Pode utilizar a ferramenta de gestor de configuração para visualizar e atualizar o proxy HTTP.
 
@@ -390,7 +390,7 @@ Se selecionar a opção **de procuração** do sistema Use para o proxy HTTP, o 
     </system.net>
     ```
 
-    A etiqueta proxy permite que propriedades adicionais especifiquem as definições necessárias, como `scriptLocation`. Consulte [\<proxy\> Element (Definições de Rede)](https://msdn.microsoft.com/library/sa91de1e.aspx) para sintaxe.
+    A etiqueta proxy permite que propriedades `scriptLocation`adicionais especifiquem as definições necessárias como . Consulte [ \<\> proxy Element (Definições de Rede)](https://msdn.microsoft.com/library/sa91de1e.aspx) para sintaxe.
 
     ```xml
     <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
@@ -411,7 +411,7 @@ Também precisa de se certificar de que o Microsoft Azure está na lista de auto
 Se vir mensagens de erro como as seguintes, a razão provável é a configuração inadequada da firewall ou do servidor proxy. Tal configuração impede que o tempo de funcionamento da integração auto-hospedado se ligue à Data Factory para se autenticar. Para garantir que o seu servidor de firewall e proxy está corretamente configurado, consulte a secção anterior.
 
 * Quando tenta registar o tempo de execução de integração auto-hospedado, recebe a seguinte mensagem de erro: "Falhou em registar este nó de Tempo de Execução de Integração! Confirme que a chave de Autenticação é válida e que o serviço de hospedamento do serviço de integração está a funcionar nesta máquina."
-* Ao abrir o Gestor de Configuração do Tempo de Integração, vê um estado de **desconectado** ou **de ligação**. Quando visualiza os registos de eventos do Windows, em registos de > **de visualização de** **eventos** > Prazo de Integração da **Microsoft,** vê mensagens de erro como esta:
+* Ao abrir o Gestor de Configuração do Tempo de Integração, vê um estado de **desconectado** ou **de ligação**. Quando vê registos de eventos do Windows, em > **registos de aplicação e serviços** > do Espectador de **Eventos,** o Tempo de**Execução da Integração**da Microsoft, vê mensagens de erro como esta:
 
     ```
     Unable to connect to the remote server

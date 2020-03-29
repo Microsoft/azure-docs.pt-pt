@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: juliako
 ms.openlocfilehash: 6b12dcee2303632c4ec2ccc3602348a4e17fcd05
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76705892"
 ---
 # <a name="media-services-v3-with-playready-license-template"></a>Media Services v3 com modelo de licença PlayReady 
 
-O Azure Media Services permite-lhe encriptar o seu conteúdo com o **Microsoft PlayReady**. A Media Services também fornece um serviço para a entrega de licenças PlayReady. Pode utilizar APIs de Serviços de Media para configurar as licenças PlayReady. Quando um jogador tenta reproduzir o seu conteúdo protegido pela PlayReady, um pedido é enviado para o serviço de entrega de licença para obter uma licença. Se o serviço de licença aprovar o pedido, que emite a licença que é enviada ao cliente e é utilizada para desencriptar e reproduzir o conteúdo especificado.
+O Azure Media Services permite-lhe encriptar o seu conteúdo com o **Microsoft PlayReady**. A Media Services também fornece um serviço para a entrega de licenças PlayReady. Pode utilizar APIs de Serviços de Media para configurar as licenças PlayReady. Quando um jogador tenta reproduzir o seu conteúdo protegido pela PlayReady, um pedido é enviado para o serviço de entrega de licença para obter uma licença. Se o serviço de licença aprovar o pedido, emite a licença que é enviada ao cliente e é usada para desencriptar e reproduzir o conteúdo especificado.
 
 As licenças PlayReady contêm os direitos e restrições que pretende que o tempo de execução da gestão de direitos digitais playReady (DRM) aplique quando um utilizador tenta reproduzir conteúdo protegido. Aqui estão alguns exemplos de restrições de licença PlayReady que pode especificar:
 
@@ -58,7 +58,7 @@ O XML está em conformidade com o modelo de licença PlayReady XML schema defini
     </PlayReadyLicenseResponseTemplate>
 
 
-## <a id="classes"></a>Utilize APIs de Serviços de Mídia para configurar modelos de licença
+## <a name="use-media-services-apis-to-configure-license-templates"></a><a id="classes"></a>Utilize APIs de Serviços de Mídia para configurar modelos de licença
 
 O Media Services fornece tipos que pode usar para configurar um modelo de licença PlayReady. 
 
@@ -88,7 +88,7 @@ objContentKeyPolicyPlayReadyLicense = new ContentKeyPolicyPlayReadyLicense
 };
 ```
 
-## <a id="schema"></a>Esquema de modelo de licença PlayReady XML
+## <a name="playready-license-template-xml-schema"></a><a id="schema"></a>Esquema de modelo de licença PlayReady XML
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:xs="https://www.w3.org/2001/XMLSchema">
       <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
@@ -313,4 +313,4 @@ objContentKeyPolicyPlayReadyLicense = new ContentKeyPolicyPlayReadyLicense
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Verificar como [proteger com o DRM](protect-with-drm.md)
+Confira como [proteger com a DRM](protect-with-drm.md)

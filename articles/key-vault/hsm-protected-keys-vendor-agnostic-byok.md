@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
 ms.openlocfilehash: 08a4330f4a786deca8ddb2f1c6803b29152e7f50
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79080133"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-preview"></a>Importar chaves protegidas por HSM para o Key Vault (pré-visualização)
@@ -36,7 +36,7 @@ Para mais informações, e para que um tutorial começasse a usar o Key Vault (i
 
 Aqui está uma visão geral do processo. Os passos específicos a concluir são descritos mais tarde no artigo.
 
-* No Cofre chave, gere uma chave (referida como *chave de troca* (KEK)). O KEK deve ser uma chave RSA-HSM que tenha apenas o `import` operação chave. Apenas o Key Vault Premium SKU suporta as teclas RSA-HSM.
+* No Cofre chave, gere uma chave (referida como *chave de troca* (KEK)). O KEK deve ser uma chave RSA-HSM que tenha apenas a `import` operação chave. Apenas o Key Vault Premium SKU suporta as teclas RSA-HSM.
 * Descarregue a chave pública KEK como um ficheiro .pem.
 * Transfira a chave pública KEK para um computador offline que esteja ligado a um HSM no local.
 * No computador offline, utilize a ferramenta BYOK fornecida pelo seu fornecedor HSM para criar um ficheiro BYOK. 
@@ -51,7 +51,7 @@ A tabela a seguir enumera os pré-requisitos para a utilização do BYOK no Cofr
 
 | Requisito | Mais informações |
 | --- | --- |
-| Uma subscrição do Azure |Para criar um cofre chave no Cofre chave Azure, precisa de uma assinatura Azure. [Inscreva-se para um julgamento gratuito.](https://azure.microsoft.com/pricing/free-trial/) |
+| Uma subscrição do Azure. |Para criar um cofre chave no Cofre chave Azure, precisa de uma assinatura Azure. [Inscreva-se para um julgamento gratuito.](https://azure.microsoft.com/pricing/free-trial/) |
 | Um SKU Premium Key Vault para importar chaves protegidas por HSM |Para obter mais informações sobre os níveis de serviço e capacidades no Cofre chave Azure, consulte [o Preço do Cofre chave](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Um HSM da lista de HSMs suportados e uma ferramenta BYOK e instruções fornecidas pelo seu fornecedor HSM | Deve ter permissões para um HSM e conhecimentos básicos de como usar o seu HSM. Ver [HSMs suportados](#supported-hsms). |
 | Versão Azure CLI 2.1.0 ou posterior | Ver [Instalar o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).|
@@ -71,8 +71,8 @@ A tabela a seguir enumera os pré-requisitos para a utilização do BYOK no Cofr
 
 |Nome da chave|Tipo de chave|Tamanho da chave|Origem|Descrição|
 |---|---|---|---|---|
-|Chave de troca (KEK)|RSA| 2\.048-bit<br />3\.072 bits<br />4\.096-bit|Cofre chave azure HSM|Um par de chaves RSA apoiado pelo HSM gerado no Cofre chave Azure|
-|Chave-alvo|RSA|2\.048-bit<br />3\.072 bits<br />4\.096-bit|HSM do fornecedor|A chave a ser transferida para o Cofre de Chaves Azure HSM|
+|Chave de troca (KEK)|RSA| 2.048-bit<br />3.072 bits<br />4.096-bit|Cofre chave azure HSM|Um par de chaves RSA apoiado pelo HSM gerado no Cofre chave Azure|
+|Chave-alvo|RSA|2.048-bit<br />3.072 bits<br />4.096-bit|HSM do fornecedor|A chave a ser transferida para o Cofre de Chaves Azure HSM|
 
 ## <a name="generate-and-transfer-your-key-to-the-key-vault-hsm"></a>Gere e transfira a sua chave para o Cofre chave HSM
 
@@ -89,13 +89,13 @@ Um KEK é uma chave RSA que é gerada num Cofre HSM chave. O KEK é usado para e
 
 O KEK deve ser:
 - Uma tecla RSA-HSM (2.048-bit; 3.072-bit; ou 4.096-bit)
-- gerado no mesmo cofre chave onde pretende importar a chave alvo
-- Criado com operações-chave permitidas definidas para `import`
+- Gerado no mesmo cofre chave onde pretende importar a chave-alvo
+- Criado com operações-chave permitidas definidopara`import`
 
 > [!NOTE]
 > O KEK deve ter a "importação" como única operação-chave permitida. A "importação" é mutuamente exclusiva com todas as outras operações-chave.
 
-Utilize a [chave az keyvault criar](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) comando para criar um KEK que tenha operações chave definidas para `import`. Grave o identificador chave (`kid`) que tenha regressado do seguinte comando. (Utilizará o valor `kid` no [passo 3](#step-3-generate-and-prepare-your-key-for-transfer).)
+Utilize a [chave az keyvault criar](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) comando para criar `import`um KEK que tenha operações chave definidas para . Grave o identificador`kid`chave que tenha regressado do seguinte comando. (Utilizará o `kid` valor no [passo 3](#step-3-generate-and-prepare-your-key-for-transfer).)
 
 ```azurecli
 az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --vault-name ContosoKeyVaultHSM
@@ -113,7 +113,7 @@ Transfira o ficheiro KEKforBYOK.publickey.pem para o seu computador offline. Vai
 
 ### <a name="step-3-generate-and-prepare-your-key-for-transfer"></a>Passo 3: Gere e prepare a chave para transferência
 
-Consulte a documentação do seu fornecedor HSM para descarregar e instalar a ferramenta BYOK. Siga as instruções do seu fornecedor HSM para gerar uma chave-alvo e, em seguida, criar um pacote de transferência chave (um ficheiro BYOK). A ferramenta BYOK utilizará o `kid` do [Passo 1](#step-1-generate-a-kek) e o ficheiro KEKforBYOK.publickey.pem que descarregou no [Passo 2](#step-2-download-the-kek-public-key) para gerar uma chave de destino encriptada num ficheiro BYOK.
+Consulte a documentação do seu fornecedor HSM para descarregar e instalar a ferramenta BYOK. Siga as instruções do seu fornecedor HSM para gerar uma chave-alvo e, em seguida, criar um pacote de transferência chave (um ficheiro BYOK). A ferramenta BYOK `kid` utilizará o [ficheiro](#step-1-generate-a-kek) KEKforBYOK.publickey.pem que descarregou no [Passo 2](#step-2-download-the-kek-public-key) para gerar uma chave de destino encriptada num ficheiro BYOK.
 
 Transfira o ficheiro BYOK para o computador ligado.
 

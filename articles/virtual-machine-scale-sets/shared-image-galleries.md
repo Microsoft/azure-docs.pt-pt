@@ -1,6 +1,6 @@
 ---
-title: Compartilhar imagens de VM com galerias compartilhadas
-description: Saiba como usar galerias de imagens compartilhadas para compartilhar imagens de VM em sua organização.
+title: Partilhe imagens vm com galerias partilhadas
+description: Aprenda a usar galerias de imagem partilhadas para partilhar imagens VM em toda a sua organização.
 documentationcenter: virtual-machine-scale-sets
 author: axayjo
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
 ms.openlocfilehash: 38b8738a383d2953d89677f76e6395035b83181f
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76276349"
 ---
-# <a name="shared-image-galleries-overview"></a>Visão geral das galerias de imagens compartilhadas
+# <a name="shared-image-galleries-overview"></a>Visão geral das Galerias de Imagem Partilhada
 
 
 [!INCLUDE [virtual-machines-common-shared-image-galleries](../../includes/virtual-machines-common-shared-image-galleries.md)]
@@ -27,4 +27,4 @@ ms.locfileid: "76276349"
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como implantar imagens compartilhadas usando o [CLI do Azure](shared-images-cli.md) e [Azure PowerShell](shared-images-powershell.md)
+Saiba como implementar imagens partilhadas utilizando o [Azure CLI](shared-images-cli.md) e [o Azure PowerShell](shared-images-powershell.md)

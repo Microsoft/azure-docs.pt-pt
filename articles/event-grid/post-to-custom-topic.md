@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 0afad249f71a36bf7552da499e985b68d48ee7a9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721562"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Post to custom topic for Azure Event Grid
@@ -23,9 +23,9 @@ Este artigo descreve como publicar um evento num tópico personalizado. Mostra o
 
 ## <a name="endpoint"></a>Ponto Final
 
-Ao enviar o HTTP POST para um tópico personalizado, utilize o formato URI: `https://<topic-endpoint>?api-version=2018-01-01`.
+Ao enviar o HTTP POST para um tópico `https://<topic-endpoint>?api-version=2018-01-01`personalizado, utilize o formato URI: .
 
-Por exemplo, um URI válido é: `https://exampletopic.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01`.
+Por exemplo, um URI `https://exampletopic.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01`válido é: .
 
 Para obter o ponto final para um tópico personalizado com o Azure CLI, use:
 
@@ -41,9 +41,9 @@ Para obter o ponto final para um tópico personalizado com o Azure PowerShell, u
 
 ## <a name="header"></a>Cabeçalho
 
-No pedido, inclua um valor cabeçalho chamado `aeg-sas-key` que contém uma chave para autenticação.
+No pedido, inclua um `aeg-sas-key` valor cabeçalho nomeado que contém uma chave para autenticação.
 
-Por exemplo, um valor de cabeçalho válido é `aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==`.
+Por exemplo, um valor `aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==`de cabeçalho válido é .
 
 Para obter a chave para um tópico personalizado com o Azure CLI, use:
 
@@ -76,10 +76,10 @@ Para tópicos personalizados, os dados de alto nível contêm os mesmos campos q
 ]
 ```
 
-Para obter uma descrição destas propriedades, consulte o esquema do [evento Azure Event Grid](event-schema.md). Ao postar eventos em um tópico da grade de eventos, a matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz é limitado a 64 KB (disponibilidade geral) ou 1 MB (versão prévia).
+Para obter uma descrição destas propriedades, consulte o esquema do [evento Azure Event Grid](event-schema.md). Ao publicar eventos para um tópico de grelha de eventos, a matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz está limitado a 64 KB (Disponibilidade Geral) ou 1 MB (pré-visualização).
 
 > [!NOTE]
-> Um evento de tamanho de até 64 KB é coberto pela disponibilidade geral (GA) Contrato de Nível de Serviço (SLA). O suporte para um evento de tamanho de até 1 MB está atualmente em visualização. Eventos acima de 64 KB são cobrados em incrementos de 64 KB. 
+> Um evento de tamanho até 64 KB é coberto pelo Acordo de Nível de Serviço de Disponibilidade Geral (GA) (SLA). O suporte para um evento de tamanho até 1 MB está atualmente em pré-visualização. Eventos superiores a 64 KB são carregados em incrementos de 64 KB. 
 
 Por exemplo, um esquema de dados de evento válido é:
 
@@ -104,9 +104,9 @@ Depois de publicar no ponto final do tópico, recebe uma resposta. A resposta é
 |Resultado  |Resposta  |
 |---------|---------|
 |Êxito  | 200 OK  |
-|Os dados do evento têm formato incorreto | 400 solicitação inadequada |
-|Chave de acesso inválida | 401 não autorizado |
-|Ponto final incorreto | 404 não encontrados |
+|Os dados do evento têm formato incorreto | 400 Mau Pedido |
+|Chave de acesso inválida | 401 Não autorizado |
+|Ponto final incorreto | 404 Não Encontrado |
 |Matriz ou evento excede limites de tamanho | 413 Carga útil demasiado grande |
 
 Para erros, o corpo da mensagem tem o seguinte formato:
@@ -124,7 +124,7 @@ Para erros, o corpo da mensagem tem o seguinte formato:
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre a monitorização das entregas de eventos, consulte a entrega de [mensagens Monitor Event Grid](monitor-event-delivery.md).
 * Para mais informações sobre a chave de autenticação, consulte [a segurança e a autenticação da Rede de Eventos.](security-authentication.md)

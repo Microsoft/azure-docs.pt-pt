@@ -1,5 +1,5 @@
 ---
-title: Proteger recursos com o Azure MFA e o ADFS-Azure Active Directory
+title: Recursos seguros com O MFA azure e ADFS - Diretório Ativo Azure
 description: Esta é a página do Multi-Factor Authentication do Azure que descreve como começar a utilizar o MFA do Azure e o AD FS na nuvem.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 00200436784eca970f736c4a7f2afebd652c9577
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76155218"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Proteger recursos da nuvem com o Multi-Factor Authentication do Azure e o AD FS
@@ -28,17 +28,17 @@ Para proteger o recurso da cloud, configure uma regra de afirmações para que o
 
 1. Abra a Gestão do AD FS.
 2. À esquerda, selecione **Confianças de Entidades Confiadoras**.
-3. Clique com o botão direito do rato na **Plataforma de Identidade do Microsoft Office 365** e selecione **Editar Regras de Afirmação**.
+3. Clique à direita na **Plataforma de Identidade do Microsoft Office 365** e selecione Regras de **Reclamação de Edição**.
 
-   ![Console do ADFS-confianças de terceira parte confiável](./media/howto-mfa-adfs/trustedip1.png)
+   ![Consola ADFS - Confiança de PartidoS](./media/howto-mfa-adfs/trustedip1.png)
 
 4. Em Regras de Transformação da Emissão, clique em **Adicionar Regra**.
 
-   ![Editando regras de transformação de emissão](./media/howto-mfa-adfs/trustedip2.png)
+   ![Emissão de emissão transforma regras](./media/howto-mfa-adfs/trustedip2.png)
 
 5. No Assistente para Adicionar Regra de Afirmação de Transformação, selecione **Passar ou Filtrar uma Afirmação de Entrada** no menu pendente e clique em **Seguinte**.
 
-   ![Assistente para Adicionar regra de declaração de transformação](./media/howto-mfa-adfs/trustedip3.png)
+   ![Assistente para Adicionar Regra de Afirmação de Transformação](./media/howto-mfa-adfs/trustedip3.png)
 
 6. Dê um nome à sua regra. 
 7. Selecione **Referências de Métodos de Autenticação** como o tipo de Afirmação de entrada.
@@ -58,24 +58,24 @@ A primeira coisa a fazer é configurar as afirmações do AD FS. Crie duas regra
 
 1. Abra a Gestão do AD FS.
 2. À esquerda, selecione **Confianças de Entidades Confiadoras**.
-3. Clique com o botão direito do mouse em **Microsoft Office plataforma de identidade 365** e selecione **Editar regras de declaração...** 
-   ![console do ADFS-editar regras de declaração](./media/howto-mfa-adfs/trustedip1.png)
-4. Em regras de transformação de emissão, clique em **Adicionar regra.** 
-   ![adicionar uma regra de declaração](./media/howto-mfa-adfs/trustedip2.png)
+3. Clique à direita na **Plataforma de Identidade do Microsoft Office 365** e selecione Regras de Reclamação de **Edição...** 
+   Consola ADFS - Editar Regras de ![Reclamação](./media/howto-mfa-adfs/trustedip1.png)
+4. Em Regras de Transformação de Emissão, clique em **Adicionar Regra.** 
+   Adicionar uma regra de ![reclamação](./media/howto-mfa-adfs/trustedip2.png)
 5. No Assistente para Adicionar Regra de Afirmação de Transformação, selecione **Passar ou Filtrar uma Afirmação de Entrada** no menu pendente e clique em **Seguinte**.
    ![Assistente para Adicionar Regra de Afirmação de Transformação](./media/howto-mfa-adfs/trustedip3.png)
 6. Na caixa junto ao nome da regra de afirmação, atribua um nome à regra. Por exemplo: InsideCorpNet.
-7. No menu pendente, junto ao tipo de afirmação de entrada, selecione **Dentro da Rede da Empresa**.
-   ![adicionando dentro da declaração de rede corporativa](./media/howto-mfa-adfs/trustedip4.png)
+7. A partir da queda, ao lado do tipo de reclamação de entrada, selecione **Inside Corporate Network**.
+   ![Adicionar alegação de Rede Corporativa Interna](./media/howto-mfa-adfs/trustedip4.png)
 8. Clique em **Concluir**.
 9. Em Regras de Transformação da Emissão, clique em **Adicionar Regra**.
 10. No Assistente para Adicionar Regra de Afirmação de Transformação, selecione **Enviar Afirmações Utilizando uma Regra Personalizada** no menu pendente e clique em **Seguinte**.
-11. Na caixa em Nome da regra de afirmação, introduza *Manter Utilizadores com Sessão Iniciada*.
+11. Na caixa sob o nome da regra 'Reclamação': insira *Os Utilizadores Inscritos em*.
 12. Na caixa Regra personalizada, introduza:
 
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
-    ![Criar uma declaração personalizada para manter os usuários conectados](./media/howto-mfa-adfs/trustedip5.png)
+    ![Criar reivindicação personalizada para manter os utilizadores inscritos](./media/howto-mfa-adfs/trustedip5.png)
 13. Clique em **Concluir**.
 14. Clique em **Aplicar**.
 15. Clique em **OK**.
@@ -86,12 +86,12 @@ A primeira coisa a fazer é configurar as afirmações do AD FS. Crie duas regra
 Agora que as afirmações estão implementadas, podemos configurar os IPs fidedignos.
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. Selecione **Azure Active Directory** > **segurança** > **acesso condicional** > **locais nomeados**.
-3. Na folha **acesso condicional-locais nomeados** , selecione **Configurar IPs confiáveis MFA**
+2. Selecione Acesso**Condicional** > de**Segurança** >  **ativa** > azure**Localização nomeada**.
+3. A partir do Acesso Condicional - Lâmina de **localização nomeada,** selecione **Configure MFA fidedigno de IPs**
 
-   ![Locais nomeados de acesso condicional do Azure AD configurar IPs confiáveis de MFA](./media/howto-mfa-adfs/trustedip6.png)
+   ![Acesso Condicional Azure AD nomeado locais Configure MFA fidedignos IPs](./media/howto-mfa-adfs/trustedip6.png)
 
 4. Na página Definições de Serviço, em **IPs Fidedignos**, selecione **Ignorar autenticação multifator para pedidos de utilizadores federados na minha intranet**.  
-5. Clique em **Guardar**.
+5. Clique em **guardar**.
 
 Já está! Neste momento, os utilizadores federados do Office 365 apenas têm de utilizar o MFA quando uma afirmação tiver origem fora da intranet da empresa.

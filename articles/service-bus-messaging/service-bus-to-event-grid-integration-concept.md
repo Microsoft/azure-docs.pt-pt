@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: 1e514e2856afae4ff6f877bb193935da1bc5d623
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773483"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Descrição geral de integração do Azure Service Bus para o Event Grid
@@ -38,7 +38,7 @@ Para ativar a funcionalidade, precisa dos seguintes itens:
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ### <a name="verify-that-you-have-contributor-access"></a>Verifique se tem acesso de contribuinte
-Aceda ao seu espaço de nome service Bus e, em seguida, selecione o controlo de **acesso (IAM)** , e selecione o separador de **tarefas de role.** 
+Aceda ao seu espaço de nome service Bus e, em seguida, selecione o controlo de **acesso (IAM)**, e selecione o separador de **tarefas de role.** 
 
 ### <a name="events-and-event-schemas"></a>Eventos e esquemas de eventos
 
@@ -117,7 +117,7 @@ Se quiser receber eventos apenas de, por exemplo, uma fila ou uma subscrição n
 
 Pode criar subscrições do Event Grid para espaços de nomes do Service Bus de três formas diferentes:
 
-* No portal Azure
+* No portal do Azure
 * Na [CLI do Azure](#azure-cli-instructions)
 * No [PowerShell](#powershell-instructions)
 
@@ -138,7 +138,7 @@ Para criar uma nova subscrição do Event Grid, efetue o seguinte:
 
 ## <a name="azure-cli-instructions"></a>Instruções da CLI do Azure
 
-Primeiro, certifique-se de que tem a versão 2.0 da CLI do Azure ou posterior instalada. [Transfira o instalador](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Selecione **Windows + X** e, em seguida, abra uma nova consola do PowerShell com permissões de administrador. Em alternativa, pode utilizar uma shell de comandos no portal do Azure.
+Primeiro, certifique-se de que tem a versão 2.0 da CLI do Azure ou posterior instalada. [Descarregue o instalador](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Selecione **Windows + X**e, em seguida, abra uma nova consola PowerShell com permissões de administrador. Em alternativa, pode utilizar uma shell de comandos no portal do Azure.
 
 Execute o seguinte código:
 
@@ -156,7 +156,7 @@ Se estiver a usar a BASH
 
 ## <a name="powershell-instructions"></a>Instruções do PowerShell
 
-Confirme que instalou o Azure PowerShell. [Transfira o instalador](https://docs.microsoft.com/powershell/azure/install-Az-ps). Selecione **Windows + X** e, em seguida, abra uma nova consola do PowerShell com permissões de Administrador. Em alternativa, pode utilizar uma shell de comandos no portal do Azure.
+Confirme que instalou o Azure PowerShell. [Descarregue o instalador](https://docs.microsoft.com/powershell/azure/install-Az-ps). Selecione **Windows + X** e, em seguida, abra uma nova consola do PowerShell com permissões de Administrador. Em alternativa, pode utilizar uma shell de comandos no portal do Azure.
 
 ```powershell-interactive
 Connect-AzAccount
@@ -172,7 +172,7 @@ mespaceName "<YOUR NAMESPACE NAME>").Id
 New-AzEVentGridSubscription -EventSubscriptionName "<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>" -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith "<YOUR SERVICE BUS SUBSCRIPTION NAME>"
 ```
 
-A partir daqui, você pode explorar as outras opções de configuração ou testar que os eventos estão fluindo.
+A partir de aqui, pode explorar as outras opções de configuração ou testar se os eventos estão a fluir.
 
 ## <a name="next-steps"></a>Passos seguintes
 

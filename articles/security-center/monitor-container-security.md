@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: memildin
 ms.openlocfilehash: 330cbc3f28f5e549d5a21417c3d7ccc1e5444769
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919537"
 ---
 # <a name="monitoring-the-security-of-your-containers"></a>Monitorização da segurança dos seus contentores
@@ -37,7 +37,7 @@ O Azure Security Center abrange os seguintes três aspetos da segurança dos con
 
     1. Certifique-se de que está no nível padrão de preços do Azure Security Center.
 
-    1. A partir da página **de Preços e Definições,** ative o pacote opcional de Registos de Contentores para a sua subscrição: ![habilitando o pacote de registos de contentores](media/monitor-container-security/enabling-container-registries-bundle.png)
+    1. A partir da página de **definições** de Preços &, ![ative o pacote opcional de registos de contentores para a sua subscrição: Habilitar o pacote de Registos de Contentores](media/monitor-container-security/enabling-container-registries-bundle.png)
 
         O Centro de Segurança está agora pronto para digitalizar imagens que são empurradas para o registo. 
 
@@ -82,7 +82,7 @@ O Azure Security Center abrange os seguintes três aspetos da segurança dos con
 
     Os detalhes dos resultados abrem-se.
 
-    [![descobertas painel](media/monitor-container-security/acr-finding-details-pane.png)](media/monitor-container-security/acr-finding-details-pane.png#lightbox)
+    [![Painel de detalhes de descobertas](media/monitor-container-security/acr-finding-details-pane.png)](media/monitor-container-security/acr-finding-details-pane.png#lightbox)
 
     Este painel inclui uma descrição detalhada da questão e ligações a recursos externos para ajudar a mitigar as ameaças.
 
@@ -105,7 +105,7 @@ O Security Center monitoriza constantemente a configuração dos seus anfitriõe
 
 Para ver as recomendações de segurança do Azure Security Center para os anfitriões do Docker dos seus contentores:
 
-1. A partir da barra de navegação do Security Center, abra **compute & apps** e selecione o separador **Recipientes.**
+1. A partir da barra de navegação do Security Center, abra **as aplicações compute &** e selecione o separador **Recipientes.**
 
 1. Opcionalmente, filtre a lista dos seus recursos de contentores para os anfitriões de contentores.
 
@@ -125,11 +125,11 @@ Para ver as recomendações de segurança do Azure Security Center para os anfit
 
 1. Selecione **Tomar medidas** na parte inferior da página.
 
-    [![Tomar o botão de ação](media/monitor-container-security/host-security-take-action-button.png)](media/monitor-container-security/host-security-take-action.png#lightbox)
+    [![Tome o botão de ação](media/monitor-container-security/host-security-take-action-button.png)](media/monitor-container-security/host-security-take-action.png#lightbox)
 
     O Log Analytics abre com uma operação personalizada pronta a ser executada. A consulta personalizada padrão inclui uma lista de todas as regras falhadas que foram avaliadas, juntamente com diretrizes para ajudá-lo a resolver os problemas.
 
-    [ação de ![Log Analytics](media/monitor-container-security/log-analytics-for-action-small.png)](media/monitor-container-security/log-analytics-for-action.png#lightbox)
+    [![Ação de Log Analytics](media/monitor-container-security/log-analytics-for-action-small.png)](media/monitor-container-security/log-analytics-for-action.png#lightbox)
 
 1. Ajuste os parâmetros de consulta e selecione **Executar** quando tiver a certeza de que está pronto para o seu anfitrião. 
 

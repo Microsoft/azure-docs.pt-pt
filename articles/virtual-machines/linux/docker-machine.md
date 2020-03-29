@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: c3165410809d98fd0ac4eeb515fbf30578633ef3
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78968807"
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Como usar a Máquina Docker para criar anfitriões em Azure
-Este artigo detalha como usar a [Máquina Docker](https://docs.docker.com/machine/) para criar anfitriões em Azure. O comando `docker-machine` cria uma máquina virtual Linux (VM) em Azure e instala o Docker. Em seguida, pode gerir os seus anfitriões Docker em Azure usando as mesmas ferramentas e fluxos de trabalho locais. Para utilizar a máquina de estivadores no Windows 10, tem de utilizar a bash Linux.
+Este artigo detalha como usar a [Máquina Docker](https://docs.docker.com/machine/) para criar anfitriões em Azure. O `docker-machine` comando cria uma máquina virtual Linux (VM) em Azure e instala o Docker. Em seguida, pode gerir os seus anfitriões Docker em Azure usando as mesmas ferramentas e fluxos de trabalho locais. Para utilizar a máquina de estivadores no Windows 10, tem de utilizar a bash Linux.
 
 ## <a name="create-vms-with-docker-machine"></a>Criar VMs com máquina de Docker
 Em primeiro lugar, obtenha o seu ID de subscrição Azure com [conta az mostrar](/cli/azure/account) da seguinte forma:
@@ -24,7 +24,7 @@ Em primeiro lugar, obtenha o seu ID de subscrição Azure com [conta az mostrar]
 sub=$(az account show --query "id" -o tsv)
 ```
 
-Cria VMs anfitriões Docker em Azure com `docker-machine create` especificando *o azure* como motorista. Para mais informações, consulte a documentação do [Docker Azure Driver](https://docs.docker.com/machine/drivers/azure/)
+Cria VMs anfitriões Docker `docker-machine create` em Azure com especificando *o azure* como o condutor. Para mais informações, consulte a documentação do [Docker Azure Driver](https://docs.docker.com/machine/drivers/azure/)
 
 O exemplo seguinte cria um VM denominado *myVM,* baseado no plano "Standard D2 v2", cria uma conta de utilizador chamada *azureuser,* e abre a porta *80* no VM hospedeiro. Siga quaisquer solicitações para iniciar sessão na sua conta Azure e conceder permissões à Docker Machine para criar e gerir recursos.
 
@@ -88,10 +88,10 @@ export DOCKER_MACHINE_NAME="machine"
 # eval $(docker-machine env myvm)
 ```
 
-Para definir as definições de ligação, pode executar o comando de configuração sugerido (`eval $(docker-machine env myvm)`), ou pode definir as variáveis ambientais manualmente. 
+Para definir as definições de ligação, pode`eval $(docker-machine env myvm)`executar o comando de configuração sugerido ( ), ou pode definir as variáveis ambientais manualmente. 
 
 ## <a name="run-a-container"></a>Executar um recipiente
-Para ver um recipiente em ação, vamos executar um webserver ngINX básico. Crie um contentor com `docker run` e exponha a porta 80 para tráfego web da seguinte forma:
+Para ver um recipiente em ação, vamos executar um webserver ngINX básico. Criar um `docker run` contentor com e expor a porta 80 para tráfego web da seguinte forma:
 
 ```bash
 docker run -d -p 80:80 --restart=always nginx
@@ -110,7 +110,7 @@ Status: Downloaded newer image for nginx:latest
 675e6056cb81167fe38ab98bf397164b01b998346d24e567f9eb7a7e94fba14a
 ```
 
-Veja os recipientes de corrida com `docker ps`. A saída de exemplo seguinte mostra o contentor NGINX a funcionar com a porta 80 exposta:
+Ver recipientes `docker ps`de corrida com . A saída de exemplo seguinte mostra o contentor NGINX a funcionar com a porta 80 exposta:
 
 ```bash
 CONTAINER ID    IMAGE    COMMAND                   CREATED          STATUS          PORTS                          NAMES

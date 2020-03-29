@@ -10,10 +10,10 @@ ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 3694a1d04ec25f44cfcf9395bdd148e2fd3c0d9f
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371563"
 ---
 # <a name="storage-account-overview"></a>Descrição geral da conta de armazenamento
@@ -129,10 +129,10 @@ Uma conta de armazenamento fornece um espaço de nome único em Azure para os se
 
 Por exemplo, se a sua conta de armazenamento de uso geral for nomeada *minha conta*de armazenamento , então os pontos finais por defeito dessa conta são:
 
-- Armazenamento de bolhas: `https://*mystorageaccount*.blob.core.windows.net`
-- Armazenamento de mesa: `https://*mystorageaccount*.table.core.windows.net`
-- Armazenamento de fila: `https://*mystorageaccount*.queue.core.windows.net`
-- Ficheiros Azure: `https://*mystorageaccount*.file.core.windows.net`
+- Armazenamento de bolhas:`https://*mystorageaccount*.blob.core.windows.net`
+- Armazenamento de mesa:`https://*mystorageaccount*.table.core.windows.net`
+- Armazenamento de fila:`https://*mystorageaccount*.queue.core.windows.net`
+- Ficheiros Azure:`https://*mystorageaccount*.file.core.windows.net`
 
 > [!NOTE]
 > As contas de armazenamento de blob e blob de blocos expõem apenas o ponto final do serviço Blob.

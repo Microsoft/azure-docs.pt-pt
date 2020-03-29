@@ -15,10 +15,10 @@ ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: adsolank
 ms.openlocfilehash: c24218dc116803ca0e0a1f166b7b54b24fc4d5ef
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78163799"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexação de ficheiros de mídia com índice de mídia Azure 2 Pré-visualização
@@ -34,7 +34,7 @@ Este artigo mostra como criar empregos indexantes com **o Azure Media Indexer 2 
 
 ## <a name="considerations"></a>Considerações
 
-Aplicam-se as seguintes considerações:
+As seguintes considerações são aplicáveis:
  
 * O Indexer 2 não é apoiado no Governo Azure China 21Vianet e Azure.
 * Ao indexar o conteúdo, certifique-se de usar ficheiros de mídia que tenham uma fala muito clara (sem música de fundo, ruído, efeitos ou assobios do microfone). Alguns exemplos de conteúdo apropriado são: reuniões gravadas, palestras ou apresentações. Os seguintes conteúdos podem não ser adequados para indexação: filmes, séries de TV, qualquer coisa com efeitos de áudio e som mistos, conteúdo mal gravado com ruído de fundo (assobios).
@@ -88,7 +88,7 @@ A pré-visualização do Azure Media Indexer 2 suporta o discurso a texto para o
 * Inglês Britânico [EnGb]
 * Espanhol (México) [EsMx] 
 
-## <a name="supported-file-types"></a>Tipos de ficheiros suportados
+## <a name="supported-file-types"></a>Tipos de ficheiro suportados
 
 Para obter informações sobre os tipos de ficheiros suportados, consulte a secção de [codecs/formatos suportados.](media-services-media-encoder-standard-formats.md#input-containerfile-formats)
 

@@ -4,10 +4,10 @@ description: Saiba como atualizar o agente dos Serviços de Recuperação do Mic
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.openlocfilehash: 49daf438b855d19961519d93b6c3ec535de4756f
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672923"
 ---
 # <a name="upgrade-the-microsoft-azure-recovery-services-mars-agent"></a>Atualize o agente dos Serviços de Recuperação do Microsoft Azure (MARS)
@@ -67,7 +67,7 @@ Depois de identificar os servidores que necessitam de uma atualização do agent
 
     ![Copy Azure backup agent update installer para servidor](./media/upgrade-mars-agent/copy-agent-installer.png)
 
-1. Executar o instalador. O assistente de atualização do agente de recuperação do Microsoft Azure abre.
+1. Execute o instalador. O assistente de atualização do agente de recuperação do Microsoft Azure abre.
 
     ![O Assistente de Upgrade do Agente de Recuperação do Microsoft Azure](./media/upgrade-mars-agent/agent-upgrade-wizard.png)
 

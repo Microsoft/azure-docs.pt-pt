@@ -1,15 +1,15 @@
 ---
-title: Ativar os espaços Azure Dev na AKS & instalar as ferramentas do lado do cliente
+title: Enable Azure Dev Spaces on AKS & instalar as ferramentas do lado do cliente
 services: azure-dev-spaces
 ms.date: 07/24/2019
 ms.topic: conceptual
 description: Aprenda a ativar o Azure Dev Spaces num cluster AKS e instale as ferramentas do lado do cliente.
-keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
 ms.openlocfilehash: a6b3be5ceba5e60b99b2f75e060f3321cd3151f2
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898955"
 ---
 # <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>Ative a Azure Dev Spaces num cluster AKS e instale as ferramentas do lado do cliente
@@ -19,11 +19,11 @@ Este artigo mostra-lhe várias formas de ativar o Azure Dev Spaces num cluster A
 ## <a name="enable-or-remove-azure-dev-spaces-using-the-cli"></a>Ativar ou remover espaços Azure Dev utilizando o CLI
 
 Antes de poder ativar a Dev Spaces utilizando o CLI, precisa de:
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, pode [criar uma conta gratuita][az-portal-create-account].
+* Uma subscrição do Azure. Se não tiver uma subscrição Azure, pode criar uma [conta gratuita.][az-portal-create-account]
 * [O Azure CLI instalado][install-cli].
 * [Um aglomerado aks][create-aks-cli] numa [região apoiada.][supported-regions]
 
-Utilize o comando `use-dev-spaces` para ativar os Espaços Dev no seu cluster AKS e seguir as instruções.
+Utilize `use-dev-spaces` o comando para ativar os Espaços Dev no seu cluster AKS e siga as instruções.
 
 ```azurecli
 az aks use-dev-spaces -g myResourceGroup -n myAKSCluster
@@ -47,9 +47,9 @@ Configuring and selecting dev space 'default'...3s
 Managed Kubernetes cluster 'myAKSCluster' in resource group 'myResourceGroup' is ready for development in dev space 'default'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
 ```
 
-O comando `use-dev-spaces` também instala o Azure Dev Spaces CLI.
+O `use-dev-spaces` comando também instala o Azure Dev Spaces CLI.
 
-Para remover os Espaços Azure Dev do seu cluster AKS, utilize o comando `azds remove`. Por exemplo:
+Para remover os Espaços Azure Dev do `azds remove` seu cluster AKS, utilize o comando. Por exemplo:
 
 ```azurecli
 $ azds remove -g MyResourceGroup -n MyAKS
@@ -63,11 +63,11 @@ O comando acima remove os Espaços Azure Dev do cluster *MyAKS* no *MyResourceGr
 ## <a name="enable-or-remove-azure-dev-spaces-using-the-azure-portal"></a>Ativar ou remover espaços Azure Dev utilizando o portal Azure
 
 Antes de poder ativar a Dev Spaces utilizando o portal Azure, precisa de:
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, pode [criar uma conta gratuita][az-portal-create-account].
+* Uma subscrição do Azure. Se não tiver uma subscrição Azure, pode criar uma [conta gratuita.][az-portal-create-account]
 * [Um aglomerado aks][create-aks-portal] numa [região apoiada.][supported-regions]
 
 Para permitir a Azure Dev Spaces utilizando o portal Azure:
-1. Inicie sessão no [portal do Azure][az-portal].
+1. Inicie sessão no [Portal do Azure][az-portal].
 1. Navegue para o seu aglomerado AKS.
 1. Selecione o item do menu *Dev Spaces.*
 1. Alterar *ativar espaços de dev* para *sim* e clicar em *Guardar*.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.openlocfilehash: 35d5569cb36cb538585b9d2c85a392b668e9fc34
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944487"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Criar e gerir VMs windows em Azure usando Java
@@ -51,7 +51,7 @@ Leva cerca de 20 minutos para fazer estes passos.
 
 ## <a name="add-dependencies"></a>Adicionar dependências
 
-1. Sob a pasta `testAzureApp`, abra o ficheiro `pom.xml` e adicione a configuração de construção a &lt;&gt; do projeto para permitir a construção da sua aplicação:
+1. Sob `testAzureApp` a pasta, `pom.xml` abra o ficheiro &lt;e&gt; adicione a configuração de construção ao projeto para permitir a construção da sua aplicação:
 
     ```xml
     <build>
@@ -120,7 +120,7 @@ Antes de iniciar este passo, certifique-se de que tem acesso a um diretor de ser
 
 ### <a name="create-the-authorization-file"></a>Criar o ficheiro de autorização
 
-1. Crie um ficheiro chamado `azureauth.properties` e adicione-lhe estas propriedades:
+1. Crie um `azureauth.properties` ficheiro nomeado e adicione-lhe estas propriedades:
 
     ```
     subscription=<subscription-id>
@@ -133,14 +133,14 @@ Antes de iniciar este passo, certifique-se de que tem acesso a um diretor de ser
     graphURL=https://graph.microsoft.com/
     ```
 
-    Substitua **&lt;&gt;de identificação de assinatura** seleção pelo seu identificador de assinatura,&lt;&gt;de identificação de **aplicação** com o identificador de aplicação Ative Directory, **&lt;&gt;chave de autenticação** com a chave de aplicação e **&lt;&gt;de identificação de inquilino** com o identificador de inquilino.
+    Substitua ** &lt;o&gt; id de subscrição** pelo seu identificador de subscrição, ** &lt;o id&gt; de aplicação** com o identificador de aplicação Ative Directory, ** &lt;&gt; ** ** &lt;&gt; ** a chave de autenticação com a chave de aplicação e o id do inquilino com o identificador de inquilino.
 
 2. Guarde o ficheiro.
 3. Detete uma variável ambiental chamada AZURE_AUTH_LOCATION na sua concha com o caminho completo para o ficheiro de autenticação.
 
 ### <a name="create-the-management-client"></a>Criar o cliente de gestão
 
-1. Abra o ficheiro `App.java` em `src\main\java\com\fabrikam` e certifique-se de que esta declaração do pacote está no topo:
+1. Abra `App.java` o `src\main\java\com\fabrikam` ficheiro em baixo e certifique-se de que esta declaração do pacote está no topo:
 
     ```java
     package com.fabrikam.testAzureApp;
@@ -431,7 +431,7 @@ System.out.println("Press enter to continue...");
 input.nextLine();
 ```
 
-### <a name="add-a-data-disk-to-the-vm"></a>Adicione um disco de dados ao VM
+### <a name="add-a-data-disk-to-the-vm"></a>Adicionar um disco de dados à VM
 
 Para adicionar um disco de dados à máquina virtual de 2 GB de tamanho, tem um LUN de 0, e um tipo de gravação de ReadWrite, adicione este código ao bloco de tentativas no método principal:
 
@@ -470,6 +470,6 @@ Deve levar cerca de cinco minutos para que esta aplicação da consola decorra c
 2. Antes de pressionar **Enter** para começar a apagar recursos, poderá demorar alguns minutos a verificar a criação dos recursos no portal Azure. Clique no estado de implementação para ver informações sobre a implementação.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre a utilização das [bibliotecas Azure para Java.](https://docs.microsoft.com/java/azure/java-sdk-azure-overview)
 

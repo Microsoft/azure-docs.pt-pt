@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/27/2020
 ms.author: spelluru
 ms.openlocfilehash: dda2fd98c4c0d330059156a5ec00baa97ffaf627
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921067"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e retentativa de mensagem da Grelha de Eventos
@@ -64,7 +64,7 @@ A Grelha de Eventos aguarda 30 segundos por uma resposta depois de entregar uma 
 - 5 minutos
 - 10 minutos
 - 30 minutos
-- 1 hora
+- Uma hora
 - Hora por hora até 24 horas
 
 Se o ponto final responder dentro de 3 minutos, a Grelha de Eventos tentará remover o evento da fila de retry com o melhor esforço, mas ainda podem ser recebidos duplicados.
@@ -89,7 +89,7 @@ Event Grid envia um evento para o local da carta morta quando tentou todas as su
 
 Há um atraso de cinco minutos entre a última tentativa de entregar um evento e quando é entregue no local da carta morta. Este atraso destina-se a reduzir o número de operações de armazenamento blob. Se o local da carta morta não estiver disponível por quatro horas, o evento será abandonado.
 
-Antes de definir a localização da letra morta, deve ter uma conta de armazenamento com um recipiente. Fornece o ponto final para este recipiente ao criar a subscrição do evento. O ponto final está no formato: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
+Antes de definir a localização da letra morta, deve ter uma conta de armazenamento com um recipiente. Fornece o ponto final para este recipiente ao criar a subscrição do evento. O ponto final está no formato de:`/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
 Talvez queira ser notificado quando um evento tiver sido enviado para o local da carta morta. Para utilizar a Grelha de Eventos para responder a eventos não entregues, [crie uma subscrição](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) de evento para o armazenamento de blob de letra morta. Sempre que o seu armazenamento de blob de letra morta recebe um evento não entregue, a Event Grid notifica o seu manipulador. O manipulador responde com ações que deseja tomar para conciliar eventos não entregues.
 
@@ -118,7 +118,7 @@ Todos os outros códigos que não estão no conjunto acima (200-204) são consid
 | 400 Mau Pedido | Retry após 5 minutos ou mais (Deadletter imediatamente se configurar a carta morta) |
 | 401 Não autorizado | Voltar a tentar depois de 5 minutos ou mais |
 | 403 Proibido | Voltar a tentar depois de 5 minutos ou mais |
-| 404 não encontrados | Voltar a tentar depois de 5 minutos ou mais |
+| 404 Não Encontrado | Voltar a tentar depois de 5 minutos ou mais |
 | 408 Tempo Limite do Pedido | Voltar a tentar depois de 2 minutos ou mais |
 | 413 Entidade de Pedido Demasiado Grande | Voltar a tentar após 10 segundos ou mais (Deadletter imediatamente se configurar a carta morta) |
 | 503 Serviço Indisponível | Voltar a tentar após 30 segundos ou mais |

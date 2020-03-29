@@ -4,10 +4,10 @@ description: Aprenda a visualizar, manter, atualizar e eliminar a hierarquia do 
 ms.date: 12/18/2019
 ms.topic: conceptual
 ms.openlocfilehash: 94df67888c0ed0ea532844a92a362a181621d3d3
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78267942"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerencie os seus recursos com grupos de gestão
@@ -30,9 +30,9 @@ Pode alterar o nome do grupo de gestão utilizando o portal PowerShell ou o Azur
 
 ### <a name="change-the-name-in-the-portal"></a>Mude o nome no portal
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal Azure.](https://portal.azure.com)
 
-1. Selecione **todos os serviços** > Grupos de **Gestão**.
+1. Selecione **todos os grupos** > de gestão de**serviços**.
 
 1. Selecione o grupo de gestão que gostaria de mudar o nome.
 
@@ -76,9 +76,9 @@ Para eliminar um grupo de gestão, devem ser cumpridos os seguintes requisitos:
 
 ### <a name="delete-in-the-portal"></a>Apagar no portal
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal Azure.](https://portal.azure.com)
 
-1. Selecione **todos os serviços** > Grupos de **Gestão**.
+1. Selecione **todos os grupos** > de gestão de**serviços**.
 
 1. Selecione o grupo de gestão que gostaria de eliminar.
 
@@ -119,9 +119,9 @@ Pode ver qualquer grupo de gestão em que tenha um papel RBAC direto ou herdado.
 
 ### <a name="view-in-the-portal"></a>Ver no portal
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal Azure.](https://portal.azure.com)
 
-1. Selecione **todos os serviços** > Grupos de **Gestão**.
+1. Selecione **todos os grupos** > de gestão de**serviços**.
 
 1. A página da hierarquia do grupo de gestão vai carregar. Esta página é onde você pode explorar todos os grupos de gestão e subscrições a que você tem acesso. A seleção do nome de grupo leva-o a um nível na hierarquia. A navegação funciona da mesma forma que um explorador de ficheiros.
 
@@ -224,9 +224,9 @@ Para ver que permissões tem no portal Azure, selecione o grupo de gestão e, em
 
 #### <a name="add-an-existing-subscription-to-a-management-group-in-the-portal"></a>Adicione uma Subscrição existente a um grupo de gestão no portal
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal Azure.](https://portal.azure.com)
 
-1. Selecione **todos os serviços** > Grupos de **Gestão**.
+1. Selecione **todos os grupos** > de gestão de**serviços**.
 
 1. Selecione o grupo de gestão que planeia ser o pai.
 
@@ -240,9 +240,9 @@ Para ver que permissões tem no portal Azure, selecione o grupo de gestão e, em
 
 #### <a name="remove-a-subscription-from-a-management-group-in-the-portal"></a>Remover uma subscrição de um grupo de gestão no portal
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal Azure.](https://portal.azure.com)
 
-1. Selecione **todos os serviços** > Grupos de **Gestão**.
+1. Selecione **todos os grupos** > de gestão de**serviços**.
 
 1. Selecione o grupo de gestão que está a planear que é o pai atual.  
 
@@ -290,9 +290,9 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 ### <a name="move-management-groups-in-the-portal"></a>Mover grupos de gestão no portal
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal Azure.](https://portal.azure.com)
 
-1. Selecione **todos os serviços** > Grupos de **Gestão**.
+1. Selecione **todos os grupos** > de gestão de**serviços**.
 
 1. Selecione o grupo de gestão que planeia ser o pai.
 
@@ -330,7 +330,7 @@ Os grupos de gestão são suportados no [Registo de Atividades do Azure](../../a
 
 ![Registos de Atividadecom grupos de gestão](media/al-mg.png)
 
-Quando quiser consultar Grupos de Gestão fora do portal do Azure, o âmbito de destino dos grupos de gestão é semelhante a **"/ providers/Microsoft.Management/managementGroups/{yourMgID}"** .
+Quando quiser consultar Grupos de Gestão fora do portal do Azure, o âmbito de destino dos grupos de gestão é semelhante a **"/ providers/Microsoft.Management/managementGroups/{yourMgID}"**.
 
 ## <a name="referencing-management-groups-from-other-resource-providers"></a>Referenciação de grupos de gestão de outros Fornecedores de Recursos
 

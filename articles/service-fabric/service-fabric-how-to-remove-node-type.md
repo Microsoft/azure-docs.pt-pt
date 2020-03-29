@@ -1,5 +1,5 @@
 ---
-title: Remova um nó em Tecido de Serviço Azure  Microsoft Docs
+title: Remova um nó em Tecido de Serviço Azure [ Microsoft Docs
 description: Aprenda a remover um tipo de nó de um cluster de tecido de serviço em funcionamento em Azure.
 author: inputoutputcode
 manager: sridmad
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: chrpap
 ms.openlocfilehash: 330b455a61c45ccdb59e5aef8162fd1b04859a00
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969411"
 ---
 # <a name="how-to-remove-a-service-fabric-node-type"></a>Como remover um tipo de nó de tecido de serviço
@@ -122,7 +122,7 @@ Ao remover um nó tipo que é Bronze, todos os nós do nó descem imediatamente.
     - Localize o modelo do Gestor de Recursos Azure utilizado para a implantação.
     - Encontre a secção relacionada com o tipo de nó na secção Tecido de Serviço.
     - Retire a secção correspondente ao tipo de nó.
-    - Apenas para aglomerados de prata e maior durabilidade, atualize o recurso de cluster no modelo e configure as políticas de saúde para ignorar a saúde da aplicação do tecido:/Sistema, adicionando `applicationDeltaHealthPolicies` em `properties` de recursos de cluster, conforme indicado abaixo. A política abaixo deve ignorar os erros existentes, mas não permitir novos erros de saúde. 
+    - Apenas para aglomerados de prata e maior durabilidade, atualize o recurso de cluster no `applicationDeltaHealthPolicies` modelo `properties` e configure as políticas de saúde para ignorar a saúde da aplicação do tecido:/Sistema, adicionando sob o recurso cluster como indicado abaixo. A política abaixo deve ignorar os erros existentes, mas não permitir novos erros de saúde. 
  
  
      ```json
@@ -158,9 +158,9 @@ Ao remover um nó tipo que é Bronze, todos os nós do nó descem imediatamente.
     },
     ```
 
-    - Implemente o modelo modificado do Gestor de Recursos Azure. ** Este passo vai demorar um pouco, geralmente até duas horas. Esta atualização irá alterar as definições para o Serviço de Infraestruturas, pelo que é necessário um reinício do nó. Neste caso, `forceRestart` é ignorado. 
+    - Implemente o modelo modificado do Gestor de Recursos Azure. ** Este passo vai demorar um pouco, geralmente até duas horas. Esta atualização irá alterar as definições para o Serviço de Infraestruturas, pelo que é necessário um reinício do nó. Neste caso `forceRestart` é ignorado. 
     O parâmetro `upgradeReplicaSetCheckTimeout` especifica o tempo máximo que o Tecido de Serviço espera que uma partição esteja em estado seguro, se não já em estado seguro. Uma vez que as verificações de segurança passam para todas as divisórias num nó, o Tecido de Serviço procede com a atualização do nó.
-    O valor do parâmetro `upgradeTimeout` pode ser reduzido para 6 horas, mas para a segurança máxima devem ser utilizadas 12 horas.
+    O valor do `upgradeTimeout` parâmetro pode ser reduzido para 6 horas, mas para a segurança máxima devem ser utilizadas 12 horas.
 
     Em seguida, valide que:
     - Serviço De recurso de tecido no portal mostra pronto.

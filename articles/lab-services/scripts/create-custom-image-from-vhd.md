@@ -1,6 +1,6 @@
 ---
-title: PowerShell-criar imagem personalizada do arquivo VHD no Azure Lab Services
-description: Esse script do PowerShell cria uma imagem personalizada de um arquivo VHD no Azure Lab Services.
+title: PowerShell - Criar imagem personalizada a partir do ficheiro VHD nos Serviços do Laboratório Azure
+description: Este script PowerShell cria uma imagem personalizada a partir de um ficheiro VHD nos Serviços de Laboratório Azure.
 services: lab-services
 author: spelluru
 manager: ''
@@ -13,22 +13,22 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 38383462a665ced1ccb6c6a2f062fab0492eee9a
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169986"
 ---
-# <a name="use-powershell-to-create-a-custom-image-from-a-vhd-file-in-azure-lab-services"></a>Use o PowerShell para criar uma imagem personalizada de um arquivo VHD no Azure Lab Services
+# <a name="use-powershell-to-create-a-custom-image-from-a-vhd-file-in-azure-lab-services"></a>Use powerShell para criar uma imagem personalizada a partir de um ficheiro VHD nos Serviços de Laboratório Azure
 
-Este script do PowerShell de exemplo cria uma imagem personalizada de um arquivo VHD no Azure Lab Services
+Este script da amostra PowerShell cria uma imagem personalizada de um ficheiro VHD nos Serviços de Laboratório Azure
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Um laboratório**. O script exige que você tenha um laboratório existente. 
+* **Um laboratório.** O guião requer que tenhas um laboratório existente. 
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -40,12 +40,12 @@ Este script utiliza os seguintes comandos:
 
 | Comando | Notas |
 |---|---|
-| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Obtém recursos. |
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Recebe recursos. |
 | [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) | Obtém as chaves de acesso para uma conta de Armazenamento do Azure. |
-| [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) | Adiciona uma implantação do Azure a um grupo de recursos. |
+| [Implantação do Grupo New-AzResource](/powershell/module/az.resources/new-azresourcegroupdeployment) | Adiciona uma implantação Azure a um grupo de recursos. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 
-Exemplos adicionais de script Azure Lab Services PowerShell podem ser encontrados nos [exemplos do Azure Lab Services PowerShell](../samples-powershell.md).
+Amostras adicionais de script seletiva de serviços do Laboratório Azure PowerShell podem ser encontradas nas [amostras powerShell dos Serviços de Laboratório Azure](../samples-powershell.md).

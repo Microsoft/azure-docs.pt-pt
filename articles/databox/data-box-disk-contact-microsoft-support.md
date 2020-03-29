@@ -1,88 +1,88 @@
 ---
-title: Registar pedido de suporte ou abrir o processo de Azure Data Box | Documentos da Microsoft
-description: Saiba como fazer o pedido de suporte para problemas relacionados com suas ordens de caixa de dados ou disco Data Box.
+title: Bilhete de suporte de registo ou caixa aberta para Caixa de Dados Azure [ Microsoft Docs
+description: Saiba como registar o pedido de suporte para problemas relacionados com as suas encomendas de Data Box ou Data Box Disk.
 services: databox
 author: alkohli
 ms.service: databox
-ms.subservice: ''
+ms.subservice: disk
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: acba9d2c87d2fb23e48ac24cec22388044702bac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 000659793707c860de881f150e6ce07e4506c602
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240139"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064959"
 ---
-# <a name="open-a-support-ticket-for-azure-data-box"></a>Abra um pedido de suporte do Azure Data Box 
+# <a name="open-a-support-ticket-for-azure-data-box"></a>Abra um bilhete de apoio para a Caixa de Dados Azure 
 
-Este artigo aplica-se para o Azure Data Box, pesadas de caixa de dados do Azure e disco do Azure Data Box, tudo o que são geridos pelo serviço do Azure Data Box. Se encontrar algum problema com o seu serviço do Azure Data Box, pode criar um pedido de serviço para obter suporte técnico. Este artigo orienta-o através de:
+Este artigo aplica-se à Caixa de Dados Azure, À Caixa de Dados Azure Heavy e ao Disco de Caixas de Dados Azure, todos geridos pelo serviço Azure Data Box. Se encontrar algum problema com o seu serviço Azure Data Box, pode criar um pedido de serviço de suporte técnico. Este artigo acompanha-o através de:
 
-* Como criar um pedido de suporte.
-* Como gerir uma pedido de vida de suporte no portal.
+* Como criar um pedido de apoio.
+* Como gerir um suporte solicitar ciclo de vida dentro do portal.
 
 ## <a name="create-a-support-request"></a>Criar um pedido de suporte
 
-Execute os seguintes passos para criar um pedido de suporte:
+Execute os seguintes passos para criar um pedido de apoio:
 
-1. Vá para a sua encomenda do Data Box ou o disco Data Box. Navegue para **suporte + resolução de problemas** secção e, em seguida, clique em **novo pedido de suporte**.
+1. Vá à sua caixa de dados ou ordem do disco da caixa de dados. Navegue para APOIAR + Secção **DE RESOLUÇÃO DE PROBLEMAS** e, em seguida, clique em **Novo pedido**de suporte .
      
     ![Novo pedido de suporte](./media/data-box-disk-contact-microsoft-support/data-box-disk-support-request.png)
    
-2. Na **novo pedido de suporte**, selecione **Noções básicas**. Na **Noções básicas**, siga os passos abaixo:
+2. No **novo pedido de suporte,** selecione **Basics**. No Básico, faça os **seguintes passos:**
     
-    1. Partir do **tipo de problema** lista pendente, selecione **técnica**.
+    1. A partir da lista de dropdown do **tipo Emissão,** selecione **Técnico**.
     2. Escolha a sua **Subscrição**.
-    3. Sob **serviço**, verifique **todos os serviços**. Na lista pendente, selecione **Data Box**. 
-    4. Especificar seus **plano de suporte**.
+    3. Em **Serviço,** verifique **Todos os Serviços**. A partir da lista de abandono, selecione **Data Box**. 
+    4. Especifique o seu plano de **suporte**.
     5. Clique em **Seguinte**.
 
         ![Noções básicas](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
 
-3. Na **novo pedido de suporte**, selecione **passo 2 problema**. Na **problema**, siga os passos abaixo:
+3. No **novo pedido de suporte,** selecione Problema passo **2**. Em **Problemas,** faça os seguintes passos:
     
-    1. Escolha o **gravidade** como **C - um impacto mínimo**. Suporte irá atualizá-lo se for necessário.
-    2. Selecione o **tipo de problema** na lista pendente.
-    3. Com base no tipo de problema é selecionado, escolha um correspondente **categoria**.
-    4. Fornecer um **Title** para o problema e muito mais **detalhes**.
-    5. Forneça a data de início e hora para o problema.
-    6. Na **carregamento de ficheiros**, clique no ícone de pasta para procurar todos os ficheiros que pretende carregar.
+    1. Escolha a **Severidade** como **C - Impacto mínimo**. O suporte irá atualizá-lo se necessário.
+    2. Selecione o **tipo Problema** da lista de abandono.
+    3. Com base no tipo de problema selecionado, escolha uma **categoria**correspondente .
+    4. Forneça um **Título** para a emissão e mais **detalhes.**
+    5. Forneça a data e a hora de início para o problema.
+    6. No upload do **Ficheiro,** clique no ícone da pasta para navegar em quaisquer outros ficheiros que queira carregar.
     7. Verifique **partilhar informações de diagnóstico**.
     8. Clique em **Seguinte**.
 
        ![Problema](./media/data-box-disk-contact-microsoft-support/data-box-disk-support2.png)
 
-4. Na **novo pedido de suporte**, clique em **informações de contacto do passo 3**. Na **informações de contacto**, siga os passos abaixo:
+4. No **novo pedido de suporte,** clique em **informações de contacto do Passo 3**. Nas **informações de contacto,** faça os seguintes passos:
 
-   1. Na **opções de contacto**, forneça o seu método preferencial de contacto (telefone ou e-mail) e o idioma. O tempo de resposta é selecionado automaticamente com base no seu plano de subscrição.
-   2. Na **informações de contacto**, fornecer seu nome, e-mail, contato opcional, país/região. Selecione **guardar alterações de contactos para futuros pedidos de suporte**.
+   1. Nas **opções**de Contacto, forneça o seu método de contacto preferido (telefone ou e-mail) e o idioma. O tempo de resposta é automaticamente selecionado com base no seu plano de subscrição.
+   2. Nas **informações de Contacto**, forneça o seu nome, e-mail, contacto opcional, país/região. Selecione **Guardar alterações de contacto para futuros pedidos de suporte**.
    3. Clique em **Criar**.
    
        ![Informações de contacto](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
 
-      Support da Microsoft utiliza estas informações para contactá-lo para obter mais informações, diagnóstico e resolução.
-      Depois de ter submetido o seu pedido, um engenheiro de suporte irá contactá-lo assim que possível para continuar com o seu pedido.
+      O Microsoft Support utiliza estas informações para lhe contactar para mais informações, diagnóstico e resolução.
+      Depois de ter apresentado o seu pedido, um engenheiro de suporte entrará em contacto consigo o mais rapidamente possível para prosseguir com o seu pedido.
 
-## <a name="manage-a-support-request"></a>Gerir pedidos de suporte
+## <a name="manage-a-support-request"></a>Gerir um pedido de apoio
 
 Depois de criar um pedido de suporte, pode gerir o ciclo de vida do mesmo no portal.
 
-#### <a name="to-manage-your-support-requests"></a>Para gerir os pedidos de suporte
+#### <a name="to-manage-your-support-requests"></a>Para gerir os seus pedidos de apoio
 
-1. Para chegar à página de ajuda e suporte, navegue para **Procurar > ajuda + suporte**.
+1. Para chegar à página de ajuda e suporte, navegue para **navegar > ajuda + suporte**.
 
-    ![Gerir pedidos de suporte](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket1.png)   
+    ![Gerir pedidos de apoio](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket1.png)   
 
-2. Uma lista tabular de **pedidos de suporte recentes** é apresentado na **ajuda + suporte**.
+2. Uma listagem tabular de pedidos de **suporte recentes** é exibida em Ajuda **+ suporte**.
 
-    ![Gerir pedidos de suporte](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket2.png) 
+    ![Gerir pedidos de apoio](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket2.png) 
 
-3. Selecione e clique num pedido de suporte. Pode ver o estado e os detalhes para este pedido. Clique em **+ nova mensagem** se quiser dar seguimento este pedido.
+3. Selecione e clique num pedido de suporte. Pode ver o estado e os detalhes para este pedido. Clique **+ Nova mensagem** se quiser acompanhar este pedido.
 
    
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba como [resolver problemas relacionados com o disco Data Box](data-box-disk-troubleshoot.md).
-Saiba como [resolver problemas relacionados com o Data Box](data-box-troubleshoot.md).
-Saiba como [resolver problemas relacionados com o armazenamento de BLOBs de caixa de dados](data-box-troubleshoot-rest.md).
+Saiba como [resolver problemas relacionados com o Disco de Caixas](data-box-disk-troubleshoot.md)de Dados .
+Saiba como [resolver problemas relacionados com a Data Box](data-box-troubleshoot.md).
+Saiba como [resolver problemas relacionados com o armazenamento de Caixas de Dados Blob](data-box-troubleshoot-rest.md).

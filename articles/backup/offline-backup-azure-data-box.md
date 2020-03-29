@@ -4,10 +4,10 @@ description: Saiba como pode usar a Caixa de Dados Azure para semear grandes dad
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: a031a8cac357e7d212f8f6a3a5dbec749fbccc21
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672972"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Backup offline Azure Backup utilizando caixa de dados Azure
@@ -27,7 +27,7 @@ O processo de semente ira dos dados do Agente MARS utilizando a Caixa de Dados A
 
 | **OS**                                 | **SKU**                                                      |
 | -------------------------------------- | ------------------------------------------------------------ |
-| **Posto de trabalho**                        |                                                              |
+| **Estação de trabalho**                        |                                                              |
 | Windows 10 de 64 bits                     | Enterprise, Pro, Home                                       |
 | Windows 8.1 de 64 bits                    | Enterprise, Pro                                             |
 | Windows 8 de 64 bits                      | Enterprise, Pro                                             |
@@ -47,11 +47,11 @@ O processo de semente ira dos dados do Agente MARS utilizando a Caixa de Dados A
 
 | Tamanho dos dados de backup (pós-compressão por MARS)* por servidor | Caixa de dados Azure Suportada SKU                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <=7.2 TB                                                    | [Disco da Caixa de Dados Azure](https://docs.microsoft.com/azure/databox/data-box-disk-overview) |
+| <=7,2 TB                                                    | [Disco da Caixa de Dados Azure](https://docs.microsoft.com/azure/databox/data-box-disk-overview) |
 | >7.2 TB e <=80 TB**                                      | [Caixa de Dados Azure (100 TB)](https://docs.microsoft.com/azure/databox/data-box-overview) |
 
 *As taxas típicas de compressão variam entre 10% e 20%. <br>
-**Se espera ter mais de 80 TB de dados de backup iniciais para um único servidor MARS, contacte [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+**Se espera ter mais de 80 TB de dados de [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com)backup iniciais para um único servidor MARS, contacte .
 
 >[!IMPORTANT]
 >Os dados iniciais de backup de um único servidor devem ser contidos numa única instância da Caixa de Dados Azure ou no disco Da Caixa de Dados Azure e não podem ser partilhados entre vários dispositivos das mesmas SKUs ou diferentes. Mas um dispositivo Azure Data Box pode conter cópias de segurança iniciais de vários servidores.
@@ -153,7 +153,7 @@ O Agente MARS opera no contexto do Sistema Local, pelo que requer o mesmo nível
 Para garantir que pode montar o seu dispositivo Data Box como um Sistema Local utilizando o protocolo NFS:
 
 1. Ative o cliente para a funcionalidade NFS no servidor Windows que tem o Agente MARS instalado. Especifique a fonte alternativa *WIM:D:\Sources\Install.wim:4*.
-1. Baixe o PSExec de <https://download.sysinternals.com/files/PSTools.zip> para o servidor com o Agente MARS instalado.
+1. Baixe o <https://download.sysinternals.com/files/PSTools.zip> PSExec do servidor com o Agente MARS instalado.
 1. Abra um pedido de comando elevado e execute o seguinte comando com o diretório que contém *PSExec.exe* como o atual diretório.
 
     ```cmd
@@ -195,7 +195,7 @@ Para garantir que pode montar o seu dispositivo Data Box como um Sistema Local u
 
     ![Buscar empregos de Data Box para ID de subscrição](./media/offline-backup-azure-data-box/fetching-databox-jobs.png)
 
-1. Selecione a correta ordem data box para a qual desfez, ligou e desbloqueou o disco data Box. Selecione **Seguinte**.
+1. Selecione a correta ordem data box para a qual desfez, ligou e desbloqueou o disco data Box. Selecione **Next**.
 
     ![Selecione encomendas de Caixa de Dados](./media/offline-backup-azure-data-box/select-databox-order.png)
 
@@ -212,7 +212,7 @@ Para garantir que pode montar o seu dispositivo Data Box como um Sistema Local u
     >
     >![Diretório raiz do disco Da Caixa de Dados Azure](./media/offline-backup-azure-data-box/root-directory.png)
     >
-    >Por exemplo, se o caminho do disco for `\\mydomain\myserver\disk1\` e *o disco1* contiver um diretório chamado *PageBlob,* o caminho que introduzir na página do assistente do Agente MARS é `\\mydomain\myserver\disk1\`.
+    >Por exemplo, se o caminho `\\mydomain\myserver\disk1\` do disco for e *o disco1* contiver um diretório chamado `\\mydomain\myserver\disk1\` *PageBlob,* o caminho que introduzir na página do assistente do Agente MARS é .
     >
     >Se [configurar um dispositivo Azure Data Box 100-TB,](#set-up-azure-data-box-devices)introduza `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` como o caminho de rede para o dispositivo.
 
@@ -269,7 +269,7 @@ Verifique se a seguinte mensagem de erro aparece na consola MAB quando configura
 
 1. Abra a pasta **Temp** no caminho de instalação. O caminho da pasta temporária predefinida é *C:\Program Files\Microsoft Azure Recovery Services Agent\Temp*. Procure o ficheiro *CBUICurr* e abra o ficheiro.
 
-1. No ficheiro *CBUICurr,* percorra até à última linha e verifique se o problema é o mesmo que o desta mensagem de erro: `Unable to create an Azure AD application credential in customer's account. Exception: Update to existing credential with KeyId <some guid> is not allowed`.
+1. No ficheiro *CBUICurr,* percorra até à última linha e verifique se o problema `Unable to create an Azure AD application credential in customer's account. Exception: Update to existing credential with KeyId <some guid> is not allowed`é o mesmo que o desta mensagem de erro: .
 
 ### <a name="workaround"></a>Solução
 
@@ -281,10 +281,10 @@ Inscreva-se na PowerShell que aparece na UI MAB utilizando uma conta diferente c
 
 #### <a name="step-2"></a>Passo 2
 
-Se nenhum outro servidor tiver sementeação offline configurado e nenhum outro servidor estiver dependente da aplicação `AzureOfflineBackup_<Azure User Id>`, elimine esta aplicação. Selecione **portal Azure** > **registos**de aplicações de diretório ativo > **Azure.**
+Se nenhum outro servidor tiver sementeação offline configurado `AzureOfflineBackup_<Azure User Id>` e nenhum outro servidor estiver dependente da aplicação, elimine esta aplicação. Selecione**registos**de aplicações de**diretório** > ativo azure do **portal** > Azure .
 
 >[!NOTE]
-> Verifique se a aplicação `AzureOfflineBackup_<Azure User Id>` não tem qualquer outra sementeção offline configurada e também se nenhum outro servidor estiver dependente desta aplicação. Vá a **Definições** > **Chaves** sob a secção **Chaves Públicas.** Não devia ter outras chaves públicas adicionadas. Consulte a seguinte imagem para referência.
+> Verifique se a `AzureOfflineBackup_<Azure User Id>` aplicação não tem outra sementeção offline configurada e também se nenhum outro servidor estiver dependente desta aplicação. Vá para**As Teclas** **definições** > sob a secção **Chaves Públicas.** Não devia ter outras chaves públicas adicionadas. Consulte a seguinte imagem para referência.
 >
 >![Chaves públicas](./media/offline-backup-azure-data-box/public-keys.png)
 
@@ -292,22 +292,22 @@ Se nenhum outro servidor tiver sementeação offline configurado e nenhum outro 
 
 A partir do servidor está a tentar configurar para backup offline, execute as seguintes ações.
 
-1. Vá ao **aplicativo de certificado** de computador Gerir > separador **pessoal** e procure o certificado com o nome `CB_AzureADCertforOfflineSeeding_<ResourceId>`.
+1. Vá ao separador**pessoal** de **aplicação** > de certificado `CB_AzureADCertforOfflineSeeding_<ResourceId>`de computador Gerir e procure o certificado com o nome .
 
 2. Selecione o certificado, clique à direita **em Todas as Tarefas**e selecione **Exportar** sem chave privada no formato .cer.
 
-3. Vá ao aplicativo de backup offline Azure mencionado no passo 2. Selecione **Definições** > **teclas** > **carregar a chave pública**. Faça o upload do certificado que exportou no passo anterior.
+3. Vá ao aplicativo de backup offline Azure mencionado no passo 2. Selecione **Definições** > Carregar**teclas** > **públicas**. Faça o upload do certificado que exportou no passo anterior.
 
     ![Carregar a chave pública](./media/offline-backup-azure-data-box/upload-public-key.png)
 
 4. No servidor, abra o registo entrando em **regedite** na janela de execução.
 
-5. Vá ao registo *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider.* Clique no **CloudBackupProvider**e adicione um novo valor de cadeia com o nome `AzureADAppCertThumbprint_<Azure User Id>`.
+5. Vá ao registo *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider.* Clique no **CloudBackupProvider**e adicione um novo `AzureADAppCertThumbprint_<Azure User Id>`valor de cadeia com o nome .
 
     >[!NOTE]
     > Para obter o ID do utilizador Azure, execute uma destas ações:
     >
-    >* A partir da PowerShell ligada ao Azure, execute o comando `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"`.
+    >* A partir da PowerShell ligada `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"` ao Azure, executar o comando.
     > * Vá para a trajetória de registo *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup* com o nome *CurrentUserId*.
 
 6. Clique na corda adicionada no passo anterior e selecione **Modificar**. No valor, forneça a impressão digital do certificado que exportou no passo 2. Selecione **OK**.
@@ -318,4 +318,4 @@ A partir do servidor está a tentar configurar para backup offline, execute as s
 
 ## <a name="questions"></a>Perguntas
 
-Para quaisquer questões ou esclarecimentos sobre quaisquer problemas que tenha enfrentado, contacte [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+Para quaisquer questões ou esclarecimentos [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com)sobre quaisquer problemas que tenha enfrentado, contacte.

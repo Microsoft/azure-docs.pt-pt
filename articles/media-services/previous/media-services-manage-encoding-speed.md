@@ -1,6 +1,6 @@
 ---
-title: Gerir a velocidade e simultaneidade da codificação com os serviços de multimédia do Azure | Documentos da Microsoft
-description: Este artigo fornece uma breve descrição geral de como pode gerir a velocidade e simultaneidade de seus trabalhos/tarefas de codificação com os serviços de multimédia do Azure.
+title: Gerencie a velocidade e a coneção da sua codificação com a Azure Media Services [ Serviços De Comunicação Social] Microsoft Docs
+description: Este artigo dá uma breve visão geral de como pode gerir a velocidade e a conmoedação dos seus trabalhos/tarefas de codificação com a Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,27 +15,27 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6bcaadc8dd61899aff860ad246e30170c99ec0f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61463757"
 ---
 #  <a name="manage-speed-and-concurrency-of-your-encoding"></a>Gerir a velocidade e simultaneidade da codificação  
 
-Este artigo fornece uma breve descrição geral de como pode gerir a velocidade e simultaneidade de seus trabalhos/tarefas de codificação.
+Este artigo dá uma breve visão geral de como pode gerir a velocidade e a conmoedação dos seus trabalhos/tarefas codificantes.
 
 ## <a name="overview"></a>Descrição geral
 
-Nos Media Services, um **tipo de unidade reservada** determina a velocidade com que o suporte de dados de tarefas de processamento é processados. Pode escolher de entre os seguintes tipos de unidade reservada: **S1**, **S2**, ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**. O [dimensionamento de unidades de codificação](media-services-scale-media-processing-overview.md) tópico mostra uma tabela que o ajuda a tomar a decisão ao escolher entre diferentes velocidades de codificação.
+Nos Serviços de Media, um **Tipo de Unidade Reservada** determina a rapidez com que as suas tarefas de processamento de meios de comunicação são processadas. Pode escolher entre os seguintes tipos de unidades reservados: **S1,** **S2,** ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**. O tópico das unidades de codificação de [escalonamento](media-services-scale-media-processing-overview.md) mostra uma tabela que o ajuda a tomar uma decisão ao escolher entre diferentes velocidades de codificação.
 
-Além de especificar o tipo de unidade reservada, pode especificar para aprovisionar a sua conta com **unidades reservadas**. O número de unidades reservadas aprovisionadas determina o número de tarefas de multimédia que podem ser processadas em simultâneo numa determinada conta. Por exemplo, se a sua conta tiver cinco unidades reservadas, em seguida, as tarefas de cinco multimédia serão executados em simultâneo, desde como existem tarefas a serem processados. As tarefas restantes irão aguardar na fila e irão obter escolhidas para processamento, sequencialmente, quando uma tarefa em execução for concluída. Se uma conta não tem quaisquer unidades reservadas aprovisionadas, em seguida, tarefas serão detetadas sequencialmente. Neste caso, o tempo de espera entre uma tarefa de terminar e iniciar a seguir um dependerá da disponibilidade de recursos no sistema.
+Além de especificar o tipo de unidade reservado, pode especificar para fornecer a sua conta com **Unidades Reservadas**. O número de unidades reservadas aprovisionadas determina o número de tarefas de multimédia que podem ser processadas em simultâneo numa determinada conta. Por exemplo, se a sua conta tiver cinco unidades reservadas, então cinco tarefas de mídia estarão em execução simultaneamente, desde que existam tarefas a serem processadas. As restantes tarefas vão esperar na fila e serão apanhadas para processamento sequencialmente quando uma tarefa de execução terminar. Se uma conta não tiver unidades reservadas, as tarefas serão recolhidas sequencialmente. Neste caso, o tempo de espera entre uma tarefa de conclusão e a próxima a partir dependerá da disponibilidade de recursos no sistema.
 
-Para obter informações detalhadas e exemplos que mostram como dimensionar as unidades de codificação, consulte [isso](media-services-scale-media-processing-overview.md) tópico.
+Para obter informações detalhadas e exemplos que mostrem como escalar unidades de codificação, consulte [este](media-services-scale-media-processing-overview.md) tópico.
 
 ## <a name="next-step"></a>Passo seguinte
 
-[Unidades de codificação de dimensionamento](media-services-scale-media-processing-overview.md)
+[Unidades de codificação de escala](media-services-scale-media-processing-overview.md)
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

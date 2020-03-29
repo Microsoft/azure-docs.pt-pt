@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
 ms.openlocfilehash: 90c3cc2e096b9b58465987bc53f718c5d06c6203
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78899116"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Empregos de programadores do Azure migrate para apps lógicas azure
@@ -33,7 +33,7 @@ Este artigo mostra como pode agendar trabalhos únicos e recorrentes através da
 
 * Detete os horários que suportam os fusos horários e ajuste automaticamente ao horário de verão (DST).
 
-Para saber mais, veja [o que são as Aplicações Lógicas Do Azure?](../logic-apps/logic-apps-overview.md) [](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+Para saber mais, veja [o que são as Aplicações Lógicas Do Azure?](../logic-apps/logic-apps-overview.md) [Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,7 +53,7 @@ Você pode executar vários trabalhos únicos criando apenas uma aplicação ló
 
    Para os passos básicos, siga [o Quickstart: Crie a sua primeira aplicação lógica.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-1. Na caixa de pesquisa, introduza `when a http request` para encontrar o gatilho do Pedido. A partir da lista de gatilhos, selecione este gatilho: **Quando um pedido HTTP é recebido**
+1. Na caixa de `when a http request` pesquisa, introduza para encontrar o gatilho do Pedido. A partir da lista de gatilhos, selecione este gatilho: **Quando um pedido HTTP é recebido**
 
    ![Adicionar gatilho "Pedido"](./media/migrate-from-scheduler-to-logic-apps/request-trigger.png)
 
@@ -80,7 +80,7 @@ Você pode executar vários trabalhos únicos criando apenas uma aplicação ló
 
 1. Sob o gatilho, selecione **Próximo passo**.
 
-1. Na caixa de pesquisa, introduza `delay until` como filtro. Na lista de ações, selecione esta ação: **Atrase até**
+1. Na caixa de `delay until` pesquisa, introduza como filtro. Na lista de ações, selecione esta ação: **Atrase até**
 
    Esta ação interrompe o fluxo de trabalho da sua aplicação lógica até uma data e hora especificadas.
 
@@ -116,7 +116,7 @@ Por exemplo, utilizando a aplicação Postman, pode criar um pedido post com as 
 
 | Método de pedido | do IdP | Corpo | Cabeçalhos |
 |----------------|-----|------|---------|
-| **POST** | <> de *URL final* | **cru** <p>**JSON (aplicação/json)** <p>Na caixa **crua,** introduza a carga útil que pretende enviar no pedido. <p>**Nota:** Esta definição configura automaticamente os **valores cabeçalhos.** | **Chave**: Tipo de conteúdo <br>**Valor**: aplicação/json |
+| **POST** | <*endpoint-URL*> | **cru** <p>**JSON (aplicação/json)** <p>Na caixa **crua,** introduza a carga útil que pretende enviar no pedido. <p>**Nota:** Esta definição configura automaticamente os **valores cabeçalhos.** | **Chave**: Tipo de conteúdo <br>**Valor**: aplicação/json |
 |||||
 
 ![Envie pedido para desencadear manualmente a sua aplicação lógica](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
@@ -169,7 +169,7 @@ Aqui estão outras formas de personalizar o seu trabalho.
 
 Para controlar a forma como uma ação tenta repetir na sua aplicação lógica quando falhas intermitentes acontecem, pode definir a política de [retry](../logic-apps/logic-apps-exception-handling.md#retry-policies) nas definições de cada ação, por exemplo:
 
-1. Abra as elipses da ação **(...** ) menu e selecione **Definições**.
+1. Abra as elipses da ação **(...**) menu e selecione **Definições**.
 
    ![Definições de ação aberta](./media/migrate-from-scheduler-to-logic-apps/action-settings.png)
 
@@ -189,7 +189,7 @@ No Programador Azure, se a ação padrão não funcionar, pode executar uma aç�
 
    ![Adicionar ação paralela](./media/migrate-from-scheduler-to-logic-apps/add-parallel-action.png)
 
-1. Na ação alternativa, abra o menu elipses ( **...** ) e selecione **Configure correr depois**.
+1. Na ação alternativa, abra o menu elipses (**...**) e selecione **Configure correr depois**.
 
    ![Configurar correr depois](./media/migrate-from-scheduler-to-logic-apps/configure-run-after.png)
 
@@ -220,7 +220,7 @@ Para saber mais sobre o manuseamento de exceções, consulte [erros e exceções
 **P:** Onde posso obter apoio para migrar os meus empregos de Agendadores? <br>
 **R:** Aqui estão algumas formas de obter apoio:
 
-**Portal do Azure**
+**Portal Azure**
 
 Se a sua subscrição Azure tiver um plano de suporte pago, pode criar um pedido de suporte técnico no portal Azure. Caso contrário, pode selecionar uma opção de suporte diferente.
 
@@ -230,9 +230,9 @@ Se a sua subscrição Azure tiver um plano de suporte pago, pode criar um pedido
 
    | Propriedade | Valor |
    |---------|-------|
-   | **Tipo de emissão** | **Técnico** |
-   | **Subscrição** | < *> de subscrição do seu Azure* |
-   | **Serviço** | Em **Monitorização e Gestão,** selecione **Scheduler**. Se não encontrar o **Scheduler,** selecione **todos os serviços** primeiro. |
+   | **Tipo de emissão** | **Parte Técnica** |
+   | **Assinatura** | <*sua assinatura Azure*> |
+   | **Serviço** | Sob **monitorização & Management,** selecione **Scheduler**. Se não encontrar o **Scheduler,** selecione **todos os serviços** primeiro. |
    ||| 
 
 1. Selecione a opção de suporte que deseja. Se tiver um plano de apoio pago, selecione **Next**.

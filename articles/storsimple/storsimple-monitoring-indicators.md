@@ -1,6 +1,6 @@
 ---
-title: Indicadores de monitorização do StorSimple | Documentos da Microsoft
-description: Descreve a luz – emitting diodes (LEDs) e alarmes sonoro utilizados para monitorizar o estado do dispositivo StorSimple.
+title: Indicadores de monitorização StorSimple / Microsoft Docs
+description: Descreve os díodos emissores de luz (LEDs) e os alarmes sonoros utilizados para monitorizar o estado do dispositivo StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,234 +15,234 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: ef8acf1c3c9211168ebacc8d62647f6789c745a2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60630658"
 ---
-# <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Utilizar o StorSimple indicadores de monitorização para gerir o seu dispositivo
+# <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Utilize indicadores de monitorização StorSimple para gerir o seu dispositivo
 
 
 ## <a name="overview"></a>Descrição geral
-O dispositivo StorSimple inclui light – emitting diodes (LEDs) e que pode utilizar para monitorizar o estado geral do dispositivo StorSimple e módulos de alarmes. Os indicadores de monitorização podem ser encontrados nos componentes de hardware do bastidor de principal do dispositivo e a inclusão EBOD. Os indicadores de monitorização podem ser LEDs ou alarmes sonoro.
+O seu dispositivo StorSimple inclui díodos emissores de luz (LEDs) e alarmes que pode utilizar para monitorizar os módulos e o estado geral do dispositivo StorSimple. Os indicadores de monitorização podem ser encontrados nos componentes de hardware do recinto primário do dispositivo e no recinto EBOD. Os indicadores de monitorização podem ser LEDs ou alarmes sonoros.
 
-Existem três Estados de LED utilizados para indicar o estado de um módulo: verde, piscar verde para vermelho amber ou red-amber.  
+Existem três estados LED usados para indicar o estado de um módulo: verde, verde intermitente para vermelho-âmbar, ou vermelho-âmbar.  
 
-* Verde LEDs representam um bom estado de funcionamento.  
-* Piscar verde para representam de LEDs red-amber a presença de condições não críticas que podem exigir a intervenção do utilizador.  
-* Red amber LEDs indicarem que existe uma falha crítica presente no módulo.  
+* Os LED verdes representam um estado de funcionamento saudável.  
+* Os LED verde-âmbar-vermelho intermitentes representam a presença de condições não críticas que podem exigir a intervenção do utilizador.  
+* Os LEDs vermelho-âmbar indicam que existe uma falha crítica dentro do módulo.  
 
-O restante deste artigo descreve os vários LEDs de indicador de monitorização, suas localizações no dispositivo StorSimple, o estado do dispositivo com base nos Estados de LED e quaisquer alarmes sonoro associados.
+O restante deste artigo descreve os vários LED indicadores de monitorização, as suas localizações no dispositivo StorSimple, o estado do dispositivo com base nos estados LED e quaisquer alarmes sonoros associados.
 
-## <a name="front-panel-indicator-leds"></a>Indicadores LED de painel frontal
-Painel de frente, também conhecido como o *painel de operações* ou *painel de ops*, apresenta o estado agregado de todos os módulos no sistema. O painel frontal é idêntico no StorSimple primário e o bastidor EBOD e está ilustrado abaixo.  
+## <a name="front-panel-indicator-leds"></a>LEDIndicador do painel frontal
+O painel frontal, também conhecido como painel de *operações* ou *painel de operações,* apresenta o estado agregado de todos os módulos do sistema. O painel frontal é idêntico nas primárias StorSimple e no recinto EBOD, e é ilustrado abaixo.  
 
    ![Painel frontal do dispositivo][1]
 
-O painel frontal contém os indicadores seguintes:  
+O painel frontal contém os seguintes indicadores:  
 
-1. Botão de sem som
-2. Indicador de Power LED (vermelho/verde-amber)
-3. Indicador de falha do módulo LEVOU (no red-amber/OFF)
-4. Indicador de falha lógicos LEVOU (no red-amber/OFF
-5. Exibição de ID de unidade  
+1. Botão de silenciamento
+2. LED indicador de potência (verde/vermelho-âmbar)
+3. LED indicador de avaria do módulo (ON red-amber/OFF)
+4. LED indicador de falha lógica (ON red-amber/OFF
+5. Ecrã id da unidade  
 
-A principal diferença entre os painel frontal LEDs para o dispositivo e do bastidor EBOD é o **número de identificação de unidade de sistema** mostrado no ecrã do LED. A unidade padrão é apresentado no dispositivo de ID **00**, ao passo que o ID de unidade de predefinição apresentado na caixa EBOD é **01**. Isto permite-lhe rapidamente diferenciar entre o dispositivo e a inclusão EBOD quando o dispositivo é ativado. Se o dispositivo estiver desativado, utilize as informações fornecidas [ativar um novo dispositivo](storsimple-turn-device-on-or-off.md#turn-on-a-new-device) para diferenciar o dispositivo da inclusão EBOD.  
+A grande diferença entre os LEDs do painel frontal para o dispositivo e os do recinto EBOD é o Número de **Identificação** da Unidade do Sistema mostrado no visor LED. O ID da unidade predefinido apresentado no dispositivo é **de 00,** enquanto o ID da unidade predefinido apresentado no recinto EBOD é **01**. Isto permite-lhe diferenciar rapidamente entre o dispositivo e o recinto EBOD quando o dispositivo está ligado. Se o seu dispositivo estiver desligado, utilize as informações fornecidas [por sua vez num novo dispositivo](storsimple-turn-device-on-or-off.md#turn-on-a-new-device) para diferenciar o dispositivo do recinto ebod.  
 
-## <a name="front-panel-led-status"></a>Painel frontal LED de estado
-Utilize a tabela seguinte para identificar o Estado indicado por LEDs no painel de front-para o dispositivo ou o bastidor EBOD.  
+## <a name="front-panel-led-status"></a>Estado LED do painel frontal
+Utilize o quadro seguinte para identificar o estado indicado pelos LEDs no painel frontal para o dispositivo ou para o recinto EBOD.  
 
-| Energia do sistema | Falha do módulo | Falhas de lógica | Alarme | Estado |
+| Poder do sistema | Falha no módulo | Falha lógica | Alarme | Estado |
 | --- | --- | --- | --- | --- |
-| Red amber |OFF |OFF |N/A |Energia CA perdido, operando no power cópia de segurança ou a energia CA e o controlador de módulos foram removidos. |
-| Verde |ON |ON |N/A |Estado de teste de ativação painel OPS (5s) |
-| Verde |OFF |OFF |N/A |Ligar, todas as funções de boa |
-| Verde |ON |N/A |Falhas do PCM LEDs, falhas de ventoinha LEDs |Quaisquer falhas PCM, falhas de ventoinha, pela ou em temperatura |
-| Verde |ON |N/A |Módulo de e/s LEDs |Quaisquer falhas de módulo de controlador |
-| Verde |ON |N/A |N/A |Falhas de lógica de bastidor |
-| Verde |Flash |N/A |Estado do módulo LED no módulo de controlador. Falhas do PCM LEDs, falhas de ventoinha LEDs |Tipo de módulo de controlador desconhecido instalado, falha de bus de I2C, erro de configuração do controlador módulo vital produto dados (VPD) |
+| Âmbar-vermelho |OFF |OFF |N/D |A energia CA perdida, operando com energia de reserva, ou energia CA ON e os módulos do controlador foram removidos. |
+| Verde |ON |ON |N/D |Poder do painel ops no estado de teste (5s) |
+| Verde |OFF |OFF |N/D |Poder ligado, todas as funções boas |
+| Verde |ON |N/D |LEDs de falha de PCM, LEDs de falha de ventilador |Qualquer falha de PCM, falha do ventilador, mais ou menos de temperatura |
+| Verde |ON |N/D |Módulo I/O LEDs |Qualquer falha no módulo controlador |
+| Verde |ON |N/D |N/D |Falha lógica do recinto |
+| Verde |Flash |N/D |LED de estado do módulo no módulo do controlador. LEDs de falha de PCM, LEDs de falha de ventilador |Módulo de controlador desconhecido tipo instalado, falha de autocarro I2C, erro de configuração de dados vitais do produto do módulo controlador (VPD) |
 
-## <a name="power-cooling-module-pcm-indicator-leds"></a>Energia, refrigeração indicadores LED de módulo (PCM)
-Indicador de módulo (PCM) LEDs refrigeração energia pode ser encontrado na parte de trás do bastidor principal ou o bastidor EBOD em cada módulo PCM. Este tópico descreve como utilizar os LEDs seguintes para monitorizar o estado do dispositivo StorSimple.  
+## <a name="power-cooling-module-pcm-indicator-leds"></a>LeDs indicador de módulo de arrefecimento de energia (PCM)
+Os LED indicadores do módulo de arrefecimento de energia (PCM) podem ser encontrados na parte de trás do recinto primário ou do recinto EBOD em cada módulo PCM. Este tópico discute como utilizar os seguintes LEDs para monitorizar o estado do seu dispositivo StorSimple.  
 
-* PCM LEDs para o bastidor principal
-* PCM LEDs para a inclusão EBOD
+* LEDs pcm para o recinto primário
+* LEDs pcm para o recinto EBOD
 
-## <a name="pcm-leds-for-the-primary-enclosure"></a>PCM LEDs para o bastidor principal
-O dispositivo StorSimple tem um módulo PCM 764W com uma bateria adicional. A ilustração seguinte mostra o painel de LED para o dispositivo.  
+## <a name="pcm-leds-for-the-primary-enclosure"></a>LEDs pcm para o recinto primário
+O dispositivo StorSimple tem um módulo PCM de 764W com uma bateria adicional. A seguinte ilustração mostra o painel LED do dispositivo.  
 
-   ![LEDs PCM no bastidor principal][2]
+   ![LEDs pcm no recinto primário][2]
 
-Legenda de LED:
+Lenda led:
 
-1. Falha de energia de AC
-2. Falha na ventoinha
-3. Falhas de bateria
+1. Falha de energia do AC
+2. Falha do ventilador
+3. Falha na bateria
 4. PCM OK
-5. Falha do controlador de domínio
-6. Boa de bateria  
+5. Falha em DC
+6. Bateria boa  
 
-O estado do PCM é indicado no painel LED. O painel do PCM LED de dispositivo tem seis LEDs. Quatro destes LEDs apresentar o estado de alimentação e a ventoinha. Os restantes dois LEDs indicam o estado do módulo de bateria de segurança no PCM. Pode utilizar as tabelas seguintes para determinar o estado do PCM.  
+O estado do PCM está indicado no painel LED. O painel LED PCM do dispositivo tem seis LED. Quatro destes LEDs apresentam o estado da alimentação e da ventoinha. Os dois LEDs restantes indicam o estado do módulo da bateria de reserva no PCM. Pode utilizar as seguintes tabelas para determinar o estado do PCM.  
 
-### <a name="pcm-indicator-leds-for-power-supply-and-fan"></a>PCM LED indicadores de fonte de alimentação e ventoinha
-| Estado | PCM OK (verde) | Falha de AC (amber) | Ventoinha falhar (amber) | Falha do controlador de domínio (amber) |
+### <a name="pcm-indicator-leds-for-power-supply-and-fan"></a>LEDs indicador DE PCM para alimentação e ventilador
+| Estado | PCM OK (verde) | Falha de AC (âmbar) | Falha da ventoinha (âmbar) | Falha em DC (âmbar) |
 | --- | --- | --- | --- | --- |
-| Não existem alternada (ao bastidor) |OFF |OFF |OFF |OFF |
-| Não existem alternada (apenas para este PCM) |OFF |ON |OFF |ON |
+| Sem energia CA (para o recinto) |OFF |OFF |OFF |OFF |
+| Sem potência ca (apenas pcm) |OFF |ON |OFF |ON |
 | AC apresentar PCM ON - OK |ON |OFF |OFF |OFF |
-| Falha do PCM (ventoinha ativação) |OFF |OFF |ON |N/A |
-| Falhas do PCM (sobre amp, ao longo de tensão, ao longo do atual) |OFF |ON |ON |ON |
-| PCM (ventoinha fora da tolerância) |ON |OFF |OFF |ON |
-| Modo de reserva dinâmica |Flashing |OFF |OFF |OFF |
-| Transferência de firmware do PCM |OFF |Flashing |Flashing |Flashing |
+| Falha no PCM (falha do ventilador) |OFF |OFF |ON |N/D |
+| Falha de PCM (sobre amp, sobre tensão, sobre corrente) |OFF |ON |ON |ON |
+| PCM (ventilador fora da tolerância) |ON |OFF |OFF |ON |
+| Modo de espera |Piscando |OFF |OFF |OFF |
+| Download de firmware PCM |OFF |Piscando |Piscando |Piscando |
 
-### <a name="pcm-indicator-leds-for-the-backup-battery"></a>PCM LED indicadores para a bateria da cópia de segurança
-| Estado | Bateria bom (verde) | Falhas de bateria (amber) |
+### <a name="pcm-indicator-leds-for-the-backup-battery"></a>LEDs indicador DE PCM para a bateria de reserva
+| Estado | Bateria boa (verde) | Falha na bateria (âmbar) |
 | --- | --- | --- |
-| Bateria não está presente |OFF |OFF |
-| Bateria presente e cobrada |ON |OFF |
-| Altas de manutenção ou de cobrança de consumo da bateria |Flashing |OFF |
-| Falhas de "soft" da bateria (recuperável) |OFF |Flashing |
-| Falhas de "disco rígida" da bateria (não recuperável) |OFF |ON |
-| Bateria disarmed |Flashing |OFF |
+| Bateria não presente |OFF |OFF |
+| Bateria presente e carregada |ON |OFF |
+| Carga da bateria ou descarga de manutenção |Piscando |OFF |
+| Falha "macia" da bateria (recuperável) |OFF |Piscando |
+| Falha "dura" da bateria (não recuperável) |OFF |ON |
+| Bateria desarmada |Piscando |OFF |
 
-## <a name="pcm-leds-for-the-ebod-enclosure"></a>PCM LEDs para a inclusão EBOD
-A inclusão EBOD tem um PCM 580W e não bateria adicional. O painel do PCM para a inclusão EBOD tem indicador LEDs apenas para as fontes de alimentação e a ventoinha. A ilustração seguinte mostra esses LEDs.
+## <a name="pcm-leds-for-the-ebod-enclosure"></a>LEDs pcm para o recinto EBOD
+O recinto EBOD tem um PCM de 580W e nenhuma bateria adicional. O painel PCM para o recinto EBOD tem LED indicador apenas para as fontes de alimentação e a ventoinha. A seguinte ilustração mostra estes LEDs.
 
-   ![PCM LEDs na caixa EBOD][3] 
+   ![LEDs pcm no recinto ebod][3] 
 
-Pode usar a tabela seguinte para determinar o estado do PCM.  
+Pode utilizar a tabela seguinte para determinar o estado do PCM.  
 
-| Estado | PCM OK (verde) | Falha de AC (amber) | Ventoinha falhar (amber) | Falha do controlador de domínio (amber) |
+| Estado | PCM OK (verde) | Falha de AC (âmbar) | Falha da ventoinha (âmbar) | Falha em DC (âmbar) |
 | --- | --- | --- | --- | --- |
-| Não existem alternada (ao bastidor) |OFF |OFF |OFF |OFF |
-| Não existem alternada (apenas para este PCM) |OFF |ON |OFF |ON |
-| AC apresentar PCM Diante – OK |ON |OFF |OFF |OFF |
-| Falha do PCM (ventoinha ativação) |OFF |OFF |ON |X |
-| Falhas do PCM (sobre amp, ao longo de tensão, ao longo do atual |OFF |ON |ON |ON |
-| PCM (ventoinha fora da tolerância) |ON |OFF |OFF |ON |
-| Modelo de reserva dinâmica |Flashing |OFF |OFF |OFF |
-| Transferência de firmware do PCM |OFF |Flashing |Flashing |Flashing |
+| Sem energia CA (para o recinto) |OFF |OFF |OFF |OFF |
+| Sem potência ca (apenas pcm) |OFF |ON |OFF |ON |
+| AC apresentar PCM ON - OK |ON |OFF |OFF |OFF |
+| Falha no PCM (falha do ventilador) |OFF |OFF |ON |X |
+| Falha de PCM (sobre amp, sobre tensão, sobre corrente |OFF |ON |ON |ON |
+| PCM (ventilador fora da tolerância) |ON |OFF |OFF |ON |
+| Modelo de espera |Piscando |OFF |OFF |OFF |
+| Download de firmware PCM |OFF |Piscando |Piscando |Piscando |
 
-## <a name="controller-module-indicator-leds"></a>Indicadores LED do módulo de controlador
-O dispositivo StorSimple contém LEDs para o controlador principal e os módulos de controlador EBOD.   
+## <a name="controller-module-indicator-leds"></a>LEDs indicador de módulo de controlador
+O dispositivo StorSimple contém LEDs para o controlador primário e os módulos do controlador EBOD.   
 
-### <a name="monitoring-leds-for-the-primary-controller"></a>LEDs de monitorização para o controlador primário
-A ilustração a seguir ajuda a identificar os LEDs no controlador primário. (Todos os componentes estão relacionados para ajudar na orientação.)  
+### <a name="monitoring-leds-for-the-primary-controller"></a>Monitorização de LEDs para o controlador primário
+A ilustração que se segue ajuda a identificar os LEDs no controlador primário. (Todos os componentes estão listados para ajudar na orientação.)  
 
    ![LEDs de monitorização - controlador primário][4]
 
-Utilize a tabela seguinte para determinar se o módulo de controlador está a funcionar corretamente.  
+Utilize a tabela seguinte para determinar se o módulo do controlador está a funcionar corretamente.  
 
-### <a name="controller-indicator-leds"></a>Indicadores LED de controlador
+### <a name="controller-indicator-leds"></a>LEDs indicador de controlador
 | LED | Descrição |
 | --- | --- |
-| ID LED (azul) |Indica que o módulo está a ser identificado. Se o LED azul é intermitente num controlador de em execução, em seguida, o controlador é o controlador ativo e o outro é o controlador em modo de espera. Para obter mais informações, consulte [identificar o controlador ativo no seu dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
-| Falhas LED (amber) |Indica uma falha no controlador. |
-| LED OK (verde) |Constante verde indica que o controlador está OK. Piscar verde indica um erro de configuração de VPD de controlador. |
-| Atividade SAS LEDs (verde) |Constante verde indica uma ligação sem nenhuma atividade atual. Piscar verde indica que a ligação tem atividade em curso. |
-| Estado de Ethernet LEDs |Direita indica atividade de ligação/rede: Active Directory, (piscar verde) de ligação (constante verde) atividade de rede. Lado esquerdo indica a velocidade da rede: (amarelo) 1000 Mb/s (verde) 100 Mb/s e (OFF) 10 Mb/s. Consoante o modelo de componente, essa perspectiva poderá blink, mesmo que a interface de rede não está ativada. |
-| LEDs de POSTAGEM |Indica o progresso de arranque quando o controlador estiver ativado. Se falhar o dispositivo StorSimple efetuar o arranque, esta LED ajudará a identificar o ponto do processo de arranque a que a falha ocorreu Support da Microsoft. |
+| LED ID (azul) |Indica que o módulo está a ser identificado. Se o LED azul estiver a piscar num controlador de corrente, então o controlador é o controlador ativo e o outro é o controlador de espera. Para mais informações, consulte [Identificar o controlador ativo no seu dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
+| LED de falha (âmbar) |Indica uma falha no controlador. |
+| LED OK (verde) |O verde firme indica que o controlador está bem. O verde intermitente indica um erro de configuração VPD do controlador. |
+| LeDs de atividade sas (verde) |O verde estável indica uma ligação sem atividade corrente. O verde intermitente indica que a ligação tem atividade contínua. |
+| LeDs de estado ethernet |O lado direito indica a atividade de ligação/rede: ligação (verde constante) ativa, (verde intermitente) atividade de rede. O lado esquerdo indica a velocidade da rede: (amarelo) 1000 Mb/s, (verde) 100 Mb/s e (OFF) 10 Mb/s. Dependendo do modelo do componente, esta luz pode piscar mesmo que a interface de rede não esteja ativada. |
+| POST LEDs |Indica o progresso da bota quando o controlador está ligado. Se o dispositivo StorSimple não arrancar, este LED ajudará o Microsoft Support a identificar o ponto do processo de arranque no qual ocorreu a falha. |
 
 > [!IMPORTANT]
-> Se a LED de falha está ativada, é um problema com o módulo de controlador que pode ser resolvido reiniciando o controlador. Entre em contato com Support da Microsoft se reiniciar o controlador não resolver este problema.  
+> Se o LED de avaria estiver aceso, existe um problema com o módulo do controlador que pode ser resolvido reiniciando o controlador. Contacte o Microsoft Support se reiniciar o controlador não resolver este problema.  
 > 
 > 
 
-### <a name="monitoring-leds-for-the-ebod-ebod-enclosure"></a>LEDs de monitorização para o EBOD (bastidor EBOD)
-Cada um dos controladores de 6 Gb/s SAS EBOD tem LEDs indicam o respetivo estado conforme mostrado na ilustração seguinte.  
+### <a name="monitoring-leds-for-the-ebod-ebod-enclosure"></a>LeDs de monitorização para o EBOD (recinto EBOD)
+Cada um dos controladores SAS EBOD de 6 Gb/s tem LEDs que indicam o seu estado como mostrado na ilustração seguinte.  
 
-  ![LEDs de monitorização - bastidor EBOD][5]
+  ![LEDs de monitorização - Recinto EBOD][5]
 
-Utilize a tabela seguinte para determinar se o módulo de controlador EBOD está a funcionar normalmente.  
+Utilize a tabela seguinte para determinar se o módulo de comando EBOD está a funcionar normalmente.  
 
-### <a name="ebod-controller-module-indicator-leds"></a>Indicadores de módulo LED de controlador EBOD
-| Estado | Módulo de e/s OK (verde) | Falhas de módulo de e/s (amber) | Atividade de porta de anfitrião (verde) |
+### <a name="ebod-controller-module-indicator-leds"></a>LeDs indicador de módulo de controlador EBOD
+| Estado | Módulo I/O OK (verde) | Falha do módulo I/O (âmbar) | Atividade portuária de acolhimento (verde) |
 | --- | --- | --- | --- |
 | Módulo de controlador OK |ON |OFF |- |
-| Falha do módulo de controlador |OFF |ON |- |
-| Nenhuma ligação de porta de anfitrião externo |- |- |OFF |
-| Ligação de porta de anfitrião externo – nenhuma atividade |- |- |ON |
-| Ligação de porta de anfitrião externo - atividade |- |- |Flashing |
-| Erro de metadados do módulo de controlador |Flashing |- |- |
+| Falha no módulo do controlador |OFF |ON |- |
+| Nenhuma ligação externa à porta do hospedeiro |- |- |OFF |
+| Conexão externa do porto de acolhimento - sem atividade |- |- |ON |
+| Conexão externa do porto de acolhimento - atividade |- |- |Piscando |
+| Erro de metadados do módulo de controlador |Piscando |- |- |
 
-## <a name="disk-drive-indicator-leds-for-the-primary-enclosure-and-ebod-enclosure"></a>Indicadores LED de unidade de disco para o bastidor principal e a inclusão EBOD
-O dispositivo StorSimple tem unidades de disco localizadas no bastidor principal e a inclusão EBOD. Cada unidade de disco contém a monitorização LEDs indicador, conforme descrito nesta secção. 
+## <a name="disk-drive-indicator-leds-for-the-primary-enclosure-and-ebod-enclosure"></a>LED indicador de acionamento de disco para o recinto primário e o recinto EBOD
+O dispositivo StorSimple tem unidades de disco localizadas tanto no recinto primário como no recinto EBOD. Cada unidade de disco contém LED indicador estonteantes de monitorização, conforme descrito nesta secção. 
 
-Para as unidades de disco, o estado de unidade é indicado por um verde LED e um LED red-amber montada na frente de cada módulo de deteção de carrier da unidade. A ilustração seguinte mostra esses LEDs.
+Para as unidades de disco, o estado de acionamento é indicado por um LED verde e um LED vermelho-âmbar montado na parte frontal de cada módulo de porta-accionamento. A seguinte ilustração mostra estes LEDs.
 
-  ![LEDs de unidade de disco][6]
+  ![LEDs de acionamento de disco][6]
 
-Utilize a tabela seguinte para determinar o estado de cada unidade de disco, que por sua vez, afeta o painel geral frontal LED de estado.  
+Utilize a tabela seguinte para determinar o estado de cada unidade de disco, que por sua vez afeta o estado led do painel frontal.  
 
-### <a name="disk-drive-indicator-leds-for-the-ebod-enclosure"></a>Indicadores LED de unidade de disco para a inclusão EBOD
-| Estado | Atividade LED de OK (verde) | Falhas LED (red-amber) | Painel de ops LED de associados |
+### <a name="disk-drive-indicator-leds-for-the-ebod-enclosure"></a>LED indicador de acionamento de disco para o recinto EBOD
+| Estado | LED OK de atividade (verde) | LED de falha (vermelho-âmbar) | LED do painel de operações associado |
 | --- | --- | --- | --- |
-| Nenhuma unidade instalado |OFF |OFF |Nenhuma |
-| Unidade instalada e operacional |Piscar liga/desliga com a atividade |X |Nenhuma |
-| Conjunto de identidade de dispositivo de serviços de bastidor SCSI (SES) |ON |Piscar 1 segundo em/1 segundo desativado |Nenhuma |
-| Conjunto de bits de falhas de dispositivo SES |ON |ON |Lógica falha (vermelho) |
-| Falha de circuito de controlo de energia |OFF |ON |Falha do módulo (vermelho) |
+| Sem unidade instalada |OFF |OFF |Nenhuma |
+| Unidade instalada e operacional |Piscando/desligado com atividade |X |Nenhuma |
+| Conjunto de identidade de dispositivo scsi enclosure Services (SES) |ON |Piscando 1 segundo em/1 segundo de desconto |Nenhuma |
+| Conjunto de bits de avaria do dispositivo SES |ON |ON |Falha lógica (vermelho) |
+| Falha no circuito de controlo de energia |OFF |ON |Falha do módulo (vermelho) |
 
-## <a name="audible-alarms"></a>Alarmes sonoro
-Um dispositivo StorSimple contém alarmes sonoro associados com o bastidor principal e a inclusão EBOD. Um alarme sonoro se encontra no painel frontal (também conhecido como o painel do ops) de ambas as inclusões. O alarme sonoro indica quando uma condição de falha está presente. As seguintes condições ativará o alarme:  
+## <a name="audible-alarms"></a>Alarmes audíveis
+Um dispositivo StorSimple contém alarmes sonoros associados tanto ao recinto primário como ao recinto EBOD. Um alarme sonoro está localizado no painel frontal (também conhecido como painel de operações) de ambos os recintos. O alarme sonoro indica quando existe uma falha. As seguintes condições ativarão o alarme:  
 
-* Falha de ventoinha ou falha
-* Tensão fora do intervalo
-* Ao longo ou na condição de temperatura
-* Estouro térmicos
-* Falha de sistema
-* Falhas de lógica
-* Falha de fonte de alimentação de energia
-* Remoção de uma potência de refrigeração módulo (PCM)  
+* Falha ou falha do ventilador
+* Tensão fora de alcance
+* Sobre ou em condições de temperatura
+* Sobreatropelamento térmico
+* Falha do sistema
+* Falha lógica
+* Falha de alimentação
+* Remoção de um módulo de arrefecimento de energia (PCM)  
 
-A tabela seguinte descreve os diversos Estados de alarme.  
+A tabela seguinte descreve os vários estados de alarme.  
 
 ### <a name="alarm-states"></a>Estados de alarme
-| Estado de alarme | Ação | Ação com o botão de sem som premido |
+| Estado de alarme | Ação | Ação com botão de silenciamento premido |
 | --- | --- | --- |
-| S0 |Modo normal: silenciosa |Emitir aviso sonoro duas vezes |
-| S1 |Modo de falhas: 1 segundo/1 segundo desativado |Transição para S2 ou S3 (consulte as notas de) |
-| S2 |Modo de lembrar: emitir aviso sonoro intermitente |Nenhuma |
-| S3 |Modo muted: silenciosa |Nenhuma |
-| S4 |Modo de falhas críticas: alarme contínua |Não está disponível: desativar som não está ativa |
+| S0 |Modo normal: silencioso |Bip duas vezes |
+| S1 |Modo de avaria: 1 segundo em/1 segundo de desconto |Transição para S2 ou S3 (ver notas) |
+| S2 |Modo de relembrar: sinal sonoro intermitente |Nenhuma |
+| S3 |Modo silencioso: silencioso |Nenhuma |
+| S4 |Modo de avaria crítica: alarme contínuo |Não disponível: mudo não ativo |
 
 > [!NOTE]
-> * Estado de alarme S1, se não pressionar Mute (mudo) em dois minutos, o estado transita automaticamente para S2 ou S3.  
-> * Estados de alarme S1 para S4, volte a S0, depois da condição de falha está desmarcada.  
-> * Estado de falha crítica S4 pode ser introduzido do qualquer outro Estado.  
+> * Em estado de alarme S1, se não pressionar o mudo dentro de 2 minutos, o estado passa automaticamente para S2 ou S3.  
+> * O alarme indica que S1 a S4 regressam à S0 depois da condição de avaria ser desmarcada.  
+> * Estado de falha crítica S4 pode ser introduzido em qualquer outro estado.  
 
 
-Pode retirar o áudio o alarme sonoro, premindo o botão de sem som no painel de ops. A desativação automáticas ocorrerá depois de dois minutos se o comutador Mute (mudo) não é operado manualmente. Quando ficará sem áudio o alarme, irá continuar a som com o alarme sonoro de intermitente curto para indicar que ainda existe um problema. O alarme será silencioso quando todos os problemas são limpos.
+Pode silenciar o alarme sonoro premindo o botão de silenciamento no painel de operações. Osilencia automática ocorrerá após dois minutos se o interruptor de silenciamento não for acionado manualmente. Quando o alarme é silenciado, continuará a soar com pequenos sinalsonoro intermitente para indicar que ainda existe um problema. O alarme será silencioso quando todos os problemas estiverem limpos.
 
 A tabela seguinte descreve as várias condições de alarme.
 
 ### <a name="alarm-conditions"></a>Condições de alarme
-| Estado | Gravidade | Alarme | Painel de OPS LED |
+| Estado | Gravidade | Alarme | LED do painel ops |
 | --- | --- | --- | --- |
-| Alerta PCM – queda de energia do controlador de domínio de um único PCM |Índice de falhas – sem perda de redundância |S1 |Falha do módulo |
-| Alerta PCM – queda de energia do controlador de domínio de um único PCM |Índice de falhas – perda de redundância |S1 |Falha do módulo |
-| Falha do PCM ventoinha |Índice de falhas – perda de redundância |S1 |Falha do módulo |
-| Falhas PCM SBB módulo detetado |Índice de falhas |S1 |Falha do módulo |
-| Removido do PCM |Erro de configuração |Nenhuma |Falha do módulo |
-| Erro de configuração de bastidor |Falhas – crítica |S1 |Falha do módulo |
-| Alerta de temperatura baixa do aviso |Aviso |S1 |Falha do módulo |
-| Alerta de temperatura alta do aviso |Aviso |S1 |Falha do módulo |
-| Ao longo do alarme de temperatura |Falhas – crítica |S1 |Falha do módulo |
-| Falha de bus de I2C |Índice de falhas – perda de redundância |S1 |Falha do módulo |
-| Erro de comunicação (I2C) de painel de ops |Falhas – crítica |S1 |Falha do módulo |
-| Erro de controlador |Falhas – crítica |S1 |Falha do módulo |
-| Falhas de módulo de interface SBB |Falhas – crítica |S1 |Falha do módulo |
-| Falha no módulo de interface SBB – não funcional módulos restantes |Falhas – crítica |S4 |Falha do módulo |
-| Módulo de interface SBB removido |Aviso |Nenhuma |Falha do módulo |
-| Falha de controlo de energia de unidade |Aviso – sem perda de energia de unidade |S1 |Falha do módulo |
-| Falha de controlo de energia de unidade |Falhas – crítica; Falha de energia de unidade |S1 |Falha do módulo |
-| Disco removido |Aviso |Nenhuma |Falha do módulo |
-| Energia insuficiente disponível |Aviso |Nenhum |Falha do módulo |
+| Alerta PCM – perda de energia dc de um único PCM |Culpa – sem perda de redundância |S1 |Falha no módulo |
+| Alerta PCM – perda de energia dc de um único PCM |Culpa – perda de redundância |S1 |Falha no módulo |
+| Falha do ventilador PCM |Culpa – perda de redundância |S1 |Falha no módulo |
+| Módulo SBB detetado falha pcm |Falha |S1 |Falha no módulo |
+| PCM removido |Erro de configuração |Nenhuma |Falha no módulo |
+| Erro de configuração do recinto |Falha – crítica |S1 |Falha no módulo |
+| Alerta de baixa temperatura de alerta |Aviso |S1 |Falha no módulo |
+| Alerta de alta temperatura de alerta |Aviso |S1 |Falha no módulo |
+| Sobre o alarme de temperatura |Falha – crítica |S1 |Falha no módulo |
+| Falha no autocarro I2C |Culpa – perda de redundância |S1 |Falha no módulo |
+| Erro de comunicação do painel ops (I2C) |Falha – crítica |S1 |Falha no módulo |
+| Erro do controlador |Falha – crítica |S1 |Falha no módulo |
+| Falha no módulo de interface SBB |Falha – crítica |S1 |Falha no módulo |
+| Falha no módulo de interface SBB – Não restam módulos de funcionamento |Falha – crítica |S4 |Falha no módulo |
+| Módulo de interface SBB removido |Aviso |Nenhuma |Falha no módulo |
+| Falha no controlo de potência |Aviso – sem perda de potência de condução |S1 |Falha no módulo |
+| Falha no controlo de potência |Falha – crítica; perda de potência de condução |S1 |Falha no módulo |
+| Unidade removida |Aviso |Nenhuma |Falha no módulo |
+| Energia insuficiente disponível |Aviso |nenhuma |Falha no módulo |
 
-## <a name="next-steps"></a>Passos Seguintes
-Saiba mais sobre [StorSimple componentes de hardware e o estado](storsimple-8000-monitor-hardware-status.md).
+## <a name="next-steps"></a>Passos seguintes
+Saiba mais sobre [os componentes de hardware StorSimple e](storsimple-8000-monitor-hardware-status.md)o estado .
 
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png

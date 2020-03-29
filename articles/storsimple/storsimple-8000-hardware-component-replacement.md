@@ -1,6 +1,6 @@
 ---
-title: Substituição de componente de hardware de série 8000 do StorSimple | Documentos da Microsoft
-description: Descreve como substituir com segurança o PCMs, bateria, módulos de controlador, EBOD controladores, unidades de disco e chassis de um dispositivo StorSimple.
+title: Substituição de componente de hardware da série StorSimple 8000 / Microsoft Docs
+description: Descreve como substituir com segurança os PCMs, bateria, módulos controladores, controladores EBOD, unidades de disco e chassis de um dispositivo StorSimple.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -16,124 +16,124 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60321830"
 ---
-# <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Substituir um componente de hardware no seu dispositivo da série StorSimple 8000
+# <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Substitua um componente de hardware no seu dispositivo da série StorSimple 8000
 
 ## <a name="overview"></a>Descrição geral
-Os tutoriais de substituição de componente de hardware descrevem os componentes de hardware do seu dispositivo da série StorSimple 8000 do Microsoft Azure e as etapas necessárias para remover e substituí-los. Este artigo descreve os ícones de segurança, fornece indicadores para os tutoriais detalhados e indica os componentes que sejam substituíveis.
+Os tutoriais de substituição de componentes de hardware descrevem os componentes de hardware do seu dispositivo da série Microsoft Azure StorSimple 8000 e os passos necessários para removê-los e substituí-los. Este artigo descreve os ícones de segurança, fornece indicações para os tutoriais detalhados, e lista os componentes que são substituíveis.
 
 > [!IMPORTANT]
-> Antes de tentar remover ou substituir qualquer componente do StorSimple, certifique-se de que revê os [convenções do ícone de segurança](#safety-icon-conventions) e outras [precauções de segurança](storsimple-safety.md).
+> Antes de tentar remover ou substituir qualquer componente StorSimple, certifique-se de que revê as [convenções](#safety-icon-conventions) do ícone de segurança e [outras precauções de segurança](storsimple-safety.md).
 
 
-### <a name="safety-icon-conventions"></a>Convenções de ícone de segurança
-A tabela seguinte descreve os ícones de segurança utilizados nestes tutoriais. Preste muita atenção a esses ícones de segurança à medida que revê os passos para remover e substituir componentes de dispositivo.
+### <a name="safety-icon-conventions"></a>Convenções de ícones de segurança
+A tabela seguinte descreve os ícones de segurança utilizados nestes tutoriais. Preste muita atenção a estes ícones de segurança enquanto passa pelos degraus para remover e substituir os componentes do dispositivo.
 
-| Ícone | Text | Informações adicionais |
+| Ícone | Texto | Informações adicionais |
 |:--- |:--- |:--- |
-| ![Ícone de aviso](./media/storsimple-hardware-component-replacement/Warning.png) |**PERIGO!** |Indica uma situação perigosa que, se não evitado, resultará em morte ou grave tendão. Esta palavra de sinal está limitada as situações mais graves. |
-| ![Ícone de aviso](./media/storsimple-hardware-component-replacement/Warning.png) |**AVISO!** |Indica uma situação perigosa que, se não evitado, poderá resultar em morte ou grave tendão. |
-| ![Ícone de atenção](./media/storsimple-hardware-component-replacement/Caution.png) |**ATENÇÃO!** |Indica uma situação perigosa que, se não evitado, poderá resultar em lesão moderada ou pouco frequentes. |
-| ![Ícone de aviso](./media/storsimple-hardware-component-replacement/NoticeIcon.png) |**AVISO:** |Indica informações consideradas importantes, mas não relacionados com o perigo. |
-| ![Ícone de um choque elétrico](./media/storsimple-hardware-component-replacement/Electric.png) |**Perigo choque elétrico** |Indica a tensão elevada. |
-| ![Ícone de peso pesadas](./media/storsimple-hardware-component-replacement/Weight.png) |**Peso pesado** | |
-| ![Nenhum ícone de partes serviceable do utilizador](./media/storsimple-hardware-component-replacement/NoUserServiceableParts.png) |**Não existem partes serviceable do utilizador** |Não acedam a não ser devidamente treinados. |
-| ![Ícone de instruções de leitura](./media/storsimple-hardware-component-replacement/ReadInstructions.png) |**Ler todas as instruções em primeiro lugar** | |
-| ![Ícone de perigo de sugestão](./media/storsimple-hardware-component-replacement/TipHazard.png) |**Sugestão de perigo** | |
+| ![Ícone de aviso](./media/storsimple-hardware-component-replacement/Warning.png) |**PERIGO, PERIGO!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou ferimentos graves. Esta palavra de sinal limita-se às situações mais extremas. |
+| ![Ícone de aviso](./media/storsimple-hardware-component-replacement/Warning.png) |**ATENÇÃO!** |Indica uma situação perigosa que, se não for evitada, pode resultar em morte ou ferimentos graves. |
+| ![Ícone de precaução](./media/storsimple-hardware-component-replacement/Caution.png) |**CUIDADO!** |Indica uma situação perigosa que, se não for evitada, pode resultar em ferimentos ligeiros ou moderados. |
+| ![Ícone de aviso](./media/storsimple-hardware-component-replacement/NoticeIcon.png) |**AVISO:** |Indica informações consideradas importantes, mas não relacionadas com riscos. |
+| ![Ícone de choque elétrico](./media/storsimple-hardware-component-replacement/Electric.png) |**Risco de choque elétrico** |Indica alta tensão. |
+| ![Ícone de peso pesado](./media/storsimple-hardware-component-replacement/Weight.png) |**Peso pesado** | |
+| ![Nenhum ícone de peças reparavel do utilizador](./media/storsimple-hardware-component-replacement/NoUserServiceableParts.png) |**Sem peças reparasáveis ao utilizador** |Não aceda a menos que esteja devidamente treinado. |
+| ![Ler ícone de instruções](./media/storsimple-hardware-component-replacement/ReadInstructions.png) |**Leia todas as instruções primeiro** | |
+| ![Ícone de perigo de ponta](./media/storsimple-hardware-component-replacement/TipHazard.png) |**Risco de Ponta** | |
 
 ### <a name="before-you-begin"></a>Antes de começar
-Familiarize-se com as informações de segurança sobre seus ícones de dispositivo e de segurança utilizado neste tutorial. Aceda a [com segurança, instalar e operar o dispositivo StorSimple](storsimple-safety.md) para obter informações completas. Certifique-se de que reveja os [precauções de segurança](storsimple-safety.md#handling-precautions) antes de processar o seu dispositivo StorSimple.
+Familiarize-se com as informações de segurança sobre o seu dispositivo e ícones de segurança utilizados neste tutorial. Vá para [instalar e operar com segurança o seu dispositivo StorSimple](storsimple-safety.md) para obter informações completas. Certifique-se de que revê as [precauções de segurança](storsimple-safety.md#handling-precautions) antes de manusear o seu dispositivo StorSimple.
 
 Antes de tentar substituir um componente, considere as seguintes informações.
 
-![Ícone de aviso](./media/storsimple-hardware-component-replacement/Warning.png) ![ícone choque Elétrico](./media/storsimple-hardware-component-replacement/Electric.png) **aviso!**
+![Aviso](./media/storsimple-hardware-component-replacement/Warning.png) ![Ícone](./media/storsimple-hardware-component-replacement/Electric.png) de choque elétrico **Ícone AVISO!**
 
-* A partir do zero sozinho corretamente utilizando um mecânico altas ou antistatic mat quando o processamento de módulos e componentes do dispositivo StorSimple.
-* Não é utilizada qualquer conjunto de circuitos. Utilize os guias e identificadores fornecidos durante o processamento de componentes que podem ter expostas circuitos.
+* Aqueça-se corretamente utilizando uma descarga eletrostática ou um tapete antistático ao manusear módulos e componentes do seu dispositivo StorSimple.
+* Não toque em circuitos. Utilize as pegas e guias fornecidas enquanto manuseia componentes que possam ter circuitos expostos.
 
-![Ícone de aviso](./media/storsimple-hardware-component-replacement/Warning.png) ![observe o ícone](./media/storsimple-hardware-component-replacement/NoticeIcon.png) **aviso:**
+![Aviso](./media/storsimple-hardware-component-replacement/Warning.png) ![de](./media/storsimple-hardware-component-replacement/NoticeIcon.png) aviso **ícone aviso AVISO:**
 
-Se substituir um módulo **nunca deixam uma distância vazia no traseiro do bastidor**. Obtenha uma substituição ou o módulo em branco antes de remover a parte do problema.
+Quando substituir um módulo, **NUNCA deixe uma baía vazia na parte traseira do recinto**. Obtenha um módulo de substituição ou em branco antes de remover a parte do problema.
 
-## <a name="hardware-component-replacement-procedures"></a>Procedimentos de substituição de componente de hardware
-O dispositivo da série StorSimple 8000 consiste em vários módulos de plug-ins no principal e/ou os bastidores de EBOD. O 8100 tem um bastidor principal único, ao passo que o 8600 é um dispositivo de bastidor dupla com um bastidor principal e um bastidor EBOD.
+## <a name="hardware-component-replacement-procedures"></a>Procedimentos de substituição de componentes de hardware
+O seu dispositivo da série StorSimple 8000 é composto por vários módulos plug-in nos recintos primários e/ou EBOD. O 8100 tem um único recinto primário, enquanto o 8600 é um dispositivo de caixa duplo com um recinto primário e um recinto EBOD.
 
-Os componentes de hardware principal no seu dispositivo estão resumidos nas tabelas seguintes. Clique na ligação no **procedimento de substituição** coluna para ir para o tutorial associado.
+Os principais componentes de hardware do seu dispositivo são resumidos nas tabelas seguintes. Clique no link na coluna de procedimento de **substituição** para ir ao tutorial associado.
 
-| Componentes | # Presente | Módulo de plug-in? | Procedimento de substituição |
+| Componentes | Presente | Módulo plug-in? | Procedimento de substituição |
 |:--- |:--- |:--- |:--- |
-| Chassis |1 |Não |[Substituir o chassis no dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
-| Controladores de principal |2 |Sim |[Substituir um módulo de controlador do seu dispositivo StorSimple](storsimple-8000-controller-replacement.md) |
-| 764W energia e resfriamento de módulos (PCMs) |2 |Sim |[Substituir um módulo refrigerador de energia no seu dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
-| Bateria de segurança |2 |Sim |[Substituir um módulo de bateria de reserva no seu dispositivo StorSimple](storsimple-8000-battery-replacement.md) |
-| Unidades de disco |12 |Sim |[Substituir uma unidade de disco no dispositivo StorSimple](storsimple-8000-disk-drive-replacement.md) |
+| Chassis |1 |Não |[Substitua o chassis no seu dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
+| Controladores primários |2 |Sim |[Substitua um módulo de controlador no seu dispositivo StorSimple](storsimple-8000-controller-replacement.md) |
+| Módulos de alimentação e arrefecimento de 764W (PCMs) |2 |Sim |[Substituir um módulo refrigerador de energia no seu dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
+| Bateria de reserva |2 |Sim |[Substituir um módulo de bateria de reserva no seu dispositivo StorSimple](storsimple-8000-battery-replacement.md) |
+| Unidades de disco |12 |Sim |[Substitua uma unidade de disco no seu dispositivo StorSimple](storsimple-8000-disk-drive-replacement.md) |
 
-**Tabela 1** componentes de Hardware o bastidor principal
+**Tabela 1** Componentes de hardware no recinto primário
 
-O bastidor principal e a inclusão EBOD diferem em seus módulos de e/s. Além disso, os PCMs tem wattage diferente. PCMs no bastidor principal são 764 W, ao passo que são aqueles em que o bastidor EBOD 580 W. PCMs no bastidor principal também contenham um módulo de bateria de segurança.
+O recinto primário e o recinto EBOD diferem nos seus módulos de I/S. Além disso, os PCMs têm potências diferentes. Os PCMs no recinto primário são 764 W, enquanto os do recinto EBOD são de 580 W. Os PCMs no recinto primário também contêm um módulo de bateria de reserva.
 
-| Componentes | # Presente | Módulo de plug-in? | Procedimento de substituição |
+| Componentes | Presente | Módulo plug-in? | Procedimento de substituição |
 |:--- |:--- |:--- |:--- |
-| Chassis |1 |Não |[Substituir o chassis no dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
-| Controladores de EBOD |2 |Sim |[Substituir um controlador EBOD no dispositivo StorSimple](storsimple-8000-ebod-controller-replacement.md) |
-| 580W energia e resfriamento de módulos (PCMs) |2 |Sim |[Substituir um módulo refrigerador de energia no seu dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
-| Unidades de disco |12 |Sim |[Substituir uma unidade de disco no dispositivo StorSimple](storsimple-8000-disk-drive-replacement.md) |
+| Chassis |1 |Não |[Substitua o chassis no seu dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
+| Controladores EBOD |2 |Sim |[Substitua um controlador EBOD no seu dispositivo StorSimple](storsimple-8000-ebod-controller-replacement.md) |
+| Módulos de alimentação e arrefecimento de 580W (PCMs) |2 |Sim |[Substituir um módulo refrigerador de energia no seu dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
+| Unidades de disco |12 |Sim |[Substitua uma unidade de disco no seu dispositivo StorSimple](storsimple-8000-disk-drive-replacement.md) |
 
-**Tabela 2** componentes de Hardware a inclusão EBOD
+**Tabela 2** Componentes de hardware no recinto da EBOD
 
-Os módulos de plug-ins no dispositivo estão realçados na frente seguinte e diagramas rear. Pode usar esses diagramas para determinar a localização de vários módulos de plug-ins se uma substituição é necessária. O front-diagrama mostra as unidades de disco e os diagramas rear do bastidor EBOD e mostrar o bastidor principal os módulos de plug-ins.
+Os módulos plug-in do dispositivo são realçados nos seguintes diagramas dianteiros e traseiros. Pode utilizar estes diagramas para determinar a localização dos vários módulos plug-in se for necessária uma substituição. O diagrama frontal mostra as unidades do disco, e os diagramas traseiros do recinto EBOD e do recinto primário mostram os módulos plug-in.
 
-![Painel frontal de dispositivo com unidades de disco](./media/storsimple-hardware-component-replacement/IC741028.png)
+![Painel frontal do dispositivo com unidades de disco](./media/storsimple-hardware-component-replacement/IC741028.png)
 
-**Figura 1** frontal do dispositivo
+**Figura 1** Frente do dispositivo
 
 | Etiqueta | Descrição |
 |:--- |:--- |
 | 0 - 11 |Unidades de disco (total de 12) |
 
-O bastidor principal e a inclusão EBOD têm módulos de operadora de unidade. O chassis hospeda doze 3,5" unidades de disco organizadas num formato de 3 a 4.
+Tanto o recinto primário como o recinto EBOD têm módulos porta-baga. O chassis abriga doze discos de 3,5" dispostos num formato de 3 por 4.
 
-![Backplane dos módulos de bastidor principal do dispositivo](./media/storsimple-hardware-component-replacement/IC740994.png)
+![Backplane dos módulos de recinto primário do dispositivo](./media/storsimple-hardware-component-replacement/IC740994.png)
 
-**Figura 2** verso o bastidor principal
+**Figura 2** Parte de trás do recinto primário
 
 | Etiqueta | Descrição |
 |:--- |:--- |
-| 1 |PCM 0 |
-| 2 |PCM 1 |
+| 1 |PCM 0 |
+| 2 |PCM 1 |
 | 3 |Controlador 0 |
 | 4 |Controlador 1 |
 
-![Backplane dos módulos de plug-ins do bastidor EBOD do dispositivo](./media/storsimple-hardware-component-replacement/IC769599.png)
+![Backplane do dispositivo Módulos plug-in do recinto EBOD](./media/storsimple-hardware-component-replacement/IC769599.png)
 
-**Figura 3** verso o bastidor EBOD
+**Figura 3** Parte de trás do recinto da EBOD
 
 | Etiqueta | Descrição |
 |:--- |:--- |
-| 1 |PCM 0 |
-| 2 |PCM 1 |
-| 3 |Controlador 0 de EBOD |
-| 4 |1 o controlador de EBOD |
+| 1 |PCM 0 |
+| 2 |PCM 1 |
+| 3 |Controlador EBOD 0 |
+| 4 |Controlador EBOD 1 |
 
-## <a name="field-replaceable-units"></a>Unidades de substituível em campo
-As seguintes unidades de substituível em campo (FRUs) estão disponíveis para o dispositivo StorSimple:
+## <a name="field-replaceable-units"></a>Unidades substituíveis de campo
+As seguintes unidades substituíveis de campo (FRUs) estão disponíveis para o seu dispositivo StorSimple:
 
-* Chassis (incluindo o painel de operações integradas)
+* Chassis (incluindo o painel de operações integrados)
 * 764 W AC PCM
 * 580 W AC PCM
-* Unidade de disco rígido com o módulo de deteção de carrier da unidade
+* Unidade de disco rígido com módulo de porta-discos de acionamento
 * Módulo de controlador
 * Módulo de controlador EBOD
-* Módulo de bateria de segurança
-* Bastidor montar o kit do rail
+* Módulo de bateria de backup
+* Kit ferroviário de montagem de rack
 
-Volte [contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) para encomendar a qualquer um destas unidades de substituição.
+Contacte o [Microsoft Support](storsimple-8000-contact-microsoft-support.md) para encomendar qualquer uma destas unidades de substituição.
 
-## <a name="next-steps"></a>Passos Seguintes
-Reveja todas [informações de segurança](storsimple-safety.md) antes de tentar substituir um componente de hardware do StorSimple.
+## <a name="next-steps"></a>Passos seguintes
+Reveja todas as [informações de segurança](storsimple-safety.md) antes de tentar substituir um componente de hardware StorSimple.
 

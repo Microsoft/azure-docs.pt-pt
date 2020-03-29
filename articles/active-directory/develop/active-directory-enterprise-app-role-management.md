@@ -1,5 +1,5 @@
 ---
-title: Configure pedido de função para aplicações da Empresa Azure AD  Azure
+title: Configure pedido de função para aplicações da Empresa Azure AD [ Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como configurar a alegação de funções emitida no símbolo SAML para aplicações empresariais em Diretório Ativo Azure
 services: active-directory
@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.openlocfilehash: a70abd1cddb866037926bbbc881682d50599366b
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76699262"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Configurar a alegação de função emitida no símbolo SAML para aplicações empresariais
@@ -39,7 +39,7 @@ Se a sua aplicação espera que as funções personalizadas sejam passadas numa 
 
     ![Ícone de Diretório Ativo Azure][1]
 
-2. Selecione **aplicativos empresariais**. Em seguida, selecione **Todas as aplicações**.
+2. Selecione **aplicações Enterprise**. Em seguida, selecione **Todas as aplicações**.
 
     ![Painel de aplicações empresariais][2]
 
@@ -76,7 +76,7 @@ Se a sua aplicação espera que as funções personalizadas sejam passadas numa 
 
      `https://graph.microsoft.com/beta/servicePrincipals`
 
-      Se estiver a usar vários diretórios, siga este padrão: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+      Se estiver a usar vários diretórios, siga este padrão:`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
       ![Caixa de diálogo graph Explorer, com a consulta para buscar os principais do serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
@@ -149,16 +149,16 @@ Se a sua aplicação espera que as funções personalizadas sejam passadas numa 
 
 8. Atualize a tabela **Atributos** para definir um mapeamento personalizado da reivindicação de funções.
 
-9. Na seção **declarações do usuário** , na caixa de diálogo **atributos de usuário** , execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
+9. Na secção **Reivindicações** do Utilizador no diálogo **de Atributos** do Utilizador, execute os seguintes passos para adicionar atributo token SAML, conforme indicado no quadro abaixo:
 
     | Nome do atributo | Valor do atributo |
     | -------------- | ----------------|
-    | Nome da função  | user.assignedroles |
+    | Nome da função  | user.atribuídos |
 
     >[!NOTE]
     >Se o valor da reclamação de funções for nulo, então a Azure AD não enviará este valor no token e isso é padrão de acordo com o design.
 
-    a. clique em **Editar** o ícone para abrir o diálogo **de Atributos e Reclamações** do Utilizador.
+    a. clique em **Editar** o ícone para abrir **atributos do utilizador & diálogo de reclamações.**
 
       ![Botão "Adicionar atributo"](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
@@ -172,7 +172,7 @@ Se a sua aplicação espera que as funções personalizadas sejam passadas numa 
 
     d. Deixe a caixa **namespace** em branco.
 
-    e. Na lista **atributo de origem** , digite o valor do atributo mostrado para essa linha.
+    e. Na lista de **atributos Fonte,** digite o valor do atributo mostrado para essa linha.
 
     f. Selecione **Guardar**.
 
@@ -190,7 +190,7 @@ Para atualizar uma função existente, execute os seguintes passos:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
-    Se estiver a usar vários diretórios, siga este padrão: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Se estiver a usar vários diretórios, siga este padrão:`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
     ![Caixa de diálogo graph Explorer, com a consulta para buscar os principais do serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
@@ -228,7 +228,7 @@ Para eliminar uma função existente, execute os seguintes passos:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
-    Se estiver a usar vários diretórios, siga este padrão: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Se estiver a usar vários diretórios, siga este padrão:`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
     ![Caixa de diálogo graph Explorer, com a consulta para obter a lista de diretores de serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 

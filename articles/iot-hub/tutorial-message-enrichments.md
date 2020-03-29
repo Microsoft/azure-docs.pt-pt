@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.openlocfilehash: c812e00699cd8f8cfbaf32feea1b43866ffb0990
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78674361"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Tutorial: Use os enriquecimentos de mensagens Azure IoT Hub
@@ -37,17 +37,17 @@ Aqui estão as tarefas que executa para completar este tutorial:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Precisa de uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-* Instalar o [Visual Studio](https://www.visualstudio.com/).
+* Precisa de uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+* Instalar [o Estúdio Visual.](https://www.visualstudio.com/)
 
 * Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste tutorial utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="retrieve-the-iot-c-samples-repository"></a>Recuperar o repositório de amostras ioT C#
+## <a name="retrieve-the-iot-c-samples-repository"></a>Recuperar o repositório de amostras IoT C#
 
-Descarregue as [amostras ioT C# ](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) do GitHub e desaperte-as. Este repositório tem várias aplicações, scripts e modelos de Gestor de Recursos nele. Os que devem ser usados para este tutorial são os seguintes:
+Baixe as [amostras IoT C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) do GitHub e desaperte-as. Este repositório tem várias aplicações, scripts e modelos de Gestor de Recursos nele. Os que devem ser usados para este tutorial são os seguintes:
 
 * Para o método manual, há um script CLI que é usado para criar os recursos. Este script está em /azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimuladoDevice/resources/iothub_msgenrichment_cli.azcli. Este guião cria os recursos e configura o encaminhamento da mensagem. Depois de executar este script, crie os enriquecimentos de mensagens manualmente utilizando o [portal Azure](https://portal.azure.com).
 * Para o método automatizado, há um modelo de Gestor de Recursos Azure. O modelo está em /azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimuladoDispositivo/recursos/template_msgenrichments.json. Este modelo cria os recursos, configura o encaminhamento da mensagem e, em seguida, configura os enriquecimentos de mensagens.
@@ -61,7 +61,7 @@ Além de criar os recursos necessários, o script Azure CLI também configura as
 > Todas as mensagens são encaminhadas para ambos os pontos finais, mas apenas as mensagens que vão para o ponto final com enriquecimentos de mensagens configurados serão enriquecidas.
 >
 
-Pode utilizar o script que se segue, ou pode abrir o script na pasta /recursos do repositório descarregado. O guião executa os seguintes passos:
+Pode utilizar o script que se segue, ou pode abrir o script na pasta /recursos do repositório descarregado. O script realiza os seguintes passos:
 
 * Criar um centro de ioT.
 * Criar uma conta de armazenamento.
@@ -85,7 +85,7 @@ Aqui estão os recursos criados pelo guião. *Enriquecido* significa que o recur
 | Nome Do Hub IoT | ContosoTestHubMsgEn |
 | nome da conta de armazenamento | contosostorage |
 | nome do ponto final 1 | ContosoStorageEndpointOriginal |
-| nome do ponto final 2 | ContosoStorageEndpointEnriched|
+| nome do ponto final 2 | ContosoStorageEndpointEnriqueed|
 | nome da rota 1 | ContosoStorageRouteOriginal |
 | rota Nome 2 | ContosoStorageRouteEnriqueed |
 
@@ -261,13 +261,13 @@ Neste momento, os recursos estão todos configurados e o encaminhamento de mensa
    | Chave | Valor | Ponto final (lista de entrega) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriqueed |
-   | Localização de Dispositivos | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriqueed |
-   |customerID | 6ce345b8-1e4a-411e-9398-d34587459a3a | AzureStorageContainers > ContosoStorageEndpointEnriqueed |
+   | Localização de Dispositivos | $twin.tags.local | AzureStorageContainers > ContosoStorageEndpointEnriqueed |
+   |customerID | 6ce345b8-1e4a-411e-9398-d34587459a3a3a | AzureStorageContainers > ContosoStorageEndpointEnriqueed |
 
    > [!NOTE]
    > Se o seu dispositivo não tiver um gémeo, o valor que coloca aqui será carimbado como uma corda pelo valor nos enriquecimentos de mensagens. Para ver a informação gémea do dispositivo, vá ao seu hub no portal e selecione **dispositivos IoT**. Selecione o seu dispositivo e, em seguida, selecione **Device twin** na parte superior da página.
    >
-   > Pode editar as informações gémeas para adicionar tags, como localização, e defini-la para um valor específico. Para obter mais informações, veja [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md) (Compreender e utilizar dispositivos duplos no Hub IoT).
+   > Pode editar as informações gémeas para adicionar tags, como localização, e defini-la para um valor específico. Para mais informações, consulte [Compreender e utilizar gémeos dispositivos no IoT Hub](iot-hub-devguide-device-twins.md).
 
 3. Quando terminar, o seu painel deve parecer semelhante a esta imagem:
 
@@ -278,7 +278,7 @@ Neste momento, os recursos estão todos configurados e o encaminhamento de mensa
 ## <a name="create-and-configure-by-using-a-resource-manager-template"></a>Criar e configurar usando um modelo de Gestor de Recursos
 Você pode usar um modelo de Gestor de Recursos para criar e configurar os recursos, encaminhamento de mensagens e enriquecimento de mensagens.
 
-1. Inicie sessão no Portal do Azure. Selecione **+ Criar um Recurso** para criar uma caixa de pesquisa. Introduza a *implementação*do modelo e procure-a. No painel de resultados, selecione a implementação do **modelo (desdobre utilizando o modelo personalizado)** .
+1. Inicie sessão no Portal do Azure. Selecione **+ Criar um Recurso** para criar uma caixa de pesquisa. Introduza a *implementação*do modelo e procure-a. No painel de resultados, selecione a implementação do **modelo (desdobre utilizando o modelo personalizado)**.
 
    ![Implantação do modelo no portal Azure](./media/tutorial-message-enrichments/template-select-deployment.png)
 
@@ -305,7 +305,7 @@ Você pode usar um modelo de Gestor de Recursos para criar e configurar os recur
    | Nome Do Hub IoT | ContosoTestHubMsgEn |
    | nome da conta de armazenamento | contosostorage |
    | nome do ponto final 1 | ContosoStorageEndpointOriginal |
-   | nome do ponto final 2 | ContosoStorageEndpointEnriched|
+   | nome do ponto final 2 | ContosoStorageEndpointEnriqueed|
    | nome da rota 1 | ContosoStorageRouteOriginal |
    | rota Nome 2 | ContosoStorageRouteEnriqueed |
 
@@ -329,13 +329,13 @@ Para ver os enriquecimentos de mensagens, selecione **Grupos de Recursos**. Em s
 
 Agora que os enriquecimentos de mensagens estão configurados para o ponto final, execute a aplicação Simulada dispositivo para enviar mensagens para o hub IoT. O centro foi criado com configurações que realizam as seguintes tarefas:
 
-* As mensagens encaminhadas para o ponto final de armazenamento ContosoStorageEndpointOriginal não serão enriquecidas e serão armazenadas no recipiente de armazenamento `original`.
+* As mensagens encaminhadas para o ponto final de armazenamento ContosoStorageEndpointOriginal não `original`serão enriquecidas e serão armazenadas no recipiente de armazenamento .
 
-* As mensagens encaminhadas para o ponto final de armazenamento ContosoStorageEndpointEnriqueed serão enriquecidas e armazenadas no recipiente de armazenamento `enriched`.
+* As mensagens encaminhadas para o ponto final de armazenamento ContosoStorageEndpointEnriqueed serão enriquecidas e armazenadas no recipiente `enriched`de armazenamento .
 
 A aplicação Dispositivo Simulado é uma das aplicações no download desapertado. A aplicação envia mensagens para cada um dos diferentes métodos de encaminhamento de mensagens no tutorial de [Encaminhamento](tutorial-routing.md), que inclui o Armazenamento Azure.
 
-Clique duas vezes no ficheiro de solução **IoT_SimulatedDevice.sln** para abrir o código no Estúdio Visual e, em seguida, abra **Program.cs**. Substitua o nome do hub IoT pelo marcador `{your hub name}`. O formato do nome de anfitrião do hub IoT é **{o seu nome hub}.azure-devices.net**. Para este tutorial, o nome de anfitrião do centro é ContosoTestHubMsgEn.azure-devices.net. Em seguida, substitua a chave do dispositivo que guardou anteriormente quando executou o script para criar os recursos para o marcador `{your device key}`.
+Clique duas vezes no ficheiro de solução **IoT_SimulatedDevice.sln** para abrir o código no Estúdio Visual e, em seguida, abra **Program.cs**. Substitua o nome do hub `{your hub name}`IoT pelo marcador . O formato do nome de anfitrião do hub IoT é **{o seu nome hub}.azure-devices.net**. Para este tutorial, o nome de anfitrião do centro é ContosoTestHubMsgEn.azure-devices.net. Em seguida, substitua a chave do dispositivo que guardou anteriormente quando executou o script para criar os recursos para o marcador `{your device key}`.
 
 Se não tiver a chave do dispositivo, pode recuperá-la do portal. Depois de iniciar sessão, vá aos **grupos De recursos,** selecione o seu grupo de recursos e, em seguida, selecione o seu hub IoT. Procure em **Dispositivos IoT** para o seu dispositivo de teste e selecione o seu dispositivo. Selecione o ícone da cópia ao lado da **tecla Primary** para copiá-lo para a área de recortes.
 
@@ -351,7 +351,7 @@ Se não tiver a chave do dispositivo, pode recuperá-la do portal. Depois de ini
 
 Executar a aplicação da consola por alguns minutos. As mensagens que estão a ser enviadas são exibidas no ecrã da consola da aplicação.
 
-A aplicação envia uma nova mensagem de dispositivo para cloud a cada segundo. A mensagem contém um objeto JSON serializado com o ID do dispositivo, a temperatura, a humidade e o nível da mensagem, que está predefinido como `normal`. Atribui aleatoriamente um nível de `critical` ou `storage`, o que faz com que a mensagem seja encaminhada para a conta de armazenamento ou para o ponto final predefinido. As mensagens enviadas para o recipiente **enriquecido** na conta de armazenamento serão enriquecidas.
+A aplicação envia uma nova mensagem de dispositivo para cloud a cada segundo. A mensagem contém um objeto JSON serializado com o ID do dispositivo, a temperatura, a humidade e o nível da mensagem, que está predefinido como `normal`. Atribui aleatoriamente um `critical` nível de ou `storage`, o que faz com que a mensagem seja encaminhada para a conta de armazenamento ou para o ponto final predefinido. As mensagens enviadas para o recipiente **enriquecido** na conta de armazenamento serão enriquecidas.
 
 Depois de enviar várias mensagens de armazenamento, consulte os dados.
 

@@ -1,6 +1,6 @@
 ---
-title: Conectar-se a RSS feeds de aplicativos lógicos do Azure
-description: Automatizar tarefas e fluxos de trabalho que monitoram e gerenciam RSS feeds usando aplicativos lógicos do Azure
+title: Ligue-se aos feeds RSS de Aplicações Lógicas Azure
+description: Automatizar tarefas e fluxos de trabalho que monitorizam e gerem feeds RSS utilizando aplicações lógicas azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,50 +8,50 @@ ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
 ms.openlocfilehash: 3f1e092c2ff325cdcbc32c617af316d6fbe6dd74
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789346"
 ---
-# <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Gerenciar RSS feeds usando o aplicativo lógico do Azure
+# <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Gerir feeds RSS utilizando aplicações lógicas azure
 
-Com os aplicativos lógicos do Azure e o conector de RSS, você pode criar tarefas e fluxos de trabalho automatizados para qualquer RSS feed, por exemplo:
+Com aplicativos azure logic e o conector RSS, você pode criar tarefas automatizadas e fluxos de trabalho para qualquer feed RSS, por exemplo:
 
-* Monitore quando os itens do RSS feed são publicados.
-* Listar todos os itens do RSS feed.
+* Monitorize quando os alimentos para alimentação RSS forem publicados.
+* Lista rss todos os itens de alimentação RSS.
 
-RSS (Resumo de site avançado), também chamado de distribuição realmente simples, é um formato popular para a distribuição na Web e é usado para publicar conteúdo atualizado com frequência, como Postagens de blog e manchetes de notícias. Muitos editores de conteúdo fornecem um RSS feed para que os usuários possam assinar esse conteúdo. 
+O RSS (Rich Site Sumário), também chamado De Sindicância Realmente Simples, é um formato popular para a sindicalização web e é usado para publicar conteúdo frequentemente atualizado, como posts de blog e manchetes de notícias. Muitos editores de conteúdo fornecem um feed RSS para que os utilizadores possam subscrever esse conteúdo. 
 
-Você pode usar um gatilho RSS que obtém respostas de um RSS feed e disponibiliza a saída para outras ações. Você pode usar uma ação de RSS em seus aplicativos lógicos para executar uma tarefa com o RSS feed. Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md)
+Pode utilizar um gatilho RSS que obtém respostas de um feed RSS e disponibiliza a saída para outras ações. Pode utilizar uma ação RSS nas suas aplicações lógicas para executar uma tarefa com o feed RSS. Se é novo em aplicações lógicas, reveja [o que são as Aplicações Lógicas Azure?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/). 
 
-* A URL de um RSS feed
+* O URL para um feed RSS
 
-* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* O aplicativo lógico no qual você deseja acessar um RSS feed. Para começar com um gatilho de RSS, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar uma ação de RSS, inicie seu aplicativo lógico com outro gatilho, por exemplo, o gatilho de **recorrência** .
+* A aplicação lógica onde pretende aceder a um feed RSS. Para começar com um gatilho RSS, [crie uma aplicação lógica em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para utilizar uma ação RSS, inicie a sua aplicação lógica com outro gatilho, por exemplo, o gatilho **recorrência.**
 
-## <a name="connect-to-an-rss-feed"></a>Conectar-se a um RSS feed
+## <a name="connect-to-an-rss-feed"></a>Ligar a um feed RSS
 
-1. Entre no [portal do Azure](https://portal.azure.com)e abra seu aplicativo lógico no designer de aplicativo lógico, se ainda não estiver aberto.
+1. Inscreva-se no [portal Azure](https://portal.azure.com)e abra a sua aplicação lógica no Logic App Designer, se ainda não estiver aberta.
 
 1. Escolha um caminho: 
 
-   * Para aplicativos lógicos em branco, na caixa de pesquisa, digite "RSS" como filtro. Na lista de gatilhos, selecione o gatilho desejado. 
+   * Para aplicações lógicas em branco, na caixa de pesquisa, introduza "rss" como filtro. Na lista de gatilhos, selecione o gatilho que deseja. 
 
      -ou-
 
-   * Para aplicativos lógicos existentes, na etapa em que você deseja adicionar uma ação, escolha **nova etapa**. Na caixa de pesquisa, escreva "rss" como o filtro. Na lista ações, selecione a ação desejada.
+   * Para aplicações lógicas existentes, sob o passo em que pretende adicionar uma ação, escolha **Novo passo**. Na caixa de pesquisa, escreva "rss" como o filtro. Na lista de ações, selecione a ação que deseja.
 
-1. Forneça os detalhes necessários para o gatilho ou ação selecionado e continue criando o fluxo de trabalho do aplicativo lógico.
+1. Forneça os detalhes necessários para o seu gatilho ou ação selecionados e continue a construir o fluxo de trabalho da sua aplicação lógica.
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descritos pela descrição de OpenAPI (anteriormente, Swagger) do conector, examine a [página de referência](/connectors/rss/)do conector.
+Para detalhes técnicos sobre gatilhos, ações e limites, descritos pela descrição OpenAPI (ex-Swagger) do conector, reveja a página de [referência](/connectors/rss/)do conector .
 
 ## <a name="get-support"></a>Obter suporte
 
@@ -60,4 +60,4 @@ Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descri
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)
+* Saiba mais sobre outros [conectores de Aplicações Lógicas](../connectors/apis-list.md)

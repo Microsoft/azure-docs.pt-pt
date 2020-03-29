@@ -1,6 +1,6 @@
 ---
-title: Fazer referência a uma imagem personalizada em um modelo do conjunto de dimensionamento do Azure
-description: Saiba como adicionar uma imagem personalizada a um modelo de conjunto de dimensionamento de máquinas virtuais do Azure existente
+title: Referência a uma imagem personalizada em um modelo de conjunto de escala Azure
+description: Saiba como adicionar uma imagem personalizada a um modelo de conjunto de escala de máquina virtual Azure existente
 author: mayanknayar
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: manayar
 ms.openlocfilehash: fd1a567af1c35cf6b659995e998b11a61a526508
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76275597"
 ---
-# <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Adicionar uma imagem personalizada a um modelo do conjunto de dimensionamento do Azure
+# <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Adicionar uma imagem personalizada a um modelo de conjunto de dimensionamento do Azure
 
-Este artigo mostra como modificar o [modelo de conjunto de dimensionamento básico](virtual-machine-scale-sets-mvss-start.md) para implantar a partir de uma imagem personalizada.
+Este artigo mostra como modificar o [modelo de conjunto](virtual-machine-scale-sets-mvss-start.md) de escala básica para implantar a partir de imagem personalizada.
 
 ## <a name="change-the-template-definition"></a>Alterar a definição do modelo
-Em um [artigo anterior](virtual-machine-scale-sets-mvss-start.md) , criamos um modelo de conjunto de dimensionamento básico. Agora vamos usar esse modelo anterior e modificá-lo para criar um modelo que implanta um conjunto de dimensionamento de uma imagem personalizada.  
+Num [artigo anterior,](virtual-machine-scale-sets-mvss-start.md) tínhamos criado um modelo básico de conjunto de escala. Vamos agora usar esse modelo anterior e modificá-lo para criar um modelo que implementa um conjunto de escala a partir de uma imagem personalizada.  
 
-### <a name="creating-a-managed-disk-image"></a>Criando uma imagem de disco gerenciado
+### <a name="creating-a-managed-disk-image"></a>Criar uma imagem de disco gerida
 
-Se você já tiver uma imagem de disco gerenciado personalizada (um recurso do tipo `Microsoft.Compute/images`), poderá ignorar esta seção.
+Se já tem uma imagem de disco gerida `Microsoft.Compute/images`sob medida (um recurso de tipo), então pode saltar esta secção.
 
-Primeiro, adicione um parâmetro `sourceImageVhdUri`, que é o URI para o blob generalizado no armazenamento do Azure que contém a imagem personalizada da qual implantar.
+Em primeiro `sourceImageVhdUri` lugar, adicione um parâmetro, que é o URI à bolha generalizada no Armazenamento Azure que contém a imagem personalizada para implantar.
 
 
 ```diff
@@ -44,7 +44,7 @@ Primeiro, adicione um parâmetro `sourceImageVhdUri`, que é o URI para o blob g
    "variables": {},
 ```
 
-Em seguida, adicione um recurso do tipo `Microsoft.Compute/images`, que é a imagem do disco gerenciado com base no blob generalizado localizado no URI `sourceImageVhdUri`. Essa imagem deve estar na mesma região que o conjunto de dimensionamento que a utiliza. Nas propriedades da imagem, especifique o tipo de sistema operacional, o local do blob (do parâmetro `sourceImageVhdUri`) e o tipo de conta de armazenamento:
+Em seguida, adicione `Microsoft.Compute/images`um recurso de tipo , que é a imagem `sourceImageVhdUri`de disco gerida com base na bolha generalizada localizada na URI . Esta imagem deve estar na mesma região que o conjunto de escala que a utiliza. Nas propriedades da imagem, especifique o tipo DE Os, a localização da bolha (a partir do `sourceImageVhdUri` parâmetro) e o tipo de conta de armazenamento:
 
 ```diff
    "resources": [
@@ -71,7 +71,7 @@ Em seguida, adicione um recurso do tipo `Microsoft.Compute/images`, que é a ima
 
 ```
 
-No recurso do conjunto de dimensionamento, adicione uma cláusula `dependsOn` referindo-se à imagem personalizada para garantir que a imagem seja criada antes que o conjunto de dimensionamento tente implantar a partir dessa imagem:
+No recurso de conjunto `dependsOn` de escala, adicione uma cláusula que se refere à imagem personalizada para se certificar de que a imagem é criada antes que o conjunto de escala tente ser implantado a partir dessa imagem:
 
 ```diff
        "location": "[resourceGroup().location]",
@@ -86,9 +86,9 @@ No recurso do conjunto de dimensionamento, adicione uma cláusula `dependsOn` re
 
 ```
 
-### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>Alterando as propriedades do conjunto de dimensionamento para usar a imagem do disco gerenciado
+### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>Alterar propriedades definidas de escala para usar a imagem de disco gerida
 
-Na `imageReference` do conjunto de dimensionamento `storageProfile`, em vez de especificar o editor, a oferta, a SKU e a versão de uma imagem de plataforma, especifique a `id` do recurso de `Microsoft.Compute/images`:
+No `imageReference` conjunto `storageProfile`de escala , em vez de especificar a editora, oferecer, sku `id` e `Microsoft.Compute/images` versão de uma imagem de plataforma, especificar o do recurso:
 
 ```json
          "virtualMachineProfile": {
@@ -100,9 +100,9 @@ Na `imageReference` do conjunto de dimensionamento `storageProfile`, em vez de e
            "osProfile": {
 ```
 
-Neste exemplo, use a função `resourceId` para obter a ID de recurso da imagem criada no mesmo modelo. Se você tiver criado a imagem de disco gerenciado com antecedência, deverá fornecer a ID dessa imagem em vez disso. Essa ID deve estar no formato: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
+Neste exemplo, utilize `resourceId` a função para obter o ID de recurso da imagem criada no mesmo modelo. Se criou previamente a imagem gerida do disco, deve fornecer a identificação dessa imagem. Esta identificação deve ser `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`do formulário: .
 
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

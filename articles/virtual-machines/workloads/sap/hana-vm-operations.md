@@ -16,10 +16,10 @@ ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 07c8f84f2e37abd87953d8e4cb20b37258b25fda
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77920516"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurações e operações de infraestrutura do SAP HANA no Azure
@@ -34,7 +34,7 @@ Para utilizar este guia, necessita de conhecimentos básicos sobre os seguintes 
 
 - [Máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Redes de networking e virtuais Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
-- [Armazenamento do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
+- [Storage do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
 Para saber mais sobre o SAP NetWeaver e outros componentes SAP no Azure, consulte o [SAP na](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) secção Azure da [documentação Azure](https://docs.microsoft.com/azure/).
 
@@ -60,7 +60,7 @@ Os tipos de VM Azure que podem ser utilizados para cenários de produção estã
 
 Implementar os VMs em Azure utilizando:
 
-- O portal Azure.
+- O portal do Azure.
 - Cmdlets Azure PowerShell.
 - O Azure CLI.
 
@@ -253,8 +253,8 @@ Como o M64-32ms VM tem muita memória, a carga da OI pode não atingir o limite 
 
 | SKU da VM | Disco Config 1 | Config 2 do disco | Config de disco 3 | Disco Config 4 | Config 5 do disco | 
 | ---- | ---- | ---- | ---- | ---- | ---- | 
-| M64-32ms | 4 x P50 -> 16 TB | 4 x P40 -> 8 TB | 5 x P30 -> 5 TB | 7 x P20 -> 3.5 TB | 8 x P15 -> 2 TB | 
-| E32sv3 | 3 x P50 -> 12 TB | 3 x P40 -> 6 TB | 4 x P30 -> 4 TB | 5 x P20 -> 2.5 TB | 6 x P15 -> 1.5 TB | 
+| M64-32ms | 4 x P50 -> 16 TB | 4 x P40 -> 8 TB | 5 x P30 -> 5 TB | 7 x P20 -> 3,5 TB | 8 x P15 -> 2 TB | 
+| E32sv3 | 3 x P50 -> 12 TB | 3 x P40 -> 6 TB | 4 x P30 -> 4 TB | 5 x P20 -> 2,5 TB | 6 x P15 -> 1,5 TB | 
 
 
 Especialmente no caso de a carga de trabalho ser de leitura intensa, pode aumentar o desempenho da IO para ligar a cache do hospedeiro Azure "apenas para leitura", conforme recomendado para os volumes de dados do software de base de dados. Considerando que para o registo de transações o cache do disco de bordo Azure deve ser "nenhum". 
@@ -266,8 +266,8 @@ Aqui estão alguns exemplos sobre dimensionar o volume de registo:
 
 | tamanho do volume de dados e tipo de disco | volume de registo e config tipo disco 1 | volume de registo e config tipo disco 2 |
 | --- | --- | --- |
-| 4 x P50 -> 16 TB | 5 x P20 -> 2.5 TB | 3 x P30 -> 3 TB |
-| 6 x P15 -> 1.5 TB | 4 x P6 -> 256 GB | 1 x P15 -> 256 GB |
+| 4 x P50 -> 16 TB | 5 x P20 -> 2,5 TB | 3 x P30 -> 3 TB |
+| 6 x P15 -> 1,5 TB | 4 x P6 -> 256 GB | 1 x P15 -> 256 GB |
 
 
 Tal como para a escala SAP HANA, o diretório /hana/partilhado tem de ser partilhado entre o SAP HANA VM e o DT 2.0 VM. Recomenda-se a mesma arquitetura que para o SAP HANA usando VMs dedicados, que funcionam como um servidor NFS altamente disponível. Para fornecer um volume de cópia de segurança partilhado, o design idêntico pode ser utilizado. Mas cabe ao cliente se o HA seria necessário ou se bastasse apenas utilizar um VM dedicado com capacidade de armazenamento suficiente para funcionar como um servidor de backup.
@@ -318,7 +318,7 @@ Se estiver a executar o SUSE Linux Enterprise Server ou o Red Hat, pode estabele
 
 ## <a name="next-steps"></a>Passos Seguintes
 Conheça os artigos listados
-- [Configurações de armazenamento de máquinas virtuais SAP HANA Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
+- [Configurações de armazenamento da máquina virtual do Azure do SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
 - [Implemente um sistema de escala SAP HANA com nó de standby em VMs Azure utilizando ficheiros Azure NetApp no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
 - [Implemente um sistema de escala SAP HANA com nó de standby em VMs Azure utilizando ficheiros Azure NetApp em Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
 - [Alta disponibilidade de SAP HANA em VMs Azure no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability)

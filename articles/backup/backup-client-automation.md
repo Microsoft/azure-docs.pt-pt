@@ -4,10 +4,10 @@ description: Neste artigo, aprenda a utilizar o PowerShell para configurar o Azu
 ms.topic: conceptual
 ms.date: 12/2/2019
 ms.openlocfilehash: efe0b93fe1e37990422ffbd2256e38c12401dca5
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78673204"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure para o Windows Server/cliente Windows com o PowerShell
@@ -78,7 +78,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 ## <a name="installing-the-azure-backup-agent"></a>Instalação do agente de backup Azure
 
-Antes de instalar o agente De reserva Azure, é necessário que o instalador seja descarregado e presente no Windows Server. Pode obter a versão mais recente do instalador a partir do [Microsoft Download Center](https://aka.ms/azurebackup_agent) ou da página do Painel de Instrumentos de Recuperação dos Serviços de Recuperação. Guarde o instalador para um local facilmente acessível, como *C:\Downloads\*.
+Antes de instalar o agente De reserva Azure, é necessário que o instalador seja descarregado e presente no Windows Server. Pode obter a versão mais recente do instalador a partir do [Microsoft Download Center](https://aka.ms/azurebackup_agent) ou da página do Painel de Instrumentos de Recuperação dos Serviços de Recuperação. Guarde o instalador para um local facilmente\*acessível como *C:\Downloads .
 
 Em alternativa, utilize o PowerShell para obter o downloader:
 
@@ -97,7 +97,7 @@ MARSAgentInstaller.exe /q
 
 Isto instala o agente com todas as opções predefinidas. A instalação demora alguns minutos em segundo plano. Se não especificar a opção */nu,* a janela **Desatualização do Windows** abrir-se-á no final da instalação para verificar se há atualizações. Uma vez instalado, o agente aparecerá na lista de programas instalados.
 
-Para ver a lista de programas instalados, vá ao Painel de **Controlo** > **Programas** > Programas **e Funcionalidades**.
+Para ver a lista de programas instalados, vá a**Programas e Funcionalidades** > de **Painéis** > **Programs**de Controlo .
 
 ![Agente instalado](./media/backup-client-automation/installed-agent-listing.png)
 
@@ -114,15 +114,15 @@ As opções disponíveis incluem:
 | Opção | Detalhes | Predefinição |
 | --- | --- | --- |
 | /q |Instalação tranquila |- |
-| /p:"location" |Caminho para a pasta de instalação para o agente de reserva Azure. |C:\Program Files\Microsoft Azure Recovery Services Agent |
-| /s:"location" |Caminho para a pasta cache para o agente de backup Azure. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
+| /p:"localização" |Caminho para a pasta de instalação para o agente de reserva Azure. |C:\Program Files\Microsoft Azure Recovery Services Agent |
+| /s:"localização" |Caminho para a pasta cache para o agente de backup Azure. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
 | /m |Opt-in para microsoft update |- |
 | /nu |Não verifique se há atualizações após a instalação estar concluída |- |
 | /d |Desinstala o Agente de Serviços de Recuperação do Microsoft Azure |- |
 | /ph |Endereço de anfitrião proxy |- |
 | /po |Número de porta de anfitrião proxy |- |
 | /pu |Nome de utilizador do anfitrião proxy |- |
-| /pw |Palavra-Passe do Proxy |- |
+| /pw |Senha de procuração |- |
 
 ## <a name="registering-windows-server-or-windows-client-machine-to-a-recovery-services-vault"></a>Registar o Windows Server ou a máquina cliente windows para um cofre de serviços de recuperação
 
@@ -185,7 +185,7 @@ Machine registration succeeded.
 
 Quando a conectividade da máquina do Windows para a internet é através de um servidor proxy, as definições de procuração também podem ser fornecidas ao agente. Neste exemplo, não existe um servidor proxy, por isso estamos explicitamente a limpar qualquer informação relacionada com procuração.
 
-O uso da largura de banda também pode ser controlado com as opções de `work hour bandwidth` e `non-work hour bandwidth` para um determinado conjunto de dias da semana.
+O uso da largura de banda `work hour bandwidth` `non-work hour bandwidth` também pode ser controlado com as opções de e para um determinado conjunto de dias da semana.
 
 A definição dos detalhes de procuração e largura de banda é feita utilizando o cmdlet [Set-OBMachineSetting:](https://docs.microsoft.com/powershell/module/msonlinebackup/set-obmachinesetting?view=winserver2012-ps)
 
@@ -209,7 +209,7 @@ Server properties updated successfully.
 
 Os dados de backup enviados para o Azure Backup são encriptados para proteger a confidencialidade dos dados. A frase-passe de encriptação é a "palavra-passe" para desencriptar os dados no momento da restauração.
 
-Deve gerar um pino de segurança selecionando **Generate,** em **Definições** > **Propriedades** > PIN de **Segurança** na secção **de cofre sacaria** dos Serviços de Recuperação do portal Azure. Em seguida, use isto como o `generatedPIN` no comando:
+Deve gerar um pino de segurança selecionando **Generate,** em **Definições** > **Properties** > **Security PIN** na secção de cofre de Serviços de **Recuperação** do portal Azure. Em seguida, use `generatedPIN` isto como o comando:
 
 ```powershell
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force
@@ -301,7 +301,7 @@ PolicyState     : Valid
 
 ### <a name="including-and-excluding-files-to-be-backed-up"></a>Incluindo e excluindo ficheiros a serem apoiados
 
-Um `OBFileSpec` objeto define os ficheiros a incluir e excluir numa cópia de segurança. Este é um conjunto de regras que traçam os ficheiros e pastas protegidos numa máquina. Pode ter o número de regras de inclusão ou exclusão de ficheiros necessárias e associá-las a uma política. Ao criar um novo objeto OBFileSpec, pode:
+Um `OBFileSpec` objeto define os ficheiros a incluir e excluídos numa cópia de segurança. Este é um conjunto de regras que traçam os ficheiros e pastas protegidos numa máquina. Pode ter o número de regras de inclusão ou exclusão de ficheiros necessárias e associá-las a uma política. Ao criar um novo objeto OBFileSpec, pode:
 
 * Especifique os ficheiros e pastas a incluir
 * Especifique os ficheiros e pastas a excluir
@@ -405,7 +405,7 @@ PolicyState     : Valid
 
 ### <a name="applying-the-policy"></a>Aplicação da política
 
-Agora o objeto político está completo e tem um calendário de backup associado, política de retenção, e uma lista de ficheiros de inclusão/exclusão. Esta política pode agora ser comprometida para que o Azure Backup seja utilizado. Antes de aplicar a política recém-criada, certifique-se de que não existem políticas de backup associadas ao servidor utilizando o cmdlet [Remove-OBPolicy.](https://docs.microsoft.com/powershell/module/msonlinebackup/remove-obpolicy?view=winserver2012-ps) A remoção da apólice será solicitada para confirmação. Para não obter a confirmação, utilize a bandeira `-Confirm:$false` com o cmdlet.
+Agora o objeto político está completo e tem um calendário de backup associado, política de retenção, e uma lista de ficheiros de inclusão/exclusão. Esta política pode agora ser comprometida para que o Azure Backup seja utilizado. Antes de aplicar a política recém-criada, certifique-se de que não existem políticas de backup associadas ao servidor utilizando o cmdlet [Remove-OBPolicy.](https://docs.microsoft.com/powershell/module/msonlinebackup/remove-obpolicy?view=winserver2012-ps) A remoção da apólice será solicitada para confirmação. Para não obter a `-Confirm:$false` confirmação, utilize a bandeira com o cmdlet.
 
 ```powershell
 Get-OBPolicy | Remove-OBPolicy
@@ -415,7 +415,7 @@ Get-OBPolicy | Remove-OBPolicy
 Microsoft Azure Backup Are you sure you want to remove this backup policy? This will delete all the backed up data. [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
 ```
 
-A prática do objeto político é feita utilizando o cmdlet [Set-OBPolicy.](https://docs.microsoft.com/powershell/module/msonlinebackup/set-obpolicy?view=winserver2012-ps) Isto também pedirá confirmação. Para não obter a confirmação, utilize a bandeira `-Confirm:$false` com o cmdlet.
+A prática do objeto político é feita utilizando o cmdlet [Set-OBPolicy.](https://docs.microsoft.com/powershell/module/msonlinebackup/set-obpolicy?view=winserver2012-ps) Isto também pedirá confirmação. Para não obter a `-Confirm:$false` confirmação, utilize a bandeira com o cmdlet.
 
 ```powershell
 Set-OBPolicy -Policy $NewPolicy
@@ -627,7 +627,7 @@ ItemSize             :
 ItemLastModifiedTime :
 ```
 
-O objeto `$Rps` é uma variedade de pontos de apoio. O primeiro elemento é o último ponto e o elemento Nth é o ponto mais antigo. Para escolher o último ponto, usaremos `$Rps[0]`.
+O `$Rps` objeto é uma variedade de pontos de apoio. O primeiro elemento é o último ponto e o elemento Nth é o ponto mais antigo. Para escolher o último ponto, usaremos. `$Rps[0]`
 
 ### <a name="specifying-an-item-to-restore"></a>Especificando um item para restaurar
 
@@ -660,7 +660,7 @@ Para desencadear o processo de restauro, primeiro precisamos especificar as opç
 $RecoveryOption = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
 ```
 
-Agora inicie o processo de restauro utilizando o comando [Start-OBRecovery](https://docs.microsoft.com/powershell/module/msonlinebackup/start-obrecovery?view=winserver2012-ps) no `$Item` selecionado a partir da saída do `Get-OBRecoverableItem` cmdlet:
+Agora inicie o processo de restauro utilizando o comando `$Item` [Start-OBRecovery](https://docs.microsoft.com/powershell/module/msonlinebackup/start-obrecovery?view=winserver2012-ps) no selecionado a partir da saída do `Get-OBRecoverableItem` cmdlet:
 
 ```powershell
 Start-OBRecovery -RecoverableItem $Item -RecoveryOption $RecoveryOption
