@@ -1,6 +1,6 @@
 ---
-title: Criar pedido de suporte ou caso para a tarefa de importar/exportar do Azure | Documentos da Microsoft
-description: Saiba como fazer o pedido de suporte para problemas relacionados com a sua tarefa de importação/exportação.
+title: Criar bilhete de apoio ou caso para o trabalho de importação/exportação do Azure [ Microsoft Docs
+description: Saiba como registar o pedido de apoio a questões relacionadas com o seu trabalho de Importação/Exportação.
 services: storsimple
 author: alkohli
 ms.service: storage
@@ -9,82 +9,82 @@ ms.date: 03/29/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 8361c32860d48b78c778ea5106ba04715fcc5f3c
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67621047"
 ---
-# <a name="open-a-support-ticket-for-an-importexport-job"></a>Abra um pedido de suporte para uma tarefa de importação/exportação
+# <a name="open-a-support-ticket-for-an-importexport-job"></a>Abra um bilhete de apoio para um trabalho de importação/exportação
 
-Se encontrar algum problema com o seu serviço de importação/exportação, pode criar um pedido de serviço para obter suporte técnico. Este artigo orienta-o através de:
+Se encontrar algum problema com o seu serviço de Importação/Exportação, pode criar um pedido de serviço de apoio técnico. Este artigo acompanha-o através de:
 
-* Como criar um pedido de suporte.
-* Como gerir uma pedido de vida de suporte no portal.
+* Como criar um pedido de apoio.
+* Como gerir um suporte solicitar ciclo de vida dentro do portal.
 
 ## <a name="create-a-support-request"></a>Criar um pedido de suporte
 
-Execute os seguintes passos para criar um pedido de suporte:
+Execute os seguintes passos para criar um pedido de apoio:
 
-1. Aceda à sua tarefa de importação/exportação. Navegue para **suporte + resolução de problemas** secção e, em seguida, clique em **novo pedido de suporte**.
+1. Vá para o seu trabalho de importação/exportação. Navegue para APOIAR + Secção **DE RESOLUÇÃO DE PROBLEMAS** e, em seguida, clique em **Novo pedido**de suporte .
      
     ![Noções básicas](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
    
-2. Na **novo pedido de suporte**, selecione **Noções básicas**. Na **Noções básicas**, siga os passos abaixo:
+2. No **novo pedido de suporte,** selecione **Basics**. No Básico, faça os **seguintes passos:**
     
-    1. Partir do **tipo de problema** lista pendente, selecione **técnica**.
+    1. A partir da lista de dropdown do **tipo Emissão,** selecione **Técnico**.
     2. Escolha a sua **Subscrição**.
-    3. Sob **serviço**, verifique **meus serviços**. Na lista pendente, pode selecionar uma das opções - **gestão de contas de armazenamento**, **Blob**, ou **ficheiro**. 
-        - Se escolher **gestão de contas de armazenamento**, selecione **recurso**, e **plano de suporte**.
-            ![Escolha a gestão de contas de armazenamento](./media/storage-import-export-contact-microsoft-support/import-export-support3.png)
-        - Se escolher **Blob**, selecione **recurso**, **os nomes dos contentores** (opcional), e **plano de suporte**.
+    3. Em **Serviço,** verifique **Os Meus Serviços.** A partir da lista de dropdown, pode selecionar uma das opções - **Gestão**de Conta de Armazenamento, **Blob,** ou **Arquivo**. 
+        - Se escolher **a Gestão da Conta de Armazenamento,** selecione **Recurso**e plano de **Suporte.**
+            ![Escolha gestão de conta de armazenamento](./media/storage-import-export-contact-microsoft-support/import-export-support3.png)
+        - Se escolher **Blob**, selecione **Recursos,** **Nomes de contentores** (opcional) e plano de **suporte**.
             ![Escolha Blob](./media/storage-import-export-contact-microsoft-support/import-export-support2.png)
-        - Se escolher **arquivo**, selecione **recurso**, **os nomes das partilhas de ficheiros** (opcional), e **plano de suporte** ![Escolher ficheiro](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)
+        - Se escolher **ficheiros,** selecione **Recursos,** **Ficheiros de nomes de partilha** (opcional) e **plano** ![de suporte Escolha Ficheiro](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)
     4. Clique em **Seguinte**.
 
-3. Na **novo pedido de suporte**, selecione **passo 2 problema**. Na **problema**, siga os passos abaixo:
+3. No **novo pedido de suporte,** selecione Problema passo **2**. Em **Problemas,** faça os seguintes passos:
     
-    1. Escolha o **gravidade** como **C - um impacto mínimo**. Suporte irá atualizá-lo se for necessário.
-    2. Selecione o **tipo de problema** como **migração de dados**.
-    3. Escolha o **categoria** como **importar - exportar**.
-    4. Fornecer um **Title** para o problema e muito mais **detalhes**.
-    5. Forneça a data de início e hora para o problema.
-    6. Na **carregamento de ficheiros**, clique no ícone de pasta para procurar todos os ficheiros que pretende carregar.
+    1. Escolha a **Severidade** como **C - Impacto mínimo**. O suporte irá atualizá-lo se necessário.
+    2. Selecione o **tipo problema** como **Migração**de Dados .
+    3. Escolha a **categoria** como **Importação - Exportação**.
+    4. Forneça um **Título** para a emissão e mais **detalhes.**
+    5. Forneça a data e a hora de início para o problema.
+    6. No upload do **Ficheiro,** clique no ícone da pasta para navegar em quaisquer outros ficheiros que queira carregar.
     7. Verifique **partilhar informações de diagnóstico**.
     8. Clique em **Seguinte**.
 
        ![Problema](./media/storage-import-export-contact-microsoft-support/import-export-support5.png)
 
-4. Na **novo pedido de suporte**, clique em **informações de contacto do passo 3**. Na **informações de contacto**, siga os passos abaixo:
+4. No **novo pedido de suporte,** clique em **informações de contacto do Passo 3**. Nas **informações de contacto,** faça os seguintes passos:
 
-   1. Na **opções de contacto**, forneça o seu método preferencial de contacto (telefone ou e-mail) e o idioma. O tempo de resposta é selecionado automaticamente com base no seu plano de subscrição.
-   2. As informações de contacto, fornece seu nome, e-mail, contato opcional, país/região. Selecione o **guardar alterações de contactos para futuros pedidos de suporte** caixa de verificação.
+   1. Nas **opções**de Contacto, forneça o seu método de contacto preferido (telefone ou e-mail) e o idioma. O tempo de resposta é automaticamente selecionado com base no seu plano de subscrição.
+   2. Nas informações de Contacto, forneça o seu nome, e-mail, contacto opcional, país/região. Selecione as alterações de **contacto Save para futuras caixas** de verificação de pedidos de suporte.
    3. Clique em **Criar**.
    
        ![Informações de contacto](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
 
-      Support da Microsoft irá utilizar estas informações para contactá-lo para obter mais informações, diagnóstico e resolução.
-      Depois de ter submetido o seu pedido, um engenheiro de suporte irá contactá-lo assim que possível para continuar com o seu pedido.
+      O Microsoft Support utilizará estas informações para lhe contactar para mais informações, diagnóstico e resolução.
+      Depois de ter apresentado o seu pedido, um engenheiro de suporte entrará em contacto consigo o mais rapidamente possível para prosseguir com o seu pedido.
 
-## <a name="manage-a-support-request"></a>Gerir pedidos de suporte
+## <a name="manage-a-support-request"></a>Gerir um pedido de apoio
 
 Depois de criar um pedido de suporte, pode gerir o ciclo de vida do mesmo no portal.
 
-#### <a name="to-manage-your-support-requests"></a>Para gerir os pedidos de suporte
+#### <a name="to-manage-your-support-requests"></a>Para gerir os seus pedidos de apoio
 
-1. Para chegar à página de ajuda e suporte, navegue para **Procurar > ajuda + suporte**.
+1. Para chegar à página de ajuda e suporte, navegue para **navegar > ajuda + suporte**.
 
-    ![Gerir pedidos de suporte](./media/storage-import-export-contact-microsoft-support/manage-support-ticket2.png)   
+    ![Gerir pedidos de apoio](./media/storage-import-export-contact-microsoft-support/manage-support-ticket2.png)   
 
-2. Uma lista tabular de **pedidos de suporte recentes** é apresentado na **ajuda + suporte**.
+2. Uma listagem tabular de pedidos de **suporte recentes** é exibida em Ajuda **+ suporte**.
 
-    ![Gerir pedidos de suporte](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
+    ![Gerir pedidos de apoio](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
 
-3. Selecione e clique num pedido de suporte. Pode ver o estado e os detalhes para este pedido. Clique em **+ nova mensagem** se quiser dar seguimento este pedido.
+3. Selecione e clique num pedido de suporte. Pode ver o estado e os detalhes para este pedido. Clique **+ Nova mensagem** se quiser acompanhar este pedido.
 
-    ![Gerir pedidos de suporte](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
+    ![Gerir pedidos de apoio](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como [resolver problemas relacionados com o serviço importar/exportar](storage-import-export-tool-troubleshooting-v1.md).
+Saiba como [resolver problemas relacionados com o serviço de importação/exportação.](storage-import-export-tool-troubleshooting-v1.md)

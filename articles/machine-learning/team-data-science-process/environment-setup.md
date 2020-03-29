@@ -1,6 +1,6 @@
 ---
-title: Configurar dados de ambientes de ciência no Azure - Team Data Science Process
-description: Configure dados de ambientes de ciência no Azure para utilização no processo de ciência de dados de equipa.
+title: Criar ambientes de ciência de dados em Azure - Team Data Science Process
+description: Criar ambientes de ciência de dados em Azure para uso no Processo de Ciência de Dados da Equipa.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,29 +11,29 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d11e1614307d5b6cb267ae72bae6f32adb4b244a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 6d1185e13397b3e466bd1e8d609a46f2f68bf390
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722225"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063943"
 ---
 # <a name="set-up-data-science-environments-for-use-in-the-team-data-science-process"></a>Configurar ambientes de ciência de dados para utilizar no Team Data Science Process
-O processo de ciência de dados de equipa utiliza vários ambientes de ciência de dados para o armazenamento, processamento e análise de dados. Eles incluem o armazenamento de Blobs do Azure, vários tipos de máquinas virtuais do Azure, clusters de HDInsight (Hadoop) e áreas de trabalho do Azure Machine Learning. A decisão sobre o ambiente no qual pretende utilizar depende do tipo e a quantidade de dados a ser modelada e o destino de destino para que os dados na cloud. 
+O Processo de Ciência de Dados da Equipa utiliza vários ambientes de ciência de dados para o armazenamento, processamento e análise de dados. Incluem o Armazenamento De Blob Azure, vários tipos de máquinas virtuais Azure, clusters HDInsight (Hadoop) e espaços de trabalho azure machine learning. A decisão sobre qual o ambiente a utilizar depende do tipo e quantidade de dados a modelar e do destino-alvo desses dados na nuvem. 
 
 * Para obter orientações sobre questões a considerar ao tomar esta decisão, consulte [Plan Your Azure Machine Learning Data Science Environment](plan-your-environment.md). 
 * Para um catálogo de alguns dos cenários que poderá encontrar ao fazer [análises avançadas,](plan-sample-scenarios.md) consulte Cenários para o Processo de Ciência de Dados da Equipa
 
-Os seguintes artigos descrevem como configurar os vários ambientes de ciência de dados utilizados pelo processo de ciência de dados de equipa.
+Os seguintes artigos descrevem como configurar os vários ambientes de ciência de dados usados pelo Processo de Ciência de Dados da Equipa.
 
 * [Conta de armazenamento azure](../../storage/common/storage-account-create.md)
 * [Cluster HDInsight (Hadoop)](customize-hadoop-cluster.md)
 * [Azure Machine Learning Studio (clássico) espaço de trabalho](../studio/create-workspace.md)
 
-A **Microsoft Data Science Virtual Machine (DSVM)** também está disponível como uma imagem de máquina virtual Azure (VM). Esta VM está previamente instalado e configurado com várias ferramentas populares que são frequentemente utilizadas para análise de dados e machine learning. A DSVM está disponível no Windows e Linux. Para mais informações, consulte Introdução à máquina virtual de data science baseada [na nuvem para Linux e Windows](../data-science-virtual-machine/overview.md).
+A **Microsoft Data Science Virtual Machine (DSVM)** também está disponível como uma imagem de máquina virtual Azure (VM). Este VM é pré-instalado e configurado com várias ferramentas populares que são comumente usadas para análise de dados e machine learning. O DSVM está disponível tanto no Windows como no Linux. Para mais informações, consulte Introdução à máquina virtual de data science baseada [na nuvem para Linux e Windows](../data-science-virtual-machine/overview.md).
 
-Saiba como criar:
+Aprenda a criar:
 
 - [DSVM do Windows](../data-science-virtual-machine/provision-vm.md)
-- [Ubuntu DSVM](../data-science-virtual-machine/dsvm-ubuntu-intro.md)
-- [CentOS DSVM](../data-science-virtual-machine/linux-dsvm-intro.md)
+- [DSVM do Ubuntu](../data-science-virtual-machine/dsvm-ubuntu-intro.md)
+- [DSVM do CentOS](../data-science-virtual-machine/linux-dsvm-intro.md)

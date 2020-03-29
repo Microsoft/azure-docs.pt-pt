@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9859c884f6a1e22a1ac2bd21106ef51ead23fa41
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79080063"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Como: Exigir a política de proteção de aplicações e uma aplicação de cliente aprovada para acesso a aplicações na nuvem com acesso condicional
@@ -43,20 +43,20 @@ As organizações devem completar as seguintes etapas de forma a exigir a utiliz
 **Passo 1: Configure uma política de acesso condicional Azure AD para o Office 365**
 
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de Acesso Condicional.
-1. Navegue no **Diretório Ativo do Azure** > **Segurança** > **Acesso Condicional.**
+1. Navegue até ao**Acesso Condicional**de**Segurança** >  **do Diretório** > Ativo do Azure.
 1. Selecione **Nova política.**
 1. Dê um nome à sua apólice. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
    1. Em **Incluir**, selecione **Todos os utilizadores** ou os utilizadores e **grupos específicos** a que pretende aplicar esta política. 
    1. Selecione **Done** (Concluído).
-1. Em **aplicações ou ações cloud** > **Incluir**, selecione **Office 365 (pré-visualização)** .
+1. Em **aplicativos ou ações** > cloud**Inclua**, selecione **Office 365 (pré-visualização)**.
 1. Em **Condições,** selecione **plataformas de dispositivos.**
    1. Definir **Configurar** para **Sim**.
    1. Inclua **Android** e **iOS.**
-1. Em **Condições,** selecione **aplicações do Cliente (pré-visualização)** .
+1. Em **Condições,** selecione **aplicações do Cliente (pré-visualização)**.
    1. Definir **Configurar** para **Sim**.
    1. Selecione **aplicativos Móveis e clientes de desktop** e clientes de **autenticação moderna.**
-1. Sob **os controlos de acesso** > **Grant,** selecione as seguintes opções:
+1. Sob **controlos** > de acesso**Grant,** selecione as seguintes opções:
    - **Exigir aplicação de cliente aprovada**
    - **Exigir política de proteção de aplicativos (pré-visualização)**
    - **Requerer um dos controlos selecionados**
@@ -67,18 +67,18 @@ As organizações devem completar as seguintes etapas de forma a exigir a utiliz
 
 Para a política de Acesso Condicional neste passo, configure os seguintes componentes:
 
-1. Navegue no **Diretório Ativo do Azure** > **Segurança** > **Acesso Condicional.**
+1. Navegue até ao**Acesso Condicional**de**Segurança** >  **do Diretório** > Ativo do Azure.
 1. Selecione **Nova política.**
 1. Dê um nome à sua apólice. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
    1. Em **Incluir**, selecione **Todos os utilizadores** ou os utilizadores e **grupos específicos** a que pretende aplicar esta política. 
    1. Selecione **Done** (Concluído).
-1. Sob **aplicações ou ações cloud** > **Incluir**, selecione **Office 365 Exchange Online**.
+1. Em **aplicativos ou ações** > cloud**Inclua**, selecione **Office 365 Exchange Online**.
 1. Em **condições:**
-   1. **Aplicativos para clientes (pré-visualização)** :
+   1. **Aplicativos para clientes (pré-visualização)**:
       1. Definir **Configurar** para **Sim**.
       1. Selecione **aplicações móveis e clientes de desktop** e clientes Exchange **ActiveSync.**
-1. Sob **os controlos de acesso** > **Grant**, selecione **Grant access**, Exija a política de proteção de **aplicações**, e selecione **Select**.
+1. Sob **controlos** > de acesso**Grant**, selecione **Grant access**, Exija a política de proteção de **aplicações**, e selecione **Select**.
 1. Confirme as suas definições e ajuste **a política de ativação** para **On**.
 1. Selecione **Criar** para criar e ativar a sua política.
 
@@ -95,20 +95,20 @@ As organizações devem completar os três passos seguintes para exigir a utiliz
 **Passo 1: Política para clientes de autenticação moderna baseados em Android e iOS que exigem o uso de uma aplicação de cliente aprovada e política de proteção de aplicações ao aceder ao Exchange Online e ao SharePoint Online.**
 
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de Acesso Condicional.
-1. Navegue no **Diretório Ativo do Azure** > **Segurança** > **Acesso Condicional.**
+1. Navegue até ao**Acesso Condicional**de**Segurança** >  **do Diretório** > Ativo do Azure.
 1. Selecione **Nova política.**
 1. Dê um nome à sua apólice. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
    1. Em **Incluir**, selecione **Todos os utilizadores** ou os utilizadores e **grupos específicos** a que pretende aplicar esta política. 
    1. Selecione **Done** (Concluído).
-1. Em **aplicações ou ações da Cloud** > **Incluir**, selecione **Office 365 Exchange Online** e Office **365 SharePoint Online**.
+1. Em **aplicações ou ações** > cloud**Inclua**, selecione **Office 365 Exchange Online** e Office **365 SharePoint Online**.
 1. Em **Condições,** selecione **plataformas de dispositivos.**
    1. Definir **Configurar** para **Sim**.
    1. Inclua **Android** e **iOS.**
-1. Em **Condições,** selecione **aplicações do Cliente (pré-visualização)** .
+1. Em **Condições,** selecione **aplicações do Cliente (pré-visualização)**.
    1. Definir **Configurar** para **Sim**.
    1. Selecione **aplicativos Móveis e clientes de desktop** e clientes de **autenticação moderna.**
-1. Sob **os controlos de acesso** > **Grant,** selecione as seguintes opções:
+1. Sob **controlos** > de acesso**Grant,** selecione as seguintes opções:
    - **Exigir aplicação de cliente aprovada**
    - **Exigir política de proteção de aplicativos (pré-visualização)**
    - **Requerer um dos controlos selecionados**
@@ -117,18 +117,18 @@ As organizações devem completar os três passos seguintes para exigir a utiliz
 
 **Passo 2: Política para clientes Exchange ActiveSync que exigem a utilização de uma aplicação de cliente aprovada.**
 
-1. Navegue no **Diretório Ativo do Azure** > **Segurança** > **Acesso Condicional.**
+1. Navegue até ao**Acesso Condicional**de**Segurança** >  **do Diretório** > Ativo do Azure.
 1. Selecione **Nova política.**
 1. Dê um nome à sua apólice. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
    1. Em **Incluir**, selecione **Todos os utilizadores** ou os utilizadores e **grupos específicos** a que pretende aplicar esta política. 
    1. Selecione **Done** (Concluído).
-1. Sob **aplicações ou ações cloud** > **Incluir**, selecione **Office 365 Exchange Online**.
+1. Em **aplicativos ou ações** > cloud**Inclua**, selecione **Office 365 Exchange Online**.
 1. Em **condições:**
-   1. **Aplicativos para clientes (pré-visualização)** :
+   1. **Aplicativos para clientes (pré-visualização)**:
       1. Definir **Configurar** para **Sim**.
       1. Selecione **aplicações móveis e clientes de desktop** e clientes Exchange **ActiveSync.**
-1. Sob **os controlos de acesso** > **Grant**, selecione **Grant access**, Exija a política de proteção de **aplicações**, e selecione **Select**.
+1. Sob **controlos** > de acesso**Grant**, selecione **Grant access**, Exija a política de proteção de **aplicações**, e selecione **Select**.
 1. Confirme as suas definições e ajuste **a política de ativação** para **On**.
 1. Selecione **Criar** para criar e ativar a sua política.
 
@@ -138,9 +138,9 @@ Reveja o artigo Como criar e atribuir políticas de [proteção de aplicações,
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[O que é acesso condicional?](overview.md)
+[O que é o Acesso Condicional?](overview.md)
 
 [Componentes de acesso condicional](concept-conditional-access-policies.md)
 
-[Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
+[Políticas de Acesso Condicional comuns](concept-conditional-access-policy-common.md)
 

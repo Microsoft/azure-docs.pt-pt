@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: shsha
 ms.openlocfilehash: b8e0a19e3f654fc561e7c7e26c6a2da463e24d5f
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969038"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-linux-clusters"></a>Configurar um certificado de encriptação e encriptar segredos em clusters Linux
@@ -29,9 +29,9 @@ Um certificado de codificação de dados é usado estritamente para encriptaçã
   ```
 
 ## <a name="install-the-certificate-in-your-cluster"></a>Instale o certificado no seu cluster
-O certificado deve ser instalado em cada nó do cluster sob `/var/lib/sfcerts`. A conta de utilizador sob a qual o serviço está em funcionamento (sfuser por padrão) **deve ter lido o acesso** ao certificado instalado (isto é, `/var/lib/sfcerts/TestCert.pem` para o exemplo atual).
+O certificado deve ser instalado em cada `/var/lib/sfcerts`nó do cluster abaixo . A conta de utilizador sob a qual o serviço está em execução (sfuser `/var/lib/sfcerts/TestCert.pem` por padrão) deve ter lido o **acesso** ao certificado instalado (isto é, para o exemplo atual).
 
-## <a name="encrypt-secrets"></a>Criptografe segredos
+## <a name="encrypt-secrets"></a>Encriptar os segredos
 Os seguintes cortes podem ser usados para encriptar um segredo. Este corte apenas encripta o valor; **não** assina o texto da cifra. **Deve utilizar** o mesmo certificado de encipherment instalado no seu cluster para produzir texto de cifra para valores secretos.
 
 ```console

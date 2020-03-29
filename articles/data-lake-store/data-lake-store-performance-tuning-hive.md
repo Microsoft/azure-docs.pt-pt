@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Gen1 Hive o desempenho do armazenamento diretrizes de ajuste | Documentos da Microsoft
-description: Azure Data Lake Gen1 Hive o desempenho do armazenamento diretrizes de ajuste
+title: Azure Data Lake Storage Gen1 Hive Performance Tuning Guidelines [ Microsoft Docs
+description: Linhas de afinação de desempenho da colmeia do lago Azure Data Gen1 Hive
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -13,61 +13,61 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 433c6b7d70cea9406b67d65e23cc357939cb5aa0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61437281"
 ---
-# <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Guia para o Hive no HDInsight e Azure Data Lake Storage Gen1 de sintonização de desempenho
+# <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Orientação de afinação de desempenho para hive em HDInsight e Azure Data Lake Storage Gen1
 
-As predefinições foram definidas para proporcionar um bom desempenho em muitos casos de utilização diferentes.  Para consultas intensivas de e/s, o Hive pode ser ajustado para obter um melhor desempenho com Gen1 de armazenamento do Azure Data Lake.  
+As definições predefinidas foram definidas para proporcionar um bom desempenho em muitos casos de utilização diferentes.  Para consultas intensivas de I/O, a Hive pode ser sintonizada para obter um melhor desempenho com Azure Data Lake Storage Gen1.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta do Data Lake Storage Gen1**. Para obter instruções sobre como criar um, consulte [introdução ao Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
-* **Cluster de HDInsight do Azure** com acesso a uma conta de geração 1 de armazenamento do Data Lake. Ver [criar um cluster do HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de que ativar o ambiente de trabalho remoto para o cluster.
-* **Em execução do Hive no HDInsight**.  Para saber mais sobre a execução de tarefas do Hive no HDInsight, veja [utilizar o Hive no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
-* **Diretrizes sobre a geração 1 de armazenamento do Data Lake de ajuste de desempenho**.  Para os conceitos gerais de desempenho, consulte [Data Lake Storage Gen1 ajuste de orientação de desempenho](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
+* **Uma subscrição Azure.** Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma conta Gen1 de Armazenamento de Lago**de Dados. Para obter instruções sobre como criar um, consulte [Começar com Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* **Cluster Azure HDInsight** com acesso a uma conta Gen1 de Armazenamento de Data Lake. Consulte [Criar um cluster HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de que ativa o Ambiente de Trabalho Remoto para o cluster.
+* **A correr a Colmeia no HDInsight.**  Para aprender sobre executar trabalhos de Colmeia no HDInsight, consulte [Use Hive no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
+* **Diretrizes de afinação de desempenho sobre data lake storage Gen1**.  Para conceitos gerais de desempenho, consulte [Data Lake Storage Gen1 Performance Tuning Guidance](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
 ## <a name="parameters"></a>Parâmetros
 
-Seguem-se as definições mais importantes para otimizar o desempenho melhorado de geração 1 de armazenamento do Data Lake:
+Aqui estão as configurações mais importantes para sintonizar para um melhor desempenho do Data Lake Storage Gen1:
 
-* **Hive.tez.Container.size** – a quantidade de memória utilizada pelas tarefas de cada
+* **hive.tez.container.size** – a quantidade de memória utilizada por cada tarefa
 
-* **tamanho de tez.grouping.min** – mínimo tamanho de cada mapeador de pontos
+* **tez.grouping.min-size** – tamanho mínimo de cada mapper
 
-* **tamanho de tez.grouping.Max** – máximo tamanho de cada mapeador de pontos
+* **tez.grouping.max-size** – tamanho máximo de cada mapeador
 
-* **Hive.exec.reducer.bytes.Per.reducer** – tamanho de cada reducer
+* **hive.exec.reducer.bytes.per.reducer** – tamanho de cada redutor
 
-**Hive.tez.Container.size** -o tamanho do contentor determina a quantidade de memória está disponível para cada tarefa.  Esta é a entrada principal para controlar a simultaneidade no Hive.  
+**hive.tez.container.size** - O tamanho do recipiente determina a quantidade de memória disponível para cada tarefa.  Esta é a principal entrada para controlar a conmoeda na Colmeia.  
 
-**tamanho de tez.grouping.min** – este parâmetro permite-lhe definir o tamanho mínimo de cada mapeador de pontos.  Se o número de mapeadores que escolhe Tez for menor que o valor deste parâmetro, em seguida, Tez utilizará o valor definido aqui.
+**tez.grouping.min-size** – Este parâmetro permite-lhe definir o tamanho mínimo de cada mapeador.  Se o número de mappers que tez escolhe é menor do que o valor deste parâmetro, então Tez usará o valor estabelecido aqui.
 
-**tamanho de tez.grouping.Max** – o parâmetro permite-lhe definir o tamanho máximo de cada mapeador de pontos.  Se o número de mapeadores que escolhe Tez é maior do que o valor deste parâmetro, em seguida, Tez utilizará o valor definido aqui.
+**tez.grouping.max-size** – O parâmetro permite-lhe definir o tamanho máximo de cada mapeador.  Se o número de mappers que tez escolhe é maior do que o valor deste parâmetro, então Tez usará o valor estabelecido aqui.
 
-**Hive.exec.reducer.bytes.Per.reducer** – este parâmetro define o tamanho de cada reducer.  Por predefinição, cada reducer é de 256MB.  
+**hive.exec.reducer.bytes.per.reducer** – Este parâmetro define o tamanho de cada redutor.  Por predefinição, cada redutor é de 256MB.  
 
 ## <a name="guidance"></a>Orientação
 
-**Definir hive.exec.reducer.bytes.per.reducer** – o valor predefinido funciona bem quando os dados são descomprimidos.  Para os dados que são comprimidos, deve reduzir o tamanho do reducer.  
+**Definir hive.exec.reducer.bytes.per.reducer** – O valor predefinido funciona bem quando os dados não são comprimidos.  Para dados comprimidos, deve reduzir o tamanho do redutor.  
 
-**Definir hive.tez.container.size** – em cada nó, a memória é especificada por yarn.nodemanager.resource.memory mb e devem ser definida corretamente no cluster do HDI por predefinição.  Para obter mais informações sobre como definir a memória apropriada no YARN, consulte [publicar](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
+**Definir hive.tez.container.size** – Em cada nó, a memória é especificada por fio.nodemanager.resource.memory-mb e deve ser corretamente definida no cluster HDI por padrão.  Para obter informações adicionais sobre a definição da memória adequada no ARN, consulte este [post](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
 
-Cargas de trabalho intensivas de e/s podem se beneficiar mais paralelismo, diminuindo o tamanho de contentor do Tez. Isso dá ao usuário mais contentores que aumenta a simultaneidade.  No entanto, algumas consultas do Hive exigem uma quantidade significativa de memória (por exemplo, MapJoin).  Se a tarefa não tem memória suficiente, obterá um fora de exceção de memória durante o tempo de execução.  Se receber exceções de memória insuficiente, em seguida, deve aumentar a memória.   
+As cargas de trabalho intensivas de I/O podem beneficiar de mais paralelismo diminuindo o tamanho do contentor Tez. Isto dá ao utilizador mais contentores que aumentam a conmoeda.  No entanto, algumas consultas da Hive requerem uma quantidade significativa de memória (por exemplo, MapJoin).  Se a tarefa não tiver memória suficiente, obterá uma exceção de memória durante o tempo de funcionação.  Se receber sem exceções de memória, então deve aumentar a memória.   
 
-O número em simultâneo de tarefas em execução ou de paralelismo irá ser vinculado de acordo com a memória YARN total.  O número de contentores YARN ditará quantas tarefas simultâneas podem ser executadas.  Para localizar a memória YARN por nó, pode aceder à Ambari.  Navegue para o YARN e ver a guia configurações.  A memória YARN é apresentada nesta janela.  
+O número simultâneo de tarefas em execução ou paralelismo será delimitada pela memória total do ARN.  O número de contentores de ARN ditará quantas tarefas simultâneas podem executar.  Para encontrar a memória yARN por nó, pode ir a Ambari.  Navegue para o YARN e veja o separador Configs.  A memória yARN é exibida nesta janela.  
 
         Total YARN memory = nodes * YARN memory per node
         # of YARN containers = Total YARN memory / Tez container size
-A chave para melhorar o desempenho com a geração 1 de armazenamento do Data Lake é aumentar a simultaneidade tanto quanto possível.  Tez calcula automaticamente o número de tarefas que devem ser criados para que não é necessário configurá-lo.   
+A chave para melhorar o desempenho usando data lake storage Gen1 é aumentar a conmoeda o máximo possível.  A Tez calcula automaticamente o número de tarefas que devem ser criadas para que não precise de defini-la.   
 
 ## <a name="example-calculation"></a>Cálculo de exemplo
 
-Digamos que tem um cluster de D14 de 8 nós.  
+Digamos que tem um aglomerado de 8 nós D14.  
 
     Total YARN memory = nodes * YARN memory per node
     Total YARN memory = 8 nodes * 96GB = 768GB
@@ -75,19 +75,19 @@ Digamos que tem um cluster de D14 de 8 nós.
 
 ## <a name="limitations"></a>Limitações
 
-**Limitação do Data Lake Storage Gen1** 
+**Estrangulamento de Armazenamento de Lago de Dados Gen1** 
 
-Se atingir os limites de largura de banda fornecido pela geração 1 de armazenamento do Data Lake, poderia começar a ver falhas de tarefas. Isso poderia ser identificado por erros de limitação a observar nos registos de tarefas.  Pode diminuir o paralelismo aumente o tamanho do contentor Tez.  Se precisar de mais simultaneidade para a sua tarefa, entre em contato conosco.
+Se atingir os limites de largura de banda fornecidos pela Data Lake Storage Gen1, começará a ver falhas de tarefa. Isto poderia ser identificado observando erros de estrangulamento nos registos de tarefas.  Pode diminuir o paralelismo aumentando o tamanho do contentor Tez.  Se precisar de mais moeda para o seu trabalho, por favor contacte-nos.
 
-Para verificar se obter limitados, tem de ativar a depuração de registo no lado do cliente. Eis como pode fazer isso:
+Para verificar se está a ser estrangulado, tem de ativar o depurador de registo sinuoso do lado do cliente. Eis como podes fazer isso:
 
-1. Coloque a seguinte propriedade nas propriedades do log4j na configuração do Hive. Isso pode ser feito da vista do Ambari: log4j.logger.com.microsoft.azure.datalake.store=DEBUG reiniciar todos os o nós/serviço para a configuração entrem em vigor.
+1. Coloque a seguinte propriedade nas propriedades log4j na Hive config. Isto pode ser feito a partir da vista ambari: log4j.logger.com.microsoft.azure.datalake.store=DEBUG Reiniciar todos os nós/serviço para que a config faça efeito.
 
-2. Se estiver obtendo otimizado, verá o código de erro HTTP 429 no ficheiro de registo do hive. O ficheiro de registo do hive é nos /tmp/&lt;utilizador&gt;/hive.log
+2. Se estiver a ser estrangulado, verá o código de erro HTTP 429 no ficheiro de registo da colmeia. O ficheiro de registo da colmeia&lt;&gt;está em /tmp/ utilizador /hive.log
 
-## <a name="further-information-on-hive-tuning"></a>Obter mais informações sobre a otimização do Hive
+## <a name="further-information-on-hive-tuning"></a>Mais informações sobre a finação da Colmeia
 
-Aqui estão alguns blogs que o ajudará a otimização das suas consultas do Hive:
-* [Otimizar as consultas do Hive do Hadoop no HDInsight](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
-* [Resolução de problemas de desempenho das consultas do Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
-* [Conversa do ignite otimizar no Hive no HDInsight](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)
+Aqui estão alguns blogs que ajudarão a afinar as suas consultas da Hive:
+* [Otimizar consultas de Colmeia para Hadoop no HDInsight](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
+* [Desempenho da consulta da Colmeia de resolução de problemas](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
+* [Ignite talk on otimize Hive on HDInsight](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)

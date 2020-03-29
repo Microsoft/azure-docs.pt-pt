@@ -1,6 +1,6 @@
 ---
-title: Usar o pacote NuGet do Azure Stream Analytics CI/CD
-description: Este artigo descreve como usar Azure Stream Analytics pacote NuGet CI/CD para configurar um processo de implantação e integração contínua.
+title: Utilize o pacote NuGet CI/CD Azure Stream Analytics
+description: Este artigo descreve como usar o pacote NuGet CI/CD CD do Azure Stream Analytics para configurar um processo contínuo de integração e implementação.
 author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
@@ -8,77 +8,77 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.openlocfilehash: 11e68aaa7c70d4f888c0009bc28d9bb90f431f3b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75354449"
 ---
-# <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Usar o pacote NuGet Azure Stream Analytics CI/CD para integração e desenvolvimento 
-Este artigo descreve como usar o pacote NuGet Azure Stream Analytics CI/CD para configurar um processo de implantação e integração contínua.
+# <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Utilize o pacote NuGet CI/CD Azur analytics do Azure Stream Analytics para integração e desenvolvimento 
+Este artigo descreve como usar o pacote NuGet CI/CD CD do Azure Stream Analytics para configurar um processo contínuo de integração e implementação.
 
-Use a versão 2.3.0000.0 ou superior do [Stream Analytics Tools para Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) para obter suporte para MSBuild.
+Utilize a versão 2.3.0000.0 ou acima das [ferramentas Stream Analytics para](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) o Estúdio Visual para obter suporte para mSBuild.
 
-Um pacote NuGet está disponível: [Microsoft. Azure. Stream Analytics. CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Ele fornece as ferramentas de MSBuild, execução local e implantação que dão suporte ao processo de implantação e integração contínua de [projetos do Stream Analytics Visual Studio](stream-analytics-vs-tools.md). 
+Um pacote NuGet está disponível: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Fornece as ferramentas MSBuild, run local e implementação que suportam o processo contínuo de integração e implementação de [projetos do Stream Analytics Visual Studio.](stream-analytics-vs-tools.md) 
 > [!NOTE]
-> O pacote NuGet pode ser usado somente com a versão 2.3.0000.0 ou superior do Stream Analytics Tools para Visual Studio. Se você tiver projetos criados em versões anteriores do Visual Studio Tools, basta abri-los com a versão 2.3.0000.0 ou superior e salvar. Em seguida, os novos recursos são habilitados. 
+> O pacote NuGet só pode ser utilizado com a versão 2.3.0000.0 ou superior das Ferramentas Stream Analytics para Estúdio Visual. Se tiver projetos criados em versões anteriores de ferramentas do Visual Studio, basta abri-los com a versão 2.3.0000.0 ou acima e economizar. Em seguida, as novas capacidades estão ativadas. 
 
-Para obter mais informações, consulte [ferramentas de Stream Analytics para Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+Para mais informações, consulte [as ferramentas Stream Analytics para O Estúdio Visual](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
 
 ## <a name="msbuild"></a>MSBuild
-Como a experiência padrão do MSBuild do Visual Studio, para criar um projeto, você tem duas opções. Você pode clicar com o botão direito do mouse no projeto e escolher **Compilar**. Você também pode usar o **MSBuild** no pacote NuGet da linha de comando.
+Tal como a experiência padrão do Estúdio Visual MSBuild, para construir um projeto tem duas opções. Pode clicar no projeto e, em seguida, escolher **Build**. Também pode utilizar o **MSBuild** no pacote NuGet a partir da linha de comando.
 ```
 ./build/msbuild /t:build [Your Project Full Path] /p:CompilerTaskAssemblyFile=Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll  /p:ASATargetsFilePath="[NuGet Package Local Path]\build\StreamAnalytics.targets"
 
 ```
 
-Quando um projeto do Visual Studio Stream Analytics é compilado com êxito, ele gera os dois arquivos de modelo de Azure Resource Manager a seguir na pasta **bin/[Debug/Retail]/Deploy** : 
+Quando um projeto stream analytics visual studio constrói com sucesso, gera os seguintes dois ficheiros de modelo de Gestor de Recursos Azure sob a **pasta bin/[Debug/Retail]/Deploy:** 
 
-*  Arquivo de modelo do Resource Manager
+*  Ficheiro de modelo do Gestor de Recursos
 
        [ProjectName].JobTemplate.json 
 
-*  Arquivo de parâmetros do Resource Manager
+*  Ficheiro de parâmetros do Gestor de Recursos
 
        [ProjectName].JobTemplate.parameters.json   
 
-Os parâmetros padrão no arquivo Parameters. JSON são das configurações em seu projeto do Visual Studio. Se você quiser implantar em outro ambiente, substitua os parâmetros de acordo.
+Os parâmetros predefinidos no ficheiro parâmetros.json são das definições do seu projeto Visual Studio. Se quiser implantar para outro ambiente, substitua os parâmetros em conformidade.
 
 > [!NOTE]
-> Para todas as credenciais, os valores padrão são definidos como NULL. Você precisa **definir** os valores antes de implantar na nuvem.
+> Para todas as credenciais, os valores predefinidos são definidos como nulos. É **necessário** definir os valores antes de se deslocar para a nuvem.
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {
       "value": null
     },
 ```
-Saiba mais sobre como [implantar com um arquivo de modelo do Resource Manager e Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). Saiba mais sobre como [usar um objeto como um parâmetro em um modelo do Resource Manager](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+Saiba mais sobre como implementar com um ficheiro de modelo de Gestor de [Recursos e Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). Saiba mais sobre como [usar um objeto como parâmetro num modelo](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters)de Gestor de Recursos .
 
-Para usar a identidade gerenciada para Azure Data Lake Store Gen1 como coletor de saída, você precisa fornecer acesso à entidade de serviço usando o PowerShell antes de implantar no Azure. Saiba mais sobre como [implantar ADLS Gen1 com identidade gerenciada com o modelo do Resource Manager](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment).
+Para utilizar a Identidade Gerida para azure Data Lake Store Gen1 como pia de saída, você precisa fornecer Acesso ao principal de serviço usando powerShell antes de ser implantado para O Azure. Saiba mais sobre como [implementar a ADLS Gen1 com identidade gerida com modelo](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment)de Gestor de Recursos .
 
 
 ## <a name="command-line-tool"></a>Ferramenta de linha de comando
 
 ### <a name="build-the-project"></a>Compilar o projeto
-O pacote NuGet tem uma ferramenta de linha de comando chamada **SA. exe**. Ele dá suporte à compilação do projeto e ao teste local em um computador arbitrário, que você pode usar em seu processo de integração contínua e de entrega contínua. 
+O pacote NuGet tem uma ferramenta de linha de comando chamada **SA.exe**. Suporta a construção de projetos e testes locais numa máquina arbitrária, que pode utilizar no seu processo de integração contínua e entrega contínua. 
 
-Os arquivos de implantação são colocados sob o diretório atual por padrão. Você pode especificar o caminho de saída usando o seguinte parâmetro-OutputPath:
+Os ficheiros de implantação são colocados sob o diretório atual por padrão. Pode especificar o caminho de saída utilizando o seguinte parâmetro -OutputPath:
 
 ```
 ./tools/SA.exe build -Project [Your Project Full Path] [-OutputPath <outputPath>] 
 ```
 
-### <a name="test-the-script-locally"></a>Testar o script localmente
+### <a name="test-the-script-locally"></a>Teste o guião localmente
 
-Se o projeto tiver especificado arquivos de entrada locais no Visual Studio, você poderá executar um teste de script automatizado usando o comando *localrun* . O resultado da saída é colocado sob o diretório atual.
+Se o seu projeto tiver especificado ficheiros de entrada locais no Estúdio Visual, pode executar um teste de script automatizado utilizando o comando *local.* O resultado da saída é colocado sob o diretório atual.
  
 ```
 localrun -Project [ProjectFullPath]
 ```
 
-### <a name="generate-a-job-definition-file-to-use-with-the-stream-analytics-powershell-api"></a>Gerar um arquivo de definição de trabalho para usar com a API Stream Analytics PowerShell
+### <a name="generate-a-job-definition-file-to-use-with-the-stream-analytics-powershell-api"></a>Gerar um ficheiro de definição de trabalho para usar com a API Stream Analytics PowerShell
 
-O comando *ARM* usa o modelo de trabalho e os arquivos de parâmetro de modelo de trabalho gerados por meio de Build como entrada. Em seguida, ele os combina em um arquivo JSON de definição de trabalho que pode ser usado com a API Stream Analytics PowerShell.
+O comando do *braço* pega no modelo de trabalho e nos ficheiros de parâmetros do modelo de trabalho gerados através da construção como entrada. Em seguida, combina-os num ficheiro JSON de definição de trabalho que pode ser usado com a API Stream Analytics PowerShell.
 
 ```powershell
 arm -JobTemplate <templateFilePath> -JobParameterFile <jobParameterFilePath> [-OutputFile <asaArmFilePath>]
@@ -92,6 +92,6 @@ Exemplo:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Início rápido: criar um trabalho de Azure Stream Analytics nuvem no Visual Studio](stream-analytics-quick-create-vs.md)
-* [Testar consultas do Stream Analytics localmente com o Visual Studio](stream-analytics-vs-tools-local-run.md)
-* [Explorar Azure Stream Analytics trabalhos com o Visual Studio](stream-analytics-vs-tools.md)
+* [Quickstart: Criar um trabalho de nuvem Azure Stream Analytics no Estúdio Visual](stream-analytics-quick-create-vs.md)
+* [Test Stream Analytics consultas localmente com Estúdio Visual](stream-analytics-vs-tools-local-run.md)
+* [Explore os trabalhos da Azure Stream Analytics com o Estúdio Visual](stream-analytics-vs-tools.md)

@@ -1,7 +1,7 @@
 ---
-title: Solucionar problemas de reinicializações inesperadas de VMs com VHDs anexados em VMs do Azure | Microsoft Docs
-description: Como solucionar problemas de reinicializações inesperadas de VMs.
-keywords: conexão SSH recusada, erro de SSH, Azure SSH, falha na conexão SSH
+title: Resolução de problemas reiniciares inesperadas de VMs com VHDs anexados em VMs Azure [ Microsoft Docs
+description: Como resolver reinicializações inesperadas de VMs.
+keywords: ssh conexão recusada, erro ssh, ssh azul, conexão SSH falhou
 services: virtual-machines
 author: genlin
 manager: dcscontentpm
@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 3a06db1afd130d936af868d0d20632c3ec4fbfd2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75358531"
 ---
-# <a name="troubleshoot-unexpected-reboots-of-vms-with-attached-vhds"></a>Solucionar problemas de reinicializações inesperadas de VMs com VHDs anexados
+# <a name="troubleshoot-unexpected-reboots-of-vms-with-attached-vhds"></a>Reinicializações inesperadas de VMs com VHDs anexados
 
-Se uma VM (máquina virtual) do Azure tiver um grande número de VHDs anexados que estão na mesma conta de armazenamento, você poderá exceder as metas de escalabilidade para uma conta de armazenamento individual, fazendo com que a VM seja reinicializada inesperadamente. Verifique as métricas de minuto para a conta de armazenamento (**TotalRequests**/**TotalIngress**/**TotalEgress**) para picos que excedam as metas de escalabilidade para uma conta de armazenamento. Consulte as [métricas mostram um aumento no PercentThrottlingError](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#metrics-show-an-increase-in-PercentThrottlingError) para obter assistência para determinar se a limitação ocorreu na sua conta de armazenamento.
+Se uma Máquina Virtual Azure (VM) tiver um grande número de VHDs anexados que estão na mesma conta de armazenamento, poderá exceder os objetivos de escalabilidade para uma conta de armazenamento individual, fazendo com que o VM reinicie inesperadamente. Verifique as métricas minúsculas da conta de armazenamento **(TotalRequests**/**TotalIngress**/**TotalEgress)** para obter picos que excedam os objetivos de escalabilidade para uma conta de armazenamento. As [Métricas mostram um aumento do PercentThrottlingError](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#metrics-show-an-increase-in-PercentThrottlingError) para assistência na determinação da aceleração na sua conta de armazenamento.
 
-Em geral, cada operação individual de entrada ou saída em um VHD de uma máquina virtual se traduz em operações **Get Page** ou **Put Page** no blob de página subjacente. Portanto, você pode usar o IOPS estimado para o seu ambiente para ajustar quantos VHDs você pode ter em uma única conta de armazenamento com base no comportamento específico do seu aplicativo. A Microsoft recomenda ter 40 ou menos discos em uma única conta de armazenamento. Para obter mais informações sobre metas de escalabilidade para contas de armazenamento padrão, consulte [metas de escalabilidade para contas de armazenamento padrão](../../storage/common/scalability-targets-standard-account.md). Para obter mais informações sobre metas de escalabilidade para contas de armazenamento de blob de página Premium, consulte [metas de escalabilidade para contas de armazenamento de blob de páginas Premium](../../storage/blobs/scalability-targets-premium-page-blobs.md).
+Em geral, cada operação individual de entrada ou saída num VHD de uma Máquina Virtual traduz-se para obter operações de **página** ou página de **colocação** na bolha de página subjacente. Portanto, você pode usar o IOPS estimado para o seu ambiente para afinar quantos VHDs você pode ter em uma única conta de armazenamento com base no comportamento específico da sua aplicação. A Microsoft recomenda ter 40 ou menos discos numa única conta de armazenamento. Para obter mais informações sobre os objetivos de escalabilidade das contas de armazenamento padrão, consulte os objetivos de [escalabilidade para as contas de armazenamento padrão](../../storage/common/scalability-targets-standard-account.md). Para obter mais informações sobre os alvos de escalabilidade para contas de armazenamento de blob de página premium, consulte [os alvos de escalabilidade para contas](../../storage/blobs/scalability-targets-premium-page-blobs.md)de armazenamento de blob de página premium .
 
-Se você estiver excedendo as metas de escalabilidade para sua conta de armazenamento, coloque seus VHDs em várias contas de armazenamento para reduzir a atividade em cada conta individual.
+Se exceder os alvos de escalabilidade para a sua conta de armazenamento, coloque os seus VHDs em várias contas de armazenamento para reduzir a atividade em cada conta individual.

@@ -1,5 +1,5 @@
 ---
-title: Aumento de limite de rede | Microsoft Docs
+title: Aumento do limite de networking Microsoft Docs
 description: Aumento do limite de rede
 author: anavinahar
 ms.author: anavin
@@ -8,32 +8,32 @@ ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: 9b5c7043b06172c2d4931ca1c3fd3ac5d0e80883
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76547810"
 ---
 # <a name="networking-limit-increase"></a>Aumento do limite de rede
 
-Use o [portal do Azure](https://portal.azure.com) para aumentar a cota de rede.
+Utilize o [portal Azure](https://portal.azure.com) para aumentar a sua quota de rede.
 
-Para exibir a cota e o uso de rede atual no portal do Azure, abra sua assinatura e selecione **usos + cotas**. Você também pode usar as opções a seguir para exibir o uso de rede e os limites.
+Para ver o seu uso atual em Rede e quota no portal Azure, abra a sua subscrição e, em seguida, selecione **Utilizações + quotas**. Também pode utilizar as seguintes opções para visualizar o uso e limites da sua rede.
 
-* [CLI de uso](/cli/azure/network#az-network-list-usages)
+* [ClI de utilização](/cli/azure/network#az-network-list-usages)
 * [PowerShell](/powershell/module/azurerm.network/get-azurermnetworkusage)
-* [A API de uso de rede](/rest/api/virtualnetwork/virtualnetworks/listusage)
+* [A API de utilização da rede](/rest/api/virtualnetwork/virtualnetworks/listusage)
 
-Você pode solicitar um aumento usando **ajuda + suporte** ou em **usos + cotas** no Portal.
+Pode solicitar um aumento utilizando **ajuda + suporte** ou em **Utilizações + quotas** no portal.
 
 > [!Note]
-> Para alterar o tamanho padrão de **prefixos de IP público**, selecione **mínimo de comprimento de prefixo de rede IP público** na lista suspensa.
+> Para alterar o tamanho padrão dos **Prefixos IP públicos,** selecione **Min Public IP InterNetwork Prefix Length** da lista de dropdown.
 
-## <a name="request-networking-quota-increase-at-subscription-level-using-help--support"></a>Solicitar aumento de cota de rede no nível de assinatura usando ajuda + suporte
+## <a name="request-networking-quota-increase-at-subscription-level-using-help--support"></a>Solicitar aumento da quota de networking ao nível de subscrição usando ajuda + suporte
 
-Siga as instruções abaixo para criar uma solicitação de suporte usando **ajuda + suporte** no portal do Azure.
+Siga as instruções abaixo para criar um pedido de apoio utilizando **ajuda + suporte** no portal Azure.
 
-1. Entre no [portal do Azure](https://portal.azure.com)e selecione **ajuda + suporte** no menu portal do Azure ou procure e selecione **ajuda + suporte**.
+1. Inscreva-se no [portal Azure](https://portal.azure.com)e, em seguida, selecione **Ajuda + suporte** do menu do portal Azure ou procure e selecione Ajuda + **suporte**.
 
     ![Ajuda + Suporte](./media/networking-quota-request/help-plus-support.png)
 
@@ -41,35 +41,35 @@ Siga as instruções abaixo para criar uma solicitação de suporte usando **aju
 
     ![Novo pedido de suporte](./media/networking-quota-request/new-support-request.png)
 
-1. Para **tipo de problema**, escolha **limites de serviço e assinatura (cotas)** .
+1. Para **o tipo de emissão,** escolha limites de serviço e **subscrição (quotas)**.
 
-    ![Selecionar limites de assinatura do menu suspenso tipo de problema](./media/networking-quota-request/select-quota-issue-type.png)
+    ![Selecione limites de subscrição a partir de dropdown tipo de edição](./media/networking-quota-request/select-quota-issue-type.png)
 
 1. Selecione a subscrição que precisa de uma quota maior.
 
-    ![Selecionar notícias de assinatura](./media/networking-quota-request/select-subscription-support-request.png)
+    ![Selecione newSR de subscrição](./media/networking-quota-request/select-subscription-support-request.png)
 
-1. Em **tipo de cota**, selecione **rede**. Selecione **Avançar: soluções**.
+1. Sob o **tipo de quota,** selecione **Networking**. Selecione **Seguinte: Soluções**.
 
-    ![Selecionar tipo de cota](./media/networking-quota-request/select-quota-type-network.png)
+    ![Selecionar tipo de quota](./media/networking-quota-request/select-quota-type-network.png)
 
-1. Em **detalhes do problema**, selecione **fornecer detalhes** e preencha informações adicionais para ajudar a processar sua solicitação.
+1. Em **DETALHES DE PROBLEMAS,** selecione **Fornecer detalhes** e preencher informações adicionais para ajudar a processar o seu pedido.
 
     ![Fornecer detalhes](./media/networking-quota-request/provide-details-link.png)
 
-1. No painel de **detalhes de cota** , selecione um modelo de implantação, um local e os recursos a serem incluídos em sua solicitação.
+1. No painel de detalhes da **Quota,** selecione um modelo de implementação, uma localização e os recursos a incluir no seu pedido.
 
-    ![Detalhes da cota DM](./media/networking-quota-request/quota-details-network.png)
+    ![Detalhes da quota DM](./media/networking-quota-request/quota-details-network.png)
 
-1. Insira os novos limites que você deseja na assinatura. Para remover uma linha, desmarque o recurso no menu **recursos** ou selecione o ícone descartar "x". Depois de inserir a cota para cada recurso, selecione **salvar e continuar** para continuar com a criação da solicitação de suporte.
+1. Introduza os novos limites que deseja na subscrição. Para remover uma linha, desmarque o recurso do menu **Recursos** ou selecione o ícone "x" de devoluções. Depois de introduzir a quota para cada recurso, selecione **Guardar e continuar** com a criação do pedido de apoio.
 
-    ![Novos limites](./media/networking-quota-request/network-new-limits.png)
+    ![Novos Limites](./media/networking-quota-request/network-new-limits.png)
 
-## <a name="request-networking-quota-increase-at-subscription-level-using-usages--quotas"></a>Solicitar aumento de cota de rede no nível da assinatura usando usos + cotas
+## <a name="request-networking-quota-increase-at-subscription-level-using-usages--quotas"></a>Solicitar aumento da quota de networking ao nível da subscrição utilizando utilizações + quotas
 
-Siga estas instruções para criar uma solicitação de suporte usando o **uso + cota** no portal do Azure.
+Siga estas instruções para criar um pedido de suporte utilizando a utilização de **utilização + quota** no portal Azure.
 
-1. Em https://portal.azure.com, procure e selecione **assinaturas**.
+1. A https://portal.azure.compartir de , procure e selecione **Assinaturas**.
 
     ![Subscrições](./media/networking-quota-request/search-for-suscriptions.png)
 
@@ -77,16 +77,16 @@ Siga estas instruções para criar uma solicitação de suporte usando o **uso +
 
     ![Selecionar subscrição](./media/networking-quota-request/select-subscription-change-quota.png)
 
-1. Selecionar **uso + cotas**
+1. **Selecione Utilização + quotas**
 
-    ![Selecionar uso e cotas](./media/networking-quota-request/select-usage-plus-quotas.png)
+    ![Selecione utilização e quotas](./media/networking-quota-request/select-usage-plus-quotas.png)
 
-1. No canto superior direito, selecione **solicitar aumento**.
+1. No canto superior direito, selecione **Pedido aumentar**.
 
-    ![Aumento da solicitação](./media/networking-quota-request/request-increase-from-subscription.png)
+    ![Aumento de pedidos](./media/networking-quota-request/request-increase-from-subscription.png)
 
-1. Siga as etapas a partir da etapa 3 em [solicitar aumento de cota de rede no nível da assinatura](#request-networking-quota-increase-at-subscription-level-using-help--support).
+1. Siga os passos a partir do passo 3 da quota de [rede de pedidos aumenta ao nível da subscrição](#request-networking-quota-increase-at-subscription-level-using-help--support).
 
-## <a name="about-networking-limits"></a>Sobre limites de rede
+## <a name="about-networking-limits"></a>Sobre os limites de networking
 
-Para saber mais sobre os limites de rede, confira a [seção rede](../../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) da página limites ou nossas perguntas frequentes sobre limites de rede.
+Para saber mais sobre os limites de Networking, consulte a [secção de Networking](../../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) da página de limites ou as nossas FAQ de Limites de Rede.

@@ -1,6 +1,6 @@
 ---
-title: Utilizar Webhooks do Azure para monitorizar as notificações de trabalho de serviços de multimédia com .NET | Documentos da Microsoft
-description: Saiba como utilizar Webhooks do Azure para monitorizar as notificações de trabalho dos serviços de multimédia. O exemplo de código é escrito em C# e utiliza o SDK de Media Services para .NET.
+title: Utilize webhooks Azure para monitorizar notificações de emprego dos Media Services com .NET [ Microsoft Docs
+description: Saiba como utilizar webhooks Azure para monitorizar notificações de emprego dos Serviços de Media. A amostra de código está escrita em C# e utiliza o Media Services SDK para .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,32 +15,32 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: a29381bded4bb2562227bd5f23ccb59bb5add028
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67059203"
 ---
-# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Utilizar Webhooks de Azure para monitorizar as notificações de trabalho de serviços de multimédia com .NET 
+# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Utilize webhooks Azure para monitorizar notificações de emprego dos Media Services com .NET 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
-Quando executa tarefas, muitas vezes, necessitam de uma maneira de controlar o progresso da tarefa. Pode monitorizar as notificações de trabalho de serviços de multimédia, através de Webhooks do Azure ou [armazenamento de filas do Azure](media-services-dotnet-check-job-progress-with-queues.md). Este artigo mostra como trabalhar com webhooks.
+Quando se gere empregos, muitas vezes é preciso uma forma de acompanhar o progresso do emprego. Pode monitorizar as notificações de emprego dos Serviços de Media utilizando Webhooks Azure ou armazenamento de [fila Azure](media-services-dotnet-check-job-progress-with-queues.md). Este artigo mostra como trabalhar com webhooks.
 
 Este artigo mostra como
 
-*  Defina uma função do Azure personalizado para responder a webhooks. 
+*  Defina uma Função Azure personalizada para responder aos webhooks. 
     
-    Neste caso, o webhook é acionado pelos serviços de multimédia, quando a tarefa de codificação altera o estado. A função de escuta para a chamada de webhook de notificações de serviços de multimédia e publica o elemento de saída depois da tarefa é concluída. 
+    Neste caso, o webhook é acionado pela Media Services quando o seu trabalho de codificação muda de estado. A função ouve a chamada webhook de volta das notificações dos Media Services e publica o ativo de saída assim que o trabalho terminar. 
     
     >[!TIP]
-    >Antes de continuar, certifique-se de que compreende como [enlaces de HTTP de funções do Azure e webhook](../../azure-functions/functions-bindings-http-webhook.md) trabalhar.
+    >Antes de continuar, certifique-se de que compreende como funciona o [Azure HTTP e as ligações webhook](../../azure-functions/functions-bindings-http-webhook.md) funcionam.
     >
     
-* Adicionar um webhook para a tarefa de codificação e especifique o URL do webhook e a chave secreta que este webhook responde a. Encontrará um exemplo que adiciona um webhook para a tarefa de codificação no final do artigo.  
+* Adicione um webhook à sua tarefa de codificação e especifique o URL do webhook e a chave secreta a que este webhook responde. Encontrará um exemplo que adiciona um webhook à sua tarefa de codificação no final do artigo.  
 
-Pode encontrar as definições das várias Media Services .NET funções do Azure (incluindo a mostrada neste artigo) [aqui](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
+Pode encontrar [definições](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)de várias Funções Media Services .NET Azure (incluindo a mostrada neste artigo) aqui .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,42 +48,42 @@ O seguinte é necessário para concluir o tutorial:
 
 * Uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Uma conta dos Media Services. Para criar uma conta dos Media Services, consulte [Como Criar uma Conta de Media Services](media-services-portal-create-account.md).
-* Compreensão dos [como utilizar as funções do Azure](../../azure-functions/functions-overview.md). Além disso, reveja [enlaces de HTTP de funções do Azure e webhook](../../azure-functions/functions-bindings-http-webhook.md).
+* Compreensão de [como utilizar funções azure](../../azure-functions/functions-overview.md). Além disso, reveja as [funções azure HTTP e as encadernações webhook](../../azure-functions/functions-bindings-http-webhook.md).
 
 ## <a name="create-a-function-app"></a>Criar uma aplicação de função
 
 1. Aceda ao [portal do Azure](https://portal.azure.com) e inicie sessão com a sua conta do Azure.
-2. Criar uma aplicação de função, conforme descrito [aqui](../../azure-functions/functions-create-function-app-portal.md).
+2. Crie uma aplicação de função como descrito [aqui](../../azure-functions/functions-create-function-app-portal.md).
 
-## <a name="configure-function-app-settings"></a>Configurar definições da aplicação de função
+## <a name="configure-function-app-settings"></a>Configurar as definições da aplicação de funções
 
-Ao desenvolver funções de serviços de multimédia, é útil para adicionar variáveis de ambiente que irão ser utilizadas nas suas funções. Para configurar as definições da aplicação, clique na ligação de configurar as definições da aplicação. 
+Ao desenvolver funções de Serviços de Media, é útil adicionar variáveis ambientais que serão usadas em todas as suas funções. Para configurar as definições da aplicação, clique no link Configurar definições de aplicações. 
 
-O [as definições da aplicação](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) secção define os parâmetros que são utilizados no webhook definido neste artigo. Adicione também os seguintes parâmetros às definições da aplicação. 
+A secção de definições de [aplicação](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) define parâmetros que são utilizados no webhook definido neste artigo. Adicione também os seguintes parâmetros às definições da aplicação. 
 
-|Name|Definição|Exemplo| 
+|Nome|Definição|Exemplo| 
 |---|---|---|
-|SigningKey |Uma chave de assinatura.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
-|WebHookEndpoint | Um endereço de ponto final do webhook. Assim que a função de webhook for criada, pode copiar o URL a partir da **obter URL de função** ligação. | https:\//juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
+|Chave de Assinatura |Uma chave de assinatura.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
+|WebHookEndpoint | Um endereço final do webhook. Assim que a função webhook for criada, pode copiar o URL a partir do link URL da **função Get.** | https:\//juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g===.|
 
 ## <a name="create-a-function"></a>Criar uma função
 
-Depois de implementada a aplicação de função, poderá encontrá-entre **dos serviços de aplicações** as funções do Azure.
+Uma vez implementada a sua aplicação de funções, pode encontrá-la entre as Funções Do Azure **dos Serviços de Aplicação.**
 
-1. Selecione a sua aplicação de função e clique em **nova função**.
-2. Selecione **C#** código e **API e Webhooks** cenário. 
-3. Selecione **Webhook genérico - C#** .
-4. Dê o nome do webhook e prima **criar**.
+1. Selecione a sua aplicação de funções e clique em **New Function**.
+2. Selecione código **C#** e **cenário de & Webhooks.** 
+3. Selecione **Webhook genérico - C#**.
+4. Nomeie o seu webhook e prima **Criar**.
 
 ### <a name="files"></a>Ficheiros
 
-Sua função do Azure está associada a arquivos de código e outros ficheiros que são descritos nesta secção. Por predefinição, está associada uma função **Function** e **csx** (C#) ficheiros. Precisa adicionar um **Project** ficheiro. O restante desta seção mostra as definições para esses arquivos.
+A função Azure está associada a ficheiros de código e outros ficheiros descritos nesta secção. Por predefinição, uma função está associada com **ficheiros function.json** e **run.csx** (C#). Precisa adicionar um ficheiro **project.json.** O resto desta secção mostra as definições para estes ficheiros.
 
-![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![ficheiros](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 #### <a name="functionjson"></a>function.json
 
-O ficheiro de Function define os enlaces de função e outras definições de configuração. O tempo de execução utiliza este ficheiro para determinar os eventos a monitorizar e como passar dados para e devolver dados de execução de função. 
+O ficheiro função.json define as encadernações de função e outras definições de configuração. O tempo de execução utiliza este ficheiro para determinar os eventos para monitorizar e como transmitir dados e devolver dados da execução da função. 
 
 ```json
 {
@@ -104,9 +104,9 @@ O ficheiro de Function define os enlaces de função e outras definições de co
 }
 ```
 
-#### <a name="projectjson"></a>project.json
+#### <a name="projectjson"></a>projeto.json
 
-O ficheiro de Project contém dependências. 
+O ficheiro project.json contém dependências. 
 
 ```json
 {
@@ -125,11 +125,11 @@ O ficheiro de Project contém dependências.
     
 #### <a name="runcsx"></a>run.csx
 
-O código nesta secção mostra uma implementação de uma função do Azure que é um webhook. Neste exemplo, a função de escuta para a chamada de webhook de notificações de serviços de multimédia e publica o elemento de saída depois da tarefa é concluída.
+O código nesta secção mostra uma implementação de uma Função Azure que é um webhook. Nesta amostra, a função ouve a chamada do webhook de volta das notificações dos Media Services e publica o ativo de saída assim que o trabalho terminar.
 
-O webhook espera uma chave de assinatura (credenciais) para corresponde ao que passar ao configurar o ponto final da notificação. A chave de assinatura é o valor de codificada em Base64 de 64 bytes que é utilizado para proteger e proteger seus retornos de chamada de WebHooks dos serviços de multimédia do Azure. 
+O webhook espera que uma chave de assinatura (credencial) corresponda à que passa quando configura rés de notificação. A chave de assinatura é o valor codificado base64 de 64 bytes que é usado para proteger e proteger as chamadas webHooks da Azure Media Services. 
 
-No código de definição de webhook, que se segue, a **VerifyWebHookRequestSignature** método faz a verificação da mensagem de notificação. É a finalidade desta validação garantir que a mensagem foi enviada pelos serviços de multimédia do Azure e ainda não adulterada. A assinatura é opcional para as funções do Azure porque tem o **código** valor como um parâmetro de consulta através de Transport Layer Security (TLS). 
+No código de definição webhook que se segue, o método **CheckWebHookRequestSignature** faz a verificação da mensagem de notificação. O objetivo desta validação é garantir que a mensagem foi enviada pela Azure Media Services e não foi adulterada. A assinatura é opcional para funções Azure, uma vez que tem **o** valor código como parâmetro de consulta sobre a Segurança da Camada de Transporte (TLS). 
 
 >[!NOTE]
 >Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
@@ -350,9 +350,9 @@ internal sealed class NotificationMessage
 
 Salve e execute a sua função.
 
-### <a name="function-output"></a>Saída da função
+### <a name="function-output"></a>Saída de função
 
-Assim que o webhook é disparado, o exemplo acima produz a seguinte saída, os valores irão variar.
+Uma vez acionado o webhook, o exemplo acima produz a seguinte saída, os seus valores variarão.
 
     C# HTTP trigger function processed a request. RequestUri=https://juliako001-functions.azurewebsites.net/api/Notification_Webhook_Function?code=9376d69kygoy49oft81nel8frty5cme8hb9xsjslxjhalwhfrqd79awz8ic4ieku74dvkdfgvi
     Request Body = 
@@ -374,17 +374,17 @@ Assim que o webhook é disparado, o exemplo acima produz a seguinte saída, os v
     
     URL to the manifest for client streaming using HLS protocol: http://mediapkeewmg5c3peq.streaming.mediaservices.windows.net/0ac98077-2b58-4db7-a8da-789a13ac6167/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
-## <a name="add-a-webhook-to-your-encoding-task"></a>Adicionar um webhook para a tarefa de codificação
+## <a name="add-a-webhook-to-your-encoding-task"></a>Adicione um webhook à sua tarefa de codificação
 
-Nesta secção, é apresentado o código que adiciona uma notificação de webhook para uma tarefa. Também pode adicionar uma notificação de nível de tarefa, que poderia ser mais útil para uma tarefa com tarefas em cadeia.  
+Nesta secção, é mostrado o código que adiciona uma notificação webhook a uma Tarefa. Pode também adicionar uma notificação ao nível do emprego, o que seria mais útil para um trabalho com tarefas acorrentadas.  
 
-1. Crie uma nova Aplicação de Consola C# no Visual Studio. Introduza o nome do nome, a localização e a solução e, em seguida, clique em OK.
-2. Uso [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) para instalar serviços de multimédia do Azure.
-3. Atualize o ficheiro App. config com os valores apropriados: 
+1. Crie uma nova Aplicação de Consola C# no Visual Studio. Introduza o Nome, Localização e Nome da solução e, em seguida, clique em OK.
+2. Utilize o [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) para instalar o Azure Media Services.
+3. Atualizar ficheiro App.config com valores apropriados: 
     
-   * Informações de ligação de serviços de multimédia do Azure, 
-   * URL do webhook que espera para receber as notificações 
-   * a chave de assinatura que corresponda à chave que espera o webhook. A chave de assinatura é o valor de codificada em Base64 de 64 bytes que é utilizado para proteger e proteger seus retornos de chamada de webhooks dos serviços de multimédia do Azure. 
+   * Informações de ligação azure Media Services, 
+   * webhook URL que espera obter as notificações, 
+   * a chave de assinatura que corresponde à chave que o seu webhook espera. A chave de assinatura é o valor codificado base64 de 64 bytes que é usado para proteger e proteger os seus webhooks callbacks da Azure Media Services. 
 
      ```xml
            <appSettings>
@@ -399,7 +399,7 @@ Nesta secção, é apresentado o código que adiciona uma notificação de webho
            </appSettings>
      ```
 
-4. Atualize o ficheiro Program.cs com o código a seguir:
+4. Atualize o seu ficheiro Program.cs com o seguinte código:
 
     ```csharp
             using System;
@@ -516,7 +516,7 @@ Nesta secção, é apresentado o código que adiciona uma notificação de webho
             }
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

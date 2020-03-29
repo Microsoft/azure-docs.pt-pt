@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 4cd61619e0417ab1db8d8413872b2dff1c904fc1
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78970129"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Utilize o Azure PowerShell para criar um cluster HDInsight com o Azure Data Lake Storage Gen1 (como armazenamento adicional)
 
 > [!div class="op_single_selector"]
-> * [Utilizar o Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+> * [Usando o Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [Utilização do PowerShell (para armazenamento predefinido)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 > * [Utilização do PowerShell (para armazenamento adicional)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Usando o Gestor de Recursos](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
@@ -45,7 +45,7 @@ Aqui estão algumas considerações importantes para usar o HDInsight com data l
 
 Configurar o HDInsight para trabalhar com data Lake Storage Gen1 utilizando powerShell envolve os seguintes passos:
 
-* Criar uma conta Gen1 de Armazenamento de Data Lake
+* Criar uma conta do Data Lake Storage Gen1
 * Configurar a autenticação para acesso baseado em papéis ao Data Lake Storage Gen1
 * Criar cluster HDInsight com autenticação para Data Lake Storage Gen1
 * Executar um trabalho de teste no cluster
@@ -56,14 +56,14 @@ Configurar o HDInsight para trabalhar com data Lake Storage Gen1 utilizando powe
 
 Antes de começar este tutorial, tem de ter o seguinte:
 
-* **Uma subscrição do Azure**. Veja [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma subscrição Azure.** Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 ou superior**. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 * **Windows SDK**. Pode instalá-lo a partir [daqui](https://dev.windows.com/en-us/downloads). Usa isto para criar um certificado de segurança.
 * **Azure Ative Diretor de Serviço**de Diretório Ativo. Os passos neste tutorial fornecem instruções sobre como criar um diretor de serviço em Azure AD. No entanto, deve ser administrador da AD Azure para poder criar um diretor de serviço. Se for administrador da AD Azure, pode ignorar este pré-requisito e prosseguir com o tutorial.
 
     Se não for administrador da **AD Azure,** não poderá executar os passos necessários para criar um diretor de serviço. Neste caso, o seu administrador Azure AD deve primeiro criar um diretor de serviço antes de poder criar um cluster HDInsight com data Lake Storage Gen1. Além disso, o diretor de serviço deve ser criado com um certificado, conforme descrito na [Create a service principal com certificado](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).
 
-## <a name="create-a-data-lake-storage-gen1-account"></a>Criar uma conta Gen1 de Armazenamento de Data Lake
+## <a name="create-a-data-lake-storage-gen1-account"></a>Criar uma conta do Data Lake Storage Gen1
 Siga estes passos para criar uma conta Gen1 de Armazenamento de Data Lake.
 
 1. A partir do seu ambiente de trabalho, abra uma nova janela Azure PowerShell e introduza o seguinte corte. Quando for solicitado para iniciar sessão, certifique-se de que faz login como um dos administradores/proprietários de subscrição:
@@ -81,7 +81,7 @@ Siga estes passos para criar uma conta Gen1 de Armazenamento de Data Lake.
         Register-AzResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
    > [!NOTE]
-   > Se receber um erro semelhante ao `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` ao registar o fornecedor de recursos Data Lake Storage Gen1, é possível que a sua subscrição não esteja listada de forma branca para data Lake Storage Gen1. Certifique-se de que ativa a sua subscrição Azure para Data Lake Storage Gen1 seguindo estas [instruções](data-lake-store-get-started-portal.md).
+   > Se receber um erro `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` semelhante ao registar o fornecedor de recursos Data Lake Storage Gen1, é possível que a sua subscrição não esteja listada de forma branca para data Lake Storage Gen1. Certifique-se de que ativa a sua subscrição Azure para Data Lake Storage Gen1 seguindo estas [instruções](data-lake-store-get-started-portal.md).
    >
    >
 2. Uma conta de Data Lake Storage Gen1 está associada a um Grupo de Recursos Azure. Comece por criar um Grupo de Recursos do Azure.
@@ -89,7 +89,7 @@ Siga estes passos para criar uma conta Gen1 de Armazenamento de Data Lake.
         $resourceGroupName = "<your new resource group name>"
         New-AzResourceGroup -Name $resourceGroupName -Location "East US 2"
 
-    Devia ver uma saída como esta:
+    Deverá ver um resultado como este:
 
         ResourceGroupName : hdiadlgrp
         Location          : eastus2
@@ -138,7 +138,7 @@ Para configurar a autenticação do Diretório Ativo para data lake storage Gen1
 
 Certifique-se de que tem o [Windows SDK](https://dev.windows.com/en-us/downloads) instalado antes de avançar com as etapas desta secção. Você também deve ter criado um diretório, como **C:\mycertdir,** onde o certificado será criado.
 
-1. A partir da janela PowerShell, navegue até ao local onde instalou o Windows SDK (normalmente, `C:\Program Files (x86)\Windows Kits\10\bin\x86` e utilize o utilitário [MakeCert][makecert] para criar um certificado auto-assinado e uma chave privada. Utilize os seguintes comandos.
+1. A partir da janela PowerShell, navegue até ao local onde `C:\Program Files (x86)\Windows Kits\10\bin\x86` instalou o Windows SDK (normalmente, e utilize o utilitário [MakeCert][makecert] para criar um certificado auto-assinado e uma chave privada. Utilize os seguintes comandos.
 
         $certificateFileDir = "<my certificate directory>"
         cd $certificateFileDir
@@ -146,7 +146,7 @@ Certifique-se de que tem o [Windows SDK](https://dev.windows.com/en-us/downloads
         makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -r -len 2048
 
     Será solicitado a introduzir a senha de chave privada. Após a execução do comando com sucesso, deverá ver um **CertFile.cer** e **mykey.pvk** no diretório de certificados que especificou.
-2. Utilize o utilitário [Pvk2Pfx][pvk2pfx] para converter os ficheiros .pvk e .cer que a MakeCert criou para um ficheiro .pfx. Executar o seguinte comando.
+2. Utilize o utilitário [Pvk2Pfx][pvk2pfx] para converter os ficheiros .pvk e .cer que a MakeCert criou para um ficheiro .pfx. Execute o seguinte comando.
 
         pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
 
@@ -268,9 +268,9 @@ Isto deve listar o ficheiro que fez o upload anteriormente para data Lake Storag
     Found 1 items
     -rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestoragegen1.azuredatalakestore.net:443/mynewfolder
 
-Também pode usar o comando `hdfs dfs -put` para enviar alguns ficheiros para data Lake Storage Gen1, e depois usá-`hdfs dfs -ls` para verificar se os ficheiros foram carregados com sucesso.
+Também pode usar `hdfs dfs -put` o comando para enviar alguns ficheiros `hdfs dfs -ls` para data Lake Storage Gen1, e depois usar para verificar se os ficheiros foram carregados com sucesso.
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Veja também
 * [Utilize data lake storage Gen1 com clusters Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [Portal: Criar um cluster HDInsight para usar data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

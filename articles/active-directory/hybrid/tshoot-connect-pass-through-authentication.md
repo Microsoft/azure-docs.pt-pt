@@ -1,8 +1,8 @@
 ---
-title: 'Azure AD Connect: Resolver problemas de autenticação pass-through | Documentos da Microsoft'
-description: Este artigo descreve como resolver problemas de autenticação de pass-through do Azure Active Directory (Azure AD).
+title: 'Azure AD Connect: Troubleshoot Pass-through Authentication [ Microsoft Docs'
+description: Este artigo descreve como resolver problemas azure Ative Directory (Azure AD) Pass-through Authentication.
 services: active-directory
-keywords: Resolver problemas de autenticação de pass-through ligar do Azure AD, instalar o Active Directory, os componentes necessários para o Azure AD, SSO, Single Sign-on
+keywords: Troubleshoot Azure AD Connect Pass-through Authentication, instale Ative Directory, componentes necessários para Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
 manager: daveba
@@ -17,123 +17,123 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60456178"
 ---
-# <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Resolver problemas de autenticação de pass-through do Azure Active Directory
+# <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Resolver problemas da Autenticação Pass-through do Azure Active Directory
 
-Este artigo ajuda-o a localizar informações sobre problemas comuns em relação à autenticação pass-through do Azure AD de resolução de problemas.
+Este artigo ajuda-o a encontrar informações sobre questões comuns relativas à autenticação de passes ad ad.de Azure.
 
 >[!IMPORTANT]
->Se está a enfrentar problemas início de sessão do utilizador com a autenticação pass-through, não desative a funcionalidade ou desinstalar agentes de autenticação pass-through sem ter uma conta de Administrador Global apenas na cloud que recorrer. Saiba mais sobre [adicionar uma conta de Administrador Global apenas na cloud](../active-directory-users-create-azure-portal.md). Efetuar este passo é fundamental e garante que não fica bloqueado fora do seu inquilino.
+>Se estiver a enfrentar problemas de sessão de utilizador com autenticação pass-through, não desative a funcionalidade ou desinstale agentes de autenticação Pass-through sem ter uma conta global de administrador apenas na nuvem para recorrer. Saiba adicionar uma conta global [de administrador apenas](../active-directory-users-create-azure-portal.md)em nuvem. Fazer este passo é fundamental e garante que não se fica trancado fora do seu inquilino.
 
 ## <a name="general-issues"></a>Problemas gerais
 
-### <a name="check-status-of-the-feature-and-authentication-agents"></a>Verificar o estado da funcionalidade e os agentes de autenticação
+### <a name="check-status-of-the-feature-and-authentication-agents"></a>Verifique o estado da funcionalidade e dos agentes de autenticação
 
-Certifique-se de que a funcionalidade de autenticação pass-through é ainda **Enabled** no seu inquilino e o estado dos agentes de autenticação mostra **Active**e não **Inactive**. Pode verificar o estado ao aceder a **do Azure AD Connect** painel no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/).
+Certifique-se de que a funcionalidade de autenticação pass-through ainda está **ativada** no seu inquilino e o estado dos Agentes de Autenticação mostra **Ativo**, e não **Inativo**. Pode verificar o estado indo para a lâmina **Azure AD Connect** no centro de [administração do Diretório Ativo Azure](https://aad.portal.azure.com/).
 
-![Centro de administração do Active Directory do Azure – painel do Azure AD Connect](./media/tshoot-connect-pass-through-authentication/pta7.png)
+![Centro de administração de diretório sonâmático Azure - Lâmina Azure AD Connect](./media/tshoot-connect-pass-through-authentication/pta7.png)
 
-![Centro de administração do Active Directory do Azure – painel de autenticação pass-through](./media/tshoot-connect-pass-through-authentication/pta11.png)
+![Centro de administração de Diretório Ativo Azure - lâmina de autenticação pass-through](./media/tshoot-connect-pass-through-authentication/pta11.png)
 
-### <a name="user-facing-sign-in-error-messages"></a>Mensagens de erro de sessão de utilizador com acesso à
+### <a name="user-facing-sign-in-error-messages"></a>Mensagens de erro de sessão viradas para o utilizador
 
-Se o utilizador não consegue iniciar sessão utilizando a autenticação pass-through, poderá ver um dos seguintes erros destinada ao utilizador no ecrã de início de sessão do Azure AD: 
+Se o utilizador não conseguir iniciar a utilização da Autenticação Pass-through, poderá ver um dos seguintes erros virados para o utilizador no ecrã de entrada de AD Azure: 
 
 |Erro|Descrição|Resolução
 | --- | --- | ---
-|AADSTS80001|Não é possível ligar ao Active Directory|Certifique-se de que os servidores de agente são membros da mesma floresta do AD os utilizadores cujas palavras-passe tem de ser validado e podem ligar ao Active Directory.  
-|AADSTS8002|Tempo limite excedido ao ligar ao Active Directory|Verifique para se certificar de que o Active Directory está disponível e está a responder aos pedidos dos agentes.
+|AADSTS80001|Incapaz de ligar ao Diretório Ativo|Certifique-se de que os servidores do agente são membros da mesma floresta AD que os utilizadores cujas palavras-passe precisam de ser validadas e que são capazes de se conectar ao Ative Directory.  
+|AADSTS8002|Ocorreu um intervalo de tempo que liga vadia a Diretório Ativo|Verifique para se o Diretório Ativo está disponível e está a responder aos pedidos dos agentes.
 |AADSTS80004|O nome de utilizador passado para o agente não era válido|Certifique-se de que o utilizador está a tentar iniciar sessão com o nome de utilizador certo.
-|AADSTS80005|Validação encontrou WebException imprevisível|Um erro transitório. Repita o pedido. Se continuar a falhar, contacte o suporte da Microsoft.
-|AADSTS80007|Ocorreu um erro ao comunicar com o Active Directory|Verifique os registos do agente para obter mais informações e certifique-se de que do Active Directory está a funcionar conforme esperado.
+|AADSTS80005|Validação encontrou WebException imprevisível|Um erro transitório. Tente o pedido. Se continuar a falhar, contacte o suporte da Microsoft.
+|AADSTS800007|Ocorreu um erro de comunicação com o Diretório Ativo|Verifique se o agente regista mais informações e verifique se o Diretório Ativo está a funcionar como esperado.
 
-### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Motivos das falhas de início de sessão no Centro de administração do Azure Active Directory (necessita de licença Premium)
+### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Razões de insucesso no centro de administração do Diretório Ativo Azure (precisa de licença Premium)
 
-Se o seu inquilino tem uma licença do Azure AD Premium associada a ele, também pode ver o [relatório de atividade de início de sessão](../reports-monitoring/concept-sign-ins.md) sobre o [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/).
+Se o seu inquilino tiver uma licença Azure AD Premium associada a ela, também pode consultar o [relatório de atividades](../reports-monitoring/concept-sign-ins.md) de entrada no centro de [administração do Azure Ative Directory](https://aad.portal.azure.com/).
 
-![Centro de administração do Active Directory do Azure – relatório de inícios de sessão](./media/tshoot-connect-pass-through-authentication/pta4.png)
+![Centro de Administração de Diretórios Ativos azure - Relatório de inscrições](./media/tshoot-connect-pass-through-authentication/pta4.png)
 
-Navegue para **do Azure Active Directory** -> **inícios de sessão** no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/) e clique em atividades de início de sessão de um utilizador específico. Procure o **código de erro de início de sessão** campo. Mapear o valor deste campo a um motivo da falha e a resolução utilizando a seguinte tabela:
+Navegue para **o Azure Ative Directory** -> **Sign-ins** no centro de administração do [Azure Ative Directory](https://aad.portal.azure.com/) e clique na atividade de entrada de um utilizador específico. Procure o campo CÓDIGO DE **ERRO SIGN-IN.** Mapeie o valor desse campo para uma razão de falha e resolução utilizando a seguinte tabela:
 
-|Código de erro de início de sessão|Motivo da falha de início de sessão|Resolução
+|Código de erro de insessão|Razão de falha de inscrição|Resolução
 | --- | --- | ---
-| 50144 | A palavra-passe do Active Directory do utilizador expirou. | Redefinir a senha do usuário no Active Directory no local.
-| 80001 | Não existe nenhum Agente de Autenticação disponível. | Instale e Registre um agente de autenticação.
-| 80002 | O pedido de validação da palavra-passe do Agente de Autenticação atingiu o tempo limite. | Verifique se o Active Directory está acessível a partir do agente de autenticação.
-| 80003 | O Agente de Autenticação recebeu uma resposta inválida. | Se o problema possa ser reproduzido consistentemente em vários usuários, verifique a configuração do Active Directory.
-| 80004 | Foi utilizado um Nome Principal de Utilizador (UPN) no pedido de início de sessão. | Pedir ao utilizador para iniciar sessão com o nome de utilizador correto.
-| 80005 | Agente de autenticação: Ocorreu um erro. | Erro transitório. Tente novamente mais tarde.
-| 80007 | O Agente de Autenticação não se consegue ligar ao Active Directory. | Verifique se o Active Directory está acessível a partir do agente de autenticação.
-| 80010 | O Agente de Autenticação não conseguiu desencriptar a palavra-passe. | Se o problema for consistentemente reproduzível, instalar e registar um novo agente de autenticação. E desinstalar atual. 
-| 80011 | O Agente de Autenticação não conseguiu obter a chave de desencriptação. | Se o problema for consistentemente reproduzível, instalar e registar um novo agente de autenticação. E desinstalar atual.
+| 50144 | A palavra-passe do Active Directory do utilizador expirou. | Reponha a palavra-passe do utilizador no seu Diretório Ativo no local.
+| 80001 | Não existe nenhum Agente de Autenticação disponível. | Instale e registe um Agente de Autenticação.
+| 80002 | O pedido de validação da palavra-passe do Agente de Autenticação atingiu o tempo limite. | Verifique se o seu Diretório Ativo está acessível a partir do Agente de Autenticação.
+| 80003 | O Agente de Autenticação recebeu uma resposta inválida. | Se o problema for consistentemente reprodutível em vários utilizadores, verifique a configuração do Diretório Ativo.
+| 80004 | Foi utilizado um Nome Principal de Utilizador (UPN) no pedido de início de sessão. | Peça ao utilizador que faça o seu insto com o nome de utilizador correto.
+| 80005 | Agente de Autenticação: ocorreu um erro. | Erro transitório. Tente novamente mais tarde.
+| 80007 | O Agente de Autenticação não se consegue ligar ao Active Directory. | Verifique se o seu Diretório Ativo está acessível a partir do Agente de Autenticação.
+| 80010 | O Agente de Autenticação não conseguiu desencriptar a palavra-passe. | Se o problema for consistentemente reprodutível, instale e registe um novo Agente de Autenticação. E desinstalar o atual. 
+| 80011 | O Agente de Autenticação não conseguiu obter a chave de desencriptação. | Se o problema for consistentemente reprodutível, instale e registe um novo Agente de Autenticação. E desinstalar o atual.
 
 >[!IMPORTANT]
->Agentes de autenticação pass-through autenticar utilizadores do Azure AD, validando seus nomes de utilizador e palavras-passe no Active Directory ao chamar o [API do Win32 LogonUser](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Como resultado, se tiver definido a definição de "Início de sessão para" no Active Directory para limitar o acesso de início de sessão da estação de trabalho, terá de adicionar servidores que alojam os agentes de autenticação pass-through para a lista de "Início de sessão para" servidores também. Isso não for feito irá bloquear os utilizadores de iniciar sessão no Azure AD.
+>Os agentes de autenticação pass-through autenticam os utilizadores de AD Azure validando os seus nomes de utilizador e palavras-passe contra o Diretório Ativo, ligando para a [Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Como resultado, se tiver definido a definição "Logon To" no Ative Directory para limitar o acesso ao logon da estação de trabalho, terá de adicionar servidores que hospedam agentes de autenticação pass-through na lista de servidores "Logon To". Se não o fizer, os seus utilizadores vão impedir que os seus utilizadores se inscrevam no Azure AD.
 
-## <a name="authentication-agent-installation-issues"></a>Problemas de instalação do agente de autenticação
-
-### <a name="an-unexpected-error-occurred"></a>Ocorreu um erro inesperado
-
-[Recolher registos de agente](#collecting-pass-through-authentication-agent-logs) partir do servidor e contacte Support da Microsoft por seu problema.
-
-## <a name="authentication-agent-registration-issues"></a>Problemas de registo do agente de autenticação
-
-### <a name="registration-of-the-authentication-agent-failed-due-to-blocked-ports"></a>Falha no registo do agente de autenticação devido a portas bloqueadas
-
-Certifique-se de que o servidor em que tenha sido instalado o agente de autenticação pode comunicar com o nosso serviço URLs e portas listadas [aqui](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites).
-
-### <a name="registration-of-the-authentication-agent-failed-due-to-token-or-account-authorization-errors"></a>Falha no registo do agente de autenticação devido a erros de autorização de token ou uma conta
-
-Certifique-se de que utiliza uma conta de Administrador Global apenas na cloud para o Azure AD Connect ou instalação de agente de autenticação autónoma e operações de registo. Existe um problema conhecido com contas de Administrador Global a MFA ativada; Desative temporariamente MFA (apenas para concluir as operações) como uma solução alternativa.
+## <a name="authentication-agent-installation-issues"></a>Problemas de instalação do Agente de Autenticação
 
 ### <a name="an-unexpected-error-occurred"></a>Ocorreu um erro inesperado
 
-[Recolher registos de agente](#collecting-pass-through-authentication-agent-logs) partir do servidor e contacte Support da Microsoft por seu problema.
+[Recolher registos](#collecting-pass-through-authentication-agent-logs) de agentes no servidor e contactar o Microsoft Support com o seu problema.
 
-## <a name="authentication-agent-uninstallation-issues"></a>Problemas de desinstalação de agente de autenticação
+## <a name="authentication-agent-registration-issues"></a>Problemas de registo do Agente de Autenticação
 
-### <a name="warning-message-when-uninstalling-azure-ad-connect"></a>Mensagem de aviso quando desinstalar o Azure AD Connect
+### <a name="registration-of-the-authentication-agent-failed-due-to-blocked-ports"></a>Registo do Agente de Autenticação falhou devido a portas bloqueadas
 
-Se tiver a autenticação pass-through ativada no seu inquilino e tentar desinstalar o Azure AD Connect, mostra-lhe a seguinte mensagem de aviso: "Os utilizadores não serão capazes de início de sessão para o Azure AD a menos que tenha outros agentes de autenticação pass-through instalados em outros servidores."
+Certifique-se de que o servidor no qual o Agente de Autenticação foi instalado pode comunicar com os URLs de serviço e portas [aqui](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites)listadas .
 
-Certifique-se de que a configuração está [elevada disponibilidade](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability) antes de desinstalar o Azure AD Connect para evitar a quebra de sessão do utilizador.
+### <a name="registration-of-the-authentication-agent-failed-due-to-token-or-account-authorization-errors"></a>Registo do Agente de Autenticação falhou devido a erros de autorização de conta ou de token
 
-## <a name="issues-with-enabling-the-feature"></a>Problemas relacionados com a habilitação do recurso
+Certifique-se de que utiliza uma conta de Administrador Global apenas em nuvem para todas as operações de instalação e registo do Agente de Autenticação Azure AD Ou autónoma. Existe uma questão conhecida com contas de Administrador Global ativadas pelo MFA; desligar o MFA temporariamente (apenas para completar as operações) como uma suver.
 
-### <a name="enabling-the-feature-failed-because-there-were-no-authentication-agents-available"></a>A habilitação do recurso falhou porque não havia nenhum agentes de autenticação disponíveis
+### <a name="an-unexpected-error-occurred"></a>Ocorreu um erro inesperado
 
-Tem de ter, pelo menos, um agente de autenticação para ativar a autenticação pass-through no inquilino do Active Directory. Pode instalar um agente de autenticação por instalar o Azure AD Connect ou autónomo o agente de autenticação.
+[Recolher registos](#collecting-pass-through-authentication-agent-logs) de agentes no servidor e contactar o Microsoft Support com o seu problema.
 
-### <a name="enabling-the-feature-failed-due-to-blocked-ports"></a>A habilitação do recurso falhou devido a portas bloqueadas
+## <a name="authentication-agent-uninstallation-issues"></a>Problemas de instalação do Agente de Autenticação
 
-Certifique-se de que o servidor no qual está instalado o Azure AD Connect consegue comunicar com o nosso serviço URLs e portas listadas [aqui](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites).
+### <a name="warning-message-when-uninstalling-azure-ad-connect"></a>Mensagem de aviso ao desinstalar o Azure AD Connect
 
-### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>A habilitação do recurso falhou devido a erros de autorização do token ou uma conta
+Se tiver a Autenticação Pass-through ativada no seu inquilino e tentar desinstalar o Azure AD Connect, mostra-lhe a seguinte mensagem de aviso: "Os utilizadores não poderão iniciar sessão no Azure AD a menos que tenha outros agentes de autenticação pass-through instalados em outros servidores.
 
-Certifique-se de que utilize uma conta de Administrador Global apenas na cloud quando a habilitação do recurso. Existe um problema conhecido com a autenticação multifator (MFA)-ativado as contas de Administrador Global; Desative temporariamente MFA (apenas para concluir a operação) como uma solução alternativa.
+Certifique-se de que a sua configuração está [altamente disponível](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability) antes de desinstalar o Azure AD Connect para evitar a quebra de entrada do utilizador.
 
-## <a name="collecting-pass-through-authentication-agent-logs"></a>Recolher registos do agente de autenticação pass-through
+## <a name="issues-with-enabling-the-feature"></a>Problemas com a ativação da funcionalidade
 
-Dependendo do tipo de problema que pode ter, terá de ter um aspeto em locais diferentes para os registos do agente de autenticação pass-through.
+### <a name="enabling-the-feature-failed-because-there-were-no-authentication-agents-available"></a>Ativar a funcionalidade falhou porque não havia agentes de autenticação disponíveis
 
-### <a name="azure-ad-connect-logs"></a>Registos do Azure AD Connect
+Você precisa ter pelo menos um Agente de Autenticação ativo para ativar a autenticação pass-through no seu inquilino. Pode instalar um Agente de Autenticação instalando o Azure AD Connect ou um Agente de Autenticação autónomo.
 
-Para erros relacionados com a instalação, verifique os registos do Azure AD Connect em **%ProgramData%\AADConnect\trace-\*. log**.
+### <a name="enabling-the-feature-failed-due-to-blocked-ports"></a>Permitir que a funcionalidade falhou devido a portas bloqueadas
 
-### <a name="authentication-agent-event-logs"></a>Registos de eventos do agente de autenticação
+Certifique-se de que o servidor no qual o Azure AD Connect está instalado pode comunicar com os urLs de serviço e portas listados [aqui](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites).
 
-Para erros relacionados com o agente de autenticação, abra a aplicação de Visualizador de eventos no servidor e verifique sob **aplicação e serviço Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
+### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>Permitir que a funcionalidade falhou devido a erros de autorização de token ou conta
 
-Análises detalhadas, ative o registo de "Session" (botão direito do mouse no aplicativo Visualizador de eventos para encontrar esta opção). Não execute o agente de autenticação com este registo ativado durante operações normais; Utilize apenas para resolução de problemas. Os conteúdos dos registos são visíveis apenas após o registo está desativado novamente.
+Certifique-se de que utiliza uma conta global de administrador apenas na nuvem ao ativar a funcionalidade. Existe uma questão conhecida com contas de autenticação global ativadas por multifactor (MFA); desligar o MFA temporariamente (apenas para completar a operação) como uma suver.
 
-### <a name="detailed-trace-logs"></a>Logs de rastreamento detalhadas
+## <a name="collecting-pass-through-authentication-agent-logs"></a>Recolha de registos do Agente de Autenticação Pass-through
 
-Para resolver falhas de início de sessão de utilizador, procure os registos de rastreio no **%ProgramData%\Microsoft\Azure AD ligar Agent\Trace de autenticação\\** . Estes registos incluem motivos por que um utilizador específico início de sessão falhou ao utilizar a funcionalidade de autenticação pass-through. Estes erros também são mapeados para os motivos das falhas de início de sessão mostrados na tabela de motivos de falhas de início de sessão anterior. Segue-se uma entrada de registo de exemplo:
+Dependendo do tipo de problema que possa ter, precisa procurar em diferentes locais para registos de agentes de autenticação pass-through.
+
+### <a name="azure-ad-connect-logs"></a>Registos azure AD Connect
+
+Para detetar erros relacionados com a instalação, verifique os registos azure AD Connect em **%ProgramData%\AADConnect\trace-\*.log**.
+
+### <a name="authentication-agent-event-logs"></a>Registos de eventos do Agente de Autenticação
+
+Para erros relacionados com o Agente de Autenticação, abra a aplicação do Espectador de Eventos no servidor e verifique em Registos de **Aplicação e Serviço\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
+
+Para análises detalhadas, ative o registo "Session" (clique à direita dentro da aplicação Do Espectador do Evento para encontrar esta opção). Não execute o Agente de Autenticação com este registo ativado durante as operações normais; usar apenas para resolução de problemas. O conteúdo do registo só é visível depois de o registo ser desativado novamente.
+
+### <a name="detailed-trace-logs"></a>Registos de vestígios detalhados
+
+Para resolver falhas de registo do utilizador, procure registos de rastreio em **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. Estes registos incluem razões pelas quais um utilizador específico falhou na utilização da funcionalidade de Autenticação Pass-through. Estes erros também estão mapeados para as razões de falha de inscrição apresentadas na tabela de razões de falha de inscrição anteriores. Segue-se uma entrada de registo de exemplo:
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
@@ -141,15 +141,15 @@ Para resolver falhas de início de sessão de utilizador, procure os registos de
         DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
 
-Pode obter descritivos detalhes do erro ("1328" no exemplo anterior) abrindo o prompt de comando e executar o seguinte comando (tenha em atenção: Substitua '1328' com o número de erro real que vê nos seus registos):
+Pode obter detalhes descritivos do erro ('1328' no exemplo anterior) abrindo o pedido de comando e executando o seguinte comando (Nota: Substitua '1328' pelo número real de erro que vê nos seus registos):
 
 `Net helpmsg 1328`
 
 ![Autenticação pass-through](./media/tshoot-connect-pass-through-authentication/pta3.png)
 
-### <a name="domain-controller-logs"></a>Registos de controlador de domínio
+### <a name="domain-controller-logs"></a>Registos do Controlador de Domínio
 
-Se o registo de auditoria é ativado, pode encontrar informações adicionais nos registos de segurança dos seus controladores de domínio. Uma forma simples de início de sessão pedidos enviados pelos agentes de autenticação pass-through de consulta é o seguinte:
+Se o registo de auditoria estiver ativado, podem ser encontradas informações adicionais nos registos de segurança dos seus Controladores de Domínio. Uma forma simples de consultar pedidos de inscrição enviados por Agentes de Autenticação Pass-through é a seguinte:
 
 ```
     <QueryList>
@@ -159,11 +159,11 @@ Se o registo de auditoria é ativado, pode encontrar informações adicionais no
     </QueryList>
 ```
 
-## <a name="performance-monitor-counters"></a>Contadores de Monitor de desempenho
+## <a name="performance-monitor-counters"></a>Contadores de Monitor de Desempenho
 
-Outra forma para monitorizar os agentes de autenticação é controlar os contadores de Monitor de desempenho específicos em cada servidor onde está instalado o agente de autenticação. Utilize os seguintes contadores Global (**autenticações # PTA**, **#PTA falha autenticações** e **autenticações efetuadas com êxito de #PTA**) e contadores de erro (**Erros de autenticação # PTA**):
+Outra forma de monitorizar os Agentes de Autenticação é rastrear contadores específicos do Monitor de Desempenho em cada servidor onde o Agente de Autenticação está instalado. Utilize os seguintes contadores Globais (**# autenticações PTA,** **#PTA autenticações falhadas** e **#PTA autenticações bem sucedidas)** e contadores de erros (# erros de**autenticação PTA):**
 
-![Contadores de Monitor de desempenho de autenticação pass-through](./media/tshoot-connect-pass-through-authentication/pta12.png)
+![Contadores de monitores de desempenho de autenticação pass-through](./media/tshoot-connect-pass-through-authentication/pta12.png)
 
 >[!IMPORTANT]
->Autenticação pass-through fornece elevada disponibilidade através de vários agentes de autenticação, e _não_ balanceamento de carga. Consoante a configuração, _não_ todos os seus agentes de autenticação de recebimento aproximadamente _igual_ número de pedidos. É possível que um agente de autenticação específico recebe tráfego não de todo.
+>A Autenticação Pass-through proporciona uma elevada disponibilidade utilizando vários Agentes de Autenticação e não o equilíbrio _de_ carga. Dependendo da sua configuração, _nem_ todos os seus Agentes de Autenticação recebem aproximadamente o _mesmo_ número de pedidos. É possível que um Agente de Autenticação específico não receba qualquer tráfego.

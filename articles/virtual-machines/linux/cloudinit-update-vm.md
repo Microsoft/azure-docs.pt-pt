@@ -7,17 +7,17 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: cynthn
 ms.openlocfilehash: 7b7a03572a001fc6d5114635b33510f1a4b1bc70
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969142"
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>Use cloud-init para atualizar e instalar pacotes num VM Linux em Azure
 Este artigo mostra-lhe como usar [cloud-init](https://cloudinit.readthedocs.io) para atualizar pacotes em uma máquina virtual Linux (VM) ou conjuntos de escala de máquina virtual no tempo de provisionamento em Azure. Estes scripts de cloud-init funcionam na primeira bota uma vez que os recursos foram aprovisionados pelo Azure. Para mais informações sobre como o cloud-init funciona nativamente em Azure e os distros linux suportados, consulte a [visão geral cloud-init](using-cloud-init.md)
 
 ## <a name="update-a-vm-with-cloud-init"></a>Atualizar um VM com cloud-init
-Para fins de segurança, é possível configurar um VM para aplicar as últimas atualizações na primeira bota. Como o cloud-init funciona em diferentes distros Linux, não há necessidade de especificar `apt` ou `yum` para o gestor do pacote. Em vez disso, define `package_upgrade` e deixa que o processo de inite de nuvem determine o mecanismo adequado para a distro em uso. Este fluxo de trabalho permite-lhe usar os mesmos scripts de cloud-init através de distros.
+Para fins de segurança, é possível configurar um VM para aplicar as últimas atualizações na primeira bota. Como o cloud-init funciona em diferentes distros `apt` Linux, não há necessidade de especificar ou `yum` para o gestor de pacotes. Em vez `package_upgrade` disso, define e deixa que o processo de inite em nuvem determine o mecanismo adequado para o distro em uso. Este fluxo de trabalho permite-lhe usar os mesmos scripts de cloud-init através de distros.
 
 Para ver o processo de atualização em ação, crie um ficheiro na sua concha atual chamado *cloud_init_upgrade.txt* e cola a seguinte configuração. Para este exemplo, crie o ficheiro na Cloud Shell e não na sua máquina local. Pode utilizar qualquer editor que desejar. Introduza `sensible-editor cloud_init_upgrade.txt` para criar o ficheiro e ver uma lista dos editores disponíveis. Escolha #1 para usar o **editor nano.** Certifique-se de que todo o ficheiro cloud-init é copiado corretamente, especialmente a primeira linha.  
 
@@ -34,7 +34,7 @@ Antes de implementar esta imagem, precisa criar um grupo de recursos com o [grup
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora, crie um VM com [az vm criar](/cli/azure/vm) e especificar o ficheiro cloud-init com `--custom-data cloud_init_upgrade.txt` seguinte:
+Agora, crie um VM com [az vm criar](/cli/azure/vm) `--custom-data cloud_init_upgrade.txt` e especificar o ficheiro cloud-init com o seguinte:
 
 ```azurecli-interactive 
 az vm create \
@@ -57,7 +57,7 @@ Execute a ferramenta de gestão de pacotes e verifique se há atualizações.
 sudo yum update
 ```
 
-Como o cloud-init verificou e instalou atualizações no arranque, não deve haver atualizações adicionais a aplicar.  Você vê o processo de atualização, o número de pacotes alterados, bem como a instalação de `httpd` executando `yum history` e revê a saída semelhante à abaixo.
+Como o cloud-init verificou e instalou atualizações no arranque, não deve haver atualizações adicionais a aplicar.  Você vê o processo de atualização, número de `httpd` pacotes `yum history` alterados, bem como a instalação de executando e revendo a saída semelhante à abaixo.
 
 ```bash
 Loaded plugins: fastestmirror, langpacks

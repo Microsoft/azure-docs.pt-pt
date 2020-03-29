@@ -1,20 +1,20 @@
 ---
-title: Metas de escalabilidade e desempenho para discos VM no Linux
+title: Metas de escalabilidade e desempenho para discos de VM no Linux
 description: Aprenda sobre a escalabilidade e os alvos de desempenho para discos de máquinas virtuais ligados aos VMs que executam o Linux.
 author: roygara
 ms.author: rogarana
 ms.date: 11/15/2017
 ms.topic: conceptual
-ms.service: virtual-machines
+ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 22df303882e9035fef5041606b6b4b809c1570a3
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 7298b54d94effaa5bd7e600ec2d8d1045aa263ec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78970436"
 ---
-# <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Metas de escalabilidade e desempenho para discos VM no Linux
+# <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Metas de escalabilidade e desempenho para discos de VM no Linux
 
 [!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
 

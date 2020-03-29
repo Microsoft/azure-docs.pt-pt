@@ -9,15 +9,15 @@ ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
 ms.openlocfilehash: aa0dc204a017e2d40eb3952a9ede0755127f8de2
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78970663"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>Encriptação de disco azure em uma rede isolada
 
-Quando a conectividade é restringida por uma firewall, o requisito de proxy ou definições de grupo (NSG) de segurança de rede, a capacidade da extensão para efetuar tarefas necessárias pode ser interrompida. Este interrupção pode resultar em mensagens de estado, tais como o "Estado da extensão não está disponível na VM."
+Quando a conectividade é restringida por uma firewall, requisito de procuração ou configurações de grupo de segurança de rede (NSG), a capacidade da extensão para executar as tarefas necessárias pode ser interrompida. Esta perturbação pode resultar em mensagens de estado como "Estado de extensão não disponível no VM".
 
 ## <a name="package-management"></a>Gestão de pacotes
 
@@ -32,7 +32,7 @@ Aqui estão os pacotes necessários para cada distribuição. Para obter uma lis
 - **RedHat 6.8**: lsscsi, psmisc, lvm2, uuide, at, patch, cryptsetup-reencrypt
 - **aberturaSUSE 42.3, SLES 12-SP4, 12-SP3**: lsscsi, criptosetup
 
-Em Red Hat, quando um proxy for necessário, deve certificar-se de que o Gestor de subscrições e yum estão configuradas corretamente. Para mais informações, consulte Como resolver problemas de [subscrição-manager e problemas de yum](https://access.redhat.com/solutions/189533).  
+No Red Hat, quando é necessário um proxy, deve certificar-se de que o gestor de subscrição e o yum estão configurados corretamente. Para mais informações, consulte Como resolver problemas de [subscrição-manager e problemas de yum](https://access.redhat.com/solutions/189533).  
 
 Quando as embalagens são instaladas manualmente, também devem ser atualizadas manualmente à medida que novas versões forem lançadas.
 
@@ -47,7 +47,7 @@ Quando a encriptação está a ser ativada com [credenciais De AD Azure,](disk-e
 
 ### <a name="azure-instance-metadata-service"></a>Serviço de Metadados de Instância Azure 
 
-A máquina virtual deve poder aceder ao ponto final do [serviço de metadados de instância](instance-metadata-service.md) seletiva, que utiliza um endereço IP não resaída conhecido (`169.254.169.254`) que só pode ser acedido a partir do VM.  As configurações proxy que alteram o tráfego local http para este endereço (por exemplo, adicionar um cabeçalho X-Forwarded-For) não são suportadas.
+A máquina virtual deve poder aceder ao ponto final do [serviço de metadados de instância](instance-metadata-service.md) `169.254.169.254`seletiva, que utiliza um endereço IP não resaída conhecido ( ) que só pode ser acedido a partir do VM.  As configurações proxy que alteram o tráfego local http para este endereço (por exemplo, adicionar um cabeçalho X-Forwarded-For) não são suportadas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

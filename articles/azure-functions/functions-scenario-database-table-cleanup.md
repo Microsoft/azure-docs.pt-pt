@@ -5,17 +5,17 @@ ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.openlocfilehash: 2e3f53943d45e90b8aff8e386ce8d0e28670673f
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79366819"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Utilize funções Azure para ligar a uma base de dados Azure SQL
 
-Este artigo mostra-lhe como usar funções Azure para criar um trabalho programado que se conecta a uma Base de Dados Azure SQL ou a Instância Gerida Azure SQL. O código de função limpa as linhas numa tabela na base de dados. A C# nova função é criada com base num modelo de gatilho pré-definido no Estúdio Visual 2019. Para suportar este cenário, também deve definir uma cadeia de ligação de base de dados como uma definição de aplicação na aplicação de função. Para o Azure SQL Managed Instance, é necessário permitir que o [ponto final público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) possa ligar-se a partir das Funções Azure. Este cenário utiliza uma operação a granel contra a base de dados. 
+Este artigo mostra-lhe como usar funções Azure para criar um trabalho programado que se conecta a uma Base de Dados Azure SQL ou a Instância Gerida Azure SQL. O código de função limpa as linhas numa tabela na base de dados. A nova função C# é criada com base num modelo de gatilho pré-definido no Estúdio Visual 2019. Para suportar este cenário, também deve definir uma cadeia de ligação de base de dados como uma definição de aplicação na aplicação de função. Para o Azure SQL Managed Instance, é necessário permitir que o [ponto final público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) possa ligar-se a partir das Funções Azure. Este cenário utiliza uma operação a granel contra a base de dados. 
 
-Se esta é a C# sua primeira experiência a trabalhar com Funções, deve ler a referência do desenvolvedor de [Funções C# Azure](functions-dotnet-class-library.md).
+Se esta é a sua primeira experiência a trabalhar com funções C#, deve ler a referência do desenvolvedor das [Funções Azure C#](functions-dotnet-class-library.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,13 +29,13 @@ Se esta é a C# sua primeira experiência a trabalhar com Funções, deve ler a 
 
 Tem de obter a cadeia de ligação para a base de dados criada quando completou A [Create a Azure SQL base](../sql-database/sql-database-get-started-portal.md)de dados no portal Azure .
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 1. Selecione Bases de **dados SQL** do menu à esquerda e selecione a sua base de dados na página de bases de **dados SQL.**
 
 1. Selecione as cordas de **ligação** em **Definições** e copie a cadeia de ligação completa **ADO.NET.** Para o fio de ligação de cópia de cópia azure SQL Managed Instance para ponto final público.
 
-    ![Copie a cadeia de ligação ADO.NET.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
+    ![Copie a cadeia de ligação de ADO.NET.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
 ## <a name="set-the-connection-string"></a>Definir a cadeia de ligação
 
@@ -43,11 +43,11 @@ Uma aplicação de função aloja a execução das suas funções no Azure. Como
 
 Deve ter publicado previamente a sua aplicação para o Azure. Se ainda não o fez, [publique a sua aplicação de funções no Azure](functions-develop-vs.md#publish-to-azure).
 
-1. No Solution Explorer, clique no projeto da aplicação de funções e escolha **publicar** > editar definições do Serviço de **Aplicações Azure**. **Selecione adicionar definição**, em novo nome de definição de **aplicações**, digite `sqldb_connection`, e selecione **OK**.
+1. No Solution Explorer, clique no projeto da aplicação de funções e escolha **as** > definições do Serviço de**Aplicações Edit Edição Azure**. **Selecione adicionar definição**, `sqldb_connection`em novo nome de definição de **aplicações**, escreva , e selecione **OK**.
 
     ![Definições de aplicação para a aplicação de funções.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
-1. Na nova definição **de sqldb_connection,** colhe a cadeia de ligação que copiou na secção anterior no campo **Local** e substitua `{your_username}` e `{your_password}` espaços por valores reais. Selecione **Inserir valor a partir do local** para copiar o valor atualizado no campo **Remoto** e, em seguida, selecione **OK**.
+1. No novo cenário **sqldb_connection,** colhe a cadeia de ligação que copiou `{your_password}` na secção anterior no campo **Local** e substitua `{your_username}` e coloque os espaços por valores reais. Selecione **Inserir valor a partir do local** para copiar o valor atualizado no campo **Remoto** e, em seguida, selecione **OK**.
 
     ![Adicione a definição de corda de ligação SQL.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings-connection-string.png)
 
@@ -63,19 +63,19 @@ Você precisa adicionar o pacote NuGet que contém a biblioteca SqlClient. Esta 
 
 1. No separador **Procurar**, procure ```System.Data.SqlClient``` e, quando o encontrar, selecione-o.
 
-1. Na página **System.Data.SqlClient,** selecione versão `4.5.1` e, em seguida, clique em **Instalar**.
+1. Na página **System.Data.SqlClient,** `4.5.1` selecione a versão e, em seguida, clique em **Instalar**.
 
 1. Quando a instalação estiver concluída, reveja as alterações e, em seguida, clique em **OK** para fechar a janela **Pré-visualização**.
 
 1. Se for apresentada uma janela **Aceitação de Licença**, clique em **Aceito**.
 
-Agora, pode adicionar C# o código de função que se liga à sua Base de Dados SQL.
+Agora, pode adicionar o código de função C# que se liga à sua Base de Dados SQL.
 
 ## <a name="add-a-timer-triggered-function"></a>Adicionar uma função acionada por temporizador
 
-1. No Solution Explorer, clique no projeto da aplicação de funções e escolha **Adicionar** > **função New Azure**.
+1. No Solution Explorer, clique no projeto da aplicação de funções e escolha **adicionar** > **a função Add New Azure**.
 
-1. Com o modelo **funções Azure** selecionado, nomeie o novo item como `DatabaseCleanup.cs` e selecione **Adicionar**.
+1. Com o modelo **funções Azure** selecionado, nomeie o novo item algo como `DatabaseCleanup.cs` e selecione **Adicionar**.
 
 1. Na caixa de diálogo de **função New Azure,** escolha o **gatilho do Temporizador** **e,** em seguida, OK . Este diálogo cria um ficheiro de código para a função acionada pelo temporizador.
 
@@ -86,7 +86,7 @@ Agora, pode adicionar C# o código de função que se liga à sua Base de Dados 
     using System.Threading.Tasks;
     ```
 
-1. Substitua a função `Run` existente pelo seguinte código:
+1. Substitua a `Run` função existente pelo seguinte código:
 
     ```cs
     [FunctionName("DatabaseCleanup")]
@@ -110,7 +110,7 @@ Agora, pode adicionar C# o código de função que se liga à sua Base de Dados 
     }
     ```
 
-    Esta função funciona a cada 15 segundos para atualizar a coluna `Status` com base na data da nave. Para saber mais sobre o gatilho do Temporizador, consulte o gatilho do [Temporizador para funções Azure](functions-bindings-timer.md).
+    Esta função funciona a cada `Status` 15 segundos para atualizar a coluna com base na data da nave. Para saber mais sobre o gatilho do Temporizador, consulte o gatilho do [Temporizador para funções Azure](functions-bindings-timer.md).
 
 1. Pressione **F5** para iniciar a aplicação de funções. A janela de execução de [Ferramentas Core Funções Azur do Azure](functions-develop-local.md) abre-se atrás do Estúdio Visual.
 
@@ -118,9 +118,9 @@ Agora, pode adicionar C# o código de função que se liga à sua Base de Dados 
 
     ![Ver os registos de função.](./media/functions-scenario-database-table-cleanup/function-execution-results-log.png)
 
-    Na primeira execução, deve atualizar 32 linhas de dados. Após as execuções, a atualização de nenhuma linha de dados, a menos que efaça alterações nos dados da tabela SalesOrderHeader para que mais linhas sejam selecionadas pela declaração `UPDATE`.
+    Na primeira execução, deve atualizar 32 linhas de dados. Após as execuções, a atualização de nenhuma linha de dados, a menos que `UPDATE` efaça alterações nos dados da tabela SalesOrderHeader para que mais linhas sejam selecionadas pela declaração.
 
-Se pretende [publicar esta função,](functions-develop-vs.md#publish-to-azure)lembre-se de alterar o `TimerTrigger` atributo a um [cron horário](functions-bindings-timer.md#ncrontab-expressions) mais razoável do que a cada 15 segundos.
+Se pretender [publicar esta função,](functions-develop-vs.md#publish-to-azure) `TimerTrigger` lembre-se de alterar o atributo para um [cron mais](functions-bindings-timer.md#ncrontab-expressions) razoável do que a cada 15 segundos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

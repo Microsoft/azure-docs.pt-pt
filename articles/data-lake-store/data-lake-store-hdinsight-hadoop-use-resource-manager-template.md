@@ -1,6 +1,6 @@
 ---
-title: Utilizar modelos do Azure para criar o HDInsight com Gen1 de armazenamento do Azure Data Lake | Documentos da Microsoft
-description: Utilizar modelos Azure Resource Manager para criar e utilizar clusters do HDInsight com Gen1 de armazenamento do Azure Data Lake
+title: Utilize modelos Azure para criar HDInsight com Azure Data Lake Storage Gen1 [ Microsoft Docs
+description: Utilize modelos do Gestor de Recursos Azure para criar e utilizar clusters HDInsight com O Armazenamento de Lagos Azure Gen1
 services: data-lake-store,hdinsight
 documentationcenter: ''
 author: twooley
@@ -13,34 +13,34 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: b09ca2cc358107c5f95fe3426351d380380db3c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66161378"
 ---
-# <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Criar um cluster do HDInsight com a geração 1 de armazenamento do Azure Data Lake com o modelo Azure Resource Manager
+# <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Crie um cluster HDInsight com Azure Data Lake Storage Gen1 usando o modelo de Gestor de Recursos Azure
 > [!div class="op_single_selector"]
-> * [Utilizar o Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [Com o PowerShell (para o armazenamento predefinido)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-> * [Com o PowerShell (para armazenamento adicional)](data-lake-store-hdinsight-hadoop-use-powershell.md)
-> * [Com o Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+> * [Usando o Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+> * [Utilização do PowerShell (para armazenamento predefinido)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [Utilização do PowerShell (para armazenamento adicional)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [Usando o Gestor de Recursos](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >
 
-Saiba como utilizar o Azure PowerShell para configurar um cluster do HDInsight com o Azure Data Lake Storage Gen1, **como armazenamento adicional**.
+Aprenda a usar o Azure PowerShell para configurar um cluster HDInsight com o Azure Data Lake Storage Gen1, **como armazenamento adicional**.
 
-Para tipos de cluster suportadas, a geração 1 de armazenamento do Data Lake pode ser utilizado como armazenamento predefinido ou conta de armazenamento adicional. Quando Gen1 de armazenamento do Data Lake é utilizado como armazenamento adicional, a conta de armazenamento predefinida para os clusters continuarão a estar Blobs de armazenamento do Azure (WASB) e os ficheiros relacionados com o cluster (por exemplo, registos, etc.) ainda são escritos para o armazenamento predefinido, enquanto os dados que pretende processo pode ser armazenado numa conta de geração 1 de armazenamento do Data Lake. Com a geração 1 de armazenamento do Data Lake como uma conta de armazenamento adicional não afeta desempenho ou a capacidade de leitura/escrita para o armazenamento do cluster.
+Para tipos de cluster suportados, o Data Lake Storage Gen1 pode ser usado como uma conta de armazenamento padrão ou adicional. Quando o Data Lake Storage Gen1 é usado como armazenamento adicional, a conta de armazenamento padrão para os clusters continuará a ser Blobs de Armazenamento Azure (WASB) e os ficheiros relacionados com o cluster (como registos, etc.) ainda estão escritos para o armazenamento predefinido, enquanto os dados que pretende o processo pode ser armazenado numa conta Gen1 de Armazenamento de Data Lake. A utilização do Data Lake Storage Gen1 como uma conta de armazenamento adicional não afeta o desempenho nem a capacidade de ler/escrever para o armazenamento do cluster.
 
-## <a name="using-data-lake-storage-gen1-for-hdinsight-cluster-storage"></a>Utilizar a geração 1 de armazenamento do Data Lake para o armazenamento de cluster do HDInsight
+## <a name="using-data-lake-storage-gen1-for-hdinsight-cluster-storage"></a>Utilização de Data Lake Storage Gen1 para armazenamento de cluster HDInsight
 
-Seguem-se algumas considerações importantes para o HDInsight com geração 1 de armazenamento do Data Lake:
+Aqui estão algumas considerações importantes para usar o HDInsight com data lake storage Gen1:
 
-* Opção para criar clusters do HDInsight com acesso ao Data Lake Storage Gen1 como armazenamento predefinido está disponível para o HDInsight versão 3.5 e 3.6.
+* Opção de criar clusters HDInsight com acesso a Data Lake Storage Gen1 como armazenamento padrão está disponível para os versões 3.5 e 3.6 da HDInsight.
 
-* Opção para criar clusters do HDInsight com acesso ao Data Lake Storage Gen1 como armazenamento adicional está disponível para versões do HDInsight 3.2, 3.4, 3.5 e 3.6.
+* Opção de criar clusters HDInsight com acesso a Data Lake Storage Gen1 como armazenamento adicional está disponível para as versões HDInsight 3.2, 3.4, 3.5 e 3.6.
 
-Neste artigo, iremos aprovisionar um cluster do Hadoop com o Data Lake Storage Gen1 como armazenamento adicional. Para obter instruções sobre como criar um cluster do Hadoop com o Data Lake Storage Gen1 como armazenamento predefinido, consulte [criar um cluster do HDInsight com a geração 1 de armazenamento do Data Lake através do Portal do Azure](data-lake-store-hdinsight-hadoop-use-portal.md).
+Neste artigo, disponibilizamos um cluster Hadoop com Data Lake Storage Gen1 como armazenamento adicional. Para obter instruções sobre como criar um cluster Hadoop com data lake storage Gen1 como armazenamento padrão, consulte [Criar um cluster HDInsight com Data Lake Storage Gen1 usando o Portal Azure](data-lake-store-hdinsight-hadoop-use-portal.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,16 +48,16 @@ Neste artigo, iremos aprovisionar um cluster do Hadoop com o Data Lake Storage G
 
 Antes de começar este tutorial, tem de ter o seguinte:
 
-* **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma subscrição Azure.** Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 ou superior**. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
-* **Principal de serviço de diretório do Azure Active Directory**. Os passos neste tutorial fornecem instruções sobre como criar um principal de serviço no Azure AD. No entanto, tem de ser um administrador do Azure AD para poder criar um principal de serviço. Se for um administrador do Azure AD, pode ignorar este pré-requisito e continuar o tutorial.
+* **Azure Ative Diretor de Serviço**de Diretório Ativo. Os passos neste tutorial fornecem instruções sobre como criar um diretor de serviço em Azure AD. No entanto, deve ser administrador da AD Azure para poder criar um diretor de serviço. Se for administrador da AD Azure, pode ignorar este pré-requisito e prosseguir com o tutorial.
 
-    **Se não for um administrador do Azure AD**, não será capaz de executar os passos necessários para criar um principal de serviço. Nesse caso, o administrador do Azure AD tem de criar um principal de serviço antes de poder criar um cluster do HDInsight com a geração 1 de armazenamento do Data Lake. Além disso, o principal de serviço tem de ser criado usando um certificado, conforme descrito em [criar um principal de serviço com certificado](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).
+    Se não for administrador da **AD Azure,** não poderá executar os passos necessários para criar um diretor de serviço. Neste caso, o seu administrador Azure AD deve primeiro criar um diretor de serviço antes de poder criar um cluster HDInsight com data Lake Storage Gen1. Além disso, o diretor de serviço deve ser criado com um certificado, conforme descrito na [Create a service principal com certificado](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).
 
-## <a name="create-an-hdinsight-cluster-with-data-lake-storage-gen1"></a>Criar um cluster do HDInsight com Data Lake Storage Gen1
-O modelo do Resource Manager e os pré-requisitos para utilizar o modelo, estão disponíveis no GitHub em [implementar um cluster do Linux de HDInsight com o novo Data Lake Storage geração 1](https://github.com/Azure/azure-quickstart-templates/tree/master/201-hdinsight-datalake-store-azure-storage). Siga as instruções fornecidas neste link para criar um cluster do HDInsight com Data Lake Storage Gen1 como armazenamento adicional.
+## <a name="create-an-hdinsight-cluster-with-data-lake-storage-gen1"></a>Crie um cluster HDInsight com Data Lake Storage Gen1
+O modelo de Gestor de Recursos, e os pré-requisitos para a utilização do modelo, estão disponíveis no GitHub em [Deploy um cluster HDInsight Linux com o novo Data Lake Storage Gen1](https://github.com/Azure/azure-quickstart-templates/tree/master/201-hdinsight-datalake-store-azure-storage). Siga as instruções fornecidas neste link para criar um cluster HDInsight com data Lake Storage Gen1 como armazenamento adicional.
 
-As instruções no link mencionadas acima requerem o PowerShell. Antes de começar com essas instruções, certifique-se de que inicia sessão na sua conta do Azure. Na área de trabalho, abra uma nova janela do PowerShell do Azure e introduza os seguintes fragmentos. Quando lhe for pedido para iniciar sessão, certifique-se de que inicia sessão como um do proprietário/administradores da subscrição:
+As instruções no link acima mencionado requerem PowerShell. Antes de começar com essas instruções, certifique-se de fazer login na sua conta Azure. A partir do seu ambiente de trabalho, abra uma nova janela Azure PowerShell e introduza os seguintes cortes. Quando for solicitado para iniciar sessão, certifique-se de que faz login como um dos administradores/proprietários de subscrição:
 
 ```
 # Log in to your Azure account
@@ -70,34 +70,34 @@ Get-AzSubscription
 Set-AzContext -SubscriptionId <subscription ID>
 ```
 
-O modelo implementa esses tipos de recursos:
+O modelo implementa estes tipos de recursos:
 
-* [Microsoft.DataLakeStore/accounts](/azure/templates/microsoft.datalakestore/accounts)
+* [Microsoft.DataLakeStore/contas](/azure/templates/microsoft.datalakestore/accounts)
 * [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
 * [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters)
 
-## <a name="upload-sample-data-to-data-lake-storage-gen1"></a>Carregar dados de exemplo para a geração 1 de armazenamento do Data Lake
-O modelo do Resource Manager cria uma nova conta de geração 1 de armazenamento do Data Lake e associa-a com o cluster do HDInsight. Agora tem de carregar alguns dados de exemplo para a geração 1 de armazenamento do Data Lake. Estes dados são necessários mais tarde no tutorial para executar tarefas a partir de um cluster do HDInsight que acedem a dados na conta de geração 1 de armazenamento do Data Lake. Para obter instruções sobre como carregar dados, consulte [carregar um ficheiro à sua conta do Data Lake Storage Gen1](data-lake-store-get-started-portal.md#uploaddata). Se estiver à procura de alguns dados de exemplo para carregar, pode obter a pasta **Ambulance Data** a partir do [Repositório de Git do Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).
+## <a name="upload-sample-data-to-data-lake-storage-gen1"></a>Enviar dados da amostra para Data Lake Storage Gen1
+O modelo de Gestor de Recursos cria uma nova conta Gen1 de Armazenamento de Data Lake e associa-a ao cluster HDInsight. Agora deve enviar alguns dados da amostra para data Lake Storage Gen1. Você precisará destes dados mais tarde no tutorial para executar trabalhos de um cluster HDInsight que acede maçados na conta Data Lake Storage Gen1. Para obter instruções sobre como carregar dados, consulte [o upload de um ficheiro para a sua conta Data Lake Storage Gen1](data-lake-store-get-started-portal.md#uploaddata). Se estiver à procura de alguns dados de exemplo para carregar, pode obter a pasta **Ambulance Data** a partir do [Repositório de Git do Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
-## <a name="set-relevant-acls-on-the-sample-data"></a>Definir ACLs relevantes nos dados de exemplo
-Para certificar-se de que os dados de exemplo que carregar são acessíveis a partir do cluster do HDInsight, tem de garantir que a aplicação do Azure AD que é utilizada para estabelecer a identidade entre o cluster do HDInsight e a geração 1 de armazenamento do Data Lake tem acesso ao ficheiro/pasta que está tentando acesso. Para tal, execute os seguintes passos.
+## <a name="set-relevant-acls-on-the-sample-data"></a>Definir ACLs relevantes nos dados da amostra
+Para se certificar de que os dados da amostra que envia estão acessíveis a partir do cluster HDInsight, deve certificar-se de que a aplicação Azure AD que é usada para estabelecer identidade entre o cluster HDInsight e data Lake Storage Gen1 tem acesso ao ficheiro/pasta a que está a tentar aceder. Para isso, execute os seguintes passos.
 
-1. Encontre o nome da aplicação do Azure AD que estão associado com o cluster do HDInsight e a conta de geração 1 de armazenamento do Data Lake. Uma forma de ver para o nome é abrir o painel de cluster do HDInsight que criou utilizando o modelo do Resource Manager, clique nas **identidade do AAD de Cluster** separador e procure o valor de **nome a apresentar do Principal de serviço**.
-2. Agora, fornece acesso a esta aplicação do Azure AD no ficheiro/pasta que pretende aceder a partir do cluster do HDInsight. Para definir as ACLs corretas no ficheiro/pasta na geração 1 de armazenamento do Data Lake, veja [proteger dados no Data Lake Storage Gen1](data-lake-store-secure-data.md#filepermissions).
+1. Encontre o nome da aplicação Azure AD que está associada ao cluster HDInsight e à conta Data Lake Storage Gen1. Uma maneira de procurar o nome é abrir a lâmina de cluster HDInsight que criou usando o modelo De Gestor de Recursos, clicar no separador **Identidade Cluster AAD** e procurar o valor do **Nome de Exibição Principal**do Serviço .
+2. Agora, forneça acesso a esta aplicação Azure AD no ficheiro/pasta a que pretende aceder a partir do cluster HDInsight. Para definir os ACLs certos no ficheiro/pasta em Data Lake Storage Gen1, consulte [a segurança dos dados no Data Lake Storage Gen1](data-lake-store-secure-data.md#filepermissions).
 
-## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Executar tarefas de teste no cluster do HDInsight para utilizar a geração 1 de armazenamento do Data Lake
-Depois de configurar um cluster do HDInsight, pode executar tarefas de teste no cluster para testar que o cluster do HDInsight pode aceder a geração 1 de armazenamento do Data Lake. Para tal, executamos uma tarefa do Hive de exemplo que cria uma tabela com os dados de exemplo carregado anteriormente para a sua conta de geração 1 de armazenamento do Data Lake.
+## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Executar trabalhos de teste no cluster HDInsight para usar Data Lake Storage Gen1
+Depois de configurar um cluster HDInsight, pode executar trabalhos de teste no cluster para testar que o cluster HDInsight pode aceder ao Data Lake Storage Gen1. Para tal, vamos executar uma amostra de trabalho da Hive que cria uma tabela usando os dados da amostra que você carregou anteriormente para a sua conta Data Lake Storage Gen1.
 
-Nesta secção, irá SSH num cluster do HDInsight Linux e execute a uma consulta do Hive de exemplo. Se estiver a utilizar um cliente Windows, recomendamos que utilize **PuTTY**, que pode ser transferido a partir [ https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html ](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+Nesta secção, você irá SSH em um cluster HDInsight Linux e executar uma consulta de hive de amostra. Se estiver a utilizar um cliente Windows, recomendamos a [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)utilização de **PuTTY,** que pode ser descarregado a partir de .
 
-Para obter mais informações sobre como utilizar o PuTTY, veja [utilizar o SSH com Hadoop baseado em Linux no HDInsight do Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+Para obter mais informações sobre a utilização do PuTTY, consulte [Use SSH com Hadoop baseado em Linux no HDInsight a partir do Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
-1. Assim que estiver ligado, inicie a CLI do Hive com o seguinte comando:
+1. Uma vez ligado, inicie o CLI da Colmeia utilizando o seguinte comando:
 
    ```
    hive
    ```
-2. Com a CLI, introduza as seguintes instruções para criar uma nova tabela com o nome **veículos** com os dados de exemplo no Data Lake Storage Gen1:
+2. Utilizando o CLI, introduza as seguintes declarações para criar uma nova tabela de **veículos nomeados** utilizando os dados da amostra no Data Lake Storage Gen1:
 
    ```
    DROP TABLE vehicles;
@@ -121,20 +121,20 @@ Para obter mais informações sobre como utilizar o PuTTY, veja [utilizar o SSH 
    ```
 
 
-## <a name="access-data-lake-storage-gen1-using-hdfs-commands"></a>Aceder a geração 1 de armazenamento do Data Lake com comandos do HDFS
-Depois de configurar o cluster do HDInsight para utilizar a geração 1 de armazenamento do Data Lake, pode utilizar os comandos da shell HDFS para aceder à loja.
+## <a name="access-data-lake-storage-gen1-using-hdfs-commands"></a>Aceder ao Data Lake Storage Gen1 utilizando comandos HDFS
+Depois de configurar o cluster HDInsight para utilizar data lake storage Gen1, pode utilizar os comandos de concha HDFS para aceder à loja.
 
-Nesta secção, irá SSH num Linux de HDInsight cluster e execute os comandos HDFS. Se estiver a utilizar um cliente Windows, recomendamos que utilize **PuTTY**, que pode ser transferido a partir [ https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html ](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+Nesta secção, irá sSH num cluster HDInsight Linux e executará os comandos HDFS. Se estiver a utilizar um cliente Windows, recomendamos a [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)utilização de **PuTTY,** que pode ser descarregado a partir de .
 
-Para obter mais informações sobre como utilizar o PuTTY, veja [utilizar o SSH com Hadoop baseado em Linux no HDInsight do Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+Para obter mais informações sobre a utilização do PuTTY, consulte [Use SSH com Hadoop baseado em Linux no HDInsight a partir do Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
-Assim que estiver ligado, utilize o seguinte comando do sistema de ficheiros HDFS para listar os ficheiros na conta de geração 1 de armazenamento do Data Lake.
+Uma vez ligado, utilize o seguinte comando do sistema de ficheiros HDFS para listar os ficheiros na conta Data Lake Storage Gen1.
 
 ```
 hdfs dfs -ls adl://<Data Lake Storage Gen1 account name>.azuredatalakestore.net:443/
 ```
 
-Isso deve listar o ficheiro que carregou anteriormente para a geração 1 de armazenamento do Data Lake.
+Isto deve listar o ficheiro que fez o upload anteriormente para data Lake Storage Gen1.
 
 ```
 15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
@@ -142,9 +142,9 @@ Found 1 items
 -rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestoragegen1.azuredatalakestore.net:443/mynewfolder
 ```
 
-Também pode utilizar o `hdfs dfs -put` comando para carregar alguns ficheiros para geração 1 de armazenamento do Data Lake e, em seguida, utilizar `hdfs dfs -ls` para verificar se os ficheiros foram carregados com êxito.
+Também pode usar `hdfs dfs -put` o comando para enviar alguns ficheiros `hdfs dfs -ls` para data Lake Storage Gen1, e depois usar para verificar se os ficheiros foram carregados com sucesso.
 
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Copiar dados dos Blobs de armazenamento do Azure para a geração 1 de armazenamento do Data Lake](data-lake-store-copy-data-wasb-distcp.md)
-* [Utilizar a geração 1 do Data Lake armazenamento com clusters do HDInsight do Azure](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
+## <a name="next-steps"></a>Passos seguintes
+* [Copiar dados de Blobs de Armazenamento Azure para Data Lake Storage Gen1](data-lake-store-copy-data-wasb-distcp.md)
+* [Utilize data lake storage Gen1 com clusters Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)

@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.openlocfilehash: ed8574133eafe751699e90ea8cae832ee649fb00
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969590"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Crie uma cópia de um VM Linux utilizando discos Azure CLI e Geridos
@@ -114,7 +114,7 @@ Se quiser criar uma infraestrutura de rede virtual para os seus VMs copiados, si
 
 Crie um VM utilizando [az vm criar](/cli/azure/vm#az-vm-create).
 
-Especifique o disco copiado gerido para utilizar como o disco OS (`--attach-os-disk`), da seguinte forma:
+Especifique o disco copiado gerido`--attach-os-disk`para utilizar como o disco OS (), da seguinte forma:
 
 ```azurecli
 az vm create --resource-group myResourceGroup \

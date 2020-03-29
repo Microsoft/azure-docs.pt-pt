@@ -9,10 +9,10 @@ ms.date: 02/21/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: aee5195fe86fed3e631908a38d3bdb7d5e4883b8
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79365224"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandir uma piscina de anfitriões existente com novos anfitriões de sessão
@@ -27,7 +27,7 @@ Antes de começar, certifique-se de que criou uma piscina de anfitriões e máqu
 
 - [Oferta do Azure Marketplace](./create-host-pools-azure-marketplace.md)
 - [Modelo de Gestor de Recursos GitHub Azure](./create-host-pools-arm-template.md)
-- [Crie uma piscina de anfitriões com powerShell](./create-host-pools-powershell.md)
+- [Criar um conjunto de anfitriões com o PowerShell](./create-host-pools-powershell.md)
 
 Você também vai precisar das seguintes informações a partir de quando você criou o pool anfitrião e vMs anfitrião de sessão:
 
@@ -46,7 +46,7 @@ Se já criou um anfitrião e vMs de anfitrião de sessão usando a [oferta do Az
 
 Aqui está como reimplantar o modelo do Gestor de Recursos Azure para expandir um pool de anfitriões:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. A partir da barra de pesquisa no topo do portal Azure, procure **por grupos de Recursos** e selecione o item em **Serviços**.
 3. Encontre e selecione o grupo de recursos que criou quando fez a piscina anfitriã.
 4. No painel do lado esquerdo do navegador, selecione **Implementações**.
@@ -63,7 +63,7 @@ Aqui está como reimplantar o modelo do Gestor de Recursos Azure para expandir u
      >[!NOTE]
      >Se vir um erro que lhe diga para selecionar um grupo de recursos diferente, mesmo que o que inseriu esteja correto, selecione outro grupo de recursos e, em seguida, selecione o grupo de recursos originais.
 
-8. Introduza o seguinte URL para o *_artifactsLocation*: `https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/`
+8. Introduza o seguinte URL para o *_artifactsLocation:*`https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/`
 9. Insira o novo número total de anfitriões de sessão que deseja no *Número rdsh de instâncias*. Por exemplo, se estiver a expandir a sua piscina de anfitriões de cinco anfitriões para oito sessões, insira **8**.
 10. Introduza a mesma senha de domínio existente que utilizou para o domínio existente UPN. Não altere o nome de utilizador, pois isso causará um erro ao executar o modelo.
 11. Introduza a mesma senha de administração de inquilino que usou para o utilizador ou id de aplicação que inseriu para *O Inquilino Administrador Upn ou Id*de Aplicação . Mais uma vez, não mude o nome de utilizador.
@@ -82,7 +82,7 @@ Todos os valores desta secção devem corresponder ao que forneceu quando criou 
 3.    Para *a Região,* selecione a mesma região onde estão localizadas as VMs anfitriãs da sessão de acolhimento existentes.
 4.    Para *o nome Hostpool,* insira o nome da piscina hospedeira existente.
 5.    Para *o tipo desktop,* selecione o tipo de ambiente de trabalho que corresponde à piscina de anfitriões existente.
-6.    Para *utilizadores de ambientede trabalho Predefinidos,* introduza uma lista separada da vírvia de quaisquer utilizadores adicionais que pretenda inscrever-se nos clientes do Windows Virtual Desktop e aceda a um ambiente de trabalho após o Azure Marketplace oferecer acabamentos. Por exemplo, se quiser atribuir user3@contoso.com e user4@contoso.com acesso, insira user3@contoso.com,user4@contoso.com.
+6.    Para *utilizadores de ambientede trabalho Predefinidos,* introduza uma lista separada da vírvia de quaisquer utilizadores adicionais que pretenda inscrever-se nos clientes do Windows Virtual Desktop e aceda a um ambiente de trabalho após o Azure Marketplace oferecer acabamentos. Por exemplo, se quiser user3@contoso.com atribuir user4@contoso.com e user3@contoso.comaceder, insira.user4@contoso.com
 7.    Selecione **Seguinte: Configurar**a máquina virtual .
 
 >[!NOTE]
@@ -127,8 +127,8 @@ Siga as instruções no [modelo Run the Azure Resource Manager para fornecer uma
 
 Agora que expandiu o seu pool de anfitriões existente, pode iniciar sessão com um cliente do Windows Virtual Desktop para os testar como parte de uma sessão de utilizador. Pode ligar-se a uma sessão com qualquer um dos seguintes clientes:
 
-- [Conecte-se com o cliente do Windows Desktop](./connect-windows-7-and-10.md)
-- [Conecte-se com o cliente web](./connect-web.md)
-- [Conecte-se com o cliente Android](./connect-android.md)
-- [Conecte-se com o cliente macOS](./connect-macos.md)
-- [Conecte-se com o cliente iOS](./connect-ios.md)
+- [Ligar ao cliente de Ambiente de Trabalho do Windows](./connect-windows-7-and-10.md)
+- [Ligar com o cliente web](./connect-web.md)
+- [Ligar ao cliente Android](./connect-android.md)
+- [Ligar ao cliente de macOS](./connect-macos.md)
+- [Ligar ao cliente de iOS](./connect-ios.md)
