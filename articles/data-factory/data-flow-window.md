@@ -1,6 +1,6 @@
 ---
-title: Mapeando a transformação da janela fluxo de dados
-description: Transformação da janela fluxo de dados de mapeamento de Azure Data Factory
+title: Mapeando a transformação da janela do fluxo de dados
+description: Azure Data Factory mapeando dados fluxo de janela transformação da janela
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
@@ -9,44 +9,44 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
 ms.openlocfilehash: fa34def67d91332a00bf0ee92b365957a47f9616
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74931487"
 ---
-# <a name="azure-data-factory-window-transformation"></a>Transformação de janela de Azure Data Factory
+# <a name="azure-data-factory-window-transformation"></a>Transformação da janela da fábrica de dados azure
 
 
 
-A transformação janela é onde você definirá as agregações baseadas em janela de colunas em seus fluxos de dados. No construtor de expressões, você pode definir diferentes tipos de agregações que se baseiam em dados ou em janelas de tempo (cláusula SQL OVER), como LEAD, LAG, NTILE, CUMEDIST, RANK, etc.). Um novo campo será gerado na saída que inclui essas agregações. Você também pode incluir campos de grupo-por opcionais.
+A transformação da Janela é onde definirá agregações baseadas em janelas de colunas nos seus fluxos de dados. No Construtor de Expressão, pode definir diferentes tipos de agregações que são baseadas em datas ou janelas de tempo (cláusula SQL OVER) tais como LEAD, LAG, NTILE, CUMEDIST, RANK, etc.). Um novo campo será gerado na sua saída que inclui estas agregações. Também pode incluir campos de grupo opcionais.
 
-![Opções de janela](media/data-flow/windows1.png "Windows 1")
+![Opções de janela](media/data-flow/windows1.png "janelas 1")
 
-## <a name="over"></a>Mais de
-Defina o particionamento de dados da coluna para a transformação da janela. O equivalente do SQL é o ```Partition By``` na cláusula over no SQL. Se você quiser criar um cálculo ou criar uma expressão a ser usada para o particionamento, poderá fazer isso passando o mouse sobre o nome da coluna e selecionando "coluna computada".
+## <a name="over"></a>Mais
+Detete a divisão de dados da coluna para a sua transformação da janela. O equivalente SQL ```Partition By``` é o na cláusula Over em SQL. Se desejar criar um cálculo ou criar uma expressão para usar para a partilha, pode fazê-lo pairando sobre o nome da coluna e selecionando "coluna computorizada".
 
-![Opções de janela](media/data-flow/windows4.png "Windows 4")
+![Opções de janela](media/data-flow/windows4.png "janelas 4")
 
 ## <a name="sort"></a>Ordenar
-Outra parte da cláusula over é definir a ```Order By```. Isso definirá a ordenação de classificação de dados. Você também pode criar uma expressão para um valor de cálculo neste campo de coluna para classificação.
+Outra parte da cláusula Over ```Order By```é a definição do . Isto irá definir a ordem de classificação de dados. Também pode criar uma expressão para calcular valor neste campo de colunas para a triagem.
 
-![Opções de janela](media/data-flow/windows5.png "Windows 5")
+![Opções de janela](media/data-flow/windows5.png "janelas 5")
 
 ## <a name="range-by"></a>Intervalo por
-Em seguida, defina o quadro da janela como não associado ou limitado. Para definir um quadro de janela não associado, defina o controle deslizante como não associado em ambas as extremidades. Se você escolher uma configuração entre a linha não vinculada e a atual, deverá definir os valores de início e término do deslocamento. Ambos os valores serão inteiros positivos. Você pode usar números ou valores relativos de seus dados.
+Em seguida, coloque a moldura da janela como deslimitada ou limitada. Para definir uma janela deslimitada, coloque o slider deslimitado em ambas as extremidades. Se escolher uma definição entre a Linha Não Limitada e a Linha Atual, então deve definir os valores de início e fim do Offset. Ambos os valores serão inteiros positivos. Pode utilizar números ou valores relativos a partir dos seus dados.
 
-O controle deslizante de janela tem dois valores a serem definidos: os valores antes da linha atual e os valores após a linha atual. O deslocamento inicial e final corresponde aos dois seletores no controle deslizante.
+O slider da janela tem dois valores a definir: os valores antes da linha atual e os valores após a linha atual. O offset Iniciar e Fim corresponde aos dois selecionadores no slider.
 
-![Opções de janela](media/data-flow/windows6.png "Windows 6")
+![Opções de janela](media/data-flow/windows6.png "janelas 6")
 
-## <a name="window-columns"></a>Colunas da janela
-Por fim, use o construtor de expressões para definir as agregações que você deseja usar com as janelas de dados, como classificação, contagem, mín., máx., classificação DENSa, LEAD, retardo, etc.
+## <a name="window-columns"></a>Colunas de janela
+Por último, utilize o Construtor de Expressão para definir as agregações que pretende utilizar com as janelas de dados tais como RANK, COUNT, MIN, MAX, DENSE RANK, LEAD, LAG, etc.
 
-![Opções de janela](media/data-flow/windows7.png "windows 7")
+![Opções de janela](media/data-flow/windows7.png "janelas 7")
 
-A lista completa de agregações e funções analíticas disponíveis para uso na linguagem de expressão do fluxo de dados do ADF por meio do construtor de expressões estão listadas aqui: https://aka.ms/dataflowexpressions.
+A lista completa de agregação e funções analíticas disponíveis para que possa utilizar https://aka.ms/dataflowexpressionsna Linguagem de Expressão de Fluxo de Dados ADF através do Construtor de Expressão está listada aqui: .
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você estiver procurando uma agregação de grupo por simples, use a [transformação Agregação](data-flow-aggregate.md)
+Se procura uma simples agregação em grupo, use a [transformação agregada](data-flow-aggregate.md)

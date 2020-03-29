@@ -1,6 +1,6 @@
 ---
-title: store-sendgrid-java-how-to-send-email-example
-description: Como enviar emails usando o SendGrid do Java em uma implantação do Azure
+title: loja-sendgrid-java-como-enviar-e-mail-exemplo
+description: Como enviar e-mail usando SendGrid de Java em uma implantação azure
 services: ''
 documentationcenter: java
 author: thinkingserious
@@ -16,33 +16,33 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
 ms.openlocfilehash: 35307848c09391ae4468afc00adafd8171aaaa7b
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67876488"
 ---
-# <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Como enviar emails usando o SendGrid do Java em uma implantação do Azure
-O exemplo a seguir mostra como você pode usar o SendGrid para enviar emails de uma página da web hospedada no Azure. O aplicativo resultante solicitará valores de email ao usuário, conforme mostrado na captura de tela a seguir.
+# <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Como enviar e-mail usando sendGrid de Java em uma implantação azure
+O exemplo que se segue mostra como pode usar o SendGrid para enviar e-mails de uma página web hospedada no Azure. A aplicação resultante irá solicitar ao utilizador valores de e-mail, como mostra a seguinte imagem.
 
-![Formulário de email][emailform]
+![Formulário de e-mail][emailform]
 
-O email resultante será semelhante à captura de tela a seguir.
+O e-mail resultante será semelhante ao seguinte screenshot.
 
-![Mensagem de email][emailsent]
+![Mensagem de e-mail][emailsent]
 
-Você precisará fazer o seguinte para usar o código neste tópico:
+Terá de fazer o seguinte para usar o código neste tópico:
 
-1. Obtenha os JARs javax. mail, por exemplo, <https://www.oracle.com/technetwork/java/javamail/index.html>de.
-2. Adicione os JARs ao seu caminho de Build do Java.
-3. Se você estiver usando o Eclipse para criar esse aplicativo Java, poderá incluir as bibliotecas SendGrid no arquivo de implantação de aplicativo (WAR) usando o recurso de assembly de implantação do eclipse. Se você não estiver usando o Eclipse para criar esse aplicativo Java, verifique se as bibliotecas estão incluídas na mesma função do Azure que o aplicativo Java e foram adicionadas ao caminho de classe do seu aplicativo.
+1. Obtenha os JARs javax.mail, <https://www.oracle.com/technetwork/java/javamail/index.html>por exemplo a partir de .
+2. Adicione os JARs ao seu caminho de construção java.
+3. Se estiver a utilizar o Eclipse para criar esta aplicação Java, pode incluir as bibliotecas SendGrid no seu ficheiro de implementação de aplicações (WAR) utilizando a funcionalidade de montagem de implementação do Eclipse. Se não estiver a usar o Eclipse para criar esta aplicação Java, certifique-se de que as bibliotecas estão incluídas na mesma função Azure que a sua aplicação Java, e adicionadaao percurso de classe da sua aplicação.
 
-Você também deve ter seu próprio nome de usuário e senha do SendGrid para poder enviar o email. Para começar a usar o SendGrid, consulte [como enviar email usando o SendGrid do Java](store-sendgrid-java-how-to-send-email.md).
+Também deve ter o seu próprio nome de utilizador e senha SendGrid, para poder enviar o e-mail. Para começar com sendGrid, consulte [como enviar e-mail usando SendGrid de Java](store-sendgrid-java-how-to-send-email.md).
 
-Além disso, a familiaridade com as informações em [criando um aplicativo Olá, mundo para o Azure no Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app?view=azure-java-stable)ou com outras técnicas para hospedar aplicativos Java no Azure se você não estiver usando o eclipse, é altamente recomendável.
+Além disso, a familiaridade com a informação da [Creating a Hello World Application for Azure in Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app?view=azure-java-stable), ou com outras técnicas para hospedar aplicações Java em Azure se não estiver a usar o Eclipse, é altamente recomendada.
 
-## <a name="create-a-web-form-for-sending-email"></a>Criar um formulário da Web para enviar email
-O código a seguir mostra como criar um formulário da Web para recuperar dados do usuário para enviar email. Para fins desse conteúdo, o arquivo JSP é denominado **emailform. jsp**.
+## <a name="create-a-web-form-for-sending-email"></a>Criar um formulário web para enviar e-mail
+O código seguinte mostra como criar um formulário web para recuperar dados dos utilizadores para envio de e-mail. Para efeitos deste conteúdo, o ficheiro JSP é nomeado **emailform.jsp**.
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" %>
@@ -97,8 +97,8 @@ O código a seguir mostra como criar um formulário da Web para recuperar dados 
     </body>
     </html>
 
-## <a name="create-the-code-to-send-the-email"></a>Criar o código para enviar o email
-O código a seguir, que é chamado quando você preenche o formulário em emailform. jsp, cria a mensagem de email e a envia. Para fins desse conteúdo, o arquivo JSP é denominado **SendEmail. jsp**.
+## <a name="create-the-code-to-send-the-email"></a>Crie o código para enviar o e-mail
+O seguinte código, que é chamado quando completa o formulário em emailform.jsp, cria a mensagem de e-mail e envia-a. Para efeitos deste conteúdo, o ficheiro JSP é nomeado **enviar email.jsp**.
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" import="javax.activation.*, javax.mail.*, javax.mail.internet.*, java.util.Date, java.util.Properties" %>
@@ -205,17 +205,17 @@ O código a seguir, que é chamado quando você preenche o formulário em emailf
     </body>
     </html>
 
-Além de enviar o email, o emailform. jsp fornece um resultado para o usuário; um exemplo é a seguinte captura de tela:
+Além de enviar o e-mail, o emailform.jsp fornece um resultado para o utilizador; um exemplo é a seguinte imagem:
 
-![Enviar resultado de email][emailresult]
+![Enviar resultado do correio][emailresult]
 
-## <a name="next-steps"></a>Passos Seguintes
-Implante seu aplicativo no emulador de computação e, em um navegador, execute emailform. jsp, insira valores no formulário, clique em **Enviar este email**e, em seguida, veja os resultados em SendEmail. jsp.
+## <a name="next-steps"></a>Passos seguintes
+Implemente a sua aplicação para o emulador computacional e dentro de um email de execução de navegador.jsp, introduza valores no formulário, clique **em Enviar este e-mail**, e depois ver resultados em sendemail.jsp.
 
-Esse código foi fornecido para mostrar como usar o SendGrid no Java no Azure. Antes de implantar no Azure em produção, convém adicionar mais tratamento de erro ou outros recursos. Por exemplo: 
+Este código foi fornecido para lhe mostrar como usar sendGrid em Java em Azure. Antes de ser implantado para o Azure em produção, é melhor adicionar mais manipulação de erros ou outras funcionalidades. Por exemplo: 
 
-* Você pode usar os blobs de armazenamento do Azure ou o banco de dados SQL para armazenar endereços de email e mensagens de email, em vez de usar um formulário da Web. Para obter informações sobre como usar os blobs de armazenamento do Azure em Java, consulte [como usar o serviço de armazenamento de BLOBs do Java](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/). Para obter informações sobre como usar o banco de dados SQL em Java, consulte [usando o banco de dados SQL em Java](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-java).
-* Para obter mais informações sobre como usar o SendGrid em Java, consulte [como enviar email usando o SendGrid do Java](store-sendgrid-java-how-to-send-email.md).
+* Pode utilizar blobs de armazenamento Azure ou Base de Dados SQL para armazenar endereços de e-mail e mensagens de e-mail, em vez de usar um formulário web. Para obter informações sobre a utilização de bolhas de armazenamento Azure em Java, consulte [Como Utilizar o Serviço de Armazenamento Blob a partir de Java](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/). Para obter informações sobre a utilização da Base de Dados SQL em Java, consulte a utilização da Base de [Dados SQL em Java](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-java).
+* Para mais informações sobre a utilização do SendGrid em Java, consulte [como enviar e-mail usando sendGrid de Java](store-sendgrid-java-how-to-send-email.md).
 
 [emailform]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailform.jpg
 [emailsent]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailSent.jpg

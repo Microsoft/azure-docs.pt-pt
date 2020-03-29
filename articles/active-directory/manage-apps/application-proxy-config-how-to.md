@@ -1,6 +1,6 @@
 ---
-title: Como configurar uma aplicação de Proxy de aplicações | Documentos da Microsoft
-description: Saiba como criar e configurar uma aplicação de Proxy da aplicação em poucos passos simples
+title: Como configurar uma aplicação de procuração de aplicação / Microsoft Docs
+description: Aprenda a criar e configurar uma aplicação proxy de aplicação em alguns passos simples
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,56 +17,56 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7aaf2eb282bc3fd0b9f3853ce493c479a3d3c3a9
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67807861"
 ---
-# <a name="how-to-configure-an-application-proxy-application"></a>Como configurar uma aplicação de Proxy de aplicações
+# <a name="how-to-configure-an-application-proxy-application"></a>Como configurar uma aplicação proxy de aplicação
 
-Este artigo ajuda-o a compreender como configurar uma aplicação de Proxy de aplicações no Azure AD para expor seus aplicativos no local para a cloud.
+Este artigo ajuda-o a compreender como configurar uma aplicação de Procuração de Aplicações dentro do Azure AD para expor as suas aplicações no local à nuvem.
 
 ## <a name="recommended-documents"></a>Documentos recomendados
 
-Para saber mais sobre as configurações iniciais e a criação de uma aplicação de Proxy de aplicações através do Portal de administração, siga os [publicar aplicações com o Proxy de aplicações do Azure AD](application-proxy-add-on-premises-application.md).
+Para conhecer as configurações iniciais e a criação de uma aplicação Proxy de aplicação através do Portal da Administração, siga as [aplicações Da Publicação utilizando o Proxy de Aplicação AD Azure](application-proxy-add-on-premises-application.md).
 
-Para obter detalhes sobre como configurar conectores, consulte [ativar o Proxy de aplicações no portal do Azure](application-proxy-add-on-premises-application.md).
+Para mais detalhes sobre a configuração dos Conectores, consulte [ativar o proxy de aplicação no portal Azure](application-proxy-add-on-premises-application.md).
 
-Para obter informações sobre a carregar certificados e a utilização de domínios personalizados, consulte [trabalhar com domínios personalizados no Proxy de aplicações do Azure AD](application-proxy-configure-custom-domain.md).
+Para obter informações sobre o upload de certificados e utilizando domínios personalizados, consulte [Trabalhar com domínios personalizados em Procuração de Aplicação AD Azure](application-proxy-configure-custom-domain.md).
 
-## <a name="create-the-applicationsetting-the-urls"></a>Criar o aplicativo/definir os URLs
+## <a name="create-the-applicationsetting-the-urls"></a>Criar a Aplicação/Definição dos URLs
 
-Se estiver a seguir os passos a [publicar aplicações com o Proxy de aplicações do Azure AD](application-proxy-add-on-premises-application.md) documentação e estão recebendo um erro ao criar o aplicativo, consulte os detalhes do erro para obter informações e sugestões para saber como corrigir o aplicação. A maioria das mensagens de erro incluem uma correção sugerida. Para evitar erros comuns, certifique-se:
+Se estiver a seguir os passos nas aplicações da Publicação utilizando documentação de Procuração de [Aplicação AD Azure](application-proxy-add-on-premises-application.md) e estiver a obter um erro criando a aplicação, consulte os detalhes do erro para obter informações e sugestões para a forma de corrigir a aplicação. A maioria das mensagens de erro incluem uma correção sugerida. Para evitar erros comuns, verifique:
 
-- For um administrador com permissão para criar uma aplicação de Proxy de aplicações
-- O URL interno é exclusivo
-- O URL externo é exclusivo
-- Os URLs de começar com http ou https e terminar com uma "/"
+- É um administrador com permissão para criar um pedido de procuração de aplicação
+- O URL interno é único
+- O URL externo é único
+- Os URLs começam com http ou https, e terminam com um "/"
 - O URL deve ser um nome de domínio, não um endereço IP
 
-A mensagem de erro deve exibir no canto superior direito, ao criar a aplicação. Também pode selecionar o ícone de notificação para ver as mensagens de erro.
+A mensagem de erro deve ser exibida no canto superior direito quando criar a aplicação. Também pode selecionar o ícone de notificação para ver as mensagens de erro.
 
-![Mostra onde encontrar o pedido de notificação no portal do Azure](./media/application-proxy-config-how-to/error-message.png)
+![Mostra onde encontrar o aviso de notificação no portal Azure](./media/application-proxy-config-how-to/error-message.png)
 
-## <a name="configure-connectorsconnector-groups"></a>Configurar grupos de conectores/conector
+## <a name="configure-connectorsconnector-groups"></a>Configure conectores/grupos de conectores
 
-Se estiver a ter dificuldades em configurar seu aplicativo devido a aviso sobre os conectores e os grupos de conector, veja as instruções sobre como ativar o Proxy de aplicações para obter detalhes sobre como transferir conectores. Se quiser obter mais informações sobre conectores, consulte a [documentação dos conectores](application-proxy-connectors.md).
+Se tiver dificuldade em configurar a sua aplicação por aviso sobre os conectores e grupos de conectores, consulte instruções para permitir a procuração de aplicações para obter detalhes sobre como descarregar conectores. Se quiser saber mais sobre conectores, consulte a documentação dos [conectores.](application-proxy-connectors.md)
 
-Se os conectores estão inativos, isso significa que eles são incapazes de chegarem ao serviço. Isto é, muitas vezes, porque todas as portas necessárias não estão abertas. Para ver uma lista de portas necessárias, consulte a secção de pré-requisitos da documentação do ativar o Proxy de aplicações.
+Se os seus conectores estiverem inativos, isto significa que não conseguem chegar ao serviço. Isto acontece muitas vezes porque todas as portas necessárias não estão abertas. Para ver uma lista das portas necessárias, consulte a secção de pré-requisitos da documentação de procuração de aplicação ativa.
 
-## <a name="upload-certificates-for-custom-domains"></a>Carregar certificados para domínios personalizados
+## <a name="upload-certificates-for-custom-domains"></a>Enviar certificados para domínios personalizados
 
-Domínios personalizados permitem-lhe especificar o domínio da sua URLs externos. Para utilizar domínios personalizados, terá de carregar o certificado para esse domínio. Para obter informações sobre a utilização de domínios personalizados e certificados, consulte [trabalhar com domínios personalizados no Proxy de aplicações do Azure AD](application-proxy-configure-custom-domain.md).
+Domínios personalizados permitem especificar o domínio dos seus URLs externos. Para utilizar domínios personalizados, precisa de carregar o certificado para esse domínio. Para obter informações sobre a utilização de domínios e certificados personalizados, consulte [Trabalhar com domínios personalizados em Procuração de Aplicação AD Azure](application-proxy-configure-custom-domain.md).
 
-Se tiver problemas com a carregar o certificado, procure as mensagens de erro no portal para obter mais informações sobre o problema com o certificado. Problemas de certificado comuns incluem:
+Se encontrar problemas no upload do seu certificado, procure as mensagens de erro no portal para obter informações adicionais sobre o problema com o certificado. Os problemas comuns do certificado incluem:
 
 - Certificado expirado
-- O certificado é autoassinado
-- Certificado não tem a chave privada
+- O certificado é auto-assinado
+- Falta a chave privada
 
-Apresentar a mensagem de erro no canto superior direito carregar o certificado ao testar. Também pode selecionar o ícone de notificação para ver as mensagens de erro.
+O visor da mensagem de erro no canto superior direito enquanto tenta fazer o upload do certificado. Também pode selecionar o ícone de notificação para ver as mensagens de erro.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Publicar aplicações com o Proxy de aplicações do Azure AD](application-proxy-add-on-premises-application.md)
+[Publicar aplicações com o Proxy da Aplicação do Azure AD](application-proxy-add-on-premises-application.md)

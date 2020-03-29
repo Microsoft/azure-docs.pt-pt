@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
 ms.openlocfilehash: dc0aa8e6099a7ec017aead2fe0f16e9712e17936
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840728"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli"></a>Troubleshoot Virtual Network Gateway e Conexões usando Azure Network Watcher Azure CLI
@@ -24,20 +24,20 @@ ms.locfileid: "76840728"
 > [!div class="op_single_selector"]
 > - [Portal](diagnose-communication-problem-between-networks.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
-> - [CLI do Azure](network-watcher-troubleshoot-manage-cli.md)
-> - [API REST](network-watcher-troubleshoot-manage-rest.md)
+> - [Azure CLI](network-watcher-troubleshoot-manage-cli.md)
+> - [REST API](network-watcher-troubleshoot-manage-rest.md)
 
 O Network Watcher fornece muitas capacidades no que diz respeito à compreensão dos seus recursos de rede em Azure. Uma destas capacidades é a resolução de problemas de recursos. A resolução de problemas de recursos pode ser chamada através do portal PowerShell, CLI ou REST API. Quando chamado, o Observador de Rede inspeciona a saúde de um Gateway de Rede Virtual ou de uma Ligação e devolve as suas descobertas.
 
-Para executar as etapas neste artigo, você precisa [instalar a interface de linha de comando do Azure para Mac, Linux e Windows (CLI)](/cli/azure/install-azure-cli).
+Para executar os passos deste artigo, é necessário [instalar a interface de linha de comando Azure para Mac, Linux e Windows (CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este cenário pressupõe que você já seguiu as etapas em [criar um observador de rede](network-watcher-create.md) para criar um observador de rede.
+Este cenário pressupõe que já seguiu os passos na [Create a Network Watcher](network-watcher-create.md) para criar um Observador de Rede.
 
 Para uma lista de visitas de tipos de gateway suportados, os tipos de [Gateway suportados](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 A resolução de problemas de recursos fornece os problemas de resolução de problemas de capacidade que surgem com Gateways e Conexões de Rede Virtual. Quando é feito um pedido para a resolução de problemas de recursos, os registos estão a ser consultados e inspecionados. Quando a inspeção estiver concluída, os resultados são devolvidos. Os pedidos de resolução de problemas de recursos são pedidos de longa duração, que podem demorar vários minutos a devolver um resultado. Os registos de resolução de problemas são guardados num recipiente numa conta de armazenamento especificada.
 
@@ -55,7 +55,7 @@ Assim que tiver o nome da ligação, pode executar este comando para obter o seu
 az network vpn-connection show --resource-group resourceGroupName --ids vpnConnectionIds
 ```
 
-## <a name="create-a-storage-account"></a>Create a storage account
+## <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
 A resolução de problemas de recursos devolve dados sobre a saúde do recurso, também guarda registos para uma conta de armazenamento a ser revista. Neste passo, criamos uma conta de armazenamento, se existir uma conta de armazenamento existente, pode utilizá-la.
 
@@ -79,7 +79,7 @@ A resolução de problemas de recursos devolve dados sobre a saúde do recurso, 
 
 ## <a name="run-network-watcher-resource-troubleshooting"></a>Executar Network Watcher resolução de problemas de recursos
 
-Tu atiras recursos com o `az network watcher troubleshooting` cmdlet. Passamos pelo grupo de recursos, o nome do Observador da Rede, a identificação da ligação, a identificação da conta de armazenamento e o caminho para a bolha para armazenar o problema resulta.
+Tu atiras recursos `az network watcher troubleshooting` com o cmdlet. Passamos pelo grupo de recursos, o nome do Observador da Rede, a identificação da ligação, a identificação da conta de armazenamento e o caminho para a bolha para armazenar o problema resulta.
 
 ```azurecli
 az network watcher troubleshooting start --resource-group resourceGroupName --resource resourceName --resource-type {vnetGateway/vpnConnection} --storage-account storageAccountName  --storage-path https://{storageAccountName}.blob.core.windows.net/{containerName}

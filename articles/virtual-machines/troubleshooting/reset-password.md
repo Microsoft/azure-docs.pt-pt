@@ -1,6 +1,6 @@
 ---
-title: Como redefinir a senha local do Linux em VMs do Azure | Microsoft Docs
-description: Apresente as etapas para redefinir a senha local do Linux na VM do Azure
+title: Como redefinir a senha local linux em VMs Azure [ Microsoft Docs
+description: Introduza os passos para redefinir a senha linux local no Azure VM
 services: virtual-machines-linux
 documentationcenter: ''
 author: Deland-Han
@@ -14,61 +14,61 @@ ms.topic: troubleshooting
 ms.date: 08/20/2019
 ms.author: delhan
 ms.openlocfilehash: 83751538efe4f3d3af5928caa04b265b6c867442
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71153577"
 ---
-# <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Como redefinir a senha local do Linux em VMs do Azure
+# <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Como repor a palavra-passe local do Linux em VMs do Azure
 
-Este artigo apresenta vários métodos para redefinir senhas locais de VM (máquina virtual) do Linux. Se a conta de usuário tiver expirado ou se você quiser apenas criar uma nova conta, poderá usar os seguintes métodos para criar uma nova conta de administrador local e obter novamente o acesso à VM.
+Este artigo introduz vários métodos para redefinir senhas locais da Máquina Virtual linux (VM). Se a conta de utilizador estiver caducada ou pretender apenas criar uma nova conta, pode utilizar os seguintes métodos para criar uma nova conta de administração local e readquirir o acesso ao VM.
 
 ## <a name="symptoms"></a>Sintomas
 
-Você não pode fazer logon na VM e recebe uma mensagem que indica que a senha usada está incorreta. Além disso, você não pode usar VMAgent para redefinir sua senha no portal do Azure.
+Não pode iniciar sessão no VM e recebe uma mensagem que indica que a palavra-passe que usou está incorreta. Além disso, não é possível utilizar o VMAgent para redefinir a sua palavra-passe no portal Azure.
 
-## <a name="manual-password-reset-procedure"></a>Procedimento de redefinição de senha manual
+## <a name="manual-password-reset-procedure"></a>Procedimento manual de reset de palavra-passe
 
 > [!NOTE]
-> As etapas a seguir não se aplicam à VM com disco não gerenciado.
+> Os seguintes passos não se aplicam ao VM com disco não gerido.
 
-1. Tire um instantâneo do disco do sistema operacional da VM afetada, crie um disco do instantâneo e, em seguida, anexe o disco a uma VM de solução de problemas. Para obter mais informações, consulte [solucionar problemas de uma VM do Windows anexando o disco do sistema operacional a uma VM de recuperação usando o portal do Azure](troubleshoot-recovery-disks-portal-linux.md).
+1. Pegue uma foto para o disco OS do VM afetado, crie um disco a partir do instantâneo e, em seguida, prenda o disco a um VM de resolução de problemas. Para mais informações, consulte [Troubleshoot a Windows VM, ligando o disco OS a um VM de recuperação utilizando o portal Azure](troubleshoot-recovery-disks-portal-linux.md).
 
-2. Conecte-se à VM de solução de problemas usando Área de Trabalho Remota.
+2. Ligue-se ao VM de resolução de problemas utilizando o Remote Desktop.
 
-3.  Execute o seguinte comando SSH na VM de solução de problemas para se tornar um superusuário.
+3.  Execute o seguinte comando SSH no VM de resolução de problemas para se tornar um super-utilizador.
 
     ```bash
     sudo su
     ```
 
-4.  Execute **fdisk-l** ou examine os logs do sistema para localizar o disco anexado recentemente. Localize o nome da unidade a ser montada. Em seguida, na VM temporal, examine o arquivo de log relevante.
+4.  Executar **fdisk -l** ou olhar para os registos do sistema para encontrar o disco recém-ligado. Localize o nome da unidade para montar. Em seguida, no VM temporal, procure no ficheiro de registo relevante.
 
     ```bash
     grep SCSI /var/log/kern.log (ubuntu)
     grep SCSI /var/log/messages (centos, suse, oracle)
     ```
 
-    Veja a seguir um exemplo de saída do comando grep:
+    Segue-se a saída do comando grep:
 
     ```bash
     kernel: [ 9707.100572] sd 3:0:0:0: [sdc] Attached SCSI disk
     ```
 
-5.  Crie um ponto de montagem chamado **tempmount**.
+5.  Crie um ponto de montagem chamado **temporário.**
 
     ```bash
     mkdir /tempmount
     ```
 
-6.  Monte o disco do sistema operacional no ponto de montagem. Normalmente, você precisa montar *sdc1* ou *SDC2*. Isso dependerá da partição de hospedagem no diretório */etc* do disco de computador danificado.
+6.  Monte o disco OS no ponto de montagem. Normalmente é necessário montar *sdc1* ou *sdc2*. Isto dependerá da partição de alojamento em */etc* diretório do disco da máquina partida.
 
     ```bash
     mount /dev/sdc1 /tempmount
     ```
 
-7.  Crie cópias dos principais arquivos de credencial antes de fazer qualquer alteração:
+7.  Crie cópias dos ficheiros credenciais fundamentais antes de efazer quaisquer alterações:
 
     ```bash
     cp /etc/passwd /etc/passwd_orig    
@@ -79,13 +79,13 @@ Você não pode fazer logon na VM e recebe uma mensagem que indica que a senha u
     cp /tempmount/etc/shadow /tempmount/etc/shadow_orig
     ```
 
-8.  Redefina a senha do usuário de que você precisa:
+8.  Redefinir a palavra-passe do utilizador de que necessita:
 
     ```bash
     passwd <<USER>> 
     ```
 
-9.  Mova os arquivos modificados para o local correto no disco do computador danificado.
+9.  Mova os ficheiros modificados para a localização correta no disco da máquina partida.
 
     ```bash
     cp /etc/passwd /tempmount/etc/passwd
@@ -101,12 +101,12 @@ Você não pode fazer logon na VM e recebe uma mensagem que indica que a senha u
     umount /tempmount
     ```
 
-11. Em portal do Azure, desanexe o disco da VM de solução de problemas.
+11. No portal Azure, retire o disco do VM de resolução de problemas.
 
-12. [Altere o disco do sistema operacional para a VM afetada](troubleshoot-recovery-disks-portal-linux.md#swap-the-os-disk-for-the-vm).
+12. [Altere o disco OS para o VM afetado](troubleshoot-recovery-disks-portal-linux.md#swap-the-os-disk-for-the-vm).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Solucionar problemas de VM do Azure anexando o disco do sistema operacional a outra VM do Azure](https://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
+* [Troubleshoot Azure VM ligando o disco OS a outro Azure VM](https://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
 
-* [CLI do Azure: Como excluir e reimplantar uma VM do VHD](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)
+* [Azure CLI: Como eliminar e reutilizar um VM da VHD](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)

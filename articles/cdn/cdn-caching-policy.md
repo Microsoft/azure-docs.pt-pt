@@ -1,6 +1,6 @@
 ---
-title: Gerenciar a política de cache da CDN do Azure nos serviços de mídia do Azure | Microsoft Docs
-description: Este artigo explica como gerenciar a política de cache da CDN do Azure nos serviços de mídia do Azure.
+title: Gerir a política de cache do Azure CDN nos Serviços de Media Azure [ Microsoft Docs
+description: Este artigo explica como gerir a política de cache do Azure CDN na Azure Media Services.
 services: media-services,cdn
 documentationcenter: .NET
 author: juliako
@@ -15,35 +15,35 @@ ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
 ms.openlocfilehash: dc0482fbcbb1c9d1618ec18e1f48b03f686a6573
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74892588"
 ---
-# <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Gerenciar a política de cache da CDN do Azure nos serviços de mídia do Azure
-Os serviços de mídia do Azure fornecem streaming adaptável baseado em HTTP e download progressivo. O streaming baseado em HTTP é altamente escalonável com os benefícios do cache nas camadas proxy e CDN, bem como o armazenamento em cache do lado do cliente. Os pontos de extremidade de streaming fornecem recursos de streaming gerais e também configuração para cabeçalhos de cache HTTP. Os pontos de extremidade de streaming definem os cabeçalhos cache-Control: Max-age e Expires. Você pode obter mais informações para cabeçalhos de cache HTTP de [w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
+# <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Gerir a política de cache do Azure CDN nos Serviços de Mídia Azure
+A Azure Media Services fornece streaming adaptativo baseado em HTTP e download progressivo. O streaming baseado em HTTP é altamente escalável com benefícios de cache em camadas proxy e CDN, bem como cache do lado do cliente. Os pontos finais de streaming proporcionam capacidades gerais de streaming e também configuração para cabeçalhos de cache HTTP. Os pontos finais de streaming estabelecem HTTP Cache-Control: cabeçalhos de idade máxima e expira. Pode obter mais informações para cabeçalhos http cache a partir de [W3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
 
-## <a name="default-caching-headers"></a>Cabeçalhos de cache padrão
-Por padrão, os pontos de extremidade de streaming aplicam cabeçalhos de cache de 3 dias para dados de streaming sob demanda (fragmentos/partes de mídia reais) e manifesto (playlist). Para a transmissão ao vivo, os pontos de extremidade de streaming aplicam cabeçalhos de cache de 3 dias para os dados (fragmentos de mídia reais/partes) e o cabeçalho de cache de 2 segundos para solicitações de manifesto (playlist). Quando o programa ao vivo se transforma em sob demanda (arquivamento dinâmico), os cabeçalhos de cache de streaming sob demanda são aplicados.
+## <a name="default-caching-headers"></a>Cabeçalhos de caching padrão
+Por padrão, os pontos finais de streaming aplicam cabeçalhos de cache de 3 dias para dados de streaming a pedido (fragmentos/pedaços reais de mídia) e manifesto (lista de reprodução). Para o streaming ao vivo, os pontos finais de streaming aplicam cabeçalhos de cache de 3 dias para dados (fragmentos/pedaços reais de mídia) e 2 segundos de cabeçalho cache para pedidos manifestos (playlist). Quando o programa ao vivo se volta para a procura (arquivo ao vivo), em seguida, os cabeçalhos de cache de streaming a pedido se aplicam.
 
-## <a name="azure-cdn-integration"></a>Integração da CDN do Azure
-Os serviços de mídia do Azure fornecem [CDN integrada](https://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/) para pontos de extremidade de streaming. Os cabeçalhos cache-control se aplicam da mesma maneira que os pontos de extremidade de streaming para pontos de extremidade de streaming habilitados para CDN. A CDN do Azure usa valores de cache configurados de ponto de extremidade de streaming para definir o tempo de vida dos objetos internamente armazenados em cache e também usa esse valor para definir os cabeçalhos do cache de entrega. Ao usar pontos de extremidade de streaming habilitados para CDN, não é recomendável definir valores de cache pequenos. A definição de valores pequenos diminui o desempenho e reduz o benefício da CDN. Não é permitido definir cabeçalhos de cache com menos de 600 segundos para pontos de extremidade de streaming habilitados para CDN.
+## <a name="azure-cdn-integration"></a>Integração Azure CDN
+A Azure Media Services fornece [CDN integrado](https://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/) para pontos de streaming. Os cabeçalhos de controlo de cache aplicam-se da mesma forma que os pontos finais de streaming para os pontos finais de streaming ativados pela CDN. O Azure CDN utiliza valores de cache configurados em ponto final para definir o tempo de vida dos objetos internos e também utiliza este valor para definir os cabeçalhos de cache de entrega. Ao utilizar pontos finais de streaming ativados por CDN, não é aconselhável definir pequenos valores de cache. A definição de pequenos valores diminui o desempenho e reduz o benefício da CDN. Não é permitido definir cabeçalhos de cache inferiores a 600 segundos para os pontos finais de streaming ativados pela CDN.
 
 > [!IMPORTANT]
->Os serviços de mídia do Azure têm integração completa com a CDN do Azure. Com um único clique, você pode integrar todos os provedores de CDN do Azure disponíveis ao seu ponto de extremidade de streaming, incluindo produtos Standard e Premium. Para obter mais informações, consulte este [comunicado](https://azure.microsoft.com/blog/standardstreamingendpoint/).
+>A Azure Media Services tem total integração com a Azure CDN. Com um único clique, pode integrar todos os fornecedores de CDN Do Azure disponíveis no seu ponto final de streaming, incluindo produtos standard e premium. Para mais informações, consulte este [anúncio.](https://azure.microsoft.com/blog/standardstreamingendpoint/)
 > 
-> Os encargos de dados do ponto de extremidade de streaming para a CDN só serão desabilitados se a CDN estiver habilitada por meio de APIs de ponto de extremidade de streaming ou portal do Azure usando a seção de A integração manual ou a criação direta de um ponto de extremidade CDN usando APIs ou a seção do portal da CDN não desabilita os encargos de dados.
+> As cargas de dados do ponto final de streaming para a CDN só são desativadas se o CDN estiver ativado através de APIs de ponto final de streaming ou utilizando a secção final do portal Azure. A integração manual ou a criação direta de um ponto final do CDN utilizando APIs de CDN ou secção do portal não desativa os encargos de dados.
 
-## <a name="configuring-cache-headers-with-azure-media-services"></a>Configurando cabeçalhos de cache com os serviços de mídia do Azure
-Você pode usar portal do Azure ou as APIs dos serviços de mídia do Azure para configurar os valores de cabeçalho de cache.
+## <a name="configuring-cache-headers-with-azure-media-services"></a>Configurar cabeçalhos de cache com serviços de mídia Azure
+Pode utilizar o portal Azure ou a Azure Media Services APIs para configurar valores de cabeçalho em cache.
 
-1. Para configurar os cabeçalhos de cache usando portal do Azure, consulte a seção [como gerenciar pontos](../media-services/previous/media-services-portal-manage-streaming-endpoints.md) de extremidade de streaming Configurando o ponto de extremidades de streaming.
-2. API REST de Serviços de Mídia do Azure, [StreamingEndpoint](/rest/api/media/operations/streamingendpoint#StreamingEndpointCacheControl).
-3. SDK do .NET dos serviços de mídia do Azure, [Propriedades de StreamingEndpointCacheControl](https://go.microsoft.com/fwlink/?LinkId=615302).
+1. Para configurar os cabeçalhos de cache utilizando o portal Azure, consulte como gerir a secção de [pontos finais](../media-services/previous/media-services-portal-manage-streaming-endpoints.md) de streaming, configurando o ponto final de streaming.
+2. Azure Media Services REST API, [StreamingEndpoint](/rest/api/media/operations/streamingendpoint#StreamingEndpointCacheControl).
+3. Azure Media Services .NET SDK, [StreamingEndpointCacheControl Properties](https://go.microsoft.com/fwlink/?LinkId=615302).
 
-## <a name="cache-configuration-precedence-order"></a>Ordem de precedência da configuração do cache
-1. O valor de cache configurado dos serviços de mídia do Azure substitui o valor padrão.
-2. Se não houver nenhuma configuração manual, os valores padrão serão aplicados.
-3. Por padrão, os cabeçalhos de cache de 2 segundos se aplicam ao manifesto de transmissão ao vivo (playlist), independentemente da mídia do Azure ou da configuração do armazenamento do Azure, e a substituição desse valor não está disponível.
+## <a name="cache-configuration-precedence-order"></a>Ordem de precedência de configuração cache
+1. O valor configurado da Azure Media Services sobrepõe-se ao valor predefinido.
+2. Se não houver configuração manual, aplicam-se valores predefinidos.
+3. Por padrão, os cabeçalhos de cache de 2 segundos aplicam-se ao manifesto de streaming ao vivo (lista de reprodução), independentemente da configuração Azure Media ou Azure Storage e não está disponível sobreposição deste valor.
 

@@ -1,6 +1,6 @@
 ---
-title: Criar uma tarefa de codificação de serviços de multimédia do Azure que gera segmentos fMP4 | Documentos da Microsoft
-description: Este tópico mostra como criar uma tarefa de codificação que gera segmentos fMP4. Quando esta tarefa é utilizada com o Media Encoder Standard ou o codificador de Media Encoder Premium Workflow, o elemento de saída irá conter segmentos fMP4 em vez de ficheiros MP4 de ISO.
+title: Criar uma tarefa de codificação da Azure Media Services que gere pedaços fMP4 [ Microsoft Docs
+description: Este tópico mostra como criar uma tarefa de codificação que gera pedaços fMP4. Quando esta tarefa for utilizada com o codificador de fluxo de trabalho Media Encoder Standard ou Media Encoder Premium Workflow, o ativo de saída conterá pedaços fMP4 em vez de ficheiros ISO MP4.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 48c09a6100586c0c99f3d54f9708c770488c681f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61463872"
 ---
-#  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Criar uma tarefa de codificação que gera segmentos fMP4
+#  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Criar uma tarefa de codificação que gere pedaços fMP4
 
 ## <a name="overview"></a>Descrição geral
 
-Este artigo mostra como criar uma tarefa de codificação que gera fragmentados de MP4 segmentos de (fMP4) em vez de ficheiros MP4 de ISO. Para gerar segmentos fMP4, utilize o **Media Encoder Standard** ou **Media Encoder Premium Workflow** codificador para criar uma tarefa de codificação e também especificar **AssetFormatOption.AdaptiveStreaming**  opção, como mostra este fragmento de código:  
+Este artigo mostra como criar uma tarefa de codificação que gera pedaços de MP4 fragmentados (fMP4) em vez de ficheiros ISO MP4. Para gerar pedaços fMP4, utilize o codificador de fluxo de trabalho Media **Encoder Standard** ou **Media Encoder Premium Workflow** para criar uma tarefa de codificação e especificar também a **opção AssetFormatOption.AdaptiveStreaming,** como mostra este código:  
     
 ```csharp
     task.OutputAssets.AddNew(@"Output Asset containing fMP4 chunks", 
@@ -32,16 +32,16 @@ Este artigo mostra como criar uma tarefa de codificação que gera fragmentados 
             formatOption: AssetFormatOption.AdaptiveStreaming);
 ```
 
-## <a id="encoding_with_dotnet"></a>Encoding com Media Services .NET SDK
+## <a name="encoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Codificação com Serviços de Media .NET SDK
 
-O exemplo de código seguinte utiliza o SDK .NET dos Media Services para efetuar as seguintes tarefas:
+O exemplo de código que se segue utiliza media services .NET SDK para executar as seguintes tarefas:
 
-- Crie uma tarefa de codificação.
-- Obter uma referência para o **Media Encoder Standard** codificador.
-- Adicionar uma tarefa de codificação para a tarefa e especifique a utilização a **transmissão em fluxo adaptável** predefinidas. 
-- Crie um elemento de saída que irá conter segmentos fMP4 e um ficheiro. ISM.
-- Adicione um manipulador de eventos para verificar o progresso da tarefa.
-- Submeta a tarefa.
+- Criar um trabalho de codificação.
+- Obtenha uma referência ao codificador Padrão do **Codificador De Media.**
+- Adicione uma tarefa de codificação ao trabalho e especifique para utilizar o pré-definido **de Streaming Adaptativo.** 
+- Crie um ativo de saída que contenha pedaços fMP4 e um ficheiro .ism.
+- Adicione um manipulador de eventos para verificar o progresso do trabalho.
+- Submeta o trabalho.
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
 
@@ -176,6 +176,6 @@ namespace AdaptiveStreaming
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consultar Também
-[Descrição geral da codificação de serviços de multimédia](media-services-encode-asset.md)
+## <a name="see-also"></a>Veja também
+[Visão geral de codificação de serviços de mídia](media-services-encode-asset.md)
 

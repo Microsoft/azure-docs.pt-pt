@@ -1,8 +1,8 @@
 ---
-title: 'Sincronização do Azure AD Connect: Ativar a Reciclagem do AD | Documentos da Microsoft'
-description: Este tópico recomenda a utilização da funcionalidade de reciclagem do AD com o Azure AD Connect.
+title: 'Sincronização azure AD Connect: Ativar o caixote do ciclo ad / Microsoft Docs'
+description: Este tópico recomenda a utilização da funcionalidade AD Recycle Bin com o Azure AD Connect.
 services: active-directory
-keywords: Reciclagem do AD, a eliminação acidental, âncora de origem
+keywords: Caixa de reciclagem ad, supressão acidental, âncora de origem
 documentationcenter: ''
 author: billmath
 manager: daveba
@@ -18,32 +18,32 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5fe7d3ea7d4f6d648438efc1a484d5909ade2f23
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60382900"
 ---
-# <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Sincronização do Azure AD Connect: Ativar a reciclagem do AD
-Recomenda-se que ative a funcionalidade de reciclagem do AD para os diretórios de Active Directory no local, que são sincronizados com o Azure AD. 
+# <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Sincronização azure AD Connect: Ativar o recipiente de reciclagem de AD
+Recomenda-se que ative a funcionalidade AD Recycle Bin para os seus Diretórios Ativos no local, que são sincronizados com a AD Azure. 
 
-Caso tenha eliminado acidentalmente uma local do objeto de utilizador do AD e o restauro-lo a utilizar a funcionalidade, os do Azure AD que restaura o objeto de utilizador do Azure AD correspondente.  Para obter informações sobre a funcionalidade de reciclagem do AD, consulte o artigo [descrição geral do cenário para restaurar eliminar objetos do Active Directory](https://technet.microsoft.com/library/dd379542.aspx).
+Se tiver eliminado acidentalmente um objeto de utilizador ad's no local e o restaurar utilizando a funcionalidade, o Azure AD restaura o objeto de utilizador da AD Azure correspondente.  Para obter informações sobre a funcionalidade AD Recycle Bin, consulte a visão geral do artigo [Cenário para restaurar objetos de diretório ativo apagados](https://technet.microsoft.com/library/dd379542.aspx).
 
-## <a name="benefits-of-enabling-the-ad-recycle-bin"></a>Benefícios da ativação da Reciclagem do AD
-Esta funcionalidade ajuda com o restauro de objetos de utilizador do Azure AD, fazendo o seguinte:
+## <a name="benefits-of-enabling-the-ad-recycle-bin"></a>Benefícios de permitir o caixote do ciclo de ad
+Esta funcionalidade ajuda a restaurar os objetos do utilizador da AD Azure fazendo o seguinte:
 
-* Caso tenha eliminado acidentalmente uma local do objeto de utilizador do AD, o objeto de utilizador do Azure AD correspondente será eliminado no próximo ciclo de sincronização. Por predefinição, o Azure AD mantém o eliminado objeto de utilizador do Azure AD num Estado eliminado de forma recuperável durante 30 dias.
+* Se tiver eliminado acidentalmente um objeto de utilizador ad-ad no local, o objeto de utilizador da AD Azure correspondente será eliminado no próximo ciclo de sincronização. Por predefinição, a Azure AD mantém o objeto de utilizador AD AD eliminado em estado de soft-deleted durante 30 dias.
 
-* Se tiver no local AD reciclar a funcionalidade de reciclagem ativada, pode restaurar a eliminada no local o objeto de utilizador do AD sem alterar o valor de âncora de origem. Quando a recuperada no local o objeto de utilizador do AD está sincronizado com o Azure AD, o Azure AD será objeto de utilizador de restauro a correspondente eliminados de forma recuperável do Azure AD. Para obter informações sobre o atributo de âncora de origem, consulte o artigo [do Azure AD Connect: Conceitos de design](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#sourceanchor).
+* Se tiver ativada a funcionalidade AD Recycle Bin no local, pode restaurar o objeto de utilizador ad-ad eliminado no local sem alterar o seu valor de Âncora Fonte. Quando o objeto de utilizador ad-condicionado recuperado no local for sincronizado para a AD Azure, o Azure AD irá restaurar o correspondente objeto de utilizador da AD AD de eliminação suave. Para obter informações sobre o atributo Source Anchor, consulte o artigo [Azure AD Connect: Conceitos](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#sourceanchor)de design .
 
-* Se não tiver no local a funcionalidade de reciclagem do AD ativada, poderá ser necessária para criar um objeto de utilizador do AD para substituir o objeto excluído. Se o serviço do Azure AD Connect sincronização estiver configurado para utilizar o atributo de AD gerados pelo sistema (por exemplo, ObjectGuid) para o atributo de âncora de origem, o objeto de utilizador do AD criado recentemente não terão o mesmo valor de âncora de origem como o objeto de utilizador foi eliminado do AD. Quando o objeto de utilizador do AD criado recentemente é sincronizado com o Azure AD, o AD do Azure cria um novo objeto de utilizador do Azure AD em vez de restaurar o eliminados de forma recuperável objeto de utilizador do Azure AD.
+* Se não tiver ativada a funcionalidade AD Recycle Bin no local, poderá ser necessário criar um objeto de utilizador AD para substituir o objeto eliminado. Se o Serviço de Sincronização de Ligação AD Azure estiver configurado para utilizar o atributo AD gerado pelo sistema (como o ObjectGuid) para o atributo Source Anchor, o objeto de utilizador aD recém-criado não terá o mesmo valor de Âncora fonte que o objeto de utilizador AD eliminado. Quando o objeto de utilizador ad recém-criado é sincronizado para o Azure AD, o Azure AD cria um novo objeto de utilizador da AD Azure em vez de restaurar o objeto de utilizador da AD Azure eliminado suavemente.
 
 > [!NOTE]
-> Por predefinição, o Azure AD mantém eliminados objetos de utilizador do Azure AD num Estado eliminado de forma recuperável durante 30 dias antes de serem eliminados permanentemente. No entanto, os administradores podem acelerar a eliminação de tais objetos. Depois dos objetos são eliminados permanentemente, já não podem ser recuperados, mesmo no local a funcionalidade de reciclagem do AD está ativada.
+> Por predefinição, a AD Azure mantém os objetos de utilizador AD Azure eliminados em estado de soft-deleted durante 30 dias antes de serem eliminados permanentemente. No entanto, os administradores podem acelerar a eliminação de tais objetos. Uma vez eliminados permanentemente os objetos, já não podem ser recuperados, mesmo que a funcionalidade ad recycle bin aD esteja ativada.
 
-## <a name="next-steps"></a>Passos Seguintes
-**Tópicos de descrição geral**
+## <a name="next-steps"></a>Passos seguintes
+**Tópicos de visão geral**
 
-* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
+* [Sincronização Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
 
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)

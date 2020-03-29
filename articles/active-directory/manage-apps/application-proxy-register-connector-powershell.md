@@ -1,5 +1,5 @@
 ---
-title: Instale silenciosamente o conector de procuração da Aplicação AD Azure  Microsoft Docs
+title: Instale silenciosamente o conector de procuração da Aplicação AD Azure [ Microsoft Docs
 description: Cobre como realizar uma instalação não acompanhada do Conector proxy de aplicação da Aplicação AD Azure para fornecer acesso remoto seguro às suas aplicações no local.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b43d2de0a366d7e69a025b2e4e2998dccda2038e
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76756216"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Criar um script de instalação sem supervisão para o conector proxy de aplicação ad azure
@@ -38,7 +38,7 @@ Para que o [conector Proxy](application-proxy-connectors.md) de aplicação func
 
 Há dois passos para uma instalação sem supervisão. Primeiro, instale o conector. Em segundo lugar, registe o conector com a AD Azure. 
 
-## <a name="install-the-connector"></a>Instalar o conector
+## <a name="install-the-connector"></a>Instale o conector
 Utilize os seguintes passos para instalar o conector sem o registar:
 
 1. Abra uma linha de comandos.
@@ -53,20 +53,20 @@ Existem dois métodos que pode utilizar para registar o conector:
 * Registe o conector utilizando um token criado offline
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Registe o conector utilizando um objeto credencial Windows PowerShell
-1. Crie um objeto de credenciais Do Windows PowerShell `$cred` que contenha um nome de utilizador administrativo e uma palavra-passe para o seu diretório. Executar o seguinte comando, substituindo *\<nome de utilizador\>* e\<*palavra-passe\>:*
+1. Crie um objeto `$cred` de credenciais Windows PowerShell que contenha um nome de utilizador administrativo e uma palavra-passe para o seu diretório. Executar o seguinte comando, substituindo * \<o nome\> * de utilizador e * \<a palavra-passe:\>*
    
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
-2. Vá ao **C:\Program Files\Microsoft AAD App Proxy Connector** e execute o seguinte script usando o objeto `$cred` que criou:
+2. Vá ao **C:\Program Files\Microsoft AAD App Proxy Connector** e execute o seguinte script usando o `$cred` objeto que criou:
    
         .\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature ApplicationProxy
 
 ### <a name="register-the-connector-using-a-token-created-offline"></a>Registe o conector utilizando um token criado offline
 1. Crie um token offline utilizando a classe AuthenticationContext utilizando os valores deste código ou cmdlets PowerShell abaixo:
 
-    **Utilizando: C#**
+    **Usando C#:**
 
         using System;
         using System.Diagnostics;
@@ -175,13 +175,13 @@ Existem dois métodos que pode utilizar para registar o conector:
 
    `$SecureToken = $Token | ConvertTo-SecureString -AsPlainText -Force`
 
-3. Execute o seguinte comando Windows PowerShell, substituindo \<inquilino GUID\> pelo seu ID de diretório:
+3. Executar o seguinte comando Windows \<PowerShell, substituindo o inquilina GUID\> pelo seu ID de diretório:
 
    `.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID> -Feature ApplicationProxy`
 
 ## <a name="next-steps"></a>Passos seguintes 
 * [Publicar aplicações com o seu próprio nome de domínio](application-proxy-configure-custom-domain.md)
 * [Ativar o início de sessão único](application-proxy-configure-single-sign-on-with-kcd.md)
-* [Resolver problemas que possa ter com o Proxy de aplicações](application-proxy-troubleshoot.md)
+* [Resolver problemas com o Proxy da Aplicação](application-proxy-troubleshoot.md)
 
 

@@ -1,5 +1,5 @@
 ---
-title: Introdução à visão do grupo de segurança no Vigilante da Rede Azure  Microsoft Docs
+title: Introdução à visão do grupo de segurança no Vigilante da Rede Azure [ Microsoft Docs
 description: Esta página fornece uma visão geral da capacidade de visão de segurança do Observador de Rede
 services: network-watcher
 documentationcenter: na
@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: damendo
 ms.openlocfilehash: 18619cc0f7a21a39d0802575c484c68c5fa1a624
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840762"
 ---
 # <a name="introduction-to-effective-security-rules-view-in-azure-network-watcher"></a>Introdução a regras de segurança eficazes vistas no Observador da Rede Azure

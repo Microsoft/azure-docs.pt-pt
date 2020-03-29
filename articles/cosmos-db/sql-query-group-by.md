@@ -1,25 +1,25 @@
 ---
-title: Cláusula GROUP BY no Azure Cosmos DB
-description: Saiba mais sobre a cláusula GROUP BY para Azure Cosmos DB.
+title: Cláusula GROUP BY em Azure Cosmos DB
+description: Conheça a cláusula GROUP BY para o Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: tisande
 ms.openlocfilehash: e41e81457421bfe27e3c0313fc06e39e6df4cdce
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73819112"
 ---
-# <a name="group-by-clause-in-azure-cosmos-db"></a>Cláusula GROUP BY no Azure Cosmos DB
+# <a name="group-by-clause-in-azure-cosmos-db"></a>Cláusula GROUP BY em Azure Cosmos DB
 
-A cláusula GROUP BY divide os resultados da consulta de acordo com os valores de uma ou mais propriedades especificadas.
+A cláusula GROUP BY divide os resultados da consulta de acordo com os valores de um ou mais imóveis especificados.
 
 > [!NOTE]
-> O Azure Cosmos DB atualmente dá suporte a GROUP BY no SDK do .NET 3,3 e superior, bem como ao SDK do JavaScript 3,4 e superior.
-> O suporte para outros SDK do idioma não está disponível no momento, mas está planejado.
+> Atualmente, o Azure Cosmos DB suporta o GROUP BY em .NET SDK 3.3 ou superior, bem como o JavaScript SDK 3.4 ou superior.
+> O suporte para outras línguas SDK's não está disponível atualmente, mas está previsto.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -39,25 +39,25 @@ A cláusula GROUP BY divide os resultados da consulta de acordo com os valores d
 
 - `<scalar_expression>`
   
-   Qualquer expressão escalar é permitida, exceto para subconsultas escalares e agregações escalares. Cada expressão escalar deve conter pelo menos uma referência de propriedade. Não há nenhum limite para o número de expressões individuais ou a cardinalidade de cada expressão.
+   Qualquer expressão escalar é permitida, exceto para subqueries escalar e agregados escalar. Cada expressão escalar deve conter pelo menos uma referência de propriedade. Não há limite para o número de expressões individuais ou para a cardinalidade de cada expressão.
 
 ## <a name="remarks"></a>Observações
   
-  Quando uma consulta usa uma cláusula GROUP BY, a cláusula SELECT pode conter apenas o subconjunto de propriedades e funções do sistema incluídas na cláusula GROUP BY. Uma exceção são [funções de sistema agregadas](sql-query-aggregates.md), que podem aparecer na cláusula SELECT sem serem incluídas na cláusula Group by. Você também pode incluir sempre valores literais na cláusula SELECT.
+  Quando uma consulta utiliza uma cláusula GROUP BY, a cláusula SELECT só pode conter o subconjunto de propriedades e funções do sistema incluídas na cláusula GROUP BY. Uma exceção são [as funções agregadas](sql-query-aggregates.md)do sistema, que podem aparecer na cláusula SELECT sem serem incluídas na cláusula GROUP BY. Também pode incluir sempre valores literais na cláusula SELECT.
 
-  A cláusula GROUP BY deve ser posterior à cláusula SELECT, FROM e WHERE e antes da cláusula de limite de deslocamento. No momento, você não pode usar GROUP BY com uma cláusula ORDER BY, mas isso é planejado.
+  A cláusula GROUP BY deve ser posterior à cláusula SELECT, FROM e WHERE e antes da cláusula OFFSET LIMIT. Atualmente não pode utilizar o GROUP BY com uma cláusula ORDER BY, mas está previsto.
 
-  A cláusula GROUP BY não permite nenhum dos seguintes:
+  A cláusula GROUP BY não permite qualquer das seguintes:
   
-- Propriedades de alias ou funções do sistema de alias (a alias ainda é permitida dentro da cláusula SELECT)
-- Subconsultas
-- Funções de sistema agregadas (somente são permitidas na cláusula SELECT)
+- Propriedades de aliasing ou funções do sistema de alisamento (o aliasing ainda é permitido dentro da cláusula SELECT)
+- Subqueides
+- Funções agregadas do sistema (estas são permitidas apenas na cláusula SELECT)
 
 ## <a name="examples"></a>Exemplos
 
-Esses exemplos usam o conjunto de dados nutrição disponível por meio do [Playground para Consultas Azure Cosmos DB](https://www.documentdb.com/sql/demo).
+Estes exemplos usam o conjunto de dados nutricionais disponíveis através do [Parque De Consulta DB Do MB Do Azure Cosmos.](https://www.documentdb.com/sql/demo)
 
-Por exemplo, aqui está uma consulta que retorna a contagem total de itens em cada um dos alimentos:
+Por exemplo, aqui está uma consulta que devolve a contagem total de itens em cada alimentoGroup:
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup
@@ -65,7 +65,7 @@ FROM Food f
 GROUP BY f.foodGroup
 ```
 
-Alguns resultados são (a palavra-chave TOP é usada para limitar os resultados):
+Alguns resultados são (a palavra-chave TOP é usada para limitar resultados):
 
 ```json
 [{
@@ -86,7 +86,7 @@ Alguns resultados são (a palavra-chave TOP é usada para limitar os resultados)
 }]
 ```
 
-Essa consulta tem duas expressões usadas para dividir os resultados:
+Esta consulta tem duas expressões usadas para dividir resultados:
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup, f.version
@@ -148,7 +148,7 @@ Alguns resultados são:
 }]
 ```
 
-Essa consulta usa as duas palavras-chave e funções do sistema na expressão de Propriedade do item:
+Esta consulta utiliza palavras-chave e funções do sistema na expressão de propriedade do item:
 
 ```sql
 SELECT COUNT(1) AS foodGroupCount, ARRAY_CONTAINS(f.tags, {name: 'orange'}) AS containsOrangeTag,  f.version BETWEEN 0 AND 2 AS correctVersion
@@ -173,6 +173,6 @@ Os resultados são:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Introdução](sql-query-getting-started.md)
+- [Começar](sql-query-getting-started.md)
 - [Cláusula SELECT](sql-query-select.md)
-- [Funções de agregação](sql-query-aggregates.md)
+- [Funções agregadas](sql-query-aggregates.md)

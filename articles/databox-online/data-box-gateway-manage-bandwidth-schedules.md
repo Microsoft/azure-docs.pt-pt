@@ -1,5 +1,5 @@
 ---
-title: Gerir agendas de largura de banda no Gateway de caixa de dados do Azure | Documentos da Microsoft
+title: Gerir os horários da largura de banda no Portal da Caixa de Dados do Azure [ Microsoft Docs
 description: Descreve como utilizar o portal do Azure para gerir as agendas de largura de banda do Azure Data Box Gateway.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 63f3572dcb5affb9fcf89d86a665bef9414cb011
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60755381"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Utilizar o portal do Azure para gerir as agendas de largura de banda do Azure Data Box Gateway  
@@ -36,7 +36,7 @@ Efetue os seguintes passos no portal do Azure para adicionar um utilizador.
 1. No portal do Azure do recurso Data Box Gateway, aceda a **Largura de Banda**.
 2. No painel direito, clique em **+ Adicionar agenda**.
 
-    ![Clique em adicionar utilizador](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-1.png)
+    ![Clicar em adicionar utilizador](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-1.png)
 
 3. Em **Adicionar agenda**: 
 
@@ -82,6 +82,6 @@ Efetue os seguintes passos para eliminar uma agenda de largura de banda associad
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [Gerir a largura de banda](data-box-gateway-manage-bandwidth-schedules.md).

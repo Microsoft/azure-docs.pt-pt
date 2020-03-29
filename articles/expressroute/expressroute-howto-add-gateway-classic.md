@@ -1,6 +1,6 @@
 ---
-title: 'Azure ExpressRoute: adicionar um gateway a uma VNet: clássico'
-description: Configurar um gateway de VNet para uma implementação clássica VNet com o PowerShell para uma configuração de ExpressRoute do modelo.
+title: 'Azure ExpressRoute: Adicione uma porta de entrada para um VNet: clássico'
+description: Configure um gateway VNet para um modelo de implementação clássico VNet usando powerShell para uma configuração ExpressRoute.
 services: expressroute
 author: charwen
 ms.service: expressroute
@@ -9,21 +9,21 @@ ms.date: 12/06/2019
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: d7927af5b831dbe3294e1abc3a878e323bf1867e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74928054"
 ---
-# <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>Configurar um gateway de rede virtual para o ExpressRoute com o PowerShell (clássico)
+# <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>Configure um portal de rede virtual para ExpressRoute usando powerShell (clássico)
 > [!div class="op_single_selector"]
 > * [Resource Manager – PowerShell](expressroute-howto-add-gateway-resource-manager.md)
-> * [Clássica – PowerShell](expressroute-howto-add-gateway-classic.md)
-> * [Vídeo - Portal do Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
+> * [Clássico - PowerShell](expressroute-howto-add-gateway-classic.md)
+> * [Vídeo - Portal Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
 > 
 > 
 
-Este artigo irá guiá-lo pelos passos para adicionar, redimensionar e remover um gateway de rede virtual (VNet) para uma VNet já existente. Os passos para esta configuração são especificamente para VNets que foram criadas utilizando o **modelo de implementação clássica** e que será utilizada uma configuração de ExpressRoute. 
+Este artigo irá acompanhá-lo através dos passos para adicionar, redimensionar e remover uma porta de entrada de rede virtual (VNet) para um VNet pré-existente. Os passos para esta configuração são especificamente para VNets que foram criados usando o modelo de **implementação clássico** e que serão usados numa configuração ExpressRoute. 
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -32,12 +32,12 @@ Este artigo irá guiá-lo pelos passos para adicionar, redimensionar e remover u
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-beginning"></a>Antes de começar
-Verifique se você instalou os cmdlets Azure PowerShell necessários para essa configuração.
+Verifique se instalou os cmdlets Azure PowerShell necessários para esta configuração.
 
 [!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
 [!INCLUDE [expressroute-gateway-classic-ps](../../includes/expressroute-gateway-classic-ps-include.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
-Depois de ter criado o gateway de VNet, pode ligar a VNet a um circuito do ExpressRoute. Ver [ligar uma rede Virtual a um circuito de ExpressRoute](expressroute-howto-linkvnet-classic.md).
+Depois de ter criado o portal VNet, pode ligar o seu VNet a um circuito ExpressRoute. Consulte [a Ligação de uma Rede Virtual a um circuito ExpressRoute](expressroute-howto-linkvnet-classic.md).
 

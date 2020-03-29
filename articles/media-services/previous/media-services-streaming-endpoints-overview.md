@@ -1,6 +1,6 @@
 ---
-title: Visão geral do ponto de extremidade de streaming do Azure Media Services | Microsoft Docs
-description: Este artigo fornece uma visão geral dos pontos de extremidade de streaming dos serviços de mídia do Azure.
+title: Visão geral do Ponto final do Azure Media Services Microsoft Docs
+description: Este artigo dá uma visão geral dos pontos finais de streaming da Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,105 +15,105 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 95d8d819aa1b418b4a7ec736cef64cb989f7e37b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74885641"
 ---
-# <a name="streaming-endpoints-overview"></a>Visão geral dos pontos de extremidade de streaming  
+# <a name="streaming-endpoints-overview"></a>Visão geral dos pontos finais de streaming  
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
-No Serviços de Mídia do Microsoft Azure (AMS), um **ponto de extremidade de streaming** representa um serviço de streaming que pode entregar conteúdo diretamente a um aplicativo de player de cliente ou a uma CDN (rede de distribuição de conteúdo) para distribuição posterior. Os serviços de mídia também fornecem integração direta da CDN do Azure. O fluxo de saída de um serviço StreamingEndpoint pode ser uma transmissão ao vivo, um vídeo sob demanda ou um download progressivo de seu ativo na sua conta de serviços de mídia. Cada conta dos serviços de mídia do Azure inclui um StreamingEndpoint padrão. StreamingEndpoints adicionais podem ser criados na conta. Há duas versões de StreamingEndpoints, 1,0 e 2,0. A partir de 10 de janeiro de 2017, todas as contas AMS recém-criadas incluirão a versão 2,0 **padrão** StreamingEndpoint. Os pontos de extremidade de streaming adicionais que você adicionar a essa conta também serão da versão 2,0. Essa alteração não afetará as contas existentes; os StreamingEndpoints existentes serão da versão 1,0 e poderão ser atualizados para a versão 2,0. Com essa alteração, haverá alterações de comportamento, cobrança e recursos (para obter mais informações, consulte a seção **tipos e versões de streaming** documentadas abaixo).
+No Microsoft Azure Media Services (AMS), um **Streaming Endpoint** representa um serviço de streaming que pode entregar conteúdo diretamente a uma aplicação de jogador de clientes, ou a uma Rede de Entrega de Conteúdos (CDN) para posterior distribuição. A Media Services também fornece uma integração cdn azure perfeita. O fluxo de saída de um serviço StreamingEndpoint pode ser um live stream, um vídeo a pedido ou transferência progressiva do seu ativo na sua conta de Media Services. Cada conta azure Media Services inclui um StreamingEndpoint padrão. Os pontos De StreamingEnd adicionais podem ser criados sob a conta. Existem duas versões de StreamingEndpoints, 1.0 e 2.0. A partir de 10 de janeiro de 2017, quaisquer contas AMS recém-criadas incluirão a versão 2.0 **padrão** StreamingEndpoint. Os pontos finais de streaming adicionais que adicionar a esta conta também serão a versão 2.0. Esta alteração não terá impacto nas contas existentes; os streamingendpoints existentes serão a versão 1.0 e podem ser atualizados para a versão 2.0. Com esta alteração haverá mudanças de comportamento, faturação e funcionalidade (para mais informações, consulte os tipos de Streaming e a secção de **versões** documentada abaixo).
 
-Os serviços de mídia do Azure adicionaram as seguintes propriedades à entidade de ponto de extremidade de streaming: **CdnProvider**, **CdnProfile**, **StreamingEndpointVersion**. Para obter uma visão geral detalhada dessas propriedades, consulte [isso](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
+A Azure Media Services adicionou as seguintes propriedades à entidade streaming Endpoint: **CdnProvider,** **CdnProfile,** **StreamingEndpointVersion**. Para uma visão detalhada destas propriedades, consulte [isto.](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint) 
 
-Quando você cria uma conta dos serviços de mídia do Azure, um ponto de extremidade de streaming padrão é criado para você no estado **parado** . Não é possível excluir o ponto de extremidade de streaming padrão. Dependendo da disponibilidade da CDN do Azure na região de destino, por padrão, o ponto de extremidade de streaming padrão recém-criado também inclui a integração do provedor de CDN "StandardVerizon". 
+When you create an Azure Media Services account a default standard streaming endpoint is created for you in the **Stopped** state. Não é possível eliminar o ponto final de transmissão predefinido. Dependendo da disponibilidade do Azure CDN na região alvo, por padrão, o ponto final de streaming de padrão recém-criado inclui também a integração do fornecedor CDN "StandardVerizon". 
                 
 > [!NOTE]
-> A integração da CDN do Azure pode ser desabilitada antes de iniciar o ponto de extremidade de streaming. O `hostname` e a URL de streaming permanecem os mesmos, independentemente de você habilitar ou não a CDN.
+> A integração do CDN Azure pode ser desativada antes de iniciar o ponto final de streaming. O `hostname` URL de streaming e o URL de streaming permanecem os mesmos, quer asua ativação ou não da CDN.
 
-Este tópico fornece uma visão geral das principais funcionalidades fornecidas por pontos de extremidade de streaming.
+Este tópico apresenta uma visão geral das principais funcionalidades que são fornecidas através do streaming de pontos finais.
 
 ## <a name="naming-conventions"></a>Convenções de nomenclatura
 
-Para o ponto de extremidade padrão: `{AccountName}.streaming.mediaservices.windows.net`
+Para o ponto final predefinido:`{AccountName}.streaming.mediaservices.windows.net`
 
-Para quaisquer pontos de extremidade adicionais: `{EndpointName}-{AccountName}.streaming.mediaservices.windows.net`
+Para quaisquer pontos finais adicionais:`{EndpointName}-{AccountName}.streaming.mediaservices.windows.net`
 
 ## <a name="streaming-types-and-versions"></a>Tipos e versões de streaming
 
-### <a name="standardpremium-types-version-20"></a>Tipos Standard/Premium (versão 2,0)
+### <a name="standardpremium-types-version-20"></a>Tipos standard/Premium (versão 2.0)
 
-A partir da versão de janeiro de 2017 dos serviços de mídia, você tem dois tipos de streaming: **Standard** (visualização) e **Premium**. Esses tipos fazem parte da versão do ponto de extremidade de streaming "2,0".
+A partir do lançamento de janeiro de 2017 dos Media Services, tem dois tipos de streaming: **Standard** (pré-visualização) e **Premium**. Estes tipos fazem parte da versão final do streaming "2.0".
 
 
 |Tipo|Descrição|
 |--------|--------|  
-|**Standard**|O ponto de extremidade de streaming padrão é um tipo **padrão** , pode ser alterado para o tipo Premium, ajustando as unidades de streaming.|
-|**Premium** |Essa opção é adequada para cenários profissionais que exigem maior escala ou controle. Você passa para um tipo **Premium** ajustando unidades de streaming.<br/>Os pontos de extremidade de streaming dedicados residem em um ambiente isolado e não conpetem por recursos.|
+|**Standard**|O ponto final de streaming predefinido é um tipo **Standard,** pode ser alterado para o tipo Premium ajustando as unidades de streaming.|
+|**Premium** |Esta opção é adequada para cenários profissionais que requerem maior escala ou controlo. Muda-se para um tipo **Premium** ajustando unidades de streaming.<br/>Os Pontos Finais de Streaming dedicados vivem em ambiente isolado e não competem por recursos.|
 
-Para clientes que procuram fornecer conteúdo a grandes públicos da Internet, recomendamos que você habilite a CDN no ponto de extremidade de streaming.
+Para clientes que procuram entregar conteúdo a grandes audiências da Internet, recomendamos que ative a CDN no Streaming Endpoint.
 
-Para obter informações mais detalhadas, consulte a seção [comparar tipos de streaming](#comparing-streaming-types) a seguir.
+Para obter informações mais detalhadas, consulte os tipos de [streaming compare seguintes.](#comparing-streaming-types)
 
-### <a name="classic-type-version-10"></a>Tipo clássico (versão 1,0)
+### <a name="classic-type-version-10"></a>Tipo clássico (versão 1.0)
 
-Para usuários que criaram contas do AMS antes da versão de janeiro de 10 2017, você tem um tipo **clássico** de ponto de extremidade de streaming. Esse tipo faz parte da versão do ponto de extremidade de streaming "1,0".
+Para os utilizadores que criaram contas AMS antes do lançamento de 10 de janeiro de 2017, você tem um tipo **clássico** de um ponto final de streaming. Este tipo faz parte da versão final de streaming "1.0".
 
-Se o ponto de extremidade de streaming da **versão "1,0"** tiver > = 1 Su (unidades de streaming Premium), ele será um ponto de extremidade de streaming Premium e fornecerá todos os recursos do AMS (assim como o tipo **Standard/Premium** ) sem nenhuma etapa de configuração adicional.
+Se a sua **versão "1.0"** ponto final de streaming tiver >=1 unidades de streaming premium (SU), será um ponto final de streaming premium e fornecerá todas as funcionalidades AMS (tal como o tipo **Standard/Premium)** sem quaisquer passos de configuração adicionais.
 
 >[!NOTE]
->Os pontos de extremidade de streaming **clássicos** (versão "1,0" e 0 Su) fornecem recursos limitados e não incluem um SLA. É recomendável migrar para o tipo **padrão** para obter uma experiência melhor e usar recursos como empacotamento dinâmico ou criptografia e outros recursos que acompanham o tipo **padrão** . Para migrar para o tipo **padrão** , vá para o [portal do Azure](https://portal.azure.com/) e selecione **aceitar para Standard**. Para obter mais informações sobre migração, consulte a seção [migração](#migration-between-types) .
+>**Os** pontos finais clássicos de streaming (versão "1.0" e 0 SU), fornecem funcionalidades limitadas e não incluem um SLA. Recomenda-se migrar para o tipo **Standard** para obter uma melhor experiência e utilizar funcionalidades como embalagem dinâmica ou encriptação e outras funcionalidades que vêm com o tipo **Standard.** Para migrar para o tipo **Standard,** vá ao [portal Azure](https://portal.azure.com/) e selecione **Opt-in para Standard**. Para obter mais informações sobre migração, consulte a secção [de migração.](#migration-between-types)
 >
->Lembre-se de que essa operação não pode ser revertida e tem um impacto no preço.
+>Tenha cuidado com o facto de esta operação não poder ser relançada e ter um impacto nos preços.
 >
  
-## <a name="comparing-streaming-types"></a>Comparando tipos de streaming
+## <a name="comparing-streaming-types"></a>Comparar tipos de streaming
 
 ### <a name="versions"></a>Versões
 
-|Tipo|StreamingEndpointVersion|ScaleUnits|CDN|Faturação|
+|Tipo|Versão streamingEndpoint|Unidades de Escala|CDN|Faturação|
 |--------------|----------|-----------------|-----------------|-----------------|
-|Clássico|1.0|0|N/D|Gratuito|
-|Ponto de extremidade de streaming padrão (visualização)|2.0|0|Sim|Pago|
-|Unidades de Transmissão em Fluxo Premium|1.0|>0|Sim|Pago|
-|Unidades de Transmissão em Fluxo Premium|2.0|>0|Sim|Pago|
+|Clássica|1.0|0|ND|Gratuito|
+|Ponto final de streaming padrão (pré-visualização)|2.0|0|Sim|Pago|
+|Unidades de Streaming Premium|1.0|>0|Sim|Pago|
+|Unidades de Streaming Premium|2.0|>0|Sim|Pago|
 
 ### <a name="features"></a>Funcionalidades
 
-Funcionalidade|Padrão|Premium
+Funcionalidade|Standard|Premium
 ---|---|---
-Débito |Até 600 Mbps e pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.|200 Mbps por SU (unidade de streaming). Pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.
-CDN|CDN do Azure, CDN de terceiros ou nenhuma CDN.|CDN do Azure, CDN de terceiros ou nenhuma CDN.
-A cobrança é rateada| Diariamente|Diariamente
+Débito |Até 600 Mbps e pode fornecer uma entrada muito mais eficaz quando um CDN é usado.|200 Mbps por unidade de streaming (SU). Pode fornecer uma entrada muito mais eficaz quando um CDN é usado.
+CDN|Azure CDN, CDN de terceiros, ou sem CDN.|Azure CDN, CDN de terceiros, ou sem CDN.
+A faturação é proclamada| Diárias|Diárias
 Encriptação dinâmica|Sim|Sim
 Empacotamento dinâmico|Sim|Sim
-Escalabilidade|Escala verticalmente para a taxa de transferência de destino.|Unidades de streaming adicionais.
-Filtragem de IP/G20/host personalizado <sup>1</sup>|Sim|Sim
+Dimensionamento|Automaticamente escala até a entrada direcionada.|Unidades de streaming adicionais.
+Filtragem IP/G20/Hospedeiro personalizado <sup>1</sup>|Sim|Sim
 Download progressivo|Sim|Sim
-Uso recomendado |Recomendado para a grande maioria dos cenários de streaming.|Uso profissional. 
+Utilização recomendada |Recomendado para a grande maioria dos cenários de streaming.|Uso profissional. 
 
-<sup>1</sup> é usado somente diretamente no ponto de extremidade de streaming quando a CDN não está habilitada no ponto de extremidade.<br/>
+<sup>1</sup> Apenas utilizado diretamente no ponto final de streaming quando o CDN não está ativado no ponto final.<br/>
 
-Para obter informações de SLA, consulte [preços e SLA](https://azure.microsoft.com/pricing/details/media-services/).
+Para obter informações sobre SLA, consulte [Preços e SLA](https://azure.microsoft.com/pricing/details/media-services/).
 
 ## <a name="migration-between-types"></a>Migração entre tipos
 
-A partir de | a | Ação
+De | Para | Ação
 ---|---|---
-Clássico|Padrão|Precisa aceitar
-Clássico|Premium| Escala (unidades de streaming adicionais)
-Standard/Premium|Clássico|Não disponível (se a versão do ponto de extremidade de streaming for 1,0. É permitido alterar para clássico com a configuração de ScaleUnits como "0")
-Standard (com/sem CDN)|Premium com as mesmas configurações|Permitido no estado **iniciado** . (via portal do Azure)
-Premium (com/sem CDN)|Standard com as mesmas configurações|Permitido no estado **iniciado** (via portal do Azure)
-Standard (com/sem CDN)|Premium com configuração diferente|Permitido no estado **parado** (via portal do Azure). Não permitido no estado de execução.
-Premium (com/sem CDN)|Padrão com configuração diferente|Permitido no estado **parado** (via portal do Azure). Não permitido no estado de execução.
-Versão 1,0 com SU > = 1 com CDN|Standard/Premium sem CDN|Permitido no estado **parado** . Não permitido no estado **iniciado** .
-Versão 1,0 com SU > = 1 com CDN|Standard com/sem CDN|Permitido no estado **parado** . Não permitido no estado **iniciado** . A CDN da versão 1,0 será excluída e nova criada e iniciada.
-Versão 1,0 com SU > = 1 com CDN|Premium com/sem CDN|Permitido no estado **parado** . Não permitido no estado **iniciado** . A CDN clássica será excluída e nova criada e iniciada.
+Clássica|Standard|Precisa optar por entrar
+Clássica|Premium| Escala (unidades de streaming adicionais)
+Standard/Premium|Clássica|Não disponível (Se a versão final do streaming for 1.0. É permitido mudar para clássico com definição de unidades de escala para "0")
+Standard (com/without CDN)|Premium com as mesmas configurações|Permitido no estado **de partida.** (via portal Azure)
+Premium (com/sem CDN)|Standard com as mesmas configurações|Permitido no estado **iniciado** (via portal Azure)
+Standard (com/without CDN)|Premium com config diferente|Permitido no estado **de paragem** (via portal Azure). Não é permitido no estado de corrida.
+Premium (com/sem CDN)|Padrão com config diferente|Permitido no estado **de paragem** (via portal Azure). Não é permitido no estado de corrida.
+Versão 1.0 com SU >= 1 com CDN|Standard/Premium sem CDN|Permitido no estado **de paragem.** Não é permitido no estado **de partida.**
+Versão 1.0 com SU >= 1 com CDN|Standard com/sem CDN|Permitido no estado **de paragem.** Não é permitido no estado **de partida.** A versão 1.0 CDN será eliminada e a nova criada e iniciada.
+Versão 1.0 com SU >= 1 com CDN|Premium com/sem CDN|Permitido no estado **de paragem.** Não é permitido no estado **de partida.** O CDN clássico será apagado e o novo criado e iniciado.
 
 ## <a name="next-steps"></a>Passos seguintes
 Rever os percursos de aprendizagem dos Serviços de Multimédia

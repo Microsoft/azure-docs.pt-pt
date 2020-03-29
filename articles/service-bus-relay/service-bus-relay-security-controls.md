@@ -1,6 +1,6 @@
 ---
-title: Controles de segurança para retransmissão do barramento de serviço do Azure
-description: Este artigo fornece uma lista de verificação de controles de segurança internos para avaliar a retransmissão do barramento de serviço do Azure.
+title: Controlos de segurança para o relé de autocarro saquede teto de serviço azure
+description: Estes artigos fornecem uma lista de controlos de segurança incorporados para avaliar o Relé de Autocarros de Serviço Azure.
 services: service-bus-relay
 ms.service: service-bus-relay
 author: spelluru
@@ -8,58 +8,58 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 28d3ba14aa7769ac4f3fc22bd2b5bd7acd30557c
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76514022"
 ---
-# <a name="security-controls-for-azure-service-bus-relay"></a>Controles de segurança para retransmissão do barramento de serviço do Azure
+# <a name="security-controls-for-azure-service-bus-relay"></a>Controlos de segurança para o relé de autocarro saquede teto de serviço azure
 
-Este artigo documenta os controles de segurança criados na retransmissão do barramento de serviço do Azure.
+Este artigo documenta os controlos de segurança incorporados no Azure Service Bus Relay.
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
 ## <a name="network"></a>Rede
 
-| Controle de segurança | Sim/Não | Notas | Documentação |
+| Controlo de segurança | Sim/Não | Notas | Documentação |
 |---|---|--|--|
-| Suporte ao ponto de extremidade de serviço| Não |  |   |
-| Isolamento de rede e suporte de firewall| Não |  |   |
-| Suporte a túnel forçado| N/A | Retransmissão é o túnel TLS  |   |
+| Suporte final de serviço| Não |  |   |
+| Isolamento da rede e suporte de firewalling| Não |  |   |
+| Apoio de túnel forçado| N/D | Relé é o túnel TLS  |   |
 
-## <a name="monitoring--logging"></a>Monitorando & log
+## <a name="monitoring--logging"></a>Monitorização & exploração madeireira
 
-| Controle de segurança | Sim/Não | Notas| Documentação |
+| Controlo de segurança | Sim/Não | Notas| Documentação |
 |---|---|--|--|
-| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | |   |
-| Registro e auditoria do plano de gerenciamento e controle| Sim | Por meio de [Azure Resource Manager](../azure-resource-manager/index.yml). |   |
-| Log e auditoria do plano de dados| Sim | Êxito na conexão/falha e erros e registrados.  |   |
+| Suporte de monitorização Azure (Análise de registo, insights de aplicações, etc.)| Sim | |   |
+| Registo e auditoria de planos de controlo e gestão| Sim | Através [do Gestor de Recursos Azure.](../azure-resource-manager/index.yml) |   |
+| Registo e auditoria de planos de dados| Sim | Sucesso de ligação/falha e erros e registados.  |   |
 
 ## <a name="identity"></a>Identidade
 
-| Controle de segurança | Sim/Não | Notas| Documentação |
+| Controlo de segurança | Sim/Não | Notas| Documentação |
 |---|---|--|--|
-| Autenticação| Sim | Via SAS. | [Autenticação e autorização de retransmissão do Azure](relay-authentication-and-authorization.md) |
-| Autorização|  Sim | Via SAS. | [Autenticação e autorização de retransmissão do Azure](relay-authentication-and-authorization.md) |
+| Autenticação| Sim | Via SAS. | [Autenticação e autorização do Relé Azure](relay-authentication-and-authorization.md) |
+| Autorização|  Sim | Via SAS. | [Autenticação e autorização do Relé Azure](relay-authentication-and-authorization.md) |
 
 ## <a name="data-protection"></a>Proteção de dados
 
-| Controle de segurança | Sim/Não | Notas | Documentação |
+| Controlo de segurança | Sim/Não | Notas | Documentação |
 |---|---|--|--|
-| Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft |  N/A | A retransmissão é um soquete da Web e não mantém os dados. |   |
-| Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Não | Usa somente certificados TLS da Microsoft.  |   |
-| Criptografia em nível de coluna (serviços de dados do Azure)| N/A | |   |
-| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | O serviço requer TLS. |   |
-| Chamadas de API criptografadas| Sim | HTTPS. |
+| Encriptação do lado do servidor em repouso: Chaves geridas pela Microsoft |  N/D | O relé é uma tomada web e não persiste dados. |   |
+| Encriptação do lado do servidor em repouso: chaves geridas pelo cliente (BYOK) | Não | Usa apenas certs Microsoft TLS.  |   |
+| Encriptação de nível de coluna (Serviços de Dados Azure)| N/D | |   |
+| Encriptação em trânsito (como encriptação ExpressRoute, encriptação VNet e encriptação VNet-VNet)| Sim | O serviço requer TLS. |   |
+| Chamadas api encriptadas| Sim | HTTPS. |
 
 
-## <a name="configuration-management"></a>Gestão de configurações
+## <a name="configuration-management"></a>Gestão da configuração
 
-| Controle de segurança | Sim/Não | Notas| Documentação |
+| Controlo de segurança | Sim/Não | Notas| Documentação |
 |---|---|--|--|
-| Suporte ao gerenciamento de configuração (controle de versão de configuração, etc.)| Sim | Por meio de [Azure Resource Manager](../azure-resource-manager/index.yml).|   |
+| Suporte de gestão de configuração (versão de configuração, etc.)| Sim | Através [do Gestor de Recursos Azure.](../azure-resource-manager/index.yml)|   |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre os [controles de segurança internos nos serviços do Azure](../security/fundamentals/security-controls.md).
+- Saiba mais sobre os [controlos de segurança incorporados em todos os serviços do Azure.](../security/fundamentals/security-controls.md)

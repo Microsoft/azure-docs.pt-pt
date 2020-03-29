@@ -1,45 +1,45 @@
 ---
-title: Como rodar a chave de acesso para o serviço Azure SignalR
-description: Uma visão geral sobre o motivo pelo qual o cliente tem rotineiramente rodar as chaves de acesso e de como fazê-lo com o portal do Azure GUI e a CLI do Azure.
+title: Como rodar a chave de acesso do Azure SignalR Service
+description: Uma visão geral do porquê do cliente precisar de rodar rotineiramente as teclas de acesso e como fazê-lo com o portal Azure GUI e o Azure CLI.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 133edc64ac2f858a397a4a184c24497dae8af333
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67565735"
 ---
-# <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Como rodar a chave de acesso para o serviço Azure SignalR
+# <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Como rodar a chave de acesso do Azure SignalR Service
 
-Cada instância do serviço Azure SignalR tem um par de chaves de acesso denominado chaves primária e secundária. Eles são usados para autenticar clientes de SignalR quando os pedidos são efetuados para o serviço. As chaves estão associadas com o url de ponto final de instância. Mantenha as suas chaves seguras e girá-las regularmente. É fornecido com duas chaves de acesso, por isso, possa manter as ligações ao utilizar uma chave enquanto Regenera a outra.
+Cada instância de serviço de sinalização Azure tem um par de teclas de acesso chamadas chaves primárias e secundárias. São usados para autenticar clientes SignalR quando são feitos pedidos ao serviço. As teclas estão associadas ao url do ponto final da instância. Mantenha as chaves seguras e rode-as regularmente. Tem duas teclas de acesso, para que possa manter as ligações usando uma tecla enquanto regenera a outra.
 
-## <a name="why-rotate-access-keys"></a>Por que motivo Rodar chaves de acesso?
+## <a name="why-rotate-access-keys"></a>Por que rodar as chaves de acesso?
 
-Para questões de segurança e os requisitos de conformidade, rotineiramente roda as chaves de acesso.
+Por razões de segurança e requisitos de conformidade, rode rotineiramente as suas chaves de acesso.
 
-## <a name="regenerate-access-keys"></a>Voltar a gerar chaves de acesso
+## <a name="regenerate-access-keys"></a>Chaves de acesso regeneradas
 
-1. Vá para o [portal do Azure](https://portal.azure.com/)e inicie sessão com as suas credenciais.
+1. Vá ao [portal Azure](https://portal.azure.com/)e inscreva-se com as suas credenciais.
 
-1. Encontrar o **chaves** secção na instância do serviço Azure SignalR com as chaves que pretende voltar a gerar.
+1. Encontre a secção **Keys** na instância de Serviço De Sinalização Azure com as teclas que pretende regenerar.
 
-1. Selecione **chaves** no menu de navegação.
+1. Selecione **Teclas** no menu de navegação.
 
-1. Selecione **regenerar a chave primária** ou **voltar a gerar chave secundária**.
+1. **Selecione Chave Primária Regenerar** ou **Regenerar a Chave Secundária**.
 
-   Uma nova chave e a cadeia de ligação correspondente são criados e apresentados.
+   Uma nova chave e uma corda de ligação correspondente são criadas e exibidas.
 
-   ![Voltar a gerar chaves](media/signalr-howto-key-rotation/regenerate-keys.png)
+   ![Chaves regeneradas](media/signalr-howto-key-rotation/regenerate-keys.png)
 
-Também pode voltar a gerar chaves utilizando o [CLI do Azure](/cli/azure/signalr/key?view=azure-cli-latest#az-signalr-key-renew).
+Também pode regenerar as teclas utilizando o [Azure CLI](/cli/azure/signalr/key?view=azure-cli-latest#az-signalr-key-renew).
 
-## <a name="update-configurations-with-new-connection-strings"></a>Configurações de atualização com novas cadeias de ligação
+## <a name="update-configurations-with-new-connection-strings"></a>Configurações de atualização com novas cordas de ligação
 
-1. Copie a cadeia de ligação gerados recentemente.
+1. Copie a cadeia de ligação recém-gerada.
 
 1. Atualize todas as configurações para utilizar a nova cadeia de ligação.
 
@@ -47,16 +47,16 @@ Também pode voltar a gerar chaves utilizando o [CLI do Azure](/cli/azure/signal
 
 ## <a name="forced-access-key-regeneration"></a>Regeneração da chave de acesso forçado
 
-Serviço Azure SignalR poderá impor uma regeneração da chave de acesso obrigatórios em determinadas situações. O serviço notifica os clientes por e-mail e notificação do portal. Se receber esta comunicação ou se ocorrer falha de serviço devido a uma chave de acesso, roda as chaves ao seguir as instruções neste guia.
+O Serviço De Sinalização Azure pode impor uma regeneração de chave de acesso obrigatória em determinadas situações. O serviço notifica os clientes através de notificação de e-mail e portal. Se receber esta falha de comunicação ou de encontro devido a uma chave de acesso, rode as teclas seguindo as instruções deste guia.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Roda as chaves de acesso regularmente como uma boa prática de segurança.
+Rode regularmente as chaves de acesso como uma boa prática de segurança.
 
-Neste guia, aprendeu a voltar a gerar chaves de acesso. Avance para os tutoriais seguintes sobre a autenticação OAuth ou com as funções do Azure.
-
-> [!div class="nextstepaction"]
-> [Integrar com a identidade do ASP.NET core](./signalr-concept-authenticate-oauth.md)
+Neste guia, aprendeu a regenerar as chaves de acesso. Continue para os próximos tutoriais sobre autenticação com OAuth ou com Funções Azure.
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação sem servidor em tempo real com a autenticação](./signalr-tutorial-authenticate-azure-functions.md)
+> [Integrar com ASP.NET identidade central](./signalr-concept-authenticate-oauth.md)
+
+> [!div class="nextstepaction"]
+> [Construa uma aplicação em tempo real sem servidores com autenticação](./signalr-tutorial-authenticate-azure-functions.md)

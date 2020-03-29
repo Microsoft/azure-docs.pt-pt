@@ -1,26 +1,26 @@
 ---
 title: Referência de proxy de recurso personalizado
-description: Referência de proxy de recurso personalizado para provedores de recursos personalizados do Azure. Este artigo abordará os requisitos para pontos de extremidade que implementam recursos personalizados de proxy.
+description: Referência de procuração de recursos personalizados para fornecedores de recursos personalizados Azure. Este artigo irá analisar os requisitos para os pontos finais que implementam recursos personalizados por procuração.
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: 46b38686b39836f3d4bfb80686d514f932a79bf3
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75650464"
 ---
-# <a name="custom-resource-proxy-reference"></a>Referência de proxy de recurso personalizado
+# <a name="custom-resource-proxy-reference"></a>Referência de procuração de recursos personalizados
 
-Este artigo abordará os requisitos para pontos de extremidade que implementam recursos personalizados de proxy. Se você não estiver familiarizado com os provedores de recursos personalizados do Azure, consulte [a visão geral sobre provedores de recursos personalizados](overview.md).
+Este artigo irá analisar os requisitos para os pontos finais que implementam recursos personalizados por procuração. Se não está familiarizado com os Fornecedores de Recursos Personalizados Da Azure, consulte a visão geral sobre os fornecedores de [recursos personalizados.](overview.md)
 
-## <a name="how-to-define-a-proxy-resource-endpoint"></a>Como definir um ponto de extremidade de recurso de proxy
+## <a name="how-to-define-a-proxy-resource-endpoint"></a>Como definir um ponto final de recurso proxy
 
-Um recurso de proxy pode ser criado especificando o **RoutingType** como "proxy".
+Um recurso proxy pode ser criado especificando o **routtype** para "Proxy".
 
-Provedor de recursos personalizados de exemplo:
+Provedor de recursos personalizados da amostra:
 
 ```JSON
 {
@@ -40,14 +40,14 @@ Provedor de recursos personalizados de exemplo:
 }
 ```
 
-## <a name="building-proxy-resource-endpoint"></a>Criando ponto de extremidade de recurso de proxy
+## <a name="building-proxy-resource-endpoint"></a>Ponto final do recurso proxy de construção
 
-Um **ponto de extremidade** que implementa um ponto de **extremidade** de recurso de "proxy" deve manipular a solicitação e a resposta para a nova API no Azure. Nesse caso, o **ResourceType** gerará uma nova API de recurso do Azure para `PUT`, `GET`e `DELETE` para executar CRUD em um único recurso, bem como `GET` para recuperar todos os recursos existentes.
+Um **ponto final** que implemente um ponto **final** de recurso "Proxy" deve lidar com o pedido e resposta para a nova API em Azure. Neste caso, o **recursoType** gerará uma nova `PUT`API de recursos Azure para , `GET`e `DELETE` para executar CRUD num único recurso, bem como `GET` para recuperar todos os recursos existentes.
 
 > [!NOTE]
-> Os campos `id`, `name`e `type` não são necessários, mas são necessários para integrar o recurso personalizado com o ecossistema do Azure existente.
+> Os `id` `name`, `type` e os campos não são necessários, mas são necessários para integrar o recurso personalizado com o ecossistema Azure existente.
 
-Recurso de exemplo:
+Recurso da amostra:
 
 ``` JSON
 {
@@ -63,17 +63,17 @@ Recurso de exemplo:
 }
 ```
 
-Referência de parâmetro:
+Referência do parâmetro:
 
-Propriedade | Exemplo | Descrição
+Propriedade | Sample | Descrição
 ---|---|---
 nome | '{myCustomResourceName}' | O nome do recurso personalizado.
-tipo | 'Microsoft.CustomProviders/resourceProviders/{resourceTypeName}' | O namespace do tipo de recurso.
-ID | '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{myCustomResourceName}' | A ID do recurso.
+tipo | 'Microsoft.CustomProviders/resourceProviders/{resourceTypeName}' | O espaço de nome do tipo de recurso.
+ID | '/subscrições/{subscriçãoId}/resourceGroups/{resourceGroupName}/<br>fornecedores/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{myCustomResourceName}' | A identificação do recurso.
 
 ### <a name="create-a-custom-resource"></a>Criar um recurso personalizado
 
-Solicitação de entrada da API do Azure:
+Pedido de entrada da API Azure:
 
 ``` HTTP
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resource-provider-name}/myCustomResources/{myCustomResourceName}?api-version=2018-09-01-preview
@@ -90,7 +90,7 @@ Content-Type: application/json
 }
 ```
 
-Essa solicitação será então encaminhada para o **ponto de extremidade** no formulário:
+Este pedido será então encaminhado para o **ponto final** sob a forma:
 
 ``` HTTP
 PUT https://{endpointURL}/?api-version=2018-09-01-preview
@@ -107,31 +107,12 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
-Da mesma forma, a resposta do **ponto de extremidade** é então encaminhada de volta para o cliente. A resposta do ponto de extremidade deve retornar:
+Da mesma forma, a resposta do **ponto final** é então reencaminhada para o cliente. A resposta do ponto final deve voltar:
 
-- Um documento de objeto JSON válido. Todas as matrizes e cadeias de caracteres devem ser aninhadas em um objeto superior.
-- O cabeçalho de `Content-Type` deve ser definido como "Application/JSON; charset = utf-8 ".
+- Um documento válido de objeto JSON. Todas as matrizes e cordas devem ser aninhadas sob um objeto superior.
+- O `Content-Type` cabeçalho deve ser definido para "aplicação/json; charset=utf-8".
 
-**Ponto de extremidade** Responde
-
-``` HTTP
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-
-{
-    "name": "{myCustomResourceName}",
-    "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}",
-    "type": "Microsoft.CustomProviders/resourceProviders/myCustomResources",
-    "properties": {
-        "myProperty1": "myPropertyValue1",
-        "myProperty2": {
-            "myProperty3" : "myPropertyValue3"
-        }
-    }
-}
-```
-
-Resposta do provedor de recursos personalizados do Azure:
+**Ponto final** Resposta:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -150,9 +131,28 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-### <a name="remove-a-custom-resource"></a>Remover um recurso personalizado
+Resposta do fornecedor de recursos personalizados Azure:
 
-Solicitação de entrada da API do Azure:
+``` HTTP
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "name": "{myCustomResourceName}",
+    "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}",
+    "type": "Microsoft.CustomProviders/resourceProviders/myCustomResources",
+    "properties": {
+        "myProperty1": "myPropertyValue1",
+        "myProperty2": {
+            "myProperty3" : "myPropertyValue3"
+        }
+    }
+}
+```
+
+### <a name="remove-a-custom-resource"></a>Remova um recurso personalizado
+
+Pedido de entrada da API Azure:
 
 ``` HTTP
 Delete https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}?api-version=2018-09-01-preview
@@ -160,7 +160,7 @@ Authorization: Bearer eyJ0e...
 Content-Type: application/json
 ```
 
-Essa solicitação será então encaminhada para o **ponto de extremidade** no formulário:
+Este pedido será então encaminhado para o **ponto final** sob a forma:
 
 ``` HTTP
 Delete https://{endpointURL}/?api-version=2018-09-01-preview
@@ -168,19 +168,19 @@ Content-Type: application/json
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}
 ```
 
-Da mesma forma, a resposta do **ponto de extremidade** é então encaminhada de volta para o cliente. A resposta do ponto de extremidade deve retornar:
+Da mesma forma, a resposta do **ponto final** é então reencaminhada para o cliente. A resposta do ponto final deve voltar:
 
-- Documento de objeto JSON válido. Todas as matrizes e cadeias de caracteres devem ser aninhadas em um objeto superior.
-- O cabeçalho de `Content-Type` deve ser definido como "Application/JSON; charset = utf-8 ".
+- Documento válido do objeto JSON. Todas as matrizes e cordas devem ser aninhadas sob um objeto superior.
+- O `Content-Type` cabeçalho deve ser definido para "aplicação/json; charset=utf-8".
 
-**Ponto de extremidade** Responde
+**Ponto final** Resposta:
 
 ``` HTTP
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```
 
-Resposta do provedor de recursos personalizados do Azure:
+Resposta do fornecedor de recursos personalizados Azure:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -189,7 +189,7 @@ Content-Type: application/json; charset=utf-8
 
 ### <a name="retrieve-a-custom-resource"></a>Recuperar um recurso personalizado
 
-Solicitação de entrada da API do Azure:
+Pedido de entrada da API Azure:
 
 ``` HTTP
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}?api-version=2018-09-01-preview
@@ -197,7 +197,7 @@ Authorization: Bearer eyJ0e...
 Content-Type: application/json
 ```
 
-Essa solicitação será então encaminhada para o **ponto de extremidade** no formulário:
+Este pedido será então encaminhado para o **ponto final** sob a forma:
 
 ``` HTTP
 GET https://{endpointURL}/?api-version=2018-09-01-preview
@@ -205,12 +205,12 @@ Content-Type: application/json
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}
 ```
 
-Da mesma forma, a resposta do **ponto de extremidade** é então encaminhada de volta para o cliente. A resposta do ponto de extremidade deve retornar:
+Da mesma forma, a resposta do **ponto final** é então reencaminhada para o cliente. A resposta do ponto final deve voltar:
 
-- Um documento de objeto JSON válido. Todas as matrizes e cadeias de caracteres devem ser aninhadas em um objeto superior.
-- O cabeçalho de `Content-Type` deve ser definido como "Application/JSON; charset = utf-8 ".
+- Um documento válido de objeto JSON. Todas as matrizes e cordas devem ser aninhadas sob um objeto superior.
+- O `Content-Type` cabeçalho deve ser definido para "aplicação/json; charset=utf-8".
 
-**Ponto de extremidade** Responde
+**Ponto final** Resposta:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -229,7 +229,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-Resposta do provedor de recursos personalizados do Azure:
+Resposta do fornecedor de recursos personalizados Azure:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -250,7 +250,7 @@ Content-Type: application/json; charset=utf-8
 
 ### <a name="enumerate-all-custom-resources"></a>Enumerar todos os recursos personalizados
 
-Solicitação de entrada da API do Azure:
+Pedido de entrada da API Azure:
 
 ``` HTTP
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources?api-version=2018-09-01-preview
@@ -258,7 +258,7 @@ Authorization: Bearer eyJ0e...
 Content-Type: application/json
 ```
 
-Essa solicitação será então encaminhada para o **ponto de extremidade** no formulário:
+Este pedido será então encaminhado para o **ponto final** sob a forma:
 
 ``` HTTP
 GET https://{endpointURL}/?api-version=2018-09-01-preview
@@ -266,13 +266,13 @@ Content-Type: application/json
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources
 ```
 
-Da mesma forma, a resposta do **ponto de extremidade** é então encaminhada de volta para o cliente. A resposta do ponto de extremidade deve retornar:
+Da mesma forma, a resposta do **ponto final** é então reencaminhada para o cliente. A resposta do ponto final deve voltar:
 
-- Um documento de objeto JSON válido. Todas as matrizes e cadeias de caracteres devem ser aninhadas em um objeto superior.
-- O cabeçalho de `Content-Type` deve ser definido como "Application/JSON; charset = utf-8 ".
-- A lista de recursos deve ser colocada sob a propriedade de `value` de nível superior.
+- Um documento válido de objeto JSON. Todas as matrizes e cordas devem ser aninhadas sob um objeto superior.
+- O `Content-Type` cabeçalho deve ser definido para "aplicação/json; charset=utf-8".
+- A lista de recursos deve ser `value` colocada sob a propriedade de alto nível.
 
-**Ponto de extremidade** Responde
+**Ponto final** Resposta:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -295,7 +295,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-Resposta do provedor de recursos personalizados do Azure:
+Resposta do fornecedor de recursos personalizados Azure:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -320,8 +320,8 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Visão geral dos provedores de recursos personalizados do Azure](overview.md)
-- [Início rápido: criar um provedor de recursos personalizado do Azure e implantar recursos personalizados](./create-custom-provider.md)
-- [Tutorial: criar ações e recursos personalizados no Azure](./tutorial-get-started-with-custom-providers.md)
-- [Como adicionar ações personalizadas à API REST do Azure](./custom-providers-action-endpoint-how-to.md)
-- [Referência: referência de cache de recurso personalizado](proxy-cache-resource-endpoint-reference.md)
+- [Visão geral sobre fornecedores de recursos personalizados Azure](overview.md)
+- [Quickstart: Criar o Fornecedor de Recursos Personalizados Azure e implementar recursos personalizados](./create-custom-provider.md)
+- [Tutorial: Criar ações e recursos personalizados em Azure](./tutorial-get-started-with-custom-providers.md)
+- [Como: Adicionar ações personalizadas à API Do REST Azure](./custom-providers-action-endpoint-how-to.md)
+- [Referência: Referência de cache de recursos personalizados](proxy-cache-resource-endpoint-reference.md)

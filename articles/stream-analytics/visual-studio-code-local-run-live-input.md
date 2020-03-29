@@ -1,76 +1,76 @@
 ---
-title: Testar Azure Stream Analytics consultas localmente contra entrada de fluxo ao vivo usando Visual Studio Code
-description: Este artigo descreve como testar consultas localmente em relação à entrada de fluxo ao vivo usando Azure Stream Analytics Tools para Visual Studio Code.
+title: Teste Azure Stream Analytics questiona localmente contra entrada de fluxo ao vivo usando código de estúdio visual
+description: Este artigo descreve como testar consultas localmente contra a entrada em direto do fluxo, utilizando ferramentas de análise de fluxo de azure stream para código de estúdio visual.
 ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.date: 11/14/2019
 ms.topic: conceptual
 ms.openlocfilehash: 34ce91a1385f951847abeedd3a6b526d3a07af35
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75660856"
 ---
-# <a name="test-stream-analytics-queries-locally-against-live-stream-input-by-using-visual-studio-code"></a>Testar Stream Analytics consultas localmente contra entrada de fluxo ao vivo usando Visual Studio Code
+# <a name="test-stream-analytics-queries-locally-against-live-stream-input-by-using-visual-studio-code"></a>Test Stream Analytics questiona localmente contra entrada de fluxo ao vivo usando código de estúdio visual
 
-Você pode usar as ferramentas de Azure Stream Analytics para Visual Studio Code para testar seus trabalhos de Stream Analytics localmente em relação à entrada de fluxo ao vivo. A entrada pode vir de uma fonte como hubs de eventos do Azure ou Hub IoT do Azure. Os resultados de saída são enviados como arquivos JSON para uma pasta em seu projeto chamada **LocalRunOutputs**.
+Pode utilizar ferramentas de análise de fluxo de azure stream para código de estúdio visual para testar os seus trabalhos de Streaming Analytics localmente contra a entrada em direto. A entrada pode vir de uma fonte como O Hubs de Eventos Azure ou O Hub Azure IoT. Os resultados da saída são enviados como ficheiros JSON para uma pasta no seu projeto chamada **LocalRunOutputs**.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Instale o [SDK do .NET Core](https://dotnet.microsoft.com/download) e reinicie o Visual Studio Code.
+* Instale o [.NET Core SDK](https://dotnet.microsoft.com/download) e reinicie o Código do Estúdio Visual.
 
-* Use [este guia de início rápido](quick-create-vs-code.md) para aprender a criar um trabalho de Stream Analytics usando Visual Studio Code.
+* Use [este quickstart](quick-create-vs-code.md) para aprender a criar um trabalho stream analytics usando o Código de Estúdio Visual.
 
-## <a name="define-a-live-stream-input"></a>Definir uma entrada de fluxo ao vivo
+## <a name="define-a-live-stream-input"></a>Defina uma entrada em direto
 
-1. Clique com o botão direito do mouse na pasta **entradas** em seu projeto Stream Analytics. Em seguida, selecione **asa: Adicionar entrada** no menu de contexto.
+1. Clique na pasta **Inputs** no seu projeto Stream Analytics. Em seguida, selecione **ASA: Adicione a entrada** no menu de contexto.
 
-   ![Adicionar entrada da pasta entradas](./media/quick-create-vs-code/add-input-from-inputs-folder.png)
+   ![Adicione a entrada da pasta Inputs](./media/quick-create-vs-code/add-input-from-inputs-folder.png)
 
-   Você também pode selecionar **Ctrl + Shift + P** para abrir a paleta de comandos e inserir **asa: Adicionar entrada**.
+   Também pode selecionar **Ctrl+Shift+P** para abrir a paleta de comando e introduzir **ASA: Adicionar Entrada**.
 
-   ![Adicionar Stream Analytics entrada no Visual Studio Code](./media/quick-create-vs-code/add-input.png)
+   ![Adicione entrada stream analytics no Código do Estúdio Visual](./media/quick-create-vs-code/add-input.png)
 
-2. Escolha um tipo de fonte de entrada na lista suspensa.
+2. Escolha um tipo de fonte de entrada na lista de lançamentos.
 
-   ![Selecione o Hub IoT como a opção de entrada](./media/quick-create-vs-code/iot-hub.png)
+   ![Selecione hub IoT como a opção de entrada](./media/quick-create-vs-code/iot-hub.png)
 
-3. Se você adicionou a entrada da paleta de comandos, escolha o Stream Analytics script de consulta que usará a entrada. Ele deve ser preenchido automaticamente com o caminho do arquivo para **myASAproj. asaql**.
+3. Se adicionar a entrada da paleta de comando, escolha o script de consulta Stream Analytics que utilizará a entrada. Deve ser automaticamente povoado com o caminho de ficheiro para **myASAproj.asaql**.
 
-   ![Selecione um script de Stream Analytics no Visual Studio Code](./media/quick-create-vs-code/asa-script.png)
+   ![Selecione um script Stream Analytics no Código do Estúdio Visual](./media/quick-create-vs-code/asa-script.png)
 
-4. Escolha **selecionar em suas assinaturas do Azure** no menu suspenso.
+4. Escolha **selecione entre as suas Assinaturas Azure** a partir do menu suspenso.
 
-    ![Selecionar entre assinaturas](./media/quick-create-vs-code/add-input-select-subscription.png)
+    ![Selecione a partir de subscrições](./media/quick-create-vs-code/add-input-select-subscription.png)
 
-5. Configure o arquivo JSON recém-gerado. Você pode usar o recurso CodeLens para ajudá-lo a inserir uma cadeia de caracteres, selecionar em uma lista suspensa ou alterar o texto diretamente no arquivo. A captura de tela a seguir mostra a **seleção de suas assinaturas** como um exemplo.
+5. Configure o ficheiro JSON recentemente gerado. Pode utilizar a função CodeLens para o ajudar a introduzir uma cadeia, selecionar a partir de uma lista de drop-down ou alterar o texto diretamente no ficheiro. A imagem a seguir mostra **Select a partir das suas Subscrições** como exemplo.
 
-   ![Configurar entrada no Visual Studio Code](./media/quick-create-vs-code/configure-input.png)
+   ![Configure a entrada no Código do Estúdio Visual](./media/quick-create-vs-code/configure-input.png)
 
-## <a name="preview-input"></a>Visualizar entrada
+## <a name="preview-input"></a>Visualização de entrada
 
-Para verificar se os dados de entrada estão chegando, selecione **Visualizar dados** em seu arquivo de configuração de entrada ao vivo na linha superior. Alguns dados de entrada vêm de um hub IoT e são mostrados na janela de visualização. A visualização pode levar alguns segundos para aparecer.
+Para se certificar de que os dados de entrada estão a chegar, selecione **dados de Pré-visualização** no seu ficheiro de configuração de entrada ao vivo a partir da linha superior. Alguns dados de entrada vêm de um hub IoT e são mostrados na janela de pré-visualização. A pré-visualização pode demorar alguns segundos a aparecer.
 
- ![Visualizar entrada ao vivo](./media/quick-create-vs-code/preview-live-input.png)
+ ![Pré-visualizar entrada ao vivo](./media/quick-create-vs-code/preview-live-input.png)
 
 ## <a name="run-queries-locally"></a>Executar consultas localmente
 
-Volte para o editor de consultas e selecione **executar localmente**. Em seguida, selecione **usar entrada ao vivo** na lista suspensa.
+Volte ao seu editor de consulta e selecione **Run localmente**. Em seguida, selecione **Use A Entrada Ao Vivo** da lista de lançamentos.
 
-![Selecione "executar localmente" no editor de consultas](./media/vscode-local-run/run-locally.png)
+![Selecione "Run localmente" no editor de consulta](./media/vscode-local-run/run-locally.png)
 
-![Selecione "usar entrada ao vivo"](./media/vscode-local-run-live-input/run-locally-use-live-input.png)
+![Selecione "Use A Entrada Ao Vivo"](./media/vscode-local-run-live-input/run-locally-use-live-input.png)
 
-O resultado é mostrado na janela direita e atualizado a cada 3 segundos. Você pode selecionar **executar** para testar novamente. Você também pode selecionar **abrir na pasta** para ver os arquivos de resultado no explorador de arquivos e abri-los com Visual Studio Code ou uma ferramenta como o Excel. Observe que os arquivos de resultado estão disponíveis apenas no formato JSON.
+O resultado é mostrado na janela certa e refrescado a cada 3 segundos. Pode selecionar **Correr** para testar novamente. Também pode selecionar **Open in folder** para ver os ficheiros de resultados no File Explorer e abri-los com o Visual Studio Code ou uma ferramenta como o Excel. Note que os ficheiros de resultados estão disponíveis apenas no formato JSON.
 
-A hora padrão para o trabalho começar a criar a saída é definida como **Now**. Você pode personalizar o tempo selecionando o botão **hora de início da saída** na janela resultado.
+O tempo padrão para o trabalho começar a criar saída está definido para **Agora**. Pode personalizar o tempo selecionando o botão de início de **saída** na janela de resultados.
 
-![Exibir resultado da execução local](./media/vscode-local-run-live-input/vscode-livetesting.gif)
+![Ver resultado da execução local](./media/vscode-local-run-live-input/vscode-livetesting.gif)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Explorar Azure Stream Analytics trabalhos com Visual Studio Code (versão prévia)](visual-studio-code-explore-jobs.md)
+* [Explore os trabalhos do Azure Stream Analytics com código de estúdio visual (pré-visualização)](visual-studio-code-explore-jobs.md)
 
-* [Configurar pipelines de CI/CD usando o pacote NPM](setup-cicd-vs-code.md)
+* [Configurar os gasodutos CI/CD utilizando o pacote npm](setup-cicd-vs-code.md)

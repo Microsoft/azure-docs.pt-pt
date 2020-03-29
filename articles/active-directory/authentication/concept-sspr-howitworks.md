@@ -1,6 +1,6 @@
 ---
-title: Aprofundamento de redefinição de senha de autoatendimento – Azure Active Directory
-description: Como funciona a redefinição de senha de autoatendimento
+title: Palavra-passe self-service reset deep dive - Azure Ative Directory
+description: Como funciona o reset da palavra-passe self-service
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,203 +12,203 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b19c80378aa40a7f791a3eb61130b013217ddee
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74848583"
 ---
-# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: redefinição de senha de autoatendimento do Azure AD
+# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Reset de senha de autosserviço da Azure AD
 
-Como funciona a redefinição de senha de autoatendimento (SSPR)? O que essa opção significa na interface? Continue lendo para saber mais sobre o Azure Active Directory (Azure AD) SSPR.
+Como funciona o reset da palavra-passe self-service (SSPR) ? O que significa esta opção na interface? Continuar a ler Para saber mais sobre o Azure Ative Directory (Azure AD) SSPR.
 
-## <a name="how-does-the-password-reset-portal-work"></a>Como funciona o portal de redefinição de senha?
+## <a name="how-does-the-password-reset-portal-work"></a>Como funciona o portal de reset da palavra-passe?
 
-Quando um usuário vai para o portal de redefinição de senha, um fluxo de trabalho é iniciado para determinar:
+Quando um utilizador vai ao portal de reset da palavra-passe, um fluxo de trabalho é iniciado para determinar:
 
-   * Como a página deve ser localizada?
-   * A conta de usuário é válida?
-   * A qual organização o usuário pertence?
-   * Onde a senha do usuário é gerenciada?
-   * O usuário está licenciado para usar o recurso?
+   * Como deve a página ser localizada?
+   * A conta de utilizador é válida?
+   * A que organização pertence o utilizador?
+   * Onde é gerida a palavra-passe do utilizador?
+   * O utilizador tem licença para utilizar a funcionalidade?
 
-Leia as etapas a seguir para saber mais sobre a lógica por trás da página de redefinição de senha:
+Leia os seguintes passos para conhecer a lógica por trás da página de reset da palavra-passe:
 
-1. O usuário seleciona o link **não consegue acessar sua conta** ou vai diretamente para [https://aka.ms/sspr](https://passwordreset.microsoftonline.com).
-   * Com base na localidade do navegador, a experiência é renderizada no idioma apropriado. A experiência de redefinição de senha é localizada nos mesmos idiomas aos quais o Office 365 dá suporte.
-   * Para exibir o portal de redefinição de senha em um idioma localizado diferente, acrescente "? MKT =" ao final da URL de redefinição de senha com o exemplo que segue a localização para espanhol [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us).
-2. O usuário insere uma ID de usuário e passa um captcha.
-3. O Azure AD verifica se o usuário é capaz de usar esse recurso fazendo as seguintes verificações:
-   * Verifica se o usuário tem esse recurso habilitado e tem uma licença do Azure AD atribuída.
-     * Se o usuário não tiver esse recurso habilitado ou tiver uma licença atribuída, será solicitado que o usuário entre em contato com o administrador para redefinir sua senha.
-   * Verifica se o usuário tem os métodos de autenticação corretos definidos em sua conta de acordo com a política de administrador.
-     * Se a política exigir apenas um método, ele garantirá que o usuário tenha os dados apropriados definidos para pelo menos um dos métodos de autenticação habilitados pela política de administrador.
-       * Se os métodos de autenticação não estiverem configurados, o usuário será aconselhado a entrar em contato com o administrador para redefinir sua senha.
-     * Se a política exigir dois métodos, ela garantirá que o usuário tenha os dados apropriados definidos para pelo menos dois dos métodos de autenticação habilitados pela política de administrador.
-       * Se os métodos de autenticação não estiverem configurados, o usuário será aconselhado a entrar em contato com o administrador para redefinir sua senha.
-     * Se uma função de administrador do Azure for atribuída ao usuário, a política de senha forte de duas portas será imposta. Mais informações sobre essa política podem ser encontradas na seção [diferenças de política de redefinição de administrador](concept-sspr-policy.md#administrator-reset-policy-differences).
-   * Verifica se a senha do usuário é gerenciada localmente (federada, autenticação de passagem ou hash de senha sincronizado).
-     * Se o Write-back for implantado e a senha do usuário for gerenciada localmente, o usuário poderá continuar a autenticar e redefinir sua senha.
-     * Se o Write-back não for implantado e a senha do usuário for gerenciada localmente, o usuário será solicitado a entrar em contato com o administrador para redefinir sua senha.
-4. Se for determinado que o usuário é capaz de redefinir sua senha com êxito, o usuário será guiado pelo processo de redefinição.
+1. O utilizador seleciona o **link can't access your account** ou vai diretamente para [https://aka.ms/sspr](https://passwordreset.microsoftonline.com).
+   * Com base no local do navegador, a experiência é prestada no idioma apropriado. A experiência de reset de palavra-passe está localizada nos mesmos idiomas que o Office 365 suporta.
+   * Para ver o portal de redefinição de palavra-passe num apêndice de idioma localizado diferente "?mkt=" [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us)até ao final do URL de reset de palavra-passe com o exemplo que segue a localização para o espanhol .
+2. O utilizador introduz uma identificação do utilizador e passa por uma captcha.
+3. A Azure AD verifica que o utilizador é capaz de utilizar esta funcionalidade fazendo as seguintes verificações:
+   * Verifica se o utilizador tem esta funcionalidade ativada e tem uma licença Azure AD atribuída.
+     * Se o utilizador não tiver esta funcionalidade ativada ou tiver uma licença atribuída, o utilizador é solicitado a contactar o seu administrador para redefinir a sua palavra-passe.
+   * Verifica se o utilizador tem os métodos de autenticação certos definidos na sua conta de acordo com a política do administrador.
+     * Se a apólice necessitar apenas de um método, então garante que o utilizador tem os dados adequados definidos para pelo menos um dos métodos de autenticação ativados pela política do administrador.
+       * Se os métodos de autenticação não estiverem configurados, o utilizador é aconselhado a contactar o seu administrador para redefinir a sua palavra-passe.
+     * Se a apólice necessitar de dois métodos, então garante que o utilizador tem os dados adequados definidos para pelo menos dois dos métodos de autenticação ativados pela política do administrador.
+       * Se os métodos de autenticação não estiverem configurados, o utilizador é aconselhado a contactar o seu administrador para redefinir a sua palavra-passe.
+     * Se for atribuída uma função de administrador Azure ao utilizador, a forte política de senha de dois portas é aplicada. Mais informações sobre esta política podem ser encontradas na secção [Redefinir as diferenças](concept-sspr-policy.md#administrator-reset-policy-differences)de política do Administrador.
+   * Verifica se a palavra-passe do utilizador é gerida no local (autenticação federada, pass-through ou palavra-passe sincronizada).
+     * Se a recompra for implementada e a palavra-passe do utilizador for gerida no local, então o utilizador pode proceder à autenticação e redefinir a sua palavra-passe.
+     * Se a recompra não for implementada e a palavra-passe do utilizador for gerida no local, o utilizador é solicitado a contactar o seu administrador para redefinir a sua palavra-passe.
+4. Se for determinado que o utilizador é capaz de redefinir com sucesso a sua palavra-passe, então o utilizador é guiado através do processo de reset.
 
 ## <a name="authentication-methods"></a>Métodos de autenticação
 
-Se SSPR estiver habilitado, você deverá selecionar pelo menos uma das opções a seguir para os métodos de autenticação. Às vezes, você ouve essas opções conhecidas como "Gates". É altamente recomendável que você **escolha dois ou mais métodos de autenticação** para que os usuários tenham mais flexibilidade caso não possam acessar um quando precisarem. Detalhes adicionais sobre os métodos listados abaixo podem ser encontrados no artigo [o que são métodos de autenticação?](concept-authentication-methods.md).
+Se o SSPR estiver ativado, deve selecionar pelo menos uma das seguintes opções para os métodos de autenticação. Às vezes ouve-se estas opções referidas como "portões". Recomendamos vivamente que **escolha dois ou mais métodos** de autenticação para que os seus utilizadores tenham mais flexibilidade no caso de não conseguirem aceder a um quando precisam. Detalhes adicionais sobre os métodos listados abaixo podem ser encontrados no artigo Quais são os métodos de [autenticação?](concept-authentication-methods.md)
 
 * Notificação de aplicação móvel
 * Código da aplicação móvel
-* E-mail
+* Email
 * Número de telemóvel
 * Telefone do escritório
 * Perguntas de segurança
 
-Os usuários só poderão redefinir sua senha se tiverem dados presentes nos métodos de autenticação habilitados pelo administrador.
+Os utilizadores só podem redefinir a sua palavra-passe se tiverem dados presentes nos métodos de autenticação que o administrador ativou.
 
 > [!IMPORTANT]
-> A partir de março de 2019, as opções de chamada telefônica não estarão disponíveis para os usuários de MFA e SSPR em locatários gratuitos/de avaliação do Azure AD. As mensagens SMS não são afetadas por essa alteração. A chamada telefônica continuará disponível para os usuários em locatários pagos do Azure AD. Essa alteração afeta apenas os locatários gratuitos/de avaliação do Azure AD.
+> A partir de março de 2019, as opções de chamada telefónica não estarão disponíveis para os utilizadores de MFA e SSPR em inquilinos ads atos gratuitos/experimentais. As mensagens SMS não são afetadas por esta mudança. A chamada telefónica continuará disponível para os utilizadores em inquilinos da AD Azure pagos. Esta mudança só afeta os inquilinos azure free/trial.
 
 > [!WARNING]
-> As contas atribuídas às funções de administrador do Azure serão necessárias para usar métodos conforme definido na seção [diferenças de política de redefinição de administrador](concept-sspr-policy.md#administrator-reset-policy-differences).
+> As funções atribuídas ao Administrador Azure serão necessárias para utilizar métodos definidos na secção [Redefinir as diferenças](concept-sspr-policy.md#administrator-reset-policy-differences)de política do Administrador .
 
-![Seleção de métodos de autenticação no portal do Azure][Authentication]
+![Seleção de métodos de autenticação no portal Azure][Authentication]
 
-### <a name="number-of-authentication-methods-required"></a>Número de métodos de autenticação necessários
+### <a name="number-of-authentication-methods-required"></a>Número de métodos de autenticação exigidos
 
-Essa opção determina o número mínimo de métodos de autenticação disponíveis ou Gates que um usuário deve passar para redefinir ou desbloquear sua senha. Ele pode ser definido como um ou dois.
+Esta opção determina o número mínimo de métodos ou portões de autenticação disponíveis por que um utilizador deve passar para redefinir ou desbloquear a sua palavra-passe. Pode ser definido para um ou dois.
 
-Os usuários podem optar por fornecer mais métodos de autenticação se o administrador habilitar esse método de autenticação.
+Os utilizadores podem optar por fornecer mais métodos de autenticação se o administrador ativar esse método de autenticação.
 
-Se um usuário não tiver os métodos mínimos necessários registrados, eles verão uma página de erro que os direciona para solicitar que um administrador Redefina sua senha.
+Se um utilizador não tiver os métodos mínimos necessários registados, vê uma página de erro que os direciona para solicitar que um administrador redefinir a sua palavra-passe.
 
 #### <a name="mobile-app-and-sspr"></a>Aplicativo móvel e SSPR
 
-Ao usar um aplicativo móvel, como o aplicativo Microsoft Authenticator, como um método para a redefinição de senha, você deve estar ciente das seguintes advertências:
+Ao utilizar uma aplicação móvel, como a aplicação Microsoft Authenticator, como método de reset de palavras-passe, deve estar ciente das seguintes ressalvas:
 
-* Quando os administradores exigem que um método seja usado para redefinir uma senha, o código de verificação é a única opção disponível.
-* Quando os administradores exigem dois métodos para redefinir uma senha, os usuários são capazes de usar **o** código de notificação **ou** de verificação, além de quaisquer outros métodos habilitados.
+* Quando os administradores exigem que um método seja utilizado para redefinir uma palavra-passe, o código de verificação é a única opção disponível.
+* Quando os administradores exigem que sejam utilizados dois métodos para redefinir uma palavra-passe, os utilizadores podem utilizar o código de verificação **ou** notificação **ou** de notificação, para além de quaisquer outros métodos habilitados.
 
-| Número de métodos necessários para a reposição | Um | Dois |
+| Número de métodos necessários para redefinir | Um | Dois |
 | :---: | :---: | :---: |
-| Recursos do aplicativo móvel disponíveis | Código | Código ou notificação |
+| Funcionalidades de aplicativos móveis disponíveis | Código | Código ou Notificação |
 
-Os usuários não têm a opção de registrar seu aplicativo móvel ao se registrar para redefinição de senha de autoatendimento do [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Os usuários podem registrar seu aplicativo móvel em [https://aka.ms/mfasetup](https://aka.ms/mfasetup)ou na nova visualização do registro de informações de segurança em [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
+Os utilizadores não têm a opção de registar a sua aplicação móvel ao registarem-se para redefinir a palavra-passe de self-service a partir de [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Os utilizadores podem registar [https://aka.ms/mfasetup](https://aka.ms/mfasetup)a sua aplicação móvel [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)na pré-visualização do registo de informações de segurança em .
 
 > [!WARNING]
-> Você deve habilitar o [registro convergido para redefinição de senha de autoatendimento e autenticação multifator do Azure (visualização pública)](concept-registration-mfa-sspr-converged.md) antes que os usuários possam acessar a nova experiência em [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
+> Tem de ativar o [registo convergente para reset de palavra-passe de autosserviço e autenticação de multifactor (pré-visualização pública)](concept-registration-mfa-sspr-converged.md) antes de os utilizadores poderem aceder à nova experiência em [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
 > [!IMPORTANT]
-> O aplicativo autenticador não pode ser selecionado como o único método de autenticação ao configurar uma política de 1 porta. Da mesma forma, o aplicativo autenticador e apenas um método adicional não podem ser selecionados durante a configuração de uma política de 2 Gates.
-> Em seguida, ao configurar políticas de SSPR que incluem o aplicativo autenticador como um método, pelo menos um método adicional deve ser selecionado ao configurar uma política de uma porta, e pelo menos dois métodos adicionais devem ser selecionados ao configurar uma política de 2 Gates.
-> O motivo para esse requisito é porque a atual experiência de registro de SSPR não inclui a opção de registrar o aplicativo autenticador. A opção para registrar o aplicativo autenticador está incluída no novo [registro convergido para redefinição de senha de autoatendimento e autenticação multifator do Azure (visualização pública)](concept-registration-mfa-sspr-converged.md).
-> Permitir políticas que usam apenas o aplicativo autenticador (para políticas de 1 Gate) ou o aplicativo autenticador e apenas um método adicional (para políticas de 2 Gates) pode levar os usuários sendo impedidos de se registrarem para SSPR até que tenham sido configurados para usar o novo experiência de registro.
+> A aplicação autenticadora não pode ser selecionada como o único método de autenticação ao configurar uma política de 1 portão. Da mesma forma, a aplicação autenticadora e apenas um método adicional não podem ser selecionados ao configurar uma política de 2 portas.
+> Em seguida, ao configurar as políticas de SSPR que incluem a aplicação autenticadora como um método, pelo menos deve ser selecionado um método adicional ao configurar uma política de 1 portão, e pelo menos dois métodos adicionais devem ser selecionados ao configurar uma política de 2 portas.
+> A razão para esta exigência é porque a experiência de registo SSPR atual não inclui a opção de registar a aplicação autenticadora. A opção de registar a aplicação autenticadora está incluída com o novo [registo convergente para reset de senha de autosserviço e autenticação de multi-factores Azure (pré-visualização pública)](concept-registration-mfa-sspr-converged.md).
+> Permitir políticas que utilizem apenas a aplicação autenticadora (para políticas de 1 portal), ou a aplicação autenticadora e apenas um método adicional (para políticas de 2 portas), poderia levar a que os utilizadores fossem bloqueados de se registarem para o SSPR até estarem configurados para utilizar em nova experiência de registo.
 
 ### <a name="change-authentication-methods"></a>Alterar métodos de autenticação
 
-Se você começar com uma política que tem apenas um método de autenticação necessário para redefinição ou desbloqueio registrado e você alterar isso para dois métodos, o que acontecerá?
+Se começar com uma política que tenha apenas um método de autenticação necessário para redefinir ou desbloquear registado e mudar isso para dois métodos, o que acontece?
 
-| Número de métodos registrados | Número de métodos necessários | Resultado |
+| Número de métodos registados | Número de métodos necessários | Resultado |
 | :---: | :---: | :---: |
-| 1 ou mais | 1 | **Capaz** de redefinir ou desbloquear |
-| 1 | 2 | **Não é possível** redefinir ou desbloquear |
-| 2 ou mais | 2 | **Capaz** de redefinir ou desbloquear |
+| 1 ou mais | 1 | **Capaz de** redefinir ou desbloquear |
+| 1 | 2 | **Incapaz de** redefinir ou desbloquear |
+| 2 ou mais | 2 | **Capaz de** redefinir ou desbloquear |
 
-Se você alterar os tipos de métodos de autenticação que um usuário pode usar, você poderá impedir inadvertidamente que os usuários possam usar o SSPR se não tiverem a quantidade mínima de dados disponíveis.
+Se alterar os tipos de métodos de autenticação que um utilizador pode utilizar, poderá inadvertidamente impedir que os utilizadores possam utilizar o SSPR se não tiverem a quantidade mínima de dados disponíveis.
 
 Exemplo:
-1. A política original é configurada com dois métodos de autenticação necessários. Ele usa apenas o número de telefone comercial e as perguntas de segurança. 
-2. O administrador altera a política para não usar mais as perguntas de segurança, mas permite o uso de um telefone celular e um email alternativo.
-3. Os usuários sem os campos telefone celular ou email alternativo preenchidos não podem redefinir suas senhas.
+1. A política original está configurada com dois métodos de autenticação necessários. Usa apenas o número de telefone do escritório e as questões de segurança. 
+2. O administrador altera a política para deixar de usar as questões de segurança, mas permite o uso de um telemóvel e de um e-mail alternativo.
+3. Os utilizadores sem telemóvel ou campos de e-mail alternativos povoados não podem redefinir as suas palavras-passe.
 
 ## <a name="registration"></a>Registo
 
-### <a name="require-users-to-register-when-they-sign-in"></a>Exigir que os usuários se registrem ao entrarem
+### <a name="require-users-to-register-when-they-sign-in"></a>Exigir que os utilizadores se registem quando iniciarem o seu registo
 
-Habilitar essa opção exige que um usuário conclua o registro de redefinição de senha se entrar em qualquer aplicativo usando o Azure AD. Este fluxo de trabalho inclui os seguintes aplicativos:
+Ativar esta opção requer que um utilizador complete o registo de redefinição da palavra-passe se iniciar qualquer aplicação utilizando a AD Azure. Este fluxo de trabalho inclui as seguintes aplicações:
 
 * Office 365
 * Portal do Azure
 * Painel de Acesso
-* Aplicativos federados
-* Aplicativos personalizados usando o Azure AD
+* Aplicações federadas
+* Aplicações personalizadas usando Azure AD
 
-Quando a exigência de registro está desabilitada, os usuários podem registrá-lo manualmente. Eles podem visitar [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) ou selecionar o link **registrar para redefinição de senha** na guia **perfil** no painel de acesso.
+Quando o registo é desativado, os utilizadores podem registar-se manualmente. Podem visitar [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) ou selecionar o **'Registo' para redefinir a palavra-passe** no separador **Perfil** no Painel de Acesso.
 
 > [!NOTE]
-> Os usuários podem ignorar o portal de registro de redefinição de senha selecionando **Cancelar** ou fechando a janela. Mas eles serão solicitados a registrar cada vez que entrarem até que concluam seu registro.
+> Os utilizadores podem descartar o portal de registo de redefinição da palavra-passe selecionando **cancelar** ou fechando a janela. Mas é-lhes solicitado que se registem sempre que iniciarem a sua inscrição até completarem o seu registo.
 >
-> Essa interrupção não interromperá a conexão do usuário se já tiver entrado.
+> Esta interrupção não quebra a ligação do utilizador se já estiver em si.
 
-### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Definir o número de dias antes que os usuários sejam solicitados a reconfirmar suas informações de autenticação
+### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Detete o número de dias antes de os utilizadores serem convidados a reconfirmar as suas informações de autenticação
 
-Essa opção determina o período de tempo entre a configuração e a reconfirmação das informações de autenticação e estará disponível somente se você habilitar a opção **exigir que os usuários se registrem ao entrar** .
+Esta opção determina o período de tempo entre a definição e a reconfirmação das informações de autenticação e só está disponível se permitir que os **utilizadores exijam o registo na hora** de iniciar a sua inscrição na opção.
 
-Os valores válidos são de 0 a 730 dias, com "0", o que significa que os usuários nunca são solicitados a reconfirmar suas informações de autenticação.
+Os valores válidos são de 0 a 730 dias, com "0" o que significa que os utilizadores nunca são convidados a confirmar a sua informação de autenticação.
 
 ## <a name="notifications"></a>Notificações
 
 ### <a name="notify-users-on-password-resets"></a>Notificar os utilizadores sobre reposições de palavras-passe
 
-Se essa opção for definida como **Sim**, os usuários que redefinirem sua senha receberão um email notificando-os de que a senha foi alterada. O email é enviado por meio do portal do SSPR para seus endereços de email primários e alternativos que estão no arquivo no Azure AD. Ninguém mais será notificado sobre o evento de redefinição.
+Se esta opção for definida para **Sim**, então os utilizadores que reajustarem a sua palavra-passe recebem um e-mail a notificá-los de que a sua palavra-passe foi alterada. O e-mail é enviado através do portal SSPR para os seus endereços de e-mail primários e alternativos que estão arquivados em Azure AD. Ninguém mais foi notificado do evento de reset.
 
-### <a name="notify-all-admins-when-other-admins-reset-their-passwords"></a>Notificar todos os administradores quando outros administradores redefinirem suas senhas
+### <a name="notify-all-admins-when-other-admins-reset-their-passwords"></a>Notifique todos os administradores quando outros administradores redefinirem as suas palavras-passe
 
-Se essa opção for definida como **Sim**, *todos os administradores* receberão um email para seu endereço de email principal no arquivo no Azure AD. O email notifica que outro administrador alterou sua senha usando SSPR.
+Se esta opção for definida para **Sim,** *então todos os administradores* recebem um e-mail para o seu endereço de e-mail principal em ficheiro em Azure AD. O e-mail notifica-os de que outro administrador alterou a sua palavra-passe utilizando o SSPR.
 
-Exemplo: há quatro administradores em um ambiente. O administrador A redefine sua senha usando SSPR. Os administradores B, C e D recebem um email alertando-os sobre a redefinição de senha.
+Exemplo: Há quatro administradores num ambiente. Administrador A repõe a sua palavra-passe utilizando o SSPR. Os administradores B, C e D recebem um e-mail alertando-os do reset da palavra-passe.
 
 ## <a name="on-premises-integration"></a>Integração no local
 
-Se você instalar, configurar e habilitar Azure AD Connect, terá as seguintes opções adicionais para integrações locais. Se essas opções estiverem esmaecidas, o Write-back não foi configurado corretamente. Para obter mais informações, consulte [Configuring password write-back](howto-sspr-writeback.md).
+Se instalar, configurar e ativar o Azure AD Connect, tem as seguintes opções adicionais para integrações no local. Se estas opções estiverem cinzentas, então a reprodução não foi devidamente configurada. Para mais informações, consulte [A dinamamento da palavra-passe configurando](howto-sspr-writeback.md).
 
-![A validação do write-back de senha está habilitada e funcionando][Writeback]
+![A validação da redação da palavra-passe está ativada e a funcionar][Writeback]
 
-Esta página fornece um status rápido do cliente de write-back local, uma das seguintes mensagens é exibida com base na configuração atual:
+Esta página fornece-lhe um estado rápido do cliente de redação no local, uma das seguintes mensagens é exibida com base na configuração atual:
 
-* Seu cliente de write-back local está em execução.
-* O Azure AD está online e conectado ao seu cliente de write-back local. No entanto, parece que a versão instalada do Azure AD Connect está desatualizada. Considere [atualizar Azure ad Connect](../hybrid/how-to-upgrade-previous-version.md) para garantir que você tenha os recursos de conectividade mais recentes e as correções de bugs importantes.
-* Infelizmente, não é possível verificar seu status do cliente de write-back local porque a versão instalada do Azure AD Connect está desatualizada. [Atualize Azure ad Connect](../hybrid/how-to-upgrade-previous-version.md) para poder verificar seu status de conexão.
-* Infelizmente, parece que não podemos nos conectar ao seu cliente de write-back local no momento. [Solucionar problemas Azure ad Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) para restaurar a conexão.
-* Infelizmente, não podemos nos conectar ao seu cliente de write-back local porque o Write-back de senha não foi configurado corretamente. [Configure o Write-back de senha](howto-sspr-writeback.md) para restaurar a conexão.
-* Infelizmente, parece que não podemos nos conectar ao seu cliente de write-back local no momento. Isso pode ser devido a problemas temporários em nosso fim. Se o problema persistir, [solucione Azure ad Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) para restaurar a conexão.
+* O seu cliente de recompra no local está a funcionar.
+* A Azure AD está online e está ligada ao seu cliente de redação no local. No entanto, parece que a versão instalada do Azure AD Connect está desatualizada. Considere [atualizar o Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) para garantir que possui as mais recentes funcionalidades de conectividade e correções importantes de bugs.
+* Infelizmente, não podemos verificar o seu estado de recompra no local porque a versão instalada do Azure AD Connect está desatualizada. [Atualize o Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) para poder verificar o seu estado de ligação.
+* Infelizmente, parece que não podemos ligar-nos ao seu cliente de recompra no local. [Troubleshoot Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) para restaurar a ligação.
+* Infelizmente, não podemos ligar-nos ao seu cliente de redação no local porque a redação de palavras-passe não foi devidamente configurada. Configure a reescrita da [palavra-passe](howto-sspr-writeback.md) para restaurar a ligação.
+* Infelizmente, parece que não podemos ligar-nos ao seu cliente de recompra no local. Isto pode ser devido a problemas temporários da nossa parte. Se o problema persistir, [a Troubleshoot Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) para restaurar a ligação.
 
-### <a name="write-back-passwords-to-your-on-premises-directory"></a>Write-back de senhas para seu diretório local
+### <a name="write-back-passwords-to-your-on-premises-directory"></a>Escreva palavras-passe para o seu diretório no local
 
-Esse controle determina se o Write-back de senha está habilitado para este diretório. Se Write-back estiver ativado, ele indicará o status do serviço de write-back local. Esse controle será útil se você quiser desabilitar temporariamente o Write-back de senha sem precisar reconfigurar Azure AD Connect.
+Este controlo determina se a reescrita da palavra-passe está ativada para este diretório. Se a redação estiver em funcionação, indica o estado do serviço de redação no local. Este controlo é útil se pretender desativar temporariamente a reescrita da palavra-passe sem ter de reconfigurar o Azure AD Connect.
 
-* Se a opção for definida como **Sim**, o Write-back será habilitado e os usuários federados, de autenticação de passagem ou de hash de senha poderão redefinir suas senhas.
-* Se a opção for definida como **não**, o Write-back será desabilitado e a autenticação federada, de passagem, ou os usuários sincronizados com hash de senha não poderão redefinir suas senhas.
+* Se o interruptor estiver definido para **Sim**, então a reprodução está ativada e a autenticação federada, pass-through, ou os utilizadores sincronizados com hash de palavra-passe são capazes de redefinir as suas palavras-passe.
+* Se o interruptor estiver definido para **Nº ,** então a reprodução é desativada e a autenticação federada, pass-through, ou os utilizadores sincronizados com hash de palavra-passe não são capazes de redefinir as suas palavras-passe.
 
-### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Permitir que os usuários desbloqueiem contas sem redefinir a senha
+### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Permitir que os utilizadores desbloqueiem contas sem redefinir a sua palavra-passe
 
-Esse controle designa se os usuários que visitam o portal de redefinição de senha devem receber a opção de desbloquear suas contas de Active Directory locais sem precisar redefinir sua senha. Por padrão, o Azure AD desbloqueia as contas quando ele executa uma redefinição de senha. Você usa essa configuração para separar essas duas operações.
+Este controlo designa se os utilizadores que visitam o portal de reset de palavras-passe devem ter a opção de desbloquear as suas contas de Diretório Ativo no local sem terem de redefinir a sua palavra-passe. Por padrão, o Azure AD desbloqueia contas quando executa uma reposição de palavra-passe. Usa este cenário para separar essas duas operações.
 
-* Se definido como **Sim**, os usuários receberão a opção de redefinir sua senha e desbloquear a conta, ou para desbloquear a conta sem precisar redefinir a senha.
-* Se definido como **não**, os usuários só poderão executar uma operação combinada de redefinição de senha e de desbloqueio de conta.
+* Se definido para **Sim**, então os utilizadores têm a opção de redefinir a sua palavra-passe e desbloquear a conta, ou desbloquear a sua conta sem ter de redefinir a palavra-passe.
+* Se definido para **Nº ,** então os utilizadores só podem realizar uma reposição combinada da palavra-passe e desbloquear a conta.
 
-### <a name="on-premises-active-directory-password-filters"></a>Filtros de senha do Active Directory local
+### <a name="on-premises-active-directory-password-filters"></a>Filtros de senha de diretório ativo no local
 
-A redefinição de senha de autoatendimento do Azure AD executa o equivalente a uma redefinição de senha iniciada pelo administrador no Active Directory. Se você estiver usando um filtro de senha de terceiros para impor regras de senha personalizadas e precisar que esse filtro de senha seja verificado durante a redefinição de senha de autoatendimento do Azure AD, verifique se a solução de filtro de senha de terceiros está configurada para ser aplicada no cenário de redefinição de senha de administrador. A [proteção por senha do Azure ad para Windows Server Active Directory](concept-password-ban-bad-on-premises.md) é suportada por padrão.
+O reset da palavra-passe autosserviço Azure AD executa o equivalente a uma redefinição de senha iniciada pela administração no Diretório Ativo. Se estiver a utilizar um filtro de palavra-passe de terceiros para impor regras de senha personalizadas e exigir que este filtro de senha seja verificado durante o reset da palavra-passe do autosserviço Azure AD, certifique-se de que a solução de filtro de senha de terceiros está configurada para ser aplicada no cenário de reset de palavra-passe de administrador. [A proteção de palavras-passe Azure AD para o Diretório Ativo](concept-password-ban-bad-on-premises.md) do Windows Server é suportada por predefinição.
 
-## <a name="password-reset-for-b2b-users"></a>Redefinição de senha para usuários B2B
+## <a name="password-reset-for-b2b-users"></a>Reset de palavra-passe para utilizadores B2B
 
-A redefinição de senha e a alteração têm suporte total em todas as configurações B2B (entre empresas). A redefinição de senha de usuário B2B tem suporte nos três casos a seguir:
+O reset e a alteração da palavra-passe são totalmente suportados em todas as configurações de negócio-a-negócio (B2B). O reset da palavra-passe do utilizador B2B é suportado nos seguintes três casos:
 
-* **Usuários de uma organização parceira com um locatário existente do Azure ad**: se a organização com a qual você está fazendo uma parceria tiver um locatário existente do Azure AD, *respeitaremos quaisquer políticas de redefinição de senha habilitadas nesse locatário*. Para que a redefinição de senha funcione, a organização parceira só precisa se certificar de que o Azure AD SSPR está habilitado. Não há custo adicional para os clientes do Office 365, e ele pode ser habilitado seguindo as etapas em nosso guia de [introdução ao gerenciamento de senhas](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) .
-* **Usuários que se inscrevem através** de inscrição de autoatendimento: se a organização com a qual você está fazendo uma parceria tiver usado o recurso de [inscrição de autoatendimento](../users-groups-roles/directory-self-service-signup.md) para entrar em um locatário, permitiremos que eles redefinam a senha com o email que eles registraram.
-* **Usuários B2B**: quaisquer novos usuários B2B criados usando os novos [recursos B2B do Azure ad](../active-directory-b2b-what-is-azure-ad-b2b.md) também poderão redefinir suas senhas com o email que eles registraram durante o processo de convite.
+* **Utilizadores de uma organização parceira com um inquilino Azure AD existente**: Se a organização com quem está a associar-se tem um inquilino Azure AD existente, *respeitamos quaisquer políticas de redefinição de senhas que estejam ativadas nesse inquilino.* Para que a palavra-passe seja recriada, a organização parceira apenas precisa de se certificar de que o Azure AD SSPR está ativado. Não existe um custo adicional para os clientes do Office 365, e pode ser ativado seguindo os passos no nosso Get started com guia de gestão de [passwords.](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords)
+* **Utilizadores que se inscrevam através** de inscrição de self-service: Se a organização com quem está a associar-se usou a funcionalidade de inscrição de [self-service](../users-groups-roles/directory-self-service-signup.md) para entrar num inquilino, deixamos-os redefinir a palavra-passe com o e-mail que registaram.
+* **Utilizadores B2B**: Quaisquer novos utilizadores B2B criados utilizando as novas capacidades Do [Azure AD B2B](../active-directory-b2b-what-is-azure-ad-b2b.md) também poderão redefinir as suas palavras-passe com o e-mail que registaram durante o processo de convite.
 
-Para testar esse cenário, vá para https://passwordreset.microsoftonline.com com um desses usuários parceiros. Se eles tiverem um email alternativo ou e-mail de autenticação definido, a redefinição de senha funcionará conforme o esperado.
+Para testar este cenário, vá com https://passwordreset.microsoftonline.com um destes utilizadores parceiros. Se tiverem um e-mail alternativo ou e-mail de autenticação definido, o reset da palavra-passe funciona como esperado.
 
 > [!NOTE]
-> As contas da Microsoft que receberam acesso de convidado ao seu locatário do Azure AD, como as de Hotmail.com, Outlook.com ou outros endereços de email pessoais, não são capazes de usar o SSPR do Azure AD. Eles precisam redefinir sua senha usando as informações encontradas no artigo [quando você não consegue entrar no seu conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) .
+> As contas da Microsoft que receberam acesso ao seu inquilino Azure AD, como as de Hotmail.com, Outlook.com ou outros endereços de e-mail pessoais, não podem utilizar o Azure AD SSPR. Eles precisam de redefinir a sua palavra-passe utilizando as informações encontradas no artigo da [sua conta Microsoft.](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Os artigos seguintes disponibilizam informações adicionais relativamente à reposição de palavras-passe através do Azure AD:
 
 * [Como posso concluir uma implementação com êxito da SSPR?](howto-sspr-deployment.md)
-* [Repor ou alterar a palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Redefinir ou alterar a sua palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Registar-se na reposição personalizada de palavra-passe](../user-help/active-directory-passwords-reset-register.md)
 * [Tem alguma pergunta sobre licenciamento?](concept-sspr-licensing.md)
 * [Que dados são utilizados pela SSPR e que dados devem ser preenchidos por si para os seus utilizadores?](howto-sspr-authenticationdata.md)
@@ -217,8 +217,8 @@ Os artigos seguintes disponibilizam informações adicionais relativamente à re
 * [O que é a repetição de escrita de palavras-passe e por que me deve interessar?](howto-sspr-writeback.md)
 * [Como posso comunicar a atividade da SSPR?](howto-sspr-reporting.md)
 * [Quais são todas as opções na SSPR e o que significam?](concept-sspr-howitworks.md)
-* [Acho que algo está quebrado. Como fazer solucionar problemas de SSPR?](active-directory-passwords-troubleshoot.md)
+* [Acho que algo está partido. Como posso resolver problemas com a SSPR?](active-directory-passwords-troubleshoot.md)
 * [Tenho uma pergunta que ainda não foi abordada](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/concept-sspr-howitworks/manage-authentication-methods-for-password-reset.png "Métodos de autenticação do Azure AD disponíveis e a quantidade necessária"
-[Writeback]: ./media/concept-sspr-howitworks/troubleshoot-on-premises-integration-writeback.png "Configuração de write-back de senha de integração local e informações de solução de problemas"
+[Writeback]: ./media/concept-sspr-howitworks/troubleshoot-on-premises-integration-writeback.png "No local integração de passwords de reprodução e informação de resolução de problemas"

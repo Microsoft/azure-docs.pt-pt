@@ -1,6 +1,6 @@
 ---
-title: Cotas e limitações nos serviços de mídia do Azure v3 | Microsoft Docs
-description: Este tópico descreve cotas e limitações no Serviços de Mídia do Microsoft Azure v3.
+title: Quotas e limitações nos Serviços de Media Azure v3 [ Microsoft Docs
+description: Este tópico descreve quotas e limitações no Microsoft Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,64 +12,64 @@ ms.topic: article
 ms.date: 10/17/2019
 ms.author: juliako
 ms.openlocfilehash: 5a4f7e31cb17f47e8796ab99c1f8a089339903df
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74888432"
 ---
-# <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Cotas e limitações nos serviços de mídia do Azure v3
+# <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quotas e limitações nos Serviços de Mídia Azure v3
 
-Este artigo descreve cotas e limitações nos serviços de mídia do Azure v3.
+Este artigo descreve quotas e limitações no Azure Media Services v3.
 
 | Recurso | Limite Predefinido | 
 | --- | --- | 
 | Recursos por conta dos Serviços de Multimédia do Azure | 1 000 000|
 | Filtros do Manifesto Dinâmico|100|
-| JobInputs por trabalho | 50 (fixo)|
-| JobOutputs por trabalho | 20 (fixo) |
-| TransformOutputs em uma transformação | 20 (fixo) |
-| Arquivos por JobInput|10 (fixo)|
-| Tamanho dos ficheiros| Em alguns cenários, há um limite no tamanho máximo de arquivo com suporte para processamento nos serviços de mídia. <sup>(1)</sup> |
-| Trabalhos por conta de serviços de mídia | 500.000 <sup>(2)</sup> (fixo)|
+| JobInputs por Job | 50 (fixo)|
+| JobOutputs por Job | 20 (fixo) |
+| TransformOutputs em uma Transformação | 20 (fixo) |
+| Ficheiros por JobInput|10 (fixo)|
+| Tamanho dos ficheiros| Em alguns cenários, existe um limite para o tamanho máximo dos ficheiros suportados para o processamento em Serviços de Media. <sup>(1)</sup> |
+| Empregos por conta de Serviços de Media | 500.000 <sup>(2)</sup> (fixo)|
 | Eventos em Direto por conta dos Serviços de Multimédia |5|
-| Contas de serviços de mídia em uma única assinatura | 25 (fixo) |
+| Contas de Serviços de Media numa única subscrição | 25 (fixo) |
 | Saídas ao vivo por evento ao vivo |3 <sup>(3)</sup> |
-| Duração máxima de saída ao vivo | 25 horas |
+| Duração da saída de Max Live | 25 horas |
 | Contas de armazenamento | 100<sup>(4)</sup> (fixo) |
-| Pontos de extremidade de streaming (interrompidos ou em execução) por conta de serviços de mídia|2 (fixo)|
+| Pontos Finais de Streaming (parados ou em execução) por conta de Media Services|2 (fixo)|
 | Políticas de Transmissão em Fluxo | 100 <sup>(5)</sup> |
-| Transformações por conta de serviços de mídia | 100 (fixo)|
-| Localizadores de streaming exclusivos associados a um ativo ao mesmo tempo | 100<sup>(6)</sup> (fixo) |
-| Opções por política de chave de conteúdo |30 | 
-| Licenças por mês para cada um dos tipos de DRM no serviço de entrega de chave dos serviços de mídia por conta|1 000 000|
+| Transforma-se por conta de Serviços de Media | 100 (fixo)|
+| Localizadores de streaming exclusivos associados a um Ativo ao mesmo tempo | 100<sup>(6)</sup> (fixo) |
+| Opções por Política chave de conteúdo |30 | 
+| Licenças por mês para cada um dos tipos de DRM no serviço de entrega chave de Serviços de Media por conta|1 000 000|
 
-<sup>1</sup> o tamanho máximo com suporte para um único blob atualmente é de até 5 TB no armazenamento de BLOBs do Azure. Limites adicionais se aplicam aos serviços de mídia com base nos tamanhos de VM que são usados pelo serviço. O limite de tamanho se aplica aos arquivos que você carrega e também aos arquivos que são gerados como resultado do processamento de serviços de mídia (codificação ou análise). Se o arquivo de origem for maior do que 260 GB, provavelmente haverá falha no trabalho. 
+<sup>1</sup> O tamanho máximo suportado para uma única bolha é atualmente de até 5 TB no Armazenamento De Blob Azure. Limites adicionais aplicam-se nos Serviços de Media com base nos tamanhos vm que são utilizados pelo serviço. O limite de tamanho aplica-se aos ficheiros que envia e também aos ficheiros que são gerados em resultado do processamento de Serviços de Media (codificação ou análise). Se o seu ficheiro de origem for superior a 260 GB, o seu Trabalho provavelmente falhará. 
 
-A tabela a seguir mostra os limites nas unidades reservadas de mídia S1, S2 e S3. Se o arquivo de origem for maior do que os limites definidos na tabela, o trabalho de codificação falhará. Se você codificar fontes de resolução de 4K de longa duração, será necessário usar unidades reservadas de mídia S3 para atingir o desempenho necessário. Se você tiver um conteúdo de 4K maior do que o limite de 260 GB nas unidades reservadas de mídia S3, abra um tíquete de suporte.
+A tabela seguinte mostra os limites das unidades reservadas aos meios de comunicação S1, S2 e S3. Se o seu ficheiro fonte for maior do que os limites definidos na tabela, o seu trabalho de codificação falha. Se codificar fontes de resolução 4K de longa duração, é obrigado a utilizar unidades reservadas aos meios de comunicação S3 para obter o desempenho necessário. Se tiver um conteúdo 4K maior do que o limite de 260 GB nas unidades reservadas aos meios de comunicação S3, abra um bilhete de apoio.
 
-|Tipo de unidade reservada de mídia   |Tamanho máximo de entrada (GB)|
+|Tipo de unidade reservado aos meios de comunicação   |Tamanho máximo de entrada (GB)|
 |---|---|
 |S1 |   26|
 |S2 | 60|
 |S3 |260|
 
-<sup>2</sup> esse número inclui trabalhos enfileirados, concluídos, ativos e cancelados. Ele não inclui trabalhos excluídos. 
+<sup>2</sup> Este número inclui trabalhos em fila, acabados, ativos e cancelados. Não inclui empregos apagados. 
 
-Qualquer registro de trabalho em sua conta com mais de 90 dias será excluído automaticamente, mesmo que o número total de registros esteja abaixo da cota máxima. 
+Qualquer registo de emprego na sua conta com mais de 90 dias será automaticamente eliminado, mesmo que o número total de registos esteja abaixo da quota máxima. 
 
-<sup>3</sup> saídas ao vivo começam na criação e param quando excluídas.
+<sup>3</sup> As saídas ao vivo começam na criação e param quando eliminadas.
 
-<sup>4</sup> as contas de armazenamento devem ser da mesma assinatura do Azure.
+<sup>4</sup> As contas de armazenamento devem ser da mesma assinatura Azure.
 
-<sup>5</sup> ao usar uma [política de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies)personalizada, você deve criar um conjunto limitado de políticas para sua conta de serviço de mídia e reutilizá-las para o StreamingLocators sempre que forem necessárias as mesmas opções de criptografia e protocolos. Você não deve criar uma nova política de streaming para cada localizador de streaming.
+<sup>5</sup> Ao utilizar uma Política de [Streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies)personalizada, deve conceber um conjunto limitado de tais políticas para a sua conta de Serviço de Media e reutilizá-las para os seus Localizadores de Streaming sempre que forem necessárias as mesmas opções e protocolos de encriptação. Não deve criar uma nova Política de Streaming para cada Localizador de Streaming.
 
-<sup>6</sup> os localizadores de streaming não foram projetados para gerenciar o controle de acesso por usuário. Para conceder direitos de acesso diferentes a utilizadores individuais, utilize soluções de Gestão de Direitos Digitais (Digital Rights Management, DRM).
+<sup>6</sup> Os localizadores de streaming não foram concebidos para gerir o controlo de acesso por utilizador. Para conceder direitos de acesso diferentes a utilizadores individuais, utilize soluções de Gestão de Direitos Digitais (Digital Rights Management, DRM).
 
-## <a name="support-ticket"></a>Tíquete de suporte
+## <a name="support-ticket"></a>Bilhete de apoio
 
-Para recursos que não são corrigidos, você pode solicitar que as cotas sejam geradas, abrindo um [tíquete de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Inclua informações detalhadas na solicitação sobre as alterações de cota desejadas, cenários de caso de uso e regiões necessárias. <br/>**Não** crie contas dos Serviços de Multimédia do Azure adicionais numa tentativa de obter limites superiores.
+Para recursos que não estão fixos, pode pedir que as quotas sejam aumentadas, abrindo um bilhete de [apoio.](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) Incluir informações detalhadas no pedido sobre as alterações de quota desejadas, cenários de caso de utilização e regiões necessárias. <br/>**Não** crie contas dos Serviços de Multimédia do Azure adicionais numa tentativa de obter limites superiores.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Descrição geral](media-services-overview.md)
+[Descrição Geral](media-services-overview.md)

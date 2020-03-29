@@ -1,28 +1,28 @@
 ---
-title: Ambientes de dev/test do foco micro no Azure | Documentos da Microsoft
-description: Realojar IBM z/OS mainframe cargas de trabalho usando soluções de Micro Focus em máquinas virtuais do Azure (VMs).
+title: Micro Focus dev/test environments on Azure [ Ambientes de teste/ Micro Focus em Azure ] Microsoft Docs
+description: Realoja as suas cargas de trabalho ibm z/OS utilizando soluções Micro Focus em máquinas virtuais Azure (VMs).
 author: njray
 ms.author: sread
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: d83b4c89d0f37e2217974d6d1ed32ac73d8fa4df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60498904"
 ---
-# <a name="micro-focus-devtest-environments-on-azure"></a>Ambientes de dev/test do foco micro no Azure
+# <a name="micro-focus-devtest-environments-on-azure"></a>Micro Focus dev/ambientes de teste em Azure
 
-Começar a utilizar no Azure com um ambiente de desenvolvimento e teste é uma ótima maneira de aumentar seus esforços de modernização. Aplicações de mainframe que dependem de sistemas herdados, como o IBM CICS (sistema de controle de informação de clientes) e o IMS (sistema de gestão de informações) podem ser rehosted no Azure através de soluções de parceiros.
+Começar no Azure com um ambiente de desenvolvimento e teste é uma ótima maneira de impulsionar os seus esforços de modernização. As aplicações mainframe que dependem de sistemas legados como o IBM CICS (Sistema de Controlo de Informação de Clientes) e o IMS (Sistema de Gestão de Informação) podem ser realojadas no Azure utilizando soluções parceiras.
 
-Micro Focus fez uma parceria com a Microsoft para oferecer ferramentas de migração e de realojamento de mainframe atraente. Pode executar aplicações de mainframe em desenvolvimento, teste e cenários de produção no Azure e a plataforma Microsoft Windows.
+A Micro Focus estabeleceu uma parceria com a Microsoft para oferecer ferramentas de migração e realojamento convincentes. Pode executar aplicações mainframe em cenários de desenvolvimento, teste e produção no Azure e na plataforma Microsoft Windows.
 
-Micro Focus oferece realojamento do desenvolvimento e teste realojamento soluções que estendem o COBOL existente e PL /, aplicativos de negócios para o Azure.
+A Micro Focus oferece soluções de realojamento e realojamento de testes que alargam as aplicações comerciais existentes de COBOL e PL/I ao Azure.
 
-**Passos seguintes?**
+**Passos seguintes**
 
-- [Instalar o Micro Focus Enterprise Server 4.0 e o Enterprise Developer 4.0 no Azure](./set-up-micro-focus-azure.md)
-- [Configurar a Micro foco CICS BankDemo para Micro foco Enterprise Developer 4.0 no Azure](./demo.md)
-- [Executar o servidor empresarial em contentores do Docker no Azure](./run-enterprise-server-container.md)
+- [Instale micro Focus Enterprise Server 4.0 e Enterprise Developer 4.0 no Azure](./set-up-micro-focus-azure.md)
+- [Configurar micro focus CICS BankDemo para Micro Focus Enterprise Developer 4.0 em Azure](./demo.md)
+- [Executar o Servidor Empresarial em contentores Docker em Azure](./run-enterprise-server-container.md)

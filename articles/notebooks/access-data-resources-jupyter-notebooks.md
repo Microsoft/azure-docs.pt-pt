@@ -1,30 +1,30 @@
 ---
-title: Acessar dados em notebooks Jupyter-visualização de Azure Notebooks
-description: Saiba como acessar arquivos, APIs REST, bancos de dados e diferentes recursos de armazenamento do Azure em um notebook Jupyter.
+title: Dados de acesso em cadernos Jupyter - Pré-visualização de cadernos Azure
+description: Saiba como aceder a ficheiros, APIs REST, bases de dados e diferentes recursos de Armazenamento Azure a partir de um caderno Jupyter.
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.openlocfilehash: 47d2f869021851c1451a66a84b1a70ec4ff4998f
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75646352"
 ---
-# <a name="access-cloud-data-in-a-notebook"></a>Aceder a dados na cloud num bloco de notas
+# <a name="access-cloud-data-in-a-notebook"></a>Aceder a dados da cloud num bloco de notas
 
-Fazer o trabalho interessante num bloco de notas do Jupyter requer que os dados. Dados, na verdade, são a alma dos blocos de notas.
+Fazer um trabalho interessante num caderno jupyter requer dados. Data, na verdade, é o sangue vital dos cadernos.
 
-Pode certamente [Importe ficheiros de dados para um projeto](work-with-project-data-files.md), mesmo usando comandos como `curl` de dentro de um bloco de notas para transferir um ficheiro diretamente. No entanto, é provável, que terá de trabalhar com dados muito mais amplo do que está disponíveis a partir de origens de não ficheiro como APIs REST, bases de dados relacionais e armazenamento, como tabelas do Azure na nuvem.
+Pode certamente [importar ficheiros](work-with-project-data-files.md)de dados para `curl` um projeto , mesmo usando comandos como dentro de um caderno para descarregar um ficheiro diretamente. É provável, no entanto, que precise de trabalhar com dados muito mais extensos que estão disponíveis a partir de fontes não-ficheiros, como APIs rest, bases de dados relacionais e armazenamento em nuvem, como tabelas Azure.
 
-Este artigo descreve resumidamente as diferentes opções. Porque o acesso a dados é mais visto em ação, pode encontrar o código executável na [exemplos de blocos de notas do Azure - aceder aos seus dados](https://github.com/Microsoft/AzureNotebooks/blob/master/Samples/Access%20your%20data%20in%20Azure%20Notebooks.ipynb).
+Este artigo descreve brevemente estas diferentes opções. Como o acesso aos dados é melhor visto em ação, pode encontrar código runnável nas Amostras de [Cadernos Azure - Aceda](https://github.com/Microsoft/AzureNotebooks/blob/master/Samples/Access%20your%20data%20in%20Azure%20Notebooks.ipynb)aos seus dados .
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="rest-apis"></a>APIs REST
 
-Em termos gerais, a vasta quantidade de dados disponíveis a partir da Internet é acessada não por meio de arquivos, mas através de REST APIs. Felizmente, uma vez que uma célula de bloco de notas pode conter qualquer código que quiser, pode usar código para enviar pedidos e receber dados JSON. Em seguida, pode converter esse JSON em qualquer formato que pretende utilizar, por exemplo, um pandas dataframe.
+De um modo geral, a grande quantidade de dados disponíveis na Internet é acedida não através de ficheiros, mas através de APIs REST. Felizmente, como uma célula de caderno pode conter qualquer código que você quiser, você pode usar código para enviar pedidos e receber dados JSON. Em seguida, pode convertê-lo em qualquer formato que queira utilizar, como um quadro de dados pandas.
 
-Para acessar dados usando uma API REST, utilize o mesmo código em células de código de um bloco de notas que utilizar em qualquer outro aplicativo. A estrutura geral usando a biblioteca de pedidos é o seguinte:
+Para aceder a dados utilizando uma API REST, utilize o mesmo código nas células de código de um caderno que utiliza em qualquer outra aplicação. A estrutura geral que utiliza a biblioteca de pedidos é a seguinte:
 
 ```python
 import pandas
@@ -41,43 +41,43 @@ if response.status_code == 200:
     print(dataframe_rest2)
 ```
 
-## <a name="azure-sql-databases"></a>Bases de dados SQL do Azure
+## <a name="azure-sql-databases"></a>Bases de dados Azure SQL
 
-Pode acessar bancos de dados SQL com o auxílio de bibliotecas do pyodbc ou pymssql.
+Pode aceder às bases de dados do SQL Server com a assistência das bibliotecas pyodbc ou pymssql.
 
-[Utilizar Python para consultar uma base de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) fornece-lhe instruções sobre como criar uma base de dados que contém os dados da AdventureWorks e mostra como consultar dados. O mesmo código é mostrado no bloco de notas de exemplo deste artigo.
+Use python para consultar uma base de [dados Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) dá-lhe instruções sobre a criação de uma base de dados contendo dados adventureWorks, e mostra como consultar esses dados. O mesmo código é mostrado no caderno de amostras para este artigo.
 
-## <a name="azure-storage"></a>Armazenamento do Azure
+## <a name="azure-storage"></a>Storage do Azure
 
-Armazenamento do Azure fornece vários tipos diferentes de armazenamento não relacionais, dependendo do tipo de dados que tiver e como precisa aceder à mesma:
+O Azure Storage fornece vários tipos diferentes de armazenamento não relacional, dependendo do tipo de dados que tem e de como precisa aceder a ele:
 
-- Armazenamento de tabelas: fornece armazenamento de elevado volume e de baixo custo para dados em tabela, como registos de sensor recolhidos, os registos de diagnóstico e assim por diante.
-- Armazenamento de BLOBs: fornece armazenamento de ficheiros semelhantes para qualquer tipo de dados.
+- Armazenamento de mesa: fornece armazenamento de baixo custo e de alto volume para dados tabulares, tais como registos de sensores recolhidos, registos de diagnóstico, e assim por diante.
+- Armazenamento blob: fornece armazenamento semelhante a ficheiro para qualquer tipo de dados.
 
-O bloco de notas de exemplo demonstra a trabalhar com tabelas e blobs, incluindo como utilizar uma assinatura de acesso partilhado para permitir o acesso só de leitura de blobs.
+O caderno de amostras demonstra trabalhar com mesas e bolhas, incluindo como usar uma assinatura de acesso partilhado para permitir o acesso apenas a bolhas.
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Azure Cosmos DB fornece um arquivo de NoSQL totalmente indexado para documentos JSON). Os seguintes artigos fornecem um número de maneiras diferentes de trabalhar com o Cosmos DB a partir de Python:
+A Azure Cosmos DB fornece uma loja NoSQL totalmente indexada para documentos JSON). Os seguintes artigos fornecem uma série de maneiras diferentes de trabalhar com cosmos DB de Python:
 
-- [Aplicação de compilação de uma API de SQL com Python](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
-- [Compilar um aplicativo Flask com a API do Azure Cosmos DB para MongoDB](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
-- [Criar uma base de dados com Python e a API do Gremlin](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
-- [Criar uma aplicação do Cassandra com o Python e Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
-- [Criar uma aplicação de API com Python e Azure Cosmos DB tabela](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
+- [Construa uma aplicação SQL API com Python](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
+- [Construa uma aplicação de Flask com a API do Azure Cosmos DB para o MongoDB](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
+- [Crie uma base de dados de gráficos usando Python e a API Gremlin](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
+- [Construa uma app Cassandra com Python e Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
+- [Construa uma app Table API com Python e Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
 
-Ao trabalhar com o Cosmos DB, pode utilizar o [azure-cosmos DB-table](https://pypi.org/project/azure-cosmosdb-table/) biblioteca.
+Ao trabalhar com cosmos DB, você pode usar a biblioteca [de mesa azure-cosmosdb.](https://pypi.org/project/azure-cosmosdb-table/)
 
-## <a name="other-azure-databases"></a>Outros bancos de dados do Azure
+## <a name="other-azure-databases"></a>Outras bases de dados Azure
 
-O Azure fornece uma série de outros tipos de base de dados que pode utilizar. Os artigos abaixo fornecem orientações para aceder a essas bases de dados a partir de Python:
+O Azure fornece uma série de outros tipos de bases de dados que pode utilizar. Os artigos abaixo fornecem orientações para aceder às bases de dados da Python:
 
-- [Base de dados do Azure para PostgreSQL: utilizar o Python para ligar e consultar dados](https://docs.microsoft.com/azure/postgresql/connect-python)
-- [Início rápido: Utilizar a Cache de Redis do Azure com Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
-- [Base de dados do Azure para MySQL: utilizar o Python para ligar e consultar dados](https://docs.microsoft.com/azure/mysql/connect-python)
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
-  - [Assistente para copiar para a fábrica de dados do Azure](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
+- [Base de Dados do Azure para PostgreSQL: utilizar o Python para se ligar e consultar dados](https://docs.microsoft.com/azure/postgresql/connect-python)
+- [Início Rápido: Utilizar a Cache de Redis do Azure com Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
+- [Base de Dados do Azure para MySQL: utilizar o Python para se ligar e consultar dados](https://docs.microsoft.com/azure/mysql/connect-python)
+- [Fábrica de Dados Azure](https://azure.microsoft.com/services/data-factory/)
+  - [Assistente de cópia para fábrica de dados azure](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Como: trabalhar com arquivos de dados do projeto](work-with-project-data-files.md)
+- [Como: Trabalhar com ficheiros de dados do projeto](work-with-project-data-files.md)

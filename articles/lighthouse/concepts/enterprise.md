@@ -1,62 +1,62 @@
 ---
 title: Azure Lighthouse em cenários empresariais
-description: Os recursos do Azure Lighthouse podem ser usados para simplificar o gerenciamento entre locatários em uma empresa que usa vários locatários do Azure AD.
+description: As capacidades do Farol Azure podem ser usadas para simplificar a gestão de inquilinos transversais dentro de uma empresa que utiliza vários inquilinos da AD Azure.
 ms.date: 09/25/2019
 ms.topic: conceptual
 ms.openlocfilehash: 91089a6fb1a965191489e87027ef508c7ebe2aa2
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75749205"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse em cenários empresariais
 
-O cenário mais comum para o [Azure Lighthouse](../overview.md) é um provedor de serviços que gerencia recursos em seus locatários do Azure Active Directory (Azure AD) de seus clientes. No entanto, os recursos do Azure Lighthouse também podem ser usados para simplificar o gerenciamento entre locatários em uma empresa que usa vários locatários do Azure AD.
+O cenário mais comum para o [Azure Lighthouse](../overview.md) é um prestador de serviços que gere recursos nos inquilinos do Azure Ative Directory (Azure AD) dos seus clientes. No entanto, as capacidades do Farol Azure também podem ser usadas para simplificar a gestão de inquilinos transversais dentro de uma empresa que utiliza vários inquilinos da AD Azure.
 
-## <a name="single-vs-multiple-tenants"></a>Locatários únicos versus múltiplos
+## <a name="single-vs-multiple-tenants"></a>Single vs. vários inquilinos
 
-Para a maioria das organizações, o gerenciamento é mais fácil com um único locatário do Azure AD. Ter todos os recursos em um locatário permite a centralização de tarefas de gerenciamento por usuários designados, grupos de usuários ou entidades de serviço dentro desse locatário. É recomendável usar um locatário para sua organização sempre que possível.
+Para a maioria das organizações, a gestão é mais fácil com um único inquilino azure AD. Ter todos os recursos dentro de um inquilino permite a centralização de tarefas de gestão por utilizadores designados, grupos de utilizadores ou diretores de serviço dentro desse inquilino. Recomendamos a utilização de um inquilino para a sua organização sempre que possível.
 
-Ao mesmo tempo, há situações que podem exigir que uma organização mantenha vários locatários do Azure AD. Em alguns casos, isso pode ser uma situação temporária, como quando as aquisições ocorreram e uma estratégia de consolidação de locatário de longo prazo levará algum tempo para definir. Uma organização também pode precisar manter vários locatários em uma base contínua (devido a subsidiárias totalmente independentes, requisitos geográficos ou legais e assim por diante). Nos casos em que uma arquitetura multilocatário é necessária, o gerenciamento de recursos delegado do Azure pode ser usado para centralizar e simplificar as operações de gerenciamento. As assinaturas de vários locatários podem ser integradas para o [Gerenciamento de recursos delegado do Azure](azure-delegated-resource-management.md), permitindo que usuários designados em um locatário de gerenciamento executem [funções de gerenciamento entre locatários](cross-tenant-management-experience.md) de maneira centralizada e escalonável.
+Ao mesmo tempo, existem situações que podem exigir que uma organização mantenha vários inquilinos da AD Azure. Em alguns casos, esta pode ser uma situação temporária, uma vez que quando se realizaram aquisições e uma estratégia de consolidação de inquilinos a longo prazo levará algum tempo a definir. Uma organização pode igualmente ter de manter os múltiplos inquilinos numa base contínua (devido a filiais totalmente independentes, requisitos geográficos ou legais, e assim por diante). Nos casos em que é necessária uma arquitetura multi-arrendatária, a gestão de recursos delegados da Azure pode ser usada para centralizar e agilizar operações de gestão. As subscrições de vários inquilinos podem ser a bordo para a [gestão de recursos delegados do Azure,](azure-delegated-resource-management.md)permitindo aos utilizadores designados de um inquilino gerente desempenhar [funções de gestão de inquilinos cruzados](cross-tenant-management-experience.md) de forma centralizada e escalável.
 
-## <a name="tenant-management-architecture"></a>Arquitetura de gerenciamento de locatário
+## <a name="tenant-management-architecture"></a>Arquitetura de gestão de inquilinos
 
-Ao centralizar as operações de gerenciamento em vários locatários, você precisará determinar qual locatário incluirá os usuários que executam operações de gerenciamento para os outros locatários. Em outras palavras, será necessário determinar qual locatário será o locatário de gerenciamento para outros locatários.
+Ao centralizar as operações de gestão em vários inquilinos, terá de determinar qual o inquilino que incluirá os utilizadores que realizam operações de gestão para os outros inquilinos. Por outras palavras, você precisará determinar qual inquilino será o inquilino gerente de outros inquilinos.
 
-Por exemplo, digamos que sua organização tenha um único locatário que chamarei *de locatário a*. Em seguida, sua organização adquire dois locatários adicionais, o *locatário B* e o *locatário C*, e você tem motivos comerciais que exigem que você os mantenha como locatários separados.
+Por exemplo, digamos que a sua organização tem um único inquilino a quem chamaremos *inquilino A.* A sua organização adquire então mais dois inquilinos, *inquilino B* e *Inquilino C,* e tem razões comerciais que exigem que os mantenha como inquilinos separados.
 
-Sua organização deseja usar as mesmas definições de política, práticas de backup e processos de segurança em todos os locatários. Como você já tem usuários (incluindo grupos de usuários e entidades de serviço) responsáveis por executar essas tarefas no locatário A, é possível integrar todas as assinaturas no locatário B e no locatário C para que os mesmos usuários no locatário A possam executá-las tarefa.
+A sua organização quer usar as mesmas definições políticas, práticas de backup e processos de segurança em todos os inquilinos. Uma vez que já tem utilizadores (incluindo grupos de utilizadores e diretores de serviço) que são responsáveis pela realização destas tarefas dentro do Tenant A, pode embarcar em todas as subscrições dentro do Tenant B e Tenant C para que os mesmos utilizadores em Tenant A possam realizar essas tarefas.
 
-![Usuários no locatário A Gerenciando recursos no locatário B e no locatário C](../media/enterprise-azure-lighthouse.jpg)
+![Utilizadores em Inquilino A gerindo recursos em Inquilino B e Inquilino C](../media/enterprise-azure-lighthouse.jpg)
 
-## <a name="security-and-access-considerations"></a>Considerações sobre segurança e acesso
+## <a name="security-and-access-considerations"></a>Considerações de segurança e acesso
 
-Na maioria dos cenários empresariais, você desejará delegar uma assinatura completa para o gerenciamento de recursos delegado do Azure, embora também possa delegar apenas grupos de recursos específicos dentro de uma assinatura.
+Na maioria dos cenários empresariais, você vai querer delegar uma subscrição completa para a gestão de recursos delegados do Azure, embora você também possa delegar apenas grupos de recursos específicos dentro de uma subscrição.
 
-De qualquer forma, certifique-se de [seguir o princípio de privilégios mínimos ao definir quais usuários terão acesso aos recursos](recommended-security-practices.md#assign-permissions-to-groups-using-the-principle-of-least-privilege). Isso ajuda a garantir que os usuários tenham apenas as permissões necessárias para executar as tarefas necessárias e reduz a chance de erros inadvertidos.
+Seja como for, não se esqueça [de seguir o princípio do menor privilégio ao definir quais os utilizadores que terão acesso aos recursos.](recommended-security-practices.md#assign-permissions-to-groups-using-the-principle-of-least-privilege) Fazê-lo ajuda a garantir que os utilizadores apenas possuem as permissões necessárias para executar as tarefas necessárias e reduz a possibilidade de erros inadvertidos.
 
-O Azure Lighthouse e o gerenciamento de recursos delegado do Azure fornecem apenas links lógicos entre um locatário de gerenciamento e locatários gerenciados, em vez de mover dados ou recursos fisicamente. Além disso, o acesso sempre entra apenas em uma direção, do locatário de gerenciamento para os locatários gerenciados.  Os usuários e grupos no locatário de gerenciamento devem continuar a usar a autenticação multifator ao executar operações de gerenciamento em recursos de locatário gerenciados.
+O Azure Lighthouse e a Azure delegaram a gestão de recursos apenas fornecem ligações lógicas entre um inquilino gerente e inquilinos geridos, em vez de mover fisicamente dados ou recursos. Além disso, o acesso vai sempre numa direção, desde o inquilino gerente até aos inquilinos geridos.  Os utilizadores e grupos no inquilino gerente devem continuar a utilizar a autenticação multifactor ao realizar operações de gestão em recursos de inquilinos geridos.
 
-Empresas com governança interna ou externa e guardrails de conformidade podem usar [os logs de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md) para atender aos requisitos de transparência. Quando os locatários empresariais tiverem estabelecido o gerenciamento e as relações de locatário gerenciadas, os usuários em cada locatário poderão monitorar e obter visibilidade das ações executadas pelos usuários no outro locatário exibindo a atividade registrada.
+As empresas com governação interna ou externa e guarda-costas de conformidade podem utilizar [registos da Atividade Azure](../../azure-monitor/platform/platform-logs-overview.md) para satisfazer os seus requisitos de transparência. Quando os inquilinos da empresa estabeleceram relações de gestão e gestão de inquilinos, os utilizadores de cada inquilino podem monitorizar e ganhar visibilidade às ações tomadas pelos utilizadores do outro inquilino, visualizando a atividade registada.
 
-## <a name="onboarding-process-considerations"></a>Considerações sobre processo de integração
+## <a name="onboarding-process-considerations"></a>Considerações de processo de embarque
 
-As assinaturas (ou grupos de recursos em uma assinatura) podem ser integradas ao gerenciamento de recursos delegado do Azure por meio da implantação de modelos de Azure Resource Manager ou por meio de ofertas de serviços gerenciados publicados no Azure Marketplace, seja de forma privada ou publicamente.
+As subscrições (ou grupos de recursos dentro de uma subscrição) podem ser a bordo da gestão de recursos delegados do Azure, quer através da implementação de modelos do Gestor de Recursos Azure, quer através de ofertas de Serviços Geridos publicadas no Azure Marketplace, quer em privado quer publicamente.
 
-Como os usuários empresariais normalmente serão capazes de obter acesso direto aos locatários da empresa, e não há necessidade de comercializar ou promover uma oferta de gerenciamento, geralmente é mais rápido e mais simples implantar diretamente com modelos de Azure Resource Manager. Embora possamos nos referimos aos provedores de serviços e clientes nas [diretrizes de integração](../how-to/onboard-customer.md), as empresas podem usar os mesmos processos.
+Uma vez que os utilizadores empresariais normalmente poderão ter acesso direto aos inquilinos da empresa, e não há necessidade de comercializar ou promover uma oferta de gestão, é geralmente mais rápido e simples de implantar diretamente com os modelos do Gestor de Recursos Azure. Embora nos refiramos a prestadores de serviços e clientes na orientação de [embarque,](../how-to/onboard-customer.md)as empresas podem usar os mesmos processos.
 
-Se preferir, os locatários dentro de uma empresa podem ser integrados por meio da [publicação de uma oferta de serviços gerenciados no Azure Marketplace](../how-to/publish-managed-services-offers.md). Para garantir que a oferta só esteja disponível para os locatários apropriados, certifique-se de que seus planos estejam marcados como particulares. Com um plano particular, você pode fornecer as IDs de assinatura para cada locatário que planeja carregar e ninguém mais poderá obter sua oferta.
+Se preferir, os inquilinos dentro de uma empresa podem ser abordados [publicando uma oferta de Serviços Geridos ao Azure Marketplace.](../how-to/publish-managed-services-offers.md) Para garantir que a oferta só está disponível para os inquilinos apropriados, certifique-se de que os seus planos estão marcados como privados. Com um plano privado, você pode fornecer as IDs de subscrição para cada inquilino que você planeja embarcar, e ninguém mais será capaz de obter a sua oferta.
 
 ## <a name="terminology-notes"></a>Notas de terminologia
 
-Para o gerenciamento entre locatários dentro da empresa, as referências a provedores de serviço na documentação do Azure Lighthouse podem ser compreendidas para aplicar ao locatário de gerenciamento em uma empresa, ou seja, o locatário que inclui os usuários que gerenciarão os recursos em outros locatários por meio do gerenciamento de recursos delegado do Azure. Da mesma forma, as referências a clientes podem ser compreendidas para se aplicar aos locatários que estão delegando recursos a serem gerenciados por meio de usuários no locatário de gerenciamento.
+Para a gestão de inquilinos cruzados dentro da empresa, as referências aos prestadores de serviços na documentação do Farol Azure podem ser entendidas como aplicáveis ao inquilino gerente dentro de uma empresa — ou seja, o inquilino que inclui os utilizadores que irão gerir os recursos em outros inquilinos através da gestão de recursos delegados do Azure. Da mesma forma, as referências aos clientes podem ser entendidas como aplicáveis aos inquilinos que estão a delegar recursos a gerir através dos utilizadores no inquilino gestor.
 
-Por exemplo, no exemplo descrito acima, o locatário A pode ser considerado como o locatário do provedor de serviço (o locatário de gerenciamento) e o locatário B e o locatário C podem ser considerados como locatários do cliente.
+Por exemplo, no exemplo acima descrito, o Inquilino A pode ser considerado como o inquilino prestador de serviços (o inquilino gerente) e o Inquilino B e Inquilino C podem ser considerados como os inquilinos do cliente.
 
-Nesse exemplo, o locatário que um usuário com as permissões apropriadas pode [Exibir e gerenciar recursos delegados](../how-to/view-manage-customers.md) na página **meus clientes** do portal do Azure. Da mesma forma, os usuários do locatário B e do locatário C com as permissões apropriadas podem [Exibir e gerenciar os recursos que foram delegados](../how-to/view-manage-service-providers.md) para o locatário a na página **provedores de serviço** do portal do Azure.
+Neste exemplo, os utilizadores do Tenant A com as permissões adequadas podem [ver e gerir os recursos delegados](../how-to/view-manage-customers.md) na página dos meus **clientes** do portal Azure. Da mesma forma, os utilizadores do Tenant B e do Tenant C com as permissões adequadas podem [ver e gerir os recursos que foram delegados](../how-to/view-manage-service-providers.md) ao Arrendatário A na página de prestadores de **serviços** do portal Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre as [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).
+- Conheça [as experiências de gestão de inquilinos cruzados.](cross-tenant-management-experience.md)
 - Saiba mais sobre a [Gestão de recursos delegados do Azure](azure-delegated-resource-management.md).

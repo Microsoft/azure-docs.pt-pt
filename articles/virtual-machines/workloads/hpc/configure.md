@@ -1,5 +1,5 @@
 ---
-title: Computação de alto desempenho - máquinas virtuais do Azure | Documentos da Microsoft
+title: Computação de Alto Desempenho - Máquinas Virtuais Azure [ Microsoft Docs
 description: Saiba mais sobre a computação de alto desempenho no Azure.
 services: virtual-machines
 documentationcenter: ''
@@ -13,19 +13,19 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
 ms.openlocfilehash: 10549abfbdacf1fc1ae6b99f4cab20a290c32a2d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67707815"
 ---
 # <a name="optimization-for-linux"></a>Otimização para Linux
 
-Este artigo mostra alguns principais técnicas para otimizar a sua imagem de SO. Saiba mais sobre [permitindo InfiniBand](enable-infiniband.md) e otimizar as imagens de sistema operacional.
+Este artigo mostra algumas técnicas-chave para otimizar a sua imagem de SO. Saiba mais sobre [permitir a InfiniBand](enable-infiniband.md) e otimizar as imagens do SO.
 
-## <a name="update-lis"></a>Atualizar o LIS
+## <a name="update-lis"></a>Atualizar LIS
 
-Se utilizar uma imagem personalizada (por exemplo, um SO mais antigo, como o CentOS/RHEL 7.4 ou 7.5) a implementar, atualize LIS na VM.
+Se implementar utilizando uma imagem personalizada (por exemplo, um SISTEMA mais antigo como O CentOS/RHEL 7.4 ou 7.5), atualize o LIS no VM.
 
 ```bash
 wget https://aka.ms/lis
@@ -34,23 +34,23 @@ pushd LISISO
 ./upgrade.sh
 ```
 
-## <a name="reclaim-memory"></a>Recuperar memória
+## <a name="reclaim-memory"></a>Recuperar a memória
 
-Melhore a eficiência ao automaticamente reclamação memória para evitar o acesso remoto à memória.
+Melhorar a eficiência recuperando automaticamente a memória para evitar o acesso remoto à memória.
 
 ```bash
 echo 1 >/proc/sys/vm/zone_reclaim_mode
 ```
 
-Para tornar isso sejam mantidas após a VM é reiniciada:
+Para que isto persista após o reboot da VM:
 
 ```bash
 echo "vm.zone_reclaim_mode = 1" >> /etc/sysctl.conf sysctl -p
 ```
 
-## <a name="disable-firewall-and-selinux"></a>Desativar a firewall e SELinux
+## <a name="disable-firewall-and-selinux"></a>Desativar firewall e SELinux
 
-Desative a firewall e SELinux.
+Desative firewall e SELinux.
 
 ```bash
 systemctl stop iptables.service
@@ -64,7 +64,7 @@ sed -i -e's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 
 ## <a name="disable-cpupower"></a>Desativar cpupower
 
-Desative cpupower.
+Desativar a cpupower.
 
 ```bash
 service cpupower status
@@ -73,8 +73,8 @@ service cpupower stop
 sudo systemctl disable cpupower
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [permitindo InfiniBand](enable-infiniband.md) e otimização de imagens do sistema operacional.
+* Saiba mais sobre [permitir a InfiniBand](enable-infiniband.md) e otimizar as imagens do OS.
 
-* Saiba mais sobre [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) no Azure.
+* Saiba mais sobre [o HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) no Azure.

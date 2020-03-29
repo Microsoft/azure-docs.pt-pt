@@ -1,60 +1,60 @@
 ---
-title: Serviços com estado de teste de unidade no Azure Service Fabric
-description: Saiba mais sobre os conceitos e as práticas de teste de unidade Service Fabric serviços com estado.
+title: Unidade de teste de serviços estatais em Tecido de Serviço Azure
+description: Conheça os conceitos e práticas de teste unitário Serviço de Serviço De Serviço Sinuoso Serviços.
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 12e8a47d9685dee12594f4e2afaa848d9688d185
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75433918"
 ---
-# <a name="unit-testing-stateful-services-in-service-fabric"></a>Serviços com estado de teste de unidade no Service Fabric
+# <a name="unit-testing-stateful-services-in-service-fabric"></a>Unidade de teste de serviços estatais em Tecido de Serviço
 
-Este artigo aborda os conceitos e as práticas de teste de unidade Service Fabric serviços com estado. O teste de unidade dentro de Service Fabric merece suas próprias considerações devido ao fato de que o código do aplicativo é executado ativamente em vários contextos diferentes. Este artigo descreve as práticas usadas para garantir que o código do aplicativo seja coberto por cada um dos diferentes contextos que ele pode executar.
+Este artigo abrange os conceitos e práticas de teste unitário Serviço de Serviço De Serviço De Serviço Sinuoso Serviços. O teste de unidade dentro do Tecido de Serviço merece as suas próprias considerações devido ao facto de o código de aplicação ser executado ativamente sob vários contextos diferentes. Este artigo descreve as práticas utilizadas para garantir que o código de aplicação seja coberto em cada um dos diferentes contextos que pode executar.
 
-## <a name="unit-testing-and-mocking"></a>Teste de unidade e simulação
-O teste de unidade no contexto deste artigo é o teste automatizado que pode ser executado dentro do contexto de um executor de teste, como MSTest ou NUnit. Os testes de unidade neste artigo não executam operações em um recurso remoto, como um banco de dados ou uma API RESTFul. Esses recursos remotos devem ser simulados. A simulação no contexto deste artigo irá falsificar, gravar e controlar os valores de retorno para recursos remotos.
+## <a name="unit-testing-and-mocking"></a>Teste de unidade e zombagem
+O teste de unidade no contexto deste artigo é um teste automatizado que pode ser executado no contexto de um test runner como MSTest ou NUnit. Os testes da unidade neste artigo não realizam operações contra um recurso remoto, como uma base de dados ou a API RESTFul. Estes recursos remotos devem ser ridicularizados. A zombaria no contexto deste artigo irá falsificar, gravar e controlar os valores de retorno para recursos remotos.
 
-### <a name="service-fabric-considerations"></a>Considerações sobre Service Fabric
-O teste de unidade de um serviço Service Fabric com estado tem várias considerações. Em primeiro lugar, o código do serviço é executado em vários nós, mas em funções diferentes. Os testes de unidade devem avaliar o código sob cada função para obter cobertura completa. As diferentes funções seriam primárias, secundárias ativas, secundárias ociosas e desconhecidas. Normalmente, a função None não precisa de nenhuma cobertura especial, pois Service Fabric considera que essa função seja nula ou um serviço nulo. Em segundo lugar, cada nó alterará sua função em qualquer ponto determinado. Para obter uma cobertura completa, o caminho de execução de código deve ser testado com a ocorrência de alterações de função.
+### <a name="service-fabric-considerations"></a>Considerações de Tecido de Serviço
+A unidade que testa um serviço de estado de tecido de serviço tem várias considerações. Em primeiro lugar, o código de serviço executa em vários nós, mas sob diferentes funções. Os testes unitários devem avaliar o código em cada função para obter uma cobertura completa. Os diferentes papéis seriam Primário, Secundário Ativo, Secundário Inativo e Desconhecido. A função None normalmente não precisa de qualquer cobertura especial, uma vez que a Service Fabric considera que esta função é um serviço nulo ou nulo. Em segundo lugar, cada nó mudará o seu papel em qualquer ponto. Para obter uma cobertura completa, os caminhos de execução de código sem devem ser testados com alterações de papéis que ocorram.
 
-## <a name="why-unit-test-stateful-services"></a>Por que os serviços com estado de teste de unidade? 
-Os serviços com estado de teste de unidade podem ajudar a descobrir alguns erros comuns que não seriam necessariamente detectados pelo aplicativo convencional ou pelo teste de unidade específico de domínio. Por exemplo, se o serviço com estado tiver qualquer estado na memória, esse tipo de teste poderá verificar se esse estado na memória é mantido em sincronia em cada réplica. Esse tipo de teste também pode verificar se um serviço com estado responde a tokens de cancelamento passados pela orquestração de Service Fabric apropriadamente. Quando os cancelamentos são disparados, o serviço deve interromper todas as operações de execução longa e/ou assíncronas.  
+## <a name="why-unit-test-stateful-services"></a>Por que a unidade testa serviços estatais? 
+Os serviços de teste de unidade podem ajudar a descobrir alguns erros comuns que são cometidos que não seriam necessariamente apanhados por aplicação convencional ou testes de unidade específicos de domínio. Por exemplo, se o serviço imponente tiver algum estado de memória, este tipo de teste pode verificar se este estado de memória é mantido sincronizado em cada réplica. Este tipo de testes também pode verificar que um serviço imponente responde a fichas de cancelamento transmitidas pela orquestração de Tecido de Serviço adequadamente. Quando os cancelamentos são desencadeados, o serviço deve parar qualquer operação de longa duração e/ou assíncrona.  
 
 ## <a name="common-practices"></a>Práticas comuns
 
-A seção a seguir aconselha as práticas mais comuns para o teste de unidade de um serviço com estado. Ele também aconselha o que uma camada fictícia deve ter para alinhar com mais detalhes a orquestração Service Fabric e o gerenciamento de estado. O [infabric. Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) a partir de 3.3.0 ou posterior é uma dessas bibliotecas que fornece a funcionalidade de simulação recomendada e segue as práticas descritas abaixo.
+A secção seguinte aconselha sobre as práticas mais comuns para a unidade que testa um serviço imponente. Também aconselha o que uma camada de zombaria deve alinhar de perto com a orquestração do Tecido de Serviço e a gestão do Estado. [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) a partir de 3.3.0 ou mais tarde é uma dessas bibliotecas que fornece a funcionalidade de zomridão recomendada e segue as práticas descritas abaixo.
 
-### <a name="arrangement"></a>Organização
+### <a name="arrangement"></a>Arranjo
 
-#### <a name="use-multiple-service-instances"></a>Usar várias instâncias de serviço
-Os testes de unidade devem executar várias instâncias de um serviço com estado. Isso simula o que realmente acontece no cluster em que Service Fabric provisiona várias réplicas que executam o serviço em nós diferentes. No entanto, cada uma dessas instâncias será executada em um contexto diferente. Ao executar o teste, cada instância deve ser ativada com a configuração de função esperada no cluster. Por exemplo, se espera-se que o serviço tenha o tamanho de réplica de destino 3, Service Fabric provisionar três réplicas em nós diferentes. Um dos quais o primário e outros dois são secundários ativos.
+#### <a name="use-multiple-service-instances"></a>Use várias instâncias de serviço
+Os testes unitários devem executar várias instâncias de um serviço de estado. Isto simula o que realmente acontece no cluster onde o Service Fabric disponibiliza múltiplas réplicas que executam o seu serviço em diferentes nós. No entanto, cada um destes casos será executado num contexto diferente. Ao executar o teste, cada instância deve ser preparada com a configuração de função esperada no cluster. Por exemplo, se se espera que o serviço tenha o tamanho da réplica alvo de 3, o Service Fabric forneceria três réplicas em nós diferentes. Um dos quais é o principal e os outros dois da Ative Secondary.
 
-Na maioria dos casos, o caminho de execução do serviço variará um pouco para cada uma dessas funções. Por exemplo, se o serviço não deve aceitar solicitações de um secundário ativo, o serviço pode ter uma verificação para esse caso para gerar uma exceção informativa que indica que uma solicitação foi tentada em um secundário. Ter várias instâncias permitirá que essa situação seja testada.
+Na maioria dos casos, o caminho de execução de serviço variará ligeiramente para cada uma destas funções. Por exemplo, se o serviço não aceitar pedidos de um Secundário Ativo, o serviço pode ter um cheque para este caso para repor uma exceção informativa que indique que um pedido foi tentado num secundário. Ter vários casos permitirá que esta situação seja testada.
 
-Além disso, ter várias instâncias permite que os testes alternem as funções de cada uma dessas instâncias para verificar se as respostas são consistentes, apesar das alterações de função.
+Além disso, ter várias instâncias permite que os testes alterem as funções de cada uma destas instâncias para verificar se as respostas são consistentes apesar das mudanças de papel.
 
-#### <a name="mock-the-state-manager"></a>Imitar o Gerenciador de estado
-O Gerenciador de Estado deve ser tratado como um recurso remoto e, portanto, simulado. Ao simular o Gerenciador de estado, precisa haver algum armazenamento subjacente na memória para controlar o que é salvo no Gerenciador de estado para que ele possa ser lido e verificado. Uma maneira simples de conseguir isso é criar instâncias fictícias de cada um dos tipos de coleções confiáveis. Nessas simulações, use um tipo de dados que se alinhe fortemente com as operações executadas em relação a essa coleção. A seguir estão alguns tipos de dados sugeridos para cada coleção confiável
+#### <a name="mock-the-state-manager"></a>Goze com o gerente do Estado.
+O Gerente do Estado deve ser tratado como um recurso remoto e, portanto, gozado. Ao ridicularizar o gerente do Estado, tem de haver algum armazenamento subjacente na memória para rastrear o que é guardado ao gerente do Estado para que possa ser lido e verificado. Uma forma simples de o conseguir é criar casos falsos de cada um dos tipos de Coleções Fiáveis. Dentro dessas simulações, utilize um tipo de dados que se alinha de perto com as operações realizadas contra essa recolha. Seguem-se alguns tipos de dados sugeridos para cada recolha fiável
 
-- IReliableDictionary < TKey, TValue >-> System. Collections. Current. ConcurrentDictionary < TKey, TValue >
-- IReliableQueue\<T >-> System. Collections. Generic. Queue\<T >
-- IReliableConcurrentQueue\<T >-> System. Collections. Current. ConcurrentQueue\<T >
+- IReliableDictionary<TKey, TValue> -> System.Collections.Concurrent.ConcurrentDictionary<TKey, TValue>
+- IReliableQueue\<T> -> System.Collections.Generic.Queue\<T>
+- IReliableConcurrentQueue\<T> -> System.Collections.ConcurrentQueue\<T>
 
-#### <a name="many-state-manager-instances-single-storage"></a>Muitas instâncias do Gerenciador de estado, armazenamento único
-Como mencionado anteriormente, o Gerenciador de estado e as coleções confiáveis devem ser tratadas como um recurso remoto. Portanto, esses recursos devem e serão simulados dentro dos testes de unidade. No entanto, ao executar várias instâncias de um serviço com estado, será um desafio manter cada Gerenciador de estado fictício sincronizado entre diferentes instâncias de serviço com estado. Quando o serviço com estado está em execução no cluster, o Service Fabric cuida de manter cada Gerenciador de estado da réplica secundária consistente com a réplica primária. Portanto, os testes devem se comportar da mesma forma que podem simular alterações de função.
+#### <a name="many-state-manager-instances-single-storage"></a>Muitos casos de gerente de estado, armazenamento único
+Como mencionado anteriormente, o Gerente do Estado e as Coleções Fiáveis devem ser tratados como um recurso remoto. Por conseguinte, estes recursos devem e serão ridicularizados nos testes unitários. No entanto, ao executar várias instâncias de um serviço imponente, será um desafio manter cada gerente do Estado ridicularizado em sincronização em diferentes instâncias de serviço sinuosos. Quando o serviço imponente está em execução no cluster, o Tecido de Serviço cuida de manter o gestor estatal de cada réplica secundária consistente com a réplica primária. Por isso, os testes devem comportar-se da mesma forma para que possam simular alterações de papéis.
 
-Uma maneira simples de atingir essa sincronização é usar um padrão singleton para o objeto subjacente que armazena os dados gravados em cada coleção confiável. Por exemplo, se um serviço com estado estiver usando um `IReliableDictionary<string, string>`. O Gerenciador de estado de simulação deve retornar uma simulação de `IReliableDictionary<string, string>`. Essa simulação pode usar um `ConcurrentDictionary<string, string>` para controlar os pares de chave/valor gravados. O `ConcurrentDictionary<string, string>` deve ser um singleton usado por todas as instâncias dos gerenciadores de estado passadas para o serviço.
+Uma forma simples de alcançar esta sincronização, é usar um padrão singleton para o objeto subjacente que armazena os dados escritos a cada Coleção Fiável. Por exemplo, se um serviço `IReliableDictionary<string, string>`imponente estiver a utilizar um . O gerente do estado deve `IReliableDictionary<string, string>`retribuir uma simulação de. Essa simulação `ConcurrentDictionary<string, string>` pode usar um para acompanhar os pares chave/valor escritos. Deve `ConcurrentDictionary<string, string>` ser um singleton usado por todos os casos dos gestores estatais passados para o serviço.
 
-#### <a name="keep-track-of-cancellation-tokens"></a>Controlar os tokens de cancelamento
-Tokens de cancelamento são um aspecto importante, mas geralmente ignorado pelos serviços com estado. Quando Service Fabric inicia uma réplica primária para um serviço com estado, um token de cancelamento é fornecido. Esse token de cancelamento destina-se a sinalizar para o serviço quando ele é removido ou rebaixado para uma função diferente. O serviço com estado deve parar todas as operações assíncronas ou de execução longa para que Service Fabric possa concluir o fluxo de trabalho de alteração de função.
+#### <a name="keep-track-of-cancellation-tokens"></a>Acompanhe as fichas de cancelamento
+As fichas de cancelamento são um aspeto importante mas comumente negligenciado dos serviços estatais. Quando o Service Fabric inicia uma réplica primária para um serviço imponente, é fornecido um símbolo de cancelamento. Este símbolo de cancelamento destina-se a sinalizar ao serviço quando este é removido ou despromovido para uma função diferente. O serviço imponente deve parar qualquer operação de longa duração ou assíncrona para que o Tecido de Serviço possa completar o fluxo de trabalho de mudança de funções.
 
-Ao executar os testes de unidade, todos os tokens de cancelamento que são fornecidos para RunAsync, ChangeRoleAsync, OpenAsync e CloseAsync devem ser mantidos durante a execução do teste. Manter esses tokens permitirá que o teste simule um desligamento ou rebaixamento do serviço e verifique se o serviço responde adequadamente.
+Ao executar os testes da unidade, quaisquer fichas de cancelamento fornecidas a RunAsync, ChangeRoleAsync, OpenAsync e CloseAsync devem ser realizadas durante a execução do teste. Segurar estas fichas permitirá que o teste simule uma paragem ou despromoção de serviço e verifique se o serviço responde adequadamente.
 
 #### <a name="test-end-to-end-with-mocked-remote-resources"></a>Teste de ponta a ponta com recursos remotos simulados
-Os testes de unidade devem ser executados na maior parte do código do aplicativo, o que pode modificar o estado do serviço com estado possível. É recomendável que os testes sejam mais de ponta a ponta por natureza. As únicas simulações que existem são registrar, simular e/ou verificar interações de recursos remotos. Isso inclui interações com o Gerenciador de estado e as coleções confiáveis. O trecho a seguir é um exemplo de Gherkin para um teste que demonstra testes de ponta a ponta:
+Os testes unitários devem executar o máximo do código de aplicação que possa modificar o estado do serviço de estado possível. Recomenda-se que os testes sejam mais de ponta a ponta na natureza. As únicas simulações que existem são gravar, simular e/ou verificar interações remotas de recursos. Isto inclui interações com o Gerente do Estado e Coleções Fiáveis. O seguinte corte é um exemplo de pepino para um teste que demonstra testes de ponta a ponta:
 
 ```
     Given stateful service named "fabric:/MyApp/MyService" is created
@@ -68,48 +68,48 @@ Os testes de unidade devem ser executados na maior parte do código do aplicativ
     Then the request should should return the "John Smith" employee
 ```
 
-Esse teste declara que os dados que estão sendo capturados em uma réplica estão disponíveis para uma réplica secundária quando ela é promovida para o primário. Supondo que uma coleção confiável seja o armazenamento de backup para os dados do funcionário, a falha em potencial AA que poderia ser detectada com esse teste é se o código do aplicativo não tiver sido executado `CommitAsync` na transação para salvar o novo funcionário. Nesse caso, a segunda solicitação para obter funcionários não retornaria funcionário adicionado pela primeira solicitação.
+Este teste afirma que os dados capturados numa réplica estão disponíveis para uma réplica secundária quando é promovido ao primário. Assumindo que uma recolha fiável é a reserva para os dados dos empregados, a falha `CommitAsync` potencial da Aa que poderia ser apanhada com este teste é se o código de aplicação não executasse na transação para salvar o novo funcionário. Nesse caso, o segundo pedido para obter os empregados não devolveria o trabalhador adicionado pelo primeiro pedido.
 
-### <a name="acting"></a>Funcione
-#### <a name="mimic-service-fabric-replica-orchestration"></a>Coordenação Service Fabric orquestração de réplica
-Ao gerenciar várias instâncias de serviço, os testes devem inicializar e desmontar esses serviços da mesma maneira que a orquestração de Service Fabric. Por exemplo, quando um serviço é criado em uma nova réplica primária, Service Fabric invocará CreateServiceReplicaListener, OpenAsync, ChangeRoleAsync e RunAsync. Os eventos do ciclo de vida são documentados nos seguintes artigos:
+### <a name="acting"></a>Atuação
+#### <a name="mimic-service-fabric-replica-orchestration"></a>Orquestração de réplica de tecido de serviço mimic
+Ao gerir várias instâncias de serviço, os testes devem inicializar e demolir estes serviços da mesma forma que a orquestração do Tecido de Serviço. Por exemplo, quando um serviço é criado numa nova réplica primária, o Tecido de Serviço invocará CreateServiceReplicaListener, OpenAsync, ChangeRoleAsync e RunAsync. Os eventos de ciclo de vida são documentados nos seguintes artigos:
 
-- [Inicialização do serviço com estado](service-fabric-reliable-services-lifecycle.md#stateful-service-startup)
-- [Desligamento de serviço com estado](service-fabric-reliable-services-lifecycle.md#stateful-service-shutdown)
-- [Trocas primárias de serviço com estado](service-fabric-reliable-services-lifecycle.md#stateful-service-primary-swaps)
+- [Startup de serviço sinuoso](service-fabric-reliable-services-lifecycle.md#stateful-service-startup)
+- [Encerramento de serviços estatais](service-fabric-reliable-services-lifecycle.md#stateful-service-shutdown)
+- [Trocas primárias de serviço sinuoso](service-fabric-reliable-services-lifecycle.md#stateful-service-primary-swaps)
 
-#### <a name="run-replica-role-changes"></a>Executar alterações de função de réplica
-Os testes de unidade devem alterar as funções das instâncias de serviço da mesma maneira que a orquestração de Service Fabric. O computador de estado de função é documentado no seguinte artigo:
+#### <a name="run-replica-role-changes"></a>Executar mudanças de papel de réplica
+Os testes unitários devem alterar as funções das instâncias de serviço da mesma forma que a orquestração do Tecido de Serviço. O papel da máquina do Estado está documentado no seguinte artigo:
 
-[Máquina de estado da função de réplica](service-fabric-concepts-replica-lifecycle.md#replica-role)
+[Máquina de estado de réplica](service-fabric-concepts-replica-lifecycle.md#replica-role)
 
-A simulação de alterações de função é um dos aspectos mais críticos do teste e pode revelar problemas em que o estado da réplica não é consistente entre si. O estado de réplica inconsistente pode ocorrer devido ao armazenamento de estado na memória em variáveis de instância estática ou de nível de classe. Exemplos disso podem ser tokens de cancelamento, enums e objetos/valores de configuração. Isso também garantirá que o serviço esteja respeitando os tokens de cancelamento fornecidos durante a RunAsync para permitir que a alteração da função ocorra. A simulação de alterações de função também pode revelar problemas que podem surgir se o código não for escrito para permitir uma invocação de RunAsync várias vezes.
+Simular mudanças de papel é um dos aspetos mais críticos dos testes e pode descobrir questões em que o estado da réplica não é consistente uns com os outros. O estado de réplica inconsistente pode ocorrer devido ao armazenamento do estado de memória em variáveis de instância estática ou de nível de classe. Exemplos disso podem ser tokens de cancelamento, enums e objetos/valores de configuração. Isto também garantirá que o serviço está respeitando as fichas de cancelamento fornecidas durante o RunAsync para permitir a mudança de função. Simular alterações de papéis também pode descobrir questões que podem surgir se o código não for escrito para permitir uma invocação de RunAsync várias vezes.
 
-#### <a name="cancel-cancellation-tokens"></a>Cancelar tokens de cancelamento
-Deve existir testes de unidade em que o token de cancelamento fornecido para RunAsync seja cancelado. Isso permitirá que o teste Verifique se o serviço é desligado normalmente. Durante esse desligamento, todas as operações assíncronas ou de longa execução devem ser interrompidas. Um exemplo de processo de execução demorada que pode existir em um serviço é aquele que escuta mensagens em uma fila confiável. Isso pode existir diretamente no RunAsync ou em um thread em segundo plano. A implementação deve incluir a lógica para sair da operação se esse token de cancelamento for cancelado.
+#### <a name="cancel-cancellation-tokens"></a>Cancelar fichas de cancelamento
+Devem existir testes unitários onde o token de cancelamento fornecido à RunAsync é cancelado. Isto permitirá que o teste verifique se o serviço desliga graciosamente. Durante este encerramento, devem ser interrompidas quaisquer operações de longa duração ou assíncronas. Exemplo de um processo de longa duração que pode existir num serviço é aquele que ouve mensagens numa Fila Fiável. Isto pode existir diretamente dentro de RunAsync ou de um fio de fundo. A implementação deve incluir lógica para sair da operação se este símbolo de cancelamento for cancelado.
 
-Se os serviços com estado fizerem uso de qualquer estado de cache ou na memória que só deva existir no primário, ele deverá ser descartado no momento. Isso é para garantir que esse Estado seja consistente se o nó se tornar primário novamente mais tarde. O teste de cancelamento permitirá que o teste Verifique se esse Estado foi descartado corretamente.
+Se os serviços estatais utilizarem qualquer cache ou estado de memória que só deva existir no primário, deve ser eliminado neste momento. Isto é para garantir que este estado seja consistente se o nó se tornar uma primária novamente mais tarde. Os testes de cancelamento permitirão que o teste verifique se este estado está devidamente eliminado.
 
-#### <a name="execute-requests-against-multiple-replicas"></a>Executar solicitações em várias réplicas
-Os testes de declaração devem executar a mesma solicitação em relação a diferentes réplicas. Quando emparelhadas com alterações de função, os problemas de consistência podem ser descobertos. Um teste de exemplo pode executar as seguintes etapas:
-1. Executar uma solicitação de gravação no primário atual
-2. Executar uma solicitação de leitura que retorna os dados gravados na etapa 1 em relação ao primário atual
-3. Promover um secundário para o primário. Isso também deve rebaixar o primário atual para o secundário
-4. Execute a mesma solicitação de leitura da etapa 2 em relação ao novo secundário.
+#### <a name="execute-requests-against-multiple-replicas"></a>Executar pedidos contra várias réplicas
+Os testes de afirmação devem executar o mesmo pedido contra diferentes réplicas. Quando emparelhadocom mudanças de papéis, as questões de consistência podem ser descobertas. Um teste de exemplo pode executar os seguintes passos:
+1. Execute um pedido de escrita contra as primárias atuais
+2. Execute um pedido de leitura que rederee os dados escritos no passo 1 contra as primárias atuais
+3. Promover um secundário para primário. Isto também deve despromover o primário atual para secundário
+4. Execute o mesmo pedido de leitura do passo 2 contra o novo secundário.
 
-Na última etapa, o teste pode afirmar que os dados retornados são consistentes. Um problema potencial que isso poderia descobrir é que os dados que estão sendo retornados pelo serviço podem estar na memória, mas apoiados por fim por uma coleção confiável. Esses dados na memória podem não ser mantidos em sincronia corretamente com o que existe na coleção confiável.
+No último passo, o teste pode afirmar que os dados devolvidos são consistentes. Um problema potencial que isto poderia descobrir é que os dados que estão a ser devolvidos pelo serviço podem estar na memória, mas apoiados em última análise por uma recolha fiável. Que os dados na memória podem não ser mantidos em sincronização adequada com o que existe na recolha fiável.
 
-Os dados na memória normalmente são usados para criar índices secundários ou agregações de dados existentes em uma coleção confiável.
+Os dados na memória são normalmente usados para criar índices secundários ou agregações de dados que existem numa recolha fiável.
 
-### <a name="asserting"></a>Declarando
-#### <a name="ensure-responses-match-across-replicas"></a>Garantir correspondência de respostas entre réplicas
-Os testes de unidade devem declarar que uma resposta para uma determinada solicitação é consistente em várias réplicas após a transição para o primário. Isso pode trazer possíveis problemas nos quais os dados fornecidos na resposta não são apoiados por uma coleção confiável ou mantidos na memória sem um mecanismo para sincronizar esses dados entre réplicas. Isso garantirá que o serviço envie respostas de back-up após Service Fabric reequilibra ou faça o failover para uma nova réplica primária.
+### <a name="asserting"></a>Afirmando
+#### <a name="ensure-responses-match-across-replicas"></a>Garantir respostas correspondem entre réplicas
+Os testes unitários devem afirmar que uma resposta para um determinado pedido é consistente em várias réplicas após a transição para o primário. Isto pode surgir em questões potenciais em que os dados fornecidos na resposta não são apoiados por uma recolha fiável, ou mantidos na memória sem um mecanismo para sincronizar esses dados através de réplicas. Isto garantirá que o serviço reenvie respostas consistentes após o Reequilíbrio do Tecido de Serviço ou falha numa nova réplica primária.
 
-#### <a name="verify-service-respects-cancellation"></a>Verificar o cancelamento dos aspectos do serviço
-Processos assíncronos ou de execução longa que devem ser encerrados quando um token de cancelamento é cancelado devem ser verificados de fato que eles foram encerrados após o cancelamento. Isso garantirá que, apesar da réplica que altera as funções, os processos que não se destinam a manter a execução na réplica não primária pare antes da conclusão da transição. Isso também pode revelar problemas em que um processo desse tipo bloqueia a conclusão de uma solicitação de alteração de função ou de desligamento de Service Fabric.
+#### <a name="verify-service-respects-cancellation"></a>Verificar o cancelamento de respeitos do serviço
+Processos de longa duração ou assíncronos que devem ser encerrados quando um token de cancelamento é cancelado devem ser verificados que realmente terminaram após o cancelamento. Isto garantirá que, apesar da réplica mudar de funções, processos que não se destinam a continuar a funcionar em paragem de réplicas não primárias antes da transição terminar. Isto também pode descobrir questões em que tal processo bloqueia uma mudança de papéis ou um pedido de encerramento da Service Fabric de completar.
 
-#### <a name="verify-which-replicas-should-serve-requests"></a>Verificar quais réplicas devem atender a solicitações
-Os testes devem declarar o comportamento esperado se uma solicitação for roteada para uma réplica não primária. Service Fabric fornece a capacidade de fazer com que as réplicas secundárias atendam às solicitações. No entanto, as gravações em coleções confiáveis só podem ocorrer a partir da réplica primária. Se o seu aplicativo pretende apenas réplicas primárias para atender a solicitações ou apenas um subconjunto de solicitações pode ser manipulado por um secundário, os testes devem declarar o comportamento esperado para os casos positivos e negativos. O caso negativo sendo uma solicitação é roteado para uma réplica que não deve lidar com a solicitação e, o que é positivo como o oposto.
+#### <a name="verify-which-replicas-should-serve-requests"></a>Verifique quais as réplicas que devem servir pedidos
+Os testes devem afirmar o comportamento esperado se um pedido for encaminhado para uma réplica não primária. O Service Fabric fornece a capacidade de ter réplicas secundárias que servem pedidos. No entanto, escreve para coleções fiáveis que só podem ocorrer a partir da réplica primária. Se a sua aplicação pretende apenas réplicas primárias para servir pedidos ou, apenas um subconjunto de pedidos pode ser tratado por um secundário, então os testes devem afirmar o comportamento esperado tanto para os casos positivos como negativos. O caso negativo é um pedido encaminhado para uma réplica que não deve lidar com o pedido e, sendo o lado positivo o contrário.
 
 ## <a name="next-steps"></a>Passos seguintes
-Saiba como [testar os serviços com estado de teste de unidade](service-fabric-how-to-unit-test-stateful-services.md).
+Aprenda a [equipar serviços de estado](service-fabric-how-to-unit-test-stateful-services.md)de teste.

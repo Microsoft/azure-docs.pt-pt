@@ -1,6 +1,6 @@
 ---
-title: Copiar blobs a partir de uma conta de armazenamento para um elemento de serviços de multimédia do Azure | Documentos da Microsoft
-description: Este tópico mostra como copiar um blob existente para um elemento de serviços de suporte de dados. O exemplo utiliza extensões do SDK de .NET do Azure Media Services.
+title: Copiar bolhas de uma conta de armazenamento num ativo da Azure Media Services Microsoft Docs
+description: Este tópico mostra como copiar uma bolha existente num Ativo de Serviços de Media. O exemplo utiliza as extensões Azure Media Services .NET SDK.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,45 +14,45 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: a1da207a295b40f8d455635d687083bf69e90fdf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67068900"
 ---
-# <a name="copying-existing-blobs-into-a-media-services-asset"></a>Copiar blobs existentes num elemento de serviços de multimédia
+# <a name="copying-existing-blobs-into-a-media-services-asset"></a>Copiar bolhas existentes num Ativo de Serviços de Media
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
-Este artigo mostra como copiar blobs a partir de uma conta de armazenamento num novo Azure Media Services (AMS) asset utilizando [extensões do SDK de .NET do Azure Media Services](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
+Este artigo mostra como copiar bolhas de uma conta de armazenamento para um novo ativo da Azure Media Services (AMS) utilizando as [extensões Azure Media Services .NET SDK](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
 
-Não deve tentar alterar os conteúdos de contentores de BLOBs que foram gerados pelos serviços de multimédia sem utilizar as APIs de serviço de suporte de dados.
+Não deve tentar alterar o conteúdo dos contentores blob que foram gerados pelos Media Services sem utilizar APIs do Serviço de Media.
 
-Os métodos de extensão de trabalho com:
+Os métodos de extensão funcionam com:
 
 - Ativos regulares.
-- Arquivo Live ativos (FragBlob formato).
-- Recursos de origem e de destino que pertencem a diferentes contas de serviços de multimédia (mesmo em data centers diferentes). No entanto, podem haver encargos incorridos ao fazer isso. Para obter mais informações sobre preços, consulte [as transferências de dados](https://azure.microsoft.com/pricing/#header-11).
+- Ativos de arquivo ao vivo (formato FragBlob).
+- Ativos de origem e destino pertencentes a diferentes contas de Serviços de Media (mesmo em diferentes centros de dados). No entanto, pode haver acusações incorridas ao fazê-lo. Para obter mais informações sobre preços, consulte [Transferências de Dados](https://azure.microsoft.com/pricing/#header-11).
 
-O artigo mostra dois exemplos de código:
+O artigo mostra duas amostras de código:
 
-1. Copie blobs a partir de um recurso na conta de AMS um para um novo elemento em outra conta de AMS.
-2. Copie blobs a partir de uma conta de armazenamento para um novo elemento numa conta de AMS.
+1. Copiar bolhas de um ativo numa conta AMS para um novo ativo numa outra conta DA.
+2. Copie as bolhas de alguma conta de armazenamento num novo ativo numa conta AMS.
 
-## <a name="copy-blobs-between-two-ams-accounts"></a>Copiar blobs entre duas contas do AMS  
+## <a name="copy-blobs-between-two-ams-accounts"></a>Copiar bolhas entre duas contas AMS  
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Duas contas de serviços de multimédia. Consulte o artigo [como criar uma conta dos Media Services](media-services-portal-create-account.md).
+Duas contas de Serviços de Media. Veja o artigo Como Criar uma Conta de [Serviços de Media](media-services-portal-create-account.md).
 
 ### <a name="download-sample"></a>Transferir exemplo
-Pode seguir os passos neste artigo ou pode baixar um exemplo que contém o código descrito neste artigo [aqui](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
+Pode seguir os passos deste artigo ou pode descarregar uma amostra que contenha o código descrito neste artigo a partir [daqui](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
 
-### <a name="set-up-your-project"></a>Configurar seu projeto
+### <a name="set-up-your-project"></a>Configurar o seu projeto
 
-1. Configurar o ambiente de desenvolvimento, conforme descrito em [desenvolvimento de serviços de multimédia com .NET](media-services-dotnet-how-to-use.md). 
-2. Adicione a secção appSettings ao ficheiro. config e atualize os valores com base nas suas contas de serviços de multimédia, a conta de armazenamento de destino e o ID de recurso de origem.  
+1. Instale o seu ambiente de desenvolvimento conforme descrito no [desenvolvimento dos Serviços de Media com .NET](media-services-dotnet-how-to-use.md). 
+2. Adicione a secção de appsSettings ao ficheiro .config e atualize os valores com base nas suas contas de Serviços de Media, na conta de armazenamento de destino e no ID do ativo de origem.  
 
 ```xml
 <appSettings>
@@ -76,9 +76,9 @@ Pode seguir os passos neste artigo ou pode baixar um exemplo que contém o códi
 </appSettings>
 ```
 
-### <a name="copy-blobs-from-an-asset-in-one-ams-account-into-an-asset-in-another-ams-account"></a>Copiar blobs a partir de um recurso na conta de AMS um para um elemento na outra conta de AMS
+### <a name="copy-blobs-from-an-asset-in-one-ams-account-into-an-asset-in-another-ams-account"></a>Copiar bolhas de um ativo numa conta AMS num ativo numa outra conta AMS
 
-O código seguinte utiliza a extensão **IAsset.Copy** método para copiar todos os ficheiros no recurso de origem para o recurso de destino com uma extensão único.
+O código seguinte utiliza o método **extension IAsset.Copy** para copiar todos os ficheiros do ativo de origem para o ativo de destino utilizando uma única extensão.
 
 ```csharp
 using System;
@@ -158,17 +158,17 @@ namespace CopyExistingBlobsIntoAsset
 }
 ```
 
-## <a name="copy-blobs-from-a-storage-account-into-an-ams-account"></a>Copiar blobs a partir de uma conta de armazenamento para uma conta do AMS 
+## <a name="copy-blobs-from-a-storage-account-into-an-ams-account"></a>Copiar bolhas de uma conta de armazenamento numa conta AMS 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- Uma conta de armazenamento do qual pretende copiar blobs.
-- Uma conta de AMS no qual deseja copiar blobs.
+- Uma conta de armazenamento da qual pretende copiar bolhas.
+- Uma conta AMS na qual quer copiar bolhas.
 
-### <a name="set-up-your-project"></a>Configurar seu projeto
+### <a name="set-up-your-project"></a>Configurar o seu projeto
 
-1. Configurar o ambiente de desenvolvimento, conforme descrito em [desenvolvimento de serviços de multimédia com .NET](media-services-dotnet-how-to-use.md). 
-2. Adicione a secção appSettings ao ficheiro. config e atualize os valores com base nas suas contas de AMS de armazenamento e de destino da origem.
+1. Instale o seu ambiente de desenvolvimento conforme descrito no [desenvolvimento dos Serviços de Media com .NET](media-services-dotnet-how-to-use.md). 
+2. Adicione a secção de definições de aplicações ao ficheiro .config e atualize os valores com base nas suas contas AMS de armazenamento de origem e destino.
 
 ```xml
 <appSettings>
@@ -185,12 +185,12 @@ namespace CopyExistingBlobsIntoAsset
 </appSettings>
 ```
 
-### <a name="copy-blobs-from-some-storage-account-into-a-new-asset-in-an-ams-account"></a>Copiar blobs a partir de uma conta de armazenamento para um novo elemento numa conta do AMS
+### <a name="copy-blobs-from-some-storage-account-into-a-new-asset-in-an-ams-account"></a>Copiar bolhas de alguma conta de armazenamento em um novo ativo numa conta AMS
 
-O código a seguir copia os blobs de uma conta de armazenamento para um elemento de serviços de multimédia. 
+O código seguinte copia bolhas de uma conta de armazenamento para um ativo dos Serviços de Media. 
 
 >[!NOTE]
->Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
+>Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
 ```csharp
 using System;
@@ -375,7 +375,7 @@ namespace CopyExistingBlobsIntoAsset
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora, pode codificar os elementos que carregar. Para obter mais informações, veja [Codificar elementos](media-services-portal-encode.md)
 

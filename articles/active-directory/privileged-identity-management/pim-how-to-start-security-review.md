@@ -1,6 +1,6 @@
 ---
-title: Criar uma revisão de acesso das funções do Azure AD no PIM – Azure AD | Microsoft Docs
-description: Saiba como criar uma revisão de acesso das funções do Azure AD no Azure AD Privileged Identity Management (PIM).
+title: Criar uma revisão de acesso às funções da Azure AD na PIM - Azure AD [ Microsoft Docs
+description: Saiba como criar uma revisão de acesso das funções da Azure AD na Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,58 +15,58 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2f7e9ef503a9a3469ecbc835be8d9229fbd0167f
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73847115"
 ---
-# <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Criar uma revisão de acesso das funções do Azure AD no Privileged Identity Management
+# <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Criar uma revisão de acesso às funções da Azure AD na Gestão de Identidade Privilegiada
 
-Para reduzir o risco associado a atribuições de função obsoletas, você deve examinar o acesso regularmente. Você pode usar o Azure AD Privileged Identity Management (PIM) para criar revisões de acesso para funções privilegiadas do Azure AD. Você também pode configurar revisões de acesso recorrentes que ocorrem automaticamente.
+Para reduzir o risco associado a atribuições de funções velhas, deve rever regularmente o acesso. Pode utilizar a Azure AD Privileged Identity Management (PIM) para criar avaliações de acesso para funções privilegiadas de AD Azure. Também pode configurar avaliações de acesso recorrentes que ocorrem automaticamente.
 
-Este artigo descreve como criar uma ou mais revisões de acesso para funções privilegiadas do Azure AD.
+Este artigo descreve como criar uma ou mais avaliações de acesso para papéis privilegiados do Azure AD.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[Administrador de função com privilégios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
+[Administrador privilegiado](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 
-## <a name="open-access-reviews"></a>Abrir revisões de acesso
+## <a name="open-access-reviews"></a>Avaliações de acesso aberto
 
-1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário que seja membro da função de administrador de função com privilégios.
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador que seja membro do papel de administrador privilegiado.
 
-1. Abra **Azure ad Privileged Identity Management**.
+1. Open **Azure AD Privileged Identity Management.**
 
-1. No menu à esquerda, selecione **funções do Azure ad** e, em seguida, selecione **revisões de acesso**.
+1. No menu esquerdo, selecione **funções Azure AD** e, em seguida, selecione comentários de **Acesso**.
 
-1. Em gerenciar, selecione **revisões de acesso**.
+1. Em 'Gerir', selecione **comentários de acesso**.
 
-    ![Funções do Azure AD – lista de revisões de acesso mostrando o status de todas as revisões](./media/pim-how-to-start-security-review/access-reviews.png)
+    ![Funções Azure AD - Lista de avaliações de acesso mostrando o estado de todas as avaliações](./media/pim-how-to-start-security-review/access-reviews.png)
 
 [!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
 
-## <a name="start-the-access-review"></a>Iniciar a revisão de acesso
+## <a name="start-the-access-review"></a>Inicie a revisão de acesso
 
-Depois de especificar as configurações para uma revisão de acesso, selecione **Iniciar**. A revisão de acesso será exibida na sua lista com um indicador de seu status.
+Depois de especificar as definições para uma revisão de acesso, selecione **Iniciar**. A revisão de acesso aparecerá na sua lista com um indicador do seu estado.
 
-![Lista de revisões de acesso mostrando o status de revisões iniciadas](./media/pim-how-to-start-security-review/access-reviews-list.png)
+![Lista de avaliações de acesso mostrando o estado das avaliações iniciadas](./media/pim-how-to-start-security-review/access-reviews-list.png)
 
-Por padrão, o Azure AD envia um email para os revisores logo após o início da revisão. Se você optar por não fazer o Azure AD enviar o email, certifique-se de informar aos revisores que uma revisão de acesso está aguardando para que eles sejam concluídos. Você pode mostrar as instruções sobre como [revisar o acesso às funções do Azure ad](pim-how-to-perform-security-review.md).
+Por padrão, a Azure AD envia um e-mail aos revisores pouco depois do início da revisão. Se optar por não enviar o e-mail do Azure AD, certifique-se de informar os revisores de que uma revisão de acesso está à espera que sejam concluídas. Pode mostrar-lhes as instruções para rever o [acesso às funções Da.A. Azure](pim-how-to-perform-security-review.md).
 
-## <a name="manage-the-access-review"></a>Gerenciar a revisão de acesso
+## <a name="manage-the-access-review"></a>Gerir a revisão de acesso
 
-Você pode acompanhar o progresso à medida que os revisores concluírem suas revisões na página **visão geral** da revisão de acesso. Nenhum direito de acesso é alterado no diretório até que a [revisão seja concluída](pim-how-to-complete-review.md).
+Pode acompanhar o progresso à medida que os revisores completam as suas avaliações na página **de visão geral** da revisão de acesso. Não são alterados direitos de acesso no diretório até que a [revisão esteja concluída](pim-how-to-complete-review.md).
 
-![Página Visão geral das revisões de acesso mostrando os detalhes da revisão](./media/pim-how-to-start-security-review/access-review-overview.png)
+![Aceder a opiniões de opinião geral mostrando os detalhes da revisão](./media/pim-how-to-start-security-review/access-review-overview.png)
 
-Se esta for uma revisão única, depois que o período de revisão de acesso for concluído ou o administrador parar a revisão de acesso, siga as etapas em [concluir uma revisão de acesso das funções do Azure ad](pim-how-to-complete-review.md) para ver e aplicar os resultados.  
+Se se trata de uma revisão única, depois de terminado o período de revisão de acesso ou se o administrador parar a revisão do acesso, siga os passos em [Completar uma revisão de acesso das funções da AD Azure](pim-how-to-complete-review.md) para ver e aplicar os resultados.  
 
-Para gerenciar uma série de revisões de acesso, navegue até a revisão de acesso e você encontrará ocorrências futuras nas revisões agendadas e edite a data de término ou adicione/remova revisores adequadamente.
+Para gerir uma série de avaliações de acesso, navegue para a revisão de acesso e encontrará as próximas ocorrências em comentários agendados e editará a data de fim ou adicione/remova os revisores em conformidade.
 
-Com base em suas seleções nas **configurações de conclusão**, a aplicação automática será executada após a data de término da revisão ou quando você interromper manualmente a revisão. O status da revisão será alterado de **concluído** por meio de Estados intermediários, como **aplicar** e, por fim, o estado **aplicado**. Você deve esperar que os usuários negados, se houver, sejam removidos das funções em alguns minutos.
+Com base nas suas seleções nas **definições de conclusão,** a aplicação automática será executada após a data de fim da revisão ou quando parar manualmente a revisão. O estado da revisão passará de **Concluído** através de estados intermédios, como **a Aplicação** e, finalmente, o Estado **Aplicado.** Deve esperar ver os utilizadores negados, caso exista, a serem removidos das funções em poucos minutos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Examinar o acesso às funções do Azure AD](pim-how-to-perform-security-review.md)
-- [Concluir uma revisão de acesso das funções do Azure AD](pim-how-to-complete-review.md)
-- [Criar uma revisão de acesso das funções de recurso do Azure](pim-resource-roles-start-access-review.md)
+- [Rever o acesso às funções da AD Azure](pim-how-to-perform-security-review.md)
+- [Complete uma revisão de acesso das funções da Azure AD](pim-how-to-complete-review.md)
+- [Criar uma revisão de acesso das funções de recursos do Azure](pim-resource-roles-start-access-review.md)

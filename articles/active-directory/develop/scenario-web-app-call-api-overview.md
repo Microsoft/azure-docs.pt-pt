@@ -15,10 +15,10 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: d121d6c198cb0d92cd098a40096e2f2300f65537
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76758994"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>Cenário: Uma aplicação web que chama APIs web
@@ -34,7 +34,7 @@ Este cenário pressupõe que já passou pelo seguinte cenário:
 > [!div class="nextstepaction"]
 > [Aplicação web que inicia a sessão de utilizadores](scenario-web-app-sign-user-overview.md)
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 Adiciona autenticação à sua aplicação web para que possa iniciar sessão de utilizadores e ligar para uma API web em nome do utilizador inscrito.
 
@@ -43,7 +43,7 @@ Adiciona autenticação à sua aplicação web para que possa iniciar sessão de
 Aplicações web que ligam para apis web são aplicações confidenciais do cliente.
 É por isso que registam um segredo (uma palavra-passe de candidatura ou certificado) com o Azure Ative Directory (Azure AD). Este segredo é passado durante a chamada para a AD Azure para obter um símbolo.
 
-## <a name="specifics"></a>Especificações
+## <a name="specifics"></a>Especificidades
 
 > [!NOTE]
 > Adicionar sessão a uma aplicação web é proteger a própria aplicação web. Esta proteção é conseguida utilizando bibliotecas *de middleware,* e não a Microsoft Authentication Library (MSAL). O cenário anterior, [aplicação Web que assina nos utilizadores,](scenario-web-app-sign-user-overview.md)cobria esse assunto.

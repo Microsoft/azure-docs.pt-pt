@@ -1,5 +1,5 @@
 ---
-title: Como usar o armazenamento de objeto (BLOB) do iOS – Azure | Microsoft Docs
+title: Como utilizar o armazenamento de objetos (Blob) do iOS - Azure [ Microsoft Docs
 description: Armazene dados não estruturados na nuvem com o Blob Storage do Azure (armazenamento de objetos).
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,38 +8,38 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: 54085d602246d38adb970ed02f451241ca7ba19d
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68726408"
 ---
-# <a name="how-to-use-blob-storage-from-ios"></a>Como usar o armazenamento de BLOBs do iOS
+# <a name="how-to-use-blob-storage-from-ios"></a>Como utilizar o armazenamento Blob do iOS
 
-Este artigo mostra como executar cenários comuns usando Microsoft Azure armazenamento de BLOBs. Os exemplos são escritos em Objective-C e usam a [biblioteca de cliente de armazenamento do Azure para IOS](https://github.com/Azure/azure-storage-ios). Os cenários abordados incluem carregar, listar, baixar e excluir BLOBs. Para obter mais informações sobre BLOBs, consulte a seção [próximas etapas](#next-steps) . Você também pode baixar o [aplicativo de exemplo](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) para ver rapidamente o uso do armazenamento do Azure em um aplicativo Ios.
+Este artigo mostra como executar cenários comuns usando o armazenamento do Microsoft Azure Blob. As amostras estão escritas no Objectivo-C e utilizam a Biblioteca do Cliente de [Armazenamento Azure para iOS.](https://github.com/Azure/azure-storage-ios) Os cenários abrangidos incluem upload, listagem, descarregamento e exclusão de bolhas. Para mais informações sobre as bolhas, consulte a secção [Next Steps.](#next-steps) Também pode descarregar a [aplicação de amostras](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) para ver rapidamente a utilização do Armazenamento Azure numa aplicação iOS.
 
-Para saber mais sobre o armazenamento de BLOBs, consulte [introdução ao armazenamento de BLOBs do Azure](storage-blobs-introduction.md).
+Para saber mais sobre o armazenamento blob, consulte [Introdução ao armazenamento De Blob Azure](storage-blobs-introduction.md).
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-## <a name="import-the-azure-storage-ios-library-into-your-application"></a>Importar a biblioteca do iOS de armazenamento do Azure para seu aplicativo
+## <a name="import-the-azure-storage-ios-library-into-your-application"></a>Importe a biblioteca Azure Storage iOS na sua aplicação
 
-Você pode importar a biblioteca do iOS de armazenamento do Azure para seu aplicativo usando o [CocoaPod de armazenamento do Azure](https://cocoapods.org/pods/AZSClient) ou importando o arquivo de **estrutura** . O CocoaPod é a maneira recomendada, pois torna a integração da biblioteca mais fácil, no entanto, a importação do arquivo de estrutura é menos invasiva para o projeto existente.
+Pode importar a biblioteca Azure Storage iOS para a sua aplicação, quer utilizando o [CocoaPod de Armazenamento Azure,](https://cocoapods.org/pods/AZSClient) quer importando o ficheiro **Framework.** O CocoaPod é a forma recomendada, uma vez que facilita a integração da biblioteca, no entanto importar a partir do ficheiro-quadro é menos intrusivo para o seu projeto existente.
 
-Para usar essa biblioteca, você precisará do seguinte:
+Para utilizar esta biblioteca, precisa do seguinte:
 
-- iOS 8 +
-- Xcode 7 +
+- iOS 8+
+- Xcode 7+
 
 ## <a name="cocoapod"></a>CocoaPod
 
-1. Se você ainda não tiver feito isso, [Instale o CocoaPods](https://guides.cocoapods.org/using/getting-started.html#toc_3) em seu computador abrindo uma janela do terminal e executando o comando a seguir
+1. Se ainda não o fez, [instale CocoaPods](https://guides.cocoapods.org/using/getting-started.html#toc_3) no seu computador abrindo uma janela de terminais e executando o seguinte comando
 
     ```shell
     sudo gem install cocoapods
     ```
 
-2. Em seguida, no diretório do projeto (o diretório que contém o arquivo. xcodeproj), crie um novo arquivo chamado _Podfile_(sem extensão de arquivo). Adicione o seguinte a _Podfile_ e salve.
+2. Em seguida, no diretório do projeto (o diretório que contém o seu ficheiro .xcodeproj), crie um novo ficheiro chamado _Podfile_(sem extensão de ficheiro). Adicione o seguinte ao _Podfile_ e poupe.
 
     ```ruby
     platform :ios, '8.0'
@@ -49,57 +49,57 @@ Para usar essa biblioteca, você precisará do seguinte:
     end
     ```
 
-3. Na janela do terminal, navegue até o diretório do projeto e execute o comando a seguir
+3. Na janela do terminal, navegue para o diretório do projeto e executar o seguinte comando
 
     ```shell
     pod install
     ```
 
-4. Se o seu. xcodeproj estiver aberto no Xcode, feche-o. No diretório do projeto, abra o arquivo de projeto recém-criado que terá a extensão. xcworkspace. Este é o arquivo no qual você trabalhará por enquanto.
+4. Se o seu .xcodeproj estiver aberto em Xcode, feche-o. No seu diretório de projeto abrir o arquivo de projeto recém-criado que terá a extensão .xcworkspace. Este é o ficheiro que vai trabalhar por agora.
 
-## <a name="framework"></a>Framework
+## <a name="framework"></a>Arquitetura
 
-A outra maneira de usar a biblioteca é criar a estrutura manualmente:
+A outra forma de utilizar a biblioteca é construir a estrutura manualmente:
 
-1. Primeiro, baixe ou clone o [repositório Azure-Storage-Ios](https://github.com/azure/azure-storage-ios).
-2. Vá para *Azure-Storage-Ios* -> *lib* -> *biblioteca de cliente de armazenamento do Azure*e abra `AZSClient.xcodeproj` no Xcode.
-3. Na parte superior esquerda do Xcode, altere o esquema ativo de "biblioteca de cliente de armazenamento do Azure" para "estrutura".
-4. Compile o projeto (⌘ + B). Isso criará um `AZSClient.framework` arquivo em sua área de trabalho.
+1. Primeiro, descarregue ou clone o [azure-storage-ios repo](https://github.com/azure/azure-storage-ios).
+2. Entre em *azure-storage-ios* -> *Lib* -> *Azure Storage Client Library*, e abra `AZSClient.xcodeproj` em Xcode.
+3. No topo esquerdo do Xcode, mude o esquema ativo de "Biblioteca de Clientes de Armazenamento Azure" para "Framework".
+4. Construa o projeto (+B). Isto criará `AZSClient.framework` um ficheiro no seu Ambiente de Trabalho.
 
-Em seguida, você pode importar o arquivo de estrutura para seu aplicativo fazendo o seguinte:
+Em seguida, pode importar o ficheiro-quadro para o seu pedido fazendo o seguinte:
 
-1. Crie um novo projeto ou abra seu projeto existente no Xcode.
-2. Arraste e solte o `AZSClient.framework` em seu navegador de projeto do Xcode.
-3. Selecione *copiar itens, se necessário*, e clique em *concluir*.
-4. Clique em seu projeto no painel de navegação à esquerda e clique na guia *geral* na parte superior do editor de projeto.
-5. Na seção *estruturas e bibliotecas vinculadas* , clique no botão Adicionar (+).
-6. Na lista de bibliotecas já fornecida, pesquise `libxml2.2.tbd` e adicione-a ao seu projeto.
+1. Crie um novo projeto ou abra o seu projeto existente em Xcode.
+2. Arraste e `AZSClient.framework` deixe o seu navegador do projeto Xcode.
+3. Selecione *itens de cópia se necessário,* e clique em *Terminar*.
+4. Clique no seu projeto na navegação à esquerda e clique no separador *Geral* no topo do editor do projeto.
+5. Na secção *Quadros e Bibliotecas Ligados,* clique no botão Adicionar (+).
+6. Na lista de bibliotecas já `libxml2.2.tbd` fornecidas, procure e adicione ao seu projeto.
 
-## <a name="import-the-library"></a>Importar a biblioteca
+## <a name="import-the-library"></a>Importar a Biblioteca
 
 ```objc
 // Include the following import statement to use blob APIs.
 #import <AZSClient/AZSClient.h>
 ```
 
-Se você estiver usando o Swift, será necessário criar um cabeçalho de ponte e importar \<AZSClient/AZSClient. h > lá:
+Se estiver a usar swift, terá de criar \<um cabeçalho de ponte e importar a AZSClient/AZSClient.h> lá:
 
-1. Crie um arquivo `Bridging-Header.h`de cabeçalho e adicione a instrução de importação acima.
-2. Vá para a guia *configurações de compilação* e pesquise cabeçalho de *ponte Objective-C*.
-3. Clique duas vezes no campo do *cabeçalho de ponte Objective-C* e adicione o caminho ao arquivo de cabeçalho:`ProjectName/Bridging-Header.h`
-4. Compile o projeto (⌘ + B) para verificar se o cabeçalho de ponte foi obtido pelo Xcode.
-5. Comece a usar a biblioteca diretamente em qualquer arquivo Swift, não há necessidade de instruções de importação.
+1. Crie um `Bridging-Header.h`ficheiro de cabeçalho e adicione a declaração de importação acima.
+2. Vá ao separador *'Definições de Construção'* e procure o cabeçalho de *ponte Objective-C*.
+3. Clique duas vezes no campo do Cabeçalho de *Ponte Objective-C* e adicione o caminho ao seu ficheiro de cabeçalho:`ProjectName/Bridging-Header.h`
+4. Construa o projeto (+B) para verificar se o cabeçalho de ponte foi captado pela Xcode.
+5. Comece a usar a biblioteca diretamente em qualquer ficheiro Swift, não há necessidade de declarações de importação.
 
 [!INCLUDE [storage-mobile-authentication-guidance](../../../includes/storage-mobile-authentication-guidance.md)]
 
-## <a name="asynchronous-operations"></a>Operações assíncronas
+## <a name="asynchronous-operations"></a>Operações Assíncronas
 
 > [!NOTE]
-> Todos os métodos que executam uma solicitação no serviço são operações assíncronas. Nos exemplos de código, você descobrirá que esses métodos têm um manipulador de conclusão. O código dentro do manipulador de conclusão será executado **depois** que a solicitação for concluída. O código após o manipulador de conclusão será executado **enquanto** a solicitação estiver sendo feita.
+> Todos os métodos que executam um pedido contra o serviço são operações assíncronas. Nas amostras de código, verá que estes métodos têm um manipulador de conclusão. O código dentro do manipulador de conclusão será executado **após** a conclusão do pedido. O código após a conclusão será executado **enquanto** o pedido está a ser feito.
 
 ## <a name="create-a-container"></a>Criar um contentor
 
-Cada blob no armazenamento do Azure deve residir em um contêiner. O exemplo a seguir mostra como criar um contêiner, chamado *newcontainer*, na sua conta de armazenamento, se ele ainda não existir. Ao escolher um nome para seu contêiner, lembre-se das regras de nomenclatura mencionadas acima.
+Todas as bolhas em Azure Storage devem residir num recipiente. O exemplo que se segue mostra como criar um contentor, chamado *newcontainer,* na sua conta de Armazenamento, se já não existir. Ao escolher um nome para o seu recipiente, esteja atento às regras de nomeação acima mencionadas.
 
 ```objc
 -(void)createContainer{
@@ -127,17 +127,17 @@ Cada blob no armazenamento do Azure deve residir em um contêiner. O exemplo a s
 }
 ```
 
-Você pode confirmar que isso funciona examinando a [Gerenciador de armazenamento do Microsoft Azure](https://storageexplorer.com) e verificando se *newcontainer* está na lista de contêineres para sua conta de armazenamento.
+Pode confirmar que isto funciona olhando para o [Microsoft Azure Storage Explorer](https://storageexplorer.com) e verificando que o novo *contentor* está na lista de contentores para a sua conta de Armazenamento.
 
-## <a name="set-container-permissions"></a>Definir permissões de contêiner
+## <a name="set-container-permissions"></a>Definir permissões de contentores
 
-As permissões de um contêiner são configuradas para acesso **privado** por padrão. No entanto, os contêineres fornecem algumas opções diferentes para o acesso ao contêiner:
+As permissões de um contentor estão configuradas para acesso **privado** por padrão. No entanto, os contentores fornecem algumas opções diferentes para o acesso dos contentores:
 
-- **Particular**: Os dados de contêiner e BLOB podem ser lidos somente pelo proprietário da conta.
-- **Blob**: Os dados de blob dentro desse contêiner podem ser lidos por solicitação anônima, mas os dados do contêiner não estão disponíveis. Os clientes não podem enumerar BLOBs dentro do contêiner por meio de solicitação anônima.
-- **Contêiner**: Os dados de contêiner e BLOB podem ser lidos por solicitação anônima. Os clientes podem enumerar BLOBs dentro do contêiner por meio de solicitação anônima, mas não podem enumerar contêineres na conta de armazenamento.
+- **Privado**: Os dados do contentor e da bolha só podem ser lidos pelo proprietário da conta.
+- **Blob**: Os dados blob dentro deste recipiente podem ser lidos através de pedido anónimo, mas os dados do contentor não estão disponíveis. Os clientes não podem enumerar bolhas dentro do contentor através de pedido anónimo.
+- **Recipiente**: Os dados do recipiente e da bolha podem ser lidos através de pedido anónimo. Os clientes podem enumerar bolhas dentro do contentor através de pedido anónimo, mas não podem enumerar os contentores dentro da conta de armazenamento.
 
-O exemplo a seguir mostra como criar um contêiner com permissões de acesso de **contêiner** , que permitirá o acesso público e somente leitura para todos os usuários na Internet:
+O exemplo que se segue mostra como criar um contentor com permissões de acesso a **contentores,** o que permitirá o acesso público e apenas de leitura a todos os utilizadores na Internet:
 
 ```objc
 -(void)createContainerWithPublicAccess{
@@ -167,9 +167,9 @@ O exemplo a seguir mostra como criar um contêiner com permissões de acesso de 
 
 ## <a name="upload-a-blob-into-a-container"></a>Carregar um blob para um contentor
 
-Conforme mencionado na seção conceitos do serviço BLOB, o armazenamento de blob oferece três tipos diferentes de BLOBs: blobs de blocos, blobs de acréscimo e blobs de páginas. A biblioteca iOS do armazenamento do Azure dá suporte a todos os três tipos de BLOBs. Na maioria dos casos, o blob de blocos é o tipo recomendado a utilizar.
+Como mencionado na secção de conceitos de serviço Blob, o Blob Storage oferece três tipos diferentes de bolhas: blocos de bolhas, bolhas de apêndice e bolhas de página. A biblioteca Azure Storage iOS suporta os três tipos de bolhas. Na maioria dos casos, o blob de blocos é o tipo recomendado a utilizar.
 
-O exemplo a seguir mostra como carregar um blob de blocos de um NSString. Se um blob com o mesmo nome já existir nesse contêiner, o conteúdo desse blob será substituído.
+O exemplo que se segue mostra como carregar uma bolha de bloco de um NSString. Se já existir uma bolha com o mesmo nome neste recipiente, o conteúdo desta bolha será substituído.
 
 ```objc
 -(void)uploadBlobToContainer{
@@ -208,32 +208,32 @@ O exemplo a seguir mostra como carregar um blob de blocos de um NSString. Se um 
 }
 ```
 
-Você pode confirmar que isso funciona examinando o [Gerenciador de armazenamento do Microsoft Azure](https://storageexplorer.com) e verificando se o contêiner, *containerpublic*, contém o blob, *sampleblob*. Neste exemplo, usamos um contêiner público para que você também possa verificar se esse aplicativo funcionou indo para o URI de BLOBs:
+Pode confirmar que isto funciona olhando para o [Microsoft Azure Storage Explorer](https://storageexplorer.com) e verificando se o recipiente, *contentorpúblico,* contém a bolha, *sampleblob*. Nesta amostra, usamos um recipiente público para que também possa verificar se esta aplicação funcionou indo para as bolhas URI:
 
 ```http
 https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 ```
 
-Além de carregar um blob de blocos de um NSString, existem métodos semelhantes para NSData, NSInputStream ou um arquivo local.
+Além de carregar uma bolha de bloco de um NSString, existem métodos semelhantes para NSData, NSInputStream ou um ficheiro local.
 
 ## <a name="list-the-blobs-in-a-container"></a>Listar os blobs num contentor
 
-O exemplo a seguir mostra como listar todos os BLOBs em um contêiner. Ao executar essa operação, lembre-se dos seguintes parâmetros:
+O exemplo que se segue mostra como listar todas as bolhas num recipiente. Ao efetuar esta operação, esteja atento aos seguintes parâmetros:
 
-- **continuationToken** -o token de continuação representa o local em que a operação de listagem deve ser iniciada. Se nenhum token for fornecido, ele listará os BLOBs desde o início. Qualquer número de BLOBs pode ser listado, de zero até um máximo definido. Mesmo que esse método retorne zero resultados, `results.continuationToken` se não for nil, pode haver mais BLOBs no serviço que não foram listados.
-- **prefixo** – você pode especificar o prefixo a ser usado para a listagem de BLOBs. Somente os blobs que começam com esse prefixo serão listados.
-- **useFlatBlobListing** – conforme mencionado na seção [nomenclatura e referência de contêineres e blobs](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) , embora o serviço blob seja um esquema de armazenamento simples, você pode criar uma hierarquia virtual por meio da nomenclatura de BLOBs com informações de caminho. No entanto, não há suporte para listagem não simples no momento. Esse recurso estará disponível em breve. Por enquanto, esse valor deve ser **Sim**.
-- **blobListingDetails** -você pode especificar quais itens incluir ao listar BLOBs
-  - _AZSBlobListingDetailsNone_: Lista somente os BLOBs confirmados e não retorna os metadados do blob.
-  - _AZSBlobListingDetailsSnapshots_: Listar BLOBs confirmados e instantâneos de BLOB.
-  - _AZSBlobListingDetailsMetadata_: Recuperar metadados de BLOB para cada blob retornado na listagem.
-  - _AZSBlobListingDetailsUncommittedBlobs_: Listar BLOBs confirmados e não confirmados.
-  - _AZSBlobListingDetailsCopy_: Inclua propriedades de cópia na lista.
-  - _AZSBlobListingDetailsAll_: Lista todos os BLOBs confirmados disponíveis, BLOBs não confirmados e instantâneos e retorna todos os metadados e o status da cópia para esses BLOBs.
-- **maxResults** -o número máximo de resultados a serem retornados para esta operação. Use-1 para não definir um limite.
-- **completionHandler** -o bloco de código a ser executado com os resultados da operação de listagem.
+- **continuaçãoToken** - O token de continuação representa onde a operação de cotação deve começar. Se não for fornecido nenhum sinal, irá listar bolhas desde o início. Qualquer número de bolhas pode ser listada, de zero a um máximo definido. Mesmo que este método retorne resultados nulos, se `results.continuationToken` não for nulo, pode haver mais bolhas no serviço que não foram listados.
+- **prefixo** - Pode especificar o prefixo a utilizar para a listagem de bolhas. Apenas bolhas que começam com este prefixo serão listadas.
+- **useFlatBlobListing** - Como mencionado na secção [de nomeação e referenciação de contentores e bolhas,](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) embora o serviço Blob seja um esquema de armazenamento plano, você pode criar uma hierarquia virtual nomeando bolhas com informações de caminho. No entanto, a listagem não plana não é atualmente suportada. Esta funcionalidade está para breve. Por enquanto, este valor deve ser **SIM.**
+- **blobListingDetails** - Pode especificar quais itens a incluir na listagem de blobs
+  - _AZSBlobListingDetailsNone_: Lista apenas bolhas comprometidas e não devolve metadados blob.
+  - _AZSBlobListingDetailsSnapshots_: Lista de bolhas comprometidas e fotos blob.
+  - _AZSBlobListingDetailsMetadata_: Recuperar metadados blob para cada bolha devolvida na listagem.
+  - _AZSBlobListingDetailsUncommittedBlobs_: Lista de blobs comprometidos e não comprometidos.
+  - _AZSBlobListingDetailsCopy_: Incluir propriedades de cópia na listagem.
+  - _AZSBlobListingDetailsAll_: Lista todas as bolhas comprometidas disponíveis, bolhas não comprometidas e instantâneos, e devolve todos os metadados e o estado da cópia para essas bolhas.
+- **maxResults** - O número máximo de resultados a devolver para esta operação. Utilize -1 para não estabelecer um limite.
+- **conclusãoHandler** - O bloco de código a executar com os resultados da operação de cotação.
 
-Neste exemplo, um método auxiliar é usado para chamar recursivamente o método listar BLOBs sempre que um token de continuação é retornado.
+Neste exemplo, um método de ajudante é usado para chamar recursivamente o método de blobs da lista cada vez que um token de continuação é devolvido.
 
 ```objc
 -(void)listBlobsInContainer{
@@ -288,7 +288,7 @@ Neste exemplo, um método auxiliar é usado para chamar recursivamente o método
 
 ## <a name="download-a-blob"></a>Transferir um blob
 
-O exemplo a seguir mostra como baixar um blob para um objeto NSString.
+O exemplo que se segue mostra como descarregar uma bolha para um objeto NSString.
 
 ```objc
 -(void)downloadBlobToString{
@@ -324,7 +324,7 @@ O exemplo a seguir mostra como baixar um blob para um objeto NSString.
 
 ## <a name="delete-a-blob"></a>Eliminar um blob
 
-O exemplo a seguir mostra como excluir um blob.
+O exemplo que se segue mostra como apagar uma bolha.
 
 ```objc
 -(void)deleteBlob{
@@ -355,9 +355,9 @@ O exemplo a seguir mostra como excluir um blob.
 }
 ```
 
-## <a name="delete-a-blob-container"></a>Excluir um contêiner de BLOB
+## <a name="delete-a-blob-container"></a>Eliminar um recipiente de bolhas
 
-O exemplo a seguir mostra como excluir um contêiner.
+O exemplo que se segue mostra como apagar um recipiente.
 
 ```objc
 -(void)deleteContainer{
@@ -387,12 +387,12 @@ O exemplo a seguir mostra como excluir um contêiner.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você aprendeu como usar o armazenamento de BLOBs do iOS, siga estes links para saber mais sobre a biblioteca do iOS e o serviço de armazenamento.
+Agora que aprendeu a usar o Blob Storage do iOS, siga estes links para saber mais sobre a biblioteca iOS e o serviço de Armazenamento.
 
-- [Biblioteca de cliente de armazenamento do Azure para iOS](https://github.com/azure/azure-storage-ios)
-- [Documentação de referência do iOS do armazenamento do Azure](https://azure.github.io/azure-storage-ios/)
+- [Biblioteca do Cliente de Armazenamento Azure para iOS](https://github.com/azure/azure-storage-ios)
+- [Documentação de referência do IOS de Armazenamento Azure](https://azure.github.io/azure-storage-ios/)
 - [API REST dos Serviços do Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-- [Blogue da Equipa de Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage)
+- [Blog da equipe de armazenamento azure](https://blogs.msdn.com/b/windowsazurestorage)
 
-Se você tiver dúvidas sobre esta biblioteca, sinta-se à vontade para postar em nosso [Fórum do MSDN do Azure](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
-Se você tiver sugestões de recursos para o armazenamento do Azure, envie para os [comentários do armazenamento do Azure](https://feedback.azure.com/forums/217298-storage/).
+Se tiver dúvidas sobre esta biblioteca, sinta-se à vontade para publicar no nosso [fórum MSDN Azure](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou [no Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+Se tiver sugestões de recurso para o Armazenamento Azure, por favor poste no Feedback de [Armazenamento Azure](https://feedback.azure.com/forums/217298-storage/).

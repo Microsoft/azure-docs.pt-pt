@@ -1,6 +1,6 @@
 ---
-title: Uso de métodos de autenticação & insights-Azure Active Directory
-description: Relatórios sobre a redefinição de senha de autoatendimento do Azure AD e o uso do método de autenticação de autenticação multifator
+title: Métodos de autenticação utilização & insights - Diretório Ativo Azure
+description: Reportagem sobre reset de senha de autosserviço da AD Azure e utilização do método de autenticação multi-factor
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,90 +12,90 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b448e6ce7c8b4522d5e7bdbafb39eccca982fdee
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74848515"
 ---
-# <a name="authentication-methods-usage--insights-preview"></a>Uso de métodos de autenticação & insights (versão prévia)
+# <a name="authentication-methods-usage--insights-preview"></a>Métodos de autenticação utilização & insights (pré-visualização)
 
-O uso & insights permite que você entenda como os métodos de autenticação para recursos como a autenticação multifator do Azure e a redefinição de senha de autoatendimento estão funcionando em sua organização. Essa funcionalidade de relatório fornece à sua organização os meios para entender quais métodos estão sendo registrados e como eles estão sendo usados.
+O uso & insights permite-lhe entender como os métodos de autenticação para funcionalidades como a Autenticação Multi-Factor E o reset de palavra-passe de autosserviço estão a funcionar na sua organização. Esta capacidade de reporte fornece à sua organização os meios para entender quais os métodos que estão a ser registados e como estão a ser utilizados.
 
 ## <a name="permissions-and-licenses"></a>Permissões e licenças
 
-As funções a seguir podem acessar o uso e as informações:
+As seguintes funções podem aceder ao uso e insights:
 
 - Administrador Global
 - Leitor de Segurança
 - Administrador de Segurança
-- Leitor de relatórios
+- Relatórios Leitor
 
-Nenhum licenciamento adicional é necessário para acessar o uso e as informações. A autenticação multifator do Azure e as informações de licenciamento de redefinição de senha de autoatendimento (SSPR) podem ser encontradas no [site de preços Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Não é necessário um licenciamento adicional para aceder ao uso e insights. As informações de autenticação de vários fatores azure e de redefinição de senha de autosserviço (SSPR) podem ser encontradas no site de [preços do Diretório Ativo Azure](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="how-it-works"></a>Como funciona
 
-Para acessar o uso e as informações do método de autenticação:
+Para aceder à utilização e insights do método de autenticação:
 
-1. Navegue para o [portal do Azure](https://portal.azure.com).
-1. Navegue até **Azure Active Directory** > **redefinição de senha** > **uso & insights**.
-1. Nas visões gerais de **registro** ou **uso** , você pode optar por abrir os relatórios previamente filtrados para filtrar com base em suas necessidades.
+1. Navegue pelo [portal Azure.](https://portal.azure.com)
+1. Navegue para **o Azure Ative Directory** > **Password redefinir** > **a utilização & insights**.
+1. A partir das visões gerais de **Registo** ou **Utilização,** pode optar por abrir os relatórios pré-filtrados para filtrar com base nas suas necessidades.
 
-![Visão geral do uso & insights](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
+![Visão geral do & de utilização](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
 
-Para acessar o uso do & de informações diretamente, acesse [https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade). Esse link levará você à visão geral do registro.
+Para aceder diretamente ao uso [https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade)& insights, vá a . Este link irá levá-lo à visão geral do registo.
 
-Os blocos usuários registrados, usuários habilitados e usuários compatíveis mostram os seguintes dados de registro para seus usuários:
+Os Utilizadores registados, Utilizadores habilitados e Os Utilizadores capazes de mostrar os seguintes dados de registo para os seus utilizadores:
 
-- Registrado: um usuário será considerado registrado se eles (ou um administrador) tiverem registrado métodos de autenticação suficientes para atender à política de SSPR ou autenticação multifator da sua organização.
-- Habilitado: um usuário será considerado habilitado se estiver no escopo da política SSPR. Se SSPR estiver habilitado para um grupo, o usuário será considerado habilitado se ele estiver nesse grupo. Se SSPR estiver habilitado para todos os usuários, todos os usuários no locatário (excluindo convidados) serão considerados habilitados.
-- Compatível: um usuário é considerado compatível se eles estiverem registrados e habilitados. Esse status significa que eles podem executar SSPR a qualquer momento, se necessário.
+- Registado: Um utilizador é considerado registado se (ou administrador) tiver registado métodos de autenticação suficientes para cumprir a política de Autenticação SSPR ou Multi-Factor da sua organização.
+- Ativado: Um utilizador é considerado ativado se estiver em âmbito para a política sspr. Se o SSPR estiver ativado para um grupo, o utilizador é considerado ativado se estiver nesse grupo. Se o SSPR estiver ativado para todos os utilizadores, então todos os utilizadores do inquilino (excluindo os hóspedes) são considerados habilitados.
+- Capaz: Um utilizador é considerado capaz se ambos estiverem registados e ativados. Este estado significa que podem realizar SSPR a qualquer momento, se necessário.
 
-Clicar em qualquer um desses blocos ou nas informações mostradas nele o levará a uma lista previamente filtrada de detalhes do registro.
+Clicar em qualquer um destes azulejos ou as informações mostradas neles irá levá-lo a uma lista pré-filtrada de detalhes de registo.
 
-O gráfico de **registros** na guia **registro** mostra o número de registros do método de autenticação com êxito e com falha por método de autenticação. O gráfico **redefine** a guia **uso** mostra o número de autenticações com êxito e com falha durante o método de autenticação do fluxo de redefinição de senha.
+O gráfico **de registos** no separador **Registration** mostra o número de registos de métodos de autenticação bem sucedidos e falhados por método de autenticação. O gráfico **de Resets** no separador **Utilização** mostra o número de autenticações bem sucedidas e falhadas durante o fluxo de redefinição da palavra-passe por método de autenticação.
 
-Clicar em um dos gráficos irá levá-lo para uma lista filtrada previamente de registro ou redefinição de eventos.
+Clicar em qualquer uma das tabelas irá levá-lo a uma lista pré-filtrada de eventos de registo ou reset.
 
-Usando o controle no canto superior direito, você pode alterar o intervalo de datas para os dados de auditoria mostrados nos registros e redefine os gráficos para 24 horas, 7 dias ou 30 dias.
+Utilizando o controlo no canto superior, direito, pode alterar a gama de datas para os dados de auditoria mostrados nos gráficos de Registos e Resets para 24 horas, 7 dias ou 30 dias.
 
-### <a name="registration-details"></a>Detalhes do registro
+### <a name="registration-details"></a>Detalhes da inscrição
 
-Clicar nos blocos **usuários registrados**, **usuários habilitados**ou **usuários com capacidade** de inscrição levará você aos detalhes do registro.
+Clicar nos **Utilizadores registados,** **Utilizadores ativados,** ou **os utilizadores capazes** de azulejos ou insights irão levá-lo aos detalhes do registo.
 
-O relatório detalhes do registro mostra as seguintes informações para cada usuário:
+O relatório de dados de registo mostra as seguintes informações para cada utilizador:
 
 - Nome
 - Nome de utilizador
-- Status do registro (tudo, registrado, não registrado)
-- Status habilitado (tudo, habilitado, não habilitado)
-- Status com capacidade (tudo, capaz, sem capacidade)
-- Métodos (notificação do aplicativo, código do aplicativo, chamada telefônica, SMS, email, perguntas de segurança)
+- Estado de registo (Todos, Registados, Não Registados)
+- Estado ativado (Tudo, Ativado, Não Ativado)
+- Estatuto capaz (Todos, Capazes, Não Capazes)
+- Métodos (notificação de aplicativos, código de aplicação, chamada telefónica, SMS, e-mail, questões de segurança)
 
-Usando os controles na parte superior da lista, você pode pesquisar um usuário e filtrar a lista de usuários com base nas colunas mostradas.
+Utilizando os controlos no topo da lista, pode procurar um utilizador e filtrar a lista de utilizadores com base nas colunas apresentadas.
 
 ### <a name="reset-details"></a>Redefinir detalhes
 
-Clicar nos gráficos de registros ou redefinições irá levá-lo para os detalhes de redefinição.
+Clicar nas tabelas de Registos ou Resets irá trazê-lo aos detalhes de reset.
 
-O relatório detalhes de redefinir mostra o registro e a redefinição dos eventos dos últimos 30 dias, incluindo:
+O relatório de detalhes de reset mostra registo e reset eventos dos últimos 30 dias, incluindo:
 
 - Nome
 - Nome de utilizador
-- Recurso (tudo, registro, redefinição)
-- Método de autenticação (notificação do aplicativo, código do aplicativo, chamada telefônica, chamada do Office, SMS, email, perguntas de segurança)
-- Status (tudo, êxito, falha)
+- Recurso (Tudo, Registo, Reset)
+- Método de autenticação (notificação de aplicativos, código de aplicação, chamada telefónica, chamada de escritório, SMS, Email, Questões de Segurança)
+- Estado (Todos, Sucesso, Fracasso)
 
-Usando os controles na parte superior da lista, você pode pesquisar um usuário e filtrar a lista de usuários com base nas colunas mostradas.
+Utilizando os controlos no topo da lista, pode procurar um utilizador e filtrar a lista de utilizadores com base nas colunas apresentadas.
 
 ## <a name="limitations"></a>Limitações
 
-Os dados mostrados nesses relatórios serão atrasados em até 60 minutos. Um campo "última atualização" existe no portal do Azure para identificar o quanto os dados são recentes.
+Os dados apresentados nestes relatórios serão adiados até 60 minutos. Existe um campo "Última refrescada" no portal Azure para identificar o quão recentes são os seus dados.
 
-Os dados de uso e insight não são uma substituição para os relatórios de atividade da autenticação multifator do Azure ou informações contidas no relatório de entradas do Azure AD.
+Os dados de utilização e insights não substituem os relatórios ou informações de autenticação de multi-factor sinuosos do Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Trabalhando com a API de relatório de uso dos métodos de autenticação](https://docs.microsoft.com/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
-- [Escolhendo métodos de autenticação para sua organização](concept-authentication-methods.md)
-- [Experiência de registro combinada](concept-registration-mfa-sspr-combined.md)
+- [Trabalhar com o relatório de utilização de métodos de autenticação API](https://docs.microsoft.com/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
+- [Escolher métodos de autenticação para a sua organização](concept-authentication-methods.md)
+- [Experiência de registo combinado](concept-registration-mfa-sspr-combined.md)

@@ -1,6 +1,6 @@
 ---
-title: Os requisitos de identidade híbrida na cloud design de identidade do Azure | Documentos da Microsoft
-description: Identifica necessidades de negócio da empresa, que irão originar a definir os requisitos para o design de identidade híbrida.
+title: Requisitos de identidade para design de identidade de nuvem híbrida Azure [ Microsoft Docs
+description: Identifique as necessidades de negócio da empresa que o levarão a definir os requisitos para o design de identidade híbrida.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -18,98 +18,98 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9ecc90e13f49c231d8d3ab0cff1de91443b80f21
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65950892"
 ---
-# <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de identidade para a sua solução de identidade híbrida
-A primeira etapa na criação de uma solução de identidade híbrida é determinar os requisitos para a organização de negócios que tirar partido desta solução.  Identidade híbrida é iniciado como uma função de suporte (suporta todas as outras soluções na cloud, fornecendo autenticação) e prosseguirá para fornecer recursos novos e interessantes, que desbloqueiam novas cargas de trabalho para os utilizadores.  Estas cargas de trabalho ou serviços que deseja adotar para os seus utilizadores vão ditar os requisitos para o design de identidade híbrida.  Estes serviços e cargas de trabalho precisam tirar partido de identidade híbrida no local e na cloud.  
+# <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Determine os requisitos de identidade para a sua solução de identidade híbrida
+O primeiro passo para a conceção de uma solução de identidade híbrida é determinar os requisitos para a organização empresarial que irá alavancar esta solução.  A identidade híbrida começa como uma função de suporte (suporta todas as outras soluções na nuvem fornecendo autenticação) e continua a fornecer novas e interessantes capacidades que desbloqueiam novas cargas de trabalho para os utilizadores.  Estas cargas de trabalho ou serviços que deseja adotar para os seus utilizadores ditarão os requisitos para o design de identidade híbrida.  Estes serviços e cargas de trabalho precisam de alavancar a identidade híbrida tanto no local como na nuvem.  
 
-Tem de rever estes aspetos-chave da empresa para compreender o que é um requisito agora e o que a empresa planeia para o futuro. Se não tiver a visibilidade da estratégia de longo prazo para o design da identidade híbrida, é provável que sua solução não será dimensionável à medida que a empresa necessidades mudam. O diagrama abaixo mostra um exemplo de uma arquitetura de identidade híbrida e as cargas de trabalho que estão a ser desbloqueadas para os utilizadores. Este é apenas um exemplo de todos os recursos novos que podem ser desbloqueadas e entregues com uma estratégia de identidade híbrida sólido. 
+É preciso rever estes aspectos-chave do negócio para perceber o que é agora um requisito e o que a empresa planeia para o futuro. Se não tiver a visibilidade da estratégia de longo prazo para o design de identidade híbrida, é provável que a sua solução não seja escalável à medida que o negócio precisa crescer e mudar. O diagrama abaixo mostra um exemplo de uma arquitetura de identidade híbrida e as cargas de trabalho que estão sendo desbloqueadas para os utilizadores. Este é apenas um exemplo de todas as novas possibilidades que podem ser desbloqueadas e entregues com uma sólida estratégia de identidade híbrida. 
 
-Alguns componentes que fazem parte da arquitetura de identidade híbrida ![arquitetura de identidade híbrida](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
+Alguns componentes que fazem parte ![da arquitetura híbrida de identidade híbrida de identidade híbrida](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
 
-## <a name="determine-business-needs"></a>Determinar as necessidades de negócio
-Cada empresa tem requisitos diferentes, mesmo que essas empresas façam parte da mesma indústria, os requisitos podem variar de negócios real. Ainda pode tirar partido das melhores práticas da indústria, mas acaba sendo necessidades de negócio da empresa, que irão originar a definir os requisitos para o design de identidade híbrida. 
+## <a name="determine-business-needs"></a>Determinar as necessidades empresariais
+Cada empresa terá requisitos diferentes, mesmo que estas empresas façam parte do mesmo setor, os requisitos reais do negócio podem variar. Ainda pode aproveitar as melhores práticas da indústria, mas, em última análise, são as necessidades de negócio da empresa que o levarão a definir os requisitos para o design de identidade híbrida. 
 
-Certifique-se responder às perguntas seguintes para identificar as necessidades da sua empresa:
+Certifique-se de responder às seguintes questões para identificar as necessidades do seu negócio:
 
-* A sua empresa está à procura de cortar custos operacionais de TI?
-* É da sua empresa está à procura para proteger recursos na cloud (aplicações SaaS, infra-estrutura)?
-* É da sua empresa está à procura de modernizar o seu departamento de TI?
-  * Os seus utilizadores estão mais exigentes e móveis que a TI criar exceções em sua rede de Perímetro para permitir que um tipo diferente de tráfego para aceder a recursos diferentes?
-  * A sua empresa tem aplicações legadas que precisavam ser publicado para estes utilizadores modernas, mas não são fáceis de reescrever?
-  * A sua empresa precisa realizar todas essas tarefas e colocá-lo sob o controle ao mesmo tempo?
-* A sua empresa está à procura para proteger as identidades dos utilizadores e reduzir o risco com trazendo novas ferramentas que tiram partido dos conhecimentos do segurança do Azure conhecimentos no local da Microsoft?
-* É a sua empresa tentar se livrar das contas abominável "externas" no local e movê-los para a cloud em que já não são uma ameaça inativo dentro de seu ambiente no local?
+* A sua empresa está a tentar reduzir os custos operacionais de TI?
+* A sua empresa está à procura de ativos na nuvem (aplicações SaaS, infraestrutura)?
+* A sua empresa está a tentar modernizar a sua TI?
+  * Os seus utilizadores são mais móveis e exigem que as TI criem exceções no seu DMZ para permitir que diferentes tipos de tráfego acedam a diferentes recursos?
+  * A sua empresa tem aplicações antigas que precisavam de ser publicadas para estes utilizadores modernos, mas não são fáceis de reescrever?
+  * A sua empresa precisa de realizar todas estas tarefas e de a controlar ao mesmo tempo?
+* A sua empresa está a tentar proteger as identidades dos utilizadores e reduzir o risco trazendo novas ferramentas que aproveitem a experiência da experiência de segurança azure da Microsoft no local?
+* A sua empresa está a tentar livrar-se das temidas contas "externas" nas instalações e movê-las para a nuvem onde já não são uma ameaça adormecida dentro do seu ambiente no local?
 
-## <a name="analyze-on-premises-identity-infrastructure"></a>Analisar a infraestrutura de identidade no local
-Agora que tem uma ideia sobre os requisitos de negócio da empresa, terá de avaliar a sua infraestrutura de identidade no local. Essa avaliação é importante para definir os requisitos técnicos para integrar a sua solução de identidade atual para o sistema de gestão de identidade na cloud. Certifique-se responder às seguintes perguntas:
+## <a name="analyze-on-premises-identity-infrastructure"></a>Analisar infraestruturas de identidade no local
+Agora que tem uma ideia sobre os requisitos do negócio da sua empresa, precisa avaliar a sua infraestrutura de identidade no local. Esta avaliação é importante para definir os requisitos técnicos para integrar a sua atual solução de identidade no sistema de gestão de identidade na nuvem. Certifique-se de responder às seguintes perguntas:
 
-* Que solução de autenticação e autorização faz a sua empresa utilizam no local? 
-* A sua empresa tem atualmente qualquer serviço de sincronização no local?
-* A sua empresa utiliza quaisquer fornecedores de identidade (IdP) de terceiros?
+* Que solução de autenticação e autorização a sua empresa utiliza no local? 
+* A sua empresa tem atualmente algum serviço de sincronização no local?
+* A sua empresa utiliza fornecedores de identidade de terceiros (IDP)?
 
-Terá também de ter em consideração os serviços cloud que sua empresa pode ter. Realizar uma avaliação para compreender a integração atual com modelos de SaaS, IaaS ou PaaS no seu ambiente é muito importante. Certifique-se responder às seguintes questões durante essa avaliação:
+Também precisa de estar ciente dos serviços na nuvem que a sua empresa pode ter. Realizar uma avaliação para compreender a atual integração com os modelos SaaS, IaaS ou PaaS no seu ambiente é muito importante. Certifique-se de responder às seguintes perguntas durante esta avaliação:
 
-* A sua empresa tem qualquer integração com o fornecedor de serviços cloud?
-* Se Sim, quais serviços estão a ser utilizados?
-* Se esta integração atualmente em produção ou é um piloto?
+* A sua empresa tem alguma integração com um fornecedor de serviços na nuvem?
+* Se sim, que serviços estão a ser usados?
+* Esta integração está atualmente em produção ou é piloto?
 
 > [!NOTE]
-> Cloud Discovery analisa os seus registos de tráfego no catálogo de aplicações da Microsoft Cloud App Security cloud da cloud mais de 16 000 aplicações que são classificadas e pontuadas com base em mais de 70 fatores de risco, para fornecer visibilidade contínua para cloud utilizar, Shadow IT e o risco Desafio IT cópias sombra em sua organização. Para começar, consulte [configurar a Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
+> O Cloud Discovery analisa os seus registos de tráfego contra o catálogo de aplicações cloud da Microsoft Cloud App Security de mais de 16.000 aplicações em nuvem que estão classificadas e pontuadas com base em mais de 70 fatores de risco, para lhe proporcionar visibilidade contínua para o uso da nuvem, Shadow IT, e o risco que shadow IT coloca na sua organização. Para começar a ver [Configurar a Cloud Discovery.](/cloud-app-security/set-up-cloud-discovery)
 > 
 > 
 
-## <a name="evaluate-identity-integration-requirements"></a>Avaliar requisitos de integração de identidade
-Em seguida, terá de avaliar os requisitos de integração de identidade. Essa avaliação é importante definir os requisitos técnicos para como os usuários serão autenticados, como a presença da organização será exibida na cloud, como a organização permitirá que a autorização e o que a experiência de utilizador vai ser. Certifique-se responder às seguintes perguntas:
+## <a name="evaluate-identity-integration-requirements"></a>Avaliar os requisitos de integração de identidade
+Em seguida, é necessário avaliar os requisitos de integração de identidade. Esta avaliação é importante para definir os requisitos técnicos para a forma como os utilizadores vão autenticar, como a presença da organização vai ficar na nuvem, como a organização permitirá a autorização e qual será a experiência do utilizador. Certifique-se de responder às seguintes perguntas:
 
-* Sua organização utilizará Federação, a autenticação padrão ou ambos?
-* É um requisito de Federação?  Devido às seguintes:
-  * SSO com base em Kerberos
-  * A sua empresa tem uma aplicações no local (seja criado internamente ou 3rd party) que utiliza o SAML ou as funcionalidades de Federação semelhantes.
-  * MFA através de cartões inteligentes. RSA SecurID, etc.
-  * Regras de acesso de cliente que abordam as perguntas abaixo:
-    1. Pode bloquear todo o acesso externo ao Office 365 com base no endereço IP do cliente?
-    2. Pode bloquear todo o acesso externo ao Office 365, exceto Exchange ActiveSync?
-    3. Posso bloquear todos os acessos externos ao Office 365, exceto aplicações baseadas no browser (OWA, SPO)
-    4. Pode bloquear todo o acesso externo ao Office 365 para membros de grupos do AD designados
-* Preocupações com a auditoria de segurança /
-* Investimento já existente em autenticação federada
-* O nome de nossa organização irá utilizar para nosso domínio na cloud?
+* A sua organização estará a usar a federação, a autenticação padrão ou ambas?
+* A federação é um requisito?  Por causa do seguinte:
+  * Kerberos-based SSO (SSO baseado no Kerberos)
+  * A sua empresa tem aplicações no local (construídas internamente ou em terceiro) que utilizam capacidades saml ou federação semelhantes.
+  * MFA via Smart Cards. RSA SecurID, etc.
+  * Regras de acesso ao cliente que abordam as questões abaixo:
+    1. Posso bloquear todo o acesso externo ao Office 365 com base no endereço IP do cliente?
+    2. Posso bloquear todo o acesso externo ao Office 365, exceto o Exchange ActiveSync?
+    3. Posso bloquear todo o acesso externo ao Office 365, exceto para aplicações baseadas no navegador (OWA, SPO)
+    4. Posso bloquear todo o acesso externo ao Office 365 para membros de grupos addesignados
+* Preocupações de segurança/auditoria
+* Já existente investimento na autenticação federada
+* Que nome usará a nossa organização para o nosso domínio na nuvem?
 * A organização tem um domínio personalizado?
-  1. É nesse domínio público e facilmente verificável através de DNS?
-  2. Se não for, em seguida, tem um domínio público que pode ser utilizado para registar um UPN alternativo no AD?
-* São os identificadores de utilizador consistente para representação de cloud? 
-* A organização tem aplicações que requerem integração com os serviços cloud?
-* A organização tem vários domínios e todos eles utiliza autenticação federada ou padrão?
+  1. Este domínio é público e facilmente verificável via DNS?
+  2. Se não for, então tem um domínio público que pode ser usado para registar uma UPN alternativa em AD?
+* Os identificadores do utilizador são consistentes para a representação na nuvem? 
+* A organização tem aplicações que requerem integração com serviços na nuvem?
+* A organização tem vários domínios e todos usarão a autenticação padrão ou federada?
 
-## <a name="evaluate-applications-that-run-in-your-environment"></a>Avaliar aplicativos executados no seu ambiente
-Agora que tiver uma idéia quanto no local e infraestrutura na cloud, é necessário avaliar os aplicativos executados nesses ambientes. Essa avaliação é importante definir os requisitos técnicos para integrar estas aplicações para o sistema de gestão de identidade na cloud. Certifique-se responder às seguintes perguntas:
+## <a name="evaluate-applications-that-run-in-your-environment"></a>Avaliar aplicações que funcionam no seu ambiente
+Agora que tem uma ideia sobre as suas instalações e infraestruturas em nuvem, precisa avaliar as aplicações que funcionam nestes ambientes. Esta avaliação é importante para definir os requisitos técnicos para integrar estas aplicações no sistema de gestão de identidade na nuvem. Certifique-se de responder às seguintes perguntas:
 
-* Onde encontrará a nossos aplicativos?
-* Os utilizadores acederão a aplicações no local?  Na cloud? Ou ambos?
-* Existem planos para levar as cargas de trabalho de aplicação existente e movê-los para a cloud?
-* Existem planos para desenvolver novos aplicativos que residem no local ou na cloud que irá utilizar na cloud autenticação?
+* Onde vão viver as nossas candidaturas?
+* Os utilizadores vão aceder às aplicações no local?  Na nuvem? Ou os dois?
+* Há planos para pegar nas cargas de trabalho de aplicação existentes e movê-las para a nuvem?
+* Existem planos para desenvolver novas aplicações que residam no local ou na nuvem que usarão a autenticação em nuvem?
 
-## <a name="evaluate-user-requirements"></a>Avaliar requisitos de utilizador
-Também tem que avaliar os requisitos de utilizador. Essa avaliação é importante definir os passos que serão necessários para inclusão e prestar assistência aos utilizadores como eles fazem a transição para a cloud. Certifique-se responder às seguintes perguntas:
+## <a name="evaluate-user-requirements"></a>Avaliar os requisitos do utilizador
+Também tem de avaliar os requisitos do utilizador. Esta avaliação é importante para definir os passos que serão necessários para o embarque e assistência aos utilizadores à medida que transitem para a nuvem. Certifique-se de responder às seguintes perguntas:
 
-* Os utilizadores acederão a aplicações no local?
-* Os usuários acessarão os aplicativos em nuvem?
-* Como fazer os utilizadores, normalmente, inicie sessão no respetivo ambiente no local?
-* Como irão os utilizadores início de sessão para a cloud?
+* Os utilizadores vão aceder às aplicações no local?
+* Os utilizadores vão aceder a aplicações na nuvem?
+* Como é que os utilizadores normalmente iniciam sessão no seu ambiente no local?
+* Como é que os utilizadores vão entrar na nuvem?
 
 > [!NOTE]
-> Lembre-se de que anota cada resposta e compreender as razões implícitas para a resposta. [Determinar os requisitos de resposta a incidentes](plan-hybrid-identity-design-considerations-incident-response-requirements.md) abordará as opções disponíveis e os prós/contras de cada opção.  Ao responder a essas questões, vai selecionar qual opção melhor se adequa aos seu negócio precisa.
+> Certifique-se de que anota cada resposta e que compreende os fundamentos das mesmas. Determinar os requisitos de resposta a [incidentes](plan-hybrid-identity-design-considerations-incident-response-requirements.md) irá passar pelas opções disponíveis e prós/contras de cada opção.  Ao responder a essas perguntas, irá selecionar qual a opção que melhor se adequa às suas necessidades de negócio.
 > 
 > 
 
-## <a name="next-steps"></a>Passos Seguintes
-[Determinar requisitos de sincronização de diretórios](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)
+## <a name="next-steps"></a>Passos seguintes
+[Determinar os requisitos de sincronização do diretório](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
 ## <a name="see-also"></a>Consulte também
-[Descrição geral das considerações de design](plan-hybrid-identity-design-considerations-overview.md)
+[Visão geral das considerações de conceção](plan-hybrid-identity-design-considerations-overview.md)
 

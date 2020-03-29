@@ -1,6 +1,6 @@
 ---
-title: Configurar a telemetria de serviços de multimédia do Azure com .NET | Documentos da Microsoft
-description: Este artigo mostra-lhe como utilizar a telemetria de serviços de multimédia do Azure com o .NET SDK.
+title: Configurar telemetria dos Serviços de Media Azure com .NET Microsoft Docs
+description: Este artigo mostra-lhe como usar a telemetria azure Media Services usando .NET SDK.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,33 +15,33 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 1ffaefc51121aeb7421d6e49a3c0e58c76d4391e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61464951"
 ---
-# <a name="configuring-azure-media-services-telemetry-with-net"></a>Configurar a telemetria de serviços de multimédia do Azure com .NET 
+# <a name="configuring-azure-media-services-telemetry-with-net"></a>Configurar telemetria dos Serviços de Mídia Azure com .NET 
 
-Este artigo descreve os passos gerais que pode dar ao configurar a telemetria de serviços de multimédia do Azure (AMS) com o .NET SDK. 
+Este artigo descreve os passos gerais que poderá tomar ao configurar a telemetria dos Serviços De Mídia Azure (AMS) utilizando o .NET SDK. 
 
 >[!NOTE]
->Para a explicação detalhada do que é a telemetria de AMS e como consumi-lo, consulte a [descrição geral](media-services-telemetry-overview.md) artigo.
+>Para obter a explicação detalhada do que é a telemetria da AMS e como consumi-la, consulte o artigo [sobre visão geral.](media-services-telemetry-overview.md)
 
 Pode consumir dados de telemetria de uma das seguintes formas:
 
-- Ler dados diretamente a partir do armazenamento de tabelas do Azure (por exemplo, utilizando o SDK de armazenamento). Para a descrição das tabelas de armazenamento de telemetria, consulte a **consumir informações telemétricas** na [isso](https://msdn.microsoft.com/library/mt742089.aspx) artigo.
+- Leia os dados diretamente do Armazenamento de Mesa Azure (por exemplo, utilizando o SDK de Armazenamento). Para obter a descrição das tabelas de armazenamento de telemetria, consulte as informações de **telemetria consumista** [neste](https://msdn.microsoft.com/library/mt742089.aspx) artigo.
 
 Ou
 
-- Utilize o suporte do SDK do .NET de serviços de suporte de dados para ler os dados de armazenamento. Este artigo mostra como ativar a telemetria para a conta de AMS especificada e como consultar as métricas com o SDK de .NET de serviços de multimédia do Azure.  
+- Utilize o suporte nos Media Services .NET SDK para ler dados de armazenamento. Este artigo mostra como ativar a telemetria para a conta AMS especificada e como consultar as métricas usando o Azure Media Services .NET SDK.  
 
 ## <a name="configuring-telemetry-for-a-media-services-account"></a>Configurar a telemetria para uma conta de Media Services
 
-Os passos seguintes são necessários para ativar a telemetria:
+São necessários os seguintes passos para permitir a telemetria:
 
-- Obter as credenciais da conta de armazenamento anexado à conta de Media Services. 
-- Criar um ponto de final de notificação com **EndPointType** definida como **Azuretable{0}name** e endPointAddress que aponta para a tabela de armazenamento.
+- Obtenha as credenciais da conta de armazenamento anexada à conta de Serviços de Media. 
+- Crie um ponto final de notificação com um conjunto **EndPointType** para **AzureTable** e endPointAddress apontando para a tabela de armazenamento.
 
 ```csharp
         INotificationEndPoint notificationEndPoint = 
@@ -50,7 +50,7 @@ Os passos seguintes são necessários para ativar a telemetria:
                       "https://" + _mediaServicesStorageAccountName + ".table.core.windows.net/");
 ```
 
-- Crie uma configuração de monitorização para os serviços que pretende monitorizar. É permitida mais do que uma definição de configuração de monitorização. 
+- Crie uma configuração de configuração de monitorização para os serviços que pretende monitorizar. Não é permitida a definição de configuração de monitorização. 
 
 ```csharp
         IMonitoringConfiguration monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
@@ -61,15 +61,15 @@ Os passos seguintes são necessários para ativar a telemetria:
             });
 ```
 
-## <a name="consuming-telemetry-information"></a>Consumo de informações de telemetria
+## <a name="consuming-telemetry-information"></a>Consumir informação sobre telemetria
 
-Para informações sobre consumo de telemetria de informações, consulte [isso](media-services-telemetry-overview.md) artigo.
+Para obter informações sobre o consumo de informação sobre telemetria, consulte [este](media-services-telemetry-overview.md) artigo.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
 
 1. Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com informações da ligação, conforme descrito em [Media Services development with .NET](media-services-dotnet-how-to-use.md) (Desenvolvimento de Serviços de Multimédia com .NET). 
 
-2. Adicione o seguinte elemento ao **appSettings** definidas no ficheiro App. config:
+2. Adicione o seguinte elemento às **definições** de apps definidas no ficheiro app.config:
 
     ```xml
         <add key="StorageAccountName" value="storage_name" />
@@ -77,7 +77,7 @@ Para informações sobre consumo de telemetria de informações, consulte [isso]
  
 ## <a name="example"></a>Exemplo  
     
-O exemplo seguinte mostra como ativar a telemetria para a conta de AMS especificada e como consultar as métricas com o SDK de .NET de serviços de multimédia do Azure.  
+O exemplo seguinte mostra como ativar a telemetria para a conta AMS especificada e como consultar as métricas utilizando o Azure Media Services .NET SDK.  
 
 ```csharp
 using System;
@@ -226,7 +226,7 @@ namespace AMSMetrics
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

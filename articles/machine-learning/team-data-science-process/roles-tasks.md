@@ -1,5 +1,5 @@
 ---
-title: Tarefas e funções do Team Data Science Process
+title: Funções e tarefas do Processo de Ciência de Dados da Equipa
 description: Um esboço dos componentes-chave, funções de pessoal e tarefas associadas a um grupo de ciência de dados.
 author: marktab
 manager: marktab
@@ -12,13 +12,13 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c1ed731943abf0efdd99ea54d2318fa402835e08
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76720015"
 ---
-# <a name="team-data-science-process-roles-and-tasks"></a>Tarefas e funções do Team Data Science Process
+# <a name="team-data-science-process-roles-and-tasks"></a>Funções e tarefas do Processo de Ciência de Dados da Equipa
 
 O Team Data Science Process (TDSP) é um quadro desenvolvido pela Microsoft que fornece uma metodologia estruturada para construir soluções de análise preditivas e aplicações inteligentes. Este artigo descreve as principais funções de pessoal e tarefas associadas para uma equipa de ciência de dados que normaliza este processo.
 
@@ -40,9 +40,9 @@ Nessa estrutura, há lideranças de grupo e lideranças de equipa. Tipicamente, 
 ## <a name="definition-and-tasks-for-the-four-tdsp-roles"></a>Definição e tarefas para as quatro funções TDSP
 Com o pressuposto de que a unidade de ciência de dados é constituída por equipas dentro de um grupo, existem quatro funções distintas para o pessoal da TDSP:
 
-1. **Gestor de Grupos**: Gere toda a unidade de ciência de dados numa empresa. Uma unidade de ciência de dados pode ter várias equipes, cada um deles está trabalhando em vários projetos de ciência de dados em mercados verticais de negócios distintos. Gerente de grupo pode delegar suas tarefas, para um substituto, mas não altere as tarefas associadas à função.
+1. **Gestor de Grupos**: Gere toda a unidade de ciência de dados numa empresa. Uma unidade de ciência de dados pode ter várias equipas, cada uma das quais está a trabalhar em vários projetos de ciência de dados em verticais de negócios distintos. Um Gestor de Grupo pode delegar as suas tarefas num substituto, mas as tarefas associadas ao papel não mudam.
    
-2. **Team Lead**: Gere uma equipa na unidade de ciência de dados de uma empresa. Uma equipe é composta por vários cientistas de dados. Para uma pequena unidade de ciência de dados, o Gestor de Grupo e o Team Lead podem ser a mesma pessoa.
+2. **Team Lead**: Gere uma equipa na unidade de ciência de dados de uma empresa. Uma equipa é composta por vários cientistas de dados. Para uma pequena unidade de ciência de dados, o Gestor de Grupo e o Team Lead podem ser a mesma pessoa.
    
 3. **Project Lead**: Gere as atividades diárias de cientistas de dados individuais num projeto específico de ciência de dados.
    
@@ -55,9 +55,9 @@ Com o pressuposto de que a unidade de ciência de dados é constituída por equi
 
 O diagrama seguinte mostra as tarefas de alto nível para cada função do Processo de Ciência de Dados da Equipa. Este esquema e o seguinte esboço mais detalhado de tarefas para cada função TDSP pode ajudá-lo a escolher o tutorial de que precisa com base nas suas responsabilidades.
 
-![Descrição geral de funções e tarefas](./media/roles-tasks/overview-tdsp-top-level.png)
+![Funções e tarefas visão geral](./media/roles-tasks/overview-tdsp-top-level.png)
 
-## <a name="group-manager-tasks"></a>Tarefas do Gestor de grupo
+## <a name="group-manager-tasks"></a>Tarefas do Gestor de Grupos
 
 O Gestor de Grupo ou um administrador designado do sistema TDSP completa as seguintes tarefas para adotar o TDSP:
 
@@ -70,21 +70,21 @@ O Gestor de Grupo ou um administrador designado do sistema TDSP completa as segu
 
 Para obter instruções detalhadas, consulte [as tarefas do Gestor de Grupo para uma equipa](group-manager-tasks.md)de ciência de dados .
 
-## <a name="team-lead-tasks"></a>Tarefas de líder de equipe
+## <a name="team-lead-tasks"></a>Tarefas de Team Lead
 
 O Team Lead ou um administrador de projeto designado completa as seguintes tarefas para adotar o TDSP:
 
 - Cria um **projeto** de equipa na organização Azure DevOps do grupo.
 - Cria o **repositório** de modelos de projeto no projeto, e semente-o a partir do repositório de modelo seletiva do grupo criado pelo Gestor de Grupo ou delegado.
 - Cria o **repositório**de utilidade da equipa, semente-o do repositório de utilidade seletiva do grupo, e adiciona utilitários específicos da equipa ao repositório.
-- Opcionalmente cria armazenamento de [ficheiros Azure](https://azure.microsoft.com/services/storage/files/) para armazenar ativos de dados úteis para a equipa. Outros membros da Equipe podem montar este arquivo de ficheiros de cloud partilhado em suas áreas de trabalho de análise.
+- Opcionalmente cria armazenamento de [ficheiros Azure](https://azure.microsoft.com/services/storage/files/) para armazenar ativos de dados úteis para a equipa. Outros membros da equipa podem montar esta loja de ficheiros em nuvem partilhada nos seus desktops de análise.
 - Opcionalmente monta o armazenamento de ficheiros Azure no **DSVM** da equipa e adiciona-lhe os ativos da equipa.
 - Configura o controlo de **segurança** adicionando membros da equipa e configurando as suas permissões.
 
 Para obter instruções detalhadas, consulte [as tarefas team lead para uma equipa](team-lead-tasks.md)de ciência de dados .
 
 
-## <a name="project-lead-tasks"></a>Tarefas de líder do projeto
+## <a name="project-lead-tasks"></a>Tarefas de Project Lead
 
 O Project Lead completa as seguintes tarefas para adotar o TDSP:
 
@@ -95,7 +95,7 @@ O Project Lead completa as seguintes tarefas para adotar o TDSP:
 
 Para obter instruções detalhadas, consulte [as tarefas do Project Lead para uma equipa](project-lead-tasks.md)de ciência de dados.
 
-## <a name="project-individual-contributor-tasks"></a>Tarefas de Contribuidor Individual do projeto
+## <a name="project-individual-contributor-tasks"></a>Tarefas de Colaborador Individual do Projeto
 
 O Project Individual Contributor, geralmente um Cientista de Dados, realiza as seguintes tarefas utilizando o TDSP:
 
@@ -116,7 +116,7 @@ O seguinte valor descreve o fluxo de trabalho da TDSP para a execução do proje
 As etapas de fluxo de trabalho podem ser agrunadas em três atividades:
 
 - Projeto Leads conduz em plano de sprint
-- Cientistas de Dados desenvolvem artefactos em ramos `git` para abordar itens de trabalho
+- Cientistas de Dados `git` desenvolvem artefactos em ramos para abordar itens de trabalho
 - Project Leads ou outros membros da equipa fazem revisões de código e fundem filiais de trabalho para o ramo principal
 
 Para obter instruções detalhadas sobre o fluxo de trabalho de execução do projeto, consulte [o desenvolvimento ágil de projetos de ciência de dados.](agile-development.md)
@@ -125,9 +125,9 @@ Para obter instruções detalhadas sobre o fluxo de trabalho de execução do pr
 
 Utilize o [repositório](https://github.com/Azure/Azure-TDSP-ProjectTemplate) de modelos de projeto da equipa da Microsoft TDSP para apoiar a execução e colaboração eficientes do projeto. O repositório dá-lhe uma estrutura de diretório padronizada e modelos de documentoque pode usar para os seus próprios projetos De TDSP.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Explore as descrições mais detalhadas das funções e tarefas definidas pelo processo de ciência de dados de equipa:
+Explore descrições mais detalhadas das funções e tarefas definidas pelo Processo de Ciência de Dados da Equipa:
 
 - [Tarefas do Gestor de Grupos para uma equipa de ciência de dados](group-manager-tasks.md)
 - [Tarefas de Team Lead para uma equipa de ciência de dados](team-lead-tasks.md)

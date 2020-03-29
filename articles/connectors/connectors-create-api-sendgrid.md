@@ -1,6 +1,6 @@
 ---
-title: Conectar-se ao SendGrid de aplicativos lógicos do Azure
-description: Automatizar tarefas e fluxos de trabalho que enviam emails e gerenciam listas de endereçamento no SendGrid usando aplicativos lógicos do Azure
+title: Ligue-se a SendGrid a partir de Aplicações Lógicas Azure
+description: Automatizar tarefas e fluxos de trabalho que enviam e-mails e gerem listas de correio em SendGrid utilizando aplicações da Lógica Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,63 +8,63 @@ ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
 ms.openlocfilehash: 998020c5e39c8d50e8a14c74c43b7b435752f43d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789312"
 ---
-# <a name="send-emails-and-manage-mailing-lists-in-sendgrid-by-using-azure-logic-apps"></a>Enviar emails e gerenciar listas de endereçamento no SendGrid usando os aplicativos lógicos do Azure
+# <a name="send-emails-and-manage-mailing-lists-in-sendgrid-by-using-azure-logic-apps"></a>Envie e-mails e gereas listas de correio em SendGrid utilizando aplicações da Lógica Azure
 
-Com os aplicativos lógicos do Azure e o conector do SendGrid, você pode criar tarefas e fluxos de trabalho automatizados que enviam emails e gerenciam suas listas de destinatários, por exemplo:
+Com as Aplicações Lógicas Azure e o conector SendGrid, pode criar tarefas automatizadas e fluxos de trabalho que enviam e-mails e gerem as listas de destinatários, por exemplo:
 
-* Enviar email.
-* Adicionar destinatários a listas.
-* Obtenha, adicione e gerencie a supressão global.
+* Envie e-mail.
+* Adicione destinatários a listas.
+* Obter, adicionar e gerir a supressão global.
 
-Você pode usar ações SendGrid em seus aplicativos lógicos para executar essas tarefas. Você também pode fazer com que outras ações usem a saída de ações SendGrid. 
+Pode utilizar ações do SendGrid nas suas aplicações lógicas para executar estas tarefas. Também pode ter outras ações a utilizar a saída a partir de ações da SendGrid. 
 
-Esse conector fornece apenas ações, portanto, para iniciar seu aplicativo lógico, use um gatilho separado, como um gatilho de **recorrência** . Por exemplo, se você Adicionar destinatários regularmente às suas listas, poderá enviar um email sobre destinatários e listas usando o conector do Outlook do Office 365 ou o conector do Outlook.com.
-Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md)
+Este conector fornece apenas ações, para iniciar a sua aplicação lógica, usar um gatilho separado, como um gatilho **de Recorrência.** Por exemplo, se adicionar regularmente destinatários às suas listas, pode enviar e-mail sobre destinatários e listas utilizando o conector do Office 365 Outlook ou Outlook.com conector.
+Se é novo em aplicações lógicas, reveja [o que são as Aplicações Lógicas Azure?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/). 
 
-* Uma [conta do SendGrid](https://www.sendgrid.com/) e uma [chave de API do SendGrid](https://sendgrid.com/docs/ui/account-and-settings/api-keys/)
+* Uma [conta SendGrid](https://www.sendgrid.com/) e uma [chave SendGrid API](https://sendgrid.com/docs/ui/account-and-settings/api-keys/)
 
-   Sua chave de API autoriza seu aplicativo lógico a criar uma conexão e acessar sua conta do SendGrid.
+   A sua chave API autoriza a sua aplicação lógica para criar uma ligação e aceder à sua conta SendGrid.
 
-* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* O aplicativo lógico no qual você deseja acessar sua conta do SendGrid. Para usar uma ação SendGrid, inicie seu aplicativo lógico com outro gatilho, por exemplo, o gatilho **recorrência** .
+* A aplicação lógica onde pretende aceder à sua conta SendGrid. Para utilizar uma ação SendGrid, inicie a sua aplicação lógica com outro gatilho, por exemplo, o gatilho **Recurrence.**
 
-## <a name="connect-to-sendgrid"></a>Conectar-se ao SendGrid
+## <a name="connect-to-sendgrid"></a>Ligar ao SendGrid
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Entre no [portal do Azure](https://portal.azure.com)e abra seu aplicativo lógico no designer de aplicativo lógico, se ainda não estiver aberto.
+1. Inscreva-se no [portal Azure](https://portal.azure.com)e abra a sua aplicação lógica no Logic App Designer, se ainda não estiver aberta.
 
 1. Escolha um caminho: 
 
-   * Na última etapa em que você deseja adicionar uma ação, escolha **nova etapa**. 
+   * Sob o último passo em que pretende adicionar uma ação, escolha **novo passo**. 
 
      -ou-
 
-   * Entre as etapas em que você deseja adicionar uma ação, mova o ponteiro sobre a seta entre as etapas. 
-   Escolha o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
+   * Entre os degraus onde pretende adicionar uma ação, mova o ponteiro sobre a seta entre os degraus. 
+   Escolha o sinal**+** de mais () que aparece e, em seguida, selecione **Adicionar uma ação**.
 
-1. Na caixa de pesquisa, digite "sendgrid" como filtro. Na lista ações, selecione a ação desejada.
+1. Na caixa de pesquisa, introduza "sendgrid" como filtro. Na lista de ações, selecione a ação que deseja.
 
 1. Indique um nome para a ligação. 
 
-1. Insira sua chave de API do SendGrid e escolha **criar**.
+1. Introduza a sua chave SendGrid API e, em seguida, escolha **Criar**.
 
-1. Forneça os detalhes necessários para a ação selecionada e continue criando o fluxo de trabalho do aplicativo lógico.
+1. Forneça os detalhes necessários para a sua ação selecionada e continue a construir o fluxo de trabalho da sua aplicação lógica.
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descritos pela descrição de OpenAPI (anteriormente, Swagger) do conector, examine a [página de referência](/connectors/sendgrid/)do conector.
+Para detalhes técnicos sobre gatilhos, ações e limites, descritos pela descrição OpenAPI (ex-Swagger) do conector, reveja a página de [referência](/connectors/sendgrid/)do conector .
 
 ## <a name="get-support"></a>Obter suporte
 
@@ -73,4 +73,4 @@ Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descri
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)
+* Saiba mais sobre outros [conectores de Aplicações Lógicas](../connectors/apis-list.md)

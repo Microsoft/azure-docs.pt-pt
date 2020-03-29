@@ -1,6 +1,6 @@
 ---
-title: O Gestor de tráfego do Azure com o Azure Site Recovery | Documentos da Microsoft
-description: Descreve como utilizar o Gestor de tráfego do Azure com o Azure Site Recovery para recuperação após desastre e migração
+title: Gestor de Tráfego Azure com recuperação do site Azure Microsoft Docs
+description: Descreve como usar o Gestor de Tráfego Azure com a Recuperação do Site Azure para recuperação e migração de desastres
 services: site-recovery
 author: mayurigupta13
 manager: rochakm
@@ -9,114 +9,114 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 6c77cd43231d4596535c11564313a0fe90633cdb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60947805"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Gestor de Tráfego do Azure com o Azure Site Recovery
 
-O Gestor de tráfego do Azure permite-lhe controlar a distribuição de tráfego entre os pontos de extremidade do aplicativo. Os pontos finais são serviços com acesso à Internet alojados dentro ou fora do Azure.
+O Gestor de Tráfego Azure permite controlar a distribuição do tráfego através dos pontos finais da sua aplicação. Os pontos finais são serviços com acesso à Internet alojados dentro ou fora do Azure.
 
-O Gestor de tráfego utiliza o sistema de nomes de domínio (DNS) para direcionar os pedidos de cliente para o ponto de final mais adequado, com base num método de encaminhamento de tráfego e o estado de funcionamento dos pontos finais. O Gestor de Tráfego proporciona vários [métodos de encaminhamento de tráfego](../traffic-manager/traffic-manager-routing-methods.md) e [opções de monitorização de pontos finais](../traffic-manager/traffic-manager-monitoring.md) para satisfazer diferentes necessidades das aplicações e modelos de ativação pós-falha automática. Os clientes ligam diretamente para o ponto de extremidade selecionado. O Gestor de tráfego não é um proxy ou de um gateway, e não vê o tráfego que passa entre o cliente e o serviço.
+O Traffic Manager utiliza o Sistema de Nome de Domínio (DNS) para direcionar os pedidos dos clientes para o ponto final mais adequado, com base num método de encaminhamento de tráfego e na saúde dos pontos finais. O Gestor de Tráfego proporciona vários [métodos de encaminhamento de tráfego](../traffic-manager/traffic-manager-routing-methods.md) e [opções de monitorização de pontos finais](../traffic-manager/traffic-manager-monitoring.md) para satisfazer diferentes necessidades das aplicações e modelos de ativação pós-falha automática. Os clientes ligam diretamente ao ponto final selecionado. O Traffic Manager não é um representante ou um portal, e não vê o tráfego a passar entre o cliente e o serviço.
 
-Este artigo descreve como pode combinar do Monitor de tráfego do Azure encaminhamento inteligentes com capacidades de migração e de recuperação de desastres poderosa do Azure Site Recovery.
+Este artigo descreve como pode combinar o encaminhamento inteligente do Azure Traffic Monitor com as poderosas capacidades de recuperação e migração de desastres do Azure Site Recovery.
 
-## <a name="on-premises-to-azure-failover"></a>No local para a ativação pós-falha do Azure
+## <a name="on-premises-to-azure-failover"></a>No local para o fracasso de Azure
 
-Para o primeiro cenário, considere **empresa A** que tem todos os sua infra-estrutura de aplicativo em execução no seu ambiente no local. Por motivos de continuidade e conformidade de negócios, **empresa A** decide usar o Azure Site Recovery para proteger seus aplicativos.
+Para o primeiro cenário, considere a **Empresa A** que tem toda a sua infraestrutura de aplicação em funcionamento no seu ambiente no local. Por razões de continuidade e conformidade do negócio, a **Empresa A** decide utilizar a Recuperação do Site Azure para proteger as suas aplicações.
 
-**Empresa A** está a executar aplicações com pontos finais públicos e pretende a capacidade de forma totalmente integrada a redirecionar o tráfego para o Azure num evento de desastre. O [prioridade](../traffic-manager/traffic-manager-configure-priority-routing-method.md) método de encaminhamento de tráfego de mensagens em fila no Gestor de tráfego do Azure permite que a empresa A facilmente implementar este padrão de ativação pós-falha.
+**A Empresa A** está a executar aplicações com pontos finais públicos e quer a capacidade de redirecionar o tráfego para Azure num evento de desastre. O método [prioritário](../traffic-manager/traffic-manager-configure-priority-routing-method.md) de encaminhamento de tráfego em Azure Traffic Manager permite à Empresa A implementar facilmente este padrão de failover.
 
-A configuração é o seguinte:
-- **Empresa** cria uma [perfil do Traffic Manager](../traffic-manager/traffic-manager-create-profile.md).
-- Utilizando o **prioridade** método de encaminhamento **empresa A** cria dois pontos de extremidade – **primário** no local e **ativação pós-falha** para o Azure. **Primário** é atribuída prioridade 1 e **ativação pós-falha** é atribuída a prioridade 2.
-- Uma vez que o **primário** ponto final está alojado fora do Azure, o ponto final é criado como um [externo](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) ponto final.
-- Com o Azure Site Recovery, o site do Azure não tem quaisquer máquinas virtuais ou aplicações em execução antes da ativação pós-falha. Então, o **ativação pós-falha** ponto final também é criado como um **externo** ponto final.
-- Por predefinição, o tráfego de utilizador é direcionado para a aplicação no local porque esse ponto final tem a prioridade mais alta associada a ele. Não existe tráfego é direcionado para o Azure se o **primário** ponto final está em bom estado.
+A configuração é a seguinte:
+- **Empresa A** cria um perfil de Gestor de [Tráfego.](../traffic-manager/traffic-manager-create-profile.md)
+- Utilizando o método de encaminhamento **prioritário,** a **Empresa A** cria dois pontos finais – **Primário** para instalações e **Failover** para Azure. **A Primária** é atribuída prioridade 1 e **a Failover** é atribuída prioridade 2.
+- Uma **vez** que o ponto final primário está hospedado fora de Azure, o ponto final é criado como um ponto final [externo.](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints)
+- Com a Recuperação do Site Azure, o site Azure não dispõe de máquinas ou aplicações virtuais em funcionamento antes da falha. Assim, o ponto final **failover** também é criado como um ponto final **externo.**
+- Por predefinição, o tráfego do utilizador é direcionado para a aplicação no local porque esse ponto final tem a maior prioridade associada a ela. Nenhum tráfego é direcionado para Azure se o ponto final **primário** for saudável.
 
-![No local-para-Azure antes da ativação pós-falha](./media/concepts-traffic-manager-with-site-recovery/on-premises-failover-before.png)
+![No local-para-Azure antes do fracasso](./media/concepts-traffic-manager-with-site-recovery/on-premises-failover-before.png)
 
-Num evento de desastre, a empresa pode acionar uma [ativação pós-falha](site-recovery-failover.md) para o Azure e recuperar as suas aplicações no Azure. Quando o Gestor de tráfego do Azure Deteta que o **primário** ponto final já não está em bom estado, ele utiliza automaticamente o **ativação pós-falha** ponto final na resposta DNS e os utilizadores ligar à aplicação recuperada no Azure.
+Num evento de desastre, a Empresa A pode desencadear uma [falha](site-recovery-failover.md) no Azure e recuperar as suas aplicações no Azure. Quando o Gestor de Tráfego Azure deteta que o ponto final **primário** já não é saudável, utiliza automaticamente o ponto final **failover** na resposta DNS e os utilizadores ligam-se à aplicação recuperada no Azure.
 
-![No local-para-Azure após a ativação pós-falha](./media/concepts-traffic-manager-with-site-recovery/on-premises-failover-after.png)
+![No local-para-Azure após falha](./media/concepts-traffic-manager-with-site-recovery/on-premises-failover-after.png)
 
-Dependendo das necessidades de negócio, **empresa A** pode escolher um superior ou inferior [frequência de investigação](../traffic-manager/traffic-manager-monitoring.md) para alternar entre no local para o Azure num evento de desastre e certifique-se o período de indisponibilidade mínimo para os utilizadores.
+Dependendo dos requisitos empresariais, a **Empresa A** pode escolher uma frequência de [sondagem](../traffic-manager/traffic-manager-monitoring.md) mais alta ou menor para mudar entre as instalações para o Azure num evento de desastre, e garantir o mínimo de tempo de inatividade para os utilizadores.
 
-Quando o desastre está contido, **empresa** pode reativação pós-falha do Azure para o seu ambiente no local ([VMware](vmware-azure-failback.md) ou [Hyper-V](hyper-v-azure-failback.md)) com o Azure Site Recovery. Agora, quando o Gestor de tráfego detetar que o **primário** ponto final está em bom estado novamente, ele utiliza automaticamente o **primário** ponto de extremidade em suas respostas DNS.
+Quando o desastre está contido, a **Empresa A** pode falhar de Azure para o seu ambiente no local ([VMware](vmware-azure-failback.md) ou [Hyper-V](hyper-v-azure-failback.md)) usando a Recuperação do Site Azure. Agora, quando o Gestor de Tráfego deteta que o ponto final **primário** está novamente saudável, utiliza automaticamente o ponto final **primário** nas suas respostas DNS.
 
-## <a name="on-premises-to-azure-migration"></a>No local para migração do Azure
+## <a name="on-premises-to-azure-migration"></a>No local para a migração de Azure
 
-Para além da recuperação após desastre, recuperação de sites do Azure também permite [migrações para o Azure](migrate-overview.md). Com capacidades de ativação pós-falha de teste poderosas do Azure Site Recovery, os clientes podem avaliar o desempenho de aplicações no Azure sem afetar o seu ambiente no local. E quando os clientes estão prontos para migrar, eles podem optar por migrar cargas de trabalho inteiras em conjunto ou optar por migrar e aumentar gradualmente.
+Além da recuperação de desastres, a Recuperação do Sítio Azure também permite [migrações para Azure.](migrate-overview.md) Utilizando as poderosas capacidades de failover de teste do Azure Site Recovery, os clientes podem avaliar o desempenho da aplicação no Azure sem afetar o seu ambiente no local. E quando os clientes estão prontos para migrar, podem optar por migrar cargas inteiras em conjunto ou optar por migrar e escalar gradualmente.
 
-Azure Gestor de tráfego [ponderado](../traffic-manager/traffic-manager-configure-weighted-routing-method.md) método de encaminhamento pode ser utilizado para direcionar alguma parte do tráfego de entrada para o Azure ao direcionar a maior parte para o ambiente no local. Esta abordagem pode ajudar a avaliar o desempenho de dimensionamento à medida que pode aumentar a ponderação atribuída para o Azure, ao migrar mais e mais das suas cargas de trabalho para o Azure.
+O método de encaminhamento [ponderado](../traffic-manager/traffic-manager-configure-weighted-routing-method.md) do Gestor de Tráfego Azure pode ser usado para direcionar parte do tráfego de entrada para Azure enquanto direciona a maioria para o ambiente no local. Esta abordagem pode ajudar a avaliar o desempenho da escala, pois pode continuar a aumentar o peso atribuído ao Azure à medida que migra cada vez mais das suas cargas de trabalho para o Azure.
 
-Por exemplo, **empresa B** opta por migrar em fases, mover alguns de seus ambientes de aplicativos, mantendo o rest no local. Durante as fases iniciais quando a maior parte do ambiente é no local, é atribuído um peso maior para o ambiente no local. O Gestor de tráfego devolve um ponto de extremidade com base nos pesos atribuídos aos pontos finais disponíveis.
+Por exemplo, a **Empresa B** opta por migrar por fases, movendo parte do seu ambiente de aplicação, mantendo o resto no local. Durante as fases iniciais em que a maior parte do ambiente está no local, um peso maior é atribuído ao ambiente no local. O gestor de tráfego devolve um ponto final com base nos pesos atribuídos aos pontos finais disponíveis.
 
 ![Migração no local-para-Azure](./media/concepts-traffic-manager-with-site-recovery/on-premises-migration.png)
 
-Durante a migração, os dois pontos finais estão ativos e a maioria do tráfego é direcionado para o ambiente no local. Como a migração prossegue, pode ser atribuído um peso maior para o ponto final no Azure e, finalmente, o ponto de extremidade no local pode ser desativado após migração.
+Durante a migração, ambos os pontos finais estão ativos e a maior parte do tráfego é direcionado para o ambiente no local. À medida que a migração prossegue, um peso maior pode ser atribuído ao ponto final em Azure e, finalmente, o ponto final no local pode ser desativado após a migração.
 
-## <a name="azure-to-azure-failover"></a>Ativação pós-falha do Azure para o Azure
+## <a name="azure-to-azure-failover"></a>Azure para Azure falha
 
-Neste exemplo, considere **empresa C** que tem todos os sua infra-estrutura de aplicativo em execução no Azure. Por motivos de continuidade e conformidade de negócios, **empresa C** decide usar o Azure Site Recovery para proteger seus aplicativos.
+Para este exemplo, considere a **Empresa C** que tem toda a sua infraestrutura de aplicação a funcionar azure. Por razões de continuidade e conformidade do negócio, a **Empresa C** decide utilizar a Recuperação do Site Azure para proteger as suas aplicações.
 
-**Empresa C** está a executar aplicações com pontos finais públicos e pretende a capacidade de forma totalmente integrada redirecionar o tráfego para uma região do Azure diferente num evento de desastre. O [prioridade](../traffic-manager/traffic-manager-configure-priority-routing-method.md) método de encaminhamento de tráfego permite **empresa C** facilmente implementar este padrão de ativação pós-falha.
+**A empresa C** está a executar aplicações com pontos finais públicos e quer a capacidade de redirecionar o tráfego para uma região azure diferente num evento de desastre. O método [prioritário](../traffic-manager/traffic-manager-configure-priority-routing-method.md) de encaminhamento de tráfego permite à **Empresa C** implementar facilmente este padrão de failover.
 
-A configuração é o seguinte:
-- **Empresa C** cria uma [perfil do Traffic Manager](../traffic-manager/traffic-manager-create-profile.md).
-- Utilizando o **prioridade** método de encaminhamento **C de empresa** cria dois pontos de extremidade – **primário** para a região de origem (Azure Ásia Oriental) e **ativação pós-falha** para a região de recuperação (Azure Sudeste asiático). **Primário** é atribuída prioridade 1 e **ativação pós-falha** é atribuída a prioridade 2.
-- Uma vez que o **primário** ponto final está alojado no Azure, o ponto final pode ser como uma [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints) ponto final.
-- Com o Azure Site Recovery, a recuperação de site do Azure não tem quaisquer máquinas virtuais ou aplicações em execução antes da ativação pós-falha. Então, o **ativação pós-falha** ponto final pode ser criado como um [externo](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) ponto final.
-- Por predefinição, o tráfego de utilizador é direcionado para o aplicativo de região (Leste asiático) de origem como ponto de extremidade tem a prioridade mais alta associada a ele. Não existe tráfego é direcionado para a região de recuperação se a **primário** ponto final está em bom estado.
+A configuração é a seguinte:
+- **A empresa C** cria um [perfil de Gestor de Tráfego.](../traffic-manager/traffic-manager-create-profile.md)
+- Utilizando o método de encaminhamento **prioritário,** a **Empresa C** cria dois pontos finais – **Primário** para a região de origem (Azure East Asia) e **Failover** para a região de recuperação (Azure Southeast Asia). **A Primária** é atribuída prioridade 1 e **a Failover** é atribuída prioridade 2.
+- Uma vez que o ponto final **primário** está hospedado em Azure, o ponto final pode ser como um ponto final [Azure.](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints)
+- Com a Recuperação do Site Azure, o site de recuperação Azure não tem nenhuma máquina virtual ou aplicações em execução antes do failover. Assim, o ponto final **failover** pode ser criado como um ponto final [externo.](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints)
+- Por padrão, o tráfego de utilizadores é direcionado para a aplicação da região de origem (Ásia Oriental), uma vez que esse ponto final tem a maior prioridade associada a ela. Nenhum tráfego é direcionado para a região de recuperação se o ponto final **primário** for saudável.
 
-![Azure para o Azure antes da ativação pós-falha](./media/concepts-traffic-manager-with-site-recovery/azure-failover-before.png)
+![Azure-to-Azure antes do fracasso](./media/concepts-traffic-manager-with-site-recovery/azure-failover-before.png)
 
-Num evento de desastre **empresa C** pode acionar um [ativação pós-falha](azure-to-azure-tutorial-failover-failback.md) e recuperar seus aplicativos sobre a recuperação de região do Azure. Quando o Gestor de tráfego do Azure Deteta que o ponto final primário já não está em bom estado, ele utiliza automaticamente o **ativação pós-falha** ponto final na resposta DNS e os utilizadores ligar à aplicação recuperada na região do Azure (de recuperação Região do Sudeste asiático).
+Num evento de desastre, a **Empresa C** pode desencadear uma [falha](azure-to-azure-tutorial-failover-failback.md) e recuperar as suas aplicações na região de recuperação do Azure. Quando o Gestor de Tráfego Azure deteta que o ponto final primário já não é saudável, utiliza automaticamente o ponto final **failover** na resposta DNS e os utilizadores ligam-se à aplicação recuperada na região de recovery Azure (Sudeste Asiático).
 
-![Azure para o Azure após a ativação pós-falha](./media/concepts-traffic-manager-with-site-recovery/azure-failover-after.png)
+![Azure-to-Azure após falha](./media/concepts-traffic-manager-with-site-recovery/azure-failover-after.png)
 
-Dependendo das necessidades de negócio, **empresa C** pode escolher um superior ou inferior [frequência de pesquisa](../traffic-manager/traffic-manager-monitoring.md) para alternar entre regiões de origem e de recuperação e certifique-se de período de indisponibilidade mínimo para os utilizadores.
+Dependendo dos requisitos empresariais, a **Empresa C** pode escolher uma frequência de [sondagem](../traffic-manager/traffic-manager-monitoring.md) mais alta ou menor para alternar entre as regiões de origem e recuperação, e garantir o mínimo de tempo de inatividade para os utilizadores.
 
-Quando o desastre está contido, **empresa C** pode a reativação pós-falha da recuperação região do Azure para a origem de região do Azure com o Azure Site Recovery. Agora, quando o Gestor de tráfego detetar que o **primário** ponto final está em bom estado novamente, ele utiliza automaticamente o **primário** ponto de extremidade em suas respostas DNS.
+Quando o desastre estiver contido, a **Empresa C** pode falhar desde a região de recuperação do Azure até à nascente da região azure utilizando a Recuperação do Sítio Azure. Agora, quando o Gestor de Tráfego deteta que o ponto final **primário** está novamente saudável, utiliza automaticamente o ponto final **primário** nas suas respostas DNS.
 
-## <a name="protecting-multi-region-enterprise-applications"></a>Proteger aplicações empresariais de várias regiões
+## <a name="protecting-multi-region-enterprise-applications"></a>Proteger aplicações empresariais multi-regiões
 
-As empresas globais, muitas vezes, melhorar a experiência do cliente, adaptando seus aplicativos para atender às necessidades regionais. Localização e a redução de latência podem levar a infraestrutura de aplicativos dividida em várias regiões. As empresas também são ligados por leis de dados regionais em determinadas áreas e optar por isolar uma parte de sua infra-estrutura de aplicativo dentro dos limites regionais.  
+As empresas globais muitas vezes melhoram a experiência do cliente adaptando as suas aplicações para atender às necessidades regionais. A localização e a redução da latência podem levar à divisão de infraestruturas de aplicações entre regiões. As empresas estão também vinculadas à legislação regional em determinados domínios e optam por isolar uma parte das suas infraestruturas de aplicação dentro das fronteiras regionais.  
 
-Vamos considerar um exemplo onde **empresa 1!d** dividiu os seus pontos de extremidade do aplicativo para servir separadamente a Alemanha e o resto do mundo. **Empresa D** utiliza a Azure Traffic Manager [Geographic](../traffic-manager/traffic-manager-configure-geographic-routing-method.md) método de encaminhamento para configurá-la. Qualquer tráfego com origem na Alemanha é direcionado para **1 ponto de extremidade** e qualquer tráfego com origem fora da Alemanha é direcionado para **ponto final 2**.
+Vamos considerar um exemplo em que a **Empresa D** dividiu os seus pontos finais de aplicação para servir separadamente a Alemanha e o resto do mundo. **A Empresa D** utiliza o método de encaminhamento [Geográfico](../traffic-manager/traffic-manager-configure-geographic-routing-method.md) do Gestor de Tráfego azure para configurar isto. Qualquer tráfego originário da Alemanha é direcionado para **endpoint 1** e qualquer tráfego originário fora da Alemanha é direcionado para **endpoint 2**.
 
-O problema com essa configuração é que, se **1 ponto de extremidade** deixar de funcionar por algum motivo, não há nenhum redirecionamento de tráfego para **ponto final 2**. Tráfego com origem na Alemanha continua a ser direcionado para **1 ponto de extremidade** independentemente do Estado de funcionamento do ponto de extremidade, deixando alemães utilizadores sem acesso aos **1!d da empresa**do aplicativo. Da mesma forma, se **ponto final 2** ficar offline, não há nenhum redirecionamento de tráfego para **ponto final 1**.
+O problema desta configuração é que, se o **Endpoint 1** deixar de funcionar por qualquer motivo, não há reorientação do tráfego para **o Ponto Final 2**. O tráfego originário da Alemanha continua a ser direcionado para **endpoint 1,** independentemente da saúde do ponto final, deixando os utilizadores alemães sem acesso à aplicação da **Empresa D.** Da mesma forma, se o **Ponto Final 2** ficar offline, não há reorientação do tráfego para **endpoint 1**.
 
-![Aplicação de várias regiões, antes de](./media/concepts-traffic-manager-with-site-recovery/geographic-application-before.png)
+![Aplicação multi-região antes](./media/concepts-traffic-manager-with-site-recovery/geographic-application-before.png)
 
-Para evitar este problema e garantir a resiliência da aplicação, **empresa 1!d** utiliza [aninhados perfis do Gestor de tráfego](../traffic-manager/traffic-manager-nested-profiles.md) com o Azure Site Recovery. Numa configuração de perfis aninhados, tráfego não é direcionado para os pontos finais individuais, mas em vez disso, para outros perfis do Gestor de tráfego. Eis como funciona esta configuração:
-- Em vez de usar o encaminhamento geográfico com pontos finais individuais, **empresa 1!d** utiliza o encaminhamento geográfico com perfis do Gestor de tráfego.
-- Cada filho de perfil do Gestor de tráfego utiliza **prioridade** , por conseguinte, encaminhamento com um site primário e um ponto de extremidade de recuperação, aninhar **prioridade** encaminhamento dentro **Geographic** encaminhamento.
-- Para ativar a resiliência da aplicação, cada distribuição de carga de trabalho utiliza o Azure Site Recovery para ativação pós-falha para uma região de recuperação com base em caso de um evento de desastre.
-- Quando o Gestor de tráfego do elemento principal recebe uma consulta DNS, é direcionado para o Gestor de tráfego que responde à consulta com um ponto de extremidade disponível de filho relevante.
+Para evitar encontrar este problema e garantir a resiliência da aplicação, a **Empresa D** utiliza [perfis aninhados do Gestor de Tráfego](../traffic-manager/traffic-manager-nested-profiles.md) com a Recuperação do Site Azure. Numa configuração de perfil aninhada, o tráfego não é direcionado para pontos finais individuais, mas sim para outros perfis do Gestor de Tráfego. É assim que esta configuração funciona:
+- Em vez de utilizar o encaminhamento geográfico com pontos finais individuais, a **Empresa D** utiliza o encaminhamento geográfico com perfis do Traffic Manager.
+- Cada perfil do Gestor de Tráfego infantil utiliza o encaminhamento **prioritário** com um ponto final primário e de recuperação, nidiferindo assim o encaminhamento **prioritário** dentro do encaminhamento **geográfico.**
+- Para permitir a resiliência da aplicação, cada distribuição de carga de trabalho utiliza a Recuperação do Site Azure para falhar numa região de recuperação baseada em caso de desastre.
+- Quando o Gestor de Tráfego dos Pais recebe uma consulta de DNS, é direcionado para o gestor de tráfego infantil relevante que responde à consulta com um ponto final disponível.
 
-![Aplicação de várias regiões após](./media/concepts-traffic-manager-with-site-recovery/geographic-application-after.png)
+![Aplicação multi-região após](./media/concepts-traffic-manager-with-site-recovery/geographic-application-after.png)
 
-Por exemplo, se o ponto final na Alemanha Central falhar, o aplicativo rapidamente pode ser recuperado para Nordeste da Alemanha. O novo ponto final processa o tráfego com origem na Alemanha com período de indisponibilidade mínimo para os utilizadores. Da mesma forma, uma indisponibilidade do ponto final na Europa Ocidental pode ser processada por meio da recuperação da carga de trabalho aplicação para a Europa do Norte, com a manipulação de Gestor de tráfego do Azure que DNS redireciona para o ponto de extremidade disponível.
+Por exemplo, se o ponto final na Alemanha Central falhar, o pedido pode ser rapidamente recuperado para o Nordeste alemão. O novo ponto final trata do tráfego originário da Alemanha com o mínimo de tempo de paragem para os utilizadores. Da mesma forma, uma paragem de pontos finais na Europa Ocidental pode ser resolvida recuperando a carga de trabalho de aplicação para o Norte da Europa, com o Gestor de Tráfego Azure a tratar os redirecionamentos do DNS para o ponto final disponível.
 
-A configuração acima pode ser expandida para incluir tantos combinações de região e o ponto final necessárias. O Gestor de tráfego permite até 10 níveis de perfis aninhados e não permite que os loops na configuração do aninhados.
+A configuração acima pode ser expandida para incluir o maior número de combinações de região e ponto final necessários. O Gestor de Tráfego permite até 10 níveis de perfis aninhados e não permite loops dentro da configuração aninhada.
 
-## <a name="recovery-time-objective-rto-considerations"></a>Considerações de objetivo de tempo (RTO) de recuperação
+## <a name="recovery-time-objective-rto-considerations"></a>Considerações do Objetivo do Tempo de Recuperação (RTO)
 
-Na maioria das organizações, adicionando ou modificando os registos DNS é processado por uma equipa separada ou por alguém fora da organização. Isso facilita a tarefa de alterar os registos DNS muito difíceis de fazer. O tempo necessário para atualizar os registos DNS por outras equipas ou organizações gerir a infraestrutura DNS varia de organização para organização e afeta o RTO do aplicativo.
+Na maioria das organizações, adicionar ou modificar registos de DNS é tratado por uma equipa separada ou por alguém fora da organização. Isto torna a tarefa de alterar os registos de DNS muito desafiante. O tempo necessário para atualizar os registos de DNS por outras equipas ou organizações que gerem a infraestrutura de DNS varia de organização para organização, e impacta o RTO da aplicação.
 
-Ao utilizar o Gestor de tráfego, pode frontload o trabalho necessário para as atualizações de DNS. É necessária nenhuma ação de script ou manual no momento da ativação pós-falha real. Esta abordagem ajuda na rápida mudança (e, por conseguinte, reduzindo o RTO), bem como evitar dispendiosos erros de alteração de DNS demorados num evento de desastre. Com o Gestor de tráfego, até mesmo o passo de reativação pós-falha é automatizado, que teria que ser gerenciada separadamente.
+Utilizando o Traffic Manager, pode carregar frontalmente o trabalho necessário para as atualizações de DNS. Não é necessária qualquer ação manual ou escrita no momento da falha real. Esta abordagem ajuda na rápida troca (e, consequentemente, na redução do RTO), bem como na prevenção de erros de mudança de DNS dispendiosos e morosos num evento de catástrofe. Com o Gestor de Tráfego, até o passo de retrocesso é automatizado, o que de outra forma teria de ser gerido separadamente.
 
-Definição correta [intervalo de pesquisa](../traffic-manager/traffic-manager-monitoring.md) por meio de estado de funcionamento básico ou rápido intervalo verificações podem consideravelmente prejudicar o RTO durante a ativação pós-falha e reduzir o tempo de inatividade para os utilizadores.
+A definição do intervalo correto de [sondagem](../traffic-manager/traffic-manager-monitoring.md) através de controlos de saúde básicos ou rápidos pode reduzir consideravelmente o RTO durante a falha e reduzir o tempo de inatividade para os utilizadores.
 
-Além disso, pode otimizar o tempo de DNS para o valor de Live (TTL) para o perfil do Gestor de tráfego. TTL é o valor para o qual uma entrada DNS poderia ser colocado em cache por um cliente. Para um registo DNS não seria possível consultar duas vezes no período de TTL. Cada registo DNS tem um valor de TTL associado a ele. Reduzir este valor resulta em mais consultas DNS para o Gestor de tráfego, mas pode reduzir o RTO ao detetar falhas mais rapidamente.
+Pode ainda otimizar o valor dNS Time to Live (TTL) para o perfil do Gestor de Tráfego. TTL é o valor pelo qual uma entrada dNS seria cached por um cliente. Para um registo, o DNS não seria interrogado duas vezes no espaço da TTL. Cada registo dNS tem um TTL associado a ele. A redução deste valor resulta em mais consultas de DNS ao Traffic Manager, mas pode reduzir o RTO através da descoberta de interrupções mais rapidamente.
 
-O valor de TTL teve pelo cliente também não aumenta se aumentar o número de resoluções DNS entre o cliente e servidor DNS autoritativo. Resoluções de DNS 'count para baixo"do valor TTL e transmitir apenas um valor TTL que reflete o tempo decorrido, uma vez que o registo foi colocado em cache. Isto garante que o registo DNS atualizado no cliente depois do valor de TTL, independentemente do número de resoluções DNS na cadeia.
+O TTL experimentado pelo cliente também não aumenta se o número de DNS resolver entre o cliente e o servidor DNS autoritário aumenta. DNS resolve 'contagem regressiva' do TTL e só transmitem um valor TTL que reflita o tempo decorrido desde que o registo foi cache. Isto garante que o registo DNS seja atualizado no cliente após o TTL, independentemente do número de DNS Resolvers na cadeia.
 
-## <a name="next-steps"></a>Passos Seguintes
-- Saiba mais sobre o Gestor de tráfego [métodos de encaminhamento](../traffic-manager/traffic-manager-routing-methods.md).
-- Saiba mais sobre [aninhada de perfis do Gestor de tráfego](../traffic-manager/traffic-manager-nested-profiles.md).
-- Saiba mais sobre [monitorização de pontos finais](../traffic-manager/traffic-manager-monitoring.md).
-- Saiba mais sobre [planos de recuperação](site-recovery-create-recovery-plans.md) para automatizar a ativação pós-falha do aplicativo.
+## <a name="next-steps"></a>Passos seguintes
+- Saiba mais sobre os métodos de [encaminhamento](../traffic-manager/traffic-manager-routing-methods.md)do Gestor de Tráfego.
+- Saiba mais sobre [os perfis do Gestor de Tráfego.](../traffic-manager/traffic-manager-nested-profiles.md)
+- Saiba mais sobre [a monitorização do ponto final](../traffic-manager/traffic-manager-monitoring.md).
+- Saiba mais sobre [os planos](site-recovery-create-recovery-plans.md) de recuperação para automatizar falha na aplicação.

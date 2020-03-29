@@ -1,6 +1,6 @@
 ---
-title: Estatísticas em tempo real na CDN do Azure | Documentos da Microsoft
-description: Estatísticas em tempo real fornecem dados em tempo real sobre o desempenho da CDN do Azure, ao entregar conteúdo aos seus clientes.
+title: Estatísticas em tempo real no Azure CDN / Microsoft Docs
+description: As estatísticas em tempo real fornecem dados em tempo real sobre o desempenho do Azure CDN ao entregar conteúdo aos seus clientes.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -15,82 +15,82 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: d56007e5a196a0857f3b69ac51f5e3b5a88c4f6e
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593496"
 ---
-# <a name="real-time-stats-in-microsoft-azure-cdn"></a>Estatísticas em tempo real na CDN do Microsoft Azure
+# <a name="real-time-stats-in-microsoft-azure-cdn"></a>Estatísticas em tempo real no CDN do Microsoft Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Descrição geral
-Este documento explica as estatísticas em tempo real na CDN do Microsoft Azure.  Esta funcionalidade fornece dados em tempo real, como a largura de banda, Estados de cache e conexões simultâneas para o perfil de CDN ao entregar conteúdo aos seus clientes. Isto permite que a monitorização contínua do Estado de funcionamento do seu serviço em qualquer altura, incluindo eventos de go-live.
+Este documento explica estatísticas em tempo real no CDN do Microsoft Azure.  Esta funcionalidade fornece dados em tempo real, tais como largura de banda, estado de cache e conexões simultâneas ao seu perfil CDN ao entregar conteúdo aos seus clientes. Isto permite uma monitorização contínua da saúde do seu serviço a qualquer momento, incluindo eventos go-live.
 
-Os gráficos seguintes estão disponíveis:
+Estão disponíveis os seguintes gráficos:
 
 * [Largura de banda](#bandwidth)
-* [Códigos de estado](#status-codes)
-* [Estados da cache](#cache-statuses)
+* [Códigos de Estado](#status-codes)
+* [Estados de Cache](#cache-statuses)
 * [Ligações](#connections)
 
-## <a name="accessing-real-time-stats"></a>Acesso a estatísticas em tempo real
-1. Na [Portal do Azure](https://portal.azure.com), navegue para o perfil de CDN.
+## <a name="accessing-real-time-stats"></a>Aceder a estatísticas em tempo real
+1. No [Portal Azure,](https://portal.azure.com)navegue para o seu perfil De CDN.
    
-    ![Painel do perfil CDN](./media/cdn-real-time-stats/cdn-profile-blade.png)
-2. No painel de perfil da CDN, clique a **gerir** botão.
+    ![Lâmina de perfil CDN](./media/cdn-real-time-stats/cdn-profile-blade.png)
+2. A partir da lâmina de perfil CDN, clique no botão **Gerir.**
    
-    ![Botão de gerir do painel do perfil CDN](./media/cdn-real-time-stats/cdn-manage-btn.png)
+    ![Botão de gestão da lâmina de perfil CDN](./media/cdn-real-time-stats/cdn-manage-btn.png)
    
-    É aberto o portal de gestão da CDN.
-3. Paire o rato sobre o **Analytics** separador, em seguida, coloque o cursor sobre o **estatísticas em tempo real** submenu.  Clique em **HTTP de objeto grande**.
+    Abre o portal de gestão da CDN.
+3. Paire sobre o separador **Analytics** e, em seguida, paire sobre as **estatísticas em tempo real.**  Clique em **HTTP Large Object**.
    
-    ![Portal de gestão de CDN](./media/cdn-real-time-stats/cdn-premium-portal.png)
+    ![Portal de gestão da CDN](./media/cdn-real-time-stats/cdn-premium-portal.png)
    
     Os gráficos de estatísticas em tempo real são apresentados.
 
-Cada um dos gráficos apresenta estatísticas em tempo real para o intervalo de tempo selecionado, a partir de quando a página for carregada.  Os gráficos atualizar automaticamente a cada segundo.  O **Atualizar gráfico** botão, se estiver presente, irá eliminar o gráfico, após o qual apresentará apenas os dados selecionados.
+Cada um dos gráficos apresenta estatísticas em tempo real para o período de tempo selecionado, a partir do momento em que a página carrega.  Os gráficos atualizam-se automaticamente a cada poucos segundos.  O botão **Refresh Graph,** se presente, limpará o gráfico, após o qual apenas apresentará os dados selecionados.
 
 ## <a name="bandwidth"></a>Largura de banda
 ![Gráfico de largura de banda](./media/cdn-real-time-stats/cdn-bandwidth.png)
 
-O **largura de banda** gráfico apresenta a quantidade de largura de banda utilizada para a plataforma atual ao longo do período de tempo selecionado. A parte sombreada do gráfico indica a utilização de largura de banda. A quantidade exata de largura de banda atualmente a ser utilizada é apresentada diretamente abaixo do gráfico de linha.
+O gráfico **de largura de banda** apresenta a quantidade de largura de banda utilizada para a plataforma atual durante o período de tempo selecionado. A porção sombreada do gráfico indica o uso da largura de banda. A quantidade exata de largura de banda atualmente utilizada é exibida diretamente abaixo do gráfico de linha.
 
-## <a name="status-codes"></a>Códigos de estado
+## <a name="status-codes"></a>Código de Estado
 ![Gráfico de código de estado](./media/cdn-real-time-stats/cdn-status-codes.png)
 
-O **códigos de estado** gráfico indica a frequência com que determinados códigos de resposta HTTP estão a ocorrer ao longo do período de tempo selecionado.
+O gráfico **de Códigos** de Estado indica a frequência com que determinados códigos de resposta HTTP estão a ocorrer ao longo do período de tempo selecionado.
 
 > [!TIP]
-> Para obter uma descrição de cada opção de código de estado HTTP, consulte [códigos de estado de HTTP do Azure CDN](/previous-versions/azure/mt759238(v=azure.100)).
+> Para obter uma descrição de cada opção de código de estado HTTP, consulte os Códigos de [Estado do Azure CDN HTTP](/previous-versions/azure/mt759238(v=azure.100)).
 > 
 > 
 
-É apresentada uma lista de códigos de estado HTTP diretamente acima do gráfico. Esta lista indica cada código de estado que pode ser incluído no gráfico de linha e o número atual de ocorrências por segundo para esse código de estado. Por predefinição, uma linha é exibida para cada um desses códigos de estado no gráfico. No entanto, pode optar por monitorizar apenas os códigos de estado que têm uma importância especial para a sua configuração de CDN. Para tal, verifique os códigos de estado pretendido e desmarque todas as outras opções e clique em **Atualizar gráfico**. 
+Uma lista de códigos de estado HTTP é apresentada diretamente acima do gráfico. Esta lista indica cada código de estado que pode ser incluído no gráfico de linha e o número atual de ocorrências por segundo para esse código de estado. Por predefinição, é apresentada uma linha para cada um destes códigos de estado no gráfico. No entanto, pode optar por monitorizar apenas os códigos de estado que têm um significado especial para a sua configuração DeCDN. Para isso, verifique os códigos de estado desejados e limpe todas as outras opções, em seguida, clique em **Refresh Graph**. 
 
-Pode ocultar temporariamente dados registados para um código de estado específico.  Na legenda diretamente abaixo do gráfico, clique o código de estado que pretende ocultar. O código de estado será ocultado imediatamente do gráfico. Clicar nesse código de estado novamente fará com que essa opção seja exibida novamente.
+Pode ocultar temporariamente os dados registados para um determinado código de estado.  A partir da lenda diretamente abaixo do gráfico, clique no código de estado que pretende esconder. O código de estado será imediatamente escondido do gráfico. Clicar novamente nesse código de estado fará com que essa opção volte a ser exibida.
 
-## <a name="cache-statuses"></a>Estados da cache
-![Gráfico de Estados de cache](./media/cdn-real-time-stats/cdn-cache-status.png)
+## <a name="cache-statuses"></a>Estados de Cache
+![Gráfico de Estados cache](./media/cdn-real-time-stats/cdn-cache-status.png)
 
-O **Estados de Cache** gráfico indica a frequência com que determinados tipos de Estados de cache estão a ocorrer ao longo do período de tempo selecionado. 
+O gráfico **Cache Statuses** indica com que frequência certos tipos de cache socorrem ao longo do tempo selecionado. 
 
 > [!TIP]
-> Para obter uma descrição de cada opção de código de estado de cache, consulte [códigos de estado de Cache do Azure CDN](/previous-versions/azure/mt759237(v=azure.100)).
+> Para obter uma descrição de cada opção de código de estado de cache, consulte os Códigos de [Estado do Cache Azure CDN](/previous-versions/azure/mt759237(v=azure.100)).
 > 
 > 
 
-É apresentada uma lista de códigos de estado de cache diretamente acima do gráfico. Esta lista indica cada código de estado que pode ser incluído no gráfico de linha e o número atual de ocorrências por segundo para esse código de estado. Por predefinição, uma linha é exibida para cada um desses códigos de estado no gráfico. No entanto, pode optar por monitorizar apenas os códigos de estado que têm uma importância especial para a sua configuração de CDN. Para tal, verifique os códigos de estado pretendido e desmarque todas as outras opções e clique em **Atualizar gráfico**. 
+Uma lista de códigos de estado de cache é apresentada diretamente acima do gráfico. Esta lista indica cada código de estado que pode ser incluído no gráfico de linha e o número atual de ocorrências por segundo para esse código de estado. Por predefinição, é apresentada uma linha para cada um destes códigos de estado no gráfico. No entanto, pode optar por monitorizar apenas os códigos de estado que têm um significado especial para a sua configuração DeCDN. Para isso, verifique os códigos de estado desejados e limpe todas as outras opções, em seguida, clique em **Refresh Graph**. 
 
-Pode ocultar temporariamente dados registados para um código de estado específico.  Na legenda diretamente abaixo do gráfico, clique o código de estado que pretende ocultar. O código de estado será ocultado imediatamente do gráfico. Clicar nesse código de estado novamente fará com que essa opção seja exibida novamente.
+Pode ocultar temporariamente os dados registados para um determinado código de estado.  A partir da lenda diretamente abaixo do gráfico, clique no código de estado que pretende esconder. O código de estado será imediatamente escondido do gráfico. Clicar novamente nesse código de estado fará com que essa opção volte a ser exibida.
 
 ## <a name="connections"></a>Ligações
-![Gráfico de ligações](./media/cdn-real-time-stats/cdn-connections.png)
+![Gráfico de conexões](./media/cdn-real-time-stats/cdn-connections.png)
 
-Este gráfico indica quantas ligações foram estabelecidas para os seus servidores de borda. Cada solicitação para um recurso que passa pelo nossos resultados CDN numa ligação.
+Este gráfico indica quantas ligações foram estabelecidas nos seus servidores de borda. Cada pedido de um ativo que passa através do nosso CDN resulta numa ligação.
 
-## <a name="next-steps"></a>Próximos Passos
-* Ser notificado com [alertas em tempo real na CDN do Azure](cdn-real-time-alerts.md)
-* Aprofunde os seus conhecimentos com [relatórios HTTP avançados](cdn-advanced-http-reports.md)
-* Analisar [padrões de utilização](cdn-analyze-usage-patterns.md)
+## <a name="next-steps"></a>Passos Seguintes
+* Seja notificado com [alertas em tempo real no Azure CDN](cdn-real-time-alerts.md)
+* Cave mais fundo com [relatórios avançados](cdn-advanced-http-reports.md) do HTTP
+* Analisar padrões de [utilização](cdn-analyze-usage-patterns.md)
 

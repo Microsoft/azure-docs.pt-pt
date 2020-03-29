@@ -1,6 +1,6 @@
 ---
-title: Agendar Azure Data Lake Analytics trabalhos U-SQL usando o SSIS
-description: Saiba como usar SQL Server Integration Services para agendar trabalhos U-SQL com script embutido ou arquivos de consulta do U-SQL.
+title: Agendar trabalhos de U-SQL no Lago de Dados Azure
+description: Saiba como usar os Serviços de Integração do Servidor SQL para agendar trabalhos U-SQL com script sinline ou a partir de ficheiros de consulta U-SQL.
 services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
@@ -11,163 +11,163 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
 ms.openlocfilehash: 0650fcc5023ac57b193fa23b0dedf65113fd64e6
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71672900"
 ---
-# <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Agendar trabalhos U-SQL usando SQL Server Integration Services (SSIS)
+# <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Agendar trabalhos U-SQL utilizando serviços de integração de servidores SQL (SSIS)
 
-Neste documento, você aprende a orquestrar e criar trabalhos do U-SQL usando o SSIS (serviço de integração do SQL Server). 
+Neste documento, aprende-se a orquestrar e a criar empregos U-SQL utilizando o Serviço de Integração de Servidores SQL (SSIS). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O [Feature Pack do Azure para Integration Services](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud) fornece a [tarefa de Azure data Lake Analytics](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017) e o Gerenciador de [conexões Azure data Lake Analytics](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017) que ajuda a conectar-se ao Azure data Lake Analytics Service. Para usar essa tarefa, certifique-se de instalar:
+O Pack de [Recursos Azure para serviços](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud) de integração fornece a [tarefa Azure Data Lake Analytics](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017) e o [Azure Data Lake Analytics Connection Manager](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017) que ajuda a ligar ao serviço Azure Data Lake Analytics. Para utilizar esta tarefa, certifique-se de que instala:
 
-- [Baixar e instalar o SQL Server Data Tools (SSDT) para Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017)
-- [Instalar o Azure Feature Pack para Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017)
+- [Descarregue e instale ferramentas de dados do Servidor SQL (SSDT) para Estúdio Visual](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017)
+- [Instalar pacote de funcionalidades Azure para serviços de integração (SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017)
 
-## <a name="azure-data-lake-analytics-task"></a>Azure Data Lake Analytics tarefa
+## <a name="azure-data-lake-analytics-task"></a>Tarefa de Análise do Lago de Dados Azure
 
-A tarefa Azure Data Lake Analytics permite que os usuários enviem trabalhos U-SQL para a conta de Azure Data Lake Analytics. 
+A tarefa Azure Data Lake Analytics permite que os utilizadores enviem empregos U-SQL para a conta Azure Data Lake Analytics. 
 
-[Saiba como configurar Azure data Lake Analytics tarefa](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017).
+[Saiba como configurar a tarefa Azure Data Lake Analytics](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017).
 
-![Azure Data Lake Analytics tarefa no SSIS](./media/data-lake-analytics-schedule-jobs-ssis/data-lake-analytics-azure-data-lake-analytics-task-in-ssis.png)
+![Tarefa de análise de lago de dados azure no SSIS](./media/data-lake-analytics-schedule-jobs-ssis/data-lake-analytics-azure-data-lake-analytics-task-in-ssis.png)
 
-Você pode obter o script U-SQL de diferentes locais usando funções e tarefas internas do SSIS, os cenários a seguir mostram como você pode configurar os scripts U-SQL para diferentes casos de usuário.
+Pode obter o script U-SQL de diferentes lugares utilizando funções e tarefas incorporadas do SSIS, abaixo os cenários mostram como pode configurar os scripts U-SQL para diferentes casos de utilizadores.
 
-## <a name="scenario-1-use-inline-script-call-tvfs-and-stored-procs"></a>Cenário 1-usar chamada de script embutido TVFs e procs armazenados
+## <a name="scenario-1-use-inline-script-call-tvfs-and-stored-procs"></a>Cenário 1-Use script inline call tvfs e procs armazenados
 
-No editor da tarefa Azure Data Lake Analytics, configure **SourceType** como **DirectInput**e coloque as instruções U-SQL em **USQLStatement**.
+No Azure Data Lake Analytics Task Editor, configure **o SourceType** como **DirectInput**, e coloque as declarações U-SQL no **USQLStatement**.
 
-Para facilitar a manutenção e o gerenciamento de código, coloque apenas o script U-SQL curto como scripts embutidos, por exemplo, você pode chamar funções com valor de tabela existentes e procedimentos armazenados em seus bancos de dados U-SQL. 
+Para uma fácil manutenção e gestão de códigos, basta colocar o script U-SQL curto como scripts inline, por exemplo, pode chamar as funções de tabela valorizadas existentes e procedimentos armazenados nas suas bases de dados U-SQL. 
 
-![Editar script U-SQL embutido na tarefa do SSIS](./media/data-lake-analytics-schedule-jobs-ssis/edit-inline-usql-script-in-ssis.png)
+![Editar script U-SQL inline na tarefa SSIS](./media/data-lake-analytics-schedule-jobs-ssis/edit-inline-usql-script-in-ssis.png)
 
-Artigo relacionado: [como passar o parâmetro para procedimentos armazenados](#scenario-6-pass-parameters-to-u-sql-script)
+Artigo relacionado: [Como passar parâmetro para procedimentos armazenados](#scenario-6-pass-parameters-to-u-sql-script)
 
-## <a name="scenario-2-use-u-sql-files-in-azure-data-lake-store"></a>Cenário 2 – usar arquivos U-SQL no Azure Data Lake Store
+## <a name="scenario-2-use-u-sql-files-in-azure-data-lake-store"></a>Cenário 2-Use ficheiros U-SQL na Loja de Lagos De Dados Azure
 
-Você também pode usar arquivos U-SQL no Azure Data Lake Store usando a **tarefa sistema de arquivos Azure data Lake Store** no Feature Pack do Azure. Essa abordagem permite que você use os scripts armazenados na nuvem.
+Também pode utilizar ficheiros U-SQL na Loja do Lago De Dados Azure utilizando a Tarefa do Sistema de Ficheiros da Loja de **Ficheiros do Lago de Dados Azure** no Pack de Funcionalidades Azure. Esta abordagem permite-lhe utilizar os scripts armazenados na nuvem.
 
-Siga as etapas abaixo para configurar a conexão entre Azure Data Lake Store tarefa do sistema de arquivos e Azure Data Lake Analytics tarefa.
+Siga abaixo os passos para estabelecer a ligação entre a Tarefa do Sistema de Ficheiros da Loja de Dados do Lago De dados Azure e a Tarefa de Análise do Lago de Dados Azure.
 
-### <a name="set-task-control-flow"></a>Definir fluxo de controle de tarefa
+### <a name="set-task-control-flow"></a>Definir fluxo de controlo de tarefas
 
-No modo de design de pacote SSIS, adicione uma **tarefa do sistema de arquivos Azure data Lake Store**, um **contêiner Loop Foreach** e uma **tarefa de Azure data Lake Analytics** no contêiner Loop Foreach. A Azure Data Lake Store tarefa do sistema de arquivos ajuda a baixar arquivos U-SQL em sua conta do ADLS para uma pasta temporária. O contêiner Loop Foreach e a tarefa Azure Data Lake Analytics ajudam a enviar cada arquivo U-SQL na pasta temporária para a conta de Azure Data Lake Analytics como um trabalho do U-SQL.
+Na vista de design de pacoteSSIs, adicione uma tarefa de sistema de **ficheiros**de loja de dados Azure Data, um **recipiente Foreach Loop** e uma tarefa de análise de lago de dados **Azure** no recipiente Foreach Loop. A Tarefa do Sistema de Ficheiros da Loja do Lago de Dados Azure ajuda a transferir ficheiros U-SQL na sua conta ADLS para uma pasta temporária. O Recipiente Foreach Loop e a Tarefa de Análise do Lago de Dados Azure ajudam a submeter todos os ficheiros U-SQL sob a pasta temporária para a conta Azure Data Lake Analytics como um trabalho U-SQL.
 
-![Usar arquivos U-SQL no Azure Data Lake Store](./media/data-lake-analytics-schedule-jobs-ssis/use-u-sql-files-in-azure-data-lake-store.png)
+![Utilize ficheiros U-SQL na Loja de Lagos De Dados Azure](./media/data-lake-analytics-schedule-jobs-ssis/use-u-sql-files-in-azure-data-lake-store.png)
 
-### <a name="configure-azure-data-lake-store-file-system-task"></a>Configurar Azure Data Lake Store tarefa do sistema de arquivos
+### <a name="configure-azure-data-lake-store-file-system-task"></a>Configure Tarefa do sistema de ficheiros da loja de dados do lago de dados do Azure
 
-1. Defina a **operação** como **CopyFromADLS**.
-2. Configure o **AzureDataLakeConnection**, saiba mais sobre [Azure data Lake Store Gerenciador de conexões](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager?view=sql-server-2017).
-3. Defina **AzureDataLakeDirectory**. Aponte para a pasta que armazena seus scripts U-SQL. Use o caminho relativo relativo à pasta raiz da conta de Azure Data Lake Store.
-4. Defina **destino** como uma pasta que armazena em cache os scripts U-SQL baixados. Esse caminho de pasta será usado no contêiner Loop Foreach para envio de trabalhos U-SQL. 
+1. Definir **operação** para **CopyFromADLS**.
+2. Configurar **o AzureDataLakeConnection,** saiba mais sobre [o Azure Data Lake Store Connection Manager](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager?view=sql-server-2017).
+3. Definir **AzureDataLakeDirectory**. Aponte para a pasta que armazena os seus scripts U-SQL. Utilize um caminho relativo relativo relativo à pasta raiz da conta Azure Data Lake Store.
+4. Desloque **o Destino** a uma pasta que caches os scripts U-SQL descarregados. Este caminho de pasta será utilizado no Recipiente Foreach Loop para submissão de trabalho U-SQL. 
 
-![Configurar Azure Data Lake Store tarefa do sistema de arquivos](./media/data-lake-analytics-schedule-jobs-ssis/configure-azure-data-lake-store-file-system-task.png)
+![Configure Tarefa do sistema de ficheiros da loja de dados do lago de dados do Azure](./media/data-lake-analytics-schedule-jobs-ssis/configure-azure-data-lake-store-file-system-task.png)
 
-[Saiba mais sobre Azure data Lake Store tarefa do sistema de arquivos](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-store-file-system-task?view=sql-server-2017).
+Saiba mais sobre a tarefa do sistema de ficheiros da Loja de Dados [Azure.](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-store-file-system-task?view=sql-server-2017)
 
-### <a name="configure-foreach-loop-container"></a>Configurar contêiner de loop foreach
+### <a name="configure-foreach-loop-container"></a>Configure recipiente de loop foreach
 
-1. Na página **coleção** , defina **enumerador** como **enumerador de arquivo foreach**.
+1. Na página **de Recolha,** delineie **o Enumerador** para **Foreach File Enumerar**.
 
-2. Defina a **pasta** em grupo de **configuração do enumerador** para a pasta temporária que inclui os scripts U-SQL baixados.
+2. Desloque a **pasta** sob o grupo de **configuração enumerador** para a pasta temporária que inclui os scripts U-SQL descarregados.
 
-3. Defina **arquivos** na **configuração do enumerador** como `*.usql` para que o contêiner do loop Capture apenas os arquivos que terminam com `.usql`.
+3. Defino **ficheiros** sob `*.usql` **a configuração do Enumerador** de `.usql`modo a que o recipiente de loop apanhe apenas os ficheiros que terminam com .
 
-    ![Configurar contêiner de loop foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-collection.png)
+    ![Configure recipiente de loop foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-collection.png)
 
-4. Na página **mapeamentos de variáveis** , adicione uma variável definida pelo usuário para obter o nome do arquivo para cada arquivo U-SQL. Defina o **índice** como 0 para obter o nome do arquivo. Neste exemplo, defina uma variável chamada `User::FileName`. Essa variável será usada para obter dinamicamente a conexão do arquivo de script U-SQL e definir o nome do trabalho U-SQL na tarefa Azure Data Lake Analytics.
+4. Na página **de Mapeamentos Variáveis,** adicione uma variável definida pelo utilizador para obter o nome de ficheiro para cada ficheiro U-SQL. Desloque o **Índice** para 0 para obter o nome do ficheiro. Neste exemplo, defina `User::FileName`uma variável chamada . Esta variável será usada para obter dinamicamente a ligação de ficheiros de script U-SQL e definir o nome de trabalho U-SQL em Azure Data Lake Analytics Task.
 
-    ![Configurar o contêiner Loop Foreach para obter o nome do arquivo](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-variable-mapping.png)
+    ![Configure o recipiente Foreach Loop para obter o nome do ficheiro](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-variable-mapping.png)
 
-### <a name="configure-azure-data-lake-analytics-task"></a>Configurar Azure Data Lake Analytics tarefa 
+### <a name="configure-azure-data-lake-analytics-task"></a>Configure Tarefa de análise de data lake 
 
-1. Defina **SourceType** como **FileConnection**.
+1. Definir **SourceType** para **FileConnection**.
 
-2. Defina **FileConnection** como a conexão de arquivo que aponta para os objetos de arquivo retornados do contêiner Loop Foreach.
+2. Detete **a Ligação** de Ficheiros à ligação de ficheiros que aponta para os objetos de ficheiro devolvidos do Recipiente Foreach Loop.
     
-    Para criar essa conexão de arquivo:
+    Para criar esta ligação de ficheiros:
 
-   1. Escolha **\<nova conexão... >** na configuração de FileConnection.
-   2. Defina o **tipo de uso** como **arquivo existente**e defina o **arquivo** como qualquer caminho de arquivo do arquivo existente.
+   1. Escolha ** \<nova ligação...>** na definição de FileConnection.
+   2. Detete o **tipo de utilização** para o **ficheiro existente**e detete te o **Ficheiro** para o caminho de ficheiro de qualquer ficheiro existente.
 
-       ![Configurar contêiner de loop foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
+       ![Configure recipiente de loop foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
-   3. Na exibição **gerenciadores de conexões** , clique com o botão direito do mouse na conexão de arquivo criada apenas agora e escolha **Propriedades**.
+   3. Na visualização **do Gestor de Ligação,** clique na ligação de ficheiro criada agora mesmo, e escolha **Propriedades**.
 
-   4. Na janela **Propriedades** , expanda **expressões**e defina **ConnectionString** para a variável definida no contêiner Loop Foreach, por exemplo, `@[User::FileName]`.
+   4. Na janela **Propriedades,** expanda **Expressões**e coloque **o ConnectionString** na variável `@[User::FileName]`definida no Recipiente Foreach Loop, por exemplo, .
 
-       ![Configurar contêiner de loop foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-property-for-foreach-loop-container.png)
+       ![Configure recipiente de loop foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-property-for-foreach-loop-container.png)
 
-3. Defina **AzureDataLakeAnalyticsConnection** como a conta de Azure data Lake Analytics para a qual você deseja enviar os trabalhos. Saiba mais sobre [Azure data Lake Analytics Gerenciador de conexões](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017).
+3. Detete **o AzureDataLakeAnalyticsConnection** para a conta Azure Data Lake Analytics para a a que pretende submeter postos de trabalho. Saiba mais sobre [o Azure Data Lake Analytics Connection Manager.](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017)
 
-4. Defina outras configurações de trabalho. [Saiba mais](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017).
+4. Definir outras configurações de trabalho. [Saiba mais.](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017)
 
-5. Use **expressões** para definir dinamicamente o nome do trabalho do U-SQL:
+5. Use **Expressões** para definir dinamicamente o nome de trabalho U-SQL:
 
-    1. Na página **expressões** , adicione uma nova expressão de par chave-valor para **JobName**.
-    2. Defina o valor de JobName para a variável definida no contêiner Loop Foreach, por exemplo, `@[User::FileName]`.
+    1. Na página **Expressions,** adicione um novo par de valor-chave de expressão para **JobName**.
+    2. Defino o valor do Nome de Trabalho para a `@[User::FileName]`variável definida no Recipiente Foreach Loop, por exemplo, .
     
-        ![Configurar a expressão SSIS para o nome do trabalho do U-SQL](./media/data-lake-analytics-schedule-jobs-ssis/configure-expression-for-u-sql-job-name.png)
+        ![Configure expressão SSIS para nome de trabalho U-SQL](./media/data-lake-analytics-schedule-jobs-ssis/configure-expression-for-u-sql-job-name.png)
 
-## <a name="scenario-3-use-u-sql-files-in-azure-blob-storage"></a>Cenário 3 – usar arquivos U-SQL no armazenamento de BLOBs do Azure
+## <a name="scenario-3-use-u-sql-files-in-azure-blob-storage"></a>Cenário 3-Use Ficheiros U-SQL no Armazenamento de Blob Azure
 
-Você pode usar arquivos U-SQL no armazenamento de BLOBs do Azure usando a **tarefa de download de blob do Azure** no Feature Pack do Azure. Essa abordagem permite que você use os scripts na nuvem.
+Pode utilizar ficheiros U-SQL no Armazenamento De Blob Azure utilizando a Tarefa de **Descarregamento de Azure Blob** no Pack de Funcionalidades Azure. Esta abordagem permite-lhe utilizar os scripts na nuvem.
 
-As etapas são semelhantes ao [cenário 2: usar arquivos U-SQL no Azure data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Altere a tarefa do sistema de arquivos Azure Data Lake Store para a tarefa de download de blob do Azure. [Saiba mais sobre a tarefa de download de blob do Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
+Os passos são semelhantes ao [Cenário 2: Utilize ficheiros U-SQL na Loja do Lago de Dados Azure](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Altere a tarefa do sistema de ficheiros da Loja de Dados Azure para a Tarefa de Descarregamento de Blob Azure. Saiba mais sobre a Tarefa de [Descarregamento de Azure Blob](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
 
-O fluxo de controle é como a seguir.
+O fluxo de controlo é como abaixo.
 
-![Usar arquivos U-SQL no Azure Data Lake Store](./media/data-lake-analytics-schedule-jobs-ssis/use-u-sql-files-in-azure-blob-storage.png)
+![Utilize ficheiros U-SQL na Loja de Lagos De Dados Azure](./media/data-lake-analytics-schedule-jobs-ssis/use-u-sql-files-in-azure-blob-storage.png)
 
-## <a name="scenario-4-use-u-sql-files-on-the-local-machine"></a>Cenário 4-usar arquivos U-SQL no computador local
+## <a name="scenario-4-use-u-sql-files-on-the-local-machine"></a>Cenário 4-Use ficheiros U-SQL na máquina local
 
-Além de usar arquivos U-SQL armazenados na nuvem, você também pode usar arquivos em seu computador local ou arquivos implantados com seus pacotes SSIS.
+Além de utilizar ficheiros U-SQL armazenados na nuvem, também pode utilizar ficheiros na sua máquina local ou ficheiros implantados com os seus pacotes SSIS.
 
-1. Clique com o botão direito do mouse em **gerenciadores de conexões** no projeto do SSIS e escolha **novo Gerenciador de conexões**.
+1. Clique direito gestores de **ligação** no projeto SSIS e escolha **New Connection Manager**.
 
-2. Selecione o tipo de **arquivo** e clique em **Adicionar...** .
+2. Selecione o tipo **de ficheiro** e clique em **Adicionar...**.
 
-3. Defina o **tipo de uso** como **arquivo existente**e defina o **arquivo** para o arquivo no computador local.
+3. Detete o **tipo de utilização** para o **ficheiro existente**e detete te o **ficheiro** no ficheiro da máquina local.
 
-    ![Adicionar conexão de arquivo ao arquivo local](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
+    ![Adicionar conexão de ficheiros ao ficheiro local](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
-4. Adicionar **Azure data Lake Analytics** tarefa e:
-    1. Defina **SourceType** como **FileConnection**.
-    2. Defina **FileConnection** para a conexão de arquivo criada apenas agora.
+4. Adicione a tarefa de análise do Lago de **Dados Azure** e:
+    1. Definir **SourceType** para **FileConnection**.
+    2. Definir **a Ligação** de Ficheiros à Ligação de Ficheiros criada agora mesmo.
 
-5. Conclua outras configurações para Azure Data Lake Analytics tarefa.
+5. Termine outras configurações para a Tarefa de Análise do Lago de Dados Azure.
 
-## <a name="scenario-5-use-u-sql-statement-in-ssis-variable"></a>Cenário 5 – usar a instrução U-SQL na variável SSIS
+## <a name="scenario-5-use-u-sql-statement-in-ssis-variable"></a>Cenário 5-Use U-SQL declaração na variável SSIS
 
-Em alguns casos, talvez seja necessário gerar dinamicamente as instruções U-SQL. Você pode usar a **variável do SSIS** com a **expressão SSIS** e outras tarefas do SSIS, como a tarefa Script, para ajudá-lo a gerar a instrução U-SQL dinamicamente.
+Em alguns casos, poderá ser necessário gerar dinamicamente as declarações da U-SQL. Pode utilizar a **Variável SSIS** com **expressão SSIS** e outras tarefas SSIS, como a Script Task, para ajudá-lo a gerar a declaração U-SQL de forma dinâmica.
 
-1. Abrir janela de ferramentas de variáveis por meio do > menu de nível superior de **variáveis do SSIS** .
+1. Abra a janela da ferramenta Variáveis através do menu de alto nível **sis > Variáveis.**
 
-2. Adicione uma variável do SSIS e defina o valor diretamente ou use a **expressão** para gerar o valor.
+2. Adicione uma Variável SSIS e detete o valor diretamente ou use a **Expressão** para gerar o valor.
 
-3. Adicionar **Azure data Lake Analytics tarefa** e:
-    1. Defina **SourceType** como **variável**.
-    2. Defina **SourceVariable** para a variável do SSIS criada apenas agora.
+3. Adicione a tarefa de análise do Lago de **Dados Azure** e:
+    1. Definir **SourceType** para **Variável**.
+    2. Definir **FonteVariável** para a Variável SSIS criada agora mesmo.
 
-4. Conclua outras configurações para Azure Data Lake Analytics tarefa.
+4. Termine outras configurações para a Tarefa de Análise do Lago de Dados Azure.
 
-## <a name="scenario-6-pass-parameters-to-u-sql-script"></a>Cenário 6-passar parâmetros para o script U-SQL
+## <a name="scenario-6-pass-parameters-to-u-sql-script"></a>Cenário 6-Pass parâmetros para script U-SQL
 
-Em alguns casos, talvez você queira definir dinamicamente o valor da variável U-SQL no script U-SQL. O recurso de **mapeamento de parâmetros** no Azure data Lake Analytics tarefa ajuda com esse cenário. Geralmente, há dois casos de usuário típicos:
+Em alguns casos, pode querer definir dinamicamente o valor variável U-SQL no script U-SQL. A funcionalidade de mapeamento de **parâmetros** no Azure Data Lake Analytics Task ajuda com este cenário. Existem geralmente dois casos típicos de utilizador:
 
-- Defina as variáveis de caminho do arquivo de entrada e saída dinamicamente com base na data e hora atuais.
-- Defina o parâmetro para procedimentos armazenados.
+- Detete as variáveis do caminho do ficheiro de entrada e de saída dinamicamente com base na data e hora atuais.
+- Defina o parâmetro para os procedimentos armazenados.
 
 [Saiba mais sobre como definir parâmetros para o script U-SQL](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017#parameter-mapping-page-configuration).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Executar pacotes do SSIS no Azure](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
-- [Feature Pack do Azure para Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)
-- [Agendar trabalhos U-SQL usando Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics)
+- [Pacote de funcionalidades Azure para serviços de integração (SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)
+- [Agendar empregos U-SQL usando a Fábrica de Dados Azure](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics)

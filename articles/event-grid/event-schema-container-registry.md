@@ -1,6 +1,6 @@
 ---
-title: Esquema de eventos de registo de contentor de grelha de eventos do Azure
-description: Descreve as propriedades que são fornecidas para eventos de registo de contentor com o Azure Event Grid
+title: Esquema de evento de registo de contentores da grelha de evento seletiva de eventos de eventos de eventos
+description: Descreve as propriedades que estão fornecidas para eventos de registo de contentores com grelha de eventos Azure
 services: event-grid
 author: spelluru
 manager: timlt
@@ -9,30 +9,30 @@ ms.topic: reference
 ms.date: 03/12/2019
 ms.author: spelluru
 ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60345469"
 ---
-# <a name="azure-event-grid-event-schema-for-container-registry"></a>Esquema de eventos do Azure Event Grid para o registo de contentor
+# <a name="azure-event-grid-event-schema-for-container-registry"></a>Esquema de evento da Grelha de Eventos Azure para registo de contentores
 
-Este artigo fornece as propriedades e o esquema para eventos de registo de contentor. Para obter uma introdução aos esquemas de eventos, consulte [esquema de eventos do Azure Event Grid](event-schema.md).
+Este artigo fornece as propriedades e esquemas para eventos de registo de contentores.Para uma introdução aos eventos schemas, consulte [o evento Azure Event Grid schema](event-schema.md).
 
 ## <a name="available-event-types"></a>Tipos de eventos disponíveis
 
-O Azure Container Registry emite os seguintes tipos de evento:
+O Registo de Contentores Azure emite os seguintes tipos de eventos:
 
 | Tipo de evento | Descrição |
 | ---------- | ----------- |
-| Microsoft.ContainerRegistry.ImagePushed | Gerado quando é enviada por push uma imagem. |
-| Microsoft.ContainerRegistry.ImageDeleted | Desencadeado quando uma imagem é eliminada. |
-| Microsoft.ContainerRegistry.ChartPushed | Desencadeado quando um gráfico do Helm é emitido. |
-| Microsoft.ContainerRegistry.ChartDeleted | Desencadeado quando um gráfico do Helm é eliminado. |
+| Microsoft.ContainerRegistry.ImagePushed | Levantada quando uma imagem é empurrada. |
+| Microsoft.ContainerRegistry.ImageDeleted | Levantada quando uma imagem é apagada. |
+| Microsoft.ContainerRegistry.ChartPushed | Levantado quando um gráfico helm é empurrado. |
+| Microsoft.ContainerRegistry.ChartDeleted | Levantado quando um gráfico helm é apagado. |
 
 ## <a name="example-event"></a>Evento de exemplo
 
-O exemplo seguinte mostra o esquema de uma imagem que enviou o evento: 
+O exemplo que se segue mostra o esquema de um evento empurrado por imagem: 
 
 ```json
 [{
@@ -65,7 +65,7 @@ O exemplo seguinte mostra o esquema de uma imagem que enviou o evento:
 }]
 ```
 
-O esquema para um evento de imagem eliminado é semelhante:
+O esquema para um evento apagado de imagem é semelhante:
 
 ```json
 [{
@@ -95,7 +95,7 @@ O esquema para um evento de imagem eliminado é semelhante:
 }]
 ```
 
-O esquema para um gráfico que enviou o evento é semelhante para o esquema para um evento enviada por push com imagem duplicada, mas ele não inclui um objeto de solicitação:
+O esquema para um evento empurrado por gráficos é semelhante ao esquema para um evento filmado, mas não inclui um objeto de pedido:
 
 ```json
 [{
@@ -123,7 +123,7 @@ O esquema para um gráfico que enviou o evento é semelhante para o esquema para
 }]
 ```
 
-O esquema para um evento de gráfico eliminado é semelhante para o esquema para um evento eliminado imagem, mas ele não inclui um objeto de solicitação:
+O esquema para um evento eliminado por gráfico é semelhante ao esquema para um evento apagado de imagem, mas não inclui um objeto de pedido:
 
 ```json
 [{
@@ -153,53 +153,53 @@ O esquema para um evento de gráfico eliminado é semelhante para o esquema para
 
 ## <a name="event-properties"></a>Propriedades do evento
 
-Um evento tem os seguintes dados de nível superior:
+Um evento tem os seguintes dados de alto nível:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| topic | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| subject | string | Caminho definidos pelo publicador para o assunto de evento. |
-| eventType | string | Um dos tipos de eventos registrados para esta origem de evento. |
-| eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
-| id | string | Identificador exclusivo para o evento. |
-| data | object | Dados de eventos de armazenamento de Blobs. |
+| tópico | string | Caminho de recursos completos para a fonte do evento. Este campo não é repreensível. O Event Grid fornece este valor. |
+| Assunto | string | Caminho definido pelo publicador para o assunto do evento. |
+| eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
+| eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
+| ID | string | Identificador único para o evento. |
+| data | objeto | Dados do evento de armazenamento blob. |
 | dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | string | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| id | string | O ID de evento. |
-| timestamp | string | A hora em que ocorreu o evento. |
-| action | string | A ação que abrange o evento fornecido. |
-| target | object | O destino do evento. |
-| request | object | O pedido que gerou o evento. |
+| ID | string | A identificação do evento. |
+| carimbo de data/hora | string | O momento em que ocorreu o evento. |
+| action | string | A ação que engloba o evento previsto. |
+| alvo | objeto | O alvo do evento. |
+| pedido | objeto | O pedido que gerou o evento. |
 
-O objeto de destino tem as seguintes propriedades:
+O objeto-alvo tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | mediaType | string | O tipo MIME do objeto referenciado. |
-| size | inteiro | O número de bytes do conteúdo. Mesmo que o campo de comprimento. |
-| digest | string | O resumo do conteúdo, conforme definido pela especificação de API de HTTP do registo V2. |
-| length | inteiro | O número de bytes do conteúdo. Mesmo que o campo de tamanho. |
-| repository | string | O nome do repositório. |
-| tag | string | O nome da etiqueta. |
-| name | string | O nome do gráfico. |
-| version | string | A versão de gráfico. |
+| size | número inteiro | O número de bytes do conteúdo. O mesmo que o campo length. |
+| digest | string | A digestão do conteúdo, tal como definida pela especificação do Registo V2 HTTP API. |
+| length | número inteiro | O número de bytes do conteúdo. O mesmo que o campo size. |
+| repositório | string | O nome do repositório. |
+| etiqueta | string | O nome da etiqueta. |
+| nome | string | O nome da ficha. |
+| versão | string | A versão do gráfico. |
 
-O objeto de solicitação tem as seguintes propriedades:
+O objeto de pedido tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| id | string | O ID do pedido que deu início ao evento. |
-| addr | string | O IP ou nome de anfitrião e, possivelmente, porta da ligação de cliente que deu início ao evento. Este valor é o RemoteAddr no pedido de http padrão. |
-| host | string | O nome de anfitrião acessível externamente da instância do Registro, conforme especificado pelo cabeçalho de anfitrião http em solicitações de entrada. |
-| method | string | O método de pedido que gerou o evento. |
-| useragent | string | O cabeçalho do agente de utilizador do pedido. |
+| ID | string | A identificação do pedido que iniciou o evento. |
+| addr | string | O nome IP ou anfitrião e, possivelmente, o porto da ligação ao cliente que iniciou o evento. Este valor é o RemoteAddr a partir do pedido de http padrão. |
+| anfitrião | string | O nome de anfitrião acessível externamente da instância de registo, conforme especificado pelo cabeçalho do anfitrião http nos pedidos de entrada. |
+| método | string | O método de pedido que gerou o evento. |
+| useragent | string | O cabeçalho do agente utilizador do pedido. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma introdução ao Azure Event Grid, consulte [o que é o Event Grid?](overview.md)
-* Para obter mais informações sobre a criação de uma subscrição do Azure Event Grid, veja [esquema de subscrições do Event Grid](subscription-creation-schema.md).
+* Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grelha de Eventos?](overview.md)
+* Para mais informações sobre a criação de uma subscrição da Rede de Eventos Do Evento, consulte o esquema de subscrição da [Rede de Eventos](subscription-creation-schema.md).

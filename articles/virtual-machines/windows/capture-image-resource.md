@@ -1,6 +1,6 @@
 ---
-title: Criar uma imagem gerenciada no Azure
-description: Crie uma imagem gerenciada de uma VM ou um VHD generalizado no Azure. As imagens podem ser usadas para criar várias VMs que usam discos gerenciados.
+title: Criar uma imagem gerida em Azure
+description: Crie uma imagem gerida de um VM ou VHD generalizado em Azure. As imagens podem ser usadas para criar vários VMs que usam discos geridos.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,98 +15,98 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.openlocfilehash: 01619027ddc79530dc9541584efa9a3e518f5136
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74842063"
 ---
-# <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Criar uma imagem gerenciada de uma VM generalizada no Azure
+# <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Create a managed image of a generalized VM in Azure (Criar uma imagem gerida de uma VM generalizada no Azure)
 
-Pode ser criado um recurso de imagem gerida a partir de uma máquina virtual (VM) generalizada que é armazenada como um disco gerido ou um disco não gerido numa conta de armazenamento. A imagem pode ser utilizada para criar múltiplas VMs. Para obter informações sobre como as imagens gerenciadas são cobradas, consulte [preços de Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
+Pode ser criado um recurso de imagem gerida a partir de uma máquina virtual (VM) generalizada que é armazenada como um disco gerido ou um disco não gerido numa conta de armazenamento. A imagem pode ser utilizada para criar múltiplas VMs. Para obter informações sobre como as imagens geridas são faturadas, consulte [os preços dos Discos Geridos](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
  
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalizar a VM do Windows com o Sysprep
 
-O Sysprep remove todas as suas informações pessoais de conta e segurança e, em seguida, prepara a máquina para ser usada como uma imagem. Para obter informações sobre o Sysprep, consulte [visão geral do Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+A Sysprep remove todas as suas informações pessoais e de segurança e, em seguida, prepara a máquina para ser usada como imagem. Para obter informações sobre sysprep, consulte a visão geral da [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Verifique se as funções de servidor em execução no computador têm suporte pelo Sysprep. Para obter mais informações, consulte [suporte do Sysprep para funções de servidor](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) e [cenários sem suporte](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios).
+Certifique-se de que as funções do servidor que estão a funcionar na máquina são suportadas pela Sysprep. Para mais informações, consulte o [suporte sysprep para funções](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) de servidor e [cenários não suportados](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios).
 
 > [!IMPORTANT]
-> Depois de executar o Sysprep em uma VM, essa VM é considerada *generalizada* e não pode ser reiniciada. O processo de generalizar uma VM não é reversível. Se você precisar manter a VM original funcionando, deverá criar uma [cópia da VM](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) e generalizar sua cópia. 
+> Depois de ter executado sysprep em um VM, que vM é considerado *generalizado* e não pode ser reiniciado. O processo de generalizar uma VM não é reversível. Se precisar de manter o VM original a funcionar, deverá criar uma [cópia do VM](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) e generalizar a sua cópia. 
 >
-> Se você planeja executar o Sysprep antes de carregar seu VHD (disco rígido virtual) no Azure pela primeira vez, verifique se você [preparou sua VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
+> Se planeia executar o Sysprep antes de enviar o disco rígido virtual (VHD) para o Azure pela primeira vez, certifique-se de ter [preparado o seu VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 > 
 > 
 
-Para generalizar sua VM do Windows, siga estas etapas:
+Para generalizar o seu VM windows, siga estes passos:
 
-1. Entre em sua VM do Windows.
+1. Inscreva-se no seu VM windows.
    
-2. Abra uma janela do prompt de comando como administrador. Altere o diretório para%WINDIR%\system32\sysprep e execute `sysprep.exe`.
+2. Abra uma janela de comando como administrador. Mude o diretório para %windir%\system32\sysprep, e depois executar `sysprep.exe`.
    
-3. Na caixa de diálogo **ferramenta de preparação do sistema** , selecione entrar na experiência inicial **do sistema (OOBE)** e marque a caixa de seleção **generalizar** .
+3. Na caixa de diálogo da ferramenta de preparação do **sistema,** selecione **Enter System Out-of-Box Experience (OOBE)** e selecione a caixa de verificação **Generalize.**
    
-4. Para **Opções de desligamento**, selecione **desligar**.
+4. Para **opções de encerramento,** selecione **Shutdown**.
    
 5. Selecione **OK**.
    
-    ![Iniciar Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
+    ![Iniciar sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 
-6. Quando o Sysprep é concluído, ele desliga a VM. Não reinicie a VM.
+6. Quando o Sysprep completa, desliga o VM. Não reinicie a VM.
 
 > [!TIP]
-> **Opcional** Use o [DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) para otimizar a imagem e reduzir a primeira hora de inicialização da VM.
+> **Opcional** Utilize o [DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) para otimizar a sua imagem e reduzir o primeiro tempo de arranque do VM.
 >
-> Para otimizar sua imagem, monte seu VHD clicando duas vezes nele no Windows Explorer e, em seguida, execute o DISM com o parâmetro `/optimize-image`.
+> Para otimizar a sua imagem, monte o seu VHD clicando duas vezes `/optimize-image` nele no explorador do Windows e, em seguida, execute o DISM com o parâmetro.
 >
 > ```cmd
 > DISM /image:D:\ /optimize-image /boot
 > ```
 > Onde D: é o caminho do VHD montado.
 >
-> A execução de `DISM /optimize-image` deve ser a última modificação feita em seu VHD. Se você fizer alterações no VHD antes da implantação, precisará executar `DISM /optimize-image` novamente.
+> Correr `DISM /optimize-image` deve ser a última modificação que faz no seu VHD. Se fizer alterações no seu VHD antes da implantação, terá de voltar a correr. `DISM /optimize-image`
 
-## <a name="create-a-managed-image-in-the-portal"></a>Criar uma imagem gerenciada no portal 
+## <a name="create-a-managed-image-in-the-portal"></a>Criar uma imagem gerida no portal 
 
-1. Vá para o [portal do Azure](https://portal.azure.com) para gerenciar a imagem da VM. Pesquise e selecione **máquinas virtuais**.
+1. Vá ao [portal Azure](https://portal.azure.com) para gerir a imagem VM. Procure e selecione **máquinas Virtuais**.
 
-2. Selecione sua VM na lista.
+2. Selecione o seu VM da lista.
 
-3. Na página **máquina virtual** da VM, no menu superior, selecione **capturar**.
+3. Na página da **máquina Virtual** para o VM, no menu superior, selecione **Capture**.
 
-   A página **criar imagem** é exibida.
+   A página **de imagem Create** aparece.
 
-4. Para **nome**, aceite o nome previamente preenchido ou insira um nome que você deseja usar para a imagem.
+4. Para **Nome**, ou aceite o nome pré-povoado ou introduza um nome que gostaria de usar para a imagem.
 
-5. Para o **grupo de recursos**, selecione **criar novo** e insira um nome ou selecione um grupo de recursos a ser usado na lista suspensa.
+5. Para **o grupo Recursos,** selecione **Criar novo** e introduza um nome ou selecione um grupo de recursos para utilizar a partir da lista de drop-down.
 
-6. Se você quiser excluir a VM de origem após a criação da imagem, selecione **excluir automaticamente esta máquina virtual depois de criar a imagem**.
+6. Se pretender eliminar o VM de origem depois de a imagem ter sido criada, **selecione eliminar automaticamente esta máquina virtual depois**de criar a imagem .
 
-7. Se você quiser a capacidade de usar a imagem em qualquer [zona de disponibilidade](../../availability-zones/az-overview.md), selecione **ativado** para **resiliência de zona**.
+7. Se desejar a capacidade de utilizar a imagem em qualquer [zona de disponibilidade,](../../availability-zones/az-overview.md)selecione **On** for **Zone resiliency**.
 
-8. Selecione **criar** para criar a imagem.
+8. Selecione **Criar** para criar a imagem.
 
-Depois que a imagem for criada, você poderá encontrá-la como um recurso de **imagem** na lista de recursos no grupo de recursos.
+Após a criação da imagem, pode encontrá-la como recurso **Image** na lista de recursos do grupo de recursos.
 
 
 
-## <a name="create-an-image-of-a-vm-using-powershell"></a>Criar uma imagem de uma VM usando o PowerShell
+## <a name="create-an-image-of-a-vm-using-powershell"></a>Criar uma imagem de um VM usando powershell
 
  
 
-A criação de uma imagem diretamente da VM garante que a imagem inclua todos os discos associados à VM, incluindo o disco do sistema operacional e os discos de dados. Este exemplo mostra como criar uma imagem gerenciada de uma VM que usa discos gerenciados.
+A criação de uma imagem diretamente do VM garante que a imagem inclui todos os discos associados ao VM, incluindo o disco OS e quaisquer discos de dados. Este exemplo mostra como criar uma imagem gerida a partir de um VM que utiliza discos geridos.
 
-Antes de começar, verifique se você tem a versão mais recente do módulo Azure PowerShell. Para localizar a versão, execute `Get-Module -ListAvailable Az` no PowerShell. Se você precisar atualizar, consulte [instalar Azure PowerShell no Windows com PowerShellGet](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, execute `Connect-AzAccount` para criar uma conexão com o Azure.
+Antes de começar, certifique-se de que tem a versão mais recente do módulo PowerShell Azure. Para encontrar a `Get-Module -ListAvailable Az` versão, corra no PowerShell. Se precisar de fazer o upgrade, consulte [Instalar o PowerShell Azure no Windows com o PowerShellGet](/powershell/azure/install-az-ps). Se estiver a executar a `Connect-AzAccount` PowerShell localmente, corra para criar uma ligação com o Azure.
 
 
 > [!NOTE]
-> Se você quiser armazenar a imagem em um armazenamento com redundância de zona, precisará criá-la em uma região que ofereça suporte a [zonas de disponibilidade](../../availability-zones/az-overview.md) e incluir o parâmetro `-ZoneResilient` na configuração da imagem (comando`New-AzImageConfig`).
+> Se quiser armazenar a sua imagem em armazenamento redundante, precisa criá-la numa região `-ZoneResilient` que suporte zonas de`New-AzImageConfig` [disponibilidade](../../availability-zones/az-overview.md) e inclua o parâmetro na configuração da imagem (comando).
 
-Para criar uma imagem de VM, siga estas etapas:
+Para criar uma imagem VM, siga estes passos:
 
-1. Crie algumas variáveis.
+1. Criar algumas variáveis.
 
     ```azurepowershell-interactive
     $vmName = "myVM"
@@ -114,13 +114,13 @@ Para criar uma imagem de VM, siga estas etapas:
     $location = "EastUS"
     $imageName = "myImage"
     ```
-2. Verifique se a VM foi desalocada.
+2. Certifique-se de que o VM foi transferido.
 
     ```azurepowershell-interactive
     Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
-3. Defina o status da máquina virtual como **generalizado**. 
+3. Desloque o estado da máquina virtual para **generalizar**. 
    
     ```azurepowershell-interactive
     Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized
@@ -143,12 +143,12 @@ Para criar uma imagem de VM, siga estas etapas:
     New-AzImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
     ``` 
 
-## <a name="create-an-image-from-a-managed-disk-using-powershell"></a>Criar uma imagem de um disco gerenciado usando o PowerShell
+## <a name="create-an-image-from-a-managed-disk-using-powershell"></a>Criar uma imagem a partir de um disco gerido usando powerShell
 
-Se você quiser criar uma imagem apenas do disco do sistema operacional, especifique a ID do disco gerenciado como o disco do sistema operacional:
+Se pretender criar uma imagem apenas do disco OS, especifique o ID do disco gerido como o disco OS:
 
     
-1. Crie algumas variáveis. 
+1. Criar algumas variáveis. 
 
     ```azurepowershell-interactive
     $vmName = "myVM"
@@ -157,13 +157,13 @@ Se você quiser criar uma imagem apenas do disco do sistema operacional, especif
     $imageName = "myImage"
     ```
 
-2. Obtenha a VM.
+2. Pegue o VM.
 
    ```azurepowershell-interactive
    $vm = Get-AzVm -Name $vmName -ResourceGroupName $rgName
    ```
 
-3. Obtenha a ID do disco gerenciado.
+3. Obter a identificação do disco gerido.
 
     ```azurepowershell-interactive
     $diskID = $vm.StorageProfile.OsDisk.ManagedDisk.Id
@@ -183,12 +183,12 @@ Se você quiser criar uma imagem apenas do disco do sistema operacional, especif
     ``` 
 
 
-## <a name="create-an-image-from-a-snapshot-using-powershell"></a>Criar uma imagem de um instantâneo usando o PowerShell
+## <a name="create-an-image-from-a-snapshot-using-powershell"></a>Criar uma imagem a partir de um instantâneo usando Powershell
 
-Você pode criar uma imagem gerenciada de um instantâneo de uma VM generalizada seguindo estas etapas:
+Pode criar uma imagem gerida a partir de uma imagem de um VM generalizado seguindo estes passos:
 
     
-1. Crie algumas variáveis. 
+1. Criar algumas variáveis. 
 
     ```azurepowershell-interactive
     $rgName = "myResourceGroup"
@@ -197,7 +197,7 @@ Você pode criar uma imagem gerenciada de um instantâneo de uma VM generalizada
     $imageName = "myImage"
     ```
 
-2. Obtenha o instantâneo.
+2. Pegue a foto.
 
    ```azurepowershell-interactive
    $snapshot = Get-AzSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
@@ -216,12 +216,12 @@ Você pode criar uma imagem gerenciada de um instantâneo de uma VM generalizada
     ``` 
 
 
-## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>Criar uma imagem de uma VM que usa uma conta de armazenamento
+## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>Criar uma imagem de um VM que usa uma conta de armazenamento
 
-Para criar uma imagem gerenciada de uma VM que não usa discos gerenciados, você precisa do URI do VHD do sistema operacional na conta de armazenamento, no seguinte formato: https://*mystorageaccount*. blob.core.windows.net/*vhdcontainer*/*vhdfilename. vhd*. Neste exemplo, o VHD está em *mystorageaccount*, em um contêiner chamado *vhdcontainer*, e o nome de arquivo VHD é *vhdfilename. vhd*.
+Para criar uma imagem gerida a partir de um VM que não utilize discos geridos, precisa do URI do VHD osS na conta de armazenamento, no seguinte formato: https://*mystorageaccount*.blob.core.windows.net//*vhdcontainer vhdfilename.vhd .**vhdcontainer* Neste exemplo, o VHD *encontra-se*na minha conta de armazenamento, num recipiente chamado *vhdcontainer,* e o nome de ficheiro VHD é *vhdfilename.vhd*.
 
 
-1.  Crie algumas variáveis.
+1.  Criar algumas variáveis.
 
     ```azurepowershell-interactive
     $vmName = "myVM"
@@ -230,18 +230,18 @@ Para criar uma imagem gerenciada de uma VM que não usa discos gerenciados, voc�
     $imageName = "myImage"
     $osVhdUri = "https://mystorageaccount.blob.core.windows.net/vhdcontainer/vhdfilename.vhd"
     ```
-2. Pare/Desaloque a VM.
+2. Parar/desalocar o VM.
 
     ```azurepowershell-interactive
     Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
-3. Marque a VM como generalizada.
+3. Marque o VM como generalizado.
 
     ```azurepowershell-interactive
     Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized  
     ```
-4.  Crie a imagem usando o VHD do sistema operacional generalizado.
+4.  Crie a imagem utilizando o seu VHD osso generalizado.
 
     ```azurepowershell-interactive
     $imageConfig = New-AzImageConfig -Location $location
@@ -251,5 +251,5 @@ Para criar uma imagem gerenciada de uma VM que não usa discos gerenciados, voc�
 
     
 ## <a name="next-steps"></a>Passos seguintes
-- [Crie uma VM com base em uma imagem gerenciada](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).    
+- [Criar um VM a partir de uma imagem gerida.](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)    
 

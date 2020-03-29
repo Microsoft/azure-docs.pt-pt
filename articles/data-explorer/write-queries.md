@@ -1,6 +1,6 @@
 ---
-title: Gravar consultas para Data Explorer do Azure
-description: Neste "como", você aprenderá a executar consultas básicas e mais avançadas para o Azure Data Explorer.
+title: Escrever consultas do Azure Data Explorer
+description: Neste como-fazer, você aprende a realizar consultas básicas e mais avançadas para o Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,38 +8,38 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
 ms.openlocfilehash: 80d3eaaf7e588766d62f5e5885d75e61c590970e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68881188"
 ---
-# <a name="write-queries-for-azure-data-explorer"></a>Gravar consultas para Data Explorer do Azure
+# <a name="write-queries-for-azure-data-explorer"></a>Escrever consultas do Azure Data Explorer
 
-Neste artigo, você aprenderá a usar a linguagem de consulta no Azure Data Explorer para executar consultas básicas com os operadores mais comuns. Você também obtém exposição a alguns dos recursos mais avançados da linguagem.
+Neste artigo, aprende-se a usar a linguagem de consulta no Azure Data Explorer para realizar consultas básicas com os operadores mais comuns. Você também obtém exposição a algumas das características mais avançadas da linguagem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você pode executar as consultas neste artigo de uma das duas maneiras:
+Você pode executar as consultas neste artigo de uma de duas maneiras:
 
-- No *cluster de ajuda* do data Explorer do Azure, configuramos para auxiliar o aprendizado.
-    [Entre no cluster](https://dataexplorer.azure.com/clusters/help/databases/samples) com uma conta de email organizacional que seja membro do Azure Active Directory.
+- No Azure Data Explorer ajuda o *cluster* que estabelecemos para ajudar a aprendizagem.
+    [Inscreva-se no cluster](https://dataexplorer.azure.com/clusters/help/databases/samples) com uma conta de e-mail organizacional que é membro do diretório Azure Ative.
 
-- Em seu próprio cluster que inclui os dados de exemplo do StormEvents. Para obter mais informações, [consulte início rápido: Crie um cluster de data Explorer do Azure](create-cluster-database-portal.md) e um banco de dados e ingestão de [dado de exemplo para o Azure data Explorer](ingest-sample-data.md).
+- No seu próprio cluster que inclui os dados da amostra StormEvents. Para mais informações, consulte [Quickstart: Crie um cluster e base de dados do Azure Data Explorer e](create-cluster-database-portal.md) [os dados da amostra ingest no Azure Data Explorer](ingest-sample-data.md).
 
     [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
 ## <a name="overview-of-the-query-language"></a>Visão geral da linguagem de consulta
 
-Uma linguagem de consulta no Azure Data Explorer é uma solicitação somente leitura para processar dados e retornar resultados. A solicitação é declarada em texto sem formatação, usando um modelo de fluxo de dados criado para tornar a sintaxe fácil de ler, criar e automatizar. A consulta usa entidades de esquema organizadas em uma hierarquia semelhante a SQL: bancos de dados, tabelas e colunas.
+Uma linguagem de consulta no Azure Data Explorer é um pedido de leitura apenas para processar dados e devolver resultados. O pedido é indicado em texto simples, utilizando um modelo de fluxo de dados concebido para facilitar a leitura, autor e automatização da sintaxe. A consulta utiliza entidades de esquemas que são organizadas numa hierarquia semelhante à SQL: bases de dados, tabelas e colunas.
 
-A consulta consiste em uma sequência de instruções de consulta, delimitada por um ponto`;`-e-vírgula (), com pelo menos uma instrução ser uma instrução de expressão de tabela, que é uma instrução que produz dados organizados em uma malha de tabela e linhas. As instruções de expressão de tabela da consulta produzem os resultados da consulta.
+A consulta consiste numa sequência de declarações de consulta,`;`delimitadas por um ponto evícito , sendo pelo menos uma declaração uma declaração de expressão tabular, que é uma declaração que produz dados dispostos numa malha semelhante a uma mesa de colunas e linhas. As declarações de expressão tabular da consulta produzem os resultados da consulta.
 
-A sintaxe da instrução de expressão de tabela tem o fluxo de dados tabulares de um operador de consulta de tabela para outro, começando com a fonte de dados (por exemplo, uma tabela em um banco de dados, ou um operador que produz dado) e, em seguida, fluindo por um conjunto de transformações de dados operadores associados por meio do uso do delimitador de pipe`|`().
+A sintaxe da declaração de expressão tabular tem fluxo de dados tabular de um operador de consulta tabular para outro, começando pela fonte de dados (por exemplo, uma tabela numa`|`base de dados, ou um operador que produz dados) e, em seguida, fluiatravés de um conjunto de operadores de transformação de dados que estão ligados através da utilização do delimitador do tubo.
 
-Por exemplo, a consulta a seguir tem uma única instrução, que é uma instrução de expressão de tabela. A instrução começa com uma referência a uma tabela chamada `StormEvents` (o banco de dados que hospeda essa tabela é implícito aqui e parte das informações de conexão). Os dados (linhas) dessa tabela são filtrados pelo valor da `StartTime` coluna e, em seguida, filtrados pelo valor `State` da coluna. Em seguida, a consulta retorna a contagem de linhas "sobreviventes".
+Por exemplo, a seguinte consulta tem uma única declaração, que é uma declaração de expressão tabular. A declaração começa com uma `StormEvents` referência a uma tabela chamada (a base de dados que acolhe esta tabela está implícita aqui, e parte da informação de ligação). Os dados (linhas) dessa tabela são depois filtrados `StartTime` pelo valor da coluna e `State` depois filtrados pelo valor da coluna. A consulta devolve então a contagem de linhas "sobreviventes".
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQguSSwqCcnMTVWws1VISSxJLQGyNYwMDMx1DQ11DQw1FRLzUpBU2aArMgIpQjGvJFXB1lZByc3HP8jTxVFJQQEkm5xfmlcCAHoR9euCAAAA) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQguSSwqCcnMTVWws1VISSxJLQGyNYwMDMx1DQ11DQw1FRLzUpBU2aArMgIpQjGvJFXB1lZByc3HP8jTxVFJQQEkm5xfmlcCAHoR9euCAAAA)**\]**
 
 ```Kusto
 StormEvents
@@ -48,61 +48,61 @@ StormEvents
 | count
 ```
 
-Nesse caso, o resultado é:
+Neste caso, o resultado é:
 
-|Count|
+|Contagem|
 |-----|
 |   23|
 | |
 
-Para obter mais informações, consulte [referência de linguagem de consulta](https://aka.ms/kustolangref).
+Para mais informações consulte a [referência linguística da Consulta.](https://aka.ms/kustolangref)
 
 ## <a name="most-common-operators"></a>Operadores mais comuns
 
-Os operadores abordados nesta seção são os blocos de construção para entender as consultas no Azure Data Explorer. A maioria das consultas gravadas incluirá vários desses operadores.
+Os operadores abrangidos por esta secção são os blocos de construção para compreender as consultas no Azure Data Explorer. A maioria das consultas que escreve incluirá vários destes operadores.
 
-Para executar consultas no cluster de ajuda: selecione **clique para executar a consulta** acima de cada consulta.
+Para executar consultas no cluster de ajuda: selecione **Clique para executar consulta** acima de cada consulta.
 
-Para executar consultas em seu próprio cluster:
+Para fazer consultas no seu próprio cluster:
 
-1. Copie cada consulta no aplicativo de consulta baseado na Web e selecione a consulta ou coloque o cursor na consulta.
+1. Copie cada consulta na aplicação de consulta baseada na web e, em seguida, selecione a consulta ou coloque o cursor na consulta.
 
-1. Na parte superior do aplicativo, selecione **executar**.
+1. No topo da aplicação, selecione **Executar**.
 
 ### <a name="count"></a>count
 
-[**contagem**](https://docs.microsoft.com/azure/kusto/query/countoperator): Retorna a contagem de linhas na tabela.
+[**contagem**](https://docs.microsoft.com/azure/kusto/query/countoperator): Devolve a contagem das linhas na tabela.
 
-A consulta a seguir retorna a contagem de linhas na tabela StormEvents.
+A seguinte consulta devolve a contagem de linhas na tabela StormEvents.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSspVqhRSM4vzSsBALU2eHsTAAAA) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSspVqhRSM4vzSsBALU2eHsTAAAA)**\]**
 
 ```Kusto
 StormEvents | count
 ```
 
-### <a name="take"></a>ter
+### <a name="take"></a>tomar
 
-[**take**](https://docs.microsoft.com/azure/kusto/query/takeoperator): Retorna até o número especificado de linhas de dados.
+[**tomar**](https://docs.microsoft.com/azure/kusto/query/takeoperator): Devoluções até ao número especificado de linhas de dados.
 
-A consulta a seguir retorna cinco linhas da tabela StormEvents. O *limite* de palavras-chave é um alias para *take.*
+A seguinte consulta retorna a cinco linhas da tabela StormEvents. O *limite* da palavra-chave é um pseudónimo para *tomar.*
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSspVqhRKEnMTlUwBQDEz2b8FAAAAA%3d%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSspVqhRKEnMTlUwBQDEz2b8FAAAAA%3d%3d)**\]**
 
 ```Kusto
 StormEvents | take 5
 ```
 
 > [!TIP]
-> Não há nenhuma garantia de quais registros são retornados, a menos que os dados de origem sejam classificados.
+> Não há garantias de que registos sejam devolvidos a menos que os dados de origem estejam classificados.
 
 ### <a name="project"></a>project
 
-[**project**](https://docs.microsoft.com/azure/kusto/query/projectoperator): Seleciona um subconjunto de colunas.
+[**projeto**](https://docs.microsoft.com/azure/kusto/query/projectoperator): Seleciona um subconjunto de colunas.
 
-A consulta a seguir retorna um conjunto específico de colunas.
+A consulta seguinte devolve um conjunto específico de colunas.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUShJzE5VMAWxCorys1KTSxSCSxKLSkIyc1N1FFzzUiAMoFgJiA%2fSFlJZAGS6JOYmpqcGFOUXpBaVVAKlCjKL81NS%2fRKLihJLMstSAY%2buIINnAAAA) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUShJzE5VMAWxCorys1KTSxSCSxKLSkIyc1N1FFzzUiAMoFgJiA%2fSFlJZAGS6JOYmpqcGFOUXpBaVVAKlCjKL81NS%2fRKLihJLMstSAY%2buIINnAAAA)**\]**
 
 ```Kusto
 StormEvents
@@ -110,13 +110,13 @@ StormEvents
 | project StartTime, EndTime, State, EventType, DamageProperty, EpisodeNarrative
 ```
 
-### <a name="where"></a>onde
+### <a name="where"></a>em que
 
-[**em que**](https://docs.microsoft.com/azure/kusto/query/whereoperator): Filtra uma tabela para o subconjunto de linhas que satisfazem um predicado.
+[**onde**](https://docs.microsoft.com/azure/kusto/query/whereoperator): Filtra risa uma tabela para o subconjunto de linhas que satisfaçam um predicado.
 
-A consulta a seguir filtra os dados `EventType` por `State`e.
+A consulta seguinte filtra os `EventType` `State`dados e .
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAEWMPQvCMBCGd8H%2fcFuWro4dBOvHkgoJOB%2fm0KjJhetRKfjjNe3g9n49r1OW1I2UdVivPvC%2bkxDM3k%2bFoG3B7F%2fMwQDmAE5Rl%2fCydceTPfjemsopPgk2VRXhB121TkV9TNRAl8MiZrz53zeww4Q3OgsXEp1%2bVYkDB7IoghpH%2bgI9OH8WnwAAAA%3d%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAEWMPQvCMBCGd8H%2fcFuWro4dBOvHkgoJOB%2fm0KjJhetRKfjjNe3g9n49r1OW1I2UdVivPvC%2bkxDM3k%2bFoG3B7F%2fMwQDmAE5Rl%2fCydceTPfjemsopPgk2VRXhB121TkV9TNRAl8MiZrz53zeww4Q3OgsXEp1%2bVYkDB7IoghpH%2bgI9OH8WnwAAAA%3d%3d)**\]**
 
 ```Kusto
 StormEvents
@@ -125,13 +125,13 @@ StormEvents
 | project StartTime, EndTime, State, EventType, DamageProperty, EpisodeNarrative
 ```
 
-### <a name="sort"></a>organizar
+### <a name="sort"></a>ordenar
 
-[**classificar**](https://docs.microsoft.com/azure/kusto/query/sortoperator): Classifique as linhas da tabela de entrada em ordem por uma ou mais colunas.
+[**classificação**](https://docs.microsoft.com/azure/kusto/query/sortoperator): Ordenar as linhas da tabela de entrada em ordem por uma ou mais colunas.
 
-A consulta a seguir classifica os dados em ordem decrescente por `DamageProperty`.
+A seguinte consulta classifica os dados `DamageProperty`em ordem descendente por .
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAF2NPQvCMBCGd8H%2fcFuXrI4dBOvHEoUGnM%2fm0KjphctRKfjjNe0guL0fvM%2fbKktsBuo1LxdveN1ICCbvxkRQ11Btn8y%2bAuw9tIo6h%2bd1uz%2fYnTvaquwyi8JlhA1GvNJJOJHoCJ5yV2rFB8GqqCR8p04LSdSFSAaa3s9iopvfu%2fnDfasUMnuyKIIaBvoAtvGMsb4AAAA%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAF2NPQvCMBCGd8H%2fcFuXrI4dBOvHEoUGnM%2fm0KjphctRKfjjNe0guL0fvM%2fbKktsBuo1LxdveN1ICCbvxkRQ11Btn8y%2bAuw9tIo6h%2bd1uz%2fYnTvaquwyi8JlhA1GvNJJOJHoCJ5yV2rFB8GqqCR8p04LSdSFSAaa3s9iopvfu%2fnDfasUMnuyKIIaBvoAtvGMsb4AAAA%3d)**\]**
 
 ```Kusto
 StormEvents
@@ -142,15 +142,15 @@ StormEvents
 ```
 
 > [!NOTE]
-> A ordem das operações é importante. Tente colocar `take 5` antes `sort by`. Você obtém resultados diferentes?
+> A ordem de operações é importante. Tente `take 5` colocar `sort by`antes. Obtém resultados diferentes?
 
-### <a name="top"></a>Início
+### <a name="top"></a>superior
 
-[**superior**](https://docs.microsoft.com/azure/kusto/query/topoperator): Retorna os primeiros *N* registros classificados pelas colunas especificadas.
+[**superior:**](https://docs.microsoft.com/azure/kusto/query/topoperator)Devolve os primeiros registos *N* classificados pelas colunas especificadas.
 
-A consulta a seguir retorna os mesmos resultados acima com um operador less.
+A consulta seguinte devolve os mesmos resultados acima com um operador a menos.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAF2NOwvCMBSFd8H%2fcLcsWR07CNbHkgoJOMfmohGTG24vlYA%2fXtsOgtt5cL5jhTi1I2YZ1qs3vO7ICLN3tSA0Daj9kygo8DmAFS9LeNna48kcXGfUtBMqsIFrhZ1P%2foZnpoIsFQIO%2fdQXpgf2MgFYXEyooc1hETNU%2f071H%2bRblThQQOOZvcQRP1rSng21AAAA) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAF2NOwvCMBSFd8H%2fcLcsWR07CNbHkgoJOMfmohGTG24vlYA%2fXtsOgtt5cL5jhTi1I2YZ1qs3vO7ICLN3tSA0Daj9kygo8DmAFS9LeNna48kcXGfUtBMqsIFrhZ1P%2foZnpoIsFQIO%2fdQXpgf2MgFYXEyooc1hETNU%2f071H%2bRblThQQOOZvcQRP1rSng21AAAA)**\]**
 
 ```Kusto
 StormEvents
@@ -161,11 +161,11 @@ StormEvents
 
 ### <a name="extend"></a>estender
 
-[**extend**](https://docs.microsoft.com/azure/kusto/query/extendoperator): Computa colunas derivadas.
+[**extensão**](https://docs.microsoft.com/azure/kusto/query/extendoperator): Colunas derivadas de computação.
 
-A consulta a seguir cria uma nova coluna computando um valor em cada linha.
+A seguinte consulta cria uma nova coluna computando um valor em cada linha.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAF2OvQ7CMAyEdyTewVuWMDJ2QGr5WQJSKzGHxoIiEkeuKVTi4WmooBKbfXeffaUQ%2b6LDIO189oLHBRnhs1d9RMgyUOsbkVNgg4NSrIzicVVud2ZT7Y1KnFCEJZx6yK23ZzwwRWTpwWFbJx%2bfggOf39lKQwEyKIKrGo%2bwSEdZ0pyCkemKtUyi%2fib1j9ZjDz311H9%2fBys2LTk0lhPT4RvwA3pn6AAAAA%3d%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAF2OvQ7CMAyEdyTewVuWMDJ2QGr5WQJSKzGHxoIiEkeuKVTi4WmooBKbfXeffaUQ%2b6LDIO189oLHBRnhs1d9RMgyUOsbkVNgg4NSrIzicVVud2ZT7Y1KnFCEJZx6yK23ZzwwRWTpwWFbJx%2bfggOf39lKQwEyKIKrGo%2bwSEdZ0pyCkemKtUyi%2fib1j9ZjDz311H9%2fBys2LTk0lhPT4RvwA3pn6AAAAA%3d%3d)**\]**
 
 ```Kusto
 StormEvents
@@ -175,26 +175,26 @@ StormEvents
 | project StartTime, EndTime, Duration, State, EventType, DamageProperty, EpisodeNarrative
 ```
 
-As expressões podem incluir todos os operadores usuais (+,-, *,/,%) e há uma variedade de funções úteis que você pode chamar.
+Expressões podem incluir todos os operadores habituais (+, *, *, /, %), e há uma gama de funções úteis que pode chamar.
 
-### <a name="summarize"></a>resumir
+### <a name="summarize"></a>resumo
 
-[**summarize**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator): Agrega grupos de linhas.
+[**resumo**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator): Agrega grupos de linhas.
 
-A consulta a seguir retorna a contagem de eventos `State`por.
+A seguinte consulta devolve a `State`contagem dos acontecimentos por .
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlVIBYnFJ%2beX5pUo2CqAaQ1NhaRKheCSxJJUAB%2fedDI3AAAA) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlVIBYnFJ%2beX5pUo2CqAaQ1NhaRKheCSxJJUAB%2fedDI3AAAA)**\]**
 
 ```Kusto
 StormEvents
 | summarize event_count = count() by State
 ```
 
-O operador **resume** o agrupa linhas que têm os mesmos valores na cláusula **by** e, em seguida, usa a função de agregação (como **Count**) para combinar cada grupo em uma única linha. Portanto, nesse caso, há uma linha para cada Estado e uma coluna para a contagem de linhas nesse estado.
+Os **summarize** grupos de operador resumem linhas que têm os mesmos valores na cláusula **por** cláusula, e depois utilizam a função de agregação (como **contagem)** para combinar cada grupo numa única linha. Então, neste caso, há uma linha para cada estado, e uma coluna para a contagem de linhas nesse estado.
 
-Há uma variedade de funções de agregação e você pode usar várias delas em um operador de **Resumo** para produzir várias colunas computadas. Por exemplo, você pode obter a contagem de Storms em cada Estado e o número exclusivo de Storms por Estado e, em seguida, usar **Top** para obter os Estados mais afetados pelo Storm.
+Há uma gama de funções de agregação, e você pode usar várias delas em um **operador de resumo** para produzir várias colunas computorizadas. Por exemplo, você poderia obter a contagem de tempestades em cada estado e o número único de tempestades por estado, em seguida, usar **top** para obter os estados mais afetados pela tempestade.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlUIBkk455fmlSjYKiSDaA1NHYWQyoJU%2fzSwXDFQPAUiAdYPktJUSKoE6kwsSQUZVpJfoGAKEYGblZJanAwAgbFb73QAAAA%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlUIBkk455fmlSjYKiSDaA1NHYWQyoJU%2fzSwXDFQPAUiAdYPktJUSKoE6kwsSQUZVpJfoGAKEYGblZJanAwAgbFb73QAAAA%3d)**\]**
 
 ```Kusto
 StormEvents
@@ -202,21 +202,21 @@ StormEvents
 | top 5 by StormCount desc
 ```
 
-O resultado de uma operação de **Resumo** tem:
+O resultado de uma operação **de resumo** tem:
 
-- Cada coluna chamada em **por**
+- Cada coluna nomeada **por**
 
 - Uma coluna para cada expressão computada
 
-- Uma linha para cada combinação de por valores
+- Uma linha para cada combinação de valores
 
-### <a name="render"></a>aplicar
+### <a name="render"></a>render
 
-[**render**](https://docs.microsoft.com/azure/kusto/query/renderoperator): Renderiza resultados como uma saída gráfica.
+[**render:**](https://docs.microsoft.com/azure/kusto/query/renderoperator)Renderização resulta como uma saída gráfica.
 
-A consulta a seguir exibe um gráfico de colunas.
+A seguinte consulta exibe um gráfico de coluna.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAFWMsQ7CQAxDdyT%2bIWMrdSgbSxmQ2Nj6Aei4Ru0hkqA0VwTi49uUBRZL9rPdmiidJmQbt5sPjJkoaHojoGeXKJmtWbUoK6DUQQNh6osj9onPwUq4vqC1YLjORc2Dpef2OaD%2bPcEBdvu6dvZQuWG077b6LTlV5A4VotwzcRyC2gxU6ktSqQAAAA%3d%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAFWMsQ7CQAxDdyT%2bIWMrdSgbSxmQ2Nj6Aei4Ru0hkqA0VwTi49uUBRZL9rPdmiidJmQbt5sPjJkoaHojoGeXKJmtWbUoK6DUQQNh6osj9onPwUq4vqC1YLjORc2Dpef2OaD%2bPcEBdvu6dvZQuWG077b6LTlV5A4VotwzcRyC2gxU6ktSqQAAAA%3d%3d)**\]**
 
 ```Kusto
 StormEvents
@@ -227,9 +227,9 @@ StormEvents
 | render columnchart
 ```
 
-A consulta a seguir exibe um gráfico de tempo simples.
+A seguinte consulta apresenta um simples gráfico de tempo.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlVIBYnFJ%2beX5pXYgkkNTYWkSoWkzDyN4JLEopKQzNxUHQXDFE2QtqLUvJTUIoUSoFhyBlASAAyXWQJWAAAA) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlVIBYnFJ%2beX5pXYgkkNTYWkSoWkzDyN4JLEopKQzNxUHQXDFE2QtqLUvJTUIoUSoFhyBlASAAyXWQJWAAAA)**\]**
 
 ```Kusto
 StormEvents
@@ -237,9 +237,9 @@ StormEvents
 | render timechart
 ```
 
-A consulta a seguir conta os eventos pelo módulo de tempo um dia, compartimentalizados em horas e exibe um gráfico de tempo.
+A seguinte consulta conta eventos na altura em que o modulo um dia, preso em horas, e exibe um gráfico de tempo.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEADWNQQqDMBRE90LvMBtBwY0HcNkT2L2k8UuEJh9%2bfqSWHt4k4GZghpk3s7L450FB46P5g75KYYXjJJiwfZilm9WIvnZPaDGuGDC6vnRj8t7I%2fiNQ2S%2bWU9CpatfjfVZKLbLo7WGiLZnkGxJoxlqX%2bRf81ZbyiAAAAA%3d%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEADWNQQqDMBRE90LvMBtBwY0HcNkT2L2k8UuEJh9%2bfqSWHt4k4GZghpk3s7L450FB46P5g75KYYXjJJiwfZilm9WIvnZPaDGuGDC6vnRj8t7I%2fiNQ2S%2bWU9CpatfjfVZKLbLo7WGiLZnkGxJoxlqX%2bRf81ZbyiAAAAA%3d%3d)**\]**
 
 ```Kusto
 StormEvents
@@ -249,9 +249,9 @@ StormEvents
 | render timechart
 ```
 
-A consulta a seguir compara várias séries diárias em um gráfico de tempo.
+A consulta seguinte compara várias séries diárias num gráfico de tempo.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEACWPSwvCMBCE74L%2fYSgIFXrpD%2bihaKzxkUBTXyeputKCbSCmvvDHm9TL7gwzsN8qq03DHtTa%2b3DwBb0stRdUujMJrjetTQhlS2OLuiGMEF8QIa7GvvusyJBPLaFuEQbZZjWDnGHN9nwigyhYp1wwt7c8z7jgqZM7riZSKC6cFjIv5pimS1n4SLAdFixX7OCMzFkmRdAfundNU5r6QyAPejzrrrVJP8MxTu8eN%2fqT%2bL5xL5CBdcjnyrH%2fALPTSKnkAAAA) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEACWPSwvCMBCE74L%2fYSgIFXrpD%2bihaKzxkUBTXyeputKCbSCmvvDHm9TL7gwzsN8qq03DHtTa%2b3DwBb0stRdUujMJrjetTQhlS2OLuiGMEF8QIa7GvvusyJBPLaFuEQbZZjWDnGHN9nwigyhYp1wwt7c8z7jgqZM7riZSKC6cFjIv5pimS1n4SLAdFixX7OCMzFkmRdAfundNU5r6QyAPejzrrrVJP8MxTu8eN%2fqT%2bL5xL5CBdcjnyrH%2fALPTSKnkAAAA)**\]**
 
 ```Kusto
 StormEvents
@@ -262,19 +262,19 @@ StormEvents
 ```
 
 > [!NOTE]
-> O operador **render** é um recurso do lado do cliente, e não parte do mecanismo. Ele está integrado à linguagem para facilitar o uso. O aplicativo Web dá suporte às seguintes opções: barChart, columnChart, piechart, timechar e lineChart. 
+> O operador de **renderização** é uma funcionalidade do lado do cliente e não parte do motor. Está integrado na linguagem para facilitar o uso. A aplicação web suporta as seguintes opções: barchart, columnchart, piechart, timechart e linechart. 
 
-## <a name="scalar-operators"></a>Operadores escalares
+## <a name="scalar-operators"></a>Operadores escalar
 
-Esta seção aborda alguns dos operadores escalares mais importantes.
+Esta secção abrange alguns dos operadores mais importantes.
 
-### <a name="bin"></a>bin ()
+### <a name="bin"></a>caixotes do lixo
 
-[**bin()** ](https://docs.microsoft.com/azure/kusto/query/binfunction): Arredonda valores para baixo até um inteiro múltiplo de um determinado tamanho de compartimento.
+[**bin()**](https://docs.microsoft.com/azure/kusto/query/binfunction): As rondas descem para um múltiplo inteiro de um dado tamanho do caixote do lixo.
 
-A consulta a seguir calcula a contagem com um tamanho de Bucket de um dia.
+A seguinte consulta calcula a contagem com um balde tamanho de um dia.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQguSSwqCcnMTVWwU0hJLEktATI1jAwMzHUNjHQNTTQVEvNSkBTZYCoyMtQEGVdcmpubWJRZlaqQCrIiPjm%2fNK9EwVYBTGtoKiRVKiRl5mnAjdJRMEzRBABIhjnmkwAAAA%3d%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQguSSwqCcnMTVWwU0hJLEktATI1jAwMzHUNjHQNTTQVEvNSkBTZYCoyMtQEGVdcmpubWJRZlaqQCrIiPjm%2fNK9EwVYBTGtoKiRVKiRl5mnAjdJRMEzRBABIhjnmkwAAAA%3d%3d)**\]**
 
 ```Kusto
 StormEvents
@@ -282,13 +282,13 @@ StormEvents
 | summarize event_count = count() by bin(StartTime, 1d)
 ```
 
-### <a name="case"></a>caso ()
+### <a name="case"></a>caso()
 
-[**case()** ](https://docs.microsoft.com/azure/kusto/query/casefunction): Avalia uma lista de predicados e retorna a primeira expressão de resultado cujo predicado é satisfeito ou a expressão final **else** . Você pode usar este operador para categorizar ou agrupar dados:
+[**caso()**](https://docs.microsoft.com/azure/kusto/query/casefunction): Avalia uma lista de predicados e devolve a expressão do primeiro resultado cujo predicado está satisfeito, ou a expressão final do **outro.** Pode utilizar este operador para categorizar ou classificar dados de grupo:
 
-A consulta a seguir retorna uma nova `deaths_bucket` coluna e agrupa o morte por número.
+A seguinte consulta devolve `deaths_bucket` uma nova coluna e agrupa as mortes por número.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAGWOwQrCQAxE74X%2bQ9hTCwX14FFBaK9e%2bgGS7gZdbFrYZEXFj7dbqgfNbfJmhml1DNzcaFDJsxdIZMbgnwSOUC8Cu%2fQq6lnUPpDVEroHtIpKKUB3pcEt7lMX7ZV0ClkUgiLPYLqlaQ%2fbdQWmx3AmU%2f2gTUJMzkf%2bYwkJY99%2fiDmuDqac545Bv3MAxb4Bic1Oy88AAAA%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAGWOwQrCQAxE74X%2bQ9hTCwX14FFBaK9e%2bgGS7gZdbFrYZEXFj7dbqgfNbfJmhml1DNzcaFDJsxdIZMbgnwSOUC8Cu%2fQq6lnUPpDVEroHtIpKKUB3pcEt7lMX7ZV0ClkUgiLPYLqlaQ%2fbdQWmx3AmU%2f2gTUJMzkf%2bYwkJY99%2fiDmuDqac545Bv3MAxb4Bic1Oy88AAAA%3d)**\]**
 
 ```Kusto
 StormEvents
@@ -301,13 +301,13 @@ StormEvents
 | sort by State asc
 ```
 
-### <a name="extract"></a>extract()
+### <a name="extract"></a>extrato()
 
-[**extract()** ](https://docs.microsoft.com/azure/kusto/query/extractfunction): Obtém uma correspondência para uma expressão regular de uma cadeia de texto.
+[**extrato()**](https://docs.microsoft.com/azure/kusto/query/extractfunction): Obtém uma correspondência para uma expressão regular a partir de uma cadeia de texto.
 
-A consulta a seguir extrai valores de atributo específicos de um rastreamento.
+A consulta seguinte extrai valores específicos de atributo saque.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAE2OwQrCMBBE74X%2bw9BTojHYagSVHJRevXkrHqJdpVBbSVew4McbFYungeXtvKmJsetzxw4WZQh2x5og9t6daIWOfdVcJIpkY1OFrc0U8rt3XLWNTbOZnhultU4UfoD5A4zRmVkovInDOo6%2bojh6gh5MTTmQwR0uQckiGb5FMZ0s9WEsQ3uo%2fixSccT9jdqz8ORqKTECV1cSaSdfq2k6L8oAAAA%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAE2OwQrCMBBE74X%2bw9BTojHYagSVHJRevXkrHqJdpVBbSVew4McbFYungeXtvKmJsetzxw4WZQh2x5og9t6daIWOfdVcJIpkY1OFrc0U8rt3XLWNTbOZnhultU4UfoD5A4zRmVkovInDOo6%2bojh6gh5MTTmQwR0uQckiGb5FMZ0s9WEsQ3uo%2fixSccT9jdqz8ORqKTECV1cSaSdfq2k6L8oAAAA%3d)**\]**
 
 ```Kusto
 let MyData = datatable (Trace: string) ["A=1, B=2, Duration=123.45,...", "A=1, B=5, Duration=55.256, ..."];
@@ -315,15 +315,15 @@ MyData
 | extend Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) * time(1s)
 ```
 
-Essa consulta usa uma instrução **Let** , que associa um nome (nesse caso `MyData`) a uma expressão. Para o restante do escopo, no qual a instrução **Let** aparece (escopo global ou em um escopo de corpo de função), o nome pode ser usado para fazer referência ao seu valor associado.
+Esta consulta utiliza uma declaração de **let,** que `MyData`liga um nome (neste caso) a uma expressão. Para o resto do âmbito, no qual a declaração de **leto** aparece (âmbito global ou em um âmbito de função do corpo), o nome pode ser usado para se referir ao seu valor vinculado.
 
 ### <a name="parse_json"></a>parse_json()
 
-[**parse_json()** ](https://docs.microsoft.com/azure/kusto/query/parsejsonfunction): Interpreta uma cadeia de caracteres como um valor JSON e retorna o valor como dinâmico. É melhor usar a função **extractjson ()** quando você precisa extrair mais de um elemento de um objeto JSON composto.
+[**parse_json()**](https://docs.microsoft.com/azure/kusto/query/parsejsonfunction): Interpreta uma corda como um valor JSON e devolve o valor como dinâmico. É superior ao uso da função **extractjson()** quando é necessário extrair mais de um elemento de um objeto Composto JSON.
 
-A consulta a seguir extrai os elementos JSON de uma matriz.
+A seguinte consulta extrai os elementos JSON de uma matriz.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAHWPQQuCQBCF74L%2fYdmLBSJ6EGKjU17r1E0kJh1C2XZlHc0w%2f3ur1s1O896bB%2fONRGKnVwIE7MAKOwhuEtnmYiBHwRoypbpvXSf1Bl60BqjUiot04B3IFrmIol0Q%2bpPLdauIi3iyj9KWojCcNfRWx7NuqEiw48KaMRu9bO86y3HXeTPsCVXBzvg8amlpajANXqtGq4VmO5VqoyvM6dsKfkhpmAUzkf9nM9OtLi3reg79ar788AEVX8GkOAEAAA%3d%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAHWPQQuCQBCF74L%2fYdmLBSJ6EGKjU17r1E0kJh1C2XZlHc0w%2f3ur1s1O896bB%2fONRGKnVwIE7MAKOwhuEtnmYiBHwRoypbpvXSf1Bl60BqjUiot04B3IFrmIol0Q%2bpPLdauIi3iyj9KWojCcNfRWx7NuqEiw48KaMRu9bO86y3HXeTPsCVXBzvg8amlpajANXqtGq4VmO5VqoyvM6dsKfkhpmAUzkf9nM9OtLi3reg79ar788AEVX8GkOAEAAA%3d%3d)**\]**
 
 ```Kusto
 let MyData = datatable (Trace: string)
@@ -333,9 +333,9 @@ MyData
 | project NewCol.duration[0].value, NewCol.duration[0].valcount, NewCol.duration[0].min, NewCol.duration[0].max, NewCol.duration[0].stdDev
 ```
 
-A consulta a seguir extrai os elementos JSON.
+A consulta seguinte extrai os elementos JSON.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAE2OwQqCQBCG74LvsOzFBBE9CLHRKa916hYRkw6RbLuyO5pRvXvrGtZpvn9m4P8kEts%2bSiBga1a7QXCWyBZ7AxUKZslc1SVmh%2bjJe5AdcpHnyzRLxlTpThEXxRhvV%2bVOWeYZBseFZ0t1iT0XLryj4yoMprIweDEcCFXNdnjfaOnaWzAWT43VamqPx6fW6AYr%2bn6l3iH5S95hXjiLH8Mw82TxAQvJEB%2fsAAAA) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAE2OwQqCQBCG74LvsOzFBBE9CLHRKa916hYRkw6RbLuyO5pRvXvrGtZpvn9m4P8kEts%2bSiBga1a7QXCWyBZ7AxUKZslc1SVmh%2bjJe5AdcpHnyzRLxlTpThEXxRhvV%2bVOWeYZBseFZ0t1iT0XLryj4yoMprIweDEcCFXNdnjfaOnaWzAWT43VamqPx6fW6AYr%2bn6l3iH5S95hXjiLH8Mw82TxAQvJEB%2fsAAAA)**\]**
 
 ```Kusto
 let MyData = datatable (Trace: string) ['{"value":118.0,"valcount":5.0,"min":100.0,"max":150.0,"stdDev":0.0}'];
@@ -344,9 +344,9 @@ MyData
 | project NewCol.value, NewCol.valcount, NewCol.min, NewCol.max, NewCol.stdDev
 ```
 
-A consulta a seguir extrai os elementos JSON com um tipo de dados dinâmico.
+A consulta seguinte extrai os elementos JSON com um tipo de dados dinâmico.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAD2NMQvCMBBG90D%2bw5GphVLSoSARt65ubuJwJjdU0lZiWlrU%2f25MotO9x8H7LHk4bh16hAOYcDxeLUFxcqhJgdlGHHpdcnbOWDzFgnYmoZpmV8tK6GkePTmh2q8N%2fRg%2bUkbGNXAb%2beFNR4tQQd7lZc9ZGuXsBXc33Uh7iJN1jFdZcvunIf5HXCvOEqf2BwXmDCnKAAAA) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAD2NMQvCMBBG90D%2bw5GphVLSoSARt65ubuJwJjdU0lZiWlrU%2f25MotO9x8H7LHk4bh16hAOYcDxeLUFxcqhJgdlGHHpdcnbOWDzFgnYmoZpmV8tK6GkePTmh2q8N%2fRg%2bUkbGNXAb%2beFNR4tQQd7lZc9ZGuXsBXc33Uh7iJN1jFdZcvunIf5HXCvOEqf2BwXmDCnKAAAA)**\]**
 
 ```Kusto
 let MyData = datatable (Trace: dynamic)
@@ -355,13 +355,13 @@ MyData
 | project Trace.value, Trace.counter, Trace.min, Trace.max, Trace.stdDev
 ```
 
-### <a name="ago"></a>atrás ()
+### <a name="ago"></a>atrás()
 
-[**atrás ()** ](https://docs.microsoft.com/azure/kusto/query/agofunction): Subtrai o TimeSpan fornecido da hora UTC atual.
+[**atrás()**](https://docs.microsoft.com/azure/kusto/query/agofunction): Subtrai a hora do tempo do relógio atual UTC.
 
-A consulta a seguir retorna dados das últimas 12 horas.
+A consulta seguinte devolve os dados das últimas 12 horas.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA1WOQQ6CQAxF9yTc4S8hQcmQuNSNR4ALTKQyJDAlnSIuPLwzJGrctM3v+7+t684R7qMEhW6MafQUMJAnsUoIdl4mQm/VVrC+h0Z6shFOINZAIc/qOql24KIEL8nIAuWYohC6sfQB9yjtPtPA8SrhmGeLjF7RjTO1Gu+cIdYPVHjeisOpLyukKTbjYml5piuvXknwIU1lGlPm2Qvzg55L+u+b9udIyOZI6LfHZf/YNK58Ay2HrbAEAQAA) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA1WOQQ6CQAxF9yTc4S8hQcmQuNSNR4ALTKQyJDAlnSIuPLwzJGrctM3v+7+t684R7qMEhW6MafQUMJAnsUoIdl4mQm/VVrC+h0Z6shFOINZAIc/qOql24KIEL8nIAuWYohC6sfQB9yjtPtPA8SrhmGeLjF7RjTO1Gu+cIdYPVHjeisOpLyukKTbjYml5piuvXknwIU1lGlPm2Qvzg55L+u+b9udIyOZI6LfHZf/YNK58Ay2HrbAEAQAA)**\]**
 
 ```Kusto
 //The first two lines generate sample data, and the last line uses
@@ -371,28 +371,28 @@ print TimeStamp= range(now(-5d), now(), 1h), SomeCounter = range(1,121)
 | where TimeStamp > ago(12h)
 ```
 
-### <a name="startofweek"></a>startofweek ()
+### <a name="startofweek"></a>início da semana()
 
-[**startofweek()** ](https://docs.microsoft.com/azure/kusto/query/startofweekfunction): Retorna o início da semana que contém a data, deslocada por um deslocamento, se fornecido
+[**início da semana::**](https://docs.microsoft.com/azure/kusto/query/startofweekfunction)Devoluções do início da semana que contém a data, deslocados por uma compensação, se fornecido
 
-A consulta a seguir retorna o início da semana com deslocamentos diferentes.
+A consulta seguinte devolve o início da semana com diferentes compensações.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEACtKzEtPVchPSytOLVFIK8rPVdA1VCjJVzBUKC5JLVAw5OWqUSgoys9KTS5RKE9NzQ4uSSwqUbAFygLp%2fDSQkEZefrmGpg7UEE0dCA0AdE3lv1kAAAA%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEACtKzEtPVchPSytOLVFIK8rPVdA1VCjJVzBUKC5JLVAw5OWqUSgoys9KTS5RKE9NzQ4uSSwqUbAFygLp%2fDSQkEZefrmGpg7UEE0dCA0AdE3lv1kAAAA%3d)**\]**
 
 ```Kusto
 range offset from -1 to 1 step 1
 | project weekStart = startofweek(now(), offset),offset
 ```
 
-Essa consulta usa o operador **Range** , que gera uma tabela de coluna única de valores. Consulte também: [**startofday ()** ](https://docs.microsoft.com/azure/kusto/query/startofdayfunction), [**startofweek ()** ](https://docs.microsoft.com/azure/kusto/query/startofweekfunction), [**STARTOFYEAR ()** ](https://docs.microsoft.com/azure/kusto/query/startofyearfunction)), [**STARTOFMONTH ()** ](https://docs.microsoft.com/azure/kusto/query/startofmonthfunction), [**endofday ()** ](https://docs.microsoft.com/azure/kusto/query/endofdayfunction), [**endofweek ()** ](https://docs.microsoft.com/azure/kusto/query/endofweekfunction), [**ENDOFMONTH ()** ](https://docs.microsoft.com/azure/kusto/query/endofmonthfunction)e [**ENDOFYEAR ()** ](https://docs.microsoft.com/azure/kusto/query/endofyearfunction).
+Esta consulta utiliza o operador de **gama,** que gera uma tabela de valores de uma coluna única. Ver também: início [**endofyear()**](https://docs.microsoft.com/azure/kusto/query/endofyearfunction)da [**semana()**](https://docs.microsoft.com/azure/kusto/query/startofweekfunction)início da semana, [**startofday()**](https://docs.microsoft.com/azure/kusto/query/startofdayfunction)início do [**mês()**](https://docs.microsoft.com/azure/kusto/query/startofyearfunction)( [**início**](https://docs.microsoft.com/azure/kusto/query/startofmonthfunction)do [**dia), fim**](https://docs.microsoft.com/azure/kusto/query/endofdayfunction) [**endofmonth()**](https://docs.microsoft.com/azure/kusto/query/endofmonthfunction) [**de semana()**](https://docs.microsoft.com/azure/kusto/query/endofweekfunction)
 
-### <a name="between"></a>entre ()
+### <a name="between"></a>entre()
 
-[**between()** ](https://docs.microsoft.com/azure/kusto/query/betweenoperator): Corresponde à entrada que está dentro do intervalo inclusivo.
+[**entre()**](https://docs.microsoft.com/azure/kusto/query/betweenoperator): Corresponde à entrada que se encontra dentro do intervalo inclusivo.
 
-A consulta a seguir filtra os dados por um determinado intervalo de datas.
+A consulta seguinte filtra os dados por uma determinada gama de datas.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQguSSwqCcnMTVVISi0pT03NU9BISSxJLQGKaBgZGJjrApGRuaaCnp4ChrixgaYmyKTk%2fNK8EgBluyagXgAAAA%3d%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQguSSwqCcnMTVVISi0pT03NU9BISSxJLQGKaBgZGJjrApGRuaaCnp4ChrixgaYmyKTk%2fNK8EgBluyagXgAAAA%3d%3d)**\]**
 
 ```Kusto
 StormEvents
@@ -400,9 +400,9 @@ StormEvents
 | count
 ```
 
-A consulta a seguir filtra os dados por um determinado intervalo de datas, com a ligeira variação de três`3d`dias () da data de início.
+A consulta seguinte filtra os dados por uma determinada gama de`3d`datas, com uma ligeira variação de três dias () a partir da data de início.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQguSSwqCcnMTVVISi0pT03NU9BISSxJLQGKaBgZGJjrApGRuaaCnp6CcYomSF9yfmleCQCGAqjRTAAAAA%3d%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQguSSwqCcnMTVVISi0pT03NU9BISSxJLQGKaBgZGJjrApGRuaaCnp6CcYomSF9yfmleCQCGAqjRTAAAAA%3d%3d)**\]**
 
 ```Kusto
 StormEvents
@@ -410,17 +410,17 @@ StormEvents
 | count
 ```
 
-## <a name="tabular-operators"></a>Operadores de tabela
+## <a name="tabular-operators"></a>Operadores tabular
 
-O Kusto tem muitos operadores de tabela, alguns dos quais são abordados em outras seções deste artigo. Aqui, nos concentraremos na **análise**. 
+Kusto tem muitos operadores tabular, alguns dos quais estão cobertos por outras secções deste artigo. Aqui vamos focar-nos na **análise.** 
 
-### <a name="parse"></a>passar
+### <a name="parse"></a>parse
 
-[**analisar**](https://docs.microsoft.com/azure/kusto/query/parseoperator): Avalia uma expressão de cadeia de caracteres e analisa seu valor em uma ou mais colunas calculadas. Há três maneiras de analisar: simples (o padrão), Regex e relaxado.
+[**parse**](https://docs.microsoft.com/azure/kusto/query/parseoperator): Avalia uma expressão de cadeia e analisa o seu valor numa ou mais colunas calculadas. Há três formas de analisar: simples (o padrão), regex e relaxado.
 
-A consulta a seguir analisa um rastreamento e extrai os valores relevantes, usando um padrão de análise simples. A expressão (conhecida como StringConstant) é um valor de cadeia de caracteres regular e a correspondência é estrita: as colunas estendidas devem corresponder aos tipos necessários.
+A consulta que se segue analisa um traço e extrai os valores relevantes, utilizando um padrão de simples análise. A expressão (referida como StringConstant) é um valor de corda regular e a correspondência é rigorosa: colunas estendidas devem corresponder aos tipos exigidos.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAN2UTU%2fDMAyG75X6H6xcxlCkpRlsUNQjN6gQ2wnEoevMFsiaKk2HJvHjabqvlI91l11QLrH12vETW5Zo4H411kmKEME0MdWZSISz2yVmpvaHhdEim3V979n3OrU%2fhFgZ8boaSZHiI0pMiipEY6FKnWKcLDB6EDlKkeEoneO0lKgpGGUSWYcUER9SKOw1LhcT1BHvU5AqfR%2bLKpbxXjDscRYMgF2FFyxkwRMFvX7ngCLXuBSqLO5%2bT9S%2ftrJuh54OI7g8iMFaMdhxGOy0GJz9i25w%2fjdG0IoRHNWNNe1ph2pwEKNlqI7HsEPley83vrfZCL73CXmiq%2fr32wA%2bhJnDOZAGEQHXBNIEIq4VSpXNbAIXkbjAO8UOmuz4bWoXlrhWWO0vqyA2%2bAcw2f7B1rORd60calat3jA1TRbq1A6NxsC%2bLdCoCuj3p74AKTs4pmcFAAA%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAN2UTU%2fDMAyG75X6H6xcxlCkpRlsUNQjN6gQ2wnEoevMFsiaKk2HJvHjabqvlI91l11QLrH12vETW5Zo4H411kmKEME0MdWZSISz2yVmpvaHhdEim3V979n3OrU%2fhFgZ8boaSZHiI0pMiipEY6FKnWKcLDB6EDlKkeEoneO0lKgpGGUSWYcUER9SKOw1LhcT1BHvU5AqfR%2bLKpbxXjDscRYMgF2FFyxkwRMFvX7ngCLXuBSqLO5%2bT9S%2ftrJuh54OI7g8iMFaMdhxGOy0GJz9i25w%2fjdG0IoRHNWNNe1ph2pwEKNlqI7HsEPley83vrfZCL73CXmiq%2fr32wA%2bhJnDOZAGEQHXBNIEIq4VSpXNbAIXkbjAO8UOmuz4bWoXlrhWWO0vqyA2%2bAcw2f7B1rORd60calat3jA1TRbq1A6NxsC%2bLdCoCuj3p74AKTs4pmcFAAA%3d)**\]**
 
 ```Kusto
 let MyTrace = datatable (EventTrace:string)
@@ -436,9 +436,9 @@ MyTrace
 | project resourceName ,totalSlices , sliceNumber , lockTime , releaseTime , previouLockTime
 ```
 
-A consulta a seguir analisa um rastreamento e extrai os valores relevantes, usando `kind = regex`. O StringConstant pode ser uma expressão regular.
+A consulta que se segue analisa um traço `kind = regex`e extrai os valores relevantes, utilizando . O StringConstant pode ser uma expressão regular.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAN2UQU%2fCQBCF7036HyZ7gWKRbVHQmgY9eNPGCCcoh9KOsLK0ZLtFMf54l6LQBgUuXEyTTbP7pt3vvclwlPC47IkgRHAhCqR6Rhyher%2fAWOb7TioFi8eGrg10rZLvO%2bAlkr0su5yF%2bIwcg1SVCEyTTIToBTN0n9gcOYuxG04wyjgKE2QiA56XpK7dNiFdvXrZbITCtZsm8CSc9piqpXbDajdsarWAXjkX1KFW3wSx%2fs8exVzggiVZ%2bvD7h5rXK5lRMU%2bHYV3uxaAHMehxGPS0GDb9F2nY9t8Y1kEM66g01rSnbarWXowDTXU8xqqpdG14o2vfE0HXPmEeCHX%2fKYsjNR8EjvEdtqMB3picAKme1zrGIKh%2f3NX7w5pLoEgLt6SM56c1PzpTq6oqYpIitMOTeAxAlKb6c3Wjs3GBbAzJJUV8UjQjP91BJztuOGryKbHvGwQgxxbJK4ayTFKKBbahQCkA2DX7C29veJJmBQAA) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAN2UQU%2fCQBCF7036HyZ7gWKRbVHQmgY9eNPGCCcoh9KOsLK0ZLtFMf54l6LQBgUuXEyTTbP7pt3vvclwlPC47IkgRHAhCqR6Rhyher%2fAWOb7TioFi8eGrg10rZLvO%2bAlkr0su5yF%2bIwcg1SVCEyTTIToBTN0n9gcOYuxG04wyjgKE2QiA56XpK7dNiFdvXrZbITCtZsm8CSc9piqpXbDajdsarWAXjkX1KFW3wSx%2fs8exVzggiVZ%2bvD7h5rXK5lRMU%2bHYV3uxaAHMehxGPS0GDb9F2nY9t8Y1kEM66g01rSnbarWXowDTXU8xqqpdG14o2vfE0HXPmEeCHX%2fKYsjNR8EjvEdtqMB3picAKme1zrGIKh%2f3NX7w5pLoEgLt6SM56c1PzpTq6oqYpIitMOTeAxAlKb6c3Wjs3GBbAzJJUV8UjQjP91BJztuOGryKbHvGwQgxxbJK4ayTFKKBbahQCkA2DX7C29veJJmBQAA)**\]**
 
 ```Kusto
 let MyTrace = datatable (EventTrace:string)
@@ -454,9 +454,9 @@ MyTrace
 | project resourceName , sliceNumber , lockTime , releaseTime , previousLockTime
 ```
 
-A consulta a seguir analisa um rastreamento e extrai os valores relevantes, usando `kind = relaxed`. O StringConstant é um valor de cadeia de caracteres regular e a correspondência é relaxada: as colunas estendidas podem corresponder parcialmente aos tipos necessários.
+A consulta que se segue analisa um traço `kind = relaxed`e extrai os valores relevantes, utilizando . O StringConstant é um valor de cadeia regular e a partida é descontraída: colunas estendidas podem coincidir parcialmente com os tipos necessários.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAN2US0%2fCQBDH7036HSZ7wZpN2BYFrenRGzZG4KLxUNoRVpYu2W5REj%2b83fKw9QE1kYvppTOZx%2f%2b3MxmBGm5WQxXFCAEkkS6%2bsUA4uV5iqku%2fn2nF04ljWw%2b21Sr9PoRS86fVQPAY71BglBUpCjOZqxjDaI7BLV%2bg4CkO4ikmuUBFQUsdiTIlC7wehcz8hvl8jCrwOhSEjGdDXuQyr%2b322h5zu8Au%2fDPmM%2feeglr32ROxULjkMs%2f63xfqXJowp0WPh%2bGe78VgBzFYMwx2XAyP%2fYtpeN7PGO5BDLfRNNa0x12q7l6MA0vVHMMslW09XtnW5iLY1hssIlXon%2fE0CYom0SsmQP6IMxz1%2b7%2b7AnXQdX6TNXMIvHA9hVMgNYEEqiaQuj5StXwh04kpUNVLqup3ETsCsoMxpavSSdXyi7NrIohJ%2foJDtoRbzybcMeFQjkjJZ4x1nYVWtEPtleHjjaGmCujnVu%2fWU75tHgYAAA%3d%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAN2US0%2fCQBDH7036HSZ7wZpN2BYFrenRGzZG4KLxUNoRVpYu2W5REj%2b83fKw9QE1kYvppTOZx%2f%2b3MxmBGm5WQxXFCAEkkS6%2bsUA4uV5iqku%2fn2nF04ljWw%2b21Sr9PoRS86fVQPAY71BglBUpCjOZqxjDaI7BLV%2bg4CkO4ikmuUBFQUsdiTIlC7wehcz8hvl8jCrwOhSEjGdDXuQyr%2b322h5zu8Au%2fDPmM%2feeglr32ROxULjkMs%2f63xfqXJowp0WPh%2bGe78VgBzFYMwx2XAyP%2fYtpeN7PGO5BDLfRNNa0x12q7l6MA0vVHMMslW09XtnW5iLY1hssIlXon%2fE0CYom0SsmQP6IMxz1%2b7%2b7AnXQdX6TNXMIvHA9hVMgNYEEqiaQuj5StXwh04kpUNVLqup3ETsCsoMxpavSSdXyi7NrIohJ%2foJDtoRbzybcMeFQjkjJZ4x1nYVWtEPtleHjjaGmCujnVu%2fWU75tHgYAAA%3d%3d)**\]**
 
 ```Kusto
 let MyTrace = datatable (EventTrace:string)
@@ -474,24 +474,24 @@ MyTrace
 
 ## <a name="time-series-analysis"></a>Análise de série de tempo
 
-### <a name="make-series"></a>criar série
+### <a name="make-series"></a>séries de faz-séries
 
-[**Make-Series**](https://docs.microsoft.com/azure/kusto/query/make-seriesoperator): agrega grupos de linhas como resumir, mas gera um vetor de série (de tempo) por cada combinação de por valores. [](https://docs.microsoft.com/azure/kusto/query/summarizeoperator)
+[**séries de make-**](https://docs.microsoft.com/azure/kusto/query/make-seriesoperator)agregados grupos de linhas como [resumo,](https://docs.microsoft.com/azure/kusto/query/summarizeoperator)mas gera um vetor de série (time) por cada combinação de valores.
 
-A consulta a seguir retorna um conjunto de séries temporais para a contagem de eventos do Storm por dia. A consulta abrange um período de três meses para cada Estado, preenchendo os compartimentos ausentes com a constante 0:
+A seguinte consulta devolve um conjunto de séries temporais para a contagem de eventos de tempestade por dia. A consulta abrange um período de três meses para cada estado, enchendo os caixotes em falta com o constante 0:
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUchNzE7VLU4tykwtVsizTc4vzSvR0FRISU1LLM0psTVQyM9TCC5JLCoJycxNVcjMUyhKzEtP1UhJLEktAYpoGBkYmOsaGAKRpo4CmqixrjFI1DBFUyGpEmRKSSoAazsM0n0AAAA%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUchNzE7VLU4tykwtVsizTc4vzSvR0FRISU1LLM0psTVQyM9TCC5JLCoJycxNVcjMUyhKzEtP1UhJLEktAYpoGBkYmOsaGAKRpo4CmqixrjFI1DBFUyGpEmRKSSoAazsM0n0AAAA%3d)**\]**
 
 ```Kusto
 StormEvents
 | make-series n=count() default=0 on StartTime in range(datetime(2007-01-01), datetime(2007-03-31), 1d) by State
 ```
 
-Depois de criar um conjunto de séries (de tempo), você pode aplicar funções de série para detectar formas anormais, padrões sazonais e muito mais.
+Uma vez criado um conjunto de séries (time), pode aplicar funções de série para detetar formas anómalas, padrões sazonais e muito mais.
 
-A consulta a seguir extrai os três principais Estados que tinham a maioria dos eventos em um dia específico:
+A seguinte consulta extrai os três estados que tiveram mais eventos em dias específicos:
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAF2OsQoCMRBEe8F%2f2DIBAzmvsLrSLzj7EC%2brBs3mSPbkBD%2feLDYibPVmZmdGziUdn0hct5s3JH9HU7FErEDDlBdipSHgxS8PHixkgpF94VNMCJGgeLqiCp6RG1F7aw%2fGdu30Dv5ob3qhXdBwfskXRmnElZECfDtdbbgq0qJwnqEX76%2fmyCW%2ftkV1Ek9pWSwgNdOt7foAJIuybs8AAAA%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAF2OsQoCMRBEe8F%2f2DIBAzmvsLrSLzj7EC%2brBs3mSPbkBD%2feLDYibPVmZmdGziUdn0hct5s3JH9HU7FErEDDlBdipSHgxS8PHixkgpF94VNMCJGgeLqiCp6RG1F7aw%2fGdu30Dv5ob3qhXdBwfskXRmnElZECfDtdbbgq0qJwnqEX76%2fmyCW%2ftkV1Ek9pWSwgNdOt7foAJIuybs8AAAA%3d)**\]**
 
 ```Kusto
 StormEvents
@@ -501,21 +501,21 @@ StormEvents
 | render timechart
 ```
 
-Para obter mais informações, examine a lista completa de [funções de série](https://docs.microsoft.com/azure/kusto/query/scalarfunctions#series-processing-functions).
+Para mais informações, reveja a lista completa das [funções](https://docs.microsoft.com/azure/kusto/query/scalarfunctions#series-processing-functions)da série .
 
 ## <a name="advanced-aggregations"></a>Agregações avançadas
 
-Abordamos agregações básicas, como **Count** e **resume**, anteriormente neste artigo. Esta seção apresenta opções mais avançadas.
+Cobrimos agregações básicas, como **contar** e **resumir,** no início deste artigo. Esta secção introduz opções mais avançadas.
 
-### <a name="top-nested"></a>Aninhado na parte superior
+### <a name="top-nested"></a>topo aninhada
 
-[**aninhado em cima**](https://docs.microsoft.com/azure/kusto/query/topnestedoperator): Produz resultados principais hierárquicos, onde cada nível é uma busca detalhada com base nos valores de nível anterior.
+[**topo aninhada**](https://docs.microsoft.com/azure/kusto/query/topnestedoperator): Produz resultados hierárquicos superiores, onde cada nível é uma broca baseada em valores de nível anteriores.
 
-Esse operador é útil para cenários de visualização de painel ou quando é necessário responder a uma pergunta semelhante à seguinte: "Localizar os valores Top-N de K1 (usando alguma agregação); para cada um deles, localize quais são os valores superiores do K2 (usando outra agregação); ..."
+Este operador é útil para cenários de visualização do dashboard, ou quando é necessário responder a uma pergunta como a seguinte: "Encontre os valores topo-N de K1 (usando alguma agregação); para cada um deles, descubra quais são os valores topo-M de K2 (usando outra agregação); ..."
 
-A consulta a seguir retorna uma tabela hierárquica `State` com no nível superior, seguido por `Sources`.
+A seguinte consulta devolve uma tabela `State` hierárquica `Sources`com ao nível superior, seguida por .
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjJL9DNSy0uSU1RMFLIT1MILkksSVVIqlQoLs3VcEpNz8zzSSzR1OHlQlJoDFaYX1qUTEilIUila16KT35yYklmfh6GcgDrXwk5jgAAAA%3d%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjJL9DNSy0uSU1RMFLIT1MILkksSVVIqlQoLs3VcEpNz8zzSSzR1OHlQlJoDFaYX1qUTEilIUila16KT35yYklmfh6GcgDrXwk5jgAAAA%3d%3d)**\]**
 
 ```Kusto
 StormEvents
@@ -524,13 +524,13 @@ top-nested 3 of Source by sum(BeginLat),
 top-nested 1 of EndLocation by sum(BeginLat)
 ```
 
-### <a name="pivot-plugin"></a>plug-in pivot ()
+### <a name="pivot-plugin"></a>pivot() plugin
 
-[**pivot() plugin**](https://docs.microsoft.com/azure/kusto/query/pivotplugin): Gira uma tabela, transformando os valores exclusivos de uma coluna na tabela de entrada em várias colunas na tabela de saída. O operador executa agregações onde elas são necessárias em qualquer valor de coluna restante na saída final.
+[**ficha() plugin:**](https://docs.microsoft.com/azure/kusto/query/pivotplugin)Roda uma tabela transformando os valores únicos de uma coluna na tabela de entrada em várias colunas na tabela de saída. O operador realiza agregações sempre que sejam exigidos sobre os valores restantes da coluna na saída final.
 
-A consulta a seguir aplica um filtro e dinamiza as linhas em colunas.
+A seguinte consulta aplica um filtro e gira as linhas em colunas.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSgoys9KTS5RCC5JLEnVUQBLhFQWpILkyjNSi1IhMgrFJYlFJcXlmSUZCkqOPkoIabgOhYzEYgWl8My8FLBsalliTilIZ0FmWX6JBtgUTQDlv21NfQAAAA%3d%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSgoys9KTS5RCC5JLEnVUQBLhFQWpILkyjNSi1IhMgrFJYlFJcXlmSUZCkqOPkoIabgOhYzEYgWl8My8FLBsalliTilIZ0FmWX6JBtgUTQDlv21NfQAAAA%3d%3d)**\]**
 
 ```Kusto
 StormEvents
@@ -540,13 +540,13 @@ StormEvents
 | evaluate pivot(State)
 ```
 
-### <a name="dcount"></a>dcount()
+### <a name="dcount"></a>contagem decrescentes()
 
-[**dcount()** ](https://docs.microsoft.com/azure/kusto/query/dcount-aggfunction): Retorna uma estimativa do número de valores distintos de uma expressão no grupo. Use [**Count ()** ](https://docs.microsoft.com/azure/kusto/query/countoperator) para contar todos os valores.
+[**dcount()**](https://docs.microsoft.com/azure/kusto/query/dcount-aggfunction): Devolve uma estimativa do número de valores distintos de expressão no grupo. Utilizar [**a contagem()**](https://docs.microsoft.com/azure/kusto/query/countoperator) para contar todos os valores.
 
-A consulta a seguir conta `Source` distinta `State`por.
+A seguinte consulta `Source` conta `State`distinta por .
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlUIzi8tSk4tVrBVSEnOL80r0YAIaCokVSoElySWpAIAFKgSBDoAAAA%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlUIzi8tSk4tVrBVSEnOL80r0YAIaCokVSoElySWpAIAFKgSBDoAAAA%3d)**\]**
 
 ```Kusto
 StormEvents
@@ -555,11 +555,11 @@ StormEvents
 
 ### <a name="dcountif"></a>dcountif()
 
-[**dcountif()** ](https://docs.microsoft.com/azure/kusto/query/dcountif-aggfunction): Retorna uma estimativa do número de valores distintos da expressão para linhas para as quais o predicado é avaliado como true.
+[**dcountif()**](https://docs.microsoft.com/azure/kusto/query/dcountif-aggfunction): Devolve uma estimativa do número de valores distintos da expressão para as linhas para as quais o predicado avalia verdadeiramente.
 
-A consulta a seguir conta os valores distintos `DamageProperty < 5000`de `Source` onde.
+A seguinte consulta conta os `Source` `DamageProperty < 5000`valores distintos de onde.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSspVqhRKEnMTlUwNDDg5apRKC7NzU0syqxKVQjOLy1KTi1WsFVISc4vzSvJTNOACOkouCTmJqanBhTlF6QWlVQq2CiYGhgYaCokVSoElySWpAIAuk%2fTX14AAAA%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSspVqhRKEnMTlUwNDDg5apRKC7NzU0syqxKVQjOLy1KTi1WsFVISc4vzSvJTNOACOkouCTmJqanBhTlF6QWlVQq2CiYGhgYaCokVSoElySWpAIAuk%2fTX14AAAA%3d)**\]**
 
 ```Kusto
 StormEvents 
@@ -569,11 +569,11 @@ StormEvents
 
 ### <a name="dcount_hll"></a>dcount_hll()
 
-[**dcount_hll()** ](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction): Calcula o **DContar** dos resultados de HyperLogLog (gerados por [**HLL**](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction) ou [**hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction).
+[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction): Calcula a **contagem** dos resultados do HyperLogLog (gerado por [**hll**](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction) ou [**hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction).
 
-A consulta a seguir usa o algoritmo HLL para gerar a contagem.
+A seguinte consulta usa o algoritmo HLL para gerar a contagem.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlXIyMkJSi1WsAUxNFwScxPTUwOK8gtSi0oqNRWSKhWSMvM0gksSi0pCMnNTdQwNcjUx9PumFqWnpkCMiM8FcTQgpoKVFhTlZ6UmlyikJOeX5pXEg6yB69EEAKm9wyCXAAAA) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlXIyMkJSi1WsAUxNFwScxPTUwOK8gtSi0oqNRWSKhWSMvM0gksSi0pCMnNTdQwNcjUx9PumFqWnpkCMiM8FcTQgpoKVFhTlZ6UmlyikJOeX5pXEg6yB69EEAKm9wyCXAAAA)**\]**
 
 ```Kusto
 StormEvents
@@ -584,11 +584,11 @@ StormEvents
 
 ### <a name="arg_max"></a>arg_max()
 
-[**arg_max()** ](https://docs.microsoft.com/azure/kusto/query/arg-max-aggfunction): Localiza uma linha no grupo que maximiza uma expressão e retorna o valor de outra expressão (ou * para retornar a linha inteira).
+[**arg_max()**](https://docs.microsoft.com/azure/kusto/query/arg-max-aggfunction): Encontra uma linha no grupo que maximiza uma expressão, e devolve o valor de outra expressão (ou * para devolver toda a linha).
 
-A consulta a seguir retorna a hora do último relatório de inundação em cada Estado.
+A seguinte consulta devolve a hora do último relatório de inundação em cada estado.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQDzQyoLUhVsbRWU3HLy81OUQLLFpbm5iUWZVakKiUXp8bmJFRrBJYlFJSGZuak6ClqaCkmVCkCBklSQ2oKi%2fKzU5BKIgI4CkkLXvBQoA2YNAHO1S0OFAAAA) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQDzQyoLUhVsbRWU3HLy81OUQLLFpbm5iUWZVakKiUXp8bmJFRrBJYlFJSGZuak6ClqaCkmVCkCBklSQ2oKi%2fKzU5BKIgI4CkkLXvBQoA2YNAHO1S0OFAAAA)**\]**
 
 ```Kusto
 StormEvents
@@ -599,11 +599,11 @@ StormEvents
 
 ### <a name="makeset"></a>makeset()
 
-[**makeset()** ](https://docs.microsoft.com/azure/kusto/query/makeset-aggfunction): Retorna uma matriz dinâmica (JSON) do conjunto de valores distintos que uma expressão usa no grupo.
+[**makeset()**](https://docs.microsoft.com/azure/kusto/query/makeset-aggfunction): Devolve uma gama dinâmica (JSON) do conjunto de valores distintos que uma expressão leva no grupo.
 
-A consulta a seguir retorna todos os horários em que uma inundação foi relatada por cada Estado e cria uma matriz do conjunto de valores distintos.
+A seguinte consulta retorna todas as vezes quando uma inundação foi relatada por cada estado e cria uma matriz a partir do conjunto de valores distintos.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAFWLQQ6CQBAE7yb8ocNJE76wR3mA8IEFOxF1mM3siIHweAVPHqsq1bianCeOnovDiveNRuzczokIAWX9VL2WW80vkWjDQuzuwqTmGQESH8z0Y%2bPRvB2EJ3QzvuTcvmR6Z%2b8%2fUf3NH6ZkMFeAAAAA) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAFWLQQ6CQBAE7yb8ocNJE76wR3mA8IEFOxF1mM3siIHweAVPHqsq1bianCeOnovDiveNRuzczokIAWX9VL2WW80vkWjDQuzuwqTmGQESH8z0Y%2bPRvB2EJ3QzvuTcvmR6Z%2b8%2fUf3NH6ZkMFeAAAAA)**\]**
 
 ```Kusto
 StormEvents
@@ -612,13 +612,13 @@ StormEvents
 | project State, FloodReports
 ```
 
-### <a name="mv-expand"></a>mv-expand
+### <a name="mv-expand"></a>mv-expandir
 
-[**mv-expand**](https://docs.microsoft.com/azure/kusto/query/mvexpandoperator): Expande coleções de valores múltiplos de uma coluna de tipo dinâmico para que cada valor na coleção obtenha uma linha separada. Todas as outras colunas em uma linha expandida são duplicadas. É o oposto de MakeList.
+[**mv-expande**](https://docs.microsoft.com/azure/kusto/query/mvexpandoperator): Expande a coleção de vários valores a partir de uma coluna de tipo dinâmico para que cada valor da coleção obtenha uma linha separada. Todas as outras colunas numa fila expandida são duplicadas. É o oposto da lista.
 
-A consulta a seguir gera dados de exemplo criando um conjunto e, em seguida, usando-o para demonstrar os recursos do **MV-Expand** .
+A seguinte consulta gera dados de amostra, criando um conjunto e, em seguida, usando-os para demonstrar as capacidades **de expansão de mv.**
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAFWOQQ6CQAxF9yTcoWGliTcws1MPIFygyk9EKTPpVBTj4Z2BjSz%2f738v7WF06r1vD2xcp%2bCoNq9yHDFYLIsvvW5Q0JybKYCco2omqnyNTxHW7oPFckbwajFZhB%2bIsE1trNZ0gi1dpuRmQ%2baC%2bjuuthS7Fbwvi%2f%2bP8lpGvAMP7Wr3A6BceSu7AAAA) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAFWOQQ6CQAxF9yTcoWGliTcws1MPIFygyk9EKTPpVBTj4Z2BjSz%2f738v7WF06r1vD2xcp%2bCoNq9yHDFYLIsvvW5Q0JybKYCco2omqnyNTxHW7oPFckbwajFZhB%2bIsE1trNZ0gi1dpuRmQ%2baC%2bjuuthS7Fbwvi%2f%2bP8lpGvAMP7Wr3A6BceSu7AAAA)**\]**
 
 ```Kusto
 let FloodDataSet = StormEvents
@@ -629,13 +629,13 @@ FloodDataSet
 | mv-expand FloodReports
 ```
 
-### <a name="percentiles"></a>percentils ()
+### <a name="percentiles"></a>percentiles()
 
-[**percentiles()** ](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction): Retorna uma estimativa para o [**percentual de classificação mais próximo**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) especificado da população definida por uma expressão. A precisão depende da densidade da população na região do percentil. Pode ser usado somente no contexto de agregação dentro do [**Resumo**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator).
+[**percentiles()**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction): Devolve uma estimativa para o percentil de [**nível mais próximo**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) especificado da população definida por uma expressão. A precisão depende da densidade populacional na região do percentil. Só pode ser utilizado no contexto da agregação no interior da [**sumução.**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator)
 
-A consulta a seguir calcula os percentuais para a duração do Storm.
+A seguinte consulta calcula percentiles para a duração da tempestade.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUUitKEnNS1FIKS1KLMnMz1OwVXDNSwnJzE1V0FUILkksKgGxQQrLM1KLUhHq7BQMirEI2ygYZ4CEi0tzcxOLMqtSFQpSi5KBlmXmpBZrwJTpKJjqKBgZACkgtgBiS1NNAEC7XiaYAAAA) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUUitKEnNS1FIKS1KLMnMz1OwVXDNSwnJzE1V0FUILkksKgGxQQrLM1KLUhHq7BQMirEI2ygYZ4CEi0tzcxOLMqtSFQpSi5KBlmXmpBZrwJTpKJjqKBgZACkgtgBiS1NNAEC7XiaYAAAA)**\]**
 
 ```Kusto
 StormEvents
@@ -645,9 +645,9 @@ StormEvents
 | summarize percentiles(duration, 5, 20, 50, 80, 95)
 ```
 
-A consulta a seguir calcula os percentuais de duração do Storm por Estado e normaliza os dados por bandejas de cinco minutos`5m`().
+A consulta seguinte calcula percentiles para a duração da tempestade por estado`5m`e normaliza os dados em caixotes de cinco minutos ( ).
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAG1NSwrCMBTcC95hli1EKEpBQd31BHUvafOgAZNI8uIPD28SEBVcDDMM8%2bnZedNdyHKYz56gG5NVUNFL1s5ih86qgzaEBXqWnrPOwetEnj65PZrwx95iNWU7RGOk1w8C5avj6KLlNF64qjHcMWhbvXsCralFPmT6rZ%2fJj2lAnyh8pwWWTaKEdcKmLYul%2fgLODFs%2b4AAAAA%3d%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAG1NSwrCMBTcC95hli1EKEpBQd31BHUvafOgAZNI8uIPD28SEBVcDDMM8%2bnZedNdyHKYz56gG5NVUNFL1s5ih86qgzaEBXqWnrPOwetEnj65PZrwx95iNWU7RGOk1w8C5avj6KLlNF64qjHcMWhbvXsCralFPmT6rZ%2fJj2lAnyh8pwWWTaKEdcKmLYul%2fgLODFs%2b4AAAAA%3d%3d)**\]**
 
 ```Kusto
 StormEvents
@@ -658,17 +658,17 @@ StormEvents
 | summarize percentiles(duration, 5, 20, 50, 80, 95) by State
 ```
 
-### <a name="cross-dataset"></a>Conjunto de entre conjuntos de entre
+### <a name="cross-dataset"></a>Conjunto de Dados Cruzados
 
-Esta seção aborda os elementos que permitem a criação de consultas mais complexas, a junção de dados entre tabelas e a consulta em bancos de dados e clusters.
+Esta secção abrange elementos que lhe permitem criar consultas mais complexas, juntar dados através das tabelas e consultar através de bases de dados e clusters.
 
-### <a name="let"></a>permitindo
+### <a name="let"></a>deixe
 
-[**let**](https://docs.microsoft.com/azure/kusto/query/letstatement): Melhora a modularidade e a reutilização. A instrução **Let** permite dividir uma expressão potencialmente complexa em várias partes, cada uma vinculada a um nome e compor essas partes juntas. Uma instrução **Let** também pode ser usada para criar funções definidas pelo usuário e exibições (expressões em tabelas cujos resultados são semelhantes a uma nova tabela). As expressões associadas por uma instrução **Let** podem ser do tipo escalar, do tipo de tabela ou de uma função definida pelo usuário (lambdas).
+[**let**](https://docs.microsoft.com/azure/kusto/query/letstatement): Melhora a modularidade e a reutilização. A declaração **de letização** permite-lhe quebrar uma expressão potencialmente complexa em várias partes, cada uma ligada a um nome, e compor essas partes em conjunto. Uma declaração de **let** também pode ser usada para criar funções e pontos de vista definidos pelo utilizador (expressões sobre tabelas cujos resultados parecem uma nova tabela). As expressões ligadas por uma declaração de **leto** podem ser de tipo escalar, de tipo tabular, ou função definida pelo utilizador (lambdas).
 
-O exemplo a seguir cria uma variável de tipo de tabela e a usa em uma expressão subsequente.
+O exemplo seguinte cria uma variável tabular e usa-a numa expressão subsequente.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAMtJLVHwyUzPKMnLzEsPLskvyi1WsOXlArNcy1LzSop5uWoUyjNSi1IVwPyQyoJUBVtbBSW4LiVrXq4coDGOZYk5iXnJGakkGQPXBTIGzSUgPVn5mXkKGmhmayrk5ykElySWpIKUpGQWl2TmJZdARACul3kY0gAAAA%3d%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAMtJLVHwyUzPKMnLzEsPLskvyi1WsOXlArNcy1LzSop5uWoUyjNSi1IVwPyQyoJUBVtbBSW4LiVrXq4coDGOZYk5iXnJGakkGQPXBTIGzSUgPVn5mXkKGmhmayrk5ykElySWpIKUpGQWl2TmJZdARACul3kY0gAAAA%3d%3d)**\]**
 
 ```Kusto
 let LightningStorms =
@@ -682,13 +682,13 @@ LightningStorms
 | distinct State
 ```
 
-### <a name="join"></a>join
+### <a name="join"></a>aderir
 
-[**ingressar**](https://docs.microsoft.com/azure/kusto/query/joinoperator): Mesclar as linhas de duas tabelas para formar uma nova tabela com valores correspondentes das colunas especificadas de cada tabela. O Kusto dá suporte a uma gama completa de tipos de junção: **fullouter**, **Inner**, **innerunique**, **leftanti**, **leftantisemi**, **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter** , **rightsemi**.
+[**aderirão:**](https://docs.microsoft.com/azure/kusto/query/joinoperator)Fundir as linhas de duas tabelas para formar um novo quadro, combinando valores das colunas especificadas de cada tabela. Kusto suporta uma gama completa de tipos de união: **fullouter,** **interior,** **innerunique**, **leftanti, leftantisemi,** **leftouter,** **leftanti** **leftsemi,** **rightanti, rightantisemi,** **rightouter,** **rightsemi**. **rightantisemi**
 
-O exemplo a seguir une duas tabelas com uma junção interna.
+O exemplo seguinte junta duas mesas com uma união interior.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA8tJLVGIULBVSEksAcKknFQN79RKq+KSosy8dB2FsMSc0lRDq5z8vHRNXq5oXi4FIFBPVNcx1IGyk9R1jJDYxjB2srqOCS9XrDUvVw7Qhkj8Nhih2wA0ydAAySgjZI4xnJMCtMQAYkuEQo1CVn5mnkJ2Zl6KbWZeXmoR0Nb8PAWgZQAFPLdO5AAAAA==) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA8tJLVGIULBVSEksAcKknFQN79RKq+KSosy8dB2FsMSc0lRDq5z8vHRNXq5oXi4FIFBPVNcx1IGyk9R1jJDYxjB2srqOCS9XrDUvVw7Qhkj8Nhih2wA0ydAAySgjZI4xnJMCtMQAYkuEQo1CVn5mnkJ2Zl6KbWZeXmoR0Nb8PAWgZQAFPLdO5AAAAA==)**\]**
 
 ```Kusto
 let X = datatable(Key:string, Value1:long)
@@ -710,15 +710,15 @@ X
 ```
 
 > [!TIP]
-> Use operadores de **local** e de **projeto** para reduzir os números de linhas e colunas nas tabelas de entrada, antes da junção. Se uma tabela for sempre menor do que a outra, use-a como o lado esquerdo (canalizado) da junção. As colunas para a correspondência de junção devem ter o mesmo nome. Use o operador de **projeto** , se necessário, para renomear uma coluna em uma das tabelas.
+> Utilize os **operadores** **onde** e projetar para reduzir o número de linhas e colunas nas tabelas de entrada, antes da adesão. Se uma mesa for sempre mais pequena do que a outra, use-a como o lado esquerdo (canalizado) da união. As colunas para a partida de adesão devem ter o mesmo nome. Utilize o operador do **projeto,** se necessário, para renomear uma coluna numa das tabelas.
 
-### <a name="serialize"></a>XmlSerializer
+### <a name="serialize"></a>serializar
 
-[**serialize**](https://docs.microsoft.com/azure/kusto/query/serializeoperator): Serializa o conjunto de linhas para que você possa usar funções que exigem dados serializados, como **ROW_NUMBER ()** .
+[**serialize**](https://docs.microsoft.com/azure/kusto/query/serializeoperator): Serialize o conjunto de linhas para que possa utilizar funções que exijam dados serializados, como **row_number()**.
 
-A consulta a seguir é realizada com sucesso porque os dados são serializados.
+A consulta seguinte é bem sucedida porque os dados são serializados.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlVIzi%2fNK9HQVEiqVAguSSxJBcumFmUm5gBlQZzUipLUvBSFovzy%2bLzS3KTUIgVbJI6GJgB4pV4NWgAAAA%3d%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlVIzi%2fNK9HQVEiqVAguSSxJBcumFmUm5gBlQZzUipLUvBSFovzy%2bLzS3KTUIgVbJI6GJgB4pV4NWgAAAA%3d%3d)**\]**
 
 ```Kusto
 StormEvents
@@ -727,9 +727,9 @@ StormEvents
 | extend row_number = row_number()
 ```
 
-O conjunto de linhas também é considerado como serializado se for resultado de: operadores de **classificação**, de **topo**ou de **intervalo** , opcionalmente seguidos por **projeto**, **projeto-ausente**, **estender**, **onde**, **analisar**, **MV-expandir** ou **use** operadores.
+O conjunto de linhas também é considerado como serializado se for resultado de: **classificar,** **topo,** ou operadores de **gama,** opcionalmente seguido por **projeto,** **project-away,** **estender,** **onde,** **parse,** **mv-expand,** ou **levar** operadores.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlVIzi%2fNK9HQVEiqVAguSSxJBcvmF5XABRQSi5NBgqkVJal5KQpF%2beXxeaW5SalFCrZIHA1NAEGimf5iAAAA) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlVIzi%2fNK9HQVEiqVAguSSxJBcvmF5XABRQSi5NBgqkVJal5KQpF%2beXxeaW5SalFCrZIHA1NAEGimf5iAAAA)**\]**
 
 ```Kusto
 StormEvents
@@ -738,11 +738,11 @@ StormEvents
 | extend row_number = row_number()
 ```
 
-### <a name="cross-database-and-cross-cluster-queries"></a>Consultas entre bancos de dados e entre clusters
+### <a name="cross-database-and-cross-cluster-queries"></a>Consultas de base de dados cruzadas e de clusters
 
-[Consultas entre bancos de dados e entre clusters](https://docs.microsoft.com/azure/kusto/query/cross-cluster-or-database-queries): Você pode consultar um banco de dados no mesmo cluster, fazendo referência a `database("MyDatabase").MyTable`ele como. Você pode consultar um banco de dados em um cluster remoto fazendo referência a ele `cluster("MyCluster").database("MyDatabase").MyTable`como.
+Consulta de [base de dados cruzada e cross-cluster:](https://docs.microsoft.com/azure/kusto/query/cross-cluster-or-database-queries)Pode consultar uma `database("MyDatabase").MyTable`base de dados sobre o mesmo cluster, remetendo-a como . Pode consultar uma base de dados num cluster `cluster("MyCluster").database("MyDatabase").MyTable`remoto, referindo-se a ela como .
 
-A consulta a seguir é chamada de um cluster e consulta dados `MyCluster` do cluster. Para executar essa consulta, use seu próprio nome de cluster e nome de banco de dados.
+A seguinte consulta é chamada a partir `MyCluster` de um cluster e consulta dados do cluster. Para espaçar esta consulta, use o seu próprio nome de cluster e nome de base de dados.
 
 ```Kusto
 cluster("MyCluster").database("Wiki").PageViews
@@ -750,17 +750,17 @@ cluster("MyCluster").database("Wiki").PageViews
 | take 1000;
 ```
 
-### <a name="user-analytics"></a>Análise do usuário
+### <a name="user-analytics"></a>Análise do Utilizador
 
-Esta seção inclui elementos e consultas que demonstram como é fácil executar a análise de comportamentos do usuário no Kusto.
+Esta secção inclui elementos e consultas que demonstram como é fácil realizar análises dos comportamentos dos utilizadores em Kusto.
 
-### <a name="activity_counts_metrics-plugin"></a>plug-in activity_counts_metrics
+### <a name="activity_counts_metrics-plugin"></a>activity_counts_metrics plugin
 
-[**plug-in activity_counts_metrics**](https://docs.microsoft.com/azure/kusto/query/activity-counts-metrics-plugin): Calcula as métricas de atividade úteis (valores de contagem total, valores de contagem distintos, contagem distinta de novos valores e contagem distinta agregada). As métricas são calculadas para cada janela de tempo, elas são comparadas e agregadas para e com todas as janelas de tempo anteriores.
+[**activity_counts_metrics plugin**](https://docs.microsoft.com/azure/kusto/query/activity-counts-metrics-plugin): Calcula métricas de atividade úteis (valores de contagem total, valores de contagem distintos, contagem distinta de novos valores e contagem distinta agregada). As métricas são calculadas para cada janela de tempo, então são comparadas, e agregadas a e com todas as janelas de tempo anteriores.
 
-A consulta a seguir analisa a adoção do usuário calculando as contagens de atividades diárias.
+A seguinte consulta analisa a adoção do utilizador calculando as contagens diárias de atividade.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAJXSPQvCMBAG4L3Q%2f5CtFlLoFyiVDn4M6mqdREpsggTaKs1VEfzxXm0LDiEimcJz3CW8VwogClgDKWcgQFZiEvrB1PNnnh%2b4c9sqsUDUXMPxyA9Z8%2bsjDfhwz0hKsBzPuRSTgxLNlicKGllfKMmwBw6sbsnY0bWto205C4cS3Rso2tpgO4MtDbbSWvixzGD6eb1ttBYZev42%2fbzI8L%2fe9n9b3NkJQ8xs60XEnZUt1hBWgLxLeObFta1B5ZXAKAs1BPuVKO03iXb7gp36tXDfExVB%2f2ICAAA%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAJXSPQvCMBAG4L3Q%2f5CtFlLoFyiVDn4M6mqdREpsggTaKs1VEfzxXm0LDiEimcJz3CW8VwogClgDKWcgQFZiEvrB1PNnnh%2b4c9sqsUDUXMPxyA9Z8%2bsjDfhwz0hKsBzPuRSTgxLNlicKGllfKMmwBw6sbsnY0bWto205C4cS3Rso2tpgO4MtDbbSWvixzGD6eb1ttBYZev42%2fbzI8L%2fe9n9b3NkJQ8xs60XEnZUt1hBWgLxLeObFta1B5ZXAKAs1BPuVKO03iXb7gp36tXDfExVB%2f2ICAAA%3d)**\]**
 
 ```Kusto
 let start=datetime(2017-08-01);
@@ -788,13 +788,13 @@ T
 window)
 ```
 
-### <a name="activity_engagement-plugin"></a>plug-in activity_engagement
+### <a name="activity_engagement-plugin"></a>activity_engagement plugin
 
-[**plug-in activity_engagement**](https://docs.microsoft.com/azure/kusto/query/activity-engagement-plugin): Calcula a taxa de envolvimento da atividade com base na coluna de ID em uma janela de linha do tempo deslizante. o **plug-in activity_engagement** pode ser usado para calcular DAU, Wau e mau (usuários ativos diários, semanais e mensais).
+[**activity_engagement plugin**](https://docs.microsoft.com/azure/kusto/query/activity-engagement-plugin): Calcula a relação de envolvimento da atividade com base na coluna de ID sobre uma janela de linha do tempo deslizante. **activity_engagement plugin** pode ser usado para calcular DAU, WAU e MAU (utilizadores ativos diários, semanais e mensais).
 
-A consulta a seguir retorna a proporção do total de usuários distintos usando um aplicativo diário em comparação ao total de usuários distintos usando o aplicativo semanalmente, em uma janela de sete dias em movimento.
+A consulta seguinte devolve a relação de utilizadores totalmente distintos usando uma aplicação diariamente em comparação com o total de utilizadores distintos que usam a aplicação semanalmente, numa janela móvel de sete dias.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAG1RQWrDMBC8G%2fyHvUVOHGy1lByKD6GBviDkUIoR1tpVsS0jr0MCeXxXiigpVAiBVjOzM6uigHcc0SlCcGrUdgCtSIFtYZnRgWrInA0ZnNOkR4J6JuUIKo9CMgOKp1LutqXknb1GDI76P8RzQHCXDqHW6gqt43ZRkeydNxNOIHWa3AAv5Ctei2xvx06IQNtGTlZInT0AHQN9BpFt5EO59kHmKvQVUUivX8q1y3L4c9%2fIks%2bt5LoMwsMZLxMrgtHVXcb7pOuEthWemEFvBkPARL%2fSpCjgTfXN0vuBHvbH4rQ%2fsikyNjg6q37xL3GsV47cqQ4HHEl8rIxefeZhNHmMmIehsB2dp8nunnZy9hsbiriDWuqTWqpfxdBsLb2ZGzhm8y%2f6b2i%2bWO8HLFcMGe8BAAA%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAG1RQWrDMBC8G%2fyHvUVOHGy1lByKD6GBviDkUIoR1tpVsS0jr0MCeXxXiigpVAiBVjOzM6uigHcc0SlCcGrUdgCtSIFtYZnRgWrInA0ZnNOkR4J6JuUIKo9CMgOKp1LutqXknb1GDI76P8RzQHCXDqHW6gqt43ZRkeydNxNOIHWa3AAv5Ctei2xvx06IQNtGTlZInT0AHQN9BpFt5EO59kHmKvQVUUivX8q1y3L4c9%2fIks%2bt5LoMwsMZLxMrgtHVXcb7pOuEthWemEFvBkPARL%2fSpCjgTfXN0vuBHvbH4rQ%2fsikyNjg6q37xL3GsV47cqQ4HHEl8rIxefeZhNHmMmIehsB2dp8nunnZy9hsbiriDWuqTWqpfxdBsLb2ZGzhm8y%2f6b2i%2bWO8HLFcMGe8BAAA%3d)**\]**
 
 ```Kusto
 // Generate random data of user activities
@@ -812,15 +812,15 @@ range _day from _start to _end step 1d
 ```
 
 > [!TIP]
-> Ao calcular DAU/MAU, altere os dados finais e o período de janela de movimentação (OuterActivityWindow).
+> Ao calcular a DAU/MAU, altere os dados finais e o período da janela em movimento (OuterActivityWindow).
 
-### <a name="activity_metrics-plugin"></a>plug-in activity_metrics
+### <a name="activity_metrics-plugin"></a>activity_metrics plugin
 
-[**plug-in activity_metrics**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin): Calcula as métricas de atividade úteis (valores de contagem distintos, contagem distinta de novos valores, taxa de retenção e taxa de rotatividade) com base na janela do período atual versus na janela do período anterior.
+[**plugin activity_metrics**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin): Calcula métricas de atividade úteis (valores de contagem distintos, contagem distinta de novos valores, taxa de retenção e taxa de churn) com base na janela do período atual vs. janela do período anterior.
 
-A consulta a seguir calcula a rotatividade e a taxa de retenção para um determinado conjunto de dados.
+A seguinte consulta calcula a taxa de retenção e o retenção para um determinado conjunto de dados.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAG2SwW7CMAyG70i8g2%2bk0KoNE%2bIwscsOe4hpqqLGQFjaVKkLVNrDLw7RxjRyqBTr%2fz%2f3t1OW8IYdekUIXnXataAVKXB7GAf0oBoyZ0MGh%2fnMIkE9kPIEO1YhmRbFupLbopJFtc6ekwY7%2fV%2bxKZ4kK0KXA0Kt1QR7H9olIrmbbyDsQer57AvwSlxhFjnruoMQ0VYkT1ZKnd0JfRByBpGt5F255iDDLvYVCaSXm2rpsxz%2b3FfrKnwLGeoygtszXvtABKN3Nwz%2fJ009ur1gYwbWtIZAVvGw53JEn%2fK9PJwSi3rvTthQlOWBPp%2bVJbwq24yWN3FB%2fLQTeAwByLgOeD8x0lnZkRVpL1PdInnTDOJ9YfTiI0%2fE24DyONIctvpB0x94zfBlSJBDcxz97509PgDCM%2bAMzTEgvwEO44wSMAIAAA%3d%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAG2SwW7CMAyG70i8g2%2bk0KoNE%2bIwscsOe4hpqqLGQFjaVKkLVNrDLw7RxjRyqBTr%2fz%2f3t1OW8IYdekUIXnXataAVKXB7GAf0oBoyZ0MGh%2fnMIkE9kPIEO1YhmRbFupLbopJFtc6ekwY7%2fV%2bxKZ4kK0KXA0Kt1QR7H9olIrmbbyDsQer57AvwSlxhFjnruoMQ0VYkT1ZKnd0JfRByBpGt5F255iDDLvYVCaSXm2rpsxz%2b3FfrKnwLGeoygtszXvtABKN3Nwz%2fJ009ur1gYwbWtIZAVvGw53JEn%2fK9PJwSi3rvTthQlOWBPp%2bVJbwq24yWN3FB%2fLQTeAwByLgOeD8x0lnZkRVpL1PdInnTDOJ9YfTiI0%2fE24DyONIctvpB0x94zfBlSJBDcxz97509PgDCM%2bAMzTEgvwEO44wSMAIAAA%3d%3d)**\]**
 
 ```Kusto
 // Generate random data of user activities
@@ -839,13 +839,13 @@ range _day from _start to _end step 1d
 | render timechart
 ```
 
-### <a name="new_activity_metrics-plugin"></a>plug-in new_activity_metrics
+### <a name="new_activity_metrics-plugin"></a>plugin new_activity_metrics
 
-[**plug-in new_activity_metrics**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin): Calcula as métricas de atividade úteis (valores de contagem distintos, contagem distinta de novos valores, taxa de retenção e taxa de rotatividade) para o coorte de novos usuários. O conceito desse plug-in é semelhante ao [**plug-in activity_metrics**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin), mas se concentra em novos usuários.
+[**new_activity_metrics plugin**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin): Calcula métricas de atividade úteis (valores de contagem distintos, contagem distinta de novos valores, taxa de retenção e taxa de churn) para a coorte de novos utilizadores. O conceito deste plugin é semelhante ao [**plugin activity_metrics,**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin)mas foca-se em novos utilizadores.
 
-A consulta a seguir calcula uma taxa de retenção e rotatividade com uma janela semana a semana para os novos usuários coorte (usuários que chegaram na primeira semana).
+A consulta seguinte calcula uma taxa de retenção e agitação com uma janela semanal para o coorte de novos utilizadores (utilizadores que chegaram na primeira semana).
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAG1Ry27DIBC8W%2fI%2f7C04wbJJFeVQ5VapP9BbVVnIrGMaGyy8eVjqxxcwh1QqBx7LzCwzVBW8o0EnCcFJo%2bwISpIE28F1RgeyJX3TpHHOswEJmpmkIzgFFJIeke1rcSzrQ1mL4jVh0Kj%2fEC8R4bucEd7kAp3z3ZIg2ZU2E04gVJ79AD4oVIIU2cGaM2OBVSZKUQlVPOGcxwUHrNiJp3ITbMyn2JUlHbU91FtXcPhz3u1rP5fC10UUHm%2f4mLwiaHVaZcIzaZnQdiwQCxj0qAlEHUeeVRV8yAuCNcMC1CN02s0Ed8QLtLa33igbpK9M0skRCd3q4CaHa%2fgBg%2fcmJb40%2ft7pdmafG602XzxExpN3HsPicFQ8z1IcQWhy9htbisk2EU92XZ1vZkhb04Sv5tD2V7fufwFYtolnAgIAAA%3d%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAG1Ry27DIBC8W%2fI%2f7C04wbJJFeVQ5VapP9BbVVnIrGMaGyy8eVjqxxcwh1QqBx7LzCwzVBW8o0EnCcFJo%2bwISpIE28F1RgeyJX3TpHHOswEJmpmkIzgFFJIeke1rcSzrQ1mL4jVh0Kj%2fEC8R4bucEd7kAp3z3ZIg2ZU2E04gVJ79AD4oVIIU2cGaM2OBVSZKUQlVPOGcxwUHrNiJp3ITbMyn2JUlHbU91FtXcPhz3u1rP5fC10UUHm%2f4mLwiaHVaZcIzaZnQdiwQCxj0qAlEHUeeVRV8yAuCNcMC1CN02s0Ed8QLtLa33igbpK9M0skRCd3q4CaHa%2fgBg%2fcmJb40%2ft7pdmafG602XzxExpN3HsPicFQ8z1IcQWhy9htbisk2EU92XZ1vZkhb04Sv5tD2V7fufwFYtolnAgIAAA%3d%3d)**\]**
 
 ```Kusto
 // Generate random data of user activities
@@ -861,13 +861,13 @@ range Day from _start to _end step 1d
 | project from_Day, to_Day, retention_rate, churn_rate
 ```
 
-### <a name="session_count-plugin"></a>plug-in session_count
+### <a name="session_count-plugin"></a>session_count plugin
 
-[**plug-in session_count**](https://docs.microsoft.com/azure/kusto/query/session-count-plugin): Calcula a contagem de sessões com base na coluna de ID em uma linha do tempo.
+[**session_count plugin**](https://docs.microsoft.com/azure/kusto/query/session-count-plugin): Calcula a contagem de sessões com base na coluna id numa linha do tempo.
 
-A consulta a seguir retorna a contagem de sessões. Uma sessão será considerada ativa se uma ID de usuário for exibida pelo menos uma vez em um período de 100-slots de tempo, enquanto a janela de pesquisa de sessão é de 41-slots de tempo.
+A seguinte consulta devolve a contagem de sessões. Uma sessão é considerada ativa se um ID do utilizador aparecer pelo menos uma vez num prazo de 100 slots, enquanto a janela de retrospetiva da sessão é de 41 slots.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAFWPQYvCQAyF74X%2bh3dZUCjYgfUgMkcP3r2XoZPqaM3INK4u7I%2ffzOwiNQRC8pKPl5EEnXfiYJEcHwmHcKUxMGFI8QoDidhoYBK6wdTVD%2bgpxB5dd6FvPSuzcwyMS2BvAzMlLP5gez%2fDrNt%2fCN4Z1iwRua5Kk2GPE6WZkY%2bMsRZt1m4pnqmXl9qouK2r1Qo75cUB5RlPQ%2bAgoWDzpPj%2bcuPdCWGiaVKp6%2bOdZbH3zYxmNFuNUhp8mmU%2bTWpWv8or%2fckl%2bQXutT48NwEAAA%3d%3d) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAFWPQYvCQAyF74X%2bh3dZUCjYgfUgMkcP3r2XoZPqaM3INK4u7I%2ffzOwiNQRC8pKPl5EEnXfiYJEcHwmHcKUxMGFI8QoDidhoYBK6wdTVD%2bgpxB5dd6FvPSuzcwyMS2BvAzMlLP5gez%2fDrNt%2fCN4Z1iwRua5Kk2GPE6WZkY%2bMsRZt1m4pnqmXl9qouK2r1Qo75cUB5RlPQ%2bAgoWDzpPj%2bcuPdCWGiaVKp6%2bOdZbH3zYxmNFuNUhp8mmU%2bTWpWv8or%2fckl%2bQXutT48NwEAAA%3d%3d)**\]**
 
 ```Kusto
 let _data = range Timeline from 1 to 9999 step 1
@@ -881,13 +881,13 @@ _data
 | render linechart
 ```
 
-### <a name="funnel_sequence-plugin"></a>plug-in funnel_sequence
+### <a name="funnel_sequence-plugin"></a>funnel_sequence plugin
 
-[**plug-in funnel_sequence**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-plugin): Calcula a contagem distinta de usuários que tomaram uma sequência de Estados; mostra a distribuição dos Estados anteriores e seguintes que levaram ao ou foram seguidos pela sequência.
+[**funnel_sequence plugin**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-plugin): Calcula a contagem distinta de utilizadores que tomaram uma sequência de estados; mostra a distribuição de estados anteriores e próximos que conduziram ou foram seguidos pela sequência.
 
-A consulta a seguir mostra o evento que ocorre antes e depois de todos os eventos do tornado em 2007.
+A seguinte consulta mostra o que acontece antes e depois de todos os eventos tornados em 2007.
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAGWOPYvCQBCG%2b0D%2bw3QmEEmieIqNVQrBRgxYiMhcdqKLyWzcnQiCP95V70DuYIrh5Xk%2f0hRWxpw1H8EwbMTYtrgSiwMnKNqJrtw8DNIU1vkcticUOGHXETv4ptpYgtJYRmWAnrbFGx39QbEWsv%2fIj7YwuHsZmx6FoO6ZqTk4uvTEFUVFp51RtFSJH4hWSt1SAsqj4r9olGXTYZb7i5Mw%2bJRnvzLkKhl%2fTXzAq668dc%2bAG2Orq2g3%2bBk22MfxA23MLGQQAQAA) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAGWOPYvCQBCG%2b0D%2bw3QmEEmieIqNVQrBRgxYiMhcdqKLyWzcnQiCP95V70DuYIrh5Xk%2f0hRWxpw1H8EwbMTYtrgSiwMnKNqJrtw8DNIU1vkcticUOGHXETv4ptpYgtJYRmWAnrbFGx39QbEWsv%2fIj7YwuHsZmx6FoO6ZqTk4uvTEFUVFp51RtFSJH4hWSt1SAsqj4r9olGXTYZb7i5Mw%2bJRnvzLkKhl%2fTXzAq668dc%2bAG2Orq2g3%2bBk22MfxA23MLGQQAQAA)**\]**
 
 ```Kusto
 // Looking on StormEvents statistics:
@@ -897,13 +897,13 @@ StormEvents
 | evaluate funnel_sequence(EpisodeId, StartTime, datetime(2007-01-01), datetime(2008-01-01), 1d,365d, EventType, dynamic(['Tornado']))
 ```
 
-### <a name="funnel_sequence_completion-plugin"></a>plug-in funnel_sequence_completion
+### <a name="funnel_sequence_completion-plugin"></a>plugin funnel_sequence_completion
 
-[**plug-in funnel_sequence_completion**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin): Calcula o funil de etapas de sequência concluídas dentro de períodos de tempo diferentes.
+[**funnel_sequence_completion plugin**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin): Calcula o funil dos passos de sequência concluídos em diferentes períodos de tempo.
 
-A consulta a seguir verifica o funil de conclusão da sequência `Hail -> Tornado -> Thunderstorm -> Wind` : em "geral" em horas de uma hora, quatro horas e um dia`[1h, 4h, 1d]`().
+A seguinte consulta verifica o funil `Hail -> Tornado -> Thunderstorm -> Wind` de conclusão da sequência: em tempos`[1h, 4h, 1d]`"globais" de uma hora, quatro horas e um dia ().
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12QTYvCMBCG74L/YW6tkIV2XT9g8SjsnlvwICKhM9JAOqlJqrj4402CW0RIIB/PPLwzmjwcnZfWwwZQevKqo/yzKFYfRRnW7Hs60ZEhxjdi/UZcFaO5VuqPAjhfLvD/w9F5IG7iM95YdqrJ99mPVDoTkNXGskSTju3ASNZ5Y7t43wVhdhj9PVll0L1aylbAV9glJqyKldsLsXfTyR3oIvUQAsNpYCY95jg2puuDUhnOt71yBukXBVRxCnVoTjwnIlLX4rUzAUlf3/pEPYViDDd7AOyqowFQAQAA) **\]**
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12QTYvCMBCG74L/YW6tkIV2XT9g8SjsnlvwICKhM9JAOqlJqrj4402CW0RIIB/PPLwzmjwcnZfWwwZQevKqo/yzKFYfRRnW7Hs60ZEhxjdi/UZcFaO5VuqPAjhfLvD/w9F5IG7iM95YdqrJ99mPVDoTkNXGskSTju3ASNZ5Y7t43wVhdhj9PVll0L1aylbAV9glJqyKldsLsXfTyR3oIvUQAsNpYCY95jg2puuDUhnOt71yBukXBVRxCnVoTjwnIlLX4rUzAUlf3/pEPYViDDd7AOyqowFQAQAA)**\]**
 
 ```Kusto
 let _start = datetime(2007-01-01);
@@ -915,14 +915,14 @@ StormEvents
 | evaluate funnel_sequence_completion(EpisodeId, StartTime, _start, _end, _windowSize, EventType, _sequence, _periods)
 ```
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Funções
 
-Esta seção aborda as [**funções**](https://docs.microsoft.com/azure/kusto/query/functions)do: consultas reutilizáveis que são armazenadas no servidor. As funções podem ser invocadas por consultas e outras funções (não há suporte para funções recursivas).
+Esta secção cobre [**funções**](https://docs.microsoft.com/azure/kusto/query/functions): consultas reutilizáveis que são armazenadas no servidor. As funções podem ser invocadas por consultas e outras funções (funções recursivas não são suportadas).
 
 > [!NOTE]
-> Não é possível criar funções no cluster de ajuda, que é somente leitura. Use seu próprio cluster de teste para esta parte.
+> Não é possível criar funções no cluster de ajuda, que é apenas leitura. Use o seu próprio cluster de teste para esta parte.
 
-O exemplo a seguir cria uma função que usa um nome de`MyState`estado () como um argumento.
+O exemplo seguinte cria uma função`MyState`que toma um nome de estado como argumento.
 
 ```Kusto
 .create function with (folder="Demo")
@@ -933,19 +933,19 @@ StormEvents
 }
 ```
 
-O exemplo a seguir chama uma função, que obtém dados para o estado do Texas.
+O exemplo que se segue chama uma função, que obtém dados para o estado do Texas.
 
 ```Kusto
 MyFunction ("Texas")
 | summarize count()
 ```
 
-O exemplo a seguir exclui a função que foi criada na primeira etapa.
+O exemplo seguinte elimina a função que foi criada no primeiro passo.
 
 ```Kusto
 .drop function MyFunction
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Referência de linguagem de consulta Kusto](https://aka.ms/kustolangref)
+[Referência da linguagem da consulta de Kusto](https://aka.ms/kustolangref)

@@ -1,6 +1,6 @@
 ---
-title: Esquema de eventos do Azure Event Grid Azure SignalR
-description: Descreve as propriedades que são fornecidas para eventos do Azure SignalR com o Azure Event Grid
+title: Esquema de evento azure do evento Azure SignalR
+description: Descreve as propriedades que estão fornecidas para eventos Azure SignalR com Grelha de Eventos Azure
 services: event-grid
 author: chenyl
 ms.service: event-grid
@@ -8,29 +8,29 @@ ms.topic: reference
 ms.date: 06/11/2019
 ms.author: chenyl
 ms.openlocfilehash: 3b072ff2b680ad6d144c7441190ab2df9870f5d0
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67789075"
 ---
-# <a name="azure-event-grid-event-schema-for-signalr-service"></a>Esquema de eventos do Azure Event Grid para o serviço SignalR
+# <a name="azure-event-grid-event-schema-for-signalr-service"></a>Esquema de evento sinuoso do evento Azure Event Grid para o Serviço de Sinalizador
 
-Este artigo fornece as propriedades e o esquema para eventos de serviço SignalR. Para obter uma introdução aos esquemas de eventos, consulte [esquema de eventos do Azure Event Grid](event-schema.md).
+Este artigo fornece as propriedades e esquemas para eventos do SignalR Service.Para uma introdução aos eventos schemas, consulte [o evento Azure Event Grid schema](event-schema.md).
 
 
 ## <a name="available-event-types"></a>Tipos de eventos disponíveis
 
-Serviço SignalR emite os seguintes tipos de evento:
+O Serviço SignalR emite os seguintes tipos de eventos:
 
 | Tipo de evento | Descrição |
 | ---------- | ----------- |
-| Microsoft.SignalRService.ClientConnectionConnected | Desencadeado quando estiver ligado uma ligação de cliente. |
-| Microsoft.SignalRService.ClientConnectionDisconnected | Gerado quando uma ligação de cliente desconectada. |
+| Microsoft.signalrService.ClientConnectionConnected | Criado quando uma ligação com um cliente ligou. |
+| Microsoft.SignalRService.ClientConnectionDisconnected | Levantada quando uma ligação de cliente se desligou. |
 
 ## <a name="example-event"></a>Evento de exemplo
 
-O exemplo seguinte mostra o esquema de um cliente de eventos ligados de ligação: 
+O exemplo que se segue mostra o esquema de um evento ligado à ligação ao cliente: 
 
 ```json
 [{
@@ -50,7 +50,7 @@ O exemplo seguinte mostra o esquema de um cliente de eventos ligados de ligaçã
 }]
 ```
 
-O esquema para um evento desconectado da ligação de cliente é semelhante: 
+O esquema para um evento desligado de ligação ao cliente é semelhante: 
 
 ```json
 [{
@@ -73,30 +73,30 @@ O esquema para um evento desconectado da ligação de cliente é semelhante:
 
 ## <a name="event-properties"></a>Propriedades do evento
 
-Um evento tem os seguintes dados de nível superior:
+Um evento tem os seguintes dados de alto nível:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| topic | Cadeia de caracteres | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| subject | Cadeia de caracteres | Caminho definidos pelo publicador para o assunto de evento. |
-| eventType | cadeia | Um dos tipos de eventos registrados para esta origem de evento. |
-| eventTime | Cadeia de caracteres | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
-| id | Cadeia de caracteres | Identificador exclusivo para o evento. |
-| data | object | Dados de eventos do serviço de SignalR. |
-| dataVersion | Cadeia de caracteres | A versão de esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | cadeia | A versão de esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
+| tópico | string | Caminho de recursos completos para a fonte do evento. Este campo não é repreensível. O Event Grid fornece este valor. |
+| Assunto | string | Caminho definido pelo publicador para o assunto do evento. |
+| eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
+| eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
+| ID | string | Identificador único para o evento. |
+| data | objeto | Dados do evento do Serviço SignalR. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| timestamp | cadeia | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
-| hubName | Cadeia de caracteres | O hub que pertence a ligação de cliente. |
-| connectionId | Cadeia de caracteres | O identificador exclusivo para a ligação de cliente. |
-| userId | Cadeia de caracteres | O identificador de utilizador definido na afirmação. |
-| errorMessage | cadeia | O erro que faz com que a ligação desligado. |
+| carimbo de data/hora | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
+| hubName | string | O centro a que a ligação com o cliente pertence. |
+| conexãoId | string | O identificador único para a ligação do cliente. |
+| userId | string | O identificador de utilizador definido na reivindicação. |
+| errorMessage | string | O erro que causa a ligação desligada. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma introdução ao Azure Event Grid, consulte [o que é o Event Grid?](overview.md)
-* Para obter mais informações sobre a criação de uma subscrição do Azure Event Grid, veja [esquema de subscrições do Event Grid](subscription-creation-schema.md).
+* Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grelha de Eventos?](overview.md)
+* Para mais informações sobre a criação de uma subscrição da Rede de Eventos Do Evento, consulte o esquema de subscrição da [Rede de Eventos](subscription-creation-schema.md).

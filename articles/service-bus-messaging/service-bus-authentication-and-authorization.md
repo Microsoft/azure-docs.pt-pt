@@ -1,6 +1,6 @@
 ---
-title: Autenticação e autorização do barramento de serviço do Azure | Microsoft Docs
-description: Autentique aplicativos no barramento de serviço com autenticação SAS (assinatura de acesso compartilhado).
+title: Autenticação e autorização do Azure Service Bus Microsoft Docs
+description: Autenticar aplicações para service bus com autenticação de assinatura de acesso partilhado (SAS).
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -14,55 +14,55 @@ ms.workload: na
 ms.date: 08/22/2019
 ms.author: aschhab
 ms.openlocfilehash: 7234e33c04e742c77630f8d87481c7831fb00bf2
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70013234"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticação e autorização do Service Bus
 
-Os aplicativos têm acesso aos recursos do barramento de serviço do Azure usando a autenticação de token SAS (assinatura de acesso compartilhado). Com a SAS, os aplicativos apresentam um token para o barramento de serviço que foi assinado com uma chave simétrica conhecida tanto pelo emissor do token quanto pelo barramento de serviço (portanto, "compartilhado") e essa chave está diretamente associada a uma regra que concede direitos de acesso específicos, como a permissão para receber/ouvir ou enviar mensagens. As regras de SAS são configuradas no namespace ou diretamente em entidades, como uma fila ou um tópico, permitindo um controle de acesso refinado.
+As aplicações têm acesso aos recursos do Azure Service Bus utilizando a autenticação simbólica de assinatura de acesso partilhado (SAS). Com a SAS, as aplicações apresentam um símbolo ao Service Bus que foi assinado com uma chave simétrica conhecida tanto pelo emitente simbólico como pelo Autocarro de Serviço (portanto "partilhado") e essa chave está diretamente associada a uma regra que concede direitos de acesso específicos, como a permissão para receber/ouvir ou enviar mensagens. As regras sas são configuradas no espaço de nome, ou diretamente em entidades como uma fila ou tópico, permitindo um controlo de acesso fino.
 
-Os tokens SAS podem ser gerados diretamente por um cliente do barramento de serviço ou podem ser gerados por algum ponto de extremidade de emissão de token intermediário com o qual o cliente interage. Por exemplo, um sistema pode exigir que o cliente chame um ponto de extremidade de serviço Web protegido por autorização Active Directory para provar seus direitos de acesso ao sistema e à identidade, e o serviço Web retorna o token do barramento de serviço apropriado. Esse token SAS pode ser facilmente gerado usando o provedor de token do barramento de serviço incluído no SDK do Azure. 
+As fichas SAS podem ser geradas diretamente por um cliente de Ônibus de serviço, ou podem ser geradas por algum ponto final de emissão de fichas intermédiacom o qual o cliente interage. Por exemplo, um sistema pode exigir que o cliente ligue para um ponto final de serviço web protegido de autorização de Diretório Ativo para provar a sua identidade e direitos de acesso ao sistema, e o serviço web devolve então o token Service Bus apropriado. Este token SAS pode ser facilmente gerado utilizando o fornecedor de fichas service Bus incluído no Azure SDK. 
 
 > [!IMPORTANT]
-> Se você estiver usando o controle de acesso Azure Active Directory (também conhecido como serviço de controle de acesso ou ACS) com o barramento de serviço, observe que o suporte para esse método agora é limitado e você deve migrar seu aplicativo para usar SAS. Para obter mais informações, consulte [esta postagem de blog](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/) e [Este artigo](service-bus-migrate-acs-sas.md).
+> Se estiver a utilizar o Azure Ative Directory Access Control (também conhecido como Access Control Service ou ACS) com o Service Bus, note que o suporte para este método é agora limitado e deverá migrar a sua aplicação para utilizar o SAS. Para mais informações, consulte [esta publicação de blogue](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/) e este [artigo.](service-bus-migrate-acs-sas.md)
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
-A integração do Azure Active Directory (Azure AD) para recursos do barramento de serviço fornece controle de acesso baseado em função (RBAC) para controle refinado sobre o acesso de um cliente aos recursos. Você pode usar o RBAC (controle de acesso baseado em função) para conceder permissões à entidade de segurança, que pode ser um usuário, um grupo ou uma entidade de serviço de aplicativo. A entidade de segurança é autenticada pelo AD do Azure para retornar um token 2,0 do OAuth. O token pode ser usado para autorizar uma solicitação para acessar um recurso do barramento de serviço (fila, tópico, etc.).
+A integração do Azure Ative Directory (Azure AD) para os recursos dos autocarros de serviço sintetizar o controlo de acesso baseado em funções (RBAC) para um controlo fino sobre o acesso de um cliente aos recursos. Pode utilizar o controlo de acesso baseado em funções (RBAC) para conceder permissões ao diretor de segurança, que pode ser um utilizador, um grupo ou um diretor de serviço de aplicação. O diretor de segurança é autenticado pela Azure AD para devolver um token OAuth 2.0. O símbolo pode ser usado para autorizar um pedido de acesso a um recurso de ônibus de serviço (fila, tópico, etc.).
 
-Para obter mais informações sobre como autenticar com o Azure AD, consulte os seguintes artigos:
+Para mais informações sobre autenticação com AD Azure, consulte os seguintes artigos:
 
-- [Autenticar com identidades gerenciadas](service-bus-managed-service-identity.md)
-- [Autenticar de um aplicativo](authenticate-application.md)
+- [Autenticar com identidades geridas](service-bus-managed-service-identity.md)
+- [Autenticar a partir de uma aplicação](authenticate-application.md)
 
 > [!IMPORTANT]
-> A autorização de usuários ou aplicativos usando o token 2,0 do OAuth retornado pelo Azure AD fornece segurança superior e facilidade de uso sobre SAS (assinaturas de acesso compartilhado). Com o Azure AD, não é necessário armazenar os tokens no código e arriscar as vulnerabilidades de segurança potenciais. É recomendável usar o Azure AD com seus aplicativos do barramento de serviço do Azure quando possível. 
+> Autorizar utilizadores ou aplicações utilizando o token OAuth 2.0 devolvido pela Azure AD proporciona uma segurança e facilidade de utilização superiores sobre assinaturas de acesso partilhado (SAS). Com a AD Azure, não há necessidade de armazenar os tokens no seu código e arriscar potenciais vulnerabilidades de segurança. Recomendamos que utilize a utilização do Azure AD com as suas aplicações Azure Service Bus sempre que possível. 
 
 
 ## <a name="shared-access-signature"></a>Assinatura de acesso partilhado
-A [autenticação SAS](service-bus-sas.md) permite conceder a um usuário acesso aos recursos do barramento de serviço, com direitos específicos. A autenticação SAS no barramento de serviço envolve a configuração de uma chave criptográfica com direitos associados em um recurso do barramento de serviço. Os clientes podem obter acesso a esse recurso apresentando um token SAS, que consiste no URI do recurso que está sendo acessado e uma expiração assinada com a chave configurada.
+[A autenticação SAS](service-bus-sas.md) permite-lhe conceder ao utilizador acesso aos recursos do Service Bus, com direitos específicos. A autenticação SAS no Bus de Serviço envolve a configuração de uma chave criptográfica com direitos associados num recurso de ônibus de serviço. Os clientes podem então ter acesso a esse recurso apresentando um token SAS, que consiste no recurso URI a ser acedido e uma caducidade assinada com a chave configurada.
 
-Você pode configurar chaves para SAS em um namespace do barramento de serviço. A chave se aplica a todas as entidades de mensagens dentro desse namespace. Você também pode configurar chaves em filas e tópicos do barramento de serviço. Também há suporte para SAS na [retransmissão do Azure](../service-bus-relay/relay-authentication-and-authorization.md).
+Pode configurar as chaves para SAS num espaço de nome de autocarro de serviço. A chave aplica-se a todas as entidades de mensagens dentro desse espaço de nome. Também pode configurar chaves em filas e tópicos de ônibus de serviço. A SAS também é apoiada no [Relé Azure.](../service-bus-relay/relay-authentication-and-authorization.md)
 
-Para usar a SAS, você pode configurar um objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) em um namespace, fila ou tópico. Essa regra consiste nos seguintes elementos:
+Para utilizar o SAS, pode configurar um objeto [sharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) num espaço de nome, fila ou tópico. Esta regra consiste nos seguintes elementos:
 
-* *KeyName*: identifica a regra.
-* *PrimaryKey*: uma chave de criptografia usada para assinar/validar tokens SAS.
-* *SecondaryKey*: uma chave de criptografia usada para assinar/validar tokens SAS.
-* *Rights*: representa a coleção de direitos de **escuta**, **envio**ou **Gerenciamento** concedidos.
+* *Nome chave*: identifica a regra.
+* *PrimaryKey*: uma chave criptográfica utilizada para assinar/validar tokens SAS.
+* *SegundaTecla*: uma chave criptográfica utilizada para assinar/validar tokens SAS.
+* *Direitos*: representa a recolha de **Direitos**de Escuta, **Envio**ou **Gestão** de Direitos concedidos.
 
-As regras de autorização configuradas no nível de namespace podem conceder acesso a todas as entidades em um namespace para clientes com tokens assinados usando a chave correspondente. Você pode configurar até 12 regras de autorização em um namespace, fila ou tópico do barramento de serviço. Por padrão, um [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) com todos os direitos é configurado para cada namespace quando ele é provisionado pela primeira vez.
+As regras de autorização configuradas ao nível do espaço de nome podem conceder acesso a todas as entidades num espaço de nome para clientes com fichas assinadas utilizando a chave correspondente. Pode configurar até 12 tais regras de autorização num espaço de nome, fila ou tópico do Ônibus de serviço. Por predefinição, uma Regra de Autorização de [Acesso Partilhado](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) com todos os direitos está configurada para cada espaço de nome quando é aprovisionado pela primeira vez.
 
-Para acessar uma entidade, o cliente requer um token SAS gerado usando um [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)específico. O token SAS é gerado usando o HMAC-SHA256 de uma cadeia de caracteres de recurso que consiste no URI de recurso ao qual o acesso é reivindicado e uma expiração com uma chave criptográfica associada à regra de autorização.
+Para aceder a uma entidade, o cliente requer um token SAS gerado através de uma regra específica de Autorização de [Acesso Partilhado](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). O token SAS é gerado usando o HMAC-SHA256 de uma cadeia de recursos que consiste no recurso URI a que o acesso é reivindicado, e uma expiração com uma chave criptográfica associada à regra de autorização.
 
-O suporte à autenticação SAS para o barramento de serviço está incluído no SDK do .NET do Azure versões 2,0 e posteriores. A SAS inclui suporte para um [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Todas as APIs que aceitam uma cadeia de conexão como um parâmetro incluem suporte para cadeias de conexão SAS.
+O suporte de autenticação SAS para o Service Bus está incluído nas versões Azure.NET SDK 2.0 e posteriormente. O SAS inclui suporte para uma Regra de Autorização de [Acesso Partilhado](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Todas as APIs que aceitam uma cadeia de ligação como parâmetro incluem suporte para cordas de ligação SAS.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Continue lendo [a autenticação do barramento de serviço com assinaturas de acesso compartilhado](service-bus-sas.md) para obter mais detalhes sobre SAS.
-- Como [migrar do ACS (controle de acesso Azure Active Directory) para a autorização de assinatura de acesso compartilhado](service-bus-migrate-acs-sas.md).
-- [Alterações nos namespaces habilitados para ACS](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/).
-- Para obter informações correspondentes sobre autenticação e autorização de retransmissão do Azure, consulte [autenticação e autorização de retransmissão do Azure](../service-bus-relay/relay-authentication-and-authorization.md). 
+- Continuar a ler [Autenticação de ônibus de serviço com Assinaturas de Acesso Partilhado](service-bus-sas.md) para mais detalhes sobre sas.
+- Como [migrar do Azure Ative Directory Access Control (ACS) para a autorização de assinatura](service-bus-migrate-acs-sas.md)de acesso partilhado .
+- [Alterações para espaços de nome sinuosos ativados](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/)por ACS .
+- Para obter informações correspondentes sobre a autenticação e autorização do Relé Azure, consulte a [autenticação e autorização do Relé Azure.](../service-bus-relay/relay-authentication-and-authorization.md) 
 

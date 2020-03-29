@@ -1,8 +1,8 @@
 ---
-title: Visão geral da continuidade dos negócios
+title: Visão geral da continuidade do negócio
 titleSuffix: Microsoft Genomics
-description: Esta visão geral descreve os recursos que o Microsoft Genomics fornece para continuidade dos negócios e recuperação de desastres.
-keywords: continuidade dos negócios, recuperação de desastres
+description: Esta visão geral descreve as capacidades que a Microsoft Genomics fornece para a continuidade do negócio e recuperação de desastres.
+keywords: continuidade do negócio, recuperação de desastres
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -11,39 +11,39 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 04/06/2018
 ms.openlocfilehash: 28a4a53851155c56e8d34981862bf52a3a2cf15b
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72249183"
 ---
-# <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Visão geral da continuidade dos negócios com o Microsoft Genomics
-Esta visão geral descreve os recursos que o Microsoft Genomics fornece para continuidade dos negócios e recuperação de desastres. Saiba mais sobre as opções de recuperação de eventos de interrupção, como uma interrupção de região do Azure, que podem causar perda de dados. 
+# <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Visão geral da continuidade dos negócios com a Microsoft Genomics
+Esta visão geral descreve as capacidades que a Microsoft Genomics fornece para a continuidade do negócio e recuperação de desastres. Saiba mais sobre as opções para recuperar de eventos disruptivos, como uma falha na região de Azure, que pode causar perda de dados. 
 
 
-## <a name="microsoft-genomics-features-that-support-business-continuity"></a>Microsoft Genomics recursos que dão suporte à continuidade dos negócios 
-Embora seja raro, um data center do Azure pode ter uma interrupção, o que pode causar uma interrupção nos negócios que pode durar alguns minutos a algumas horas. Quando ocorrer uma interrupção, todos os trabalhos em execução no momento no data center falharão e o serviço de Microsoft Genomics não reenviará automaticamente os trabalhos para uma região secundária. 
+## <a name="microsoft-genomics-features-that-support-business-continuity"></a>Microsoft Genomics apresenta funcionalidades que suportam a continuidade do negócio 
+Embora raro, um centro de dados Azure pode ter uma paragem, o que pode causar uma perturbação no negócio que pode durar alguns minutos a algumas horas. Quando ocorrer uma paralisação, todos os postos de trabalho atualmente em funcionamento no centro de dados falharão, e o serviço Microsoft Genómica não reenviará automaticamente postos de trabalho para uma região secundária. 
 
-* Uma opção é aguardar o data center ficar online novamente quando a interrupção de data center terminar. Se a interrupção for curta, o serviço de Microsoft Genomics detectará automaticamente os trabalhos com falha e o fluxo de trabalho será reiniciado automaticamente.
+* Uma opção é esperar que o centro de dados volte a funcionar quando a interrupção do centro de dados terminar. Se a paralisação for curta, o serviço Microsoft Genomics detetará automaticamente os postos de trabalho falhados e o fluxo de trabalho será automaticamente reiniciado.
 
-* Outra opção é enviar proativamente o fluxo de trabalho em outra região de dados. Microsoft Genomics implanta instâncias em várias [regiões do Azure](https://azure.microsoft.com/regions/services/)e cada instância específica de região é independente. Se uma das instâncias de Microsoft Genomics tiver uma falha local de região, outras regiões que executam instâncias do Microsoft Genomics continuarão a processar os trabalhos. Essa transferência para uma região alternativa está sob o controle do usuário e está disponível a qualquer momento.
+* Outra opção é submeter proactivamente o fluxo de trabalho noutra região de dados. A Microsoft Genomics implementa casos em [várias regiões do Azure](https://azure.microsoft.com/regions/services/), e cada instância específica da região é independente. Se um dos casos da Microsoft Genomics experimentar uma falha local na região, outras regiões que executam casos de Microsoft Genomics continuarão a processar postos de trabalho. Esta transferência para uma região alternativa está sob o controlo do utilizador e disponível a qualquer momento.
 
 
-### <a name="manually-failover-microsoft-genomics-workflows-to-another-region"></a>Fazer failover manualmente Microsoft Genomics fluxos de trabalho para outra região
-Se ocorrer uma interrupção de data center regional, você poderá optar por enviar fluxos de trabalho de Microsoft Genomics em uma região secundária, com base em seus requisitos de soberania de negócios e de continuidade de dados individuais. Para fazer failover manualmente Microsoft Genomics fluxos de trabalho, você usaria uma região específica diferente. A conta de genoma e o envio do trabalho com as credenciais apropriadas de conta de armazenamento e de genoma específicas da região.
+### <a name="manually-failover-microsoft-genomics-workflows-to-another-region"></a>Falha manual sobre os fluxos de trabalho da Microsoft Genomics para outra região
+Se ocorrer uma falha regional de data center, poderá optar por submeter fluxos de trabalho da Microsoft Genómica numa região secundária, com base na sua soberania individual de dados e requisitos de continuidade do negócio. Para falhar manualmente os fluxos de trabalho da Microsoft Genomics, utilizaria uma região específica. Conta genómica e submeta o trabalho com credenciais de genómica e conta de armazenamento específicas da região.
 
-Especificamente, você precisará:
-* Crie uma conta de genoma na região secundária usando o portal do Azure. 
-* Migre os dados de entrada para uma conta de armazenamento na região secundária e configure uma pasta de saída na região secundária.
-* Envie o fluxo de trabalho na região secundária.
+Especificamente, terá de:
+* Crie uma conta Genómica na região secundária, utilizando o portal Azure. 
+* Emigra os seus dados de entrada para uma conta de armazenamento na região secundária e cria uma pasta de saída na região secundária.
+* Submeta o fluxo de trabalho na região secundária.
 
-Quando a região original é restaurada, o serviço de Microsoft Genomics não migra os dados da região secundária de volta para a região original. Você pode optar por mover os arquivos de entrada e saída da região secundária de volta para a região original.  Se você optar por mover seus dados, isso estará fora do serviço de genoma e todos os encargos relacionados à movimentação de dados serão de sua responsabilidade. 
+Quando a região original é restaurada, o serviço Microsoft Genomics não migra os dados da região secundária de volta para a região original. Pode optar por transferir os ficheiros de entrada e saída da região secundária para a região original.  Se optar por mover os seus dados, isto está fora do serviço genómica e todos os encargos relacionados com o movimento de dados seriam da sua responsabilidade. 
 
-### <a name="preparing-for-a-possible-region-specific-outage"></a>Preparando para uma possível interrupção específica da região
-Se você estiver preocupado com a recuperação mais rápida no caso de uma interrupção de data center, há algumas etapas que você pode tomar para reduzir o tempo necessário para reenviar manualmente seus fluxos de trabalho de Microsoft Genomics para uma região secundária:
+### <a name="preparing-for-a-possible-region-specific-outage"></a>Preparação para uma possível paralisação específica da região
+Se está preocupado com uma recuperação mais rápida em caso de falha no data center, existem alguns passos que pode tomar para reduzir o tempo que demora a reenviar manualmente os seus fluxos de trabalho da Microsoft Genómica para uma região secundária:
 
-* Identificar uma região secundária apropriada e criar ativamente uma conta de genomas nessa região
-* Duplique os dados nas regiões primária e secundária para que os dados estejam imediatamente disponíveis na região secundária. Isso pode ser feito manualmente ou usando o recurso de [armazenamento com redundância geográfica](https://docs.microsoft.com/azure/storage/common/storage-redundancy) disponível no armazenamento do Azure. 
+* Identifique uma região secundária adequada e crie uma conta genómica naquela região
+* Duplique os seus dados na região primária e secundária para que os seus dados se disponibilizem imediatamente na região secundária. Isto poderia ser feito manualmente ou utilizando a funcionalidade [de armazenamento geo-redundante](https://docs.microsoft.com/azure/storage/common/storage-redundancy) disponível no armazenamento Azure. 
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste artigo, você aprendeu sobre suas opções de continuidade de negócios e recuperação de desastres ao usar o serviço de Microsoft Genomics. Para obter mais informações sobre continuidade de negócios e recuperação de desastres no Azure em geral, consulte [orientação técnica de resiliência do Azure.](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region) 
+Neste artigo, aprendeu sobre as suas opções de continuidade de negócios e recuperação de desastres ao utilizar o serviço Microsoft Genomics. Para obter mais informações sobre a continuidade do negócio e a recuperação de desastres dentro do Azure em geral, consulte a orientação técnica de [resiliência do Azure.](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region) 

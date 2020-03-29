@@ -1,6 +1,6 @@
 ---
-title: Limites de Azure Data Box Edge | Microsoft Docs
-description: Descreve os limites do sistema e os tamanhos recomendados para o Azure Data Box Edge.
+title: Limites de borda de caixa de dados azure [ Microsoft Docs
+description: Descreve os limites do sistema e os tamanhos recomendados para o Limite de Caixa de Dados Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,45 +9,45 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: alkohli
 ms.openlocfilehash: 9adfc1ef355c31f0bfeeb6c3b194d62426b7b9b3
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72244305"
 ---
-# <a name="azure-data-box-edge-limits"></a>Limites de Azure Data Box Edge
+# <a name="azure-data-box-edge-limits"></a>Limites de borda de caixa de dados azure
 
-Considere esses limites ao implantar e operar sua solução de Data Box Edge Microsoft Azure.
+Considere estes limites à medida que implementa e opera a sua solução Microsoft Azure Data Box Edge.
 
-## <a name="data-box-edge-service-limits"></a>Limites de serviço Data Box Edge
+## <a name="data-box-edge-service-limits"></a>Limites de serviço data Box Edge
 
 [!INCLUDE [data-box-edge-gateway-service-limits](../../includes/data-box-edge-gateway-service-limits.md)]
 
-## <a name="data-box-edge-device-limits"></a>Data Box Edge limites de dispositivo
+## <a name="data-box-edge-device-limits"></a>Limites do dispositivo Data Box Edge
 
-A tabela a seguir descreve os limites para o dispositivo Data Box Edge.
+A tabela seguinte descreve os limites para o dispositivo Data Box Edge.
 
 | Descrição | Valor |
 |---|---|
-|Não. de arquivos por dispositivo |100 milhões |
-|Não. de compartilhamentos por dispositivo |24 |
-|Não. de compartilhamentos por contêiner |1 |
-|Tamanho máximo de arquivo gravado em um compartilhamento| 5 TB |
+|Não. de ficheiros por dispositivo |100 milhões |
+|Não. de ações por dispositivo |24 |
+|Não. de ações por contentor |1 |
+|Tamanho máximo do ficheiro escrito a uma parte| 5 TB |
 
-## <a name="azure-storage-limits"></a>Limites de armazenamento do Azure
+## <a name="azure-storage-limits"></a>Limites de armazenamento azure
 
 [!INCLUDE [data-box-edge-gateway-storage-limits](../../includes/data-box-edge-gateway-storage-limits.md)]
 
-## <a name="data-upload-caveats"></a>Advertências de upload de dados
+## <a name="data-upload-caveats"></a>Limitações do carregamento de dados
 
 [!INCLUDE [data-box-edge-gateway-storage-data-upload-caveats](../../includes/data-box-edge-gateway-storage-data-upload-caveats.md)]
 
-## <a name="azure-storage-account-size-and-object-size-limits"></a>Tamanho da conta de armazenamento do Azure e limites de tamanho de objeto
+## <a name="azure-storage-account-size-and-object-size-limits"></a>Tamanho da conta de armazenamento azure e limites de tamanho do objeto
 
 [!INCLUDE [data-box-edge-gateway-storage-acct-limits](../../includes/data-box-edge-gateway-storage-acct-limits.md)]
 
 
-## <a name="azure-object-size-limits"></a>Limites de tamanho de objeto do Azure
+## <a name="azure-object-size-limits"></a>Limites de tamanho do objeto azul
 
 [!INCLUDE [data-box-edge-gateway-storage-object-limits](../../includes/data-box-edge-gateway-storage-object-limits.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Publicar o ambiente de trabalho remoto com o Proxy de aplicações do Azure AD | Documentos da Microsoft
-description: Abrange as noções básicas sobre os conectores de Proxy de aplicações do Azure AD.
+title: Publique o Ambiente de Trabalho Remoto com a App AD Proxy do Azure AD [ Microsoft Docs
+description: Cobre o básico sobre conectores de procuração de aplicação ad azure.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,81 +17,81 @@ ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6ca64e2de5734c567173fc735776074f4c87fbc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67108469"
 ---
-# <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar o ambiente de trabalho remoto com o Proxy de aplicações do Azure AD
+# <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publique o ambiente de trabalho remoto com procuração de aplicação ad azure
 
-Serviço de ambiente de trabalho remoto e o Proxy de aplicações do Azure AD funcionam em conjunto para aumentar a produtividade de trabalhadores que estão longe da rede corporativa. 
+O Remote Desktop Service e o Azure AD Application Proxy trabalham em conjunto para melhorar a produtividade dos trabalhadores que estão afastados da rede corporativa. 
 
-O público-alvo para este artigo é:
-- Os clientes atuais do Proxy de aplicações que pretendem oferecer mais aplicativos aos usuários finais ao publicar aplicações no local através dos serviços de ambiente de trabalho remoto.
-- Os clientes atuais dos serviços de ambiente de trabalho remoto que pretendem reduzem a superfície de ataque da sua implementação utilizando o Proxy de aplicações do Azure AD. Este cenário dá um conjunto limitado de verificação de dois passos e controlos de acesso condicional para RDS.
+O público pretendido para este artigo é:
+- Os clientes proxy de aplicação atuais que queiram oferecer mais aplicações aos seus utilizadores finais através da publicação de aplicações no local através de Serviços de Ambiente de Trabalho Remoto.
+- Os atuais clientes dos Serviços de Ambiente de Trabalho Remoto que pretendem reduzir a superfície de ataque da sua implantação utilizando o Proxy de Aplicação AD Azure. Este cenário proporciona um conjunto limitado de controlos de verificação em duas etapas e controlos de acesso condicional ao RDS.
 
-## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>Como o Proxy de aplicações se encaixa na implementação de RDS padrão
+## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>Como o Proxy de Aplicação se encaixa na implementação padrão de RDS
 
-Uma implementação de RDS padrão inclui vários serviços de função de ambiente de trabalho remoto em execução no Windows Server. Olhando para o [arquitetura de serviços de ambiente de trabalho remoto](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture), existem várias opções de implementação. Ao contrário de outras opções de implementação de RDS, o [implementação de RDS com o Proxy de aplicações do Azure AD](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) (mostrado no diagrama seguinte) tem uma ligação de saída permanente de servidor que executa o serviço de conectores. Outras implementações de deixam a abrir ligações de entrada através de um balanceador de carga.
+Uma implementação padrão de RDS inclui vários serviços de função Remote Desktop em execução no Windows Server. Olhando para a [arquitetura Remote Desktop Services,](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture)existem múltiplas opções de implementação. Ao contrário de outras opções de implementação RDS, a [implementação RDS com o Proxy de Aplicação AD Azure](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) (mostrada no diagrama seguinte) tem uma ligação de saída permanente do servidor que executa o serviço de conector. Outras implementações deixam as ligações de entrada abertas através de um equilibrador de carga.
 
-![Proxy da aplicação encontra-se entre a VM de RDS e a internet pública](./media/application-proxy-integrate-with-remote-desktop-services/rds-with-app-proxy.png)
+![Application Proxy situa-se entre o RDS VM e a internet pública](./media/application-proxy-integrate-with-remote-desktop-services/rds-with-app-proxy.png)
 
-Numa implementação de RDS, a função da Web de RD e a função do Gateway de RD são executados em máquinas de acesso à Internet. Estes pontos finais são expostos pelos seguintes motivos:
-- Web de área de trabalho remota fornece ao utilizador um ponto final público para iniciar sessão e ver as várias aplicações no local e ambientes de trabalho podem aceder. Depois de selecionar um recurso, uma ligação RDP é criada utilizando a aplicação nativa no sistema operacional.
-- Gateway de RD, entra em cena, assim que um utilizador inicia a ligação de RDP. O Gateway de RD processa o tráfego RDP encriptado através da internet e o converte para o servidor no local que o utilizador está a ligar a. Neste cenário, o tráfego que do Gateway de RD está a receber é proveniente do Proxy de aplicações do Azure AD.
+Numa implementação RDS, o papel RD Web e o papel RD Gateway funcionam em máquinas viradas para a Internet. Estes pontos finais são expostos pelas seguintes razões:
+- A RD Web fornece ao utilizador um ponto final público para iniciar sessão e visualizar as várias aplicações e desktops no local a que podem aceder. Ao selecionar um recurso, é criada uma ligação RDP utilizando a aplicação nativa no SISTEMA.
+- RD Gateway entra na imagem assim que um utilizador lança a ligação RDP. O RD Gateway lida com o tráfego de RDP encriptado que vem pela internet e traduz-o para o servidor no local a que o utilizador está a ligar. Neste cenário, o tráfego que o RD Gateway está a receber vem do Procurador de Aplicação AD Azure.
 
 >[!TIP]
->Se não tiver implementado o RDS antes, ou se pretende obter mais informações antes de começar, saiba como [facilmente implementar RDS com o Azure Resource Manager e o Azure Marketplace](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure).
+>Se ainda não implementou rds antes, ou quer mais informações antes de começar, aprenda a [implementar RDS sem problemas com o Azure Resource Manager e o Azure Marketplace](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure).
 
 ## <a name="requirements"></a>Requisitos
 
-- Utilize um cliente que não seja o cliente de web do ambiente de trabalho remoto, uma vez que o cliente web não suporta o Proxy de aplicações.
+- Utilize um cliente diferente do cliente web remote Desktop, uma vez que o cliente web não suporta proxy de aplicação.
 
-- Pontos de extremidade da Web de RD e o Gateway de RD têm de estar localizados na mesma máquina e com uma raiz comuns. Web de RD e Gateway de RD são publicados como um único aplicativo com o Proxy de aplicações para que possa ter uma única experiência de logon entre as duas aplicações.
+- Tanto os pontos finais RD Web como RD Gateway devem estar localizados na mesma máquina e com uma raiz comum. RD Web e RD Gateway são publicados como uma única aplicação com Application Proxy para que você possa ter uma única experiência de inscrição entre as duas aplicações.
 
-- Já deverá ter [implementado RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), e [ativado a Proxy da aplicação](application-proxy-add-on-premises-application.md).
+- Já deve ter [implantado RDS,](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure)e [ativado o Proxy de Aplicação.](application-proxy-add-on-premises-application.md)
 
-- Este cenário pressupõe que os utilizadores finais passem por meio do Internet Explorer no Windows 7 ou Windows 10 áreas de trabalho que se ligam através da página da Web de RD. Se for necessário oferecer suporte a outros sistemas operativos, consulte [suporte para outras configurações de cliente](#support-for-other-client-configurations).
+- Este cenário pressupõe que os utilizadores finais passem pelo Internet Explorer nos desktops do Windows 7 ou Windows 10 que se conectam através da página Web rd. Se precisar de suportar outros sistemas operativos, consulte [suporte para outras configurações do cliente](#support-for-other-client-configurations).
 
-- Durante a publicação de Web de RD, recomenda-se para utilizar o mesmo FQDN interno e externo. Se os FQDNs internos e externos são diferentes, em seguida, deve desabilitar tradução de cabeçalho do pedido para evitar que o cliente receber ligações inválidas. 
+- Ao publicar RD Web, recomenda-se a utilização do mesmo FQDN interno e externo. Se as FQDNs internas e externas forem diferentes, então deve desativar a Tradução do Cabeçalho do Pedido para evitar que o cliente receba links inválidos. 
 
-- No Internet Explorer, ative o suplemento do ActiveX de RDS.
+- No Internet Explorer, ative o addon RDS ActiveX.
 
-- Para o fluxo de pré-autenticação do Azure AD, os utilizadores só podem ligar a recursos publicados para eles no **RemoteApp e ambientes de trabalho** painel. Os utilizadores não é possível ligar a um ambiente de trabalho usando o **ligar a um PC remoto** painel.
+- Para o fluxo de pré-autenticação da AD Azure, os utilizadores só podem ligar-se aos recursos que lhes são publicados no painel **RemoteApp e Desktops.** Os utilizadores não podem ligar-se a um ambiente de trabalho utilizando o Connect a um painel **de PC remoto.**
 
-## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>Implementar o cenário conjunto de RDS e o Proxy de aplicações
+## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>Implementar o cenário conjunto RDS e Application Proxy
 
-Depois de configurar RDS e o Proxy de aplicações do Azure AD para o seu ambiente, siga os passos para combinar as duas soluções. Estes passos irão guiá publicar os dois com acesso à web RDS pontos de extremidade (Web de RD e Gateway de RD) como aplicações e, em seguida, direcionar o tráfego em seu RDS passar pelo Proxy de aplicações.
+Depois de configurar o PROXY de aplicação RDS e Azure AD para o seu ambiente, siga os passos para combinar as duas soluções. Estes passos passam pela publicação dos dois pontos finais RDS (RD Web e RD Gateway) como aplicações e, em seguida, direcionando o tráfego no seu RDS para passar pelo Proxy de Aplicação.
 
-### <a name="publish-the-rd-host-endpoint"></a>Publique o ponto final de anfitrião de área de trabalho remota
+### <a name="publish-the-rd-host-endpoint"></a>Publique o ponto final do anfitrião RD
 
-1. [Publicar uma nova aplicação de Proxy de aplicações](application-proxy-add-on-premises-application.md) com os seguintes valores:
-   - URL interno: `https://\<rdhost\>.com/`, onde `\<rdhost\>` é a raiz comuns que partilham Web de RD e Gateway de RD.
-   - URL externo: Este campo é preenchido automaticamente com base no nome do aplicativo, mas pode modificá-la. Os utilizadores passa a este URL quando acede a RDS.
-   - Método de pré-autenticação: Azure Active Directory
-   - Traduza os cabeçalhos de URL: Não
-2. Atribua utilizadores para a aplicação publicada de área de trabalho remota. Certifique-se de que todos eles têm acesso ao RDS, demasiado.
-3. Deixe o método único início de sessão para a aplicação como **do Azure AD início de sessão único desativado**. Os utilizadores são-lhe pedidos para autenticar uma vez para o Azure AD e outra para a Web da área de trabalho remota, mas tem início de sessão único para o Gateway de RD.
-4. Selecione **do Azure Active Directory**e, em seguida **registos das aplicações**. Escolha a sua aplicação na lista.
-5. Sob **Manage**, selecione **marca**.
-6. Atualização do **URL da Home page** campo para apontar para o ponto final de Web de área de trabalho remota (como `https://\<rdhost\>.com/RDWeb`).
+1. [Publique uma nova aplicação proxy](application-proxy-add-on-premises-application.md) de aplicação com os seguintes valores:
+   - URL `https://\<rdhost\>.com/`interno:, `\<rdhost\>` onde está a raiz comum que rd Web e RD Gateway partilham.
+   - URL externo: Este campo é automaticamente povoado com base no nome da aplicação, mas pode modificá-lo. Os seus utilizadores irão a este URL quando acederem ao RDS.
+   - Método de pré-autenticação: Diretório Ativo Azure
+   - Traduzir cabeçalhos URL: Não
+2. Atribuir utilizadores à aplicação RD publicada. Certifique-se de que todos têm acesso a RDS, também.
+3. Deixe o método de inscrição único para a aplicação como **Azure AD single sign-on desativado**. Pede-se aos seus utilizadores que autentiquem uma vez ao Azure AD e uma vez à RD Web, mas têm um único sinal para o RD Gateway.
+4. Selecione **Diretório Ativo Azure**, e, em seguida, **registos de aplicações.** Escolha a sua aplicação na lista.
+5. Em **'Gerir',** selecione **Branding**.
+6. Atualize o campo URL da **página inicial** para `https://\<rdhost\>.com/RDWeb`apontar para o seu ponto final RD Web (como ).
 
-### <a name="direct-rds-traffic-to-application-proxy"></a>Direcionar o tráfego RDS para Proxy de aplicações
+### <a name="direct-rds-traffic-to-application-proxy"></a>Tráfego direto RDS para procuração de aplicação
 
-Ligue-se para a implementação de RDS como administrador e alterar o nome do servidor de Gateway de RD para a implementação. Esta configuração garante que as ligações passam pelo serviço do Proxy de aplicações do Azure AD.
+Ligue-se à implementação RDS como administrador e altere o nome do servidor RD Gateway para a implementação. Esta configuração garante que as ligações passam pelo serviço de proxy de aplicação AD Azure.
 
-1. Ligar ao servidor RDS a executar a função de Mediador de ligações de RD.
-2. Inicie **Gestor de servidor**.
-3. Selecione **Remote Desktop Services** partir do painel à esquerda.
+1. Ligue-se ao servidor RDS executando a função de Corretor de Ligação RD.
+2. Gestor **de servidor de**lançamento .
+3. Selecione **Serviços de Ambiente** de Trabalho Remoto a partir do painel à esquerda.
 4. Selecione **Descrição geral**.
-5. Na secção Descrição geral da implementação, selecione o menu pendente e escolha **editar as propriedades de implementação**.
-6. No separador de Gateway de RD, alterar os **nome do servidor** campo para o URL externo que definiu para o ponto de final de anfitrião de área de trabalho remota no Proxy de aplicações.
-7. Alteração da **método de início de sessão** campo **autenticação de palavra-passe**.
+5. Na secção 'Visão Geral de Implementação', selecione o menu suspenso e escolha as propriedades de **implementação editar**.
+6. No separador RD Gateway, altere o campo de nome do **Servidor** para o URL Externo que definiu para o ponto final do anfitrião RD no Proxy de Aplicação.
+7. Altere o campo do **método De Início** para **Autenticação de Palavras-Passe**.
 
-   ![Ecrã de propriedades de implementação no RDS](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
+   ![Ecrã de propriedades de implementação em RDS](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
 
-8. Execute este comando para cada coleção. Substitua *\<yourcollectionname\>* e *\<proxyfrontendurl\>* pelas suas informações. Este comando permite início de sessão único entre Web de RD e Gateway de RD e otimiza o desempenho:
+8. Execute este comando para cada coleção. Substitua * \<o\> seu nome de coleção* e * \<proxyfrontendurl\> * com as suas próprias informações. Este comando permite um único sign-on entre RD Web e RD Gateway, e otimiza o desempenho:
 
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"
@@ -102,40 +102,40 @@ Ligue-se para a implementação de RDS como administrador e alterar o nome do se
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
    >[!NOTE]
-   >O comando acima utiliza um acento grave em "'nrequire".
+   >O comando acima usa um backtick em "'nrequire".
 
-9. Para verificar a modificação das propriedades personalizadas do RDP, bem como ver o conteúdo do ficheiro RDP que será transferido da RDWeb para esta coleção, execute o seguinte comando:
+9. Para verificar a modificação das propriedades personalizadas do RDP, bem como ver os conteúdos de ficheirordp que serão descarregados do RDWeb para esta recolha, execute o seguinte comando:
     ```
     (get-wmiobject -Namespace root\cimv2\terminalservices -Class Win32_RDCentralPublishedRemoteDesktop).RDPFileContents
     ```
 
-Agora que configurou o ambiente de trabalho remoto, o Proxy de aplicações do Azure AD tem colocado como o componente de acesso à internet do RDS. Pode remover os outros com acesso à internet pontos finais públicos nas suas máquinas de Web de RD e Gateway de RD.
+Agora que configurao Remote Desktop, o Proxy de Aplicação AD Azure assumiu como o componente virado para a Internet do RDS. Pode remover os outros pontos finais virados para a Internet nas suas máquinas RD Web e RD Gateway.
 
-## <a name="test-the-scenario"></a>O cenário de teste
+## <a name="test-the-scenario"></a>Teste o cenário
 
-Teste o cenário com o Internet Explorer num Windows 7 ou 10 do computador.
+Teste o cenário com o Internet Explorer num computador Windows 7 ou 10.
 
-1. Vá para o URL externo que configurou ou encontrar a sua aplicação na [MyApps painel](https://myapps.microsoft.com).
-2. É-lhe perguntado para autenticar para o Azure Active Directory. Utilize uma conta que atribuiu à aplicação.
-3. É-lhe perguntado para autenticar para a Web da área de trabalho remota.
-4. Assim que a autenticação de RDS for bem-sucedida, pode selecionar a área de trabalho ou aplicação que pretende e começar a trabalhar.
+1. Vá ao URL externo que configura, ou encontre a sua aplicação no [painel MyApps](https://myapps.microsoft.com).
+2. É-lhe pedido que autenticasse o Diretório Ativo Azure. Utilize uma conta que atribuiu ao pedido.
+3. É-lhe pedido que autenticar a RD Web.
+4. Assim que a autenticação RDS for bem sucedida, pode selecionar o ambiente de trabalho ou a aplicação que deseja e começar a trabalhar.
 
-## <a name="support-for-other-client-configurations"></a>Suporte para outras configurações de cliente
+## <a name="support-for-other-client-configurations"></a>Suporte para outras configurações de clientes
 
-A configuração descrita neste artigo é para os utilizadores no Windows 7 ou 10, com o suplemento do ActiveX de RDS e o Internet Explorer. Se for necessário, no entanto, pode suportar outros sistemas operativos ou browsers. A diferença está no método de autenticação que utiliza.
+A configuração descrita neste artigo é para utilizadores no Windows 7 ou 10, com o Internet Explorer mais o addon RDS ActiveX. No entanto, se precisar, pode suportar outros sistemas operativos ou navegadores. A diferença está no método de autenticação que utiliza.
 
-| Método de autenticação | Configuração de cliente suportados |
+| Método de autenticação | Configuração de cliente suportado |
 | --------------------- | ------------------------------ |
-| Pré-autenticação    | O Windows 7/10 através do Internet Explorer + suplemento ActiveX de RDS |
-| Passthrough | Qualquer outro sistema operativo que suporte a aplicação de ambiente de trabalho remoto |
+| Pré-autenticação    | Windows 7/10 usando internet explorer + ADDS ActiveX |
+| Passa | Qualquer outro sistema operativo que suporte a aplicação Microsoft Remote Desktop |
 
-O fluxo de pré-autenticação oferece mais benefícios de segurança do que o fluxo de pass-through. Com a pré-autenticação pode utilizar funcionalidades de autenticação do Azure AD, como de verificação de início de sessão, acesso condicional e em dois passos para os seus recursos no local. Também garantir que apenas o tráfego autorizado alcance sua rede.
+O fluxo de pré-autenticação oferece mais benefícios de segurança do que o fluxo de passagem. Com pré-autenticação pode utilizar funcionalidades de autenticação Azure AD como inscrição única, Acesso Condicional e verificação em duas etapas para os seus recursos no local. Também garante que apenas o tráfego autenticado chega à sua rede.
 
-Para utilizar autenticação pass-through, existem apenas duas modificações para os passos apresentados neste artigo:
-1. Na [publique o ponto final de anfitrião de área de trabalho remota](#publish-the-rd-host-endpoint) passo 1, definir o método de pré-autenticação **pass-through**.
-2. Na [tráfego de RDS direto para o Proxy de aplicações](#direct-rds-traffic-to-application-proxy), ignore o passo 8 inteiramente.
+Para utilizar a autenticação passthrough, existem apenas duas alterações aos passos enumerados neste artigo:
+1. Em [Publicar o ponto final do rd,](#publish-the-rd-host-endpoint) derpor o método de pré-autenticação para **passar**.
+2. No [tráfego direto RDS para Application Proxy,](#direct-rds-traffic-to-application-proxy)salte completamente o passo 8.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Ativar o acesso remoto ao SharePoint com o Proxy de aplicações do Azure AD](application-proxy-integrate-with-sharepoint-server.md)  
-[Considerações de segurança para aceder a aplicações remotamente utilizando o Proxy de aplicações do Azure AD](application-proxy-security.md)
+[Ativar o acesso remoto ao SharePoint com o Proxy de Aplicações do Azure AD](application-proxy-integrate-with-sharepoint-server.md)  
+[Considerações de segurança para aceder remotamente a apps utilizando o Proxy de Aplicação AD Azure](application-proxy-security.md)

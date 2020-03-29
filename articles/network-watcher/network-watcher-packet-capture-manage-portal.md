@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: damendo
 ms.openlocfilehash: 6fc4a25e39fb8f27151b2e3bec1959d74a619233
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840832"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gerir capturas de pacotes com o Azure Network Watcher usando o portal
@@ -52,7 +52,7 @@ Se um grupo de segurança de rede estiver associado à interface da rede, ou sub
 
    - **Bytes máximos por pacote**: O número de bytes de cada pacote capturados. Se ficarem em branco, todos os bytes são capturados.
    - **Bytes máximos por sessão**: O número total de bytes capturados. Uma vez atingido o valor, a captura do pacote para.
-   - **Limite de tempo (segundos)** : O limite de tempo antes da captura do pacote é interrompido. O padrão é de 18.000 segundos.
+   - **Limite de tempo (segundos)**: O limite de tempo antes da captura do pacote é interrompido. O padrão é de 18.000 segundos.
    - Filtragem (Opcional). Selecione **+ Adicionar filtro**
      - **Protocolo**: O protocolo para filtrar para a captura do pacote. Os valores disponíveis são TCP, UDP e Any.
      - **Endereço IP local**: Filtra a captura do pacote para pacotes onde o endereço IP local corresponde a este valor.
@@ -74,7 +74,7 @@ Após o prazo estabelecido na captura do pacote ter expirado, a captura do pacot
 
 ## <a name="delete-a-packet-capture"></a>Eliminar uma captura de pacote
 
-1. Na vista de captura do pacote, selecione... no lado direito da captura do pacote, ou clique à direita numa captura de pacote existente, e selecione **Delete**.
+1. Na vista de captura do pacote, selecione... no lado direito da captura do pacote, ou clique à direita numa captura de pacote existente, e selecione **Delete**. **...**
 2. É-lhe pedido que confirme que pretende eliminar a captura do pacote. Selecione **Sim**.
 
 > [!NOTE]
@@ -82,13 +82,13 @@ Após o prazo estabelecido na captura do pacote ter expirado, a captura do pacot
 
 ## <a name="stop-a-packet-capture"></a>Parar uma captura de pacote
 
-Na vista de captura do pacote, selecione... no lado direito da captura do pacote, ou clique à direita numa captura de pacote existente, e selecione **Stop**.
+Na vista de captura do pacote, selecione... no lado direito da captura do pacote, ou clique à direita numa captura de pacote existente, e selecione **Stop**. **...**
 
 ## <a name="download-a-packet-capture"></a>Descarregue uma captura de pacotes
 
 Uma vez concluída a sua sessão de captura de pacotes, o ficheiro de captura é enviado para armazenamento de bolhas ou para um ficheiro local na máquina virtual. A localização de armazenamento da captura do pacote é definida durante a criação da captura do pacote. Uma ferramenta conveniente para aceder a ficheiros de captura guardados numa conta de armazenamento é o Microsoft Azure Storage Explorer, que pode [descarregar.](https://storageexplorer.com/)
 
-Se uma conta de armazenamento for especificada, os arquivos de captura de pacote serão salvos em uma conta de armazenamento no seguinte local:
+Se for especificada uma conta de armazenamento, os ficheiros de captura de pacotes são guardados numa conta de armazenamento no seguinte local:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap

@@ -1,6 +1,6 @@
 ---
-title: Analisar dados de geração 1 de armazenamento do Azure Data Lake ao utilizar o Power BI | Documentos da Microsoft
-description: Utilizar o Power BI para analisar dados armazenados na geração 1 de armazenamento do Azure Data Lake
+title: Analise dados em Azure Data Lake Storage Gen1 usando Power BI / Microsoft Docs
+description: Use o Power BI para analisar os dados armazenados no Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -13,89 +13,89 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: d8717b8f365e692b5f27bf8a04d65c5147b8f31b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65603207"
 ---
-# <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analisar dados de geração 1 de armazenamento do Azure Data Lake ao utilizar o Power BI
-Neste artigo, aprenderá como usar o ambiente de trabalho do Power BI para analisar e visualizar os dados armazenados na geração 1 de armazenamento do Azure Data Lake.
+# <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analise dados em Azure Data Lake Storage Gen1 usando Power BI
+Neste artigo, aprenderá a usar o Power BI Desktop para analisar e visualizar dados armazenados no Azure Data Lake Storage Gen1.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, tem de ter o seguinte:
 
-* **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta do Data Lake Storage Gen1**. Siga as instruções em [introdução à geração 1 de armazenamento do Azure Data Lake com o portal do Azure](data-lake-store-get-started-portal.md). Este artigo pressupõe que já criou uma conta de geração 1 de armazenamento do Data Lake, denominada **myadlsg1**e carregado um ficheiro de dados de exemplo (**Drivers.txt**) ao mesmo. Este ficheiro de exemplo está disponível para transferência a partir [repositório de Git do Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt).
-* **Power BI Desktop**. Pode transferir este componente a partir [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=45331). 
+* **Uma subscrição Azure.** Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma conta Gen1 de Armazenamento de Lago**de Dados. Siga as instruções no [Get started com Azure Data Lake Storage Gen1 utilizando o portal Azure](data-lake-store-get-started-portal.md). Este artigo assume que já criou uma conta Data Lake Storage Gen1, chamada **myadlsg1,** e fez o upload de um ficheiro de dados de amostra **(Drivers.txt)** para o mesmo. Este ficheiro de amostraestá disponível para download a partir do [Repositório Azure Data Lake Git](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt).
+* **Power BI Desktop**. Pode descarregar isto no [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=45331). 
 
 ## <a name="create-a-report-in-power-bi-desktop"></a>Criar um relatório no Power BI Desktop
-1. Inicie o ambiente de trabalho do Power BI no seu computador.
-2. Partir do **home page** Friso, clique em **obter dados**e, em seguida, clique em muito mais. Na **obter dados** caixa de diálogo, clique em **Azure**, clique em **Azure Data Lake Store**e, em seguida, clique em **Connect**.
+1. Inicie o power bi desktop no seu computador.
+2. A partir da fita **Home,** clique em **Obter Dados**, e depois clique em Mais. Na caixa de diálogo **Get Data,** clique em **Azure,** clique em **Azure Data Lake Store,** e depois clique em **Connect**.
    
-    ![Ligar ao Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account.png "ligar ao Data Lake Storage Gen1")
-3. Se vir uma caixa de diálogo sobre o conector do que está a ser uma fase de desenvolvimento, optar por continuar.
-4. Na **do Azure Data Lake Store** caixa de diálogo, forneça o URL para a sua conta do Data Lake Storage Gen1 e, em seguida, clique em **OK**.
+    ![Ligue-se ao Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Ligue-se ao Data Lake Storage Gen1")
+3. Se vir uma caixa de diálogo sobre o conector estar numa fase de desenvolvimento, opte por continuar.
+4. Na caixa de diálogo **Azure Data Lake Store,** forneça o URL à sua conta Data Lake Storage Gen1 e, em seguida, clique em **OK**.
    
-    ![URL para o Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-url.png "URL para a geração 1 do Data Lake Storage")
-5. Na caixa de diálogo seguinte, clique em **iniciar sessão** para iniciar sessão para a conta de geração 1 de armazenamento do Data Lake. Será redirecionado para a página de início de sessão da sua organização. Siga as instruções para iniciar sessão na conta.
+    ![URL para Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-url.png "URL para Data Lake Storage Gen1")
+5. Na caixa de diálogo seguinte, clique **em Iniciar** sessão para iniciar sessão na conta Data Lake Storage Gen1. Será redirecionado para o sinal da sua organização na página. Siga as instruções para assinar na conta.
    
-    ![Inicie sessão no Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "inicie sessão no Data Lake Storage Gen1")
-6. Após ter iniciado com êxito, clique em **Connect**.
+    ![Assine o Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Assine o Data Lake Storage Gen1")
+6. Depois de ter assinado com sucesso, clique em **Connect**.
    
-    ![Ligar ao Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "ligar ao Data Lake Storage Gen1")
-7. A caixa de diálogo seguinte mostra o ficheiro que carregou para a sua conta de geração 1 de armazenamento do Data Lake. Verifique as informações e, em seguida, clique em **carga**.
+    ![Ligue-se ao Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Ligue-se ao Data Lake Storage Gen1")
+7. A próxima caixa de diálogo mostra o ficheiro que fez para a sua conta Data Lake Storage Gen1. Verifique a informação e, em seguida, clique em **Carregar**.
    
-    ![Carregar dados de geração 1 de armazenamento do Data Lake](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "carregar dados de geração 1 de armazenamento do Data Lake")
-8. Após os dados terem sido carregados com êxito para o Power BI, verá os campos seguintes no **campos** separador.
+    ![Dados de carga do Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "Dados de carga do Data Lake Storage Gen1")
+8. Depois de os dados terem sido carregados com sucesso no Power BI, verá os seguintes campos no separador **Fields.**
    
-    ![Campos de importados](./media/data-lake-store-power-bi/imported-fields.png "importados campos")
+    ![Campos importados](./media/data-lake-store-power-bi/imported-fields.png "Campos importados")
    
-    No entanto, para visualizar e analisar os dados, preferimos os dados estejam disponíveis pelos seguintes campos
+    No entanto, para visualizar e analisar os dados, preferimos que os dados estejam disponíveis nos seguintes campos
    
-    ![Campos de pretendido](./media/data-lake-store-power-bi/desired-fields.png "pretendido campos")
+    ![Campos desejados](./media/data-lake-store-power-bi/desired-fields.png "Campos desejados")
    
-    Nos passos seguintes, iremos atualizar a consulta para converter os dados importados no formato desejado.
-9. Partir do **home page** Friso, clique em **editar consultas**.
+    Nos próximos passos, atualizaremos a consulta para converter os dados importados no formato desejado.
+9. A partir da fita **Home,** clique em **Editar Consultas**.
    
-    ![Editar consultas](./media/data-lake-store-power-bi/edit-queries.png "editar consultas")
-10. No Editor de consultas, sob o **conteúdo** coluna, clique em **binário**.
+    ![Editar consultas](./media/data-lake-store-power-bi/edit-queries.png "Editar consultas")
+10. No Editor de Consulta, sob a coluna **Content,** clique em **Binary**.
     
-    ![Editar consultas](./media/data-lake-store-power-bi/convert-query1.png "editar consultas")
-11. Verá um ícone de arquivo, que representa a **Drivers.txt** ficheiro que carregou. O ficheiro com o botão direito e clique em **CSV**.    
+    ![Editar consultas](./media/data-lake-store-power-bi/convert-query1.png "Editar consultas")
+11. Verá um ícone de ficheiro que representa o ficheiro **Drivers.txt** que fez o upload. Clique no ficheiro e clique em **CSV**.    
     
-    ![Editar consultas](./media/data-lake-store-power-bi/convert-query2.png "editar consultas")
-12. Deverá ver um resultado conforme mostrado abaixo. Seus dados estão agora disponíveis num formato que pode utilizar para criar visualizações.
+    ![Editar consultas](./media/data-lake-store-power-bi/convert-query2.png "Editar consultas")
+12. Deve ver uma saída como mostrado abaixo. Os seus dados estão agora disponíveis num formato que pode utilizar para criar visualizações.
     
-    ![Editar consultas](./media/data-lake-store-power-bi/convert-query3.png "editar consultas")
-13. Partir do **home page** Friso, clique em **fechar e aplicar**e, em seguida, clique em **fechar e aplicar**.
+    ![Editar consultas](./media/data-lake-store-power-bi/convert-query3.png "Editar consultas")
+13. A partir da fita **Home,** clique **em Fechar e Aplicar,** e depois clique **em Fechar e Aplicar**.
     
-    ![Editar consultas](./media/data-lake-store-power-bi/load-edited-query.png "editar consultas")
-14. Assim que a consulta é atualizada, o **campos** guia irá mostrar os novos campos disponíveis para visualização.
+    ![Editar consultas](./media/data-lake-store-power-bi/load-edited-query.png "Editar consultas")
+14. Uma vez atualizada a consulta, o separador **Fields** mostrará os novos campos disponíveis para visualização.
     
-    ![Atualizar campos](./media/data-lake-store-power-bi/updated-query-fields.png "atualizado campos")
-15. Vamos crie um gráfico de pizza para representar os controladores no cada cidade para um determinado país/região. Para tal, faça as seleções seguintes.
+    ![Campos atualizados](./media/data-lake-store-power-bi/updated-query-fields.png "Campos atualizados")
+15. Criemos um gráfico de tartes para representar os condutores de cada cidade para um determinado país/região. Para isso, faça as seguintes seleções.
     
-    1. No separador visualizações, clique no símbolo para um gráfico de pizza.
+    1. A partir do separador Visualizações, clique no símbolo para obter um gráfico de tartes.
        
-        ![Criar o gráfico circular](./media/data-lake-store-power-bi/create-pie-chart.png "criar o gráfico circular")
-    2. As colunas que vamos utilizar são **coluna 4** (nome da cidade) e **7 de coluna** (nome do país/região). Arraste estas colunas da **campos** separador para **visualizações** separador conforme mostrado abaixo.
+        ![Criar gráfico de tartes](./media/data-lake-store-power-bi/create-pie-chart.png "Criar gráfico de tartes")
+    2. As colunas que vamos usar são **colunas 4** (nome da cidade) e **Coluna 7** (nome do país/região). Arraste estas colunas do separador **Fields** para **visualizações,** como mostrado abaixo.
        
-        ![Criar visualizações](./media/data-lake-store-power-bi/create-visualizations.png "criar visualizações")
-    3. O gráfico de pizza agora deve assemelhar-se, como o mostrado abaixo.
+        ![Criar visualizações](./media/data-lake-store-power-bi/create-visualizations.png "Criar visualizações")
+    3. O gráfico de tortas deve agora assemelhar-se ao que se segue.
        
-        ![Gráfico circular](./media/data-lake-store-power-bi/pie-chart.png "criar visualizações")
-16. Ao selecionar um país/região dos filtros de nível de página, agora pode ver o número de controladores em cada cidade de país/região selecionada. Por exemplo, sob o **visualizações** separador, em **filtros de nível de página**, selecione **Brasil**.
+        ![Gráfico circular](./media/data-lake-store-power-bi/pie-chart.png "Criar visualizações")
+16. Ao selecionar um país/região específico a partir dos filtros de nível de página, pode agora ver o número de condutores em cada cidade do país/região selecionado. Por exemplo, sob o separador **Visualizações,** sob **filtros de nível de página,** selecione **Brasil**.
     
-    ![Selecione um país](./media/data-lake-store-power-bi/select-country.png "selecione um país/região")
-17. O gráfico de pizza é atualizado automaticamente para apresentar os drivers em cidades do Brasil.
+    ![Selecione um país](./media/data-lake-store-power-bi/select-country.png "Selecionar país/região")
+17. O gráfico de tartes é automaticamente atualizado para exibir os condutores nas cidades do Brasil.
     
-    ![Controladores num país](./media/data-lake-store-power-bi/driver-per-country.png "Drivers por país/região")
-18. Do **arquivo** menu, clique em **guardar** para guardar a visualização como um ficheiro do Power BI Desktop.
+    ![Motoristas em um país](./media/data-lake-store-power-bi/driver-per-country.png "Condutores por país/região")
+18. A partir do menu **'Ficheiro',** clique em **Guardar** para guardar a visualização como ficheiro Power BI Desktop.
 
-## <a name="publish-report-to-power-bi-service"></a>Publicar o relatório no serviço Power BI
-Depois de criar as visualizações no Power BI Desktop, pode partilhá-lo com outras pessoas ao publicá-la no serviço Power BI. Para obter instruções sobre como fazer isso, consulte [publicar a partir do Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
+## <a name="publish-report-to-power-bi-service"></a>Publicar relatório ao serviço Power BI
+Depois de ter criado as visualizações no Power BI Desktop, pode partilhá-la com outras publicando-as no serviço Power BI. Para obter instruções sobre como fazê-lo, consulte [Publicar a partir de Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
 
 ## <a name="see-also"></a>Consulte também
-* [Analisar dados de geração 1 de armazenamento do Data Lake com o Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Analise dados em Data Lake Storage Gen1 usando data lake analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 

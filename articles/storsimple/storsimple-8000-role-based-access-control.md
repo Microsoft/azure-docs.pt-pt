@@ -1,6 +1,6 @@
 ---
-title: Utilize o controlo de acesso baseado em funções para StorSimple | Documentos da Microsoft
-description: Descreve como utilizar o controlo de acesso baseado em funções do Azure (RBAC) no contexto do StorSimple.
+title: Utilizar o Controlo de Acesso baseado em funções para o StorSimple [ StorSimple] Microsoft Docs
+description: Descreve como utilizar o Controlo de Acesso baseado em Papel Azure (RBAC) no contexto do StorSimple.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,42 +15,42 @@ ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
 ms.openlocfilehash: a79753a897a62e194a759c23a9c0acc45c5f36c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66159138"
 ---
-# <a name="role-based-access-control-for-storsimple"></a>Controlo de acesso baseado em funções para StorSimple
+# <a name="role-based-access-control-for-storsimple"></a>Controlo de Acesso baseado em funções para StorSimple
 
-Este artigo fornece uma breve descrição de como o controlo de acesso de controlo (RBAC) pode ser utilizado para o dispositivo StorSimple. RBAC oferece gestão de acessos detalhada para o Azure. Utilize o RBAC para conceder acesso sem restrições apenas a quantidade certa de acesso para os utilizadores do StorSimple para realizar seus trabalhos em vez de dar a todos os utilizadores. Para obter mais informações sobre as noções básicas de gestão de acesso no Azure, consulte [introdução ao controlo de acesso baseado em funções no portal do Azure](../role-based-access-control/overview.md).
+Este artigo fornece uma breve descrição de como o Controlo de Acesso baseado em Funções Azure (RBAC) pode ser usado para o seu dispositivo StorSimple. O RBAC oferece uma gestão de acesso de grãos finos para o Azure. Utilize o RBAC para conceder a quantidade certa de acesso aos utilizadores StorSimple para fazer em vez de dar a todos acesso sem restrições. Para obter mais informações sobre os fundamentos da gestão de acessos em Azure, consulte [Iniciar-se com o Controlo de Acesso baseado em Funções no portal Azure.](../role-based-access-control/overview.md)
 
-Este artigo aplica-se a dispositivos de série 8000 do StorSimple com o Update 3.0 ou mais tarde no portal do Azure.
+Este artigo aplica-se aos dispositivos da série StorSimple 8000 que executam o Update 3.0 ou mais tarde no portal Azure.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="rbac-roles-for-storsimple"></a>Funções do RBAC para o StorSimple
+## <a name="rbac-roles-for-storsimple"></a>Funções RBAC para StorSimple
 
-RBAC pode ser atribuído com base nas funções. As funções de garantir que determinados níveis de permissão com base nos recursos disponíveis no ambiente. Existem dois tipos de funções de que os utilizadores do StorSimple podem escolher de entre: internas ou personalizadas.
+O RBAC pode ser atribuído com base nas funções. As funções asseguram certos níveis de permissão com base nos recursos disponíveis no ambiente. Existem dois tipos de funções que os utilizadores do StorSimple podem escolher: incorporados ou personalizados.
 
-* **Funções incorporadas** -funções incorporadas podem ser proprietário, Contribuidor, leitor ou administrador de acesso do utilizador. Para obter mais informações, consulte [funções incorporadas para controlo de acesso baseado em funções do Azure](../role-based-access-control/built-in-roles.md).
+* **Funções incorporadas** - As funções incorporadas podem ser donos, colaboradores, leitores ou administradores de acesso ao utilizador. Para mais informações, consulte [as funções incorporadas para](../role-based-access-control/built-in-roles.md)o Controlo de Acesso baseado em Papel Azure .
 
-* **Funções personalizadas** -se as funções incorporadas não satisfazer as suas necessidades, pode criar funções personalizadas do RBAC para o StorSimple. Para criar uma função RBAC personalizada, começar com uma função incorporada, editá-lo e, em seguida, importá-lo novamente no ambiente. A transferência e o carregamento da função são geridas com o Azure PowerShell ou a CLI do Azure. Para obter mais informações, consulte [criar funções personalizadas para controlo de acesso baseado em funções](../role-based-access-control/custom-roles.md).
+* **Funções personalizadas** - Se as funções incorporadas não se adequarem às suas necessidades, pode criar funções RBAC personalizadas para o StorSimple. Para criar um papel RBAC personalizado, comece com um papel incorporado, edite-o e, em seguida, importe-o de volta para o ambiente. O download e upload da função são geridos usando o Azure PowerShell ou o Azure CLI. Para mais informações, consulte [Criar funções personalizadas para controlo de acesso baseado em funções.](../role-based-access-control/custom-roles.md)
 
-Para ver as diferentes funções disponíveis para um utilizador do dispositivo StorSimple no portal do Azure, aceda ao seu serviço StorSimple Device Manager e, em seguida, aceda a **controlo de acesso (IAM) > funções**.
+Para ver as diferentes funções disponíveis para um utilizador de dispositivoS StorSimple no portal Azure, aceda ao serviço StorSimple Device Manager e depois vá ao Controle de **Acesso (IAM) > Funções**.
 
 
-## <a name="create-a-custom-role-for-storsimple-infrastructure-administrator"></a>Criar uma função personalizada para o administrador de infraestrutura do StorSimple
+## <a name="create-a-custom-role-for-storsimple-infrastructure-administrator"></a>Criar uma função personalizada para administrador de infraestrutura StorSimple
 
-No exemplo a seguir, vamos começar com a função incorporada **leitor** que permite aos utilizadores para ver todos os âmbitos de recursos, mas não editá-los ou criar novos. Vamos expandir, em seguida, esta função para criar uma nova função personalizada administrador de infraestrutura do StorSimple. Esta função é atribuída a utilizadores que podem gerir a infraestrutura para os dispositivos do StorSimple.
+No exemplo seguinte, começamos com o papel incorporado **Reader** que permite que os utilizadores vejam todos os âmbitos de recursos, mas não editem ou criem novos. Em seguida, estendemos este papel para criar um novo papel personalizado StorSimple Infrastructure administrador. Esta função é atribuída aos utilizadores que possam gerir a infraestrutura para os dispositivos StorSimple.
 
-1. Execute o Windows PowerShell como administrador.
+1. Executar o Windows PowerShell como administrador.
 
 2. Iniciar sessão no Azure.
 
     `Connect-AzAccount`
 
-3. Exporte a função de leitor como um modelo JSON no seu computador.
+3. Exporte o papel do Leitor como modelo JSON no seu computador.
 
     ```powershell
     Get-AzRoleDefinition -Name "Reader"
@@ -58,21 +58,21 @@ No exemplo a seguir, vamos começar com a função incorporada **leitor** que pe
     Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
     ```
 
-4. Abra o ficheiro JSON no Visual Studio. Verá que uma função RBAC típica consiste em três seções principais, **ações**, **NotActions**, e **AssignableScopes**.
+4. Abra o ficheiro JSON no Estúdio Visual. Você vê que uma função RBAC típica consiste em três secções principais, **Ações,** **NotActions**e **Scopescopes Atribuindo.**
 
-    Na **ação** secção, todas as operações permitidas para esta função estão listadas. Cada ação é atribuída a partir de um fornecedor de recursos. Para um administrador de infraestrutura do StorSimple, utilize o `Microsoft.StorSimple` fornecedor de recursos.
+    Na secção **ação,** estão enumeradas todas as operações permitidas para este papel. Cada ação é atribuída a um fornecedor de recursos. Para um administrador de infraestrutura `Microsoft.StorSimple` StorSimple, utilize o fornecedor de recursos.
 
     Utilize o PowerShell para ver todos os fornecedores de recursos disponíveis e registados na sua subscrição.
 
     `Get-AzResourceProvider`
 
-    Também pode procurar os cmdlets do PowerShell disponíveis gerir os fornecedores de recursos.
+    Também pode verificar se todos os cmdlets PowerShell disponíveis para gerir os fornecedores de recursos.
 
-    Na **NotActions** secções, todas as ações restritas por determinada função RBAC estão listadas. Neste exemplo, não existem ações são restritas.
+    Nas secções **NotActions,** estão listadas todas as ações restritas para uma determinada função RBAC. Neste exemplo, nenhuma ação é restrita.
     
-    Sob o **AssignableScopes**, são listados os IDs de subscrição. Certifique-se de que a função RBAC contém o ID de subscrição explícita em que é utilizada. Se não for especificado o ID de subscrição corretas, não tem permissão para importar a função na sua subscrição.
+    Nos **Âmbitos dos Scopes Atribuídos,** os IDs de subscrição estão listados. Certifique-se de que a função RBAC contém o ID de subscrição explícito onde é utilizado. Se o ID de subscrição correto não for especificado, não está autorizado a importar o papel na sua subscrição.
 
-    Edite o ficheiro tendo em mente as considerações de anteriores.
+    Editar o ficheiro tendo em conta as considerações anteriores.
 
     ```json
     {
@@ -102,18 +102,18 @@ No exemplo a seguir, vamos começar com a função incorporada **leitor** que pe
     }
     ```
 
-6. Importe a função RBAC personalizada de volta para o ambiente.
+6. Importar o papel rBAC personalizado de volta para o ambiente.
 
     `New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"`
 
 
-Esta função deverá agora aparecer na lista de funções no **controlo de acesso** painel.
+Esta função deverá figurar agora na lista de funções na lâmina de controlo de **acesso.**
 
-![Funções RBAC do Vista](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
+![Ver papéis RBAC](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
 
-Para obter mais informações, aceda a [funções personalizadas](../role-based-access-control/custom-roles.md).
+Para mais informações, vá a [papéis personalizados.](../role-based-access-control/custom-roles.md)
 
-### <a name="sample-output-for-custom-role-creation-via-the-powershell"></a>Saída de exemplo para criação da função personalizada através do PowerShell
+### <a name="sample-output-for-custom-role-creation-via-the-powershell"></a>Saída de amostra para criação de papel personalizado através da PowerShell
 
 ```powershell
 Connect-AzAccount
@@ -161,39 +161,39 @@ NotActions       : {}
 AssignableScopes : {/subscriptions/<subscription_ID>/}
 ```
 
-## <a name="add-users-to-the-custom-role"></a>Adicionar utilizadores à função personalizada
+## <a name="add-users-to-the-custom-role"></a>Adicione os utilizadores à função personalizada
 
-Pode conceder acesso de dentro do recurso, grupo de recursos ou subscrição, que é o âmbito da atribuição de função. Ao fornecer acesso, lembre-se de que o acesso concedido no nó principal é herdada pelo elemento subordinado. Para obter mais informações, aceda a [controlo de acesso baseado em funções](../role-based-access-control/overview.md).
+Pode conceder acesso de dentro do recurso, grupo de recursos ou subscrição, que é o âmbito da atribuição de função. Ao fornecer acesso, tenha em conta que o acesso concedido no nó principal é herdado pela criança. Para mais informações, aceda ao [controlo de acesso baseado em papéis.](../role-based-access-control/overview.md)
 
-1. Aceda a **controlo de acesso (IAM)** . Clique em **+ adicionar** no painel de controlo de acesso.
+1. Ir para o controlo de **acesso (IAM)**. Clique **+ Adicione** na lâmina de controlo de acesso.
 
     ![Adicionar acesso à função RBAC](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
 
-2. Selecione a função que deseja atribuir, neste caso é o **administrador de infraestrutura do StorSimple**.
+2. Selecione o papel que pretende atribuir, neste caso é o Administrador de **Infraestruturas StorSimple**.
 
 3. Selecione o utilizador, grupo ou aplicação no diretório para o qual pretende dar acesso. Pode procurar o diretório com os nomes a apresentar, endereços de correio eletrónico e identificadores de objetos.
 
-4. Selecione **guardar** para criar a atribuição.
+4. Selecione **Guardar** para criar a atribuição.
 
-    ![Adicionar permissões à função RBAC](./media/storsimple-8000-role-based-access-control/rbac-create-role-infra-admin.png)
+    ![Adicionar permissões ao papel RBAC](./media/storsimple-8000-role-based-access-control/rbac-create-role-infra-admin.png)
 
-Uma **adicionar utilizador** notificação controla o progresso. Depois do utilizador é adicionado com êxito, a lista de utilizadores no controlo de acesso é atualizada.
+Uma notificação **de utilizador adicionando** acompanha o progresso. Depois de o utilizador ser adicionado com sucesso, a lista de utilizadores no controlo de Acesso é atualizada.
 
-## <a name="view-permissions-for-the-custom-role"></a>Permissões de visualização para a função personalizada
+## <a name="view-permissions-for-the-custom-role"></a>Ver permissões para o papel personalizado
 
-Assim que esta função é criada, pode ver as permissões associadas esta função no portal do Azure.
+Uma vez criado este papel, pode ver as permissões associadas a este papel no portal Azure.
 
-1. Para ver as permissões associadas esta função, aceda ao **controlo de acesso (IAM) > funções > administrador de infraestrutura do StorSimple**. É apresentada a lista de utilizadores nesta função.
+1. Para ver as permissões associadas a esta função, aceda ao Controlo de **Acesso (IAM) > Funções > StorSimple Infrastructure Admin**. A lista de utilizadores nesta função é apresentada.
 
-2. Selecione um utilizador de administrador de infraestrutura do StorSimple e clique em **permissões**.
+2. Selecione um utilizador de administração de infraestrutura StorSimple e clique em **Permissões**.
 
-    ![Permissões de visualização para a função de administrador infra-estrutura do StorSimple](./media/storsimple-8000-role-based-access-control/rbac-roles-view-permissions.png)
+    ![Ver permissões para o papel de StorSimple Infra Admin](./media/storsimple-8000-role-based-access-control/rbac-roles-view-permissions.png)
 
-3. São apresentadas as permissões associadas esta função.
+3. As permissões associadas a este papel são apresentadas.
 
-    ![Ver utilizadores na função de administrador infra-estrutura do StorSimple](./media/storsimple-8000-role-based-access-control/rbac-infra-admin-permissions1.png)
+    ![Ver utilizadores na função StorSimple Infra Admin](./media/storsimple-8000-role-based-access-control/rbac-infra-admin-permissions1.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba como [atribuir funções personalizadas para utilizadores internos e externos](../role-based-access-control/role-assignments-external-users.md).
+Saiba atribuir [funções personalizadas a utilizadores internos e externos.](../role-based-access-control/role-assignments-external-users.md)

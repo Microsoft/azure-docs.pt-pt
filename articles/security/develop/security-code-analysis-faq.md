@@ -1,6 +1,6 @@
 ---
-title: FAQ da documentação de análise de código de segurança da Microsoft
-description: Este artigo contém perguntas frequentes sobre a extensão de análise de código de segurança da Microsoft
+title: Documentação de análise de código de segurança da Microsoft FAQ
+description: Este artigo contém uma FAQ sobre a extensão da Análise de Código de Segurança da Microsoft
 author: vharindra
 manager: sukhans
 ms.author: terrylan
@@ -13,98 +13,98 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: de76467cc741a65a851e5f3a7ec424d0326aebb2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74851524"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas mais frequentes
-Tem perguntas? Confira as perguntas frequentes a seguir para obter mais informações.
+Tem perguntas? Consulte as seguintes FAQ para obter mais informações.
 
-## <a name="general-faq"></a>Perguntas frequentes gerais
+## <a name="general-faq"></a>FaQ Geral
 
-### <a name="can-i-install-the-extension-on-my-visual-studio-team-foundation-server-instance-instead-of-on-an-azure-devops-instance"></a>Posso instalar a extensão na minha instância do Visual Studio Team Foundation Server em vez de em uma instância do Azure DevOps?
+### <a name="can-i-install-the-extension-on-my-visual-studio-team-foundation-server-instance-instead-of-on-an-azure-devops-instance"></a>Posso instalar a extensão no meu caso visual studio team server em vez de em um caso Azure DevOps?
 
-Não. A extensão não está disponível para download e instalação para o Visual Studio Team Foundation Server.
+Não. A extensão não está disponível para download e instalação para Visual Studio Team Foundation Server.
 
-### <a name="do-i-have-to-run-microsoft-security-code-analysis-with-my-build"></a>É necessário executar a análise de código de segurança da Microsoft com minha compilação? 
+### <a name="do-i-have-to-run-microsoft-security-code-analysis-with-my-build"></a>Tenho de fazer análises de código de segurança da Microsoft com a minha construção? 
 
-Talvez. Depende do tipo de ferramenta de análise. O código-fonte pode ser a única coisa necessária ou a saída da compilação pode ser necessária.
+Talvez sim. Depende do tipo de ferramenta de análise. O código fonte pode ser a única coisa necessária, ou a saída de construção pode ser necessária.
 
-Por exemplo, o verificador de credenciais (CredScan) analisa arquivos dentro da estrutura de pastas do repositório de códigos. Devido a essa análise, você pode executar as tarefas de compilação CredScan e publicar logs de análise de segurança em uma compilação autônoma para obter resultados.
+Por exemplo, o Credential Scanner (CredScan) analisa ficheiros dentro da estrutura da pasta do repositório de códigos. Devido a esta análise, pode executar os Registos de Análise de Segurança do CredScan e publicar a construção de tarefas numa construção autónoma para obter resultados.
 
-Para outras ferramentas como BinSkim que analisam os artefatos de pós-compilação, a compilação é necessária primeiro.
+Para outras ferramentas como binSkim que analisam artefactos pós-construção, a construção é necessária primeiro.
 
-### <a name="can-i-break-my-build-when-results-are-found"></a>Posso interromper minha compilação quando os resultados são encontrados?
+### <a name="can-i-break-my-build-when-results-are-found"></a>Posso quebrar a minha construção quando os resultados forem encontrados?
 
-Sim. Você pode introduzir uma quebra de compilação quando qualquer ferramenta relata um problema ou problema em seu arquivo de log. Basta adicionar a tarefa de compilação pós-análise e marcar a caixa de seleção de qualquer ferramenta para a qual você deseja interromper a compilação.
+Sim. Pode introduzir uma rutura de construção quando qualquer ferramenta reportar um problema ou problema no seu ficheiro de registo. Basta adicionar a tarefa de construção pós-análise e selecionar a caixa de verificação para qualquer ferramenta para a qual queira quebrar a construção.
 
-Na interface do usuário da tarefa de pós-análise, você pode optar por interromper a compilação quando qualquer ferramenta relatar somente erros ou erros e avisos.
+Na UI da tarefa de Pós-Análise, pode optar por quebrar a construção quando qualquer ferramenta reporta apenas erros ou erros e avisos.
 
-### <a name="how-do-the-command-line-arguments-in-azure-devops-differ-from-those-arguments-in-the-standalone-desktop-tools"></a>Como os argumentos de linha de comando no Azure DevOps diferem desses argumentos nas ferramentas de área de trabalho autônoma? 
+### <a name="how-do-the-command-line-arguments-in-azure-devops-differ-from-those-arguments-in-the-standalone-desktop-tools"></a>Como é que os argumentos da linha de comando em Azure DevOps diferem desses argumentos nas ferramentas autónomas de ambiente de trabalho? 
 
-Para a maior parte, as tarefas de compilação do Azure DevOps são wrappers diretos em torno dos argumentos de linha de comando das ferramentas de segurança. Você pode passar como argumentos para uma tarefa de compilação, tudo o que normalmente passa para uma ferramenta de linha de comando.
+Na maior parte das vezes, os Azure DevOps constroem tarefas são invólucros diretos em torno dos argumentos da linha de comando das ferramentas de segurança. Pode passar como argumento para uma tarefa de construção qualquer coisa que normalmente passe para uma ferramenta de linha de comando.
 
-Diferenças perceptíveis:
+Diferenças visíveis:
 
-- Ferramentas executadas na pasta de origem do agente $ (Build. SourcesDirectory) ou de% BUILD_SOURCESDIRECTORY%. Um exemplo é C:\agent\_work\1\s.
-- Os caminhos nos argumentos podem ser relativos à raiz do diretório de origem listado anteriormente. Os caminhos também podem ser absolutos. Você obtém caminhos absolutos usando variáveis de compilação DevOps do Azure ou executando um agente local com locais de implantação conhecidos de recursos locais.
-- As ferramentas fornecem automaticamente um caminho ou pasta de arquivo de saída. Se você fornecer um local de saída para uma tarefa de compilação, esse local será substituído por um caminho para nosso local conhecido de logs no agente de compilação
-- Alguns argumentos de linha de comando adicionais são alterados para algumas ferramentas. Um exemplo é a adição ou remoção de opções que garantem que nenhuma GUI seja iniciada.
+- As ferramentas funcionam a partir da pasta fonte do agente $(Build.SourcesDirectory) ou a partir de %BUILD_SOURCESDIRECTORY%. Um exemplo é C:\agent\_work\1\s.
+- Os caminhos nos argumentos podem ser relativos à raiz do diretório de origem previamente listado. Os caminhos também podem ser absolutos. Obtém caminhos absolutos usando As Variáveis de Construção de Azure DevOps ou executando um agente no local com locais de implantação conhecidos de recursos locais.
+- As ferramentas fornecem automaticamente um caminho ou pasta de ficheirode saída. Se fornecer um local de saída para uma tarefa de construção, essa localização é substituída por um caminho para a nossa conhecida localização de registos no agente de construção
+- Alguns argumentos adicionais da linha de comando são alterados para algumas ferramentas. Um exemplo é a adição ou remoção de opções que garantem que não é lançado gui.
 
-### <a name="can-i-run-a-build-task-like-credential-scanner-across-multiple-repositories-in-an-azure-devops-build"></a>Posso executar uma tarefa de compilação como o verificador de credenciais em vários repositórios em uma compilação DevOps do Azure?
+### <a name="can-i-run-a-build-task-like-credential-scanner-across-multiple-repositories-in-an-azure-devops-build"></a>Posso executar uma tarefa de construção como o Credential Scanner através de múltiplos repositórios numa Construção Azure DevOps?
 
-Não. Não há suporte para a execução de ferramentas de desenvolvimento seguro em vários repositórios em um único pipeline.
+Não. Executar as ferramentas de desenvolvimento seguras através de múltiplos repositórios num único oleoduto não é suportado.
 
-### <a name="the-output-file-i-specified-isnt-being-created-or-i-cant-find-the-output-file-i-specified"></a>O arquivo de saída especificado não está sendo criado ou não consigo encontrar o arquivo de saída que especifiquei
+### <a name="the-output-file-i-specified-isnt-being-created-or-i-cant-find-the-output-file-i-specified"></a>O ficheiro de saída que especificei não está a ser criado, ou não consigo encontrar o ficheiro de saída que especificei.
 
-As tarefas de compilação filtram alguma entrada do usuário. Para essa pergunta especificamente, eles atualizam o local do arquivo de saída gerado para ser um local comum no agente de compilação. Para obter mais informações sobre esse local, consulte as perguntas a seguir.
+As tarefas de construção filtram alguma entrada do utilizador. Para esta pergunta especificamente, eles atualizam a localização do ficheiro de saída gerado para ser uma localização comum no agente de construção. Para mais informações sobre este local, consulte as seguintes questões.
 
-### <a name="where-are-the-output-files-generated-by-the-tools-saved"></a>Onde os arquivos de saída são gerados pelas ferramentas salvas? 
+### <a name="where-are-the-output-files-generated-by-the-tools-saved"></a>Onde estão os ficheiros de saída gerados pelas ferramentas guardadas? 
 
-As tarefas de compilação adicionam automaticamente caminhos de saída a esse local conhecido no agente de compilação: $ (Agent. BuildDirectory)\_sdt\logs. Como padronizamos esse local, todas as equipes que produzem ou consomem logs de análise de código têm acesso à saída.
+As tarefas de construção adicionam automaticamente caminhos de saída a esta localização conhecida\_no agente de construção: $(Agent.BuildDirectory) sdt\logs. Como padronizamos neste local, todas as equipas que produzem ou consomem registos de análise de código têm acesso à saída.
 
-### <a name="can-i-queue-a-build-to-run-these-tasks-on-a-hosted-build-agent"></a>Posso colocar uma compilação em fila para executar essas tarefas em um agente de compilação hospedado? 
+### <a name="can-i-queue-a-build-to-run-these-tasks-on-a-hosted-build-agent"></a>Posso fazer fila para executar estas tarefas num agente de construção hospedado? 
 
-Sim. Todas as tarefas e ferramentas na extensão podem ser executadas em um agente de compilação hospedado.
+Sim. Todas as tarefas e ferramentas na extensão podem ser executadas num agente de construção hospedado.
 
 >[!NOTE]
-> A tarefa de compilação de scanner antimalware requer um agente de compilação com o Windows Defender habilitado. O Visual Studio 2017 hospedado e posterior fornece um agente desse tipo. A tarefa de compilação não será executada no agente hospedado do Visual Studio 2015.
+> A tarefa de construção do Scanner Anti-Malware requer um agente de construção com o Windows Defender ativado. Acolheu o Visual Studio 2017 e mais tarde fornece tal agente. A tarefa de construção não será executada no Visual Studio 2015.
 >
-> Embora as assinaturas não possam ser atualizadas nesses agentes, as assinaturas devem ter sempre menos de três horas de idade.
+> Embora as assinaturas não possam ser atualizadas sobre estes agentes, as assinaturas devem ter sempre menos de três horas de idade.
 
-### <a name="can-i-run-these-build-tasks-as-part-of-a-release-pipeline-as-opposed-to-a-build-pipeline"></a>Posso executar essas tarefas de compilação como parte de um pipeline de lançamento em vez de um pipeline de compilação?
+### <a name="can-i-run-these-build-tasks-as-part-of-a-release-pipeline-as-opposed-to-a-build-pipeline"></a>Posso executar estas tarefas de construção como parte de um oleoduto de libertação em oposição a um oleoduto de construção?
 
-Na maior parte dos casos, sim.
+Na maioria dos casos, sim.
 
-No entanto, o Azure DevOps não dá suporte a tarefas em execução em pipelines de versão quando essas tarefas publicam artefatos. Essa falta de suporte impede que a tarefa publicar logs de análise de segurança seja executada com êxito em um pipeline de liberação. Em vez disso, a tarefa falhará com uma mensagem de erro descritiva.
+No entanto, a Azure DevOps não suporta tarefas de execução dentro dos oleodutos de lançamento quando essas tarefas publicam artefactos. Esta falta de suporte impede que a tarefa de Registos de Análise de Segurança da Publicação seja com sucesso num pipeline de libertação. Em vez disso, a tarefa falha com uma mensagem de erro descritiva.
 
-### <a name="from-where-do-the-build-tasks-download-the-tools"></a>De onde as tarefas de compilação baixam as ferramentas?
+### <a name="from-where-do-the-build-tasks-download-the-tools"></a>De onde as tarefas de construção descarregam as ferramentas?
 
-As tarefas de compilação podem baixar os pacotes NuGet das ferramentas do [feed gerenciamento de pacotes do Azure DevOps](https://securitytools.pkgs.visualstudio.com/_packaging/SecureDevelopmentTools/nuget/v3/index.json). As tarefas de compilação também podem usar o Gerenciador de pacotes de nó, que deve ser pré-instalado no agente de compilação. Um exemplo de tal instalação é o comando **NPM install tslint**.
+As tarefas de construção podem descarregar os pacotes NuGet das ferramentas a partir do feed de gestão de [pacotes Azure DevOps](https://securitytools.pkgs.visualstudio.com/_packaging/SecureDevelopmentTools/nuget/v3/index.json). As tarefas de construção também podem usar o Gestor de Pacotes do Nó, que deve ser pré-instalado no agente de construção. Um exemplo de tal instalação é o comando **npm instalar tslint**.
 
-### <a name="what-effect-does-installing-the-extension-have-on-my-azure-devops-organization"></a>Que efeito a instalação da extensão tem na minha organização do Azure DevOps? 
+### <a name="what-effect-does-installing-the-extension-have-on-my-azure-devops-organization"></a>Que efeito tem a instalação da extensão na minha organização Azure DevOps? 
 
-Após a instalação, as tarefas de compilação de segurança fornecidas pela extensão ficam disponíveis para todos os usuários em sua organização. Quando você cria ou edita um pipeline do Azure, essas tarefas estão disponíveis na lista coleção de tarefas de compilação. Caso contrário, instalar a extensão em sua organização DevOps do Azure não terá nenhum efeito. A instalação não modifica nenhuma configuração de conta, configurações de projeto ou pipelines.
+Após a sua instalação, as tarefas de construção de segurança fornecidas pela extensão ficam disponíveis para todos os utilizadores da sua organização. Quando cria ou edita um Pipeline Azure, estas tarefas estão disponíveis na lista de recolha de tarefas de construção. Caso contrário, a instalação da extensão na sua organização Azure DevOps não tem qualquer efeito. A instalação não modifica quaisquer definições de conta, configurações do projeto ou oleodutos.
 
-### <a name="does-installing-the-extension-modify-my-existing-azure-pipelines"></a>A instalação da extensão modifica o Azure Pipelines existente? 
+### <a name="does-installing-the-extension-modify-my-existing-azure-pipelines"></a>A instalação da extensão modifica os meus oleodutos Azure existentes? 
 
-Não. A instalação da extensão torna as tarefas de compilação de segurança disponíveis para adição aos seus pipelines. Você ainda precisa adicionar ou atualizar definições de compilação, para que as ferramentas possam trabalhar com o processo de compilação.
+Não. A instalação da extensão disponibiliza as tarefas de construção de segurança para além dos seus oleodutos. Ainda é necessário adicionar ou atualizar definições de construção, para que as ferramentas possam funcionar com o seu processo de construção.
 
-## <a name="task-specific-faq"></a>Perguntas frequentes específicas da tarefa
+## <a name="task-specific-faq"></a>FAQ específico de tarefa
 
-As perguntas específicas para tarefas de compilação são listadas nesta seção.
+Questões específicas para construir tarefas estão listadas nesta secção.
 
-### <a name="credential-scanner"></a>Verificador de credenciais
+### <a name="credential-scanner"></a>Scanner credencial
 
-#### <a name="what-are-common-suppression-scenarios-and-examples"></a>O que são cenários e exemplos de supressão comuns?
+#### <a name="what-are-common-suppression-scenarios-and-examples"></a>Quais são os cenários e exemplos comuns de supressão?
 
 Aqui estão os detalhes de dois dos cenários de supressão mais comuns.
 
-##### <a name="to-suppress-all-occurrences-of-a-given-secret-within-the-specified-path"></a>Para suprimir todas as ocorrências de um determinado segredo dentro do caminho especificado
+##### <a name="to-suppress-all-occurrences-of-a-given-secret-within-the-specified-path"></a>Para suprimir todas as ocorrências de um dado segredo dentro do caminho especificado
 
-A chave de hash do segredo do arquivo de saída CredScan é necessária, conforme mostrado no exemplo a seguir.
+A chave hash do segredo do ficheiro de saída credScan é necessária como mostrado na amostra seguinte.
 
         {
             "tool": "Credential Scanner",
@@ -117,21 +117,21 @@ A chave de hash do segredo do arquivo de saída CredScan é necessária, conform
         }
 
 >[!WARNING]
-> A chave de hash é gerada por uma parte do valor correspondente ou do conteúdo do arquivo. Qualquer revisão de código-fonte pode alterar a chave de hash e desabilitar a regra de supressão.
+> A chave hash é gerada por uma parte do valor correspondente ou conteúdo de ficheiro. Qualquer revisão do código fonte pode alterar a chave hash e desativar a regra de supressão.
 
-##### <a name="to-suppress-all-secrets-in-a-specified-file-or-to-suppress-the-secrets-file-itself"></a>Para suprimir todos os segredos em um arquivo especificado ou suprimir o próprio arquivo de segredos
+##### <a name="to-suppress-all-secrets-in-a-specified-file-or-to-suppress-the-secrets-file-itself"></a>Para suprimir todos os segredos num ficheiro especificado ou para suprimir os segredos em si
 
-A expressão de arquivo pode ser um nome de arquivo. Ele também pode ser a parte basename de um caminho de arquivo completo ou um nome de arquivo. Não são suportados carateres universais.
+A expressão do ficheiro pode ser um nome de ficheiro. Também pode ser a parte base de um caminho de arquivo completo ou um nome de ficheiro. Não são suportados carateres universais.
 
-Os exemplos a seguir mostram como suprimir o arquivo \<InputPath > \src\JS\lib\angular.js
+Os exemplos seguintes mostram \<como suprimir o ficheiro InputPath>\src\JS\lib\angular.js
 
 Exemplos de regras de supressão válidas:
 
-- \<InputPath > \src\JS\lib\angular.js-suprime o arquivo no caminho especificado
+- \<InputPath>\src\JS\lib\angular.js - suprime o ficheiro no caminho especificado
 - \src\JS\lib\angular.js
 - \JS\lib\angular.js
 - \lib\angular.js
-- angular. js-suprime qualquer arquivo com o mesmo nome
+- angular.js - suprime qualquer ficheiro com o mesmo nome
 
         {
             "tool": "Credential Scanner",
@@ -148,80 +148,80 @@ Exemplos de regras de supressão válidas:
         }      
 
 >[!WARNING] 
-> Todos os segredos futuros adicionados ao arquivo também serão suprimidos automaticamente.
+> Todos os segredos futuros adicionados ao ficheiro também serão suprimidos automaticamente.
 
-#### <a name="what-are-recommended-guidelines-for-managing-secrets"></a>Quais são as diretrizes recomendadas para o gerenciamento de segredos?
+#### <a name="what-are-recommended-guidelines-for-managing-secrets"></a>Quais são as orientações recomendadas para a gestão de segredos?
 
-Os recursos a seguir ajudam você a gerenciar com segurança segredos e acessar informações confidenciais de dentro de seus aplicativos:
+Os seguintes recursos ajudam-no a gerir de forma segura segredos e a aceder a informações sensíveis a partir das suas aplicações:
 
- - [Cofre de Chaves do Azure](../../key-vault/index.yml)
- - [Azure Active Directory (Azure AD)](../../sql-database/sql-database-aad-authentication.md)
- - [Identidade de Serviço Gerenciada do Azure AD (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
+ - [Azure Key Vault](../../key-vault/index.yml)
+ - [Diretório Ativo Azure (Azure AD)](../../sql-database/sql-database-aad-authentication.md)
+ - [Identidade de serviço gerido pela Azure AD (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
  - [Identidades geridas para os recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md)
- - [Identidades gerenciadas no serviço Azure App e Azure Functions](../../app-service/overview-managed-identity.md)
- - [Biblioteca AppAuthentication](../../key-vault/service-to-service-authentication.md)
+ - [Identidades geridas no Azure App Service e funções azure](../../app-service/overview-managed-identity.md)
+ - [Biblioteca appAuthentication](../../key-vault/service-to-service-authentication.md)
 
 
-Para obter mais informações, consulte a postagem de blog [Gerenciando segredos com segurança na nuvem](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).
+Para mais informações, consulte o post do blog [Managing Secrets Securely in the Cloud](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).
 
-#### <a name="can-i-write-my-own-custom-searchers"></a>Posso escrever meus próprios pesquisadores personalizados?
+#### <a name="can-i-write-my-own-custom-searchers"></a>Posso escrever os meus pesquisadores personalizados?
 
-O verificador de credenciais depende de um conjunto de pesquisa de conteúdo que são normalmente definidos no arquivo buildsearchers. xml. O arquivo contém uma matriz de objetos serializados XML que representam um objeto **ContentSearcher** . O programa é distribuído com um conjunto de pesquisadores bem testados. Mas você também pode implementar seus próprios pesquisadores personalizados.
+O Credential Scanner baseia-se num conjunto de pesquisadores de conteúdo que são geralmente definidos no ficheiro buildsearchers.xml. O ficheiro contém uma série de objetos serializados XML que representam um objeto **ContentSearcher.** O programa é distribuído com um conjunto de pesquisadores bem testados. Mas também pode implementar os seus próprios pesquisadores personalizados.
 
-Um pesquisador de conteúdo é definido da seguinte maneira:
+Um pesquisador de conteúdo é definido da seguinte forma:
 
-- **Nome**: o nome descritivo do pesquisador a ser usado em arquivos de saída do verificador de credenciais. Recomendamos que você use a Convenção de nomenclatura do camel case para nomes de pesquisador.
-- **RuleId**: a ID opaca estável do pesquisador:
-    - Um pesquisador de credenciais padrão recebe um valor **RuleId** como CSCAN0010, CSCAN0020 ou CSCAN0030. O último dígito é reservado para potencialmente mesclagem ou divisão de grupos de pesquisa por meio de expressões regulares (Regex).
-    - O valor de **RuleId** para um pesquisador personalizado deve ter seu próprio namespace. Os exemplos incluem o namespace CSCAN-\<\>0010, CSCAN-\<namespace\>0020 e CSCAN-\<namespace\>0030.
-    - Um nome do pesquisador totalmente qualificado é a combinação de um valor de **RuleId** e um nome de pesquisador. Os exemplos incluem CSCAN0010. KeyStoreFiles e CSCAN0020. Base64EncodedCertificate.
-- **ResourceMatchPattern**: Regex de extensões de arquivo para verificar no Pesquisador.
-- **ContentSearchPatterns**: uma matriz de cadeias de caracteres que contém instruções Regex para fazer a correspondência. Se nenhum padrão de pesquisa for definido, todos os arquivos correspondentes ao valor de **ResourceMatchPattern** serão retornados.
-- **ContentSearchFilters**: uma matriz de cadeias de caracteres que contém instruções Regex para filtrar falsos positivos específicos do pesquisador.
-- **MatchDetails**: uma mensagem descritiva, instruções de mitigação ou ambas a serem adicionadas para cada correspondência do pesquisador.
-- **Recomendação**: o conteúdo do campo de sugestões para uma correspondência usando o formato de relatório PREfast.
-- **Severidade**: um inteiro que reflete o nível de severidade de um problema. O nível de severidade mais alto tem o valor 1.
+- **Nome**: O nome do pesquisador descritivo a utilizar nos ficheiros de saída do Scanner Credencial. Recomendamos que use a convenção de nomeação de caso de camelo para nomes de pesquisadores.
+- **RegraId**: A identificação opaca estável do pesquisador:
+    - Um pesquisador predefinido do Scanner Credencial é atribuído a um valor **RuleId** como CSCAN0010, CSCAN0020 ou CSCAN0030. O último dígito é reservado para potencialmente fundir ou dividir grupos de pesquisadores através de expressões regulares (regex).
+    - O valor **RuleId** para um pesquisador personalizado deve ter o seu próprio espaço de nome. Exemplos\<incluem CSCAN- Namespace\>0010, CSCAN-\<Namespace\>0020 e CSCAN-\<Namespace\>0030.
+    - Um nome de pesquisador totalmente qualificado é a combinação de um valor **RuleId** e um nome de pesquisa. Exemplos incluem CSCAN0010. KeyStoreFiles e CSCAN0020. Certificado de código Base64Encoded.
+- **ResourceMatchPattern**: Regex de extensões de ficheiros para verificar contra o searchdor.
+- **ContentSearchPatterns**: Um conjunto de cordas contendo declarações regex para combinar. Se não forem definidos padrões de pesquisa, todos os ficheiros que correspondam ao valor **ResourceMatchPattern** são devolvidos.
+- **ContentSearchFilters**: Um conjunto de cordas que contêm declarações regex para filtrar falsos positivos específicos do pesquisador.
+- **MatchDetails**: Uma mensagem descritiva, instruções de mitigação ou ambas a adicionar para cada partida do pesquisador.
+- **Recomendação**: O conteúdo do campo de sugestões para uma correspondência utilizando o formato prefast.
+- **Gravidade**: Um inteiro que reflete o nível de gravidade de um problema. O nível de severidade mais elevado tem o valor 1.
 
-  ![XML mostrando a instalação do verificador de credenciais](./media/security-tools/6-credscan-customsearchers.png)
+  ![XML mostrando configuração do Scanner Credencial](./media/security-tools/6-credscan-customsearchers.png)
 
-### <a name="roslyn-analyzers"></a>Analisadores de Roslyn
+### <a name="roslyn-analyzers"></a>Analisadores Roslyn
 
-#### <a name="what-are-common-errors-when-using-the-roslyn-analyzers-task"></a>Quais são os erros comuns ao usar a tarefa analisadores de Roslyn?
+#### <a name="what-are-common-errors-when-using-the-roslyn-analyzers-task"></a>Quais são os erros comuns ao usar a tarefa dos Analisadores Roslyn?
 
-##### <a name="the-project-was-restored-using-a-wrong-microsoftnetcoreapp-version"></a>O projeto foi restaurado usando uma versão incorreta do Microsoft. NetCore. app
-
-A mensagem de erro completa:
-
-"Erro: o projeto foi restaurado usando Microsoft. NetCore. app versão *x.* x, mas com as configurações atuais, a *versão y. y* seria usada em seu lugar. Para resolver esse problema, verifique se as mesmas configurações são usadas para restauração e para operações subsequentes, como compilar ou publicar. Normalmente, esse problema pode ocorrer se a propriedade RuntimeIdentifier for definida durante a compilação ou publicação, mas não durante a restauração. "
-
-Como as tarefas de analisadores Roslyn são executadas como parte da compilação, a árvore de origem no computador de compilação precisa estar em um estado compilável.
-
-Uma etapa entre as etapas da compilação principal e dos analisadores Roslyn pode colocar a árvore de origem em um estado que impede a criação. Essa etapa extra é provavelmente **dotnet. exe Publish**. Tente duplicar a etapa que faz uma restauração do NuGet logo antes da etapa dos analisadores de Roslyn. Essa etapa duplicada pode colocar a árvore de origem de volta em um estado compilável.
-
-##### <a name="cscexe-cant-create-an-analyzer-instance"></a>o CSC. exe não pode criar uma instância do analisador
+##### <a name="the-project-was-restored-using-a-wrong-microsoftnetcoreapp-version"></a>O projeto foi restaurado usando uma versão errada da Microsoft.NETCore.App
 
 A mensagem de erro completa:
 
-"o CSC. exe ' saiu com o código de erro 1--uma instância do Analyzer *aaaa* não pode ser criada a partir de C:\\*bbbb*. dll: não foi possível carregar o arquivo ou assembly ' Microsoft. CodeAnalysis, Version =*X. x. x. x*, Culture = neutral, PublicKeyToken = 31bf3856ad364e35 ' ou uma de suas dependências. O sistema não é possível localizar o ficheiro especificado."
+"Error: O projeto foi restaurado utilizando a versão Microsoft.NETCore.App *x.x.x*, mas com as definições atuais, a versão *y.y.y* seria usada em vez disso. Para resolver este problema, certifique-se de que as mesmas configurações são utilizadas para restaurar e para operações subsequentes, tais como construir ou publicar. Normalmente, este problema pode ocorrer se a propriedade RuntimeIdentifier for definida durante a construção ou publicação, mas não durante a restauração."
 
-Verifique se o compilador dá suporte a analisadores Roslyn. A execução do comando **CSC. exe/Version** deve relatar um valor de versão de 2,6 ou posterior.
+Como as tarefas da Roslyn Analisers funcionam como parte da compilação, a árvore-fonte na máquina de construção precisa de estar num estado construível.
 
-Às vezes, um arquivo. csproj pode substituir a instalação do Visual Studio da máquina de compilação referenciando um pacote de Microsoft.Net. compilers. Se você não pretende usar uma versão específica do compilador, remova as referências a Microsoft.Net. compilers. Caso contrário, verifique se a versão do pacote referenciado também é 2,6 ou posterior.
+Um passo entre a sua construção principal e os passos de Roslyn Analisers pode ter colocado a árvore de origem num estado que impede a construção. Este passo extra é provavelmente **dotnet.exe publicar**. Tente duplicar o passo que faz uma restauração NuGet antes do passo roslyn Analisers. Este passo duplicado pode colocar a árvore de origem de volta num estado construível.
 
-Tente obter o caminho do log de erros, que é especificado na opção **CSC. exe/ErrorLog** . A opção e o caminho aparecem no log para a tarefa de compilação de analisadores de Roslyn. Eles podem ter uma aparência semelhante a **/ErrorLog: f:\ts-services-123\_work\456\s\Some\Project\Code\Code.csproj.Sarif**
+##### <a name="cscexe-cant-create-an-analyzer-instance"></a>csc.exe não pode criar um analisador instância
 
-##### <a name="the-c-compiler-version-isnt-recent-enough"></a>A C# versão do compilador não é recente o suficiente
+A mensagem de erro completa:
 
-Para obter as versões mais recentes do C# compilador, vá para [Microsoft.net. compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers). Para obter a versão instalada, execute **CSC. exe/Version** em um prompt de comando. Certifique-se de fazer referência a um pacote NuGet do Microsoft.Net. compilers que seja da versão 2,6 ou posterior.
+"'csc.exe' saiu com o código de erro 1 -- Um exemplo de\\analisador *AAAA* não pode ser criado a partir de C:*BBBB*.dll : Não conseguiu carregar ficheiro si ou montagem 'Microsoft.CodeAnalysis, Version=*X.X.X,* Culture=neutral, PublicKeyToken=31bf3856ad364e35' ou uma das suas dependências. O sistema não pode encontrar o ficheiro especificado."
 
-##### <a name="msbuild-and-vsbuild-logs-arent-found"></a>Os logs do MSBuild e do VSBuild não foram encontrados
+Certifique-se de que o seu compilador apoia a Roslyn Analisers. A execução do comando **csc.exe /versão** deve reportar um valor de versão de 2.6 ou posterior.
 
-A tarefa de compilação de analisadores Roslyn precisa consultar o Azure DevOps para o log do MSBuild da tarefa de compilação do MSBuild. Se a tarefa do analisador for executada imediatamente após a tarefa do MSBuild, o log ainda não estará disponível. Coloque outras tarefas entre a tarefa do MSBuild e a tarefa analisadores de Roslyn. Exemplos de outras tarefas incluem o BinSkim e o scanner antimalware.
+Por vezes, um ficheiro .csproj pode sobrepor-se à instalação do Estúdio Visual da máquina de construção, referindo-se a um pacote da Microsoft.Net.Compilers. Se não pretender utilizar uma versão específica do compilador, remova referências ao Microsoft.Net.Compilers. Caso contrário, certifique-se de que a versão do pacote referenciado também é de 2.6 ou mais tarde.
+
+Tente obter o caminho de registo de erros, especificado na opção **csc.exe/errorlog.** A opção e o caminho aparecem no registo para os Analisadores Roslyn construir tarefa. Podem parecer algo como **/errorlog:F:\ts-services-123\_trabalho\456\s\Projeto\Code\Code.csproj.sarif**
+
+##### <a name="the-c-compiler-version-isnt-recent-enough"></a>A versão do compilador C# não é suficientemente recente.
+
+Para obter as versões mais recentes do compilador C#, vá a [Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers). Para obter a sua versão instalada, execute **csc.exe /versão** a uma solicitação de comando. Certifique-se de que faz referência a um pacote Microsoft.Net.Compilers NuGet que é a versão 2.6 ou posterior.
+
+##### <a name="msbuild-and-vsbuild-logs-arent-found"></a>Não são encontrados registos MSBuild e VSBuild
+
+A tarefa de construção de Análises Roslyn precisa de consultar azure DevOps para o log MSBuild da tarefa de construção MSBuild. Se a tarefa do analisador for imediatamente após a tarefa MSBuild, o registo ainda não estará disponível. Coloque outras tarefas entre a tarefa MSBuild e a tarefa roslyn Analisadores. Exemplos de outras tarefas incluem BinSkim e Anti-Malware Scanner.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você precisar de assistência adicional, o suporte à análise de código de segurança da Microsoft estará disponível de segunda a sexta-feira, de 9:00 às 5:00, hora oficial do Pacífico.
+Se precisar de assistência adicional, o Suporte de Análise do Código de Segurança da Microsoft está disponível de segunda a sexta-feira das 9:00 às 17:00 hora padrão do Pacífico.
 
-- Integração: consulte nossa [documentação de integração](security-code-analysis-onboard.md)
+- Embarque: Consulte a nossa [documentação de embarque](security-code-analysis-onboard.md)
   
-- Suporte: envie a equipe por email [para o suporte da análise de código de segurança da Microsoft](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request)
+- Suporte: Envie um e-mail para a nossa equipa no [Suporte de Análise de Código](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request) de Segurança da Microsoft

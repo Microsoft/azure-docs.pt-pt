@@ -1,6 +1,6 @@
 ---
-title: 264 múltiplas 4K Audio 5.1 | Documentos da Microsoft
-description: O tópico fornece uma visão geral do **264 múltiplas 4K Audio 5.1** predefinido de tarefa.
+title: 264 Multiple Bitrate 4K Audio 5.1 [ Microsoft Docs
+description: O tópico dá uma visão geral do predefinido de tarefa **264 Multiple Bitrate 4K Audio 5.1.**
 author: Juliako
 manager: femila
 editor: ''
@@ -15,24 +15,24 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 2466edb3d14ebbe9296fad087fce432b83005437
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61463689"
 ---
 # <a name="h264-multiple-bitrate-4k-audio-51"></a>H264 Taxas de Bits Múltiplas 4K Audio 5.1
-`Media Encoder Standard` Define um conjunto de codificação configurações predefinidas que pode utilizar durante a criação de tarefas de codificação. Pode utilizar um `preset name` para especificar em que formato gostaria de codificar o ficheiro de suporte de dados. Em alternativa, pode criar seu próprio JSON ou XML com base em suas configurações predefinidas (usando a codificação UTF-8 ou UTF-16. Em seguida, transmite o personalizado predefinido para o codificador. Para obter a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificador, consulte [predefinições de tarefas para o Media Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard`define um conjunto de predefinições de codificação que pode usar ao criar trabalhos de codificação. Pode utilizar um `preset name` para especificar em que formato pretende codificar o seu ficheiro de mídia. Ou, pode criar os seus próprios presets baseados em JSON ou XML (utilizando a codificação UTF-8 ou UTF-16. Em seguida, passaria o predefinido personalizado para o codificador. Para a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificador, consulte predefinições de tarefa para Media [Encoder Standard](media-services-mes-presets-overview.md).  
   
- Este tópico mostra o `H264 Multiple Bitrate 4K Audio 5.1` predefinidos no formato XML e JSON.  
+ Este tópico `H264 Multiple Bitrate 4K Audio 5.1` mostra o predefinido no formato XML e JSON.  
   
- Esta predefinição produz um conjunto de 12 ficheiros MP4 GOP alinhados, desde 20000 kbps até 1000 kbps e áudio AAC 5.1. Para obter informações detalhadas sobre o perfil, a velocidade de transmissão, amostragem taxa, etc. isso configuração predefinida, examinar o XML ou JSON definido abaixo. Para obter explicações de significa que cada elemento e os valores válidos para cada elemento, consulte a [esquema Media Encoder Standard](media-services-mes-schema.md).  
-  
-> [!NOTE]
->  Deve obter a unidade reservada Premium codifica de tipo com 4K. Para obter mais informações, consulte [como a codificação de escala](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+ Este preset produz um conjunto de 12 ficheiros MP4 alinhados com gop, que variam entre 20000 kbps e 1000 kbps, e áudio AAC 5.1. Para obter informações detalhadas sobre o perfil, bitrate, taxa de amostragem, etc. deste predefinido, examine o XML ou JSON definidos abaixo. Para obter explicações sobre o que cada elemento significa, e os valores válidos para cada elemento, consulte o esquema Padrão do [Codificador de Meios](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Ao modificar os `Width` e `Height` valores em camadas, certifique-se de que a taxa de proporção permanece consistente. Por exemplo: 1920x1080, 1280x720, 1080x576, 640x360. Não deve utilizar uma combinação de proporções, tais como: 1280x720, 720x480, 640x360.  
+>  Deve obter o tipo de unidade premium reservado com códigos 4K. Para mais informações, consulte [Como Escalar a Codificação](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+  
+> [!NOTE]
+>  Ao modificar `Width` os `Height` valores e valores entre camadas, certifique-se de que a relação de aspeto permanece consistente. Por exemplo: 1920x1080, 1280x720, 1080x576, 640x360. Não deve utilizar uma mistura de rácios de aspetos, tais como: 1280x720, 720x480, 640x360.  
   
  XML  
   

@@ -1,6 +1,6 @@
 ---
-title: Eliminar um grupo - Azure Active Directory | Documentos da Microsoft
-description: Instruções sobre como eliminar um grupo com o Azure Active Directory.
+title: Eliminar um grupo - Diretório Ativo Azure [ Azure Ative Diretório ] Microsoft Docs
+description: Instruções sobre como eliminar um grupo utilizando o Diretório Ativo Azure.
 services: active-directory
 author: msaburnley
 manager: daveba
@@ -14,38 +14,38 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bdba55e0655a13e65e403f5da73fcb69db5dbca5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68561911"
 ---
-# <a name="delete-a-group-using-azure-active-directory"></a>Eliminar um grupo com o Azure Active Directory
-Pode eliminar um grupo do Azure Active Directory (Azure AD) para qualquer número de motivos, mas normalmente é porque:
+# <a name="delete-a-group-using-azure-active-directory"></a>Eliminar um grupo usando o Diretório Ativo Azure
+Pode eliminar um grupo de Diretórios Ativos Azure (Azure AD) por várias razões, mas normalmente será porque:
 
-- Definir incorretamente o **tipo de grupo** para a opção errada.
+- Coloque incorretamente o **tipo de Grupo** na opção errada.
 
-- Foi criado um grupo errado ou duplicado por engano. 
+- Criou o grupo errado ou duplicado por engano. 
 
-- Não precisa mais do grupo.
+- Já não preciso do grupo.
 
 ## <a name="to-delete-a-group"></a>Para eliminar um grupo
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta de Administrador global do diretório.
 
-2. Selecione **do Azure Active Directory**e, em seguida, selecione **grupos**.
+2. Selecione **Diretório Ativo Azure**e, em seguida, selecione **Grupos**.
 
-3. Partir do **grupos – todos os grupos** página, procure e selecione o grupo que pretende eliminar. Estes passos, vamos utilizar **política MDM - Leste**.
+3. A partir da página **Grupos - Todos os grupos,** procure e selecione o grupo que pretende eliminar. Para estes passos, usaremos a política do **MDM - Leste.**
 
-    ![Página de grupos de todos os grupos, nome do grupo realçado](media/active-directory-groups-delete-group/group-all-groups-screen.png)
+    ![Página de grupos-todos os grupos, nome de grupo destacado](media/active-directory-groups-delete-group/group-all-groups-screen.png)
 
-4. Sobre o **política MDM - descrição geral do Leste** página e, em seguida, selecione **eliminar**.
+4. Na **política** do MDM - página de visão geral do Oriente e, em seguida, selecione **Delete**.
 
-    O grupo é eliminado do seu inquilino do Azure Active Directory.
+    O grupo é eliminado do seu inquilino azure Ative Directory.
 
-    ![Política MDM - página de descrição geral do leste, a opção de eliminação realçado](media/active-directory-groups-delete-group/group-overview-blade.png)
+    ![Política do MDM - Página de visão geral do Leste, excluir opção destacada](media/active-directory-groups-delete-group/group-overview-blade.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Se eliminar um grupo por engano, pode criá-la novamente. Para obter mais informações, consulte [como criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md).
+- Se apagar um grupo por engano, pode criá-lo novamente. Para mais informações, consulte [Como criar um grupo básico e adicionar membros.](active-directory-groups-create-azure-portal.md)
 
-- Se eliminar um grupo do Office 365 por engano, poderá restaurá-lo. Para obter mais informações, consulte [restaurar um grupo do Office 365 eliminado](../users-groups-roles/groups-restore-deleted.md).
+- Se apagar um grupo do Office 365 por engano, poderá restaurá-lo. Para mais informações, consulte [Restaurar um grupo eliminado do Office 365](../users-groups-roles/groups-restore-deleted.md).

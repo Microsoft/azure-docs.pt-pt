@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de registro combinado-Azure Active Directory
-description: Solucionar problemas da autenticação multifator do Azure AD e registro combinado de redefinição de senha de autoatendimento (versão prévia)
+title: Registo combinado de troubleshoot - Diretório Ativo Azure
+description: Troubleshoot Azure AD Multi-Factor Authentication e auto-service password reset registo combinado (pré-visualização)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,78 +12,78 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ab7c38d23cb1f05e07488810640aeb791ded3d4a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74847393"
 ---
-# <a name="troubleshooting-combined-security-information-registration-preview"></a>Solucionando problemas de registro de informações de segurança combinadas (versão prévia)
+# <a name="troubleshooting-combined-security-information-registration-preview"></a>Registo combinado de informações de segurança (pré-visualização)
 
-As informações neste artigo destinam-se a orientar os administradores que estão Solucionando problemas relatados pelos usuários da experiência de registro combinada.
+A informação neste artigo destina-se a orientar os administradores que estão a resolver problemas relatados pelos utilizadores da experiência de registo combinado.
 
 |     |
 | --- |
-| O registro de informações de segurança combinadas para a autenticação multifator do Azure e a redefinição de senha de autoatendimento do Azure AD (Azure Active Directory) é um recurso de visualização pública do Azure AD. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+| O registo combinado de informações de segurança para a autenticação de multi-factores Azure e o reset de senha de autosserviço azure Ative (Azure AD) é uma funcionalidade de pré-visualização pública da Azure AD. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
 ## <a name="audit-logs"></a>Registos de auditoria
 
-Os eventos registrados para registro combinado estão na categoria métodos de autenticação nos logs de auditoria do Azure AD.
+Os eventos registados para registo combinado estão na categoria Métodos de Autenticação nos registos de auditoria da AD Azure.
 
-![Interface de logs de auditoria do Azure AD mostrando eventos de registro](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
+![Interface de registos de registos da Auditoria Azure AD mostrando eventos de registo](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
 
-A tabela a seguir lista todos os eventos de auditoria gerados pelo registro combinado:
+O quadro seguinte enumera todos os eventos de auditoria gerados pelo registo combinado:
 
 | Atividade | Estado | Razão | Descrição |
 | --- | --- | --- | --- |
-| Usuário registrou todas as informações de segurança necessárias | Êxito | Usuário registrou todas as informações de segurança necessárias. | Esse evento ocorre quando um usuário concluiu o registro com êxito.|
-| Usuário registrou todas as informações de segurança necessárias | Falha | O usuário cancelou o registro das informações de segurança. | Esse evento ocorre quando um usuário cancela o registro do modo de interrupção.|
-| Informações de segurança registradas pelo usuário | Êxito | *Método*registrado pelo usuário. | Esse evento ocorre quando um usuário registra um método individual. O *método* pode ser o aplicativo autenticador, telefone, email, perguntas de segurança, senha de aplicativo, telefone alternativo e assim por diante.| 
-| Informações de segurança revisadas pelo usuário | Êxito | O usuário analisou com êxito as informações de segurança. | Esse evento ocorre quando um usuário seleciona uma **boa aparência** na página de revisão informações de segurança.|
-| Informações de segurança revisadas pelo usuário | Falha | O usuário não pôde examinar as informações de segurança. | Esse evento ocorre quando um usuário seleciona uma **boa aparência** na página de revisão informações de segurança, mas algo falha no back-end.|
-| Informações de segurança excluídas pelo usuário | Êxito | *Método*excluído pelo usuário. | Esse evento ocorre quando um usuário exclui um método individual. O *método* pode ser o aplicativo autenticador, telefone, email, perguntas de segurança, senha de aplicativo, telefone alternativo e assim por diante.|
-| Informações de segurança excluídas pelo usuário | Falha | O usuário não pôde excluir o *método*. | Esse evento ocorre quando um usuário tenta excluir um método, mas a tentativa falha por algum motivo. O *método* pode ser o aplicativo autenticador, telefone, email, perguntas de segurança, senha de aplicativo, telefone alternativo e assim por diante.|
-| Informações de segurança padrão alteradas pelo usuário | Êxito | O usuário alterou as informações de segurança padrão para o *método*. | Esse evento ocorre quando um usuário altera o método padrão. O *método* pode ser a notificação do aplicativo autenticador, um código do meu aplicativo autenticador ou token, chamar + x xxxxxxxxxx, enviar um código para + x xxxxxxxxx e assim por diante.|
-| Informações de segurança padrão alteradas pelo usuário | Falha | O usuário não pôde alterar as informações de segurança padrão para o *método*. | Esse evento ocorre quando um usuário tenta alterar o método padrão, mas a tentativa falha por algum motivo. O *método* pode ser a notificação do aplicativo autenticador, um código do meu aplicativo autenticador ou token, chamar + x xxxxxxxxxx, enviar um código para + x xxxxxxxxx e assim por diante.|
+| O utilizador registou todas as informações de segurança necessárias | Êxito | O utilizador registou todas as informações de segurança necessárias. | Este evento ocorre quando um utilizador tiver concluído com sucesso o registo.|
+| O utilizador registou todas as informações de segurança necessárias | Falha | O utilizador cancelou o registo de informações de segurança. | Este evento ocorre quando um utilizador cancela o registo do modo de interrupção.|
+| Informações de segurança registadas pelo utilizador | Êxito | *Método*registado pelo utilizador . | Este evento ocorre quando um utilizador regista um método individual. *O método* pode ser aplicação Authenticator, Telefone, E-mail, Questões de Segurança, Palavra-passe de aplicativo, telefone alternativo, e assim por diante.| 
+| Informações de segurança revistas pelo utilizador | Êxito | O utilizador reviu com sucesso informações de segurança. | Este evento ocorre quando um utilizador seleciona **Fica bem** na página de revisão de informações de segurança.|
+| Informações de segurança revistas pelo utilizador | Falha | O utilizador não rereviu as informações de segurança. | Este evento ocorre quando um utilizador seleciona **Fica bem** na página de revisão de informações de segurança, mas algo falha no backend.|
+| Informações de segurança eliminadas pelo utilizador | Êxito | *Método*eliminado do utilizador . | Este evento ocorre quando um utilizador elimina um método individual. *O método* pode ser aplicação Authenticator, Telefone, E-mail, Questões de Segurança, Palavra-passe de aplicativo, telefone alternativo, e assim por diante.|
+| Informações de segurança eliminadas pelo utilizador | Falha | O utilizador falhou em eliminar o *método*. | Este evento ocorre quando um utilizador tenta apagar um método, mas a tentativa falha por alguma razão. *O método* pode ser aplicação Authenticator, Telefone, E-mail, Questões de Segurança, Palavra-passe de aplicativo, telefone alternativo, e assim por diante.|
+| O utilizador alterou as informações de segurança padrão | Êxito | O utilizador alterou a informação de segurança padrão para *o método*. | Este evento ocorre quando um utilizador altera o método predefinido. *O método* pode ser notificação de aplicação Authenticator, um código da minha aplicação ou token autenticador, Call +X XXXXXXXXXX, Texto um código para +X XXXXXXXXX, e assim por diante.|
+| O utilizador alterou as informações de segurança padrão | Falha | O utilizador não alterou as informações de segurança predefinidas para *o método*. | Este evento ocorre quando um utilizador tenta alterar o método predefinido, mas a tentativa falha por alguma razão. *O método* pode ser notificação de aplicação Authenticator, um código da minha aplicação ou token autenticador, Call +X XXXXXXXXXX, Texto um código para +X XXXXXXXXX, e assim por diante.|
 
-## <a name="troubleshooting-interrupt-mode"></a>Solucionando problemas no modo de interrupção
-
-| Sintoma | Passos de resolução de problemas |
-| --- | --- |
-| Não estou vendo os métodos que esperava ver. | 1. Verifique se o usuário tem uma função de administrador do Azure AD. Em caso afirmativo, exiba as diferenças da política de administração do SSPR. <br> 2. Determine se o usuário está sendo interrompido devido à imposição de registro da autenticação multifator ou à imposição de registro SSPR. Consulte o [fluxograma](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md#combined-registration-modes) em "modos de registro combinados" para determinar quais métodos devem ser mostrados. <br> 3. Determine o quanto recentemente a política de autenticação multifator ou SSPR foi alterada. Se a alteração foi recente, pode levar algum tempo para que a política atualizada seja propagada.|
-
-## <a name="troubleshooting-manage-mode"></a>Solucionando problemas no modo de gerenciamento
+## <a name="troubleshooting-interrupt-mode"></a>Modo de interrupção de resolução de problemas
 
 | Sintoma | Passos de resolução de problemas |
 | --- | --- |
-| Não tenho a opção de adicionar um método específico. | 1. Determine se o método está habilitado para autenticação multifator ou para SSPR. <br> 2. se o método estiver habilitado, salve as políticas novamente e aguarde 1-2 horas antes de testar novamente. <br> 3. se o método estiver habilitado, verifique se o usuário ainda não configurou o número máximo desse método que eles têm permissão para configurar.|
+| Não estou a ver os métodos que esperava ver. | 1. Verifique se o utilizador tem uma função de administrador ad-ad. Se sim, veja as diferenças políticas de administração da SSPR. <br> 2. Determine se o utilizador está a ser interrompido devido à aplicação do registo de autenticação multifactor ou à aplicação do registo SSPR. Consulte o [fluxograma](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md#combined-registration-modes) em "Modos de registo combinados" para determinar quais os métodos a mostrar. <br> 3. Determine até que ponto recentemente a autenticação multi-factor ou a política de SSPR foi alterada. Se a mudança fosse recente, poderia levar algum tempo para que a política atualizada se propagasse.|
 
-## <a name="disable-combined-registration"></a>Desabilitar registro combinado
+## <a name="troubleshooting-manage-mode"></a>Modo de gestão de resolução de problemas
 
-Quando um usuário registra um número de telefone e/ou aplicativo móvel na nova experiência combinada, nosso serviço carimba um conjunto de sinalizadores (StrongAuthenticationMethods) para esses métodos nesse usuário. Essa funcionalidade permite que o usuário execute a autenticação multifator com esses métodos sempre que a autenticação multifator for necessária.
+| Sintoma | Passos de resolução de problemas |
+| --- | --- |
+| Não tenho a opção de adicionar um método em particular. | 1. Determine se o método está ativado para autenticação multi-factor ou para SSPR. <br> 2. Se o método estiver ativado, guarde novamente as políticas e aguarde 1-2 horas antes de voltar a testar. <br> 3. Se o método estiver ativado, certifique-se de que o utilizador ainda não criou o número máximo desse método que está autorizado a configurar.|
 
-Se um administrador habilita a visualização, os usuários se registram pela nova experiência e, em seguida, o administrador desabilita a visualização, os usuários podem ser registrados inadvertidamente para autenticação multifator também.
+## <a name="disable-combined-registration"></a>Desativar o registo combinado
 
-Se um usuário que concluiu o registro combinado ir para a página de registro SSPR (redefinição de senha de autoatendimento) atual em [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup), o usuário será solicitado a executar a autenticação multifator para poder acessar essa página. Esta etapa é esperada do ponto de vista técnico, mas é nova para os usuários que foram registrados anteriormente apenas para SSPR. Embora essa etapa extra aprimore a postura de segurança do usuário fornecendo outro nível de segurança, os administradores podem querer reverter seus usuários para que eles não possam mais executar a autenticação multifator.  
+Quando um utilizador regista um número de telefone e/ou uma aplicação móvel na nova experiência combinada, o nosso serviço carimba um conjunto de bandeiras (StrongAuthenticationMethods) para esses métodos nesse utilizador. Esta funcionalidade permite ao utilizador efetuar a Autenticação Multi-Factor com esses métodos sempre que for necessária a autenticação multi-factor.
 
-### <a name="how-to-roll-back-users"></a>Como reverter usuários
+Se um administrador permitir a pré-visualização, os utilizadores registam-se através da nova experiência e, em seguida, o administrador desativa a pré-visualização, os utilizadores podem, sem saber, ser registados para autenticação multi-factor também.
 
-Se você, como administrador, quiser redefinir as configurações de autenticação multifator de um usuário, poderá usar o script do PowerShell fornecido na próxima seção. O script limpará a propriedade StrongAuthenticationMethods para o aplicativo móvel e/ou número de telefone do usuário. Se você executar esse script para seus usuários, eles precisarão se registrar novamente para autenticação multifator, se necessário. É recomendável testar a reversão com um ou dois usuários antes de reverter todos os usuários afetados.
+Se um utilizador que tenha concluído o registo combinado for para a página de [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)registo de senha de autosserviço (SSPR) em , o utilizador será solicitado a realizar a Autenticação Multi-Factor antes de poder aceder a essa página. Este passo é esperado do ponto de vista técnico, mas é novo para utilizadores que estavam previamente registados apenas para SSPR. Embora este passo extra melhore a postura de segurança do utilizador, fornecendo outro nível de segurança, os administradores podem querer reverter os seus utilizadores para que não sejam mais capazes de realizar a Autenticação Multi-Factor.  
 
-As etapas a seguir irão ajudá-lo a reverter um usuário ou grupo de usuários.
+### <a name="how-to-roll-back-users"></a>Como reverter os utilizadores
+
+Se, como administrador, pretender redefinir as definições de autenticação multi-factor de um utilizador, pode utilizar o script PowerShell fornecido na secção seguinte. O script irá limpar a propriedade StrongAuthenticationMethods para a aplicação móvel de um utilizador e/ou número de telefone. Se executar este script para os seus utilizadores, terão de se reregistar para autenticação multi-factor, se precisarem. Recomendamos testar o reversão com um ou dois utilizadores antes de relançar todos os utilizadores afetados.
+
+Os passos que se seguem irão ajudá-lo a reverter um utilizador ou grupo de utilizadores.
 
 #### <a name="prerequisites"></a>Pré-requisitos
 
-1. Instale os módulos apropriados do PowerShell do Azure AD. Em uma janela do PowerShell, execute estes comandos para instalar os módulos:
+1. Instale os módulos PowerShell Da AD AD apropriados. Numa janela PowerShell, execute estes comandos para instalar os módulos:
 
    ```powershell
    Install-Module -Name MSOnline
    Import-Module MSOnline
    ```
 
-1. Salve a lista de IDs de objeto de usuário afetada em seu computador como um arquivo de texto com uma ID por linha. Anote o local do arquivo.
-1. Salve o seguinte script em seu computador e anote o local do script:
+1. Guarde a lista de IDs de objetos de utilizador afetados para o seu computador como ficheiro de texto com um ID por linha. Tome nota da localização do ficheiro.
+1. Guarde o seguinte guião para o seu computador e tome nota da localização do script:
 
    ```powershell
    <# 
@@ -144,22 +144,22 @@ As etapas a seguir irão ajudá-lo a reverter um usuário ou grupo de usuários.
    }
    ```
 
-#### <a name="rollback"></a>Reverter
+#### <a name="rollback"></a>Recuo
 
-Em uma janela do PowerShell, execute o comando a seguir, fornecendo o script e os locais de arquivo do usuário. Insira as credenciais de administrador global quando solicitado. O script produzirá o resultado de cada operação de atualização de usuário.
+Numa janela PowerShell, execute o seguinte comando, fornecendo as localizações do script e do ficheiro do utilizador. Introduza credenciais de administrador global quando solicitado. O script irá obter o resultado de cada operação de atualização do utilizador.
 
 `<script location> -path <user file location>`
 
-### <a name="disable-the-preview-experience"></a>Desabilitar a experiência de visualização
+### <a name="disable-the-preview-experience"></a>Desativar a experiência de pré-visualização
 
-Para desabilitar a experiência de visualização para seus usuários, conclua estas etapas:
+Para desativar a experiência de pré-visualização para os seus utilizadores, complete estes passos:
 
-1. Entre no portal do Azure como um administrador de usuário.
-2. Vá para **Azure Active Directory** > **configurações de usuário** > **gerenciar configurações para recursos de visualização do painel de acesso**.
-3. Em **os usuários podem usar os recursos de visualização para registrar e gerenciar informações de segurança**, defina o seletor como **nenhum**e, em seguida, selecione **salvar**.
+1. Inscreva-se no portal Azure como administrador de utilizador.
+2. Aceda às > **definições** > do **utilizador do Diretório Ativo do Azure****Gerir as definições para visualizações**do painel de acesso .
+3. Em **'Utilizadores' podem utilizar funcionalidades de pré-visualização para registar e gerir informações**de segurança, definir o seletor para **Nenhum**, e, em seguida, selecionar **Guardar**.
 
-Os usuários não serão mais solicitados a se registrar usando a experiência de visualização.
+Os utilizadores deixarão de ser solicitados a registarem-se utilizando a experiência de pré-visualização.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba mais sobre a visualização pública do registro combinado para redefinição de senha de autoatendimento e autenticação multifator do Azure](concept-registration-mfa-sspr-combined.md)
+* [Saiba mais sobre a pré-visualização pública do registo combinado para reset de senha de autosserviço e autenticação de multi-fatores Azure](concept-registration-mfa-sspr-combined.md)

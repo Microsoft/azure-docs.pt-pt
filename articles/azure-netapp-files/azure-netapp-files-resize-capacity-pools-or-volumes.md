@@ -1,6 +1,6 @@
 ---
-title: Redimensionar o conjunto de capacidade ou um volume para ficheiros de NetApp do Azure | Documentos da Microsoft
-description: Descreve como alterar o tamanho de um conjunto de capacidade ou um volume.
+title: Redimensionar a capacidade ou um volume para ficheiros Azure NetApp [ Microsoft Docs
+description: Descreve como alterar o tamanho de uma piscina de capacidade ou um volume.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -15,28 +15,28 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: b-juche
 ms.openlocfilehash: c58ceef57b984f46b86bb2a8577c53b75082b78b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65794619"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>Redimensionar um conjunto de capacidade ou um volume
-Pode alterar o tamanho de um conjunto de capacidade ou um volume, se necessário. 
+Pode alterar o tamanho de uma piscina de capacidade ou um volume, se necessário. 
 
-## <a name="resize-the-capacity-pool"></a>Redimensione o conjunto de capacidade 
+## <a name="resize-the-capacity-pool"></a>Redimensionar a piscina de capacidade 
 
-Pode alterar o tamanho do conjunto de capacidade em incrementos de 1 TiB ou diminui. No entanto, o tamanho de capacidade do conjunto não pode ser inferior a 4 TiB. Redimensionar o conjunto de capacidade altera a capacidade de ficheiros do Azure NetApp comprado.
+Pode alterar o tamanho da piscina de capacidade em incrementos ou decrementos de 1-TiB. No entanto, o tamanho da piscina de capacidade não pode ser inferior a 4 TiB. A redimensionamento do pool de capacidade altera a capacidade adquirida dos Ficheiros Azure NetApp.
 
-1. No painel conta do NetApp de gerir, clique no agrupamento de capacidade que deseja redimensionar. 
-2. Faça duplo clique no nome do conjunto de capacidade ou clique no ícone "..." no final da linha do conjunto de capacidade para exibir o menu de contexto. 
-3. Utilize as opções de menu de contexto redimensionar ou eliminar o conjunto de capacidade.
+1. A partir da lâmina da Conta Manage NetApp, clique na piscina de capacidade que pretende redimensionar. 
+2. Clique no nome da piscina de capacidade ou clique no "..." ícone no final da linha da piscina de capacidade para exibir o menu de contexto. 
+3. Utilize as opções do menu de contexto para redimensionar ou eliminar o conjunto de capacidades.
 
 ## <a name="resize-a-volume"></a>Redimensionar um volume
 
-Pode alterar o tamanho de um volume, se necessário. O consumo de capacidade de um volume é contabilizado para a capacidade aprovisionada do seu conjunto.
+Pode alterar o tamanho de um volume conforme necessário. O consumo de capacidade de um volume é contabilizado para a capacidade aprovisionada do seu conjunto.
 
-1. No painel da conta de NetApp gerir, clique em **Volumes**. 
-2. Faça duplo clique o nome do volume que deseja redimensionar ou clique no ícone "..." no final da linha do volume para exibir o menu de contexto.
-3. Utilize as opções de menu de contexto para redimensionar ou eliminar o volume.
+1. A partir da lâmina da Conta Manage NetApp, clique em **Volumes**. 
+2. Clique no nome do volume que pretende redimensionar ou clicar no "..." ícone no final da linha do volume para exibir o menu de contexto.
+3. Utilize as opções do menu de contexto para redimensionar ou eliminar o volume.
 

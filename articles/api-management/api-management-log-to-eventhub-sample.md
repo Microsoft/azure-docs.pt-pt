@@ -1,7 +1,7 @@
 ---
-title: Monitorar APIs com gerenciamento de API do Azure, hubs de eventos e Moesif
+title: Monitor APIs com API Management, Event Hubs e Moesif
 titleSuffix: Azure API Management
-description: Aplicativo de exemplo que demonstra a política de log para eventhub conectando o gerenciamento de API do Azure, hubs de eventos do Azure e Moesif para log e monitoramento de HTTP
+description: Aplicação de amostras demonstrando a política log-to-eventhub através da ligação azure API Management, Azure Event Hubs e Moesif para login e monitorização HTTP
 services: api-management
 documentationcenter: ''
 author: darrelmiller
@@ -16,39 +16,39 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
 ms.openlocfilehash: 4a0717bf7a284668af4808acae3050cc7f42f836
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75442533"
 ---
-# <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Monitore suas APIs com o gerenciamento de API do Azure, os hubs de eventos e o Moesif
-O [serviço de gerenciamento de API](api-management-key-concepts.md) fornece muitos recursos para aprimorar o processamento de solicitações HTTP enviadas à sua API http. No entanto, a existência das solicitações e das respostas é transitória. A solicitação é feita e flui pelo serviço de gerenciamento de API para sua API de back-end. Sua API processa a solicitação e uma resposta flui de volta para o consumidor da API. O serviço de gerenciamento de API mantém algumas estatísticas importantes sobre as APIs para exibição no painel de portal do Azure, mas, além disso, os detalhes foram resumidos.
+# <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Monitorize as suas APIs com a Azure API Management, Event Hubs e Moesif
+O [serviço de Gestão API](api-management-key-concepts.md) fornece muitas capacidades para melhorar o processamento de pedidos HTTP enviados para a sua HTTP API. No entanto, a existência dos pedidos e respostas é transitória. O pedido é feito e flui através do serviço de Gestão API para a sua API backend. A sua API processa o pedido e uma resposta volta para o consumidor da API. O serviço de Gestão API mantém algumas estatísticas importantes sobre as APIs para exibição no portal Azure dashboard, mas além disso, os detalhes desapareceram.
 
-Usando a política de log para eventhub no serviço de gerenciamento de API, você pode enviar todos os detalhes da solicitação e da resposta para um [Hub de eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Há uma variedade de motivos pelos quais você pode querer gerar eventos de mensagens HTTP que estão sendo enviadas para suas APIs. Alguns exemplos incluem trilha de auditoria de atualizações, análise de uso, alertas de exceção e integrações de terceiros.
+Ao utilizar a política de log-to-eventhub no serviço de Gestão API, pode enviar quaisquer detalhes do pedido e resposta a um Hub de [Eventos Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Existem uma variedade de razões pelas quais pode querer gerar eventos a partir de mensagens HTTP que são enviadas para as suas APIs. Alguns exemplos incluem o rasto de auditoria de atualizações, análise de utilização, alerta de exceção e integrações de terceiros.
 
-Este artigo demonstra como capturar a mensagem de resposta e solicitação HTTP inteira, enviá-la a um hub de eventos e, em seguida, retransmitir essa mensagem para um serviço de terceiros que fornece serviços de log e monitoramento de HTTP.
+Este artigo demonstra como capturar toda a mensagem de pedido e resposta http, enviá-la para um Hub de Eventos e, em seguida, retransmitir essa mensagem para um serviço de terceiros que fornece serviços de registo e monitorização HTTP.
 
-## <a name="why-send-from-api-management-service"></a>Por que enviar do serviço de gerenciamento de API?
-É possível escrever middleware HTTP que pode ser conectado a estruturas de API HTTP para capturar solicitações e respostas HTTP e alimentar os sistemas de registro em log e monitoramento. A desvantagem dessa abordagem é que o middleware HTTP precisa ser integrado à API de back-end e deve corresponder à plataforma da API. Se houver várias APIs, cada uma delas deverá implantar o middleware. Geralmente, há razões pelas quais as APIs de back-end não podem ser atualizadas.
+## <a name="why-send-from-api-management-service"></a>Porquê enviar do Serviço de Gestão da API?
+É possível escrever um middleware HTTP que pode ligar-se aos quadros http API para capturar pedidos e respostas HTTP e alimentá-los em sistemas de registo e monitorização. A desvantagem desta abordagem é que o ambiente HTTP precisa de ser integrado na API de backend e deve corresponder à plataforma da API. Se houver múltiplas APIs, então cada um deve implantar o middleware. Muitas vezes existem razões pelas quais as APIs de backend não podem ser atualizadas.
 
-Usar o serviço de gerenciamento de API do Azure para integrar com a infraestrutura de log fornece uma solução centralizada e independente de plataforma. Ele também é escalonável, em parte devido aos recursos de [replicação geográfica](api-management-howto-deploy-multi-region.md) do gerenciamento de API do Azure.
+A utilização do serviço azure API Management para integrar com a infraestrutura de exploração madeireira fornece uma solução centralizada e independente da plataforma. É também escalável, em parte devido às capacidades de [geo-replicação](api-management-howto-deploy-multi-region.md) da Azure API Management.
 
-## <a name="why-send-to-an-azure-event-hub"></a>Por que enviar para um hub de eventos do Azure?
-É razoável perguntar, por que criar uma política específica para os hubs de eventos do Azure? Há muitos locais diferentes em que eu poderia querer registrar minhas solicitações. Por que não apenas enviar as solicitações diretamente para o destino final?  Essa é uma opção. No entanto, ao fazer solicitações de registro em log de um serviço de gerenciamento de API, é necessário considerar como as mensagens de log afetam o desempenho da API. Aumentos graduais na carga podem ser tratados aumentando as instâncias disponíveis de componentes do sistema ou aproveitando a replicação geográfica. No entanto, picos curtos no tráfego podem fazer com que as solicitações sejam atrasadas se as solicitações de log de infraestrutura começarem a ser lentas sob carga.
+## <a name="why-send-to-an-azure-event-hub"></a>Por que enviar para um Hub de Eventos Azure?
+É razoável perguntar, por que criar uma política específica para os Hubs de Eventos Azure? Há muitos lugares diferentes onde posso querer registar os meus pedidos. Por que não enviar os pedidos diretamente para o destino final?  É uma opção. No entanto, ao fazer pedidos de registo de um serviço de gestão da API, é necessário considerar como as mensagens de registo têm impacto no desempenho da API. Os aumentos graduais da carga podem ser tratados através do aumento das instâncias disponíveis de componentes do sistema ou aproveitando a geo-replicação. No entanto, os pequenos picos de tráfego podem fazer com que os pedidos sejam adiados se os pedidos de exploração de infraestruturas começarem a abrandar sob carga.
 
-Os hubs de eventos do Azure foram projetados para ingressar em grandes volumes de dados, com capacidade para lidar com um número muito maior de eventos do que o número de solicitações HTTP processadas pela maioria das APIs. O Hub de eventos atua como um tipo de buffer sofisticado entre o serviço de gerenciamento de API e a infraestrutura que armazena e processa as mensagens. Isso garante que o desempenho da API não será afetado devido à infraestrutura de registro em log.
+O Azure Event Hubs foi concebido para inecer enormes volumes de dados, com capacidade para lidar com um número muito maior de eventos do que o número de pedidos de HTTP a maioria dos processos de APIs. O Event Hub funciona como uma espécie de tampão sofisticado entre o seu serviço de gestão aPI e a infraestrutura que armazena e processa as mensagens. Isto garante que o seu desempenho na API não sofrerá devido à infraestrutura de exploração madeireira.
 
-Depois que os dados tiverem sido passados para um hub de eventos, eles serão persistidos e aguardarão que os consumidores do hub de eventos o processem. O Hub de eventos não se preocupa com a forma como ele é processado, ele apenas se preocupa em verificar se a mensagem será entregue com êxito.
+Uma vez que os dados foram passados para um Hub de Eventos, é persistiu e aguardará que os consumidores do Event Hub os processem. O Event Hub não se importa com a forma como é processado, apenas se preocupa em garantir que a mensagem será entregue com sucesso.
 
-Os hubs de eventos têm a capacidade de transmitir eventos para vários grupos de consumidores. Isso permite que os eventos sejam processados por diferentes sistemas. Isso permite o suporte a muitos cenários de integração sem colocar atrasos de adição no processamento da solicitação de API dentro do serviço de gerenciamento de API, pois apenas um evento precisa ser gerado.
+O Event Hubs tem a capacidade de transmitir eventos a vários grupos de consumidores. Isto permite que os eventos sejam processados por diferentes sistemas. Isto permite apoiar muitos cenários de integração sem colocar atrasos no processamento do pedido de API dentro do serviço de Gestão API, uma vez que apenas um evento precisa ser gerado.
 
-## <a name="a-policy-to-send-applicationhttp-messages"></a>Uma política para enviar mensagens de aplicativo/http
-Um hub de eventos aceita dados de eventos como uma cadeia de caracteres simples. O conteúdo dessa cadeia de caracteres cabe a você. Para poder empacotar uma solicitação HTTP e enviá-la para os hubs de eventos, precisamos Formatar a cadeia de caracteres com as informações de solicitação ou resposta. Em situações como essa, se houver um formato existente que possamos reutilizar, talvez não seja necessário escrever nosso próprio código de análise. Inicialmente, considerei usar o [Har](http://www.softwareishard.com/blog/har-12-spec/) para enviar solicitações e respostas http. No entanto, esse formato é otimizado para armazenar uma sequência de solicitações HTTP em um formato baseado em JSON. Ele continha vários elementos obrigatórios que adicionaram complexidade desnecessária para o cenário de passar a mensagem HTTP pela conexão.
+## <a name="a-policy-to-send-applicationhttp-messages"></a>Uma política para enviar mensagens de aplicação/http
+Um Hub de Eventos aceita os dados do evento como uma simples corda. O conteúdo dessa corda depende de si. Para poder embalar um pedido HTTP e enviá-lo para O Hubs de Eventos, precisamos formatar a cadeia com as informações de pedido ou resposta. Em situações como esta, se houver um formato existente que possamos reutilizar, então podemos não ter de escrever o nosso próprio código de análise. Inicialmente, considerei usar o [HAR](http://www.softwareishard.com/blog/har-12-spec/) para o envio de pedidos e respostas http. No entanto, este formato é otimizado para armazenar uma sequência de pedidos HTTP num formato baseado em JSON. Continha uma série de elementos obrigatórios que adicionavam complexidade desnecessária para o cenário de passar a mensagem HTTP sobre o fio.
 
-Uma opção alternativa era usar o tipo de mídia `application/http` conforme descrito na especificação HTTP [RFC 7230](https://tools.ietf.org/html/rfc7230). Esse tipo de mídia usa exatamente o mesmo formato usado para realmente enviar mensagens HTTP pela conexão, mas toda a mensagem pode ser colocada no corpo de outra solicitação HTTP. Em nosso caso, vamos usar o corpo como nossa mensagem para enviar aos hubs de eventos. Convenientemente, há um analisador que existe em bibliotecas de [cliente Microsoft ASP.NET API Web 2,2](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) que podem analisar esse formato e convertê-lo nos objetos `HttpRequestMessage` e `HttpResponseMessage` nativos.
+Uma opção alternativa `application/http` era utilizar o tipo de suporte, tal como descrito na especificação HTTP [RFC 7230](https://tools.ietf.org/html/rfc7230). Este tipo de mídia utiliza exatamente o mesmo formato que é usado para realmente enviar mensagens HTTP pelo fio, mas toda a mensagem pode ser colocada no corpo de outro pedido HTTP. No nosso caso, vamos usar o corpo como mensagem para enviar aos Centros de Eventos. Convenientemente, existe um parser que existe na Microsoft ASP.NET bibliotecas [de clientes Web API 2.2](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) que podem analisar este formato e convertê-lo em nativos `HttpRequestMessage` e `HttpResponseMessage` objetos.
 
-Para poder criar essa mensagem, precisamos aproveitar as expressões de C# [política](/azure/api-management/api-management-policy-expressions) com base no gerenciamento de API do Azure. Aqui está a política, que envia uma mensagem de solicitação HTTP para os hubs de eventos do Azure.
+Para podermos criar esta mensagem, precisamos de aproveitar as [expressões políticas baseadas](/azure/api-management/api-management-policy-expressions) em C# na Gestão da API Azure. Aqui está a política, que envia uma mensagem de pedido http para o Azure Event Hubs.
 
 ```xml
 <log-to-eventhub logger-id="conferencelogger" partition-id="0">
@@ -76,28 +76,28 @@ Para poder criar essa mensagem, precisamos aproveitar as expressões de C# [pol�
 </log-to-eventhub>
 ```
 
-### <a name="policy-declaration"></a>Declaração de política
-Algumas coisas específicas que valem a pena mencionar essa expressão de política. A política de log para eventhub tem um atributo chamado logger-ID, que se refere ao nome do agente que foi criado no serviço de gerenciamento de API. Os detalhes de como configurar um agente do hub de eventos no serviço de gerenciamento de API podem ser encontrados no documento [como registrar em log eventos nos hubs de eventos do Azure no gerenciamento de API do Azure](api-management-howto-log-event-hubs.md). O segundo atributo é um parâmetro opcional que instrui os hubs de eventos em qual partição armazenar a mensagem. Os hubs de eventos usam partições para habilitar a escalabilidade e exigem, no mínimo, dois. A entrega ordenada de mensagens só é garantida dentro de uma partição. Se não instruirmos o Hub de eventos em qual partição Coloque a mensagem, ela usará um algoritmo Round Robin para distribuir a carga. No entanto, isso pode fazer com que algumas de nossas mensagens sejam processadas fora de ordem.
+### <a name="policy-declaration"></a>Declaração política
+Há algumas coisas específicas que merecem ser mencionadas sobre esta expressão política. A política log-to-eventhub tem um atributo chamado logger-id, que se refere ao nome do madeireiro que foi criado dentro do serviço de Gestão API. Os detalhes de como configurar um logger do Event Hub no serviço de Gestão API podem ser encontrados no documento [Como registar eventos para O Azure Event Hubs em Azure API Management.](api-management-howto-log-event-hubs.md) O segundo atributo é um parâmetro opcional que instrui os Centros de Eventos em que divisória para armazenar a mensagem. Os Centros de Eventos usam divisórias para permitir a escalabilidade e requerem um mínimo de dois. A entrega ordenada de mensagens só é garantida dentro de uma partição. Se não instruímos o Event Hub em que a partição colocar a mensagem, ele usa um algoritmo de robin redondo para distribuir a carga. No entanto, isso pode fazer com que algumas das nossas mensagens sejam processadas fora de ordem.
 
 ### <a name="partitions"></a>Partições
-Para garantir que nossas mensagens sejam entregues aos consumidores em ordem e aproveitem o recurso de distribuição de carga das partições, optei por enviar mensagens de solicitação HTTP para uma partição e mensagens de resposta HTTP para uma segunda partição. Isso garante uma distribuição uniforme de carga e podemos garantir que todas as solicitações serão consumidas na ordem e todas as respostas sejam consumidas na ordem. É possível que uma resposta seja consumida antes da solicitação correspondente, mas como isso não é um problema, pois temos um mecanismo diferente para correlacionar solicitações a respostas e sabemos que as solicitações sempre vêm antes das respostas.
+Para garantir que as nossas mensagens são entregues aos consumidores em ordem e aproveitar a capacidade de distribuição de carga das divisórias, optei por enviar mensagens de pedido http a uma partição e mensagens de resposta HTTP para uma segunda partição. Isto garante uma distribuição uniforme de carga e podemos garantir que todos os pedidos serão consumidos por ordem e todas as respostas são consumidas por ordem. É possível que uma resposta seja consumida antes do pedido correspondente, mas como isso não é um problema, uma vez que dispomos de um mecanismo diferente para correlacionar os pedidos de respostas e sabemos que os pedidos vêm sempre antes das respostas.
 
-### <a name="http-payloads"></a>Cargas HTTP
-Depois de criar o `requestLine`, verificamos se o corpo da solicitação deve ser truncado. O corpo da solicitação é truncado para apenas 1024. Isso pode ser aumentado, no entanto, as mensagens individuais do hub de eventos são limitadas a 256 KB, portanto, é provável que alguns corpos de mensagens HTTP não caibam em uma única mensagem. Ao fazer o log e a análise, uma quantidade significativa de informações pode ser derivada apenas da linha de solicitação HTTP e dos cabeçalhos. Além disso, muitas solicitações de APIs só retornam corpos pequenos e, portanto, a perda de valor das informações truncando corpos grandes é relativamente mínima em comparação com a redução nos custos de transferência, processamento e armazenamento para manter todo o conteúdo do corpo. Uma observação final sobre o processamento do corpo é que precisamos passar `true` para o método `As<string>()` porque estamos lendo o conteúdo do corpo, mas também queria que a API de back-end pudesse ler o corpo. Ao passar true para esse método, fazemos com que o corpo seja armazenado em buffer para que possa ser lido uma segunda vez. É importante estar atento se você tiver uma API que faça o upload de arquivos grandes ou use sondagem longa. Nesses casos, seria melhor evitar a leitura do corpo.
+### <a name="http-payloads"></a>CARGAS HTTP
+Depois de `requestLine`construir o , verificamos se o corpo de pedidos deve ser truncado. O corpo de pedido está truncado para apenas 1024. Isto poderia ser aumentado, no entanto as mensagens individuais do Event Hub estão limitadas a 256 KB, pelo que é provável que alguns organismos de mensagens HTTP não encaixem numa única mensagem. Ao fazer a exploração madeireira e analítica, uma quantidade significativa de informação pode ser derivada apenas da linha de pedido http e cabeçalhos. Além disso, muitas APIs solicitam apenas devolver pequenos corpos e, por isso, a perda de valor da informação por truncar grandes corpos é bastante mínima em comparação com a redução dos custos de transferência, processamento e armazenamento para manter todos os conteúdos do corpo. Uma nota final sobre o processamento do `true` corpo `As<string>()` é que precisamos passar para o método porque estamos lendo o conteúdo do corpo, mas também queria que a API de backend fosse capaz de ler o corpo. Ao passarmos fiel a este método, fazemos com que o corpo seja tamponado para que possa ser lido uma segunda vez. Isto é importante estar ciente de que tem uma API que faz upload de ficheiros grandes ou usa sondagens longas. Nestes casos, seria melhor evitar ler o corpo.
 
 ### <a name="http-headers"></a>Cabeçalhos HTTP
-Os cabeçalhos HTTP podem ser transferidos para o formato da mensagem em um formato de par chave/valor simples. Optamos por retirar certos campos sensíveis à segurança, para evitar vazamento desnecessariamente de informações de credenciais. É improvável que as chaves de API e outras credenciais sejam usadas para fins de análise. Se quisermos fazer a análise sobre o usuário e o produto específico que eles estão usando, poderíamos obtê-lo do objeto `context` e adicioná-lo à mensagem.
+Os cabeçalhos HTTP podem ser transferidos para o formato de mensagem num formato simples de par de chaves/valor. Optámos por desmantelar certos campos sensíveis à segurança, para evitar fugas de informação desnecessariamente credenciais. É pouco provável que as chaves API e outras credenciais sejam utilizadas para fins de análise. Se quisermos fazer análises ao utilizador e ao produto em particular `context` que estão a utilizar, então podemos obtê-lo a partir do objeto e adicioná-lo à mensagem.
 
-### <a name="message-metadata"></a>Metadados da mensagem
-Ao criar a mensagem completa para enviar para o Hub de eventos, a primeira linha não é realmente parte da mensagem de `application/http`. A primeira linha são metadados adicionais que consistem em se a mensagem é uma mensagem de solicitação ou resposta e uma ID de mensagem, que é usada para correlacionar solicitações a respostas. A ID da mensagem é criada usando outra política parecida com esta:
+### <a name="message-metadata"></a>Metadados de mensagem
+Ao construir a mensagem completa para enviar para o centro do `application/http` evento, a primeira linha não faz parte da mensagem. A primeira linha são metadados adicionais que consistem em saber se a mensagem é uma mensagem de pedido ou resposta e um ID de mensagem, que é usado para correlacionar pedidos de respostas. O ID da mensagem é criado usando outra política que se parece com esta:
 
 ```xml
 <set-variable name="message-id" value="@(Guid.NewGuid())" />
 ```
 
-Poderíamos ter criado a mensagem de solicitação, armazená-la em uma variável até que a resposta fosse retornada e, em seguida, enviada a solicitação e a resposta como uma única mensagem. No entanto, ao enviar a solicitação e a resposta de forma independente e usar uma ID de mensagem para correlacionar as duas, obtemos um pouco mais de flexibilidade no tamanho da mensagem, a capacidade de tirar proveito de várias partições durante a manutenção da ordem da mensagem e a solicitação será exibida em nosso painel de registro em log mais cedo. Também pode haver alguns cenários em que uma resposta válida nunca é enviada para o Hub de eventos, possivelmente devido a um erro fatal de solicitação no serviço de gerenciamento de API, mas ainda temos um registro da solicitação.
+Poderíamos ter criado a mensagem de pedido, armazenando-a numa variável até que a resposta fosse devolvida e depois enviado o pedido e resposta como uma única mensagem. No entanto, enviando o pedido e a resposta de forma independente e usando um id de mensagem para correlacionar os dois, obtemos um pouco mais de flexibilidade no tamanho da mensagem, a capacidade de tirar partido de várias divisórias, mantendo a ordem da mensagem e o pedido aparecerá no nosso painel de login mais cedo. Pode também haver alguns cenários em que uma resposta válida nunca é enviada para o centro do evento, possivelmente devido a um erro fatal de pedido no serviço de Gestão API, mas ainda temos um registo do pedido.
 
-A política para enviar a mensagem HTTP de resposta é semelhante à solicitação e, portanto, a configuração da política completa é parecida com esta:
+A política de enviar a mensagem http resposta parece semelhante ao pedido e, por isso, a configuração de política completa é a seguinte:
 
 ```xml
 <policies>
@@ -157,16 +157,16 @@ A política para enviar a mensagem HTTP de resposta é semelhante à solicitaç�
 </policies>
 ```
 
-A política de `set-variable` cria um valor que é acessível pela política de `log-to-eventhub` na seção `<inbound>` e a seção `<outbound>`.
+A `set-variable` política cria um valor acessível tanto `<inbound>` pela `<outbound>` `log-to-eventhub` política da secção como pela secção.
 
-## <a name="receiving-events-from-event-hubs"></a>Recebendo eventos dos hubs de eventos
-Os eventos do hub de eventos do Azure são recebidos usando o [protocolo AMQP](https://www.amqp.org/). A equipe do barramento de serviço da Microsoft tornou as bibliotecas de cliente disponíveis para facilitar o consumo dos eventos. Há duas abordagens diferentes com suporte, uma é um *consumidor direto* e a outra é usar a classe `EventProcessorHost`. Exemplos dessas duas abordagens podem ser encontrados no guia de [programação dos hubs de eventos](../event-hubs/event-hubs-programming-guide.md). A versão curta das diferenças é, `Direct Consumer` dá a você controle completo e o `EventProcessorHost` faz parte do trabalho de encanamento para você, mas faz algumas suposições sobre como você processa esses eventos.
+## <a name="receiving-events-from-event-hubs"></a>Receber eventos de Centros de Eventos
+Os eventos do Azure Event Hub são recebidos usando o [protocolo AMQP.](https://www.amqp.org/) A equipa de ônibus da Microsoft Service disponibilizou bibliotecas de clientes para facilitar os eventos de consumo. Há duas abordagens diferentes apoiadas, uma é ser um `EventProcessorHost` Consumidor *Direto* e a outra está a usar a classe. Exemplos destas duas abordagens podem ser encontrados no Guia de Programação de Centros de [Eventos](../event-hubs/event-hubs-programming-guide.md). A versão curta das diferenças é que `Direct Consumer` `EventProcessorHost` dá-lhe controlo total e faz parte do trabalho de canalização para si, mas faz certas suposições sobre como processa esses eventos.
 
 ### <a name="eventprocessorhost"></a>EventProcessorHost
-Neste exemplo, usamos o `EventProcessorHost` para simplificar, mas talvez não seja a melhor opção para esse cenário específico. `EventProcessorHost` faz o trabalho árduo de garantir que você não precise se preocupar com problemas de Threading dentro de uma classe de processador de eventos específica. No entanto, em nosso cenário, estamos simplesmente convertendo a mensagem em outro formato e passando-a para outro serviço usando um método assíncrono. Não há necessidade de atualizar o estado compartilhado e, portanto, nenhum risco de problemas de Threading. Na maioria dos cenários, `EventProcessorHost` é provavelmente a melhor opção e, certamente, é a opção mais fácil.
+Nesta amostra, usamos `EventProcessorHost` a para a simplicidade, no entanto pode não ser a melhor escolha para este cenário em particular. `EventProcessorHost`faz o trabalho árduo de garantir que não tem que se preocupar com questões de threading dentro de uma determinada classe de processador de eventos. No entanto, no nosso cenário, estamos simplesmente a converter a mensagem para outro formato e transmiti-la para outro serviço usando um método de asincronização. Não há necessidade de atualizar o Estado partilhado e, portanto, não há qualquer risco de problemas de enroscar. Para a maioria `EventProcessorHost` dos cenários, é provavelmente a melhor escolha e é certamente a opção mais fácil.
 
-### <a name="ieventprocessor"></a>IEventProcessor
-O conceito central ao usar o `EventProcessorHost` é criar uma implementação da interface `IEventProcessor`, que contém o método `ProcessEventAsync`. A essência desse método é mostrada aqui:
+### <a name="ieventprocessor"></a>Processador IEvent
+O conceito central `EventProcessorHost` ao utilizar é `IEventProcessor` criar uma implementação `ProcessEventAsync`da interface, que contém o método . A essência deste método é mostrada aqui:
 
 ```csharp
 async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
@@ -190,10 +190,10 @@ async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumera
 }
 ```
 
-Uma lista de objetos EventData é passada para o método e iteramos sobre essa lista. Os bytes de cada método são analisados em um objeto HttpMessage e esse objeto é passado para uma instância de IHttpMessageProcessor.
+Uma lista de objetos EventData é passada para o método e nós iteramos sobre essa lista. Os bytes de cada método são analisados num objeto HttpMessage e esse objeto é passado para uma instância do Processador IHttpMessage.
 
 ### <a name="httpmessage"></a>HttpMessage
-A instância de `HttpMessage` contém três partes de dados:
+A `HttpMessage` instância contém três dados:
 
 ```csharp
 public class HttpMessage
@@ -208,15 +208,15 @@ public class HttpMessage
 }
 ```
 
-A instância de `HttpMessage` contém um GUID de `MessageId` que nos permite conectar a solicitação HTTP à resposta HTTP correspondente e um valor booliano que identifica se o objeto contém uma instância de um HttpRequestMessage e HttpResponseMessage. Ao usar as classes HTTP internas do `System.Net.Http`, consegui aproveitar o código de análise de `application/http` que está incluído no `System.Net.Http.Formatting`.  
+A `HttpMessage` instância `MessageId` contém um GUID que nos permite ligar o pedido HTTP à resposta httpleana correspondente e um valor booleano que identifica se o objeto contém uma instância de httpRequestMessage e HttpResponseMessage. Ao utilizar as classes HTTP `System.Net.Http`incorporadas de , pude `application/http` tirar partido do código `System.Net.Http.Formatting`de análise que está incluído em .  
 
-### <a name="ihttpmessageprocessor"></a>IHttpMessageProcessor
-A instância de `HttpMessage` é então encaminhada para a implementação de `IHttpMessageProcessor`, que é uma interface que criei para desacoplar o recebimento e a interpretação do evento do hub de eventos do Azure e o processamento real dele.
+### <a name="ihttpmessageprocessor"></a>Processador IHttpMessage
+A `HttpMessage` instância é então `IHttpMessageProcessor`remetida para a implementação de , que é uma interface que criei para dissociar a receção e interpretação do evento do Azure Event Hub e o processamento real do mesmo.
 
-## <a name="forwarding-the-http-message"></a>Encaminhando a mensagem HTTP
-Para este exemplo, decidi que seria interessante enviar por push a solicitação HTTP para a [análise de API do Moesif](https://www.moesif.com). O Moesif é um serviço baseado em nuvem especializado em análise e depuração de HTTP. Eles têm uma camada gratuita, portanto, é fácil experimentá-los e nos permite ver as solicitações HTTP em tempo real em meio ao nosso serviço de gerenciamento de API.
+## <a name="forwarding-the-http-message"></a>Reencaminhamento da mensagem HTTP
+Para esta amostra, decidi que seria interessante empurrar o pedido http para a [Moesif API Analytics.](https://www.moesif.com) O Moesif é um serviço baseado em nuvem especializado em análise seletiva http e depuração. Eles têm um nível livre, por isso é fácil de tentar e permite-nos ver os pedidos http em tempo real fluindo através do nosso serviço de Gestão API.
 
-A implementação de `IHttpMessageProcessor` é parecida com esta,
+A `IHttpMessageProcessor` implementação é assim,
 
 ```csharp
 public class MoesifHttpMessageProcessor : IHttpMessageProcessor
@@ -294,26 +294,26 @@ public class MoesifHttpMessageProcessor : IHttpMessageProcessor
 }
 ```
 
-O `MoesifHttpMessageProcessor` aproveita uma [ C# biblioteca de API para Moesif](https://www.moesif.com/docs/api?csharp#events) que facilita o envio de dados de evento http para seus serviços. Para enviar dados HTTP para a API do coletor do Moesif, você precisa de uma conta e uma ID do aplicativo. Você Obtém uma ID do aplicativo Moesif criando uma conta no [site do Moesif](https://www.moesif.com) e, em seguida, acesse o _Menu superior direito_ -> _configuração do aplicativo_.
+A `MoesifHttpMessageProcessor` biblioteca [C# API para o Moesif](https://www.moesif.com/docs/api?csharp#events) que facilita a entrada de dados do evento HTTP no seu serviço. Para enviar dados http para a API do Colecionador Moesif, precisa de uma conta e de um Id de aplicação. Obtém um Id de aplicação do Moesif criando uma conta no [site do Moesif](https://www.moesif.com) e depois vai para a configuração da app de menu ->  _sinuoso.__App Setup_
 
-## <a name="complete-sample"></a>Exemplo completo
-O [código-fonte](https://github.com/dgilling/ApimEventProcessor) e os testes do exemplo estão no github. Você precisa de um [serviço de gerenciamento de API](get-started-create-service-instance.md), [de um hub de eventos conectado](api-management-howto-log-event-hubs.md)e de uma [conta de armazenamento](../storage/common/storage-create-storage-account.md) para executar o exemplo.   
+## <a name="complete-sample"></a>Amostra completa
+O [código-fonte](https://github.com/dgilling/ApimEventProcessor) e os testes para a amostra estão no GitHub. Você precisa de um Serviço de [Gestão API,](get-started-create-service-instance.md)um Hub de [Eventos conectado,](api-management-howto-log-event-hubs.md)e uma Conta de [Armazenamento](../storage/common/storage-create-storage-account.md) para executar a amostra por si mesmo.   
 
-O exemplo é apenas um aplicativo de console simples que escuta eventos provenientes do hub de eventos, converte-os em um Moesif `EventRequestModel` e `EventResponseModel` objetos e, em seguida, encaminha-os para a API do coletor do Moesif.
+A amostra é apenas uma simples aplicação consola que ouve eventos vindos do Event Hub, converte-os em moesif `EventRequestModel` e `EventResponseModel` objetos e, em seguida, encaminha-os para a API de Colecionador Moesif.
 
-Na imagem animada a seguir, você pode ver uma solicitação sendo feita a uma API no portal do desenvolvedor, o aplicativo de console que mostra a mensagem sendo recebida, processada e encaminhada e, em seguida, a solicitação e a resposta exibidas no fluxo de eventos.
+Na imagem animada seguinte, pode ver um pedido a ser feito para uma API no Portal do Desenvolvimento, a aplicação Consola mostrando a mensagem a ser recebida, processada e reencaminhada e, em seguida, o pedido e resposta que aparece no Fluxo de Eventos.
 
-![Demonstração da solicitação sendo encaminhada ao Runscope](./media/api-management-log-to-eventhub-sample/apim-eventhub-runscope.gif)
+![Demonstração de pedido a ser encaminhado para Runscope](./media/api-management-log-to-eventhub-sample/apim-eventhub-runscope.gif)
 
 ## <a name="summary"></a>Resumo
-O serviço de gerenciamento de API do Azure fornece um lugar ideal para capturar o tráfego HTTP que viaja de e para suas APIs. Os hubs de eventos do Azure são uma solução altamente escalonável e de baixo custo para capturar esse tráfego e enalimenta-lo em sistemas de processamento secundários para registro em log, monitoramento e outras análises sofisticadas. Conectar-se a sistemas de monitoramento de tráfego de terceiros como o Moesif é tão simples quanto algumas dúzias de linhas de código.
+O serviço azure API Management fornece um local ideal para capturar o tráfego HTTP que viaja de e para as suas APIs. O Azure Event Hubs é uma solução altamente escalável e de baixo custo para capturar esse tráfego e alimentá-lo em sistemas de processamento secundáriopara abate, monitorização e outras análises sofisticadas. Ligar-se a sistemas de monitorização de tráfego de terceiros como o Moesif é tão simples como algumas dezenas de linhas de código.
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre os hubs de eventos do Azure
-  * [Introdução aos hubs de eventos do Azure](../event-hubs/event-hubs-c-getstarted-send.md)
-  * [Receber mensagens com EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
+* Saiba mais sobre os Hubs de Eventos Azure
+  * [Começar com hubs de eventos Azure](../event-hubs/event-hubs-c-getstarted-send.md)
+  * [Receber mensagens com o EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Guia de programação dos Hubs de Eventos](../event-hubs/event-hubs-programming-guide.md)
-* Saiba mais sobre a integração de gerenciamento de API e hubs de eventos
-  * [Como registrar eventos em log nos hubs de eventos do Azure no gerenciamento de API do Azure](api-management-howto-log-event-hubs.md)
-  * [Referência de entidade de agente](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
-  * [referência de política de log para eventhub](/azure/api-management/api-management-advanced-policies#log-to-eventhub)
+* Saiba mais sobre a integração de Centros de Gestão e Eventos da API
+  * [Como registar eventos para hubs de eventos Azure na Gestão da API Azure](api-management-howto-log-event-hubs.md)
+  * [Referência da entidade logger](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
+  * [referência política log-to-eventhub](/azure/api-management/api-management-advanced-policies#log-to-eventhub)

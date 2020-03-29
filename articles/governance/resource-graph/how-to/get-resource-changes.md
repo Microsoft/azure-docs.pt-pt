@@ -1,50 +1,50 @@
 ---
 title: Obter alterações do recurso
-description: Entenda como localizar quando um recurso foi alterado, obter uma lista das propriedades que foram alteradas e avaliar as diferenças.
+description: Entenda como descobrir quando um recurso foi alterado, obtenha uma lista das propriedades que mudaram e avalie as difusões.
 ms.date: 10/09/2019
 ms.topic: how-to
 ms.openlocfilehash: 9504ac77fc4a3b03434912cc65284e2001df6e03
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74873034"
 ---
 # <a name="get-resource-changes"></a>Obter alterações do recurso
 
-Os recursos sofrem alterações ao longo da sua utilização diária, da reconfiguração ou mesmo de uma reimplementação.
-A alteração pode vir de um indivíduo ou de um processo automatizado. A maioria das alterações é por design, mas, às vezes, não é. Com os últimos 14 dias do histórico de alterações, o grafo de recursos do Azure permite que você:
+Os recursos são alterados através do curso do uso diário, reconfiguração e até mesmo redistribuição.
+A mudança pode vir de um indivíduo ou de um processo automatizado. A maioria das mudanças é por design, mas às vezes não é. Com os últimos 14 dias de história da mudança, o Azure Resource Graph permite-lhe:
 
-- Localizar quando foram detectadas alterações em uma propriedade Azure Resource Manager
-- Para cada alteração de recurso, consulte detalhes de alteração de propriedade
-- Veja uma comparação completa do recurso antes e depois da alteração detectada
+- Descubra quando foram detetadas alterações numa propriedade do Gestor de Recursos Azure
+- Para cada mudança de recursos, consulte detalhes de mudança de propriedade
+- Ver uma comparação completa do recurso antes e depois da mudança detetada
 
-A detecção de alterações e os detalhes são importantes para os seguintes cenários de exemplo:
+A deteção de alterações e os detalhes são valiosos para os seguintes cenários de exemplo:
 
-- Durante o gerenciamento de incidentes para entender as alterações _potencialmente_ relacionadas. Consulte eventos de alteração durante uma janela de tempo específica e avalie os detalhes da alteração.
-- Manter um banco de dados de gerenciamento de configuração, conhecido como CMDB, atualizado. Em vez de atualizar todos os recursos e seus conjuntos de propriedades completos em uma frequência agendada, só obtenha o que foi alterado.
-- Entender quais outras propriedades podem ter sido alteradas quando um estado de conformidade de um recurso mudou. A avaliação dessas propriedades adicionais pode fornecer informações sobre outras propriedades que talvez precisem ser gerenciadas por meio de uma definição de Azure Policy.
+- Durante a gestão de incidentes para compreender alterações _potencialmente_ relacionadas. Consulta para eventos de mudança durante uma janela de tempo específica e avaliar os detalhes da mudança.
+- Manter uma base de dados de gestão de configuração, conhecida como CMDB, atualizada. Em vez de refrescar todos os recursos e os seus conjuntos de propriedades completas numa frequência programada, só obter o que mudou.
+- Compreender que outras propriedades podem ter sido alteradas quando um recurso mudou o estado de conformidade. A avaliação destas propriedades adicionais pode fornecer informações sobre outras propriedades que possam precisar de ser geridas através de uma definição de Política Azure.
 
-Este artigo mostra como reunir essas informações por meio do SDK do grafo de recursos. Para ver essas informações na portal do Azure, consulte [histórico de alterações](../../policy/how-to/determine-non-compliance.md#change-history-preview) do Azure Policy ou [histórico de alterações](../../../azure-monitor/platform/activity-log-view.md#azure-portal)do log de atividades do Azure.
-Para obter detalhes sobre as alterações em seus aplicativos da camada de infraestrutura até a implantação do aplicativo, consulte [usar a análise de alterações do aplicativo (versão prévia)](../../../azure-monitor/app/change-analysis.md) no Azure monitor.
+Este artigo mostra como recolher esta informação através do SDK do Resource Graph. Para ver esta informação no portal Azure, consulte o histórico de mudança de [atividade](../../policy/how-to/determine-non-compliance.md#change-history-preview) da Azure Policy ou o histórico de [alterações](../../../azure-monitor/platform/activity-log-view.md#azure-portal)de registo de atividade sinuosa.
+Para mais detalhes sobre as alterações nas suas aplicações desde a camada de infraestrutura até à implementação da aplicação, consulte a Análise de Alterações de [Aplicações (pré-visualização)](../../../azure-monitor/app/change-analysis.md) no Monitor Azure.
 
 > [!NOTE]
-> Os detalhes de alteração no grafo de recursos são para as propriedades do Resource Manager. Para controlar as alterações dentro de uma máquina virtual, consulte [controle de alterações](../../../automation/automation-change-tracking.md) da automação do Azure ou [configuração de convidado do Azure Policy para VMs](../../policy/concepts/guest-configuration.md).
+> Alterar detalhes no Graph de Recursos são para propriedades do Gestor de Recursos. Para rastrear alterações dentro de uma máquina virtual, consulte o rastreio de [mudança](../../../automation/automation-change-tracking.md) da Azure Automation ou a configuração de hóspedes da Azure Policy [para VMs](../../policy/concepts/guest-configuration.md).
 
 > [!IMPORTANT]
-> O histórico de alterações no grafo de recursos do Azure está em visualização pública.
+> A história da mudança no Gráfico de Recursos Azure está em Pré-visualização Pública.
 
-## <a name="find-detected-change-events-and-view-change-details"></a>Localizar eventos de alteração detectados e exibir detalhes de alteração
+## <a name="find-detected-change-events-and-view-change-details"></a>Encontre eventos de mudança detetados e veja detalhes de mudança
 
-A primeira etapa para ver o que mudou em um recurso é localizar os eventos de alteração relacionados a esse recurso dentro de uma janela de tempo. Cada evento de alteração também inclui detalhes sobre o que mudou no recurso. Essa etapa é feita por meio do ponto de extremidade REST do **resourceChanges** .
+O primeiro passo para ver o que mudou num recurso é encontrar os eventos de mudança relacionados com esse recurso dentro de uma janela de tempo. Cada evento de mudança também inclui detalhes sobre o que mudou no recurso. Este passo é feito através do ponto final do REST **Changes.**
 
-O ponto de extremidade **resourceChanges** aceita os seguintes parâmetros no corpo da solicitação:
+O ponto final **alterações** de recursos aceita os seguintes parâmetros no organismo de pedido:
 
-- **Resourceid** \[necessário\]: o recurso do Azure no qual procurar alterações.
-- **interval** \[\]necessário: uma propriedade com datas de _início_ e de _término_ para quando verificar se há um evento de alteração usando o **Z (fuso horário) Zulu**.
-- **fetchPropertyChanges** (opcional): uma propriedade booliana que define se o objeto de resposta inclui alterações de propriedade.
+- **recursosId** \[necessário\]: O recurso Azure para procurar alterações.
+- **intervalo** \[necessário\]: Uma propriedade com datas de _início_ e _fim_ para quando verificar se há um evento de mudança utilizando o **Fuso horário zulu (Z)**.
+- **fetchPropertyChanges** (opcional): Uma propriedade booleana que se define se o objeto de resposta inclui alterações de propriedade.
 
-Corpo do pedido de exemplo:
+Órgão de pedido de exemplo:
 
 ```json
 {
@@ -57,7 +57,7 @@ Corpo do pedido de exemplo:
 }
 ```
 
-Com o corpo da solicitação acima, o URI da API REST para **resourceChanges** é:
+Com o organismo de pedido acima, o REST API URI para **recursosAlterações** é:
 
 ```http
 POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChanges?api-version=2018-09-01-preview
@@ -140,30 +140,30 @@ A resposta é semelhante a este exemplo:
 }
 ```
 
-Cada evento de alteração detectado para o **ResourceId** tem as seguintes propriedades:
+Cada evento de alteração detetado para o **recursoId** tem as seguintes propriedades:
 
-- **ChangeId** -esse valor é exclusivo para esse recurso. Embora a cadeia de caracteres **ChangeId** às vezes possa conter outras propriedades, só é garantido que seja exclusivo.
-- **beforeSnapshot** -contém o **instantâneoid** e o **carimbo de data/hora** do instantâneo de recursos que foi realizado antes de uma alteração ser detectada.
-- **afterSnapshot** -contém o **instantâneoid** e o **carimbo de data/hora** do instantâneo de recursos que foi obtido após a detecção de uma alteração.
-- **ChangeType** – descreve o tipo de alteração detectada para todo o registro de alteração entre **beforeSnapshot** e **afterSnapshot**. Os valores são: _criar_, _Atualizar_e _excluir_. A matriz da propriedade **propertyChanges** só é incluída quando o **ChangeType** é _Update_.
-- **propertyChanges** -essa matriz de propriedades detalha todas as propriedades de recurso que foram atualizadas entre **beforeSnapshot** e **afterSnapshot**:
-  - **PropertyName** -o nome da propriedade de recurso que foi alterada.
-  - **changeCategory** -descreve o que fez a alteração. Os valores são: _System_ e _User_.
-  - **ChangeType** – descreve o tipo de alteração detectada para a propriedade de recurso individual.
-    Os valores são: _Insert_, _Update_, _Remove_.
-  - **antes** de-o valor da propriedade de recurso no **beforeSnapshot**. Não é exibido quando **altertype** é _Insert_.
-  - **aftervalue** -o valor da propriedade de recurso no **afterSnapshot**. Não é exibido quando **altertype** é _Remove_.
+- **changeId** - Este valor é único a esse recurso. Embora a cadeia **changeId** possa, por vezes, conter outras propriedades, é garantido que é única.
+- **beforeSnapshot** - Contém o **instantâneo** e **o carimbo** de tempo do instantâneo de recursos que foi tirado antes de ser detetada uma alteração.
+- **afterSnapshot** - Contém o **instantâneo e** **o carimbo** temporal do instantâneo de recursos que foi tirado após uma alteração ter sido detetada.
+- **changeType** - Descreve o tipo de alteração detetado para todo o registo de alteração entre o **antes do Snapshot** e o **afterSnapshot**. Os valores são: _Criar,_ _Atualizar_e _Apagar_. A **matriz de propriedadesMuda** apenas está incluída quando **o changeType** é _Update_.
+- **propriedadesChanges** - Este conjunto de propriedades detalha todas as propriedades de recursos que foram atualizadas entre o **antes do Snapshot** e o **afterSnapshot**:
+  - **propertyName** - O nome da propriedade de recursos que foi alterado.
+  - **changeCategory** - Descreve o que fez a mudança. Os valores são: _Sistema_ e _Utilizador._
+  - **changeType** - Descreve o tipo de alteração detetado para a propriedade de recursos individuais.
+    Os valores são: _Inserir,_ _Atualizar,_ _Remover_.
+  - **beforeValue** - O valor da propriedade de recursos no **antes snapshot**. Não é apresentado quando **o changeType** é _Inserir_.
+  - **afterValue** - O valor da propriedade de recursos no **afterSnapshot**. Não é apresentado quando **o changeType** é _Remover_.
 
 ## <a name="compare-resource-changes"></a>Comparar alterações de recursos
 
-Com o **ChangeId** do ponto de extremidade **resourceChanges** , o ponto de extremidade REST do **resourceChangeDetails** é usado para obter os instantâneos antes e depois do recurso que foi alterado.
+Com o **changeId** do ponto final do **recursoChanges,** o ponto final do Rest **ChangeDetails** de recurso é então usado para obter as imagens antes e posteriores do recurso que foi alterado.
 
-O ponto de extremidade **resourceChangeDetails** requer dois parâmetros no corpo da solicitação:
+O ponto final **do recursoChangeDetails** requer dois parâmetros no organismo de pedido:
 
-- **ResourceId**: o recurso do Azure para comparar as alterações.
-- **ChangeId**: o evento de alteração exclusivo para o **ResourceId** coletado de **resourceChanges**.
+- **recursosId**: O recurso Azure para comparar alterações.
+- **changeId**: O evento de mudança único para o **recursoId** recolhido a partir de **recursosChanges**.
 
-Corpo do pedido de exemplo:
+Órgão de pedido de exemplo:
 
 ```json
 {
@@ -172,7 +172,7 @@ Corpo do pedido de exemplo:
 }
 ```
 
-Com o corpo da solicitação acima, o URI da API REST para **resourceChangeDetails** é:
+Com o organismo de pedido acima, o REST API URI para **recursosChangeDetails** é:
 
 ```http
 POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChangeDetails?api-version=2018-09-01-preview
@@ -280,12 +280,12 @@ A resposta é semelhante a este exemplo:
 }
 ```
 
-**beforeSnapshot** e **afterSnapshot** cada um fornece o tempo que o instantâneo foi tirado e as propriedades nesse momento. A alteração ocorreu em algum ponto entre esses instantâneos. Observando o exemplo acima, podemos ver que a propriedade alterada foi **supportsHttpsTrafficOnly**.
+**beforeSnapshot** e **afterSnapshot** cada um dá o tempo que o instantâneo foi tirado e as propriedades da época. A mudança aconteceu em algum momento entre estes instantâneos. Olhando para o exemplo acima, podemos ver que a propriedade que mudou foi **suportaHttpsTrafficOnly**.
 
-Para comparar os resultados, use a propriedade **Changes** em **resourceChanges** ou avalie a parte de **conteúdo** de cada instantâneo em **resourceChangeDetails** para determinar a diferença. Se você comparar os instantâneos, o **carimbo de data/hora** sempre será mostrado como uma diferença, apesar de ser esperado.
+Para comparar os resultados, utilize a propriedade das **alterações** em **recursosAltera** ou avalie a parte de **conteúdo** de cada instantâneo em **recursosChangeDetails** para determinar a diferença. Se comparar mossas, a marca de **tempo** mostra sempre como uma diferença, apesar de ser esperado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte o idioma em uso em [consultas de início](../samples/starter.md).
-- Consulte usos avançados em [consultas avançadas](../samples/advanced.md).
-- Saiba mais sobre como [explorar recursos](../concepts/explore-resources.md).
+- Consulte o idioma utilizado nas [consultas de arranque](../samples/starter.md).
+- Consulte [utilizações avançadas em consultas avançadas.](../samples/advanced.md)
+- Saiba mais sobre como [explorar recursos.](../concepts/explore-resources.md)

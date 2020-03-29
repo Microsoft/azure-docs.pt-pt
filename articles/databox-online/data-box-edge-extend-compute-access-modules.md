@@ -1,6 +1,6 @@
 ---
-title: Gerir a rede de computação na borda de caixa de dados do Azure para módulos de acesso | Documentos da Microsoft
-description: Descreve como expandir a rede de computação no seu limite de caixa de dados para aceder aos módulos através de um IP externo.
+title: Gerir a rede de cálculo no Azure Data Box Edge para aceder aos módulos Microsoft Docs
+description: Descreve como estender a rede de cálculo sintetizador na sua Data Box Edge para aceder a módulos através de um IP externo.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,61 +9,61 @@ ms.topic: article
 ms.date: 05/17/2019
 ms.author: alkohli
 ms.openlocfilehash: 907647725dd6795b3b6482476de7442fbbf66114
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65917239"
 ---
-# <a name="enable-compute-network-on-your-azure-data-box-edge"></a>Ativar a rede de computação no seu limite de caixa de dados do Azure
+# <a name="enable-compute-network-on-your-azure-data-box-edge"></a>Ativar a rede compute no seu Limite de Caixa de Dados Azure
 
-Este artigo descreve como os módulos em execução no seu limite de caixa de dados do Azure podem acessar a rede de computação ativado no dispositivo.
+Este artigo descreve como os módulos em execução no seu Azure Data Box Edge podem aceder à rede computacional ativada no dispositivo.
 
-Para configurar a rede, que toma as seguintes etapas:
+Para configurar a rede, tomará os seguintes passos:
 
-- Ativar uma interface de rede no seu dispositivo do Edge de caixa de dados para computação
-- Adicionar um módulo para a rede de computação de acesso na extremidade da caixa de dados
-- Certifique-se de que o módulo pode aceder à interface de rede ativada
+- Ativar uma interface de rede no seu dispositivo Data Box Edge para calcular
+- Adicione um módulo para aceder à rede compute na sua Data Box Edge
+- Verifique se o módulo pode aceder à interface de rede ativada
 
-Neste tutorial, vai utilizar um módulo de aplicação de servidor Web para demonstrar o cenário.
+Neste tutorial, você usará um módulo de aplicação webserver para demonstrar o cenário.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, terá de:
+Antes de começar, vai precisar:
 
-- Um dispositivo de limite de caixa de dados com a configuração de dispositivo foi concluída.
-- Concluiu **configurar computação** passo, de acordo a [Tutorial: Transformar dados com o Edge de caixa de dados do Azure](data-box-edge-deploy-configure-compute-advanced.md#configure-compute) no seu dispositivo. O dispositivo deve ter um recurso do IoT Hub associado, um dispositivo de IoT e um dispositivo IoT Edge.
+- Um dispositivo Data Box Edge com configuração do dispositivo concluída.
+- Completou o passo da **computação configure** de acordo com o [Tutorial: Transforme os dados com o Azure Data Box Edge](data-box-edge-deploy-configure-compute-advanced.md#configure-compute) no seu dispositivo. O seu dispositivo deve ter um recurso IoT Hub associado, um dispositivo IoT e um dispositivo IoT Edge.
 
 ## <a name="enable-network-interface-for-compute"></a>Ativar a interface de rede para computação
 
-Para acessar os módulos em execução no seu dispositivo através de uma rede externa, terá de atribuir um endereço IP a uma interface de rede no seu dispositivo. Pode gerir estas definições da web local da interface do Usuário de computação.
+Para aceder aos módulos em execução no seu dispositivo através de uma rede externa, terá de atribuir um endereço IP a uma interface de rede no seu dispositivo. Pode gerir estas definições de cálculo a partir da sua UI web local.
 
-Siga os passos seguintes na sua web local da interface do Usuário para configurar as definições de computação.
+Dê os seguintes passos na sua UI web local para configurar as definições de cálculo.
 
-1. Na IU da web local, aceda a **configuração > definições de computação**.  
+1. Na Web UI local, vá às definições de **Configuração > Compute**.  
 
-2. **Ativar** a interface de rede que pretende utilizar para ligar a um módulo de computação que vai ser executado no dispositivo.
+2. **Ative** a interface de rede que pretende utilizar para se ligar a um módulo de computação que irá executar no dispositivo.
 
-    - Se utilizar endereços IP estáticos, introduza um endereço IP para a interface de rede.
-    - Se utilizar DHCP, os endereços IP são atribuídos automaticamente. Este exemplo utiliza o DHCP.
+    - Se utilizar endereços IP estáticos, introduza um endereço IP para a interface da rede.
+    - Se utilizar o DHCP, os endereços IP são automaticamente atribuídos. Este exemplo utiliza dHCP.
 
     ![Ativar as definições de computação 1](media/data-box-edge-extend-compute-access-modules/enable-compute-setting-1.png)
 
-3. Selecione **aplicar** para aplicar as definições. Tome nota do endereço IP atribuído à interface de rede, se utilizar o DHCP.
+3. Selecione **Aplicar** para aplicar as definições. Tome nota do endereço IP atribuído à interface de rede se utilizar o DHCP.
 
     ![Ativar as definições de computação](media/data-box-edge-extend-compute-access-modules/enable-compute-setting-2.png)
 
-## <a name="add-webserver-app-module"></a>Adicionar o módulo de aplicativo de servidor Web
+## <a name="add-webserver-app-module"></a>Adicionar módulo de aplicativo webserver
 
-Siga os passos seguintes para adicionar um módulo de aplicação de servidor Web no seu dispositivo do Edge de caixa de dados.
+Tome os seguintes passos para adicionar um módulo de aplicação webserver no seu dispositivo Data Box Edge.
 
-1. Vá para o recurso do IoT Hub associado com o seu dispositivo Edge de caixa de dados e, em seguida, selecione **dispositivo IoT Edge**.
-2. Selecione o dispositivo do IoT Edge associado com o seu dispositivo Edge de caixa de dados. Sobre o **detalhes do dispositivo**, selecione **definir módulos**. No **adicionar módulos**, selecione **+ adicionar** e, em seguida, selecione **módulo do IoT Edge**.
-3. Na **módulos personalizados do IoT Edge** painel:
+1. Vá ao recurso IoT Hub associado ao seu dispositivo Data Box Edge e, em seguida, selecione o **dispositivo IoT Edge**.
+2. Selecione o dispositivo IoT Edge associado ao seu dispositivo Data Box Edge. Nos detalhes do **Dispositivo,** selecione **Módulos set**. Em **adicionar módulos,** selecione **+ Adicione** e, em seguida, selecione Módulo **IoT Edge**.
+3. Na lâmina de **módulos personalizados IoT Edge:**
 
-    1. Especifique um **nome** para seu módulo de aplicação de servidor Web que pretende implementar.
-    2. Fornecer uma **URI da imagem** para que a imagem do módulo. Um módulo o nome fornecido e as etiquetas correspondentes é recuperado. Neste caso, `nginx:stable` obterá uma imagem da nginx estável (marcada como estável) do público [repositório de Docker](https://hub.docker.com/_/nginx/).
-    3. Na **opções de criar contentor**, cole o seguinte código de exemplo:  
+    1. Especifique um **Nome** para o módulo de aplicação do webserver que pretende implementar.
+    2. Forneça um **Uri de Imagem** para a sua imagem de módulo. É recuperado um módulo que corresponda ao nome e etiquetas fornecidos. Neste caso, `nginx:stable` retirará uma imagem de nginx estável (marcada como estável) do [repositório](https://hub.docker.com/_/nginx/)público Docker .
+    3. No **recipiente Criar Opções,** colar o seguinte código de amostra:  
 
         ```
         {
@@ -79,23 +79,23 @@ Siga os passos seguintes para adicionar um módulo de aplicação de servidor We
         }
         ```
 
-        Esta configuração permite-lhe aceder o módulo com o IP de rede de computação através de *http* na porta TCP 8080 (com a porta predefinida do servidor Web que está a ser 80).
+        Esta configuração permite-lhe aceder ao módulo utilizando o IP da rede computacional em *http* na porta 8080 do TCP (sendo a porta webserver padrão 80).
 
-        ![Especifique as informações da porta no painel de módulo personalizado do IoT Edge](media/data-box-edge-extend-compute-access-modules/module-information.png)
+        ![Especifique informações da porta na lâmina do módulo personalizado IoT Edge](media/data-box-edge-extend-compute-access-modules/module-information.png)
 
     4. Selecione **Guardar**.
 
-## <a name="verify-module-access"></a>Verificar o acesso de módulo
+## <a name="verify-module-access"></a>Verificar o acesso ao módulo
 
-1. Certifique-se de que o módulo for implementado com êxito e está em execução. Na **detalhes do dispositivo** na página a **módulos** separador, o estado de tempo de execução do módulo deve ser **em execução**.  
-2. Ligue-se para o módulo de aplicação de servidor web. Abra uma janela do browser e escreva:
+1. Verifique se o módulo está implantado com sucesso e está em execução. Na página Detalhes do **Dispositivo,** no separador **Módulos,** o estado de funcionamento do módulo deve estar **em execução**.  
+2. Ligue-se ao módulo de aplicação do servidor web. Abra uma janela do navegador e escreva:
 
     `http://<compute-network-IP-address>:8080`
 
-    Deverá ver que a aplicação de servidor Web está em execução.
+    Deve ver que a aplicação webserver está em execução.
 
-    ![Verificar a ligação ao módulo através da porta especificada](media/data-box-edge-extend-compute-access-modules/verify-connect-module-1.png)
+    ![Verificar a ligação ao módulo sobre a porta especificada](media/data-box-edge-extend-compute-access-modules/verify-connect-module-1.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [Gerir utilizadores através do portal do Azure](data-box-edge-manage-users.md).

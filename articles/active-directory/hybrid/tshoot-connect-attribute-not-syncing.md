@@ -1,6 +1,6 @@
 ---
-title: Resolver problemas relacionados com um atributo não sincronizar no Azure AD Connect | Documentos da Microsoft
-description: Este tópico fornece os passos sobre como resolver problemas com a sincronização de atributo utilizando a tarefa de resolução de problemas.
+title: Troubleshoot um atributo não sincronizado no Azure AD Connect [ Ligação AD] Microsoft Docs'
+description: Este tópico fornece passos para como resolver problemas com sincronização de atributos usando a tarefa de resolução de problemas.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,79 +16,79 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a639b14c9313179816f6376aa0c5642a645ea344
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60455963"
 ---
-# <a name="troubleshoot-an-attribute-not-synchronizing-in-azure-ad-connect"></a>Resolver problemas relacionados com um atributo não sincronizar no Azure AD Connect
+# <a name="troubleshoot-an-attribute-not-synchronizing-in-azure-ad-connect"></a>Problemas de resolução de um atributo não sincronizado no Azure AD Connect
 
 ## <a name="recommended-steps"></a>**Passos Recomendados**
 
-Antes de investigar problemas de sincronização de atributos, vamos compreender os **do Azure AD Connect** processo de sincronização:
+Antes de investigar problemas de sincronização de atributos, vamos entender o processo de sincronização **do Azure AD Connect:**
 
-  ![O processo de sincronização do Azure AD Connect](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/syncingprocess.png)
+  ![Processo de sincronização da Ligação Azure](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/syncingprocess.png)
 
 ### <a name="terminology"></a>**Terminologia**
 
-* **CS:** Espaço conector, uma tabela na base de dados.
+* **CS:** Connector Space, uma tabela na base de dados.
 * **MV:** Metaverso, uma tabela na base de dados.
-* **AD:** Active Directory
-* **AAD:** Azure Active Directory
+* **AD:** Diretório Ativo
+* **AAD:** Diretório Ativo Azure
 
 ### <a name="synchronization-steps"></a>**Passos de sincronização**
 
-* Importar do AD: Objetos do Active Directory são colocados em AD CS.
+* Importação de AD: Os objetos de Diretório ativo são introduzidos em CS AD.
 
-* Importar do AAD: Objetos do Active Directory do Azure são colocados em CS do AAD.
+* Importação de AAD: Os objetos de Diretório Ativo Azure são introduzidos em CS AAD.
 
-* Sincronização: **Regras de sincronização de entrada** e **regras de sincronização de saída** são executados na ordem de número de precedência de inferior para superior. Para ver as regras de sincronização, pode aceder à **Editor de regras de sincronização** das aplicações de ambiente de trabalho. O **regras de sincronização de entrada** traz dados a partir do CS para MV. O **regras de sincronização de saída** move dados de MV para CS.
+* Sincronização: Regras de **Sincronização de entrada** e regras de **sincronização** de saída são executados na ordem do número de precedência de baixo para superior. Para ver as Regras de Sincronização, pode ir ao Editor de Regras de **Sincronização** a partir das aplicações de desktop. As **Regras de Sincronização de Entrada** trazem dados de CS a MV. As Regras de **Sincronização de Saída** movem dados de MV para CS.
 
-* Exportar para o AD: Depois de executar a sincronização, objetos são exportados a partir do AD CS **do Active Directory**.
+* Exportação para AD: Após a sincronização, os objetos são exportados de AD CS para **Ative Directory**.
 
-* Exportar para o AAD: Depois de executar a sincronização, objetos são exportados a partir do AAD CS **do Azure Active Directory**.
+* Exportação para AAD: Após a sincronização, os objetos são exportados de AAD CS para **o Azure Ative Directory**.
 
-### <a name="step-by-step-investigation"></a>**Investigação de passo a passo**
+### <a name="step-by-step-investigation"></a>**Investigação passo a passo**
 
-* Começaremos nossa pesquisa do **Metaverso** e observe o mapeamento do atributo de origem ao destino.
+* Iniciaremos a nossa pesquisa a partir do **Metaverse** e olharemos para o mapeamento do atributo de origem para alvo.
 
-* Inicie **Synchronization Service Manager** das aplicações de ambiente de trabalho, conforme apresentado abaixo:
+* Lançar Gestor de Serviços de **Sincronização** a partir das aplicações de ambiente de trabalho, como mostrado abaixo:
 
-  ![Inicie o Gestor do serviço de sincronização](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/startmenu.png)
+  ![Gestor de Serviços de Sincronização de Lançamento](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/startmenu.png)
 
-* Sobre o **Synchronization Service Manager**, selecione a **pesquisa de Metaverso**, selecione **âmbito por tipo de objeto**, selecione o objeto usando um atributo e clique em **Pesquisa** botão.
+* No Gestor de Serviço de **Sincronização,** selecione a **Pesquisa Metaverse,** selecione **Scope by Object Type,** selecione o objeto utilizando um atributo e clique no botão **'Procurar'.**
 
-  ![Pesquisa de Metaversos](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvsearch.png)
+  ![Pesquisa metaversa](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvsearch.png)
 
-* Faça duplo clique com o objeto encontrado no **Metaverso** pesquisa para ver todos os seus atributos. Pode clicar no **conectores** separador para examinar o objeto correspondente em todos os **espaços conectores do**.
+* Clique duas vezes no objeto encontrado na pesquisa **metaverso** para ver todos os seus atributos. Pode clicar no separador **Conectores** para ver o objeto correspondente em todos os espaços do **Conector**.
 
-  ![Conectores de objeto de Metaverso](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvattributes.png)
+  ![Conectores de objetos metaversos](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvattributes.png)
 
-* Faça duplo clique no **conector do Active Directory** para ver a **espaço conector** atributos. Clique nas **pré-visualização** botão, o clique de caixa de diálogo seguinte na **gerar pré-visualização** botão.
+* Clique duas vezes no **Conector** de Diretório Ativo para visualizar os atributos do **Espaço do Conector.** Clique no botão **'Pré-visualização',** no seguinte dialogar no botão **'Visualização geração'.**
 
-  ![Atributos de espaço conector](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/csattributes.png)
+  ![Atributos espaciais do conector](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/csattributes.png)
 
-* Agora, clique no **fluxo de atributos de importação**, isso mostra o fluxo de atributos da **espaço de conector do Active Directory** para o **Metaverso**. **Regra de sincronização** coluna mostra quais **regra de sincronização** contribuíram para esse atributo. **Origem de dados** coluna mostra os atributos a partir de **espaço conector**. **Atributo Metaverso** coluna mostra os atributos no **Metaverso**. Pode procurar o atributo não está a sincronizar aqui. Se não encontrar o atributo aqui, em seguida, isso não está mapeado e tem de criar personalizado novo **regra de sincronização** para mapear o atributo.
+* Agora clique no Fluxo de **Atributo sacar importação,** isto mostra fluxo de atributos do Espaço de **Conector de Diretório Ativo** para o **Metaverso**. **A** coluna Sync Rule mostra qual **a Regra de Sincronização** que contribuiu para esse atributo. **A** coluna Data Source mostra-lhe os atributos do **Espaço do Conector**. A coluna **Metaverse Attribute** mostra-lhe os atributos no **Metaverso**. Pode procurar o atributo não sincronizando aqui. Se não encontrar o atributo aqui, então este não está mapeado e tem que criar uma nova Regra de **Sincronização** personalizada para mapear o atributo.
 
-  ![Atributos de espaço conector](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/cstomvattributeflow.png)
+  ![Atributos espaciais do conector](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/cstomvattributeflow.png)
 
-* Clique nas **exportar o fluxo de atributos** no painel da esquerda para ver o fluxo de atributos de **Metaverso** voltar ao **espaço de conector do Active Directory** usando  **Regras de sincronização de saída**.
+* Clique no Fluxo de **Atributo de Exportação** no painel esquerdo para ver o fluxo do atributo do **Metaverse** de volta ao Espaço de **Conector de Diretório Ativo** utilizando regras de **sincronização de saída**.
 
-  ![Atributos de espaço conector](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvtocsattributeflow.png)
+  ![Atributos espaciais do conector](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvtocsattributeflow.png)
 
-* Da mesma forma, pode ver o **espaço de conector do Azure Active Directory** objeto e pode gerar o **pré-visualização** para ver o fluxo de atributos de **Metaverso** para o **Espaço conector** e vice-versa, desta forma pode investigar por que um atributo não estiver a sincronizar.
+* Da mesma forma, pode ver o objeto espaço do Connector de **Diretório Ativo Azure** e pode gerar a **Pré-Visualização** para visualizar o fluxo de atributos do **Metaverse** para o Espaço do **Conector** e vice-versa, desta forma pode investigar por que um atributo não está sincronizado.
 
 ## <a name="recommended-documents"></a>**Documentos Recomendados**
-* [Sincronização do Azure AD Connect: Technical Concepts](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-technical-concepts) (Sincronização do Azure AD Connect: Conceitos Técnicos)
-* [Sincronização do Azure AD Connect: Understanding the architecture](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture) (Sincronização do Azure AD Connect: Compreender a arquitetura)
-* [Sincronização do Azure AD Connect: Understanding Declarative Provisioning](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning) (Sincronização do Azure AD Connect: Compreender o Aprovisionamento Declarativo)
-* [Sincronização do Azure AD Connect: Understanding Declarative Provisioning Expressions](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions) (Sincronização do Azure AD Connect: Compreender as Expressões do Aprovisionamento Declarativo)
-* [Sincronização do Azure AD Connect: Understanding the default configuration](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-default-configuration) (Sincronização do Azure AD Connect: Compreender a configuração predefinida)
-* [Sincronização do Azure AD Connect: Understanding Users, Groups, and Contacts](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-user-and-contacts) (Sincronização do Azure AD Connect: Compreender Utilizadores e Contactos)
-* [Sincronização do Azure AD Connect: Atributos sombra](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-syncservice-shadow-attributes)
+* [Sincronização do Azure AD Connect: Conceitos Técnicos](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-technical-concepts)
+* [Sincronização Azure AD Connect: Compreender a arquitetura](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture)
+* [Sincronização Azure AD Connect: Compreensão do Provisionamento Declarativo](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning)
+* [Sincronização Azure AD Connect: Compreender expressões de provisionamento declarativas](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions)
+* [Sincronização do Azure AD Connect: entender a configuração predefinida](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-default-configuration)
+* [Sincronização azure AD Connect: Compreender utilizadores, grupos e contactos](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-user-and-contacts)
+* [Sincronização Azure AD Connect: Atributos de sombra](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-syncservice-shadow-attributes)
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Sincronização do Azure AD Connect](how-to-connect-sync-whatis.md).
-- [O que é a identidade híbrida? ](whatis-hybrid-identity.md).
+- [Sincronização Azure AD Connect](how-to-connect-sync-whatis.md).
+- [O que é a identidade híbrida?](whatis-hybrid-identity.md)

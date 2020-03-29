@@ -1,6 +1,6 @@
 ---
-title: 'Sincronização do Azure AD Connect: Entender utilizadores, grupos e contactos | Documentos da Microsoft'
-description: Explica os utilizadores, grupos e contactos na sincronização do Azure AD Connect.
+title: 'Sincronização Azure AD Connect: Compreender utilizadores, grupos e contactos Microsoft Docs'
+description: Explica utilizadores, grupos e contactos na sincronização Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,64 +16,64 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 661747754369c17ca98ae69d477e04124b6a2942
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60245482"
 ---
-# <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Sincronização do Azure AD Connect: Entender utilizadores, grupos e contactos
-Existem vários motivos diferentes por que teria de várias florestas do Active Directory e existem várias topologias de implementação diferentes. Modelos comuns incluem uma implementação de recurso de conta e GAL sync'ed florestas depois de uma fusão e aquisição. Mas, mesmo se existirem modelos puros, modelos híbridos são comuns também. A configuração predefinida do Azure AD Connect não assume qualquer modelo específico, mas dependendo de como a correspondência de utilizador tiver sido selecionada no guia de instalação, podem ser observados comportamentos diferentes.
+# <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Sincronização azure AD Connect: Compreender utilizadores, grupos e contactos
+Existem várias razões diferentes para ter várias florestas de Diretório Ativo e existem várias topoologias de implantação diferentes. Os modelos comuns incluem uma implantação de recursos de conta e florestas sincronizadas de GAL após uma fusão & aquisição. Mas mesmo que existam modelos puros, os modelos híbridos também são comuns. A configuração predefinida no sincronizado Azure AD Connect não assume nenhum modelo específico, mas dependendo da forma como a correspondência do utilizador foi selecionada no guia de instalação, podem ser observados diferentes comportamentos.
 
-Neste tópico, iremos percorrer como a configuração predefinida se comporta em algumas topologias. Iremos percorrer a configuração e o Editor de regras de sincronização pode ser usado para examinar a configuração.
+Neste tópico, vamos analisar como a configuração padrão se comporta em determinadas topoologias. Vamos passar pela configuração e o Editor de Regras de Sincronização pode ser usado para olhar para a configuração.
 
-Existem algumas regras gerais que pressupõe a configuração:
-* Independentemente de qual ordem, podemos importar da origem de diretórios Active Directory, o resultado final deve ser sempre o mesmo.
-* Uma conta ativa sempre contribui com informações de início de sessão, incluindo **userPrincipalName** e **sourceAnchor**.
-* Uma conta desabilitada irá contribuir userPrincipalName e sourceAnchor, a menos que seja uma caixa de correio vinculada, se não existir nenhuma conta Active Directory a serem encontradas.
-* Uma conta com uma caixa de correio vinculada nunca será utilizada para userPrincipalName e sourceAnchor. Pressupõe-se que uma conta ativa será encontrada mais tarde.
-* Um objeto de contato pode ser aprovisionado com o Azure AD como um contacto ou como um utilizador. Não conhece verdadeiramente a até que todas as florestas do Active Directory de origem foram processadas.
+Existem algumas regras gerais que a configuração assume:
+* Independentemente da ordem que importamos da fonte Diretórios Ativos, o resultado final deve ser sempre o mesmo.
+* Uma conta ativa irá sempre contribuir com informações de inscrição, incluindo **o userPrincipalName** e **sourceAnchor**.
+* Uma conta desativada contribuirá com o userPrincipalName e fonteAnchor, a menos que seja uma caixa de correio ligada, se não houver uma conta ativa a ser encontrada.
+* Uma conta com uma caixa de correio ligada nunca será utilizada para o userPrincipalName e sourceAnchor. Presume-se que uma conta ativa será encontrada mais tarde.
+* Um objeto de contacto pode ser provisionado à AD Azure como contacto ou como utilizador. Não se sabe até que todas as florestas de Diretório Ativo tenham sido processadas.
 
 ## <a name="groups"></a>Grupos
-Pontos importantes a ter em consideração durante a sincronização de grupos do Active Directory para o Azure AD:
+Pontos importantes a ter em conta ao sincronizar grupos do Ative Directory para o Azure AD:
 
-* O Azure AD Connect exclui grupos de segurança incorporadas da sincronização de diretórios.
+* O Azure AD Connect exclui grupos de segurança incorporados da sincronização do diretório.
 
-* O Azure AD Connect não suporta a sincronização [associações de grupo primário](https://technet.microsoft.com/library/cc771489(v=ws.11).aspx) para o Azure AD.
+* O Azure AD Connect não suporta sincronizar [as adesões](https://technet.microsoft.com/library/cc771489(v=ws.11).aspx) do Grupo Primário à Azure AD.
 
-* O Azure AD Connect não suporta a sincronização [associações de grupo dinâmico de distribuição](https://technet.microsoft.com/library/bb123722(v=exchg.160).aspx) para o Azure AD.
+* O Azure AD Connect não suporta a [subscrição](https://technet.microsoft.com/library/bb123722(v=exchg.160).aspx) sincronizada do Grupo de Distribuição Dinâmica ao Azure AD.
 
-* Para sincronizar um grupo do Active Directory para o Azure AD como um grupo com capacidade de correio:
+* Sincronizar um grupo de Diretório Ativo para a AD Azure como um grupo ativado por correio:
 
-    * Se o grupo *proxyAddress* está vazio, o atributo seu *correio* atributo tem de ter um valor
+    * Se o atributo *proxyAddress* do grupo estiver vazio, o seu atributo de *correio* deve ter um valor
 
-    * Se o grupo *proxyAddress* atributo não está vazia, tem de conter pelo menos um valor de endereço de proxy SMTP. Eis alguns exemplos:
+    * Se o atributo *proxyAddress* do grupo não estiver vazio, deve conter pelo menos um valor de endereço de procuração SMTP. Eis alguns exemplos:
     
-      * Um grupo do Active Directory tem o valor cujo atributo proxyAddress *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* não serão habilitados para email no Azure AD. Não tem um endereço SMTP.
+      * Um grupo de Diretório Ativo cujo atributo proxyAddress tem valor *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* não será ativado por correio em Azure AD. Não tem um endereço SMTP.
       
-      * Um grupo do Active Directory, cujo atributo proxyAddress tem valores *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe\@contoso.com"}* será a capacidade de correio no Azure AD.
+      * Um grupo de Diretório Ativo cujo atributo proxyAddress tem valores *{"X500:/0=contoso.com/ou=users/cn=testgroup",\@"SMTP:johndoe contoso.com"}* será ativado por correio em Azure AD.
       
-      * Um grupo do Active Directory, cujo atributo proxyAddress tem valores *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe\@contoso.com"}* também serão habilitados para email no Azure AD.
+      * Um grupo de Diretório Ativo cujo atributo proxyAddress tem valores *{"X500:/0=contoso.com/ou=users/cn=testgroup",\@"smtp:johndoe contoso.com"}* também será ativado por correio em Azure AD.
 
 ## <a name="contacts"></a>Contactos
-Ter contactos que representa um utilizador numa floresta diferente é comum depois de uma fusão e aquisição em que uma solução de GALSync é a ponte duas ou mais florestas do Exchange. O objeto de contato estiver ingressando em sempre de espaço conector do metaverso usando o atributo de correio. Se já existir um objeto de contato ou objeto de utilizador com o mesmo endereço de correio, os objetos são Unidos. Este é configurado na regra **do AD – associar contacto**. Também existe uma regra com o nome **do AD – comuns de contato** com um fluxo de atributos para o atributo do metaverso **sourceObjectType** com a constante **contacto**. Esta regra tem precedência muito baixa por isso, se qualquer objeto de utilizador está associado ao mesmo objeto de metaverso, em seguida, a regra **do AD – utilizador comuns** contribui com o valor de utilizador para este atributo. Com esta regra, este atributo terá o valor contacto se nenhum utilizador tiver sido associado e o valor de utilizador se, pelo menos, um usuário foi encontrado.
+Ter contactos representando um utilizador numa floresta diferente é comum após uma fusão & aquisição em que uma solução GALSync está a fazer a ponte entre duas ou mais florestas de intercâmbio. O objeto de contacto está sempre a unir-se do espaço do conector ao metaverso utilizando o atributo do correio. Se já existir um objeto de contacto ou objeto de utilizador com o mesmo endereço de correio, os objetos são unidos. Isto está configurado na regra **In from AD – Contact Join**. Existe também uma regra denominada **In from AD – Contact Common** com um fluxo de atributo para a fonte metaverso do atributoObjectType com o **contacto**constante . **sourceObjectType** Esta regra tem uma precedência muito baixa, pelo que se qualquer objeto de utilizador estiver unido ao mesmo objeto metaverso, então a regra **In from AD – User Common** contribuirá com o valor utilizador para este atributo. Com esta regra, este atributo terá o valor Contacto se nenhum utilizador tiver sido unido e o valor Utilizador se pelo menos um utilizador tiver sido encontrado.
 
-Para o aprovisionamento de um objeto para o Azure AD, a regra de saída **expansão para AAD – entre em contato com associação** irá criar um objeto de contato, se o atributo do metaverso **sourceObjectType** está definida como **entreemcontatocom**. Se este atributo estiver definido como **usuário**, em seguida, a regra **expansão para AAD – associação do utilizador** criará um objeto de usuário em vez disso.
-É possível que um objeto é promovido de contacto para o utilizador quando mais diretórios Active Directory de origem são importados e sincronizados.
+Para fornecer um objeto ao Azure AD, a regra de saída **Para AAD – Contact Join** criará um objeto de contacto se a fonte metaverso do atributoObjectType estiver definida para o **sourceObjectType** **contacto**. Se este atributo for definido para **o Utilizador**, então a regra out **para AAD – User Join** criará um objeto de utilizador.
+É possível que um objeto seja promovido de Contacto para Utilizador quando mais fonte Os Diretórios Ativos são importados e sincronizados.
 
-Por exemplo, numa topologia GALSync que descobriremos objetos de contato para todas as pessoas na segunda floresta quando importamos a primeira floresta. Isto irá testar novos objetos de contato no conector do AAD. Quando importar mais tarde e sincronizar a segunda floresta, iremos encontrar os usuários reais e associá-las para os objetos de metaverso existentes. Iremos, em seguida, elimine o objeto de contato no AAD e criar um novo objeto de utilizador em vez disso.
+Por exemplo, numa topologia GALSync encontraremos objetos de contacto para todos na segunda floresta quando importarmos a primeira floresta. Isto irá encenar novos objetos de contacto no Conector AAD. Quando mais tarde importarmos e sincronizarmos a segunda floresta, encontraremos os verdadeiros utilizadores e juntar-nos-emos aos objetos metaversos existentes. Em seguida, eliminaremos o objeto de contacto em AAD e criaremos um novo objeto de utilizador.
 
-Se tiver uma topologia em que os utilizadores são representados como contatos, certifique-se de que selecionar para corresponder a utilizadores no atributo de correio no guia de instalação. Se selecionar outra opção, em seguida, terá uma configuração de dependente de ordem. Objetos de contato serão sempre Junte-se no atributo de correio, mas objetos de utilizador só serão associado no atributo de correio se esta opção foi selecionada no guia de instalação. Poderia, em seguida, terminar com dois objetos diferentes no metaverso com o mesmo atributo de correio se o objeto de contato tiver sido importado antes do objeto de utilizador. Durante a exportação para o Azure AD, será gerado um erro. Este comportamento é propositado e indicaria dados incorretos ou que a topologia não foi corretamente identificada durante a instalação.
+Se tiver uma topologia onde os utilizadores estão representados como contactos, certifique-se de que se leciona para combinar os utilizadores no atributo de correio no guia de instalação. Se selecionar outra opção, terá uma configuração dependente da ordem. Os objetos de contacto juntar-se-ão sempre ao atributo do correio, mas os objetos do utilizador só se juntarão ao atributo do correio se esta opção for selecionada no guia de instalação. Em seguida, pode acabar com dois objetos diferentes no metaverso com o mesmo atributo de correio se o objeto de contacto for importado antes do objeto do utilizador. Durante a exportação para a AD Azure, será lançado um erro. Este comportamento é por design e indica dados maus ou que a topologia não foi corretamente identificada durante a instalação.
 
-## <a name="disabled-accounts"></a>Contas desativadas
-Contas desabilitadas são sincronizadas, também, para o Azure AD. Contas desabilitadas são comuns para representar a recursos no Exchange, por exemplo as salas de conferência. A exceção são os utilizadores com uma caixa de correio ligada; como mencionado anteriormente, estes nunca irão aprovisionar uma conta para o Azure AD.
+## <a name="disabled-accounts"></a>Contas com deficiência
+As contas com deficiência também são sincronizadas para a AD Azure. As contas com deficiência são comuns para representar recursos em Exchange, por exemplo, salas de conferências. A exceção são os utilizadores com uma caixa de correio ligada; como mencionado anteriormente, estes nunca fornecerão uma conta à Azure AD.
 
-A suposição é que, se for encontrada uma conta de utilizador desativado, em seguida, não será possível encontrar outra conta do Active Directory mais tarde e o objeto é aprovisionado com o Azure AD com o userPrincipalName e sourceAnchor encontrado. No caso de outra conta do Active Directory irá aderir ao mesmo objeto de metaverso, em seguida, o userPrincipalName e sourceAnchor serão utilizados.
+O pressuposto é que, se for encontrada uma conta de utilizador desativada, não encontraremos outra conta ativa mais tarde e o objeto for fornecido ao Azure AD com o userPrincipalName e fonteAnchor encontrados. No caso de outra conta ativa se juntar ao mesmo objeto metaverso, o seu userPrincipalName e sourceAnchor serão utilizados.
 
-## <a name="changing-sourceanchor"></a>Alterar sourceAnchor
-Quando um objeto tenha sido exportado para o Azure AD, em seguida, ele não tem permissão para alterar o sourceAnchor mais. Quando o objeto ter sido exportados o atributo do metaverso **cloudSourceAnchor** está definida com o **sourceAnchor** valor aceite pelo Azure AD. Se **sourceAnchor** é alterado e não corresponde ao **cloudSourceAnchor**, a regra **expansão para AAD – associar utilizador** lançará o erro **tem o atributo sourceAnchor alterado**. Neste caso, a configuração ou dados têm de ser corrigidos, para que o mesmo sourceAnchor está presente no metaverso novamente antes do objeto pode ser sincronizado novamente.
+## <a name="changing-sourceanchor"></a>Mudança de fonteÂncora
+Quando um objeto foi exportado para a AD Azure, então já não é permitido alterar a fonteAnchor. Quando o objeto tiver sido exportado, o atributo metaverso **cloudSourceAnchor** é definido com o valor **sourceAnchor** aceite pela Azure AD. Se **a fonteAnchor** for alterada e não corresponder ao **cloudSourceAnchor**, a regra **out to AAD – User Join** lançará o atributo de origem de erro Que o Anchor **alterou**. Neste caso, a configuração ou os dados devem ser corrigidos para que a mesma fonteAnchor esteja novamente presente no metaverso antes que o objeto possa ser sincronizado novamente.
 
 ## <a name="additional-resources"></a>Recursos Adicionais
-* [Sincronização do Azure AD Connect: Personalizando opções de sincronização](how-to-connect-sync-whatis.md)
+* [Azure AD Connect Sync: Opções de sincronização personalizadas](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)
 

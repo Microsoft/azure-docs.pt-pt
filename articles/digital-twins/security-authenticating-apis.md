@@ -1,6 +1,6 @@
 ---
-title: Entender a autenticação de API – Azure digital gêmeos | Microsoft Docs
-description: Saiba como se conectar e autenticar com APIs usando o gêmeos digital do Azure.
+title: Compreender a autenticação da API - Azure Digital Twins [ Azure Digital Twins] Microsoft Docs
+description: Saiba como se conectar e autenticar com APIs usando Gémeos Digitais Azure.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,50 +9,50 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: d950d41186d578702343645875dd7c565002d5a5
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76513009"
 ---
-# <a name="connect-to-and-authenticate-with-apis"></a>Conectar e autenticar com APIs
+# <a name="connect-to-and-authenticate-with-apis"></a>Ligar e autenticar com APIs
 
-O Azure digital gêmeos usa Azure Active Directory (Azure AD) para autenticar usuários e proteger aplicativos. O Azure AD dá suporte à autenticação para uma variedade de arquiteturas modernas. Todos eles se baseiam nos protocolos padrão do setor OAuth 2,0 ou OpenID Connect. Além disso, os desenvolvedores podem usar o Azure AD para criar aplicativos de locatário único e de linha de negócios (LOB). Os desenvolvedores também podem usar o Azure AD para desenvolver [aplicativos multilocatários](how-to-multitenant-applications.md).
+A Azure Digital Twins utiliza o Azure Ative Directory (Azure AD) para autenticar utilizadores e proteger aplicações. A Azure AD suporta a autenticação para uma variedade de arquiteturas modernas. Todos eles baseiam-se nos protocolos padrão da indústria OAuth 2.0 ou OpenID Connect. Além disso, os desenvolvedores podem usar a Azure AD para construir aplicações de um único inquilino e linha de negócio (LOB). Os desenvolvedores também podem usar a AD Azure para desenvolver [aplicações multiarrendatárias.](how-to-multitenant-applications.md)
 
-Para obter uma visão geral do Azure AD, visite a [página conceitos básicos](https://docs.microsoft.com/azure/active-directory/fundamentals/) para obter guias passo a passo, conceitos e inícios rápidos.
+Para uma visão geral do Azure AD, visite a [página de fundamentos](https://docs.microsoft.com/azure/active-directory/fundamentals/) para guias passo a passo, conceitos e quickstarts.
 
 > [!TIP]
-> Siga o [tutorial](tutorial-facilities-setup.md) para configurar e executar um aplicativo de exemplo gêmeos digital do Azure.
+> Siga o [Tutorial](tutorial-facilities-setup.md) para configurar e executar uma aplicação de amostra sinuosa Azure Digital Twins.
 
-Para integrar uma aplicação ou serviço com o Azure AD, primeiro, o programador deve registar a aplicação no Azure AD. Para obter instruções detalhadas e capturas de tela, leia este guia de [início rápido](../active-directory/develop/quickstart-register-app.md).
+Para integrar uma aplicação ou serviço com o Azure AD, primeiro, o programador deve registar a aplicação no Azure AD. Para obter instruções detalhadas e imagens, leia [este arranque rápido](../active-directory/develop/quickstart-register-app.md).
 
-Há suporte para [cinco cenários de aplicativo primário](../active-directory/develop/v2-app-types.md) pelo Azure AD:
+[Cinco cenários de candidatura primária](../active-directory/develop/v2-app-types.md) são apoiados pela Azure AD:
 
-* Aplicativo de página única (SPA): um usuário precisa entrar em um aplicativo de página única protegido pelo Azure AD.
-* Navegador da Web para aplicativo Web: um usuário precisa entrar em um aplicativo Web protegido pelo Azure AD.
-* Aplicativo nativo para API da Web: um aplicativo nativo que é executado em um telefone, Tablet ou PC precisa autenticar um usuário para obter recursos de uma API da Web protegida pelo Azure AD.
-* Aplicativo Web para API da Web: um aplicativo Web precisa obter recursos de uma API da Web protegida pelo Azure AD.
-* Aplicativo de daemon ou de servidor para API da Web: um aplicativo de daemon ou um aplicativo de servidor sem interface do usuário da Web precisa obter recursos de uma API da Web protegida pelo Azure AD.
+* Aplicação de página única (SPA): Um utilizador precisa de iniciar sessão numa aplicação de uma única página que é protegida pela Azure AD.
+* Navegador web para aplicação web: Um utilizador precisa de iniciar sessão numa aplicação web que é protegida pela Azure AD.
+* Aplicação nativa para web API: Uma aplicação nativa que funciona num telefone, tablet ou PC precisa de autenticar um utilizador para obter recursos de uma API web que é protegida pela Azure AD.
+* Aplicação web para Web API: Uma aplicação web precisa de obter recursos de uma API web protegida pela Azure AD.
+* Aplicação da daemon ou servidor para web API: Uma aplicação daemon ou uma aplicação de servidor sem UI web precisa obter recursos de uma API web protegida por Azure AD.
 
 > [!IMPORTANT]
-> O Azure digital gêmeos dá suporte a ambas as bibliotecas de autenticação a seguir:
-> * A biblioteca de [autenticação da Microsoft mais recente (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
-> * A [Adal (biblioteca de autenticação de Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
+> A Azure Digital Twins suporta ambas as seguintes bibliotecas de autenticação:
+> * A mais recente Biblioteca de Autenticação da [Microsoft (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
+> * Biblioteca de [Autenticação de Diretório Ativo Azure (ADAL)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
 
-## <a name="call-digital-twins-from-a-middle-tier-web-api"></a>Chamar gêmeos digital de uma API da Web de camada intermediária
+## <a name="call-digital-twins-from-a-middle-tier-web-api"></a>Ligue para gémeos digitais de uma API web de nível médio
 
-Quando os desenvolvedores arquitetam soluções de gêmeos digital, normalmente criam um aplicativo de camada intermediária ou API. Em seguida, o aplicativo ou a API chama o downstream da API digital gêmeos. Para dar suporte a essa arquitetura de solução da Web padrão, certifique-se de que os usuários primeiro:
+Quando desenvolvedores arquiteto soluções Digital Twins, eles normalmente criam uma aplicação de nível médio ou API. A aplicação ou API chama então a API de Gémeos Digitais a jusante. Para apoiar esta arquitetura de solução web padrão, certifique-se de que os utilizadores primeiro:
 
-1. Autenticar com o aplicativo de camada intermediária
+1. Autenticar com a aplicação de nível médio
 
-1. Um token em nome de OAuth 2,0 é adquirido durante a autenticação
+1. Um símbolo OAuth 2.0 Em nome de um símbolo é adquirido durante a autenticação
 
-1. O token adquirido é usado para autenticar ou chamar APIs que são mais downstream usando o fluxo em nome de
+1. O token adquirido é então usado para autenticar ou chamar APIs que estão mais a jusante usando o fluxo on-behalf-Of
 
-Para obter instruções sobre como orquestrar o fluxo em nome de, leia [fluxo em nome de OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Você também pode exibir exemplos de código na [chamada de uma API Web downstream](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
+Para obter instruções sobre como orquestrar o fluxo em nome, leia [OAuth 2.0 On-Behalf-Of flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Também pode ver amostras de código em [Call a ajusante web API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para configurar e testar o Azure digital gêmeos usando o fluxo de concessão implícita do OAuth 2,0, leia [Configurar o postmaster](./how-to-configure-postman.md).
+Para configurar e testar as Gémeas Digitais Azure utilizando o fluxo de subvenção implícito OAuth 2.0, leia [o Carteiro Configure](./how-to-configure-postman.md).
 
-Para saber mais sobre a segurança de gêmeos digital do Azure, leia [criar e gerenciar atribuições de função](./security-create-manage-role-assignments.md).
+Para conhecer a segurança das Gémeas Digitais Azure, leia Criar e gerir atribuições de [papéis.](./security-create-manage-role-assignments.md)

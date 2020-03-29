@@ -1,6 +1,6 @@
 ---
 title: Lista de compatibilidades de federação do Azure AD
-description: Esta página tem fornecedores de identidade de terceiros que podem ser utilizados para implementar o início de sessão único.
+description: Esta página tem fornecedores de identidade não Microsoft que podem ser usados para implementar um único sign-on.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,22 +17,22 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 54f5090101c486562e33de56402db348c6038c8a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60244751"
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Lista de compatibilidades de federação do Azure AD
-O Azure Active Directory fornece início de sessão único em e avançada de segurança de acesso de aplicativo para Office 365 e outros serviços Online da Microsoft para híbridos e implementações apenas na cloud sem exigir qualquer solução de terceiros. Office 365, como a maioria dos Serviços Online da Microsoft, está integrado com o Azure Active Directory para serviços de diretório, autenticação e autorização. O Azure Active Directory também fornece início de sessão único a milhares de aplicações SaaS e aplicativos da web no local. Veja o Azure Active Directory [Galeria de aplicações](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) para aplicações SaaS suportadas. 
+O Azure Ative Directory fornece uma única assinatura e reforço ua segurança de acesso a aplicações para o Office 365 e outros serviços Microsoft Online para implementações híbridas e apenas na nuvem sem necessitar de qualquer solução de terceiros. O Office 365, tal como a maioria dos serviços Online da Microsoft, está integrado com o Azure Ative Directory para serviços de diretório, autenticação e autorização. O Azure Ative Directory também fornece um único sign-on a milhares de aplicações SaaS e aplicações web no local. Consulte a galeria de [aplicações](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) azure Ative Directory para aplicações saaS apoiadas. 
 
-## <a name="idp-validation"></a>Validação de IDP
-Se a sua organização utiliza uma solução de Federação de terceiros, pode configurar o início de sessão único para os seus utilizadores do Active Directory no local com os Serviços Online da Microsoft, como o Office 365, desde que a solução de Federação de terceiros é compatível com o Azure Do Active Directory.  Para perguntas sobre a compatibilidade, contacte o fornecedor de identidade.  Se gostaria de ver uma lista de fornecedores de identidade que anteriormente foram testados para compatibilidade com o Azure AD, pela Microsoft, clique em [aqui](https://www.microsoft.com/download/details.aspx?id=56843). 
+## <a name="idp-validation"></a>Validação idp
+Se a sua organização utilizar uma solução de federação de terceiros, pode configurar um único registo para os seus utilizadores de Diretório Ativo no local com serviços Microsoft Online, como o Office 365, desde que a solução da federação de terceiros seja compatível com o Azure. Diretório Ativo.  Para questões relacionadas com compatibilidade, contacte o seu fornecedor de identidade.  Se quiser ver uma lista de fornecedores de identidade que foram previamente testados para compatibilidade com a Azure AD, pela Microsoft, clique [aqui](https://www.microsoft.com/download/details.aspx?id=56843). 
 
 >[!NOTE]
->A Microsoft já não fornece testes de validação para fornecedores de identidade independente para compatibilidade com o Azure Active Directory. Se quiser testar o seu produto para interoperabilidade, consulte estes [diretrizes](https://www.microsoft.com/download/details.aspx?id=56843). 
+>A Microsoft já não fornece testes de validação a fornecedores de identidade independentes para compatibilidade com o Diretório Ativo Azure. Se quiser testar o seu produto para interoperabilidade, consulte estas [orientações](https://www.microsoft.com/download/details.aspx?id=56843). 
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Integrar os diretórios no local com o Azure Active Directory](whatis-hybrid-identity.md)
-- [Azure AD Connect e a federação](how-to-connect-fed-whatis.md)
+- [Azure AD Connect e federação](how-to-connect-fed-whatis.md)

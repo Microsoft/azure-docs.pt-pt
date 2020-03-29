@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: e5bc8e5041bfe6d95e3ff1a93bb3338ccead5bb4
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76759436"
 ---
 # <a name="save-custom-images-and-distribute-to-multiple-labs"></a>Guardar imagens personalizadas e distribuir para vários laboratórios
 Este artigo dá-lhe os passos para guardar imagens personalizadas das máquinas virtuais já criadas (VMs). Também abrange como distribuir estas imagens personalizadas a outros Laboratórios DevTest na organização.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Os itens a seguir já devem estar em vigor:
+Os seguintes itens já devem estar no lugar:
 
 - Um laboratório para a Fábrica de Imagem em Azure DevTest Labs.
 - Um Projeto Azure DevOps que é usado para automatizar a fábrica de imagem.
@@ -87,11 +87,11 @@ Utilizando os mesmos passos que viu anteriormente neste artigo, adicione uma tar
 
 ![Construir tarefa para distribuir imagens](./media/save-distribute-custom-images/second-build-task-powershell.png)
 
-Os parâmetros são: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -SubscriptionId $(SubscriptionId) -DevTestLabName $(DevTestLabName) -maxConcurrentJobs 20`
+Os parâmetros são:`-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -SubscriptionId $(SubscriptionId) -DevTestLabName $(DevTestLabName) -maxConcurrentJobs 20`
 
 Esta tarefa requer quaisquer imagens personalizadas presentes na fábrica de imagem e empurra-as para qualquer laboratório definido no ficheiro Labs.json.
 
-## <a name="queue-the-build"></a>Enfileirar a compilação
+## <a name="queue-the-build"></a>Fila da construção
 Uma vez concluída a tarefa de construção de distribuição, faça fila para uma nova construção para garantir que tudo está funcionando. Após a construção concluída com sucesso, as novas imagens personalizadas aparecerão no laboratório de destino que foi introduzido no ficheiro de configuração Labs.json.
 
 ## <a name="next-steps"></a>Passos seguintes

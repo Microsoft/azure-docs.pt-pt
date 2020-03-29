@@ -1,6 +1,6 @@
 ---
-title: Problema ao adicionar uma aplicação da galeria do Azure AD | Documentos da Microsoft
-description: Compreender os rostos de pessoas de problemas comuns ao adicionar aplicações de galeria do Azure AD e o que pode fazer para resolvê-los
+title: Problema de adição de uma aplicação da Galeria Azure AD [ Microsoft Docs
+description: Compreenda os problemas comuns que as pessoas enfrentam ao adicionar aplicações da Azure AD Gallery e o que pode fazer para resolvê-los
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,119 +16,119 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b2b42880f99f3e87d75854166047896860f9eb14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65784434"
 ---
-# <a name="problem-adding-an-azure-ad-gallery-application"></a>Problema ao adicionar uma aplicação da galeria do Azure AD
+# <a name="problem-adding-an-azure-ad-gallery-application"></a>Problema de adição de uma aplicação da Galeria AD Azure
 
-Este artigo ajuda-o a compreender os rostos de pessoas de problemas comuns ao adicionar aplicações de galeria do Azure AD e o que pode fazer para resolvê-los.
+Este artigo ajuda-o a compreender os problemas comuns que as pessoas enfrentam ao adicionar aplicações da Azure AD Gallery e o que pode fazer para os resolver.
 
-## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>Cliquei no botão "Adicionar" e a minha aplicação demorava muito tempo para que sejam apresentadas
+## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>Cliquei no botão "adicionar" e a minha aplicação demorou muito tempo a aparecer
 
-Em algumas circunstâncias, pode demorar 1 a 2 minutos (e, às vezes, mais tempo) para uma aplicação para aparecerem ao fim de adicioná-lo ao seu diretório. Embora não seja o desempenho esperado normal, pode ver a adição de aplicação está em curso, ao clicar no **notificações** ícone (na campainha) no canto superior direito dos [portal do Azure](https://portal.azure.com/) e à procura para uma **em curso** ou **concluído** notificação rotulada **a adicionar a aplicação.**
+Em algumas circunstâncias, pode levar 1-2 minutos (e às vezes mais) para que uma aplicação apareça depois de adicioná-la ao seu diretório. Embora este não seja o desempenho normal esperado, pode ver que a adição de aplicação está em andamento clicando no ícone **Notificações** (o sino) na parte superior direita do [portal Azure](https://portal.azure.com/) e procurando uma notificação **em progresso** ou **completa** com a etiqueta **de adição.**
 
-Se seu aplicativo nunca é adicionado ou encontrar um erro ao clicar o **Add** botão, verá um **notificação** num **erro** estado. Se quiser obter mais detalhes sobre o erro para obter mais informações para ou partilhar com um engenheiro de suporte, pode ver mais informações sobre o erro ao seguir os passos a [como ver os detalhes de uma notificação no portal](#how-to-see-the-details-of-a-portal-notification) secção.
+Se a sua aplicação nunca for adicionada, ou se encontrar um erro ao clicar no botão **Adicionar,** verá uma **Notificação** num estado **de Erro.** Se quiser mais detalhes sobre o erro para saber mais ou partilhar com um engenheiro de suporte, pode ver mais informações sobre o erro seguindo os passos na Como ver os detalhes de uma secção de [notificação do portal.](#how-to-see-the-details-of-a-portal-notification)
 
-## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>Cliquei no botão "Adicionar" e meu aplicativo não foi publicado
+## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>Cliquei no botão "adicionar" e a minha aplicação não apareceu
 
-Às vezes, devido a problemas transitórios, problemas de rede ou um bug, adicionar uma aplicação falha. Pode dizer isso acontece quando clica o **notificações** ícone (na campainha) no canto superior direito do portal do Azure e que veja um ícone vermelho (!!!) junto ao seu **a adicionar a aplicação** notificação. Isto indica que ocorreu um erro ao criar a aplicação.
+Por vezes, devido a problemas transitórios, problemas de networking ou um bug, adicionar uma aplicação falha. Pode dizer que isto acontece quando clica no ícone **Notificações** (o sino) na parte superior direita do portal Azure e vê um ícone vermelho (!) ao lado da notificação de **aplicação Adicionar.** Isto indica que houve um erro ao criar a aplicação.
 
-Se ocorrer um erro ao clicar o **Add** botão, verá um **notificação** num **erro** estado. Se quiser obter mais detalhes sobre o erro para obter mais informações para ou partilhar com um engenheiro de suporte, pode ver mais informações sobre o erro ao seguir os passos a [como ver os detalhes de uma notificação no portal](#how-to-see-the-details-of-a-portal-notification) secção.
+Se encontrar um erro ao clicar no botão **Adicionar,** verá uma **Notificação** num estado **de Erro.** Se quiser mais detalhes sobre o erro para saber mais ou partilhar com um engenheiro de suporte, pode ver mais informações sobre o erro seguindo os passos na Como ver os detalhes de uma secção de [notificação do portal.](#how-to-see-the-details-of-a-portal-notification)
 
-## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Não sei como configurar a minha aplicação assim que tiver adicionado
+## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Não sei como configurar a minha candidatura depois de a adicionar.
 
-Se precisar de ajuda a aprendizagem sobre aplicativos, o [lista de tutoriais sobre como integrar aplicações de SaaS no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) artigo é um bom lugar para começar.
+Se precisar de ajuda para aprender sobre aplicações, a [Lista de Tutoriais sobre Como Integrar Apps SaaS com](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) artigo de Diretório Ativo Azure é um bom lugar para começar.
 
-Além disso, o [biblioteca de documentos de aplicações do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) ajuda-o a saber mais sobre o início de sessão único com o Azure AD e como ela funciona.
+Além disso, a Biblioteca de Documentos de [Aplicações AD Azure](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) ajuda-o a aprender mais sobre o único sign-on com a Azure AD e como funciona.
 
-## <a name="how-to-see-the-details-of-a-portal-notification"></a>Como ver os detalhes de uma notificação no portal
+## <a name="how-to-see-the-details-of-a-portal-notification"></a>Como ver os detalhes de uma notificação do portal
 
-Pode ver os detalhes de qualquer notificação do portal, seguindo os passos abaixo:
+Pode ver os detalhes de qualquer notificação do portal seguindo os passos abaixo:
 
-1.  Selecione o **notificações** ícone (na campainha) no canto superior direito do portal do Azure
+1.  Selecione o ícone **notificações** (o sino) na parte superior direita do portal Azure
 
-2.  Selecione qualquer notificação numa **erro** Estado (aquelas com linhas vermelhas (!!!) junto a eles).
+2.  Selecione qualquer notificação num estado **de Erro** (aqueles com um vermelho (!) ao lado deles).
 
     >[!NOTE]
-    >Não é possível clicar em notificações numa **Successful** ou **em curso** estado.
+    >Não é possível clicar em notificações num estado de **Sucesso** ou **Em Progresso.**
     >
     >
 
-4.  Utilize as informações em **detalhes de notificação** para obter mais detalhes sobre o problema de compreender.
+4.  Utilize as informações em Detalhes de **Notificação** para compreender mais detalhes sobre o problema.
 
-5.  Se ainda precisar de ajuda, também pode partilhar estas informações com um engenheiro de suporte ou o grupo de produto para obter ajuda com o seu problema.
+5.  Se ainda precisar de ajuda, também pode partilhar esta informação com um engenheiro de suporte ou com o grupo de produtos para obter ajuda com o seu problema.
 
-6.  Clique nas **cópia** **ícone** à direita do **copiar erro** caixa de texto para copiar todos os detalhes de notificação para partilhar com um engenheiro de grupo de suporte ou o produto.
+6.  Clique no **ícone** da **cópia** à direita da caixa de texto de **erro copiar** para copiar todos os detalhes de notificação para partilhar com um engenheiro de suporte ou grupo de produto.
 
-## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Como obter ajuda com o envio de detalhes de notificação para um engenheiro de suporte
+## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Como obter ajuda enviando detalhes de notificação a um engenheiro de suporte
 
-É muito importante que partilham **todos os detalhes indicados abaixo** com um engenheiro de suporte se precisar de ajuda, para que eles podem ajudá-lo a rapidamente. Pode fazê-lo facilmente ao **tirar uma captura de ecrã** ou ao clicar o **ícone de erro da cópia**, apresentado à direita do **copiar erro** caixa de texto.
+É muito importante que partilhe **todos os detalhes listados abaixo** com um engenheiro de suporte se precisar de ajuda, para que possam ajudá-lo rapidamente. Pode fazê-lo facilmente **tirando uma imagem,** ou clicando no ícone de **erro copy,** encontrado à direita da caixa de texto de **erro copy.**
 
 ## <a name="notification-details-explained"></a>Detalhes da notificação explicados
 
 Consulte as seguintes descrições para obter mais detalhes sobre as notificações.
 
-### <a name="essential-notification-items"></a>Itens de notificação essenciais
+### <a name="essential-notification-items"></a>Itens essenciais de notificação
 
 - **Título** – o título descritivo da notificação
 
-  * Exemplo – **as definições de proxy de aplicação**
+  * Exemplo – Definições de **procuração de aplicação**
 
-- **Descrição** – a descrição, o que ocorreu em resultado da operação
+- **Descrição** – a descrição do que ocorreu em resultado da operação
 
-  -   Exemplo – **interno url introduzido já está a ser utilizado por outra aplicação**
+  -   Exemplo – **O url interno introduzido já está a ser utilizado por outra aplicação**
 
-- **ID de notificação** – o ID exclusivo da notificação
+- ID de **notificação** – o ID único da notificação
 
-  -   Exemplo – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
+  -   Exemplo – **clienteNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
-- **ID do pedido de cliente** – o ID de pedido específico feito pelo browser
+- **ID** de pedido de cliente – o ID de pedido específico feito pelo seu navegador
 
   -   Exemplo – **302fd775-3329-4670-a9f3-bea37004f0bc**
 
-- **Hora UTC do carimbo de data /** – o período de tempo durante o qual a notificação ocorreu, em UTC
+- **Carimbo de tempo UTC** – o carimbo de tempo durante o qual ocorreu a notificação, na UTC
 
   -   Exemplo – **2017-03-23T19:50:43.7583681Z**
 
-- **ID de transação interno** – o ID interno, podemos usar para procurar o erro nos nossos sistemas
+- **ID de Transação Interna** – o ID interno que podemos usar para procurar o erro nos nossos sistemas
 
   -   Exemplo – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
-- **UPN** – o utilizador que executou a operação
+- **UPN** – o utilizador que realizou a operação
 
-  -   Exemplo – **tperkins\@f128.info**
+  -   Exemplo - **tperkins\@f128.info**
 
-- **ID do inquilino** – o ID exclusivo do inquilino que fazia parte, o utilizador que executou a operação
+- **ID do inquilino** – a identificação única do inquilino que o utilizador que realizou a operação foi membro
 
-  -   Exemplo – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
+  -   Exemplo – **7918d4b5-0442-4a97-be2d-36f9f962ece**
 
-- **ID de objeto de utilizador** – o ID exclusivo do utilizador que executou a operação
+- **ID** do objeto do utilizador – o ID único do utilizador que realizou a operação
 
-  -   Exemplo – **17f84be4-51f8-483a-b533-383791227a99**
+  -   Exemplo – **17f84be4-51f8-483a-b533-38379127a99**
 
-### <a name="detailed-notification-items"></a>Itens de notificação detalhada
+### <a name="detailed-notification-items"></a>Itens de notificação detalhados
 
--   **Nome a apresentar** – **(pode estar vazio)** um nome a apresentar mais detalhado do erro
+-   **Nome do ecrã** – **(pode estar vazio)** um nome de exibição mais detalhado para o erro
 
-    -   Exemplo – **as definições de proxy de aplicação**
+    -   Exemplo – Definições de **procuração de aplicação**
 
 -   **Estado** – o estado específico da notificação
 
-    -   Exemplo – **falhou**
+    -   Exemplo - **Falhado**
 
--   **ID de objeto** – **(pode estar vazio)** o ID de objeto em relação aos quais a operação foi executada
+-   **ID do objeto** – **(pode estar vazio)** o ID do objeto contra o qual a operação foi realizada
 
     -   Exemplo – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
--   **Detalhes** – o detalhadas descrição, o que ocorreu em resultado da operação
+-   **Detalhes** – a descrição detalhada do que ocorreu em resultado da operação
 
-    -   Exemplo – **url interno `https://bing.com/` é inválido, uma vez que já está em utilização**
+    -   Exemplo – **O url `https://bing.com/` interno é inválido uma vez que já está em uso**
 
--   **Erro ao copiar** – clique a **ícone de cópia** à direita do **copiar erro** caixa de texto para copiar todos os detalhes de notificação para partilhar com um grupo de suporte ou produto 
+-   **Erro de cópia** - Clique no ícone da **cópia** à direita da caixa de texto de **erro Copiar** para copiar todos os detalhes de notificação para partilhar com um suporte ou grupo de produto 
 -   engenheiro
 
-    -   Exemplo ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
+    -   Exemplo```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 

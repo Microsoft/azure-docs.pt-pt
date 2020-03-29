@@ -1,6 +1,6 @@
 ---
-title: Gerenciar logs-CLI do Azure-banco de dados do Azure para PostgreSQL-servidor único
-description: Este artigo descreve como configurar e acessar os logs do servidor (arquivos. log) no banco de dados do Azure para PostgreSQL-servidor único usando o CLI do Azure.
+title: Gerir registos - Azure CLI - Base de Dados Azure para PostgreSQL - Servidor Único
+description: Este artigo descreve como configurar e aceder aos registos do servidor (.ficheiros de registo) na Base de Dados Azure para PostgreSQL - Servidor Único utilizando o ClI Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -8,42 +8,42 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: be679be91d49516bd2f6c672eb53640cfad2ae2a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74763577"
 ---
-# <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurar e acessar logs de servidor usando CLI do Azure
-Você pode baixar os logs de erro do servidor PostgreSQL usando a interface de linha de comando (CLI do Azure). No entanto, não há suporte para o acesso aos logs de transações. 
+# <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configure e aceda aos registos dos servidores utilizando o Azure CLI
+Pode descarregar os registos de erros do servidor PostgreSQL utilizando a interface da linha de comando (Azure CLI). No entanto, o acesso aos registos de transações não é suportado. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para percorrer este guia de instruções, você precisa de:
-- [Banco de dados do Azure para servidor PostgreSQL](quickstart-create-server-database-azure-cli.md)
-- O utilitário de linha de comando [CLI do Azure](/cli/azure/install-azure-cli) ou Azure cloud Shell no navegador
+Para passar por este guia de como guiar, você precisa:
+- [Base de Dados Azure para servidor PostgreSQL](quickstart-create-server-database-azure-cli.md)
+- O utilitário de linha de comando [Azure CLI](/cli/azure/install-azure-cli) ou Azure Cloud Shell no navegador
 
-## <a name="configure-logging"></a>Configurar registro em log
-Você pode configurar o servidor para acessar logs de consulta e logs de erros. Os logs de erros podem ter informações de vácuo, conexão e ponto de verificação automáticos.
-1. Ative o registro em log.
-2. Para habilitar o log de consultas, atualize **log\_instrução** e **log\_instrução min\_Duration\_** .
-3. Período de retenção de atualização.
+## <a name="configure-logging"></a>Configurar a exploração madeireira
+Pode configurar o servidor para aceder a registos de consultas e registos de erros. Os registos de erros podem ter informações de auto-vácuo, ligação e checkpoint.
+1. Ligue a exploração madeireira.
+2. Para permitir a consulta de registo, atualize a **declaração de registo\_** e a declaração de **duração do\_\_\_log min**.
+3. Atualizar o período de retenção.
 
-Para obter mais informações, consulte [Personalizando parâmetros de configuração do servidor](howto-configure-server-parameters-using-cli.md).
+Para mais informações, consulte os parâmetros de [configuração do servidor personalizados](howto-configure-server-parameters-using-cli.md).
 
-## <a name="list-logs"></a>Listar logs
-Para listar os arquivos de log disponíveis para o servidor, execute o comando [AZ postgres Server-logs List](/cli/azure/postgres/server-logs) .
+## <a name="list-logs"></a>Registos de listas
+Para listar os ficheiros de registo disponíveis para o seu servidor, execute o comando da lista de [registos de registos do servidor az postgres.](/cli/azure/postgres/server-logs)
 
-Você pode listar os arquivos de log para o servidor **mydemoserver.Postgres.Database.Azure.com** no grupo de recursos **MyResource**Group. Em seguida, direcione a lista de arquivos de log para um arquivo de texto chamado **log\_arquivos\_List. txt**.
+Pode listar os ficheiros de registo para **servidor mydemoserver.postgres.database.azure.com** sob o grupo de recursos **myresourcegroup**. Em seguida, direcione a lista de ficheiros de registo para um ficheiro de texto chamado **lista de ficheiros\_\_de registo.txt**.
 ```azurecli-interactive
 az postgres server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
-## <a name="download-logs-locally-from-the-server"></a>Baixar logs localmente do servidor
-Com o comando [AZ postgres Server-logs download](/cli/azure/postgres/server-logs) , você pode baixar arquivos de log individuais para seu servidor. 
+## <a name="download-logs-locally-from-the-server"></a>Descarregue registos localmente a partir do servidor
+Com o comando [de descarregamento de registos de registos de registos de servidores az postgres,](/cli/azure/postgres/server-logs) pode descarregar ficheiros de registo individuais para o seu servidor. 
 
-Use o exemplo a seguir para baixar o arquivo de log específico para o servidor **mydemoserver.Postgres.Database.Azure.com** no grupo de recursos **MyResource** Group para seu ambiente local.
+Utilize o seguinte exemplo para descarregar o ficheiro de registo específico para o servidor **mydemoserver.postgres.database.azure.com** sob o grupo de recursos **myresourcegroup** para o seu ambiente local.
 ```azurecli-interactive
 az postgres server-logs download --name 20170414-mydemoserver-postgresql.log --resource-group myresourcegroup --server mydemoserver
 ```
 ## <a name="next-steps"></a>Passos seguintes
-- Para saber mais sobre logs de servidor, confira [logs de servidor no banco de dados do Azure para PostgreSQL](concepts-server-logs.md).
-- Para obter mais informações sobre parâmetros de servidor, consulte [Personalizar parâmetros de configuração do servidor usando CLI do Azure](howto-configure-server-parameters-using-cli.md).
+- Para saber mais sobre os registos do servidor, consulte os registos do Servidor na Base de [Dados Azure para PostgreSQL](concepts-server-logs.md).
+- Para obter mais informações sobre os parâmetros do servidor, consulte Personalizar os parâmetros de configuração do [servidor utilizando o Azure CLI](howto-configure-server-parameters-using-cli.md).

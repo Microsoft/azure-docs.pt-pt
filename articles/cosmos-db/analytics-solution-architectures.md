@@ -1,6 +1,6 @@
 ---
-title: Soluções que usam análises distribuídas globalmente no Azure Cosmos DB.
-description: Saiba mais sobre as soluções que podem ser criadas usando a análise distribuída globalmente no Azure Cosmos DB.
+title: Soluções que utilizam análises distribuídas globalmente no Azure Cosmos DB.
+description: Conheça as soluções que podem ser construídas utilizando a análise distribuída globalmente no Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
 ms.topic: conceptual
@@ -8,79 +8,79 @@ ms.service: cosmos-db
 ms.date: 09/26/2019
 ms.reviewer: sngun
 ms.openlocfilehash: d0b5042c1401a95cc75f4c01ace843659b6babfe
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73681796"
 ---
-# <a name="solutions-using-globally-distributed-analytics-in-azure-cosmos-db"></a>Soluções que usam análises distribuídas globalmente no Azure Cosmos DB
+# <a name="solutions-using-globally-distributed-analytics-in-azure-cosmos-db"></a>Soluções que utilizam análises distribuídas globalmente no Azure Cosmos DB
 
-Este artigo descreve as soluções que podem ser criadas usando a análise distribuída globalmente no Azure Cosmos DB.
+Este artigo descreve as soluções que podem ser construídas usando a análise distribuída globalmente no Azure Cosmos DB.
 
-## <a name="retail-and-consumer-goods"></a>Bens de varejo e de consumo
+## <a name="retail-and-consumer-goods"></a>Bens de retalho e de consumo
 
-Você pode usar o suporte do Spark no Azure Cosmos DB para fornecer recomendações e ofertas em tempo real. Você pode ajudar os clientes a descobrir os itens necessários com personalização em tempo real e recomendações de produtos.
+Você pode usar o suporte spark em Azure Cosmos DB para fornecer recomendações e ofertas em tempo real. Pode ajudar os clientes a descobrir os itens que vão precisar com personalização em tempo real e recomendações de produtos.
 
-* Você pode usar o suporte interno de Machine Learning fornecido pelo Apache Spark Runtime para gerar recomendações em tempo real em todos os catálogos de produtos.
+* Pode utilizar o suporte integrado de Machine Learning fornecido pelo tempo de execução da Apache Spark para gerar recomendações em tempo real nos catálogos de produtos.
 
-* Você pode clicar em transmitir dados, comprar dados e dados do cliente para fornecer recomendações direcionadas que conduzem o valor de tempo de vida.
+* Pode extrair dados de fluxo de cliques, dados de compra e dados do cliente para fornecer recomendações direcionadas que impulsionam o valor vitalício.
 
-* Usando o recurso de distribuição global do Azure Cosmos DB, grandes volumes de dados do produto que são distribuídos entre regiões podem ser analisados em milissegundos.
+* Utilizando a funcionalidade de distribuição global do Azure Cosmos DB, grandes volumes de dados de produtos que se espalham por regiões podem ser analisados em milissegundos.
 
-* Você pode obter informações rapidamente para usuários e dados distribuídos geograficamente. Você pode melhorar a taxa de conversão de promoção servindo o anúncio correto para o usuário correto no momento certo.
+* Pode obter rapidamente informações para os utilizadores e dados distribuídos geograficamente. Pode melhorar a taxa de conversão de promoção servindo o anúncio certo ao utilizador certo no momento certo.
 
-* Você pode aproveitar o recurso de streaming do Spark embutido para enriquecer dados dinâmicos, combinando-os com dados estáticos do cliente. Dessa forma, você pode fornecer anúncios mais personalizados e direcionados em tempo real e em contexto com o que os clientes estão fazendo.
+* Pode aproveitar a capacidade de streaming de Spark incorporada para enriquecer dados ao vivo, combinando-os com dados estáticos do cliente. Desta forma, pode entregar anúncios mais personalizados e direcionados em tempo real e em contexto com o que os clientes estão a fazer.
 
-A imagem a seguir mostra como Azure Cosmos DB suporte do Spark é usado para otimizar o preço e as promoções:
+A imagem que se segue mostra como o suporte da Azure Cosmos DB Spark é usado para otimizar preços e promoções:
 
-![Suporte ao Spark do Azure Cosmos DB para otimizar o preço e as promoções](./media/analytics-solution-architectures/optimize-pricing-and-promotions.png)
+![Suporte spark da Azure Cosmos DB para otimizar preços e promoções](./media/analytics-solution-architectures/optimize-pricing-and-promotions.png)
 
 
-A imagem a seguir mostra como Azure Cosmos DB suporte do Spark é usado no mecanismo de recomendação em tempo real:
+A imagem que se segue mostra como o suporte da Azure Cosmos DB Spark é utilizado no motor de recomendação em tempo real:
 
-![Suporte ao Azure Cosmos DB Spark no mecanismo de recomendação em tempo real](./media/analytics-solution-architectures/real-time-recommendation-engine.png)
+![Suporte da Azure Cosmos DB Spark no motor de recomendação em tempo real](./media/analytics-solution-architectures/real-time-recommendation-engine.png)
 
-## <a name="manufacturing-and-iot"></a>Manufatura e IoT
+## <a name="manufacturing-and-iot"></a>Fabricação e IoT
 
-A plataforma de análise interna do Azure Cosmos DB permite que você habilite a análise em tempo real de dados de IoT de milhões de dispositivos em escala global. Você pode fazer inovações modernas como prever padrões meteorológicos, análise preditiva e otimizações de energia.
+A plataforma de análise incorporada da Azure Cosmos DB permite-lhe permitir a análise em tempo real de dados ioT de milhões de dispositivos à escala global. Você pode fazer inovações modernas como prever padrões climáticos, análise supreventiva e otimizações de energia.
 
-* Usando Azure Cosmos DB, você pode minar dados como métricas de ativos em tempo real e fatores meteorológicos e, em seguida, aplicar análise de grade inteligente para otimizar o desempenho de dispositivos conectados no campo. O Smart Grid Analytics é a chave para controlar os custos operacionais, melhorar a confiabilidade da grade e fornecer serviços de energia personalizados aos consumidores.
+* Ao utilizar o Azure Cosmos DB, pode extrair dados como métricas de ativos em tempo real e fatores climáticos, aplicando então análise seletiva para otimizar o desempenho de dispositivos conectados no campo. A análise da rede inteligente é a chave para controlar os custos operacionais, melhorar a fiabilidade da rede e fornecer serviços energéticos personalizados aos consumidores.
 
-A imagem a seguir mostra como o suporte ao Spark do Azure Cosmos DB é usado para ler métricas de dispositivos IoT e aplicar análise de grade inteligente:
+A imagem que se segue mostra como o suporte spark da Azure Cosmos DB é usado para ler métricas a partir de dispositivos IoT e aplicar análises inteligentes de grelha:
 
-![Suporte do Spark do Azure Cosmos DB para ler métricas de dispositivos IoT](./media/analytics-solution-architectures/read-metrics-from-iot-devices.png)
+![Suporte de Faísca da Azure Cosmos DB para ler métricas a partir de dispositivos IoT](./media/analytics-solution-architectures/read-metrics-from-iot-devices.png)
 
 ## <a name="predictive-maintenance"></a>Manutenção preditiva
 
-* A manutenção de ativos, como compactadores, que são usados em pequenas Rigs de análise para plataformas de água profunda, é um empreendimento complexo. Esses ativos estão localizados em todo o mundo e geram petabytes de dados. Usando Azure Cosmos DB, você pode criar um pipeline de dados de previsão de ponta a ponta que usa o streaming do Spark para processar grandes quantidades de telemetria de sensor, armazenar partes de ativos e dados de mapeamentos de sensor.
+* Manter ativos como compressores que são usados em pequenas plataformas de perfuração para plataformas de águas profundas é um esforço complexo. Estes ativos estão localizados em todo o mundo e geram petabytes de dados. Ao utilizar o Azure Cosmos DB, pode construir um pipeline de dados preditivos de ponta a ponta que utiliza o streaming Spark para processar grandes quantidades de telemetria de sensores, peças de ativos de loja e dados de mapeamento de sensores.
 
-* Você pode criar e implantar modelos de aprendizado de máquina para prever falhas de ativo antes que elas ocorram e emitir as ordens de trabalho de manutenção antes que a falha ocorra.
+* Pode construir e implementar modelos de aprendizagem automática para prever falhas de ativos antes de acontecerem e emitir ordens de manutenção antes da falha ocorrer.
 
-A imagem a seguir mostra como o suporte ao Spark do Azure Cosmos DB é usado para criar um sistema de manutenção preditiva:
+A imagem que se segue mostra como o suporte spark da Azure Cosmos DB é usado para construir um sistema de manutenção preditiva:
 
-![O suporte ao Spark do Azure Cosmos DB para criar um sistema de manutenção preditiva](./media/analytics-solution-architectures/predictive-maintenance-system.png)
+![Suporte de Faísca da Azure Cosmos DB para construir um sistema de manutenção preditiva](./media/analytics-solution-architectures/predictive-maintenance-system.png)
 
-A imagem a seguir mostra como o suporte ao Spark do Azure Cosmos DB é usado para criar um sistema de diagnóstico de veículo em tempo real:
+A imagem que se segue mostra como o suporte de Spark da Azure Cosmos DB é usado para construir um sistema de diagnóstico de veículos em tempo real:
 
-![O suporte ao Spark do Azure Cosmos DB para criar um sistema de diagnóstico de veículo em tempo real](./media/analytics-solution-architectures/real-time-vehicle-diagnostic-system.png)
+![Suporte de Faísca da Azure Cosmos DB para construir um sistema de diagnóstico de veículos em tempo real](./media/analytics-solution-architectures/real-time-vehicle-diagnostic-system.png)
 
 ## <a name="gaming"></a>Jogos
 
-* Com o suporte interno ao Spark, o Azure Cosmos DB permite que você crie, dimensione e implante facilmente modelos de análise avançada e de aprendizado de máquina em minutos para criar a melhor experiência de jogos possível.
+* Com suporte à Spark incorporado, o Azure Cosmos DB permite-lhe construir, escalar e implementar modelos avançados de análise e machine learning em minutos para construir a melhor experiência de jogo possível.
 
-* Você pode analisar o Player, a compra e os dados comportamentais para criar ofertas personalizadas relevantes para obter altas taxas de conversão.
+* Pode analisar dados de jogadores, compras e comportamentais para criar ofertas personalizadas relevantes para atingir altas taxas de conversão.
 
-* Usando o Spark Machine Learning, você pode analisar e obter informações sobre os dados de telemetria do jogo. Você pode diagnosticar e impedir tempos de carregamento lentos e problemas no jogo.
+* Utilizando a aprendizagem automática Spark, pode analisar e obter insights sobre os dados da telemetria do jogo. Pode diagnosticar e prevenir tempos de carga lentas e problemas no jogo.
 
-A imagem a seguir mostra como o suporte ao Spark do Azure Cosmos DB é usado no Game Analytics:
+A imagem que se segue mostra como o suporte spark da Azure Cosmos DB é usado na análise de jogos:
 
-![Suporte ao Spark do Azure Cosmos DB no Game Analytics](./media/analytics-solution-architectures/gaming-analytics.png)
+![Suporte spark da Azure Cosmos DB na análise de jogos](./media/analytics-solution-architectures/gaming-analytics.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais sobre os benefícios do Azure Cosmos DB, consulte o artigo [visão geral](introduction.md) .
-* [Introdução à API de Azure Cosmos DB para MongoDB](mongodb-introduction.md)
-* [Introdução ao Azure Cosmos DB API do Cassandra](cassandra-introduction.md)
-* [Introdução à API do Azure Cosmos DB Gremlin](graph-introduction.md)
-* [Introdução ao Azure Cosmos DB API de Tabela](table-introduction.md)
+* Para conhecer os benefícios do Azure Cosmos DB, consulte o artigo sobre [visão geral.](introduction.md)
+* [Começar com o Azure Cosmos DB API para MongoDB](mongodb-introduction.md)
+* [Começar com a API Do Cosmos Azure DB Cassandra](cassandra-introduction.md)
+* [Começar com a API Azure Cosmos DB Gremlin](graph-introduction.md)
+* [Começar com a Mesa DD D DD IA do Azure Cosmos](table-introduction.md)

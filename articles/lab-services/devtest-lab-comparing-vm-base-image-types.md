@@ -1,6 +1,6 @@
 ---
-title: Comparar imagens personalizadas e fórmulas no DevTest Labs | Documentos da Microsoft
-description: Saiba mais sobre as diferenças entre as imagens personalizadas e fórmulas, como bases de VM para que possa decidir qual destes melhor se adequa aos seu ambiente.
+title: Comparar imagens e fórmulas personalizadas em DevTest Labs Microsoft Docs
+description: Saiba mais sobre as diferenças entre imagens personalizadas e fórmulas como bases VM para que possa decidir qual melhor se adequa ao seu ambiente.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,44 +15,44 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: ae7556eda817b9eb7be84f9d4a23ea91d3d5440d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64680305"
 ---
-# <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>Comparar imagens personalizadas e fórmulas no DevTest Labs
-Ambos [imagens personalizadas](devtest-lab-create-template.md) e [fórmulas](devtest-lab-manage-formulas.md) podem ser utilizados como as bases para [criadas novas VMs](devtest-lab-add-vm.md). No entanto, a principal diferença entre as imagens personalizadas e fórmulas é que uma imagem personalizada é simplesmente uma imagem com base num VHD, enquanto uma fórmula é uma imagem com base num VHD *além* predefinições - por exemplo, o tamanho da VM, rede virtual, sub-rede e artefactos. Estas definições pré-configuradas são configuradas com valores predefinidos que podem ser substituídas no momento da criação da VM. Este artigo explica alguns dos (profissionais) de vantagens e desvantagens (contras) para utilizar imagens personalizadas e o uso de fórmulas.
+# <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>Comparar imagens e fórmulas personalizadas em DevTest Labs
+Tanto [as imagens personalizadas](devtest-lab-create-template.md) como [as fórmulas](devtest-lab-manage-formulas.md) podem ser usadas como bases para [novos VMs criados.](devtest-lab-add-vm.md) No entanto, a distinção fundamental entre imagens e fórmulas personalizadas é que uma imagem personalizada é simplesmente uma imagem baseada num VHD, enquanto uma fórmula é uma imagem baseada num VHD para *além* de configurações pré-configuradas - como Tamanho VM, rede virtual, subnet e artefactos. Estas definições pré-configuradas são configuradas com valores predefinidos que podem ser ultrapassados no momento da criação de VM. Este artigo explica algumas das vantagens (prós) e desvantagens (contras) para usar imagens personalizadas versus usando fórmulas.
 
-## <a name="custom-image-pros-and-cons"></a>Imagem personalizada prós e contras
-Imagens personalizadas fornecem uma forma estática e imutável para criar VMs a partir de um ambiente pretendido. 
+## <a name="custom-image-pros-and-cons"></a>Prós e contras de imagem personalizados
+As imagens personalizadas fornecem uma forma estática e imutável de criar VMs a partir de um ambiente desejado. 
 
-**Profissionais de TI**
+**Prós**
 
-* Aprovisionamento de VM a partir de uma imagem personalizada é rápido, nada muda depois da VM é rotacionada da imagem. Em outras palavras, não há nenhum definições se apliquem à medida que a imagem personalizada é apenas uma imagem sem definições. 
-* As VMs criadas a partir de uma única imagem personalizada são idênticas.
-
-**Contras**
-
-* Se precisar de atualizar algum aspeto da imagem personalizada, a imagem tem de ser recriada.  
-
-## <a name="formula-pros-and-cons"></a>Fórmulas prós e contras
-Fórmulas proporcionam uma forma de dinâmica para criar VMs a partir da configuração/definições pretendidas.
-
-**Profissionais de TI**
-
-* Alterações no ambiente podem ser capturadas rapidamente através de artefactos. Por exemplo, se quiser que uma VM instalada com os bits mais recentes do seu pipeline de lançamento ou inscrever o código mais recente a partir do seu repositório, pode simplesmente especificar um artefato que implementa os bits mais recentes ou inscreve o código mais recente na fórmula, juntamente com uma base de destino imagem. Sempre que esta fórmula é utilizada para criar VMs, o código/bits mais recentes são implementadas/inscritas à VM. 
-* As fórmulas, podem definir as predefinições que não é possível fornecer imagens personalizadas -, tais como definições de rede virtual e tamanhos VM. 
-* As configurações salvas numa fórmula, são apresentadas como valores predefinidos, mas podem ser modificadas quando a VM é criada. 
+* O fornecimento de VM a partir de uma imagem personalizada é rápido, uma vez que nada muda após o VM ser girado a partir da imagem. Por outras palavras, não existem definições a aplicar, uma vez que a imagem personalizada é apenas uma imagem sem definições. 
+* VMs criados a partir de uma única imagem personalizada são idênticos.
 
 **Contras**
 
-* Criar uma VM a partir de uma fórmula pode demorar mais tempo do que criar uma VM a partir de uma imagem personalizada.
+* Se precisar de atualizar algum aspeto da imagem personalizada, a imagem deve ser recriada.  
+
+## <a name="formula-pros-and-cons"></a>Fórmula prós e contras
+As fórmulas fornecem uma forma dinâmica de criar VMs a partir da configuração/configurações desejada.
+
+**Prós**
+
+* As mudanças no ambiente podem ser capturadas no voo através de artefactos. Por exemplo, se quiser um VM instalado com as mais recentes peças do seu pipeline de lançamento ou aliste o mais recente código do seu repositório, pode simplesmente especificar um artefacto que implementa as últimas partes ou alista o mais recente código na fórmula juntamente com uma base de destino imagem. Sempre que esta fórmula é usada para criar VMs, as últimas bits/código são implantadas/alistadas para o VM. 
+* As fórmulas podem definir definições padrão que as imagens personalizadas não podem fornecer - como tamanhos VM e definições de rede virtual. 
+* As definições guardadas numa fórmula são mostradas como valores padrão, mas podem ser modificadas quando o VM é criado. 
+
+**Contras**
+
+* Criar um VM a partir de uma fórmula pode levar mais tempo do que criar um VM a partir de uma imagem personalizada.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="related-blog-posts"></a>Postagens de blogs relacionados
-* [Imagens personalizadas ou fórmulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+## <a name="related-blog-posts"></a>Posts de blog relacionados
+* [Imagens ou fórmulas personalizadas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
-## <a name="next-steps"></a>Passos Seguintes
-- [FAQ de laboratórios DevTest](devtest-lab-faq.md)
+## <a name="next-steps"></a>Passos seguintes
+- [DevTest Labs FAQ](devtest-lab-faq.md)

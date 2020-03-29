@@ -1,6 +1,6 @@
 ---
-title: Azure Analysis Services autenticação e permissões de usuário | Microsoft Docs
-description: Este artigo descreve como o Azure Analysis Services usa o Azure Active Directory (AD do Azure) para gerenciamento de identidade e autenticação de usuário.
+title: Autenticação dos Serviços de Análise Azure e permissões dos utilizadores Microsoft Docs
+description: Este artigo descreve como os Serviços de Análise Azure utilizam o Azure Ative Directory (Azure AD) para gestão de identidade e autenticação do utilizador.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,77 +8,77 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 4a054c3c042e18f1679acd75e5ba5ad74f66edff
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73572752"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticação e permissões de utilizador
 
-O Azure Analysis Services usa Azure Active Directory (AD do Azure) para gerenciamento de identidade e autenticação de usuário. Qualquer usuário que cria, gerencia ou se conecta a um servidor de Azure Analysis Services deve ter uma identidade de usuário válida em um [locatário do Azure ad](../active-directory/fundamentals/active-directory-administer.md) na mesma assinatura.
+Os Serviços de Análise Azure utilizam o Azure Ative Directory (Azure AD) para gestão de identidade e autenticação do utilizador. Qualquer utilizador que crie, gere ou se ligue a um servidor dos Serviços de Análise Azure deve ter uma identidade de utilizador válida num [inquilino da AD Azure](../active-directory/fundamentals/active-directory-administer.md) na mesma subscrição.
 
-O Azure Analysis Services dá suporte à [colaboração B2B do Azure ad](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md). Com o B2B, os usuários de fora de uma organização podem ser convidados como usuários convidados em um diretório do Azure AD. Convidados podem ser de outro diretório de locatário do Azure AD ou qualquer endereço de email válido. Depois de convidado e o usuário aceitar o convite enviado por email do Azure, a identidade do usuário será adicionada ao diretório do locatário. Essas identidades podem ser adicionadas a grupos de segurança ou como membros de um administrador de servidor ou função de banco de dados.
+Os Serviços de Análise Azure apoiam a [colaboração Azure AD B2B.](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) Com o B2B, os utilizadores de fora de uma organização podem ser convidados como utilizadores convidados num diretório Azure AD. Os hóspedes podem ser de outro diretório de inquilinos DaD Azure ou qualquer endereço de e-mail válido. Uma vez convidado e o utilizador aceita o convite enviado por e-mail do Azure, a identidade do utilizador é adicionada ao diretório do inquilino. Essas identidades podem ser adicionadas a grupos de segurança ou como membros de um administrador de servidor ou papel de base de dados.
 
-![Arquitetura de autenticação Azure Analysis Services](./media/analysis-services-manage-users/aas-manage-users-arch.png)
+![Arquitetura de autenticação de serviços de análise azure](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
 ## <a name="authentication"></a>Autenticação
 
-Todos os aplicativos e ferramentas cliente usam uma ou mais das [bibliotecas de cliente](analysis-services-data-providers.md) Analysis Services (amo, MSOLAP, ADOMD) para se conectar a um servidor. 
+Todas as aplicações e ferramentas do cliente utilizam uma ou mais [bibliotecas](analysis-services-data-providers.md) de clientes dos Serviços de Análise (AMO, MSOLAP, ADOMD) para se conectarem a um servidor. 
 
-Todas as três bibliotecas de cliente dão suporte ao fluxo interativo do Azure AD e aos métodos de autenticação não interativa. Os dois métodos não-interativos, Active Directory senha e Active Directory métodos de autenticação integrada podem ser usados em aplicativos que utilizam AMOMD e MSOLAP. Esses dois métodos nunca resultam em caixas de diálogo pop-up.
+As três bibliotecas de clientes suportam tanto o fluxo interativo azure AD como os métodos de autenticação não interativos. Os dois métodos não interativos, palavra-passe de diretório ativo e métodos de autenticação integrada de diretório ativo podem ser utilizados em aplicações que utilizam a AMOMD e a MSOLAP. Estes dois métodos nunca resultam em caixas de diálogo pop-up.
 
-Aplicativos cliente como Excel e Power BI Desktop e ferramentas como o SSMS e Analysis Services extensão de projetos para o Visual Studio instalam as versões mais recentes das bibliotecas quando atualizados para a versão mais recente. A extensão de projetos Power BI Desktop, SSMS e Analysis Services são atualizadas mensalmente. O Excel é [atualizado com o Office 365](https://support.office.com/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516). As atualizações do Office 365 são menos frequentes e algumas organizações usam o canal adiado, o que significa que as atualizações são adiadas até três meses.
+Aplicações de clientes como Excel e Power BI Desktop, e ferramentas como a extensão de projetos sSMS e Serviços de Análise para O Estúdio Visual instalam as versões mais recentes das bibliotecas quando atualizadas para o mais recente lançamento. A extensão dos projetos de power BI Desktop, SSMS e Serviços de Análise são atualizadas mensalmente. O Excel é [atualizado com o Office 365](https://support.office.com/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516). As atualizações do Office 365 são menos frequentes, e algumas organizações usam o canal diferido, o que significa que as atualizações são adiadas até três meses.
 
-Dependendo do aplicativo cliente ou da ferramenta que você usa, o tipo de autenticação e como você entra pode ser diferente. Cada aplicativo pode dar suporte a diferentes recursos para se conectar a serviços de nuvem como Azure Analysis Services.
+Dependendo da aplicação ou ferramenta do cliente que utiliza, o tipo de autenticação e a forma como se inscreveu pode ser diferente. Cada aplicação pode suportar diferentes funcionalidades para a ligação a serviços de cloud como o Azure Analysis Services.
 
-Power BI Desktop, o Visual Studio e o SSMS dão suporte Active Directory autenticação universal, um método interativo que também dá suporte à MFA (autenticação multifator do Azure). O Azure MFA ajuda a proteger o acesso a dados e aplicativos ao mesmo tempo em que fornece um processo de entrada simples. Ele fornece autenticação forte com várias opções de verificação (chamada telefônica, mensagem de texto, cartões inteligentes com PIN ou notificação de aplicativo móvel). O MFA interativo com o Azure AD pode resultar em uma caixa de diálogo pop-up para validação. A **autenticação universal é recomendada**.
+Power BI Desktop, Visual Studio e SSMS suportam autenticação universal de diretório ativo, um método interativo que também suporta a autenticação de multi-factores Azure (MFA). O Azure MFA ajuda a salvaguardar o acesso a dados e aplicações, ao mesmo tempo que fornece um processo simples de entrada. Oferece autenticação forte com várias opções de verificação (chamada telefónica, mensagem de texto, cartões inteligentes com pin ou notificação de aplicação móvel). O MFA interativo com o Azure AD pode resultar numa caixa de diálogo pop-up para validação. **Recomenda-se a autenticação universal.**
 
-Se entrar no Azure usando uma conta do Windows e a autenticação universal não estiver selecionada ou disponível (Excel), [serviços de Federação do Active Directory (AD FS) (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md) será necessária. Com a Federação, os usuários do Azure AD e do Office 365 são autenticados usando credenciais locais e podem acessar recursos do Azure.
+Se iniciar sessão no Azure utilizando uma conta Windows, e a Autenticação Universal não estiver selecionada ou disponível (Excel), é necessário um Serviço de Federação de [Diretórios Ativos (AD FS).](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md) Com a Federação, a AD Azure e os 365 utilizadores do Office são autenticados usando credenciais no local e podem aceder aos recursos do Azure.
 
 ### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
 
-Os servidores de Azure Analysis Services dão suporte a conexões do [SSMS v 17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e superior usando a autenticação do Windows, a autenticação de senha do Active Directory e a Active Directory autenticação universal. Em geral, é recomendável usar Active Directory autenticação universal porque:
+Os servidores dos Serviços de Análise Azure suportam ligações a partir de [SSMS V17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e superiores utilizando a autenticação do Windows, a autenticação de palavra-passe de diretório ativo e a autenticação universal do Diretório Ativo. Em geral, recomenda-se que utilize a autenticação universal do Diretório Ativo porque:
 
-*  Dá suporte a métodos de autenticação interativos e não interativos.
+*  Suporta métodos de autenticação interativos e não interativos.
 
-*  Dá suporte a usuários convidados do Azure B2B convidados no Azure como locatário. Ao se conectar a um servidor, os usuários convidados devem selecionar Active Directory autenticação universal ao se conectarem ao servidor.
+*  Suporta os utilizadores convidados do Azure B2B convidados para o inquilino Azure AS. Ao ligar-se a um servidor, os utilizadores dos hóspedes devem selecionar a Autenticação Universal do Diretório Ativo ao ligarem-se ao servidor.
 
-*  Dá suporte à MFA (autenticação multifator). O Azure MFA ajuda a proteger o acesso a dados e aplicativos com uma variedade de opções de verificação: chamada telefônica, mensagem de texto, cartões inteligentes com PIN ou notificação de aplicativo móvel. O MFA interativo com o Azure AD pode resultar em uma caixa de diálogo pop-up para validação.
+*  Suporta a autenticação multi-factor (MFA). O Azure MFA ajuda a salvaguardar o acesso a dados e aplicações com um leque de opções de verificação: chamada telefónica, mensagem de texto, cartões inteligentes com pin ou notificação de aplicações móveis. O MFA interativo com o Azure AD pode resultar numa caixa de diálogo pop-up para validação.
 
 ### <a name="visual-studio"></a>Visual Studio
 
-O Visual Studio se conecta ao Azure Analysis Services usando a autenticação Active Directory universal com suporte a MFA. Os usuários são solicitados a entrar no Azure na primeira implantação. Os usuários devem entrar no Azure com uma conta com permissões de administrador do servidor no servidor no qual estão implantando. Ao entrar no Azure pela primeira vez, um token é atribuído. O token é armazenado em cache na memória para reconexões futuras.
+O Visual Studio conecta-se aos Serviços de Análise Azure utilizando a Autenticação Universal do Diretório Ativo com suporte ao MFA. Os utilizadores são solicitados a iniciar sessão no Azure na primeira implementação. Os utilizadores devem iniciar sessão no Azure com uma conta com permissões de administrador de servidor no servidor para o qual estão a ser implementadas. Ao assinar no Azure pela primeira vez, é atribuído um símbolo. O símbolo está em cache na memória para futuras religações.
 
 ### <a name="power-bi-desktop"></a>Power BI Desktop
 
-Power BI Desktop se conecta a Azure Analysis Services usando Active Directory autenticação universal com suporte a MFA. Os usuários são solicitados a entrar no Azure na primeira conexão. Os usuários devem entrar no Azure com uma conta que esteja incluída em um administrador de servidor ou função de banco de dados.
+Power BI Desktop conecta-se aos Serviços de Análise Azure utilizando a autenticação universal do Diretório Ativo com suporte mFA. Os utilizadores são solicitados a iniciar sessão no Azure na primeira ligação. Os utilizadores devem iniciar sessão no Azure com uma conta que esteja incluída num administrador de servidor ou numa função de base de dados.
 
 ### <a name="excel"></a>Excel
 
-Os usuários do Excel podem se conectar a um servidor usando uma conta do Windows, uma ID da organização (endereço de email) ou um endereço de email externo. Identidades de email externas devem existir no Azure AD como um usuário convidado.
+Os utilizadores do Excel podem ligar-se a um servidor utilizando uma conta Windows, um ID da organização (endereço de e-mail) ou um endereço de e-mail externo. As identidades de e-mail externas devem existir no Anúncio De Azure como utilizador convidado.
 
 ## <a name="user-permissions"></a>Permissões de utilizador
 
-**Os administradores de servidor** são específicos de uma instância de servidor Azure Analysis Services. Eles se conectam com ferramentas como portal do Azure, SSMS e Visual Studio para executar tarefas como adicionar bancos de dados e gerenciar funções de usuário. Por padrão, o usuário que cria o servidor é adicionado automaticamente como um administrador de servidor Analysis Services. Outros administradores podem ser adicionados usando portal do Azure ou SSMS. Os administradores de servidor devem ter uma conta no locatário do Azure AD na mesma assinatura. Para saber mais, consulte [gerenciar administradores de servidor](analysis-services-server-admins.md). 
+**Os administradores do servidor** são específicos de uma instância de servidor dos Serviços de Análise Azure. Conectam-se com ferramentas como o portal Azure, SSMS e Visual Studio para executar tarefas como adicionar bases de dados e gerir as funções dos utilizadores. Por predefinição, o utilizador que cria o servidor é adicionado automaticamente como administrador de servidor de Serviços de Análise. Outros administradores podem ser adicionados utilizando o portal Azure ou sSMS. Os administradores do servidor devem ter uma conta no inquilino DaD Azure na mesma subscrição. Para saber mais, consulte [Gerir administradores de servidores](analysis-services-server-admins.md). 
 
-**Os usuários de banco de dados** se conectam a bancos de dados de modelo usando aplicativos cliente como Excel ou Power bi. Os usuários devem ser adicionados às funções de banco de dados. As funções de banco de dados definem permissões de administrador, processo ou leitura para um banco de dados. É importante entender que os usuários de banco de dados em uma função com permissões de administrador são diferentes dos administradores de servidor. No entanto, por padrão, os administradores de servidor também são administradores de banco de dados. Para saber mais, consulte [gerenciar usuários e funções de banco de dados](analysis-services-database-users.md).
+**Os utilizadores de bases** de dados ligam-se a bases de dados de modelos utilizando aplicações de clientes como o Excel ou o Power BI. Os utilizadores devem ser adicionados às funções de base de dados. As funções de base de dados definem o administrador, o processo ou a leitura de permissões para uma base de dados. É importante entender que os utilizadores de bases de dados numa função com permissões de administrador é diferente dos administradores do servidor. No entanto, por padrão, os administradores do servidor também são administradores de bases de dados. Para saber mais, consulte [Gerir as funções de base](analysis-services-database-users.md)de dados e os utilizadores.
 
-**Proprietários de recursos do Azure**. Os proprietários de recursos gerenciam recursos para uma assinatura do Azure. Os proprietários de recursos podem adicionar identidades de usuário do Azure AD a funções de proprietário ou colaborador em uma assinatura usando o **controle de acesso** no portal do Azure ou com modelos de Azure Resource Manager. 
+**Proprietários de recursos Azure.** Os proprietários de recursos gerem recursos para uma subscrição do Azure. Os proprietários de recursos podem adicionar identidades de utilizador azure AD a Funções de Proprietário ou Colaborador dentro de uma subscrição utilizando **o controlo** de acesso no portal Azure, ou com modelos de Gestor de Recursos Azure. 
 
-![Controle de acesso no portal do Azure](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
+![Controlo de acesso no portal Azure](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-As funções nesse nível se aplicam a usuários ou contas que precisam executar tarefas que podem ser concluídas no portal ou usando modelos de Azure Resource Manager. Para saber mais, consulte [controle de acesso baseado em função](../role-based-access-control/overview.md). 
+As funções a este nível aplicam-se aos utilizadores ou contas que precisam de executar tarefas que podem ser concluídas no portal ou utilizando modelos do Gestor de Recursos Do Azure. Para saber mais, consulte [o Controlo de Acesso baseado em Papéis.](../role-based-access-control/overview.md) 
 
-## <a name="database-roles"></a>Funções de banco de dados
+## <a name="database-roles"></a>Funções de base de dados
 
- As funções definidas para um modelo de tabela são funções de banco de dados. Ou seja, as funções contêm membros que consistem em usuários e grupos de segurança do Azure AD que têm permissões específicas que definem a ação que esses membros podem executar em um banco de dados modelo. Uma função de base de dados é criada como um objeto separado na base de dados e aplica-se apenas à base de dados na qual essa função é criada.   
+ As funções definidas para um modelo tabular são funções de base de dados. Ou seja, as funções contêm membros constituídos por utilizadores de Anúncios Azure e grupos de segurança que têm permissões específicas que definem a ação que esses membros podem assumir numa base de dados de modelos. Uma função de base de dados é criada como um objeto separado na base de dados e aplica-se apenas à base de dados na qual essa função é criada.   
   
- Por padrão, quando você cria um novo projeto de modelo de tabela, o projeto de modelo não tem nenhuma função. As funções podem ser definidas usando a caixa de diálogo Gerenciador de funções no Visual Studio. Quando as funções são definidas durante o design do projeto de modelo, elas são aplicadas somente ao banco de dados de espaço de trabalho modelo. Quando o modelo é implantado, as mesmas funções são aplicadas ao modelo implantado. Depois que um modelo foi implantado, os administradores de servidor e de banco de dados podem gerenciar funções e membros usando o SSMS. Para saber mais, consulte [gerenciar usuários e funções de banco de dados](analysis-services-database-users.md).
+ Por padrão, quando se cria um novo modelo tabular, o projeto modelo não tem qualquer função. As funções podem ser definidas utilizando a caixa de diálogo Role Manager no Estúdio Visual. Quando as funções são definidas durante o design do projeto de modelo, são aplicadas apenas à base de dados do espaço de trabalho do modelo. Quando o modelo é implantado, as mesmas funções são aplicadas ao modelo implantado. Depois de um modelo ter sido implementado, os administradores de servidores e bases de dados podem gerir funções e membros utilizando o SSMS. Para saber mais, consulte [Gerir as funções de base](analysis-services-database-users.md)de dados e os utilizadores.
   
 ## <a name="next-steps"></a>Passos seguintes
 
-[Gerenciar o acesso a recursos com grupos de Azure Active Directory](../active-directory/fundamentals/active-directory-manage-groups.md)   
-[Gerenciar usuários e funções de banco de dados](analysis-services-database-users.md)  
+[Gerir o acesso aos recursos com grupos de Diretórios Ativos Azure](../active-directory/fundamentals/active-directory-manage-groups.md)   
+[Gerir funções de base de dados e utilizadores](analysis-services-database-users.md)  
 [Gerir administradores de servidor](analysis-services-server-admins.md)  
-[Controlo de Acesso Baseado em Funções](../role-based-access-control/overview.md)  
+[Controlo de Acesso baseado em papéis](../role-based-access-control/overview.md)  

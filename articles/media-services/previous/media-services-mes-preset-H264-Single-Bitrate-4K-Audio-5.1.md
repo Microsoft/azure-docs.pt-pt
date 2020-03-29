@@ -1,6 +1,6 @@
 ---
-title: H264 taxa de bits Única 4K Audio 5.1 | Documentos da Microsoft
-description: O tópico fornece uma visão geral do **h264 taxa de bits única 4K Audio 5.1** predefinido de tarefa.
+title: H264 Single Bitrate 4K Audio 5.1 [ Microsoft Docs
+description: O tópico dá uma visão geral do predefinido de tarefa de **Bitrate Single Bitrate 4K 5.1.**
 author: Juliako
 manager: femila
 editor: ''
@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 9c4b133ae74438def30f4fcd9e49a5ca5e6f9cd4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61463570"
 ---
 # <a name="h264-single-bitrate-4k-audio-51"></a>H264 Taxa de Bits Única 4K Audio 5.1
-`Media Encoder Standard` Define um conjunto de codificação configurações predefinidas que pode utilizar durante a criação de tarefas de codificação. Pode utilizar um `preset name` para especificar em que formato gostaria de codificar o ficheiro de suporte de dados. Em alternativa, pode criar seu próprio JSON ou XML com base em suas configurações predefinidas (usando a codificação UTF-8 ou UTF-16. Em seguida, transmite o personalizado predefinido para o codificador. Para obter a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificador, consulte [predefinições de tarefas para o Media Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard`define um conjunto de predefinições de codificação que pode usar ao criar trabalhos de codificação. Pode utilizar um `preset name` para especificar em que formato pretende codificar o seu ficheiro de mídia. Ou, pode criar os seus próprios presets baseados em JSON ou XML (utilizando a codificação UTF-8 ou UTF-16. Em seguida, passaria o predefinido personalizado para o codificador. Para a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificador, consulte predefinições de tarefa para Media [Encoder Standard](media-services-mes-presets-overview.md).  
   
- Este tópico mostra o `H264 Single Bitrate 4K Audio 5.1` predefinido (no formato XML e JSON).  
+ Este tópico `H264 Single Bitrate 4K Audio 5.1` mostra o predefinido (em formato XML e JSON).  
   
- Esta predefinição produz um único ficheiro MP4 com velocidade de transmissão de 18000 kbps e áudio AAC 5.1. Para obter informações detalhadas sobre o perfil, a velocidade de transmissão, amostragem taxa, etc. isso configuração predefinida, examinar o XML ou JSON definido abaixo. Para obter explicações de significa que cada elemento e os valores válidos para cada elemento, consulte a [esquema Media Encoder Standard](media-services-mes-schema.md).  
+ Este preset produz um único ficheiro MP4 com uma bitrate de 18000 kbps e áudio AAC 5.1. Para obter informações detalhadas sobre o perfil, bitrate, taxa de amostragem, etc. deste predefinido, examine o XML ou JSON definidos abaixo. Para obter explicações sobre o que cada elemento significa, e os valores válidos para cada elemento, consulte o esquema Padrão do [Codificador de Meios](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Deve obter a unidade reservada Premium codifica de tipo com 4K. Para obter mais informações, consulte [como a codificação de escala](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+>  Deve obter o tipo de unidade premium reservado com códigos 4K. Para mais informações, consulte [Como Escalar a Codificação](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
   
  XML  
   

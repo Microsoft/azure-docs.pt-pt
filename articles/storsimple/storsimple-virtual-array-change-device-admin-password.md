@@ -1,6 +1,6 @@
 ---
-title: Palavra-passe de administrador do dispositivo de StorSimple Virtual Array de alteração | Documentos da Microsoft
-description: Descreve como utilizar o portal do Azure ou a IU da web do StorSimple Virtual Array para alterar a palavra-passe de administrador do dispositivo.
+title: Alterar a senha de administração do dispositivo StorSimple Virtual Array / Microsoft Docs
+description: Descreve como usar o portal Azure ou o StorSimple Virtual Array web UI para alterar a palavra-passe do administrador do dispositivo.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -16,67 +16,67 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5308badf439254062a8aefca1840eb21bc234ace
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60580413"
 ---
-# <a name="change-the-storsimple-virtual-array-device-administrator-password-via-storsimple-device-manager"></a>Alterar a senha de administrador de dispositivo do StorSimple Virtual Array através do Gestor de dispositivos do StorSimple
+# <a name="change-the-storsimple-virtual-array-device-administrator-password-via-storsimple-device-manager"></a>Alterar a palavra-passe do administrador do dispositivo StorSimple Virtual Array através do StorSimple Device Manager
 
 ## <a name="overview"></a>Descrição geral
 
-Quando utiliza a interface do Windows PowerShell para aceder a matriz Virtual StorSimple, tem de introduzir uma palavra-passe de administrador do dispositivo. Quando o dispositivo StorSimple em primeiro lugar é aprovisionado e iniciado, a palavra-passe predefinido é *Password1*. Para garantir a segurança dos seus dados, a palavra-passe predefinida expira a primeira vez que iniciar sessão e tem de alterar esta palavra-passe.
+Quando utilizar a interface Windows PowerShell para aceder ao StorSimple Virtual Array, é necessário introduzir uma palavra-passe do administrador do dispositivo. Quando o dispositivo StorSimple é aprovisionado e iniciado, a palavra-passe por defeito é *Password1*. Para a segurança dos seus dados, a palavra-passe predefinida expira na primeira vez que faz o insessão e é obrigado a alterar esta palavra-passe.
 
-Também pode utilizar a IU da web local ou o portal do Azure para alterar a palavra-passe de administrador do dispositivo em qualquer altura depois do dispositivo é implementado no seu ambiente de produção. Cada um desses procedimentos é descrito neste artigo.
+Também pode utilizar a UI web local ou o portal Azure para alterar a palavra-passe do administrador do dispositivo a qualquer momento após a implementação do dispositivo no seu ambiente de produção. Cada um destes procedimentos é descrito neste artigo.
 
- ![Painel de dispositivos](./media/storsimple-virtual-array-change-device-admin-password/ova-devices-blade.png)
+ ![lâmina dispositivos](./media/storsimple-virtual-array-change-device-admin-password/ova-devices-blade.png)
 
-## <a name="use-the-azure-portal-to-change-the-password"></a>Utilizar o portal do Azure para alterar a palavra-passe
+## <a name="use-the-azure-portal-to-change-the-password"></a>Use o portal Azure para alterar a palavra-passe
 
-Execute os seguintes passos para alterar a palavra-passe de administrador do dispositivo através do portal do Azure.
+Execute os seguintes passos para alterar a palavra-passe do administrador do dispositivo através do portal Azure.
 
-#### <a name="to-change-the-device-administrator-password-via-the-azure-portal"></a>Para alterar a palavra-passe de administrador do dispositivo através do portal do Azure
+#### <a name="to-change-the-device-administrator-password-via-the-azure-portal"></a>Para alterar a palavra-passe do administrador do dispositivo através do portal Azure
 
-1. Na página de aterrissagem do serviço, selecione o seu serviço, faça duplo clique o nome do serviço e, em seguida, dentro da **gerenciamento** secção, clique em **dispositivos**. Esta ação abre o **dispositivos** painel que apresenta uma lista de todos os seus dispositivos do StorSimple Virtual Array.
+1. Na página de aterragem de serviço, selecione o seu serviço, clique duas vezes no nome do serviço e, em seguida, dentro da secção **Gestão,** clique em **Dispositivos**. Isto abre a lâmina **de Dispositivos** que lista todos os seus dispositivos StorSimple Virtual Array.
 
-2. Na **dispositivos** painel, faça duplo clique no dispositivo que requer uma alteração de palavra-passe.
+2. Na lâmina **dispositivos,** clique duas vezes no dispositivo que requer uma alteração de senha.
 
-3. Na **configurações** painel para o seu dispositivo, clique em **segurança**.
+3. Na lâmina **Definições** para o seu dispositivo, clique em **Segurança**.
 
-4. Na **definições de segurança** painel, faça o seguinte:
+4. Na lâmina definições de **segurança,** faça o seguinte:
    
-   1. Desloque para baixo para o **palavra-passe de administrador do dispositivo** secção. Forneça uma palavra-passe de administrador que contém a partir de 8 a 15 carateres.
+   1. Desloque-se até à secção password do administrador do **dispositivo.** Forneça uma palavra-passe de administrador que contenha de 8 a 15 caracteres.
    2. Confirme a palavra-passe.
    3. Clique em **Guardar**, na parte superior do painel.
 
-A palavra-passe de administrador do dispositivo foi atualizada. Pode utilizar esta palavra-passe modificado para aceder ao dispositivo localmente.
+A palavra-passe do administrador do dispositivo está agora atualizada. Pode utilizar esta senha modificada para aceder ao dispositivo localmente.
 
-![Painel de definições de segurança](./media/storsimple-virtual-array-change-device-admin-password/ova-change-device-pwd.png)
+![Lâmina de definições de segurança](./media/storsimple-virtual-array-change-device-admin-password/ova-change-device-pwd.png)
 
-## <a name="use-the-local-web-ui-to-change-the-password"></a>Utilize a IU web local para alterar a palavra-passe
+## <a name="use-the-local-web-ui-to-change-the-password"></a>Use a UI web local para alterar a senha
 
-Execute os seguintes passos para alterar a palavra-passe de administrador do dispositivo através da IU da web local.
+Execute os seguintes passos para alterar a palavra-passe do administrador do dispositivo através da UI web local.
 
-#### <a name="to-change-the-device-administrator-password-via-the-local-web-ui"></a>Para alterar a palavra-passe de administrador do dispositivo através da IU da web local
+#### <a name="to-change-the-device-administrator-password-via-the-local-web-ui"></a>Para alterar a palavra-passe do administrador do dispositivo através da UI web local
 
-1. Na IU da web local, clique em **manutenção** > **alteração de palavra-passe** para o seu dispositivo.
+1. Na Web UI local, clique na alteração da**palavra-passe** **de manutenção** > para o seu dispositivo.
    
-    ![alterar password1](./media/storsimple-virtual-array-change-device-admin-password/image40.png)
-2. Introduza o **palavra-passe atual**.
-3. Fornecer um **nova palavra-passe**. A palavra-passe tem de ser, pelo menos, 8 carateres de comprimento. Tem de conter 3 de 4 dos seguintes procedimentos: carateres em maiúsculas, minúsculas, numéricos e especiais.
+    ![alterar palavra-passe1](./media/storsimple-virtual-array-change-device-admin-password/image40.png)
+2. Introduza a **palavra-passe Atual**.
+3. Forneça uma **nova senha.** A palavra-passe deve ter pelo menos 8 caracteres de comprimento. Deve conter 3 de 4 dos seguintes caracteres: maiúsculas, minúsculas, numéricas e caracteres especiais.
    
-    Tenha em atenção que a palavra-passe não pode ser o mesmo que as últimas 24 palavras-passe.
+    Note que a sua palavra-passe não pode ser a mesma que as últimas 24 palavras-passe.
 4. Reintroduza a palavra-passe para a confirmar.
    
-    ![alterar password2](./media/storsimple-virtual-array-change-device-admin-password/image41.png)
-5. Na parte inferior da página, clique em **aplicar**. Agora é aplicada a nova palavra-passe. Se a alteração de palavra-passe não for bem sucedida, verá o seguinte erro:
+    ![alterar palavra-passe2](./media/storsimple-virtual-array-change-device-admin-password/image41.png)
+5. Na parte inferior da página, clique em **Aplicar**. A nova senha é agora aplicada. Se a alteração da palavra-passe não for bem sucedida, vê o seguinte erro:
    
-    ![Erro de palavra-passe](./media/storsimple-virtual-array-change-device-admin-password/image42.png)
+    ![erro de senha](./media/storsimple-virtual-array-change-device-admin-password/image42.png)
    
-    Depois da palavra-passe foi atualizada com êxito, será notificado. Em seguida, pode utilizar esta palavra-passe modificado para aceder ao dispositivo localmente.
+    Depois de a palavra-passe ser atualizada com sucesso, é notificado. Em seguida, pode utilizar esta senha modificada para aceder ao dispositivo localmente.
 
 
-## <a name="next-steps"></a>Passos Seguintes
-Saiba como [administrar a sua matriz Virtual StorSimple](storsimple-ova-web-ui-admin.md).
+## <a name="next-steps"></a>Passos seguintes
+Aprenda a administrar o [seu StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 

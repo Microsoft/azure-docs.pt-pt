@@ -1,31 +1,31 @@
 ---
-title: Obter mais itens ou registros com paginação
-description: Configurar paginação para exceder o limite de tamanho de página padrão para ações de conector nos aplicativos lógicos do Azure
+title: Obtenha mais itens ou registos com paginação
+description: Configurar a paginação para exceder o limite de tamanho da página padrão para ações de conector em Aplicações Lógicas Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 04/11/2019
 ms.openlocfilehash: 75d9660eb35b5d7ddc644d177c11ae489e2853dc
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792122"
 ---
-# <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>Obter mais dados, itens ou registros usando paginação em aplicativos lógicos do Azure
+# <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>Obtenha mais dados, itens ou registos usando paginação em Aplicações Lógicas Azure
 
-Quando você recupera dados, itens ou registros usando uma ação de conector em [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md), você pode obter conjuntos de resultados tão grandes que a ação não retorna todos os resultados ao mesmo tempo. Com algumas ações, o número de resultados pode exceder o tamanho de página padrão do conector. Nesse caso, a ação retorna apenas a primeira página de resultados. Por exemplo, o tamanho de página padrão para a ação **obter linhas** do conector de SQL Server é 2048, mas pode variar com base em outras configurações.
+Quando recuperar dados, itens ou registos utilizando uma ação de conector em [Aplicações Lógicas Azure,](../logic-apps/logic-apps-overview.md)poderá obter conjuntos de resultados tão grandes que a ação não devolve todos os resultados ao mesmo tempo. Com algumas ações, o número de resultados pode exceder o tamanho da página padrão do conector. Neste caso, a ação devolve apenas a primeira página dos resultados. Por exemplo, o tamanho da página padrão para a ação do conector SQL Server **Get rows** é 2048, mas pode variar com base em outras definições.
 
-Algumas ações permitem que você ative uma configuração de *paginação* para que seu aplicativo lógico possa recuperar mais resultados até o limite de paginação, mas retornar esses resultados como uma única mensagem quando a ação for concluída. Ao usar a paginação, você deve especificar um valor de *limite* , que é o número de destino de resultados que você deseja que a ação retorne. A ação recupera os resultados até atingir o limite especificado. Quando o número total de itens é menor que o limite especificado, a ação recupera todos os resultados.
+Algumas ações permitem ligar um ajuste de *paginação* para que a sua aplicação lógica possa obter mais resultados até ao limite de paginação, mas devolva esses resultados como uma única mensagem quando a ação terminar. Quando utiliza a paginação, deve especificar um *valor-limiar,* que é o número-alvo dos resultados que pretende que a ação regresse. A ação recupera resultados até atingir o limiar especificado. Quando o seu número total de itens é inferior ao limiar especificado, a ação recupera todos os resultados.
 
-A ativação da configuração de paginação recupera páginas de resultados com base no tamanho da página de um conector. Esse comportamento significa que às vezes você pode obter mais resultados do que o limite especificado. Por exemplo, ao usar a ação SQL Server **obter linhas** , que dá suporte à configuração de paginação:
+Ligar a definição de paginação recupera páginas de resultados com base no tamanho da página de um conector. Este comportamento significa que, às vezes, pode obter mais resultados do que o limiar especificado. Por exemplo, ao utilizar a ação SQL Server **Get rows,** que suporta a definição de paginação:
 
-* O tamanho da página padrão da ação é de 2048 registros por página.
-* Suponha que você tenha 10.000 registros e especifique 5000 registros como o mínimo.
-* A paginação Obtém páginas de registros, portanto, para obter pelo menos o mínimo especificado, a ação retorna 6144 registros (3 páginas x 2048 registros), e não registros 5000.
+* O tamanho da página padrão da ação é de 2048 registos por página.
+* Suponha que tenha 10.000 registos e especifique 5.000 registos como mínimo.
+* Paginação recebe páginas de registos, por isso, para obter pelo menos o mínimo especificado, a ação devolve 6144 registos (3 páginas x 2048 registos), e não 5000 registos.
 
-Aqui está uma lista com apenas alguns dos conectores onde você pode exceder o tamanho de página padrão para ações específicas:
+Aqui está uma lista com apenas alguns dos conectores onde você pode exceder o tamanho da página padrão para ações específicas:
 
 * [Armazenamento de Blobs do Azure](https://docs.microsoft.com/connectors/azureblob/)
 * [Dynamics 365](https://docs.microsoft.com/connectors/dynamicscrmonline/)
@@ -40,29 +40,29 @@ Aqui está uma lista com apenas alguns dos conectores onde você pode exceder o 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se você ainda não tiver uma assinatura do Azure, [Inscreva-se para obter uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma subscrição do Azure. Se ainda não tiver uma assinatura Azure, [inscreva-se numa conta Azure gratuita.](https://azure.microsoft.com/free/)
 
-* O aplicativo lógico e a ação em que você deseja ativar a paginação. Se você não tiver um aplicativo lógico, consulte [início rápido: criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* A aplicação lógica e a ação em que você quer ligar a paginação. Se não tem uma aplicação lógica, consulte [Quickstart: Crie a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="turn-on-pagination"></a>Ativar paginação
+## <a name="turn-on-pagination"></a>Ligar a paginação
 
-Para determinar se uma ação dá suporte à paginação no designer do aplicativo lógico, verifique as configurações da ação para a configuração de **paginação** . Este exemplo mostra como ativar a paginação na ação **obter linhas** do SQL Server.
+Para determinar se uma ação suporta paginação no Logic App Designer, verifique as definições da ação para a **definição de Paginação.** Este exemplo mostra como ligar a paginação na ação das **linhas Get** do SQL Server.
 
-1. No canto superior direito da ação, escolha o botão de reticências ( **...** ) e selecione **configurações**.
+1. No canto superior direito da ação, escolha o botão elipses (**...**) e selecione **Definições**.
 
-   ![Abrir as configurações da ação](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings.png)
+   ![Abra as definições da ação](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings.png)
 
-   Se a ação der suporte à paginação, a ação mostrará a configuração de **paginação** .
+   Se a ação apoiar a paginação, a ação mostra o cenário **paginação.**
 
-1. Altere a configuração de **paginação** de **desativado** para **ativado**. Na propriedade **Threshold** , especifique um valor inteiro para o número de destino de resultados que você deseja que a ação retorne.
+1. Mude a definição de **Paginação** de **Off** para **On**. Na propriedade **Threshold,** especifique um valor inteiro para o número de resultados que pretende que a ação devolva.
 
-   ![Especificar o número mínimo de resultados a serem retornados](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings-pagination.png)
+   ![Especificar número mínimo de resultados para devolver](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings-pagination.png)
 
-1. Quando estiver pronto, escolha **concluído**.
+1. Quando estiver pronto, escolha **"Done".**
 
-## <a name="workflow-definition---pagination"></a>Definição de fluxo de trabalho – paginação
+## <a name="workflow-definition---pagination"></a>Definição de fluxo de trabalho - paginação
 
-Quando você ativa a paginação para uma ação que dá suporte a esse recurso, a definição de fluxo de trabalho do aplicativo lógico inclui a propriedade `"paginationPolicy"` juntamente com a propriedade `"minimumItemCount"` na propriedade `"runtimeConfiguration"` da ação, por exemplo:
+Quando liga a paginação para uma ação que suporta esta capacidade, a `"paginationPolicy"` definição de `"minimumItemCount"` fluxo de trabalho `"runtimeConfiguration"` da sua aplicação lógica inclui a propriedade juntamente com a propriedade da ação, por exemplo:
 
 ```json
 "actions": {

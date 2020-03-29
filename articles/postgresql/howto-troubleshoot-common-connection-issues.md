@@ -1,62 +1,62 @@
 ---
-title: Solucionar problemas de conexões-banco de dados do Azure para PostgreSQL-servidor único
-description: Saiba como solucionar problemas de conexão com o banco de dados do Azure para PostgreSQL-servidor único.
-keywords: conexão do PostgreSQL, Cadeia de conexão, problemas de conectividade, erro transitório, erro de conexão
+title: Ligações de resolução de problemas - Base de Dados Azure para PostgreSQL - Servidor Único
+description: Saiba como resolver problemas de ligação à Base de Dados Azure para PostgreSQL - Servidor Único.
+keywords: conexão pós-gresql,cadeia de ligação,problemas de conectividade,erro transitório,erro de ligação
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: c74b819893133116b8ac6905988f3fe11220ed95
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74770072"
 ---
-# <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Solucionar problemas de conexão com o banco de dados do Azure para PostgreSQL-servidor único
+# <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Problemas de ligação à Base de Dados Azure para PostgreSQL - Servidor Único
 
-Problemas de conexão podem ser causados por uma variedade de coisas, incluindo:
+Os problemas de ligação podem ser causados por uma variedade de coisas, incluindo:
 
 * Definições de firewall
-* Tempo limite da conexão
-* Informações de logon incorretas
-* Limite máximo atingido em alguns recursos do banco de dados do Azure para PostgreSQL
+* Tempo de ligação
+* Informações de login incorretas
+* Limite máximo atingido em alguma base de dados Azure para recursos PostgreSQL
 * Problemas com a infraestrutura do serviço
-* Manutenção sendo executada no serviço
-* A alocação de computação do servidor é alterada com o dimensionamento do número de vCores ou a mudança para uma camada de serviço diferente
+* Manutenção a ser realizada no serviço
+* A atribuição computacional do servidor é alterada escalando o número de vCores ou movendo-se para um nível de serviço diferente
 
-Geralmente, os problemas de conexão com o banco de dados do Azure para PostgreSQL podem ser classificados da seguinte maneira:
+Geralmente, os problemas de ligação à Base de Dados Azure para PostgreSQL podem ser classificados da seguinte forma:
 
-* Erros transitórios (curta duração ou intermitente)
-* Erros persistentes ou não transitórios (erros que periodicamente são recorrentes)
+* Erros transitórios (de curta duração ou intermitentes)
+* Erros persistentes ou não transitórios (erros que se repetem regularmente)
 
-## <a name="troubleshoot-transient-errors"></a>Solucionar erros transitórios
+## <a name="troubleshoot-transient-errors"></a>Erros transitórios de resolução de problemas
 
-Erros transitórios ocorrem quando a manutenção é executada, o sistema encontra um erro com o hardware ou software, ou você altera o vCores ou a camada de serviço do seu servidor. O serviço banco de dados do Azure para PostgreSQL tem alta disponibilidade interna e foi projetado para atenuar esses tipos de problemas automaticamente. No entanto, seu aplicativo perde sua conexão com o servidor por um curto período de tempo, em geral, menos de 60 segundos. Algumas vezes, alguns eventos podem levar mais tempo para reduzir, como quando uma transação grande causa uma recuperação de longa execução.
+Erros transitórios ocorrem quando a manutenção é realizada, o sistema encontra um erro com o hardware ou software, ou muda o vCores ou o nível de serviço do seu servidor. A Base de Dados Azure para o serviço PostgreSQL tem uma elevada disponibilidade incorporada e foi concebida para mitigar este tipo de problemas automaticamente. No entanto, a sua aplicação perde a ligação ao servidor por um curto período de tempo de normalmente menos de 60 segundos no máximo. Alguns eventos podem ocasionalmente demorar mais tempo a atenuar, como quando uma grande transação causa uma recuperação a longo prazo.
 
-### <a name="steps-to-resolve-transient-connectivity-issues"></a>Etapas para resolver problemas de conectividade transitórios
+### <a name="steps-to-resolve-transient-connectivity-issues"></a>Passos para resolver problemas transitórios de conectividade
 
-1. Verifique o [painel de serviço do Microsoft Azure](https://azure.microsoft.com/status) para qualquer interrupção conhecida que tenha ocorrido durante o tempo em que os erros foram relatados pelo aplicativo.
-2. Os aplicativos que se conectam a um serviço de nuvem como o banco de dados do Azure para PostgreSQL devem esperar erros transitórios e implementar a lógica de repetição para lidar com esses erros em vez de identificando-los como erros de aplicativo para os usuários. Examine o [tratamento de erros de conectividade transitórios para o banco de dados do Azure para PostgreSQL](concepts-connectivity.md) para obter práticas recomendadas e diretrizes de design para lidar com erros transitórios.
-3. Como um servidor se aproxima de seus limites de recursos, os erros podem parecer um problema de conectividade transitório. Consulte [limitações no banco de dados do Azure para PostgreSQL](concepts-limits.md).
-4. Se os problemas de conectividade continuarem, ou se a duração para a qual seu aplicativo encontra o erro exceder 60 segundos ou se você vir várias ocorrências do erro em um determinado dia, faça uma solicitação de suporte do Azure selecionando **obter suporte** no site de [suporte do Azure](https://azure.microsoft.com/support/options) .
+1. Verifique se o [Microsoft Azure Service Dashboard](https://azure.microsoft.com/status) está a verificar quaisquer falhas conhecidas que ocorreram durante o período em que os erros foram reportados pela aplicação.
+2. As aplicações que se ligam a um serviço na nuvem, como a Base de Dados Azure para PostgreSQL, devem esperar erros transitórios e implementar a lógica de retry para lidar com estes erros em vez de os surcar como erros de aplicação para os utilizadores. Reveja o tratamento de erros transitórios de conectividade para a Base de [Dados Azure para PostgreSQL](concepts-connectivity.md) para as melhores práticas e orientações de design para lidar com erros transitórios.
+3. À medida que um servidor se aproxima dos seus limites de recursos, os erros podem parecer um problema de conectividade transitório. Consulte [limitações na Base de Dados Azure para PostgreSQL](concepts-limits.md).
+4. Se os problemas de conectividade continuarem, ou se a duração para a qual a sua aplicação se encontra o erro exceder 60 segundos ou se vir múltiplas ocorrências do erro num determinado dia, faça um pedido de suporte Azure selecionando **o Suporte** get no site do [Suporte Azure.](https://azure.microsoft.com/support/options)
 
-## <a name="troubleshoot-persistent-errors"></a>Solucionar erros persistentes
+## <a name="troubleshoot-persistent-errors"></a>Erros persistentes de resolução de problemas
 
-Se o aplicativo falhar de maneira persistente ao se conectar ao banco de dados do Azure para PostgreSQL, ele geralmente indica um problema com um dos seguintes:
+Se a aplicação não conseguir ligar persistentemente à Base de Dados Azure para PostgreSQL, normalmente indica um problema com um dos seguintes:
 
-* Configuração de firewall do servidor: Verifique se o Firewall do servidor do banco de dados do Azure para PostgreSQL está configurado para permitir conexões do cliente, incluindo servidores proxy e gateways.
-* Configuração de firewall do cliente: o firewall em seu cliente deve permitir conexões com o servidor de banco de dados. Os endereços IP e as portas do servidor que não podem ser permitidos, bem como os nomes de aplicativos, como PostgreSQL em alguns firewalls.
-* Erro do usuário: você pode ter parâmetros de conexão digitados, como o nome do servidor na cadeia de conexão ou um sufixo ausente do *\@ServerName* no nome de usuário.
+* Configuração da firewall do servidor: Certifique-se de que a Base de Dados Azure para firewall do servidor PostgreSQL está configurada para permitir ligações do seu cliente, incluindo servidores proxy e gateways.
+* Configuração da firewall do cliente: A firewall do seu cliente deve permitir ligações ao seu servidor de base de dados. Endereços IP e portas do servidor que não pode ser permitido, bem como nomes de aplicações como PostgreSQL em algumas firewalls.
+* Erro do utilizador: Pode ter parâmetros de ligação enevoados, como o nome do servidor na cadeia de ligação ou um sufixo de nome de * \@servidor* em falta no nome do utilizador.
 
-### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Etapas para resolver problemas de conectividade persistente
+### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Passos para resolver problemas persistentes de conectividade
 
-1. Configure [as regras de firewall](howto-manage-firewall-using-portal.md) para permitir o endereço IP do cliente. Somente para fins de teste temporários, configure uma regra de firewall usando 0.0.0.0 como o endereço IP inicial e usando 255.255.255.255 como o endereço IP final. Isso abrirá o servidor para todos os endereços IP. Se isso resolver o problema de conectividade, remova essa regra e crie uma regra de firewall para um endereço IP ou intervalo de endereços apropriado limitado.
-2. Em todos os firewalls entre o cliente e a Internet, verifique se a porta 5432 está aberta para conexões de saída.
-3. Verifique a cadeia de conexão e outras configurações de conexão.
-4. Verifique a integridade do serviço no painel. Se você considerar que há uma interrupção regional, consulte [visão geral da continuidade de negócios com o banco de dados do Azure para PostgreSQL](concepts-business-continuity.md) para obter as etapas para recuperar em uma nova região.
+1. Configurar regras de [firewall](howto-manage-firewall-using-portal.md) para permitir o endereço IP do cliente. Apenas para efeitos de testes temporários, criar uma regra de firewall utilizando 0.0.0.0 como endereço IP inicial e utilizando 255.255.255.255 como endereço IP final. Isto abrirá o servidor a todos os endereços IP. Se isto resolver o seu problema de conectividade, remova esta regra e crie uma regra de firewall para um endereço IP ou endereço adequadamente limitado.
+2. Em todas as firewalls entre o cliente e a internet, certifique-se de que a porta 5432 está aberta para ligações de saída.
+3. Verifique a sua cadeia de ligação e outras definições de ligação.
+4. Verifique a saúde do serviço no painel de instrumentos. Se acha que há uma paragem regional, consulte a visão geral da continuidade dos negócios com a Base de [Dados Azure para o PostgreSQL](concepts-business-continuity.md) para obter medidas para recuperar para uma nova região.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Tratamento de erros de conectividade transitórios para o banco de dados do Azure para PostgreSQL](concepts-connectivity.md)
+* [Tratamento de erros transitórios de conectividade para a Base de Dados Azure para PostgreSQL](concepts-connectivity.md)

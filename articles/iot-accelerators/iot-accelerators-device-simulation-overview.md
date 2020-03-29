@@ -1,6 +1,6 @@
 ---
-title: Descrição geral simulação do dispositivo - Azure | Documentos da Microsoft
-description: Uma descrição do solution accelerator simulação do dispositivo e as respetivas capacidades.
+title: Visão geral da simulação do dispositivo - Azure / Microsoft Docs
+description: Uma descrição do acelerador de solução de simulação de dispositivo e as suas capacidades.
 author: dominicbetts
 manager: philmea
 ms.service: iot-accelerators
@@ -10,57 +10,57 @@ ms.custom: mvc
 ms.date: 12/03/2018
 ms.author: dobett
 ms.openlocfilehash: f58eb05ed582cf18157a76f4d637d72a228f4e96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65464879"
 ---
 # <a name="device-simulation-solution-accelerator-overview"></a>Descrição geral do acelerador de soluções da Simulação de Dispositivos
 
-Numa solução de IoT com base na cloud, os seus dispositivos ligam a um ponto final da cloud para enviar telemetria, tais como temperatura, localização e o estado. Sua solução consome esta telemetria, permitindo-lhe executar ações ou derivar as informações dos mesmos.
+Numa solução IoT baseada em nuvem, os seus dispositivos ligam-se a um ponto final de nuvem para enviar telemetria, como temperatura, localização e estado. A sua solução consome esta telemetria, permitindo-lhe tomar ações ou obter insights dela.
 
-Ao desenvolver uma solução de IoT, experimentação e de teste são partes essenciais do processo. Simulação é uma ferramenta importante ao longo deste processo. Com a simulação do dispositivo, pode:
+Quando se desenvolve uma Solução IoT, a experimentação e os testes são partes essenciais desse processo. A simulação é uma ferramenta importante durante todo este processo. Com simulação de dispositivo pode:
 
-* Obtenha rapidamente um protótipo em funcionamento e, em seguida, iterar ao ajustar simulated o comportamento do dispositivo em tempo real. Este processo permite-lhe provar que a idéia antes de investir em hardware dispendiosa. Pode criar dispositivos personalizados através da web da interface do Usuário para gerar um dispositivo de protótipo em segundos.
-* Simule comportamentos de dispositivos do mundo real para confirmar se a solução funciona conforme o esperado do dispositivo até à solução. Pode criar um script comportamentos de dispositivo complexos usando o JavaScript para gerar a telemetria simulada realista.
-* Dimensionamento testar sua solução por simulação normal, pico e muito mais condições de carga de pico. Testes de dimensionamento também ajudá-lo a dimensão certa de recursos do Azure necessários para executar a sua solução.
+* Rapidamente coloque um protótipo em funcionamento e, em seguida, iterado ajustando o comportamento simulado do dispositivo em movimento. Este processo permite-lhe provar a ideia antes de investir em hardware dispendioso. Pode criar dispositivos personalizados através da UI web para gerar um dispositivo protótipo em segundos.
+* Validar a solução funciona como esperado de dispositivo em solução, simulando comportamentos de dispositivos do mundo real. Pode scripts comportamentos complexos de dispositivos usando javaScript para gerar telemetria simulada realista.
+* A escala testa a sua solução simulando condições normais, máximas e para além das condições de carga máxima. Os testes de escala também ajudam a corrigir o tamanho certo dos recursos Azure necessários para executar a sua solução.
 
-![Simulação de drones de exemplo](media/iot-accelerators-device-simulation-overview/dronesimulation.png)
+![Simulação de drone de amostra](media/iot-accelerators-device-simulation-overview/dronesimulation.png)
 
-Com a simulação do dispositivo, pode definir modelos de dispositivos para simular os seus dispositivos reais. Esse modelo inclui métodos, propriedades de twin e formatos de mensagem. Também pode simular a comportamentos de dispositivo complexos com JavaScript.
+Com a Simulação do Dispositivo, pode definir modelos de dispositivos para simular os seus dispositivos reais. Este modelo inclui formatos de mensagens, propriedades gémeas e métodos. Também pode simular comportamentos complexos do dispositivo com o JavaScript.
 
-Pode executar simulações para uma a milhares de dispositivos que ligam ao qualquer hub de IoT. Para ajudar com o teste, opcionalmente, pode implementar um hub IoT, juntamente com a simulação do dispositivo para um ambiente autônomo.
+Pode executar simulações para um a milhares de dispositivos que se ligam a qualquer hub IoT. Para ajudar nos testes, pode implementar opcionalmente um hub IoT juntamente com a Simulação do Dispositivo para um ambiente autónomo.
 
-Simulação do dispositivo é gratuita. No entanto, a simulação do dispositivo implementa a sua subscrição do Azure na cloud e a consumir recursos do Azure. Se a simulação do dispositivo não cumpre os requisitos, o [código-fonte também está disponível no GitHub](https://github.com/Azure/device-simulation-dotnet) para que possa copiar e modificar.
+A simulação do dispositivo é gratuita. No entanto, a Simulação de Dispositivos implementa-se na sua subscrição Azure na nuvem e consome recursos Azure. Se a Simulação do Dispositivo não cumprir os seus requisitos, o [código fonte também está disponível no GitHub](https://github.com/Azure/device-simulation-dotnet) para que copie e modifique.
 
-## <a name="sample-simulations"></a>Simulações de exemplo
+## <a name="sample-simulations"></a>Simulações de amostras
 
-Quando implementar simulação do dispositivo, obtém algumas simulações de exemplo e dispositivos de exemplo. Pode utilizar estes exemplos para saber como utilizar a simulação do dispositivo. Para começar a utilizar, execute uma [exemplo de simulação, que simula 10 trucks](quickstart-device-simulation-deploy.md). Também pode [criar sua própria simulação usando um dos muitos dispositivos de exemplo fornecidos](iot-accelerators-device-simulation-create-simulation.md).
+Quando implementa a Simulação do Dispositivo, obtém-se algumas simulações de amostra e dispositivos de amostra. Pode utilizar estas amostras para aprender a utilizar a Simulação do Dispositivo. Para começar, faça uma [simulação de amostra que simula 10 camiões.](quickstart-device-simulation-deploy.md) Também pode [criar a sua própria simulação utilizando um dos muitos dispositivos de amostra fornecidos.](iot-accelerators-device-simulation-create-simulation.md)
 
 ![Configuração de simulação](media/iot-accelerators-device-simulation-overview/samplesimulation1.png)
 
 ## <a name="custom-simulated-devices"></a>Dispositivos simulados personalizados
 
-Pode usar a simulação de dispositivo para [criar modelos de dispositivos personalizados](iot-accelerators-device-simulation-create-custom-device.md) usar em suas simulações. Por exemplo, pode definir um novo modelo de dispositivo de refrigerator (refrigerador) que envia telemetria de temperatura e humidade. Dispositivos simulados personalizados são ideais para comportamentos de dispositivo de simples com aleatório, incrementando ou valores de telemetria de diminuição.
+Pode utilizar a Simulação do Dispositivo para [criar modelos de dispositivos personalizados](iot-accelerators-device-simulation-create-custom-device.md) para utilizar nas suas simulações. Por exemplo, pode definir um novo modelo de dispositivo frigorífico que envia telemetria de temperatura e humidade. Os dispositivos simulados personalizados são ideais para comportamentos simples do dispositivo com valores aleatórios, incrementados ou descedição de telemetria.
 
 ![Criar o modelo de dispositivo](media/iot-accelerators-device-simulation-overview/adddevicemodel.png)
 
 ## <a name="advanced-simulated-devices"></a>Dispositivos simulados avançados
 
-Quando precisar de mais controlo sobre os valores de telemetria que envia um dispositivo, pode utilizar um modelo de dispositivo avançado. Modelos de dispositivos avançado ativar suporte de JavaScript para manipular os valores de telemetria enviada. Por exemplo, poderia simular a temperatura interior de um carro parqueado num dia ensolarado frequente – como o aumento de temperatura exterior, a temperatura interior aumenta exponencialmente.
+Quando precisa de mais controlo sobre os valores de telemetria que um dispositivo envia, pode utilizar um modelo avançado de dispositivo. Os modelos avançados do dispositivo permitem que o suporte javaScript manipule os valores de telemetria enviados. Por exemplo, pode simular a temperatura interior de um carro estacionado num dia quente e ensolarado - à medida que a temperatura exterior sobe, a temperatura interior aumenta exponencialmente.
 
-Modelos de dispositivos avançadas permitem-lhe [criar e carregar seus próprios modelos de dispositivo](iot-accelerators-device-simulation-advanced-device.md) que consistem numa definição de dispositivo JSON de ficheiros e ficheiros de JavaScript correspondentes.
+Os modelos avançados do dispositivo [permitem-lhe criar e carregar os seus próprios modelos](iot-accelerators-device-simulation-advanced-device.md) de dispositivos que consistem num ficheiro de definição de dispositivo JSON e ficheiros JavaScript correspondentes.
 
-Modelos de dispositivos avançadas permitem-lhe:
+Modelos avançados de dispositivos permitem::
 
-* Especifique o formato de mensagem enviada do dispositivo, juntamente com os tipos de telemetria.
-* Utilize a criação de scripts personalizados para gerar valores de telemetria que mantêm o estado do dispositivo ao longo do tempo.
-* Utilize a criação de scripts personalizados para especificar como o dispositivo simulado responde aos métodos.
+* Especifique o formato de mensagem enviado do dispositivo juntamente com os tipos de telemetria.
+* Utilize scripts personalizados para gerar valores de telemetria que mantenham o estado do dispositivo ao longo do tempo.
+* Utilize scripts personalizados para especificar como o dispositivo simulado responde aos métodos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu sobre o solution accelerator de simulação do dispositivo e as respetivas capacidades. Para começar a utilizar o solution accelerator, avance para o início rápido:
+Neste artigo, aprendeu sobre o acelerador de solução de simulação de dispositivo e as suas capacidades. Para começar a usar o acelerador de solução, continue a acelerar:
 
 > [!div class="nextstepaction"]
-> [Implementar e executar uma simulação de dispositivo do IoT no Azure](quickstart-device-simulation-deploy.md)
+> [Implementar e executar uma simulação de dispositivo IoT em Azure](quickstart-device-simulation-deploy.md)

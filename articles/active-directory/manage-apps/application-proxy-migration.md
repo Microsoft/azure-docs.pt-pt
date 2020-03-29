@@ -1,6 +1,6 @@
 ---
-title: Atualizar para o Proxy de aplicações do Azure AD | Documentos da Microsoft
-description: Escolha que solução de proxy é melhor se estiver a atualizar do Microsoft Forefront ou Unified Access Gateway.
+title: Upgrade para Procuração de Aplicação AD Azure [ Microsoft Docs
+description: Escolha qual a solução proxy melhor se estiver a atualizar a partir da Microsoft Forefront ou do Gateway de Acesso Unificado.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,51 +17,51 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4790dc7ebeeee3407e89bcf38d7e3f25699ed328
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67108417"
 ---
-# <a name="compare-remote-access-solutions"></a>Compare as soluções de acesso remoto
+# <a name="compare-remote-access-solutions"></a>Comparar soluções de acesso remoto
 
-Proxy de aplicação do Active Directory do Azure é uma das duas soluções de acesso remoto que a Microsoft oferece. O outro é o Proxy de aplicações Web, a versão no local. Essas duas soluções substituem produtos anteriores que Microsoft oferecida: Microsoft Forefront Threat Management Gateway (TMG) e o Unified Access Gateway (UAG). Utilize este artigo para compreender como essas quatro soluções comparam entre si. Para aqueles que ainda utilizam as soluções TMG ou UAG preteridas, utilize este artigo para ajudar a planear a migração para um Proxy de aplicações. 
+A Procuração de Aplicações de Diretório Ativo Azure é uma das duas soluções de acesso remoto que a Microsoft oferece. O outro é Web Application Proxy, a versão no local. Estas duas soluções substituem os produtos anteriores que a Microsoft ofereceu: Microsoft Forefront Threat Management Gateway (TMG) e Unified Access Gateway (UAG). Use este artigo para entender como estas quatro soluções se comparam umas às outras. Para aqueles que ainda usam as soluções Deprecated TMG ou UAG, use este artigo para ajudar a planear a sua migração para uma das proxy de aplicação. 
 
 
 ## <a name="feature-comparison"></a>Comparação de funcionalidades
 
-Utilize esta tabela para compreender como Threat Management Gateway (TMG), o Unified Access Gateway (UAG), o Proxy de aplicações Web (WAP) e o Proxy de aplicações do Azure AD (AP) comparam entre si.
+Utilize esta tabela para entender como o Gateway de Gestão de Ameaças (TMG), gateway de acesso unificado (UAG), Proxy de Aplicação Web (WAP) e Procuração de Aplicações AD Azure (AP) se comparam entre si.
 
 | Funcionalidade | TMG | UAG | WAP | AP |
 | ------- | --- | --- | --- | --- |
 | Autenticação de certificados | Sim | Sim | - | - |
-| Publicar seletivamente as aplicações de browser | Sim | Sim | Sim | Sim |
-| Pré-autenticação e o único início de sessão | Sim | Sim | Sim | Sim | 
-| 2/3 firewall de camada | Sim | Sim | - | - |
-| Capacidades de proxy de encaminhamento | Sim | - | - | - |
+| Publicar seletivamente aplicações de navegador | Sim | Sim | Sim | Sim |
+| Pré-autenticação e inscrição única | Sim | Sim | Sim | Sim | 
+| Firewall camada 2/3 | Sim | Sim | - | - |
+| Capacidades de procuração avançadas | Sim | - | - | - |
 | Capacidades VPN | Sim | Sim | - | - |
-| Suporte de protocolo avançado | - | Sim | Sim, se executar através de HTTP | Sim, se executar através de HTTP ou através do Gateway de ambiente de trabalho remoto |
-| Funciona como servidor de proxy do AD FS | - | Sim | Sim | - |
-| Um portal de acesso à aplicação | - | Sim | - | Sim |
-| Conversão de link de corpo de resposta | Sim | Sim | - | Sim | 
-| Autenticação com cabeçalhos | - | Sim | - | Sim, com o PingAccess | 
-| Segurança de escala da cloud | - | - | - | Sim | 
+| Apoio ao protocolo rico | - | Sim | Sim, se atropelar http | Sim, se passar por HTTP ou através do Gateway remote desktop |
+| Serve como servidor proxy ADFS | - | Sim | Sim | - |
+| Um portal para acesso a aplicações | - | Sim | - | Sim |
+| Tradução de ligação corporal de resposta | Sim | Sim | - | Sim | 
+| Autenticação com cabeçalhos | - | Sim | - | Sim, com PingAccess | 
+| Segurança em escala de nuvem | - | - | - | Sim | 
 | Acesso Condicional | - | Sim | - | Sim |
-| Não existem componentes na zona desmilitarizada (DMZ) | - | - | - | Sim |
-| Não existem ligações de entrada | - | - | - | Sim |
+| Não há componentes na zona desmilitarizada (DMZ) | - | - | - | Sim |
+| Sem ligações de entrada | - | - | - | Sim |
 
-Na maioria dos cenários, é recomendável o Proxy de aplicações do Azure AD como a solução modernos. Proxy de aplicações Web é apenas preferenciais em cenários que exigem um servidor proxy para o AD FS e não é possível utilizar domínios personalizados no Azure Active Directory. 
+Para a maioria dos cenários, recomendamos o Procuraproxy de Aplicação AD Azure como a solução moderna. O Proxy de Aplicação Web só é preferido em cenários que requerem um servidor proxy para AD FS, e não pode utilizar domínios personalizados no Diretório Ativo Do Azure. 
 
-Proxy de aplicações do Azure AD oferece as vantagens exclusivas quando em comparação aos produtos semelhantes, incluindo:
+A Procuração de Aplicações Azure AD oferece benefícios únicos quando comparado com produtos similares, incluindo:
 
-- Estendendo o Azure AD para recursos no local
-   - Proteção e segurança de escala da cloud
-   - Funcionalidades como o acesso condicional e multi-factor Authentication são fáceis de ativar
-- Não existem componentes na zona desmilitarizada
-- Não existem ligações de entrada necessárias
-- Painel de acesso de um que os utilizadores podem aceder a para todas as aplicações, incluindo o Office 365, do Azure AD integrado a aplicações SaaS e aplicações de web no local. 
+- Alargar a AD Azure aos recursos no local
+   - Segurança e proteção em escala de nuvem
+   - Funcionalidades como Acesso Condicional e Autenticação multi-Factor são fáceis de ativar
+- Sem componentes na zona desmilitarizada
+- Não são necessárias ligações de entrada
+- Um painel de acesso a que os seus utilizadores podem recorrer para todas as suas aplicações, incluindo o O365, as aplicações Integradas do Azure AD SaaS e as suas aplicações web no local. 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Utilizar a aplicação do Azure AD para fornecer acesso remoto seguro a aplicações no local](application-proxy.md)
+- [Utilize a Aplicação AD Azure para fornecer acesso remoto seguro a aplicações no local](application-proxy.md)

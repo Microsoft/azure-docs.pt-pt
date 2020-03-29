@@ -1,6 +1,6 @@
 ---
-title: Exemplos de Azure PowerShell para os hubs de notificação do Azure | Microsoft Docs
-description: Azure PowerShell amostras-scripts para ajudá-lo a criar e gerenciar hubs de notificação.
+title: Amostras Azure PowerShell para centros de notificação Azure / Microsoft Docs
+description: Amostras Azure PowerShell - Scripts para ajudá-lo a criar e gerir centros de notificação.
 services: notification-hubs
 author: sethmanheim
 manager: femila
@@ -15,16 +15,16 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 720256416ca77b40ca0075f5b227212355dda040
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71213320"
 ---
-# <a name="azure-powershell-samples-for-azure-notification-hubs"></a>Exemplos de Azure PowerShell para os hubs de notificação do Azure
+# <a name="azure-powershell-samples-for-azure-notification-hubs"></a>Amostras azure PowerShell para Centros de Notificação Azure
 
-A tabela a seguir inclui links para exemplos de scripts de Azure PowerShell para os hubs de notificação do Azure.
+A tabela seguinte inclui links para provar scripts Azure PowerShell para Hubs de Notificação Azure.
 
-| Descrição | Associar |
+| Descrição | Ligação |
 | ----------- | ---- |
-|[Criar um hub de notificação](scripts/create-notification-hub-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Esse script do PowerShell cria um hub de notificação de exemplo. |
+|[Criar um hub de notificação](scripts/create-notification-hub-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script PowerShell cria um centro de notificação de amostra. |

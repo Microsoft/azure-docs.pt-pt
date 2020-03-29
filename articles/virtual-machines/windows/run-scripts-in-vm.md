@@ -1,6 +1,6 @@
 ---
-title: Executar scripts numa VM do Windows Azure
-description: Este tópico descreve como executar scripts numa máquina virtual do Windows
+title: Executar scripts num VM Do Windows Azure
+description: Este tópico descreve como executar scripts dentro de uma máquina virtual do Windows
 services: automation
 ms.service: automation
 author: bobbytreed
@@ -9,66 +9,66 @@ ms.date: 05/02/2018
 ms.topic: article
 manager: carmonm
 ms.openlocfilehash: e10cab5261d6bd970135273bd4632b7c916641de
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67476765"
 ---
-# <a name="run-scripts-in-your-windows-vm"></a>Executar scripts na sua VM do Windows
+# <a name="run-scripts-in-your-windows-vm"></a>Executar scripts no seu Windows VM
 
-Para automatizar tarefas ou resolução de problemas, terá de executar comandos numa VM. O seguinte artigo fornece uma breve descrição geral das funcionalidades que estão disponíveis para executar scripts e comandos dentro de suas VMs.
+Para automatizar tarefas ou problemas de resolução de problemas, poderá ser necessário executar comandos num VM. O seguinte artigo dá uma breve visão geral das funcionalidades que estão disponíveis para executar scripts e comandos dentro dos seus VMs.
 
 ## <a name="custom-script-extension"></a>Extensão de Script Personalizado
 
-O [extensão de Script personalizado](../extensions/custom-script-windows.md) é usado principalmente para a instalação de software e configuração de implementação de post.
+A [extensão do script personalizado](../extensions/custom-script-windows.md) é usada principalmente para configuração de implementação de posts e instalação de software.
 
-* Transfira e execute scripts em máquinas virtuais do Azure.
-* Pode ser executado com modelos Azure Resource Manager, da CLI do Azure, REST API, PowerShell ou o portal do Azure.
-* Arquivos de script podem ser transferidos a partir do armazenamento do Azure ou do GitHub, ou fornecidos do seu PC quando executar a partir do portal do Azure.
-* Executar script do PowerShell em máquinas do Windows e em máquinas do Linux do script de Bash.
-* Útil para configuração pós-implementação, instalação de software e outros configuração ou tarefas de gestão.
+* Descarregue e execute scripts em máquinas virtuais Azure.
+* Pode ser executado usando modelos de Gestor de Recursos Azure, Azure CLI, REST API, PowerShell ou portal Azure.
+* Os ficheiros script podem ser descarregados a partir do armazenamento Do Azure ou do GitHub, ou fornecidos a partir do seu PC quando executados a partir do portal Azure.
+* Executar o script PowerShell em máquinas Windows e script Bash em máquinas Linux.
+* Útil para a configuração de pós-implementação, instalação de software e outras tarefas de configuração ou gestão.
 
-## <a name="run-command"></a>Execute o comando
+## <a name="run-command"></a>Execute o comando 
 
-O [executar comando](run-command.md) funcionalidade permite que a máquina virtual e a gestão de aplicações e a resolução de problemas com scripts e está disponível, mesmo quando o computador não estiver acessível, por exemplo, se a firewall de convidado não tiver a porta RDP ou SSH Abra.
+A função [Executar Command](run-command.md) permite a gestão virtual de máquinas e aplicações e resolução de problemas utilizando scripts, e está disponível mesmo quando a máquina não está acessível, por exemplo, se a firewall do hóspede não tiver a porta RDP ou SSH aberta.
 
-* Execute scripts em máquinas virtuais do Azure.
-* Pode ser executado usando [portal do Azure](run-command.md), [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [da CLI do Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), ou [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand)
-* Executar um script e vista de saída e repita conforme necessário no portal do Azure rapidamente.
-* Script pode ser digitado diretamente ou pode executar um dos scripts incorporados.
-* Executar script do PowerShell em máquinas do Windows e em máquinas do Linux do script de Bash.
-* Útil para a máquina virtual e o gerenciamento de aplicativos e para a execução de scripts em máquinas virtuais que são inacessíveis.
+* Execute scripts em máquinas virtuais Azure.
+* Pode ser executado usando [portal Azure](run-command.md), [REST API,](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke)ou [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand)
+* Executar rapidamente um script e visualizar a saída e repetir conforme necessário no portal Azure.
+* O script pode ser dactilografado diretamente ou pode executar um dos scripts incorporados.
+* Executar o script PowerShell em máquinas Windows e script Bash em máquinas Linux.
+* Útil para a gestão de máquinas virtuais e aplicações e para executar scripts em máquinas virtuais que são inacessíveis.
 
 ## <a name="hybrid-runbook-worker"></a>Função de Trabalho de Runbook Híbrida
 
-O [Runbook Worker híbrido](../../automation/automation-hybrid-runbook-worker.md) Fornece gerenciamento geral de máquina, o aplicativo e o ambiente com scripts personalizados do usuário armazenados numa conta de automatização.
+O [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) fornece uma máquina geral, aplicação e gestão ambiental com scripts personalizados do utilizador armazenados numa conta de Automação.
 
-* Execute scripts no Azure e máquinas não Azure.
-* Podem ser executados através do portal do Azure, CLI do Azure, REST API, PowerShell, o webhook.
-* Scripts de armazenados e gerenciados numa conta de automatização.
-* Executar runbooks do PowerShell, fluxo de trabalho do PowerShell, Python ou gráfico
-* Sem limite de tempo no tempo de execução do script.
-* Vários scripts podem ser executadas em simultâneo.
-* Saída do script completo é devolvida e armazenada.
-* Histórico de tarefas disponível durante 90 dias.
-* Os scripts podem ser executados como sistema Local ou com as credenciais fornecido pelo usuário.
+* Execute scripts em máquinas Azure e não-Azure.
+* Pode ser executado usando o portal Azure, Azure CLI, REST API, PowerShell, webhook.
+* Scripts armazenados e geridos numa Conta de Automação.
+* Executar PowerShell, PowerShell Workflow, Python ou livros gráficos
+* Sem limite de tempo no tempo de execução do guião.
+* Vários scripts podem ser executados simultaneamente.
+* A saída completa do script é devolvida e armazenada.
+* Histórico de emprego disponível por 90 dias.
+* Os scripts podem ser executados como Sistema Local ou com credenciais fornecidas pelo utilizador.
 * Requer [instalação manual](../../automation/automation-windows-hrw-install.md)
 
 ## <a name="serial-console"></a>Consola de série
 
-O [consola de série](serial-console.md) fornece acesso direto a uma VM, semelhante a ter um teclado ligado à VM.
+A [consola Serial](serial-console.md) fornece acesso direto a um VM, semelhante a ter um teclado ligado ao VM.
 
-* Comandos de execução em máquinas virtuais do Azure.
-* Pode ser executado com um console baseado em texto para a máquina no portal do Azure.
-* Início de sessão para a máquina com uma conta de utilizador local.
-* Útil quando for necessário acesso à máquina virtual, independentemente do Estado de rede ou sistema operativo da máquina.
+* Executar comandos em máquinas virtuais Azure.
+* Pode ser executado utilizando uma consola baseada em texto para a máquina no portal Azure.
+* Inicie sessão na máquina com uma conta de utilizador local.
+* Útil quando o acesso à máquina virtual é necessário independentemente da rede da máquina ou do estado do sistema operativo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre as diferentes funcionalidades que estão disponíveis para executar scripts e comandos dentro de suas VMs.
+Saiba mais sobre as diferentes funcionalidades que estão disponíveis para executar scripts e comandos dentro dos seus VMs.
 
 * [Extensão de Script Personalizado](../extensions/custom-script-windows.md)
-* [Execute o comando](run-command.md)
-* [A função de trabalho de Runbook híbrida](../../automation/automation-hybrid-runbook-worker.md)
-* [Consola de série](serial-console.md)
+* [Comando executar](run-command.md)
+* [Função de Trabalho de Runbook Híbrida](../../automation/automation-hybrid-runbook-worker.md)
+* [Consola em série](serial-console.md)

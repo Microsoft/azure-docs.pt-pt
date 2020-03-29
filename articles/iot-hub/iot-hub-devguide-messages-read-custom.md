@@ -1,6 +1,6 @@
 ---
-title: Compreender os pontos finais personalizados do IoT Hub do Azure | Documentos da Microsoft
-description: Guia do programador - através de consultas de encaminhamento para encaminhar mensagens do dispositivo para a cloud para os pontos finais personalizados.
+title: Compreenda os pontos finais personalizados do Azure IoT Hub [ Microsoft Docs
+description: Guia de desenvolvedores - usando consultas de encaminhamento para direcionar mensagens dispositivo-cloud para pontos finais personalizados.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -9,53 +9,53 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: e5e92c40cef15e99431dc9652820c71e87935f67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61244349"
 ---
-# <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Utilizar rotas de mensagens e os pontos finais personalizados para mensagens de dispositivo para a cloud
+# <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Utilize rotas de mensagens e pontos finais personalizados para mensagens dispositivo-cloud
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-IoT Hub [roteamento de mensagens](iot-hub-devguide-routing-query-syntax.md) permite aos utilizadores encaminhar mensagens do dispositivo para a cloud para pontos finais de serviço com acesso à. Também encaminhamento fornece um recurso de consulta para filtrar os dados antes de encaminhamento para os pontos de extremidade. Cada consulta de encaminhamento que configurar tem as seguintes propriedades:
+O [Encaminhamento](iot-hub-devguide-routing-query-syntax.md) de Mensagens IoT Hub permite que os utilizadores encaminhem mensagens de dispositivo-nuvem para pontos finais virados para o serviço. O encaminhamento também fornece uma capacidade de consulta para filtrar os dados antes de encaminha-lo para os pontos finais. Cada consulta de encaminhamento que configura tem as seguintes propriedades:
 
 | Propriedade      | Descrição |
 | ------------- | ----------- |
-| **Nome**      | O nome exclusivo que identifica a consulta. |
-| **Origem**    | A origem do fluxo de dados a ser alterados. Por exemplo, telemetria do dispositivo. |
-| **condição** | A expressão de consulta para a consulta de encaminhamento que é executada em relação a propriedades da mensagem de aplicação, as propriedades do sistema, corpo da mensagem, etiquetas de twin do dispositivo e propriedades dos dispositivos duplos para determinar se é uma correspondência para o ponto final. Para obter mais informações sobre a construção de uma consulta, consulte a [sintaxe de consulta de encaminhamento de mensagens](iot-hub-devguide-routing-query-syntax.md) |
-| **Endpoint**  | O nome do ponto de extremidade em que o IoT Hub envia as mensagens que correspondem à consulta. Recomendamos que escolha um ponto de extremidade na mesma região que o seu hub IoT. |
+| **Nome**      | O nome único que identifica a consulta. |
+| **Origem**    | A origem do fluxo de dados a ser atotado. Por exemplo, telemetria do dispositivo. |
+| **Condição** | A expressão de consulta para a consulta de encaminhamento que é executada contra as propriedades da aplicação de mensagens, propriedades do sistema, corpo de mensagem, etiquetas gémeas do dispositivo e propriedades gémeas do dispositivo para determinar se é compatível com o ponto final. Para mais informações sobre a construção de uma consulta, consulte a [mensagem de encaminhamento de sintaxe](iot-hub-devguide-routing-query-syntax.md) |
+| **Ponto Final**  | O nome do ponto final onde o IoT Hub envia mensagens que correspondem à consulta. Recomendamos que escolha um ponto final na mesma região que o seu hub IoT. |
 
-Uma única mensagem pode correspondem à condição em várias consultas de encaminhamento, nesse caso o IoT Hub entrega a mensagem para o ponto final associado a cada consulta correspondente. IoT Hub também automaticamente elimina duplicados entrega de mensagens, portanto, se uma mensagem corresponde a várias consultas que têm o mesmo destino, só é escrito uma vez para esse destino.
+Uma única mensagem pode corresponder à condição em múltiplas consultas de encaminhamento, caso em que o IoT Hub entrega a mensagem ao ponto final associado a cada consulta compatível. O IoT Hub também desduplica automaticamente a entrega de mensagens, por isso, se uma mensagem corresponder a múltiplas consultas que têm o mesmo destino, só é escrita uma vez para esse destino.
 
-## <a name="endpoints-and-routing"></a>Pontos de extremidade e roteamento
+## <a name="endpoints-and-routing"></a>Pontos finais e encaminhamento
 
-Um hub IoT tem uma predefinição [ponto final incorporado](iot-hub-devguide-messages-read-builtin.md). Pode criar pontos finais personalizados para rotear mensagens ao ligar a outros serviços na sua subscrição para o hub. IoT Hub suporta atualmente os contentores de armazenamento do Azure, os Hubs de eventos, filas do Service Bus e tópicos do Service Bus como pontos finais personalizados.
+Um hub IoT tem um [ponto final incorporado](iot-hub-devguide-messages-read-builtin.md)predefinido. Pode criar pontos finais personalizados para encaminhar mensagens, ligando outros serviços na sua subscrição ao hub. O IoT Hub atualmente suporta contentores de armazenamento Azure, Hubs de Eventos, filas de ônibus de serviço e tópicos de ônibus de serviço como pontos finais personalizados.
 
-Quando utiliza pontos de extremidade personalizados e encaminhamento, as mensagens são entregues apenas para o ponto final incorporado se eles não correspondem a qualquer consulta. Para entregar mensagens para o ponto final incorporado, bem como para um ponto final personalizado, adicione uma rota que envia mensagens para o incorporado **eventos** ponto final.
+Quando utiliza o encaminhamento e os pontos finais personalizados, as mensagens só são entregues no ponto final incorporado se não corresponderem a qualquer consulta. Para entregar mensagens ao ponto final incorporado, bem como a um ponto final personalizado, adicione uma rota que envia mensagens para o ponto final dos **eventos incorporados.**
 
 > [!NOTE]
-> * IoT Hub suporta apenas a escrita de dados para os contentores de armazenamento do Azure como blobs.
-> * Filas do Service Bus e tópicos com **sessões** ou **duplicar deteção** ativada não são suportados como pontos finais personalizados.
+> * O IoT Hub apenas suporta a escrita de dados para os recipientes de armazenamento Azure como bolhas.
+> * As filas e tópicos de ônibus de serviço com **Sessões** ou **Deteção duplicada** ativadas não são suportados como pontos finais personalizados.
 
-Para obter mais informações sobre a criação de pontos finais personalizados no IoT Hub, veja [pontos finais do IoT Hub](iot-hub-devguide-endpoints.md).
+Para obter mais informações sobre a criação de pontos finais personalizados no IoT Hub, consulte [os pontos finais do IoT Hub](iot-hub-devguide-endpoints.md).
 
-Para obter mais informações sobre a leitura a partir de pontos finais personalizados, consulte:
+Para mais informações sobre a leitura a partir de pontos finais personalizados, consulte:
 
-* Ler a partir [contentores de armazenamento do Azure](../storage/blobs/storage-blobs-introduction.md).
+* Leitura a partir de recipientes de [armazenamento Azure](../storage/blobs/storage-blobs-introduction.md).
 
-* Ler a partir [os Hubs de eventos](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
+* Leitura de Centros de [Eventos.](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-* Ler a partir [filas do Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+* Leitura das filas de [ônibus de serviço](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
-* Ler a partir [tópicos do Service Bus](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md).
+* Leitura dos tópicos do [Ônibus de serviço.](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para obter mais informações sobre pontos finais do IoT Hub, veja [pontos finais do IoT Hub](iot-hub-devguide-endpoints.md).
+* Para obter mais informações sobre os pontos finais do Hub IoT, consulte os [pontos finais do Hub IoT](iot-hub-devguide-endpoints.md).
 
-* Para obter mais informações sobre a linguagem de consulta que utilizar para definir o encaminhamento de consultas, consulte [sintaxe de consulta de mensagem encaminhamento](iot-hub-devguide-routing-query-syntax.md).
+* Para obter mais informações sobre a linguagem de consulta que utiliza para definir consultas de encaminhamento, consulte a [sintaxe](iot-hub-devguide-routing-query-syntax.md)de consulta de Message Routing .
 
-* O [mensagens de dispositivo-para-cloud do Hub de IoT de processo utilizar rotas](tutorial-routing.md) tutorial mostra-lhe como utilizar o encaminhamento de consultas e os pontos finais personalizados.
+* As mensagens de [dispositivo-para-nuvem do Process IoT Hub utilizando o](tutorial-routing.md) tutorial de rotas mostram-lhe como usar consultas de encaminhamento e pontos finais personalizados.

@@ -1,6 +1,6 @@
 ---
-title: Relatórios personalizados da Verizon | Documentos da Microsoft
-description: 'Pode ver padrões de utilização da sua CDN utilizando os seguintes relatórios: Largura de banda, os dados transferidos, visitas, Estados de Cache, a taxa, dados de IPV4/IPV6 transferidos de acerto na Cache.'
+title: Relatórios Personalizados de Verizon [ Microsoft Docs
+description: 'Pode visualizar padrões de utilização para o seu CDN utilizando os seguintes relatórios: Largura de Banda, Dados Transferidos, Acessos, Estados de Cache, Relação de Impacto de Cache, IPV4/IPV6 Dados transferidos.'
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,78 +15,78 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: magattus
 ms.openlocfilehash: 15f17ac6556c4ff731372dc7f738d0f58bdc3e31
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593300"
 ---
-# <a name="custom-reports-from-verizon"></a>Relatórios personalizados da Verizon
+# <a name="custom-reports-from-verizon"></a>Relatórios Personalizados de Verizon
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Ao utilizar relatórios de personalizados da Verizon através do portal de gerenciar para Verizon perfis, pode definir o tipo de dados a serem recolhidos para relatórios de CNAMEs do edge.
+Ao utilizar relatórios personalizados verizon através do portal Manage para perfis Verizon, pode definir o tipo de dados a recolher para relatórios DE SCNAMEs de borda.
 
 
-## <a name="accessing-verizon-custom-reports"></a>Aceder a relatórios personalizados da Verizon
-1. No painel de perfil da CDN, clique a **gerir** botão.
+## <a name="accessing-verizon-custom-reports"></a>Acesso a Relatórios Personalizados verizon
+1. A partir da lâmina de perfil CDN, clique no botão **Gerir.**
    
-    ![Botão de gerir do perfil CDN](./media/cdn-reports/cdn-manage-btn.png)
+    ![Perfil CDN Gerir botão](./media/cdn-reports/cdn-manage-btn.png)
    
-    É aberto o portal de gestão da CDN.
-2. Paire o rato sobre o **Analytics** separador, em seguida, coloque o cursor sobre o **relatórios personalizados** submenu. Clique em **CNAMEs de borda**.
+    Abre o portal de gestão da CDN.
+2. Paire sobre o separador **Analytics** e, em seguida, paire sobre o voo custom **Reports.** Clique em **Edge CNAMEs**.
    
-    ![Portal de gestão CDN - menu de relatórios personalizados](./media/cdn-reports/cdn-custom-reports.png)
+    ![Portal de gestão cdN - Menu de relatórios personalizados](./media/cdn-reports/cdn-custom-reports.png)
 
-## <a name="edge-cnames-custom-report"></a>Relatório do Edge CNAMES personalizados
-O relatório personalizado do Edge CNAMES fornece acertos e estatísticas de dados transferidos para CNAMEs de borda no qual o registo de relatório personalizado foi ativado. Edge CNAMEs é composto por nomes de anfitrião de ponto final de CDN do Azure e nomes de anfitrião associado de domínio personalizado. 
+## <a name="edge-cnames-custom-report"></a>Relatório personalizado Edge CNAMES
+O relatório personalizado Edge CNAMES fornece acessos e estatísticas transferidas de dados para CNAMEs de borda sobre as quais foi ativado o registo de relatórios personalizados. Os CNAMEs edge consistem em nomes de anfitriões de ponto final Azure CDN e quaisquer nomes de anfitriões de domínio personalizado associados. 
 
-Registo de dados de relatório personalizado começa uma hora depois de ativar a capacidade de relatórios personalizada de um CNAME de borda. Pode ver os dados de relatório através da geração de um relatório de CNAMEs de borda de uma plataforma específica ou para todas as plataformas. A cobertura para este relatório está limitada aos CNAMEs de borda para o qual os dados de relatório personalizado foi recolhidos durante o período de tempo especificado. O limite de relatório de CNAMEs consiste numa tabela de dados e de gráfico para o limite de 10 superior CNAMEs, de acordo com a métrica definida na opção de métricas. 
+O registo personalizado de dados do relatório começa uma hora depois de ativar a capacidade de reporte personalizada de um CNAME de borda. Pode ver os dados do relatório gerando um relatório Edge CNAMEs para uma plataforma específica ou para todas as plataformas. A cobertura deste relatório limita-se à borda cnames para as quais foram recolhidos dados de relatórios personalizados durante o período de tempo especificado. O relatório CNAMEs de borda consiste num gráfico e numa tabela de dados para os 10 CNAMEs de borda superior, de acordo com a métrica definida na opção Métricas. 
 
-Gere um relatório personalizado, definindo as seguintes opções de relatório:
+Gerar um relatório personalizado definindo as seguintes opções de relatório:
 
-- Métricas: São suportadas as seguintes opções:
+- Métricas: As seguintes opções são suportadas:
 
-   - Resultados: Indica o número total de pedidos que são direcionados para um CNAME de borda em que a capacidade de relatórios personalizada está ativada. Esta métrica não inclui o código de estado devolvido ao cliente.
+   - Acessos: Indica o número total de pedidos que são direcionados para um CNAME de borda no qual a capacidade de reporte personalizada está ativada. Esta métrica não inclui o código de estado devolvido ao cliente.
 
-   - Dados transferidos: Indica a quantidade total de dados transferidos a partir de servidores de borda para os clientes HTTP (por exemplo, os navegadores da web) para pedidos que são direcionados para um CNAME de borda em que a capacidade de relatórios personalizada está ativada. A quantidade de dados transferidos é calculada ao adicionar cabeçalhos de resposta HTTP para o corpo da resposta. Como resultado, a quantidade de dados transferidos para cada recurso é superior ao tamanho de ficheiro real.
+   - Dados Transferidos: Indica a quantidade total de dados transferidos dos servidores de borda para os clientes HTTP (por exemplo, navegadores web) para pedidos direcionados para um CNAME de borda no qual a capacidade de reporte personalizada está ativada. A quantidade de dados transferidos é calculada adicionando cabeçalhos de resposta HTTP ao corpo de resposta. Como resultado, a quantidade de dados transferidos para cada ativo é maior do que o tamanho real do ficheiro.
 
-- Agrupamentos: Determina o tipo de estatísticas que são apresentados abaixo o gráfico de barras. São suportadas as seguintes opções:
+- Agrupamentos: Determina o tipo de estatísticas que são mostradas abaixo do gráfico de barras. As seguintes opções são suportadas:
 
-   - Códigos de resposta de HTTP: Organiza as estatísticas por código de resposta HTTP (por exemplo, 200, 403, etc.) devolvida ao cliente. 
+   - Códigos de Resposta HTTP: Organiza estatísticas por código de resposta HTTP (por exemplo, 200, 403, etc.) devolvidas ao cliente. 
 
-   - Estado da cache: Organiza as estatísticas por Estado da cache.
+   - Estado cache: Organiza estatísticas por estado de cache.
 
 
-Para definir o intervalo de datas para o relatório, pode selecionar um intervalo de datas predefinidas, como **hoje** ou **esta semana**, desde a lista pendente, ou pode selecionar **Custom** e introduza manualmente um intervalo de datas, clicando nos ícones de calendário. 
+Para definir o intervalo de data para o relatório, pode selecionar uma gama de datas pré-definida, como **hoje** ou **esta semana,** a partir da lista de lançamentos ou pode selecionar **Custom** e introduzir manualmente um intervalo de datas clicando nos ícones do calendário. 
 
-Depois de selecionar o intervalo de datas, clique em **ir** para gerar o relatório.
+Depois de ter selecionado o intervalo de datas, clique em **Ir** para gerar o relatório.
 
-Pode exportar os dados no formato Excel clicando no símbolo de Excel à direita dos **ir** botão.
+Pode exportar os dados em formato Excel clicando no símbolo Excel à direita do botão **Go.**
 
-![Relatório de CNAMEs](./media/cdn-reports/cdn-cnames-report.png)
+![Relatório cnames](./media/cdn-reports/cdn-cnames-report.png)
 
-## <a name="edge-cnames-custom-report-fields"></a>Campos de relatório personalizado de CNAMES do Edge
+## <a name="edge-cnames-custom-report-fields"></a>Campos de relatório personalizados Edge CNAMES
 
 | Campo                     | Descrição   |
 |---------------------------|---------------|
-| 2xx                       | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta num código de estado 2xx HTTP (por exemplo, 200 OK). |
-| 3xx                       | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta num código de estado HTTP 3xx (por exemplo, 302 encontrado ou 304 não modificado. |
-| 4xx                       | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta num código de estado HTTP 4xx (por exemplo, 400 pedido inválido, 403 proibido ou 404 não encontrado). |
-| 5xx                       | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta num código de estado HTTP 5xx (por exemplo, 500 Erro de servidor interno ou 502 Gateway incorreto). |
-| % De acertos na cache               | Indica a percentagem de pedidos em cache que foram fornecidos diretamente a partir da cache para o autor do pedido. |
-| Acertos na cache                | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta num acertos na cache (por exemplo, TCP_EXPIRED_HIT, TCP_HIT ou TCP_PARTIAL_HIT). Um problema de cache ocorre quando é encontrada uma versão em cache do conteúdo pedido. |
-| Dados transferidos (MB)     | Indica a quantidade total de dados transferidos (MB) de servidores de borda para clientes HTTP (navegadores da web) para o edge CNAME. A quantidade de dados transferidos é calculada adicionando os cabeçalhos de resposta HTTP para o corpo da resposta. Como resultado, a quantidade de dados transferidos para cada recurso é superior ao tamanho de ficheiro real. |
-| Descrição               | Identifica uma borda CNAME pelo respetivo nome de anfitrião |
-| Acertos                      | Indica o número total de pedidos na periferia CNAME |
-| Falhas de acerto na                    | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta numa falha de acerto na cache (por exemplo, TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS ou TCP_MISS). Uma falha de acerto na cache ocorre quando o conteúdo solicitado não foi colocado em cache no servidor edge que honrou o pedido. | 
-| Sem Cache                  | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta num código de estado de cache CONFIG_NOCACHE.  |
-| Outros                     | Indica o número total de pedidos ou os dados transferido (MB) para o edge CNAME indicado que resulta num código de estado HTTP que se encontre fora 2xx - intervalo 5xx. |
-| Plataforma                  | Indica a plataforma que processa o tráfego do CNAME edge. |
-| Não atribuídos               | Indica o número total de pedidos ou os dados transferidos (MB) para o CNAME do edge para que o código de estado de cache ou o código de estado HTTP informações não tenha sido registadas.  |
-| Atribuir               | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta num código de estado atribuir cache.  |
+| 2xx                       | Indica o número total de pedidos ou dados transferidos (MB) para o CNAME de borda que resulta num código de estado 2xx HTTP (por exemplo, 200 OK). |
+| 3xx                       | Indica o número total de pedidos ou dados transferidos (MB) para o CNAME de borda que resulta num código de estado 3xx HTTP (por exemplo, 302 Encontradoou 304 Não Modificado. |
+| 4xx                       | Indica o número total de pedidos ou dados transferidos (MB) para o CNAME de borda que resulta num código de estado 4xx HTTP (por exemplo, 400 Bad Request, 403 Proibido ou 404 Não Encontrados). |
+| 5xx                       | Indica o número total de pedidos ou dados transferidos (MB) para o CNAME de borda que resulta num código de estado 5xx HTTP (por exemplo, 500 Erro do Servidor Interno ou 502 Bad Gateway). |
+| Cache Hit %               | Indica a percentagem de pedidos cacheable que foram servidos diretamente da cache para o solicitador. |
+| Cache Hits                | Indica o número total de pedidos ou dados transferidos (MB) para o CNAME de borda que resulta num impacto de cache (por exemplo, TCP_EXPIRED_HIT, TCP_HIT ou TCP_PARTIAL_HIT). Um impacto em cache ocorre quando uma versão em cache do conteúdo solicitado é encontrada. |
+| Dados Transferidos (MB)     | Indica a quantidade total de dados transferidos (MB) dos servidores de borda para clientes HTTP (navegadores web) para o Edge CNAME. A quantidade de dados transferidos é calculada adicionando os cabeçalhos de resposta HTTP ao corpo de resposta. Como resultado, a quantidade de dados transferidos para cada ativo é maior do que o tamanho real do ficheiro. |
+| Descrição               | Identifica um CNAME de borda pelo seu nome de anfitrião |
+| Acertos                      | Indica o número total de pedidos à borda CNAME |
+| Misses                    | Indica o número total de pedidos ou dados transferidos (MB) para o CNAME de borda que resulta numa falha de cache (por exemplo, TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS ou TCP_MISS). Uma falha de cache ocorre quando o conteúdo solicitado não foi colocado em cache no servidor de borda que honrou o pedido. | 
+| Sem Cache                  | Indica o número total de pedidos ou dados transferidos (MB) para o CNAME de borda que resulta num código de estado de cache CONFIG_NOCACHE.  |
+| Outros                     | Indica o número total de pedidos ou dados transferidos (MB) para a borda CNAME indicando que resulta num código de estado HTTP que fica fora da gama 2xx - 5xx. |
+| Plataforma                  | Indica a plataforma que lida com o tráfego do CNAME. |
+| Não atribuído               | Indica o número total de pedidos ou dados transferidos (MB) para o CNAME de borda para o qual o código de estado de cache ou as informações do código de estado HTTP não foram registadas.  |
+| Incacheable               | Indica o número total de pedidos ou dados transferidos (MB) para o CNAME borda que resulta num código de estado de cache UNCACHEABLE.  |
 
 
 ## <a name="considerations"></a>Considerações
-Podem ser gerados relatórios apenas nos últimos 18 meses.
+Os relatórios só podem ser gerados nos últimos 18 meses.
 

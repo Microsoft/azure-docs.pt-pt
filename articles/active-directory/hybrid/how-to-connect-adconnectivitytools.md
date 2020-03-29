@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: O que é o módulo do PowerShell ADConnectivityTool | Documentos da Microsoft'
-description: Este documento apresenta o novo módulo do PowerShell de ADConnectivity e como ele pode ser usado para ajudar a resolver.
+title: 'Azure AD Connect: O que é o Módulo PowerShell ADConnectivityTool / Microsoft Docs'
+description: Este documento introduz o novo módulo ADConnectivity PowerShell e como pode ser usado para ajudar a resolver problemas.
 services: active-directory
 author: billmath
 manager: daveba
@@ -12,70 +12,70 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd5340cd8c802df4ffbe0207b5401d2fee4e207e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64571127"
 ---
-# <a name="troubleshoot-azure-ad-connectivity-with-the-adconnectivitytool-powershell-module"></a>Resolver problemas de conectividade do Azure AD com o módulo do ADConnectivityTool PowerShell
+# <a name="troubleshoot-azure-ad-connectivity-with-the-adconnectivitytool-powershell-module"></a>Conectividade AD De Saque de Problemas com o módulo ADConnectivityTool PowerShell
 
-A ferramenta de ADConnectivity é um módulo do PowerShell que é utilizado em um dos seguintes:
+A ferramenta ADConnectivity é um módulo PowerShell que é usado num dos seguintes:
 
-- Durante a instalação quando um problema de conectividade de rede impede a validação bem-sucedida do Active Directory credenciais de utilizador fornecido no assistente.
-- Após a instalação por um usuário que chama as funções a partir de uma sessão do PowerShell.
+- Durante a instalação quando um problema de conectividade de rede impede a validação bem sucedida das credenciais de Diretório Ativo que o utilizador forneceu no Assistente.
+- Instalação de correio por um utilizador que ligue para as funções a partir de uma sessão powerShell.
 
-A ferramenta está localizada em: **C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ ADConnectivityTool.psm1** 
+A ferramenta está localizada em: **C:\Program Files\Microsoft Azure Ative Directory Connect\Tools\ ADConnectivityTool.psm1** 
 
-## <a name="adconnectivitytool-during-installation"></a>ADConnectivityTool durante a instalação
+## <a name="adconnectivitytool-during-installation"></a>Ferramenta ADConnectivity durante a instalação
 
-Sobre o **ligar os seus diretórios** página, o Assistente do Azure AD Connect, se um problema de rede ocorre, o will ADConnectivityTool automaticamente utilizar uma das suas funções para determinar o que está acontecendo.  Qualquer um dos seguintes podem ser considerados problemas de rede:
+Na página **Connect your diretórios,** no Assistente de Ligação AD Azure, se ocorrer um problema de rede, o ADConnectivityTool utilizará automaticamente uma das suas funções para determinar o que se passa.  Qualquer uma das seguintes questões de rede pode ser considerada:
 
-- O nome da floresta fornecida pelo utilizador foi escrito de rostos, ou floresta disse não existe 
-- A porta UDP 389 está fechada em controladores de domínio associados com a floresta que o usuário forneceu
-- As credenciais fornecidas na janela de 'Conta AD de floresta' não tem privilégios para obter os controladores de domínio associados com a floresta de destino
-- Qualquer uma das portas TCP 53, 88 ou 389 estão fechadas em controladores de domínio associados com a floresta que o usuário forneceu 
-- Tanto UDP 389 e uma porta TCP (ou portas) estão fechadas
-- DNS não pode ser resolvido para a e/ou de floresta fornecido seus controladores de domínio associado
+- O nome da Floresta que o utilizador forneceu foi dactilografado erradamente, ou dito Floresta não existe 
+- A porta UDP 389 está fechada nos Controladores de Domínio associados à Floresta que o utilizador forneceu
+- As credenciais fornecidas na janela "Conta Florestal AD" não têm privilégios para recuperar os Controladores de Domínio associados à Floresta Alvo
+- Qualquer uma das portas TCP 53, 88 ou 389 estão fechadas nos Controladores de Domínio associados à Floresta que o utilizador forneceu 
+- Tanto a UDP 389 como uma porta TCP (ou portas) estão fechadas
+- O DNS não pôde ser resolvido para a floresta fornecida e\ou para os seus controladores de domínio associados
 
-Sempre que algum desses problemas seja localizado, é apresentada uma mensagem de erro relacionadas no Assistente do AADConnect:
+Sempre que algum destes problemas for encontrado, uma mensagem de erro relacionada é exibida no Assistente AADConnect:
 
 
 ![Erro](media/how-to-connect-adconnectivitytools/error1.png)
 
-Por exemplo, quando estamos está a tentar adicionar um diretório no **ligar os seus diretórios** ecrã, o Azure AD Connect precisa verificar se isso e deve ser capaz de comunicar com um controlador de domínio através da porta 389.  Se não for possível, veremos o erro que é mostrado na captura de ecrã acima.  
+Por exemplo, quando estamos a tentar adicionar um diretório no ecrã **Connect dos seus diretórios,** o Azure AD Connect precisa de verificar isso e espera poder comunicar com um controlador de domínio sobre a porta 389.  Se não puder, veremos o erro que é mostrado na imagem acima.  
 
-O que realmente está acontecendo nos bastidores, é que o Azure AD Connect está chamando o `Start-NetworkConnectivityDiagnosisTools` função.  Esta função é chamada quando a validação de credenciais falhar devido a um problema de conectividade de rede.
+O que está realmente a acontecer nos bastidores, `Start-NetworkConnectivityDiagnosisTools` é que o Azure AD Connect está a chamar a função.  Esta função é chamada quando a validação de credenciais falha devido a um problema de conectividade da rede.
 
-Por fim, um arquivo de log detalhados é gerado sempre que a ferramenta é chamada a partir do assistente. O registo está localizado em **C:\ProgramData\AADConnect\ADConnectivityTool-\<data >-\<tempo >. log**
+Finalmente, um ficheiro de registo detalhado é gerado sempre que a ferramenta é chamada do assistente. O registo está localizado em **C:\ProgramData\AADConnect\ADConnectivityTool-date\<>-time\<>.log**
 
-## <a name="adconnectivitytools-post-installation"></a>ADConnectivityTools pós-instalação
-Depois de ter sido instalado o Azure AD Connect, pode ser utilizada qualquer uma das funções no módulo do ADConnectivityTools PowerShell.  
+## <a name="adconnectivitytools-post-installation"></a>Instalação de posta ADConnectivityTools
+Depois de instalado o Azure AD Connect, qualquer uma das funções do módulo ADConnectivityTools PowerShell pode ser utilizada.  
 
-Pode encontrar informações de referência sobre as funções no [ADConnectivityTools referência](reference-connect-adconnectivitytools.md)
+Pode encontrar informações de referência sobre as funções na [Referência ADConnectivityTools](reference-connect-adconnectivitytools.md)
 
-### <a name="start-connectivityvalidation"></a>Start-ConnectivityValidation
+### <a name="start-connectivityvalidation"></a>Validação de início de conectividade
 
-Vamos chamar esta função porque ele pode **apenas** chamado manualmente depois do ADConnectivityTool.psm1 tem sido importados para o PowerShell. 
+Vamos chamar esta função porque **só** pode ser chamada manualmente depois de o ADConnectivityTool.psm1 ter sido importado para o PowerShell. 
 
-Esta função executa a mesma lógica que executa o Azure AD ligar Assistente para validar as credenciais fornecidas do AD.  No entanto, ele fornece uma explicação muito mais detalhada sobre o problema e uma solução de sugestão. 
+Esta função executa a mesma lógica que o Assistente de Ligação AD Azure corre para validar as credenciais AD fornecidas.  No entanto, fornece uma explicação muito mais verbosa sobre o problema e uma solução sugerida. 
 
-A validação de conectividade inclui os seguintes passos:
--   Obter o objeto de domínio FQDN (nome de domínio completamente qualificado)
--   Validar a que, se o usuário selecionar "Create AD nova conta", estas credenciais de pertencer ao grupo Administradores da empresa
--   Objeto FQDN da floresta de GET
--   Confirme que pelo menos um domínio associado ao objeto obtido anteriormente do FQDN da floresta está acessível
--   Certifique-se de que o nível funcional da floresta for Windows Server 2003 ou superior.
+A validação da conectividade consiste nos seguintes passos:
+-   Obtenha objeto De Domínio FQDN (nome de domínio totalmente qualificado)
+-   Valide que, se o utilizador selecionado 'Criar nova conta AD', estas credenciais pertencem ao grupo de Administradores empresariais
+-   Obtenha objeto Forest FQDN
+-   Confirme que pelo menos um domínio associado ao objeto FQDN florestal previamente obtido é alcançável
+-   Verifique se o nível funcional da floresta é o Windows Server 2003 ou superior.
 
-O utilizador será possível adicionar um diretório se todas estas ações foram executadas com êxito.
+O utilizador poderá adicionar um Diretório se todas estas ações forem executadas com sucesso.
 
-Se o usuário executa essa função, após um problema é resolvido (ou se não há problema existe em todos os) indica a saída para o usuário voltar para o Assistente do Azure para ligar AD e experimente inserir as credenciais novamente.
+Se o utilizador executar esta função depois de um problema ser resolvido (ou se não houver nenhum problema) a saída indicará que o utilizador volte ao Assistente de Ligação AD Azure e tente inserir novamente as credenciais.
 
 
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 - [Azure AD Connect: contas e permissões](reference-connect-accounts-permissions.md)
-- [Instalação rápida](how-to-connect-install-express.md)
-- [Instalação personalizada](how-to-connect-install-custom.md)
+- [Instalação Express](how-to-connect-install-express.md)
+- [Instalação Personalizada](how-to-connect-install-custom.md)
 - [Referência de ADConnectivityTools](reference-connect-adconnectivitytools.md)
 

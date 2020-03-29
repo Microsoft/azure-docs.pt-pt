@@ -1,5 +1,5 @@
 ---
-title: Realizar operações de armazenamento de mesa azure com a PowerShell  Microsoft Docs
+title: Realizar operações de armazenamento de mesa azure com a PowerShell [ Microsoft Docs
 description: Aprenda a executar tarefas comuns como criar, consultar, eliminar dados da conta de armazenamento da Tabela Azure utilizando o PowerShell.
 author: roygara
 ms.service: storage
@@ -8,10 +8,10 @@ ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: tables
 ms.openlocfilehash: f1846fae4cbf473df688a2b184c307d72ab2f8d0
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721477"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Execute operações de armazenamento de mesa azure com a Azure PowerShell 
@@ -31,16 +31,16 @@ Este artigo abrange operações comuns de armazenamento de mesas Azure. Saiba co
 
 Este artigo de como fazer mostra como criar uma nova conta de Armazenamento Azure num novo grupo de recursos para que possa removê-la facilmente quando terminar. Se preferir usar uma conta de Armazenamento existente, pode fazê-lo.
 
-Os exemplos requerem módulos Az PowerShell `Az.Storage (1.1.0 or greater)` e `Az.Resources (1.2.0 or greater)`. Numa janela powerShell, corra `Get-Module -ListAvailable Az*` para encontrar a versão. Se nada for apresentado, ou precisar de fazer upgrade, consulte Instalar o [módulo PowerShell Azure](/powershell/azure/install-az-ps).
+Os exemplos requerem módulos `Az.Storage (1.1.0 or greater)` `Az.Resources (1.2.0 or greater)`Az PowerShell e . Numa janela powerShell, `Get-Module -ListAvailable Az*` corra para encontrar a versão. Se nada for apresentado, ou precisar de fazer upgrade, consulte Instalar o [módulo PowerShell Azure](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
-> A utilização desta funcionalidade Azure da PowerShell requer que tenha o módulo `Az` instalado. A versão atual do `AzTable` não é compatível com o módulo AzureRM mais antigo.
+> A utilização desta funcionalidade Azure da `Az` PowerShell requer que tenha o módulo instalado. A versão `AzTable` atual não é compatível com o módulo AzureRM mais antigo.
 > Siga as instruções de instalação mais recentes para instalar o [módulo Az,](/powershell/azure/install-az-ps) se necessário.
 
 Depois de o Azure PowerShell ser instalado ou atualizado, tem de instalar o módulo **AzTable,** que tem os comandos para gerir as entidades. Para instalar este módulo, execute o PowerShell como administrador e utilize o comando **Install-Module.**
 
 > [!IMPORTANT]
-> Por razões de compatibilidade com o nome do módulo, ainda publicamos este mesmo módulo com o nome antigo `AzureRmStorageTables` na PowerShell Gallery. Este documento irá apenas referir o novo nome.
+> Por razões de compatibilidade com o nome do módulo, ainda `AzureRmStorageTables` publicamos este mesmo módulo sob o nome antigo na PowerShell Gallery. Este documento irá apenas referir o novo nome.
 
 ```powershell
 Install-Module AzTable
@@ -67,7 +67,7 @@ $location = "eastus"
 
 Crie um grupo de recursos com o comando [New-AzResourceGroup.](/powershell/module/az.resources/new-azresourcegroup) 
 
-Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Armazene o nome do grupo de recursos em uma variável para uso futuro. Neste exemplo, um grupo de recursos chamado *pshtablesrg* é criado na região *oriental.*
+Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Guarde o nome do grupo de recursos numa variável para uso futuro. Neste exemplo, um grupo de recursos chamado *pshtablesrg* é criado na região *oriental.*
 
 ```powershell
 $resourceGroup = "pshtablesrg"
@@ -91,7 +91,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-new-table"></a>Criar uma nova tabela
 
-Para criar uma tabela, utilize o cmdlet [New-AzStorageTable.](/powershell/module/az.storage/New-AzStorageTable) Neste exemplo, a tabela chama-se `pshtesttable`.
+Para criar uma tabela, utilize o cmdlet [New-AzStorageTable.](/powershell/module/az.storage/New-AzStorageTable) Neste exemplo, a mesa `pshtesttable`chama-se .
 
 ```powershell
 $tableName = "pshtesttable"
@@ -146,7 +146,7 @@ Se criou uma nova conta de grupo de recursos e armazenamento no início deste ho
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo de como fazer, aprendeu sobre operações comuns de armazenamento de mesa azure com a PowerShell, incluindo como: 
 

@@ -1,6 +1,6 @@
 ---
-title: Chamar APIs Web de um aplicativo de desktop-plataforma Microsoft Identity | Azure
-description: Saiba como criar um aplicativo de área de trabalho que chama APIs da Web
+title: Ligue para a web APIs a partir de uma aplicação de desktop - plataforma de identidade microsoft / Azure
+description: Saiba como construir uma aplicação de desktop que chama APIs web
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,26 +15,26 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 2b3d9fdc163d0661670f3d0cf6e6a276c8b691bd
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76702169"
 ---
-# <a name="desktop-app-that-calls-web-apis-call-a-web-api"></a>Aplicativo de área de trabalho que chama APIs da Web: chamar uma API da Web
+# <a name="desktop-app-that-calls-web-apis-call-a-web-api"></a>Aplicação de desktop que chama APIs web: Ligue para uma Web API
 
-Agora que você tem um token, você pode chamar uma API Web protegida.
+Agora que tem um símbolo, pode chamar uma API protegida.
 
 ## <a name="call-a-web-api"></a>Chamar uma API Web
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 [!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
 <!--
 More includes will come later for Python and Java
 -->
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 ```Python
 endpoint = "url to the API"
@@ -44,7 +44,7 @@ http_headers = {'Authorization': 'Bearer ' + result['access_token'],
 data = requests.get(endpoint, headers=http_headers, stream=False).json()
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```Java
 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -63,13 +63,13 @@ if(responseCode != HttpURLConnection.HTTP_OK) {
 JSONObject responseObject = HttpClientHelper.processResponse(responseCode, response);
 ```
 
-# <a name="macostabmacos"></a>[MacOS](#tab/macOS)
+# <a name="macos"></a>[MacOS](#tab/macOS)
 
-## <a name="call-a-web-api-in-msal-for-ios-and-macos"></a>Chamar uma API da Web no MSAL para iOS e macOS
+## <a name="call-a-web-api-in-msal-for-ios-and-macos"></a>Ligue para uma Web API em MSAL para iOS e macOS
 
-Os métodos para adquirir tokens retornam um objeto `MSALResult`. `MSALResult` expõe uma propriedade `accessToken` que pode ser usada para chamar uma API da Web. Adicione um token de acesso ao cabeçalho de autorização HTTP antes de fazer a chamada para acessar a API Web protegida.
+Os métodos para adquirir `MSALResult` fichas devolvem um objeto. `MSALResult`expõe uma `accessToken` propriedade que pode ser usada para chamar uma API web. Adicione um sinal de acesso ao cabeçalho de autorização http antes de fazer a chamada para aceder à API da web protegida.
 
-Objective-C:
+Objetivo C:
 
 ```objc
 NSMutableURLRequest *urlRequest = [NSMutableURLRequest new];
@@ -83,7 +83,7 @@ NSURLSessionDataTask *task =
 [task resume];
 ```
 
-Swift
+Swift:
 
 ```swift
 let urlRequest = NSMutableURLRequest()
@@ -95,9 +95,9 @@ let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) { (data: D
 task.resume()
 ```
 
-## <a name="call-several-apis-incremental-consent-and-conditional-access"></a>Chamar várias APIs: consentimento incremental e acesso condicional
+## <a name="call-several-apis-incremental-consent-and-conditional-access"></a>Ligue para várias APIs: Consentimento incremental e acesso condicional
 
-Para chamar várias APIs para o mesmo usuário, depois de obter um token para a primeira API, chame `AcquireTokenSilent`. Você obterá um token para as outras APIs silenciosamente na maioria das vezes.
+Para ligar para várias APIs para o mesmo utilizador, depois `AcquireTokenSilent`de obter um sinal para a primeira API, ligue . Vais receber um sinal para as outras APIs silenciosamente a maior parte do tempo.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -109,8 +109,8 @@ result = await app.AcquireTokenSilent("scopeApi2")
 
 A interação é necessária quando:
 
-- O usuário consentiu para a primeira API, mas agora precisa consentir para mais escopos. Esse tipo de consentimento é conhecido como consentimento incremental.
-- A primeira API não exigia a autenticação multifator, mas a próxima é.
+- O utilizador consentiu na primeira API, mas agora precisa de consentir mais âmbitos. Este tipo de consentimento é conhecido como consentimento incremental.
+- A primeira API não requereu a autenticação multifactor, mas a próxima requer.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")

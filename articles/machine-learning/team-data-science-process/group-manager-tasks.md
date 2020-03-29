@@ -1,5 +1,5 @@
 ---
-title: Tarefas do Gestor de grupo do Team Data Science Process
+title: Tarefas de gestor de grupo de dados de dados de equipa
 description: Acompanhe este passe detalhado das tarefas que um gestor de grupo completa num projeto da equipa de ciência de dados.
 author: marktab
 manager: marktab
@@ -11,13 +11,13 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4ec7f4242e5046e90fdf0eb8c6c0579f402e4f55
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721358"
 ---
-# <a name="team-data-science-process-group-manager-tasks"></a>Tarefas do Gestor de grupo do Team Data Science Process
+# <a name="team-data-science-process-group-manager-tasks"></a>Tarefas de gestor de grupo de dados de dados de equipa
 
 Este artigo descreve as tarefas que um gestor de *grupo* completa para uma organização de ciência de dados. O gestor do grupo gere toda a unidade de ciência de dados numa empresa. Uma unidade de ciência de dados pode ter várias equipas, cada uma das quais está a trabalhar em muitos projetos de ciência de dados em verticais de negócios distintos. O objetivo do gestor do grupo é estabelecer um ambiente de grupo colaborativo que normalize no Processo de Ciência de Dados da [Equipa](overview.md) (TDSP). Para um esboço de todas as funções de pessoal e tarefas associadas tratadas por uma equipa de ciência de dados padronizada no TDSP, consulte as [funções e tarefas](roles-tasks.md)do Processo de Ciência de Dados da Equipa.
 
@@ -32,7 +32,7 @@ O diagrama seguinte mostra as seis tarefas de configuração do gestor do grupo 
 5. Importe o conteúdo dos repositórios de **projecttemplate** e **utilitários** da equipa da Microsoft TDSP para os repositórios comuns do grupo.
 6. Configurar **a adesão** e **permissões** para os membros da equipa acederem ao grupo.
 
-O tutorial a seguir percorre as etapas em detalhes. 
+O seguinte tutorial percorre os degraus em detalhe. 
 
 > [!NOTE] 
 > Este artigo utiliza o Azure DevOps para criar um ambiente de grupo TDSP, porque é assim que se implementa o TDSP na Microsoft. Se o seu grupo utilizar outras plataformas de hospedagem ou desenvolvimento de códigos, as tarefas do Gestor de Grupo são as mesmas, mas a forma de as completar pode ser diferente.
@@ -57,7 +57,7 @@ O tutorial a seguir percorre as etapas em detalhes.
    
    ![Criar o projeto](./media/group-manager-tasks/create-project.png)
 
-Abre a página **sumária** do projeto **GroupCommon.** O URL da página é https:\//\<nome de *servidor>/\<nome de organização>/GroupCommon*.
+Abre a página **sumária** do projeto **GroupCommon.** O URL da página é *https:\//\<nome de servidor>/\<nome de organização>/GroupCommon*.
 
 ![Página de resumo do projeto](./media/group-manager-tasks/project-summary.png)
 
@@ -99,7 +99,7 @@ Para criar o repositório **GroupUtilities:**
    
 1. No topo da página, deite a seta ao lado do **GroupProjectTemplate** e **selecione Novo repositório**.
    
-   ![Selecionar novo repositório](./media/group-manager-tasks/create-grouputilities-repo-1.png)
+   ![Selecione novo repositório](./media/group-manager-tasks/create-grouputilities-repo-1.png)
    
 1. No Create um novo diálogo **de repositório,** selecione **Git** como **tipo,** introduza os *Utilitários* do Grupo como o **nome repositório**e, em seguida, selecione **Criar**.
    
@@ -119,15 +119,15 @@ Para importar os repositórios da equipa TDSP:
    
 1. No Modelo de **Projeto de Grupo encontra-se a** página vazia, selecione **Import**. 
    
-   ![Selecionar importação](./media/group-manager-tasks/import-repo.png)
+   ![Selecione Importar](./media/group-manager-tasks/import-repo.png)
    
-1. No diálogo de **reparação De Importação de Git,** selecione **Git** como **tipo Fonte,** e *introduza https:\//github.com/Azure/Azure-TDSP-ProjectTemplate.git* para o **URL Clone**. Em seguida, selecione **Import**. O conteúdo do repositório projecttemplate da equipa da Microsoft TDSP é importado para o seu repositório GroupProjectTemplate. 
+1. No diálogo de **reparação De Importação de Git,** selecione **Git** como **tipo Fonte,** e *introduza https:\//github.com/Azure/Azure-TDSP-ProjectTemplate.git* para o URL **Clone**. Em seguida, selecione **Import**. O conteúdo do repositório projecttemplate da equipa da Microsoft TDSP é importado para o seu repositório GroupProjectTemplate. 
    
    ![Importar repositório da equipa da Microsoft TDSP](./media/group-manager-tasks/import-repo-2.png)
    
 1. No topo da página **repos,** desça e selecione o repositório **GroupUtilities.**
    
-1. Repita o processo de importação para importar os conteúdos do repositório da equipa Microsoft TDSP **Utilities,** *https:\//github.com/Azure/Azure-TDSP-Utilities.git*, para o seu repositório **GroupUtilities.** 
+1. Repita o processo de importação para importar o conteúdo do repositório da equipa Microsoft TDSP **Utilities,** *\/https: /github.com/Azure/Azure-TDSP-Utilities.git*, para o seu repositório **GroupUtilities.** 
    
 Cada um dos seus dois repositórios de grupo agora contém todos os ficheiros, exceto os do diretório *.git,* do repositório correspondente da equipa da Microsoft TDSP. 
 
@@ -141,21 +141,21 @@ Para personalizar conteúdos de repositório:
 
 1. Na página **resumo** do projeto **GroupCommon,** selecione **Repos**. 
    
-1. Na parte superior da página, selecione o repositório que você deseja personalizar.
+1. No topo da página, selecione o repositório que pretende personalizar.
 
-1. Na estrutura de diretório do repositório, navegue até a pasta ou o arquivo que você deseja alterar. 
+1. Na estrutura do repo diretório, navegue para a pasta ou ficheiro que pretende alterar. 
    
    - Para criar novas pastas ou ficheiros, selecione a seta ao lado de **New**. 
      
-     ![Criar novo arquivo](./media/group-manager-tasks/new-file.png)
+     ![Criar novo ficheiro](./media/group-manager-tasks/new-file.png)
      
-   - Para fazer upload de ficheiros, selecione **Ficheiros upload(s)** . 
+   - Para fazer upload de ficheiros, selecione **Ficheiros upload(s)**. 
      
      ![Carregar ficheiros](./media/group-manager-tasks/upload-files.png)
      
    - Para editar os ficheiros existentes, navegue para o ficheiro e, em seguida, **selecione Editar**. 
      
-     ![Editar um arquivo](./media/group-manager-tasks/edit-file.png)
+     ![Editar um ficheiro](./media/group-manager-tasks/edit-file.png)
      
 1. Depois de adicionar ou editar ficheiros, selecione **'Cometer**'
    
@@ -166,10 +166,10 @@ Para personalizar conteúdos de repositório:
 Se pretender fazer alterações utilizando a sua máquina local ou DSVM e empurrar as alterações para os repositórios de grupo, certifique-se de que tem os pré-requisitos para trabalhar com Git e DSVMs:
 
 - Uma subscrição Azure, se quiser criar um DSVM.
-- Git instalado em seu computador. Se você estiver usando um DSVM, o git será pré-instalado. Caso contrário, consulte as [Plataformas e ferramentas do apêndice](platforms-and-tools.md#appendix).
-- Se você quiser usar um DSVM, o DSVM do Windows ou Linux criado e configurado no Azure. Para mais informações e instruções, consulte a [Documentação](/azure/machine-learning/data-science-virtual-machine/)da Máquina Virtual da Ciência dos Dados .
+- Git instalado na sua máquina. Se estiver a utilizar um DSVM, o Git está pré-instalado. Caso contrário, consulte as [Plataformas e ferramentas do apêndice](platforms-and-tools.md#appendix).
+- Se pretender utilizar um DSVM, o Windows ou o Linux DSVM criaram e configuraram em Azure. Para mais informações e instruções, consulte a [Documentação](/azure/machine-learning/data-science-virtual-machine/)da Máquina Virtual da Ciência dos Dados .
 - Para um DSVM windows, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado na sua máquina. No ficheiro *README.md,* desloque-se até à secção **Descarregamento e Instalação** e selecione o **mais recente instalador**. Descarregue o instalador *.ex e* execute-o. 
-- Para um DSVM do Linux, uma chave pública SSH configurada em seu DSVM e adicionada no Azure DevOps. Para obter mais informações e instruções, consulte a secção de **chaves públicas Create SSH** nas Plataformas e no apêndice das [ferramentas](platforms-and-tools.md#appendix). 
+- Para um Linux DSVM, uma chave pública SSH configurada no seu DSVM e adicionada em Azure DevOps. Para obter mais informações e instruções, consulte a secção de **chaves públicas Create SSH** nas Plataformas e no apêndice das [ferramentas](platforms-and-tools.md#appendix). 
 
 Primeiro, copie ou *clone* o repositório para a sua máquina local. 
    
@@ -181,14 +181,14 @@ Primeiro, copie ou *clone* o repositório para a sua máquina local.
    
    ![Repo clone](./media/group-manager-tasks/clone.png)
    
-1. Em seu computador local, crie os seguintes diretórios:
+1. Na sua máquina local, crie os seguintes diretórios:
    
    - Para Windows: **C:\GitRepos\GroupCommon**
    - Para Linux, **$/GitRepos/GroupCommon** no seu diretório de casa 
    
-1. Altere para o diretório que você criou.
+1. Mude para o diretório que criou.
    
-1. Em Git Bash, dirija o comando `git clone <clone URL>.`
+1. Em Git Bash, dirija o comando`git clone <clone URL>.`
    
    Por exemplo, qualquer um dos seguintes comandos clona o repositório **GroupUtilities** ao diretório *GroupCommon* na sua máquina local. 
    
@@ -215,13 +215,13 @@ git push
 ```
 
 > [!NOTE]
-> Se esta for a primeira vez que se compromete com um repositório Git, poderá ter de configurar parâmetros globais *user.name* e *user.email* antes de executar o comando `git commit`. Execute os dois comandos seguintes:
+> Se esta for a primeira vez que se compromete com um repositório Git, poderá ter `git commit` de configurar parâmetros globais *user.name* e *user.email* antes de executar o comando. Executar os seguintes dois comandos:
 > 
 > `git config --global user.name <your name>`
 > 
 > `git config --global user.email <your email address>`
 > 
-> Se você estiver confirmando vários repositórios git, use o mesmo nome e endereço de email para todos eles. Usar o mesmo nome e endereço de email é conveniente ao criar Power BI Dashboards para controlar suas atividades git em vários repositórios.
+> Se está a comprometer-se com vários repositórios git, use o mesmo nome e endereço de e-mail para todos eles. Usar o mesmo nome e endereço de e-mail é conveniente ao construir dashboards Power BI para acompanhar as suas atividades git em vários repositórios.
 
 ## <a name="add-group-members-and-configure-permissions"></a>Adicione membros do grupo e configure permissões
 
@@ -231,7 +231,7 @@ Para adicionar membros ao grupo:
    
 1. A partir das **Definições** de Projeto à esquerda, selecione **Equipas**, em seguida, na página **equipas,** selecione a **Equipa Comum de Grupo**. 
    
-   ![Configurar equipes](./media/group-manager-tasks/teams.png)
+   ![Equipas de Configuração](./media/group-manager-tasks/teams.png)
    
 1. Na página perfil da **equipa,** selecione **Adicionar**.
    
@@ -239,7 +239,7 @@ Para adicionar membros ao grupo:
    
 1. No diálogo **de utilizadores e grupos Adicionar,** procure e selecione membros para adicionar ao grupo e, em seguida, selecione **Guardar alterações**. 
    
-   ![Adicionar usuários e grupos](./media/group-manager-tasks/add-users.png)
+   ![Adicionar utilizadores e grupos](./media/group-manager-tasks/add-users.png)
    
 
 Para configurar permissões para os membros:
@@ -252,9 +252,9 @@ Para configurar permissões para os membros:
    
 1. No popup dos **membros do Convidar,** procure e selecione membros para adicionar ao grupo e, em seguida, selecione **Save**. 
    
-   ![Conceder permissões a membros](./media/group-manager-tasks/grant-permissions.png)
+   ![Conceder permissões aos membros](./media/group-manager-tasks/grant-permissions.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Aqui estão os links para descrições detalhadas das outras funções e tarefas no Processo de Ciência de Dados da Equipa:
 
