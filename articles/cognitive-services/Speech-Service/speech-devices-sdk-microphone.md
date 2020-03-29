@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
 ms.openlocfilehash: a87bdd7a55036e8b70f0bc5816d2b587c1569202
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77168128"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Recomendações de matriz de microfone sdk dispositivos de fala
@@ -30,7 +30,7 @@ Recomenda-se a utilização das seguintes geometrias de matriz estoque com a Mic
 |     | Matriz Circular |     | Matriz Linear |     |
 | --- | -------------- | --- | ------------ | --- |
 |     | <img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/> | <img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/> |
-| \# Mics | 7 | 4 | 4 | 2 |
+| \#Mics | 7 | 4 | 4 | 2 |
 | Geometria | 6 Exteriores, 1 Centro, Raio = 42,5 mm, Uniformemente Espaçado | 3 Exteriores, 1 Centro, Raio = 42,5 mm, Uniformemente Espaçado | Comprimento = 120 mm, espaçamento = 40 mm | Espaçamento = 40 mm |
 
 Os canais de microfone devem ser encomendados de acordo com a numeração representada para cada matriz acima, aumentando a partir de 0. O Microsoft Audio Stack necessitará de um fluxo adicional de referência de reprodução áudio para realizar o cancelamento de eco.
@@ -52,7 +52,7 @@ As propriedades recomendadas ao selecionar microfones são:
 | Resposta de frequência | ± 3 dB, 200-8000 Hz Máscara Flutuante\* |
 | Fiabilidade | Gama de Temperatura de Armazenamento -40°C a 70°C<br />Intervalo de temperatura de funcionamento -20°C a 55°C |
 
-\*taxas de _amostragem mais elevadas ou gamas de frequências "mais amplas" podem ser necessárias para aplicações de comunicações de alta qualidade (VoIP)_
+\*_Taxas de amostragem mais elevadas ou intervalos de frequência "mais amplos" podem ser necessários para aplicações de comunicações de alta qualidade (VoIP)_
 
 Uma boa seleção de componentes deve ser emparelhada com uma boa integração eletroacústica, a fim de evitar comprometer o desempenho dos componentes utilizados. Os casos de utilização única também podem exigir requisitos adicionais (por exemplo: intervalos de temperatura de funcionamento).
 
@@ -62,15 +62,15 @@ O desempenho da matriz do microfone quando integrado num dispositivo diferirá d
 
 | Parâmetro          | Recomendado                                        |
 | ------------------ | -------------------------------------------------- |
-| SNR                | \> 63 dB (sinal de 1 kHz 94 dBSPL, ruído ponderado a A) |
+| SNR                | \>63 dB (sinal de 1 kHz 94 dBSPL, ruído ponderado a a) |
 | Sensibilidade à saída | -26 dBFS/Pa @ 1 kHz (recomendado)                  |
 | Combinação de amplitude | ± 2 dB, 200-8000 Hz                                |
 | THD%\*             | ≤ 1%, 200-8000 Hz, 94 dBSPL, 5ª Ordem             |
 | Resposta de frequência | ± 6 dB, 200-8000 Hz Máscara Flutuante\*\*              |
 
-\*\*É necessário um altifalante de _baixa distorção para medir o THD (por exemplo, Neumann KH120)_
+\*\*_É necessário um altifalante de baixa distorção para medir o THD (por exemplo, Neumann KH120)_
 
-\*\*gamas de _frequências "mais amplas" podem ser necessárias para aplicações de comunicações de alta qualidade (VoIP)_
+\*\*_Podem ser necessárias gamas de frequências "mais amplas" para aplicações de comunicações de alta qualidade (VoIP)_
 
 ## <a name="speaker-integration-recommendations"></a>Recomendações de integração de oradores
 
@@ -81,7 +81,7 @@ Como o cancelamento do eco é necessário para dispositivos de reconhecimento de
 | Considerações de Linearidade | Não é necessário processamento não linear após referência do altifalante, caso contrário é necessário um fluxo de referência de loopback baseado em hardware |
 | Loopback do altifalante | Fornecido via WASAPI, APIs privados, plug-in ALSA personalizado (Linux), ou fornecido através do canal firmware |
 | THD% | 3ª Octave Bands mínimo 5ª Ordem, 70 dBA Playback @ 0,8 m ≤ 6,3%, 315-500 Hz ≤ 5%, 630-5000 Hz |
-| Eco Acoplamento aos microfones | \> -10 dB TCLw utilizando o método ITU-T G.122 anexo B.4, normalizado ao nível do microfone<br />TCLw = TCLwmeasured \+ (Nível medido - Sensibilidade à saída do alvo)<br />TCLw = TCLwmeasured \+ (Nível medido - (-26)) |
+| Eco Acoplamento aos microfones | \>-10 dB TCLw utilizando o método ITU-T G.122 anexo B.4, normalizado ao nível do microfone<br />TCLw = TCLwmeasured \+ (Nível medido - Sensibilidade à saída do alvo)<br />TCLw = TCLwmeasured \+ (Nível Medido - (-26)) |
 
 ## <a name="integration-design-architecture"></a>Arquitetura de design de integração
 
@@ -90,8 +90,8 @@ São necessárias as seguintes orientações para a arquitetura ao integrar os m
 | Parâmetro | Recomendação |
 | --------- | -------------- |
 | Semelhança do Porto Mic | Todas as portas do microfone têm o mesmo comprimento na matriz |
-| Dimensões do Porto Mic | Tamanho da porta Ø0.8-1,0 mm. Comprimento da porta / diâmetro da porta \< 2 |
-| Vedação mic         | Vedação de vedações uniformemente implementadas em empilhamento. Recomendar \> relação de compressão de 70% para juntas de espuma |
+| Dimensões do Porto Mic | Tamanho da porta Ø0.8-1,0 mm. Comprimento da porta \< / diâmetro da porta 2 |
+| Vedação mic         | Vedação de vedações uniformemente implementadas em empilhamento. Recomendar \> rácio de compressão de 70% para juntas de espuma |
 | Fiabilidade do Mic     | A malha deve ser utilizada para evitar poeiras e entradas (entre PCB para microfones de base e vedação de vedação/cobertura superior) |
 | Isolamento mic       | Juntas de borracha e vibrações dissociadas através da estrutura, particularmente para isolar quaisquer caminhos de vibração devido a altifalantes integrados |
 | Relógio de amostragem      | O áudio do dispositivo deve estar livre de nervosismo e desistentes com baixa deriva |

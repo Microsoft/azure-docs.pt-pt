@@ -4,10 +4,10 @@ description: O recurso QnA Maker e todas as bases de conhecimento dentro desse r
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: 5cb1dcd35649debbafd2e234606ad4c9d6906ea6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76843425"
 ---
 # <a name="design-knowledge-base-for-content-language"></a>Base de conhecimento de design para linguagem de conteúdo
@@ -37,7 +37,7 @@ Rever [idiomas suportados](../overview/language-support.md) para o QnA Maker.
 
 * Crie um recurso QnA Maker para cada idioma
 * Apenas adicione ficheiros e URLs para esse idioma
-* Use uma convenção de nomeação para o recurso para identificar a língua. Um exemplo é `qna-maker-fr` para todas as bases de conhecimento para documentos franceses
+* Use uma convenção de nomeação para o recurso para identificar a língua. Um exemplo `qna-maker-fr` é para todas as bases de conhecimento para documentos franceses
 
 ## <a name="next-steps"></a>Passos seguintes
 

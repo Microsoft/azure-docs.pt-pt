@@ -1,7 +1,7 @@
 ---
 title: Suporte de idiomas
 titleSuffix: Azure Cognitive Services
-description: Serviços cognitivos do Azure permite-lhe criar aplicações que ver, ouvem, falam com e compreender seus usuários. Entre estes serviços, são suportadas mais de três dezenas de linguagens, permitindo que os usuários comunicar com a sua aplicação de forma natural.
+description: O Azure Cognitive Services permite-lhe construir aplicações que vejam, ouçam, falem e compreendam os seus utilizadores. Entre estes serviços, são suportados mais de três dezenas de idiomas, permitindo aos utilizadores comunicarem com a sua aplicação de forma natural.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,25 +11,25 @@ ms.date: 03/03/2020
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 48cb1ca1427ece0ee30a124b20d3918f1ace47eb
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78274140"
 ---
-# <a name="natural-language-support-for-azure-cognitive-services"></a>Suporte de linguagem natural para os serviços cognitivos do Azure
+# <a name="natural-language-support-for-azure-cognitive-services"></a>Apoio linguístico natural para serviços cognitivos azure
 
-Os Serviços Cognitivos Azure permitem-lhe construir aplicações que vejam, ouçam, falem e compreendam os seus utilizadores. Entre estes serviços, são suportadas mais de três dezenas de linguagens, permitindo que os usuários comunicar com a sua aplicação de forma natural. Utilize os links abaixo para ver a disponibilidade de idiomas por serviço.
+Os Serviços Cognitivos Azure permitem-lhe construir aplicações que vejam, ouçam, falem e compreendam os seus utilizadores. Entre estes serviços, são suportados mais de três dezenas de idiomas, permitindo aos utilizadores comunicarem com a sua aplicação de forma natural. Utilize os links abaixo para ver a disponibilidade de idiomas por serviço.
 
 Estes Serviços Cognitivos são agnósticos linguísticos e não têm limitações baseadas na linguagem.
 
-* [Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/)
+* [Personalizador](https://docs.microsoft.com/azure/cognitive-services/personalizer/)
 * [Detetor de Anomalias (Pré-visualização)](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/overview)
 
 ## <a name="vision"></a>Visão
 
-* [Imagem Digitalizada](https://docs.microsoft.com/azure/cognitive-services/computer-vision/faq)
-* [Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview)
+* [Visão Computorizada](https://docs.microsoft.com/azure/cognitive-services/computer-vision/faq)
+* [Indexador de Vídeos](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview)
 
 ## <a name="speech"></a>Voz
 
@@ -40,17 +40,17 @@ Estes Serviços Cognitivos são agnósticos linguísticos e não têm limitaçõ
 
 ## <a name="language"></a>Idioma
 
-* [Verificação de Ortografia do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages)
-* [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/luis-supported-languages)
-* [Criador de FAQ](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/languages-supported)
-* [Tradução de Texto](https://docs.microsoft.com/azure/cognitive-services/translator/languages)
+* [Verificação de feitiço sorhções](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages)
+* [Compreensão de Idiomas (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/luis-supported-languages)
+* [QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/languages-supported)
+* [Texto do Tradutor](https://docs.microsoft.com/azure/cognitive-services/translator/languages)
 * [Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)
 
 ## <a name="search"></a>Pesquisa
 
-* [Pesquisa na Web do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/supported-countries-markets)
-* [Pesquisa de Imagens do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/supported-countries-markets)
-* [Pesquisa de Notícias do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/supported-countries-markets)
+* [Pesquisa Web do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/supported-countries-markets)
+* [Pesquisa de imagem bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/supported-countries-markets)
+* [Pesquisa do Bing Notícias](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/supported-countries-markets)
 * [Sugestão Automática do Bing](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest/bing-autosuggest-supported-languages)
 * [Pesquisa Visual do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/supported-countries-markets)
 * [Pesquisa Personalizada do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/supported-countries-markets)

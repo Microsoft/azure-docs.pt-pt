@@ -1,7 +1,7 @@
 ---
-title: Ética e uso responsável-personalizador
+title: Ética e uso responsável - Personalizer
 titleSuffix: Azure Cognitive Services
-description: Essas diretrizes destinam-se a ajudá-lo a implementar a personalização de uma forma que o ajude a criar confiança em sua empresa e serviço. Certifique-se de pausar para pesquisar, aprender e deliberadamente o impacto da personalização nas vidas das pessoas. Em caso de dúvida, busque diretrizes.
+description: Estas diretrizes destinam-se a ajudá-lo a implementar a personalização de uma forma que o ajude a criar confiança na sua empresa e serviço. Certifique-se de parar para pesquisar, aprender e deliberar sobre o impacto da personalização na vida das pessoas. Em caso de dúvida, procure orientação.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,196 +11,196 @@ ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: diberry
 ms.openlocfilehash: 11b626c0033814f0886ac76fff0c5d4087a80554
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71720242"
 ---
-# <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Diretrizes para implementação responsável do personalizador
+# <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Orientações para a implementação responsável do Personalizer
 
-Para que as pessoas e a sociedade percebam todo o potencial do ia, as implementações precisam ser projetadas de forma que obtenham a relação de confiança daqueles que adicionam ia aos seus aplicativos e os usuários de aplicativos criados com o ia. Essas diretrizes destinam-se a ajudá-lo a implementar o personalizador de uma forma que o ajude a criar confiança em sua empresa e serviço. Certifique-se de pausar para pesquisar, aprender e deliberadamente o impacto da personalização nas vidas das pessoas. Em caso de dúvida, busque diretrizes.
+Para que as pessoas e a sociedade percebam todo o potencial da IA, as implementações devem ser desenhadas de forma a ganharem a confiança daqueles que adicionam IA às suas aplicações e aos utilizadores de aplicações construídas com IA. Estas diretrizes destinam-se a ajudá-lo a implementar o Personalizer de uma forma que o ajude a criar confiança na sua empresa e serviço. Certifique-se de parar para pesquisar, aprender e deliberar sobre o impacto da personalização na vida das pessoas. Em caso de dúvida, procure orientação.
 
-Essas diretrizes não se destinam a conselhos legais e você deve garantir que seu aplicativo esteja em conformidade com os desenvolvimentos rápidos da lei nessa área e em seu setor.
+Estas orientações não se destinam a aconselhamento jurídico e deve assegurar-se separadamente de que a sua candidatura está em conformidade com os desenvolvimentos acelerados da lei nesta área e no seu setor.
 
-Além disso, ao projetar seu aplicativo usando o personalizador, você deve considerar um amplo conjunto de responsabilidades que tem ao desenvolver qualquer sistema de ia centrado em dados, incluindo ética, privacidade, segurança, segurança, inclusão, transparência e responsabilidade. Você pode ler mais sobre eles na seção de [leitura recomendada](#recommended-reading) .
+Além disso, ao conceber a sua aplicação utilizando o Personalizer, deve considerar um vasto conjunto de responsabilidades que tem ao desenvolver qualquer sistema de IA centrado em dados, incluindo ética, privacidade, segurança, segurança, inclusão, transparência e responsabilidade. Pode ler mais sobre isso na secção de [leitura Recomendada.](#recommended-reading)
 
-Você pode usar o seguinte conteúdo como uma lista de verificação inicial e personalizá-lo e refiná-lo para seu cenário. Este documento tem duas seções principais: A primeira é dedicada a destacar as considerações de uso responsável ao escolher cenários, recursos e recompensas para o personalizador. A segunda assume um conjunto de valores que a Microsoft acredita que deve ser considerada ao criar sistemas de ia e fornece sugestões e riscos acionáveis sobre como o uso do personalizador influencia eles. 
+Pode utilizar o seguinte conteúdo como lista de verificação inicial e personalizá-lo e refiná-lo para o seu cenário. Este documento tem duas secções principais: A primeira dedica-se a destacar considerações de uso responsável na escolha de cenários, funcionalidades e recompensas para o Personalizer. A segunda toma um conjunto de valores que a Microsoft acredita que deve ser considerado na construção de sistemas de IA, e fornece sugestões e riscos atuais sobre como o seu uso do Personalizer os influencia. 
 
 
 ## <a name="your-responsibility"></a>Sua responsabilidade
 
-Todas as diretrizes para implementação responsável baseiam-se na base que os desenvolvedores e as empresas que usam o personalizador são responsáveis por se considerarem os efeitos de usar esses algoritmos na sociedade. Se você estiver desenvolvendo um aplicativo que sua organização implantará, você deve reconhecer sua função e responsabilidade por sua operação e como ela afeta as pessoas. Se você estiver projetando um aplicativo a ser implantado por terceiros, venha a compreender um entendimento compartilhado com eles que, por fim, são responsáveis pelo comportamento do aplicativo e pelo documento que o entende.
+Todas as diretrizes para uma implementação responsável baseiam-se na base de que os desenvolvedores e empresas que utilizam o Personalizer são responsáveis e responsáveis pelos efeitos da utilização destes algoritmos na sociedade. Se está a desenvolver uma aplicação que a sua organização irá implementar, deve reconhecer o seu papel e responsabilidade pelo seu funcionamento e como isso afeta as pessoas. Se está a desenhar uma aplicação a ser implementada por terceiros, chegue a um entendimento partilhado com eles de quem é, em última análise, responsável pelo comportamento da aplicação, e documente esse entendimento.
 
-A confiança baseia-se na noção de compromissos cumpridos-considere os usuários, a sociedade e a estrutura legal em que seus aplicativos funcionam, para identificar compromissos explícitos e implícitos que eles podem ter.
+A confiança baseia-se na noção de compromissos cumpridos - considere os seus utilizadores, a sociedade e o enquadramento legal em que as suas aplicações trabalham, para identificar compromissos explícitos e implícitos que possam ter.
 
-A Microsoft está continuamente colocando esforços em suas ferramentas e documentos para ajudá-lo a agir nessas responsabilidades. [Forneça comentários à Microsoft](mailto:cogsvcs-RL-feedback@microsoft.com?subject%3DPersonalizer%20Responsible%20Use%20Feedback&body%3D%5BPlease%20share%20any%20question%2C%20idea%20or%20concern%5D) se você acreditar que ferramentas adicionais, recursos e documentos do produto o ajudarão a implementar essas diretrizes para usar o personalizador.
-
-
-## <a name="factors-for-responsibly-implementing-personalizer"></a>Fatores para implementar o personalizador com responsabilidade
-
-A implementação do personalizador pode ser de grande valor para seus usuários e seus negócios. Para implementar o personalizador com responsabilidade, comece considerando as seguintes diretrizes quando:
-
-* Escolhendo casos de uso para aplicar a personalização.
-* Criando [funções de recompensa](https://github.com/Azure/personalization-rl/blob/master/docs/concepts-rewards.md).
-* Escolher os [recursos](https://github.com/Azure/personalization-rl/blob/master/docs/concepts-features.md) sobre o contexto e as possíveis ações que serão usadas para personalização.
+A Microsoft está continuamente a apostar nas suas ferramentas e documentos para o ajudar a agir sobre estas responsabilidades. [Forneça feedback à Microsoft](mailto:cogsvcs-RL-feedback@microsoft.com?subject%3DPersonalizer%20Responsible%20Use%20Feedback&body%3D%5BPlease%20share%20any%20question%2C%20idea%20or%20concern%5D) se acreditar que ferramentas adicionais, funcionalidades e documentos do produto o ajudariam a implementar estas diretrizes para usar o Personalizer.
 
 
-## <a name="choosing-use-cases-for-personalizer"></a>Escolhendo casos de uso para personalizador
+## <a name="factors-for-responsibly-implementing-personalizer"></a>Fatores para implementar de forma responsável o Personalizer
 
-É útil usar um serviço que aprende a personalizar o conteúdo e as interfaces do usuário. Ele também pode ser aplicado inaplicadamente se a maneira como a personalização cria efeitos colaterais negativos no mundo real, incluindo se os usuários não sabem da personalização de conteúdo. 
+Implementar o Personalizer pode ser de grande valor para os seus utilizadores e para o seu negócio. Para implementar o Personalizer de forma responsável, comece por considerar as seguintes orientações quando:
 
-Exemplos de uso de personalizador com potencial maior para efeitos colaterais negativos ou uma falta de transparência incluem cenários em que a "recompensa" depende de muitos fatores complexos de longo prazo que, quando excessivamente simplificado em uma recompensa imediata, pode ter a capacidade de ser desfavorável resultados para indivíduos. Eles tendem a ser considerados opções "consequenciais" ou opções que envolvem um risco de danos. Por exemplo: 
-
-
-* **Finanças**: Personalizando ofertas em produtos de empréstimo, financeiros e de seguros, nos quais os fatores de risco se baseiam em dados que os indivíduos não conhecem, não conseguem obter nem fazer contestação. 
-* **Educação**: Personalizar classificações para cursos escolares e instituições educacionais em que as recomendações podem propagar tendências e reduzir a conscientização dos usuários de outras opções.
-* **Participação em democracia e cívico**: Personalizar o conteúdo para usuários com o objetivo de influenciar opiniões é consequencial e Manipulative.
-* **Avaliação de recompensa de**terceiros: Personalizando itens em que a recompensa se baseia em uma avaliação de terceiros do usuário, em vez de ter uma recompensa gerada pelo próprio comportamento do usuário.
-* **Intolerância à exploração**: Qualquer situação na qual o comportamento de exploração do personalizado possa causar danos.
-
-Ao escolher casos de uso para personalizador:
-
-* Inicie o processo de design considerando como a personalização ajuda os usuários.
-* Considere as consequências negativas no mundo real se alguns itens não estiverem classificados para usuários devido a padrões de personalização ou exploração.
-* Considere se o seu caso de uso constitui o processamento automatizado, que afeta significativamente os assuntos de dados que são regulamentados em [GDPR](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679) artigo 22 ou outras leis.
-* Considere o autoatendimento de loops de Prophecy. Isso pode acontecer se um prêmio de personalização treinar um modelo para que ele possa posteriormente excluir um grupo demográfico de acessar conteúdo relevante. Por exemplo, a maioria das pessoas em um ambiente de baixa renda não obtém uma oferta de seguro Premium, e ninguém mais lento na vizinhança tende a ver a oferta se não houver exploração suficiente.
-* Salve cópias de modelos e políticas de aprendizado caso seja necessário reproduzir o personalizador no futuro. Você pode fazer isso periodicamente ou em cada período de atualização do modelo.
-* Considere o nível de exploração adequado para o espaço e como usá-lo como uma ferramenta para atenuar os efeitos de "eco câmara".
+* Escolher usar casos para aplicar personalização.
+* Construção de funções de [recompensa.](https://github.com/Azure/personalization-rl/blob/master/docs/concepts-rewards.md)
+* Escolhendo quais [funcionalidades](https://github.com/Azure/personalization-rl/blob/master/docs/concepts-features.md) sobre o contexto e possíveis ações que utilizará para personalização.
 
 
-## <a name="selecting-features-for-personalizer"></a>Selecionando recursos do personalizador
+## <a name="choosing-use-cases-for-personalizer"></a>Escolher casos de utilização para Personalizer
 
-A personalização de conteúdo depende de ter informações úteis sobre o conteúdo e o usuário. Tenha em mente, para alguns aplicativos e indústrias, alguns recursos do usuário podem ser considerados discriminados direta ou indiretamente e potencialmente ilegais.
+Usar um serviço que aprende a personalizar conteúdo e interfaces de utilizador é útil. Também pode ser mal aplicado se a forma como a personalização cria efeitos colaterais negativos no mundo real, incluindo se os utilizadores desconhecem a personalização dos conteúdos. 
 
-Considere o efeito desses recursos:
-
-* Dados **demográficos do usuário**: Recursos relacionados a sexo, gênero, idade, corrida, Religion: Esses recursos podem não ser permitidos em determinados aplicativos por motivos regulatórios, e talvez não seja ético personalizá-los, pois a personalização propagará generalizações e tendência. Um exemplo dessa propagação de tendência é uma postagem de trabalho para a engenharia não ser mostrada para idosa ou para os públicos baseados em gênero.
-* **Informações de localidade**: Em muitos lugares do mundo, as informações de local (como um CEP, código postal ou nome de vizinhança) podem estar altamente correlacionadas com renda, corrida e Religion.
-* **Percepção de imparcialidade do usuário**: Mesmo nos casos em que seu aplicativo está tomando decisões sonoras, considere o efeito dos usuários que percebem que o conteúdo exibido em seu aplicativo é alterado de uma maneira que pareça estar correlacionado a recursos que seriam discriminados.
-* **Tendência indesejada em recursos**:  Há tipos de tendências que podem ser introduzidas usando recursos que afetam apenas um subconjunto da população. Isso requer atenção extra se os recursos estiverem sendo gerados forma algorítmica, como ao usar a análise de imagem para extrair itens em uma imagem ou análise de texto para descobrir entidades em texto. Fique atento às características dos serviços que você usa para criar esses recursos.
-
-Aplique as seguintes práticas ao escolher os recursos a serem enviados em contextos e ações para o personalizador:
-
-* Considere a legalidade e a ética do uso de determinados recursos para alguns aplicativos e se os recursos de aparência inocente podem ser proxies para outras pessoas que você deseja ou que devem evitar,
-* Seja transparente para os usuários que os algoritmos e a análise de dados estão sendo usados para personalizar as opções que eles veem.
-* Pergunte-se: Meus usuários me preocupariam e ficariam satisfeitos se eu usava essas informações para personalizar o conteúdo para eles? Gostaria de me sentir confortável mostrando como a decisão foi feita para realçar ou ocultar determinados itens?
-* Use comportamental em vez de dados de classificação ou segmentação com base em outras características. As informações demográficas eram tradicionalmente usadas por varejistas por razões históricas – os atributos demográficos pareciam simples de coletar e agir antes de uma era digital, mas questionar como informações demográficas relevantes são quando você tem interação real, dados contextuais e históricos que se relacionam mais bem às preferências e à identidade dos usuários.
-* Considere como impedir que os recursos sejam "falsificados" por usuários mal-intencionados, que, se explorados em números grandes, podem levar ao personalizador de treinamento de formas enganosas de interrupções, constrangimento e assédio de determinadas classes de usuários. 
-* Quando apropriado e viável, projete seu aplicativo para permitir que os usuários aceitem ou recusem a existência de determinados recursos pessoais usados. Eles podem ser agrupados, como "informações de local", "informações do dispositivo", "histórico de compra passada", etc.
+Exemplos de utilizações do Personalizer com potencial acrescido para efeitos colaterais negativos ou falta de transparência incluem cenários em que a "recompensa" depende de muitos fatores complexos de longo prazo que, quando simplificados em excesso para uma recompensa imediata podem ter desfavoráveis resultados para indivíduos. Estas tendem a ser consideradas escolhas "consequentes", ou escolhas que envolvem um risco de danos. Por exemplo: 
 
 
-## <a name="computing-rewards-for-personalizer"></a>Compensações de computação para personalizador
+* **Finanças**: Personalizar ofertas de produtos de empréstimos, financeiros e seguros, onde os fatores de risco são baseados em dados que os indivíduos desconhecem, não podem obter ou não podem contestar. 
+* **Educação**: Personalizar fileiras para cursos escolares e instituições de ensino onde as recomendações podem propagar enviesamentos e reduzir a consciência dos utilizadores sobre outras opções.
+* **Democracia e Participação Cívica**: Personalizar conteúdos para os utilizadores com o objetivo de influenciar opiniões é consequente e manipulador.
+* **Avaliação de recompensa de terceiros**: Personalizar itens onde a recompensa se baseia numa última avaliação de terceiros do utilizador, em vez de ter uma recompensa gerada pelo próprio comportamento do utilizador.
+* **Intolerância à Exploração**: Qualquer situação em que o comportamento de exploração do Personalizer possa causar danos.
 
-O personalizado se esforça para melhorar a escolha de qual ação deve ser recompensada com base na pontuação de recompensa fornecida pela lógica de negócios do aplicativo.
+Ao escolher casos de utilização para Personalizar:
 
-Uma pontuação de recompensa bem criada funcionará como um proxy de curto prazo para uma meta de negócios, que está vinculada à missão de uma organização.
+* Inicie o processo de design considerando como a personalização ajuda os seus utilizadores.
+* Considere as consequências negativas no mundo real se alguns itens não estiverem classificados para os utilizadores devido a padrões de personalização ou exploração.
+* Considere se o seu caso de utilização constitui um tratamento automatizado que afeta significativamente os titulares de dados que são regulados nos termos do artigo 22.º do [RGPD](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679) ou de outras leis.
+* Considere laços de profecia autorrealizáveis. Isto pode acontecer se uma recompensa de personalização treinar um modelo para que possa posteriormente excluir um grupo demográfico de aceder a conteúdos relevantes. Por exemplo, a maioria das pessoas num bairro de baixos rendimentos não obtém uma oferta de seguro premium, e lentamente ninguém na vizinhança tende a ver a oferta se não houver exploração suficiente.
+* Guarde cópias de modelos e políticas de aprendizagem no caso de ser necessário reproduzir o Personalizer no futuro. Pode fazê-lo periodicamente ou em cada período de atualização do modelo.
+* Considere o nível de exploração adequado para o espaço e como usá-lo como uma ferramenta para mitigar os efeitos da "câmara de eco".
 
-Por exemplo, recompensa em cliques fará com que o serviço personalizado busque cliques com a despesa de todo o resto, mesmo que o que é clicado esteja distraindo ou não esteja vinculado a um resultado comercial.
 
-Como exemplo de contraste, um site de notícias pode querer definir recompensas ligadas a algo mais significativo do que cliques, como "o usuário gastou tempo suficiente para ler o conteúdo?" "Eles clicaram em artigos ou referências relevantes?". Com o personalizador, é fácil reunir métricas de acordo com as recompensas. Mas tenha cuidado para não confoundr o envolvimento do usuário de curto prazo com bons resultados.
+## <a name="selecting-features-for-personalizer"></a>Selecionar funcionalidades para Personalizar
 
-### <a name="unintended-consequences-from-reward-scores"></a>Consequências indesejadas de pontuações de recompensa
-As pontuações de recompensa podem ser criadas com o melhor de intenções, mas ainda podem criar consequências inesperadas ou resultados indesejados sobre como o personalizador classifica o conteúdo. 
+Personalizar conteúdo depende de ter informações úteis sobre o conteúdo e o utilizador. Tenha em mente, para algumas aplicações e indústrias, algumas funcionalidades do utilizador podem ser consideradas direta ou indiretamente discriminatórias e potencialmente ilegais.
+
+Considere o efeito destas características:
+
+* **Demografia do utilizador**: Características relativas ao sexo, sexo, idade, raça, religião: Estas características podem não ser permitidas em determinadas aplicações por razões regulamentares, e pode não ser ético personalizar à sua volta porque a personalização propagaria generalizações e preconceitos. Um exemplo desta propagação parcial é um posto de trabalho para a engenharia que não é mostrado a públicos idosos ou baseados em género.
+* **Informações locais**: Em muitos lugares do mundo, as informações de localização (como um código postal, código postal ou nome de bairro) podem ser altamente correlacionadas com rendimento, raça e religião.
+* **Perceção do Utilizador da Equidade**: Mesmo nos casos em que a sua aplicação está a tomar decisões sólidas, considere o efeito dos utilizadores que percem que o conteúdo apresentado na sua aplicação muda de uma forma que pareça estar correlacionada com funcionalidades que seriam discriminatórias.
+* **Enviesamento não intencional em características**: Existem tipos de preconceitos que podem ser introduzidos utilizando características que apenas afetam um subconjunto da população. Isto requer uma atenção extra se as funcionalidades estiverem a ser geradas de forma algorítmica, como quando se utiliza a análise de imagem para extrair itens numa imagem ou análise de texto para descobrir entidades em texto. Tenha consciência das características dos serviços que utiliza para criar estas funcionalidades.
+
+Aplique as seguintes práticas ao escolher funcionalidades para enviar em contextos e ações ao Personalizer:
+
+* Considere a legalidade e ética de usar certas funcionalidades para algumas aplicações, e se características de aparência inocente podem ser proxies para outros que você quer ou deve evitar,
+* Seja transparente para os utilizadores que os algoritmos e a análise de dados estão a ser usados para personalizar as opções que vêem.
+* Pergunte a si mesmo: Os meus utilizadores importar-se-iam e ficariam felizes se eu usasse esta informação para personalizar o conteúdo para eles? Sentir-me-ia à vontade para lhes mostrar como foi tomada a decisão de destacar ou esconder certos itens?
+* Utilize dados comportamentais em vez de classificação ou segmentação com base em outras características. A informação demográfica era tradicionalmente utilizada pelos retalhistas por razões históricas – os atributos demográficos pareciam simples de recolher e agir antes de uma era digital, mas questionam o quão relevante é a informação demográfica quando se tem interação real, dados contextuais e históricos que se relacionam mais com as preferências e identidade dos utilizadores.
+* Considere como evitar que as funcionalidades sejam 'falsificadas' por utilizadores maliciosos, o que se explorado em grande número pode levar a treinar o Personalizer de forma enganosa para perturbar, envergonhar e assediar propositadamente certas classes de utilizadores. 
+* Quando apropriado e exequível, desenhe a sua aplicação para permitir que os seus utilizadores optem ou optem por não ter determinadas funcionalidades pessoais utilizadas. Estes poderiam ser agrupados, tais como "Informações de localização", "Informação do Dispositivo", "Histórico de Compras Passadas" etc.
+
+
+## <a name="computing-rewards-for-personalizer"></a>Recompensas de computação para Personalizer
+
+O Personalizer esforça-se por melhorar a escolha de que ação premiar com base na pontuação de recompensa fornecida pela lógica de negócio da sua aplicação.
+
+Uma pontuação de recompensa bem construída funcionará como um representante de curto prazo para um objetivo de negócio, que está ligado à missão de uma organização.
+
+Por exemplo, recompensar em cliques fará com que o Serviço personalizado procure cliques à custa de tudo o resto, mesmo que o que está clicado seja distrair ou não estar ligado a um resultado de negócio.
+
+Como exemplo contrastante, um site de notícias pode querer definir recompensas ligadas a algo mais significativo do que cliques, tais como "O utilizador passou tempo suficiente para ler o conteúdo?" "Clicaram em artigos ou referências relevantes?". Com o Personalizer é fácil ligar as métricas de perto às recompensas. Mas tenha cuidado para não confundir o envolvimento dos utilizadores a curto prazo com bons resultados.
+
+### <a name="unintended-consequences-from-reward-scores"></a>Consequências não intencionais dos resultados das recompensas
+As pontuações de recompensa podem ser construídas com a melhor das intenções, mas ainda podem criar consequências inesperadas ou resultados não intencionais sobre como o Personalizer classifica o conteúdo. 
 
 Considere os seguintes exemplos:
 
-* A personalização de conteúdo de vídeo recompensa no percentual do tamanho do vídeo observado provavelmente tenderá a classificar vídeos mais curtos.
-* Comparando compartilhamentos de mídia social, sem análise de sentimentos de como ele é compartilhado ou o próprio conteúdo, pode levar à classificação de conteúdo ofensivo, não moderado ou inflammatory, que tende a incitemr muito "envolvimento", mas adiciona pouco valor.
-* Recompensar a ação nos elementos da interface do usuário que os usuários não esperam alterar podem interferir na usabilidade e na previsibilidade da interface do usuário, em que os botões são surpreendentemente alterando o local ou a finalidade sem aviso, o que dificulta para certos grupos de usuários para permanecerem produtivos.
+* Recompensar a personalização de conteúdos de vídeo na percentagem do comprimento de vídeo observado provavelmente tenderá a classificar vídeos mais curtos.
+* Recompensar as partilhas das redes sociais, sem análise de sentimentos de como é partilhado ou o conteúdo em si, pode levar a conteúdos ofensivos, sem moderação ou inflamatórios, o que tende a incitar muito "envolvimento", mas acrescenta pouco valor.
+* Recompensar a ação nos elementos de interface do utilizador que os utilizadores não esperam alterar pode interferir com a usabilidade e previsibilidade da interface do utilizador, onde os botões estão surpreendentemente a mudar de localização ou de propósito sem aviso prévio, tornando mais difícil com certeza grupos de utilizadores para se manterem produtivos.
 
-Implemente estas práticas recomendadas:
+Implementar estas boas práticas:
 
-* Execute experimentos offline com seu sistema usando abordagens de recompensa diferentes para entender o impacto e os efeitos colaterais.
-* Avalie suas funções de recompensa e pergunte-se como uma pessoa extremamente ingênua curvaria sua interpretação e alcançou resultados indesejáveis com ela.
+* Faça experiências offline com o seu sistema usando diferentes abordagens de recompensa para entender o impacto e os efeitos colaterais.
+* Avalie as suas funções de recompensa e pergunte a si mesmo como uma pessoa extremamente ingénua dobraria a sua interpretação e alcançaria resultados indesejáveis com ela.
 
 
-## <a name="responsible-design-considerations"></a>Considerações de design responsável
+## <a name="responsible-design-considerations"></a>Considerações de design responsáveis
 
-A seguir estão áreas de design para implementações responsáveis do ia. Saiba mais está confinado no essa estrutura no [futuro computada](https://news.microsoft.com/futurecomputed/).
+Seguem-se áreas de conceção para implementações responsáveis de IA. Saiba mais sobre este quadro no [The Future Computed](https://news.microsoft.com/futurecomputed/).
 
-![Valores de ia do futuro computados](media/ethics-and-responsible-use/ai-values-future-computed.png)
+![Valores de IA do Futuro Computado](media/ethics-and-responsible-use/ai-values-future-computed.png)
 
 ### <a name="accountability"></a>Responsabilidade
-*As pessoas que criam e implantam sistemas de ia devem ser responsáveis por como seus sistemas operam*. 
+*As pessoas que concebem e implementam sistemas de IA devem ser responsáveis pelo funcionamento dos seus sistemas.* 
 
-* Crie diretrizes internas sobre como implementar personalizador, documentar e comunicar-os com sua equipe, executivos e fornecedores.
-* Executar revisões periódicas de como as pontuações de recompensa são computadas, executar avaliações offline para ver quais recursos estão afetando o personalizador e usar os resultados para eliminar recursos desnecessários e desnecessários.
-* Comunique-se claramente aos seus usuários como o personalizador é usado, para que finalidade e com quais dados.
-* Arquive informações e ativos-como modelos, políticas de aprendizado e outros dados – que o personalizador usa para funcionar, para poder reproduzir os resultados.
+* Crie diretrizes internas sobre como implementar personalizer, documentar e comunicá-las à sua equipa, executivos e fornecedores.
+* Execute revisões periódicas de como as pontuações de recompensa são calculadas, execute avaliações offline para ver quais as funcionalidades que estão a afetar o Personalizer, e use os resultados para eliminar funcionalidades desnecessárias e desnecessárias.
+* Comunique claramente aos seus utilizadores como o Personalizer é usado, para que finalidade e com que dados.
+* Arquivo de informação e ativos - como modelos, políticas de aprendizagem e outros dados - que o Personalizer usa para funcionar, para ser capaz de reproduzir resultados.
 
 ### <a name="transparency"></a>Transparência
-Os *sistemas de ia devem ser compreensíveis*. Com o personalizador:
+*Os sistemas de IA devem ser compreensíveis.* Com Personalizer:
 
-* *Forneça aos usuários informações sobre como o conteúdo foi personalizado.* Por exemplo, você pode mostrar aos usuários um botão rotulado `Why These Suggestions?` mostrando quais recursos principais do usuário e as ações desempenharam uma função nos resultados do personalizador.
-* Verifique se os termos de uso fazem menção de que você usará informações sobre os usuários e seu comportamento para personalizar a experiência.
+* *Dar aos utilizadores informações sobre como o conteúdo foi personalizado.* Por exemplo, pode mostrar aos seus `Why These Suggestions?` utilizadores um botão rotulado mostrando quais as principais funcionalidades do utilizador e as ações desempenharam um papel nos resultados do Personalizer.
+* Certifique-se de que os seus termos de uso mencionam que utilizará informações sobre os utilizadores e o seu comportamento para personalizar a experiência.
 
-### <a name="fairness"></a>Equidade
-*Os sistemas de ia devem tratar todas as pessoas*de forma justa.
+### <a name="fairness"></a>Justiça
+*A IA Systems deve tratar todas as pessoas de forma justa.*
 
-* Não use o personalizador para casos de uso em que os resultados sejam de longo prazo, CONSEQÜENCIAIS ou envolvam danos reais.
-* Não use recursos que não sejam apropriados para personalizar o conteúdo com o ou que possam ajudar a propagar tendências indesejadas. Por exemplo, qualquer pessoa com circunstâncias financeiras semelhantes deve ver as mesmas recomendações personalizadas para produtos financeiros.
-* Entenda as tendências que podem existir em recursos que são originados de editores, ferramentas de algoritmos ou próprios usuários.
+* Não utilize o Personalizer para usar casos em que os resultados sejam a longo prazo, consequentes ou envolvam danos reais.
+* Não utilize funcionalidades que não sejam adequadas para personalizar conteúdo, ou que possam ajudar a propagar preconceitos indesejados. Por exemplo, qualquer pessoa com circunstâncias financeiras semelhantes deve ver as mesmas recomendações personalizadas para os produtos financeiros.
+* Compreenda os enviesamentos que podem existir em funcionalidades que são provenientes de editores, ferramentas algorítmicas ou os próprios utilizadores.
 
-### <a name="reliability-and-safety"></a>Confiabilidade e segurança
-Os *sistemas de ia devem ser executados de forma confiável e segura*. Para personalizador:
+### <a name="reliability-and-safety"></a>Fiabilidade e segurança
+*Os Sistemas De IA devem funcionar*de forma fiável e segura . Para Personalizar:
 
-* *Não forneça ações ao personalizador que não devem ser escolhidas*. Por exemplo, filmes inadequadas devem ser filtrados das ações a serem personalizadas se fizerem uma recomendação para um usuário anônimo ou sob idade.
-* *Gerencie seu modelo personalizado como um ativo de negócios*.  Considere a frequência de salvar e fazer backup do modelo e das políticas de aprendizado por trás do loop personalizador e, caso contrário, tratá-lo como um ativo comercial importante. A reprodução de resultados anteriores é importante para a melhoria de autoauditoria e medição.
-* *Forneça canais para obter comentários diretos dos usuários*. Além das verificações de segurança de codificação para garantir que apenas os públicos-alvo corretos vejam o conteúdo certo, forneça um mecanismo de comentários para que os usuários relatem conteúdo que pode ser surpreendente ou perturbador. Especialmente se seu conteúdo vier de usuários ou de terceiros, considere usar o Microsoft Content Moderator ou ferramentas adicionais para revisar e validar o conteúdo.
-* *Execute avaliações offline frequentes*. Isso o ajudará a monitorar tendências e garantir que a eficácia seja conhecida.
-* *Estabeleça um processo para detectar e agir sobre manipulação mal-intencionada*. Há atores que aproveitarão o aprendizado de máquina e a capacidade dos sistemas de ia de aprender com seu ambiente para deslocar o resultado para suas metas. Se o uso do personalizador estiver em uma posição para influenciar as opções importantes, certifique-se de ter meios apropriados para detectar e atenuar essas classes de ataques, incluindo a análise humana nas circunstâncias apropriadas.
+* *Não forneça ações ao Personalizer que não deveriam ser escolhidas.* Por exemplo, os filmes inadequados devem ser filtrados das ações para personalizar se fizer uma recomendação para um utilizador anónimo ou menor de idade.
+* *Gerencie o seu modelo Personalizer como um ativo*de negócio.  Considere com que frequência economizar e apoiar as políticas de modelo e aprendizagem por trás do seu Personalizer Loop, e de outra forma tratá-lo como um importante ativo de negócio. A reprodução dos resultados anteriores é importante para a autoauditoria e a melhoria da medição.
+* *Forneça canais para obter feedback direto dos utilizadores.* Além de codificar verificações de segurança para garantir que apenas o público certo veja o conteúdo certo, forneça um mecanismo de feedback para os utilizadores reportarem conteúdo que possa ser surpreendente ou perturbador. Especialmente se o seu conteúdo vier de utilizadores ou 3.º, considere utilizar o Moderador de Conteúdo do Microsoft ou ferramentas adicionais para rever e validar conteúdos.
+* *Realizar avaliações offline frequentes*. Isto irá ajudá-lo a monitorizar as tendências e a garantir que a eficácia é conhecida.
+* *Estabeleça um processo de deteção e atuação em manipulação maliciosa.* Há atores que vão aproveitar a capacidade de aprendizagem automática e de sistemas de IA aprenderem com o seu ambiente para mudar o resultado para os seus objetivos. Se o seu uso do Personalizer estiver em posição de influenciar escolhas importantes, certifique-se de ter meios adequados para detetar e mitigar estas classes de ataques, incluindo a revisão humana em circunstâncias apropriadas.
 
 ### <a name="security-and-privacy"></a>Segurança e privacidade
-Os *sistemas de ia devem ser seguros e respeitar a privacidade*. Ao usar o personalizador:
+*Os Sistemas AI devem ser seguros e respeitar*a privacidade. Ao utilizar o Personalizer:
 
-* *Informe os usuários sobre os dados coletados e como eles são usados e obtenha seu consentimento com antecedência*, seguindo suas normas locais e do setor.
-* *Fornecer privacidade – proteger controles de usuário.* Para aplicativos que armazenam informações pessoais, considere o fornecimento de um botão fácil de encontrar para funções como: 
+* *Informe previamente os utilizadores sobre os dados recolhidos e como são utilizados e obtenha previamente*o seu consentimento, seguindo os regulamentos locais e do setor.
+* *Fornecer controlos de utilizador que protejam a privacidade.* Para aplicações que armazenem informações pessoais, considere fornecer um botão fácil de encontrar para funções como: 
    * `Show me all you know about me`    
    * `Forget my last interaction` 
    * `Delete all you know about me`
 
-Em alguns casos, eles podem ser legalmente obrigatórios. Considere as compensações em modelos de readaptação periodicamente para que eles não contenham rastreamentos de dados excluídos.
+Em alguns casos, estes podem ser legalmente exigidos. Considere as trocas em modelos de reconversão periodicamente para que não contenham vestígios de dados apagados.
 
-### <a name="inclusiveness"></a>Inclusividade
-*Atenda a uma ampla gama de necessidades e experiências humanas*.
-* *Fornecer experiências personalizadas para interfaces habilitadas para acessibilidade.* A eficiência que vem de uma boa personalização – aplicada para reduzir a quantidade de esforço, movimento e repetição desnecessária em interações – pode ser especialmente benéfica para pessoas com deficiências.
-* *Ajuste o comportamento do aplicativo para o contexto*. Você pode usar o personalizador para fazer a desambiguidade entre as tentativas em um bot de chat, por exemplo, como a interpretação correta pode ser contextual e um tamanho pode não se ajustar a todos. 
-
-
-## <a name="proactive-readiness-for-increased-data-protection-and-governance"></a>Prontidão proativa para maior proteção e governança de dados
-
-É difícil prever alterações específicas em contextos regulatórios, mas, em geral, seria prudente ir além da estrutura legal mínima para garantir o uso obedientes de dados pessoais e fornecer transparência e opções relacionadas à tomada de decisões do Algorithm.
+### <a name="inclusiveness"></a>Inclusão
+*Abordar uma ampla gama de necessidades e experiências humanas.*
+* *Proporcionar experiências personalizadas para interfaces habilitadas para acessibilidades.* A eficiência que resulta de uma boa personalização - aplicada para reduzir a quantidade de esforço, movimento e repetição desnecessária nas interações - pode ser especialmente benéfica para as pessoas com deficiência.
+* *Ajuste o comportamento da aplicação ao contexto.* Pode usar o Personalizer para desambiguar entre intenções num chat bot, por exemplo, uma vez que a interpretação certa pode ser contextual e um tamanho pode não caber em todos. 
 
 
-* Considere o planejamento antecipadamente para uma situação em que pode haver novas restrições nos dados coletados de indivíduos, e há a necessidade de mostrar como ele foi usado para tomar decisões.
-* Considere a preparação extra onde os usuários podem incluir populações vulneráveis marginalmente, filhos, usuários em vulnerabilidade econômica ou usuários que, de outra forma, suscetíveis a influenciar da manipulação de algoritmos.
-* Considere a insatisfação generalizada com a forma como o público-alvo e o público-influenciando os programas e algoritmos de coleta de dados foram reproduzidos e como evitar erros estratégicos comprovados.
+## <a name="proactive-readiness-for-increased-data-protection-and-governance"></a>Prontidão proactiva para maior proteção e governação de dados
+
+É difícil prever mudanças específicas nos contextos regulamentares, mas, em geral, seria sensato ir além do quadro jurídico mínimo para garantir uma utilização respeitosa dos dados pessoais e proporcionar transparência e escolha relacionadas com a tomada de decisões algorítmicas.
 
 
-## <a name="proactive-assessments-during-your-project-lifecycle"></a>Avaliações proativas durante o ciclo de vida do projeto
+* Considere planear com antecedência uma situação em que pode haver novas restrições aos dados recolhidos de indivíduos, e é necessário mostrar como foi usado para tomar decisões.
+* Considere a prontidão extra em que os utilizadores possam incluir populações vulneráveis marginalizadas, crianças, utilizadores em vulnerabilidade económica ou utilizadores de outra forma suscetíveis a influenciar de manipulação algorítmica.
+* Considere a insatisfação generalizada com a forma como os programas e algoritmos de recolha de dados influenciadores pelo público e influenciadores pelo público têm jogado fora, e como evitar erros estratégicos comprovados.
 
-Considere a criação de métodos para membros da equipe, usuários e proprietários de negócios para relatar preocupações sobre o uso responsável e criar um processo que priorize sua resolução e impeça a retaliação.
 
-Qualquer pessoa que pensa em efeitos colaterais de uso de qualquer tecnologia é limitada por sua perspectiva e experiência de vida. Expanda a variedade de opiniões disponíveis, trazendo vozes mais diversificadas para suas equipes, usuários ou conselhos. Isso é possível e incentivado a conversar. Considere os materiais de treinamento e aprendizagem para expandir ainda mais o conhecimento da equipe nesse domínio e para adicionar recursos para discutir tópicos complexos e confidenciais.
+## <a name="proactive-assessments-during-your-project-lifecycle"></a>Avaliações proativas durante o seu ciclo de vida do projeto
 
-Considere tratar tarefas relacionadas ao uso responsável, assim como outras tarefas de transversais no ciclo de vida do aplicativo, como tarefas relacionadas à experiência do usuário, segurança ou DevOps. Essas tarefas e seus requisitos não podem ser uma prioridade. O uso responsável deve ser discutido e verificado em todo o ciclo de vida do aplicativo.
+Considere a criação de métodos para os membros da equipa, utilizadores e empresários reportarem preocupações relacionadas com a utilização responsável, e criar um processo que priorize a sua resolução e impeça represálias.
+
+Qualquer pessoa que pense nos efeitos secundários do uso de qualquer tecnologia é limitada pela sua perspetiva e experiência de vida. Expandir o leque de opiniões disponíveis trazendo vozes mais diversas para as suas equipas, utilizadores ou conselhos consultivos; de tal forma que é possível e encorajado para que eles falem. Considere materiais de formação e aprendizagem para expandir ainda mais o conhecimento da equipa neste domínio, e adicionar capacidade para discutir tópicos complexos e sensíveis.
+
+Considere tratar tarefas relativas a uma utilização responsável, tal como outras tarefas de crosscutting no ciclo de vida da aplicação, tais como tarefas relacionadas com a experiência do utilizador, segurança ou DevOps. Estas tarefas e os seus requisitos não podem ser uma reflexão posterior. A utilização responsável deve ser discutida e verificada ao longo do ciclo de vida da aplicação.
  
-## <a name="questions-and-feedback"></a>Perguntas e comentários
+## <a name="questions-and-feedback"></a>Perguntas e feedback
 
-A Microsoft está continuamente colocando esforços em ferramentas e documentos para ajudá-lo a agir nessas responsabilidades. Nossa equipe o convida a [fornecer comentários à Microsoft](mailto:cogsvcs-RL-feedback@microsoft.com?subject%3DPersonalizer%20Responsible%20Use%20Feedback&body%3D%5BPlease%20share%20any%20question%2C%20idea%20or%20concern%5D) se você acredita que ferramentas adicionais, recursos do produto e documentos o ajudarão a implementar essas diretrizes para usar o personalizador.
+A Microsoft está continuamente a apostar em ferramentas e documentos para o ajudar a agir sobre estas responsabilidades. A nossa equipa convida-o a [fornecer feedback à Microsoft](mailto:cogsvcs-RL-feedback@microsoft.com?subject%3DPersonalizer%20Responsible%20Use%20Feedback&body%3D%5BPlease%20share%20any%20question%2C%20idea%20or%20concern%5D) se acreditar que ferramentas adicionais, funcionalidades e documentos o ajudariam a implementar estas diretrizes para usar o Personalizer.
 
 ## <a name="recommended-reading"></a>Leitura recomendada
 
-* Veja os seis princípios da Microsoft para o desenvolvimento responsável do ia publicado no livro de janeiro de 2018, [o futuro calculado](https://news.microsoft.com/futurecomputed/)
-* [Quem é o proprietário do futuro?](https://www.goodreads.com/book/show/15802693-who-owns-the-future) por Jaron Lanier.
-* [Armas de destruição matemática](https://www.goodreads.com/book/show/28186015-weapons-of-math-destruction) por-Cathy O'Neil
-* [Ética e ciência de dados](https://www.oreilly.com/library/view/ethics-and-data/9781492043898/) por DJ Patil, Hilary Mason, Mike Loukides.
-* [Código do ACM de ética](https://www.acm.org/code-of-ethics)
-* [Lei de não discriminação de informações genética-GINA](https://en.wikipedia.org/wiki/Genetic_Information_Nondiscrimination_Act)
-* [Princípios de FATML para algoritmos de conta](https://www.fatml.org/resources/principles-for-accountable-algorithms)
+* Veja os seis princípios da Microsoft para o desenvolvimento responsável da IA publicado no livro de janeiro de 2018, [The Future Computed](https://news.microsoft.com/futurecomputed/)
+* [Quem é o dono do futuro?](https://www.goodreads.com/book/show/15802693-who-owns-the-future) por Jaron Lanier.
+* [Armas de Destruição Matemática](https://www.goodreads.com/book/show/28186015-weapons-of-math-destruction) por - Cathy O'Neil
+* [Ética e Ciência dos Dados](https://www.oreilly.com/library/view/ethics-and-data/9781492043898/) por DJ Patil, Hilary Mason, Mike Loukides.
+* [Código de Ética da ACM](https://www.acm.org/code-of-ethics)
+* [Lei de Não Discriminação de Informação Genética - GINA](https://en.wikipedia.org/wiki/Genetic_Information_Nondiscrimination_Act)
+* [Princípios FATML para Algoritmos Responsáveis](https://www.fatml.org/resources/principles-for-accountable-algorithms)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Recursos: ação e contexto](concepts-features.md).
+[Características: ação e contexto.](concepts-features.md)

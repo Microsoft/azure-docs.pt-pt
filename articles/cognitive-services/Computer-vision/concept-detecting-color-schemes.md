@@ -1,7 +1,7 @@
 ---
-title: Detecção de esquema de cores-Pesquisa Visual Computacional
+title: Deteção de esquema de cor - Visão Computacional
 titleSuffix: Azure Cognitive Services
-description: Conceitos relacionados à detecção do esquema de cores em imagens usando o API da Pesquisa Visual Computacional.
+description: Conceitos relacionados com a deteção do esquema de cores em imagens utilizando a API da Visão Computacional.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,26 +11,26 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e0fa85b8a90ea57d9b81bd2eeaa6d080b7582acd
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: af0c39ed8211ac2041d143112437ad5d6b384259
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945281"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80244737"
 ---
-# <a name="detect-color-schemes-in-images"></a>Detectar esquemas de cores em imagens
+# <a name="detect-color-schemes-in-images"></a>Detetar esquemas de cores em imagens
 
-Pesquisa Visual Computacional analisa as cores em uma imagem para fornecer três atributos diferentes: a cor de primeiro plano dominante, a cor de fundo dominante e o conjunto de cores dominantes para a imagem como um todo. As cores retornadas pertencem ao conjunto: preto, azul, marrom, cinza, verde, laranja, rosa, roxo, vermelho, azul-azulado, branco e amarelo. 
+A Computer Vision analisa as cores numa imagem para fornecer três atributos diferentes: a cor dominante do primeiro plano, a cor dominante do fundo, e o conjunto de cores dominantes para a imagem como um todo. As cores devolvidas pertencem ao conjunto: preto, azul, castanho, cinza, verde, laranja, rosa, roxo, vermelho, teal, branco e amarelo. 
 
-Pesquisa Visual Computacional também extrai uma cor de destaque, que representa a cor mais vibrante da imagem, com base em uma combinação de cores e saturação dominantes. A cor de destaque é retornada como um código de cor hexadecimal HTML. 
+A Visão Computacional também extrai uma cor de sotaque, que representa a cor mais vibrante da imagem, com base numa combinação de cores dominantes e saturação. A cor do sotaque é devolvida como um código de cores HExadecimal HTML. 
 
-Pesquisa Visual Computacional também retorna um valor booliano que indica se uma imagem está em preto e branco.
+A Computer Vision também devolve um valor booleano indicando se uma imagem é a preto e branco.
 
-## <a name="color-scheme-detection-examples"></a>Exemplos de detecção de esquema de cores
+## <a name="color-scheme-detection-examples"></a>Exemplos de deteção de esquemas de cores
 
-O exemplo a seguir ilustra a resposta JSON retornada por Pesquisa Visual Computacional ao detectar o esquema de cores da imagem de exemplo. Nesse caso, a imagem de exemplo não é uma imagem em preto e branco, mas as cores dominantes de primeiro e segundo plano são pretas e as cores dominantes para a imagem como um todo são pretas e brancas.
+O exemplo que se segue ilustra a resposta JSON devolvida pela Computer Vision ao detetar o esquema de cores da imagem de exemplo. Neste caso, a imagem de exemplo não é uma imagem a preto e branco, mas o primeiro plano dominante e as cores de fundo são em preto, e as cores dominantes para a imagem como um todo são a preto e branco.
 
-![Montanhas de ar no pôr do sol, com a silhueta de uma pessoa](./Images/mountain_vista.png)
+![Montanha ao ar livre ao pôr-do-sol, com silhueta de uma pessoa](./Images/mountain_vista.png)
 
 ```json
 {
@@ -52,32 +52,35 @@ O exemplo a seguir ilustra a resposta JSON retornada por Pesquisa Visual Computa
 
 ### <a name="dominant-color-examples"></a>Exemplos de cores dominantes
 
-A tabela a seguir mostra as cores de primeiro plano, plano de fundo e imagem retornadas para cada imagem de exemplo.
+A tabela seguinte mostra o primeiro plano devolvido, o fundo e as cores da imagem para cada imagem da amostra.
 
-| Image | Cores dominantes |
+| Imagem | Cores dominantes |
 |-------|-----------------|
-|![Uma flor branca com um plano de fundo verde](./Images/flower.png)| Frente Preto<br/>Seguindo Branco<br/>Cores Preto, branco, verde|
-![Um trem em execução por meio de uma estação](./Images/train_station.png) | Frente Preto<br/>Seguindo Preto<br/>Cores Preto |
+|![Uma flor branca com um fundo verde](./Images/flower.png)| Primeiro plano: Preto<br/>Fundo: Branco<br/>Cores: Preto, Branco, Verde|
+![Um comboio que atravessa uma estação](./Images/train_station.png) | Primeiro plano: Preto<br/>Fundo: Preto<br/>Cores: Preto |
 
-### <a name="accent-color-examples"></a>Exemplos de cor de destaque
+### <a name="accent-color-examples"></a>Exemplos de cores de sotaque
 
- A tabela a seguir mostra a cor de destaque retornada, como um valor de cor HTML hexadecimal, para cada imagem de exemplo.
+ A tabela seguinte mostra a cor do sotaque devolvido, como um valor de cor HExadecimal HTML, para cada imagem de exemplo.
 
-| Image | Cor de destaque |
+| Imagem | Cor de destaque |
 |-------|--------------|
-|![Uma pessoa em uma pedra de montanha no pôr no sol](./Images/mountain_vista.png) | #BB6D10 |
-|![Uma flor branca com um plano de fundo verde](./Images/flower.png) | #C6A205 |
-|![Um trem em execução por meio de uma estação](./Images/train_station.png) | #474A84 |
+|![Uma pessoa em pé em uma rocha da montanha ao pôr do sol](./Images/mountain_vista.png) | #BB6D10 |
+|![Uma flor branca com um fundo verde](./Images/flower.png) | #C6A205 |
+|![Um comboio que atravessa uma estação](./Images/train_station.png) | #474A84 |
 
-### <a name="black--white-detection-examples"></a>Exemplos de detecção de preto & branco
+### <a name="black--white-detection-examples"></a>Exemplos de deteção de brancos & pretos
 
-A tabela a seguir mostra a avaliação em preto e branco de Pesquisa Visual Computacional nas imagens de exemplo.
+A tabela seguinte mostra a avaliação a preto e branco da Computer Vision nas imagens da amostra.
 
-| Image | Preto & branco? |
+| Imagem | Preto & branco? |
 |-------|----------------|
-|![Uma imagem em preto e branco de edifícios no Manhattan](./Images/bw_buildings.png) | true |
-|![Uma casa azul e o jardim frontal](./Images/house_yard.png) | false |
+|![Uma imagem a preto e branco de edifícios em Manhattan](./Images/bw_buildings.png) | true |
+|![Uma casa azul e o quintal da frente](./Images/house_yard.png) | false |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="use-the-api"></a>Utilizar a API
 
-Aprenda conceitos sobre a [detecção de tipos de imagem](concept-detecting-image-types.md).
+A função de deteção de esquemade cores faz parte da [API de Imagem de Análise.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) Você pode chamar isto de API através de um SDK nativo ou através de chamadas REST. Incluir `Color` no parâmetro de consulta **visualFeatures.** Em seguida, quando obtém a resposta completa da JSON, `"color"` basta analisar a corda para o conteúdo da secção.
+
+* [Quickstart: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Quickstart: Analise uma imagem (REST API)](./quickstarts/csharp-analyze.md)

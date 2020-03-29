@@ -5,23 +5,23 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: 873fd8cbc211f098c93b8fb3fbe701e4a34d8487
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68320534"
 ---
-O `Logging` suporte de registo do ASP.NET Core para o contentor de gerir as definições. Pode usar as mesmas definições de configuração e os valores para o contentor que utiliza para uma aplicação ASP.NET Core. 
+As `Logging` definições gerem ASP.NET suporte de registo core para o seu recipiente. Pode utilizar as mesmas definições e valores de configuração para o seu recipiente que utiliza para uma aplicação core ASP.NET. 
 
-Os provedores de log a seguir têm suporte no contêiner:
+Os seguintes fornecedores de exploração madeireira são apoiados pelo contentor:
 
 |Fornecedor|Objetivo|
 |--|--|
-|[Console](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#console-provider)|O ASP.NET Core `Console` provedor de log. Todas as definições de configuração do ASP.NET Core e valores predefinidos para este fornecedor de registo são suportadas.|
-|[Depurar](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)|O ASP.NET Core `Debug` provedor de log. Todas as definições de configuração do ASP.NET Core e valores predefinidos para este fornecedor de registo são suportadas.|
-|[Disco](#disk-logging)|O fornecedor de registo JSON. Este fornecedor de registo escreve dados de registo para a montagem de saída.|
+|[Consola](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#console-provider)|O fornecedor `Console` de exploração madeireira ASP.NET Core. Todas as configurações de configuração ASP.NET Core e valores predefinidos para este fornecedor de registo são suportados.|
+|[Depurar](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)|O fornecedor `Debug` de exploração madeireira ASP.NET Core. Todas as configurações de configuração ASP.NET Core e valores predefinidos para este fornecedor de registo são suportados.|
+|[Disk](#disk-logging)|O fornecedor de registo sondo JSON. Este fornecedor de registo escreve dados de registo para o suporte de saída.|
 
-Esse comando de contêiner armazena informações de log no formato JSON para a montagem de saída:
+Este comando de contentorarma armazena informações de registo no formato JSON para o suporte de saída:
 
 ```bash
 docker run --rm -it -p 5000:5000 \
@@ -34,7 +34,7 @@ ApiKey=<api-key> \
 Logging:Disk:Format=json
 ```
 
-Esse comando de contêiner mostra informações de depuração, prefixadas com `dbug`, enquanto o contêiner está em execução:
+Este comando de contentores mostra informações de depuração, pré-fixadas com, `dbug`enquanto o recipiente está em funcionamento:
 
 ```bash
 docker run --rm -it -p 5000:5000 \
@@ -46,14 +46,14 @@ ApiKey=<api-key> \
 Logging:Console:LogLevel:Default=Debug
 ```
 
-### <a name="disk-logging"></a>Registo de disco
+### <a name="disk-logging"></a>Exploração de discos
 
-O `Disk` provedor de log suporta as seguintes definições de configuração:
+O `Disk` fornecedor de registo suporta as seguintes definições de configuração:
 
 | Nome | Tipo de dados | Descrição |
 |------|-----------|-------------|
-| `Format` | Cadeia | O formato de saída para ficheiros de registo.<br/> **Nota:** Esse valor deve ser definido como `json` para habilitar o provedor de log. Se este valor for especificado sem também especificar uma montagem de saída ao instanciar um contentor, ocorrerá um erro. |
-| `MaxFileSize` | Número inteiro | O tamanho máximo, em megabytes (MB), de um ficheiro de registo. Quando o tamanho do arquivo de log atual atende ou excede este valor, um novo ficheiro de registo é iniciado pelo fornecedor de registo. Se não for especificado -1, o tamanho do ficheiro de registo está limitado apenas pelo tamanho máximo do ficheiro, se existir, para a montagem de saída. O valor predefinido é 1. |
+| `Format` | Cadeia | O formato de saída para ficheiros de registo.<br/> **Nota:** Este valor deve `json` ser definido para permitir o prestador de registos. Se este valor for especificado sem especificar também um suporte de saída enquanto se instantaneamente um recipiente, ocorre um erro. |
+| `MaxFileSize` | Número inteiro | O tamanho máximo, em megabytes (MB), de um ficheiro de registo. Quando o tamanho do ficheiro de registo atual se encontra ou excede este valor, um novo ficheiro de registo é iniciado pelo fornecedor de registo. Se -1 for especificado, o tamanho do ficheiro de registo é limitado apenas pelo tamanho máximo do ficheiro, se houver, para o suporte de saída. O valor predefinido é 1. |
 
-Para obter mais informações sobre como configurar o suporte de registo do ASP.NET Core, consulte [configuração das definições do ficheiro](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1).
+Para obter mais informações sobre a configuração ASP.NET suporte de registo core, consulte a configuração do [ficheiro Definições](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1).
 

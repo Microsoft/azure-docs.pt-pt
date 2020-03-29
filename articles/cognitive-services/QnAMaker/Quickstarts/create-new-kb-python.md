@@ -6,19 +6,19 @@ ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: bb51a47efc7bcae5014d5ea004674fed7cb33fe0
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78851819"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Início Rápido: criar uma base de dados de conhecimento no Criador de FAQ com o Python
 
 Este início rápido descreve a criação e publicação, através de programação, de uma base de dados de conhecimento do Criador de FAQ. O Criador de FAQ extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como FAQs, a partir de [origens de dados](../Concepts/knowledge-base.md). O modelo da base de dados de conhecimento é definido no JSON enviado no corpo do pedido da API.
 
-Este início rápido chama as APIs do Criador de FAQ:
+Este início rápido chama as API do Criador de FAQ:
 * [Criar KB](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
-* [Obter Detalhes da Operação](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
+* [Obter Detalhes da operação](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
 
 [Documentação de referência](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Python Sample](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py)
 
@@ -35,19 +35,19 @@ Crie um ficheiro com o nome `create-new-knowledge-base-3x.py`.
 
 ## <a name="add-the-required-dependencies"></a>Adicionar as dependências necessárias
 
-Na parte superior de `create-new-knowledge-base-3x.py`, adicione as linhas seguintes para adicionar as dependências necessárias ao projeto:
+Na parte superior do `create-new-knowledge-base-3x.py`, adicione as seguintes linhas para adicionar as dependências necessárias ao projeto:
 
 [!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=1-1 "Add the required dependencies")]
 
 ## <a name="add-the-required-constants"></a>Adicionar as constantes necessárias
-Depois das dependências necessárias anteriores, adicione as constantes necessárias para aceder ao Criador de FAQ. Substitua o valor do `<your-qna-maker-subscription-key>` e `<your-resource-name>` pela sua própria chave QnA Maker e pelo nome de recursos.
+Depois das dependências necessárias anteriores, adicione as constantes necessárias para aceder ao Criador de FAQ. Substitua o `<your-qna-maker-subscription-key>` valor `<your-resource-name>` da e com a sua própria chave QnA Maker e nome de recurso.
 
 No topo da classe Program, adicione as constantes necessárias para aceder ao QnA Maker.
 
 Defina os seguintes valores:
 
-* `<your-qna-maker-subscription-key>` - A **chave** é uma cadeia de caracteres de 32 caracteres e está disponível no portal Azure, no recurso QnA Maker, na página Quickstart. Isto não é o mesmo que a chave final da previsão.
-* `<your-resource-name>` - O seu nome de **recurso** é utilizado para construir o URL de ponto final de autoria para autoria, no formato de `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Este não é o mesmo URL usado para consultar o ponto final da previsão.
+* `<your-qna-maker-subscription-key>`- A **chave** é uma cadeia de caracteres de 32 caracteres e está disponível no portal Azure, no recurso QnA Maker, na página Quickstart. Isto não é o mesmo que a chave final da previsão.
+* `<your-resource-name>`- O seu nome de **recurso** é utilizado para construir o `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`URL de ponto final de autoria para autoria, no formato de . Este não é o mesmo URL usado para consultar o ponto final da previsão.
 
 [!code-python[Add the required constants](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=5-13 "Add the required constants")]
 
@@ -59,7 +59,7 @@ Depois das constantes, adicione a seguinte definição de modelo de KB. Este mod
 
 ## <a name="add-supporting-function"></a>Adicionar função de suporte
 
-Adicione a função seguinte para imprimir JSON num formato legível:
+Adicione a seguinte função para imprimir JSON num formato legível:
 
 [!code-python[Add supporting function](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=43-45 "Add supporting function")]
 
@@ -100,7 +100,7 @@ Esta chamada à API devolve uma resposta JSON que inclui o estado da operação:
 }
 ```
 
-Repita a chamada até obter êxito ou falhar:
+Repita a chamada até ter êxito ou falhar:
 
 ```JSON
 {
@@ -118,9 +118,9 @@ O seguinte ciclo consulta o estado da operação de criação periodicamente at�
 
 [!code-python[Add main code block](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=70-96 "Add main code block")]
 
-## <a name="build-and-run-the-program"></a>Criar e executar o programa
+## <a name="build-and-run-the-program"></a>Compilar e executar o programa
 
-Introduza o comando seguinte numa linha de comandos para executar o programa. Enviará o pedido à API do Criador de FAQ para criar a KB e, em seguida, irá consultar para obter os resultados a cada 30 segundos. Cada resposta é impressa na janela da consola.
+Introduza o seguinte comando numa linha de comandos para executar o programa. Enviará o pedido à API do Criador de FAQ para criar a KB e, em seguida, irá consultar para obter os resultados a cada 30 segundos. Cada resposta é impressa na janela da consola.
 
 ```bash
 python create-new-knowledge-base-3x.py
@@ -133,4 +133,4 @@ Assim que a sua base de dados de conhecimento é criada, pode visualizá-la no s
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Referência da API REST para o Criador de FAQ (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)
+> [Referência à API REST do Criador de FAQ](https://go.microsoft.com/fwlink/?linkid=2092179)

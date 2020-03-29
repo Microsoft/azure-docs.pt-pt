@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: c12aaea1dbc99a3f6db064e03b4b49e569f15194
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 29dcb3c0e74482fd6670d1a0983e751043379d6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189064"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80371609"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Notas de lançamento: Dispositivos de fala SDK
 
@@ -31,7 +31,7 @@ As seguintes secções listam alterações nos lançamentos mais recentes.
 
 - A Linux ARM está agora apoiada.
 - Binários iniciais para [Roobo v2 DDK](https://aka.ms/sdsdk-download-roobov2) são fornecidos (Linux ARM64).
-- Os utilizadores do Windows podem utilizar `AudioConfig.fromDefaultMicrophoneInput()` ou `AudioConfig.fromMicrophoneInput(deviceName)` para especificar o microfone a utilizar.
+- Os utilizadores `AudioConfig.fromDefaultMicrophoneInput()` do `AudioConfig.fromMicrophoneInput(deviceName)` Windows podem utilizar ou especificar o microfone a utilizar.
 - O tamanho da biblioteca foi otimizado.
 - Suporte para reconhecimento de várias voltas utilizando o mesmo objeto de reconhecimento de fala/intenção.
 - Corrija o enforcamento ocasional que ocorreria enquanto parava o reconhecimento.
@@ -58,7 +58,7 @@ As seguintes secções listam alterações nos lançamentos mais recentes.
 **Quebrar alterações**
 
 - Devido à nova tecnologia de palavras-chave, todas as palavras-chave devem ser recriadas no nosso portal de palavras-chave melhorado. Para remover totalmente as palavras-chave antigas do dispositivo desinstalar a aplicação antiga.
-  - adb uninstall com.microsoft.coginitiveservices.speech.samples.sdsdkstarterapp
+  - adb uninstall com.microsoft.cognitiveservices.speech.samples.sdsdkstarterapp
 
 ## <a name="speech-devices-sdk-140-2019-apr-release"></a>Dispositivos de Fala SDK 1.4.0: Lançamento 2019-abr
 
@@ -74,7 +74,7 @@ As seguintes secções listam alterações nos lançamentos mais recentes.
 
 - [A instalação de uma palavra-chave](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) foi simplificada, agora faz parte da aplicação e não necessita de instalação separada no dispositivo.
 - O reconhecimento das palavras-chave mudou e dois eventos são apoiados.
-  - `RecognizingKeyword,` indica que o resultado da fala contém texto de palavra-chave (não verificado).
+  - `RecognizingKeyword,`indica que o resultado da fala contém texto de palavra-chave (não verificado).
   - `RecognizedKeyword`, indica que o reconhecimento de palavras-chave completou o reconhecimento da palavra-chave.
 
 ## <a name="speech-devices-sdk-110-2018-nov-release"></a>Dispositivos de Fala SDK 1.1.0: Lançamento de 2018-nov
@@ -91,7 +91,7 @@ As seguintes secções listam alterações nos lançamentos mais recentes.
 
 **Quebrar alterações**
 
-- Com esta versão é introduzido um número de alterações de última hora. Consulte [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para obter detalhes relativos às APIs.
+- Com esta libertação são introduzidas várias alterações de rutura. Consulte [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para obter detalhes relativos às APIs.
 - Os ficheiros do modelo KWS não são compatíveis com dispositivos de fala SDK 1.0.1. Os ficheiros de palavras-chave existentes serão eliminados após a escrita dos novos ficheiros de palavras-chave no dispositivo.
 
 ## <a name="speech-devices-sdk-050-2018-aug-release"></a>Dispositivos de Fala SDK 0.5.0: Lançamento de 2018-Aug

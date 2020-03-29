@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: aahi
 ms.openlocfilehash: f00ffee47e3eb6366d632d8b6ee9beb01f048442
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76983117"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Ligue para a sua instância de pesquisa personalizada Bing a partir do Portal
@@ -35,15 +35,15 @@ Alguns parâmetros importantes estão abaixo:
 |---------|---------|
 |Consulta     | O termo de pesquisa para procurar. Disponível apenas para Web, Imagem, Vídeo e Pontos finais De Sugestão Automática |
 |ID de configuração personalizado | O ID de configuração da instância de pesquisa personalizada selecionada. Este campo é lido apenas. |
-|Comercializar     | O mercado de onde os resultados se originarão. Apenas disponível para os pontos finais da Web, Imagem, Vídeo e UI hospedados.        |
-|Chave de assinatura | A chave de subscrição para testar com. Pode selecionar uma chave da lista de dropdown ou introduzir uma manualmente.          |
+|Mercado     | O mercado de onde os resultados se originarão. Apenas disponível para os pontos finais da Web, Imagem, Vídeo e UI hospedados.        |
+|Chave de Subscrição | A chave de subscrição para testar com. Pode selecionar uma chave da lista de dropdown ou introduzir uma manualmente.          |
 
 Clicar em **parâmetros adicionais** revela os seguintes parâmetros:  
 
 |Parâmetro  |Descrição  |
 |---------|---------|
-|Safe Search     | Um filtro usado para filtrar páginas web para conteúdo adulto. Apenas disponível para os pontos finais da Web, Imagem, Vídeo e UI hospedados. Note que bing Custom Video Search apenas suporta dois valores: `moderate` e `strict`.        |
-|Idioma da interface do utilizador    | O idioma utilizado para as cordas da interface do utilizador. Por exemplo, se ativar imagens e vídeos em UI hospedado, os separadores **De Imagem** e **Vídeo** utilizam o idioma especificado.        |
+|Busca segura     | Um filtro usado para filtrar páginas web para conteúdo adulto. Apenas disponível para os pontos finais da Web, Imagem, Vídeo e UI hospedados. Note que bing Custom Video Search `moderate` apenas suporta dois valores: e `strict`.        |
+|Idioma da Interface de Utilizador    | O idioma utilizado para as cordas da interface do utilizador. Por exemplo, se ativar imagens e vídeos em UI hospedado, os separadores **De Imagem** e **Vídeo** utilizam o idioma especificado.        |
 |Contagem     | O número de resultados de pesquisa para devolver na resposta. Disponível apenas para pontos finais Web, Image e Vídeo.         |
 |Desvio    | O número de resultados de pesquisa a saltar antes de devolver os resultados. Disponível apenas para pontos finais Web, Image e Vídeo.        |
     
@@ -55,9 +55,9 @@ Pode alterar a subscrição associada à sua instância de Pesquisa Personalizad
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Ligue para a sua vista personalizada comC#](./call-endpoint-csharp.md)
+- [Ligue para a sua vista personalizada com C #](./call-endpoint-csharp.md)
 - [Ligue para a sua vista personalizada com Java](./call-endpoint-java.md)
 - [Ligue para a sua vista personalizada com NodeJs](./call-endpoint-nodejs.md)
 - [Ligue para a sua vista personalizada com Python](./call-endpoint-python.md)
 
-- [Ligue para a C# sua vista personalizada com o SDK](./sdk-csharp-quick-start.md)
+- [Ligue para a sua vista personalizada com o C# SDK](./sdk-csharp-quick-start.md)

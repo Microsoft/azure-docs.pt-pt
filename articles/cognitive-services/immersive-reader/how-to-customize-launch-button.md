@@ -1,7 +1,7 @@
 ---
-title: Personalizar o botão leitor de imersão
+title: Personalize o botão Leitor Imersivo
 titleSuffix: Azure Cognitive Services
-description: Este artigo mostrará como personalizar o botão que inicia o leitor de imersão.
+description: Este artigo irá mostrar-lhe como personalizar o botão que lança o Leitor Imersivo.
 services: cognitive-services
 author: metanMSFT
 manager: guillasi
@@ -11,37 +11,37 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: metan
 ms.openlocfilehash: 6461cc60a237cf834226b07db5e1ea6fbbea7a92
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75946212"
 ---
-# <a name="how-to-customize-the-immersive-reader-button"></a>Como personalizar o botão do leitor de imersão
+# <a name="how-to-customize-the-immersive-reader-button"></a>Como personalizar o botão Leitor Imersivo
 
-Este artigo demonstra como personalizar o botão que inicia o leitor de imersão para atender às necessidades do seu aplicativo.
+Este artigo demonstra como personalizar o botão que lança o Leitor Imersivo para se adaptar às necessidades da sua aplicação.
 
-## <a name="add-the-immersive-reader-button"></a>Adicionar o botão leitor de imersão
+## <a name="add-the-immersive-reader-button"></a>Adicione o botão Leitor Imersivo
 
-O SDK do leitor de imersão fornece o estilo padrão para o botão que inicia o leitor de imersão. Use o atributo de classe `immersive-reader-button` para habilitar esse estilo.
+O SDK do Leitor Imersivo fornece um estilo predefinido para o botão que lança o Leitor Imersivo. Utilize `immersive-reader-button` o atributo de classe para ativar este estilo.
 
 ```html
 <div class='immersive-reader-button'></div>
 ```
 
-## <a name="customize-the-button-style"></a>Personalizar o estilo do botão
+## <a name="customize-the-button-style"></a>Personalize o estilo do botão
 
-Use o atributo `data-button-style` para definir o estilo do botão. Os valores permitidos são `icon`, `text`e `iconAndText`. O valor predefinido é `icon`.
+Utilize `data-button-style` o atributo para definir o estilo do botão. Os valores `icon` `text`permitidos `iconAndText`são, e . O valor predefinido é `icon`.
 
-### <a name="icon-button"></a>Botão de ícone
+### <a name="icon-button"></a>Botão ícone
 
 ```html
 <div class='immersive-reader-button' data-button-style='icon'></div>
 ```
 
-Isso renderiza o seguinte:
+Isto torna o seguinte:
 
-![Botão de ícone](./media/button-icon.png)
+![Botão ícone](./media/button-icon.png)
 
 ### <a name="text-button"></a>Botão de texto
 
@@ -49,9 +49,9 @@ Isso renderiza o seguinte:
 <div class='immersive-reader-button' data-button-style='text'></div>
 ```
 
-Isso renderiza o seguinte:
+Isto torna o seguinte:
 
-![Botão de ícone](./media/button-text.png)
+![Botão ícone](./media/button-text.png)
 
 ### <a name="icon-and-text-button"></a>Ícone e botão de texto
 
@@ -59,21 +59,21 @@ Isso renderiza o seguinte:
 <div class='immersive-reader-button' data-button-style='iconAndText'></div>
 ```
 
-Isso renderiza o seguinte:
+Isto torna o seguinte:
 
-![Botão de ícone](./media/button-icon-and-text.png)
+![Botão ícone](./media/button-icon-and-text.png)
 
-## <a name="customize-the-button-text"></a>Personalizar o texto do botão
+## <a name="customize-the-button-text"></a>Personalize o texto do botão
 
-Configure o idioma e o texto ALT para o botão usando o atributo `data-locale`. O idioma predefinido é o inglês.
+Configure o idioma e o texto `data-locale` alt para o botão utilizando o atributo. O idioma predefinido é o inglês.
 
 ```html
 <div class='immersive-reader-button' data-locale='fr-FR'></div>
 ```
 
-## <a name="customize-the-size-of-the-icon"></a>Personalizar o tamanho do ícone
+## <a name="customize-the-size-of-the-icon"></a>Personalize o tamanho do ícone
 
-O tamanho do ícone do leitor de imersão pode ser configurado usando o atributo `data-icon-px-size`. Isso define o tamanho do ícone em pixels. O tamanho padrão é 20px.
+O tamanho do ícone do Leitor Imersivo pode ser configurado usando o `data-icon-px-size` atributo. Isto define o tamanho do ícone em pixels. O tamanho padrão é de 20px.
 
 ```html
 <div class='immersive-reader-button' data-icon-px-size='50'></div>
@@ -81,4 +81,4 @@ O tamanho do ícone do leitor de imersão pode ser configurado usando o atributo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Explore a [referência do SDK do leitor de imersão](./reference.md)
+* Explore a [referência SDK do leitor imersivo](./reference.md)

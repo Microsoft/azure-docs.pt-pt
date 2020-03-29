@@ -5,23 +5,23 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: b9d0d2b97472eb3264f5e4600fddbfc7d3250918
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67704221"
 ---
-## <a name="use-the-docker-cli-to-authenticate-the-private-container-registry"></a>Usar a CLI do Docker para autenticar o registro de contêiner privado
+## <a name="use-the-docker-cli-to-authenticate-the-private-container-registry"></a>Utilize o Docker CLI para autenticar o registo de contentores privados
 
-Você pode autenticar com o registro de contêiner privado para contêineres de serviços cognitivas de várias maneiras, mas o método recomendado na linha de comando é usar a [CLI do Docker](https://docs.docker.com/engine/reference/commandline/cli/).
+Pode autenticar com o registo de contentores privados para recipientes de serviços cognitivos de várias maneiras, mas o método recomendado da linha de comando é utilizar o [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/).
 
-Use o [comando`docker login`](https://docs.docker.com/engine/reference/commandline/login/), conforme mostrado no exemplo a seguir, para fazer logon em `containerpreview.azurecr.io`, o registro de contêiner privado para contêineres de serviços cognitivas. Substitua *\<username\>* pelo nome de usuário e *\<senha\>* pela senha fornecida nas credenciais que você recebeu da equipe de serviços cognitivas do Azure.
+Utilize [ `docker login` ](https://docs.docker.com/engine/reference/commandline/login/)o comando , como se pode ver `containerpreview.azurecr.io`no seguinte exemplo, para iniciar sessão no registo de contentores privados para recipientes de serviços cognitivos. Substitua * \<\> * o nome de utilizador pelo nome de utilizador e * \<palavra-passe\> * pela palavra-passe fornecida nas credenciais que recebeu da equipa dos Serviços Cognitivos do Azure.
 
 ```
 docker login containerpreview.azurecr.io -u <username> -p <password>
 ```
 
-Se você protegeu suas credenciais em um arquivo de texto, você pode concatenar o conteúdo desse arquivo de texto, usando o comando `cat`, para o comando `docker login`, conforme mostrado no exemplo a seguir. Substitua *\<passwordfile\>* pelo caminho e nome do arquivo de texto que contém a senha e *\<nome* de usuário\>com o nome que é fornecido em suas credenciais.
+Se tiver assegurado as suas credenciais num ficheiro de texto, pode concatenar o `cat` conteúdo desse `docker login` ficheiro de texto, utilizando o comando, para o comando, como se pode ver no seguinte exemplo. Substitua * \<\> o passwordFile* pelo caminho e nome do ficheiro de texto que contém a palavra-passe e * \<\> * o nome de utilizador com o nome de utilizador que está fornecido nas suas credenciais.
 
 ```
 cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin

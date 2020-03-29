@@ -4,49 +4,49 @@ description: Compreenda como os tipos de URLs são usados para importar e criar 
 ms.topic: reference
 ms.date: 01/02/2020
 ms.openlocfilehash: cf2a02f55d7c95ff9b3f0231ea07a783d18b73cf
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77651830"
 ---
 # <a name="urls-supported-for-importing-documents"></a>URLs suportados para importar documentos
 
 Compreenda como os tipos de URLs são usados para importar e criar conjuntos qnA.
 
-## <a name="faq-urls"></a>URLs de FAQ
+## <a name="faq-urls"></a>FAQ URLs
 
 O QnA Maker pode suportar páginas web de FAQ em 3 formas diferentes:
 
-* Páginas de FAQ simples
+* Páginas simples de FAQ
 * Páginas de FAQ com links
 * Páginas de FAQ com uma página inicial de tópicos
 
-### <a name="plain-faq-pages"></a>Páginas de FAQ simples
+### <a name="plain-faq-pages"></a>Páginas simples de FAQ
 
-Este é o tipo mais comum da página de FAQ, em que as respostas siga imediatamente as perguntas na mesma página.
+Este é o tipo mais comum de página de FAQ, em que as respostas seguem imediatamente as perguntas na mesma página.
 
-Segue-se um exemplo de uma página de FAQ simples:
+Abaixo está um exemplo de uma página simples de FAQ:
 
-![Exemplo de página de FAQ simples para uma base de dados de conhecimento](./media/qnamaker-concepts-datasources/plain-faq.png)
+![Exemplo de página de FAQ simples para uma base de conhecimento](./media/qnamaker-concepts-datasources/plain-faq.png)
 
 
 ### <a name="faq-pages-with-links"></a>Páginas de FAQ com links
 
-Este tipo de página de perguntas frequentes, as perguntas são agregadas em conjunto e são associadas a respostas que estão em diferentes seções da mesma página ou em diferentes páginas.
+Neste tipo de página de PERGUNTAS, as perguntas são agregadas em conjunto e estão ligadas a respostas que estão em diferentes secções da mesma página, ou em páginas diferentes.
 
-Segue-se um exemplo de uma página de FAQ com ligações nas secções que se encontram na mesma página:
+Abaixo está um exemplo de uma página de FAQ com links em secções que estão na mesma página:
 
- ![Exemplo de página de FAQ de ligação de seção para uma base de dados de conhecimento](./media/qnamaker-concepts-datasources/sectionlink-faq.png)
+ ![Exemplo da página faQ do Link da Secção para uma base de conhecimento](./media/qnamaker-concepts-datasources/sectionlink-faq.png)
 
 
 ### <a name="parent-topics-page-links-to-child-answers-pages"></a>Página de Tópicos dos Pais liga para páginas de respostas de crianças
 
-Este tipo de FAQ tem uma página de Tópicos onde cada tópico está ligado a um conjunto correspondente de perguntas e respostas numa página diferente. O Fabricante QnA rasteja todas as páginas ligadas para extrair as perguntas e respostas correspondentes.
+Este tipo de FAQ tem uma página de Tópicos onde cada tópico está ligado a um conjunto correspondente de perguntas e respostas numa página diferente. O QnA Maker rasteja todas as páginas ligadas para extrair as perguntas correspondentes & respostas.
 
 Abaixo está um exemplo de uma página de Tópicos com links para secções de FAQ em páginas diferentes.
 
- ![Exemplo de página de perguntas frequentes sobre a ligação avançada para uma base de dados de conhecimento](./media/qnamaker-concepts-datasources/topics-faq.png)
+ ![Exemplo de página de FAQ de ligação profunda para uma base de conhecimento](./media/qnamaker-concepts-datasources/topics-faq.png)
 
 ## <a name="support-urls"></a>URLs de suporte
 

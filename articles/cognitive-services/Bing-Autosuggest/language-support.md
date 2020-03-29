@@ -1,7 +1,7 @@
 ---
-title: Suporte de idiomas - API de sugestão automática do Bing
+title: Suporte linguístico - Bing Autosuggest API
 titleSuffix: Azure Cognitive Services
-description: Uma lista de idiomas e regiões para a API de sugestão automática do Bing suportados.
+description: Uma lista de línguas e regiões apoiadas para a API Bing Autosuggest.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,28 +11,28 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fe2e78501024983544b399762fb936d86e5c9d5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "60547341"
 ---
-# <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Suporte de idioma e região para a API de sugestão automática do Bing
+# <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Apoio à língua e à região para a API Bing Autosuggest
 
-A seguinte lista os idiomas suportados pela API de sugestão automática do Bing.
+As seguintes listas as línguas suportadas pela Bing Autosuggest API.
 
 | Idioma    | Código do idioma |
 |:----------- |:-------------:|
 | Árabe      | `ar`          |
 | Chinês (República Popular da China)     | `zh-CN`          |
-| Chinês (RAE de Hong Kong)    | `zh-HK`          |
+| Chinês (Hong Kong SAR)    | `zh-HK`          |
 | Chinês (Taiwan)     | `zh-TW`          |
 | Dinamarquês      | `da`          |
-| Holandês (Bélgica)       | `nl-BE`          |
-| Holandês (Países Baixos)      | `nl-NL`          |
+| Neerlandês (Bélgica)       | `nl-BE`          |
+| Neerlandês (Países Baixos)      | `nl-NL`          |
 | Inglês (Austrália)    | `en-AU`          |
 | Inglês (Canadá)     | `en-CA`          |
-| English (India)    | `en-IN`          |
+| Inglês (Índia)    | `en-IN`          |
 | Inglês (Indonésia)     | `en-ID`          |
 | Inglês (Malásia)     | `en-MY`          |
 | Inglês (Nova Zelândia)    | `en-NZ`          |
@@ -66,5 +66,5 @@ A seguinte lista os idiomas suportados pela API de sugestão automática do Bing
 
 ## <a name="see-also"></a>Consulte também
 
-- [Página de documentação de serviços cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/)
-- [Página de produto de serviços cognitivos do Azure](https://azure.microsoft.com/services/cognitive-services/)
+- [Página de Documentação de Serviços Cognitivos Azure](https://docs.microsoft.com/azure/cognitive-services/)
+- [Página de produto de serviços cognitivos azure](https://azure.microsoft.com/services/cognitive-services/)

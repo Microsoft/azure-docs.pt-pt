@@ -1,7 +1,7 @@
 ---
-title: Treinar um modelo-Tradutor personalizado
+title: Treine um modelo - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
-description: Treinar um modelo é uma etapa importante ao criar um modelo de tradução. O treinamento ocorre com base nos documentos selecionados para esses treinamentos.
+description: Formar um modelo é um passo importante na construção de um modelo de tradução. A formação acontece com base em documentos que seleciona para os treinos.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,69 +10,69 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: a875cc8f5e69be8b940f9d177d3b915bfaa2c973
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68595679"
 ---
 # <a name="train-a-model"></a>Preparar um modelo
 
-Treinar um modelo é a etapa importante para criar um modelo de tradução, porque sem um treinamento, o modelo não pode ser criado. O treinamento ocorre com base nos documentos selecionados para os treinamentos.
+Treinar um modelo é o passo importante para a construção de um modelo de tradução, porque sem um treino, o modelo não pode ser construído. A formação acontece com base em documentos que seleciona para os treinos.
 
 Para treinar um modelo:
 
-1.  Selecione o projeto onde você deseja criar um modelo.
+1.  Selecione o projeto onde pretende construir um modelo.
 
-2.  A guia dados do projeto mostrará todos os documentos relevantes para o par de idiomas do projeto. Selecione manualmente os documentos que você deseja usar para treinar seu modelo. Você pode selecionar treinamento, ajuste e teste de documentos nessa tela. Além disso, basta selecionar o conjunto de treinamento e fazer com que o tradutor personalizado crie os conjuntos de ajuste e teste para você.
+2.  O separador Dados do projeto mostrará todos os documentos relevantes para o par de idiomas do projeto. Selecione manualmente os documentos que pretende utilizar para treinar o seu modelo. Pode selecionar documentos de treino, afinação e teste a partir deste ecrã. Além disso, basta selecionar o conjunto de treino e pedir ao Custom Tradutor que crie os conjuntos de afinação e teste para si.
 
     -  Nome do documento: Nome do documento.
 
-    -  Emparelhamento Se este documento for um documento paralelo ou multilíngue. Atualmente, não há suporte para documentos monobilíngües para treinamento.
+    -  Emparelhamento: Se este documento for um documento paralelo ou monolingual. Atualmente, os documentos monolingues não são apoiados para a formação.
 
-    -  Tipo de documento: Pode ser treinamento, ajuste, teste ou dicionário.
+    -  Tipo de documento: Pode ser treino, afinação, teste ou dicionário.
 
-    -  Par de idiomas: Isso mostra o idioma de origem e de destino do projeto.
+    -  Par de idiomas: Isto mostra a fonte e a linguagem alvo para o projeto.
 
-    -  Sentenças de origem: Mostra o número de frases extraídas do arquivo de origem.
+    -  Frases de origem: Mostra o número de frases extraídas do ficheiro fonte.
 
-    -  Sentenças de destino: Mostra o número de frases extraídas do arquivo de destino.
+    -  Frases-alvo: Mostra o número de frases extraídas do ficheiro alvo.
 
-    ![Modelo de treinamento](media/how-to/how-to-train-model.png)
+    ![Preparar modelo](media/how-to/how-to-train-model.png)
 
-3.  Clique no botão treinar.
+3.  Clique no botão Train.
 
-4.  Na caixa de diálogo, especifique um nome para seu modelo.
+4.  No diálogo, especifique um nome para o seu modelo.
 
-5.  Clique em treinar modelo.
+5.  Clique no modelo do comboio.
 
-    ![Caixa de diálogo treinar modelo](media/how-to/how-to-train-model-2.png)
+    ![Diálogo de modelo de comboio](media/how-to/how-to-train-model-2.png)
 
-6.  O tradutor personalizado enviará o treinamento e mostrará o status do treinamento na guia modelos.
+6.  O Custom Tradutor submeterá a formação e mostrará o estado da formação no separador de modelos.
 
-    ![Página treinar modelo](media/how-to/how-to-train-model-3.png)
+    ![Página de modelo de comboio](media/how-to/how-to-train-model-3.png)
 
 >[!Note]
->O tradutor personalizado dá suporte a 10 treinamentos simultâneos em um espaço de trabalho em qualquer ponto no tempo.
+>O Custom Tradutor suporta 10 treinos simultâneos dentro de um espaço de trabalho a qualquer momento.
 
 
 ## <a name="edit-a-model"></a>Editar um modelo
 
-Você pode editar um modelo usando o link editar na página detalhes do modelo.
+Pode editar um modelo utilizando o link Editar na página Dedetalhes do Modelo.
 
-1.  Clique no ícone de lápis.
+1.  Clique no ícone lápis.
 
     ![Editar modelo](media/how-to/how-to-edit-model.png)
 
-2.  Na caixa de diálogo Alterar,
+2.  Na mudança de diálogo,
 
-    1.  Nome do modelo (obrigatório): Dê um nome significativo ao seu modelo.
+    1.  Nome do modelo (obrigatório): Dê ao seu modelo um nome significativo.
 
-        ![Editar caixa de diálogo mais](media/how-to/how-to-edit-model-dialog.png)
+        ![Editar mais diálogo](media/how-to/how-to-edit-model-dialog.png)
 
 3.  Clique em Guardar.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba [como exibir detalhes do modelo](how-to-view-model-details.md).
+- Saiba como ver detalhes do [modelo.](how-to-view-model-details.md)

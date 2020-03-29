@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: diberry
 ms.openlocfilehash: 5499e8362e1107a18b997a6a485e11343c328d0d
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898379"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>Rotular entidade aprendida por máquinas numa expressão de exemplo
@@ -23,12 +23,12 @@ Rotular uma entidade num exemplo dá ao LUIS um exemplo do que é a entidade e o
 
 ## <a name="labeling-machine-learned-entity"></a>Entidade aprendida com máquinas de rotulagem
 
-Considere a frase, `hi, please I want a cheese pizza in 20 minutes`.
+Considere a `hi, please I want a cheese pizza in 20 minutes`frase.
 
 1. Selecione o texto mais à esquerda e, em seguida, selecione o texto mais à direita da entidade e, em seguida, escolha a entidade com a qual pretende rotular, neste caso A Encomenda Completa. A _encomenda completa_ está rotulada na seguinte imagem.
 
     > [!div class="mx-imgBorder"]
-    > ![Label completa entidade aprendida por máquinas](media/label-utterances/example-1-label-machine-learned-entity-complete-order.png)
+    > ![Rotular entidade completa aprendida com máquinas](media/label-utterances/example-1-label-machine-learned-entity-complete-order.png)
 
 1. Selecione a entidade a partir da janela pop-up. A entidade de encomenda completa de pizza seletiva inclui todas as palavras (da esquerda para a direita em inglês) que são rotuladas.
 
@@ -37,14 +37,14 @@ Considere a frase, `hi, please I want a cheese pizza in 20 minutes`.
 Após a rotulagem, reveja a expressão do exemplo e certifique-se de que o período de texto selecionado foi sublinhado com a entidade escolhida. A linha sólida indica que o texto foi rotulado.
 
 > [!div class="mx-imgBorder"]
-> ![entidade completa com aprendizagem automática](media/label-utterances/example-1-label-machine-learned-entity-complete-order-labeled.png)
+> ![Entidade completa e aprendida com máquinas](media/label-utterances/example-1-label-machine-learned-entity-complete-order-labeled.png)
 
 ## <a name="confirm-predicted-entity"></a>Confirmar entidade prevista
 
 Se houver uma caixa pontilhada em torno do espaço de texto e o nome da entidade estiver acima da expressão, indica que o texto está previsto, mas _ainda não rotulado_. Para transformar a previsão num rótulo, selecione a linha de expressão e, em seguida, selecione **confirmar as previsões da entidade**.
 
 > [!div class="mx-imgBorder"]
-> ![Prever](media/label-utterances/example-1-label-machine-learned-entity-complete-order-predicted.png) completa entidade aprendida com máquinas
+> ![Prever entidade completa aprendida com máquinas](media/label-utterances/example-1-label-machine-learned-entity-complete-order-predicted.png)
 
 Em alternativa, pode selecionar o nome da entidade acima do texto e, em seguida, selecionar **confirmar** previsão do menu que aparece.
 
@@ -58,24 +58,24 @@ A paleta de entidades oferece uma alternativa à experiência de rotulagem anter
 1. Abra a paleta de entidade seletivano no ícone Highlighter na parte superior direita da tabela de expressão.
 
     > [!div class="mx-imgBorder"]
-    > paleta de entidade ![para entidade aprendida por máquinas](media/label-utterances/example-1-label-machine-learned-entity-palette.png)
+    > ![Paleta de entidades para entidade sinuosa](media/label-utterances/example-1-label-machine-learned-entity-palette.png)
 
 2. Selecione o componente da entidade. Esta ação é indicada visualmente com um novo cursor. O cursor segue o rato enquanto se move no portal.
 
     > [!div class="mx-imgBorder"]
-    > paleta de entidade ![para entidade aprendida por máquinas](media/label-utterances/example-1-label-machine-learned-entity-palette-menu.png)
+    > ![Paleta de entidades para entidade sinuosa](media/label-utterances/example-1-label-machine-learned-entity-palette-menu.png)
 
 3. Na expressão do exemplo, _pinte_ a entidade com o cursor.
 
     > [!div class="mx-imgBorder"]
-    > paleta de entidade ![para entidade aprendida por máquinas](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
+    > ![Paleta de entidades para entidade sinuosa](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
 
 ## <a name="labeling-subcomponents-of-a-machine-learned-entity"></a>Rotulagem subcomponentes de uma entidade aprendida por máquinas
 
 Os subcomponentes nas entidades são rotulados exatamente da mesma forma que as entidades de alto nível. Ao selecionar texto, as entidades disponíveis na janela pop-up são relativas ao contexto em que o texto aparece. Por exemplo, se tiver uma entidade de 5 níveis aprendido com máquinas, e estiver a selecionar texto que tenha sido rotulado com os níveis 1 e 2 (indicado por um nome de entidade rotulado sob a expressão do exemplo), as entidades disponíveis na janela pop-up estão limitadas ao contexto dos componentes do 3º nível. Para rotular o texto com outras entidades, selecione Label como outra opção **de entidade.**
 
 > [!div class="mx-imgBorder"]
-> paleta de entidade ![para entidade aprendida por máquinas](media/label-utterances/example-1-label-machine-learned-entity-subcomponent.png)
+> ![Paleta de entidades para entidade sinuosa](media/label-utterances/example-1-label-machine-learned-entity-subcomponent.png)
 
 Os subcomponentes só podem ser rotulados se o progenitor também estiver rotulado.
 
@@ -101,12 +101,12 @@ Por exemplo:
 1. Subcomponente tipo pizza abrange "pizza de queijo com" que inclui uma palavra extra incorreta - "com"
 
     > [!div class="mx-imgBorder"]
-    > paleta de entidade ![para entidade aprendida por máquinas](media/label-utterances/edit-label-with-palette-1.png)
+    > ![Paleta de entidades para entidade sinuosa](media/label-utterances/edit-label-with-palette-1.png)
 
 2. Use a paleta de entidades para escolher o Tipo de Pizza e escovar a "pizza de queijo". O resultado é que só a pizza de queijo está rotulada como Pizza Type agora.
 
     > [!div class="mx-imgBorder"]
-    > paleta de entidade ![para entidade aprendida por máquinas](media/label-utterances/edit-label-with-palette-2.png)
+    > ![Paleta de entidades para entidade sinuosa](media/label-utterances/edit-label-with-palette-2.png)
 
 ## <a name="labels-for-matching-text-entities"></a>Etiquetas para entidades de texto correspondente
 
@@ -117,7 +117,7 @@ As entidades de texto-correspondência incluem entidades pré-construídas, enti
 Erros de previsão da entidade indicam que a entidade prevista não corresponde à entidade rotulada. Isto é visualizado com um indicador de precaução ao lado da expressão.
 
 > [!div class="mx-imgBorder"]
-> paleta de entidade ![para entidade aprendida por máquinas](media/label-utterances/example-utterance-indicates-prediction-error.png)
+> ![Paleta de entidades para entidade sinuosa](media/label-utterances/example-utterance-indicates-prediction-error.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,7 +1,7 @@
 ---
 title: Entidade pré-construída de Geografia V2 - LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém geographyV2 informações da entidade pré-criados na compreensão de idiomas (LUIS).
+description: Este artigo contém informações de entidades pré-construídas de geografiaV2 em Compreensão linguística (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,28 +12,28 @@ ms.topic: reference
 ms.date: 10/04/2019
 ms.author: diberry
 ms.openlocfilehash: b2b2b0781abce59628660b669f43110bf91b15e6
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273497"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>Entidade pré-construída geografiaV2 para uma app LUIS
-A entidade de geographyV2 pré-criados Deteta locais. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém GeographyV2 para os objetivos do aplicativo. A entidade GeographyV2 é apoiada na [cultura](luis-reference-prebuilt-entities.md)inglesa.
+A entidade de geografia pré-construídaV2 deteta lugares. Como esta entidade já está treinada, não precisa de adicionar declarações de exemplo contendo GeografiaV2 às intenções de aplicação. A entidade GeographyV2 é apoiada na [cultura](luis-reference-prebuilt-entities.md)inglesa.
 
 ## <a name="subtypes"></a>Subtipos
-As localizações geográficas tem subtipos:
+As localizações geográficas têm subtipos:
 
 |Subtipo|Objetivo|
 |--|--|
 |`poi`|ponto de interesse|
 |`city`|nome da cidade|
-|`countryRegion`|nome do país ou região|
+|`countryRegion`|nome de país ou região|
 |`continent`|nome do continente|
-|`state`|nome do Estado ou província|
+|`state`|nome de estado ou província|
 
 
-## <a name="resolution-for-geographyv2-entity"></a>Resolução de entidades de GeographyV2
+## <a name="resolution-for-geographyv2-entity"></a>Resolução para entidade De GeografiaV2
 
 Os seguintes objetos de entidade são devolvidos para consulta:
 
@@ -41,7 +41,7 @@ Os seguintes objetos de entidade são devolvidos para consulta:
 
 #### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O seguinte JSON está com o parâmetro `verbose` definido para `false`:
+O seguinte JSON `verbose` está com `false`o parâmetro definido para:
 
 ```json
 "entities": {
@@ -70,11 +70,11 @@ O seguinte JSON está com o parâmetro `verbose` definido para `false`:
 }
 ```
 
-Na JSON anterior, `poi` é uma abreviatura de **Point of Interest.**
+No JSON anterior, `poi` é uma abreviatura de **Point of Interest**.
 
 #### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
 
-O seguinte JSON está com o parâmetro `verbose` definido para `true`:
+O seguinte JSON `verbose` está com `true`o parâmetro definido para:
 
 ```json
 "entities": {

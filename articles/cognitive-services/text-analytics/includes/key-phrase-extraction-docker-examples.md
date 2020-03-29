@@ -1,7 +1,7 @@
 ---
-title: Exemplos de Docker de contêiner Extração de Frases-chave
+title: Exemplos de estivador de recipientede identificação de frases-chave
 titleSuffix: Azure Cognitive Services
-description: Exemplos de Docker de contêiner Extração de Frases-chave
+description: Exemplos de estivador de recipientede identificação de frases-chave
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,15 +10,15 @@ ms.topic: include
 ms.date: 08/21/2019
 ms.author: dapine
 ms.openlocfilehash: bc0375369db351038c7ac550cbe51415a0b3e069
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71148470"
 ---
-### <a name="key-phrase-extraction-container-docker-examples"></a>Exemplos de Docker de contêiner Extração de Frases-chave
+### <a name="key-phrase-extraction-container-docker-examples"></a>Exemplos de estivador de recipientede identificação de frases-chave
 
-Os exemplos do Docker a seguir são para o contêiner de Extração de Frases-chave.
+Os seguintes exemplos de estivador são para o recipiente de extração de frases-chave.
 
 #### <a name="basic-example"></a>Exemplo básico 
 
@@ -30,7 +30,7 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} 
   ```
 
-#### <a name="logging-example"></a>Exemplo de log 
+#### <a name="logging-example"></a>Exemplo de registo 
 
   ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \

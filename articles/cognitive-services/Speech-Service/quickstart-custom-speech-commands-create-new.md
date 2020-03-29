@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: criar um comando personalizado (versão prévia) – serviço de fala'
+title: 'Quickstart: Criar um Comando Personalizado (Pré-visualização) - Serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Neste artigo, você cria e testa um aplicativo de comandos personalizados hospedado.
+description: Neste artigo, cria e testa uma aplicação de Comandos Personalizados hospedado.
 services: cognitive-services
 author: don-d-kim
 manager: yetian
@@ -11,147 +11,147 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
 ms.openlocfilehash: 4ae8f13b4887bbc41b17defa3f9a20c07ed0cb45
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76155592"
 ---
-# <a name="quickstart-create-a-custom-command-preview"></a>Início rápido: criar um comando personalizado (versão prévia)
+# <a name="quickstart-create-a-custom-command-preview"></a>Quickstart: Criar um Comando Personalizado (Pré-visualização)
 
-Neste artigo, você aprenderá a criar e testar um aplicativo de comandos personalizados hospedado.
-O aplicativo reconhecerá um expressão como "ligar a TV" e responderá com uma mensagem simples "Ok, ligando a TV".
+Neste artigo, você aprenderá a criar e testar uma aplicação de Comandos Personalizados hospedado.
+A aplicação reconhecerá uma expressão como "ligar a televisão" e responder com uma simples mensagem "Ok, ligando a televisão".
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma assinatura de fala.
+- Uma assinatura do Discurso.
 
-Se você não tiver uma assinatura de fala, poderá criar uma navegando até o [Speech Studio](https://speech.microsoft.com/) e selecionando **criar um recurso de fala**.
+Se não tiver uma subscrição de discurso, pode criar uma navegando para o Estúdio da [Fala](https://speech.microsoft.com/) e selecionando **Criar um Recurso**de Fala .
 
   > [!div class="mx-imgBorder"]
-  > [![criar um projeto](media/custom-speech-commands/create-new-subscription.png)](media/custom-speech-commands/create-new-subscription.png#lightbox)
+  > [![Criar um](media/custom-speech-commands/create-new-subscription.png) projeto](media/custom-speech-commands/create-new-subscription.png#lightbox)
 
   > [!NOTE]
-  > Durante a visualização, há suporte apenas para a região westus2.
+  > Durante a pré-visualização, apenas a região de Westus2 é apoiada.
 
-## <a name="go-to-the-speech-studio-for-custom-commands"></a>Ir para o Speech Studio para comandos personalizados
+## <a name="go-to-the-speech-studio-for-custom-commands"></a>Vá ao Estúdio de Discurso para Comandos Personalizados
 
-1. Abra o navegador da Web e navegue até o [Speech Studio](https://speech.microsoft.com/)
-1. Insira suas credenciais para entrar no portal
+1. Abra o seu navegador web e navegue para o [Speech Studio](https://speech.microsoft.com/)
+1. Insira as suas credenciais para iniciar sessão no portal
 
-   - A exibição padrão é sua lista de assinaturas de fala
+   - A visão padrão é a sua lista de subscrições do Discurso
      > [!NOTE]
-     > Se você não vir a página Selecionar assinatura, poderá navegar até lá escolhendo "recursos de fala" no menu configurações na barra superior.
+     > Se não vir a página de subscrição selecionada, pode navegar lá escolhendo "Recursos de Fala" a partir do menu de definições na barra superior.
 
-1. Selecione sua assinatura de fala e, em seguida, selecione **ir para estúdio**
-1. Selecionar **comandos personalizados (visualização)**
+1. Selecione a subscrição do Discurso e, em seguida, selecione **Ir para estúdio**
+1. Selecione **Comandos Personalizados (Pré-visualização)**
 
-O modo de exibição padrão é uma lista dos aplicativos de comandos personalizados que você criou.
+A vista padrão é uma lista das aplicações de Comandos Personalizados que criou.
 
-## <a name="create-a-custom-commands-project"></a>Criar um projeto de comandos personalizados
+## <a name="create-a-custom-commands-project"></a>Criar um projeto de Comandos Personalizados
 
-1. Selecione **novo projeto** para criar um novo projeto
+1. Selecione **Novo projeto** para criar um novo projeto
 
    > [!div class="mx-imgBorder"]
-   > ![criar um projeto](media/custom-speech-commands/create-new-project.png)
+   > ![Criar um projeto](media/custom-speech-commands/create-new-project.png)
 
-1. Insira o nome do projeto e o idioma.
-1. Selecione um recurso de criação. Se não houver recursos de criação válidos, crie um selecionando **criar novo recurso**.
+1. Introduza o nome e a linguagem do projeto.
+1. Selecione um recurso de autoria. Se não houver recursos de autor válidos, crie um selecionando **Criar um novo recurso.**
 
    > [!div class="mx-imgBorder"]
    > ![Criar um grupo de recursos](media/custom-speech-commands/create-new-resource.png)
 
-   1. Insira o nome do recurso, o grupo, o local e o tipo de preço.
+   1. Introduza o nome de recurso, grupo, localização e nível de preços.
 
          > [!NOTE]
-         > Você pode criar grupos de recursos inserindo o nome do grupo de recursos desejado no campo "grupo de recursos". O grupo de recursos será criado quando a **criação** for selecionada.
+         > Pode criar grupos de recursos introduzindo o nome de grupo de recursos desejado no campo "Grupo de Recursos". O grupo de recursos será criado quando a **Create** for selecionada.
 
-1. Clique em **criar** para criar seu projeto.
-1. Depois de criado, selecione seu projeto.
+1. Clique em **Criar** para criar o seu projeto.
+1. Uma vez criado, selecione o seu projeto.
 
-Sua exibição agora deve ser uma visão geral do aplicativo de comandos personalizados.
+A sua visão deverá agora ser uma visão geral da sua aplicação De Comandos Personalizados.
 
-## <a name="update-luis-resources-optional"></a>Atualizar recursos do LUIS (opcional)
+## <a name="update-luis-resources-optional"></a>Atualização de Recursos LUIS (Opcional)
 
-Você pode atualizar o conjunto de recursos de criação na janela novo projeto e definir um recurso de previsão usado para reconhecer entradas durante o tempo de execução.
+Pode atualizar o conjunto de recursos de autoria na nova janela do projeto e definir um recurso de previsão utilizado para reconhecer entradas durante o tempo de execução.
 
 > [!NOTE]
-> Você precisará definir um recurso de previsão antes que seu aplicativo solicite previsões além das 1.000 solicitações fornecidas pelo recurso de criação.
+> Terá de definir um recurso de previsão antes de a sua aplicação solicitar previsões para além dos 1.000 pedidos fornecidos pelo recurso de autoria.
 
 > [!div class="mx-imgBorder"]
-> ![definir recursos de LUIS](media/custom-speech-commands/set-luis-resources.png)
+> ![Definir recursos LUIS](media/custom-speech-commands/set-luis-resources.png)
 
-1. Navegue até o painel recursos do LUIS selecionando **configurações** no painel esquerdo e, em seguida, **Luis recursos** no painel central.
-1. Selecione um recurso de previsão ou crie um selecionando **criar novo recurso**
+1. Navegue para o painel de Recursos LUIS selecionando **Definições** do painel esquerdo e, em seguida, **RECURSOS LUIS** a partir do painel central.
+1. Selecione um recurso de previsão ou crie um selecionando **Criar novo recurso**
 1. Selecione **Guardar**
 
-## <a name="create-a-new-command"></a>Criar um novo comando
+## <a name="create-a-new-command"></a>Criar um novo Comando
 
-Agora você pode criar um comando. Vamos usar um exemplo que irá pegar um único expressão, `turn on the tv`e responder com a mensagem `Ok, turning on the TV`.
+Agora pode criar um Comando. Vamos usar um exemplo que terá uma `turn on the tv`única expressão, e `Ok, turning on the TV`responder com a mensagem.
 
-1. Crie um novo comando selecionando o ícone de `+` ao lado de comandos e dê a ele o nome `TurnOn`
+1. Crie um novo Comando `+` selecionando o ícone ao lado dos comandos e dê-lhe o nome`TurnOn`
 1. Selecione **Guardar**
 
 > [!div class="mx-imgBorder"]
-> ![criar um comando](media/custom-speech-commands/create-add-command.png)
+> ![Criar um comando](media/custom-speech-commands/create-add-command.png)
 
-Um comando é um conjunto de:
+Um Comando é um conjunto de:
 
 | Grupo            | Descrição                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| Frases de Exemplo | Exemplo declarações o usuário pode dizer para disparar esse comando                                                                 |
-| Parâmetros       | Informações necessárias para concluir o comando                                                                                |
-| Regras de conclusão | As ações a serem executadas para atender ao comando. Por exemplo, para responder ao usuário ou comunicar-se com outro serviço Web |
-| Regras avançadas   | Regras adicionais para lidar com situações mais específicas ou complexas                                                              |
+| Frases de amostra | Declarações exemplo que o utilizador pode dizer para desencadear este Comando                                                                 |
+| Parâmetros       | Informação necessária para completar o Comando                                                                                |
+| Regras de Conclusão | As ações a tomar para cumprir o Comando. Por exemplo, responder ao utilizador ou comunicar com outro serviço web |
+| Regras Avançadas   | Regras adicionais para lidar com situações mais específicas ou complexas                                                              |
 
-### <a name="add-a-sample-sentence"></a>Adicionar uma sentença de exemplo
+### <a name="add-a-sample-sentence"></a>Adicione uma frase de amostra
 
-Vamos começar com frases de exemplo e fornecer um exemplo do que o usuário pode dizer:
+Vamos começar com as Frases de Amostra e dar um exemplo do que o utilizador pode dizer:
 
 ```
 turn on the tv
 ```
 
-Por enquanto, não temos parâmetros para que possamos passar para as regras de conclusão.
+Por enquanto, não temos parâmetros para podermos passar às Regras de Conclusão.
 
-### <a name="add-a-completion-rule"></a>Adicionar uma regra de conclusão
+### <a name="add-a-completion-rule"></a>Adicione uma regra de conclusão
 
-Agora, adicione uma regra de conclusão para responder ao usuário indicando que uma ação está sendo executada.
+Adicione agora uma Regra de Conclusão para responder ao utilizador indicando que está a ser tomada uma ação.
 
-1. Crie uma nova regra de conclusão selecionando o ícone de `+` ao lado das regras de conclusão
+1. Crie uma nova Regra `+` de Conclusão selecionando o ícone ao lado das Regras de Conclusão
 1. Insira o nome da regra
 1. Adicionar uma ação
-   1. Crie uma nova ação de resposta de fala selecionando o ícone de `+` ao lado de ações e selecione `SpeechResponse`
+   1. Crie uma nova Ação de `+` Resposta ao Discurso, selecionando o ícone ao lado de Ações e selecione`SpeechResponse`
    1. Insira a resposta
 
    > [!NOTE]
-   > O texto regular deve começar com um traço. Para obter mais detalhes, acesse [aqui](https://aka.ms/sc-lg-format)
+   > O texto regular deve começar com um traço. Para mais detalhes, vá [aqui](https://aka.ms/sc-lg-format)
 
    > [!div class="mx-imgBorder"]
-   > ![criar uma resposta de fala](media/custom-speech-commands/create-speech-response-action.png)
+   > ![Criar uma resposta da Fala](media/custom-speech-commands/create-speech-response-action.png)
 
-1. Clique em **salvar** para salvar a regra
+1. Clique em **Guardar** para salvar a regra
 
 > [!div class="mx-imgBorder"]
-> ![criar uma regra de conclusão](media/custom-speech-commands/create-basic-completion-response-rule.png)
+> ![Criar uma regra de conclusão](media/custom-speech-commands/create-basic-completion-response-rule.png)
 
 | Definição    | Valor sugerido                          | Descrição                                        |
 | ---------- | ---------------------------------------- | -------------------------------------------------- |
-| Nome da Regra  | "ConfirmationResponse"                   | Um nome que descreve a finalidade da regra          |
+| Nome da Regra  | "Resposta de confirmação"                   | Um nome que descreve o propósito da regra          |
 | Condições | Nenhuma                                     | Condições que determinam quando a regra pode ser executada    |
-| Ações    | SpeechResponse "-Ok, ligando a TV" | A ação a ser tomada quando a condição da regra for verdadeira |
+| Ações    | Resposta do discurso "- Ok, ligando a TV" | A ação a tomar quando a condição da regra é verdadeira |
 
-## <a name="try-it-out"></a>Experimentar
+## <a name="try-it-out"></a>Experimente
 
-Teste o comportamento usando o painel testar chat.
+Teste o comportamento utilizando o painel de chat test.
 
 > [!div class="mx-imgBorder"]
-> Teste de ![com](media/custom-speech-commands/create-basic-test-chat.png) de bate-papo na Web
+> ![Teste com chat web](media/custom-speech-commands/create-basic-test-chat.png)
 
-- Você digita: "ligar a TV"
-- Resposta esperada: "Ok, ligando a TV"
+- Escreve: "Ligue a televisão"
+- Resposta esperada: "Ok, ligando a televisão"
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Início rápido: criar um comando personalizado com parâmetros (versão prévia)](./quickstart-custom-speech-commands-create-parameters.md)
+> [Quickstart: Criar um comando personalizado com parâmetros (pré-visualização)](./quickstart-custom-speech-commands-create-parameters.md)

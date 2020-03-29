@@ -4,10 +4,10 @@ description: O personalizer pode ser aplicado em qualquer situação em que a su
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: 63e66315898242beb5da59927e8d506e6f2cff78
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79219326"
 ---
 # <a name="where-and-how-to-use-personalizer"></a>Onde e como usar o Personalizer
@@ -18,11 +18,11 @@ O Personalizer utiliza machine learning para selecionar que ação (conteúdo) m
 
 ## <a name="example-use-cases-for-personalizer"></a>Exemplo de casos de utilização para Personalizer
 
-* **Esclarecimento e desambiguação de intenção**: ajude os seus utilizadores a ter uma melhor experiência quando a sua intenção não é clara, fornecendo uma opção personalizada.
-* **Sugestões predefinidas** para menus e opções: o bot sugerir o item mais provável de forma personalizada como primeiro passo, em vez de apresentar um menu impessoal ou lista de alternativas.
-* **Traços bot e tom**: para bots que podem variar tom, verbosidade e estilo de escrita, considere variar estes traços.
-* Conteúdo de **notificação e alerta**: decida que texto utilizar para alertas para envolver mais os utilizadores.
-* **Notificação e alerta:** tenha aprendido personalizadamente quando enviar notificações aos utilizadores para os envolver mais.
+* **Esclarecimento de intenção & desambiguação**: ajude os seus utilizadores a ter uma melhor experiência quando a sua intenção não é clara, fornecendo uma opção personalizada.
+* **Sugestões predefinidas** para menus & opções: pedir ao bot sugerir o item mais provável de forma personalizada como um primeiro passo, em vez de apresentar um menu impessoal ou lista de alternativas.
+* **Os traços de bot & tom:** para bots que podem variar tom, verbosidade e estilo de escrita, considerar variar estes traços.
+* **Notificação & conteúdo de alerta**: decida que texto utilizar para alertas para envolver mais os utilizadores.
+* **Notificação & tempo**de alerta : tenha aprendido personalizadamente quando enviar notificações aos utilizadores para que os envolvam mais.
 
 
 ## <a name="expectations-required-to-use-personalizer"></a>Expectativas necessárias para usar o Personalizer
@@ -106,6 +106,6 @@ Em algumas arquiteturas, a sequência acima pode ser difícil de implementar. Ne
     * Se a ação de topo não for viável, não ative a aprendizagem para este ranking e decida através da sua própria lógica ou abordagens alternativas o que mostrar ao utilizador. Mesmo que utilize a segunda opção mais bem classificada, não ative a aprendizagem para este ranking.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Ética e utilização responsável.](ethics-responsible-use.md)
+[Ética & utilização responsável.](ethics-responsible-use.md)

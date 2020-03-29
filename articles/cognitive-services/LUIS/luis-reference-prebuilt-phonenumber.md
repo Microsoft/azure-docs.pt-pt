@@ -1,7 +1,7 @@
 ---
 title: Número de telefone Entidades Pré-construídas - LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém informações de entidade pré-criados numéricas na compreensão de idiomas (LUIS) do telefone.
+description: Este artigo contém informações sobre entidades pré-construídas de número de telefone em Compreensão de Línguas (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,17 +12,17 @@ ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ms.openlocfilehash: 4e2c8e27c6d4195252c6a5b423fa98b2a4247182
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270478"
 ---
 # <a name="phone-number-prebuilt-entity-for-a-luis-app"></a>Entidade pré-construída para um aplicativo LUIS
-A entidade `phonenumber` extrai uma variedade de números de telefone, incluindo código country. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo para a aplicação. A entidade `phonenumber` é apoiada apenas na cultura `en-us`.
+A `phonenumber` entidade extrai uma variedade de números de telefone, incluindo código country. Como esta entidade já está treinada, não precisa de adicionar declarações de exemplo à aplicação. A `phonenumber` entidade é `en-us` apoiada apenas na cultura.
 
 ## <a name="types-of-a-phone-number"></a>Tipos de número de telefone
-`Phonenumber` é gerido a partir do repositório GitHub [de texto de reconhecimento](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml)
+`Phonenumber`é gerido a partir do repositório GitHub [de texto reconhecíveis](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml)
 
 ## <a name="resolution-for-this-prebuilt-entity"></a>Resolução para esta entidade pré-construída
 
@@ -32,7 +32,7 @@ Os seguintes objetos de entidade são devolvidos para consulta:
 
 #### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O seguinte JSON está com o parâmetro `verbose` definido para `false`:
+O seguinte JSON `verbose` está com `false`o parâmetro definido para:
 
 ```json
 "entities": {
@@ -42,7 +42,7 @@ O seguinte JSON está com o parâmetro `verbose` definido para `false`:
 }
 ```
 #### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
-O seguinte JSON está com o parâmetro `verbose` definido para `true`:
+O seguinte JSON `verbose` está com `true`o parâmetro definido para:
 
 ```json
 "entities": {

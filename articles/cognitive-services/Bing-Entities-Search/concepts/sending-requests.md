@@ -1,5 +1,5 @@
 ---
-title: Envio de solicitações de pesquisa para o API de Pesquisa de Entidade do Bing
+title: Envio de pedidos de pesquisa para a API de Pesquisa de Entidades Bing
 titleSuffix: Azure cognitive Services
 description: A API de Pesquisa de Entidades do Bing envia uma consulta de pesquisa ao Bing e obtém resultados que incluem entidades e locais.
 services: cognitive-services
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
 ms.openlocfilehash: f68429a75ddb141c9e42babde3faa9f93fe949cc
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74072674"
 ---
-# <a name="sending-search-requests-to-the-bing-entity-search-api"></a>Envio de solicitações de pesquisa para o API de Pesquisa de Entidade do Bing
+# <a name="sending-search-requests-to-the-bing-entity-search-api"></a>Envio de pedidos de pesquisa para a API de Pesquisa de Entidades Bing
 
-A API de Pesquisa de Entidades do Bing envia uma consulta de pesquisa ao Bing e obtém resultados que incluem entidades e locais. Os resultados de locais incluem restaurantes, hotéis ou outras empresas locais. Nos locais, a consulta pode especificar o nome da empresa local ou pedir uma lista (por exemplo, restaurantes perto de mim). Os resultados de entidades incluem pessoas, locais ou coisas. O local neste contexto é Tourist Attractions, Estados, países/regiões, etc.
+A API de Pesquisa de Entidades do Bing envia uma consulta de pesquisa ao Bing e obtém resultados que incluem entidades e locais. Os resultados de locais incluem restaurantes, hotéis ou outras empresas locais. Nos locais, a consulta pode especificar o nome da empresa local ou pedir uma lista (por exemplo, restaurantes perto de mim). Os resultados de entidades incluem pessoas, locais ou coisas. Neste contexto estão atrações turísticas, estados, países/regiões, etc.
 
 ## <a name="the-endpoint"></a>O ponto final
 
@@ -29,9 +29,9 @@ Para obter os resultados da pesquisa de entidades e locais, envie um pedido GET 
 https://api.cognitive.microsoft.com/bing/v7.0/entities
 ```
 
-As solicitações devem usar o protocolo HTTPS.
+Os pedidos devem utilizar o protocolo HTTPS.
 
-Recomendamos que todos os pedidos tenham origem num servidor. Distribuir a chave como parte de uma aplicação cliente fornece mais oportunidades para terceiros mal-intencionados acederem à mesma. Além disso, fazer chamadas a partir de um servidor fornece um único ponto de atualização para as futuras versões da API.
+Recomendamos que todos os pedidos tenham origem num servidor. Distribuir a chave como parte de uma aplicação cliente abre mais oportunidades de acesso à mesma a terceiros mal-intencionados. Além disso, fazer chamadas a partir de um servidor fornece um único ponto de atualização para as futuras versões da API.
 
 ## <a name="specifying-query-parameters-and-headers"></a>Especificar parâmetros e cabeçalhos de consulta
 
@@ -39,9 +39,9 @@ O pedido tem de especificar o parâmetro de consulta [q](https://docs.microsoft.
   
 O pedido tem de especificar o cabeçalho [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#subscriptionkey). Embora seja opcional, recomenda-se que especifique também os seguintes cabeçalhos:  
   
--   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#useragent)  
+-   [Agente-utilizador](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#clientid)  
--   [X-MSEdge-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#clientip)  
+-   [X-MsEdge-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#clientip)  
 -   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#location)  
 
 Os cabeçalhos de IP e localização do cliente são importantes para devolver o conteúdo com reconhecimento de local.  
@@ -134,5 +134,5 @@ BingAPIs-Market: en-US
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Pesquisando entidades com a API de entidade do Bing](search-for-entities.md)
-* [Requisitos de exibição e uso da API do Bing](../use-display-requirements.md)
+* [Procura de entidades com a API entidade bing](search-for-entities.md)
+* [Requisitos de utilização e exibição de Bing API](../use-display-requirements.md)

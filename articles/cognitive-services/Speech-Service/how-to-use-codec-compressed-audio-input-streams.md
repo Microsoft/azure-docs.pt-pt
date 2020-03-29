@@ -1,7 +1,7 @@
 ---
 title: Áudio comprimido de código stream com o Serviço Speech SDK - Speech
 titleSuffix: Azure Cognitive Services
-description: Aprenda a transmitir áudio comprimido para o serviço de Fala com o SDK de Fala. Disponível C++ C#para , e Java para Linux, Java em Android e Objective-C no iOS.
+description: Aprenda a transmitir áudio comprimido para o serviço de Fala com o SDK de Fala. Disponível para C++, C#, e Java para Linux, Java em Android e Objective-C no iOS.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -12,18 +12,18 @@ ms.date: 03/09/2020
 ms.author: amishu
 zone_pivot_groups: programming-languages-set-twelve
 ms.openlocfilehash: 3fab02d3dc567a2c54edad5bfb05abe7d99f7b7c
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78943831"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Utilize a entrada de áudio comprimido codec com o SDK do Discurso
 
-O serviço de fala SDK **Comprimaudio EPUT Stream** API fornece uma forma de transmitir áudio comprimido para o serviço de Fala usando uma `PullStream` ou `PushStream`.
+O serviço de fala SDK **Comprime Audio Input Stream** API fornece uma `PullStream` forma `PushStream`de transmitir áudio comprimido para o serviço de Fala usando um ou .
 
 > [!IMPORTANT]
-> O streaming de áudio de entrada C#comprimido C++é atualmente suportado para , Java em Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8). Também é suportado para Java em Android e Objective-C na plataforma iOS.
+> O áudio de entrada comprimido de streaming é atualmente suportado para C#, C++, Java on Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8). Também é suportado para Java em Android e Objective-C na plataforma iOS.
 > É necessária a versão 1.7.0 ou superior do Discurso (versão 1.10.0 ou superior para RHEL 8, CentOS 8).
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
@@ -64,7 +64,7 @@ O serviço de fala SDK **Comprimaudio EPUT Stream** API fornece uma forma de tra
 [!INCLUDE [prerequisites](includes/how-tos/compressed-audio-input/objectivec/examples.md)]
 ::: zone-end
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Aprenda a reconhecer a fala](quickstarts/speech-to-text-from-microphone.md)

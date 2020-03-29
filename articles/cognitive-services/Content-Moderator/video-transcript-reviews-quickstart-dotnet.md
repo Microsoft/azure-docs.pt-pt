@@ -1,7 +1,7 @@
 ---
-title: Criar análises de transcrição de vídeo usando .NET-Content Moderator
+title: Criar análises de transcrição de vídeo usando .NET - Moderador de Conteúdo
 titleSuffix: Azure Cognitive Services
-description: Saiba como criar análises de transcrição de vídeo usando o SDK de Content Moderator de serviços cognitivas do Azure para .NET.
+description: Saiba como criar análises de transcrição de vídeo utilizando o SDK de Conteúdo dos Serviços Cognitivos Do Azure para .NET.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,40 +11,40 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: b2d763454b86570b57a16fb9ae2107a2a2bcd23d
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73744386"
 ---
-# <a name="create-video-transcript-reviews-using-net"></a>Criar revisões de transcrição de vídeo usando o .NET
+# <a name="create-video-transcript-reviews-using-net"></a>Criar análises de transcrição de vídeo usando .NET
 
-Este artigo fornece informações e exemplos de código para ajudá-lo a começar rapidamente a usar o [SDK do Content moderator com C# ](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) o para:
+Este artigo fornece informações e amostras de código para ajudá-lo a começar rapidamente a usar o [SDK moderador](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) de conteúdo com C# para:
 
-- Criar uma revisão de vídeo para moderadores humanos
-- Adicionar uma transcrição moderada à revisão
+- Crie uma revisão em vídeo para moderadores humanos
+- Adicione uma transcrição moderada à revisão
 - Publicar a revisão
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Entre ou crie uma conta no site da [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) de Content moderator, se você ainda não tiver feito isso.
-- Este artigo pressupõe que você tenha [moderado o vídeo](video-moderation-api.md) e [criou a revisão de vídeo](video-reviews-quickstart-dotnet.md) na ferramenta de revisão para tomada de decisão humana. Agora você deseja adicionar transcrições de vídeo moderadas na ferramenta de revisão.
+- Faça o insto ou crie uma conta no site da ferramenta Content Moderator [Review](https://contentmoderator.cognitive.microsoft.com/) se ainda não o fez.
+- Este artigo assume que [moderou o vídeo](video-moderation-api.md) e criou a revisão de [vídeo](video-reviews-quickstart-dotnet.md) na ferramenta de revisão para tomada de decisão humana. Agora pretende adicionar transcrições de vídeo moderadas na ferramenta de revisão.
 
-## <a name="ensure-your-api-key-can-call-the-review-api-job-creation"></a>Verifique se sua chave de API pode chamar a API de revisão (criação de trabalho)
+## <a name="ensure-your-api-key-can-call-the-review-api-job-creation"></a>Certifique-se de que a sua chave API pode chamar a análise API (Criação de emprego)
 
 Depois de concluir os passos anteriores, pode ficar com duas chaves do Content Moderator, se tiver iniciado a partir do portal do Azure.
 
 Se planear utilizar a chave de API dada pelo Azure no seu exemplo de SDK, siga os passos mencionados na secção [Utilizar a chave do Azure com a API de revisão](./review-tool-user-guide/configure.md#use-your-azure-account-with-the-review-apis) para permitir que a aplicação chame a API de revisão e crie as revisões.
 
-Se utilizar a chave de avaliação gratuita gerada pela ferramenta de revisão, a sua conta da ferramenta de revisão já conhece a chave e, por conseguinte, não são necessários passos adicionais.
+Se utilizar a chave de avaliação gratuita gerada pela ferramenta de revisão, a sua conta da ferramenta de revisão já conhece a chave e, por conseguinte, não são precisos passos adicionais.
 
-## <a name="prepare-your-video-for-review"></a>Preparar seu vídeo para análise
+## <a name="prepare-your-video-for-review"></a>Prepare o seu vídeo para análise
 
-Adicione a transcrição a uma revisão de vídeo. O vídeo deve ser publicado online. Você precisa de seu ponto de extremidade de streaming. O ponto de extremidade de streaming permite que o player de vídeo da ferramenta de revisão reproduza o vídeo.
+Adicione a transcrição a uma revisão de vídeo. O vídeo deve ser publicado online. Precisas do seu ponto final de streaming. O ponto final de streaming permite que o leitor de vídeo da ferramenta de revisão reveja o vídeo.
 
-![Miniatura de demonstração em vídeo](images/ams-video-demo-view.PNG)
+![Miniatura de demonstração de vídeo](images/ams-video-demo-view.PNG)
 
-- Copie a **URL** nesta página de [demonstração dos serviços de mídia do Azure](https://aka.ms/azuremediaplayer?url=https%3A%2F%2Famssamples.streaming.mediaservices.windows.net%2F91492735-c523-432b-ba01-faba6c2206a2%2FAzureMediaServicesPromo.ism%2Fmanifest) para a URL do manifesto.
+- Copie o **URL** nesta página de demonstração da [Azure Media Services](https://aka.ms/azuremediaplayer?url=https%3A%2F%2Famssamples.streaming.mediaservices.windows.net%2F91492735-c523-432b-ba01-faba6c2206a2%2FAzureMediaServicesPromo.ism%2Fmanifest) para o url manifesto.
 
 ## <a name="create-your-visual-studio-project"></a>Criar o projeto do Visual Studio
 
@@ -65,7 +65,7 @@ Instale os seguintes pacotes NuGet para o projeto TermLists.
 
 ### <a name="update-the-programs-using-statements"></a>Atualizar as instruções de utilização do programa
 
-Modifique as instruções de uso do programa da seguinte maneira.
+Modificar o programa está a usar declarações da seguinte forma.
 
 
 ```csharp
@@ -80,7 +80,7 @@ using Newtonsoft.Json;
 
 ### <a name="add-private-properties"></a>Adicionar propriedades privadas
 
-Adicione as propriedades particulares a seguir ao namespace **VideoTranscriptReviews**, classe **Program**. Atualize os campos `AzureEndpoint` e `CMSubscriptionKey` com os valores de sua URL de ponto de extremidade e chave de assinatura. Você pode encontrá-los na guia **início rápido** do recurso na portal do Azure.
+Adicione as seguintes propriedades privadas ao nomespace **VideoTranscriptReviews**, **programa**de classe . Atualize `AzureEndpoint` `CMSubscriptionKey` os campos e campos com os valores do URL final e chave de subscrição. Pode encontrá-los no **separador De arranque rápido** do seu recurso no portal Azure.
 
 ```csharp
 namespace VideoReviews
@@ -116,9 +116,9 @@ namespace VideoReviews
         private const int throttleRate = 2000;
 ```
 
-### <a name="create-content-moderator-client-object"></a>Criar Content Moderator objeto de cliente
+### <a name="create-content-moderator-client-object"></a>Criar objeto de cliente moderador de conteúdo
 
-Adicione a seguinte definição de método ao namespace VideoTranscriptReviews, classe Program.
+Adicione a seguinte definição de método ao nomespace VideoTranscriptReviews, programa de classe.
 
 ```csharp
 /// <summary>
@@ -139,22 +139,22 @@ public static ContentModeratorClient NewClient()
 
 ## <a name="create-a-video-review"></a>Criar uma revisão de vídeo
 
-Crie uma revisão de vídeo com **ContentModeratorClient. Reviews. CreateVideoReviews**. Para obter mais informações, veja a [Referência à API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
+Crie uma análise de vídeo com **ContentModeratorClient.Reviews.CreateVideoReviews**. Para obter mais informações, veja a [Referência à API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
 
-**CreateVideoReviews** tem os seguintes parâmetros obrigatórios:
-1. Uma cadeia de caracteres que contém um tipo MIME, que deve ser "Application/JSON". 
-1. O nome da equipe de Content Moderator.
-1. Uma **IList\<objeto de > CreateVideoReviewsBodyItem** . Cada objeto **CreateVideoReviewsBodyItem** representa uma revisão de vídeo. Este início rápido cria uma análise por vez.
+**CreateVideoReviews** tem os seguintes parâmetros necessários:
+1. Uma corda que contém um tipo MIME, que deve ser "aplicação/json". 
+1. O nome da sua equipa moderadorde conteúdo.
+1. Um **iList\<CreateVideoReviewsBodyItem>** objeto. Cada objeto **CreateVideoReviewsBodyItem** representa uma revisão de vídeo. Este quickstart cria uma revisão de cada vez.
 
-**CreateVideoReviewsBodyItem** tem várias propriedades. No mínimo, você define as seguintes propriedades:
-- **Conteúdo**. A URL do vídeo a ser revisado.
-- **ContentId**. Uma ID a ser atribuída à revisão de vídeo.
-- **Status**. Defina o valor como "não publicado". Se você não defini-lo, o padrão é "Pending", o que significa que a revisão de vídeo é publicada e a revisão humana pendente. Depois que uma revisão de vídeo é publicada, você não pode mais adicionar quadros de vídeo, uma transcrição ou um resultado de moderação de transcrição a ele.
+**CreateVideoReviewsBodyItem** tem várias propriedades. No mínimo, define as seguintes propriedades:
+- **Conteúdo**. O URL do vídeo a ser revisto.
+- **Contentid**. Uma identificação para atribuir à revisão de vídeo.
+- **Estado**. Desloque o valor para "Não publicado". Se não o definir, não se encontra em "Pendente", o que significa que a revisão em vídeo é publicada e pendente de revisão humana. Uma vez publicada uma revisão de vídeo, já não se pode adicionar quadros de vídeo, uma transcrição ou um resultado de moderação da transcrição.
 
 > [!NOTE]
-> **CreateVideoReviews** retorna uma IList\<cadeia de caracteres >. Cada uma dessas cadeias de caracteres contém uma ID para uma revisão de vídeo. Essas IDs são GUIDs e não são as mesmas que o valor da propriedade **ContentId** .
+> **CreateVideoReviews** devolve um\<> de cadeiaIList. Cada uma destas cordas contém um ID para uma revisão de vídeo. Estes IDs são GUIDs e não são os mesmos que o valor da propriedade **ContentId.**
 
-Adicione a seguinte definição de método ao namespace VideoReviews, classe Program.
+Adicione a seguinte definição de método ao nomespace VideoReviews, programa de classe.
 
 ```csharp
 /// <summary>
@@ -194,19 +194,19 @@ private static string CreateReview(ContentModeratorClient client, string id, str
 >
 > Uma chave de escalão gratuito tem um limite de velocidade de um RPS.
 
-## <a name="add-transcript-to-video-review"></a>Adicionar transcrição à revisão de vídeo
+## <a name="add-transcript-to-video-review"></a>Adicione a transcrição à revisão de vídeo
 
-Você adiciona uma transcrição a uma revisão de vídeo com **ContentModeratorClient. Reviews. AddVideoTranscript**. **AddVideoTranscript** tem os seguintes parâmetros obrigatórios:
-1. Sua ID de equipe do Content Moderator.
-1. A ID de revisão de vídeo retornada por **CreateVideoReviews**.
-1. Um objeto de **fluxo** que contém a transcrição.
+Adiciona uma transcrição a uma análise de vídeo com **ContentModeratorClient.Reviews.AddVideoTranscript**. **AddVideoTranscript** tem os seguintes parâmetros necessários:
+1. Identificação da sua equipa moderadora de conteúdo.
+1. O ID da análise de vídeo devolvido pela **CreateVideoReviews**.
+1. Um objeto **de corrente** que contém a transcrição.
 
-A transcrição deve estar no formato WebVTT. Para obter mais informações, consulte [WebVTT: o formato de faixas de texto de vídeo da Web](https://www.w3.org/TR/webvtt1/).
+A transcrição deve estar no formato WebVTT. Para mais informações, consulte [WebVTT: O formato](https://www.w3.org/TR/webvtt1/)de faixas de texto de vídeo web .
 
 > [!NOTE]
-> O programa usa uma transcrição de exemplo no formato VTT. Em uma solução do mundo real, você usa o serviço de Azure Media Indexer para [gerar uma transcrição](https://docs.microsoft.com/azure/media-services/media-services-index-content) de um vídeo.
+> O programa utiliza uma transcrição de amostra no formato VTT. Numa solução real, utiliza-se o serviço Azure Media Indexer para [gerar uma transcrição](https://docs.microsoft.com/azure/media-services/media-services-index-content) a partir de um vídeo.
 
-Adicione a seguinte definição de método ao namespace VideotranscriptReviews, classe Program.
+Adicione a seguinte definição de método ao nomespace VideotranscriptReviews, programa de classe.
 
 ```csharp
 /// <summary>
@@ -226,23 +226,23 @@ static void AddTranscript(ContentModeratorClient client, string review_id, strin
 }
 ```
 
-## <a name="add-a-transcript-moderation-result-to-video-review"></a>Adicionar um resultado de moderação de transcrição à revisão de vídeo
+## <a name="add-a-transcript-moderation-result-to-video-review"></a>Adicione um resultado de moderação da transcrição à revisão de vídeo
 
-Além de adicionar uma transcrição a uma revisão de vídeo, você também adiciona o resultado de moderar que a transcrição. Você faz isso com **ContentModeratorClient. Reviews. AddVideoTranscriptModerationResult**. Para obter mais informações, veja a [Referência à API](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b93ce7151f0b10d451ff).
+Além de adicionar uma transcrição a uma análise de vídeo, também adiciona o resultado de moderar essa transcrição. Fá-lo com **contentModeratorClient.Reviews.AddVideoTranscriptModerationResult**. Para obter mais informações, veja a [Referência à API](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b93ce7151f0b10d451ff).
 
-**AddVideoTranscriptModerationResult** tem os seguintes parâmetros obrigatórios:
-1. Uma cadeia de caracteres que contém um tipo MIME, que deve ser "Application/JSON". 
-1. O nome da equipe de Content Moderator.
-1. A ID de revisão de vídeo retornada por **CreateVideoReviews**.
-1. Um IList\<TranscriptModerationBodyItem >. Um **TranscriptModerationBodyItem** tem as seguintes propriedades:
-1. **Termos**. Um IList\<TranscriptModerationBodyItemTermsItem >. Um **TranscriptModerationBodyItemTermsItem** tem as seguintes propriedades:
+**AddVideoTranscriptModeraon Result** tem os seguintes parâmetros necessários:
+1. Uma corda que contém um tipo MIME, que deve ser "aplicação/json". 
+1. O nome da sua equipa moderadorde conteúdo.
+1. O ID da análise de vídeo devolvido pela **CreateVideoReviews**.
+1. Uma transcrição iListModeraçãoBodyItem\<>. A **TranscriptModerationBodyItem** tem as seguintes propriedades:
+1. **Termos.** Uma transcrição iListModeraçãoBodyItemTermsItem\<>. A **TranscriptModerationBodyItemTermsItem** tem as seguintes propriedades:
 1. **Índice**. O índice de base zero do termo.
-1. **Termo**. Uma cadeia de caracteres que contém o termo.
-1. **Carimbo de data/hora**. Uma cadeia de caracteres que contém, em segundos, a hora na transcrição na qual os termos são encontrados.
+1. **Termo**. Uma corda que contém o termo.
+1. **Marca de tempo.** Uma corda que contém, em segundos, o tempo na transcrição em que os termos são encontrados.
 
-A transcrição deve estar no formato WebVTT. Para obter mais informações, consulte [WebVTT: o formato de faixas de texto de vídeo da Web](https://www.w3.org/TR/webvtt1/).
+A transcrição deve estar no formato WebVTT. Para mais informações, consulte [WebVTT: O formato](https://www.w3.org/TR/webvtt1/)de faixas de texto de vídeo web .
 
-Adicione a seguinte definição de método ao namespace VideoTranscriptReviews, classe Program. Esse método envia uma transcrição para o método **ContentModeratorClient. Textmoderation. ScreenText** . Ele também converte o resultado em uma IList\<TranscriptModerationBodyItem > e envia ao **AddVideoTranscriptModerationResult**.
+Adicione a seguinte definição de método ao nomespace VideoTranscriptReviews, programa de classe. Este método submete uma transcrição ao **método ContentModeratorClient.TextModeration.ScreenText.** Também traduz o resultado numa\<Transcrição IListModerationBodyItem>, e submete-se ao **AddVideoTranscriptModerationResult**.
 
 ```csharp
 /// <summary>
@@ -291,11 +291,11 @@ static void AddTranscriptModerationResult(ContentModeratorClient client, string 
 
 ## <a name="publish-video-review"></a>Publicar revisão de vídeo
 
-Você publica uma revisão de vídeo com **ContentModeratorClient. Reviews. PublishVideoReview**. **PublishVideoReview** tem os seguintes parâmetros obrigatórios:
-1. O nome da equipe de Content Moderator.
-1. A ID de revisão de vídeo retornada por **CreateVideoReviews**.
+Publica uma análise de vídeo com **ContentModeratorClient.Reviews.PublishVideoReview**. **PublishVideoReview** tem os seguintes parâmetros necessários:
+1. O nome da sua equipa moderadorde conteúdo.
+1. O ID da análise de vídeo devolvido pela **CreateVideoReviews**.
 
-Adicione a seguinte definição de método ao namespace VideoReviews, classe Program.
+Adicione a seguinte definição de método ao nomespace VideoReviews, programa de classe.
 
 ```csharp
 /// <summary>
@@ -314,10 +314,10 @@ private static void PublishReview(ContentModeratorClient client, string review_i
 
 ## <a name="putting-it-all-together"></a>Juntar tudo
 
-Adicione a definição do método **Main** ao namespace VideoTranscriptReviews, classe Program. Por fim, feche a classe programa e o namespace VideoTranscriptReviews.
+Adicione a definição de método **principal** ao nomespace VideoTranscriptReviews, programa de classe. Por fim, feche a aula de Programa e o espaço de nome StranscriptReviews videoTranscript.
 
 > [!NOTE]
-> O programa usa uma transcrição de exemplo no formato VTT. Em uma solução do mundo real, você usa o serviço de Azure Media Indexer para [gerar uma transcrição](https://docs.microsoft.com/azure/media-services/media-services-index-content) de um vídeo.
+> O programa utiliza uma transcrição de amostra no formato VTT. Numa solução real, utiliza-se o serviço Azure Media Indexer para [gerar uma transcrição](https://docs.microsoft.com/azure/media-services/media-services-index-content) a partir de um vídeo.
 
 ```csharp
 static void Main(string[] args)
@@ -353,7 +353,7 @@ static void Main(string[] args)
 
 ## <a name="run-the-program-and-review-the-output"></a>Executar o programa e rever o resultado
 
-Ao executar o aplicativo, você verá uma saída nas seguintes linhas:
+Ao executar a aplicação, vê uma saída nas seguintes linhas:
 
 ```console
 Creating a video review.
@@ -364,21 +364,21 @@ Open your Content Moderator Dashboard and select Review > Video to see the revie
 Press any key to close the application.
 ```
 
-## <a name="navigate-to-your-video-transcript-review"></a>Navegue até sua revisão de transcrição de vídeo
+## <a name="navigate-to-your-video-transcript-review"></a>Navegue para a sua análise de transcrição de vídeo
 
-Vá para a revisão de transcrição de vídeo em sua ferramenta de revisão de Content Moderator na tela **Revisar**>**vídeo**>**transcrição** .
+Vá à análise da transcrição de vídeo na sua ferramenta de revisão de moderador de conteúdo no ecrã de**transcrição** de**vídeo**> **de revisão.**>
 
-Você verá os seguintes recursos:
-- As duas linhas de transcrição que você adicionou
-- O termo de profanação encontrado e realçado pelo serviço de moderação de texto
-- A seleção de um texto de transcrição inicia o vídeo desse carimbo de data/hora
+Veja as seguintes características:
+- As duas linhas de transcrição que acrescentou
+- O termo profano encontrado e destacado pelo serviço de moderação de texto
+- A seleção de um texto de transcrição inicia o vídeo a partir desse carimbo de tempo
 
-![Análise de transcrição de vídeo para moderadores humanos](images/ams-video-transcript-review.PNG)
+![Revisão da transcrição de vídeo para moderadores humanos](images/ams-video-transcript-review.PNG)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Obtenha o [SDK do .net content moderator](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e a [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros guias de início rápido Content moderator para .net.
+Obtenha o Moderador de [Conteúdo .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e a [solução Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros quickstarts de Moderador de Conteúdo para .NET.
 
-Saiba como gerar [revisões de vídeo](video-reviews-quickstart-dotnet.md) na ferramenta de revisão.
+Saiba como gerar [críticas](video-reviews-quickstart-dotnet.md) de vídeo na ferramenta de revisão.
 
-Confira o tutorial detalhado sobre como desenvolver uma [solução de moderação de vídeo completa](video-transcript-moderation-review-tutorial-dotnet.md).
+Confira o tutorial detalhado sobre como desenvolver uma [solução completa](video-transcript-moderation-review-tutorial-dotnet.md)de moderação de vídeo .

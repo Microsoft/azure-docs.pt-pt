@@ -1,7 +1,7 @@
 ---
 title: Entidade pré-construída de moeda - LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém moeda informações da entidade pré-criados na compreensão de idiomas (LUIS).
+description: Este artigo contém informações de entidades pré-construídas em compreensão linguística (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,23 +12,23 @@ ms.topic: reference
 ms.date: 10/14/2019
 ms.author: diberry
 ms.openlocfilehash: 56d264fa976967ae4772f50b4aa6f58b30355d6f
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270769"
 ---
 # <a name="currency-prebuilt-entity-for-a-luis-app"></a>Entidade pré-construída em moeda para uma app LUIS
-A entidade monetária pré-construída deteta moeda em muitas denominações e países/regiões, independentemente da cultura de aplicações LUIS. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém a moeda a dos objetivos do aplicativo. A entidade monetária é apoiada em [muitas culturas.](luis-reference-prebuilt-entities.md)
+A entidade monetária pré-construída deteta moeda em muitas denominações e países/regiões, independentemente da cultura de aplicações LUIS. Como esta entidade já está treinada, não precisa de adicionar declarações de exemplo contendo moeda às intenções de aplicação. A entidade monetária é apoiada em [muitas culturas.](luis-reference-prebuilt-entities.md)
 
 ## <a name="types-of-currency"></a>Tipos de moeda
 A moeda é gerida a partir do repositório GitHub [de texto de reconhecimento](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26)
 
-## <a name="resolution-for-currency-entity"></a>Resolução de entidades de moeda
+## <a name="resolution-for-currency-entity"></a>Resolução para entidade monetária
 
 #### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O seguinte JSON está com o parâmetro `verbose` definido para `false`:
+O seguinte JSON `verbose` está com `false`o parâmetro definido para:
 
 ```json
 "entities": {
@@ -41,7 +41,7 @@ O seguinte JSON está com o parâmetro `verbose` definido para `false`:
 }
 ```
 #### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
-O seguinte JSON está com o parâmetro `verbose` definido para `true`:
+O seguinte JSON `verbose` está com `true`o parâmetro definido para:
 
 ```json
 "entities": {

@@ -1,7 +1,7 @@
 ---
-title: Texto moderado usando a API de moderação de texto-Content Moderator
+title: Texto moderado utilizando a API de Moderação de Texto - Moderador de Conteúdo
 titleSuffix: Azure Cognitive Services
-description: Teste a moderação de texto usando a API de moderação de texto no console online.
+description: Moderação de texto de test-drive utilizando a API de moderação de texto na consola online.
 services: cognitive-services
 author: PatrickFarley
 ms.author: pafarley
@@ -11,56 +11,56 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.openlocfilehash: e0930558f31b27a77fa2cd6b44fcea2fe9091086
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74538829"
 ---
-# <a name="moderate-text-from-the-api-console"></a>Texto moderado do console de API
+# <a name="moderate-text-from-the-api-console"></a>Texto moderado da consola API
 
-Use a [API de moderação de texto](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) no Content moderator do Azure para verificar seu conteúdo de texto em busca de profanação e compará-lo em listas personalizadas e compartilhadas.
+Utilize a API de [moderação](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) de texto em Moderador de Conteúdo Azure para digitalizar o seu conteúdo de texto para profanação e compará-lo com listas personalizadas e partilhadas.
 
-## <a name="get-your-api-key"></a>Obter sua chave de API
+## <a name="get-your-api-key"></a>Obtenha a sua chave API
 
-Antes de poder testar a API no console online, você precisa da sua chave de assinatura. Isso está localizado na guia **configurações** , na caixa **OCP-APIM-Subscription-Key** . Para obter mais informações, veja [Descrição geral](overview.md).
+Antes de poder testar a API na consola online, precisa da sua chave de subscrição. Isto está localizado no separador **Definições,** na caixa **De-Assinatura-Chave Ocp-Apim..** Para obter mais informações, veja [Descrição geral](overview.md).
 
-## <a name="navigate-to-the-api-reference"></a>Navegue até a referência de API
+## <a name="navigate-to-the-api-reference"></a>Navegue para a referência da API
 
-Vá para a [referência da API de moderação de texto](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). 
+Vá à referência da API de [moderação](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f)de texto . 
 
-  A página da **tela de texto** é aberta.
+  A página **texto - tela** abre.
 
-## <a name="open-the-api-console"></a>Abrir o console de API
+## <a name="open-the-api-console"></a>Abra a consola API
 
-Para **abrir o console de teste de API**, selecione a região que melhor descreve seu local. 
+Para **a consola de teste API aberta,** selecione a região que mais descreve a sua localização. 
 
-  ![Seleção de região de página da tela de texto](images/test-drive-region.png)
+  ![Texto - Seleção da região da página de tela](images/test-drive-region.png)
 
-  O console da API de **tela de texto** é aberto.
+  Abre-se a consola **Text - Screen** API.
 
-## <a name="select-the-inputs"></a>Selecionar as entradas
+## <a name="select-the-inputs"></a>Selecione as inputs
 
 ### <a name="parameters"></a>Parâmetros
 
-Selecione os parâmetros de consulta que você deseja usar na tela de texto. Para este exemplo, use o valor padrão para **Language**. Você também pode deixá-lo em branco porque a operação detectará automaticamente o idioma provável como parte de sua execução.
+Selecione os parâmetros de consulta que pretende utilizar no seu ecrã de texto. Para este exemplo, utilize o valor predefinido para **a linguagem**. Também pode deixá-lo em branco porque a operação detetará automaticamente a linguagem provável como parte da sua execução.
 
 > [!NOTE]
-> Para o parâmetro de **idioma** , atribua `eng` ou deixe-o vazio para ver a resposta de **classificação** assistida por computador (recurso de visualização). **Esse recurso dá suporte apenas ao inglês**.
+> Para o parâmetro **linguístico,** atribua `eng` ou deixe vazio para ver a resposta de **classificação** assistida pela máquina (função de pré-visualização). **Esta funcionalidade suporta apenas inglês.**
 >
-> Para a detecção de **termos de profanação** , use o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte listados neste artigo ou deixe-o vazio.
+> Para deteção de **termos de profanação,** utilize o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) das línguas suportadas enumeradas neste artigo, ou deixe-o vazio.
 
-Para **AutoCorreção**, **PII**e **classificar (visualização)** , selecione **verdadeiro**. Deixe o campo **ListId** vazio.
+Para **corrigir automaticamente**, **PII,** e classificar **(pré-visualização)**, selecione **verdadeiro**. Deixe o campo **ListId** vazio.
 
-  ![Parâmetros de consulta do console de tela de texto](images/text-api-console-inputs.PNG)
+  ![Texto - Parâmetros de consulta de consola de tela](images/text-api-console-inputs.PNG)
 
-### <a name="content-type"></a>Tipo de conteúdo
+### <a name="content-type"></a>Tipo do conteúdo
 
-Para **Content-Type**, selecione o tipo de conteúdo que você deseja para a tela. Para este exemplo, use o tipo de conteúdo padrão **/texto sem formatação** . Na caixa **OCP-APIM-Subscription-Key** , insira sua chave de assinatura.
+Para **o Tipo de Conteúdo,** selecione o tipo de conteúdo que pretende testar. Para este exemplo, utilize o tipo de **texto/conteúdo simples** predefinido. Na caixa **Ocp-Apim-Subscription-Key,** introduza a sua chave de subscrição.
 
-### <a name="sample-text-to-scan"></a>Texto de exemplo para verificação
+### <a name="sample-text-to-scan"></a>Texto de amostra para digitalizar
 
-Na caixa **corpo da solicitação** , insira algum texto. O exemplo a seguir mostra uma grafia intencional no texto.
+Na caixa **de corpo solicitar,** insira algum texto. O exemplo que se segue mostra uma tipografia intencional no texto.
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number (SSN).
@@ -68,10 +68,10 @@ Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP: 255.255.
 
 ## <a name="analyze-the-response"></a>Analisar a resposta
 
-A resposta a seguir mostra as várias informações da API. Ele contém possíveis obscenidades, dados pessoais, classificação (visualização) e a versão corrigida automaticamente.
+A resposta que se segue mostra as várias informações da API. Contém potencial profanação, dados pessoais, classificação (pré-visualização) e a versão corrigida automaticamente.
 
 > [!NOTE]
-> O recurso ' classificação ' assistido por computador está em visualização e dá suporte apenas ao inglês.
+> A função de 'Classificação' assistida por máquinas está na pré-visualização e suporta apenas inglês.
 
 ```json
 {"OriginalText":"Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.\r\nThese are all UK phone numbers: +44 123 456 7890 or 0234 567 8901 or 0456 789 0123.\r\nAlso, 999-99-9999 looks like a social security number (SSN).",
@@ -167,8 +167,8 @@ A resposta a seguir mostra as várias informações da API. Ele contém possíve
 }
 ```
 
-Para obter uma explicação detalhada de todas as seções na resposta JSON, consulte o guia conceitual de [moderação de texto](text-moderation-api.md) .
+Para obter uma explicação detalhada de todas as secções da resposta JSON, consulte o guia conceptual da moderação do [Texto.](text-moderation-api.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Use a API REST em seu código ou siga o [início rápido do SDK do .net](dotnet-sdk-quickstart.md) para integrar com seu aplicativo.
+Utilize a API REST no seu código ou siga o [quickstart .NET SDK](dotnet-sdk-quickstart.md) para integrar com a sua aplicação.

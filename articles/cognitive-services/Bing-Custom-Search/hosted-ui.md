@@ -1,7 +1,7 @@
 ---
-title: Configurar uma interface do usuário hospedada para Pesquisa Personalizada do Bing | Microsoft Docs
+title: Configure um UI hospedado para bing custom search [ Microsoft Docs
 titleSuffix: Azure Cognitive Services
-description: Use este artigo para configurar e integrar uma interface do usuário hospedada para Pesquisa Personalizada do Bing.
+description: Utilize este artigo para configurar e integrar um UI hospedado para bing custom search.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,25 +11,25 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.openlocfilehash: 2cc89bf57167db75404c044f58d18ab48edfaf38
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68854074"
 ---
-# <a name="configure-your-hosted-ui-experience"></a>Configurar sua experiência de interface do usuário hospedada
+# <a name="configure-your-hosted-ui-experience"></a>Configurar a sua experiência de IU alojada
 
-O Pesquisa Personalizada do Bing fornece uma interface do usuário hospedada que você pode integrar facilmente às suas páginas da Web e aos aplicativos como um trecho de código JavaScript. Usando o portal de Pesquisa Personalizada do Bing, você pode configurar as opções de layout, cor e pesquisa da interface do usuário.
+Bing Custom Search fornece um UI hospedado que você pode facilmente integrar nas suas páginas web e aplicações web como um snippet de código JavaScript. Utilizando o portal bing Custom Search, pode configurar as opções de layout, cor e pesquisa da UI.
 
 
 
-## <a name="configure-the-custom-hosted-ui"></a>Configurar a interface do usuário hospedada personalizada
+## <a name="configure-the-custom-hosted-ui"></a>Configure a UI personalizada hospedada
 
-Para configurar uma interface do usuário hospedada para seus aplicativos Web, siga estas etapas. Conforme você faz alterações, o painel à direita fornece uma visualização de sua interface do usuário. Os resultados da pesquisa exibidos não são resultados reais para sua instância.
+Para configurar um UI hospedado para as suas aplicações web, siga estes passos. À medida que faz espetar, o painel à direita lhe dará uma pré-visualização do seu UI. Os resultados de pesquisa apresentados não são resultados reais para a sua instância.
 
-1. Entre no [portal](https://customsearch.ai)do pesquisa personalizada do Bing.  
+1. Inscreva-se no [portal](https://customsearch.ai)de pesquisa personalizada Bing .  
   
-2. Selecione sua instância de Pesquisa Personalizada do Bing.
+2. Selecione a sua instância de pesquisa personalizada Bing.
 
 3. Clique no separador **IU Alojada**.  
   
@@ -37,30 +37,30 @@ Para configurar uma interface do usuário hospedada para seus aplicativos Web, s
 
     |  |  |
     |---------|---------|
-    |Barra de pesquisa e resultados (padrão)    | Exibe uma caixa de pesquisa com os resultados da pesquisa abaixo dele.         |
-    |Somente resultados     | Exibe somente os resultados da pesquisa, sem uma caixa de pesquisa. Ao usar esse layout, você deve fornecer a consulta de pesquisa`&q=<query string>`(). Adicione o parâmetro de consulta à URL de solicitação no trecho de código JavaScript ou ao link de ponto de extremidade HTML.        |
-    |Pop-over     | Fornece uma caixa de pesquisa e exibe os resultados da pesquisa em uma sobreposição deslizante.        |
+    |Barra de pesquisa e resultados (padrão)    | Exibe uma caixa de pesquisa com resultados de pesquisa abaixo.         |
+    |Apenas resultados     | Exibe apenas resultados de pesquisa, sem uma caixa de pesquisa. Ao utilizar este layout, deve fornecer`&q=<query string>`a consulta de pesquisa ( ). Adicione o parâmetro de consulta ao URL de pedido no corte JavaScript ou na ligação final HTML.        |
+    |Pop-over     | Fornece uma caixa de pesquisa e exibe os resultados da pesquisa numa sobreposição deslizante.        |
     
-5. Selecione um tema de cores. Você pode personalizar as cores para se ajustar ao seu aplicativo clicando em **Personalizar tema**. Para alterar uma cor, insira o valor hexadecimal RGB da cor (por exemplo, `#366eb8`) ou clique na visualização de cor.
+5. Selecione um tema de cores. Pode personalizar as cores para se adaptar à sua aplicação clicando no **tema Personalizar**. Para alterar uma cor, introduza o valor RGB HEX da cor (por exemplo, `#366eb8`ou clique na pré-visualização da cor.
 
-   Você pode visualizar as alterações no lado direito do Portal. Clicar em **Redefinir para padrão** reverterá suas alterações para as cores padrão do tema selecionado.
+   Pode visualizar as suas alterações no lado direito do portal. Clicar **em Redefinir para padrão** reverterá as suas alterações para as cores padrão para o tema selecionado.
 
    > [!NOTE]
-   > Considere a acessibilidade ao escolher cores.
+   > Considere a acessibilidade na escolha das cores.
 
-6. Em **configurações adicionais**, forneça valores conforme apropriado para seu aplicativo. Essas configurações são opcionais. Para ver o efeito de aplicá-los ou removê-los, consulte o painel de visualização à direita. As opções de configuração disponíveis são:  
+6. Em **Configurações Adicionais,** forneça valores conforme apropriado para a sua aplicação. Estas configurações são opcionais. Para ver o efeito de aplicá-los ou removê-los, consulte o painel de pré-visualização à direita. As opções de configuração disponíveis são:  
 
-7. Insira a chave de assinatura de pesquisa ou escolha uma na lista suspensa. A lista suspensa é preenchida com chaves das assinaturas da sua conta do Azure. Consulte [conta de API de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).  
+7. Introduza a chave de subscrição de pesquisa ou escolha uma da lista de dropdown. A lista de dropdown é preenchida com chaves das assinaturas da sua conta Azure. Consulte [a conta API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).  
 
-8. Se você habilitou a sugestão automática, insira a chave de assinatura de sugestão automática ou escolha uma na lista suspensa. A lista suspensa é preenchida com chaves das assinaturas da sua conta do Azure. A sugestão automática personalizada requer uma camada de assinatura específica, consulte o [preço](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
+8. Se ativar automaticamente, introduza a tecla de subscrição de sugestão automática ou escolha uma da lista de dropdown. A lista de dropdown é preenchida com chaves das assinaturas da sua conta Azure. A Custom Autosuggest requer um nível de subscrição específico, consulte os [preços](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
 
 [!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
-## <a name="consume-custom-ui"></a>Consumir interface do usuário personalizada
+## <a name="consume-custom-ui"></a>Consumir UI personalizado
 
-Para consumir a interface do usuário hospedada, seja: 
+Para consumir a UI hospedada, também: 
 
-- Incluir o script em sua página da Web  
+- Inclua o script na sua página web  
   
   ```html
   <html>
@@ -73,97 +73,97 @@ Para consumir a interface do usuário hospedada, seja:
   </html>
   ```
 
-- Ou use a URL a seguir em um navegador da Web.   
+- Ou, use o seguinte URL num navegador Web.   
   
   `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`  
   
   > [!NOTE]
-  > Adicione os seguintes parâmetros de consulta à URL, conforme necessário. Para obter informações sobre esses parâmetros, consulte referência de [API de pesquisa personalizada](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) .
+  > Adicione os seguintes parâmetros de consulta ao URL, conforme necessário. Para obter informações sobre estes parâmetros, consulte a referência da API de [Pesquisa Personalizada.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)
   >
-  > - p
+  > - q
   > - mkt
-  > - pesquisa segura
+  > - busca segura
   > - setlang
 
   > [!IMPORTANT]
-  > A página não pode exibir sua política de privacidade ou outros avisos e termos. A adequação para seu uso pode variar.  
+  > A página não pode apresentar a sua declaração de privacidade ou outros avisos e termos. A adequação à sua utilização pode variar.  
 
-Para obter informações adicionais, incluindo sua ID de configuração personalizada, vá para **pontos de extremidade** na guia **produção** .
+Para obter informações adicionais, incluindo o seu ID de Configuração Personalizada, vá a **Pontos Finais** sob o separador **Produção.**
 
 ## <a name="configuration-options"></a>Opções de configuração
 
-Você pode configurar o comportamento da interface do usuário hospedada clicando em **configurações adicionais**e fornecendo valores. Essas configurações são opcionais. Para ver o efeito de aplicá-los ou removê-los, consulte o painel de visualização à direita. 
+Pode configurar o comportamento do seu UI hospedado clicando em **Configurações Adicionais**e fornecendo valores. Estas configurações são opcionais. Para ver o efeito de aplicá-los ou removê-los, consulte o painel de pré-visualização à direita. 
 
-### <a name="web-search-configurations"></a>Configurações de pesquisa na Web
+### <a name="web-search-configurations"></a>Configurações de pesquisa web
 
 |  |  |
 |---------|---------|
-|Resultados da Web habilitados    | Determina se a pesquisa da Web está habilitada (você verá uma guia da Web na parte superior da página)        |
-|Habilitar sugestão automática     | Determina se a sugestão automática personalizada está habilitada (consulte os [preços](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) para obter custos adicionais).        |
-|Resultados da Web por página    | Número de resultados da pesquisa na Web a serem exibidos de cada vez (o máximo é 50 resultados por página).        |
-|Legenda da imagem   | Determina se as imagens são exibidas com os resultados da pesquisa.|
+|Resultados web ativados    | Determina se a pesquisa na Web está ativada (verá um separador Web no topo da página)        |
+|Ativar autosugerir     | Determina se o auto-sugerido personalizado está ativado (ver [preços](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) para custos adicionais).        |
+|Resultados da web por página    | Número de resultados de pesquisa web para visualizar de cada vez (o máximo é de 50 resultados por página).        |
+|Legenda da imagem   | Determina se as imagens são exibidas com resultados de pesquisa.|
 
 
-As configurações a seguir serão exibidas se você clicar em **Mostrar configurações avançadas**:
+As seguintes configurações são mostradas se clicar em **Mostrar configurações avançadas:**
 
 
 |  | |
 |---------|---------|
-|Realçar palavras     | Determina se os resultados são exibidos com os termos de pesquisa em negrito.         |
-|Destino do link    |  Determina se a página da Web é aberta em uma nova guia do navegador (em branco) ou na mesma guia do navegador (própria) quando o usuário clica em um resultado da pesquisa.        |
+|Destacar palavras     | Determina se os resultados são apresentados com termos de pesquisa em negrito.         |
+|Alvo de ligação    |  Determina se a página web abre num novo separador de navegador (Blank) ou no mesmo separador de navegador (auto) quando o utilizador clica num resultado de pesquisa.        |
 
 ### <a name="image-search-configurations"></a>Configurações de pesquisa de imagem
 
 | | |
 |---------|---------|
-|Resultados da imagem habilitados     | Determina se a pesquisa de imagem está habilitada (você verá uma guia imagens na parte superior da página).            |
-|Resultados da imagem por página     | Número de resultados da pesquisa de imagem a serem exibidos de cada vez (o máximo é 150 resultados por página).          |
+|Resultados de imagem ativados     | Determina se a pesquisa de imagem está ativada (verá um separador Imagens na parte superior da página).            |
+|Resultados da imagem por página     | Número de resultados de pesquisa de imagem para visualizar de cada vez (o máximo é de 150 resultados por página).          |
 
-A configuração a seguir será mostrada se você clicar em **Mostrar configurações avançadas**.  
+A seguinte configuração é mostrada se clicar em **Mostrar configurações avançadas**.  
   
 | | |
 |---------|---------|
-| Habilitar filtros     | Adiciona filtros que o usuário pode usar para filtrar as imagens que o Bing retorna. Por exemplo, o usuário pode filtrar os resultados para apenas GIFs animados.|
+| Ativar filtros     | Adiciona filtros que o utilizador pode usar para filtrar as imagens que bing retorna. Por exemplo, o utilizador pode filtrar os resultados apenas para GIFs animados.|
 
 ### <a name="video-search-configurations"></a>Configurações de pesquisa de vídeo
 
 |  | |
 |---------|---------|
-|Resultados de vídeo habilitados     | Determina se a pesquisa de vídeo está habilitada (você verá uma guia vídeos na parte superior da página).           |
-|Resultados de vídeo por página   | Número de resultados da pesquisa de vídeo a serem exibidos de cada vez (o máximo é 150 resultados por página).        |
+|Resultados de vídeo ativados     | Determina se a pesquisa de vídeo está ativada (verá um separador De Vídeos na parte superior da página).           |
+|Resultados de vídeo por página   | Número de resultados de pesquisa de vídeo para exibir de cada vez (o máximo é de 150 resultados por página).        |
 
-A configuração a seguir será mostrada se você clicar em **Mostrar configurações avançadas**.  
+A seguinte configuração é mostrada se clicar em **Mostrar configurações avançadas**.  
   
 |  | |
 |---------|---------|
-|Habilitar filtros    | Adiciona filtros que o usuário pode usar para filtrar os vídeos que o Bing retorna. Por exemplo, o usuário pode filtrar os resultados para vídeos com uma resolução ou vídeos específicos descobertos nas últimas 24 horas.          |
+|Ativar filtros    | Adiciona filtros que o utilizador pode usar para filtrar os vídeos que bing retorna. Por exemplo, o utilizador pode filtrar os resultados de vídeos com uma resolução específica ou vídeos descobertos nas últimas 24 horas.          |
 
 ### <a name="miscellaneous-configurations"></a>Configurações diversas
 
 
 | |  |
 |---------|---------|
-|Título da página   | Texto exibido na área de título da página de resultados da pesquisa (não para layout pop-over).        |
-|Tema da barra de ferramentas    | Determina a cor do plano de fundo da área de título da página de resultados da pesquisa. |
+|Título da página   | Texto apresentado na área do título da página de resultados de pesquisa (não para layout pop-over).        |
+|Tema da barra de ferramentas    | Determina a cor de fundo da área do título da página de resultados da pesquisa. |
 
-As configurações a seguir serão mostradas se você clicar em **Mostrar configurações avançadas**.  
+As seguintes configurações são mostradas se clicar em **Mostrar configurações avançadas**.  
 
-|Column1  |Column2  |
+|Coluna1  |Coluna2  |
 |---------|---------|
-|Espaço reservado para texto da caixa de pesquisa   | Texto exibido na caixa de pesquisa antes da entrada.        |
-|URL do link do título    |Destino do link de título.         |
+|Espaço reservado para texto da caixa de pesquisa   | Texto apresentado na caixa de pesquisa antes da entrada.        |
+|Url de ligação de título    |Alvo para a ligação do título.         |
 |URL do logotipo     | Imagem exibida ao lado do título.         |
 |Favicon    | Ícone exibido na barra de título do navegador.          |
 
-As configurações a seguir se aplicam somente se você consumir a interface do usuário hospedada por meio do ponto de extremidade HTML (elas não se aplicam se você usar o trecho de JavaScript).
+As seguintes configurações só se aplicam se consumir o UI hospedeiro através do ponto final HTML (não se aplicam se utilizar o snippet JavaScript).
 
 - Título da página
 - Tema da barra de ferramentas
-- URL do link do título
+- URL de ligação de título
 - URL do logotipo
-- URL do Faviicon  
+- Faviicon URL  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Utilizar marcadores decorativos para realçar o texto](../bing-web-search/hit-highlighting.md)
 - [Paginação de páginas Web](./page-webpages.md)

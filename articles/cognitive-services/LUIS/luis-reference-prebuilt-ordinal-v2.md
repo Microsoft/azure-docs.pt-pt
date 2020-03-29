@@ -12,14 +12,14 @@ ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ms.openlocfilehash: 5e852313db75e598da647ea0f985e2ee18af16de
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270488"
 ---
 # <a name="ordinal-v2-prebuilt-entity-for-a-luis-app"></a>Entidade pré-construída Ordinal V2 para uma app LUIS
-O número Ordinal V2 expande [o Ordinal](luis-reference-prebuilt-ordinal.md) para fornecer referências relativas como `next`, `last`e `previous`. Estes não são extraídos utilizando a entidade ordinal pré-construída.
+O número Ordinal V2 expande [o Ordinal](luis-reference-prebuilt-ordinal.md) para fornecer referências relativas como, `next` `last`e `previous`. Estes não são extraídos utilizando a entidade ordinal pré-construída.
 
 ## <a name="resolution-for-prebuilt-ordinal-v2-entity"></a>Resolução para entidade ordinal V2 pré-construída
 
@@ -29,7 +29,7 @@ Os seguintes objetos de entidade são devolvidos para consulta:
 
 #### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O seguinte JSON está com o parâmetro `verbose` definido para `false`:
+O seguinte JSON `verbose` está com `false`o parâmetro definido para:
 
 ```json
 "entities": {
@@ -44,7 +44,7 @@ O seguinte JSON está com o parâmetro `verbose` definido para `false`:
 
 #### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
 
-O seguinte JSON está com o parâmetro `verbose` definido para `true`:
+O seguinte JSON `verbose` está com `true`o parâmetro definido para:
 
 ```json
 "entities": {

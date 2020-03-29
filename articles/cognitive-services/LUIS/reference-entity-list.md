@@ -1,20 +1,20 @@
 ---
 title: Tipo de entidade de lista - LUIS
-description: As entidades da lista representam um conjunto fixo e fechado de palavras relacionadas juntamente com os seus sinónimos. LUIS não Deteta valores adicionais para entidades de lista. Utilize a função Recomendar para ver sugestões de novas palavras com base na lista atual.
+description: As entidades da lista representam um conjunto fixo e fechado de palavras relacionadas juntamente com os seus sinónimos. A LUIS não descobre valores adicionais para entidades de lista. Utilize a função Recomendar para ver sugestões de novas palavras com base na lista atual.
 ms.topic: reference
 ms.date: 03/12/2020
 ms.openlocfilehash: 795d16bc2e0c4223ff3ac283a72493923d3ab355
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79297242"
 ---
 # <a name="list-entity"></a>Entidade de lista
 
-As entidades da lista representam um conjunto fixo e fechado de palavras relacionadas juntamente com os seus sinónimos. LUIS não Deteta valores adicionais para entidades de lista. Utilize a função **Recomendar** para ver sugestões de novas palavras com base na lista atual. Se houver mais de uma entidade de lista com o mesmo valor, cada entidade é devolvida na consulta de ponto final.
+As entidades da lista representam um conjunto fixo e fechado de palavras relacionadas juntamente com os seus sinónimos. A LUIS não descobre valores adicionais para entidades de lista. Utilize a função **Recomendar** para ver sugestões de novas palavras com base na lista atual. Se houver mais de uma entidade de lista com o mesmo valor, cada entidade é devolvida na consulta final.
 
-Uma entidade da lista não é aprendida com máquinas. É uma correspondência exata de texto. LUIS marca qualquer correspondência com um item em qualquer lista como uma entidade na resposta.
+Uma entidade da lista não é aprendida com máquinas. É uma correspondência exata de texto. Luis marca qualquer correspondência com um item em qualquer lista como entidade na resposta.
 
 **A entidade é um bom ajuste quando os dados de texto:**
 
@@ -23,7 +23,7 @@ Uma entidade da lista não é aprendida com máquinas. É uma correspondência e
 * O conjunto não excede os [limites](luis-boundaries.md) máximos do LUIS para este tipo de entidade.
 * O texto na expressão é um jogo insensível com um sinónimo ou o nome canónico. Luis não usa a lista para além da partida. A correspondência fuzzy, stemming, plural, e outras variações não são resolvidas com uma entidade da lista. Para gerir variações, considere usar um [padrão](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) com a sintaxe de texto opcional.
 
-![entidade de lista](./media/luis-concept-entities/list-entity.png)
+![entidade lista](./media/luis-concept-entities/list-entity.png)
 
 ## <a name="example-json-to-import-into-list-entity"></a>Exemplo .json para importar em entidade de lista
 
@@ -52,16 +52,16 @@ Uma entidade da lista não é aprendida com máquinas. É uma correspondência e
 
 ## <a name="example-json-response"></a>Exemplo resposta JSON
 
-Suponha que a app tem uma lista, denominada `Cities`, permitindo variações de nomes da cidade, incluindo cidade do aeroporto (Sea-tac), código do aeroporto (SEA), código postal postal postal (98101) e código de área telefónica (206).
+Suponha que a `Cities`app tem uma lista, nomeada , permitindo variações de nomes da cidade, incluindo cidade do aeroporto (Sea-tac), código do aeroporto (SEA), código postal postal postal (98101) e código de área telefónica (206).
 
-|Item de lista|Sinónimos de item|
+|Listar item|Sinónimos de artigo|
 |---|---|
 |`Seattle`|`sea-tac`, `sea`, `98101`, `206`, `+1` |
-|`Paris`|`cdg`, `roissy`, `ory``75001`, `1`, `+33`|
+|`Paris`|`cdg`, `roissy`, `ory`, `75001`, `1`, `+33`|
 
 `book 2 tickets to paris`
 
-Na expressão anterior, a palavra `paris` é mapeada para o item de Paris como parte da entidade da lista de `Cities`. A entidade de lista corresponde ao nome do item de normalizado os e os item de sinónimos.
+Na expressão anterior, a `paris` palavra é mapeada para o `Cities` item de Paris como parte da entidade da lista. A entidade da lista corresponde tanto ao nome normalizado do artigo como aos sinónimos de artigo.
 
 #### <a name="v2-prediction-endpoint-response"></a>[Resposta final de previsão V2](#tab/V2)
 
@@ -130,6 +130,6 @@ Este é o JSON se `verbose=true` estiver definido na corda de consulta:
 |Entidade de Lista|`Cities`|`paris`|
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste [tutorial,](tutorial-list-entity.md)aprenda a usar uma **entidade da lista** para extrair correspondências exatas de texto de uma lista de itens conhecidos.

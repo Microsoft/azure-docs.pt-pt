@@ -5,70 +5,70 @@ ms.topic: include
 ms.date: 08/30/2019
 ms.author: wolfma
 ms.openlocfilehash: c7332177795a45331749225e0f3dc3856e28a6a2
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71327038"
 ---
-Para criar um projeto do Visual Studio para o desenvolvimento do Windows, você precisa criar o projeto, configurar o Visual Studio para desenvolvimento de área de trabalho do .NET, instalar o SDK de fala e escolher a arquitetura de destino.
+Para criar um projeto de Estúdio Visual para o desenvolvimento do Windows, é necessário criar o projeto, configurar o Visual Studio para o desenvolvimento do ambiente de trabalho .NET, instalar o Speech SDK e escolher a arquitetura-alvo.
 
 ### <a name="create-the-project-and-add-the-workload"></a>Criar o projeto e adicionar a carga de trabalho
 
-Para começar, crie o projeto no Visual Studio e verifique se o Visual Studio está configurado para desenvolvimento de área de trabalho do .NET:
+Para começar, crie o projeto no Visual Studio e certifique-se de que o Visual Studio está configurado para o desenvolvimento do ambiente de trabalho .NET:
 
-1. Abra o Visual Studio 2019.
+1. Open Visual Studio 2019.
 
-1. Na janela iniciar, selecione **criar um novo projeto**. 
+1. Na janela Iniciar, selecione **Criar um novo projeto**. 
 
-1. Na janela **criar um novo projeto** , escolha **aplicativo de console (.NET Framework)** e, em seguida, selecione **Avançar**.
+1. Na **janela Criar uma nova** janela de projeto, escolha **a App consola (.NET Framework)** e, em seguida, selecione **Next**.
 
-1. Na janela **configurar seu novo projeto** , digite *HelloWorld* no **nome do projeto**, escolha ou crie o caminho do diretório em **local**e, em seguida, selecione **criar**.
+1. Na **configuração** da sua nova janela de projeto, insira *o Helloworld* em **nome do Projeto,** escolha ou crie o caminho de diretório no **Local**, e, em seguida, selecione **Criar**.
 
-1. Na barra de menus do Visual Studio, selecione **ferramentas** > **obter ferramentas e recursos**, que abre instalador do Visual Studio e exibe a caixa de diálogo **modificando** .
+1. A partir da barra de menus do Estúdio Visual, selecione **Tools** > **Get Tools and Features**, que abre o Instalador de Estúdios Visuais e exibe a caixa de diálogo **Modificador.**
 
-1. Verifique se a carga de **trabalho do .net desktop Development** está disponível. Se a carga de trabalho não tiver sido instalada, marque a caixa de seleção ao lado dela e, em seguida, selecione **Modificar** para iniciar a instalação. Pode levar alguns minutos para baixar e instalar.
+1. Verifique se a carga de trabalho de desenvolvimento do ambiente de **trabalho .NET** está disponível. Se a carga de trabalho não tiver sido instalada, selecione a caixa de verificação ao lado e, em seguida, selecione **Modificar** para iniciar a instalação. Pode levar alguns minutos para descarregar e instalar.
 
-   Se a caixa de seleção ao lado de **desenvolvimento de área de trabalho .net** já estiver selecionada, selecione **fechar** para sair da caixa de diálogo.
+   Se a caixa de verificação ao lado do desenvolvimento do ambiente de **trabalho .NET** já estiver selecionada, selecione **Close** to exit the dialog box.
 
    ![Ativar o desenvolvimento do ambiente de trabalho .NET](../articles/cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
 
-1. Feche Instalador do Visual Studio.
+1. Instalador de estúdio visual próximo.
 
-### <a name="install-the-speech-sdk"></a>Instalar o SDK de fala
+### <a name="install-the-speech-sdk"></a>Instale o SDK do Discurso
 
-A próxima etapa é instalar o [pacote NuGet do SDK de fala](https://aka.ms/csspeech/nuget), para que você possa referenciá-lo no código.
+O próximo passo é instalar o [pacote NuGet Speech SDK,](https://aka.ms/csspeech/nuget)para que possa referenciar no código.
 
-1. Na Gerenciador de Soluções, clique com o botão direito do mouse no projeto **HelloWorld** e selecione **gerenciar pacotes NuGet** para mostrar o Gerenciador de pacotes NuGet.
+1. No Solution Explorer, clique no projeto **Helloworld** e, em seguida, selecione **Gerir pacotes NuGet** para mostrar o NuGet Package Manager.
 
-   ![Gerenciador de pacotes NuGet](../articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
+   ![Gestor de Pacotes NuGet](../articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
 
-1. No canto superior direito, localize a caixa suspensa **origem do pacote** e verifique se **NuGet.org** está selecionado.
+1. No canto superior direito, encontre a caixa de entrega da Fonte de **Embalagem** e certifique-se de que **nuget.org** é selecionada.
 
-1. No canto superior esquerdo, selecione **procurar**.
+1. No canto superior esquerdo, **selecione Browse**.
 
-1. Na caixa de pesquisa, digite *Microsoft. cognitivaservices. Speech* e selecione **Enter**.
+1. Na caixa de pesquisa, digite *Microsoft.CognitiveServices.Speech* e selecione **Enter**.
 
-1. Nos resultados da pesquisa, selecione o pacote **Microsoft. cognitivaservices. fala** e, em seguida, selecione **instalar** para instalar a versão estável mais recente.
+1. A partir dos resultados da pesquisa, selecione o pacote **Microsoft.CognitiveServices.Speech** e, em seguida, selecione **Instalar** para instalar a versão mais recente estável.
 
-   ![Instale o pacote NuGet Microsoft. Cognitivaservices. fala](../articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-1.0.0.png)
+   ![Instale o pacote Microsoft.CognitiveServices.Speech NuGet](../articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-1.0.0.png)
 
-1. Aceite todos os contratos e licenças para iniciar a instalação.
+1. Aceite todos os acordos e licenças para iniciar a instalação.
 
-   Depois que o pacote é instalado, uma confirmação é exibida na janela do **console do Gerenciador de pacotes** .
+   Após a instalação da embalagem, aparece uma confirmação na janela da Consola do Gestor de **Pacotes.**
 
-### <a name="choose-the-target-architecture"></a>Escolher a arquitetura de destino
+### <a name="choose-the-target-architecture"></a>Escolha a arquitetura-alvo
 
-Agora, para compilar e executar o aplicativo de console, crie uma configuração de plataforma correspondente à arquitetura do seu computador.
+Agora, para construir e executar a aplicação da consola, crie uma configuração de plataforma que combine com a arquitetura do seu computador.
 
-1. Na barra de menus, selecione **criar** > **Configuration Manager**. O **Configuration Manager** é apresentada a caixa de diálogo.
+1. A partir da barra de menus, selecione **Build** > **Configuration Manager**. Aparece a caixa de diálogo do Gestor de **Configuração.**
 
-   ![Caixa de diálogo Configuration Manager](../articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
+   ![Caixa de diálogo do Gestor de Configuração](../articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
 
-1. Na caixa suspensa **plataforma de solução ativa** , selecione **novo**. A caixa de diálogo **nova plataforma de solução** é exibida.
+1. Na caixa de drop-down da plataforma ative **solution,** selecione **New**. Aparece a caixa de diálogo new **solution Platform.**
 
-1. Na caixa suspensa **digite ou selecione a nova plataforma** :
-   - Se você estiver executando o Windows de 64 bits, selecione **x64**.
-   - Se você estiver executando o Windows de 32 bits, selecione **x86**.
+1. No **Tipo ou selecione a nova** caixa de lançamento da plataforma:
+   - Se estiver a executar o Windows de 64 bits, selecione **x64**.
+   - Se estiver a executar o Windows de 32 bits, selecione **x86**.
 
-1. Selecione **OK** e, em seguida, **fechar**.
+1. Selecione **OK** **e,** em seguida, Feche .

@@ -1,7 +1,7 @@
 ---
-title: Alinhamento de palavras-API de Tradução de Texto
+title: Alinhamento de palavras - API de Texto tradutor
 titleSuffix: Azure Cognitive Services
-description: Para receber informações de alinhamento, use o método translate e inclua o parâmetro opcional includeAlignment.
+description: Para receber informações de alinhamento, utilize o método Traduzir e inclua o parâmetro opcional de alinhamento.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -12,35 +12,35 @@ ms.date: 06/04/2019
 ms.author: swmachan
 ms.custom: seodec18
 ms.openlocfilehash: dd4ff1e39c062910f4627973c801dc3c51f345e5
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73837232"
 ---
-# <a name="how-to-receive-word-alignment-information"></a>Como receber informações de alinhamento do Word
+# <a name="how-to-receive-word-alignment-information"></a>Como receber informações de alinhamento de palavras
 
-## <a name="receiving-word-alignment-information"></a>Recebendo informações de alinhamento do Word
-Para receber informações de alinhamento, use o método translate e inclua o parâmetro opcional includeAlignment.
+## <a name="receiving-word-alignment-information"></a>Receber informações de alinhamento de palavras
+Para receber informações de alinhamento, utilize o método Traduzir e inclua o parâmetro opcional de alinhamento.
 
-## <a name="alignment-information-format"></a>Formato de informações de alinhamento
-O alinhamento é retornado como um valor de cadeia de caracteres do formato a seguir para cada palavra da origem. As informações de cada palavra são separadas por um espaço, incluindo linguagens não separadas por espaço (scripts), como chinês:
+## <a name="alignment-information-format"></a>Formato de informação de alinhamento
+O alinhamento é devolvido como um valor de cadeia do seguinte formato para cada palavra da fonte. A informação para cada palavra é separada por um espaço, incluindo para línguas não separadas do espaço (scripts) como o chinês:
 
-[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]] *
+[[SourceTextStartIndex]:[SourceTextEndIndex]-[TgtTextStartIndex]:[TgtTextEndIndex]] *
 
-Cadeia de caracteres de alinhamento de exemplo: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
+Exemplo de alinhamento: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
 
-Em outras palavras, os dois-pontos separa o índice inicial e final, o traço separa os idiomas e o espaço separa as palavras. Uma palavra pode ser alinhada com zero, uma ou várias palavras na outra linguagem, e as palavras alinhadas podem ser não contíguas. Quando nenhuma informação de alinhamento estiver disponível, o elemento Alignment estará vazio. O método não retorna nenhum erro nesse caso.
+Por outras palavras, o cólon separa o índice de início e fim, o traço separa as línguas, e o espaço separa as palavras. Uma palavra pode alinhar-se com zero, uma ou múltiplas palavras na outra língua, e as palavras alinhadas podem não ser contíguas. Quando não houver informação de alinhamento disponível, o elemento Alinhamento estará vazio. O método não devolve nenhum erro nesse caso.
 
 ## <a name="restrictions"></a>Restrições
-O alinhamento só é retornado para um subconjunto dos pares de idiomas neste ponto:
-* do inglês para qualquer outro idioma;
-* de qualquer outro idioma para inglês, exceto para chinês simplificado, chinês tradicional e Letão para inglês
-* de japonês a coreano ou de coreano para japonês, você não receberá informações de alinhamento se a frase for uma tradução gravada. Um exemplo de uma tradução gravada é "Este é um teste", "Eu adoro você" e outras frases de alta frequência.
+O alinhamento só é devolvido para um subconjunto dos pares linguísticos neste momento:
+* do inglês para qualquer outra língua;
+* de qualquer outra língua para inglês, exceto para chinês simplificado, chinês tradicional, e letão para inglês
+* De japonês a coreano ou de coreano para japonês Não receberá informações de alinhamento se a frase for uma tradução enlatada. Exemplo de uma tradução enlatada é "Isto é um teste", "Amo-te", e outras frases de alta frequência.
 
 ## <a name="example"></a>Exemplo
 
-Exemplo de JSON
+Exemplo JSON
 
 ```json
 [

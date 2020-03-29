@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: egeaney
-ms.openlocfilehash: ad97bde447a7bfbddca480b8561403f2cee7e25a
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 22bd3afcf30b8b8ebce18b22d5419d49ec8c3b4b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79372284"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80053613"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente com o Cofre chave Azure utilizando o portal Azure
 
@@ -21,7 +21,7 @@ Você deve usar o Cofre chave Azure para armazenar as suas chaves geridas pelo c
 
 Este artigo mostra como configurar um Cofre chave Azure com chaves geridas pelo cliente usando o [portal Azure](https://portal.azure.com/). Para aprender a criar um cofre chave utilizando o portal Azure, consulte [Quickstart: set and retrieve a secret from Azure Key Vault utilizando o portal Azure](../../key-vault/quick-create-portal.md).
 
-## <a name="configure-azure-key-vault"></a>Configure Cofre de Chave Azure
+## <a name="configure-azure-key-vault"></a>Configurar o Azure Key Vault
 
 A utilização de chaves geridas pelo cliente requer que sejam definidas duas propriedades no cofre da chave, **Soft Delete** e **Não Purgar**. Estas propriedades não são ativadas por padrão, mas podem ser ativadas usando powerShell ou Azure CLI em um cofre de chave novo ou existente.
 
@@ -109,3 +109,4 @@ Quando desativa as chaves geridas pelo cliente, o seu recurso Deserviços Cognit
 * [Encriptação do serviço de compreensão de idiomas de dados em repouso](../LUIS/luis-encryption-of-data-at-rest.md)
 * [Encriptação moderadora de conteúdo de dados em repouso](../Content-Moderator/content-moderator-encryption-of-data-at-rest.md)
 * [Encriptação de dados de tradutor em repouso](../translator/translator-encryption-of-data-at-rest.md)
+* [Encriptação personalizada de dados em repouso](../personalizer/personalizer-encryption-of-data-at-rest.md)

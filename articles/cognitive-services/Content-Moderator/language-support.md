@@ -1,7 +1,7 @@
 ---
-title: Suporte ao idioma-API de Content Moderator
+title: Suporte linguístico - API moderador de conteúdo
 titleSuffix: Azure Cognitive Services
-description: Esta é uma lista de linguagens naturais às quais a API de Content Moderator de serviços cognitivas do Azure dá suporte.
+description: Esta é uma lista de línguas naturais que a API moderadora de conteúdos dos Serviços Cognitivos Azure suporta.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,133 +11,133 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 9574af31c881589668c462099cae46d9e83b454b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73744360"
 ---
-# <a name="language-support-for-content-moderator-api"></a>Suporte de idioma para API de Content Moderator
+# <a name="language-support-for-content-moderator-api"></a>Suporte linguístico para API moderador de conteúdo
 
 > [!NOTE]
-> Para o parâmetro de **idioma** , atribua `eng` ou deixe-o vazio para ver a resposta de **classificação** assistida por computador (recurso de visualização). **Esse recurso dá suporte apenas ao inglês**.
+> Para o parâmetro **linguístico,** atribua `eng` ou deixe vazio para ver a resposta de **classificação** assistida pela máquina (função de pré-visualização). **Esta funcionalidade suporta apenas inglês.**
 >
-> Para a detecção de **termos de profanação** , use o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte listados neste artigo ou deixe-o vazio.
+> Para deteção de **termos de profanação,** utilize o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) das línguas suportadas enumeradas neste artigo, ou deixe-o vazio.
 
 
-| Deteção de idioma | Profanidade   | OCR    | Correção automática     |
+| Deteção de idioma | Palavras ofensivas   | OCR    | Correção automática     |
 | -------------------- |-------------|--------|---------------------|
-| Árabe (romano)   | Africâner   | Árabe   | Árabe |
-| Sinal | Albanês | Chinês (Simplificado)    | Dinamarquês |
-| Bengalês | Amárico | Chinês (Tradicional)     | Holandês |
-| Bugi | Árabe | Tcheco                     | Português |
-| Buhid | Armênio | Dinamarquês                     | Finlandês |
-| Carian | Assamês | Holandês                     | Francês |
-| Chinês (Simplificado) | Azerbaidjano | Português  | Grego (moderno) |
-| Chinês (Tradicional) | Bengali-Bangladesh | Finlandês  | Italiano |
-| Eslavo (eslavo) | Bengali-Índia | Francês     | Coreano |
-| Cóptico | Basco | Alemão                      | Norueguês |
-| Tcheco |  Bielo-russo | Grego (moderno)         | Polaco |
-| Dhivehi | Bósnio-cirílico | Húngaro      | Português |
-| Holandês | Bósnio-latino | Italiano             | Romeno |
-| Inglês (haitiano) | Bretão [não GeoPol] | Japonês  | Russo |
+| Árabe (romanizado)   | Afrikaans   | Árabe   | Árabe |
+| Balinesa | Albanês | Chinês (Simplificado)    | Dinamarquês |
+| Bengalês | Amanócio | Chinês (Tradicional)     | Neerlandês |
+| Buginese | Árabe | Checo                     | Inglês |
+| Rio Buhid | Arménio | Dinamarquês                     | Finlandês |
+| Cariano | Assamese | Neerlandês                     | Francês |
+| Chinês (Simplificado) | Azerbaijão | Inglês  | Grego (moderno) |
+| Chinês (Tradicional) | Bangla - Bangladesh | Finlandês  | Italiano |
+| Igreja (Eslavo) | Bangla - Índia | Francês     | Coreano |
+| Copta | Basco | Alemão                      | Norueguês |
+| Checo |  Bielorrusso | Grego (moderno)         | Polaco |
+| Dhivehi | Bósnio - Cirílico | Húngaro      | Português |
+| Neerlandês | Bósnio - Latim | Italiano             | Romeno |
+| Inglês (Crioulo) | Breton [não-GeoPol] | Japonês  | Russo |
 | Farsi | Búlgaro | Coreano                        | Eslovaco |
 | Francês | Catalão | Norueguês                        | Espanhol |
 | Alemão | Curdo central | Polaco        | Turco |
-| Grego | Cheroqui | Português | |
-| Crioulo | Chinês (Simplificado) | Romeno | |
-| Hebraico | Chinês (tradicional)-RAE de Hong Kong | Russo | |
-| Hindi | Chinês (tradicional) – Taiwan | Sérvio cirílico | |
-| Hmong | Croata | Sérvio latino | |
-| Húngaro | Tcheco | Eslovaco | |
+| Grego | Cherokee | Português | |
+| Haitiano | Chinês (Simplificado) | Romeno | |
+| Hebraico | Chinês (Tradicional) - Hong Kong SAR | Russo | |
+| Hindi | Chinês (Tradicional) - Taiwan | Cirílico Sérvio | |
+| Hmong | Croata | Latim sérvio | |
+| Húngaro | Checo | Eslovaco | |
 | Italiano | Dinamarquês | Espanhol | |
 | Japonês | Dari | Sueco | |
-| Coreano | Holandês | Turco | |
-| Curdo (árabe) | Português | | |
-| Curdo (latino) | Estoniano | | |
-| Lepcha | Filipinas | | |
+| Coreano | Neerlandês | Turco | |
+| Curdo (árabe) | Inglês | | |
+| Curdo (latim) | Estónio | | |
+| Rio Lepcha | Filipino | | |
 | Limbu | Finlandês | | |
 | Lu | Francês | | |
-| Lycian | Galego | | |
+| Rio Lycian | Galego | | |
 | Lydian | Georgiano | | |
-| Mycenaean (grego) | Alemão | | |
-| Nko | Grego | | |
+| Micêceano (grego) | Alemão | | |
+| Estação Nko | Grego | | |
 | Norueguês (Bokmal) | Guzerate | | |
-| Norueguês (Nynorsk) |  Hauçá | | |
-| Antigo (persa) | Hebraico | | |
-| Pachto | Hindi | | |
+| Norueguês (Nynorsk) |  Rio Hausa | | |
+| Velho (Persa) | Hebraico | | |
+| Rio Pashto | Hindi | | |
 | Polaco | Húngaro | | |
 | Português | Islandês | | |
-| Punjabi | Igbo | | |
+| Punjabi | Rio Igbo | | |
 | Rejang | Indonésio | | |
 | Russo | Inuktitut | | |
 | Santali | Irlandês | | |
-| Sasak | Xhosa | | |
-| Saurashtra | Zulu | | |
+| Rio Sasak | isiXhosa | | |
+| Saurashtra | isiZulu | | |
 | Sérvio (Cirílico) | Italiano | | |
-| Sérvio (latino) | Japonês | | |
-| Cingalês | Kannada | | |
+| Sérvio (Latim) | Japonês | | |
+| Rio Sinhala | Canarês | | |
 | Esloveno | Cazaque | | |
-| Espanhol | Voga | | |
-| Sueco | Quiché | | |
-| Sylheti | Quiniaruanda | | |
-| Sinal | Suaíli | | |
-| Tagbanwa | Concani | | |
-| Tai (nua) | Coreano | | |
-| Tamashek | Quirguiz | | |
-| Turco | Laosiana | | |
-| Ugaritic | Letão | | |
-| Uzbeque (Cirílico) | Lituano | | |
-| Uzbeque (latino) | Luxemburguês | | |
-| Vai | Macedônio | | |
+| Espanhol | Khmer | | |
+| Sueco | K'iche | | |
+| Sylheti | Kinyarwanda | | |
+| Síria | Rio Kiswahili | | |
+| Rio Tagbanwa | Konkani | | |
+| Tai (Nua) | Coreano | | |
+| Rio Tamashek | Quirguiz | | |
+| Turco | Rio Lao | | |
+| Ugarítico | Letão | | |
+| Usbeque (Cirílico) | Lituano | | |
+| Uzbeque (latim) | Luxemburguês | | |
+| Rio Vai | Macedónio | | |
 | Yi | Malaio | | |
-| Zhuang, Chuang | Malaiala | | |
+| Zhuang | Malaiala | | |
 | | Maltês | | |
 | | Maori | | |
 | | Marata | | |
 | | Mongol | | |
-| | Nepalês | | |
-| | Norueguês (bokmål) | | |
+| | Nepali | | |
+| | Norueguês (Bokmål) | | |
 | | Norueguês (Nynorsk) | | |
 | | Odia | | |
-| | Pachto | | |
+| | Rio Pashto | | |
 | | Persa | | |
 | | Polaco | | |
-| | Português-Brasil | | |
-| | Português-Portugal | | |
+| | Português (Brasil) | | |
+| | Português (Portugal) | | |
 | | Pulaar | | |
 | | Punjabi | | |
 | | Punjabi (Paquistão) | | |
-| | Quíchua (Peru) | | |
+| | Quechua (Peru) | | |
 | | Romeno | | |
 | | Russo | | |
 | | Gaélico escocês | | |
 | | Sérvio (Cirílico) | | |
 | | Sérvio (cirílico, Bósnia e Herzegovina) | | |
-| | Sérvio (latino) | | |
-| | Soto | | |
-| | Sesoto sa | | |
-| | Setsuana | | |
-| | Sindi | | |
-| | Cingalês | | |
+| | Sérvio (Latim) | | |
+| | Sesotho | | |
+| | Sesotho sa Leboa | | |
+| | Estação Setswana | | |
+| | Sindhi | | |
+| | Rio Sinhala | | |
 | | Eslovaco | | |
 | | Esloveno | | |
 | | Espanhol | | |
 | | Sueco | | |
-| | Tadjique | | |
+| | Tajique | | |
 | | Tâmil | | |
 | | Tártaro | | |
 | | Telugu | | |
 | | Tailandês | | |
 | | Tigrinya | | |
 | | Turco | | |
-| | Turcomeno | | |
+| | Turcos | | |
 | | Ucraniano | | |
 | | Urdu | | |
-| | Uigur | | |
-| | Uzbeque | | |
+| | Uyghur | | |
+| | Usbeque | | |
 | | Valenciano | | |
 | | Vietnamita | | |
 | | Galês | | |
-| | Uólofe | | |
-| | Ioruba | | |
+| | Rio Wolof | | |
+| | Yoruba | | |

@@ -1,7 +1,7 @@
 ---
 title: Conceitos empresariais - LUIS
 titleSuffix: Azure Cognitive Services
-description: Compreenda os conceitos de design para aplicações de LUIS grandes ou várias aplicações, incluindo o LUIS e o QnA Maker em conjunto.
+description: Compreenda os conceitos de design para grandes apps LUIS ou múltiplas aplicações, incluindo LUIS e QnA Maker juntos.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
 ms.openlocfilehash: efef3faf3cc4ff04235254f0ff6538d92a831196
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79221064"
 ---
-# <a name="enterprise-strategies-for-a-luis-app"></a>Estratégias da empresa para uma aplicação LUIS
-Reveja essas estratégias de design para a sua aplicação empresarial.
+# <a name="enterprise-strategies-for-a-luis-app"></a>Estratégias empresariais para uma app LUIS
+Reveja estas estratégias de design para a sua aplicação empresarial.
 
-## <a name="when-you-expect-luis-requests-beyond-the-quota"></a>Quando esperar que os pedidos de LUIS além a quota
+## <a name="when-you-expect-luis-requests-beyond-the-quota"></a>Quando espera pedidos luis para além da quota
 
 A LUIS tem uma quota mensal, bem como uma quota por segundo, com base no nível de preços do recurso Azure. 
 
@@ -30,44 +30,44 @@ Se a sua taxa de pedido de aplicação LUIS exceder a taxa de [quota](https://az
 * Espalhe a carga para mais aplicações LUIS com a [mesma definição](#use-multiple-apps-with-same-app-definition)de app. Isto inclui, opcionalmente, executar O LUIS a partir de um [recipiente.](luis-container-howto.md) 
 * Crie e [atribua várias chaves](#assign-multiple-luis-keys-to-same-app) à aplicação. 
 
-### <a name="use-multiple-apps-with-same-app-definition"></a>Utilizar várias aplicações com a mesma definição de aplicação
-Exportar a aplicação LUIS original e, em seguida, importar a aplicação novamente para aplicações separadas. Cada aplicação tem seu próprio ID de aplicação. Quando publica, em vez de utilizar a mesma chave em todas as aplicações, crie uma chave separada para cada aplicação. Balancear a carga em todas as aplicações para que nenhuma aplicação única está sobrecarregada. Adicione [insights de aplicação](luis-tutorial-bot-csharp-appinsights.md) para monitorizar a utilização. 
+### <a name="use-multiple-apps-with-same-app-definition"></a>Use várias aplicações com a mesma definição de app
+Exportar a aplicação ORIGINAL LUIS e, em seguida, importar a app de volta para aplicações separadas. Cada aplicação tem o seu próprio ID de aplicação. Quando publicar, em vez de usar a mesma chave em todas as aplicações, crie uma chave separada para cada aplicação. Equilibre a carga em todas as aplicações para que nenhuma aplicação fique sobrecarregada. Adicione [insights de aplicação](luis-tutorial-bot-csharp-appinsights.md) para monitorizar a utilização. 
 
-Para obter a mesma intenção principal entre todas as aplicações, certifique-se a predição intencional entre a intenção de primeira e a segunda é suficientemente amplo para que LUIS não é confuso, dando-resultados diferentes entre aplicações pequenas variações nos expressões com. 
+De forma a obter a mesma intenção de topo entre todas as aplicações, certifique-se de que a previsão de intenção entre a primeira e a segunda intenções é suficientemente ampla para que o LUIS não esteja confuso, dando resultados diferentes entre apps para pequenas variações nas expressões. 
 
 Ao treinar estas aplicações para irmãos, certifique-se de [treinar com todos os dados.](luis-how-to-train.md#train-with-all-data)
 
-Designe uma única aplicação como o mestre. Qualquer expressões que são sugeridas para revisão devem ser adicionados para a aplicação principal, em seguida, movidas de volta para todas as outras aplicações. Isso é uma exportação completa da aplicação, ou ao carregar as expressões etiquetadas de mestre de para os filhos. O carregamento pode ser feito a partir do site da [LUIS](luis-reference-regions.md) ou da autoria da API para uma [única expressão](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) ou para um [lote](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09). 
+Designe uma única aplicação como mestre. Quaisquer declarações sugeridas para revisão devem ser adicionadas à app principal e depois transferidas para todas as outras aplicações. Ou se trata de uma exportação completa da app, ou de carregar as palavras rotuladas do mestre para as crianças. O carregamento pode ser feito a partir do site da [LUIS](luis-reference-regions.md) ou da autoria da API para uma [única expressão](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) ou para um [lote](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09). 
 
 Agendar uma revisão periódica, como de duas em duas semanas, de [declarações de pontofinal](luis-how-to-review-endpoint-utterances.md) para aprendizagem ativa, em seguida, retreinar e republicar. 
 
-### <a name="assign-multiple-luis-keys-to-same-app"></a>Atribuir o LUIS várias chaves para a mesma aplicação
-Se a sua aplicação LUIS receber o ponto de extremidade mais acertos que permite que a quota da sua chave única, criarem e atribuir mais chaves para a aplicação do LUIS. Criar um tráfego manager ou Balanceador de carga para gerir as consultas de ponto final entre as chaves de ponto final. 
+### <a name="assign-multiple-luis-keys-to-same-app"></a>Atribuir várias teclas LUIS à mesma aplicação
+Se a sua aplicação LUIS receber mais acessos finais do que a quota da sua chave permite, crie e atribua mais chaves à aplicação LUIS. Crie um gestor de tráfego ou um equilibrador de carga para gerir as consultas de ponto final através das teclas de ponto final. 
 
-## <a name="when-your-monolithic-app-returns-wrong-intent"></a>Quando a sua aplicação monolítica devolve intenção errada
-Se a sua aplicação pretende prever uma grande variedade de declarações de utilizadores, considere implementar o modelo de [despacho](#dispatch-tool-and-model). Dividir uma aplicação monolítica permite que o LUIS para detecção de foco entre objetivos com êxito em vez de introdução confusos entre os objetivos em toda a aplicação principal e subordinado. 
+## <a name="when-your-monolithic-app-returns-wrong-intent"></a>Quando a sua aplicação monolítica devolve a intenção errada
+Se a sua aplicação pretende prever uma grande variedade de declarações de utilizadores, considere implementar o modelo de [despacho](#dispatch-tool-and-model). A rutura de uma aplicação monolítica permite ao LUIS focar a deteção entre intenções com sucesso, em vez de se confundir entre as intenções através da app dos pais e das aplicações infantis. 
 
 Agendar uma revisão periódica [das declarações de pontos finais](luis-how-to-review-endpoint-utterances.md) para a aprendizagem ativa, como de duas em duas semanas, em seguida, retreinar e republicar. 
 
-## <a name="when-you-need-to-have-more-than-500-intents"></a>Quando tem de ter mais de 500 intenções
-Assuma que está a desenvolver um assistente de escritório que tem mais de 500 intenções. Se 200 objetivos relacionam ao agendamento de reuniões, 200 são sobre lembretes, 200 são sobre como obter informações sobre os colegas e 200 servem para enviar o e-mail, os objetivos de grupo para que cada grupo seja numa única aplicação, em seguida, crie uma aplicação de nível superior que contém cada intenção. Utilize o modelo de [despacho](#dispatch-tool-and-model) para construir a aplicação de alto nível. Em seguida, mude o seu bot para utilizar a chamada em cascata, como mostrado no [tutorial do modelo de despacho](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs). 
+## <a name="when-you-need-to-have-more-than-500-intents"></a>Quando precisa ter mais de 500 intenções
+Assuma que está a desenvolver um assistente de escritório que tem mais de 500 intenções. Se 200 intenções dizem respeito a reuniões de agendamento, 200 são sobre lembretes, 200 são sobre obter informações sobre colegas, e 200 são para enviar e-mail, intenções de grupo para que cada grupo esteja numa única app, em seguida, criar uma app de alto nível contendo cada intenção. Utilize o modelo de [despacho](#dispatch-tool-and-model) para construir a aplicação de alto nível. Em seguida, mude o seu bot para utilizar a chamada em cascata, como mostrado no [tutorial do modelo de despacho](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs). 
 
-## <a name="when-you-need-to-combine-several-luis-and-qna-maker-apps"></a>Quando tiver de combinar vários LUIS aplicações e não compatíveis QnA maker
+## <a name="when-you-need-to-combine-several-luis-and-qna-maker-apps"></a>Quando precisa combinar várias aplicações de fabricante luis e QnA
 Se tiver várias aplicações de fabricante luis e QnA que precisam responder a um bot, use o modelo de [despacho](#dispatch-tool-and-model) para construir a aplicação de alto nível.  Em seguida, mude o seu bot para utilizar a chamada em cascata, como mostrado no [tutorial do modelo de despacho](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs). 
 
-## <a name="dispatch-tool-and-model"></a>Ferramenta de distribuição e o modelo
-Utilize a ferramenta de linha de comando [Dispatch,][dispatch-tool] encontrada em [ferramentas BotBuilder](https://github.com/Microsoft/botbuilder-tools) para combinar várias aplicações LUIS e/ou QnA Maker numa aplicação DE MA-mãe. Esta abordagem permite que tenha um domínio principal, incluindo todos os assuntos e domínios de sujeito do filho diferentes nas aplicações separadas. 
+## <a name="dispatch-tool-and-model"></a>Ferramenta e modelo de despacho
+Utilize a ferramenta de linha de comando [Dispatch,][dispatch-tool] encontrada em [ferramentas BotBuilder](https://github.com/Microsoft/botbuilder-tools) para combinar várias aplicações LUIS e/ou QnA Maker numa aplicação DE MA-mãe. Esta abordagem permite-lhe ter um domínio de pais, incluindo todos os assuntos e diferentes domínios de assuntos infantis em aplicações separadas. 
 
-![Imagem conceptual da arquitetura de distribuição](./media/luis-concept-enterprise/dispatch-architecture.png)
+![Imagem conceptual da arquitetura de despacho](./media/luis-concept-enterprise/dispatch-architecture.png)
 
-O domínio dos pais é notado em LUIS com uma versão chamada `Dispatch` na lista de aplicações. 
+O domínio dos pais é notado `Dispatch` em LUIS com uma versão nomeada na lista de aplicações. 
 
 O chat bot recebe a expressão e depois envia para a app LUIS para previsão. A principal intenção prevista da app dos pais determina qual a app infantil LUIS que é chamada a seguir. O chat bot envia a expressão para a aplicação infantil para uma previsão mais específica.
 
 Compreenda como esta hierarquia de chamadas é feita a partir do Bot Builder v4 [despachante-application-tutorial](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs).  
 
-### <a name="intent-limits-in-dispatch-model"></a>Limites de intenção no modelo de expedição
-Uma aplicação de distribuição tem 500 origens de expedição, equivalentes a 500 intenções, como o máximo. 
+### <a name="intent-limits-in-dispatch-model"></a>Limites de intenção no modelo de despacho
+Um pedido de despacho tem 500 fontes de expedição, o equivalente a 500 intenções, como o máximo. 
 
 ## <a name="more-information"></a>Mais informações
 
@@ -76,7 +76,7 @@ Uma aplicação de distribuição tem 500 origens de expedição, equivalentes a
 * [Despacho CLI](https://github.com/Microsoft/botbuilder-tools)
 * Despacho modelo bot amostra - [.NET,](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda a [testar um lote](luis-how-to-batch-test.md)
 

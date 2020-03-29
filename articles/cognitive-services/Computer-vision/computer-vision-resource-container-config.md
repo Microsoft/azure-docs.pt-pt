@@ -1,7 +1,7 @@
 ---
-title: Configurar contêineres-Pesquisa Visual Computacional
+title: Configure recipientes - Visão Computacional
 titleSuffix: Azure Cognitive Services
-description: Este artigo mostra como definir as configurações obrigatórias e opcionais para contêineres de Reconhecimento de Texto no Pesquisa Visual Computacional.
+description: Este artigo mostra-lhe como configurar as definições necessárias e opcionais para reconhecer recipientes de texto em Visão Computacional.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -12,50 +12,50 @@ ms.date: 11/04/2019
 ms.author: dapine
 ms.custom: seodec18
 ms.openlocfilehash: ddbee3695c2a7ef7cb63c48cccacbd2d53a8c1a9
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73718986"
 ---
-# <a name="configure-computer-vision-docker-containers"></a>Configurar contêineres do Docker Pesquisa Visual Computacional
+# <a name="configure-computer-vision-docker-containers"></a>Configure recipientes de Computer Vision Docker
 
-Você configura o ambiente de tempo de execução do contêiner de Pesquisa Visual Computacional usando os argumentos do comando `docker run`. Esse contêiner tem várias configurações necessárias, juntamente com algumas configurações opcionais. Vários [exemplos](#example-docker-run-commands) do comando estão disponíveis. As configurações específicas do contêiner são as configurações de cobrança. 
+Configura o ambiente de tempo de execução `docker run` do recipiente Computer Vision utilizando os argumentos de comando. Este recipiente tem várias configurações necessárias, juntamente com algumas configurações opcionais. Vários [exemplos](#example-docker-run-commands) do comando estão disponíveis. As definições específicas do recipiente são as definições de faturação. 
 
 ## <a name="configuration-settings"></a>Definições de configuração
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> As configurações [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting)e [`Eula`](#eula-setting) são usadas juntas, e você deve fornecer valores válidos para todos os três; caso contrário, o contêiner não será iniciado. Para obter mais informações sobre como usar essas definições de configuração para criar uma instância de um contêiner, consulte [cobrança](computer-vision-how-to-install-containers.md).
+> As [`ApiKey`](#apikey-configuration-setting) [`Billing`](#billing-configuration-setting)definições [`Eula`](#eula-setting) e as configurações são utilizadas em conjunto, e deve fornecer valores válidos para todos os três; caso contrário, o seu recipiente não arranca. Para obter mais informações sobre a utilização destas definições de configuração para instantaneamente um recipiente, consulte [a Faturação](computer-vision-how-to-install-containers.md).
 
-## <a name="apikey-configuration-setting"></a>Configuração de ApiKey
+## <a name="apikey-configuration-setting"></a>Definição de configuração ApiKey
 
-A configuração de `ApiKey` especifica a chave de recurso de `Cognitive Services` do Azure usada para rastrear informações de cobrança do contêiner. Você deve especificar um valor para o ApiKey e o valor deve ser uma chave válida para o recurso de _Serviços cognitivas_ especificado para a configuração de [`Billing`](#billing-configuration-setting) .
+A `ApiKey` definição especifica `Cognitive Services` a chave de recursos Azure utilizada para rastrear as informações de faturação do recipiente. Deve especificar um valor para o ApiKey e o valor deve ser uma [`Billing`](#billing-configuration-setting) chave válida para o recurso dos _Serviços Cognitivos_ especificado para a definição de configuração.
 
-Essa configuração pode ser encontrada no seguinte local:
+Esta definição pode ser encontrada no seguinte local:
 
-* Portal do Azure: gerenciamento de recursos de **Serviços cognitivas** , em **chaves**
+* Portal Azure: **Cognitive Services** Resource Management, under **Keys**
 
-## <a name="applicationinsights-setting"></a>Configuração de ApplicationInsights
+## <a name="applicationinsights-setting"></a>Definição de ApplicationInsights
 
 [!INCLUDE [Container shared configuration ApplicationInsights settings](../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
 
-## <a name="billing-configuration-setting"></a>Definição de configuração de cobrança
+## <a name="billing-configuration-setting"></a>Definição de configuração de faturação
 
-A configuração de `Billing` especifica o URI do ponto de extremidade do recurso de _Serviços cognitivas_ no Azure usado para medir as informações de cobrança do contêiner. Você deve especificar um valor para essa definição de configuração e o valor deve ser um URI de ponto de extremidade válido para um recurso de _Serviços cognitivas_ no Azure. O contêiner relata o uso de cada 10 a 15 minutos.
+A `Billing` definição especifica o ponto final URI do recurso _Serviços Cognitivos_ em Azure usado para medir informações de faturação para o recipiente. Deve especificar um valor para esta configuração, e o valor deve ser um uri de ponto final válido para um recurso _de Serviços Cognitivos_ no Azure. O recipiente reporta o uso a cada 10 a 15 minutos.
 
-Essa configuração pode ser encontrada no seguinte local:
+Esta definição pode ser encontrada no seguinte local:
 
-* Portal do Azure: visão geral **dos serviços cognitivas** , rotulados `Endpoint`
+* Portal Azure: Visão **geral dos serviços cognitivos,** rotulada`Endpoint`
 
-Lembre-se de adicionar o roteamento de `vision/v1.0` para o URI do ponto de extremidade, conforme mostrado na tabela a seguir. 
+Lembre-se `vision/v1.0` de adicionar o encaminhamento ao ponto final URI, como mostrado na tabela seguinte. 
 
-|Necessário| Nome | Data type | Descrição |
+|Necessário| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
-|Sim| `Billing` | String | URI do ponto de extremidade de cobrança<br><br>Exemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
+|Sim| `Billing` | Cadeia | Ponto final de faturação URI<br><br>Exemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
-## <a name="eula-setting"></a>Configuração do EULA
+## <a name="eula-setting"></a>Cenário eula
 
 [!INCLUDE [Container shared configuration eula settings](../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
@@ -63,50 +63,50 @@ Lembre-se de adicionar o roteamento de `vision/v1.0` para o URI do ponto de extr
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## <a name="http-proxy-credentials-settings"></a>Configurações de credenciais de proxy HTTP
+## <a name="http-proxy-credentials-settings"></a>Definições de credenciais de procuração HTTP
 
 [!INCLUDE [Container shared configuration HTTP proxy settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
-## <a name="logging-settings"></a>Configurações de log
+## <a name="logging-settings"></a>Definições de registo
  
 [!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
-## <a name="mount-settings"></a>Configurações de montagem
+## <a name="mount-settings"></a>Configurações do monte
 
-Use montagens de associação para ler e gravar dados de e para o contêiner. Você pode especificar uma montagem de entrada ou de saída especificando a opção de `--mount` no comando de [execução do Docker](https://docs.docker.com/engine/reference/commandline/run/) .
+Utilize suportes de ligação para ler e escrever dados de e para o recipiente. Pode especificar um suporte de entrada ou `--mount` montagem de saída especificando a opção no comando de execução do [estivador.](https://docs.docker.com/engine/reference/commandline/run/)
 
-Os contêineres de Pesquisa Visual Computacional não usam montagens de entrada ou de saída para armazenar dados de treinamento ou de serviço. 
+Os recipientes Computer Vision não utilizam suportes de entrada ou saída para armazenar dados de treino ou de serviço. 
 
-A sintaxe exata do local de montagem do host varia dependendo do sistema operacional do host. Além disso, o local de montagem do [computador host](computer-vision-how-to-install-containers.md#the-host-computer)pode não estar acessível devido a um conflito entre as permissões usadas pela conta de serviço do Docker e as permissões de local de montagem do host. 
+A sintaxe exata da localização do suporte do hospedeiro varia consoante o sistema operativo do hospedeiro. Além disso, a localização do suporte do [computador hospedeiro](computer-vision-how-to-install-containers.md#the-host-computer)pode não estar acessível devido a um conflito entre permissões utilizadas pela conta de serviço Docker e as permissões de localização do suporte do hospedeiro. 
 
-|Opcional| Nome | Data type | Descrição |
+|Opcional| Nome | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
-|Não permitido| `Input` | String | Os contêineres de Pesquisa Visual Computacional não usam isso.|
-|Opcional| `Output` | String | O destino da montagem de saída. O valor padrão é `/output`. Esse é o local dos logs. Isso inclui logs de contêiner. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Não permitido| `Input` | Cadeia | Os recipientes Computer Vision não usam isto.|
+|Opcional| `Output` | Cadeia | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui troncos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## <a name="example-docker-run-commands"></a>Comandos de execução do Docker de exemplo
+## <a name="example-docker-run-commands"></a>Comandos de execução de estivadores exemplo
 
-Os exemplos a seguir usam as definições de configuração para ilustrar como gravar e usar comandos de `docker run`.  Uma vez em execução, o contêiner continua a ser executado até que você o [interrompa](computer-vision-how-to-install-containers.md#stop-the-container) .
+Os exemplos seguintes utilizam as definições `docker run` de configuração para ilustrar como escrever e utilizar comandos.  Uma vez em funcionamento, o recipiente continua a funcionar até o [parar.](computer-vision-how-to-install-containers.md#stop-the-container)
 
-* **Caractere de continuação de linha**: os comandos do Docker nas seções a seguir usam a barra invertida, `\`, como um caractere de continuação de linha. Substitua ou remova isso com base nos requisitos do seu sistema operacional do host. 
-* **Ordem do argumento**: não altere a ordem dos argumentos, a menos que você esteja muito familiarizado com contêineres do Docker.
+* **Personagem de continuação da linha**: Os comandos `\`do Docker nas seguintes secções usam o corte traseiro, como um personagem de continuação da linha. Substitua ou remova isto com base nos requisitos do sistema operativo do hospedeiro. 
+* **Ordem de argumentação**: Não altere a ordem dos argumentos a menos que esteja muito familiarizado com os contentores do Docker.
 
-Substitua {_argument_name_} pelos seus próprios valores:
+Substitua {_argument_name_} com os seus próprios valores:
 
 | Marcador de posição | Valor | Formato ou exemplo |
 |-------------|-------|---|
-| **{API_KEY}** | A chave do ponto de extremidade do recurso `Computer Vision` na página chaves do `Computer Vision` do Azure. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| **{ENDPOINT_URI}** | O valor do ponto de extremidade de cobrança está disponível na página Visão geral do `Computer Vision` do Azure.| Consulte [coletando parâmetros necessários](computer-vision-how-to-install-containers.md#gathering-required-parameters) para obter exemplos explícitos. |
+| **{API_KEY}** | A chave final `Computer Vision` do recurso na `Computer Vision` página Azure Keys. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | O valor final da faturação está `Computer Vision` disponível na página de visão geral do Azure.| Consulte a [recolha de parâmetros necessários](computer-vision-how-to-install-containers.md#gathering-required-parameters) para exemplos explícitos. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> As opções `Eula`, `Billing`e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para obter mais informações, consulte [cobrança](computer-vision-how-to-install-containers.md#billing).
-> O valor de ApiKey é a **chave** da página de chaves de recurso do `Cognitive Services` do Azure.
+> A `Eula` `Billing`, `ApiKey` e as opções devem ser especificadas para executar o recipiente; caso contrário, o contentor não vai começar.  Para mais informações, consulte [billing.](computer-vision-how-to-install-containers.md#billing)
+> O valor ApiKey **Key** é a `Cognitive Services` chave da página de teclas Azure Resource.
 
-## <a name="container-docker-examples"></a>Exemplos de Docker de contêiner
+## <a name="container-docker-examples"></a>Exemplos de Container Docker
 
-Os exemplos do Docker a seguir são para o contêiner de leitura.
+Os seguintes exemplos do Docker são para o recipiente Read.
 
 ### <a name="basic-example"></a>Exemplo básico
 
@@ -118,7 +118,7 @@ Os exemplos do Docker a seguir são para o contêiner de leitura.
   ApiKey={API_KEY} 
   ```
 
-### <a name="logging-example"></a>Exemplo de log 
+### <a name="logging-example"></a>Exemplo de registo 
 
   ```docker
   docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
@@ -131,4 +131,4 @@ Os exemplos do Docker a seguir são para o contêiner de leitura.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Examine [como instalar e executar contêineres](computer-vision-how-to-install-containers.md).
+* Reveja [Como instalar e executar contentores](computer-vision-how-to-install-containers.md).

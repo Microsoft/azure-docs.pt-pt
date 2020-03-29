@@ -1,7 +1,7 @@
 ---
-title: Sugerindo termos de pesquisa com o API de Sugestão Automática do Bing
+title: Sugerindo termos de pesquisa com a API Bing Autosuggest
 titleSuffix: Azure Cognitive Services
-description: Este artigo discute o conceito de sugestão de termos de consulta usando o API de Sugestão Automática do Bing e o impacto do comprimento da consulta em relevância.
+description: Este artigo discute o conceito de sugerir termos de consulta usando a API Bing Autosuggest e o impacto do comprimento da consulta na relevância.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: 060dbd29ee4ddb78e8ae9b2ed4e7814da3c4eebf
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74072895"
 ---
 # <a name="suggesting-query-terms"></a>Sugerir termos de consulta
 
-Normalmente, você chamaria o API de Sugestão Automática do Bing cada vez que um usuário digitasse um novo caractere na caixa de pesquisa do seu aplicativo. A exatidão da cadeia de consulta afeta a relevância dos termos de consulta sugeridos devolvidos pela API. Quanto mais completa for a cadeia de consulta, mais relevante será a lista de termos de consulta sugeridos. Por exemplo, as sugestões que a API pode retornar para `s` provavelmente serão menos relevantes do que as consultas que retorna para `sailing dinghies`.
+Normalmente, liga-se para a API Bing Autosuggest cada vez que um utilizador escreve um novo personagem na caixa de pesquisa da sua aplicação. A exatidão da cadeia de consulta afeta a relevância dos termos de consulta sugeridos devolvidos pela API. Quanto mais completa for a cadeia de consulta, mais relevante será a lista de termos de consulta sugeridos. Por exemplo, as sugestões para as `s` quais a API pode regressar são `sailing dinghies`suscetíveis de serem menos relevantes do que as consultas para as quais devolve .
 
 ## <a name="example-request"></a>Pedido de exemplo
 
@@ -45,11 +45,11 @@ A seguinte resposta contém uma lista de objetos [SearchAction](https://docs.mic
 }, ...
 ```
 
-## <a name="using-suggested-query-terms"></a>Usando os termos de consulta sugeridos
+## <a name="using-suggested-query-terms"></a>Usando termos de consulta sugeridos
 
 Cada sugestão inclui um campo `displayText`, `query` e `url`. O campo `displayText` contém a consulta sugerida que utiliza para preencher a lista pendente da sua caixa de pesquisa. Tem de apresentar todas as sugestões incluídas na resposta e pela ordem fornecida.
 
-O exemplo a seguir mostra uma caixa de pesquisa suspensa com os termos de consulta sugeridos do API de Sugestão Automática do Bing.
+O exemplo seguinte mostra uma caixa de pesquisa com termos de consulta sugeridos da API Bing Autosuggest.
 
 ![Lista da caixa de pesquisa pendente de sugestão automática](../media/cognitive-services-bing-autosuggest-api/bing-autosuggest-drop-down-list.PNG)
 
@@ -57,4 +57,4 @@ Se o utilizador selecionar uma consulta sugerida na lista pendente, utilizará o
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [O que é o API de Sugestão Automática do Bing?](../get-suggested-search-terms.md)
+* [O que é a API de Sugestão Automática do Bing?](../get-suggested-search-terms.md)

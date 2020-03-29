@@ -1,7 +1,7 @@
 ---
-title: Suporte ao idioma-API de Pesquisa na Web do Bing
+title: Suporte linguístico - Bing Web Search API
 titleSuffix: Azure Cognitive Services
-description: Uma lista de idiomas, países e regiões naturais com suporte no API de Pesquisa de Notícias do Bing.
+description: Uma lista de línguas naturais, países e regiões que são apoiados pela API bing news search.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,30 +11,30 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
 ms.openlocfilehash: 9425de6e75a9a46d71ff85ce49b0650c8e7a9a16
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68882679"
 ---
-# <a name="language-and-region-support-for-the-bing-web-search-api"></a>Suporte a idiomas e regiões para o API de Pesquisa na Web do Bing
+# <a name="language-and-region-support-for-the-bing-web-search-api"></a>Suporte de língua e região para a API de pesquisa web bing
 
-O API de Pesquisa na Web do Bing dá suporte a mais de três dezenas de países ou regiões, muitos com mais de um idioma. A especificação de um país ou região com uma consulta ajuda a refinar os resultados da pesquisa com base nesses interesses de país ou região. Os resultados podem incluir links para o Bing, e esses links podem localizar a experiência do usuário do Bing de acordo com o país/região ou idioma especificado.
+A API bing Web Search suporta mais de três dezenas de países ou regiões, muitos com mais de uma língua. Especificar um país ou região com uma consulta ajuda a refinar os resultados de pesquisa com base nos interesses do país ou das regiões. Os resultados podem incluir ligações ao Bing, e estas ligações podem localizar a experiência do utilizador Bing de acordo com o país/região ou língua especificado.
 
-Você pode especificar um país ou uma região usando `cc` o parâmetro de consulta. Quando um país ou região é especificado, você deve especificar um ou mais códigos de idioma com o [ `Accept-Language` cabeçalho](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Use a [tabela Markets](#markets) para obter uma lista de idiomas com suporte em cada mercado.
+Pode especificar um país ou `cc` região utilizando o parâmetro de consulta. Quando um país ou região é especificado, deve especificar um ou mais códigos linguísticos com o [ `Accept-Language` cabeçalho](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Utilize a [tabela Mercados](#markets) para uma lista de línguas suportadas em cada mercado.
 
-Como alternativa, você pode especificar o mercado com o `mkt` parâmetro de consulta e um código da tabela **Markets** . Especificar um mercado simultaneamente especifica um país ou região e um idioma preferencial. Você pode definir explicitamente o idioma com o `setLang` parâmetro de consulta.
+Em alternativa, pode especificar o `mkt` mercado com o parâmetro de consulta e um código da tabela **Mercados.** Especificar um mercado simultaneamente especifica um país ou região e uma língua preferida. Pode definir explicitamente a `setLang` linguagem com o parâmetro de consulta.
 
 ## <a name="countriesregions"></a>Países/regiões
 
-|País/região|Código|
+|Pais/região|Código|
 |-------|----|
 |Argentina|AR|
 |Austrália|AU|
 |Áustria|AT|
 |Bélgica|BE|
 |Brasil|BR|
-|Canadá|AC|
+|Canadá|CA|
 |Chile|CL|
 |Dinamarca|DK|
 |Finlândia|FI|
@@ -42,8 +42,8 @@ Como alternativa, você pode especificar o mercado com o `mkt` parâmetro de con
 |Alemanha|DE|
 |RAE de Hong Kong|HK|
 |Índia|IN|
-|Indonésia|id|
-|Itália|it|
+|Indonésia|ID|
+|Itália|TI|
 |Japão|JP|
 |Coreia|KR|
 |Malásia|MY|
@@ -68,49 +68,49 @@ Como alternativa, você pode especificar o mercado com o `mkt` parâmetro de con
 
 ## <a name="markets"></a>Mercados
 
-|País/região|Idioma|Código do mercado|
+|Pais/região|Idioma|Código de Mercado|
 |-------|--------|-----------|
 |Argentina|Espanhol|es-AR|
-|Austrália|Português|EN-AU|
-|Áustria|Alemão|Alemanha-AT|
-|Bélgica|Neerlandês|NL-ser|
-|Bélgica|Francês|fr-ser|
+|Austrália|Inglês|en-UA|
+|Áustria|Alemão|de-AT|
+|Bélgica|Neerlandês|nl-BE|
+|Bélgica|Francês|fr-BE|
 |Brasil|Português|pt-BR|
-|Canadá|Português|en-CA|
+|Canadá|Inglês|en-CA|
 |Canadá|Francês|fr-CA|
 |Chile|Espanhol|es-CL|
 |Dinamarca|Dinamarquês|da-DK|
 |Finlândia|Finlandês|fi-FI|
-|França|Francês|FR-FR|
+|França|Francês|fr-FR|
 |Alemanha|Alemão|de-DE|
-|RAE de Hong Kong|Chinês tradicional|zh-HK|
-|Índia|Português|EN-IN|
-|Indonésia|Português|ID do en|
+|RAE de Hong Kong|Chinês Tradicional|zh-HK|
+|Índia|Inglês|en-IN|
+|Indonésia|Inglês|en-ID|
 |Itália|Italiano|it-IT|
 |Japão|Japonês|ja-JP|
 |Coreia|Coreano|ko-KR|
-|Malásia|Português|EN-MY|
+|Malásia|Inglês|en-MY|
 |México|Espanhol|es-MX|
-|Países Baixos|Neerlandês|NL-NL|
-|Nova Zelândia|Português|EN-NZ|
-|Noruega|Norueguês|no-NO|
+|Países Baixos|Neerlandês|nl-NL|
+|Nova Zelândia|Inglês|en-NZ|
+|Noruega|Norueguês|não-NÃO|
 |China|Chinês|zh-CN|
 |Polónia|Polaco|pl-PL|
 |Portugal|Português|pt-PT|
-|Filipinas|Português|EN-PH|
+|Filipinas|Inglês|en-PH|
 |Rússia|Russo|ru-RU|
-|Arábia Saudita|Árabe|ar SA|
-|África do Sul|Português|EN-ZA|
+|Arábia Saudita|Árabe|ar-SA|
+|África do Sul|Inglês|en-ZA|
 |Espanha|Espanhol|es-ES|
-|Suécia|Sueco|SV-SE|
-|Suíça|Francês|FR-CH|
-|Suíça|Alemão|Alemanha-CH|
-|Taiwan|Chinês tradicional|zh-TW|
+|Suécia|Sueco|sv-SE|
+|Suíça|Francês|fr-CH|
+|Suíça|Alemão|de-CH|
+|Taiwan|Chinês Tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
-|Reino Unido|Português|en-GB|
-|Estados Unidos|Português|en-US|
+|Reino Unido|Inglês|en-GB|
+|Estados Unidos|Inglês|pt-PT|
 |Estados Unidos|Espanhol|es-EUA|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)

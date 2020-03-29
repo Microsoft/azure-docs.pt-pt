@@ -1,30 +1,33 @@
 ### YamlMime:Landing
-title: Documentação da conversão de voz em texto
-summary: O discurso a texto do serviço speech, também conhecido como reconhecimento da fala, permite a transcrição em tempo real de streams de áudio em texto.
+title: Documentação discurso-texto
+summary: O discurso a texto do serviço speech, também conhecido como reconhecimento da fala, permite a transcrição em tempo real e lote de streams de áudio em texto.
 metadata:
-  title: Documentação fala-a-texto - Tutoriais, Referência API - Serviços Cognitivos Azure  Microsoft Docs
+  title: Documentação fala-a-texto - Tutoriais, Referência API - Serviços Cognitivos Azure [ Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 03/10/2020
+  ms.date: 03/19/2020
   ms.author: dapine
-  ms.openlocfilehash: 7f3486e9944cf7f01c2a53ca101c5cc26530e086
-  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+  ms.openlocfilehash: b6f2fed7b5d6722b07b7f996c46e48ea0d86f755
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/14/2020
-  ms.locfileid: "79370360"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "80052846"
 landingContent:
 - title: Sobre o discurso-a-texto
   linkLists:
   - linkListType: overview
     links:
-    - text: O que é a conversão de voz em texto?
+    - text: O que é discurso em tempo real?
       url: speech-to-text.md
+    - text: O que é o lote de discurso a texto?
+      url: batch-transcription.md
+    - text: Básicos de reconhecimento da fala?
+      url: speech-to-text-basics.md
   - linkListType: quickstart
     links:
     - text: Reconhecer a voz com entrada do microfone
@@ -41,10 +44,14 @@ landingContent:
       url: how-to-choose-recognition-mode.md
     - text: Alterar o idioma de origem do reconhecimento de voz
       url: how-to-specify-source-language.md
-    - text: Melhorar a precisão com Discurso Personalizado
+    - text: Melhorar a precisão com Voz Personalizada
       url: how-to-custom-speech.md
     - text: Utilizar formatos de entrada de áudio comprimido
       url: how-to-use-codec-compressed-audio-input-streams.md
+  - linkListType: tutorial
+    links:
+    - text: Melhorar a precisão com modelos de inquilinos
+      url: tutorial-tenant-model.md
   - linkListType: concept
     links:
     - text: Preparar dados para discurso personalizado

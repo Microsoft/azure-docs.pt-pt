@@ -1,7 +1,7 @@
 ---
-title: Como Pesquisar, editar e excluir projeto-Tradutor personalizado
+title: Como pesquisar, editar e excluir projeto - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
-description: O tradutor personalizado fornece várias maneiras de gerenciar seus projetos de maneira eficiente. Você pode criar vários projetos, Pesquisar com base em seus critérios, editar seus projetos. A exclusão de um projeto também é possível no Tradutor personalizado.
+description: O Custom Tradutor fornece várias formas de gerir os seus projetos de forma eficiente. Pode criar vários projetos, pesquisar com base nos seus critérios, editar os seus projetos. A adesão de um projeto também é possível em Tradutor Personalizado.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,59 +10,59 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: 9432ac390b7677b3dea5aebc84cf23ef6e45db92
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68595711"
 ---
 # <a name="search-edit-and-delete-projects"></a>Pesquisar, editar e excluir projetos
 
-O tradutor personalizado fornece várias maneiras de gerenciar seus projetos de maneira eficiente. Você pode criar vários projetos, Pesquisar com base em seus critérios e editar seus projetos. A exclusão de um projeto também é possível no Tradutor personalizado.  
+O Custom Tradutor fornece várias formas de gerir os seus projetos de forma eficiente. Pode criar muitos projetos, pesquisar com base nos seus critérios e editar os seus projetos. A adesão de um projeto também é possível em Tradutor Personalizado.  
 
-## <a name="search-and-filter-projects"></a>Pesquisar e filtrar projetos
+## <a name="search-and-filter-projects"></a>Projetos de pesquisa e filtro
 
-A ferramenta de filtro permite pesquisar projetos por diferentes condições de filtro. Ele filtra como o nome do projeto, o status, o idioma de origem e de destino e a categoria do projeto.
+A ferramenta de filtro permite-lhe pesquisar projetos por diferentes condições de filtro. Filtra como nome de projeto, estado, linguagem de origem e alvo, e categoria do projeto.
 
-1.  Clique no botão filtrar.
+1.  Clique no botão do filtro.
 
-    ![Pesquisar projeto](media/how-to/how-to-search-project.png)
+    ![Projeto de pesquisa](media/how-to/how-to-search-project.png)
 
-1.  Você pode filtrar por qualquer (ou todos) dos seguintes campos: nome do projeto, status, idioma de origem, idioma de destino e categoria.
+1.  Pode filtrar por qualquer (ou todos) dos seguintes campos: nome do projeto, estado, linguagem fonte, linguagem alvo e categoria.
 
 2.  Clique em aplicar.
 
     ![Opções de filtro de projeto de pesquisa](media/how-to/how-to-search-project-filters.png)
 
-3.  Desmarque o filtro para exibir todos os seus projetos tocando em "limpar".
+3.  Limpe o filtro para ver todos os seus projetos tocando em "Clear".
 
 
 ## <a name="edit-a-project"></a>Editar um projeto
 
-O tradutor personalizado oferece a capacidade de editar o nome e a descrição de um projeto. Outros metadados do projeto como a categoria, o idioma de origem e o idioma de destino não estão disponíveis para edição. As etapas a seguir descrevem como editar um projeto.
+O Custom Tradutor dá-lhe a capacidade de editar o nome e a descrição de um projeto. Outros metadados do projeto, como a categoria, a linguagem de origem e a linguagem-alvo, não estão disponíveis para edição. Os passos abaixo descrevem como editar um projeto.
 
-1.  Clique no ícone de lápis que aparece quando você passa o mouse sobre um projeto.
+1.  Clique no ícone do lápis que aparece quando paira sobre um projeto.
 
     ![Editar projeto](media/how-to/how-to-edit-project.png)
 
-2.  Na caixa de diálogo, você pode modificar o nome do projeto ou a descrição do projeto, mas não pode modificar o rótulo do projeto, a categoria ou o par de idiomas.
+2.  No diálogo, pode modificar o nome do projeto ou a descrição do projeto, mas não pode modificar o rótulo, categoria ou par de idiomas do projeto.
 
-    ![Caixa de diálogo Editar projeto](media/how-to/how-to-edit-project-dialog.png)
+    ![Editar diálogo do projeto](media/how-to/how-to-edit-project-dialog.png)
 
-3.  Clique no botão filtrar.
+3.  Clique no botão do filtro.
 
-## <a name="delete-a-project"></a>Excluir um projeto
+## <a name="delete-a-project"></a>Apagar um projeto
 
-Você pode excluir um projeto quando não precisar mais dele. As etapas a seguir descrevem como excluir um projeto.
+Pode apagar um projeto quando já não precisa. Abaixo os passos descrevem como apagar um projeto.
 
-1. Focalize qualquer registro de projeto e clique no ícone de lixeira.
+1. Passe em qualquer registo do projeto e clique no ícone do lixo.
 
-   ![Eliminar projeto](media/how-to/how-to-delete-project.png)
+   ![Excluir projeto](media/how-to/how-to-delete-project.png)
 
-2. Confirme a exclusão. Excluir um projeto excluirá todos os modelos que foram criados dentro desse projeto. Excluir o projeto não afetará seus documentos.
+2. Confirme a eliminação. A eliminação de um projeto irá apagar todos os modelos criados dentro desse projeto. O projeto de adesão não afetará os seus documentos.
 
-   ![Caixa de diálogo Excluir confirmação](media/how-to/how-to-delete-project-confirm.png)
+   ![Eliminar o diálogo de confirmação](media/how-to/how-to-delete-project-confirm.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Carregue documentos](how-to-upload-document.md) para começar a criar seu modelo de tradução personalizado.
+- [Faça upload de documentos](how-to-upload-document.md) para começar a construir o seu modelo de tradução personalizado.

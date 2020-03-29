@@ -1,7 +1,7 @@
 ---
 title: Autenticação
 titleSuffix: Azure Cognitive Services
-description: 'Há três maneiras de autenticar uma solicitação para um recurso de serviços cognitivas do Azure: uma chave de assinatura, um token de portador ou uma assinatura de vários serviços. Neste artigo, você aprenderá sobre cada método e como fazer uma solicitação.'
+description: 'Existem três formas de autenticar um pedido a um recurso dos Serviços Cognitivos Azure: uma chave de subscrição, um símbolo do portador ou uma subscrição multi-serviço. Neste artigo, você vai aprender sobre cada método, e como fazer um pedido.'
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,50 +10,50 @@ ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
 ms.openlocfilehash: 1c13c2cc4d4e562d3512de90338d874091dfeef6
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74423939"
 ---
-# <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticar solicitações para serviços cognitivas do Azure
+# <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticação de pedidos aos Serviços Cognitivos Azure
 
-Cada solicitação para um serviço de cognitiva do Azure deve incluir um cabeçalho de autenticação. Esse cabeçalho passa uma chave de assinatura ou um token de acesso, que é usado para validar sua assinatura para um serviço ou grupo de serviços. Neste artigo, você aprenderá sobre três maneiras de autenticar uma solicitação e os requisitos para cada uma delas.
+Cada pedido a um Serviço Cognitivo Azure deve incluir um cabeçalho de autenticação. Este cabeçalho passa ao longo de uma chave de subscrição ou ficha de acesso, que é usada para validar a sua subscrição para um serviço ou grupo de serviços. Neste artigo, você aprenderá sobre três formas de autenticar um pedido e os requisitos para cada um.
 
-* [Autenticar com uma chave de assinatura de serviço único](#authenticate-with-a-single-service-subscription-key)
-* [Autenticar com uma chave de assinatura de vários serviços](#authenticate-with-a-multi-service-subscription-key)
-* [Autenticar com um token](#authenticate-with-an-authentication-token)
-* [Autenticar com Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
+* [Autenticar com uma chave de subscrição de um único serviço](#authenticate-with-a-single-service-subscription-key)
+* [Autenticar com uma chave de subscrição multi-serviço](#authenticate-with-a-multi-service-subscription-key)
+* [Autenticar com um símbolo](#authenticate-with-an-authentication-token)
+* [Autenticação com Diretório Ativo Azure (AAD)](#authenticate-with-azure-active-directory)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de fazer uma solicitação, você precisa de uma conta do Azure e uma assinatura de serviços cognitivas do Azure. Se você já tiver uma conta, vá em frente e pule para a próxima seção. Se você não tiver uma conta, temos um guia para configurá-lo em minutos: [criar uma conta de serviços cognitivas para o Azure](cognitive-services-apis-create-account.md).
+Antes de fazer um pedido, precisa de uma conta Azure e de uma subscrição do Serviço Cognitivo Azure. Se já tem uma conta, vá em frente e salte para a próxima secção. Se não tiver uma conta, temos um guia para o configurar em minutos: Criar uma conta de [Serviços Cognitivos para o Azure](cognitive-services-apis-create-account.md).
 
-Você pode obter sua chave de assinatura do [portal do Azure](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) depois de criar sua conta ou ativar uma [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/my-apis).
+Pode obter a sua chave de subscrição no [portal Azure](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) depois de criar a sua conta, ou ativar um [teste gratuito.](https://azure.microsoft.com/try/cognitive-services/my-apis)
 
 ## <a name="authentication-headers"></a>Cabeçalhos de autenticação
 
-Vamos examinar rapidamente os cabeçalhos de autenticação disponíveis para uso com os serviços cognitivas do Azure.
+Vamos rever rapidamente os cabeçalhos de autenticação disponíveis para utilização com os Serviços Cognitivos Azure.
 
 | Cabeçalho | Descrição |
 |--------|-------------|
-| OCP-Apim-Subscription-Key | Use esse cabeçalho para autenticar com uma chave de assinatura para um serviço específico ou uma chave de assinatura de vários serviços. |
-| OCP-APIM-Subscription – região | Esse cabeçalho só é necessário ao usar uma chave de assinatura de vários serviços com o [API de tradução de texto](./Translator/reference/v3-0-reference.md). Use esse cabeçalho para especificar a região da assinatura. |
-| Autorização | Use esse cabeçalho se você estiver usando um token de autenticação. As etapas para executar uma troca de token são detalhadas nas seções a seguir. O valor fornecido segue este formato: `Bearer <TOKEN>`. |
+| Ocp-Apim-Subscription-Key | Utilize este cabeçalho para autenticar com uma chave de subscrição para um serviço específico ou uma chave de subscrição de vários serviços. |
+| Ocp-Apim-Região de Assinatura | Este cabeçalho só é necessário quando utilizar uma chave de subscrição multi-serviço com a [API de Texto](./Translator/reference/v3-0-reference.md)tradutor . Utilize este cabeçalho para especificar a região de subscrição. |
+| Autorização | Utilize este cabeçalho se estiver a utilizar um símbolo de autenticação. As etapas para realizar uma troca simbólica são detalhadas nas seguintes secções. O valor fornecido segue `Bearer <TOKEN>`este formato: . |
 
-## <a name="authenticate-with-a-single-service-subscription-key"></a>Autenticar com uma chave de assinatura de serviço único
+## <a name="authenticate-with-a-single-service-subscription-key"></a>Autenticar com uma chave de subscrição de um único serviço
 
-A primeira opção é autenticar uma solicitação com uma chave de assinatura para um serviço específico, como Tradução de Texto. As chaves estão disponíveis no portal do Azure para cada recurso que você criou. Para usar uma chave de assinatura para autenticar uma solicitação, ela deve ser passada como o cabeçalho de `Ocp-Apim-Subscription-Key`.
+A primeira opção é autenticar um pedido com uma chave de subscrição para um serviço específico, como o Texto tradutor. As chaves estão disponíveis no portal Azure para cada recurso que criou. Para utilizar uma chave de subscrição para autenticar um `Ocp-Apim-Subscription-Key` pedido, deve ser transmitido como cabeçalho.
 
-Essas solicitações de exemplo demonstram como usar o cabeçalho `Ocp-Apim-Subscription-Key`. Tenha em mente, ao usar este exemplo, você precisará incluir uma chave de assinatura válida.
+Estes pedidos de amostra demonstram `Ocp-Apim-Subscription-Key` como usar o cabeçalho. Tenha em mente que, ao utilizar esta amostra, terá de incluir uma chave de subscrição válida.
 
-Esta é uma chamada de exemplo para o API de Pesquisa na Web do Bing:
+Esta é uma chamada de amostra para a API de pesquisa web bing:
 ```cURL
 curl -X GET 'https://api.cognitive.microsoft.com/bing/v7.0/search?q=Welsch%20Pembroke%20Corgis' \
 -H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' | json_pp
 ```
 
-Esta é uma chamada de exemplo para o API de Tradução de Texto:
+Esta é uma chamada de amostra para a API de Texto tradutor:
 ```cURL
 curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \
 -H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' \
@@ -61,26 +61,26 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
-O vídeo a seguir demonstra como usar uma chave de serviços cognitivas.
+O vídeo seguinte demonstra o uso de uma chave De Serviços Cognitivos.
 
-## <a name="authenticate-with-a-multi-service-subscription-key"></a>Autenticar com uma chave de assinatura de vários serviços
+## <a name="authenticate-with-a-multi-service-subscription-key"></a>Autenticar com uma chave de subscrição multi-serviço
 
 >[!WARNING]
-> Neste momento, esses serviços **não** dão suporte a chaves de vários serviços: QnA Maker, serviços de fala, visão personalizada e detector de anomalias.
+> Neste momento, estes serviços **não** suportam chaves multi-serviço: QnA Maker, Speech Services, Custom Vision e Anomaly Detetor.
 
-Essa opção também usa uma chave de assinatura para autenticar solicitações. A principal diferença é que uma chave de assinatura não está vinculada a um serviço específico, em vez disso, uma única chave pode ser usada para autenticar solicitações para vários serviços cognitivas. Consulte [preços de serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/) para obter informações sobre disponibilidade regional, recursos com suporte e preços.
+Esta opção também utiliza uma chave de subscrição para autenticar pedidos. A principal diferença é que uma chave de subscrição não está ligada a um serviço específico, pelo contrário, uma única chave pode ser usada para autenticar pedidos de múltiplos Serviços Cognitivos. Consulte os preços dos [Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) para obter informações sobre disponibilidade regional, funcionalidades suportadas e preços.
 
-A chave de assinatura é fornecida em cada solicitação como o cabeçalho de `Ocp-Apim-Subscription-Key`.
+A chave de subscrição é `Ocp-Apim-Subscription-Key` fornecida em cada pedido como cabeçalho.
 
-[demonstração da chave de assinatura de vários serviços ![para serviços cognitivas](./media/index/single-key-demonstration-video.png)](https://www.youtube.com/watch?v=psHtA1p7Cas&feature=youtu.be)
+[![Demonstração chave de subscrição de vários serviços para serviços cognitivos](./media/index/single-key-demonstration-video.png)](https://www.youtube.com/watch?v=psHtA1p7Cas&feature=youtu.be)
 
 ### <a name="supported-regions"></a>Regiões suportadas
 
-Ao usar a chave de assinatura de vários serviços para fazer uma solicitação para `api.cognitive.microsoft.com`, você deve incluir a região na URL. Por exemplo: `westus.api.cognitive.microsoft.com`.
+Ao utilizar a chave de subscrição `api.cognitive.microsoft.com`multi-serviço para fazer um pedido, deve incluir a região no URL. Por exemplo: `westus.api.cognitive.microsoft.com`.
 
-Ao usar a chave de assinatura de vários serviços com o API de Tradução de Texto, você deve especificar a região da assinatura com o cabeçalho `Ocp-Apim-Subscription-Region`.
+Ao utilizar a chave de subscrição de vários serviços com `Ocp-Apim-Subscription-Region` a API de Texto tradutor, deve especificar a região de subscrição com o cabeçalho.
 
-A autenticação de vários serviços tem suporte nessas regiões:
+A autenticação multi-serviço é suportada nestas regiões:
 
 | | | |
 |-|-|-|
@@ -91,16 +91,16 @@ A autenticação de vários serviços tem suporte nessas regiões:
 | `westeurope` | `westus` | `westus2` |
 
 
-### <a name="sample-requests"></a>Solicitações de amostra
+### <a name="sample-requests"></a>Pedidos de amostra
 
-Esta é uma chamada de exemplo para o API de Pesquisa na Web do Bing:
+Esta é uma chamada de amostra para a API de pesquisa web bing:
 
 ```cURL
 curl -X GET 'https://YOUR-REGION.api.cognitive.microsoft.com/bing/v7.0/search?q=Welsch%20Pembroke%20Corgis' \
 -H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' | json_pp
 ```
 
-Esta é uma chamada de exemplo para o API de Tradução de Texto:
+Esta é uma chamada de amostra para a API de Texto tradutor:
 
 ```cURL
 curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \
@@ -110,27 +110,27 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
-## <a name="authenticate-with-an-authentication-token"></a>Autenticar com um token de autenticação
+## <a name="authenticate-with-an-authentication-token"></a>Autenticar com um símbolo de autenticação
 
-Alguns serviços cognitivas do Azure aceitam e, em alguns casos, exigem um token de autenticação. Atualmente, esses serviços dão suporte a tokens de autenticação:
+Alguns Serviços Cognitivos Azure aceitam, e em alguns casos exigem, um símbolo de autenticação. Atualmente, estes serviços suportam fichas de autenticação:
 
 * API de tradução de texto
-* Serviços de fala: API REST de fala em texto
-* Serviços de fala: API REST de conversão de texto em fala
+* Serviços de Discurso: Discurso-a-texto REST API
+* Serviços de Fala: Texto-a-discurso REST API
 
 >[!NOTE]
-> QnA Maker também usa o cabeçalho Authorization, mas requer uma chave de ponto de extremidade. Para obter mais informações, consulte [QnA Maker: obter resposta da base de dados de conhecimento](./qnamaker/quickstarts/get-answer-from-knowledge-base-using-url-tool.md).
+> O Fabricante QnA também usa o cabeçalho de autorização, mas requer uma chave de ponto final. Para mais informações, consulte [QnA Maker: Obtenha resposta da base de conhecimento](./qnamaker/quickstarts/get-answer-from-knowledge-base-using-url-tool.md).
 
 >[!WARNING]
-> Os serviços que oferecem suporte a tokens de autenticação podem mudar com o tempo, verifique a referência de API para um serviço antes de usar esse método de autenticação.
+> Os serviços que suportam fichas de autenticação podem ser alterados ao longo do tempo, verifique a referência DaPI para um serviço antes de utilizar este método de autenticação.
 
-As chaves de assinatura de serviço único e de vários serviços podem ser trocadas para tokens de autenticação. Os tokens de autenticação são válidos por 10 minutos.
+Tanto as teclas de subscrição de serviço único como as chaves de subscrição multi-serviço podem ser trocadas por fichas de autenticação. Os tokens de autenticação são válidos por 10 minutos.
 
-Os tokens de autenticação são incluídos em uma solicitação como o cabeçalho de `Authorization`. O valor do token fornecido deve ser precedido por `Bearer`, por exemplo: `Bearer YOUR_AUTH_TOKEN`.
+Os tokens de autenticação estão `Authorization` incluídos num pedido como cabeçalho. O valor simbólico fornecido deve `Bearer`ser precedido, por exemplo: `Bearer YOUR_AUTH_TOKEN`.
 
-### <a name="sample-requests"></a>Solicitações de amostra
+### <a name="sample-requests"></a>Pedidos de amostra
 
-Use esta URL para trocar uma chave de assinatura para um token de autenticação: `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+Utilize este URL para trocar uma chave de `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`subscrição por um símbolo de autenticação: .
 
 ```cURL
 curl -v -X POST \
@@ -140,7 +140,7 @@ curl -v -X POST \
 -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
-Essas regiões de vários serviços oferecem suporte à troca de tokens:
+Estas regiões multi-serviços apoiam a troca de fichas:
 
 | | | |
 |-|-|-|
@@ -150,7 +150,7 @@ Essas regiões de vários serviços oferecem suporte à troca de tokens:
 | `southeastasia` | `uksouth` | `westcentralus` |
 | `westeurope` | `westus` | `westus2` |
 
-Depois de obter um token de autenticação, você precisará passá-lo em cada solicitação como o cabeçalho de `Authorization`. Esta é uma chamada de exemplo para o API de Tradução de Texto:
+Depois de obter um símbolo de autenticação, terá de passá-lo em cada pedido como `Authorization` cabeçalho. Esta é uma chamada de amostra para a API de Texto tradutor:
 
 ```cURL
 curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \

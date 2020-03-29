@@ -1,7 +1,7 @@
 ---
-title: Marcas de conteúdo-Pesquisa Visual Computacional
+title: Etiquetas de conteúdo - Visão Computacional
 titleSuffix: Azure Cognitive Services
-description: Aprenda os conceitos relacionados ao recurso de marcação de imagens do API da Pesquisa Visual Computacional.
+description: Conheça conceitos relacionados com a característica de marcação de imagens da API da Visão Computacional.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ad01751f7f7c573352c8fd15cc0f8cc2ebbbe700
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 887f6d9163f800ecbe8a5ab9a0715fd171f1d3d9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945112"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80244516"
 ---
 # <a name="applying-content-tags-to-images"></a>Aplicação de etiquetas de conteúdo a imagens
 
-Pesquisa Visual Computacional retorna marcas com base em milhares de objetos reconhecíveis, seres de vida, cenário e ações. Quando as etiquetas são ambíguas ou não são do conhecimento geral, a resposta da API fornece "sugestões" para clarificar o significado da etiqueta no contexto de um cenário conhecido. As etiquetas não são organizadas como uma taxonomia e não existem hierarquias de herança. Uma coleção de etiquetas de conteúdos é a base da "descrição" de uma imagem apresentada como um idioma legível por humanos e formatada em frases completas. Tenha em atenção que, neste momento, o inglês é o único idioma suportado para a descrição de imagens.
+A Computer Vision devolve etiquetas baseadas em milhares de objetos reconhecíveis, seres vivos, cenários e ações. Quando as etiquetas são ambíguas ou não são do conhecimento geral, a resposta da API fornece "sugestões" para clarificar o significado da etiqueta no contexto de um cenário conhecido. As etiquetas não são organizadas como uma taxonomia e não existem hierarquias de herança. Uma coleção de etiquetas de conteúdos é a base da "descrição" de uma imagem apresentada como um idioma legível por humanos e formatada em frases completas. Tenha em atenção que, neste momento, o inglês é o único idioma suportado para a descrição de imagens.
 
-Depois de carregar uma imagem ou de especificar uma URL de imagem, Pesquisa Visual Computacional as marcas de saída dos algoritmos com base nos objetos, nos seres de vida e nas ações identificadas na imagem. As etiquetas não se limitam ao tema principal, como por exemplo uma pessoa em primeiro plano, mas também incluem o cenário (interior ou exterior), o mobiliário, ferramentas, plantas, animais, acessórios, gadgets, etc.
+Depois de carregar uma imagem ou especificar um URL de imagem, os algoritmos de Imagem Digitalizada produzem etiquetas com base nos objetos, seres vivos e ações identificados na imagem. As etiquetas não se limitam ao tema principal, como por exemplo uma pessoa em primeiro plano, mas também incluem o cenário (interior ou exterior), o mobiliário, ferramentas, plantas, animais, acessórios, gadgets, etc.
 
 ## <a name="image-tagging-example"></a>Exemplo de marcação de imagem
 
-A resposta JSON a seguir ilustra o que Pesquisa Visual Computacional retorna ao marcar os recursos visuais detectados na imagem de exemplo.
+A resposta json seguinte ilustra o que a Visão de Computador retorna ao marcar as funcionalidades visuais detetadas na imagem do exemplo.
 
-![Uma casa azul e o jardim frontal](./Images/house_yard.png).
+![Uma casa azul e o quintal da frente](./Images/house_yard.png).
 
 ```json
 {
@@ -83,6 +83,13 @@ A resposta JSON a seguir ilustra o que Pesquisa Visual Computacional retorna ao 
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="use-the-api"></a>Utilizar a API
 
-Aprenda conceitos sobre como [categorizar imagens](concept-categorizing-images.md) e [descrever imagens](concept-describing-images.md).
+A função de marcação faz parte da [API de Imagem de Análise.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) Você pode chamar isto de API através de um SDK nativo ou através de chamadas REST. Incluir `Tags` no parâmetro de consulta **visualFeatures.** Em seguida, quando obtém a resposta completa da JSON, `"tags"` basta analisar a corda para o conteúdo da secção.
+
+* [Quickstart: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Quickstart: Analise uma imagem (REST API)](./quickstarts/csharp-analyze.md)
+
+## <a name="next-steps"></a>Passos seguintes
+
+Conheça os conceitos relacionados de [categorizar imagens](concept-categorizing-images.md) e [descrever imagens.](concept-describing-images.md)

@@ -4,12 +4,12 @@ description: Este artigo contém respostas para perguntas frequentes sobre o Per
 ms.topic: troubleshooting
 ms.date: 02/26/2020
 ms.author: diberry
-ms.openlocfilehash: 39db920b663ace12f2fc6ca35f9082a791da1541
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 904953f028eb31afe42cf477ac05be43e8b72a4d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228034"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336018"
 ---
 # <a name="personalizer-troubleshooting"></a>Resolução de problemas personalizador
 
@@ -18,7 +18,7 @@ Este artigo contém respostas para perguntas frequentes sobre o Personalizer.
 ## <a name="transaction-errors"></a>Erros de transação
 
 <details>
-<summary><b>Recebo uma resposta HTTP 429 (muitos pedidos) do serviço. O que posso fazer?</b></summary>
+<summary><b>Recebo uma resposta HTTP 429 (muitos pedidos) do serviço. Que posso eu fazer?</b></summary>
 
 **Resposta**: Se escolheu um nível de preço gratuito quando criou a instância Personalizer, existe um limite de quota no número de pedidos de Rank que são permitidos. Reveja a sua taxa de chamada API para o Rank API (no painel de métricas no portal Azure para o seu recurso Personalizer) e ajuste o nível de preços (no painel de nível de preços) se se esperar que o seu volume de chamadas aumente para além do limiar para o nível de preços escolhido.
 
@@ -92,7 +92,7 @@ Quando o novo período de atualização começar, o modelo atualizado é utiliza
 </details>
 
 <details>
-<summary><b>Criei uma avaliação offline e conseguiquase instantaneamente. E porquê? Não vejo resultados?</b></summary>
+<summary><b>Criei uma avaliação offline e conseguiquase instantaneamente. A que se deve isso? Não vejo resultados?</b></summary>
 
 **Resposta**: A avaliação offline utiliza os dados do modelo treinados dos eventos nesse período de tempo. Se não tiver enviado quaisquer dados no período de tempo entre o início e o fim da avaliação, irá completar sem quaisquer resultados. Envie uma nova avaliação offline selecionando um intervalo de tempo com eventos que sabe terem sido enviados para personalizer.
 
@@ -111,7 +111,7 @@ Quando o novo período de atualização começar, o modelo atualizado é utiliza
 ## <a name="security"></a>Segurança
 
 <details>
-<summary><b>A chave API para o meu loop foi comprometida. O que posso fazer?</b></summary>
+<summary><b>A chave API para o meu loop foi comprometida. Que posso eu fazer?</b></summary>
 
 **Resposta:** Pode regenerar uma tecla depois de trocar os seus clientes para utilizar a outra tecla. Ter duas chaves permite-lhe propagar a chave de forma preguiçosa sem ter de ter tempo de descanso. Recomendamos que o faça num ciclo regular como medida de segurança.
 

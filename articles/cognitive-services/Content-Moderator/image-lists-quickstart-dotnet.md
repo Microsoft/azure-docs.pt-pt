@@ -1,5 +1,5 @@
 ---
-title: Verificar imagens em listas personalizadas no C# Content moderator
+title: Ver imagens contra listas personalizadas em C# - Moderador de Conteúdo
 titleSuffix: Azure Cognitive Services
 description: Como moderar imagens com uma lista personalizada de imagens através do SDK do Content Moderator para C#.
 services: cognitive-services
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: e650529f3adb998ce683354565acdeb3928b50c3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72931758"
 ---
-# <a name="moderate-with-custom-image-lists-in-c"></a>Moderado com listas de imagens personalizadas emC#
+# <a name="moderate-with-custom-image-lists-in-c"></a>Moderado com listas de imagem personalizadas em C #
 
-Este artigo apresenta informações e exemplos de código para ajudá-lo a começar a utilizar o [SDK do Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
+Este artigo fornece informações e exemplos de código para ajudá-lo a começar a utilizar o [SDK do Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
 - Criar uma lista de imagens personalizadas
 - Adicionar e remover imagens da lista
 - Obter os IDs de todas as imagens da lista
@@ -32,9 +32,9 @@ Este artigo apresenta informações e exemplos de código para ajudá-lo a come�
 > [!NOTE]
 > Existe um limite máximo de **5 listas de imagens**, sendo que cada lista **não pode exceder 10 000 imagens**.
 
-O aplicativo de console para este guia simula algumas das tarefas que você pode executar com a API da lista de imagens.
+A aplicação da consola para este guia simula algumas das tarefas que pode executar com a lista de imagens API.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
 ## <a name="sign-up-for-content-moderator-services"></a>Inscrever-se nos serviços do Content Moderator
 
@@ -72,7 +72,7 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>Criar o cliente do Content Moderator
 
-Adicione o seguinte código para criar um cliente do Content Moderator para a sua subscrição. Atualize os campos `AzureEndpoint` e `CMSubscriptionKey` com os valores de sua URL de ponto de extremidade e chave de assinatura. Você pode encontrá-los na guia **início rápido** do recurso na portal do Azure.
+Adicione o seguinte código para criar um cliente do Content Moderator para a sua subscrição. Atualize `AzureEndpoint` `CMSubscriptionKey` os campos e campos com os valores do URL final e chave de subscrição. Pode encontrá-los no **separador De arranque rápido** do seu recurso no portal Azure.
 
 ```csharp
 /// <summary>
@@ -292,7 +292,7 @@ private static ImageList CreateCustomList(ContentModeratorClient client)
 
 ## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>Criar um método para adicionar uma coleção de imagens à lista
 
-Adicione o seguinte método à classe **Programa**. Este guia não demonstra como aplicar marcas a imagens na lista. 
+Adicione o seguinte método à classe **Programa**. Este guia não demonstra como aplicar etiquetas a imagens na lista. 
 
 ```csharp
 /// <summary>

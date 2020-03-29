@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: dapine
 ms.openlocfilehash: 51fe6cea80e097f34432ab8dc7293c758bd8d720
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77119803"
 ---
 # <a name="get-the-list-of-text-to-speech-voices-using-python"></a>Obtenha a lista de vozes de texto-a-fala usando Python
@@ -42,9 +42,9 @@ import requests
 
 Os pedidos são utilizados para pedidos http ao serviço de texto-a-fala.
 
-## <a name="set-the-subscription-key-and-create-a-prompt-for-tts"></a>Defina a chave de subscrição e criar uma linha de comandos para TTS
+## <a name="set-the-subscription-key-and-create-a-prompt-for-tts"></a>Desloque a chave de subscrição e crie um pedido para o TTS
 
-As próximas seções irá criar métodos para processar autorizações, chamar a API de texto para voz e validar a resposta. Vamos começar por criar uma aula. Isso é onde, colocamos nossa métodos para troca de token e chamar a API de texto para voz.
+Nas próximas secções, irá criar métodos para lidar com a autorização, chamar a API de texto a falar e validar a resposta. Vamos começar por criar uma aula. É aqui que vamos colocar os nossos métodos de troca simbólica, e chamar a API de texto para discurso.
 
 ```python
 class GetVoices(object):
@@ -53,15 +53,15 @@ class GetVoices(object):
         self.access_token = None
 ```
 
-O `subscription_key` é a sua chave única do portal Azure.
+É `subscription_key` a sua chave única do portal Azure.
 
 ## <a name="get-an-access-token"></a>Obter um token de acesso
 
-Este ponto final requer um sinal de acesso para autenticação. Para obter um token de acesso, um exchange é necessário. Esta amostra troca a sua chave de subscrição do serviço Speech por um token de acesso utilizando o ponto final `issueToken`.
+Este ponto final requer um sinal de acesso para autenticação. Para obter um sinal de acesso, é necessária uma troca. Esta amostra troca a sua chave de subscrição `issueToken` do serviço Speech por um token de acesso utilizando o ponto final.
 
-Esta amostra pressupõe que a sua subscrição de serviço speech está na região dos EUA Ocidentais. Se estiver a utilizar uma região diferente, atualize o valor para `fetch_token_url`. Para obter uma lista completa, consulte [Regiões.](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis)
+Esta amostra pressupõe que a sua subscrição de serviço speech está na região dos EUA Ocidentais. Se estiver a utilizar uma região `fetch_token_url`diferente, atualize o valor para . Para obter uma lista completa, consulte [Regiões.](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis)
 
-Copie este código para a classe `GetVoices`:
+Copie este `GetVoices` código para a classe:
 
 ```python
 def get_token(self):
@@ -76,13 +76,13 @@ def get_token(self):
 > [!NOTE]
 > Para obter mais informações sobre a autenticação, consulte [Authenticate com um sinal de acesso](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
 
-## <a name="make-a-request-and-save-the-response"></a>Fazer um pedido e guardar a resposta
+## <a name="make-a-request-and-save-the-response"></a>Faça um pedido e poupe a resposta
 
-Aqui vais construir o pedido e salvar a lista de vozes devolvidas. Primeiro, tens de definir o `base_url` e `path`. Este exemplo parte do princípio de que está a utilizar o ponto de extremidade do E.U.A. oeste. Se o seu recurso estiver registado numa região diferente, certifique-se de atualizar o `base_url`. Para mais informações, consulte [as regiões de serviço da Fala.](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech)
+Aqui vais construir o pedido e salvar a lista de vozes devolvidas. Primeiro, tens de `base_url` definir `path`o e. Esta amostra pressupõe que estás a usar o ponto final dos EUA Ocidentais. Se o seu recurso estiver registado numa região diferente, certifique-se de que atualiza o `base_url`. Para mais informações, consulte [as regiões de serviço da Fala.](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech)
 
-Em seguida, adicione os cabeçalhos necessários para o pedido. Por fim, vou fazer um pedido para o serviço. Se o pedido for bem sucedido, e um código de estado de 200 for devolvido, a resposta é escrita para arquivar.
+Em seguida, adicione os cabeçalhos necessários para o pedido. Finalmente, fará um pedido ao serviço. Se o pedido for bem sucedido, e um código de estado de 200 for devolvido, a resposta é escrita para arquivar.
 
-Copie este código para a classe `GetVoices`:
+Copie este `GetVoices` código para a classe:
 
 ```python
 def get_voices(self):
@@ -105,7 +105,7 @@ def get_voices(self):
 
 ## <a name="put-it-all-together"></a>Juntar tudo
 
-Está quase concluído. A última etapa é instanciar sua classe e chamar as suas funções.
+Está quase concluído. O último passo é instantaneamente a sua aula e chamar as suas funções.
 
 ```python
 if __name__ == "__main__":
@@ -117,7 +117,7 @@ if __name__ == "__main__":
 
 ## <a name="run-the-sample-app"></a>Execute a aplicação de exemplo
 
-Está pronto para analisar a amostra. A partir da linha de comandos (ou sessão de terminal), navegue para o diretório de projeto e execute:
+Está pronto para analisar a amostra. A partir da linha de comando (ou sessão terminal), navegue até ao seu diretório de projeto e corra:
 
 ```console
 python get-voices.py
@@ -125,14 +125,14 @@ python get-voices.py
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Não se esqueça de remover quaisquer informações confidenciais do código-fonte da sua aplicação de exemplo, como chaves de subscrição.
+Certifique-se de remover quaisquer informações confidenciais do código fonte da sua aplicação de amostra, como as chaves de subscrição.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Explore as amostras python no GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [Referência da API de conversão de texto em voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Criação de fontes de voz personalizadas](how-to-customize-voice-font.md)

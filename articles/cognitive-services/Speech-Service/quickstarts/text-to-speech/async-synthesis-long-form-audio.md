@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
 ms.openlocfilehash: d3cd330001bcf53e7bd4fb9e6955c76a9ef20511
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78331081"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>Quickstart: Síntese assíncrona para áudio de longa forma em Python (Pré-visualização)
@@ -34,7 +34,7 @@ Este início rápido requer:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos exigidos
 
-Crie um novo projeto do Python através do seu editor ou IDE favorito. Em seguida, copie este fragmento de código num ficheiro chamado `voice_synthesis_client.py`.
+Crie um novo projeto do Python através do seu editor ou IDE favorito. Em seguida, copie este fragmento `voice_synthesis_client.py`de código num ficheiro chamado .
 
 ```python
 import argparse
@@ -56,7 +56,7 @@ Estes módulos são usados para analisar argumentos, construir o pedido HTTP, e 
 
 ## <a name="get-a-list-of-supported-voices"></a>Obtenha uma lista de vozes apoiadas
 
-Este código obtém uma lista de vozes disponíveis que pode usar para converter texto-a-fala. Adicione o código para `voice_synthesis_client.py`:
+Este código obtém uma lista de vozes disponíveis que pode usar para converter texto-a-fala. Adicione o `voice_synthesis_client.py`código a:
 
 ```python
 parser = argparse.ArgumentParser(description='Cris client tool to submit voice synthesis requests.')
@@ -82,8 +82,8 @@ if args.voices:
 
 Vamos testar o que fez até agora. Terá de atualizar algumas coisas no pedido abaixo:
 
-* Substitua `<your_key>` com a sua chave de subscrição do serviço Speech. Esta informação está disponível no separador **Overview** para o seu recurso no [portal Azure](https://aka.ms/azureportal).
-* Substitua `<region>` pela região onde o seu recurso Speech foi criado (por exemplo: `eastus` ou `westus`). Esta informação está disponível no separador **Overview** para o seu recurso no [portal Azure](https://aka.ms/azureportal).
+* Substitua-a `<your_key>` com a chave de subscrição do serviço Speech. Esta informação está disponível no separador **Overview** para o seu recurso no [portal Azure](https://aka.ms/azureportal).
+* Substitua-a `<region>` pela região onde o `eastus` seu `westus`recurso Speech foi criado (por exemplo: ou ). Esta informação está disponível no separador **Overview** para o seu recurso no [portal Azure](https://aka.ms/azureportal).
 
 Execute este comando:
 
@@ -106,7 +106,7 @@ Prepare um ficheiro de texto de entrada. Pode ser texto simples ou texto SSML. P
 
 ## <a name="convert-text-to-speech"></a>Converter texto em discurso
 
-Depois de preparar o ficheiro de texto de entrada, adicione este código de síntese da fala a `voice_synthesis_client.py`:
+Depois de preparar o ficheiro de texto de `voice_synthesis_client.py`entrada, adicione este código de síntese da fala a:
 
 > [!NOTE]
 > 'concatenateResult' é um parâmetro opcional. Se este parâmetro não estiver definido, as saídas de áudio serão geradas por parágrafo. Também pode concatenar os áudios em 1 saída, definindo o parâmetro. Por predefinição, a saída de áudio está definida para riff-16khz-16bit-mono-pcm. Para obter mais informações sobre saídas de áudio suportadas, consulte [formatos](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#audio-output-formats)de saída áudio .
@@ -174,11 +174,11 @@ if args.submit:
 
 Vamos fazer um pedido para sintetizar o texto usando o seu ficheiro de entrada como fonte. Terá de atualizar algumas coisas no pedido abaixo:
 
-* Substitua `<your_key>` com a sua chave de subscrição do serviço Speech. Esta informação está disponível no separador **Overview** para o seu recurso no [portal Azure](https://aka.ms/azureportal).
-* Substitua `<region>` pela região onde o seu recurso Speech foi criado (por exemplo: `eastus` ou `westus`). Esta informação está disponível no separador **Overview** para o seu recurso no [portal Azure](https://aka.ms/azureportal).
-* Substitua `<input>` pelo caminho para o ficheiro de texto que preparou para o texto-a-fala.
-* Substitua `<locale>` pelo local de saída pretendido. Para mais informações, consulte o [suporte linguístico.](../../language-support.md#neural-voices)
-* Substitua `<voice_guid>` pela voz de saída desejada. Use uma das vozes devolvidas por [Obter uma lista de vozes apoiadas](#get-a-list-of-supported-voices).
+* Substitua-a `<your_key>` com a chave de subscrição do serviço Speech. Esta informação está disponível no separador **Overview** para o seu recurso no [portal Azure](https://aka.ms/azureportal).
+* Substitua-a `<region>` pela região onde o `eastus` seu `westus`recurso Speech foi criado (por exemplo: ou ). Esta informação está disponível no separador **Overview** para o seu recurso no [portal Azure](https://aka.ms/azureportal).
+* Substitua-o `<input>` pelo caminho para o ficheiro de texto que preparou para o texto-a-fala.
+* Substitua-a `<locale>` pelo local de saída pretendido. Para mais informações, consulte o [suporte linguístico.](../../language-support.md#neural-voices)
+* Substitua-a `<voice_guid>` com a voz de saída desejada. Use uma das vozes devolvidas por [Obter uma lista de vozes apoiadas](#get-a-list-of-supported-voices).
 
 Converter texto para discurso com este comando:
 
@@ -215,7 +215,7 @@ O resultado contém o texto de entrada e os ficheiros de saída de áudio que s�
 
 O servidor manterá até **20.000** pedidos para cada conta de subscrição do Azure. Se o seu valor de pedido exceder esta limitação, remova os pedidos anteriores antes de efazer novos. Se não remover os pedidos existentes, receberá uma notificação de erro.
 
-Adicione o código para `voice_synthesis_client.py`:
+Adicione o `voice_synthesis_client.py`código a:
 
 ```python
 parser.add_argument('--syntheses', action="store_true", default=False, help='print synthesis list')
@@ -250,8 +250,8 @@ if args.delete:
 
 Agora, vamos verificar os pedidos que já submeteu. Antes de continuar, terá de atualizar algumas coisas neste pedido:
 
-* Substitua `<your_key>` com a sua chave de subscrição do serviço Speech. Esta informação está disponível no separador **Overview** para o seu recurso no [portal Azure](https://aka.ms/azureportal).
-* Substitua `<region>` pela região onde o seu recurso Speech foi criado (por exemplo: `eastus` ou `westus`). Esta informação está disponível no separador **Overview** para o seu recurso no [portal Azure](https://aka.ms/azureportal).
+* Substitua-a `<your_key>` com a chave de subscrição do serviço Speech. Esta informação está disponível no separador **Overview** para o seu recurso no [portal Azure](https://aka.ms/azureportal).
+* Substitua-a `<region>` pela região onde o `eastus` seu `westus`recurso Speech foi criado (por exemplo: ou ). Esta informação está disponível no separador **Overview** para o seu recurso no [portal Azure](https://aka.ms/azureportal).
 
 Execute este comando:
 
@@ -270,8 +270,8 @@ ID : xxx , Name : xxx : Succeeded
 
 Agora, vamos remover um pedido previamente apresentado. Terá de atualizar algumas coisas no código abaixo:
 
-* Substitua `<your_key>` com a sua chave de subscrição do serviço Speech. Esta informação está disponível no separador **Overview** para o seu recurso no [portal Azure](https://aka.ms/azureportal).
-* Substitua `<region>` pela região onde o seu recurso Speech foi criado (por exemplo: `eastus` ou `westus`). Esta informação está disponível no separador **Overview** para o seu recurso no [portal Azure](https://aka.ms/azureportal).
+* Substitua-a `<your_key>` com a chave de subscrição do serviço Speech. Esta informação está disponível no separador **Overview** para o seu recurso no [portal Azure](https://aka.ms/azureportal).
+* Substitua-a `<region>` pela região onde o `eastus` seu `westus`recurso Speech foi criado (por exemplo: ou ). Esta informação está disponível no separador **Overview** para o seu recurso no [portal Azure](https://aka.ms/azureportal).
 * Substitua `<synthesis_id>` pelo valor devolvido no pedido anterior.
 
 > [!NOTE]
@@ -292,7 +292,7 @@ delete successful
 
 ## <a name="get-the-full-client"></a>Obter o cliente completo
 
-O `voice_synthesis_client.py` completo está disponível para download no [GitHub.](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Python/voiceclient.py)
+O completo `voice_synthesis_client.py` está disponível para download no [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Python/voiceclient.py).
 
 ## <a name="next-steps"></a>Passos seguintes
 

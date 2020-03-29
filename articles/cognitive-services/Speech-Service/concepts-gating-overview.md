@@ -1,7 +1,7 @@
 ---
-title: Visão geral de retenção de voz neural personalizada
+title: Visão geral personalizada da voz neural
 titleSuffix: Azure Cognitive Services
-description: Introdução ao processo de retenção para a voz neural personalizada.
+description: Introdução ao processo de gating para voz neural personalizada.
 services: cognitive-services
 author: shlo
 manager: nitinme
@@ -11,44 +11,44 @@ ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: shlo
 ms.openlocfilehash: 73e6e4e69a245485ca473f048bbeafef21dbbf37
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73836792"
 ---
-# <a name="custom-neural-voice-gating-overview"></a>Visão geral de retenção de voz neural personalizada
+# <a name="custom-neural-voice-gating-overview"></a>Visão geral de voz neural personalizada
 
-Saiba mais sobre o processo de introdução à voz neural personalizada.
+Saiba mais sobre o processo para começar com a Custom Neural Voice.
 
 ## <a name="commitment-to-responsible-innovation"></a>Compromisso com a inovação responsável
 
-Como parte do compromisso da Microsoft em projetar a AI responsável, reunimos um conjunto de materiais para orientar os clientes no uso de voz neural personalizada. As diretrizes e as informações encontradas aqui são baseadas nos princípios da Microsoft [para inovação responsável na ia.](https://www.microsoft.com/AI/our-approach-to-ai)
+Como parte do compromisso da Microsoft em conceber IA responsável, reunimos um conjunto de materiais para orientar os clientes na utilização da Custom Neural Voice. As diretrizes e insights aqui encontrados baseiam-se nos princípios da Microsoft [para uma inovação responsável em IA.](https://www.microsoft.com/AI/our-approach-to-ai)
 
-### <a name="guidance-for-deploying-custom-neural-voice"></a>Diretrizes para implantar a voz neural personalizada
+### <a name="guidance-for-deploying-custom-neural-voice"></a>Orientação para a implementação de voz neural personalizada
 
-- [Diretrizes para implantação responsável](concepts-guidelines-responsible-deployment-synthetic.md): nossas principais recomendações com base em nossa pesquisa
-- [Divulgação para talento de voz](https://aka.ms/disclosure-voice-talent): o que você precisa saber e informar o talento de voz sobre a tecnologia para usá-la com responsabilidade
-- [Design de divulgação](concepts-disclosure-guidelines.md): como projetar experiências para que os usuários saibam quando uma voz sintética está sendo usada e confia em seu serviço
+- [Diretrizes para Implementação Responsável](concepts-guidelines-responsible-deployment-synthetic.md): as nossas principais recomendações com base na nossa pesquisa
+- [Divulgação de Voice Talent](https://aka.ms/disclosure-voice-talent): o que precisa de saber e informar o talento de voz sobre a tecnologia para usá-lo de forma responsável
+- [Design de Divulgação](concepts-disclosure-guidelines.md): como projetar experiências para que os utilizadores saibam quando uma voz sintética está a ser usada e confiem no seu serviço
 
-### <a name="why-custom-neural-voice-is-a-gated-technology"></a>Por que a voz neural personalizada é uma tecnologia restrita
+### <a name="why-custom-neural-voice-is-a-gated-technology"></a>Por que a Voz Neural Personalizada é uma tecnologia fechada
 
-Nossa intenção é proteger os direitos de indivíduos e sociedade, promover interações transparentes de computadores humanos e neutralizar a proliferação de deepfakess prejudiciais e conteúdo enganoso. Por esse motivo, restringimos o uso da voz neural personalizada. Os clientes têm acesso à tecnologia somente depois que seus aplicativos são examinados e confirmados a usá-la em alinhamento com nossos princípios de ética.
+A nossa intenção é proteger os direitos dos indivíduos e da sociedade, fomentar interações humana-informática transparentes e contrariar a proliferação de deepfakes nocivos e conteúdos enganadores. Por esta razão, temos fechado o uso de Voz Neural Personalizada. Os clientes só têm acesso à tecnologia após a revisão das suas aplicações e comprometeram-se a utilizá-la de acordo com os nossos princípios éticos.
 
-### <a name="our-gating-process"></a>Nosso processo de retenção
+### <a name="our-gating-process"></a>O nosso processo de marcha
 
-Para obter acesso à voz neural personalizada, você precisará começar preenchendo nosso formulário de ingestão online. Inicie seu aplicativo [aqui](https://aka.ms/custom-neural-intake-form).
+Para ter acesso à Voz Neural Personalizada, terá de começar por preencher o nosso formulário de adposição online. Comece a sua inscrição [aqui.](https://aka.ms/custom-neural-intake-form)
 
-O acesso ao serviço de voz neural personalizado está sujeito à exclusiva critério da Microsoft com base em nossos critérios de qualificação, processo de habilitação e disponibilidade para dar suporte a um número limitado de clientes durante essa visualização restrita.
+O acesso ao serviço Custom Neural Voice está sujeito à exclusiva discrição da Microsoft com base nos nossos critérios de elegibilidade, processo de verificação e disponibilidade para suportar um número limitado de clientes durante esta pré-visualização fechada.
 
-Como parte do processo do aplicativo, você precisará confirmar a obtenção de permissão explícita por escrito do talento de voz antes de criar uma fonte de voz, que inclui o compartilhamento da [divulgação para talento de voz](https://aka.ms/disclosure-voice-talent). Você também deve concordar que ao implantar a fonte de voz, sua implementação [divulgará a natureza sintética](concepts-disclosure-guidelines.md) do serviço aos usuários, fornecerá a atribuição ao serviço de fala sintético da Microsoft em seus termos de serviço e dará suporte a um canal de comentários Isso permite que os usuários do serviço relatem problemas e compartilhem detalhes com a Microsoft. Saiba mais sobre nossos termos de uso [aqui](https://aka.ms/custom-neural-code-of-conduct).
+Como parte do processo de candidatura, terá de se comprometer a obter permissão escrita explícita de talento de voz antes de criar uma fonte de voz, que inclui a partilha da [Divulgação de Talento](https://aka.ms/disclosure-voice-talent)sonoro. Deve também concordar que, ao implementar o fonte de voz, a sua implementação [irá divulgar a natureza sintética](concepts-disclosure-guidelines.md) do serviço aos utilizadores, fornecer atribuições ao serviço de fala sintética da Microsoft nos seus termos de serviço, e apoiar um canal de feedback que permita aos utilizadores do serviço reportar problemas e partilhar detalhes com a Microsoft. Saiba mais sobre os nossos Termos de Utilização [aqui.](https://aka.ms/custom-neural-code-of-conduct)
 
-## <a name="reference-docs"></a>Documentos de referência
+## <a name="reference-docs"></a>Doutorados de referência
 
 * [Divulgação para talento de voz](https://aka.ms/disclosure-voice-talent)
-* [Diretrizes para a implantação responsável da tecnologia de voz sintética](concepts-guidelines-responsible-deployment-synthetic.md)
-* [Como divulgar](concepts-disclosure-guidelines.md)
+* [Orientações para a implantação responsável da tecnologia de voz sintética](concepts-guidelines-responsible-deployment-synthetic.md)
+* [Como Divulgar](concepts-disclosure-guidelines.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Diretrizes para a implantação responsável da tecnologia de voz sintética](concepts-guidelines-responsible-deployment-synthetic.md)
+* [Orientações para a implantação responsável da tecnologia de voz sintética](concepts-guidelines-responsible-deployment-synthetic.md)

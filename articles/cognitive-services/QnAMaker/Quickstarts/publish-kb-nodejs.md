@@ -6,10 +6,10 @@ ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: ecc3fb144fb4b4e27182567925199f841b1c4357
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78851676"
 ---
 # <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Quickstart: QnA Maker REST APIs para Node.js
@@ -25,7 +25,7 @@ Utilize as APIs DE REPOUSO DO Fabricante QnA para:
 * Descarregue uma base de conhecimento
 * Obter o estado de uma operação
 
-[Documentação de referência](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Amostras nonóio.js](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
+[Documentação de referência](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Node.js Amostras](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -41,7 +41,7 @@ Utilize as APIs DE REPOUSO DO Fabricante QnA para:
 
 Os Serviços Cognitivos Azure são representados por recursos Azure que subscreve. Crie um recurso para o Fabricante QnA utilizando o [portal Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [o Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) na sua máquina local.
 
-Depois de obter uma chave do seu recurso, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o recurso, denominado `QNAMAKER_RESOURCE_KEY` e `QNAMAKER_AUTHORING_ENDPOINT`. Utilize os valores chave e ponto final encontrados na página **Quickstart** do Recurso no portal Azure.
+Depois de obter uma chave do seu recurso, `QNAMAKER_RESOURCE_KEY` [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o recurso, nomeado e `QNAMAKER_AUTHORING_ENDPOINT`. Utilize os valores chave e ponto final encontrados na página **Quickstart** do Recurso no portal Azure.
 
 ### <a name="create-a-new-nodejs-application"></a>Criar uma nova aplicação Node.js
 
@@ -51,13 +51,13 @@ Numa janela de consola (como cmd, PowerShell ou Bash), crie um novo diretório p
 mkdir myapp && cd myapp
 ```
 
-Execute o comando `npm init -y` para criar um ficheiro `package.json` nó.
+Execute `npm init -y` o comando para `package.json` criar um ficheiro de nó.
 
 ```console
 npm init -y
 ```
 
-Adicione os pacotes `reqeuestretry` e `request` NPM:
+Adicione `reqeuestretry` os `request` pacotes e npm:
 
 ```console
 npm install requestretry request --save
@@ -70,13 +70,13 @@ Estes fragmentos de código mostram-lhe como fazer o seguinte com as APIs REST D
 * [Criar uma base de dados de conhecimento](#create-a-knowledge-base)
 * [Substituir uma base de conhecimento](#replace-a-knowledge-base)
 * [Publicar uma base de dados de conhecimento](#publish-a-knowledge-base)
-* [Eliminar uma base de conhecimento](#delete-a-knowledge-base)
+* [Eliminar uma base de dados de conhecimento](#delete-a-knowledge-base)
 * [Descarregue uma base de conhecimento](#download-the-knowledge-base)
 * [Obter o estado de uma operação](#get-status-of-an-operation)
 
 ## <a name="add-the-dependencies"></a>Adicione as dependências
 
-Criar um ficheiro chamado `rest-apis.js` e adicionar o seguinte _requer_ uma declaração para fazer pedidos HTTP.
+Criar um `rest-apis.js` ficheiro nomeado e adicionar o seguinte _requer_ uma declaração para fazer pedidos HTTP.
 
 ```javascript
 const request = require("requestretry");
@@ -88,8 +88,8 @@ Crie variáveis para o ponto final e chave azure do seu recurso. Se criou a vari
 
 Detete os seguintes valores ambientais:
 
-* `QNAMAKER_RESOURCE_KEY` - A **chave** é uma cadeia de caracteres de 32 caracteres e está disponível no portal Azure, no recurso QnA Maker, na página **de arranque rápida.** Isto não é o mesmo que a chave final da previsão.
-* `QNAMAKER_AUTHORING_ENDPOINT` - O seu ponto final de autoria, no formato de `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`, inclui o seu nome de **recurso.** Este não é o mesmo URL usado para consultar o ponto final da previsão.
+* `QNAMAKER_RESOURCE_KEY`- A **chave** é uma cadeia de caracteres de 32 caracteres e está disponível no portal Azure, no recurso QnA Maker, na página **de arranque rápida.** Isto não é o mesmo que a chave final da previsão.
+* `QNAMAKER_AUTHORING_ENDPOINT`- O seu ponto final de `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`autoria, no formato de, inclui o seu nome de **recurso**. Este não é o mesmo URL usado para consultar o ponto final da previsão.
 
 [!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=authorization)]
 
@@ -136,7 +136,7 @@ Utilize a [API REST para eliminar uma base](https://docs.microsoft.com/rest/api/
 
 ## <a name="get-status-of-an-operation"></a>Obter o estado de uma operação
 
-Processos de longo curso, como o processo de criação, devolvem um ID de operação, que precisa de ser verificado com uma chamada separada da API REST. Esta função leva o corpo da resposta de criação. A chave importante é o `operationState`, que determina se precisa de continuar as sondagens.
+Processos de longo curso, como o processo de criação, devolvem um ID de operação, que precisa de ser verificado com uma chamada separada da API REST. Esta função leva o corpo da resposta de criação. A chave importante `operationState`é a , que determina se precisa de continuar as sondagens.
 
 Utilize a [API REST para monitorizar as operações numa base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)de conhecimento .
 
@@ -146,7 +146,7 @@ Utilize a [API REST para monitorizar as operações numa base](https://docs.micr
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute a aplicação com `node rest-apis.js` comando do seu diretório de candidatura.
+Execute a `node rest-apis.js` aplicação com o comando do seu diretório de candidatura.
 
 ```console
 node rest-apis.js
@@ -157,7 +157,7 @@ node rest-apis.js
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos associados ao mesmo.
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -165,6 +165,6 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 >[Tutorial: Criar e responder a um KB](../tutorials/create-publish-query-in-portal.md)
 
 * [O que é a API do Fabricante de QnA?](../Overview/overview.md)
-* [Editar uma base de conhecimento](../how-to/edit-knowledge-base.md)
+* [Editar uma base de dados de conhecimento](../how-to/edit-knowledge-base.md)
 * [Obtenha análises de uso](../how-to/get-analytics-knowledge-base.md)
 * O código fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/rest-api/rest-api.js).

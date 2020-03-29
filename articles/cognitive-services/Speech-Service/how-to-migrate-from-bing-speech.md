@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 03/17/2020
 ms.author: nitinme
-ms.openlocfilehash: d6d9cb4dda93523b1136c8cc4cd307ae82c8b674
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: b95e16f2d8257bfffcaf2524fe7f8ce6be565689
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560938"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80366595"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrar do Discurso de Bing para o serviço de discurso
 
@@ -37,25 +37,25 @@ O [Speech SDK](speech-sdk.md) é um substituto funcional para as bibliotecas de 
 
 O serviço da Fala é em grande parte semelhante ao Discurso de Bing, com as seguintes diferenças.
 
-Funcionalidade | Voz do Bing | Serviço de voz | Detalhes
--|-|-|-
-C++Rio SDK | : heavy_minus_sign: | :heavy_check_mark: | O serviço de voz suporta Windows e Linux.
-SDK Java | :heavy_check_mark: | :heavy_check_mark: | O serviço de fala suporta dispositivos Android e Speech.
-SDK C# | :heavy_check_mark: | :heavy_check_mark: | O serviço de voz suporta o Windows 10, Universal Windows Platform (UWP) e .NET Standard 2.0.
-Reconhecimento contínuo da fala | 10 minutos | Ilimitado (com SDK) | Tanto os protocolos do serviço de discurso e de discurso de Bing Suportam até 10 minutos por chamada. No entanto, o SDK do discurso reconecta-se automaticamente no tempo de paragem ou desconexão.
-Resultados parciais ou provisórios | :heavy_check_mark: | :heavy_check_mark: | Com protocolo WebSockets ou SDK.
-Modelos de discurso personalizados | :heavy_check_mark: | :heavy_check_mark: | Bing Speech requer uma subscrição separada do Discurso Personalizado.
-Fontes de voz personalizadas | :heavy_check_mark: | :heavy_check_mark: | Bing Speech requer uma subscrição de Voz Personalizada separada.
-Vozes de 24-KHz | : heavy_minus_sign: | :heavy_check_mark:
-Reconhecimento de intenções de fala | Requer chamada separada da API LUIS | Integrado (com SDK) |  Você pode usar uma chave LUIS com o serviço de Fala.
-Reconhecimento de intenções simples | : heavy_minus_sign: | :heavy_check_mark:
-Transcrição de lote de longos ficheiros áudio | : heavy_minus_sign: | :heavy_check_mark:
-Modo de reconhecimento | Manual via endpoint URI | Automático | O modo de reconhecimento não está disponível no serviço Da fala.
-Localidade de Endpoint | Global | Regional | Os pontos finais regionais melhoram a latência.
-APIs REST | :heavy_check_mark: | :heavy_check_mark: | As APIs do serviço de fala REST são compatíveis com bing Speech (ponto final diferente). REST APIs suportam texto-a-fala e funcionalidade limitada de fala-a-texto.
-Protocolos WebSockets | :heavy_check_mark: | :heavy_check_mark: | O serviço de fala WebSockets API é compatível com Bing Speech (ponto final diferente). Migrar para o SDK da fala, se possível, para simplificar o seu código.
-Chamadas API de serviço ao serviço | :heavy_check_mark: | : heavy_minus_sign: | Fornecido em Bing C# Speech através da Biblioteca de Serviços.
-SDK de código aberto | :heavy_check_mark: | : heavy_minus_sign: |
+| Funcionalidade | Voz do Bing | Serviço de voz | Detalhes |
+|--|--|--|--|
+| SDK C# | :heavy_check_mark: | :heavy_check_mark: | O serviço de voz suporta o Windows 10, Universal Windows Platform (UWP) e .NET Standard 2.0. |
+| C++ SDK | :heavy_minus_sign: | :heavy_check_mark: | O serviço de voz suporta Windows e Linux. |
+| SDK Java | :heavy_check_mark: | :heavy_check_mark: | O serviço de fala suporta dispositivos Android e Speech. |
+| Reconhecimento contínuo da fala | 10 minutos | Ilimitado (com SDK) | Tanto os protocolos do serviço de discurso e de discurso de Bing Suportam até 10 minutos por chamada. No entanto, o SDK do discurso reconecta-se automaticamente no tempo de paragem ou desconexão. |
+| Resultados parciais ou provisórios | :heavy_check_mark: | :heavy_check_mark: | Com protocolo WebSockets ou SDK. |
+| Modelos de discurso personalizados | :heavy_check_mark: | :heavy_check_mark: | Bing Speech requer uma subscrição separada do Discurso Personalizado. |
+| Fontes de voz personalizadas | :heavy_check_mark: | :heavy_check_mark: | Bing Speech requer uma subscrição de Voz Personalizada separada. |
+| Vozes de 24 kHz | :heavy_minus_sign: | :heavy_check_mark: |
+| Reconhecimento de intenções de fala | Requer chamada separada da API LUIS | Integrado (com SDK) | Você pode usar uma chave LUIS com o serviço de Fala. |
+| Reconhecimento de intenções simples | :heavy_minus_sign: | :heavy_check_mark: |
+| Transcrição de lote de longos ficheiros áudio | :heavy_minus_sign: | :heavy_check_mark: |
+| Modo de reconhecimento | Manual via endpoint URI | Automático | O modo de reconhecimento não está disponível no serviço Da fala. |
+| Localidade de Endpoint | Global | Regional | Os pontos finais regionais melhoram a latência. |
+| APIs REST | :heavy_check_mark: | :heavy_check_mark: | As APIs do serviço de fala REST são compatíveis com bing Speech (ponto final diferente). REST APIs suportam texto-a-fala e funcionalidade limitada de fala-a-texto. |
+| Protocolos WebSockets | :heavy_check_mark: | :heavy_check_mark: | O serviço de fala WebSockets API é compatível com Bing Speech (ponto final diferente). Migrar para o SDK da fala, se possível, para simplificar o seu código. |
+| Chamadas API de serviço ao serviço | :heavy_check_mark: | :heavy_minus_sign: | Fornecido em Bing Speech através da Biblioteca de Serviços C#. |
+| SDK de código aberto | :heavy_check_mark: | :heavy_minus_sign: |
 
 O serviço Speech utiliza um modelo de preços baseado no tempo (em vez de um modelo baseado em transações). Consulte os preços do [serviço de fala](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) para obter detalhes.
 
@@ -67,9 +67,7 @@ As [APIs](rest-apis.md) do serviço de fala REST são compatíveis com as APIs d
 
 Os protocolos webSockets do serviço de fala também são compatíveis com os utilizados pelo Bing Speech. Recomendamos que para novos desenvolvimentos, utilize o SDK de Fala em vez de WebSockets. É uma boa ideia migrar o código existente para o SDK também. No entanto, tal como acontece com as APIs rest, o código existente que utiliza o Bing Speech via WebSockets requer apenas uma alteração no ponto final e uma chave atualizada.
 
-Se estiver a usar uma biblioteca de clientes bing Speech para uma linguagem de programação específica, migrar para o [Speech SDK](speech-sdk.md) requer alterações na sua aplicação, porque a API é diferente. O SDK do Discurso pode tornar o seu código mais simples, ao mesmo tempo que lhe dá acesso a novas funcionalidades.
-
-Atualmente, o Speech SDK suporta C# ( detalhes[aqui),](https://aka.ms/csspeech)Java (Android e C++ dispositivos personalizados), Objetive C (iOS), (Windows e Linux) e JavaScript. As APIs em todas as plataformas são semelhantes, facilitando o desenvolvimento multi-plataforma.
+Se estiver a usar uma biblioteca de clientes bing Speech para uma linguagem de programação específica, migrar para o [Speech SDK](speech-sdk.md) requer alterações na sua aplicação, porque a API é diferente. O SDK do Discurso pode tornar o seu código mais simples, ao mesmo tempo que lhe dá acesso a novas funcionalidades. O Speech SDK está disponível numa grande variedade de linguagens de programação. As APIs em todas as plataformas são semelhantes, facilitando o desenvolvimento multi-plataforma.
 
 O serviço de discurso não oferece um ponto final global. Determine se a sua aplicação funciona de forma eficiente quando utiliza um único ponto final regional para todo o seu tráfego. Caso contrário, utilize a geolocalização para determinar o ponto final mais eficiente. Você precisa de uma subscrição separada do serviço Speech em cada região que você usa.
 

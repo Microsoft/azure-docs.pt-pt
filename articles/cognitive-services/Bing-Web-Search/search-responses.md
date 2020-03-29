@@ -1,7 +1,7 @@
 ---
-title: API de Pesquisa na Web do Bing a estrutura de resposta e os tipos de resposta
+title: Estrutura de resposta e tipos de resposta da API de pesquisa web bing web
 titleSuffix: Azure Cognitive Services
-description: Quando você envia Pesquisa na Web do Bing uma solicitação de pesquisa, ela retorna um objeto `SearchResponse` no corpo da resposta.
+description: Ao enviar um pedido de pesquisa no `SearchResponse` Bing Web Search, devolve um objeto no corpo de resposta.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,15 +12,15 @@ ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 95ebfaef863a1fa05e8a5d3b46fca9659c61f6b7
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74110626"
 ---
-# <a name="bing-web-search-api-response-structure-and-answer-types"></a>API de Pesquisa na Web do Bing a estrutura de resposta e os tipos de resposta  
+# <a name="bing-web-search-api-response-structure-and-answer-types"></a>Estrutura de resposta e tipos de resposta da API de pesquisa web bing web  
 
-Quando você envia Pesquisa na Web do Bing uma solicitação de pesquisa, ela retorna um objeto [`SearchResponse`](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) no corpo da resposta. O objeto inclui um campo para cada resposta que o Bing determinado foi relevante para a consulta. Este exemplo ilustra um objeto de resposta se o Bing retornou todas as respostas:
+Ao enviar um pedido de pesquisa no [`SearchResponse`](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) Bing Web Search, devolve um objeto no corpo de resposta. O objeto inclui um campo para cada resposta que Bing determinou ser relevante para a consulta. Este exemplo ilustra um objeto de resposta se Bing devolveu todas as respostas:
 
 ```json
 {
@@ -38,13 +38,13 @@ Quando você envia Pesquisa na Web do Bing uma solicitação de pesquisa, ela re
 }, ...
 ```
 
-Normalmente, Pesquisa na Web do Bing retorna um subconjunto das respostas. Por exemplo, se o termo de consulta era *velejando Dinghies*, a resposta pode incluir `webPages`, `images`e `rankingResponse`. A menos que você tenha usado o [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) para filtrar páginas da Web, a resposta sempre incluirá as respostas `webpages` e `rankingResponse`.
+Tipicamente, bing Web Search devolve um subconjunto das respostas. Por exemplo, se o termo de consulta fosse *velando dinghies*, a resposta poderia incluir `webPages`, `images`e `rankingResponse`. A menos que tenha usado [o filtro](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) de resposta `webpages` para `rankingResponse` filtrar páginas web, a resposta inclui sempre as respostas e respostas.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
-## <a name="webpages-answer"></a>Resposta de páginas da Web
+## <a name="webpages-answer"></a>Resposta de páginas web
 
-A resposta das [páginas da Web](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) contém uma lista de links para páginas da web que pesquisa na Web do Bing determinados eram relevantes para a consulta. Cada [página da Web](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage) na lista incluirá: o nome da página, a URL, a URL de exibição, uma breve descrição do conteúdo e a data em que o Bing encontrou o conteúdo.
+A resposta [webPages](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) contém uma lista de links para páginas web que bing Web Search determinada si são relevantes para a consulta. Cada [página web](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage) da lista incluirá: o nome da página, url, URL de exibição, uma descrição curta do conteúdo, e a data em que Bing encontrou o conteúdo.
 
 ```json
 {
@@ -57,7 +57,7 @@ A resposta das [páginas da Web](https://docs.microsoft.com/rest/api/cognitivese
 }, ...
 ```
 
-Use `name` e `url` para criar um hiperlink que leva o usuário para a página da Web.
+Utilize `name` `url` e crie uma hiperligação que leve o utilizador à página web.
 
 <!-- Remove until this can be replaced with a sanitized version.
 The following shows an example of how you might display the webpage in a search results page.
@@ -65,9 +65,9 @@ The following shows an example of how you might display the webpage in a search 
 ![Rendered webpage example](./media/cognitive-services-bing-web-api/bing-rendered-webpage-example.PNG)
 -->
 
-## <a name="images-answer"></a>Resposta de imagens
+## <a name="images-answer"></a>Resposta das imagens
 
-A resposta de [imagens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) contém uma lista de imagens que o Bing pensou que foram relevantes para a consulta. Cada [imagem](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) na lista inclui a URL da imagem, seu tamanho, suas dimensões e seu formato de codificação. O objeto de imagem também inclui o URL de uma miniatura da imagem e as dimensões da miniatura.
+A resposta das [imagens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) contém uma lista de imagens que Bing pensava serem relevantes para a consulta. Cada [imagem](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) da lista inclui o URL da imagem, o seu tamanho, as suas dimensões e o seu formato de codificação. O objeto de imagem também inclui o URL de uma miniatura da imagem e as dimensões da miniatura.
 
 ```json
 {
@@ -93,25 +93,25 @@ A resposta de [imagens](https://docs.microsoft.com/rest/api/cognitiveservices-bi
 }, ...
 ```
 
-Dependendo do dispositivo do usuário, você normalmente exibiria um subconjunto das miniaturas, com uma opção para o usuário [paginar](paging-webpages.md) as imagens restantes.
+Dependendo do dispositivo do utilizador, normalmente exibe um subconjunto das miniaturas, com a opção de o utilizador [páginar através](paging-webpages.md) das restantes imagens.
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![List of thumbnail images](./media/cognitive-services-bing-web-api/bing-web-image-thumbnails.PNG)
 -->
 
-Também pode expandir a miniatura à medida que o utilizador paira o cursor sobre a mesma. Lembre-se de atribuir a imagem se a expandir. Por exemplo, extraindo o host de `hostPageDisplayUrl` e exibindo-o abaixo da imagem. Para obter informações sobre o redimensionamento da miniatura, veja [Redimensionar e Recortar Miniaturas](./resize-and-crop-thumbnails.md).
+Também pode expandir a miniatura à medida que o utilizador paira o cursor sobre a mesma. Lembre-se de atribuir a imagem se a expandir. Por exemplo, extraindo `hostPageDisplayUrl` o hospedeiro e exibindo-o abaixo da imagem. Para obter informações sobre o redimensionamento da miniatura, veja [Redimensionar e Recortar Miniaturas](./resize-and-crop-thumbnails.md).
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![Expanded view of thumbnail image](./media/cognitive-services-bing-web-api/bing-web-image-thumbnail-expansion.PNG)
 -->
 
-Se o usuário clicar na miniatura, use `webSearchUrl` para levar o usuário para a página de resultados da pesquisa do Bing para imagens, que contém uma colagem das imagens.
+Se o utilizador clicar na `webSearchUrl` miniatura, utilize para levar o utilizador à página de resultados de pesquisa do Bing para obter imagens, que contém uma colagem das imagens.
 
-Para obter detalhes sobre a resposta da imagem e as imagens, consulte [pesquisa de imagem API](../bing-image-search/search-the-web.md).
+Para mais detalhes sobre a resposta da imagem e imagens, consulte a [Image Search API](../bing-image-search/search-the-web.md).
 
 ## <a name="related-searches-answer"></a>Resposta de pesquisas relacionadas
 
-A resposta [relatedSearches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse-relatedsearches) contém uma lista das consultas relacionadas mais populares feitas por outros usuários. Cada [consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query_obj) na lista inclui uma cadeia de caracteres de consulta (`text`), uma cadeia de caracteres de consulta com caracteres de realce de clique (`displayText`) e uma URL (`webSearchUrl`) para a página de resultados da pesquisa do Bing para essa consulta.
+A resposta [relacionadaAs Pesquisas](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse-relatedsearches) contém uma lista das consultas relacionadas mais populares feitas por outros utilizadores. Cada [consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query_obj) na lista inclui uma`text`corda de consulta ( ), uma`displayText`corda de`webSearchUrl`consulta com caracteres de destaque de sucesso ( ) e um URL ( ) para a página de resultados de pesquisa de Bing para essa consulta.
 
 ```json
 {
@@ -121,17 +121,17 @@ A resposta [relatedSearches](https://docs.microsoft.com/rest/api/cognitiveservic
 }, ...
 ```
 
-Use a cadeia de caracteres de consulta `displayText` e a URL de `webSearchUrl` para criar um hiperlink que leva o usuário para a página de resultados da pesquisa do Bing para a consulta relacionada. Você também pode usar a cadeia de caracteres de consulta `text` em sua própria consulta de API de Pesquisa na Web e exibir os resultados por conta própria.
+Utilize `displayText` a cadeia de `webSearchUrl` consulta e o URL para criar uma hiperligação que leve o utilizador à página de resultados de pesquisa do Bing para a consulta relacionada. Também pode utilizar `text` a cadeia de consulta na sua própria consulta de Pesquisa Web API e exibir os resultados por si mesmo.
 
-Para obter informações sobre como lidar com os marcadores de realce no `displayText`, consulte [realce de cliques](../bing-web-search/hit-highlighting.md).
+Para obter informações sobre como lidar `displayText`com os marcadores de destaque, consulte [O Destaque de Hit](../bing-web-search/hit-highlighting.md).
 
-Veja a seguir um exemplo do uso de consultas relacionadas em Bing.com.
+O seguinte mostra um exemplo do uso de consultas relacionadas em Bing.com.
 
-![Exemplo de pesquisas relacionadas no Bing](./media/cognitive-services-bing-web-api/bing-web-rendered-relatedsearches.GIF)
+![Pesquisas relacionadas exemplo em Bing](./media/cognitive-services-bing-web-api/bing-web-rendered-relatedsearches.GIF)
 
 ## <a name="videos-answer"></a>Resposta de vídeos
 
-A resposta dos [vídeos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contém uma lista de vídeos que o Bing pensou que foram relevantes para a consulta. Cada [vídeo](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video) na lista inclui a URL do vídeo, sua duração, suas dimensões e seu formato de codificação. O objeto de vídeo também inclui o URL de uma miniatura do vídeo e as dimensões da miniatura.
+A resposta dos [vídeos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contém uma lista de vídeos que Bing pensava serem relevantes para a consulta. Cada [vídeo](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video) na lista inclui o URL do vídeo, a sua duração, as suas dimensões e o seu formato de codificação. O objeto de vídeo também inclui o URL de uma miniatura do vídeo e as dimensões da miniatura.
 
 ```json
 {
@@ -163,13 +163,13 @@ A resposta dos [vídeos](https://docs.microsoft.com/rest/api/cognitiveservices-b
 }, ...
 ```
 
-Dependendo do dispositivo do usuário, você normalmente exibiria um subconjunto dos vídeos com uma opção para que o usuário exiba os vídeos restantes. Você exibiria uma miniatura do vídeo com o comprimento, a descrição (nome) e a atribuição (editor) do vídeo.
+Dependendo do dispositivo do utilizador, normalmente exibe um subconjunto dos vídeos com uma opção para o utilizador ver os restantes vídeos. Exibia uma miniatura do vídeo com o comprimento, descrição (nome) do vídeo.
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![List of video thumbnails](./media/cognitive-services-bing-web-api/bing-web-video-thumbnails.PNG)
 -->
 
-À medida que o usuário passa o mouse sobre a miniatura, você pode usar `motionThumbnailUrl` para reproduzir uma versão em miniatura do vídeo. Certifique-se de que adiciona um atributo à miniatura de movimento quando a apresentar.
+À medida que o utilizador paira sobre a miniatura, pode utilizar `motionThumbnailUrl` para reproduzir uma versão miniatura do vídeo. Certifique-se de que adiciona um atributo à miniatura de movimento quando a apresentar.
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![Motion thumbnail of a video](./media/cognitive-services-bing-web-api/bing-web-video-motion-thumbnail.PNG)
@@ -177,15 +177,15 @@ Dependendo do dispositivo do usuário, você normalmente exibiria um subconjunto
 
 Se o utilizador clicar na miniatura, seguem-se as opções de visualização do vídeo:
 
-- Use `hostPageUrl` para exibir o vídeo no site do host (por exemplo, YouTube)
-- Use `webSearchUrl` para exibir o vídeo no navegador de vídeo do Bing
-- Use `embedHtml` para inserir o vídeo em sua própria experiência
+- Use `hostPageUrl` para ver o vídeo no site do anfitrião (por exemplo, YouTube)
+- Use `webSearchUrl` para ver o vídeo no navegador de vídeo Bing
+- Use `embedHtml` para incorporar o vídeo na sua própria experiência
 
-Para obter detalhes sobre a resposta de vídeo e vídeos, consulte [pesquisa de vídeo API](../bing-video-search/search-the-web.md).
+Para mais detalhes sobre a resposta em vídeo e vídeos, consulte a [Video Search API](../bing-video-search/search-the-web.md).
 
-## <a name="news-answer"></a>Resposta de notícias
+## <a name="news-answer"></a>Resposta noticiosa
 
-A resposta de [notícias](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news) contém uma lista de artigos de notícias que o Bing pensou que foram relevantes para a consulta. Cada [artigo](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) na lista inclui o nome, a descrição e o URL do artigo no site do anfitrião. Se o artigo contiver uma imagem, o objeto inclui uma miniatura da imagem.
+A resposta [noticiosa](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news) contém uma lista de artigos noticiosos que Bing pensava serem relevantes para a consulta. Cada [artigo](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) na lista inclui o nome, a descrição e o URL do artigo no site do anfitrião. Se o artigo contiver uma imagem, o objeto inclui uma miniatura da imagem.
 
 ```json
 {
@@ -208,7 +208,7 @@ A resposta de [notícias](https://docs.microsoft.com/rest/api/cognitiveservices-
 }, ...
 ```
 
-Dependendo do dispositivo do usuário, você exibiria um subconjunto dos artigos de notícias com uma opção para que o usuário exiba os artigos restantes. Utilize `name` e `url` para criar uma hiperligação que direcione o utilizador para o artigo no site do anfitrião. Se o artigo incluir uma imagem, torne a imagem clicável usando `url`. Certifique-se de que utiliza `provider` para atribuir o artigo.
+Dependendo do dispositivo do utilizador, apresentaria um subconjunto dos artigos noticiosos com uma opção para o utilizador visualizar os restantes artigos. Utilize `name` e `url` para criar uma hiperligação que direcione o utilizador para o artigo no site do anfitrião. Se o artigo incluir uma imagem, `url`faça a imagem clicável usando . Certifique-se de que utiliza `provider` para atribuir o artigo.
 
 <!-- Remove until this can be replaced with a sanitized version.
 The following shows an example of how you might display articles in a search results page.
@@ -216,15 +216,15 @@ The following shows an example of how you might display articles in a search res
 ![List of news articles](./media/cognitive-services-bing-web-api/bing-web-news-list.PNG)
 -->
 
-Para obter detalhes sobre a resposta de notícias e artigos de notícias, consulte [pesquisa de notícias API](../bing-news-search/search-the-web.md).
+Para mais detalhes sobre a resposta noticiosa e artigos noticiosos, consulte a API de [Pesquisa de Notícias](../bing-news-search/search-the-web.md).
 
-## <a name="computation-answer"></a>Resposta de computação
+## <a name="computation-answer"></a>Resposta computação
 
-Se o usuário inserir uma expressão matemática ou uma consulta de conversão de unidade, a resposta poderá conter uma resposta de [computação](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#computation) . A resposta `computation` contém a expressão normalizada e seu resultado.
+Se o utilizador introduzir uma expressão matemática ou uma consulta de conversão de unidade, a resposta pode conter uma resposta [computation.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#computation) A `computation` resposta contém a expressão normalizada e o seu resultado.
 
-Uma consulta de conversão de unidade é uma consulta que converte uma unidade em outra. Por exemplo, *Quantos pés em 10 metros?* ou quantos *tablespoons em uma xícara de 1/4?*
+Uma consulta de conversão de unidade é uma consulta que converte uma unidade para outra. Por exemplo, *quantos pés em 10 metros?* *How many tablespoons in a 1/4 cup?*
 
-O seguinte mostra a resposta `computation` por *Quantos pés em 10 metros?*
+O seguinte `computation` mostra a resposta para *quantos pés em 10 metros?*
 
 ```json
 "computation": {
@@ -234,7 +234,7 @@ O seguinte mostra a resposta `computation` por *Quantos pés em 10 metros?*
 }, ...
 ```
 
-O exemplo a seguir mostra exemplos de consultas matemáticas e suas respostas `computation` correspondentes.
+O seguinte mostra exemplos de consultas `computation` matemáticas e suas respostas correspondentes.
 
 ```
 Query: (5+3)(10/2)+8
@@ -292,13 +292,13 @@ Uma expressão matemática pode conter os seguintes símbolos:
 
 |Símbolo|Descrição|
 |------------|-----------------|
-|+|Além|
+|+|Adição|
 |-|Subtração|
 |/|Divisão|
 |*|Multiplicação|
-|^|Avançado|
+|^|Power|
 |!|Fatorial|
-|.|decimal|
+|.|Decimal|
 |()|Agrupamento de precedência|
 |[]|Função|
 
@@ -306,35 +306,35 @@ Uma expressão matemática pode conter as seguintes constantes:
 
 |Símbolo|Descrição|
 |------------|-----------------|
-|13,PI|3,14159...|
-|Determinado|Determinado|
-|Eu|Número imaginário|
-|Oriental|e, 2,71828...|
-|GoldenRatio|Taxa de ouro, 1,61803...|
+|Pi|3.14159...|
+|Licenciatura|Licenciatura|
+|i|Número imaginário|
+|e|e, 2.71828...|
+|GoldenRatio|Relação dourada, 1.61803...|
 
 Uma expressão matemática pode conter as seguintes funções:
 
 |Símbolo|Descrição|
 |------------|-----------------|
 |Ordenar|Raiz quadrada|
-|Sin[x], Cos[x], Tan[x]<br />Csc[x], Sec[x], Cot[x]|Funções trigonométricas (com argumentos em radianos)|
-|ArcSin[x], ArcCos[x], ArcTan[x]<br />ArcCsc[x], ArcSec[x], ArcCot[x]|Funções trigonométricas inversas (fornecendo resultados em radianos)|
+|Pecado[x], Cos[x], Tan[x]<br />Csc[x], Sec[x], Cot[x]|Funções trigonométricas (com argumentos em radianos)|
+|ArcSin[x], ArcCos[x], ArcTan[x]<br />ArcCsc[x], ArcSec[x], ArcCot[x]|Funções trigonométricas inversas (dando resultados em radianos)|
 |Exp[x], E^x|Função exponencial|
-|Log [x]|Logaritmo natural|
-|Sinh[x], Cosh[x], Tanh[x]<br />Csch [x], sech [x], coth [x]|Funções hiperbólicas|
-|ArcSinh[x], ArcCosh[x], ArcTanh[x]<br />ArcCsch [x], ArcSech [x], ArcCoth [x]|Funções hiperbólicas inversas|
+|Log[x]|Logarithm natural|
+|Sinh[x], Cosh[x], Tanh[x]<br />Csch[x], Sech[x], Coth[x]|Funções hiperbólicas|
+|ArcSinh[x], ArcCosh[x], ArcTanh[x]<br />ArcCsch[x], ArcSech[x], ArcCoth[x]|Funções hiperbólicas inversas|
 
-Expressões matemáticas que contêm variáveis (por exemplo, 4x + 6 = 18, em que x é a variável) não têm suporte.
+Expressões matemáticas que contenham variáveis (por exemplo, 4x+6=18, onde x é a variável) não são suportadas.
 
-## <a name="timezone-answer"></a>Resposta de fuso horário
+## <a name="timezone-answer"></a>Resposta timeZone
 
-Se o usuário inserir uma consulta de data/hora, a resposta poderá conter uma resposta de [fuso horário](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#timezone) . Essa resposta dá suporte a consultas implícitas ou explícitas. Uma consulta implícita, como *qual é o tempo?* , retorna a hora local com base no local do usuário. Uma consulta explícita, como *qual é o tempo em Seattle?* , retorna a hora local de Seattle, WA.
+Se o utilizador introduzir uma consulta de hora ou data, a resposta pode conter uma resposta [timeZone.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#timezone) Esta resposta suporta consultas implícitas ou explícitas. Uma consulta implícita, como *a que horas são?* Uma consulta explícita, como *a que horas é em Seattle?*
 
-A resposta `timeZone` fornece o nome do local, a data e hora UTC atuais no local especificado e o deslocamento UTC. Se o limite do local estiver dentro de vários fusos horários, a resposta conterá a data e a hora UTC atuais de todos os fusos horários dentro do limite. Por exemplo, como o estado da Flórida cai dentro de dois fusos horários, a resposta contém a data e a hora locais de ambos os fusos horários.  
+A `timeZone` resposta fornece o nome da localização, a data e hora utc atual no local especificado, e a utc compensada. Se o limite da localização estiver dentro de vários fusos horários, a resposta contém a data e hora utc atuais de todos os fusos horários dentro do limite. Por exemplo, como o Estado da Flórida se enquadra dentro de dois fusos horários, a resposta contém a data e hora locais de ambos os fusos horários.  
 
-Se a consulta solicitar a hora de um Estado ou país/região, o Bing determinará a cidade principal dentro do limite geográfico do local e a retornará no campo `primaryCityTime`. Se o limite contiver vários fusos horários, os fusos horários restantes serão retornados no campo `otherCityTimes`.
+Se a consulta solicitar o tempo de um estado ou país/região, Bing determina a cidade primária `primaryCityTime` dentro da fronteira geográfica do local e devolve-a no campo. Se o limite contiver vários fusos horários, `otherCityTimes` os fusos horários restantes são devolvidos no campo.
 
-Veja a seguir as consultas de exemplo que retornam a resposta `timeZone`.
+O seguinte mostra perguntas exemplo `timeZone` que devolvem a resposta.
 
 ```
 Query: What time is it?
@@ -417,9 +417,9 @@ Query: What time is it in the U.S.
 }
 ```
 
-## <a name="spellsuggestion-answer"></a>SpellSuggestion resposta
+## <a name="spellsuggestion-answer"></a>Resposta SpellSuggestion
 
-Se o Bing determinar que o usuário pode ter a intenção de pesquisar algo diferente, a resposta incluirá um objeto [SpellSuggestions](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#spellsuggestions) . Por exemplo, se o usuário procurar por uma *caneta Carlos*, o Bing poderá determinar que o usuário provavelmente pretendia procurar Carlos pena (com base nas pesquisas passadas por outras pessoas da *caneta Carlos*). O exemplo a seguir mostra uma resposta de verificação ortográfica.
+Se bing determinar que o utilizador pode ter a intenção de procurar algo diferente, a resposta inclui um objeto [SpellSuggestions.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#spellsuggestions) Por exemplo, se o utilizador pesquisar por *Carlos Pen,* bing pode determinar que o utilizador provavelmente pretendia procurar Carlos Pena (com base em pesquisas passadas por outros de *Carlos Pen).* O seguinte mostra uma resposta ortográfica exemplo.
 
 ```json
 "spellSuggestions": {
@@ -433,25 +433,25 @@ Se o Bing determinar que o usuário pode ter a intenção de pesquisar algo dife
 
 ## <a name="response-headers"></a>Cabeçalhos de resposta
 
-As respostas da API de Pesquisa na Web do Bing podem conter os seguintes cabeçalhos:
+As respostas da API de pesquisa web bing podem conter os seguintes cabeçalhos:
 
 |||
 |-|-|
-|`X-MSEdge-ClientID`|A ID exclusiva que o Bing atribuiu ao usuário|
-|`BingAPIs-Market`|O mercado que foi usado para atender à solicitação|
-|`BingAPIs-TraceId`|A entrada de log no servidor de API do Bing para esta solicitação (para suporte)|
+|`X-MSEdge-ClientID`|O ID único que Bing atribuiu ao utilizador|
+|`BingAPIs-Market`|O mercado que foi usado para cumprir o pedido|
+|`BingAPIs-TraceId`|A entrada de log no servidor Bing API para este pedido (para suporte)|
 
-É particularmente importante manter a ID do cliente e retorná-la com solicitações subsequentes. Quando você fizer isso, a pesquisa usará o contexto anterior na classificação dos resultados da pesquisa e também fornecerá uma experiência de usuário consistente.
+É particularmente importante persistir na identificação do cliente e devolvê-la com pedidos subsequentes. Quando o fizer, a pesquisa utilizará o contexto passado nos resultados de pesquisa de ranking e também proporcionará uma experiência consistente do utilizador.
 
-No entanto, quando você chama o API de Pesquisa na Web do Bing do JavaScript, os recursos de segurança internos (CORS) do seu navegador podem impedi-lo de acessar os valores desses cabeçalhos.
+No entanto, quando liga para a API de Pesquisa Web Bing do JavaScript, as funcionalidades de segurança incorporadas do seu navegador (CORS) podem impedir que aceda aos valores destes cabeçalhos.
 
-Para obter acesso aos cabeçalhos, você pode fazer a solicitação de API de Pesquisa na Web do Bing por meio de um proxy CORS. A resposta de um proxy deste tipo inclui um cabeçalho `Access-Control-Expose-Headers`, que adiciona os cabeçalhos das respostas à lista de permissões e os disponibiliza para o JavaScript.
+Para ter acesso aos cabeçalhos, pode fazer o pedido de API de Pesquisa Web Bing através de um proxy CORS. A resposta de um proxy deste tipo inclui um cabeçalho `Access-Control-Expose-Headers`, que adiciona os cabeçalhos das respostas à lista de permissões e os disponibiliza para o JavaScript.
 
-É fácil instalar um proxy CORS para permitir que nosso [aplicativo tutorial](tutorial-bing-web-search-single-page-app.md) acesse os cabeçalhos de cliente opcionais. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, digite o comando a seguir em um prompt de comando.
+É fácil instalar um proxy CORS para permitir que a nossa [aplicação tutorial](tutorial-bing-web-search-single-page-app.md) aceda aos cabeçalhos opcionais do cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, introduza o seguinte comando num pedido de comando.
 
     npm install -g cors-proxy-server
 
-Em seguida, altere o ponto de extremidade API de Pesquisa na Web do Bing no arquivo HTML para:
+Em seguida, altere o ponto final da Pesquisa Web Bing no ficheiro HTML para:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
@@ -461,22 +461,22 @@ Por fim, inicie o proxy do CORS com o comando seguinte:
 
 Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP expansíveis, abaixo dos resultados da pesquisa, pode agora ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e confirmar se é o mesmo em todos os pedidos.
 
-## <a name="response-headers-in-production"></a>Cabeçalhos de resposta em produção
+## <a name="response-headers-in-production"></a>Cabeçalhos de resposta na produção
 
-A abordagem de proxy CORS descrita na resposta anterior é apropriada para desenvolvimento, teste e aprendizado.
+A abordagem de procuração cors descrita na resposta anterior é adequada para o desenvolvimento, teste e aprendizagem.
 
-Em um ambiente de produção, você deve hospedar um script do lado do servidor no mesmo domínio que a página da Web que usa o API de Pesquisa na Web do Bing. Esse script deve fazer chamadas à API mediante solicitação do JavaScript da página da Web e passar todos os resultados, incluindo os cabeçalhos, de volta ao cliente. Como os dois recursos (página e script) compartilham uma origem, o CORS não é usado e os cabeçalhos especiais são acessíveis para o JavaScript na página da Web.
+Num ambiente de produção, deve hospedar um script do lado do servidor no mesmo domínio que a página Web que utiliza a API de Pesquisa Web bing. Este script deve fazer chamadas aPi a pedido da página Web JavaScript e passar todos os resultados, incluindo cabeçalhos, de volta ao cliente. Uma vez que os dois recursos (página e script) partilham uma origem, o CORS não é utilizado e os cabeçalhos especiais são acessíveis ao JavaScript na página Web.
 
-Essa abordagem também protege sua chave de API contra exposição ao público, pois apenas o script do lado do servidor precisa dela. O script pode usar outro método para verificar se a solicitação está autorizada.
+Esta abordagem também protege a sua chave API da exposição ao público, uma vez que apenas o script do lado do servidor precisa dela. O script pode usar outro método para garantir que o pedido é autorizado.
 
-O seguinte mostra como o Bing usa a sugestão de ortografia.
+O seguinte mostra como Bing usa a sugestão de ortografia.
 
-![Exemplo de sugestão de ortografia do Bing](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)  
+![Exemplo de sugestão de ortografia bing](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)  
 
 ## <a name="next-steps"></a>Passos seguintes  
 
-* Revisar documentação de [limitação de solicitação](throttling-requests.md) .  
+* [Reveja](throttling-requests.md) a documentação do pedido de revisão.  
 
-## <a name="see-also"></a>Ver também  
+## <a name="see-also"></a>Consulte também  
 
-* [Referência de API de Pesquisa na Web do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
+* [Referência a API de pesquisa web bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

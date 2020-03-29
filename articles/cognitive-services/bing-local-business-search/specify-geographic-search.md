@@ -1,7 +1,7 @@
 ---
-title: Usar limites geográficos para filtrar os resultados da API de pesquisa comercial local do Bing
+title: Use limites geográficos para filtrar os resultados da API local de pesquisa de negócios de Bing
 titleSuffix: Azure Cognitive Services
-description: Use este artigo para aprender a filtrar os resultados da pesquisa da API de pesquisa de negócios local do Bing.
+description: Utilize este artigo para saber filtrar os resultados da pesquisa a partir da API de Pesquisa de Negócios Local Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,25 +11,25 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
 ms.openlocfilehash: 213457bc583494bbe039269b96b25990f7d0a961
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "69906251"
 ---
-# <a name="use-geographic-boundaries-to-filter-results-from-the-bing-local-business-search-api"></a>Usar limites geográficos para filtrar os resultados da API de pesquisa comercial local do Bing
+# <a name="use-geographic-boundaries-to-filter-results-from-the-bing-local-business-search-api"></a>Use limites geográficos para filtrar os resultados da API local de pesquisa de negócios de Bing
 
-A API de pesquisa de negócios local do Bing permite definir limites na área geográfica específica que você gostaria de Pesquisar usando os parâmetros `localCircularView` de `localMapView` consulta ou. Certifique-se de usar apenas um parâmetro em suas consultas. 
+A API de Pesquisa de Negócios Local Bing permite-lhe definir limites na `localCircularView` `localMapView` área geográfica específica que deseja pesquisar utilizando os parâmetros ou consultas. Certifique-se de que utiliza apenas um parâmetro nas suas consultas. 
 
-Se um termo de pesquisa contiver uma localização geográfica explícita, a API comercial local do Bing a usará automaticamente para definir limites para os resultados da pesquisa. Por exemplo, se o termo de pesquisa `sailing in San Diego`for `San Diego` , será usado como o local e quaisquer outros locais especificados nos parâmetros de consulta ou nos cabeçalhos de usuário serão ignorados. 
+Se um termo de pesquisa contiver uma localização geográfica explícita, a API local de Bing irá usá-lo automaticamente para definir limites para os resultados da pesquisa. Por exemplo, se o `sailing in San Diego`termo `San Diego` de pesquisa for , então será usado como a localização e quaisquer outros locais especificados nos parâmetros de consulta ou cabeçalhos do utilizador serão ignorados. 
 
-Se uma localização geográfica não for detectada no termo de pesquisa e nenhuma localização geográfica for especificada usando os parâmetros de consulta, a API de pesquisa de negócios local do Bing tentará determinar o `X-Search-ClientIP` local `X-Search-Location` a partir dos cabeçalhos ou das solicitações. Se nenhum cabeçalho for especificado, a API determinará o local a partir do IP do cliente da solicitação ou das coordenadas de GPS para dispositivos móveis.
+Se uma localização geográfica não for detetada no período de pesquisa, e não for especificada nenhuma localização geográfica utilizando os parâmetros `X-Search-ClientIP` de `X-Search-Location` consulta, a API local de pesquisa de negócios de Bing tentará determinar a localização a partir dos cabeçalhos ou cabeçalhos do pedido. Se nenhum dos cabeçalhos for especificado, a API determinará a localização a partir do IP do cliente do pedido, ou coordenadas GPS para dispositivos móveis.
 
 ## <a name="localcircularview"></a>localCircularView
 
-O `localCircularView` parâmetro cria uma área geográfica circular em um conjunto de coordenadas de latitude/longitude, definido por um raio. Ao usar esse parâmetro, as respostas da API de pesquisa de negócios local do Bing só incluirão locais dentro deste círculo `localMapView` , diferentemente do parâmetro que pode incluir locais um pouco fora da área de pesquisa.
+O `localCircularView` parâmetro cria uma área geográfica circular em torno de um conjunto de coordenadas de latitude/longitude, definidas por um raio. Ao utilizar este parâmetro, as respostas da API local de pesquisa de `localMapView` negócios de Bing apenas incluirão localizações dentro deste círculo, ao contrário do parâmetro que pode incluir localizações ligeiramente fora da área de pesquisa.
 
-Para especificar uma área de pesquisa geográfica circular, escolha uma latitude e longitude para servir como o centro do círculo e um raio em metros. Esse parâmetro pode então ser anexado a uma cadeia de caracteres de consulta, por `q=Restaurants&localCircularView=47.6421,-122.13715,5000`exemplo:.
+Para especificar uma área de pesquisa geográfica circular, escolha uma latitude e longitude para servir como o centro do círculo, e um raio em metros. Este parâmetro pode então ser anexado a uma `q=Restaurants&localCircularView=47.6421,-122.13715,5000`corda de consulta, por exemplo: .
 
 Consulta completa:
 
@@ -39,9 +39,9 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search?q=restauran
 
 ## <a name="localmapview"></a>localMapView
 
-O `localMapView` parâmetro especifica uma área geográfica retangular a ser pesquisada, usando dois conjuntos de coordenadas para especificar seus cantos sudeste e noroeste. Ao usar esse parâmetro, as respostas da API de pesquisa de negócios local do Bing podem incluir locais dentro e apenas fora da área especificada `localCircularView` , ao contrário do parâmetro, que inclui apenas locais na área de pesquisa.
+O `localMapView` parâmetro especifica uma área geográfica retangular para procurar, utilizando dois conjuntos de coordenadas para especificar os seus cantos sudeste e noroeste. Ao utilizar este parâmetro, as respostas da API local de pesquisa de negócios de `localCircularView` Bing podem incluir localizações dentro e fora da área especificada, ao contrário do parâmetro, que inclui apenas localizações dentro da área de pesquisa.
 
-Para especificar uma área de pesquisa retangular, escolha dois conjuntos de coordenadas de latitude/longitude para servir como os cantos sudeste e noroeste do limite. Certifique-se de definir as coordenadas do sudeste primeiro, como no exemplo a `localMapView=47.619987,-122.181671,47.6421,-122.13715`seguir:.
+Para especificar uma área de busca retangular, escolha dois conjuntos de coordenadas de latitude/longitude para servir como os cantos sudeste e noroeste da fronteira. Certifique-se de definir as coordenadas sudeste `localMapView=47.619987,-122.181671,47.6421,-122.13715`primeiro, como no seguinte exemplo: .
 
 Consulta completa:
 
@@ -50,7 +50,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search?q=restauran
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Início rápido do Java da pesquisa de negócios local](quickstarts/local-search-java-quickstart.md)
-- [Início rápido de C# pesquisa comercial local](quickstarts/local-quickstart.md)
-- [Início rápido do nó de pesquisa comercial local](quickstarts/local-search-node-quickstart.md)
-- [Início rápido do Python de pesquisa comercial local](quickstarts/local-search-python-quickstart.md)
+- [Pesquisa de negócios locais Java Quickstart](quickstarts/local-search-java-quickstart.md)
+- [Pesquisa de negócios local C# Quickstart](quickstarts/local-quickstart.md)
+- [Nó de pesquisa de negócios local Quickstart](quickstarts/local-search-node-quickstart.md)
+- [Pesquisa de negócios local Python quickstart](quickstarts/local-search-python-quickstart.md)

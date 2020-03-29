@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: diberry
 ms.openlocfilehash: 9a8e8cb331dd11eebaddbcbf8f603c1148415aef
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79117385"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Alterações no ponto final da previsão para v3
@@ -41,14 +41,14 @@ A V3 fez as seguintes alterações como parte da mudança para a GA:
     * [OrdinalV1](luis-reference-prebuilt-ordinal.md)
     * [GeografiaV2](luis-reference-prebuilt-geographyv2.md)
     * [DataTimeV2](luis-reference-prebuilt-datetimev2.md)
-    * Nome chave da unidade mensurável de `units` a `unit`
+    * Nome chave da `units` unidade mensurável de para`unit`
 
 * Alteração do corpo de solicitação JSON:
-    * de `preferExternalEntities` a `preferExternalEntities`
-    * parâmetro opcional `score` para entidades externas
+    * de `preferExternalEntities` a`preferExternalEntities`
+    * parâmetro `score` opcional para entidades externas
 
 * Alterações do corpo de resposta JSON:
-    * `normalizedQuery` removido
+    * `normalizedQuery`removido
 
 ## <a name="suggested-adoption-strategy"></a>Estratégia de adoção sugerida
 
@@ -77,16 +77,16 @@ A previsão V2 API não será depreciada durante pelo menos 9 meses após a pré
 
 O formato da chamada http do ponto final V3 mudou.
 
-Se quiser consultar por versão, primeiro tem de [publicar via API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) com `"directVersionPublish":true`. Consulta do ponto final que refere a versão ID em vez do nome da ranhura.
+Se quiser consultar por versão, primeiro precisa de publicar `"directVersionPublish":true`via [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) com . Consulta do ponto final que refere a versão ID em vez do nome da ranhura.
 
 |VERSÃO API DE PREVISÃO|MÉTODO|do IdP|
 |--|--|--|
-|V3|GET|https://<b>{REGIÃO}</b>.api.cognitive.microsoft.com/luis/<b>previsão</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?consulta=<b>{QUERY}</b>|
+|V3|GET|https://<b>{REGIÃO}</b>.api.cognitive.microsoft.com/luis/<b>previsão</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?question=<b>{QUERY}</b>|
 |V3|POST|https://<b>{REGIÃO}</b>.api.cognitive.microsoft.com/luis/<b>previsão</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
 |V2|GET|https://<b>{REGIÃO}</b>.api.cognitive.microsoft.com/luis/<b>previsão</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/versões/<b>{VERSION-ID}</b>/predict?question=<b>{QUERY}</b>|
 |V2|POST|https://<b>{REGIÃO}</b>.api.cognitive.microsoft.com/luis/<b>previsão</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/versões/<b>{VERSION-ID}</b>/predict|
 
-|Valores válidos para `SLOT-NAME`|
+|Valores válidos para`SLOT-NAME`|
 |--|
 |`production`|
 |`staging`|
@@ -99,12 +99,12 @@ A V3 API tem diferentes parâmetros de cadeia de consulta.
 
 |Nome do desfile|Tipo|Versão|Predefinição|Objetivo|
 |--|--|--|--|--|
-|`log`|boolean|V2 e V3|false|Guarde a consulta no ficheiro de registo. O valor predefinido é falso.|
-|`query`|string|Apenas V3|Sem incumprimento - é exigido no pedido GET|**Em V2,** a expressão a prever está no parâmetro `q`. <br><br>**Em V3,** a funcionalidade é passada no parâmetro `query`.|
-|`show-all-intents`|boolean|Apenas V3|false|Devolva todas as intenções com a pontuação correspondente no objeto **de previsão.intenções.** As intenções são devolvidas como objetos num objeto `intents` dos pais. Isto permite o acesso programático sem necessidade de encontrar a intenção numa matriz: `prediction.intents.give`. Em V2, estes foram devolvidos numa matriz. |
-|`verbose`|boolean|V2 e V3|false|**Em V2,** quando definido para verdade, todas as intenções previstas foram devolvidas. Se precisar de todas as intenções previstas, use o parâmetro V3 de `show-all-intents`.<br><br>**No V3,** este parâmetro apenas fornece detalhes de metadados da entidade da previsão da entidade.  |
+|`log`|boolean|V2 & V3|false|Guarde a consulta no ficheiro de registo. O valor predefinido é falso.|
+|`query`|string|Apenas V3|Sem incumprimento - é exigido no pedido GET|**Em V2,** a expressão a prever `q` está no parâmetro. <br><br>**Em V3,** a funcionalidade é `query` passada no parâmetro.|
+|`show-all-intents`|boolean|Apenas V3|false|Devolva todas as intenções com a pontuação correspondente no objeto **de previsão.intenções.** As intenções são devolvidas `intents` como objetos num objecto-mãe. Isto permite o acesso programático sem necessidade `prediction.intents.give`de encontrar a intenção numa matriz: . Em V2, estes foram devolvidos numa matriz. |
+|`verbose`|boolean|V2 & V3|false|**Em V2,** quando definido para verdade, todas as intenções previstas foram devolvidas. Se precisar de todas as intenções previstas, `show-all-intents`use o param V3 de .<br><br>**No V3,** este parâmetro apenas fornece detalhes de metadados da entidade da previsão da entidade.  |
 |`timezoneOffset`|string|V2|-|Fuso horário aplicado a entidades datetimeV2.|
-|`datetimeReference`|string|V3|-|[Fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) aplicado a entidades datetimeV2. Substitui `timezoneOffset` de V2.|
+|`datetimeReference`|string|V3|-|[Fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) aplicado a entidades datetimeV2. Substitui `timezoneOffset` a V2.|
 
 
 ### <a name="v3-post-body"></a>V3 POST corpo
@@ -127,7 +127,7 @@ A V3 API tem diferentes parâmetros de cadeia de consulta.
 |`externalEntities`|array|Apenas V3|Não é necessário.|[Entidades externas](#external-entities-passed-in-at-prediction-time) dão à sua app LUIS a capacidade de identificar e rotular entidades durante o tempo de execução, que podem ser usadas como funcionalidades para entidades existentes. |
 |`options.datetimeReference`|string|Apenas V3|Sem padrão|Utilizado para determinar a data de [compensação V2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). O formato para a dataReferência é [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
 |`options.preferExternalEntities`|boolean|Apenas V3|false|Especifica se a entidade externa do utilizador [(com o mesmo nome que a entidade existente)](#override-existing-model-predictions) for utilizada ou se a entidade existente no modelo for utilizada para previsão. |
-|`query`|string|Apenas V3|Necessário.|**Em V2,** a expressão a prever está no parâmetro `q`. <br><br>**Em V3,** a funcionalidade é passada no parâmetro `query`.|
+|`query`|string|Apenas V3|Necessário.|**Em V2,** a expressão a prever `q` está no parâmetro. <br><br>**Em V3,** a funcionalidade é `query` passada no parâmetro.|
 
 
 
@@ -139,7 +139,7 @@ A resposta de consulta Que JSON alterou para permitir um maior acesso programát
 
 
 
-As principais propriedades jSON para V2 são, quando `verbose` é definido para verdade, que devolve todas as intenções e suas pontuações na propriedade `intents`:
+As principais propriedades jSON para `verbose` V2 são, quando é definido para `intents` verdade, que devolve todas as intenções e suas pontuações na propriedade:
 
 ```JSON
 {
@@ -164,7 +164,7 @@ As principais propriedades JSON para V3 são:
 }
 ```
 
-O `intents` objeto é uma lista não ordenada. Não assuma que a primeira criança do `intents` corresponde à `topIntent`. Em vez disso, use o valor `topIntent` para encontrar a pontuação:
+O `intents` objeto é uma lista não ordenada. Não assuma que `intents` a primeira `topIntent`criança corresponde ao . Em vez `topIntent` disso, use o valor para encontrar a pontuação:
 
 ```nodejs
 const topIntentName = response.prediction.topIntent;
@@ -173,26 +173,26 @@ const score = intents[topIntentName];
 
 As alterações de esquema da JSON de resposta permitem:
 
-* Distinção clara entre a expressão original, `query`, e a previsão devolvida, `prediction`.
+* Distinção clara entre `query`a expressão original, e a previsão devolvida, `prediction`.
 * Acesso programático mais fácil aos dados previstos. Em vez de enumerar através de uma matriz em V2, pode aceder a valores pelo **nome** tanto para intenções como para entidades. Para as funções previstas da entidade, o nome do papel é devolvido porque é único em toda a aplicação.
 * Os tipos de dados, se determinados, são respeitados. Os numéricos já não são devolvidos como cordas.
-* Distinção entre informação de previsão de primeira prioridade e metadados adicionais, devolvidos no objeto `$instance`.
+* Distinção entre informação de previsão de `$instance` primeira prioridade e metadados adicionais, devolvidos no objeto.
 
 ### <a name="entity-response-changes"></a>Alterações na resposta da entidade
 
 #### <a name="marking-placement-of-entities-in-utterances"></a>Marcação de colocação de entidades em declarações
 
-**Em V2,** uma entidade foi marcada numa expressão com o `startIndex` e `endIndex`.
+**Em V2,** uma entidade foi marcada `startIndex` numa `endIndex`expressão com o e .
 
-**Em V3,** a entidade está marcada com `startIndex` e `entityLength`.
+**Em V3,** a entidade `startIndex` `entityLength`é marcada com e.
 
-#### <a name="access-instance-for-entity-metadata"></a>Acesso `$instance` para metadados de entidades
+#### <a name="access-instance-for-entity-metadata"></a>Acesso `$instance` a metadados de entidades
 
-Se necessitar de metadados de entidades, a cadeia de consulta precisa de usar a bandeira `verbose=true` e a resposta contém os metadados no objeto `$instance`. Exemplos são mostrados nas respostas JSON nas seguintes secções.
+Se necessitar de metadados de entidades, `verbose=true` a cadeia de consulta precisa `$instance` de usar a bandeira e a resposta contém os metadados no objeto. Exemplos são mostrados nas respostas JSON nas seguintes secções.
 
 #### <a name="each-predicted-entity-is-represented-as-an-array"></a>Cada entidade prevista é representada como uma matriz
 
-O objeto `prediction.entities.<entity-name>` contém uma matriz porque cada entidade pode ser prevista mais de uma vez na expressão.
+O `prediction.entities.<entity-name>` objeto contém uma matriz porque cada entidade pode ser prevista mais de uma vez na expressão.
 
 <a name="prebuilt-entities-with-new-json"></a>
 
@@ -214,7 +214,7 @@ O JSON para uma lista de previsão de entidade mudou para ser um conjunto de mat
 ```
 Cada matriz interior corresponde ao texto dentro da expressão. O objeto interior é uma matriz porque o mesmo texto pode aparecer em mais de uma sublista de uma entidade da lista.
 
-Ao mapear entre o `entities` objeto ao objeto `$instance`, a ordem dos objetos é preservada para as previsões da entidade da lista.
+Ao mapear `entities` entre o `$instance` objeto ao objeto, a ordem dos objetos é preservada para as previsões da entidade da lista.
 
 ```nodejs
 const item = 0; // order preserved, use same enumeration for both
@@ -224,9 +224,9 @@ const associatedMetadata = entities.$instance.my_list_entity[item];
 
 #### <a name="entity-role-name-instead-of-entity-name"></a>Nome de papel da entidade em vez do nome da entidade
 
-Em V2, o conjunto de `entities` devolveu todas as entidades previstas, sendo o nome da entidade o identificador único. No V3, se a entidade usa funções e a previsão é para um papel de entidade, o identificador principal é o nome principal. Isto é possível porque os nomes de papéis da entidade devem ser únicos em toda a app, incluindo outros nomes de modelo (intenção, entidade).
+Em V2, `entities` a matriz devolveu todas as entidades previstas, sendo o nome da entidade o identificador único. No V3, se a entidade usa funções e a previsão é para um papel de entidade, o identificador principal é o nome principal. Isto é possível porque os nomes de papéis da entidade devem ser únicos em toda a app, incluindo outros nomes de modelo (intenção, entidade).
 
-No seguinte exemplo: considere uma expressão que inclua o texto, `Yellow Bird Lane`. Este texto é previsto como um `Location` papel personalizado da entidade de `Destination`.
+No seguinte exemplo: considere uma expressão que `Yellow Bird Lane`inclua o texto, . Este texto é previsto `Location` como o papel `Destination`de uma entidade personalizada de .
 
 |Texto de expressão|Nome da entidade|Nome da função|
 |--|--|--|
@@ -257,7 +257,7 @@ Na V3, a entidade é referenciada pelo papel da _entidade,_ se a previsão for p
 }
 ```
 
-Em V3, o mesmo resultado com a bandeira `verbose` para devolver metadados da entidade:
+Em V3, o mesmo `verbose` resultado com a bandeira para devolver metadados da entidade:
 
 ```JSON
 "entities":{
@@ -293,7 +293,7 @@ Isto é útil para uma entidade que tem dados disponíveis apenas no tempo de ex
 
 ### <a name="entity-already-exists-in-app"></a>Entidade já existe na app
 
-O valor da `entityName` para a entidade externa, aprovada no organismo post de pedido final, já deve existir na app treinada e publicada no momento em que o pedido é feito. O tipo de entidade não importa, todos os tipos são suportados.
+O valor `entityName` da entidade externa, aprovado no organismo post de pedido final, já deve existir na app treinada e publicada no momento em que o pedido é feito. O tipo de entidade não importa, todos os tipos são suportados.
 
 ### <a name="first-turn-in-conversation"></a>Primeira volta na conversa
 
@@ -301,7 +301,7 @@ Considere uma primeira expressão numa conversa de chat bot onde um utilizador i
 
 `Send Hazem a new message`
 
-O pedido do chat bot para o LUIS pode passar informações no corpo do POST sobre `Hazem`, pelo que é diretamente igualado como um dos contactos do utilizador.
+O pedido do chat bot para o LUIS pode `Hazem` passar informações no corpo do POST sobre o que é diretamente igualado como um dos contactos do utilizador.
 
 ```json
     "externalEntities": [
@@ -325,7 +325,7 @@ A próxima expressão do utilizador no chat bot usa um termo mais vago:
 
 `Send him a calendar reminder for the party.`
 
-Na expressão anterior, a expressão utiliza `him` como referência a `Hazem`. O chat bot conversacional, no corpo do POST, pode mapear `him` ao valor da entidade extraído da primeira expressão, `Hazem`.
+Na expressão anterior, a expressão `him` utiliza como `Hazem`referência a . O chat bot conversacional, no corpo `him` do POST, pode mapear o `Hazem`valor da entidade extraído da primeira expressão, .
 
 ```json
     "externalEntities": [
@@ -345,9 +345,9 @@ A resposta de previsão inclui aquela entidade externa, com todas as outras enti
 
 ### <a name="override-existing-model-predictions"></a>Anular as previsões de modelos existentes
 
-A propriedade `preferExternalEntities` opções especifica que se o utilizador enviar uma entidade externa que se sobrepõe a uma entidade prevista com o mesmo nome, a LUIS escolhe a entidade que passou ou a entidade existente no modelo.
+A `preferExternalEntities` propriedade de opções especifica que se o utilizador enviar uma entidade externa que se sobrepõe a uma entidade prevista com o mesmo nome, a LUIS escolhe a entidade que passou ou a entidade existente no modelo.
 
-Por exemplo, considere a consulta `today I'm free`. Luis deteta `today` como dataV2 com a seguinte resposta:
+Por exemplo, considere `today I'm free`a consulta . LUIS deteta `today` como dataV2 com a seguinte resposta:
 
 ```JSON
 "datetimeV2": [
@@ -376,7 +376,7 @@ Se o utilizador enviar a entidade externa:
 }
 ```
 
-Se o `preferExternalEntities` está definido para `false`, o LUIS devolve uma resposta como se a entidade externa não tivesse sido enviada.
+Se `preferExternalEntities` o conjunto `false`for definido, o LUIS devolve uma resposta como se a entidade externa não tivesse sido enviada.
 
 ```JSON
 "datetimeV2": [
@@ -392,7 +392,7 @@ Se o `preferExternalEntities` está definido para `false`, o LUIS devolve uma re
 ]
 ```
 
-Se o `preferExternalEntities` estiver definido para `true`, luis devolve uma resposta incluindo:
+Se `preferExternalEntities` o conjunto `true`for definido, luis devolve uma resposta incluindo:
 
 ```JSON
 "datetimeV2": [
@@ -406,11 +406,11 @@ Se o `preferExternalEntities` estiver definido para `true`, luis devolve uma res
 
 #### <a name="resolution"></a>Resolução
 
-O _`resolution` opcional_ devolve na resposta à previsão, permitindo-lhe passar nos metadados associados à entidade externa, recebendo-o de volta na resposta.
+A propriedade _opcional_ `resolution` retorna na resposta à previsão, permitindo-lhe passar nos metadados associados à entidade externa, recebendo-o de volta na resposta.
 
 O principal objetivo é alargar as entidades pré-construídas, mas não se limita a esse tipo de entidade.
 
-A propriedade `resolution` pode ser um número, uma corda, um objeto, ou uma matriz:
+A `resolution` propriedade pode ser um número, uma corda, um objeto, ou uma matriz:
 
 * "Dallas"
 * {"text": "value"}
@@ -432,7 +432,7 @@ A entidade da lista pode estar vazia na app LUIS, mas tem de existir. A entidade
 
 ### <a name="dynamic-list-json-request-body"></a>Lista dinâmica JSON request body
 
-Envie o seguinte organismo JSON para adicionar uma nova sublista com sinónimos à lista, e prever a entidade da lista para o texto, `LUIS`, com o pedido de previsão de consulta `POST`:
+Envie o seguinte organismo JSON para adicionar uma nova sublista com sinónimos à lista, e `LUIS`prever `POST` a entidade da lista para o texto, com o pedido de previsão de consulta:
 
 ```JSON
 {

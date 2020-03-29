@@ -2,13 +2,13 @@
 title: Criar recurso Personalizer
 description: A configuração do serviço inclui como o serviço trata recompensas, quantas vezes o serviço explora, quantas vezes o modelo é retreinado e quanto dados são armazenados.
 ms.topic: conceptual
-ms.date: 02/19/2020
-ms.openlocfilehash: cb14415f3a5950ad1534d9eb8da94198a41f4f91
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.date: 03/26/2020
+ms.openlocfilehash: adb97db53d1fc0b6f0cdb14b697c82ec52501b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77624233"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336066"
 ---
 # <a name="create-a-personalizer-resource"></a>Criar um recurso Personalizer
 
@@ -25,24 +25,28 @@ Crie um recurso Personalizer para cada ciclo de feedback.
 1. Insira o seu nome de serviço, selecione uma subscrição, localização, nível de preços e grupo de recursos.
 
     > [!div class="mx-imgBorder"]
-    > ![Use o portal Azure para criar recurso Personalizer, também chamado ciclo de aprendizagem.](./media/how-to-create-resource/how-to-create-personalizer-resource-learning-loop.png)
+    > ![Utilize o portal Azure para criar recurso Personalizer, também chamado ciclo de aprendizagem.](./media/how-to-create-resource/how-to-create-personalizer-resource-learning-loop.png)
 
 1. Selecione **Criar** para criar o recurso.
 
-1. Uma vez que o seu recurso tenha sido implantado, selecione o botão **'Ir a Recurso'** para ir ao seu recurso Personalizer. Vá à página de **Configuração** para o novo recurso para [configurar o ciclo de aprendizagem](how-to-settings.md).
+1. Depois de o seu recurso ter sido implantado, selecione o botão **'Ir a Recurso'** para ir ao seu recurso Personalizer.
+
+1. Selecione a página **de arranque Quick** para o seu recurso e, em seguida, copie os valores para o seu ponto final e chave. Você precisa tanto do ponto final de recursos como da chave para usar as APIs de Rank e Reward.
+
+1. Selecione a página **de Configuração** para o novo recurso para [configurar o ciclo de aprendizagem](how-to-settings.md).
 
 ## <a name="create-a-resource-with-the-azure-cli"></a>Criar um recurso com o Azure CLI
 
 1. Inscreva-se no Azure CLI com o seguinte comando:
 
-    ```bash
+    ```azurecli-interactive
     az login
     ```
 
 1. Crie um grupo de recursos, um agrupamento lógico para gerir todos os recursos Azure que pretende utilizar com o recurso Personalizer.
 
 
-    ```bash
+    ```azurecli-interactive
     az group create \
         --name your-personalizer-resource-group \
         --location westus2
@@ -50,7 +54,7 @@ Crie um recurso Personalizer para cada ciclo de feedback.
 
 1. Crie um novo recurso Personalizer, ciclo de _aprendizagem,_ com o seguinte comando para um grupo de recursos existente.
 
-    ```bash
+    ```azurecli-interactive
     az cognitiveservices account create \
         --name your-personalizer-learning-loop \
         --resource-group your-personalizer-resource-group \
@@ -59,6 +63,19 @@ Crie um recurso Personalizer para cada ciclo de feedback.
         --location westus2 \
         --yes
     ```
+
+    Isto devolve um objeto JSON, que inclui o seu **ponto final**de recurso .
+
+1. Utilize o seguinte comando Azure CLI para obter a sua **chave de recursos**.
+
+    ```azurecli-interactive
+        az cognitiveservices account keys list \
+        --name your-personalizer-learning-loop \
+        --resource-group your-personalizer-resource-group
+    ```
+
+    Você precisa tanto do ponto final de recursos como da chave para usar as APIs de Rank e Reward.
+
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Configurar](how-to-settings.md) Loop de aprendizagem personalizador

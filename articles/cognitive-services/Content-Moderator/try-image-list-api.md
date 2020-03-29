@@ -1,7 +1,7 @@
 ---
-title: Imagens moderadas com listas personalizadas e o console de API-Content Moderator
+title: Imagens moderadas com listas personalizadas e a consola API - Moderador de Conteúdo
 titleSuffix: Azure Content Moderator
-description: Você usa a API de gerenciamento de lista no Azure Content Moderator para criar listas personalizadas de imagens.
+description: Utiliza a API de Gestão de Listas em Moderador de Conteúdo Azure para criar listas personalizadas de imagens.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,71 +11,71 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 27d9b12d9e1a0237050243c2b5f07edaa8d8857a
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72757198"
 ---
-# <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Moderado com listas de imagens personalizadas no console de API
+# <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Moderado com listas de imagem personalizadas na consola API
 
-Você usa a [API de gerenciamento de lista](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) no Azure Content moderator para criar listas personalizadas de imagens. Use as listas personalizadas de imagens com a API de moderação de imagem. A operação de moderação de imagem avalia sua imagem. Se você criar listas personalizadas, a operação também a compara com as imagens em suas listas personalizadas. Você pode usar listas personalizadas para bloquear ou permitir a imagem.
+Utiliza a API de Gestão de [Listas](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) em Moderador de Conteúdo Azure para criar listas personalizadas de imagens. Utilize as listas personalizadas de imagens com a API de Moderação de Imagem. A operação de moderação de imagem avalia a sua imagem. Se criar listas personalizadas, a operação também a compara com as imagens nas suas listas personalizadas. Pode utilizar listas personalizadas para bloquear ou permitir a imagem.
 
 > [!NOTE]
 > Existe um limite máximo de **5 listas de imagens**, sendo que cada lista **não pode exceder 10 000 imagens**.
 >
 
-Você usa a API de gerenciamento de lista para realizar as seguintes tarefas:
+Utiliza a API de Gestão de Listas para fazer as seguintes tarefas:
 
 - Criar uma lista.
-- Adicionar imagens a uma lista.
-- Imagens de tela em relação às imagens em uma lista.
-- Excluir imagens de uma lista.
+- Adicione imagens a uma lista.
+- Ver imagens contra as imagens numa lista.
+- Apagar imagens de uma lista.
 - Eliminar uma lista.
 - Editar informações da lista.
 - Atualizar o índice para que as alterações à lista sejam incluídas numa nova análise.
 
-## <a name="use-the-api-console"></a>Usar o console de API
-Antes de poder testar a API no console online, você precisa da sua chave de assinatura. Isso está localizado na guia **configurações** , na caixa **OCP-APIM-Subscription-Key** . Para obter mais informações, veja [Descrição geral](overview.md).
+## <a name="use-the-api-console"></a>Utilize a consola API
+Antes de poder testar a API na consola online, precisa da sua chave de subscrição. Isto está localizado no separador **Definições,** na caixa **De-Assinatura-Chave Ocp-Apim..** Para obter mais informações, veja [Descrição geral](overview.md).
 
 ## <a name="refresh-search-index"></a>Atualizar índice de pesquisa
 
-Depois de fazer alterações em uma lista de imagens, você deve atualizar seu índice para que as alterações sejam incluídas nas verificações futuras. Esta etapa é semelhante a como um mecanismo de pesquisa em sua área de trabalho (se habilitado) ou um mecanismo de pesquisa da Web atualiza continuamente seu índice para incluir novos arquivos ou páginas.
+Depois de fazer alterações numa lista de imagens, tem de atualizar o seu índice para que as alterações sejam incluídas em futuras digitalizações. Este passo é semelhante ao modo como um motor de pesquisa no seu ambiente de trabalho (se ativado) ou um motor de pesquisa web atualiza continuamente o seu índice para incluir novos ficheiros ou páginas.
 
-1. Na [referência da API de gerenciamento da lista de imagens](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), no menu à esquerda, selecione listas de **imagens**e, em seguida, selecione **Atualizar índice de pesquisa**.
+1. Na [referência API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672)de Gestão da Lista de Imagem, no menu esquerdo, selecione **Listas**de Imagens, e, em seguida, selecione Índice de **Pesquisa de Atualização**.
 
-   A página **listas de imagens – atualizar índice de pesquisa** é aberta.
+   As **Listas de Imagem -** Página do Índice de Pesquisa de Refresh abre- se.
 
-2. Para **abrir o console de teste de API**, selecione a região que melhor descreve seu local. 
+2. Para **a consola de teste API aberta,** selecione a região que mais descreve a sua localização. 
  
-    ![Listas de imagens – seleção atualizar região da página de índice de pesquisa](images/test-drive-region.png)
+    ![Listas de Imagens - Seleção da página do Índice de Pesquisa de Refresh](images/test-drive-region.png)
 
-    O console **lista de imagens – atualizar pesquisa de API de índice** é aberto.
+    As **Listas de Imagens - Atualização da** consola API do Índice de Pesquisa abre.
 
-3. Na caixa **listar** , insira a ID da lista. Insira sua chave de assinatura e, em seguida, selecione **Enviar**.
+3. Na caixa **listId,** introduza o ID da lista. Introduza a sua chave de subscrição e, em seguida, selecione **Enviar**.
 
-   ![Listas de imagens – atualizar caixa de conteúdo de resposta do console de índice de pesquisa](images/try-image-list-refresh-1.png)
+   ![Listas de imagens - Refresh Search Index Caixa de conteúdo de resposta da consola](images/try-image-list-refresh-1.png)
 
 
 ## <a name="create-an-image-list"></a>Criar uma lista de imagens
 
-1. Vá para a [referência da API de gerenciamento da lista de imagens](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672).
+1. Vá à [referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672)de Gestão da Lista de Imagens .
 
-   A página **listas de imagens-criar** é aberta. 
+   As **Listas de Imagem - Criar** a página abre. 
 
-3. Para **abrir o console de teste de API**, selecione a região que melhor descreve seu local.
+3. Para **a consola de teste API aberta,** selecione a região que mais descreve a sua localização.
 
-   ![Listas de imagens – criar seleção de região de página](images/test-drive-region.png)
+   ![Listas de Imagens - Criar a seleção da região de página](images/test-drive-region.png)
 
-   O console **listas de imagens-criar** API é aberto.
+   As **Listas de Imagem - Create** API consola abre.
  
-4. Na caixa **OCP-APIM-Subscription-Key** , insira sua chave de assinatura.
+4. Na caixa **Ocp-Apim-Subscription-Key,** introduza a sua chave de subscrição.
 
-5. Na caixa **corpo da solicitação** , insira valores para **nome** (por exemplo, myList) e **Descrição**.
+5. Na caixa **de corpo de pedido,** introduza valores para **nome** (por exemplo, MyList) e **Descrição**.
 
-   ![Listas de imagens-criar nome e descrição do corpo da solicitação do console](images/try-terms-list-create-1.png)
+   ![Listas de Imagens - Criar consola Solicitar nome e descrição do corpo](images/try-terms-list-create-1.png)
 
-6. Use espaços reservados de pares chave-valor para atribuir metadados mais descritivos à sua lista.
+6. Utilize espaços reservados de par de valor chave para atribuir metadados mais descritivos à sua lista.
 
        {
           "Name": "MyExclusionList",
@@ -87,83 +87,83 @@ Depois de fazer alterações em uma lista de imagens, você deve atualizar seu �
           }
        }
 
-   Adicione metadados da lista como pares de chave-valor e não as imagens reais.
+   Adicione metadados da lista como pares de valor-chave, e não as imagens reais.
  
-7. Selecione **Enviar**. Sua lista é criada. Observe o valor de **ID** associado à nova lista. Você precisa dessa ID para outras funções de gerenciamento de lista de imagens.
+7. Selecione **Enviar**. A sua lista está criada. Note o valor de **IDENTIFICAÇÃO** associado à nova lista. Precisa deste ID para outras funções de gestão da lista de imagens.
 
-   ![Listas de imagens – a caixa criar conteúdo de resposta do console mostra a ID da lista](images/try-terms-list-create-2.png)
+   ![Listas de imagens - Criar caixa de conteúdo de resposta de consola mostra o ID da lista](images/try-terms-list-create-2.png)
  
-8. Em seguida, adicione imagens a myList. No menu à esquerda, selecione **imagem**e, em seguida, selecione **Adicionar imagem**.
+8. Em seguida, adicione imagens ao MyList. No menu esquerdo, selecione **Imagem**, e, em seguida, selecione **Adicionar Imagem**.
 
-   A página **imagem-adicionar imagem** é aberta. 
+   A **página Image - Adicionar imagem** abre. 
 
-9. Para **abrir o console de teste de API**, selecione a região que melhor descreve seu local.
+9. Para **a consola de teste API aberta,** selecione a região que mais descreve a sua localização.
 
-   ![Imagem – adicionar seleção de região de página de imagem](images/test-drive-region.png)
+   ![Imagem - Adicionar seleção da página de imagem](images/test-drive-region.png)
 
-   O console **Image-Add Image** API é aberto.
+   A **imagem - Adicionar** a consola Image API abre.
  
-10. Na caixa **listar** , insira a ID da lista que você gerou e, em seguida, insira a URL da imagem que você deseja adicionar. Insira sua chave de assinatura e, em seguida, selecione **Enviar**.
+10. Na caixa **listId,** introduza o ID da lista que gerou e introduza o URL da imagem que pretende adicionar. Introduza a sua chave de subscrição e, em seguida, selecione **Enviar**.
 
-11. Para verificar se a imagem foi adicionada à lista, no menu à esquerda, selecione **imagem**e, em seguida, selecione **obter todas as IDs de imagem**.
+11. Para verificar se a imagem foi adicionada à lista, no menu esquerdo, selecione **Imagem**, e, em seguida, selecione **Get All Image Ids**.
 
-    A **imagem-obter todas as IDs de imagem console de** API é aberta.
+    A consola Image **- Get All Image Ids** API abre.
   
-12. Na caixa **listar** , insira a ID da lista e, em seguida, insira sua chave de assinatura. Selecione **Enviar**.
+12. Na caixa **listId,** introduza o ID da lista e introduza a chave de subscrição. Selecione **Enviar**.
 
-    ![Imagem – caixa de conteúdo do console obter todas as IDs de imagem lista as imagens que você inseriu](images/try-image-list-create-11.png)
+    ![Imagem - Obtenha todos os ids de consola De imagem A caixa de conteúdo de resposta lista as imagens que introduziu](images/try-image-list-create-11.png)
  
-10. Adicione mais algumas imagens. Agora que você criou uma lista de imagens Personalizada, tente [avaliar as imagens](try-image-api.md) usando a lista de imagens personalizadas. 
+10. Adicione mais algumas imagens. Agora que criou uma lista personalizada de imagens, tente [avaliar as imagens](try-image-api.md) utilizando a lista de imagens personalizadas. 
 
-## <a name="delete-images-and-lists"></a>Excluir imagens e listas
+## <a name="delete-images-and-lists"></a>Apagar imagens e listas
 
-A exclusão de uma imagem ou de uma lista é simples. Você pode usar a API para realizar as seguintes tarefas:
+Apagar uma imagem ou uma lista é simples. Pode utilizar a API para fazer as seguintes tarefas:
 
-- Elimine uma imagem. (**Imagem-excluir**)
-- Exclua todas as imagens em uma lista sem excluir a lista. (**Imagem-excluir todas as imagens**)
-- Eliminar uma lista e todo o conteúdo da mesma. (**Listas de imagens-excluir**)
+- Elimine uma imagem. (**Imagem - Excluir)**
+- Apague todas as imagens numa lista sem apagar a lista. (**Imagem - Apagar Todas as Imagens)**
+- Eliminar uma lista e todo o conteúdo da mesma. (Listas de**Imagens - Excluir)**
 
-Este exemplo exclui uma única imagem:
+Este exemplo elimina uma única imagem:
 
-1. Na [referência da API de gerenciamento da lista de imagens](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), no menu à esquerda, selecione **imagem**e, em seguida, selecione **excluir**. 
+1. Na [referência API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672)de Gestão da Lista de Imagem, no menu esquerdo, selecione **Imagem**, e, em seguida, **selecione Delete**. 
 
-   A página **imagem-exclusão** é aberta.
+   A **Imagem - Apagar** a página abre.
 
-2. Para **abrir o console de teste de API**, selecione a região que melhor descreve seu local. 
+2. Para **a consola de teste API aberta,** selecione a região que mais descreve a sua localização. 
 
-   ![Imagem-Excluir seleção de região de página](images/test-drive-region.png)
+   ![Imagem - Excluir a seleção da região da página](images/test-drive-region.png)
  
-   O console de API de **exclusão de imagem** é aberto.
+   A **consola Image - Delete** API abre.
  
-3. Na caixa **listar** , insira a ID da lista da qual excluir uma imagem.  Este é o número retornado no console **Image-obter todas as IDs de imagem** para myList. Em seguida, insira a **imageid** da imagem a ser excluída. 
+3. Na caixa **listId,** introduza a identificação da lista para eliminar uma imagem a partir de.  Este é o número devolvido na consola **Image - Get All Image Ids** para MyList. Em seguida, introduza o **ImageId** da imagem para apagar. 
 
-Em nosso exemplo, a ID da lista é **58953**, o valor de **ContentSource**. A ID da imagem é **59021**, o valor de **ContentIds**.
+No nosso exemplo, o ID da lista é **58953,** o valor para **ContentSource**. O ID de imagem é **59021,** o valor para **Os Idóides.**
 
-1. Insira sua chave de assinatura e, em seguida, selecione **Enviar**.
+1. Introduza a sua chave de subscrição e, em seguida, selecione **Enviar**.
 
-1. Para verificar se a imagem foi excluída, use o console **Image-obter todas as IDs de imagem** .
+1. Para verificar se a imagem foi eliminada, utilize a consola **Image - Get All Image Ids.**
  
-## <a name="change-list-information"></a>Alterar informações da lista
+## <a name="change-list-information"></a>Alterar informações sobre listas
 
-Você pode editar o nome e a descrição de uma lista e adicionar itens de metadados.
+Pode editar o nome e descrição de uma lista e adicionar itens de metadados.
 
-1. Na [referência da API de gerenciamento da lista de imagens](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), no menu à esquerda, selecione listas de **imagens**e, em seguida, selecione **atualizar detalhes**. 
+1. Na [referência API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672)de Gestão da Lista de Imagens, no menu esquerdo, selecione **Listas**de Imagens, e, em seguida, selecione Detalhes de **Atualização**. 
 
-   A página **listas de imagens – detalhes da atualização** é aberta.
+   As **Listas de Imagens -** Página de Detalhes de Atualização abre.
 
-2. Para **abrir o console de teste de API**, selecione a região que melhor descreve seu local.  
+2. Para **a consola de teste API aberta,** selecione a região que mais descreve a sua localização.  
 
-    ![Listas de imagens-seleção de região de página de detalhes de atualização](images/test-drive-region.png)
+    ![Listas de Imagens - Seleção da página de Dados de Atualização](images/test-drive-region.png)
 
-    O console de API **listas de imagens – atualizar detalhes** é aberto.
+    As **Listas de Imagens -** Atualização Detalhes da consola API abre.
  
-3. Na caixa **listar** , insira a ID da lista e, em seguida, insira sua chave de assinatura.
+3. Na caixa **listId,** introduza o ID da lista e introduza a chave de subscrição.
 
-4. Na caixa **corpo da solicitação** , faça suas edições e, em seguida, selecione o botão **Enviar** na página.
+4. Na caixa **de corpo do Pedido,** faça as suas edições e, em seguida, selecione o botão **Enviar** na página.
 
-   ![Listas de imagens-edições de corpo de solicitação do console de detalhes de atualização](images/try-terms-list-change-1.png)
+   ![Listas de Imagens - Atualizações detalhes consola solicitar edificações do corpo](images/try-terms-list-change-1.png)
  
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Use a API REST em seu código ou comece com a [imagem lista o início rápido do .net](image-lists-quickstart-dotnet.md) para integrar com seu aplicativo.
+Utilize a API REST no seu código ou comece com as [listas de imagem .NET quickstart](image-lists-quickstart-dotnet.md) para integrar com a sua aplicação.

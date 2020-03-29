@@ -4,10 +4,10 @@ description: Utilize instruções e contexto para gerir as múltiplas voltas, co
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: abdde09fbb1f6b066772366c5cea933824cb5864
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220624"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Utilizar pedidos de seguimento para criar vários turnos numa conversa
@@ -16,7 +16,7 @@ Utilize instruções de seguimento e contexto para gerir as múltiplas voltas, c
 
 Para ver como funciona a multi-volta, veja o seguinte vídeo de demonstração:
 
-[![conversa multi-turn no QnA Maker](../media/conversational-context/youtube-video.png)](https://aka.ms/multiturnexample)
+[![Conversa multi-turn no QnA Maker](../media/conversational-context/youtube-video.png)](https://aka.ms/multiturnexample)
 
 ## <a name="what-is-a-multi-turn-conversation"></a>O que é uma conversa multi-turn?
 
@@ -62,7 +62,7 @@ Se estiver a criar um documento multi-turn, tenha em mente as seguintes orienta�
 
 * O primeiro carácter da direção deve ser capitalizado.
 
-* Não termine um título com um ponto de interrogação, `?`.
+* Não termine um título com `?`um ponto de interrogação, .
 
 * Pode utilizar o documento da [amostra](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx) como exemplo para criar o seu próprio documento multi-turn.
 
@@ -80,7 +80,7 @@ Ao adicionar um documento hierárquico, o QnA Maker determina as solicitações 
 
 ## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Criar base de conhecimento com solicitações multi-turn com a Create API
 
-Pode criar um caso de conhecimento com solicitações multi-turn utilizando o [Fabricante QnA Create API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). As instruções estão adicionando na matriz de `prompts` da propriedade `context`.
+Pode criar um caso de conhecimento com solicitações multi-turn utilizando o [Fabricante QnA Create API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). As instruções estão `context` adicionando `prompts` na matriz da propriedade.
 
 ## <a name="show-questions-and-answers-with-context"></a>Mostrar perguntas e respostas com contexto
 
@@ -110,7 +110,7 @@ Adicione um pedido de seguimento a um par de perguntas e respostas existente que
 
     |Campo|Valor|
     |--|--|
-    |Texto de exibição|Introduza **desligar o dispositivo**. Este é um texto personalizado para exibir no pedido de seguimento.|
+    |Texto a apresentar|Introduza **desligar o dispositivo**. Este é um texto personalizado para exibir no pedido de seguimento.|
     |Apenas para contexto| Selecione esta caixa de verificação. Uma resposta só é devolvida se a pergunta especificar o contexto.|
     |Link para responder|Introduza **Utilize o ecrã de entrada** para encontrar o par de perguntas e respostas existente.|
 
@@ -143,13 +143,13 @@ Quando você adicionar um novo par de perguntas e respostas à base de conhecime
 1. Na barra de ferramentas base de conhecimento, procure e selecione o par de perguntas e respostas existente para **Contas e iniciar sessão em**.
 
 1. Na coluna **Resposta** para esta pergunta, selecione **Adicionar pedido de seguimento**.
-1. Sob **solicitação de seguimento (PREVIEW)** , crie um novo pedido de acompanhamento, entrando nos seguintes valores:
+1. Sob **solicitação de seguimento (PREVIEW)**, crie um novo pedido de acompanhamento, entrando nos seguintes valores:
 
     |Campo|Valor|
     |--|--|
-    |Texto de exibição|*Criar uma conta Windows*. O texto personalizado para exibir no pedido de seguimento.|
+    |Texto a apresentar|*Criar uma conta Windows*. O texto personalizado para exibir no pedido de seguimento.|
     |Apenas para contexto|Selecione esta caixa de verificação. Esta resposta só é devolvida se a pergunta especificar o contexto.|
-    |Link para responder|Introduza o seguinte texto como resposta:<br>*[Criar](https://account.microsoft.com/) uma conta Windows com uma conta de e-mail nova ou existente.*<br>Quando guardar e treinar a base de dados, este texto será convertido. |
+    |Link para responder|Introduza o seguinte texto como resposta:<br>* [Criar](https://account.microsoft.com/) uma conta Windows com uma conta de e-mail nova ou existente.*<br>Quando guardar e treinar a base de dados, este texto será convertido. |
     |||
 
     ![Criar uma nova pergunta e resposta prontas](../media/conversational-context/create-child-prompt-from-parent.png)
@@ -159,7 +159,7 @@ Quando você adicionar um novo par de perguntas e respostas à base de conhecime
 
     Esta ação cria um novo par de perguntas e respostas e liga a pergunta selecionada como um pedido de seguimento. A coluna **Context,** para ambas as perguntas, indica uma relação rápida de seguimento.
 
-1. Selecione **as opções de visualização**, e, em seguida, selecione [**o contexto do programa (PREVIEW)** ](#show-questions-and-answers-with-context).
+1. Selecione **as opções de visualização**, e, em seguida, selecione [**o contexto do programa (PREVIEW)**](#show-questions-and-answers-with-context).
 
     A nova pergunta mostra como está ligada.
 
@@ -181,7 +181,7 @@ Se não permitir a volta múltipla, a resposta é devolvida, mas as instruções
 
 ## <a name="a-json-request-to-return-an-initial-answer-and-follow-up-prompts"></a>Um pedido da JSON para devolver uma resposta inicial e instruções de acompanhamento
 
-Utilize o objeto `context` vazio para solicitar a resposta à pergunta do utilizador e inclua solicitações de seguimento.
+Utilize o `context` objeto vazio para solicitar a resposta à pergunta do utilizador e inclua solicitações de seguimento.
 
 ```JSON
 {
@@ -260,7 +260,7 @@ A secção anterior solicitou uma resposta e quaisquer instruções de acompanha
 }
 ```
 
-A matriz `prompts` fornece texto na propriedade `displayText` e no valor `qnaId`. Pode mostrar estas respostas como as próximas escolhas exibidas no fluxo de conversação e, em seguida, enviar o `qnaId` selecionado de volta para O Criador qnA no seguinte pedido.
+A `prompts` matriz fornece `displayText` texto na `qnaId` propriedade e no valor. Pode mostrar estas respostas como as próximas escolhas exibidas no fluxo de conversação e, em seguida, enviar o selecionado `qnaId` de volta para QnA Maker no seguinte pedido.
 
 <!--
 
@@ -270,7 +270,7 @@ The `promptsToDelete` array provides the ...
 
 ## <a name="a-json-request-to-return-a-non-initial-answer-and-follow-up-prompts"></a>Um pedido da JSON para devolver uma resposta não inicial e instruções de acompanhamento
 
-Preencha o `context` objeto para incluir o contexto anterior.
+Preencha `context` o objeto para incluir o contexto anterior.
 
 No seguinte pedido da JSON, a questão atual é *use o Windows Hello para iniciar sessão* e a pergunta anterior foi contas e *sessão.*
 
@@ -290,7 +290,7 @@ No seguinte pedido da JSON, a questão atual é *use o Windows Hello para inicia
 
 ##  <a name="a-json-response-to-return-a-non-initial-answer-and-follow-up-prompts"></a>Uma resposta json para devolver uma resposta não inicial e instruções de acompanhamento
 
-A resposta QnA Maker _GenerateAnswer_ JSON inclui as solicitações de seguimento na propriedade `context` do primeiro item no objeto `answers`:
+A resposta QnA Maker _GenerateAnswer_ JSON inclui as `context` solicitações de seguimento `answers` na propriedade do primeiro item no objeto:
 
 ```JSON
 {
@@ -350,7 +350,7 @@ A resposta QnA Maker _GenerateAnswer_ JSON inclui as solicitações de seguiment
 
 ## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>Consulta da base de conhecimento com o ID do Fabricante qnA
 
-Se estiver a construir uma aplicação personalizada utilizando recurso multi-turn. Na resposta inicial da pergunta, quaisquer solicitações de acompanhamento e a sua `qnaId` associada são devolvidas. Agora que tem a identificação, pode passar isto no corpo de pedido do pedido de acompanhamento. Se o organismo de pedido contiver o `qnaId`, e o objeto de contexto (que contém as propriedades anteriores do QnA Maker), então a GenerateAnswer devolverá a pergunta exata por ID, em vez de usar o algoritmo de classificação para encontrar a resposta pelo texto de pergunta.
+Se estiver a construir uma aplicação personalizada utilizando recurso multi-turn. Na resposta inicial da pergunta, quaisquer solicitações de `qnaId` acompanhamento e o seu associado são devolvidos. Agora que tem a identificação, pode passar isto no corpo de pedido do pedido de acompanhamento. Se o organismo `qnaId`de pedido contiver o , e o objeto de contexto (que contém as propriedades anteriores do Fabricante de QnA), então a GenerateAnswer devolverá a pergunta exata por ID, em vez de usar o algoritmo de classificação para encontrar a resposta pelo texto de pergunta.
 
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>A ordem de exibição é suportada na API de atualização
@@ -359,15 +359,15 @@ O texto de exibição e a ordem de [exibição,](https://docs.microsoft.com/rest
 
 ## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>Adicione ou elimine as solicitações de várias voltas com a API de atualização
 
-Pode adicionar ou eliminar instruções de várias voltas utilizando o [API de atualização do fabricante qnA](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  As solicitações estão adicionando na matriz de `promptsToAdd` da propriedade `context` e na matriz de `promptsToDelete`.
+Pode adicionar ou eliminar instruções de várias voltas utilizando o [API de atualização do fabricante qnA](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  As instruções estão `context` adicionando `promptsToAdd` na `promptsToDelete` matriz da propriedade e na matriz.
 
 ## <a name="export-knowledge-base-for-version-control"></a>Base de conhecimentos de exportação para controlo de versão
 
 O QnA Maker suporta o controlo da versão, incluindo passos de conversação multi-turn no ficheiro exportado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre conversas contextuais a partir desta amostra de [diálogo](https://aka.ms/qnamakermultiturnsample) ou saiba mais sobre [design de bot conceptual para conversas multi-turn](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
 
 > [!div class="nextstepaction"]
-> [Migrar uma base de conhecimento](../Tutorials/migrate-knowledge-base.md)
+> [Migrar para uma base de dados de conhecimento](../Tutorials/migrate-knowledge-base.md)

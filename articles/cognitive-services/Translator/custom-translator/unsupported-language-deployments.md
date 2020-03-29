@@ -1,7 +1,7 @@
 ---
-title: Implantações de idioma sem suporte – Tradutor personalizado
+title: Implementações linguísticas não suportadas - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
-description: Este artigo mostra como implantar pares de idiomas sem suporte no Tradutor personalizado de serviços cognitivas do Azure.
+description: Este artigo mostra-lhe como implementar pares de idiomas não suportados no Tradutor Personalizado de Serviços Cognitivos Azure.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,50 +11,50 @@ ms.topic: reference
 ms.date: 04/24/2019
 ms.author: swmachan
 ms.openlocfilehash: 3c5c74fc853b5a2425a58e1704aad43350cba212
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73837456"
 ---
 # <a name="unsupported-language-deployments"></a>Implementações de linguagens não suportadas
 
 <!--Custom Translator provides the highest-quality translations possible using the latest techniques in neural machine learning. While Microsoft intends to make neural training available in all languages, there are some limitations that prevent us from being able to offer neural machine translation in all language pairs.-->  
 
-Com a próxima aposentadoria do Hub do Microsoft Translator, a Microsoft estará desimplantando todos os modelos atualmente implantados por meio do Hub. Muitos de vocês têm modelos implantados no Hub cujos pares de idiomas não têm suporte no Tradutor personalizado.  Não queremos que os usuários nessa situação não tenham um recurso para a tradução de seu conteúdo.
+Com a próxima reforma do Microsoft Tradutor Hub, a Microsoft estará a desimplementar todos os modelos atualmente implantados através do Hub. Muitos de vocês têm modelos implantados no Hub cujos pares de línguas não são suportados em Tradutor Personalizado.  Não queremos que os utilizadores nesta situação não tenham qualquer recurso para traduzir os seus conteúdos.
 
-Agora temos um processo que permite que você implante seus modelos sem suporte por meio do tradutor personalizado.  Esse processo permite que você continue a converter conteúdo usando a API v3 mais recente.  Esses modelos serão hospedados até você optar por desimplantá-los ou o par de idiomas se tornar disponível no Tradutor personalizado.  Este artigo explica o processo de implantação de modelos com pares de idiomas sem suporte.
+Temos agora um processo que lhe permite implementar os seus modelos não suportados através do Tradutor Personalizado.  Este processo permite-lhe continuar a traduzir conteúdos utilizando a mais recente API V3.  Estes modelos serão hospedados até que você decida desimplantá-los ou o par de idiomas fica disponível em Tradutor Personalizado.  Este artigo explica o processo de implementação de modelos com pares de línguas não suportados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para que seus modelos sejam candidatos à implantação, eles devem atender aos seguintes critérios:
-* O projeto que contém o modelo deve ter sido migrado do hub para o tradutor personalizado usando a ferramenta de migração.  O processo para migrar projetos e espaços de trabalho pode ser encontrado [aqui](how-to-migrate.md).
-* O modelo deve estar no estado implantado quando a migração ocorrer.  
-* O par de idiomas do modelo deve ser um par de idiomas sem suporte no Tradutor personalizado.  Os pares de idiomas nos quais um idioma tem suporte no ou em inglês, mas o par não inclui o inglês, são candidatos para implantações de idioma sem suporte.  Por exemplo, um modelo de Hub para um par de idiomas francês a alemão é considerado um par de idiomas sem suporte, embora francês a inglês e inglês para alemão sejam um par de idiomas com suporte.
+Para que os seus modelos sejam candidatos à implantação, devem cumprir os seguintes critérios:
+* O projeto que contém o modelo deve ter sido migrado do Hub para o Tradutor Personalizado utilizando a Ferramenta de Migração.  O processo de migração de projetos e espaços de trabalho pode ser encontrado [aqui.](how-to-migrate.md)
+* O modelo deve estar no estado de implantação quando a migração acontece.  
+* O par linguístico do modelo deve ser um par de idiomas não suportado em Tradutor Personalizado.  Os pares linguísticos em que uma língua é suportada para ou a partir do inglês, mas o próprio par não inclui o inglês, são candidatos a implantações linguísticas não apoiadas.  Por exemplo, um modelo Hub para um par de língua francesa para alemão é considerado um par de línguas não suportada, embora o francês para o inglês e o inglês para o alemão sejam um par de línguas suportado.
 
 ## <a name="process"></a>Processo
-Depois de migrar os modelos do Hub que são candidatos à implantação, você poderá encontrá-los acessando a página de **configurações** do seu espaço de trabalho e rolando até o final da página em que você verá uma seção de **treinamentos do Hub do tradutor sem suporte** .  Esta seção só aparecerá se você tiver projetos que atendam aos pré-requisitos mencionados acima.
+Depois de ter modelos migrados do Hub que são candidatos à implantação, pode encontrá-los indo para a página **Definições** para o seu espaço de trabalho e percorrendo o final da página onde verá uma secção de Formação de **TradutorEs Não Suportados.**  Esta secção só aparece se tiver projetos que satisfaçam os pré-requisitos acima mencionados.
 
 ![Como migrar do Hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
 
-Na página seleção de **treinamentos do Hub do tradutor sem suporte** , a guia **treinamentos não solicitados** contém modelos qualificados para implantação.  Selecione os modelos que você deseja implantar e envie uma solicitação.   Antes do prazo de implantação de 30 de abril, você pode selecionar quantos modelos desejar para a implantação.
+Dentro da página de seleção de formações de **tradutornão suportado,** o separador de **formações não solicitadas** contém modelos elegíveis para implementação.  Selecione os modelos que pretende implementar e envie um pedido.   Antes do prazo de implementação de 30 de abril, pode selecionar quantos modelos desejar a sua implementação.
  
 ![Como migrar do Hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
 
-Depois de enviado, o modelo não estará mais disponível na guia **treinamentos não solicitados** e, em vez disso, aparecerá na guia **treinamentos solicitados** .  Você pode exibir os treinamentos solicitados a qualquer momento.
+Uma vez submetido, o modelo deixará de estar disponível no separador de **formações não solicitadas** e, em vez disso, aparecerá no separador **de formações solicitadas.**  Pode ver os treinos solicitados a qualquer momento.
 
 ![Como migrar do Hub](media/unsupported-language-deployments/request-unsupported-trainings.jpg) 
 
 ## <a name="whats-next"></a>Passos seguintes?
 
-Os modelos selecionados para implantação são salvos depois que o Hub é encerrado e todos os modelos são desimplantados.  Você tem até 24 de maio para enviar solicitações de implantação de modelos sem suporte.  Implantaremos esses modelos em 15 de junho, em que eles poderão ser acessados por meio da API do Translator v3.  Além disso, eles estarão disponíveis por meio da API v2 até 1º de julho.  
+Os modelos selecionados para a implantação são guardados assim que o Hub é desativado e todos os modelos não forem implantados.  Tem até 24 de maio para apresentar pedidos de implantação de modelos não suportados.  Vamos implementar estes modelos no dia 15 de junho, altura em que estarão acessíveis através da API tradutora V3.  Além disso, estarão disponíveis através da V2 API até 1 de julho.  
 
-Para obter mais informações sobre datas importantes na reprovação da verificação do Hub [aqui](https://www.microsoft.com/translator/business/hub/).
-Depois de implantados, os encargos de hospedagem normais serão aplicados.  Consulte os [preços](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/) para obter detalhes.  
+Para mais informações sobre datas importantes na depreciação do Hub consulte [aqui](https://www.microsoft.com/translator/business/hub/).
+Uma vez implementados, as taxas normais de hospedagem serão aplicadas.  Consulte [os preços](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/) para mais detalhes.  
 
-Ao contrário dos modelos de Tradutor personalizado padrão, os modelos de Hub só estarão disponíveis em uma única região, portanto, os encargos de Hospedagem de várias regiões não serão aplicados.  Depois de implantado, você poderá desimplantar o modelo de Hub a qualquer momento por meio do projeto de Tradutor personalizado migrado.
+Ao contrário dos modelos standard de Tradutor Personalizado, os modelos Hub só estarão disponíveis numa única região, pelo que os encargos de hospedagem multi-regiões não serão aplicados.  Uma vez implementado, poderá desimplantar o seu modelo Hub a qualquer momento através do projeto De tradutor personalizado migrado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Treinar um modelo](how-to-train-model.md).
-- Comece a usar seu modelo de tradução personalizada implantado por meio [do Microsoft API de tradução de texto v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- [Treine um modelo.](how-to-train-model.md)
+- Comece a utilizar o seu modelo de tradução personalizada implementado através do [Microsoft Tradutor Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).

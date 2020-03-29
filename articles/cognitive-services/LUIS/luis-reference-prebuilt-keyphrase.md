@@ -1,7 +1,7 @@
 ---
 title: Entidade pré-construída - LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém keyphrase informações da entidade pré-criados na compreensão de idiomas (LUIS).
+description: Este artigo contém informações de entidadepré-construída pré-construída sintetmente em Compreensão linguística (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,16 +12,16 @@ ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ms.openlocfilehash: 53be1b13f1e2744e143a4be0777e3a8e3135460e
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270532"
 ---
 # <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>keyPhrase entidade pré-construída para uma app LUIS
 A entidade keyPhrase extrai uma variedade de frases-chave de uma expressão. Não é necessário adicionar frases de exemplo contendo o tecladoPhrase à aplicação. A entidade keyPhrase é suportada em [muitas culturas](luis-language-support.md#languages-supported) como parte das funcionalidades de análise de [texto.](../text-analytics/overview.md)
 
-## <a name="resolution-for-prebuilt-keyphrase-entity"></a>Resolução de entidade keyPhrase pré-criados
+## <a name="resolution-for-prebuilt-keyphrase-entity"></a>Resolução para entidade chave pré-construída
 
 Os seguintes objetos de entidade são devolvidos para consulta:
 
@@ -29,7 +29,7 @@ Os seguintes objetos de entidade são devolvidos para consulta:
 
 #### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O seguinte JSON está com o parâmetro `verbose` definido para `false`:
+O seguinte JSON `verbose` está com `false`o parâmetro definido para:
 
 ```json
 "entities": {
@@ -40,7 +40,7 @@ O seguinte JSON está com o parâmetro `verbose` definido para `false`:
 }
 ```
 #### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
-O seguinte JSON está com o parâmetro `verbose` definido para `true`:
+O seguinte JSON `verbose` está com `true`o parâmetro definido para:
 
 ```json
 "entities": {

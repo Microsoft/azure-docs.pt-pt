@@ -1,7 +1,7 @@
 ---
 title: Percentagem Entidade Pré-construída - LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém a percentagem de informações da entidade pré-criados na compreensão de idiomas (LUIS).
+description: Este artigo contém informações percentuais sobre entidades pré-construídas em Compreensão linguística (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,19 +12,19 @@ ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ms.openlocfilehash: 31ea1c36139abcb1e102161ad76a203073ba4dfd
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270499"
 ---
 # <a name="percentage-prebuilt-entity-for-a-luis-app"></a>Percentagem de entidade pré-construída para uma app LUIS
-Os números percentuais podem aparecer como frações, `3 1/2`, ou em percentagem, `2%`. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém a percentagem para os objetivos do aplicativo. A entidade percentual é apoiada em [muitas culturas.](luis-reference-prebuilt-entities.md)
+Os números percentuais `3 1/2`podem aparecer como `2%`frações, ou em percentagem, . Como esta entidade já está treinada, não precisa de adicionar declarações de exemplo contendo percentagem às intenções de aplicação. A entidade percentual é apoiada em [muitas culturas.](luis-reference-prebuilt-entities.md)
 
 ## <a name="types-of-percentage"></a>Tipos de percentagem
 A percentagem é gerida a partir do repositório GitHub [de texto de reconhecimento](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114)
 
-## <a name="resolution-for-prebuilt-percentage-entity"></a>Resolução de entidade de percentagem pré-criados
+## <a name="resolution-for-prebuilt-percentage-entity"></a>Resolução para entidade de percentagem pré-construída
 
 Os seguintes objetos de entidade são devolvidos para consulta:
 
@@ -32,7 +32,7 @@ Os seguintes objetos de entidade são devolvidos para consulta:
 
 #### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O seguinte JSON está com o parâmetro `verbose` definido para `false`:
+O seguinte JSON `verbose` está com `false`o parâmetro definido para:
 
 ```json
 "entities": {
@@ -42,7 +42,7 @@ O seguinte JSON está com o parâmetro `verbose` definido para `false`:
 }
 ```
 #### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
-O seguinte JSON está com o parâmetro `verbose` definido para `true`:
+O seguinte JSON `verbose` está com `true`o parâmetro definido para:
 
 ```json
 "entities": {

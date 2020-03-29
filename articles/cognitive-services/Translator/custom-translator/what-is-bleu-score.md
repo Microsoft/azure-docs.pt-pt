@@ -1,7 +1,7 @@
 ---
-title: O que é uma pontuação de BLEU? -Tradutor personalizado
+title: O que é uma pontuação bleu? - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
-description: BLEU é uma medida das diferenças entre tradução automática e traduções de referência criadas pelo homem da mesma sentença de origem.
+description: Bleu é uma medição das diferenças entre tradução automática e traduções de referência criadas pelo homem da mesma frase de origem.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,27 +10,27 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.openlocfilehash: 85c4ee27a828a05c64ca6cbf84bff438535328be
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73647364"
 ---
-# <a name="what-is-a-bleu-score"></a>O que é uma pontuação de BLEU?
+# <a name="what-is-a-bleu-score"></a>O que é uma pontuação bleu?
 
-[Bleu (antiestudo de avaliação bilíngüe)](https://en.wikipedia.org/wiki/BLEU) é uma medida das diferenças entre uma tradução automática e uma ou mais traduções de referência criadas por humanos da mesma frase de origem.
+[BLEU (Subestudar de Avaliação Bilingue)](https://en.wikipedia.org/wiki/BLEU) é uma medição das diferenças entre uma tradução automática e uma ou mais traduções de referência criadas pelo homem da mesma frase de origem.
 
-## <a name="scoring-process"></a>Processo de Pontuação
+## <a name="scoring-process"></a>Processo de pontuação
 
-O algoritmo BLEU compara frases consecutivas da tradução automática com as frases consecutivas encontradas na tradução de referência e conta o número de correspondências de forma ponderada. Essas correspondências são independentes de posição. Um grau de correspondência maior indica um grau mais alto de semelhança com a tradução de referência e uma pontuação mais alta. A exatidão inteligibilidade e gramatical não são levadas em conta.
+O algoritmo BLEU compara frases consecutivas da tradução automática com as frases consecutivas que encontra na tradução de referência, e conta o número de fósforos, de forma ponderada. Estes fósforos são independentes. Um grau de correspondência mais elevado indica um maior grau de semelhança com a tradução de referência, e uma pontuação mais alta. A inteligibilidade e a correção gramatical não são tidas em conta.
 
-## <a name="how-bleu-works"></a>Como funciona o BLEU?
+## <a name="how-bleu-works"></a>Como funciona a BLEU?
 
-A força do BLEU é que ela se correlaciona bem com o julgamento humano por meio da média de erros de julgamento de frase individual em um corpus de teste, em vez de tentar desenvolver a opinião humana exata para cada frase.
+A força da BLEU é que se relaciona bem com o julgamento humano, calculando erros de julgamento individuais sobre um corpo de teste, em vez de tentar conceber o julgamento humano exato para cada frase.
 
-Uma discussão mais abrangente sobre pontuações de BLEU está [aqui](https://youtu.be/-UqDljMymMg).
+Uma discussão mais alargada sobre as pontuações do BLEU está [aqui.](https://youtu.be/-UqDljMymMg)
 
-Os resultados do BLEU dependem muito da amplitude do seu domínio, da consistência dos dados de teste com os dados de treinamento e de ajuste e da quantidade de dados disponíveis para treinar. Se seus modelos tiverem sido treinados em um domínio estreito e os dados de treinamento estiverem consistentes com os dados de teste, você poderá esperar uma alta pontuação de BLEU.
+Os resultados da BLEU dependem fortemente da amplitude do seu domínio, da consistência dos dados de teste com os dados de treino e afinação, e quantos dados tem disponível para treinar. Se os seus modelos foram treinados num domínio estreito, e os seus dados de treino forem consistentes com os seus dados de teste, pode esperar uma pontuação alta de BLEU.
 
 >[!NOTE]
->Uma comparação entre pontuações de BLEU é apenas justificáveis quando os resultados de BLEU são comparados com o mesmo conjunto de testes, o mesmo par de idiomas e o mesmo mecanismo de MT. Uma pontuação de BLEU de um conjunto de testes diferente está associada a outro.
+>Uma comparação entre as pontuações de BLEU só é justificável quando os resultados do BLEU são comparados com o mesmo conjunto de teste, o mesmo par de idiomas e o mesmo motor MT. Uma pontuação BLEU de um conjunto de testes diferente é certamente diferente.

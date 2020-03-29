@@ -7,10 +7,10 @@ ms.topic: include
 ms.date: 01/21/2020
 ms.author: dapine
 ms.openlocfilehash: 9b4317064196c4ea3d761fd1a0bd43a764054fe6
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77563282"
 ---
 ### <a name="speech-to-text-or-custom-speech-to-text"></a>Discurso-a-texto ou Discurso Personalizado-a-texto
@@ -22,7 +22,7 @@ O recipiente fornece APIs finais de consulta baseados na websocket, que são ace
 
 Veja os exemplos abaixo.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 Mude de utilização desta chamada de inicialização azure-cloud:
 
@@ -36,7 +36,7 @@ a esta chamada utilizando o [hospedeiro](https://docs.microsoft.com/dotnet/api/m
 var config = SpeechConfig.FromHost(
     new Uri("ws://localhost:5000"));
 ```
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 Mude de utilização desta chamada de inicialização azure-cloud:
 

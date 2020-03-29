@@ -1,7 +1,7 @@
 ---
 title: Boas declarações de exemplo - LUIS
 titleSuffix: Azure Cognitive Services
-description: As declarações são informações do utilizador que a sua aplicação precisa de interpretar. Colete frases que pensa que os utilizadores vão entrar. Inclua expressões que significam a mesma coisa, mas são construídas de forma diferente no comprimento da palavra e na colocação de palavras.
+description: As expressões são os elementos introduzidos pelo utilizador que a sua aplicação tem de interpretar. Colete frases que pensa que os utilizadores vão entrar. Inclua expressões que significam a mesma coisa, mas são construídas de forma diferente no comprimento da palavra e na colocação de palavras.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: diberry
 ms.openlocfilehash: 7412677773b60a1894a6ece7251e797bfddee091
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79219920"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Compreenda quais são as boas declarações para a sua app LUIS
@@ -55,10 +55,10 @@ Tome estas declarações exemplo:
 
 |Expressões de exemplo|
 |--|
-|how do I get a computer?|
-|Where do I get a computer?|
-|I want to get a computer, how do I go about it?|
-|When can I have a computer?| 
+|Como consigo um computador?|
+|Onde consigo um computador?|
+|Quero um computador, como é que o faço?|
+|Quando posso ter um computador?| 
 
 O termo principal aqui, "computador", não é variado. Utilize alternativas como computador de secretária, portátil, estação de trabalho ou até mesmo apenas uma máquina. Luis pode inferir inteligentemente sinónimos do contexto, mas quando se criam expressões para o treino, é sempre melhor vary-los.
 
@@ -90,7 +90,7 @@ Os críticos de diasão são marcas ou sinais dentro do texto, tais como:
 
 Se a sua aplicação ligar a normalização, as pontuações no painel de **teste,** nos testes de lote e nas consultas de ponto final mudarão para todas as expressões utilizando diacritics ou pontuação.
 
-Ligue a normalização da expressão para diacríticos ou pontuação no ficheiro da aplicação LUIS JSON no parâmetro `settings`.
+Ligue a normalização da expressão para diacríticos ou pontuação no `settings` ficheiro da aplicação LUIS JSON no parâmetro.
 
 ```JSON
 "settings": [
@@ -101,28 +101,28 @@ Ligue a normalização da expressão para diacríticos ou pontuação no ficheir
 
 Normalizar **a pontuação** significa que antes que os seus modelos sejam treinados e antes que as suas consultas de ponto final sejam previstas, a pontuação será removida das expressões. 
 
-Normalizar **os diacríticos** substitui os personagens por diacritics em expressões por caracteres regulares. Por exemplo: `Je parle français` torna-se `Je parle francais`. 
+Normalizar **os diacríticos** substitui os personagens por diacritics em expressões por caracteres regulares. Por `Je parle français` exemplo: `Je parle francais`torna-se . 
 
 A normalização não significa que não verá pontuação e diacríticos no seu exemplo de palavras ou respostas de previsão, apenas que serão ignoradas durante o treino e a previsão.
 
 
 ### <a name="punctuation-marks"></a>Marcas de pontuação
 
-Pontuação é um token separado no LUIS. Uma expressão que contém um período no final contra uma expressão que não contenha um período no final são duas expressões separadas e pode obter duas previsões diferentes. 
+Pontuação é um símbolo separado em LUIS. Uma expressão que contém um período no final contra uma expressão que não contenha um período no final são duas expressões separadas e pode obter duas previsões diferentes. 
 
 Se a pontuação não for normalizada, a LUIS não ignora as marcas de pontuação, por defeito, porque algumas aplicações de clientes podem colocar significado nestas marcas. Certifique-se de que as expressões do seu exemplo utilizam pontuação e nenhuma pontuação para que ambos os estilos devolvam as mesmas pontuações relativas. 
 
-Certifique-se de que o modelo lida com pontuação quer nas declarações de exemplo (tendo e não tendo pontuação) quer nos [padrões](luis-concept-patterns.md) em que é mais fácil ignorar a pontuação com a sintaxe especial: `I am applying for the {Job} position[.]`
+Certifique-se de que o modelo lida com pontuação quer nas declarações de exemplo (tendo e não tendo pontuação) quer nos [padrões](luis-concept-patterns.md) em que é mais fácil ignorar a pontuação com a sintaxe especial:`I am applying for the {Job} position[.]`
 
 Se a pontuação não tiver um significado específico na sua aplicação de cliente, considere [ignorar a pontuação](#utterance-normalization) normalizando a pontuação. 
 
 ### <a name="ignoring-words-and-punctuation"></a>Ignorando palavras e pontuação
 
-Se quiser ignorar palavras específicas ou pontuação em padrões, use um [padrão](luis-concept-patterns.md#pattern-syntax) com a sintaxe _ignore_ os suportes quadrados, `[]`. 
+Se quiser ignorar palavras específicas ou pontuação em padrões, use um [padrão](luis-concept-patterns.md#pattern-syntax) com `[]`a sintaxe _ignore_ os suportes quadrados, . 
 
 ## <a name="training-utterances"></a>Proclamações de treino
 
-A formação é geralmente não determinista: a previsão de expressão pode variar ligeiramente entre versões ou aplicações. Pode remover o treino não determinístico atualizando as [definições](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) da versão API com o `UseAllTrainingData` nome/par de valor para utilizar todos os dados de treino.
+A formação é geralmente não determinista: a previsão de expressão pode variar ligeiramente entre versões ou aplicações. Pode remover o treino não determinístico atualizando as `UseAllTrainingData` [definições](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) da versão API com o nome/par de valor para utilizar todos os dados de treino.
 
 ## <a name="testing-utterances"></a>Declarações de teste 
 
@@ -136,18 +136,18 @@ Depois de o seu modelo ser treinado, publicado e recebendo consultas [de ponto f
 
 Reveja [as melhores práticas](luis-concept-best-practices.md) e aplique-as como parte do seu ciclo de autoria regular.
 
-## <a name="label-for-word-meaning"></a>Etiqueta para o significado da palavra
+## <a name="label-for-word-meaning"></a>Etiqueta para significado de palavra
 
-Se a opção do word ou disposição do word é o mesmo, mas não significa que a mesma coisa, não classifique-o com a entidade. 
+Se a palavra escolha ou arranjo de palavras for a mesma, mas não significa a mesma coisa, não a rotule com a entidade. 
 
-As seguintes declarações, a palavra `fair` é uma homografia. Ele é têm a mesma, mas tem um significado diferente:
+As seguintes declarações, `fair` a palavra é uma homografia. É escrito o mesmo, mas tem um significado diferente:
 
 |Expressão|
 |--|
-|What kind of county fairs are happening in the Seattle area this summer?|
-|Is the current rating for the Seattle review fair?|
+|Que tipo de feiras municipais estão a acontecer na área de Seattle este verão?|
+|A classificação atual para a feira de revisão de Seattle?|
 
-Se quiser que uma entidade do evento encontre todos os dados do evento, rotule a palavra `fair` na primeira expressão, mas não na segunda.
+Se quiser que uma entidade do evento encontre `fair` todos os dados do evento, rotule a palavra na primeira expressão, mas não na segunda.
 
 
 ## <a name="next-steps"></a>Passos seguintes

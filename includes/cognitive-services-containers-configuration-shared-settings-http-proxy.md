@@ -5,20 +5,20 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: 84cd8ed79281b005407b5a857398b5669635c072
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68320509"
 ---
-Se você precisar configurar um proxy HTTP para fazer solicitações de saída, use estes dois argumentos:
+Se precisar de configurar um proxy HTTP para fazer pedidos de saída, utilize estes dois argumentos:
 
 | Nome | Tipo de dados | Descrição |
 |--|--|--|
-|HTTP_PROXY|Cadeia de caracteres|O proxy a ser usado, por exemplo,`http://proxy:8888`<br>`<proxy-url>`|
-|HTTP_PROXY_CREDS|Cadeia de caracteres|Todas as credenciais necessárias para a autenticação no proxy, por exemplo, username: password.|
-|`<proxy-user>`|cadeia|O usuário para o proxy.|
-|`<proxy-password>`|Cadeia de caracteres|A senha associada `<proxy-user>` ao proxy.|
+|HTTP_PROXY|string|O representante a usar, por exemplo,`http://proxy:8888`<br>`<proxy-url>`|
+|HTTP_PROXY_CREDS|string|Quaisquer credenciais necessárias para autenticar contra o representante, por exemplo, nome de utilizador:palavra-passe.|
+|`<proxy-user>`|string|O utilizador do representante.|
+|`<proxy-password>`|string|A senha associada `<proxy-user>` ao representante.|
 ||||
 
 

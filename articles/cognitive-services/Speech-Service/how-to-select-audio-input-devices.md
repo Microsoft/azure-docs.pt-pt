@@ -1,7 +1,7 @@
 ---
-title: Como selecionar um dispositivo de entrada de áudio com o SDK de fala
+title: Como selecionar um dispositivo de entrada de áudio com o SDK de Discurso
 titleSuffix: Azure Cognitive Services
-description: Saiba mais sobre como selecionar dispositivos de entrada de áudio noC++SDK C#de fala (, Python, Objective-C, Java, JavaScript) obtendo as IDs dos dispositivos de áudio conectados a um sistema.
+description: Saiba selecionar dispositivos de entrada de áudio no SDK de Fala (C++, C#, Python, Objective-C, Java, JavaScript) obtendo os IDs dos dispositivos de áudio ligados a um sistema.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: chlandsi
 ms.openlocfilehash: 9891cdb59c757035afd17339b052d5587ac99b0c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74109969"
 ---
-# <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Como: selecionar um dispositivo de entrada de áudio com o SDK de fala
+# <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Como: Selecione um dispositivo de entrada de áudio com o SDK de Fala
 
-A versão 1.3.0 do SDK de fala introduz uma API para selecionar a entrada de áudio. Este artigo descreve como obter as IDs dos dispositivos de áudio conectados a um sistema. Eles podem ser usados no SDK de fala Configurando o dispositivo de áudio por meio do objeto `AudioConfig`:
+A versão 1.3.0 do Speech SDK introduz uma API para selecionar a entrada de áudio. Este artigo descreve como obter as Identificações dos dispositivos de áudio ligados a um sistema. Estes podem então ser utilizados no SDK do `AudioConfig` Discurso configurando o dispositivo de áudio através do objeto:
 
 ```C++
 audioConfig = AudioConfig.FromMicrophoneInput("<device id>");
@@ -46,13 +46,13 @@ audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
 
 > [!Note]
-> O uso do microfone não está disponível para JavaScript em execução no node. js
+> O uso do microfone não está disponível para o JavaScript em execução no Node.js
 
-## <a name="audio-device-ids-on-windows-for-desktop-applications"></a>IDs de dispositivo de áudio no Windows para aplicativos de área de trabalho
+## <a name="audio-device-ids-on-windows-for-desktop-applications"></a>IDs de dispositivo sonoro no Windows para aplicações desktop
 
-[Cadeias de caracteres de ID de ponto de extremidade](/windows/desktop/CoreAudio/endpoint-id-strings) de dispositivo de áudio podem ser recuperadas do objeto [`IMMDevice`](/windows/desktop/api/mmdeviceapi/nn-mmdeviceapi-immdevice) no Windows para aplicativos de área de
+As [cadeias](/windows/desktop/CoreAudio/endpoint-id-strings) de ID de ponto [`IMMDevice`](/windows/desktop/api/mmdeviceapi/nn-mmdeviceapi-immdevice) final do dispositivo áudio podem ser recuperadas a partir do objeto no Windows para aplicações desktop.
 
-O exemplo de código a seguir ilustra como usá-lo para enumerar C++dispositivos de áudio no:
+A amostra de código que se segue ilustra como usá-la para enumerar dispositivos áudio em C++:
 
 ```cpp
 #include <cstdio>
@@ -147,7 +147,7 @@ Exit:
 }
 ```
 
-No C#, a biblioteca [NAudio](https://github.com/naudio/NAudio) pode ser usada para acessar a API do CoreAudio e enumerar os dispositivos da seguinte maneira:
+Em C#, a biblioteca [NAudio](https://github.com/naudio/NAudio) pode ser usada para aceder à API CoreAudio e enumerar os dispositivos da seguinte forma:
 
 ```cs
 using System;
@@ -171,13 +171,13 @@ namespace ConsoleApp
 }
 ```
 
-Uma ID de dispositivo de exemplo é `{0.0.1.00000000}.{5f23ab69-6181-4f4a-81a4-45414013aac8}`.
+Um id de `{0.0.1.00000000}.{5f23ab69-6181-4f4a-81a4-45414013aac8}`dispositivo de amostra é .
 
-## <a name="audio-device-ids-on-uwp"></a>IDs de dispositivo de áudio no UWP
+## <a name="audio-device-ids-on-uwp"></a>IDs de dispositivo de áudio em UWP
 
-No Plataforma Universal do Windows (UWP), os dispositivos de entrada de áudio podem ser obtidos usando a propriedade `Id()` do objeto [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) correspondente.
+Na Plataforma Universal windows (UWP), os dispositivos de `Id()` entrada de [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) áudio podem ser obtidos utilizando a propriedade do objeto correspondente.
 
-Os exemplos de código a seguir mostram como fazer isso C++ em C#e:
+As seguintes amostras de código mostram como fazê-lo em C++ e C#:
 
 ```cpp
 #include <winrt/Windows.Foundation.h>
@@ -222,22 +222,22 @@ namespace helloworld {
 }
 ```
 
-Uma ID de dispositivo de exemplo é `\\\\?\\SWD#MMDEVAPI#{0.0.1.00000000}.{5f23ab69-6181-4f4a-81a4-45414013aac8}#{2eef81be-33fa-4800-9670-1cd474972c3f}`.
+Um id de `\\\\?\\SWD#MMDEVAPI#{0.0.1.00000000}.{5f23ab69-6181-4f4a-81a4-45414013aac8}#{2eef81be-33fa-4800-9670-1cd474972c3f}`dispositivo de amostra é .
 
-## <a name="audio-device-ids-on-linux"></a>IDs de dispositivo de áudio no Linux
+## <a name="audio-device-ids-on-linux"></a>IDs de dispositivo de áudio em Linux
 
-As IDs de dispositivo são selecionadas usando as IDs de dispositivo ALSA padrão.
+Os IDs do dispositivo são selecionados utilizando iDs padrão do dispositivo ALSA.
 
-As IDs das entradas anexadas ao sistema estão contidas na saída do comando `arecord -L`.
-Como alternativa, eles podem ser obtidos usando a [biblioteca ALSA C](https://www.alsa-project.org/alsa-doc/alsa-lib/).
+Os IDs das inputs anexas ao sistema estão `arecord -L`contidos na saída do comando .
+Em alternativa, podem ser obtidos através da [biblioteca ALSA C](https://www.alsa-project.org/alsa-doc/alsa-lib/).
 
-As IDs de exemplo são `hw:1,0` e `hw:CARD=CC,DEV=0`.
+As identificações `hw:1,0` da `hw:CARD=CC,DEV=0`amostra são e.
 
 ## <a name="audio-device-ids-on-macos"></a>IDs de dispositivo de áudio no macOS
 
-A função a seguir implementada em Objective-C cria uma lista de nomes e IDs dos dispositivos de áudio anexados a um Mac.
+A função seguinte implementada no Objectivo-C cria uma lista dos nomes e iDs dos dispositivos de áudio ligados a um Mac.
 
-A cadeia de caracteres de `deviceUID` é usada para identificar um dispositivo no SDK de fala para macOS.
+A `deviceUID` cadeia é usada para identificar um dispositivo no SDK de fala para macOS.
 
 ```objc
 #import <Foundation/Foundation.h>
@@ -361,11 +361,11 @@ CFArrayRef CreateInputDeviceArray()
 }
 ```
 
-Por exemplo, a UID do microfone interno é `BuiltInMicrophoneDevice`.
+Por exemplo, o UID para o `BuiltInMicrophoneDevice`microfone incorporado é .
 
 ## <a name="audio-device-ids-on-ios"></a>IDs de dispositivo de áudio no iOS
 
-A seleção de dispositivo de áudio com o SDK de fala não tem suporte no iOS. No entanto, os aplicativos que usam o SDK podem influenciar o roteamento de áudio por meio da estrutura de [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) .
+A seleção de dispositivos áudio com o SDK de Discurso não é suportada no iOS. No entanto, as aplicações que utilizam [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) o SDK podem influenciar o encaminhamento de áudio através do Quadro.
 
 Por exemplo, a instrução
 
@@ -374,18 +374,18 @@ Por exemplo, a instrução
     withOptions:AVAudioSessionCategoryOptionAllowBluetooth error:NULL];
 ```
 
-habilita o uso de um headset Bluetooth para um aplicativo habilitado para fala.
+ativa a utilização de um auricular Bluetooth para uma aplicação ativada pela fala.
 
 ## <a name="audio-device-ids-in-javascript"></a>IDs de dispositivo de áudio em JavaScript
 
-No JavaScript, o método [MediaDevices. enumerateDevices ()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices) pode ser usado para enumerar os dispositivos de mídia e encontrar uma ID de dispositivo para passar para `fromMicrophone(...)`.
+No JavaScript, o método [MediaDevices.enumeradoDispositivos()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices) pode ser utilizado para enumerar os `fromMicrophone(...)`dispositivos de comunicação e encontrar um ID do dispositivo para passar para .
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Explore nossos exemplos no GitHub](https://aka.ms/csspeech/samples)
+> [Explore as nossas amostras no GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
 - [Personalizar modelos de idioma](how-to-customize-language-model.md)

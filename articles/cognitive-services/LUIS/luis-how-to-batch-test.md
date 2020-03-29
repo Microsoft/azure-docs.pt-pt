@@ -1,7 +1,7 @@
 ---
-title: Como executar um teste em lote-LUIS
+title: Como realizar um teste de lote - LUIS
 titleSuffix: Azure Cognitive Services
-description: Use os conjuntos de testes do lote Reconhecimento vocal (LUIS) para encontrar declarações com tentativas incorretas e entidades.
+description: Utilize conjuntos de testes de lote de compreensão linguística (LUIS) para encontrar expressões com intençãos e entidades incorretas.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,99 +12,99 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: bfef7eae7158a05b09a3534e8fb44335333d8cf1
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73904343"
 ---
-# <a name="batch-testing-with-a-set-of-example-utterances"></a>Teste em lotes com um conjunto de exemplos de declarações
+# <a name="batch-testing-with-a-set-of-example-utterances"></a>Teste de lote com um conjunto de pronunciações de exemplo
 
- O teste em lote é um teste abrangente de seu modelo treinado atual para medir seu desempenho no LUIS. Os conjuntos de dados usados para testes em lotes não devem incluir o exemplo declarações em tentativas ou declarações recebidos do ponto de extremidade de tempo de execução de previsão. 
+ O teste do lote é um teste abrangente no seu modelo treinado atual para medir o seu desempenho em LUIS. Os conjuntos de dados utilizados para o teste do lote não devem incluir declarações exemplo sintetizações nas intenções ou expressões recebidas do ponto final do prazo de previsão. 
 
 [!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 <a name="batch-testing"></a>
 
-## <a name="import-a-dataset-file-for-batch-testing"></a>Importar um arquivo de conjunto de arquivos para testes em lotes
+## <a name="import-a-dataset-file-for-batch-testing"></a>Importar um ficheiro conjunto de dados para testes de lote
 
-1. Selecione **teste** na barra superior e, em seguida, selecione **painel de teste do lote**.
+1. Selecione **Teste** na barra superior e, em seguida, selecione **painel de teste batch**.
 
-    ![Link de teste do lote](./media/luis-how-to-batch-test/batch-testing-link.png)
+    ![Ligação de teste de lote](./media/luis-how-to-batch-test/batch-testing-link.png)
 
-2. Selecione **Importar conjunto**de um. A caixa de diálogo **importar novo conjunto de novos DataSet** é exibida. Selecione **escolher arquivo** e localize um arquivo JSON com o [formato JSON](luis-concept-batch-test.md#batch-file-format) correto que não contenha *mais de 1.000* declarações para testar.
+2. Selecione **conjunto de dados de importação**. Aparece a nova caixa de diálogo de conjunto de **dados Import.** Selecione **Escolha o Ficheiro** e localize um ficheiro JSON com o [formato JSON](luis-concept-batch-test.md#batch-file-format) correto que não contém *mais de 1.000* expressões para testar.
 
-    Erros de importação são relatados em uma barra de notificação vermelha na parte superior do navegador. Quando uma importação tem erros, nenhum conjunto de nenhum é criado. Para obter mais informações, consulte [Common Errors](luis-concept-batch-test.md#common-errors-importing-a-batch).
+    Erros de importação são relatados numa barra de notificação vermelha no topo do navegador. Quando uma importação tem erros, não é criado nenhum conjunto de dados. Para mais informações, consulte [erros comuns](luis-concept-batch-test.md#common-errors-importing-a-batch).
 
-3. No campo **nome do conjunto** de campos, insira um nome para o arquivo do conjunto de arquivos. O arquivo do conjunto de arquivos inclui uma **matriz de declarações** , incluindo a *intenção rotulada* e as *entidades*. Examine o [arquivo em lotes de exemplo](luis-concept-batch-test.md#batch-file-format) para obter a sintaxe. 
+3. No campo **Dataset Name,** introduza um nome para o seu ficheiro dataset. O ficheiro dataset inclui um **conjunto de expressões,** incluindo a intenção e *entidades* *etiquetadas.* Reveja o ficheiro de [lote de exemplo](luis-concept-batch-test.md#batch-file-format) para sintaxe. 
 
-4. Selecione **Done** (Concluído). O arquivo do conjunto de arquivos é adicionado.
+4. Selecione **Done** (Concluído). O ficheiro do conjunto de dados é adicionado.
 
-## <a name="run-rename-export-or-delete-dataset"></a>Executar, renomear, exportar ou excluir DataSet
+## <a name="run-rename-export-or-delete-dataset"></a>Executar, mudar nome, exportar ou eliminar conjunto de dados
 
-Para executar, renomear, exportar ou excluir o conjunto de um, use o botão de reticências (***...***) no final da linha do conjunto de linhas.
+Para executar, mudar o nome, exportar ou eliminar o conjunto de dados, utilize o botão elipse ***(...***) no final da linha dataset.
 
-![Ações de conjunto de](./media/luis-how-to-batch-test/batch-testing-options.png)
+![Ações de conjunto de dados](./media/luis-how-to-batch-test/batch-testing-options.png)
 
-## <a name="run-a-batch-test-on-your-trained-app"></a>Executar um teste em lote em seu aplicativo treinado
+## <a name="run-a-batch-test-on-your-trained-app"></a>Execute um teste de lote na sua app treinada
 
-Para executar o teste, selecione o nome do conjunto de um. Quando o teste for concluído, essa linha exibirá o resultado do teste do conjunto de resultados.
+Para executar o teste, selecione o nome do conjunto de dados. Quando o teste estiver concluído, esta linha apresenta o resultado do teste do conjunto de dados.
 
-![Resultado do teste em lotes](./media/luis-how-to-batch-test/run-test.png)
+![Resultado do teste do lote](./media/luis-how-to-batch-test/run-test.png)
 
-O conjunto de testes para download é o mesmo arquivo que foi carregado para teste em lotes.
+O conjunto de dados descarregado é o mesmo ficheiro que foi enviado para testes de lote.
 
 |Estado|Significado|
 |--|--|
-|![Ícone de círculo verde de teste com êxito](./media/luis-how-to-batch-test/batch-test-result-green.png)|Todos os declarações foram bem-sucedidos.|
-|![Ícone de x vermelho de teste com falha](./media/luis-how-to-batch-test/batch-test-result-red.png)|Pelo menos uma tentativa de expressão não correspondeu à previsão.|
-|![Ícone pronto para testar](./media/luis-how-to-batch-test/batch-test-result-blue.png)|O teste está pronto para ser executado.|
+|![Ícone de círculo verde de teste bem-sucedido](./media/luis-how-to-batch-test/batch-test-result-green.png)|Todas as declarações são bem sucedidas.|
+|![Falha no ícone vermelho x do teste](./media/luis-how-to-batch-test/batch-test-result-red.png)|Pelo menos uma intenção de expressão não correspondeu à previsão.|
+|![Pronto para testar ícone](./media/luis-how-to-batch-test/batch-test-result-blue.png)|O teste está pronto para correr.|
 
 <a name="access-batch-test-result-details-in-a-visualized-view"></a>
 
-## <a name="view-batch-test-results"></a>Exibir resultados de teste do lote 
+## <a name="view-batch-test-results"></a>Ver resultados dos testes do lote 
 
-Para examinar os resultados do teste em lotes, selecione **Ver resultados**.
+Para rever os resultados dos testes do lote, selecione **Ver resultados**.
 
-![Resultados de teste em lotes](./media/luis-how-to-batch-test/run-test-results.png)
+![Resultados dos testes do lote](./media/luis-how-to-batch-test/run-test-results.png)
 
 <a name="filter-chart-results-by-intent-or-entity"></a>  
 
-## <a name="filter-chart-results"></a>Filtrar resultados do gráfico
+## <a name="filter-chart-results"></a>Resultados da tabela de filtros
 
-Para filtrar o gráfico por uma intenção ou entidade específica, selecione a intenção ou entidade no painel de filtragem do lado direito. Os pontos de dados e sua atualização de distribuição no grafo de acordo com sua seleção. 
+Para filtrar o gráfico por uma intenção ou entidade específica, selecione a intenção ou entidade no painel de filtragem do lado direito. Os pontos de dados e a sua atualização de distribuição no gráfico de acordo com a sua seleção. 
  
-![Resultado do teste de lote visualizado](./media/luis-how-to-batch-test/filter-by-entity.png) 
+![Resultado do teste do lote visualizado](./media/luis-how-to-batch-test/filter-by-entity.png) 
 
-## <a name="view-single-point-utterance-data"></a>Exibir dados de expressão de ponto único
+## <a name="view-single-point-utterance-data"></a>Ver dados de expressão de um ponto único
 
-No gráfico, passe o mouse sobre um ponto de dados para ver a pontuação de certeza de sua previsão. Selecione um ponto de dados para recuperar seu expressão correspondente na lista declarações na parte inferior da página. 
+Na tabela, paire sobre um ponto de dados para ver a pontuação certeza da sua previsão. Selecione um ponto de dados para recuperar a sua expressão correspondente na lista de palavras na parte inferior da página. 
 
-![Expressão selecionado](./media/luis-how-to-batch-test/selected-utterance.png)
+![Expressão selecionada](./media/luis-how-to-batch-test/selected-utterance.png)
 
 
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
 
-## <a name="view-section-data"></a>Exibir dados da seção
+## <a name="view-section-data"></a>Ver dados da secção
 
-No gráfico de quatro seções, selecione o nome da seção, como **falso positivo** na parte superior direita do gráfico. Abaixo do gráfico, todos os declaraçõess nessa seção são exibidos abaixo do gráfico em uma lista. 
+No gráfico de quatro secções, selecione o nome da secção, como **O Falso Positivo** no topo direito da tabela. Abaixo do gráfico, todas as expressões nessa secção exibem abaixo do gráfico numa lista. 
 
-![Declarações selecionado por seção](./media/luis-how-to-batch-test/selected-utterances-by-section.png)
+![Pronunciações selecionadas por secção](./media/luis-how-to-batch-test/selected-utterances-by-section.png)
 
-Nesta imagem anterior, a `switch on` expressão é rotulada com a intenção TurnAllOn, mas recebeu a previsão de nenhuma intenção de nenhum. Essa é uma indicação de que a intenção TurnAllOn precisa de mais exemplos declarações para fazer a previsão esperada. 
+Nesta imagem anterior, a `switch on` expressão é rotulada com a intenção TurnAllOn, mas recebeu a previsão de nenhuma intenção. Esta é uma indicação de que a intenção TurnAllOn precisa de mais declarações de exemplo para fazer a previsão esperada. 
 
-As duas seções do gráfico em vermelho indicam declarações que não corresponderam à previsão esperada. Eles indicam declarações que o LUIS precisa de mais treinamento. 
+As duas secções da tabela em vermelho indicam expressões que não correspondem à previsão esperada. Estes indicam declarações que o LUIS precisa de mais formação. 
 
-As duas seções do gráfico em verde corresponderam à previsão esperada.
+As duas secções da tabela em verde correspondem à previsão esperada.
 
 [!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se o teste indicar que seu aplicativo LUIS não reconhece as intenções e as entidades corretas, você poderá trabalhar para melhorar o desempenho do aplicativo LUIS rotulando mais declarações ou adicionando recursos. 
+Se os testes indicarem que a sua aplicação LUIS não reconhece as intenções e entidades corretas, pode trabalhar para melhorar o desempenho da sua app LUIS, rotulando mais expressões ou adicionando funcionalidades. 
 
-* [Rótulo sugerido declarações com LUIS](luis-how-to-review-endpoint-utterances.md) 
-* [Use os recursos para melhorar o desempenho do aplicativo LUIS](luis-how-to-add-features.md) 
-* [Entenda os testes em lotes com este tutorial](luis-tutorial-batch-testing.md)
-* [Aprenda conceitos de teste em lote](luis-concept-batch-test.md).
+* [Rótulo sugerido expressões com LUIS](luis-how-to-review-endpoint-utterances.md) 
+* [Utilize funcionalidades para melhorar o desempenho da sua app LUIS](luis-how-to-add-features.md) 
+* [Compreenda os testes de lote com este tutorial](luis-tutorial-batch-testing.md)
+* [Aprenda conceitos](luis-concept-batch-test.md)de teste de lote.

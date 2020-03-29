@@ -1,7 +1,7 @@
 ---
-title: Solucionar problemas do SDK de fala-serviço de fala
+title: Troubleshoot the Speech SDK - Speech service
 titleSuffix: Azure Cognitive Services
-description: Este artigo fornece informações para ajudá-lo a resolver problemas que você pode encontrar ao usar o SDK de fala.
+description: Este artigo fornece informações para ajudá-lo a resolver problemas que pode encontrar quando usa o SDK da Fala.
 services: cognitive-services
 author: jhakulin
 manager: nitinme
@@ -11,42 +11,42 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
 ms.openlocfilehash: 421b9adf4ae5d2c641484e646bea096716d46cca
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74815408"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Resolver problemas com o SDK de Voz
 
-Este artigo fornece informações para ajudá-lo a resolver problemas que você pode encontrar ao usar o SDK de fala.
+Este artigo fornece informações para ajudá-lo a resolver problemas que pode encontrar quando usa o SDK da Fala.
 
-## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Erro: Falha na atualização do WebSocket com um erro de autenticação (403)
+## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Erro: A atualização da WebSocket falhou com um erro de autenticação (403)
 
-Terá do ponto de extremidade errado para a sua região ou o serviço. Verifique o URI para se certificar de que está correto.
+Pode ter o ponto final errado para a sua região ou serviço. Verifique o URI para se certificar de que está correto.
 
-Além disso, pode haver um problema com a sua chave de subscrição ou autorização token. Para obter mais informações, consulte a secção seguinte.
+Além disso, pode haver um problema com a sua chave de subscrição ou ficha de autorização. Para mais informações, consulte a secção seguinte.
 
-## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Erro: HTTP 403 proibido ou HTTP 401 não autorizado
+## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Erro: HTTP 403 Proibido ou HTTP 401 Não Autorizado
 
-Muitas vezes, este erro é causado por problemas de autenticação. Pedidos de ligação sem válido `Ocp-Apim-Subscription-Key` ou `Authorization` cabeçalho são rejeitadas com o estado 403 ou 401.
+Este erro é muitas vezes causado por problemas de autenticação. Os pedidos de `Ocp-Apim-Subscription-Key` ligação sem um cabeçalho válido ou `Authorization` cabeçalho são rejeitados com um estatuto de 403 ou 401.
 
-* Se estiver a utilizar uma chave de subscrição para a autenticação, poderá ver o erro porque:
+* Se estiver a utilizar uma chave de subscrição para autenticação, poderá ver o erro porque:
 
-    - a chave de subscrição está em falta ou é inválido
-    - que tenha excedido a quota de utilização da sua subscrição
+    - A chave de subscrição está em falta ou inválida
+    - Excedeu a quota de utilização da sua subscrição
 
-* Se estiver a utilizar um token de autorização para autenticação, poderá ver o erro porque:
+* Se estiver a usar um sinal de autorização para autenticação, poderá ver o erro porque:
 
-    - o token de autorização é inválido
-    - o token de autorização está expirado
+    - O símbolo de autorização é inválido
+    - O sinal de autorização expirou
 
 ### <a name="validate-your-subscription-key"></a>Valide a sua chave de subscrição
 
-Pode verificar que tem uma chave de subscrição válido ao executar um dos seguintes comandos.
+Pode verificar se tem uma chave de subscrição válida executando um dos seguintes comandos.
 
 > [!NOTE]
-> Substitua `YOUR_SUBSCRIPTION_KEY` e `YOUR_REGION` com sua própria chave de subscrição e região associada.
+> `YOUR_SUBSCRIPTION_KEY` Substitua `YOUR_REGION` e com a sua própria chave de subscrição e região associada.
 
 * PowerShell
 
@@ -66,14 +66,14 @@ Pode verificar que tem uma chave de subscrição válido ao executar um dos segu
     curl -v -X POST "https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
     ```
 
-Se você inseriu uma chave de assinatura válida, o comando retorna um token de autorização; caso contrário, um erro será retornado.
+Se inseriu uma chave de subscrição válida, o comando devolve um símbolo de autorização, caso contrário, um erro é devolvido.
 
-### <a name="validate-an-authorization-token"></a>Validar um token de autorização
+### <a name="validate-an-authorization-token"></a>Validar um símbolo de autorização
 
-Se utilizar um token de autorização para autenticação, execute um dos seguintes comandos para verificar se o token de autorização é válido. Tokens são válidos durante 10 minutos.
+Se utilizar um sinal de autorização para autenticação, execute um dos seguintes comandos para verificar se o sinal de autorização ainda é válido. As fichas são válidas por 10 minutos.
 
 > [!NOTE]
-> Substitua `YOUR_AUDIO_FILE` com o caminho para o ficheiro de áudio pré-gravados. Substitua `YOUR_ACCESS_TOKEN` com o token de autorização devolvido no passo anterior. Substitua `YOUR_REGION` com a região correta.
+> Substitua-o `YOUR_AUDIO_FILE` pelo caminho para o seu ficheiro áudio pré-gravado. Substitua-a `YOUR_ACCESS_TOKEN` pelo símbolo de autorização devolvido na etapa anterior. Substitua-a `YOUR_REGION` pela região correta.
 
 * PowerShell
 
@@ -103,26 +103,26 @@ Se utilizar um token de autorização para autenticação, execute um dos seguin
     curl -v -X POST "https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Transfer-Encoding: chunked" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
     ```
 
-Se você inseriu um token de autorização válido, o comando retornará a transcrição para o arquivo de áudio; caso contrário, um erro será retornado.
+Se inseriu um sinal de autorização válido, o comando devolve a transcrição do seu ficheiro áudio, caso contrário, um erro é devolvido.
 
 ---
 
-## <a name="error-http-400-bad-request"></a>Erro: Pedido HTTP 400 inválido
+## <a name="error-http-400-bad-request"></a>Erro: HTTP 400 Bad Request
 
-Este erro ocorre normalmente quando o corpo do pedido contém dados de áudio inválidos. Formato WAV apenas é suportado. Além disso, verifique os cabeçalhos da solicitação para se certificar de que especifique valores corretos para o `Content-Type` e `Content-Length`.
+Este erro ocorre geralmente quando o corpo de pedido contém dados áudio inválidos. Apenas o formato WAV é suportado. Além disso, verifique os cabeçalhos do pedido `Content-Type` `Content-Length`para se certificar de que especifica os valores apropriados para e .
 
-## <a name="error-http-408-request-timeout"></a>Erro: Tempo limite HTTP 408 pedido
+## <a name="error-http-408-request-timeout"></a>Erro: HTTP 408 Pedido de tempo
 
-O maior probabilidade de erro ocorre porque não existem dados de áudio são enviados para o serviço. Este erro também pode ser causado por problemas de rede.
+O erro ocorre muito provavelmente porque não estão a ser enviados dados áudio para o serviço. Este erro também pode ser causado por problemas de rede.
 
-## <a name="recognitionstatus-in-the-response-is-initialsilencetimeout"></a>"RecognitionStatus" na resposta é "InitialSilenceTimeout"
+## <a name="recognitionstatus-in-the-response-is-initialsilencetimeout"></a>"Status recognition" na resposta é "InicialSilenceTimeout"
 
-Normalmente, este problema é causado por dados de áudio. Poderá ver este erro porque:
+Este problema é geralmente causado por dados áudio. Pode ver este erro porque:
 
-* Há uma longa stretch de silêncio no início do áudio. Nesse caso, o serviço para o reconhecimento após alguns segundos e devolve `InitialSilenceTimeout`.
+* Há um longo período de silêncio no início do áudio. Nesse caso, o serviço para o reconhecimento após `InitialSilenceTimeout`alguns segundos e regressa.
 
-* O áudio usa um formato de codec não suportado, o que faz com que os dados de áudio deve ser tratada como silêncio.
+* O áudio utiliza um formato codec não suportado, o que faz com que os dados áudio sejam tratados como silêncio.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Reveja as notas de versão](releasenotes.md)
+* [Reveja as notas de lançamento](releasenotes.md)

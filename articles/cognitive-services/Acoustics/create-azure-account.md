@@ -1,7 +1,7 @@
 ---
-title: Configuração da conta do lote do Azure acústica do projeto acústicos
+title: Configuração da conta de lote de lote de projeto acoustics azure
 titlesuffix: Azure Cognitive Services
-description: Este "como" descreve a configuração de uma conta do lote do Azure para uso com o Unity do projeto acústica e integrações do mecanismo inreal.
+description: Este how-to descreve a criação de uma conta De Lote Azure para uso com a Unidade da Acústica do Projeto e integrações de motores irreais.
 services: cognitive-services
 author: NoelCross
 manager: nitinme
@@ -12,57 +12,57 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: 8f0f726d9d23f20698d3510ad674331ad74fb703
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68855086"
 ---
-# <a name="project-acoustics-azure-batch-account-setup"></a>Configuração da conta do lote do Azure acústica do projeto acústicos
-Este "como" descreve a configuração de uma conta do lote do Azure para uso com o Unity do projeto acústica e integrações do mecanismo inreal.
+# <a name="project-acoustics-azure-batch-account-setup"></a>Configuração da conta de lote de lote de projeto acoustics azure
+Este how-to descreve a criação de uma conta De Lote Azure para uso com a Unidade da Acústica do Projeto e integrações de motores irreais.
 
-## <a name="get-an-azure-subscription"></a>Obtenha uma subscrição do Azure
-Uma [assinatura do Azure](https://azure.microsoft.com/free/) é necessária antes de configurar contas de armazenamento e lote. Se você estiver se inscrevendo pela primeira vez, o Azure fornece alguns recursos gratuitos limitados e o crédito de $200.
+## <a name="get-an-azure-subscription"></a>Obter uma subscrição do Azure
+É necessária uma [subscrição Azure](https://azure.microsoft.com/free/) antes de configurar as contas de Lote e Armazenamento. Se se inscrever pela primeira vez, o Azure fornece alguns recursos gratuitos limitados e crédito de 200 dólares.
 
-## <a name="create-azure-batch-and-storage-accounts"></a>Criar contas de armazenamento e lote do Azure
-Em seguida, siga [estas instruções](https://docs.microsoft.com/azure/batch/batch-account-create-portal) para configurar o lote do Azure e as contas de armazenamento do Azure associadas.
+## <a name="create-azure-batch-and-storage-accounts"></a>Criar contas de lote azure e armazenamento
+Em seguida, siga [estas instruções](https://docs.microsoft.com/azure/batch/batch-account-create-portal) para configurar o seu Lote Azure e contas de Armazenamento Azure associadas.
 
-Escolha as opções padrão para contas de armazenamento e lote:
+Escolha opções predefinidas tanto para as contas de Lote como de Armazenamento:
   
-  ![Captura de tela de opções de novas contas do lote do Azure mostrando as configurações padrão](media/new-batch-account-create.png)
+  ![Screenshot das novas opções de contas do Lote Azure mostrando definições padrão](media/new-batch-account-create.png)
 
-  ![Captura de tela das opções de novas contas do armazenamento do Azure mostrando as configurações padrão](media/batch-storage-account-create.png)
+  ![Screenshot do Azure Storage novas opções de contas que mostram definições padrão](media/batch-storage-account-create.png)
 
-Leva alguns minutos para que o Azure implante as contas. Procure uma notificação de conclusão no canto superior direito no Portal.
+Leva alguns minutos para o Azure implementar as contas. Procure uma notificação de conclusão no canto superior direito no portal.
   
-  ![Captura de tela de notificação implantada de contas do Azure](media/batch-accounts-deploy-notification.png)
+  ![Screenshot das contas Azure implementadanotificada](media/batch-accounts-deploy-notification.png)
 
-Suas contas agora devem estar visíveis no seu painel.
+As suas contas devem agora estar visíveis no seu painel de instrumentos.
   
-  ![Captura de tela do painel de portal do Azure mostrando uma conta de armazenamento e lote](media/azure-portal-dashboard.png)
+  ![Screenshot do painel do portal Azure mostrando uma conta de Lote e Armazenamento](media/azure-portal-dashboard.png)
 
-## <a name="set-up-acoustics-bake-ui-with-azure-credentials"></a>Configurar a interface do usuário do disparador acústico com as credenciais do Azure
-Clique no link conta do lote no painel e, em seguida, clique no link **chaves** na página conta do lote para acessar suas credenciais.
+## <a name="set-up-acoustics-bake-ui-with-azure-credentials"></a>Configurar a acústica assar UI com credenciais Azure
+Clique no link da conta 'Lote' no painel de instrumentos e, em seguida, clique no link **Keys** na página da conta 'Lote' para aceder às suas credenciais.
   
-  ![Captura de tela da conta do lote do Azure com a página link para chaves realçada](media/batch-access-keys.png)
+  ![Screenshot da conta Do Lote Azure com link para a página Keys em destaque](media/batch-access-keys.png)
 
-  ![Captura de tela da página chaves de conta do lote do Azure com chaves de acesso](media/batch-keys-info.png)
+  ![Screenshot da página de chaves da conta do Lote Azure com chaves de acesso](media/batch-keys-info.png)
 
-Clique no link da **conta de armazenamento** na página para acessar suas credenciais de conta de armazenamento do Azure.
+Clique no link **da Conta de Armazenamento** na página para aceder às credenciais da sua conta de Armazenamento Azure.
   
-  ![Captura de tela da página chaves de conta de armazenamento do Azure com chaves de acesso](media/storage-keys-info.png)
+  ![Screenshot da página de chaves da conta azure armazenamento com chaves de acesso](media/storage-keys-info.png)
 
-Insira essas credenciais no [plug-](unity-baking.md) in de torta de Unity ou no [plug-in](unreal-baking.md)de inreal.
+Introduza estas credenciais no [plugin](unity-baking.md) de cozedura Unidade ou [plugin de cozedura unreal](unreal-baking.md).
 
-## <a name="node-types-and-region-support"></a>Tipos de nó e suporte a região
-A acústica do projeto requer nós de VM do Azure otimizados para computação da série Fsv2 e H que podem não ter suporte em todas as regiões do Azure. Verifique [esta tabela](https://azure.microsoft.com/global-infrastructure/services) para garantir que você está selecionando o local certo para sua conta do lote.
-![Captura de tela mostrando máquinas virtuais do Azure por região](media/azure-regions.png) 
+## <a name="node-types-and-region-support"></a>Tipos de nó e apoio à região
+O Project Acoustics requer computação da série Fsv2 e H otimizada em nós Azure VM que podem não ser suportados em todas as regiões do Azure. Por favor, verifique [esta tabela](https://azure.microsoft.com/global-infrastructure/services) para se certificar de que está a escolher o local certo para a sua conta Batch.
+![Screenshot mostrando máquinas virtuais azure por região](media/azure-regions.png) 
 
-## <a name="upgrading-your-quota"></a>Atualizando sua cota
-As contas do lote do Azure são provisionadas na criação da conta com um limite de 20 núcleos de computação. Talvez queiramos aumentar esse limite para intervalos mais rápidos, pois você pode paralelizar sua carga de trabalho acústica em vários nós, até o número de pontos de investigação em sua cena. Você pode solicitar um aumento de cota clicando no link de **cota** na página do portal do lote do Azure e clicando no **aumento da cota de solicitação**:
+## <a name="upgrading-your-quota"></a>Atualizar a sua quota
+As contas do Lote Azure são provisionadas na criação de contas com um limite de 20 núcleos de computação. Podemos querer aumentar este limite para tempos de cozedura mais rápidos, porque você pode paralelor a sua carga de trabalho acústica em muitos nós, até o número de pontos de sonda na sua cena. Pode solicitar um aumento de quota clicando no link **quota** na página do portal do Lote Azure e, em seguida, clicando no **Request Quota Increase**:
 
-![Captura de tela da página de cota do Azure](media/azure-quotas.png)
+![Screenshot da página de Quota Azure](media/azure-quotas.png)
 
-## <a name="next-steps"></a>Passos Seguintes
-* Integrar o plug-in acústica do projeto ao seu [Unity](unity-integration.md) ou projeto [inreal](unreal-integration.md)
+## <a name="next-steps"></a>Passos seguintes
+* Integre o projeto De sinuoso do Projeto Acústica no seu projeto [Unidade](unity-integration.md) ou [Irreal](unreal-integration.md)
 

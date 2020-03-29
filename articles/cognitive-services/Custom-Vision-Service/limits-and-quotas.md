@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
 ms.openlocfilehash: 5f481ebf219eea8ae31e9802144bbf771a24e8b8
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79081782"
 ---
 # <a name="limits-and-quotas"></a>Limites e quotas
@@ -26,7 +26,7 @@ Espera-se que o número de imagens de formação por projeto e etiquetas por pro
 ||**F0**|**S0**|
 |-----|-----|-----|
 |Projetos|2|100|
-|Formação de imagens por projeto |5\.000|100 000|
+|Formação de imagens por projeto |5000|100 000|
 |Previsões / mês|10,000 |Ilimitado|
 |Tags / projeto|50|500|
 |Iterações |10|10|

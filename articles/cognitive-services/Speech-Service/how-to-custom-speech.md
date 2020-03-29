@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: dapine
 ms.openlocfilehash: e30587ed4d09ba792516ebc7b16529a6ee5ac57c
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77918959"
 ---
 # <a name="what-is-custom-speech"></a>O que é discurso personalizado?
@@ -37,7 +37,7 @@ Este diagrama destaca as peças que compõem o [portal de Discurso Personalizado
 
 4. [Avaliar a precisão](how-to-custom-speech-evaluate-data.md) - Avaliar a precisão do modelo de fala-a-texto. O [portal de discurso personalizado](https://speech.microsoft.com/customspeech) fornecerá uma Taxa de Erro de *Palavras,* que pode ser usada para determinar se é necessário treino adicional. Se estiver satisfeito com a precisão, pode utilizar diretamente o serviço de Fala APIs. Se quiser melhorar a precisão em uma média relativa de 5% - 20%, use o separador **Formação** no portal para fazer upload de dados de formação adicionais, como transcrições com rótulo humano e texto relacionado.
 
-5. [Treine o modelo](how-to-custom-speech-train-model.md) - Melhore a precisão do seu modelo de discurso a texto, fornecendo transcrições escritas (10-1.000 horas) e texto relacionado (<200 MB) juntamente com os seus dados de teste de áudio. Estes dados ajudam a formar o modelo de discurso a texto. Depois do treino, teste novamente, e se estiver satisfeito com o resultado, pode implementar o seu modelo.
+5. [Treine o modelo](how-to-custom-speech-train-model.md) - Melhore a precisão do seu modelo de discurso a texto, fornecendo transcrições escritas (10-1.000 horas) e texto relacionado (<200 MB) juntamente com os seus dados de teste áudio. Estes dados ajudam a formar o modelo de discurso a texto. Depois do treino, teste novamente, e se estiver satisfeito com o resultado, pode implementar o seu modelo.
 
 6. [Implemente o modelo](how-to-custom-speech-deploy-model.md) - Crie um ponto final personalizado para o seu modelo de discurso a texto e use-o nas suas aplicações, ferramentas ou produtos.
 
@@ -69,5 +69,5 @@ Para criar o seu primeiro projeto, selecione o **discurso Discurso-a-texto/Discu
 * [Prepare e teste os seus dados](how-to-custom-speech-test-data.md)
 * [Inspecione os seus dados](how-to-custom-speech-inspect-data.md)
 * [Avaliar os seus dados](how-to-custom-speech-evaluate-data.md)
-* [Treine o seu modelo](how-to-custom-speech-train-model.md)
+* [Preparar o seu modelo](how-to-custom-speech-train-model.md)
 * [Implante o seu modelo](how-to-custom-speech-deploy-model.md)

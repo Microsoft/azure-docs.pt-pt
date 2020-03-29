@@ -1,7 +1,7 @@
 ---
-title: Exemplo de execução de contêiner do comando de execução do Docker
+title: Executar exemplo de recipiente de comando de execução de estivador
 titleSuffix: Azure Cognitive Services
-description: Comando de execução do Docker para Detecção de Idioma contêiner
+description: Docker executar comando para recipiente de deteção de idiomas
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,13 +10,13 @@ ms.topic: include
 ms.date: 09/12/2019
 ms.author: dapine
 ms.openlocfilehash: d2818336de2b3d4d810932cefb21edd95b8cf733
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "70966777"
 ---
-Para executar o contêiner de *detecção de idioma* , execute o `docker run` comando a seguir.
+Para executar o recipiente de *deteção* de idiomas, execute o seguinte `docker run` comando.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -28,7 +28,7 @@ ApiKey={API_KEY}
 
 Este comando:
 
-* Executa um contêiner de *detecção de idioma* a partir da imagem de contêiner
-* Aloca um núcleo de CPU e 4 gigabytes (GB) de memória
-* Expõe a porta TCP 5000 e aloca um TTY pseudo para o contentor
-* Remove automaticamente o contêiner depois que ele é encerrado. A imagem de contêiner ainda está disponível no computador host.
+* Executa um recipiente de *deteção* de linguagem a partir da imagem do recipiente
+* Atribui um núcleo cpu e 4 gigabytes (GB) de memória
+* Expõe a porta TCP 5000 e atribui um pseudo-TTY para o contentor
+* Remove automaticamente o recipiente após a sua saída. A imagem do recipiente ainda está disponível no computador hospedeiro.

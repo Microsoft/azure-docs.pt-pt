@@ -5,24 +5,24 @@ ms.date: 11/15/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: c414bfed40385c2bad6eaaff6b391f57c8d898cb
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74125573"
 ---
 ## <a name="blog-posts"></a>Publicações no blogue
 
-* [Executando contêineres de serviços cognitivas](https://azure.microsoft.com/blog/running-cognitive-service-containers/)
+* [Executar recipientes de serviços cognitivos](https://azure.microsoft.com/blog/running-cognitive-service-containers/)
 * [Serviços Cognitivos do Azure](https://azure.microsoft.com/blog/topics/cognitive-services/)
 
 ## <a name="developer-samples"></a>Exemplos de programador
 
-Exemplos de desenvolvedor estão disponíveis em nosso [repositório GitHub](https://github.com/Azure-Samples/cognitive-services-containers-samples).
+As amostras de desenvolvedores estão disponíveis no nosso [repositório GitHub.](https://github.com/Azure-Samples/cognitive-services-containers-samples)
 
-## <a name="view-webinar"></a>Veja o webinar
+## <a name="view-webinar"></a>Ver webinar
 
-Junte-se ao [webinar](https://info.microsoft.com/AP-AZUREPLAT-WBNR-FY19-03Mar-20-Seamlesslyintegrateapplicationsdataandprocesses-MCW0012283_02OnDemandRegistration-ForminBody.html) para saber mais sobre:
+Junte-se ao [webinar](https://info.microsoft.com/AP-AZUREPLAT-WBNR-FY19-03Mar-20-Seamlesslyintegrateapplicationsdataandprocesses-MCW0012283_02OnDemandRegistration-ForminBody.html) para aprender sobre:
 
-* Como implantar serviços cognitivas em qualquer computador usando o Docker
-* Como implantar serviços cognitivas no AKS
+* Como implantar serviços cognitivos em qualquer máquina que utilize o Docker
+* Como implantar serviços cognitivos para aks

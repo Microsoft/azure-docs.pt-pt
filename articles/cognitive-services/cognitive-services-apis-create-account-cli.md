@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
 ms.openlocfilehash: 72b00d78d19ed0e963b4dad01b82033c659e1efd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79219612"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Criar um recurso de Serviços Cognitivos utilizando a Interface de Linha de Comando Azure (CLI)
@@ -60,7 +60,7 @@ az account list-locations \
 
 Depois de ter a sua localização azul, crie um novo grupo de recursos no Azure CLI utilizando o [grupo Az criar](/cli/azure/group#az-group-create) comando.
 
-No exemplo abaixo, substitua a localização azul `westus2` por uma das localizações do Azure disponíveis para a sua subscrição.
+No exemplo abaixo, substitua `westus2` a localização azul por uma das localizações do Azure disponíveis para a sua subscrição.
 
 ```azurecli-interactive
 az group create \
@@ -140,7 +140,7 @@ az cognitiveservices account list-kinds
 
 Para criar e subscrever um novo recurso dos Serviços Cognitivos, utilize a [conta az cognitiveservices criar](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create) comando. Este comando adiciona um novo recurso faturado ao grupo de recursos criado anteriormente. Ao criar o seu novo recurso, terá de conhecer o "tipo" de serviço que pretende utilizar, juntamente com o seu nível de preços (ou sku) e uma localização Azure:
 
-Pode criar um recurso F0 (gratuito) para o Detetor de Anomalias, denominado `anomaly-detector-resource` com o comando abaixo.
+Pode criar um recurso F0 (gratuito) `anomaly-detector-resource` para o Detetor de Anomalias, nomeado com o comando abaixo.
 
 ```azurecli-interactive
 az cognitiveservices account create \

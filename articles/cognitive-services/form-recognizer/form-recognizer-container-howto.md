@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 03/17/2020
 ms.author: dapine
-ms.openlocfilehash: 64bd6bb0a1a064f38eae472cb889acb6df7ae4b1
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: c8ce4b913548429ff83e0b8aa3cb65455fc9b4c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605158"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79474701"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Instalar e executar recipientes de reconhecimento de formulário (Pré-visualização)
 
@@ -25,37 +25,40 @@ Para reduzir a complexidade e integrar facilmente um modelo personalizado de Rec
 > [!IMPORTANT]
 > Os recipientes 'Reconhecimento de Formulários' utilizam atualmente a versão 1.0 da API do Reconhecimento de Formulários. Pode aceder à versão mais recente da API utilizando o serviço gerido.
 
-|Função|Funcionalidades|
-|-|-|
-|Reconhecedor de Formato| <li>Processos ficheiros PDF, PNG e JPG<li>Treina modelos personalizados com um mínimo de cinco formas do mesmo layout <li>Extrai pares de valor-chave e informações de tabela <li>Utiliza a funcionalidade de texto de reconhecimento da Visão Computacional Azure Cognitive Services API para detetar e extrair texto impresso a partir de imagens dentro de formulários<li>Não requer anotação ou rotulagem|
+| Função | Funcionalidades |
+|----------|----------|
+| Reconhecedor de Formato | <li>Processos ficheiros PDF, PNG e JPG<li>Treina modelos personalizados com um mínimo de cinco formas do mesmo layout <li>Extrai pares de valor-chave e informações de tabela <li>Utiliza a funcionalidade de texto de reconhecimento da Visão Computacional Azure Cognitive Services API para detetar e extrair texto impresso a partir de imagens dentro de formulários<li>Não requer anotação ou rotulagem |
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de utilizar os recipientes 'Reconhecimento de Formulários', deve cumprir os seguintes pré-requisitos:
 
-|Necessário|Objetivo|
-|--|--|
-|Motor Docker| Precisa do Motor Docker instalado num [computador de acolhimento.](#the-host-computer) O Docker fornece pacotes que configuram o ambiente Docker no [macOS,](https://docs.docker.com/docker-for-mac/) [Windows](https://docs.docker.com/docker-for-windows/)e [Linux.](https://docs.docker.com/engine/installation/#supported-platforms) Para um primer sobre o Docker e o básico do contentor, consulte a visão geral do [Docker.](https://docs.docker.com/engine/docker-overview/)<br><br> Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure. <br><br> No Windows, o Docker também deve ser configurado para suportar os recipientes Linux.<br><br>|
-|Familiaridade com Docker | Você deve ter uma compreensão básica dos conceitos Docker, tais como registos, repositórios, contentores e imagens de contentores, e conhecimento de comandos básicos de `docker`.|
-|A CLI do Azure| Instale o [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) no seu anfitrião.|
-|Recurso API de Visão Computacional| Para processar documentos e imagens digitalizados, precisa de um recurso computer vision. Pode aceder à funcionalidade Recognise Text como um recurso Azure (o REST API ou SDK) ou um recipiente de texto de *reconhecimento cognitivo-serviços* [](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull). Aplicam-se as taxas habituais de faturação. <br><br>Passe tanto na tecla API como nos pontos finais para o seu recurso Computer Vision (nuvem Azure ou recipiente de Serviços Cognitivos). Utilize esta tecla API e o ponto final como **{COMPUTER_VISION_API_KEY}** e **{COMPUTER_VISION_ENDPOINT_URI}** .<br><br> Se utilizar o recipiente de texto de *reconhecimento cognitivo-serviços, certifique-se* de que:<br><br>A chave Computer Vision para o recipiente 'Reconhecimento de Formulários' é a chave especificada no comando `docker run` Visão computorizada para o recipiente de *texto de reconhecimento cognitivo-serviços.*<br>O seu ponto final de faturação é o ponto final do contentor (por exemplo, `http://localhost:5000`). Se utilizar o recipiente Computer Vision e o recipiente 'Reconhecimento de Formulários' juntos no mesmo hospedeiro, ambos não podem ser iniciados com a porta padrão de *5000*. |
-|Recurso reconhecedor de formulários |Para utilizar estes recipientes, deve ter:<br><br>Um recurso Azure **Form Recogniser** para obter a chave API associada e o ponto final URI. Ambos os valores estão disponíveis nas páginas de Visão **Geral** e Teclas do portal Azure, e ambos os valores são necessários para iniciar o recipiente.<br><br>**{FORM_RECOGNIZER_API_KEY}** : Uma das duas teclas de recursos disponíveis na página Keys<br><br>**{FORM_RECOGNIZER_ENDPOINT_URI}** : O ponto final fornecido na página 'Visão Geral'|
+| Necessário | Objetivo |
+|----------|---------|
+| Motor do Docker | Precisa do Motor Docker instalado num [computador de acolhimento.](#the-host-computer) O Docker oferece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para um manual de noções básicas do Docker e do contentor, veja a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os recipientes se conectem e enviem dados de faturação para o Azure. <br><br> No Windows, o Docker também deve ser configurado para suportar os recipientes Linux.<br><br> |
+| Familiaridade com Docker | Você deve ter uma compreensão básica dos conceitos Docker, tais como registos, repositórios, contentores e imagens de contentores, e conhecimento de comandos básicos. `docker` |
+| A CLI do Azure | Instale o [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) no seu anfitrião. |
+| Recurso API de Visão Computacional | Para processar documentos e imagens digitalizados, precisa de um recurso computer vision. Pode aceder à funcionalidade Recognise Text como um recurso Azure (o REST API ou SDK) ou um recipiente de texto de *reconhecimento cognitivo-serviços* [container](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull). Aplicam-se as taxas habituais de faturação. <br><br>Passe tanto na tecla API como nos pontos finais para o seu recurso Computer Vision (nuvem Azure ou recipiente de Serviços Cognitivos). Utilize esta tecla API e o ponto final como **{COMPUTER_VISION_API_KEY}** e **{COMPUTER_VISION_ENDPOINT_URI}**.<br><br> Se utilizar o recipiente de texto de *reconhecimento cognitivo-serviços, certifique-se* de que:<br><br>A chave Computer Vision para o recipiente 'Reconhecimento de `docker run` Formulários' é a chave especificada no comando computer vision para o recipiente de *texto de reconhecimento cognitivo-serviços.*<br>O seu ponto final de faturação é o `http://localhost:5000`ponto final do contentor (por exemplo, ). Se utilizar o recipiente Computer Vision e o recipiente 'Reconhecimento de Formulários' juntos no mesmo hospedeiro, ambos não podem ser iniciados com a porta padrão de *5000*. |
+| Recurso reconhecedor de formulários | Para utilizar estes recipientes, deve ter:<br><br>Um recurso Azure **Form Recogniser** para obter a chave API associada e o ponto final URI. Ambos os valores estão disponíveis nas páginas de Visão **Geral** e Teclas do portal Azure, e ambos os valores são necessários para iniciar o recipiente.<br><br>**{FORM_RECOGNIZER_API_KEY}**: Uma das duas teclas de recursos disponíveis na página Keys<br><br>**{FORM_RECOGNIZER_ENDPOINT_URI}**: O ponto final fornecido na página 'Visão Geral' |
+
+> [!NOTE]
+> O nome do recurso Computer Vision deve ser `-` uma única palavra, sem um hífen ou qualquer outro caracteres especiais. Esta restrição está em vigor para garantir a compatibilidade do recipiente de texto de reconhecimento de formulários e reconhecer o texto.
 
 ## <a name="gathering-required-parameters"></a>Recolha de parâmetros necessários
 
 Existem três parâmetros primários para todos os recipientes dos Serviços Cognitivos que são necessários. O acordo de licença de utilizador final (EULA) deve estar presente com um valor de `accept`. Além disso, são necessários tanto um URL endpoint como uma chave API.
 
-### <a name="endpoint-uri-computer_vision_endpoint_uri-and-form_recognizer_endpoint_uri"></a>Endpoint URI `{COMPUTER_VISION_ENDPOINT_URI}` e `{FORM_RECOGNIZER_ENDPOINT_URI}`
+### <a name="endpoint-uri-computer_vision_endpoint_uri-and-form_recognizer_endpoint_uri"></a>Endpoint `{COMPUTER_VISION_ENDPOINT_URI}` URI e`{FORM_RECOGNIZER_ENDPOINT_URI}`
 
-O valor **Endpoint** URI está disponível na página de *visão geral* do portal Azure do correspondente recurso do Serviço Cognitivo. Navegue para a página *overview,* paire <span class="docon docon-edit-copy x-hidden-focus"></span> sobre o Ponto Final e aparecerá um ícone `Copy to clipboard`. Copiar e usar sempre que necessário.
+O valor **Endpoint** URI está disponível na página de *visão geral* do portal Azure do correspondente recurso do Serviço Cognitivo. Navegue para a página *de visão geral,* paire sobre o Ponto Final, e aparecerá um `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> ícone. Copiar e usar sempre que necessário.
 
 ![Junte o ponto final uri para uso posterior](../containers/media/overview-endpoint-uri.png)
 
-### <a name="keys-computer_vision_api_key-and-form_recognizer_api_key"></a>Chaves `{COMPUTER_VISION_API_KEY}` e `{FORM_RECOGNIZER_API_KEY}`
+### <a name="keys-computer_vision_api_key-and-form_recognizer_api_key"></a>Chaves `{COMPUTER_VISION_API_KEY}` e`{FORM_RECOGNIZER_API_KEY}`
 
-Esta chave é usada para iniciar o recipiente, e está disponível na página chaves do portal Azure do recurso correspondente do Serviço Cognitivo. Navegue na página *Keys* e <span class="docon docon-edit-copy x-hidden-focus"></span> clique no ícone `Copy to clipboard`.
+Esta chave é usada para iniciar o recipiente, e está disponível na página chaves do portal Azure do recurso correspondente do Serviço Cognitivo. Navegue na página *Keys* e `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> clique no ícone.
 
 ![Obtenha uma das duas chaves para uso posterior](../containers/media/keys-copy-api-key.png)
 
@@ -74,7 +77,7 @@ Primeiro deve completar e submeter o formulário de pedido de acesso aos recipie
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-### <a name="container-requirements-and-recommendations"></a>Requisitos do contentor e recomendações
+### <a name="container-requirements-and-recommendations"></a>Requisitos e recomendações de contentores
 
 Os núcleos e memória cpu mínimos e recomendados para alocar para cada recipiente de reconhecimento de formulário são descritos na tabela seguinte:
 
@@ -84,7 +87,7 @@ Os núcleos e memória cpu mínimos e recomendados para alocar para cada recipie
 | Reconhecer texto | 1 núcleo, 8-GB de memória | 2 núcleos, 8-GB de memória |
 
 * Cada núcleo deve ter pelo menos 2,6 gigahertz (GHz) ou mais rápido.
-* O núcleo e a memória correspondem às definições `--cpus` e `--memory`, que são utilizadas como parte do comando `docker run`.
+* O núcleo e `--cpus` a `--memory` memória correspondem às definições e definições, que são usadas como parte do `docker run` comando.
 
 > [!Note]
 > Os valores mínimos e recomendados baseiam-se nos limites do Docker e *não* nos recursos da máquina hospedeira.
@@ -125,14 +128,14 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-t
 
 Depois de o recipiente estar no [computador de acolhimento,](#the-host-computer)utilize o seguinte processo para trabalhar com o recipiente.
 
-1. [Executar o recipiente,](#run-the-container-by-using-the-docker-run-command)com as definições de faturação necessárias. Mais [exemplos](form-recognizer-container-configuration.md#example-docker-run-commands) do comando `docker run` estão disponíveis.
+1. [Executar o recipiente,](#run-the-container-by-using-the-docker-run-command)com as definições de faturação necessárias. Mais [exemplos](form-recognizer-container-configuration.md#example-docker-run-commands) `docker run` do comando estão disponíveis.
 1. [Consulta do ponto final da previsão do recipiente](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-by-using-the-docker-run-command"></a>Executar o recipiente usando o comando de execução de estivador
 
-Use o comando de execução de [estivador](https://docs.docker.com/engine/reference/commandline/run/) para executar o recipiente. Consulte a recolha de [parâmetros necessários](#gathering-required-parameters) para obter os valores `{COMPUTER_VISION_ENDPOINT_URI}`, `{COMPUTER_VISION_API_KEY}`, `{FORM_RECOGNIZER_ENDPOINT_URI}` e `{FORM_RECOGNIZER_API_KEY}`.
+Use o comando de execução de [estivador](https://docs.docker.com/engine/reference/commandline/run/) para executar o recipiente. Consulte a recolha de [parâmetros necessários](#gathering-required-parameters) `{COMPUTER_VISION_ENDPOINT_URI}`para `{COMPUTER_VISION_API_KEY}` `{FORM_RECOGNIZER_ENDPOINT_URI}` obter `{FORM_RECOGNIZER_API_KEY}` os valores e os valores necessários.
 
-[Exemplos](form-recognizer-container-configuration.md#example-docker-run-commands) do comando `docker run` estão disponíveis.
+[Exemplos](form-recognizer-container-configuration.md#example-docker-run-commands) do `docker run` comando estão disponíveis.
 
 ### <a name="form-recognizer"></a>Reconhecedor de Formato
 
@@ -189,7 +192,7 @@ Cada recipiente subsequente deve estar numa porta diferente.
 
 ### <a name="run-separate-containers-with-docker-compose"></a>Executar recipientes separados com Docker Compose
 
-Para a combinação de reconhecimento de formulários e reconhecimento de texto que é hospedado localmente no mesmo anfitrião, consulte o seguinte exemplo Docker Compose YAML ficheiro. O `{COMPUTER_VISION_API_KEY}` reconheço texto deve ser o mesmo para os recipientes `formrecognizer` e `ocr`. O `{COMPUTER_VISION_ENDPOINT_URI}` é utilizado apenas no recipiente `ocr`, porque o recipiente de `formrecognizer` utiliza o nome `ocr` e a porta. 
+Para a combinação de reconhecimento de formulários e reconhecimento de texto que é hospedado localmente no mesmo anfitrião, consulte o seguinte exemplo Docker Compose YAML ficheiro. O Reconhecimento `{COMPUTER_VISION_API_KEY}` de Texto deve ser `formrecognizer` `ocr` o mesmo tanto para os recipientes como para os recipientes. O `{COMPUTER_VISION_ENDPOINT_URI}` `ocr` recipiente é utilizado apenas `formrecognizer` no `ocr` recipiente, porque o recipiente utiliza o nome e a porta. 
 
 ```docker
 version: '3.3'
@@ -240,7 +243,7 @@ services:
 ```
 
 > [!IMPORTANT]
-> Os `Eula`, `Billing`e `ApiKey`, bem como as opções `FormRecognizer:ComputerVisionApiKey` e `FormRecognizer:ComputerVisionEndpointUri`, devem ser especificados para funcionar o contentor; caso contrário, o contentor não vai começar. Para mais informações, consulte [billing.](#billing)
+> O `Eula` `Billing`, `ApiKey`e, bem `FormRecognizer:ComputerVisionApiKey` como `FormRecognizer:ComputerVisionEndpointUri` as e as opções, devem ser especificados para executar o recipiente; caso contrário, o contentor não vai começar. Para mais informações, consulte [billing.](#billing)
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Consulta do ponto final da previsão do recipiente
 
@@ -254,7 +257,7 @@ O recipiente fornece APIs de ponto final baseado em websocket, a que acede atrav
 
 Por padrão, o SDK do Reconhecimento de Formulários utiliza os serviços online. Para utilizar o recipiente, é necessário alterar o método de inicialização. Veja os exemplos abaixo.
 
-#### <a name="for-c"></a>ParaC#
+#### <a name="for-c"></a>Para C #
 
 Mude de utilização desta chamada de inicialização azure-cloud:
 
@@ -300,7 +303,7 @@ O recipiente fornece APIs de ponto final REST, que pode encontrar na página [AP
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 
-## <a name="stop-the-container"></a>Pare o recipiente
+## <a name="stop-the-container"></a>Parar o contentor
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
@@ -328,12 +331,12 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar 
 
 * O Reconhecimento de Formulários fornece um recipiente Linux para o Docker.
 * As imagens do contentor são descarregadas do registo privado de contentores em Azure.
-* Executam imagens de contentor no Docker.
+* Imagens de contentores correm em Docker.
 * Pode utilizar a API REST ou o REST SDK para ligar para operações no recipiente 'Reconhecimento de Formulários', especificando o uri hospedeiro do recipiente.
 * Deve especificar as informações de faturação quando instantaneamente um recipiente.
 
 > [!IMPORTANT]
->  Contentores de serviços cognitivos não estão licenciados para executar sem a ser ligado ao Azure para medição. Os clientes têm de ativar os contentores comunicar informações de faturação com o serviço de medição em todos os momentos. Os recipientes dos Serviços Cognitivos não enviam dados dos clientes (por exemplo, a imagem ou texto que está a ser analisado) para a Microsoft.
+>  Os recipientes dos Serviços Cognitivos não estão licenciados para funcionar sem serem ligados ao Azure para medição. Os clientes precisam de permitir que os contentores comuniquem sempre informações de faturação com o serviço de medição. Os recipientes dos Serviços Cognitivos não enviam dados dos clientes (por exemplo, a imagem ou texto que está a ser analisado) para a Microsoft.
 
 ## <a name="next-steps"></a>Passos seguintes
 

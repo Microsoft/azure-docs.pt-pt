@@ -4,10 +4,10 @@ description: Uma base de conhecimento do QnA Maker consiste num conjunto de conj
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: cb71de0f6a3e372d8c1c1fede67ba0c0354532ca
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76844326"
 ---
 # <a name="question-and-answer-set-concepts"></a>Conceitos de conjunto de perguntas e respostas
@@ -29,19 +29,19 @@ As definições **opcionais** para um conjunto incluem:
 * **Metadados**: Os metadados são etiquetas associadas a um par QnA e são representadas como pares de valor-chave. As etiquetas de metadados são usadas para filtrar os pares QnA e limitar o conjunto sobre o qual a correspondência de consulta é realizada.
 * **Solicitações de volta,** usadas para continuar uma conversa multi-turn
 
-![Bases de dados de conhecimento do QnA Maker](../media/qnamaker-concepts-knowledgebase/knowledgebase.png)
+![Bases de conhecimento do Fabricante qna](../media/qnamaker-concepts-knowledgebase/knowledgebase.png)
 
-## <a name="editorially-add-to-knowledge-base"></a>Adicionar de forma editorial à base de dados de conhecimento
+## <a name="editorially-add-to-knowledge-base"></a>Adicione editorialmente à base de conhecimento
 
-Se não tiver conteúdo pré-existente para povoar a base de conhecimentos, pode adicionar conjuntos de QnA editorialmente no portal QnA Maker. Saiba como atualizar a sua base de dados de conhecimento [aqui](../How-To/edit-knowledge-base.md).
+Se não tiver conteúdo pré-existente para povoar a base de conhecimentos, pode adicionar conjuntos de QnA editorialmente no portal QnA Maker. Saiba como atualizar a sua base de conhecimentos [aqui](../How-To/edit-knowledge-base.md).
 
-## <a name="editing-your-knowledge-base-locally"></a>Editando sua base de dados de conhecimento localmente
+## <a name="editing-your-knowledge-base-locally"></a>Editar a sua base de conhecimentos localmente
 
-Quando uma base de dados de conhecimento é criada, é recomendável que você faça edições no texto da base de dados de conhecimento no [portal de QnA Maker](https://qnamaker.ai), em vez de exportar e reimportar por meio de arquivos locais. No entanto, pode haver ocasiões em que você precisa editar uma base de dados de conhecimento localmente.
+Uma vez criada uma base de conhecimento, recomenda-se que evoque edificações para o texto base de conhecimento no [portal QnA Maker](https://qnamaker.ai), em vez de exportar e reimportar através de ficheiros locais. No entanto, pode haver momentos em que precisa editar uma base de conhecimento localmente.
 
-Exporte a base de dados de conhecimento na página **configurações** e edite a base de dados de conhecimento com o Microsoft Excel. Se optar por utilizar outra aplicação para editar o seu ficheiro exportado, a aplicação pode introduzir erros de sintaxe porque não é totalmente compatível com a TSV. Os arquivos TSV do Microsoft Excel geralmente não introduzem erros de formatação.
+Exporte a base de conhecimentos a partir da página **Definições** e, em seguida, edite a base de conhecimentos com o Microsoft Excel. Se optar por utilizar outra aplicação para editar o seu ficheiro exportado, a aplicação pode introduzir erros de sintaxe porque não é totalmente compatível com a TSV. Os ficheiros TSV do Microsoft Excel geralmente não introduzem erros de formatação.
 
-Depois de concluir suas edições, reimporte o arquivo TSV da página **configurações** . Isso substituirá completamente a base de dados de conhecimento atual pela base de dados de conhecimento importada.
+Uma vez terminada a sua edificação, reimporte o ficheiro TSV da página **Definições.** Isto substituirá completamente a atual base de conhecimentos pela base de conhecimentos importada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

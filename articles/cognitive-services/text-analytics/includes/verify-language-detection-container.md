@@ -1,7 +1,7 @@
 ---
-title: Verificar a instância de contêiner de Detecção de Idioma
+title: Verifique a instância do recipiente de deteção de idiomas
 titleSuffix: Azure Cognitive Services
-description: Saiba como verificar a instância de contêiner de Detecção de Idioma.
+description: Saiba como verificar a instância do recipiente de deteção de idiomas.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,22 +10,22 @@ ms.topic: include
 ms.date: 09/12/2019
 ms.author: dapine
 ms.openlocfilehash: f4e0770bc052044a408f2c4088f2bd5ead225aa3
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "70968603"
 ---
-### <a name="verify-the-language-detection-container-instance"></a>Verificar a instância de contêiner de Detecção de Idioma
+### <a name="verify-the-language-detection-container-instance"></a>Verifique a instância do recipiente de deteção de idiomas
 
-1. Selecione a guia **visão geral** e copie o endereço IP.
-1. Abra uma nova guia do navegador e insira o endereço IP. Por exemplo, digite `http://<IP-address>:5000 (http://55.55.55.55:5000`). O home page do contêiner é exibido, o que permite que você saiba que o contêiner está em execução.
+1. Selecione o separador **'Visão Geral'** e copie o endereço IP.
+1. Abra um novo separador de navegador e introduza o endereço IP. Por exemplo, `http://<IP-address>:5000 (http://55.55.55.55:5000`introduza). A página inicial do recipiente é exibida, o que lhe permite saber que o recipiente está em funcionamento.
 
-    ![Exibir o home page do contêiner para verificar se ele está em execução](../media/how-tos/container-instance/swagger-docs-on-container.png)
+    ![Veja a página inicial do contentor para verificar se está a funcionar](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
-1. Selecione o link de **Descrição da API de serviço** para ir para a página do Swagger do contêiner.
+1. Selecione o link descrição da **API** de serviço para ir à página Swagger do contentor.
 
-1. Escolha qualquer uma das APIs **post** e selecione **experimentar**. Os parâmetros são exibidos, o que inclui esta entrada de exemplo:
+1. Escolha qualquer uma das APIs **POST** e selecione **Experimente- a**. Os parâmetros são apresentados, o que inclui esta entrada de exemplo:
 
     ```json
     {
@@ -49,13 +49,13 @@ ms.locfileid: "70968603"
     }
     ```
 
-1. Defina **o** de status `true`como.
+1. Definir **showStats** para `true`.
 
-1. Selecione **executar** para determinar a suopinião do texto.
+1. Selecione **Executar** para determinar o sentimento do texto.
 
-    O modelo que é empacotado no contêiner gera uma pontuação que varia de 0 a 1, em que 0 é uma opinião negativa e 1 é uma opinião positiva.
+    O modelo que está embalado no recipiente gera uma pontuação que varia de 0 a 1, onde 0 é sentimento negativo e 1 é sentimento positivo.
 
-    A resposta JSON retornada inclui um sentimentos para a entrada de texto atualizada:
+    A resposta da JSON que foi devolvida inclui o sentimento para a entrada de texto atualizada:
 
     ```json
     {
@@ -127,4 +127,4 @@ ms.locfileid: "70968603"
     }
     ```
 
-Agora podemos correlacionar os documentos dos dados JSON da carga de resposta aos documentos de carga de solicitação originais por seus `id`correspondentes. Cada documento é tratado de `characterCount` forma independente, contendo várias estatísticas, como e. `transactionCount` Além disso, cada documento resultante tem `detectedLanguages` a matriz com `name`o `iso6391Name`, e `score` para cada idioma detectado. Quando vários idiomas são detectados, `score` o é usado para determinar a linguagem mais provável.
+Podemos agora correlacionar os documentos dos dados jSON da carga de resposta `id`com os documentos de carga útil do pedido original pelo correspondente . Cada documento é tratado de `characterCount` forma `transactionCount`independente contendo várias estatísticas, tais como e . Adicionalmente, cada documento `detectedLanguages` resultante tem `name` `iso6391Name`a `score` matriz com o , e para cada idioma detetado. Quando várias línguas são `score` detetadas, a é usada para determinar a língua mais provável.

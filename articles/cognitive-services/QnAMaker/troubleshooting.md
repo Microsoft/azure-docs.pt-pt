@@ -2,14 +2,14 @@
 title: Resolução de problemas - QnA Maker
 description: A lista com curadoria das perguntas mais frequentes sobre o serviço QnA Maker irá ajudá-lo a adotar o serviço mais rapidamente e com melhores resultados.
 ms.topic: troubleshooting
-ms.date: 02/21/2020
+ms.date: 03/25/2020
 ms.author: diberry
-ms.openlocfilehash: 4596c16a5d7c9053bf0e27af476c66fe8fa9ed35
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: e002efe74bf7bcd3d944b01b0a25a731a2db3f66
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78296104"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80284267"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Resolução de problemas para O Criador de QnA
 
@@ -17,18 +17,28 @@ A lista com curadoria das perguntas mais frequentes sobre o serviço QnA Maker i
 
 <a name="how-to-get-the-qnamaker-service-hostname"></a>
 
+## <a name="manage-predictions"></a>Gerir previsões
+
+<details>
+<summary><b>Como posso melhorar o desempenho da entrada para previsões de consultas?</b></summary>
+
+**Resposta**: Problemas de desempenho de desempenho de desempenho indicam que precisa de aumentar tanto para o seu serviço de Aplicações como para a sua Pesquisa Cognitiva. Considere adicionar uma réplica à sua Pesquisa Cognitiva para melhorar o desempenho.
+
+Saiba mais sobre [os níveis de preços.](Concepts/azure-resources.md)
+</details>
+
 <details>
 <summary><b>Como obter o ponto final do serviço QnAMaker</b></summary>
 
-**Resposta**: O ponto final do serviço QnAMaker é útil para fins de depuração quando contacta o QnAMaker Support ou userVoice. O ponto final é um URL desta forma: https://your-resource-name.azurewebsites.net.
+**Resposta**: O ponto final do serviço QnAMaker é útil para fins de depuração quando contacta o QnAMaker Support ou userVoice. O ponto final é um https://your-resource-name.azurewebsites.netURL desta forma: .
 
 1. Vá ao seu serviço QnAMaker (grupo de recursos) no [portal Azure](https://portal.azure.com)
 
-    ![Grupo de recursos do Azure do QnAMaker no portal do Azure](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
+    ![Grupo de recursos QnAMaker Azure no portal Azure](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
 
 1. Selecione o Serviço de Aplicações associado ao recurso QnA Maker. Normalmente, os nomes são os mesmos.
 
-     ![Selecione o serviço de aplicações do QnAMaker](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
+     ![Selecione QnAMaker App Service](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
 
 1. O URL do ponto final está disponível na secção Visão Geral
 
@@ -36,21 +46,21 @@ A lista com curadoria das perguntas mais frequentes sobre o serviço QnA Maker i
 
 </details>
 
-## <a name="manage-the-knowledge-base"></a>Gerir a base de dados de conhecimento
+## <a name="manage-the-knowledge-base"></a>Gerir a base de conhecimento
 
 <details>
 <summary><b>Apaguei acidentalmente uma parte do meu Fabricante de QnA, o que devo fazer?</b></summary>
 
 **Resposta**: Não elimine nenhum dos serviços Azure criados juntamente com o recurso QnA Maker, como Search ou Web App. Estes são necessários para que o Fabricante qnA funcione, se eliminar um, o Fabricante QnA deixará de funcionar corretamente.
 
-Todas as exclusões são permanentes, incluindo os pares de perguntas e respostas, ficheiros, URLs, personalizadas perguntas e respostas, bases de dados de conhecimento ou recursos do Azure. Certifique-se de que exporta a sua base de conhecimentos a partir da página **Definições** antes de apagar qualquer parte da sua base de conhecimentos.
+Todos os deletes são permanentes, incluindo pares de perguntas e respostas, ficheiros, URLs, perguntas e respostas personalizadas, bases de conhecimento ou recursos Azure. Certifique-se de que exporta a sua base de conhecimentos a partir da página **Definições** antes de apagar qualquer parte da sua base de conhecimentos.
 
 </details>
 
 <details>
 <summary><b>Porque é que o meu URL/ficheiro(s) não está a extrair pares de respostas a perguntas?</b></summary>
 
-**Resposta**: É possível que o Fabricante QnA não possa extrair automaticamente alguns conteúdos de perguntas e respostas (QnA) a partir de URLs FAQ válidos. Nesses casos, pode colar o conteúdo de QnA num ficheiro. txt e ver se a ferramenta pode ingeri-lo. Alternadamente, pode adicionar conteúdo editorialmente à sua base de conhecimentos através do [portal QnA Maker](https://qnamaker.ai).
+**Resposta**: É possível que o Fabricante QnA não possa extrair automaticamente alguns conteúdos de perguntas e respostas (QnA) a partir de URLs FAQ válidos. Nesses casos, pode colar o conteúdo do QnA num ficheiro .txt e ver se a ferramenta pode ingerir. Alternadamente, pode adicionar conteúdo editorialmente à sua base de conhecimentos através do [portal QnA Maker](https://qnamaker.ai).
 
 </details>
 
@@ -93,16 +103,16 @@ Todas as exclusões são permanentes, incluindo os pares de perguntas e resposta
 <summary><b>Como posso mudar a mensagem padrão quando não se encontra uma boa correspondência?</b></summary>
 
 **Resposta**: A mensagem predefinida faz parte das definições do seu serviço de Aplicações.
-- Aceda ao seu recurso de serviço de aplicações no portal do Azure
+- Vá ao seu recurso de serviço app no portal Azure
 
-![serviço de aplicações do qnamaker](./media/qnamaker-faq/qnamaker-resource-list-appservice.png)
+![qnamaker appservice](./media/qnamaker-faq/qnamaker-resource-list-appservice.png)
 - Clique na opção **Definições**
 
-![definições de serviço de aplicações do qnamaker](./media/qnamaker-faq/qnamaker-appservice-settings.png)
+![definições de serviço de aplicação qnamaker](./media/qnamaker-faq/qnamaker-appservice-settings.png)
 - Alterar o valor da definição **DefaultAnswer**
-- Reinicie o serviço de aplicações
+- Reinicie o seu serviço de Aplicações
 
-![reiniciar o serviço de aplicações qnamaker](./media/qnamaker-faq/qnamaker-appservice-restart.png)
+![qnamaker appservice reiniciar](./media/qnamaker-faq/qnamaker-appservice-restart.png)
 
 
 </details>
@@ -142,7 +152,7 @@ Uma vez que os conjuntos qnA estão na base de conhecimento, você pode editar o
 
 **Resposta**: Consulte mais detalhes sobre [línguas suportadas](./Overview/languages-supported.md).
 
-Se tiver conteúdo a partir de vários idiomas, certifique-se de que criar um serviço separado para cada idioma.
+Se tiver conteúdo de várias línguas, certifique-se de criar um serviço separado para cada idioma.
 
 </details>
 
@@ -163,7 +173,7 @@ Se tiver conteúdo a partir de vários idiomas, certifique-se de que criar um se
 </details>
 
 <details>
-<summary><b>Apaguei o meu índice de `testkb` no meu serviço de pesquisa. Como posso consertar isto?</b></summary>
+<summary><b>Apaguei `testkb` o meu índice no meu serviço de pesquisa. Como posso consertar isto?</b></summary>
 
 **Resposta:** Os seus dados antigos não podem ser recuperados. Crie um novo recurso QnA Maker e crie novamente a sua base de conhecimento.
 
@@ -179,19 +189,19 @@ Se tiver conteúdo a partir de vários idiomas, certifique-se de que criar um se
 <details>
 <summary><b>Posso usar o mesmo recurso azure cognitive search para bases de conhecimento usando várias línguas?</b></summary>
 
-**Resposta**: Para utilizar múltiplas bases de linguagem e conhecimento múltiplas, o utilizador tem de criar um recurso QnA Maker para cada idioma. Isto criará um serviço de pesquisa Azure separado por idioma. Misturar bases de dados de conhecimento do idioma diferente num serviço de pesquisa do Azure única irá resultar em degradação relevância dos resultados.
+**Resposta**: Para utilizar múltiplas bases de linguagem e conhecimento múltiplas, o utilizador tem de criar um recurso QnA Maker para cada idioma. Isto criará um serviço de pesquisa Azure separado por idioma. Misturar diferentes bases de conhecimento linguístico num único serviço de pesquisa azure resultará numa relevância degradada dos resultados.
 
 </details>
 
 <details>
 <summary><b>Como posso alterar o nome do recurso azure cognitive search usado pela QnA Maker?</b></summary>
 
-**Resposta**: O nome do recurso de pesquisa cognitiva Azure é o nome de recurso QnA Maker com algumas letras aleatórias anexadas no final. Isso dificulta distinguir entre os vários recursos de pesquisa para o QnA Maker. Crie um serviço de pesquisa separado (nomeando-o como gostaria) e conecte-o ao seu Serviço QnA. Os passos são semelhantes aos passos que precisa de fazer para [atualizar uma pesquisa azure](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service).
+**Resposta**: O nome do recurso de pesquisa cognitiva Azure é o nome de recurso QnA Maker com algumas letras aleatórias anexadas no final. Isto torna difícil distinguir entre múltiplos recursos de pesquisa para o Fabricante QnA. Crie um serviço de pesquisa separado (nomeando-o como gostaria) e conecte-o ao seu Serviço QnA. Os passos são semelhantes aos passos que precisa de fazer para [atualizar uma pesquisa azure](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service).
 
 </details>
 
 <details>
-<summary><b>Quando a QnA Maker devolve `Runtime core is not initialized,` como posso consertá-lo?</b></summary>
+<summary><b>Quando a QnA Maker retorna, `Runtime core is not initialized,` como é que o arranjo?</b></summary>
 
 **Resposta**: O espaço do disco para o seu serviço de aplicações pode estar cheio. Passos para fixar o seu espaço de disco:
 
@@ -199,7 +209,7 @@ Se tiver conteúdo a partir de vários idiomas, certifique-se de que criar um se
 1. Enquanto ainda está no serviço app, selecione **Ferramentas**de Desenvolvimento , em **seguida, Ferramentas Avançadas**, em **seguida, Ir**. Isto abre uma nova janela do navegador.
 1. Selecione **a consola Debug**e, em seguida, **CMD** para abrir uma ferramenta de linha de comando.
 1. Navegue para o _site/wwwroot/Data/QnAMaker/_ diretório.
-1. Remova todas as pastas cujo nome começa com `rd`.
+1. Remova todas as pastas `rd`cujo nome começa com .
 
     **Não apague** o seguinte:
 
@@ -212,12 +222,12 @@ Se tiver conteúdo a partir de vários idiomas, certifique-se de que criar um se
 
 </details>
 
-## <a name="integrate-with-other-services-including-bots"></a>Integrar com outros serviços incluindo Bots
+## <a name="integrate-with-other-services-including-bots"></a>Integrar outros serviços, incluindo Bots
 
 <details>
 <summary><b>Preciso de usar a Bot Framework para usar o Fabricante QnA?</b></summary>
 
-**Resposta**: Não, não precisa de utilizar o [Quadro Bot](https://github.com/Microsoft/botbuilder-dotnet) com o Fabricante QnA. No entanto, o Fabricante QnA é oferecido como um dos vários modelos no [Serviço Bot Azure](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0). Bot Service permite um desenvolvimento rápido de bots inteligentes através do Microsoft Bot Framework, e é executado num ambiente sem servidor.
+**Resposta**: Não, não precisa de utilizar o [Quadro Bot](https://github.com/Microsoft/botbuilder-dotnet) com o Fabricante QnA. No entanto, o Fabricante QnA é oferecido como um dos vários modelos no [Serviço Bot Azure](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0). O Bot Service permite o rápido desenvolvimento inteligente de bots através do Microsoft Bot Framework, e funciona num ambiente sem servidores.
 
 </details>
 
@@ -234,12 +244,12 @@ Se tiver conteúdo a partir de vários idiomas, certifique-se de que criar um se
 **Resposta**: É necessário ter as seguintes informações sobre a sua base de conhecimentos:
 
 * Identificação da base de conhecimento.
-* O nome de subdomínio personalizado de endpoint publicado da base de conhecimento, conhecido como `host`, encontra-se na página **Definições** após a sua publicação.
+* O nome de subdomínio personalizado de ponto `host`final publicado da base de conhecimento, conhecido como , encontrado na página **Definições** após a sua publicação.
 * Chave final publicada da base de conhecimento - encontrada na página **Definições** após a publicação.
 
-Com esta informação, vá ao serviço de aplicações do seu bot no portal Azure. Em **Definições -> Configuração -> Definições de aplicação,** altere esses valores.
+Com esta informação, vá ao serviço de aplicações do seu bot no portal Azure. Em **Definições -> Configurações de Configuração -> Aplicação,** altere esses valores.
 
-A chave final da base de conhecimento está rotulada `QnAAuthkey` no serviço ABS.
+A chave final da base de `QnAAuthkey` conhecimento está rotulada no serviço ABS.
 
 </details>
 
@@ -267,6 +277,6 @@ A chave final da base de conhecimento está rotulada `QnAAuthkey` no serviço AB
 
 **Resposta:**
 
-Ao criar o serviço QnA Maker, selecionou uma região do Azure. As suas bases de dados de conhecimento e ficheiros de registo são armazenados nesta região.
+Ao criar o seu serviço QnA Maker, selecionou uma região Azure. As suas bases de conhecimento e ficheiros de registo estão armazenados nesta região.
 
 </details>

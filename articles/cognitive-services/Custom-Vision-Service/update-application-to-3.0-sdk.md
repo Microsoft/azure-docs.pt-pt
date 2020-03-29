@@ -1,7 +1,7 @@
 ---
-title: Como atualizar seu projeto para a API 3,0
+title: Como atualizar o seu projeto para o 3.0 API
 titleSuffix: Azure Cognitive Services
-description: Saiba como atualizar Visão Personalizada projetos da versão anterior da API para a API 3,0.
+description: Saiba como atualizar os projetos Custom Vision da versão anterior da API para o 3.0 API.
 services: cognitive-services
 author: areddish
 manager: nitinme
@@ -11,49 +11,49 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: areddish
 ms.openlocfilehash: c134f30b124113a23df0e73cd1bbc8209e335183
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73647504"
 ---
-# <a name="update-to-the-30-api"></a>Atualizar para a API 3,0
+# <a name="update-to-the-30-api"></a>Atualização para o 3.0 API
 
-Agora Visão Personalizada atingiu a disponibilidade geral e passou por uma atualização de API.
-Essa atualização inclui alguns recursos novos e, mais importante, algumas alterações significativas:
+A Custom Vision já chegou à Disponibilidade Geral e foi submetida a uma atualização da API.
+Esta atualização inclui algumas novidades e, acima de tudo, algumas alterações de rutura:
 
-* A API de previsão agora é dividida em duas com base no tipo de projeto.
-* A opção de exportação VAIDK (visão do kit de desenvolvedores do AI) requer a criação de um projeto de uma maneira específica.
-* As iterações padrão foram removidas em favor de uma publicação/cancelamento da publicação de uma iteração nomeada.
+* A API de Previsão está agora dividida em duas com base no tipo de projeto.
+* A opção de exportação Vision AI Developer Kit (VAIDK) requer a criação de um projeto de forma específica.
+* As iterações predefinidas foram removidas a favor de uma publicação/não publicar uma iteração nomeada.
 
-Este guia mostrará como atualizar seus projetos para trabalhar com a nova versão de API. Consulte as [notas de versão](release-notes.md) para obter uma lista completa das alterações.
+Este guia irá mostrar-lhe como atualizar os seus projetos para trabalhar com a nova versão API. Consulte as notas de [Lançamento](release-notes.md) para obter uma lista completa das alterações.
 
-## <a name="use-the-updated-prediction-api"></a>Usar a API de previsão atualizada
+## <a name="use-the-updated-prediction-api"></a>Utilize a API de Previsão atualizada
 
-As APIs 2. x usaram a mesma chamada de previsão para os classificadores de imagem e para os projetos de detector de objetos. Ambos os tipos de projeto eram aceitáveis para as chamadas **PredictImage** e **PredictImageUrl** . A partir do 3,0, dividimos essa API para que você precise corresponder ao tipo de projeto para a chamada:
+As APIs 2.x usaram a mesma chamada de previsão para classificadores de imagem e projetos de detetor de objetos. Ambos os tipos de projeto saem aceitáveis para as chamadas **PredictImage** e **PredictImageUrl.** A partir do 3.0, dividimos esta API para que tenha de combinar o tipo de projeto com a chamada:
 
-* Use **[ClassifyImage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15)** e **[ClassifyImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c14)** para obter previsões para projetos de classificação de imagens.
-* Use **[DetectImage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c19)** e **[DetectImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c18)** para obter previsões para projetos de detecção de objetos.
+* Utilize **[a ClassImage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15)** e **[a ClassImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c14)** para obter previsões para projetos de classificação de imagem.
+* Utilize **[detectimage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c19)** e **[detectimageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c18)** para obter previsões para projetos de deteção de objetos.
 
-## <a name="use-the-new-iteration-publishing-workflow"></a>Usar o novo fluxo de trabalho de publicação de iteração
+## <a name="use-the-new-iteration-publishing-workflow"></a>Use o novo fluxo de trabalho de publicação de iteração
 
-As APIs 2. x usaram a iteração padrão ou uma ID de iteração especificada para escolher a iteração a ser usada para previsão. A partir do 3,0, adotamos um fluxo de publicação no qual você publica primeiro uma iteração em um nome especificado da API de treinamento. Em seguida, você passa o nome para os métodos de previsão para especificar qual iteração usar.
+As 2.x APIs usaram a iteração padrão ou um ID de iteração especificado para escolher a iteração para usar para previsão. A partir de 3.0, adotámos um fluxo de publicação pelo qual publica pela primeira vez uma iteração com um nome especificado da API de formação. Em seguida, passa o nome para os métodos de previsão para especificar qual a iteração a usar.
 
 > [!IMPORTANT]
-> As APIs 3,0 não usam o recurso de iteração padrão. Até que tenhamos substituído as APIs mais antigas, você pode continuar a usar as APIs 2. x para alternar uma iteração como padrão. Essas APIs serão mantidas por um período de tempo e você poderá chamar o método **[UpdateIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b818)** para marcar uma iteração como padrão.
+> As 3.0 APIs não utilizam a função de iteração predefinida. Até depreitá-los mais antigos, pode continuar a usar as APIs 2.x para alternar uma iteração como padrão. Estas APIs serão mantidas por um período de tempo, e pode chamar o método **[UpdateIterato](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b818)** para marcar uma iteração como padrão.
 
 ### <a name="publish-an-iteration"></a>Publicar uma iteração
 
-Depois que uma iteração é treinada, você pode torná-la disponível para previsão usando o método **[PublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c82db28bf6a2b11a8247bbc)** . Para publicar uma iteração, você precisará da ID de recurso de previsão, que está disponível na página de configurações do site do CustomVision.
+Uma vez treinada uma iteração, pode disponibilizá-la para previsão utilizando o método **[PublishItera.](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c82db28bf6a2b11a8247bbc)** Para publicar uma iteração, necessitará do ID de recurso de previsão, que está disponível na página de definições do site CustomVision.
 
-![A página de configurações do site Visão Personalizada com a ID de recurso de previsão descrita.](./media/update-application-to-3.0-sdk/prediction-id.png)
+![A página de definições do site Custom Vision com o ID de recurso de previsão delineado.](./media/update-application-to-3.0-sdk/prediction-id.png)
 
 > [!TIP]
-> Você também pode obter essas informações no [portal do Azure](https://portal.azure.com) acessando o visão personalizada recurso de previsão e selecionando **Propriedades**.
+> Também pode obter esta informação do [Portal Azure,](https://portal.azure.com) indo ao recurso de Previsão de Visão Personalizada e selecionando **Propriedades**.
 
-Depois que a iteração for publicada, os aplicativos poderão usá-lo para previsão especificando o nome em sua chamada à API de previsão. Para tornar uma iteração indisponível para chamadas de previsão, use a API **[UnpublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b81a)** .
+Uma vez publicada a sua iteração, as aplicações podem usá-lo para previsão, especificando o nome na sua chamada Deprevisão API. Para tornar uma iteração indisponível para chamadas de previsão, utilize a API não **[publicar a Iteração.](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b81a)**
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Documentação de referência da API de treinamento (REST)](https://go.microsoft.com/fwlink/?linkid=865446)
+* [Documentação de referência da API de formação (REST)](https://go.microsoft.com/fwlink/?linkid=865446)
 * [Documentação de referência da API de previsão (REST)](https://go.microsoft.com/fwlink/?linkid=865445)

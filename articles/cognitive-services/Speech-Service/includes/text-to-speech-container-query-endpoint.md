@@ -1,5 +1,5 @@
 ---
-title: Consultar ponto de extremidade de contêiner de conversão de texto em fala
+title: Ponto final do recipiente texto-a-fala
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -9,15 +9,15 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: dapine
 ms.openlocfilehash: 8460ddca5cff2b3da540b5fa8cf66e0687892789
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73491073"
 ---
-O contêiner fornece [APIs de ponto de extremidade baseadas em REST](../rest-text-to-speech.md). Há muitos [projetos de código-fonte de exemplo](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/) para a plataforma, estrutura e variações de linguagem disponíveis.
+O recipiente fornece [APIs de ponto final baseado em REPOUSO](../rest-text-to-speech.md). Existem muitos projetos de [código-fonte](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/) de amostra para as variações de plataforma, enquadramento e linguagem disponíveis.
 
-Com o contêiner de *conversão de texto em fala padrão* , você deve confiar na localidade e na voz da marca de imagem que baixou. Por exemplo, se você baixou a marca de `latest`, a localidade padrão será `en-US` e a voz `JessaRUS`. O argumento `{VOICE_NAME}` seria então [`en-US-JessaRUS`](../language-support.md#standard-voices). Consulte o exemplo SSML abaixo:
+Com o recipiente *Standard Text-to-speech,* deve contar com o local e a voz da etiqueta de imagem que descarregou. Por exemplo, se descarregou a etiqueta `latest` `en-US` o `JessaRUS` local padrão é e a voz. O `{VOICE_NAME}` argumento seria, [`en-US-JessaRUS`](../language-support.md#standard-voices)então. Veja o exemplo SSML abaixo:
 
 ```xml
 <speak version="1.0" xml:lang="en-US">
@@ -27,11 +27,11 @@ Com o contêiner de *conversão de texto em fala padrão* , você deve confiar n
 </speak>
 ```
 
-No entanto, para *texto personalizado para fala* , você precisará obter a **voz/modelo** do [portal de voz personalizado](https://aka.ms/custom-voice-portal). O nome do modelo personalizado é sinônimo do nome da voz. Navegue até a página de **treinamento** e copie a **voz/modelo** para usar como o argumento `{VOICE_NAME}`.
+No entanto, para *texto-a-voz personalizado,* terá de obter o **Voice/model** a partir do portal de [voz personalizado](https://aka.ms/custom-voice-portal). O nome do modelo personalizado é sinónimo do nome de voz. Navegue para a página **de Formação** e `{VOICE_NAME}` copie a **Voz/modelo** para usar como argumento.
 <br><br>
-:::image type="content" source="../media/custom-voice/custom-voice-model-voice-name.png" alt-text="Modelo de voz personalizado-nome da voz":::
+:::image type="content" source="../media/custom-voice/custom-voice-model-voice-name.png" alt-text="Modelo de voz personalizado - nome de voz":::
 
-Consulte o exemplo SSML abaixo:
+Veja o exemplo SSML abaixo:
 
 ```xml
 <speak version="1.0" xml:lang="en-US">
@@ -41,7 +41,7 @@ Consulte o exemplo SSML abaixo:
 </speak>
 ```
 
-Vamos construir uma solicitação HTTP POST, fornecendo alguns cabeçalhos e uma carga de dados. Substitua o espaço reservado `{VOICE_NAME}` pelo seu próprio valor.
+Vamos construir um pedido HTTP POST, fornecendo alguns cabeçalhos e uma carga útil de dados. Substitua `{VOICE_NAME}` o espaço reservado pelo seu próprio valor.
 
 ```curl
 curl -s -v -X POST http://localhost:5000/speech/synthesize/cognitiveservices/v1 \
@@ -53,8 +53,8 @@ curl -s -v -X POST http://localhost:5000/speech/synthesize/cognitiveservices/v1 
 
 Este comando:
 
-* Constrói uma solicitação HTTP POST para o ponto de extremidade `speech/synthesize/cognitiveservices/v1`.
-* Especifica um cabeçalho de `Accept` de `audio/*`
-* Especifica um cabeçalho `Content-Type` de `application/ssml+xml`, para obter mais informações, consulte [corpo da solicitação](../rest-text-to-speech.md#request-body).
-* Especifica um cabeçalho `X-Microsoft-OutputFormat` de `riff-16khz-16bit-mono-pcm`, para obter mais opções, consulte [saída de áudio](../rest-text-to-speech.md#audio-outputs).
-* Envia a solicitação de [linguagem de marcação de síntese de fala (SSML)](../speech-synthesis-markup.md) dada a `{VOICE_NAME}` ao ponto de extremidade.
+* Constrói um pedido HTTP `speech/synthesize/cognitiveservices/v1` POST para o ponto final.
+* Especifica um `Accept` cabeçalho de`audio/*`
+* Especifica um `Content-Type` cabeçalho de, `application/ssml+xml`para mais informações, consulte o órgão de [pedido](../rest-text-to-speech.md#request-body).
+* Especifica um `X-Microsoft-OutputFormat` cabeçalho de, `riff-16khz-16bit-mono-pcm`para mais opções, ver saída de [áudio](../rest-text-to-speech.md#audio-outputs).
+* Envia o pedido de markup de síntese `{VOICE_NAME}` da [fala (SSML)](../speech-synthesis-markup.md) dado o ponto final.

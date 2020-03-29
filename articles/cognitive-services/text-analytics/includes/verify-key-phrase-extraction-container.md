@@ -1,7 +1,7 @@
 ---
-title: Verificar a instância de contêiner de Extração de Frases-chave
+title: Verifique a instância do recipiente de extração de frases-chave
 titleSuffix: Azure Cognitive Services
-description: Saiba como verificar a instância de contêiner de Extração de Frases-chave.
+description: Aprenda a verificar a instância do recipiente de extração de frases-chave.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,22 +10,22 @@ ms.topic: include
 ms.date: 09/12/2019
 ms.author: dapine
 ms.openlocfilehash: 1e2001c1f4cb2da195a3dcd0ca8fe198de8dd264
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "70968604"
 ---
-### <a name="verify-the-key-phrase-extraction-container-instance"></a>Verificar a instância de contêiner de Extração de Frases-chave
+### <a name="verify-the-key-phrase-extraction-container-instance"></a>Verifique a instância do recipiente de extração de frases-chave
 
-1. Selecione a guia **visão geral** e copie o endereço IP.
-1. Abra uma nova guia do navegador e insira o endereço IP. Por exemplo, digite `http://<IP-address>:5000 (http://55.55.55.55:5000`). O home page do contêiner é exibido, o que permite que você saiba que o contêiner está em execução.
+1. Selecione o separador **'Visão Geral'** e copie o endereço IP.
+1. Abra um novo separador de navegador e introduza o endereço IP. Por exemplo, `http://<IP-address>:5000 (http://55.55.55.55:5000`introduza). A página inicial do recipiente é exibida, o que lhe permite saber que o recipiente está em funcionamento.
 
-    ![Exibir o home page do contêiner para verificar se ele está em execução](../media/how-tos/container-instance/swagger-docs-on-container.png)
+    ![Veja a página inicial do contentor para verificar se está a funcionar](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
-1. Selecione o link de **Descrição da API de serviço** para ir para a página do Swagger do contêiner.
+1. Selecione o link descrição da **API** de serviço para ir à página Swagger do contentor.
 
-1. Escolha qualquer uma das APIs **post** e selecione **experimentar**. Os parâmetros são exibidos, o que inclui esta entrada de exemplo:
+1. Escolha qualquer uma das APIs **POST** e selecione **Experimente- a**. Os parâmetros são apresentados, o que inclui esta entrada de exemplo:
 
     ```json
     {
@@ -64,13 +64,13 @@ ms.locfileid: "70968604"
     }
     ```
 
-1. Defina **o** de status `true`como.
+1. Definir **showStats** para `true`.
 
-1. Selecione **executar** para determinar a suopinião do texto.
+1. Selecione **Executar** para determinar o sentimento do texto.
 
-    O modelo que é empacotado no contêiner gera uma pontuação que varia de 0 a 1, em que 0 é negativo e 1 é positivo.
+    O modelo que está embalado no recipiente gera uma pontuação que varia de 0 a 1, onde 0 é negativo e 1 é positivo.
 
-    A resposta JSON retornada inclui um sentimentos para a entrada de texto atualizada:
+    A resposta da JSON que foi devolvida inclui o sentimento para a entrada de texto atualizada:
 
     ```json
     {
@@ -100,4 +100,4 @@ ms.locfileid: "70968604"
     }
     ```
 
-Agora podemos correlacionar o documento `id` dos dados JSON da carga de resposta ao documento `id`de carga de solicitação original. O documento resultante tem uma `keyPhrases` matriz, que contém a lista de frases-chave que foram extraídas do documento de entrada correspondente. Além disso, há várias estatísticas `characterCount` , como e `transactionCount` para cada documento resultante.
+Podemos agora correlacionar `id` o documento dos dados JSON da carga de `id`resposta ao documento original de carga útil do pedido. O documento resultante `keyPhrases` tem uma matriz, que contém a lista de frases-chave que foram extraídas do documento de entrada correspondente. Além disso, existem `characterCount` várias estatísticas, tais como e `transactionCount` para cada documento resultante.

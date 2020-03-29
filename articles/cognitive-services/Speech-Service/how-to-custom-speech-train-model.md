@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: a2bc39a35299f56ba52a0143ce123560bd4d88fa
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77137759"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Treine um modelo para discurso personalizado
@@ -39,7 +39,7 @@ Se encontrar problemas de reconhecimento com o seu modelo, usar transcrições c
 O primeiro passo para treinar um modelo é carregar dados de treino. Utilize [Preparar e testar os seus dados](how-to-custom-speech-test-data.md) para obter instruções passo a passo para preparar transcrições e textos relacionados com rótulo humano (pronunciações e pronúncias). Depois de ter enviado dados de treino, siga estas instruções para começar a treinar o seu modelo:
 
 1. Inscreva-se no [portal da Fala Personalizada.](https://speech.microsoft.com/customspeech)
-2. Navegue para **Discurso-a-texto > Discurso Personalizado > Formação**.
+2. Navegue para **discurso-a-texto > discurso personalizado > formação**.
 3. Clique no **modelo de comboio**.
 4. Em seguida, dê ao seu treino um **nome** e **descrição.**
 5. A partir do menu de drop-down do **modelo Cenário e Baseline,** selecione o cenário que melhor se adequa ao seu domínio. Se não tem a certeza de qual cenário escolher, selecione **General**. O modelo de base é o ponto de partida para o treino. Se não tem preferência, pode usar as últimas.
@@ -67,4 +67,4 @@ Se optou por testar a precisão, é importante selecionar um conjunto de dados a
 - [Prepare e teste os seus dados](how-to-custom-speech-test-data.md)
 - [Inspecione os seus dados](how-to-custom-speech-inspect-data.md)
 - [Avaliar os seus dados](how-to-custom-speech-evaluate-data.md)
-- [Treine o seu modelo](how-to-custom-speech-train-model.md)
+- [Preparar o seu modelo](how-to-custom-speech-train-model.md)

@@ -1,7 +1,7 @@
 ---
-title: Suporte de idioma e região para a API do reconhecedor de tinta
+title: Apoio à língua e à região para a API do Reconhecimento de Tinta
 titleSuffix: Azure Cognitive Services
-description: Uma lista de idiomas suportados pela API do reconhecedor de tinta.
+description: Uma lista de línguas naturais apoiadas pela API do Reconhecimento de Tinta.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,36 +11,36 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: aahi
 ms.openlocfilehash: 36f2fa65f47f824ccc3544f5c13b5f5ee9afd21a
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67721750"
 ---
-# <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Suporte de idioma e região para a API do reconhecedor de tinta
+# <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Apoio à língua e à região para a API do Reconhecimento de Tinta
 
-Este artigo explica que idiomas são suportados para a API do reconhecedor de tinta. Conteúdo de tinta digital escrito nos seguintes idiomas pode ser interpretado e processado pela API.
+Este artigo explica quais as línguas suportadas para a API do Reconhecimento de Tinta. O conteúdo de tinta digital escrito nas seguintes línguas pode ser interpretado e processado pela API.
 
-## <a name="supported-languages"></a>Idiomas suportados
+## <a name="supported-languages"></a>Linguagens suportadas
 
 | Idioma                                   | Código do idioma   |
 |:-------------------------------------------|:---------------:|
 | Afrikaans                                  |    `af-ZA`      |
 | Albanês                                   |     `sq-AL`     |
-| Basco (Basco)                                     |     `eu-ES`     |
+| Basco                                     |     `eu-ES`     |
 | Bósnio (Latim)                            | `bs-Latn-BA`    |
 | Catalão                                    |     `ca-ES`     |
-| Chinês (simplificado, China)                |     `zh-CN`     |
-| Chinês (tradicional, Taiwan)              |     `zh-TW`     |
+| Chinês (Simplificado, China)                |     `zh-CN`     |
+| Chinês (Tradicional, Taiwan)              |     `zh-TW`     |
 | Croata (Croácia)                         |     `hr-HR`     |
 | Checo                                      |     `cs-CZ`     |
 | Dinamarquês                                     |     `da-DK`     |
-| Holandês (Bélgica)                            |     `nl-BE`     |
-| Holandês (Países Baixos)                        |     `nl-NL`     |
+| Neerlandês (Bélgica)                            |     `nl-BE`     |
+| Neerlandês (Países Baixos)                        |     `nl-NL`     |
 | Inglês (Austrália)                        |     `en-AU`     |
 | Inglês (Canadá)                           |     `en-CA`     |
 | Inglês (Reino Unido)                   |     `en-GB`     |
-| English (India)                            |     `en-IN`     |
+| Inglês (Índia)                            |     `en-IN`     |
 | Inglês (Estados Unidos)                    |     `en-US`     |
 | Finlandês                                    |     `fi-FI`     |
 | Francês (França)                            |     `fr-FR`     |
@@ -65,16 +65,16 @@ Este artigo explica que idiomas são suportados para a API do reconhecedor de ti
 | Polaco                                     |     `pl-PL`     |
 | Português (Brasil)                        |     `pt-BR`     |
 | Português (Portugal)                      |     `pt-PT`     |
-| Reto-Romanche                                    |     `rm-CH`     |
+| Romansh                                    |     `rm-CH`     |
 | Romeno                                   |     `ro-RO`     |
 | Russo                                    |     `ru-RU`     |
-| Gaélico Escocês                            |     `gd-GB`     |
-| Sesoto                           |    `nso-ZA`     |
-| Sérvio (Cirílico, Bósnia e Herzegovina) |  `sr-Cyrl-BA`   |
-| Serbian (Cyrillic, Montenegro)             |  `sr-Cyrl-ME`   |
+| Gaélico escocês                            |     `gd-GB`     |
+| Sesotho sa Leboa                           |    `nso-ZA`     |
+| Sérvio (cirílico, Bósnia e Herzegovina) |  `sr-Cyrl-BA`   |
+| Sérvio (Cirílico, Montenegro)             |  `sr-Cyrl-ME`   |
 | Sérvio (Cirílico, Sérvia)                 |  `sr-Cyrl-RS`   |
-| Sérvio (Latim, Bósnia e Herzegovina)    |  `sr-Latn-BA`   |
-| Sérvio (Latim, Montenegro)                |  `sr-Latn-ME`   |
+| Sérvio (latim, Bósnia e Herzegovina)    |  `sr-Latn-BA`   |
+| Sérvio (latim, Montenegro)                |  `sr-Latn-ME`   |
 | Sérvio (Latim, Sérvia)                    |  `sr-Latn-RS`   |
 | Setswana (África do Sul)                    |     `tn-ZA`     |
 | Eslovaco                                     |     `sk-SK`     |
@@ -85,11 +85,11 @@ Este artigo explica que idiomas são suportados para a API do reconhecedor de ti
 | Sueco (Suécia)                           |     `sv-SE`     |
 | Turco                                    |     `tr-TR`     |
 | Galês                                      |     `cy-GB`     |
-| Wolof                                      |     `wo-SN`     |
+| Rio Wolof                                      |     `wo-SN`     |
 | Xhosa                                      |     `xh-ZA`     |
 | Zulu                                       |     `zu-ZA`     |
 
 ## <a name="see-also"></a>Consulte também
 
-* [O que é a API do reconhecedor de tinta?](overview.md)
-* [A enviar de traços de tinta digital para a API do reconhecedor de tinta](concepts/send-ink-data.md)
+* [O que é a API do Reconhecedor de Tinta Digital?](overview.md)
+* [Envio de tacadas de tinta digital para a API do Reconhecimento de Tinta](concepts/send-ink-data.md)

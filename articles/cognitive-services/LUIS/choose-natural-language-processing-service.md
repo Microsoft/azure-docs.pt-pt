@@ -1,7 +1,7 @@
 ---
-title: Usar serviços cognitivas do NLP para enriquecer conversas
+title: Use Serviços Cognitivos NLP para enriquecer conversas
 titleSuffix: Azure Cognitive Services
-description: Os serviços cognitivas fornecem dois serviços de processamento de idioma natural, Reconhecimento vocal e QnA Maker, cada um com uma finalidade diferente. Entenda quando usar cada serviço e como eles se complementam.
+description: Os Serviços Cognitivos fornecem dois serviços de processamento de linguagem natural, compreensão linguística e Fabricante de QnA, cada um com um propósito diferente. Entenda quando usar cada serviço e como se elogiam mutuamente.
 author: diberry
 ms.author: diberry
 manager: nitinme
@@ -9,85 +9,85 @@ ms.topic: conceptual
 ms.service: cognitive-services
 ms.date: 08/01/2019
 ms.openlocfilehash: 32159b37d3d1a8609181d81dc1a73f27177adb85
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73818203"
 ---
-# <a name="use-cognitive-services-with-natural-language-processing-nlp-to-enrich-bot-conversations"></a>Use serviços cognitivas com NLP (processamento de idioma natural) para enriquecer conversas de bot
+# <a name="use-cognitive-services-with-natural-language-processing-nlp-to-enrich-bot-conversations"></a>Utilizar Serviços Cognitivos com processamento de linguagem natural (NLP) para enriquecer conversas de bots
 
-Os serviços cognitivas fornecem dois serviços de processamento de idioma natural, [reconhecimento vocal](what-is-luis.md) e [QnA Maker](../qnamaker/overview/overview.md), cada um com uma finalidade diferente. Entenda quando usar cada serviço e como eles se complementam. 
+Os Serviços Cognitivos fornecem dois serviços de processamento de linguagem natural, [compreensão linguística](what-is-luis.md) e Fabricante de [QnA,](../qnamaker/overview/overview.md)cada um com um propósito diferente. Entenda quando usar cada serviço e como se elogiam mutuamente. 
 
-O NLP (processamento de idioma natural) permite que seu aplicativo cliente, como um bot de chat, trabalhe com seus usuários, usando linguagem natural. Um usuário insere uma frase ou frase. O texto do usuário pode ter más gramática, ortografia e pontuação. O serviço cognitiva pode funcionar na frase do usuário de qualquer forma, retornando informações de que o bot chat precisa para ajudar o usuário. 
+O processamento de linguagem natural (NLP) permite que a aplicação do seu cliente, como um chat bot, trabalhe com os seus utilizadores, utilizando linguagem natural. Um utilizador introduz uma frase ou frase. O texto do utilizador pode ter má gramática, ortografia e pontuação. O Serviço Cognitivo pode trabalhar através da frase do utilizador de qualquer forma, devolvendo informações que o chat bot precisa para ajudar o utilizador. 
 
-## <a name="cognitive-services-with-nlp"></a>Serviços cognitivas com NLP
+## <a name="cognitive-services-with-nlp"></a>Serviços Cognitivos com NLP
 
-Reconhecimento vocal (LUIS) e QnA Maker fornecer NLP. O aplicativo cliente envia um texto de idioma natural. O serviço usa o texto, processa-o e retorna um resultado. 
+A Compreensão da Linguagem (LUIS) e o Fabricante qnA fornecem NLP. A aplicação do cliente apresenta texto de linguagem natural. O serviço pega no texto, processa-o e devolve um resultado. 
 
-## <a name="when-to-use-each-service"></a>Quando usar cada serviço
+## <a name="when-to-use-each-service"></a>Quando utilizar cada serviço
 
-Reconhecimento vocal (LUIS) e QnA Maker resolver problemas diferentes. LUIS determina a intenção do texto de um usuário (conhecido como um expressão), enquanto QnA Maker determina a resposta para o texto de um usuário (conhecido como consulta). 
+A Compreensão da Linguagem (LUIS) e o Fabricante qnA resolvem diferentes questões. Luis determina a intenção do texto de um utilizador (conhecido como uma expressão), enquanto o QnA Maker determina a resposta ao texto de um utilizador (conhecido como consulta). 
 
-Para escolher o serviço correto, você precisa entender o texto do usuário proveniente do aplicativo cliente e as informações que o aplicativo cliente precisa obter do serviço cognitiva.
+Para escolher o serviço correto, é necessário compreender o texto do utilizador proveniente da aplicação do cliente e que informações a aplicação do cliente precisa de obter do Serviço Cognitivo.
 
-Se o seu bot de bate-papo receber o texto `How do I get to the Human Resources building on the Seattle North campus?`, use o gráfico abaixo para entender como cada serviço funciona com o texto.
+Se o seu chat `How do I get to the Human Resources building on the Seattle North campus?`bot receber o texto, utilize a ficha abaixo para entender como cada serviço funciona com o texto.
 
-|Serviço|O aplicativo cliente determina|
+|Serviço|A aplicação do cliente determina|
 |--|--|
-|LUIS|**Determina a intenção** de texto do usuário-o serviço não retorna a resposta para a pergunta. Por exemplo, esse texto é classificado como correspondente à intenção de `FindLocation`.<br>|
-|QnA Maker|**Retorna a resposta para a pergunta** de uma base de dados de conhecimento personalizada. Por exemplo, esse texto é determinado como uma pergunta com a resposta de texto estático de `Get on the #9 bus and get off at Franklin street`.|
+|LUIS|**Determina** a intenção do utilizador de texto - o serviço não devolve a resposta à pergunta. Por exemplo, este texto é `FindLocation` classificado como correspondendo à intenção.<br>|
+|QnA Maker|**Devolve a resposta à pergunta a** partir de uma base de conhecimento personalizada. Por exemplo, este texto é determinado como uma `Get on the #9 bus and get off at Franklin street`pergunta com a resposta estática do texto de .|
 |||
 
-## <a name="when-do-you-use-luis"></a>Quando você usa o LUIS? 
+## <a name="when-do-you-use-luis"></a>Quando usa o LUIS? 
 
-Use LUIS quando precisar saber a intenção do expressão como parte de um processo no bot de bate-papo. Continuando com o texto de exemplo, `How do I get to the Human Resources building on the Seattle North campus?`, depois que você sabe que a intenção do usuário é encontrar um local, você pode passar detalhes sobre o expressão (extraído com entidades) para outro serviço, como um servidor de transporte, para obter a resposta. 
+Use LUIS quando precisa de saber a intenção da expressão como parte de um processo no chat bot. Continuando com o `How do I get to the Human Resources building on the Seattle North campus?`texto de exemplo, assim que souber que a intenção do utilizador é encontrar um local, pode passar detalhes sobre a expressão (retirada com entidades) para outro serviço, como um servidor de transporte, para obter a resposta. 
 
-Você não precisa combinar LUIS e QnA Maker para determinar a intenção. 
+Não é preciso combinar LUIS e QnA Maker para determinar a intenção. 
 
-Você pode combinar os dois serviços para esse expressão, se o bot de chat precisar processar o texto com base em intenções e entidades (usando LUIS), bem como localizar a resposta de texto estático específica (usando QnA Maker).
+Poderá combinar os dois serviços para esta expressão, se o chat bot precisar de processar o texto com base em intenções e entidades (usando LUIS) bem como encontrar a resposta de texto estática específica (utilizando o QnA Maker).
 
-## <a name="when-do-you-use-qna-maker"></a>Quando você usa QnA Maker? 
+## <a name="when-do-you-use-qna-maker"></a>Quando usa o Fabricante de QnA? 
 
-Use QnA Maker quando você tiver uma base de dados de conhecimento estática de respostas. Essa base de dados de conhecimento é personalizada para suas necessidades, que você criou com documentos como PDFs e URLs. 
+Use o Fabricante QnA quando tiver uma base de conhecimento estática de respostas. Esta base de conhecimento é personalizada às suas necessidades, que construiu com documentos como PDFs e URLs. 
 
-Continuando com o exemplo expressão, `How do I get to the Human Resources building on the Seattle North campus?`, envie o texto, como uma consulta, para o serviço publicado QnA Maker e receba a melhor resposta. 
+Continuando com a expressão `How do I get to the Human Resources building on the Seattle North campus?`do exemplo, envie o texto, como uma consulta, para o seu serviço QnA Maker publicado e receba a melhor resposta. 
 
-Você não precisa combinar LUIS e QnA Maker para determinar a resposta para a pergunta.
+Não é preciso combinar LUIS e QnA Maker para determinar a resposta à pergunta.
 
-Você pode combinar os dois serviços para esse expressão, se o bot de chat precisar processar o texto com base em intenções e entidades (usando LUIS), bem como encontrar a resposta (usando QnA Maker).
+Poderá combinar os dois serviços para esta expressão, se o chat bot precisar de processar o texto com base em intenções e entidades (usando LUIS) bem como encontrar a resposta (usando o QnA Maker).
 
-## <a name="use-both-services-when-your-knowledge-base-is-incomplete"></a>Usar ambos os serviços quando sua base de dados de conhecimento estiver incompleta
+## <a name="use-both-services-when-your-knowledge-base-is-incomplete"></a>Utilize ambos os serviços quando a sua base de conhecimentos estiver incompleta
 
-Se você estiver criando sua base de dados de conhecimento QnA Maker, mas souber que o domínio da entidade está mudando (como informações oportunas), poderá combinar os serviços LUIS e QnA Maker. Isso permite que você use as informações em sua base de dados de conhecimento, mas também use LUIS para determinar a intenção de um usuário. Depois que o aplicativo cliente tiver a intenção, ele poderá solicitar informações relevantes de outra fonte. 
+Se estiver a construir a sua base de conhecimentos qnA Maker, mas sabe que o domínio do assunto está a mudar (como informação oportuna), pode combinar os serviços LUIS e QnA Maker. Isto permite-lhe utilizar a informação na sua base de conhecimentos, mas também utilizar o LUIS para determinar a intenção do utilizador. Uma vez que o pedido do cliente tenha a intenção, pode solicitar informações relevantes de outra fonte. 
 
-O aplicativo cliente precisaria monitorar as respostas LUIS e QnA Maker para pontuações. Se a pontuação de QnA Maker estiver abaixo de um limite arbitrário, use as informações de intenção e entidade retornadas de LUIS para passar as informações para um serviço de terceiros.
+A sua aplicação de cliente teria de monitorizar as respostas da LUIS e da QnA Maker para obter pontuações. Se a pontuação da QnA Maker estiver abaixo de algum limiar arbitrário, utilize as informações de intenção e entidade devolvidas da LUIS para passar a informação para um serviço de terceiros.
 
-Continuando com o texto de exemplo, `How do I get to the Human Resources building on the Seattle North campus?`, suponha que QnA Maker retorna uma pontuação de confiança baixa. Use a intenção retornada de LUIS, `FindLocation` e quaisquer entidades extraídas, como `Human Resources building` e `Seattle North campus`, para enviar essas informações a um serviço de mapeamento ou de pesquisa para outra resposta. 
+Continuando com o `How do I get to the Human Resources building on the Seattle North campus?`texto de exemplo, suponha que o QnA Maker devolve uma pontuação de baixa confiança. Utilize a intenção `FindLocation` devolvida da LUIS, e `Human Resources building` quaisquer entidades extraídas, tais como e, `Seattle North campus`para enviar esta informação para um serviço de mapeamento ou pesquisa para outra resposta. 
 
-Você pode apresentar essa resposta de terceiros ao usuário para validação. Depois de ter a aprovação do usuário, você pode voltar para QnA Maker para adicionar as informações para aumentar seu conhecimento. 
+Pode apresentar esta resposta de terceiros ao utilizador para validação. Assim que tiver a aprovação do utilizador, pode voltar ao QnA Maker para adicionar a informação para aumentar os seus conhecimentos. 
 
-## <a name="use-both-services-when-your-chat-bot-needs-more-information"></a>Use ambos os serviços quando o seu bot de chat precisar de mais informações
+## <a name="use-both-services-when-your-chat-bot-needs-more-information"></a>Use ambos os serviços quando o seu chat bot precisar de mais informações
 
-Se o seu bot de chat precisar de mais informações do que o serviço fornece, para continuar em uma árvore de decisão, use ambos os serviços e processe ambas as respostas no aplicativo cliente. 
+Se o seu chat bot precisar de mais informações do que qualquer um dos serviços, para continuar através de uma árvore de decisão, use tanto os serviços como processe ambas as respostas na aplicação do cliente. 
 
-Use a ferramenta de **[expedição da CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** do bot Framework para ajudar a criar um processo para trabalhar com ambos os serviços. Essa ferramenta cria um aplicativo LUIS superior de tentativas que expedem entre LUIS e QnA Maker como aplicativos filho. 
+Utilize a ferramenta Bot **[Dispatch CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** para ajudar a construir um processo para trabalhar com ambos os serviços. Esta ferramenta constrói uma aplicação de intenções de TOPO LUIS que despacha entre LUIS e QnA Maker como aplicações infantis. 
 
-Use o exemplo do bot Builder, **NLP com expedição**, [C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) in ou [node. js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch), para implementar esse tipo de bot de chat. 
+Utilize a amostra de construtor bot, **NLP com despacho**, em [C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) ou [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch), para implementar este tipo de chat bot. 
 
 ## <a name="best-practices"></a>Melhores práticas
 
-Implemente as práticas recomendadas para cada serviço:
+Implementar as melhores práticas para cada serviço:
 
-* Práticas recomendadas do [Luis](luis-concept-best-practices.md)
-* Práticas recomendadas de [QnA Maker](../qnamaker/concepts/best-practices.md)
+* [Boas](luis-concept-best-practices.md) práticas luis
+* [QnA Maker](../qnamaker/concepts/best-practices.md) boas práticas
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
-* [Language Understanding (LUIS)](what-is-luis.md)
-* [Criador de FAQ](../qnamaker/overview/overview.md)
-* [CLI de expedição](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)
-* [Amostras do bot Framework](https://github.com/Microsoft/BotBuilder-Samples)
-* [Serviço de bot do Azure](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0)
-* [Emulador de bot do Azure](https://github.com/Microsoft/BotFramework-Emulator)
-* [Chat da Web do bot Framework](https://github.com/microsoft/BotFramework-WebChat)
+* [Compreensão de Idiomas (LUIS)](what-is-luis.md)
+* [QnA Maker](../qnamaker/overview/overview.md)
+* [Despacho CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)
+* [Amostras de quadro bot](https://github.com/Microsoft/BotBuilder-Samples)
+* [Serviço de botazur Azure](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0)
+* [Emulador de bot sinuoso azure](https://github.com/Microsoft/BotFramework-Emulator)
+* [Bot framework web chat](https://github.com/microsoft/BotFramework-WebChat)

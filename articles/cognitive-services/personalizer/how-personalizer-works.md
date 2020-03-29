@@ -4,10 +4,10 @@ description: O _loop_ Personalizer utiliza machine learning para construir o mod
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: 836c207213ac52a60e27da6fc957418187059023
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77623749"
 ---
 # <a name="how-personalizer-works"></a>Como funciona o Personalizador
@@ -30,7 +30,7 @@ Determina a pontuação da recompensa e envia essa pontuação para a API recomp
 
 A imagem seguinte mostra o fluxo arquitetónico de chamar as chamadas Rank and Reward:
 
-![texto alt](./media/how-personalizer-works/personalization-how-it-works.png "Como funciona a Personalização")
+![texto alternativo](./media/how-personalizer-works/personalization-how-it-works.png "Como funciona a Personalização")
 
 1. Envia _ações com funcionalidades_ e _características_ de contexto para a Rank API.
 

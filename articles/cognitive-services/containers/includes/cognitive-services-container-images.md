@@ -9,20 +9,20 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: dapine
 ms.openlocfilehash: 55a3bb5f894d3ab753cfec64687abc9c7cae53cb
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79082198"
 ---
 ### <a name="container-repositories-and-images"></a>Repositórios e imagens de contentores
 
-As tabelas abaixo são uma lista das imagens de contentores disponíveis oferecidas pelos Serviços Cognitivos Azure. Para obter uma lista completa de todos os nomes de imagens de contentores disponíveis e das suas etiquetas disponíveis, consulte as etiquetas de imagem do [recipiente dos Serviços Cognitivos](../container-image-tags.md). Atualmente, não existem recipientes de Serviços Cognitivos que estejam geralmente disponíveis (GA). Por enquanto, até que sejam feitos mais anúncios -- os contentores estão disponíveis como *Pré-visualização*pública ou fechada pública .
+As tabelas abaixo são uma lista das imagens de contentores disponíveis oferecidas pelos Serviços Cognitivos Azure. Para obter uma lista completa de todos os nomes de imagens de contentores disponíveis e das suas etiquetas disponíveis, consulte as etiquetas de imagem do [recipiente dos Serviços Cognitivos](../container-image-tags.md). Atualmente, não existem recipientes de Serviços Cognitivos que estejam geralmente disponíveis (GA). Por enquanto, até que sejam feitos mais anúncios *Public Ungated* -- os contentores estão disponíveis como *Pré-visualização*pública ou fechada pública .
 
  - *Public Ungated*: os contentores estão disponíveis publicamente sem um mecanismo de marcha.
  - *Visualização fechada pública*: os contentores estão disponíveis publicamente, mas primeiro exigem um pedido formal de acesso ao registo do contentor.
 
-#### <a name="public-ungated-container-registry-mcrmicrosoftcom"></a>Público "Ungated" (registo de contentores: `mcr.microsoft.com`)
+#### <a name="public-ungated-container-registry-mcrmicrosoftcom"></a>Público "Ungated" (registo `mcr.microsoft.com`de contentores: )
 
 O Registo de Contentores da Microsoft (MCR) sindicaliza todos os recipientes "ungated" publicamente disponíveis para serviços cognitivos. Os contentores também estão disponíveis diretamente a partir do centro de [Docker](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
@@ -33,15 +33,15 @@ O Registo de Contentores da Microsoft (MCR) sindicaliza todos os recipientes "un
 | [Análise de Texto](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Deteção de Idioma | `mcr.microsoft.com/azure-cognitive-services/language` |
 | [Análise de Texto](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Análise de Sentimentos | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-#### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>Pré-visualização pública "Gated" (registo de contentores: `containerpreview.azurecr.io`)
+#### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>Pré-visualização pública "Gated" `containerpreview.azurecr.io`(registo de contentores: )
 
 O registo de pré-visualização de contentores acolhe todos os recipientes "fechados" publicamente disponíveis para serviços cognitivos. Estes contentores exigem um pedido formal de acesso através do seu registo de contentores.
 
 | Serviço | Contentor | Registo de Contentores / Repositório / Nome de imagem |
 |--|--|--|
 | [Detetor de anomalias](../../anomaly-detector/anomaly-detector-container-howto.md) | Detetor de Anomalias | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector` |
-| [Imagem Digitalizada](../../Computer-vision/computer-vision-how-to-install-containers.md) | Leitura | `containerpreview.azurecr.io/microsoft/cognitive-services-read` |
-| [Rosto](../../face/face-how-to-install-containers.md) | Rostos | `containerpreview.azurecr.io/microsoft/cognitive-services-face` |
+| [Visão Computorizada](../../Computer-vision/computer-vision-how-to-install-containers.md) | Leitura | `containerpreview.azurecr.io/microsoft/cognitive-services-read` |
+| [Rostos](../../face/face-how-to-install-containers.md) | Rostos | `containerpreview.azurecr.io/microsoft/cognitive-services-face` |
 | [Reconhecimento de formulários](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) | Reconhecedor de Formato | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer` |
 | [API de Serviço de Voz](../../speech-service/speech-container-howto.md?tab=stt) | Conversão de voz em texto | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` |
 | [API de Serviço de Voz](../../speech-service/speech-container-howto.md?tab=cstt) | Discurso personalizado a texto | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text` |

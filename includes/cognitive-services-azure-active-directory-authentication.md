@@ -5,10 +5,10 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/23/2019
 ms.openlocfilehash: 8754504655cdd08c9bf9f89311cb6c5d1057f0e6
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78262374"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Autenticar com o Azure Active Directory
@@ -75,7 +75,7 @@ Agora que tem um subdomínio personalizado associado ao seu recurso, terá de at
    New-AzRoleAssignment -ObjectId <SERVICE_PRINCIPAL_OBJECTID> -Scope <ACCOUNT_ID> -RoleDefinitionName "Cognitive Services User"
    ```
 
-### <a name="sample-request"></a>Pedido de exemplo
+### <a name="sample-request"></a>Pedido de amostra
 
 Nesta amostra, é utilizada uma palavra-passe para autenticar o diretor de serviço. O símbolo fornecido é então usado para chamar a API da Visão Computacional.
 

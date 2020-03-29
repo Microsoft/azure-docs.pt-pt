@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
 ms.openlocfilehash: bbe1d651a7d2d2cac1b1aa78b815b2797ad185c5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76717325"
 ---
 # <a name="create-a-custom-voice"></a>Criar uma voz personalizada
@@ -28,14 +28,14 @@ Consulte os idiomas suportados para voz personalizada: [linguagem para personali
 
 ## <a name="upload-your-datasets"></a>Faça upload dos seus conjuntos de dados
 
-Quando estiver pronto para fazer o upload dos seus dados, vá ao [portal De Voz Personalizada](https://aka.ms/custom-voice-portal). Crie ou selecione um projeto Custom Voice. O projeto deve partilhar a linguagem/local e as propriedades de género adequadas como os dados que pretende utilizar para a sua formação de voz. Por exemplo, selecione `en-GB` se as gravações áudio que tem forem feitas em inglês com sotaque do Reino Unido.
+Quando estiver pronto para fazer o upload dos seus dados, vá ao [portal De Voz Personalizada](https://aka.ms/custom-voice-portal). Crie ou selecione um projeto Custom Voice. O projeto deve partilhar a linguagem/local e as propriedades de género adequadas como os dados que pretende utilizar para a sua formação de voz. Por exemplo, `en-GB` selecione se as gravações áudio que tem são feitas em inglês com sotaque do Reino Unido.
 
 Vá ao separador **Dados** e clique em **dados de upload**. No assistente, selecione o tipo de dados correto que corresponda ao que preparou.
 
-Cada conjunto de dados que você carrega deve atender aos requisitos para o tipo de dado que você escolher. É importante formatar corretamente os seus dados antes de ser carregado. Isto garante que os dados serão processados com precisão pelo serviço Custom Voice. Vá à [Prepare os dados para Voz Personalizada](how-to-custom-voice-prepare-data.md) e certifique-se de que os seus dados foram devidamente formatados.
+Cada conjunto de dados que envia deve satisfazer os requisitos para o tipo de dados que escolher. É importante formatar corretamente os seus dados antes de ser carregado. Isto garante que os dados serão processados com precisão pelo serviço Custom Voice. Vá à [Prepare os dados para Voz Personalizada](how-to-custom-voice-prepare-data.md) e certifique-se de que os seus dados foram devidamente formatados.
 
 > [!NOTE]
-> Os utilizadores de subscrição gratuita (F0) podem fazer o upload de dois conjuntos de dados simultaneamente. Os utilizadores de subscrição padrão (S0) podem carregar cinco conjuntos de dados simultaneamente. Se atingir o limite, aguarde pelo menos um dos seus conjuntos de dados que termine de importar. Em seguida, tente novamente.
+> Os utilizadores de subscrição gratuita (F0) podem fazer o upload de dois conjuntos de dados simultaneamente. Os utilizadores de subscrição padrão (S0) podem carregar cinco conjuntos de dados simultaneamente. Se atingir o limite, aguarde pelo menos um dos seus conjuntos de dados que termine de importar. Então tente de novo.
 
 > [!NOTE]
 > O número máximo de conjuntos de dados autorizados a serem importados por subscrição é de 10 .ficheiros zip para utilizadores de subscrição gratuita (F0) e 500 para utilizadores de subscrição padrão (S0).
@@ -47,7 +47,7 @@ O quadro seguinte mostra os estados de tratamento dos conjuntos de dados importa
 | Estado | Significado |
 | ----- | ------- |
 | Em processamento | O seu conjunto de dados foi recebido e está a ser tratado. |
-| Succeeded | O seu conjunto de dados foi validado e pode agora ser usado para construir um modelo de voz. |
+| Bem-sucedido | O seu conjunto de dados foi validado e pode agora ser usado para construir um modelo de voz. |
 | Falhou | O seu conjunto de dados foi falhado durante o processamento devido a muitas razões, por exemplo erros de ficheiros, problemas de dados ou problemas de rede. |
 
 Após a validação estar completa, pode ver o número total de expressões correspondidas para cada um dos seus conjuntos de dados na coluna **Utterances.** Se o tipo de dados que selecionou requer segmentação de áudio longo, esta coluna apenas reflete as expressões que segmentamos para si, quer com base nas suas transcrições, quer através do serviço de transcrição da fala. Pode ainda descarregar o conjunto de dados validado para ver os resultados pormenorizados das expressões importadas com sucesso e as suas transcrições de mapeamento. Atenção: a segmentação de áudio longo pode demorar mais de uma hora a concluir o processamento de dados.
@@ -62,13 +62,13 @@ Considere regravar quaisquer declarações com baixas pontuações de pronúncia
 
 Depois de validado o seu conjunto de dados, pode usá-lo para construir o seu modelo de voz personalizado.
 
-1.  Navegue para **Texto-a-Fala > Voz Personalizada > Formação**.
+1.  Navegue para o treino de > de **voz personalizada > texto a palavra.**
 
 2.  Clique no **modelo de comboio**.
 
 3.  Em seguida, insira um **Nome** e **Descrição** para ajudá-lo a identificar este modelo.
 
-    Escolha um nome com cuidado. O nome que introduzir aqui será o nome que utilizar para especificar a voz no seu pedido de síntese de fala como parte da entrada SSML. Apenas letras, números e alguns caracteres de pontuação como - \_, e (', ' ' ' são permitidos. Use diferentes nomes para diferentes modelos de voz.
+    Escolha um nome com cuidado. O nome que introduzir aqui será o nome que utilizar para especificar a voz no seu pedido de síntese de fala como parte da entrada SSML. Apenas letras, números e alguns caracteres de \_pontuação como -, e (', ' ' são permitidos. Use diferentes nomes para diferentes modelos de voz.
 
     Um uso comum do campo **Descrição** é registar os nomes dos conjuntos de dados que foram usados para criar o modelo.
 
@@ -89,7 +89,7 @@ O estado que é mostrado reflete o processo de conversão do seu conjunto de dad
 | Estado | Significado |
 | ----- | ------- |
 | Em processamento | O teu modelo de voz está a ser criado. |
-| Succeeded | O seu modelo de voz foi criado e pode ser implantado. |
+| Bem-sucedido | O seu modelo de voz foi criado e pode ser implantado. |
 | Falhou | O seu modelo de voz foi falhado no treino devido a muitas razões, por exemplo problemas de dados invisíveis ou problemas de rede. |
 
 O tempo de formação varia consoante o volume de dados áudio processados. Os tempos típicos variam de cerca de 30 minutos para centenas de expressões a 40 horas para 20.000 expressões. Assim que o teu treino de modelo for bem sucedido, podes começar a testá-lo.
@@ -106,7 +106,7 @@ Se estiver a utilizar a capacidade de treino de voz neural, pode selecionar para
 
 Depois da sua fonte de voz ser construída com sucesso, pode testá-la antes de a utilizar.
 
-1.  Navegue para **Texto-a-Fala > Voz Personalizada > Teste**.
+1.  Navegue para o teste de > de **voz personalizada > texto-a-voz**.
 
 2.  Clique no **teste Adicionar**.
 
@@ -143,7 +143,7 @@ Os testes online do ponto final também estão disponíveis através do portal d
 
 O ponto final personalizado é funcionalmente idêntico ao ponto final padrão que é usado para pedidos de texto a fala. Consulte a [REST API](rest-text-to-speech.md) para mais informações.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Guia: Grave as amostras de voz](record-custom-voice-samples.md)
 * [Referência da API texto-a-fala](rest-text-to-speech.md)

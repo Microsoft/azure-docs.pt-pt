@@ -1,49 +1,56 @@
 ---
-title: Como usar a detecção automática de idioma para fala em texto
+title: Como usar a deteção automática de linguagem para a fala ao texto
 titleSuffix: Azure Cognitive Services
-description: O SDK de fala dá suporte à detecção automática de idioma para fala em texto. Ao usar esse recurso, o áudio fornecido é comparado com uma lista de idiomas fornecida e a correspondência mais provável é determinada. O valor retornado pode então ser usado para selecionar o modelo de idioma usado para a fala de texto.
+description: O SDK da Fala suporta a deteção automática de linguagem para a fala a texto. Ao utilizar esta funcionalidade, o áudio fornecido é comparado com uma lista fornecida de idiomas, sendo determinada a correspondência mais provável. O valor devolvido pode então ser usado para selecionar o modelo de idioma utilizado para a fala a texto.
 services: cognitive-services
-author: susanhu
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/15/2020
-ms.author: qiohu
-zone_pivot_groups: programming-languages-set-seven
-ms.openlocfilehash: bc438c3e606fefc10e9ffbb64c79f7167d9af062
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.date: 03/16/2020
+ms.author: dapine
+zone_pivot_groups: programming-languages-set-two
+ms.openlocfilehash: 5592fc3e50db892c6abb09fc2516b8e1c03f0f03
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122054"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239592"
 ---
-# <a name="automatic-language-detection-for-speech-to-text"></a>Detecção automática de idioma para fala em texto
+# <a name="automatic-language-detection-for-speech-to-text"></a>Deteção automática de linguagem para fala a texto
 
-A detecção automática de idioma é usada para determinar a correspondência mais provável para o áudio passado para o SDK de fala em comparação com uma lista de idiomas fornecidos. O valor retornado pela detecção automática de idioma é usado para selecionar o modelo de linguagem de fala para texto, fornecendo uma transcrição mais precisa. Para ver quais idiomas estão disponíveis, consulte [suporte a idiomas](language-support.md).
+A deteção automática de idiomas é usada para determinar a correspondência mais provável para o áudio passado para o SDK da fala quando comparada com uma lista de idiomas fornecidos. O valor devolvido pela deteção automática de idiomas é então utilizado para selecionar o modelo de linguagem para a fala ao texto, proporcionando-lhe uma transcrição mais precisa. Para ver quais línguas estão disponíveis, consulte [o suporte da Linguagem.](language-support.md)
 
-Neste artigo, você aprenderá a usar `AutoDetectSourceLanguageConfig` para construir um objeto de `SpeechRecognizer` e recuperar o idioma detectado.
+Neste artigo, você aprenderá a `AutoDetectSourceLanguageConfig` usar `SpeechRecognizer` para construir um objeto e recuperar a linguagem detetada.
 
 > [!IMPORTANT]
-> Esse recurso só está disponível para o SDK de fala C#para C++ e Java.
+> Esta funcionalidade só está disponível para o Speech SDK para C#, C++, Java e Python.
 
-## <a name="automatic-language-detection-with-the-speech-sdk"></a>Detecção automática de idioma com o SDK de fala
+## <a name="automatic-language-detection-with-the-speech-sdk"></a>Deteção automática de linguagem com o SDK da Fala
 
-A detecção automática de idioma atualmente tem um limite no lado dos serviços de dois idiomas por detecção. Tenha essa limitação em mente ao construção de seu objeto de `AudoDetectSourceLanguageConfig`. Nos exemplos a seguir, você criará um `AutoDetectSourceLanguageConfig`e, em seguida, o usará para construir um `SpeechRecognizer`.
+A deteção automática de linguagens tem atualmente um limite de serviços de dois idiomas por deteção. Tenha em mente esta `AudoDetectSourceLanguageConfig` limitação ao construir o seu objeto. Nas amostras abaixo, criará `AutoDetectSourceLanguageConfig`um , em `SpeechRecognizer`seguida, usá-lo para construir um .
 
 > [!TIP]
-> Você também pode especificar um modelo personalizado a ser usado ao executar a fala em texto. Para obter mais informações, consulte [usar um modelo personalizado para detecção automática de idioma](#use-a-custom-model-for-automatic-language-detection).
+> Também pode especificar um modelo personalizado para usar ao executar o discurso por texto. Para mais informações, consulte [Utilize um modelo personalizado para deteção automática de idiomas.](#use-a-custom-model-for-automatic-language-detection)
 
-Os trechos de código a seguir ilustram como usar a detecção automática de idioma em seus aplicativos:
+Os seguintes snippets ilustram como usar a deteção automática de idiomas nas suas apps:
 
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-var autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.FromLanguages(new string[] { "en-US", "de-DE" });
-using (var recognizer = new SpeechRecognizer(speechConfig, autoDetectSourceLanguageConfig, audioConfig))
+var autoDetectSourceLanguageConfig =
+    AutoDetectSourceLanguageConfig.FromLanguages(
+        new string[] { "en-US", "de-DE" });
+
+using (var recognizer = new SpeechRecognizer(
+    speechConfig,
+    autoDetectSourceLanguageConfig,
+    audioConfig))
 {
     var speechRecognitionResult = await recognizer.RecognizeOnceAsync();
-    var autoDetectSourceLanguageResult = AutoDetectSourceLanguageResult.FromResult(speechRecognitionResult);
+    var autoDetectSourceLanguageResult =
+        AutoDetectSourceLanguageResult.FromResult(speechRecognitionResult);
     var detectedLanguage = autoDetectSourceLanguageResult.Language;
 }
 ```
@@ -52,11 +59,18 @@ using (var recognizer = new SpeechRecognizer(speechConfig, autoDetectSourceLangu
 
 ::: zone pivot="programming-language-cpp"
 
-```C++
-auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "de-DE" });
-auto recognizer = SpeechRecognizer::FromConfig(speechConfig, autoDetectSourceLanguageConfig, audioConfig);
+```cpp
+auto autoDetectSourceLanguageConfig =
+    AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "de-DE" });
+
+auto recognizer = SpeechRecognizer::FromConfig(
+    speechConfig,
+    autoDetectSourceLanguageConfig,
+    audioConfig);
+
 speechRecognitionResult = recognizer->RecognizeOnceAsync().get();
-auto autoDetectSourceLanguageResult = AutoDetectSourceLanguageResult::FromResult(speechRecognitionResult);
+auto autoDetectSourceLanguageResult =
+    AutoDetectSourceLanguageResult::FromResult(speechRecognitionResult);
 auto detectedLanguage = autoDetectSourceLanguageResult->Language;
 ```
 
@@ -64,12 +78,19 @@ auto detectedLanguage = autoDetectSourceLanguageResult->Language;
 
 ::: zone pivot="programming-language-java"
 
-```Java
-AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.fromLanguages(Arrays.asList("en-US", "de-DE"));
-SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, autoDetectSourceLanguageConfig, audioConfig);
+```java
+AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig =
+    AutoDetectSourceLanguageConfig.fromLanguages(Arrays.asList("en-US", "de-DE"));
+
+SpeechRecognizer recognizer = new SpeechRecognizer(
+    speechConfig,
+    autoDetectSourceLanguageConfig,
+    audioConfig);
+
 Future<SpeechRecognitionResult> future = recognizer.recognizeOnceAsync();
 SpeechRecognitionResult result = future.get(30, TimeUnit.SECONDS);
-AutoDetectSourceLanguageResult autoDetectSourceLanguageResult = AutoDetectSourceLanguageResult.fromResult(result);
+AutoDetectSourceLanguageResult autoDetectSourceLanguageResult =
+    AutoDetectSourceLanguageResult.fromResult(result);
 String detectedLanguage = autoDetectSourceLanguageResult.getLanguage();
 
 recognizer.close();
@@ -81,11 +102,27 @@ result.close();
 
 ::: zone-end
 
-## <a name="use-a-custom-model-for-automatic-language-detection"></a>Usar um modelo personalizado para detecção automática de idioma
+::: zone pivot="programming-language-python"
 
-Além da detecção de idioma usando modelos de serviço de fala, você pode especificar um modelo personalizado para reconhecimento avançado. Se um modelo personalizado não for fornecido, o serviço usará o modelo de idioma padrão.
+```Python
+auto_detect_source_language_config = \
+        speechsdk.languageconfig.AutoDetectSourceLanguageConfig(languages=["en-US", "de-DE"])
+speech_recognizer = speechsdk.SpeechRecognizer(
+        speech_config=speech_config, 
+        auto_detect_source_language_config=auto_detect_source_language_config, 
+        audio_config=audio_config)
+result = speech_recognizer.recognize_once()
+auto_detect_source_language_result = speechsdk.AutoDetectSourceLanguageResult(result)
+detected_language = auto_detect_source_language_result.language
+```
 
-Os trechos de código a seguir ilustram como especificar um modelo personalizado em sua chamada para o serviço de fala. Se o idioma detectado for `en-US`, o modelo padrão será usado. Se o idioma detectado for `fr-FR`, o ponto de extremidade para o modelo personalizado será usado:
+::: zone-end
+
+## <a name="use-a-custom-model-for-automatic-language-detection"></a>Use um modelo personalizado para deteção automática de idiomas
+
+Além da deteção de idiomas utilizando modelos de serviço da Fala, pode especificar um modelo personalizado para um reconhecimento melhorado. Se um modelo personalizado não for fornecido, o serviço utilizará o modelo de idioma predefinido.
+
+Os cortes abaixo ilustram como especificar um modelo personalizado na sua chamada para o serviço de Fala. Se a linguagem `en-US`detetada for, então o modelo predefinido é utilizado. Se a linguagem `fr-FR`detetada for, então o ponto final para o modelo personalizado é utilizado:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -95,33 +132,56 @@ var sourceLanguageConfigs = new SourceLanguageConfig[]
     SourceLanguageConfig.FromLanguage("en-US"),
     SourceLanguageConfig.FromLanguage("fr-FR", "The Endpoint Id for custom model of fr-FR")
 };
-var autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.FromSourceLanguageConfigs(sourceLanguageConfigs);
+var autoDetectSourceLanguageConfig =
+    AutoDetectSourceLanguageConfig.FromSourceLanguageConfigs(
+        sourceLanguageConfigs);
 ```
 
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
 
-```C++
+```cpp
 std::vector<std::shared_ptr<SourceLanguageConfig>> sourceLanguageConfigs;
-sourceLanguageConfigs.push_back(SourceLanguageConfig::FromLanguage("en-US"));
-sourceLanguageConfigs.push_back(SourceLanguageConfig::FromLanguage("fr-FR", "The Endpoint Id for custom model of fr-FR"));
-auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromSourceLanguageConfigs(sourceLanguageConfigs);
+sourceLanguageConfigs.push_back(
+    SourceLanguageConfig::FromLanguage("en-US"));
+sourceLanguageConfigs.push_back(
+    SourceLanguageConfig::FromLanguage("fr-FR", "The Endpoint Id for custom model of fr-FR"));
+
+auto autoDetectSourceLanguageConfig =
+    AutoDetectSourceLanguageConfig::FromSourceLanguageConfigs(
+        sourceLanguageConfigs);
 ```
 
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 
-```Java
+```java
 List sourceLanguageConfigs = new ArrayList<SourceLanguageConfig>();
-sourceLanguageConfigs.add(SourceLanguageConfig.fromLanguage("en-US"));
-sourceLanguageConfigs.add(SourceLanguageConfig.fromLanguage("fr-FR", "The Endpoint Id for custom model of fr-FR"));
-AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.fromSourceLanguageConfigs(sourceLanguageConfigs);
+sourceLanguageConfigs.add(
+    SourceLanguageConfig.fromLanguage("en-US"));
+sourceLanguageConfigs.add(
+    SourceLanguageConfig.fromLanguage("fr-FR", "The Endpoint Id for custom model of fr-FR"));
+
+AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig =
+    AutoDetectSourceLanguageConfig.fromSourceLanguageConfigs(
+        sourceLanguageConfigs);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+```Python
+ en_language_config = speechsdk.languageconfig.SourceLanguageConfig("en-US")
+ fr_language_config = speechsdk.languageconfig.SourceLanguageConfig("fr-FR", "The Endpoint Id for custom model of fr-FR")
+ auto_detect_source_language_config = speechsdk.languageconfig.AutoDetectSourceLanguageConfig(
+        sourceLanguageConfigs=[en_language_config, fr_language_config])
 ```
 
 ::: zone-end
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Documentação de referência do SDK de fala](speech-sdk.md)
+- [Documentação de referência do SDK do discurso](speech-sdk.md)

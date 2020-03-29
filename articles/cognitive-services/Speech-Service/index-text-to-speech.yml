@@ -1,23 +1,22 @@
 ### YamlMime:Landing
-title: Documentação da conversão de texto em voz
+title: Documentação texto-a-fala
 summary: O texto-a-voz do serviço speech permite que as suas aplicações, ferramentas ou dispositivos convertam texto em discurso sintetizado semelhante ao humano.
 metadata:
-  title: Documentação texto-a-voz - Tutoriais, Referência API - Serviços Cognitivos Azure  Microsoft Docs
+  title: Documentação texto-a-voz - Tutoriais, Referência API - Serviços Cognitivos Azure [ Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: 82499c16b6ad8cd8c1adfe27eeb7a0c842e37d1e
-  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+  ms.openlocfilehash: 4aa2cb134bc47841da2964f4f83898875098e6c4
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/14/2020
-  ms.locfileid: "79370411"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "80052808"
 landingContent:
 - title: Sobre texto-a-fala
   linkLists:
@@ -31,7 +30,7 @@ landingContent:
       url: quickstarts/text-to-speech.md
     - text: Sintetizar a voz num ficheiro de áudio
       url: quickstarts/text-to-speech-audio-file.md
-    - text: Sintetizar a voz com áudio de formato longo
+    - text: Discurso sintetizador com áudio de forma longa
       url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
 - title: Desenvolver com texto-a-fala
   linkLists:
@@ -39,8 +38,6 @@ landingContent:
     links:
     - text: Melhorar a sintetização com SSML
       url: speech-synthesis-markup.md
-    - text: Melhorar a sintetização com Voz Personalizada
-      url: how-to-custom-voice.md
     - text: Obtenha uma lista de vozes com REST (Python)
       url: quickstart-python-get-text-to-speech-voices.md
     - text: Converter texto em voz com REST (Python)

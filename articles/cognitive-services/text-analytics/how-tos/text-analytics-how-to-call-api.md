@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
 ms.openlocfilehash: afb576c265ccdd4a014ed678331f030a0442a197
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79219304"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API REST de Análise de Texto
 
 As chamadas para a **API** de Análise de Texto são chamadas HTTP POST/GET, que pode formular em qualquer idioma. Neste artigo, usamos REST e [Carteiro](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) para demonstrar conceitos-chave.
 
-Cada pedido deve incluir a sua chave de acesso e um ponto final HTTP. O ponto final especifica a região que escolheu durante a inscrição, o URL de serviço e um recurso utilizado no pedido: `sentiment`, `keyphrases`, `languages`e `entities`. 
+Cada pedido deve incluir a sua chave de acesso e um ponto final HTTP. O ponto final especifica a região que escolheu durante a inscrição, `sentiment` `keyphrases`o `languages`URL `entities`de serviço e um recurso utilizado no pedido: , , e . 
 
 Recorde-se que o Text Analytics é apátrida, pelo que não existem ativos de dados para gerir. O seu texto é enviado, analisado após a receção, e os resultados são devolvidos imediatamente ao pedido de chamada.
 
@@ -43,9 +43,9 @@ Atualmente pode submeter os mesmos documentos para todas as operações de Anál
 |---------|--------------|-----------|-------|
 |`id` |O tipo de dados é string, mas na prática os IDs de documentotendem a ser inteiros. | Necessário | O sistema usa as iDs que fornece para estruturar a saída. Códigos linguísticos, frases-chave e pontuações de sentimento são gerados para cada ID no pedido.|
 |`text` | Texto cru não estruturado, até 5.120 caracteres. | Necessário | Para deteção de idiomas, o texto pode ser expresso em qualquer idioma. Para análise de sentimentos, extração de frases-chave e identificação da entidade, o texto deve estar numa [língua apoiada](../text-analytics-supported-languages.md). |
-|`language` | Código [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) de 2 caracteres para uma [língua apoiada](../text-analytics-supported-languages.md) | Varia | Necessária para análise de sentimentos, extração de frases-chave e ligação de entidades; opcional para deteção de linguagem. Não há erro se o excluirmos, mas a análise é enfraquecida sem ela. O código linguístico deve corresponder ao `text` que fornece. |
+|`language` | Código [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) de 2 caracteres para uma [língua apoiada](../text-analytics-supported-languages.md) | Varia | Necessária para análise de sentimentos, extração de frases-chave e ligação de entidades; opcional para deteção de linguagem. Não há erro se o excluirmos, mas a análise é enfraquecida sem ela. O código linguístico `text` deve corresponder ao que fornece. |
 
-Para obter mais informações sobre limites, consulte a [visão geral do Text Analytics > Limites](../overview.md#data-limits)de dados . 
+Para obter mais informações sobre limites, consulte a [visão geral do Texto > limites de dados](../overview.md#data-limits). 
 
 ## <a name="set-up-a-request-in-postman"></a>Configurar um pedido no Carteiro
 
@@ -80,7 +80,7 @@ O serviço aceita pedido até 1 MB de tamanho. Se estiver a utilizar o Carteiro 
 
 5. Colá-lo em alguns documentos JSON num formato válido para a análise pretendida. Para obter mais informações sobre uma determinada análise, consulte os tópicos abaixo:
 
-  + [Deteção de linguagem](text-analytics-how-to-language-detection.md)  
+  + [Deteção de idioma](text-analytics-how-to-language-detection.md)  
   + [Extração de frase-chave](text-analytics-how-to-keyword-extraction.md)  
   + [Análise de sentimento](text-analytics-how-to-sentiment-analysis.md)  
   + [Reconhecimento de entidades](text-analytics-how-to-entity-linking.md)  
@@ -92,10 +92,10 @@ O serviço aceita pedido até 1 MB de tamanho. Se estiver a utilizar o Carteiro 
 
 ## <a name="see-also"></a>Consulte também 
 
- [Text Analytics Overview](../overview.md) (Descrição Geral da Análise de Texto)  
- [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)
+ [Visão geral da análise de texto](../overview.md)  
+ [Perguntas frequentes (FAQ)](../text-analytics-resource-faq.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Detetar linguagem](text-analytics-how-to-language-detection.md)
+> [Detetar idioma](text-analytics-how-to-language-detection.md)

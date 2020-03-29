@@ -1,7 +1,7 @@
 ---
-title: Log do SDK de fala – serviço de fala
+title: Registo de Fala SDK - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Saiba mais sobre como habilitar o registro em log no SDKC++de C#fala (, Python, Objective-C, Java).
+description: Saiba como permitir a exploração madeireira no SDK da Fala (C++, C#, Python, Objective-C, Java).
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
 ms.openlocfilehash: 707a0f801a739a7a91cee19635e609305cd8f021
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74805795"
 ---
-# <a name="enable-logging-in-the-speech-sdk"></a>Habilitar o registro em log no SDK de fala
+# <a name="enable-logging-in-the-speech-sdk"></a>Ativar o registo no SDK da fala
 
-O registro em log no arquivo é um recurso opcional para o SDK de fala. Durante o log de desenvolvimento fornece informações adicionais e diagnósticos dos principais componentes do SDK de fala. Ele pode ser habilitado definindo a propriedade `Speech_LogFilename` em um objeto de configuração de fala como o local e o nome do arquivo de log. O registro em log será ativado globalmente quando um reconhecedor for criado a partir dessa configuração e não poderá ser desabilitado posteriormente. Não é possível alterar o nome de um arquivo de log durante uma sessão de log em execução.
+Iniciar a sua vida por arquivar é uma característica opcional para o SDK do Discurso. Durante o desenvolvimento, o registo fornece informações e diagnósticos adicionais dos componentes principais do SDK da Fala. Pode ser ativado colocando `Speech_LogFilename` a propriedade num objeto de configuração da fala para a localização e nome do ficheiro de registo. O registo será ativado globalmente assim que um restente for criado a partir dessa configuração e não puder ser desativado depois. Não é possível alterar o nome de um ficheiro de registo durante uma sessão de registo em execução.
 
 > [!NOTE]
-> O registro em log está disponível desde o Speech SDK versão 1.4.0 em todas as linguagens de programação SDK de fala com suporte, com exceção do JavaScript.
+> O registo está disponível desde a versão 1.4.0 do Speech SDK em todos os idiomas de programação sdk suportados, com exceção do JavaScript.
 
-## <a name="sample"></a>Exemplo
+## <a name="sample"></a>Sample
 
-O nome do arquivo de log é especificado em um objeto de configuração. Pegar o `SpeechConfig` como um exemplo e pressupondo que você tenha criado uma instância chamada `config`:
+O nome do ficheiro de registo é especificado num objeto de configuração. Tomando o `SpeechConfig` exemplo e assumindo que `config`criou uma instância chamada:
 
 ```csharp
 config.SetProperty(PropertyId.Speech_LogFilename, "LogfilePathAndName");
@@ -48,18 +48,18 @@ config.set_property(speechsdk.PropertyId.Speech_LogFilename, "LogfilePathAndName
 [config setPropertyTo:@"LogfilePathAndName" byId:SPXSpeechLogFilename];
 ```
 
-Você pode criar um reconhecedor a partir do objeto de configuração. Isso habilitará o registro em log para todos os reconhecedores.
+Pode criar um reconhecível a partir do objeto de config. Isto permitirá a exploração madeireira para todos os reconhecíveis.
 
 > [!NOTE]
-> Se você criar um `SpeechSynthesizer` a partir do objeto de configuração, ele não habilitará o registro em log. No entanto, se o registro em log estiver habilitado, você também receberá diagnósticos do `SpeechSynthesizer`.
+> Se criar `SpeechSynthesizer` um a partir do objeto de config, não permitirá a exploração madeireira. No entanto, se o registo estiver ativado, também receberá diagnósticos a `SpeechSynthesizer`partir do .
 
-## <a name="create-a-log-file-on-different-platforms"></a>Criar um arquivo de log em diferentes plataformas
+## <a name="create-a-log-file-on-different-platforms"></a>Criar um ficheiro de registo em diferentes plataformas
 
-Para Windows ou Linux, o arquivo de log pode estar em qualquer caminho para o qual o usuário tenha permissão de gravação. As permissões de gravação para locais do sistema de arquivos em outros sistemas operacionais podem ser limitadas ou restritas por padrão.
+Para windows ou Linux, o ficheiro de registo pode estar em qualquer caminho para o qual o utilizador tenha permissão de escrita. Escrever permissões para registar localizações do sistema noutros sistemas operativos pode ser limitado ou restringido por padrão.
 
 ### <a name="universal-windows-platform-uwp"></a>Plataforma Universal do Windows (UWP)
 
-Os aplicativos UWP precisam ser colocados nos arquivos de log em um dos locais de dados do aplicativo (local, móvel ou temporário). Um arquivo de log pode ser criado na pasta do aplicativo local:
+As aplicações da UWP têm de ser colocações de ficheiros de registo num dos locais de dados da aplicação (local, roaming ou temporário). Um ficheiro de registo pode ser criado na pasta de aplicação local:
 
 ```csharp
 StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
@@ -67,11 +67,11 @@ StorageFile logFile = await storageFolder.CreateFileAsync("logfile.txt", Creatio
 config.SetProperty(PropertyId.Speech_LogFilename, logFile.Path);
 ```
 
-Mais informações sobre a permissão de acesso a arquivos para aplicativos UWP estão disponíveis [aqui](https://docs.microsoft.com/windows/uwp/files/file-access-permissions).
+Mais sobre a permissão de acesso de ficheiros para aplicações UWP está disponível [aqui](https://docs.microsoft.com/windows/uwp/files/file-access-permissions).
 
 ### <a name="android"></a>Android
 
-Você pode salvar um arquivo de log em um armazenamento interno, armazenamento externo ou diretório de cache. Os arquivos criados no armazenamento interno ou no diretório de cache são privados para o aplicativo. É preferível criar um arquivo de log no armazenamento externo.
+Pode guardar um ficheiro de registo para armazenamento interno, armazenamento externo ou diretório de cache. Os ficheiros criados no armazenamento interno ou no diretório de cache são privados da aplicação. É preferível criar um ficheiro de registo no armazenamento externo.
 
 ```java
 File dir = context.getExternalFilesDir(null);
@@ -79,9 +79,9 @@ File logFile = new File(dir, "logfile.txt");
 config.setProperty(PropertyId.Speech_LogFilename, logFile.getAbsolutePath());
 ```
 
-O código acima salvará um arquivo de log no armazenamento externo na raiz de um diretório específico do aplicativo. Um usuário pode acessar o arquivo com o Gerenciador de arquivos (geralmente em `Android/data/ApplicationName/logfile.txt`). O arquivo será excluído quando o aplicativo for desinstalado.
+O código acima irá guardar um ficheiro de registo para o armazenamento externo na raiz de um diretório específico da aplicação. Um utilizador pode aceder ao ficheiro com `Android/data/ApplicationName/logfile.txt`o gestor de ficheiros (normalmente em ). O ficheiro será apagado quando a aplicação estiver desinstalada.
 
-Você também precisa solicitar `WRITE_EXTERNAL_STORAGE` permissão no arquivo de manifesto:
+Também precisa de `WRITE_EXTERNAL_STORAGE` solicitar permissão no ficheiro manifesto:
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="...">
@@ -91,11 +91,11 @@ Você também precisa solicitar `WRITE_EXTERNAL_STORAGE` permissão no arquivo d
 </manifest>
 ```
 
-Mais informações sobre armazenamento de dados e de arquivos para aplicativos Android estão disponíveis [aqui](https://developer.android.com/guide/topics/data/data-storage.html).
+Mais sobre dados e armazenamento de ficheiros para aplicações Android está disponível [aqui](https://developer.android.com/guide/topics/data/data-storage.html).
 
 #### <a name="ios"></a>iOS
 
-Somente os diretórios dentro da área restrita do aplicativo estão acessíveis. Os arquivos podem ser criados nos documentos, na biblioteca e nos diretórios temporários. Os arquivos no diretório documentos podem ser disponibilizados para um usuário. O trecho de código a seguir mostra a criação de um arquivo de log no diretório de documentos do aplicativo:
+Apenas os diretórios dentro da caixa de areia de aplicação são acessíveis. Os ficheiros podem ser criados nos diretórios de documentos, bibliotecas e temporários. Os ficheiros no diretório de documentos podem ser disponibilizados a um utilizador. O seguinte código de snippet mostra a criação de um ficheiro de registo no diretório do documento de aplicação:
 
 ```objc
 NSString *filePath = [
@@ -104,7 +104,7 @@ NSString *filePath = [
 [speechConfig setPropertyTo:filePath byId:SPXSpeechLogFilename];
 ```
 
-Para acessar um arquivo criado, adicione as propriedades abaixo à lista de propriedades de `Info.plist` do aplicativo:
+Para aceder a um ficheiro criado, `Info.plist` adicione os imóveis abaixo na lista de propriedades da aplicação:
 
 ```xml
 <key>UIFileSharingEnabled</key>
@@ -113,9 +113,9 @@ Para acessar um arquivo criado, adicione as propriedades abaixo à lista de prop
 <true/>
 ```
 
-Mais sobre o sistema de arquivos do iOS está disponível [aqui](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html).
+Mais sobre o sistema de ficheiros iOS está disponível [aqui](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Explore nossos exemplos no GitHub](https://aka.ms/csspeech/samples)
+> [Explore as nossas amostras no GitHub](https://aka.ms/csspeech/samples)

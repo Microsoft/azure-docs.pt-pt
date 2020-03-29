@@ -4,10 +4,10 @@ description: Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a pa
 ms.topic: conceptual
 ms.date: 02/08/2020
 ms.openlocfilehash: b1f80006e2dc72b5b623f4c29c093c734dc1efea
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220580"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Quickstart: Criar, treinar e publicar a sua base de conhecimento qnA Maker
@@ -17,7 +17,7 @@ Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
-> * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+> * Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 > * Um [recurso](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) QnA Maker criado no portal Azure. Lembre-se do id do Diretório Ativo Azure, Subscrição, nome de recurso QnA que selecionou quando criou o recurso.
 
 ## <a name="create-your-first-qna-maker-knowledge-base"></a>Crie a sua primeira base de conhecimento qnA Maker
@@ -66,7 +66,7 @@ Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus
 
     ![ Adicione a pergunta como texto e a resposta formatada com marcação.](../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png)
 
-    O símbolo de marcação, `*`, é usado para pontos de bala. O `\n` é usado para uma nova linha.
+    O símbolo de `*`marcação, é usado para pontos de bala. É `\n` usado para uma nova linha.
 
     A página **edita** mostra o markdown. Quando utilizar o painel **de teste** mais tarde, verá a marcação corretamente exibida.
 
@@ -89,7 +89,7 @@ Na parte superior direita, selecione **Guardar e treinar** para salvar as suas e
 
 ## <a name="publish-the-knowledge-base"></a>Publicar a base de dados de conhecimento
 
-Ao publicar uma base de conhecimento, o conteúdo da sua base de conhecimentos passa do índice de `test` para um índice `prod` na pesquisa Azure.
+Ao publicar uma base de conhecimento, o conteúdo `test` da `prod` sua base de conhecimentos passa do índice para um índice na pesquisa Azure.
 
 ![Screenshot de mover o conteúdo da sua base de conhecimento](../media/qnamaker-how-to-publish-kb/publish-prod-test.png)
 
@@ -114,10 +114,10 @@ Quando fazalterações na base de conhecimentos e republique, não precisa de to
 
 1. Abre-se um novo separador de navegador para o portal Azure, com a página de criação do Serviço Bot Azure. Configure o serviço de bots Azure. O bot e o QnA Maker podem partilhar o plano de serviço de aplicações web, mas não podem partilhar a aplicação web. Isto significa que o nome da **aplicação** para o bot deve ser diferente do nome da aplicação para o serviço QnA Maker.
 
-    * **Fazer**
+    * **O que deve fazer**
         * Mude a pega do bot - se não for única.
         * Selecione linguagem SDK. Assim que o bot for criado, pode transferir o código para o seu ambiente de desenvolvimento local e continuar o processo de desenvolvimento.
-    * **Não**
+    * **O que não deve fazer**
         * alterar as seguintes definições no portal Azure ao criar o bot. São pré-povoados para a sua base de conhecimento existente:
            * QnA Auth Key
            * Plano de serviço de aplicativos e localização

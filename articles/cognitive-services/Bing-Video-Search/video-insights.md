@@ -1,7 +1,7 @@
 ---
-title: Obter informações de vídeo usando o API de Pesquisa de Vídeo do Bing
+title: Obtenha informações de vídeo usando a API de pesquisa de vídeo bing
 titleSuffix: Azure Cognitive Services
-description: Saiba como usar o API de Pesquisa de Vídeo do Bing para obter mais informações sobre vídeos, como vídeos relacionados.
+description: Saiba como usar a API de Pesquisa de Vídeo Bing para obter mais informações sobre vídeos, como vídeos relacionados.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
 ms.openlocfilehash: 7683930af1de0fc4e4d112c1e559358d5d5d5609
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68500601"
 ---
 # <a name="get-insights-about-a-video"></a>Obtenha informações sobre um vídeo
 
-Cada vídeo retornado pelo API de Pesquisa de Vídeo do Bing inclui uma ID de vídeo que você pode usar para obter mais informações sobre ele, como vídeos relacionados. Para obter informações sobre um vídeo, obtenha seu token [videoid](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-videoid) na resposta da API. 
+Cada vídeo devolvido pela API de Pesquisa de Vídeo bing inclui um ID de vídeo que pode usar para obter mais informações sobre o mesmo, como vídeos relacionados. Para obter informações sobre um vídeo, obtenha o seu [vídeoId](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-videoid) token na resposta da API. 
 
 ```json
     "value" : [
@@ -34,7 +34,7 @@ Cada vídeo retornado pelo API de Pesquisa de Vídeo do Bing inclui uma ID de v�
     ],
 ```
 
-Posteriormente, envie uma solicitação GET para o ponto de extremidade detalhes do vídeo com a ID. Defina o parâmetro de consulta [ID](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#id) para `videoId` o token. Para especificar as informações que você deseja obter, defina o parâmetro de consulta [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested) . Para obter todas as informações, defina `modules` como todos. A resposta inclui todas as informações que você solicitou, se disponíveis.
+Em seguida, envie um pedido GET para os detalhes do vídeo final com o ID. Defina o parâmetro de `videoId` consulta [de identificação](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#id) para o símbolo. Para especificar as informações que pretende obter, defina o parâmetro de consulta dos [módulos.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested) Para obter todas `modules` as ideias, tudo. A resposta inclui todas as informações que solicitou, se disponível.
 
 ```cURL
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=All&mkt=en-us HTTP/1.1  
@@ -46,9 +46,9 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ``` 
 
-## <a name="getting-related-videos-insights"></a>Obtendo informações de vídeos relacionados  
+## <a name="getting-related-videos-insights"></a>Obter insights de vídeos relacionados  
 
-Para obter vídeos relacionados ao vídeo especificado, defina o parâmetro de consulta [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested) como `RelatedVideos`.
+Para obter vídeos relacionados com o vídeo especificado, defina `RelatedVideos`o parâmetro de consulta dos [módulos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested) para .
   
 ```cURL  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=RelatedVideos&mkt=en-us HTTP/1.1  
@@ -60,7 +60,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-A resposta a essa solicitação terá um objeto [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails) de nível superior em vez de um objeto de [vídeos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) .  
+A resposta a este pedido terá um objeto de [vídeo de](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails) alto nível Em vez de um objeto [de Vídeos.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos)  
   
 ```json
 {
@@ -94,8 +94,8 @@ A resposta a essa solicitação terá um objeto [VideoDetails](https://docs.micr
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Pesquisar vídeos de tendências](trending-videos.md)
+> [Pesquisar por vídeos de tendência](trending-videos.md)
 

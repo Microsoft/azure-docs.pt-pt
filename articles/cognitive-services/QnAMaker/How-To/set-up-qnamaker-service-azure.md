@@ -1,25 +1,25 @@
 ---
 title: Criar um serviço QnA Maker - QnA Maker
-description: Antes de poder criar quaisquer bases de dados de conhecimento do QnA Maker, primeiro tem de configurar um serviço QnA Maker no Azure. Qualquer pessoa com autorização para criar novos recursos numa subscrição pode configurar o serviço QnA Maker.
+description: Antes de poder criar quaisquer bases de conhecimento qnA Maker, tem primeiro de configurar um serviço QnA Maker em Azure. Qualquer pessoa com autorização para criar novos recursos numa subscrição pode criar um serviço QnA Maker.
 ms.topic: conceptual
-ms.date: 01/28/2020
-ms.openlocfilehash: 663cbce0e096c6189d97cf7872d466383d272f06
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/19/2020
+ms.openlocfilehash: 8ec57f441ba58227e45398c35c7931dc75fa658f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79220591"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131722"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerir os recursos do Fabricante qna
 
-Antes de poder criar quaisquer bases de dados de conhecimento do QnA Maker, primeiro tem de configurar um serviço QnA Maker no Azure. Qualquer pessoa com autorização para criar novos recursos numa subscrição pode configurar o serviço QnA Maker.
+Antes de poder criar quaisquer bases de conhecimento qnA Maker, tem primeiro de configurar um serviço QnA Maker em Azure. Qualquer pessoa com autorização para criar novos recursos numa subscrição pode criar um serviço QnA Maker.
 
 Uma compreensão sólida dos seguintes conceitos é útil antes de criar o seu recurso:
 
 * [Recursos da QnA Maker](../Concepts/azure-resources.md)
 * [Chaves de autoria e publicação](../Concepts/azure-resources.md#keys-in-qna-maker)
 
-## <a name="create-a-new-qna-maker-service"></a>Criar um novo serviço QnA Maker
+## <a name="create-a-new-qna-maker-service"></a>Crie um novo serviço QnA Maker
 
 Este procedimento cria os recursos Azure necessários para gerir o conteúdo da base de conhecimentos. Depois de completar estes passos, encontrará as chaves de _subscrição_ na página **Keys** para o recurso no portal Azure.
 
@@ -27,11 +27,11 @@ Este procedimento cria os recursos Azure necessários para gerir o conteúdo da 
 
 1. Selecione **Criar** depois de ler os termos e condições:
 
-    ![Criar um novo serviço QnA Maker](../media/qnamaker-how-to-setup-service/create-new-resource-button.png)
+    ![Crie um novo serviço QnA Maker](../media/qnamaker-how-to-setup-service/create-new-resource-button.png)
 
 1. No **QnA Maker,** selecione os níveis e regiões apropriados:
 
-    ![Criar um novo serviço QnA Maker - regiões e escalão de preço](../media/qnamaker-how-to-setup-service/enter-qnamaker-info.png)
+    ![Criar um novo serviço QnA Maker - nível de preços e regiões](../media/qnamaker-how-to-setup-service/enter-qnamaker-info.png)
 
     * No campo **Nome,** insira um nome único para identificar este serviço QnA Maker. Este nome também identifica o ponto final do Fabricante qnA a que as suas bases de conhecimento estarão associadas.
     * Escolha a **Subscrição** sob a qual será implantado o recurso QnA Maker.
@@ -41,7 +41,7 @@ Este procedimento cria os recursos Azure necessários para gerir o conteúdo da 
     * Escolha o **nível** de preços de Pesquisa do serviço de Pesquisa Cognitiva Azure. Se a opção Free tier não estiver disponível (aparece reduzida), significa que já tem um serviço gratuito implementado através da sua subscrição. Nesse caso, terá de começar pelo nível básico. Consulte os detalhes dos preços da [Pesquisa Cognitiva Azure](https://azure.microsoft.com/pricing/details/search/).
     * Escolha o local de **pesquisa** onde pretende que os índices de Pesquisa Cognitiva Azure sejam implantados. As restrições sobre onde os dados do cliente devem ser armazenados ajudarão a determinar a localização que escolhe para a Pesquisa Cognitiva Azure.
     * No campo de nome da **App,** insira um nome para a sua instância de Serviço de Aplicações Azure.
-    * Por predefinição, o Serviço de Aplicações não se aplica ao nível padrão (S1). Pode alterar o plano após a criação. Saiba mais sobre os preços do Serviço de [Aplicações.](https://azure.microsoft.com/pricing/details/app-service/)
+    * Por predefinição, o Serviço de Aplicações não se aplica ao nível padrão (S1). Podes mudar o plano depois da criação. Saiba mais sobre os preços do Serviço de [Aplicações.](https://azure.microsoft.com/pricing/details/app-service/)
     * Escolha a localização do **Site** onde o Serviço de Aplicações será implementado.
 
         > [!NOTE]
@@ -55,7 +55,7 @@ Este procedimento cria os recursos Azure necessários para gerir o conteúdo da 
 
 1. Após a implementação ser concluída, verá os seguintes recursos criados na sua subscrição:
 
-   ![Recurso criado um novo serviço QnA Maker](../media/qnamaker-how-to-setup-service/resources-created.png)
+   ![Recurso criou um novo serviço QnA Maker](../media/qnamaker-how-to-setup-service/resources-created.png)
 
     O recurso do tipo _Serviços Cognitivos_ tem as suas chaves _de subscrição._
 
@@ -65,7 +65,7 @@ Pode visualizar e redefinir as suas chaves de subscrição a partir do portal Az
 
 1. Vá ao recurso QnA Maker no portal Azure e selecione o recurso que tem o tipo _de Serviços Cognitivos:_
 
-    ![Lista de recursos do QnA Maker](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
+    ![Lista de recursos do Fabricante qna](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
 
 2. Ir para **Chaves:**
 
@@ -79,12 +79,12 @@ As chaves endpoint podem ser geridas a partir do [portal QnA Maker](https://qnam
 
 1. Inscreva-se no [portal QnA Maker,](https://qnamaker.ai)vá ao seu perfil e, em seguida, selecione **as definições**de Serviço:
 
-    ![Chave de ponto final](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
+    ![Chave endpoint](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 
 2. Ver ou redefinir as chaves:
 
     > [!div class="mx-imgBorder"]
-    > ](../media/qnamaker-how-to-key-management/Endpoint-keys1.png) de gerente-chave ![Endpoint
+    > ![Gestor de chaves endpoint](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
 
     >[!NOTE]
     >Refresque as chaves se achar que foram comprometidas. Isto pode exigir alterações correspondentes à sua aplicação de cliente ou código bot.
@@ -143,19 +143,19 @@ Atualmente, não é possível realizar uma atualização no local da pesquisa Az
 
 ## <a name="get-the-latest-runtime-updates"></a>Obtenha as últimas atualizações do tempo de execução
 
-O tempo de execução do QnAMaker faz parte da instância do Serviço de Aplicações Azure que é implementada quando [cria um serviço QnAMaker](./set-up-qnamaker-service-azure.md) no portal Azure. As atualizações são feitas periodicamente o tempo de execução. A instância QnA Maker App Service encontra-se em modo de atualização automática após o lançamento da extensão do site de abril de 2019 (versão 5+). Esta atualização foi concebida para tratar do tempo de inatividade ZERO durante as atualizações.
+O tempo de execução do QnAMaker faz parte da instância do Serviço de Aplicações Azure que é implementada quando [cria um serviço QnAMaker](./set-up-qnamaker-service-azure.md) no portal Azure. As atualizações são feitas periodicamente para o tempo de execução. A instância QnA Maker App Service encontra-se em modo de atualização automática após o lançamento da extensão do site de abril de 2019 (versão 5+). Esta atualização foi concebida para tratar do tempo de inatividade ZERO durante as atualizações.
 
-Pode verificar a sua versão atual em https://www.qnamaker.ai/UserSettings. Se a sua versão for mais antiga do que a versão 5.x, tem de reiniciar o Serviço de Aplicações para aplicar as últimas atualizações:
+Pode verificar a sua https://www.qnamaker.ai/UserSettingsversão atual em . Se a sua versão for mais antiga do que a versão 5.x, tem de reiniciar o Serviço de Aplicações para aplicar as últimas atualizações:
 
 1. Vá ao seu serviço QnAMaker (grupo de recursos) no [portal Azure](https://portal.azure.com).
 
     > [!div class="mx-imgBorder"]
-    > ![grupo de recursos QnAMaker Azure](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
+    > ![Grupo de recursos QnAMaker Azure](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
 
 1. Selecione a instância do Serviço de Aplicações e abra a secção **De visão geral.**
 
     > [!div class="mx-imgBorder"]
-    > ![qnAMaker App Service](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
+    > ![QnAMaker App Service instância](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
 
 
 1. Reiniciar o Serviço de Aplicações. O processo de atualização deve terminar em alguns segundos. Quaisquer aplicações ou bots dependentes que utilizem este serviço QnAMaker não estarão disponíveis para os utilizadores finais durante este período de reinício.
@@ -185,13 +185,38 @@ O recurso qnA Maker's **App Service** utiliza o recurso De pesquisa cognitiva. P
 1. Para utilizar as novas definições, é necessário reiniciar o serviço app. Selecione **a visão geral**e, em seguida, selecione **Reiniciar**.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot do portal Azure reiniciando o Serviço de Aplicações após configurações mudarem](../media/qnamaker-how-to-upgrade-qnamaker/screenshot-azure-portal-restart-app-service.png)
+    > ![Screenshot do portal Azure reiniciando o Serviço de Aplicações após alteração das definições de configuração](../media/qnamaker-how-to-upgrade-qnamaker/screenshot-azure-portal-restart-app-service.png)
 
 Se criar um serviço QnA através de modelos do Gestor de Recursos Azure, pode criar todos os recursos e controlar a criação do Serviço de Aplicações para utilizar um serviço de Pesquisa existente.
+
+Saiba mais sobre como configurar as definições de [Aplicação](../../../app-service/configure-common.md#configure-app-settings)de Serviço de Aplicações .
+
+## <a name="configure-app-service-idle-setting-to-avoid-timeout"></a>Configurar a definição de ocioso do serviço de aplicações para evitar o tempo limite
+
+O serviço de aplicações, que serve o tempo de execução da previsão qnA maker para uma base de conhecimento publicada, tem uma configuração de tempo inativo, que não se aplica automaticamente ao tempo limite se o serviço estiver inativo. Para o Fabricante qnA, isto significa que o seu tempo de previsão gera API ocasionalmente vezes fora após períodos sem tráfego.
+
+Para manter a aplicação de ponta de previsão carregada mesmo quando não há tráfego, desloque a inatividade para sempre ligado.
+
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Procure e selecione o serviço de aplicações do seu recurso QnA Maker. Terá o mesmo nome que o recurso QnA Maker, mas terá um **tipo** diferente de Serviço de Aplicações.
+1. Encontre **definições** e, em seguida, **selecione Configuração**.
+1. No painel de configuração, selecione **As definições gerais,** em seguida, encontre **sempre ligado**, e selecione **On** como valor.
+
+    > [!div class="mx-imgBorder"]
+    > ![No painel de configuração, selecione **Configurações gerais*** e, em seguida, encontre **Sempre on**, e selecione **On** como o valor.](../media/qnamaker-how-to-upgrade-qnamaker/configure-app-service-idle-timeout.png)
+
+1. Selecione **Guardar** para salvar a configuração.
+1. É-lhe perguntado se pretende reiniciar a aplicação para utilizar a nova definição. Selecione **Continuar**.
+
+Saiba mais sobre como configurar as [configurações gerais](../../../app-service/configure-common.md#configure-general-settings)do serviço de aplicações.
+
+## <a name="delete-azure-resources"></a>Eliminar recursos do Azure
+
+Se eliminar algum dos recursos Azure utilizados para as suas bases de conhecimento do QnA Maker, as bases de conhecimento deixarão de funcionar. Antes de apagar quaisquer recursos, certifique-se de exportar as suas bases de conhecimento a partir da página **Definições.**
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o [serviço de Aplicações](../../../app-service/index.yml) e [Pesquisa.](../../../search/index.yml)
 
 > [!div class="nextstepaction"]
-> [Criar e publicar uma base de conhecimento](../Quickstarts/create-publish-knowledge-base.md)
+> [Criar e publicar uma base de dados de conhecimento](../Quickstarts/create-publish-knowledge-base.md)

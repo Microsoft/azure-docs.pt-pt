@@ -1,7 +1,7 @@
 ---
-title: Planejar seu aplicativo-LUIS
+title: Planeie a sua app - LUIS
 titleSuffix: Azure Cognitive Services
-description: Descrever a aplicação relevante intenções e entidades e, em seguida, criar seus planos de aplicativo no Language Understanding Intelligent Service (LUIS).
+description: Delineie as intenções e entidades relevantes da aplicação e, em seguida, crie os seus planos de aplicação em Serviços Inteligentes de Compreensão de Línguas (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,53 +12,53 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: diberry
 ms.openlocfilehash: 6a155f4c43da03ccdc40d289742918973aa6da7b
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74326781"
 ---
-# <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planejar o esquema do aplicativo LUIS com a extração de dados e domínio do assunto
+# <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planeje o seu esquema de aplicação LUIS com domínio sujeito e extração de dados
 
-Um esquema de aplicativo LUIS contém [intenções](luis-glossary.md#intent) e [entidades](luis-glossary.md#entity) relevantes para seu [domínio](luis-glossary.md#domain)de assunto. As intenções classificam [declarações](luis-glossary.md#utterance)do usuário e as entidades extraem dados do declarações do usuário.
+Um esquema de aplicação LUIS contém [intenções](luis-glossary.md#intent) e [entidades relevantes](luis-glossary.md#entity) para o seu [domínio](luis-glossary.md#domain)de assunto. As intenções classificam as [declarações](luis-glossary.md#utterance)dos utilizadores, e as entidades extraem dados das declarações do utilizador.
 
-## <a name="identify-your-domain"></a>Identificar o seu domínio
+## <a name="identify-your-domain"></a>Identifique o seu domínio
 
-Um aplicativo LUIS é centralizado em um domínio de assunto. Por exemplo, você pode ter um aplicativo de viagem que lide com a reserva de ingressos, vôos, hotéis e carros de aluguel. Outra aplicação pode fornecer conteúdo relacionado para exercitar, os esforços de adequação de controlo e definir metas. Identificar o domínio ajuda a localizar palavras ou frases relevantes para seu domínio.
+Uma aplicação LUIS está centrada em torno de um domínio de assunto. Por exemplo, você pode ter uma app de viagens que lida com a reserva de bilhetes, voos, hotéis e carros de aluguel. Outra aplicação pode fornecer conteúdo relacionado com o exercício, acompanhamento dos esforços de fitness e definição de objetivos. Identificar o domínio ajuda-o a encontrar palavras ou frases relevantes para o seu domínio.
 
 > [!TIP]
-> O LUIS oferece [domínios pré-criados](luis-how-to-use-prebuilt-domains.md) para muitos cenários comuns. Verifique se pode utilizar um domínio pré-criado como ponto de partida para a sua aplicação.
+> O LUIS oferece [domínios pré-construídos](luis-how-to-use-prebuilt-domains.md) para muitos cenários comuns. Verifique se pode usar um domínio pré-construído como ponto de partida para a sua aplicação.
 
-## <a name="identify-your-intents"></a>Identificar suas intenções
+## <a name="identify-your-intents"></a>Identifique as suas intenções
 
-Pense nas [intenções](luis-concept-intent.md) que são importantes para a tarefa do seu aplicativo.
+Pense nas intenções que são [importantes](luis-concept-intent.md) para a tarefa da sua aplicação.
 
-Vejamos o exemplo de uma aplicação de viagens, com as funções para programar um vôo e verificar o tempo no destino do usuário. Você pode definir as tentativas de `BookFlight` e `GetWeather` para essas ações.
+Vamos dar o exemplo de uma aplicação de viagem, com funções para reservar um voo e verificar o tempo no destino do utilizador. Pode definir `BookFlight` as `GetWeather` intenções e intenções para estas ações.
 
-Em um aplicativo mais complexo com mais funções, você tem mais intenções e deve defini-las com cuidado para que as intenções não sejam muito específicas. Por exemplo, `BookFlight` e `BookHotel` talvez precisem de tentativas separadas, mas `BookInternationalFlight` e `BookDomesticFlight` podem ser muito semelhantes.
+Numa aplicação mais complexa, com mais funções, tem mais intenções, e deve defini-las cuidadosamente para que as intenções não sejam muito específicas. Por `BookFlight` exemplo, `BookHotel` e pode ter de `BookInternationalFlight` ser `BookDomesticFlight` intenções separadas, mas pode ser muito semelhante.
 
 > [!NOTE]
-> É melhor prática para utilizar apenas os objetivos, conforme necessário executar as funções da sua aplicação. Se definir objetivos de demasiados, torna-se mais difícil para o LUIS classificar expressões com corretamente. Se você definir poucos, eles poderão ser tão gerais que se sobrepõem.
+> É uma boa prática usar apenas as intenções necessárias para desempenhar as funções da sua aplicação. Se definir demasiadas intenções, torna-se mais difícil para luis classificar corretamente as expressões. Se definirmos poucos, podem ser tão gerais que se sobrepõem.
 
-Se você não precisar identificar a intenção geral do usuário, adicione todos os declarações de usuário de exemplo à intenção de `None`. Se seu aplicativo aumentar a necessidade de mais intenções, você poderá criá-los mais tarde.
+Se não precisar identificar a intenção geral do utilizador, adicione `None` todas as declarações de exemplo do utilizador à intenção. Se a sua aplicação crescer a precisar de mais intenções, pode criá-las mais tarde.
 
-## <a name="create-example-utterances-for-each-intent"></a>Criar expressão de exemplo para cada intenção
+## <a name="create-example-utterances-for-each-intent"></a>Criar pronunciações exemplo para cada intenção
 
-Para começar, Evite criar muitas declarações para cada tentativa. Depois de determinar as intenções, crie um exemplo de 15 a 30 declarações por tentativa. Cada expressão deve ser diferente do declarações fornecido anteriormente. Uma boa variedade no declarações inclui contagem geral de palavras, opções de palavras, conjugação de verbo e pontuação.
+Para começar, evite criar demasiadas expressões para cada intenção. Uma vez determinados as intenções, crie 15 a 30 exemplos de pronunciações por intenção. Cada expressão deve ser diferente das declarações anteriormente fornecidas. Uma boa variedade em expressões incluem contagem geral de palavras, escolha de palavras, verbo tenso e pontuação.
 
-Para obter mais informações, consulte [Understanding Good declarações for Luis apps](luis-concept-utterance.md).
+Para mais informações, consulte a compreensão de [boas expressões para aplicações LUIS.](luis-concept-utterance.md)
 
-## <a name="identify-your-entities"></a>Identificar suas entidades
+## <a name="identify-your-entities"></a>Identifique as suas entidades
 
-As expressões de exemplo, identificar as entidades que pretende extraídos. Para reservar um vôo, você precisa de informações como o destino, a data, a companhia aérea, a categoria de tíquete e a classe de viagem. Crie entidades para esses tipos de dados e marque as [entidades](luis-concept-entity-types.md) no exemplo declarações. As entidades são importantes para realizar uma intenção.
+Nas declarações exemplo, identifique as entidades que pretende extrair. Para reservar um voo, você precisa de informações como o destino, data, companhia aérea, categoria de bilhetes e classe de viagem. Crie entidades para estes tipos de dados e, em seguida, marque as [entidades](luis-concept-entity-types.md) nas declarações de exemplo. As entidades são importantes para realizar uma intenção.
 
-Ao determinar quais entidades usar em seu aplicativo, tenha em mente que existem diferentes tipos de entidades para capturar relações entre tipos de objeto. As [entidades no Luis](luis-concept-entity-types.md) fornecem mais detalhes sobre os diferentes tipos.
+Ao determinar quais as entidades a utilizar na sua app, lembre-se que existem diferentes tipos de entidades para capturar relações entre tipos de objetos. [As entidades do LUIS](luis-concept-entity-types.md) fornecem mais detalhes sobre os diferentes tipos.
 
 > [!TIP]
-> O LUIS oferece [entidades predefinidas](luis-prebuilt-entities.md) para cenários de usuário comuns e de conversação. Considere o uso de entidades predefinidas como um ponto de partida para o desenvolvimento de aplicativos.
+> A LUIS oferece [entidades pré-construídas](luis-prebuilt-entities.md) para cenários comuns e de utilizadores de conversação. Considere usar entidades pré-construídas como ponto de partida para o desenvolvimento da sua aplicação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Aprendendo o lifecylce de desenvolvimento do LUIS](luis-concept-app-iteration.md)
+> [Aprender o desenvolvimento do LUIS lifecylce](luis-concept-app-iteration.md)
 

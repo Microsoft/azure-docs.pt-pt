@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
 ms.openlocfilehash: d678a29de9dea8a5a2f6d0259a452ca4c69feb03
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77086889"
 ---
 ## <a name="personal-information-entity-types"></a>Tipos de entidades de informação pessoal:
@@ -21,11 +21,11 @@ ms.locfileid: "77086889"
 Reconhecer nomes de pessoas em texto.
 
 Idiomas:
-* Antevisão do público: `English`
+* Pré-visualização pública:`English`
 
 | Nome do subtipo | Descrição                                               | Disponível a partir da versão modelo |
 |--------------|-----------------------------------------------------------|----------------------------------------|
-| N/D          | Nomes reconhecidos, por exemplo `Bill Gates`, `Marie Curie` | `2020-02-01`                           |
+| N/D          | Nomes reconhecidos, por exemplo, `Bill Gates``Marie Curie` | `2020-02-01`                           |
 
 ### <a name="organization"></a>Organização  
 
@@ -33,23 +33,23 @@ Reconhecer organizações, corporações, agências, empresas, clubes e outros g
 
 Idiomas: 
 
-* Antevisão do público: `English`
+* Pré-visualização pública:`English`
 
 | Nome do subtipo | Descrição                                                                                       | Disponível a partir da versão modelo|
 |--------------|---------------------------------------------------------------------------------------------------|--------------|
-| N/D          | organizações, por exemplo `Microsoft`, `NASA`, `National Oceanic and Atmospheric Administration` | `2020-02-01` |
+| N/D          | organizações, por `Microsoft` `NASA`exemplo,`National Oceanic and Atmospheric Administration` | `2020-02-01` |
 
-### <a name="phone-number"></a>Número de telefone
+### <a name="phone-number"></a>Número de Telefone
 
 Números de telefone (apenas números de telefone dos EUA). 
 
 Idiomas:
 
-* Antevisão do público: `English`
+* Pré-visualização pública:`English`
 
 | Nome do subtipo | Descrição                                    | Disponível a partir da versão modelo |
 |--------------|------------------------------------------------|----------------------------------------|
-| N/D          | Números de telefone dos EUA, por exemplo `(312) 555-0176` | `2020-02-01`                           |
+| N/D          | Números de telefone dos EUA, por exemplo`(312) 555-0176` | `2020-02-01`                           |
 
 ### <a name="email"></a>Email
 
@@ -57,11 +57,11 @@ Endereço de e-mail.
 
 Idiomas:
 
-* Antevisão do público: `English`
+* Pré-visualização pública:`English`
 
 | Nome do subtipo | Descrição                                      | Disponível a partir da versão modelo |
 |--------------|--------------------------------------------------|----------------------------------------|
-| N/D          | Endereço de e-mail, por exemplo `support@contoso.com` | `2020-02-01`                           |
+| N/D          | Endereço de e-mail, por exemplo`support@contoso.com` | `2020-02-01`                           |
 
 ### <a name="url"></a>do IdP
 
@@ -69,11 +69,11 @@ URLs de Internet.
 
 Idiomas:
 
-* Antevisão do público: `English`
+* Pré-visualização pública:`English`
 
 | Nome do subtipo | Descrição                                          | Disponível a partir da versão modelo |
 |--------------|------------------------------------------------------|----------------------------------------|
-| N/D          | URLs para websites, por exemplo `https://www.bing.com` | `2020-02-01`                           |
+| N/D          | URLs para websites, por exemplo`https://www.bing.com` | `2020-02-01`                           |
 
 ### <a name="ip-address"></a>Endereço IP
 
@@ -81,11 +81,11 @@ Endereço de protocolo de Internet
 
 Idiomas:
 
-* Antevisão do público: `English`
+* Pré-visualização pública:`English`
 
 | Nome do subtipo | Descrição                              | Disponível a partir da versão modelo |
 |--------------|------------------------------------------|----------------------------------------|
-| N/D          | Endereço de rede, por exemplo, `10.0.0.101` | `2020-02-01`                           |
+| N/D          | Endereço de rede, por exemplo,`10.0.0.101` | `2020-02-01`                           |
 
 ### <a name="quantity"></a>Quantidade 
 
@@ -93,7 +93,7 @@ Quantidades numéricas
 
 Idiomas:
 
-* Antevisão do público: `English`
+* Pré-visualização pública:`English`
 
 | Nome do subtipo | Descrição                   | Disponível a partir da versão modelo |
 |--------------|-------------------------------|----------------------------------------|
@@ -105,19 +105,19 @@ Entidades de data e hora
 
 Idiomas:
 
-* Antevisão do público: `English`
+* Pré-visualização pública:`English`
 
 | Nome do subtipo | Descrição                   | Disponível a partir da versão modelo |
 |--------------|-------------------------------|----------------------------------------|
-| Data         | `May 2nd, 2017`, `05/02/2017` | `2020-02-01`                           |
+| Date         | `May 2nd, 2017`, `05/02/2017` | `2020-02-01`                           |
 
-### <a name="eu-gps-coordinates"></a>Coordenadas do GPS da UE
+### <a name="eu-gps-coordinates"></a>Coordenadas de GPS da UE
 
  Coordenadas GPS para locais dentro da União Europeia. 
 
 Idiomas:
 
-* Antevisão do público: `English`
+* Pré-visualização pública:`English`
 
 | Nome do subtipo | Descrição                               | Disponível a partir da versão modelo |
 |--------------|-------------------------------------------|----------------------------------------|
@@ -127,33 +127,33 @@ Idiomas:
 
 Informações identificáveis do Azure, incluindo informações de autenticação e cordas de ligação. 
 
-* Disponível a partir da versão modelo `2019-10-01`.
+* Disponível a partir `2019-10-01`da versão modelo.
 
 Idiomas:
 
-* Antevisão do público: `English`
+* Pré-visualização pública:`English`
 
 | Nome do subtipo                          | Descrição                                                                 |
 |---------------------------------------|-----------------------------------------------------------------------------|
-| Chave de autenticação do Azure DocumentDB             | Chave de autorização para um servidor Azure DocumentDB.                           |
+| Chave Auth Azure DocumentDB             | Chave de autorização para um servidor Azure DocumentDB.                           |
 | Fio de conexão de base de dados Azure IAAS | Fio de ligação para uma infraestrutura azure como base de dados de serviço (IaaS). |
 | Fio de ligação SQL Azure           | Fio de ligação para uma base de dados Azure SQL.                                |
-| Cadeia de conexão do Azure IoT           | Fio de ligação para Azure Internet das coisas (IoT).                        |
-| Senha de configuração de publicação do Azure        | Palavra-passe para definições da Azure Publish.                                        |
-| Cadeia de conexão do cache Redis do Azure   | Fio de ligação para um Cache Azure para Redis.                             |
-| SAS do Azure                             | Fio de ligação para o Software Azure como Serviço (SAS).                     |
-| Cadeia de conexão do barramento de serviço do Azure   | Fio de ligação para um ônibus de serviço Azure.                                |
+| Fio de conexão Azure IoT           | Fio de ligação para Azure Internet das coisas (IoT).                        |
+| Palavra-passe de definição de publicação azure        | Palavra-passe para definições da Azure Publish.                                        |
+| Fio de ligação à cache Azure Redis   | Fio de ligação para um Cache Azure para Redis.                             |
+| Azure SAS                             | Fio de ligação para o Software Azure como Serviço (SAS).                     |
+| Fio de conexão de ônibus de serviço azure   | Fio de ligação para um ônibus de serviço Azure.                                |
 | Chave da conta de armazenamento azure             | Chave de conta para uma conta de armazenamento Azure.                                   |
-| Chave da conta de armazenamento do Azure (genérica)   | Chave de conta genérica para uma conta de armazenamento Azure.                           |
-| SQL Server cadeia de conexão          | Fio de ligação para um servidor SQL.                                         |
+| Chave da conta de armazenamento azure (genérico)   | Chave de conta genérica para uma conta de armazenamento Azure.                           |
+| Cadeia de ligação ao servidor SQL          | Fio de ligação para um servidor SQL.                                         |
 
 ### <a name="identification"></a>Identificação
 
-* Disponível a partir da versão modelo `2019-10-01`.
+* Disponível a partir `2019-10-01`da versão modelo.
 
 Idiomas:
 
-* Antevisão do público: `English`
+* Pré-visualização pública:`English`
 
 #### <a name="financial-account-identification"></a>Identificação de Conta Financeira
 

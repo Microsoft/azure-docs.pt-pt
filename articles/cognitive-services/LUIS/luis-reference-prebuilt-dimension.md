@@ -1,7 +1,7 @@
 ---
 title: Dimensão Entidades Pré-construídas - LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém informações de entidade pré-criados na compreensão de idiomas (LUIS) de dimensão.
+description: Este artigo contém informação da entidade pré-construída de dimensão na Compreensão da Linguagem (LUIS).
 services: cognitive-services
 ms.custom: seodec18
 author: diberry
@@ -12,20 +12,20 @@ ms.topic: reference
 ms.date: 10/14/2019
 ms.author: diberry
 ms.openlocfilehash: 3c7bebb38d0331c76eeaaa1d9d6464c568a61b83
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270639"
 ---
 # <a name="dimension-prebuilt-entity-for-a-luis-app"></a>Entidade pré-construída dimensão para uma app LUIS
-A entidade de dimensão pré-criados detecta vários tipos de dimensões, independentemente da cultura de aplicação do LUIS. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém as dimensões para os objetivos do aplicativo. A entidade dimensão é apoiada em [muitas culturas.](luis-reference-prebuilt-entities.md)
+A entidade de dimensão pré-construída deteta vários tipos de dimensões, independentemente da cultura da app LUIS. Como esta entidade já está treinada, não precisa de adicionar declarações de exemplo contendo dimensões às intenções da aplicação. A entidade dimensão é apoiada em [muitas culturas.](luis-reference-prebuilt-entities.md)
 
 ## <a name="types-of-dimension"></a>Tipos de dimensão
 
 A dimensão é gerida a partir do repositório GitHub [de texto reconheço.](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml)
 
-## <a name="resolution-for-dimension-entity"></a>Resolução de entidades de dimensão
+## <a name="resolution-for-dimension-entity"></a>Resolução para entidade de dimensão
 
 Os seguintes objetos de entidade são devolvidos para consulta:
 
@@ -33,7 +33,7 @@ Os seguintes objetos de entidade são devolvidos para consulta:
 
 #### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O seguinte JSON está com o parâmetro `verbose` definido para `false`:
+O seguinte JSON `verbose` está com `false`o parâmetro definido para:
 
 ```json
 "entities": {
@@ -46,7 +46,7 @@ O seguinte JSON está com o parâmetro `verbose` definido para `false`:
 }
 ```
 #### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
-O seguinte JSON está com o parâmetro `verbose` definido para `true`:
+O seguinte JSON `verbose` está com `true`o parâmetro definido para:
 
 ```json
 "entities": {

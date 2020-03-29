@@ -2,13 +2,13 @@
 title: Recursos de desenvolvimento - Compreensão da Linguagem
 description: SDKs, REST APIs, CLI, ajudam-no a desenvolver aplicações de Compreensão de Línguas (LUIS) na sua linguagem de programação. Gerencie os seus recursos Azure e as previsões do LUIS.
 ms.topic: reference
-ms.date: 02/11/2020
-ms.openlocfilehash: f9d531f800ba0729a1f679c0bf3b11c8958c78ed
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/16/2020
+ms.openlocfilehash: 5e375157cef4789bc2980f6154ea8d59e765ff3b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391943"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79457989"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Recursos de desenvolvimento sdK, REST e CLI para a compreensão da linguagem (LUIS)
 
@@ -20,7 +20,7 @@ Utilize a camada de Gestão de Serviços Cognitivos Azure para criar, editar, li
 
 Encontre documentação de referência com base na ferramenta:
 
-* [CLI do Azure](https://docs.microsoft.com/cli/azure/cognitiveservices#az-cognitiveservices-list)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/cognitiveservices#az-cognitiveservices-list)
 
 * [Azure RM PowerShell](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services)
 
@@ -47,7 +47,7 @@ Tanto a autoria como o ponto final de previsão APIS estão disponíveis a parti
 |Tipo|Versão|
 |--|--|
 |Criação|[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[pré-visualização V3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
-|predição|[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|
+|Previsão|[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|
 
 ### <a name="rest-endpoints"></a>Pontos Finais REST
 
@@ -63,21 +63,21 @@ A LUIS tem atualmente 2 tipos de pontos finais:
 |V3 Runtime - previsão de versões no ponto final do tempo de execução|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/versions/{versionId}/predict?query={query}[&verbose][&log][&show-all-intents]`|
 |V3 Runtime - previsão de slot no ponto final do tempo de execução|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/slots/{slotName}/predict?query={query}[&verbose][&log][&show-all-intents]`|
 
-A tabela que se segue explica os parâmetros, denotados com aparelhos encaracolados `{}`, na tabela anterior.
+A tabela a seguir explica os parâmetros, denotados com aparelhos `{}`encaracolados, na tabela anterior.
 
 |Parâmetro|Objetivo|
 |--|--|
 |`your-resource-name`|Nome de recurso Azure|
-|`q` ou `query`|texto de expressão enviado a partir do aplicativo de cliente, como o bot de bate-papo|
+|`q` ou `query`|texto de expressão enviado da aplicação do cliente, como chat bot|
 |`version`|Nome de versão de 10 caracteres|
 |`slot`| `production` ou `staging`|
 
 ### <a name="language-based-sdks"></a>SDKs baseados em linguagem
 
-|Idioma |Documentação de referência|Pacote|Amostras|Inícios rápidos|
+|Idioma |Documentação de referência|Pacote|Amostras|Guias de Início Rápido|
 |--|--|--|--|--|
-|C#|[Criação de conteúdos](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[Previsão](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[Autor nuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[Previsão NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[.Net Amostras de SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS)|[Criar e gerir app](sdk-authoring.md?pivots=programming-language-csharp)<br>[Ponto final da previsão de consulta](sdk-query-prediction-endpoint.md)|
-|Ir|[Autoria e previsão](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)|[Criação de conteúdos](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/go)<br>[Previsão](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/go)|[Autoria e Previsão usando REST](luis-get-started-get-intent-from-rest.md)|
+|C#|[Criação de conteúdos](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[Previsão](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[Autor nuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[Previsão NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[.Net Amostras de SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS)|[Criar e gerir uma aplicação](sdk-authoring.md?pivots=programming-language-csharp)<br>[Ponto final de predição da consulta](sdk-query-prediction-endpoint.md)|
+|Ir|[Autoria e previsão](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[Rio SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)|[Criação de conteúdos](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/go)<br>[Previsão](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/go)|[Autoria e Previsão usando REST](luis-get-started-get-intent-from-rest.md)|
 |Java|[Autoria e previsão](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable)|[Autoria de Maven](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring)<br>[Previsão de Maven](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime)|[Criação de conteúdos](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/java)<br>[Previsão](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/java)|[Autoria e Previsão](luis-get-started-get-intent-from-rest.md)
 |Node.js|[Criação de conteúdos](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[Previsão](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[Autoria nPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[Previsão npm](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[Criação de conteúdos](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/node)<br>[Previsão](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/node)|[Autoria e Previsão usando REST](luis-get-started-get-intent-from-rest.md)|
 |Python|[Autoria e previsão](sdk-authoring.md?pivots=programming-language-python)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[Criação de conteúdos](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)|[Criação de conteúdos](sdk-authoring.md?pivots=programming-language-python)<br>[Previsão usando REST](luis-get-started-get-intent-from-rest.md)
@@ -89,7 +89,7 @@ A Language Understanding (LUIS) fornece um [recipiente](luis-container-howto.md)
 
 ### <a name="export-and-import-formats"></a>Formatos de exportação e importação
 
-A Compreensão de Idiomas fornece a capacidade de gerir a sua app e os seus modelos num formato JSON, o formato `.LU`[(LUDown)](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown)e um pacote comprimido para o recipiente de Compreensão de Línguas.
+A Compreensão de Idiomas fornece a capacidade de gerir a `.LU` sua app e os seus modelos num formato JSON, o formato[LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown)e um pacote comprimido para o recipiente de Compreensão de Línguas.
 
 A importação e exportação destes formatos está disponível a partir das APIs e do portal LUIS. O portal fornece importação e exportação como parte da lista de Apps e Versões.
 
@@ -102,9 +102,10 @@ A estrutura bot fornece [várias ferramentas](https://github.com/microsoft/botbu
 * [LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown) - Construir modelos de compreensão linguística LUIS usando ficheiros de marcação
 * [LUIS CLI](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS) - Crie e gerencie as suas aplicações LUIS.ai
 * [Despacho](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Dispatch)- gerencie aplicativos para pais e filhos
-* [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) - Auto C#gera suporte /Aulas de scripts para as suas intenções e entidades LUIS.
+* [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) - Auto gera aulas de c#/Typescript para as suas intenções e entidades LUIS.
 * [Bot Framework emulador](https://github.com/Microsoft/BotFramework-Emulator/releases) - uma aplicação de ambiente de trabalho que permite aos desenvolvedores de bots testar e depurar bots construídos usando o Bot Framework SDK
 * [Bot Framework Composer](https://github.com/microsoft/BotFramework-Composer/blob/stable/README.md) - uma ferramenta de desenvolvimento integrada para programadores e equipas multidisciplinares para construir bots e experiências de conversação com o Microsoft Bot Framework
+* [microsoft/NLU. DevOps](https://github.com/microsoft/NLU.DevOps) - Ferramentas que suportam a integração contínua e a implantação dos serviços NLU.
 
 ## <a name="next-steps"></a>Passos seguintes
 

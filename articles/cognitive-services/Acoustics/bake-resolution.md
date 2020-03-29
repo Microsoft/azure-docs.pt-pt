@@ -1,7 +1,7 @@
 ---
-title: Resolução de sobrefestivals de projetos acústicos
+title: Resolução do Projeto Acoustics Bake
 titlesuffix: Azure Cognitive Services
-description: Esta visão geral conceitual descreve a diferença entre resoluções de grande e refinas enquanto trazendo acústica.
+description: Esta visão geral conceptual descreve a diferença entre resoluções grossas e finas enquanto cozia acústica.
 services: cognitive-services
 author: NoelCross
 manager: nitinme
@@ -12,30 +12,30 @@ ms.date: 04/05/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: d8eb3b2cbaf7b4e842d8338eefde756f6d381111
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68854354"
 ---
-# <a name="project-acoustics-bake-resolution"></a>Resolução de sobrefestivals de projetos acústicos
-Esta visão geral conceitual descreve a diferença entre resoluções de grande e refinas enquanto trazendo acústica. Você escolhe essa configuração durante a etapa investigações do fluxo de trabalho do trazendo.
+# <a name="project-acoustics-bake-resolution"></a>Resolução do Projeto Acoustics Bake
+Esta visão geral conceptual descreve a diferença entre resoluções grossas e finas enquanto cozia acústica. Escolha esta definição durante o passo das sondas do fluxo de trabalho de cozedura.
 
-## <a name="Coarse-vs-Fine-Resolution"></a>Alta resolução vs. fina
+## <a name="coarse-vs-fine-resolution"></a><a name="Coarse-vs-Fine-Resolution"></a>Resolução grosseira vs fina
 
-A única diferença entre as configurações de resolução grande e refina é a frequência com a qual a simulação é executada. A multa usa uma frequência duas vezes mais alta. Isso tem várias implicações na simulação acústica:
+A única diferença entre as definições grossas e finas de resolução é a frequência em que a simulação é realizada. O fine usa uma frequência duas vezes mais alta que grossa. Isto tem uma série de implicações na simulação acústica:
 
-* O comprimento de onda para alta é duas vezes maior do que o suficiente e, portanto, o voxels é duas vezes maior.
-* O tempo de simulação está diretamente relacionado ao tamanho do VOXEL, tornando-se uma grande folga cerca de 16 vezes mais rápido do que uma distorta.
-* Portais (por exemplo, portas ou janelas) menores que o tamanho de VOXEL não podem ser simulados. A configuração grosseira pode fazer com que alguns desses portais menores não sejam simulados; Portanto, eles não passarão a soar no tempo de execução. Você pode ver se isso está acontecendo exibindo o voxels.
-* A frequência de simulação inferior resulta em menos Diffraction em relação a cantos e bordas.
-* Fontes de som não podem ser localizadas dentro de voxels "preenchidas" (ou seja, voxels que contêm geometria). Isso resulta em sem som. É mais difícil inserir fontes de som para que elas não fiquem dentro do voxels maior do que é ao usar a configuração correta.
-* O voxels maior invasorá mais em portais, como mostrado abaixo. A primeira imagem foi criada usando uma grande, enquanto a segunda é a mesma porta usando a resolução refinada. Conforme indicado pelas marcas vermelhas, há muito menos intrusão na porta usando a configuração fina. A linha azul é a porta, conforme definido pela geometria, enquanto a linha vermelha é o portal acústico efetivo definido pelo tamanho de VOXEL. A forma como essa invasão é reproduzida em uma determinada situação depende completamente de como a voxels linha com a geometria do portal, que é determinada pelo tamanho e pelas localizações dos objetos na cena.
+* O comprimento de onda para grosso é duas vezes maior que o comprimento, e portanto os voxels são duas vezes maiores.
+* O tempo de simulação está diretamente relacionado com o tamanho do voxel, fazendo uma cozedura grossa cerca de 16 vezes mais rápido do que um cozer fino.
+* Os portais (por exemplo, portas ou janelas) menores do que o tamanho do voxel não podem ser simulados. A definição grosseira pode fazer com que alguns destes portais menores não sejam simulados; portanto, eles não vão passar o som através no tempo de execução. Pode ver se isto está a acontecer vendo os voxels.
+* A frequência de simulação inferior resulta em menos difração em cantos e bordas.
+* Fontes sonoras não podem ser localizadas dentro de voxels "cheios" (isto é, voxels que contêm geometria). Isto não resulta em som. É mais difícil colocar fontes sonoras para que não estejam dentro dos voxels maiores do que quando se usa o ajuste fino.
+* Os voxels maiores intrometem-se mais em portais, como mostrado abaixo. A primeira imagem foi criada usando grosso, enquanto a segunda é a mesma porta usando uma resolução fina. Como indicado pelas marcas vermelhas, há muito menos intrusão na porta usando o ajuste fino. A linha azul é a porta como definida pela geometria, enquanto a linha vermelha é o portal acústico eficaz definido pelo tamanho voxel. Como esta intrusão se desenrola numa determinada situação depende completamente de como os voxels alinham-se com a geometria do portal, que é determinada pelo tamanho e localização dos seus objetos na cena.
 
-![Captura de tela de voxels grosso preenchendo um porta em um não real](media/unreal-coarse-bake.png)
+![Screenshot de voxels grosseiros enchendo uma porta em Unreal](media/unreal-coarse-bake.png)
 
-![Captura de tela de voxels fino em uma porta de maneira não real](media/unreal-fine-bake.png)
+![Screenshot de voxels finos em uma porta em Unreal](media/unreal-fine-bake.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Experimente as configurações de resolução grande e refinada usando [](unreal-baking.md) nossos plug-ins inreais ou do [Unity](unity-baking.md) .
+Experimente as configurações grossas e finas de resolução usando os nossos plugins [Unreal](unreal-baking.md) ou [Unity.](unity-baking.md)

@@ -1,7 +1,7 @@
 ---
-title: Exemplos de informações do Bing-Pesquisa Visual do Bing
+title: Exemplos de insights bing - Bing Visual Search
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém exemplos de como Pesquisa Visual do Bing pode usar e exibir informações de imagem no Bing.com.
+description: Este artigo contém exemplos de como bing Visual Search pode usar e exibir insights de imagem sobre Bing.com.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,71 +11,71 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: scottwhi
 ms.openlocfilehash: df66dbeebb04209921ff91c4b99a14580f026718
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74111634"
 ---
-# <a name="examples-of-bing-insights-usage"></a>Exemplos de uso do Bing insights
+# <a name="examples-of-bing-insights-usage"></a>Exemplos de utilização de insights bing
 
-Este artigo contém exemplos de como o Bing pode usar e exibir informações de imagem no Bing.com.
+Este artigo contém exemplos de como bing pode usar e exibir insights de imagem sobre Bing.com.
 
-## <a name="pagesincluding-insight-example"></a>Exemplo do PagesIncluding Insight
+## <a name="pagesincluding-insight-example"></a>PáginasIncluindo o exemplo de insight
 
-O seguinte exibe um link para a primeira página da Web e permite que o usuário expanda e recolha a lista de outras páginas da Web que incluem a imagem:
+O seguinte exibe um link para a primeira página web e permite ao utilizador expandir e colapsar a lista de outras páginas web que incluem a imagem:
 
 ![Páginas expandidas, incluindo](./media/pages-including.PNG)
 
-## <a name="shoppingsources-insight-example"></a>Exemplo do ShoppingSources Insight
+## <a name="shoppingsources-insight-example"></a>Exemplo de insight de Fontes de Compras
 
-O código a seguir mostra como o Bing pode exibir fontes de compras para produtos vistos na imagem:
+O seguinte mostra como bing pode exibir fontes de compras para produtos vistos na imagem:
 
 ![Fontes de compras](./media/shopping-sources.PNG)
 
-## <a name="visualsearch-insight-example"></a>Exemplo do VisualSearch Insight
+## <a name="visualsearch-insight-example"></a>Exemplo de insight de VisualSearch
 
-Veja a seguir como o Bing pode exibir imagens visualmente semelhantes (consulte as **imagens relacionadas** no exemplo):
+O seguinte mostra como Bing pode exibir imagens visualmente semelhantes (ver **imagens relacionadas** no exemplo):
 
 ![Imagens visualmente semelhantes](./media/similar-images.PNG)
 
-## <a name="recipes-insight-example"></a>Exemplo de insights de receitas
+## <a name="recipes-insight-example"></a>Exemplo de insight de receitas
 
-O seguinte mostra como o Bing pode exibir receitas para a comida mostrada na imagem. O exemplo permite que o usuário saiba que há receitas disponíveis:
+O seguinte mostra como Bing pode exibir receitas para a comida mostrada na imagem. O exemplo permite ao utilizador saber que existem receitas disponíveis:
 
 ![Receitas e páginas, incluindo](./media/recipes-pages-including.PNG)
 
- E fornece o link para as receitas quando o usuário expande a lista:
+ E fornece o link para as receitas quando o utilizador expande a lista:
 
 ![Páginas de receitas expandidas, incluindo](./media/expanded-recipes-pages-including.PNG)
 
-## <a name="relatedsearches-insight-example"></a>Exemplo do RelatedSearches Insight
+## <a name="relatedsearches-insight-example"></a>RelacionadoSPesquisas exemplo de insight
 
-O seguinte mostra como o Bing pode exibir pesquisas relacionadas de imagens feitas por outras pessoas. Se o usuário clicar na imagem, o usuário será levado para a página de resultados da pesquisa do Bing.com/images para essa consulta relacionada.
+O seguinte mostra como Bing pode exibir pesquisas relacionadas de imagens feitas por outros. Se o utilizador clicar na imagem, o utilizador é levado para a página de resultados de pesquisa Bing.com/images para essa consulta relacionada.
 
-![Pesquisas relacionadas a imagens](./media/bordered-related-searches.PNG)
+![Pesquisas relacionadas por imagens](./media/bordered-related-searches.PNG)
 
-## <a name="entity-insight-example"></a>Exemplo do Entity Insight
+## <a name="entity-insight-example"></a>Exemplo de insight da entidade
 
-O seguinte mostra como o Bing pode exibir informações sobre a entidade (pessoa, lugar ou coisa) mostrada na imagem. Se o usuário clicar no link de entidade, o usuário será levado para a página de resultados da pesquisa do Bing.com para a entidade:
+O seguinte mostra como bing pode exibir informações sobre a entidade (pessoa, lugar ou coisa) mostradas na imagem. Se o utilizador clicar no link da entidade, o utilizador é levado para a página de resultados de pesquisa Bing.com para a entidade:
 
 ![Entidade mostrada na imagem](./media/entity.PNG)
 
-## <a name="displaying-other-insights-that-the-user-might-explore"></a>Exibindo outras informações que o usuário pode explorar
+## <a name="displaying-other-insights-that-the-user-might-explore"></a>Exibindo outras ideias que o utilizador pode explorar
 
-O seguinte mostra como o Bing pode exibir outras informações sobre a imagem que o usuário pode explorar.
+O seguinte mostra como bing pode exibir outras informações sobre a imagem que o utilizador pode explorar.
 
-![Explorar outras informações sobre a imagem](./media/apple-pie-more-tags.PNG)
+![Explore outras ideias sobre a imagem](./media/apple-pie-more-tags.PNG)
 
-## <a name="bounding-boxes-and-hot-spots"></a>Caixas delimitadoras e pontos de acesso
+## <a name="bounding-boxes-and-hot-spots"></a>Caixas de delimitação e pontos quentes
 
-Marcas não padrão incluem a caixa delimitadora que identifica a área de interesse na imagem à qual a marca se aplica. Se a caixa delimitadora não identificar a imagem inteira, use a caixa delimitadora para criar um ponto de acesso na imagem. O usuário pode clicar no ponto de acesso para obter informações relacionadas ao conteúdo encontrado no ponto de acesso (ou retângulo). Por exemplo, se a imagem for uma imagem de alto nível, os resultados poderão conter marcas (e caixas delimitadoras) para acessórios mostrados na imagem, como bolsa, joia, Scarfs e assim por diante. O exemplo a seguir mostra um retângulo de ponto de acesso para o óculos mostrado na imagem:
+As etiquetas não predefinidas incluem a caixa de delimitação que identifica a área de interesse na imagem a que a etiqueta se aplica. Se a caixa de delimitação não identificar toda a imagem, utilize a caixa de delimitação para criar um ponto quente na imagem. O utilizador pode clicar no ponto quente para obter informações relacionadas com o conteúdo encontrado sob o ponto quente (ou retângulo). Por exemplo, se a imagem for uma imagem de alta moda, os resultados podem conter etiquetas (e caixas de delimitação) para acessórios mostrados na imagem, tais como uma bolsa, joias, cachecóis, e assim por diante. O exemplo seguinte mostra um retângulo de ponto quente para os óculos de sol mostrados na imagem:
 
-![Caixa delimitadora e ponto de acesso](./media/click-to-search.PNG)
+![Caixa de delimitação e ponto quente](./media/click-to-search.PNG)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para começar a usar sua primeira solicitação, consulte os guias de início [C#](quickstarts/csharp.md) rápido: | [Java](quickstarts/java.md) | [node. js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
+Para começar com o seu primeiro pedido, veja os quickstarts: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
 
 
 

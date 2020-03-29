@@ -1,23 +1,22 @@
 ### YamlMime:Landing
-title: Documentação dos assistentes de voz
+title: Documentação de assistentes de voz
 summary: Assistentes de voz que usam o serviço Speech capacitam os desenvolvedores a criar interfaces de conversação naturais e humanas para as suas aplicações e experiências.
 metadata:
-  title: Documentação de assistentes de voz - Tutoriais, Referência API - Serviços Cognitivos Azure  Microsoft Docs
+  title: Documentação de assistentes de voz - Tutoriais, Referência API - Serviços Cognitivos Azure [ Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: 369213485934236a05ecb3fcb458bdd28fd76136
-  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+  ms.openlocfilehash: 6ae919317269753cbc3c8bf5b0df11e19a47989f
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/14/2020
-  ms.locfileid: "79365564"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "79415160"
 landingContent:
 - title: Sobre assistentes de voz
   linkLists:

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: v-anusp
-ms.openlocfilehash: 5cf851bc9333004c0e14713cde44f470fb8c0c02
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 2f325c80877068c53d690bd7ff74f768dab3a174
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304288"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80371584"
 ---
 # <a name="device-roobo-smart-audio-dev-kit-v2"></a>Dispositivo: Roobo Smart Audio Dev Kit v2
 
@@ -24,7 +24,7 @@ Este artigo fornece informações específicas do dispositivo para o Roobo Smart
 ## <a name="set-up-the-development-kit"></a>Configurar o kit de desenvolvimento
 
 1. O kit de desenvolvimento tem dois conectores micro USB. O conector esquerdo é para alimentar o kit de desenvolvimento e é destacado como Power na imagem abaixo. O certo é controlá-lo, e está marcado Debug na imagem. 
-    ![Ligando o kit de dev](media/speech-devices-sdk/roobo-v2-connections.png)
+    ![Ligando o kit de v](media/speech-devices-sdk/roobo-v2-connections.png)
 1. Ligue o kit de desenvolvimento utilizando um cabo micro USB para ligar a porta de alimentação a um PC ou adaptador de energia. Um indicador de energia verde acender-se-á por baixo da placa superior.
 1. Para controlar o kit de desenvolvimento, ligue a porta de depuração a um computador utilizando um segundo cabo MICRO USB. É essencial utilizar um cabo de alta qualidade para garantir comunicações fiáveis.
 1. Oriente o seu kit de desenvolvimento Circularmente - Vertical, com microfones virados para o teto como mostrado acima

@@ -1,7 +1,7 @@
 ---
-title: Conteúdo gerado pelo usuário em destaque para a API do detector de anomalias
+title: Conteúdo gerado pelo utilizador em destaque para a API do Detetor de Anomalias
 titleSuffix: Azure Cognitive Services
-description: Encontre conteúdo em destaque e descubra como outras pessoas estão pensando e usando a API do detector de anomalias.
+description: Encontre conteúdo sonoro e descubra como outras pessoas estão a pensar e a usar a API do Detetor de Anomalias.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,23 +11,23 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: aahi
 ms.openlocfilehash: 81a2cb7ece775bfaffaf1b1932feb12b2da5f08f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74012016"
 ---
-# <a name="featured-user-generated-content-for-the-anomaly-detector-api"></a>Conteúdo gerado pelo usuário em destaque para a API do detector de anomalias
+# <a name="featured-user-generated-content-for-the-anomaly-detector-api"></a>Conteúdo gerado pelo utilizador em destaque para a API do Detetor de Anomalias
 
-Use este artigo para descobrir como outros clientes estão pensando e usando a API do detector de anomalias. Os recursos a seguir foram criados pela comunidade de usuários do detector de anomalias. Eles incluem projetos de código-fonte aberto e outras contribuições criadas por usuários da Microsoft e de terceiros. Alguns dos links a seguir são hospedados em sites externos à Microsoft e a Microsoft não é responsável pelo conteúdo. Use o critério quando você se referir a esses recursos.
+Use este artigo para descobrir como outros clientes estão a pensar e a usar a API do Detetor de Anomalias. Os seguintes recursos foram criados pela comunidade de utilizadores do Detetor de Anomalias. Incluem projetos de código aberto e outras contribuições criadas tanto pela Microsoft como por utilizadores de terceiros. Alguns dos seguintes links são hospedados em websites externos à Microsoft e a Microsoft não é responsável pelo conteúdo que lá se encontra. Use a discrição quando se refere a estes recursos.
 
-## <a name="technical-blogs"></a>Blogs técnicos
+## <a name="technical-blogs"></a>Blogues técnicos
 
-* [Experimentando o serviço cognitiva: API do detector de anomalias (em Japonês)](https://azure-recipe.kc-cloud.jp/2019/04/cognitive-service-anomaly-detector-api/)
+* [Experimentando o Serviço Cognitivo: API do Detetor de Anomalias (em Japonês)](https://azure-recipe.kc-cloud.jp/2019/04/cognitive-service-anomaly-detector-api/)
 
-## <a name="open-source-projects"></a>Projetos de código-fonte aberto
+## <a name="open-source-projects"></a>Projetos de código aberto
 
-* [Jupyter Notebook demonstrando a detecção de anomalias e o streaming para Power BI](https://github.com/marvinbuss/MS-AnomalyFinder)
+* [Caderno jupyter demonstrando deteção de anomalias e streaming para Power BI](https://github.com/marvinbuss/MS-AnomalyFinder)
 
-Se você quiser indicar um recurso, preencha [um formato curto](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxSkyhztUNZCtaivu8nmhd1UMENTMEJWTkRORkRGQUtGQzlWQ1dSV1JLTS4u).
-Entre em contato com AnomalyDetector@microsoft.com ou acione um problema no GitHub se quiser remover o conteúdo.
+Se quiser nomear um recurso, preencha [um formulário curto.](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxSkyhztUNZCtaivu8nmhd1UMENTMEJWTkRORkRGQUtGQzlWQ1dSV1JLTS4u)
+Contacte AnomalyDetector@microsoft.com ou levante um problema no GitHub se quiser que removamos o conteúdo.

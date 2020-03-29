@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: dapine
 ms.openlocfilehash: 714cdefa7100160a510d1922a2547ae53692d76c
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79367810"
 ---
 # <a name="what-is-direct-line-speech"></a>O que é a Voz do Direct Line?
@@ -46,7 +46,7 @@ Também oferecemos quickstarts projetados para que você esteja executando códi
 O código de amostra para a criação de um assistente de voz está disponível no GitHub. Estas amostras cobrem o pedido do cliente para a ligação ao seu assistente em várias línguas de programação populares.
 
 * [Amostras de assistente de voz (SDK)](https://aka.ms/csspeech/samples)
-* [Tutorial: Voz habilita o seu assistente com o SDK de Fala,C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+* [Tutorial: Voz habilita o seu assistente com o SDK de Fala, C #](tutorial-voice-enable-your-bot-speech-sdk.md)
 
 ## <a name="customization"></a>Personalização
 
@@ -59,12 +59,12 @@ O Discurso da Linha Direta e a sua funcionalidade associada aos assistentes de v
 
 ## <a name="reference-docs"></a>Doutorados de referência
 
-* [SDK de Voz](speech-sdk-reference.md)
+* [API de Voz](speech-sdk-reference.md)
 * [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Obtenha uma chave de subscrição do serviço Speech gratuitamente](get-started.md)
 * [Obtenha o SDK do Discurso](speech-sdk.md)
-* [Create and deploy a basic bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0) (Criar e implementar um bot básico)
+* [Criar e implementar um bot básico](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [Obtenha a solução de assistente virtual e o modelo de empresa](https://github.com/Microsoft/AI)

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: diberry
 ms.openlocfilehash: 6ee156efb5512c92d86ba05513b6a2b91df4eae8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79221031"
 ---
 # <a name="entities-and-their-purpose-in-luis"></a>Entidades e o seu propósito na LUIS
@@ -31,7 +31,7 @@ As entidades aprendidas com máquinas fornecem a mais ampla gama de opções de 
 
 ## <a name="entities-represent-data"></a>Entidades representam dados
 
-As entidades são dados que pretende retirar da expressão, tais como nomes, datas, nomes de produtos ou qualquer grupo significativo de palavras. Uma expressão pode incluir muitas entidades ou nenhum de todo. Uma aplicação do cliente _pode_ precisar dos dados para executar a sua tarefa.
+As entidades são dados que pretende retirar da expressão, tais como nomes, datas, nomes de produtos ou qualquer grupo significativo de palavras. Uma expressão pode incluir muitas entidades ou nenhuma. Uma aplicação do cliente _pode_ precisar dos dados para executar a sua tarefa.
 
 As entidades precisam de ser rotuladas de forma consistente em todas as declarações de formação para cada intenção de um modelo.
 
@@ -39,16 +39,16 @@ As entidades precisam de ser rotuladas de forma consistente em todas as declara�
 
 |Expressão|Entidade|Dados|
 |--|--|--|
-|Comprar 3 pedidos de Nova Iorque|Número pré-criados<br>Location.Destination|3<br>Nova Iorque|
-|Comprar um pedido de nova York para Londres em 5 de Março|Location.Origin<br>Location.Destination<br>DatetimeV2 pré-criados|Nova Iorque<br>Londres<br>5 de março de 2018|
+|Compre 3 bilhetes para Nova Iorque|Número pré-construído<br>Localização.Destino|3<br>Nova Iorque|
+|Compre um bilhete de Nova Iorque para Londres no dia 5 de março|Localização.Origem<br>Localização.Destino<br>Data pré-construídaV2|Nova Iorque<br>Londres<br>5 de março de 2018|
 
 ### <a name="entities-are-optional"></a>As entidades são opcionais
 
-Enquanto os objetivos são necessários, as entidades são opcionais. Não precisa de criar entidades para todos os conceitos da sua app, mas apenas para que a aplicação do cliente tome medidas.
+Embora sejam necessárias intenções, as entidades são opcionais. Não precisa de criar entidades para todos os conceitos da sua app, mas apenas para que a aplicação do cliente tome medidas.
 
 Se as suas declarações não tiverem dados que a aplicação do cliente necessita, não precisa de adicionar entidades. À medida que a sua aplicação se desenvolve e uma nova necessidade de dados é identificada, pode adicionar as entidades apropriadas ao seu modelo LUIS mais tarde.
 
-## <a name="entity-compared-to-intent"></a>Em comparação comparada a intenção de entidade
+## <a name="entity-compared-to-intent"></a>Entidade comparada com a intenção
 
 A entidade representa um conceito de dados dentro da expressão que pretende extrair.
 
@@ -58,10 +58,10 @@ Considere as seguintes 4 expressões:
 
 |Expressão|Intenção prevista|Entidades extraídas|Explicação|
 |--|--|--|--|
-|Ajuda|ajuda|-|Nada para extrair.|
-|Enviar algo|enviar Algo|-|Nada para extrair. O modelo não foi treinado para extrair `something` neste contexto, e também não há destinatário.|
-|Envie um presente ao Bob.|enviar Algo|`Bob`, `present`|O modelo foi treinado com a entidade preconstruída [personName,](luis-reference-prebuilt-person.md) que extraiu o nome `Bob`. Uma entidade aprendida por máquinas foi usada para extrair `present`.|
-|Mande ao Bob uma caixa de chocolates.|enviar Algo|`Bob`, `box of chocolates`|Os dois dados importantes, `Bob` e o `box of chocolates`, foram extraídos por entidades.|
+|Ajuda|Ajuda|-|Nada para extrair.|
+|Enviar algo|enviar Algo|-|Nada para extrair. O modelo não foi `something` treinado para extrair neste contexto, e também não há destinatário.|
+|Envie um presente ao Bob.|enviar Algo|`Bob`, `present`|O modelo foi treinado com a entidade preconstruída [personName,](luis-reference-prebuilt-person.md) que extraiu o nome `Bob`. Uma entidade aprendida por máquinas foi usada para extrair. `present`|
+|Mande ao Bob uma caixa de chocolates.|enviar Algo|`Bob`, `box of chocolates`|Os dois dados `Bob` importantes, `box of chocolates`e os, foram extraídos por entidades.|
 
 ## <a name="design-entities-for-decomposition"></a>Entidades de design para decomposição
 
@@ -73,7 +73,7 @@ A conceção para decomposição permite à LUIS devolver um profundo grau de re
 
 [**As entidades aprendidas com máquinas**](tutorial-machine-learned-entity.md) são a unidade de dados de alto nível. Subcomponentes são entidades infantis de entidades aprendidas por máquinas.
 
-Uma entidade aprendida por máquinas dispara com base no contexto aprendido através de expressões de treino. **Os constrangimentos** são regras opcionais aplicadas a uma entidade aprendida por máquinas que restringe ainda mais o desencadeamento com base na definição exata de correspondência de texto de uma entidade não-aprendida por máquinas, como uma [Lista](reference-entity-list.md) ou [Regex](reference-entity-regular-expression.md). Por exemplo, uma entidade `size` aprendida com máquinas pode ter um constrangimento de uma entidade de lista de `sizeList` que limita a entidade `size` a desencadear apenas quando os valores contidos na entidade `sizeList` forem encontrados.
+Uma entidade aprendida por máquinas dispara com base no contexto aprendido através de expressões de treino. **Os constrangimentos** são regras opcionais aplicadas a uma entidade aprendida por máquinas que restringe ainda mais o desencadeamento com base na definição exata de correspondência de texto de uma entidade não-aprendida por máquinas, como uma [Lista](reference-entity-list.md) ou [Regex](reference-entity-regular-expression.md). Por exemplo, `size` uma entidade aprendida por `sizeList` máquinas pode ter `size` um constrangimento de uma entidade `sizeList` de lista que limita a entidade a desencadear apenas quando os valores contidos na entidade são encontrados.
 
 [**Os descritores**](luis-concept-feature.md) são funcionalidades aplicadas para aumentar a relevância das palavras ou frases para a previsão. São *chamados descritores* porque são usados para *descrever* uma intenção ou entidade. Os descritores descrevem traços distintivos ou atributos de dados, tais como palavras importantes ou frases que o LUIS observa e aprende.
 
@@ -95,7 +95,7 @@ Escolha a entidade com base na forma como os dados devem ser extraídos e como d
 |[**Aprendido em máquina**](tutorial-machine-learned-entity.md)|Entidades aprendizes de máquinas aprendem com o contexto na expressão. Agrupamento de entidades, independentemente do tipo de entidade. Isto torna significativa a variação da colocação em declarações por exemplo. |
 |[**Lista**](reference-entity-list.md)|Lista de itens e seus sinónimos extraídos com **correspondência exata**de texto .|
 |[**Padrão.qualquer**](reference-entity-pattern-any.md)|Entidade onde o fim da entidade é difícil de determinar. |
-|[**Pré-construído**](luis-reference-prebuilt-entities.md)|Já treinado para extrair dados específicos, como URL ou e-mail. Algumas destas entidades pré-construídas são definidas no projeto [Recognisers-Text](https://github.com/Microsoft/Recognizers-Text) de código aberto. Se sua cultura específica ou a entidade não é atualmente suportada, contribuem para o projeto.|
+|[**Pré-construído**](luis-reference-prebuilt-entities.md)|Já treinado para extrair dados específicos, como URL ou e-mail. Algumas destas entidades pré-construídas são definidas no projeto [Recognisers-Text](https://github.com/Microsoft/Recognizers-Text) de código aberto. Se a sua cultura ou entidade específica não for atualmente apoiada, contribua para o projeto.|
 |[**Expressão Regular**](reference-entity-regular-expression.md)|Utiliza expressão regular para **uma correspondência de texto exata**.|
 
 ## <a name="extracting-contextually-related-data"></a>Extração de dados contexicamente relacionados
@@ -104,26 +104,26 @@ Uma expressão pode conter duas ou mais ocorrências de uma entidade onde o sign
 
 `Book a flight from Seattle to Cairo`
 
-Os dois exemplos de uma entidade `location` precisam de ser extraídos. A aplicação cliente precisa de saber o tipo de localização para cada um para completar a compra do bilhete.
+Os dois exemplos `location` de uma entidade precisam de ser extraídos. A aplicação cliente precisa de saber o tipo de localização para cada um para completar a compra do bilhete.
 
 Existem duas técnicas para extrair dados contexinalmente relacionados:
 
- * A entidade `location` é uma entidade aprendida por máquinas e utiliza duas entidades subcomponentes para capturar o `origin` e `destination` (preferido)
- * A entidade `location` utiliza dois **papéis** de `origin` e `destination`
+ * A `location` entidade é uma entidade aprendida por máquinas `origin` e `destination` utiliza duas entidades subcomponentes para capturar o e (preferido)
+ * A `location` entidade usa `origin` dois **papéis** de e`destination`
 
-Várias entidades podem existir numa expressão e podem ser extraídas sem usar decomposição ou funções se o contexto em que são utilizadas não tiver qualquer significado. Por exemplo, se a expressão inclui uma lista de locais, `I want to travel to Seattle, Cairo, and London.`, esta é uma lista onde cada item não tem um significado adicional.
+Várias entidades podem existir numa expressão e podem ser extraídas sem usar decomposição ou funções se o contexto em que são utilizadas não tiver qualquer significado. Por exemplo, se a expressão inclui uma `I want to travel to Seattle, Cairo, and London.`lista de locais, esta é uma lista onde cada item não tem um significado adicional.
 
 ### <a name="using-subcomponent-entities-of-a-machine-learned-entity-to-define-context"></a>Utilização de entidades subcomponentes de uma entidade aprendida por máquinas para definir contexto
 
 Pode utilizar uma [**entidade aprendida por máquinas**](tutorial-machine-learned-entity.md) para extrair os dados que descrevem a ação de reservar um voo e, em seguida, decompor a entidade de alto nível nas partes separadas necessárias pela aplicação do cliente.
 
-Neste exemplo, `Book a flight from Seattle to Cairo`, a entidade de alto nível poderia ser `travelAction` e rotulada para extrair `flight from Seattle to Cairo`. Em seguida, são criadas duas entidades subcomponentes, chamadas `origin` e `destination`, ambas com uma restrição aplicada à entidade `geographyV2` pré-construída. Nas declarações de formação, os `origin` e os `destination` são rotulados adequadamente.
+Neste exemplo, `Book a flight from Seattle to Cairo`a entidade de alto `travelAction` nível poderia `flight from Seattle to Cairo`ser e rotulada para extrair. Em seguida, são criadas `origin` duas `destination`entidades subcomponentes, chamadas `geographyV2` e, ambas com um constrangimento aplicado à entidade pré-construída. Nas declarações de formação, as `origin` e `destination` são rotuladas adequadamente.
 
 ### <a name="using-entity-role-to-define-context"></a>Usar o papel da Entidade para definir o contexto
 
-Um papel é um pseudónimo nomeado para uma entidade baseada no contexto dentro da expressão. Uma função pode ser usada com qualquer tipo de entidade pré-construída ou personalizada, e usada em ambos os exemplos e padrões. Neste exemplo, a entidade `location` precisa de dois papéis de `origin` e `destination` e ambos precisam de ser marcados nas declarações de exemplo.
+Um papel é um pseudónimo nomeado para uma entidade baseada no contexto dentro da expressão. Uma função pode ser usada com qualquer tipo de entidade pré-construída ou personalizada, e usada em ambos os exemplos e padrões. Neste exemplo, `location` a entidade precisa `origin` `destination` de dois papéis e ambos precisam de ser marcados nas declarações de exemplo.
 
-Se a LUIS encontrar o `location` mas não conseguir determinar o papel, a entidade local ainda é devolvida. A aplicação do cliente teria de acompanhar uma pergunta para determinar que tipo de localização o utilizador significava.
+Se a `location` LUIS encontrar o mas não conseguir determinar o papel, a entidade local ainda é devolvida. A aplicação do cliente teria de acompanhar uma pergunta para determinar que tipo de localização o utilizador significava.
 
 
 ## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Se precisar de mais do que o número máximo de entidades

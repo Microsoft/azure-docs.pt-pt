@@ -1,7 +1,7 @@
 ---
-title: O que há de novo-personalizador
+title: Novidades - Personalizer
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém notícias sobre o personalizador.
+description: Este artigo contém notícias sobre personalizer.
 author: diberry
 manager: nitinme
 services: cognitive-services
@@ -10,41 +10,45 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 1ec0c83655574cb09724bcf97be19519e1f6d72f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 450328fecde3be0ee0cead174c9d172bf3ac1000
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467081"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80155975"
 ---
-# <a name="whats-new-in-personalizer"></a>O que há de novo no Personalizador
+# <a name="whats-new-in-personalizer"></a>O que há de novo no Personalizer
 
-Saiba o que há de novo no serviço. Esses itens podem incluir notas de versão, vídeos, Postagens de blog e outros tipos de informações. Marque esta página para manter-se atualizada com o serviço.  
+Saiba o que há de novo no serviço. Estes itens podem incluir notas de lançamento, vídeos, posts de blog e outros tipos de informação. Marque esta página para manter-se atualizado com o serviço.  
 
 ## <a name="release-notes"></a>Notas de versão 
 
-### <a name="november-2019---ignite-conference"></a>2019 de novembro-conferência Ignite
+### <a name="march-2020"></a>março de 2020
 
-* O personalizador está disponível para o público geral (GA)
-* Azure Notebooks [tutorial](tutorial-use-azure-notebook-generate-loop-data.md) com o ciclo de vida inteiro
+* TLS 1.2 é agora aplicado para todos os pedidos http para este serviço. Para mais informações, consulte a [segurança dos Serviços Cognitivos Azure.](../cognitive-services-security.md)
 
-### <a name="may-6-2019---build-conference"></a>6 de maio, 2019-conferência//Build
+### <a name="november-2019---ignite-conference"></a>Novembro 2019 - Conferência Ignite
 
-Os seguintes recursos de visualização foram lançados na conferência Build 2019:
+* Personalizer está geralmente disponível (GA)
+* [Tutorial](tutorial-use-azure-notebook-generate-loop-data.md) de Cadernos Azure com todo o ciclo de vida
 
-* [Classificar e recompensar o loop de aprendizado](what-is-personalizer.md)
+### <a name="may-2019---build-conference"></a>Maio 2019 - //Conferência de Construção
+
+As seguintes funcionalidades de pré-visualização foram lançadas na Conferência Build 2019:
+
+* [Rank e reward learning loop](what-is-personalizer.md)
 
 ## <a name="videos"></a>Vídeos
 
-### <a name="2019-build-videos"></a>vídeos de Build 2019
+### <a name="2019-build-videos"></a>2019 Construir vídeos
 
-* [Forneça as experiências corretas & conteúdo como o Xbox com o personalizador de serviços cognitivas](https://mybuild.techcommunity.microsoft.com/sessions/76970?source=sessions#top-anchor)
+* [Entregue as experiências certas & conteúdos como a Xbox com personalização de serviços cognitivos](https://mybuild.techcommunity.microsoft.com/sessions/76970?source=sessions#top-anchor)
 
 ## <a name="service-updates"></a>Atualizações de serviço
 
-[Comunicados de atualização do Azure para serviços cognitivas](https://azure.microsoft.com/updates/?product=cognitive-services)
+[Anúncios de atualizações do Azure para serviços cognitivos](https://azure.microsoft.com/updates/?product=cognitive-services)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Início rápido: criar um loop de comentários emC#](csharp-quickstart-commandline-feedback-loop.md)
-* [Usar a demonstração interativa](https://personalizationdemo.azurewebsites.net/)
+* [Quickstart: Criar um ciclo de feedback em C #](csharp-quickstart-commandline-feedback-loop.md)
+* [Use a demonstração interativa](https://personalizationdemo.azurewebsites.net/)

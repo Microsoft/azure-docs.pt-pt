@@ -1,7 +1,7 @@
 ---
-title: Como carregar um documento-Tradutor personalizado
+title: Como fazer upload de um documento - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
-description: O recurso de upload de documento carrega documentos paralelos (dois documentos em que um é a origem e o outro é a tradução) no serviço.
+description: A funcionalidade de upload do documento envia documentos paralelos (dois documentos em que um é a origem e o outro é a tradução) para o serviço.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,81 +10,81 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: b2a249a40d8c782d54a12df43d33655f3409753c
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73647389"
 ---
 # <a name="upload-a-document"></a>Carregar um documento
 
-No [Tradutor personalizado](https://portal.customtranslator.azure.ai), você pode carregar documentos paralelos para treinar seus modelos de tradução. Os [documentos paralelos](what-are-parallel-documents.md) são pares de documentos em que um é uma tradução do outro. Um documento no par contém sentenças no idioma de origem e o outro documento contém essas frases traduzidas para o idioma de destino.
+Em [Custom Tradutor,](https://portal.customtranslator.azure.ai)pode fazer upload de documentos paralelos para treinar os seus modelos de tradução. [Documentos paralelos](what-are-parallel-documents.md) são pares de documentos onde um é uma tradução do outro. Um documento no par contém frases na língua de origem e o outro documento contém estas frases traduzidas na linguagem-alvo.
 
-Antes de carregar seus documentos, examine as [diretrizes de formatos de documento e Convenção de nomenclatura](document-formats-naming-convention.md) para verificar se o formato de arquivo tem suporte no Tradutor personalizado.
+Antes de fazer o upload dos seus documentos, reveja os [formatos de documentos e nomeie a orientação](document-formats-naming-convention.md) da convenção para se certificar de que o seu formato de ficheiro é suportado em Tradutor Personalizado.
 
 ## <a name="how-to-upload-document"></a>Como carregar o documento?
 
-No portal do [Tradutor personalizado](https://portal.customtranslator.azure.ai) , clique na guia "documentos" para ir para a página de documentos.
+No portal [Custom Tradutor,](https://portal.customtranslator.azure.ai) clique no separador "Documentos" para ir à página de documentos.
 
-![Link de carregamento de documento](media/how-to/how-to-upload-1.png)
+![Link de upload de documento](media/how-to/how-to-upload-1.png)
 
 
-1.  Clique no botão carregar arquivos na página documentos.
+1.  Clique no botão de ficheiros upload na página de documentos.
 
-    ![Página carregar documento](media/how-to/how-to-upload-2.png)
+    ![Página de documento de upload](media/how-to/how-to-upload-2.png)
 
-2.  Na caixa de diálogo, preencha as seguintes informações:
+2.  No diálogo preencha as seguintes informações:
 
     a.  Tipo de documento:
 
-    -  Treinamento: esses documentos serão usados para o conjunto de treinamento.
-    -  Ajuste: esses documentos serão usados para conjunto de ajuste.
-    -  Teste: esses documentos serão usados para o conjunto de testes.
-    -  Dicionário de frases: esses documentos serão usados para o dicionário de frases.
-    -  Dicionário de sentenças: esses documentos serão usados para o dicionário de sentenças
+    -  Formação: Estes documentos serão utilizados para o conjunto de treino.
+    -  Afinação: Estes documentos serão utilizados para afinar.
+    -  Ensaio: Estes documentos serão utilizados para o conjunto de testes.
+    -  Frase Dicionário: Estes documentos serão utilizados para o dicionário de frases.
+    -  Dicionário da Sentença: Estes documentos serão utilizados para o dicionário de frases
 
-    b.  Par de idiomas
+    b.  Par de línguas
 
-    c.  Substituir documento se existir: Marque essa caixa de seleção se desejar substituir quaisquer documentos existentes com o mesmo nome.
+    c.  Sobrepor documento se existir: Selecione esta caixa de verificação se pretender substituir quaisquer documentos existentes com o mesmo nome.
 
-    d.  Preencha a seção relevante para dados paralelos ou dados de combinação.
+    d.  Preencha a secção relevante para obter dados paralelos ou combo.
 
     -  Dados paralelos:
-        -  Arquivo de origem: selecione o arquivo de idioma de origem do seu computador local.
-        -  Arquivo de destino: selecione o arquivo de idioma de destino no computador local.
-        -  Nome do documento: usado somente se você estiver carregando arquivos paralelos.
+        -  Ficheiro fonte: Selecione ficheiro de idioma fonte a partir do seu computador local.
+        -  Ficheiro de destino: Selecione ficheiro de idioma alvo a partir do seu computador local.
+        -  Nome do documento: Utilizado apenas se estiver a carregar ficheiros paralelos.
 
-    - Dados de combinação:
-        -  Arquivo de combinação: selecione o arquivo de combinação do seu computador local. O arquivo de combinação tem as duas frases de linguagem de origem e de destino. A [Convenção de nomenclatura](document-formats-naming-convention.md) é importante para arquivos de combinação.
+    - Dados da combo:
+        -  Ficheiro Combo: Selecione o ficheiro combo do seu computador local. O seu ficheiro combo tem as suas frases de origem e linguagem alvo. [A convenção de nomeação](document-formats-naming-convention.md) é importante para ficheiros combo.
 
-    e.  Clique em carregar
+    e.  Clique em Carregar
 
-    ![Caixa de diálogo Carregar documento](media/how-to/how-to-upload-dialog.png)
+    ![Carregar dialog de documento](media/how-to/how-to-upload-dialog.png)
 
-3.  Neste ponto, estamos processando seus documentos e tentando extrair frases. Você pode clicar em "Exibir progresso do upload" para verificar o status dos documentos conforme eles são processados.
+3.  Neste momento, estamos a processar os seus documentos e a tentar extrair frases. Pode clicar em "Ver carregar Progresso" para verificar o estado dos seus documentos à medida que estes processam.
 
-    ![Caixa de diálogo Carregar processamento de documentos](media/how-to/how-to-upload-processing-dialog.png)
+    ![Carregar dialog de processamento de documentos](media/how-to/how-to-upload-processing-dialog.png)
 
-4.  Esta página exibirá o status e quaisquer erros para cada arquivo em seu carregamento. Você pode exibir o status de carregamento anterior a qualquer momento clicando na guia "carregar histórico".
+4.  Esta página mostrará o estado e quaisquer erros para cada ficheiro dentro do seu upload. Pode visualizar o estado de upload passado a qualquer momento clicando no separador "Upload history".
 
-    ![Caixa de diálogo Carregar histórico do documento](media/how-to/how-to-upload-document-history.png)
+    ![Carregar o diálogo do histórico do documento](media/how-to/how-to-upload-document-history.png)
 
 
-## <a name="view-upload-history"></a>Exibir histórico de carregamento
+## <a name="view-upload-history"></a>Ver o histórico de upload
 
-Na página carregar histórico, você pode exibir o histórico de todos os carregamentos de documentos, como tipo de documento, par de idiomas, status de carregamento, etc.
+Na página de histórico de upload pode ver o histórico de todos os dados de upload de documentos como tipo de documento, par de idiomas, estado de upload etc.
 
-1. No portal do [Tradutor personalizado](https://portal.customtranslator.azure.ai) , clique na guia carregar histórico para exibir o histórico.
+1. A partir do portal [Tradutor Personalizado,](https://portal.customtranslator.azure.ai) clique no separador 'Upload History' para ver o histórico.
 
-    ![Guia carregar histórico](media/how-to/how-to-upload-history-1.png)
+    ![Carregar guia de histórico](media/how-to/how-to-upload-history-1.png)
 
-2. Esta página mostra o status de todos os seus carregamentos passados. Ele exibe os carregamentos do mais recente para o menos recente. Para cada carregamento, ele mostra o nome do documento, o status de carregamento, a data de carregamento, o número de arquivos carregados, o tipo de arquivo carregado e o par de idiomas do arquivo.
+2. Esta página mostra o estado de todos os seus uploads passados. Apresenta uploads das mais recentes ao menos recentes. Para cada upload, mostra o nome do documento, o estado de upload, a data de upload, o número de ficheiros carregados, o tipo de ficheiro carregado e o par de idiomas do ficheiro.
 
-    ![Página carregar histórico](media/how-to/how-to-document-history-2.png)
+    ![Página de histórico de upload](media/how-to/how-to-document-history-2.png)
 
-3. Clique em qualquer registro de histórico de carregamento. Na página de detalhes carregar histórico, você pode exibir os arquivos carregados como parte do upload, o status carregado do arquivo, o idioma do arquivo e a mensagem de erro (se houver algum erro no carregamento).
+3. Clique em qualquer registo de histórico de upload. Na página de dados do histórico de upload, pode visualizar os ficheiros enviados como parte do upload, estado carregado do ficheiro, idioma do ficheiro e mensagem de erro (se houver algum erro no upload).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Use a [página detalhes do documento](how-to-view-document-details.md) para revisar a lista de sentenças extraídas.
-- [Como treinar um modelo](how-to-train-model.md).
+- Utilize a [página de detalhes](how-to-view-document-details.md) do documento para rever a lista de frases extraídas.
+- [Como treinar um modelo.](how-to-train-model.md)

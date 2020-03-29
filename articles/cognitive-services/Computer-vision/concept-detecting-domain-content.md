@@ -1,7 +1,7 @@
 ---
-title: Conteúdo específico do domínio-Pesquisa Visual Computacional
+title: Conteúdo específico do domínio - Visão computacional
 titleSuffix: Azure Cognitive Services
-description: Saiba como especificar um domínio de categorização de imagem para retornar informações mais detalhadas sobre uma imagem.
+description: Saiba especificar um domínio de categorização de imagem para devolver informações mais detalhadas sobre uma imagem.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,25 +12,25 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 8d6dc91ae7bb0f6d7a24064749d9295558a7d39c
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68946328"
 ---
-# <a name="detect-domain-specific-content"></a>Detectar conteúdo específico de domínio
+# <a name="detect-domain-specific-content"></a>Detetar conteúdo específico de um domínio
 
-Além da marcação e categorização de alto nível, o Pesquisa Visual Computacional também dá suporte à análise específica de domínio adicional usando modelos que foram treinados em dados especializados.
+Além da marcação e categorização de alto nível, a Computer Vision também suporta uma análise mais específica do domínio utilizando modelos que foram treinados em dados especializados.
 
-Há duas maneiras de usar os modelos específicos de domínio: por si só (análise com escopo) ou como um aprimoramento para o recurso de categorização.
+Existem duas formas de utilizar os modelos específicos do domínio: por si só (análise de âmbito) ou como um melhoramento para a função de categorização.
 
-### <a name="scoped-analysis"></a>Análise com escopo
+### <a name="scoped-analysis"></a>Análise de âmbito
 
-Você pode analisar uma imagem usando apenas o modelo específico de domínio escolhido chamando a API [/Analyze Models\>/\<modelo](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) .
+Pode analisar uma imagem usando apenas o modelo específico de domínio escolhido, chamando os [\<Modelos/Modelo\>/Analisar](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) API.
 
-A seguir está um exemplo de resposta JSON retornada pela API **Models/celebridades/Analyze** para a imagem determinada:
+Segue-se uma resposta JSON de amostra devolvida pelos **modelos/celebridades/analisar** a API para a imagem dada:
 
-![Satya Nadella pé, sorrindo](./images/satya.jpeg)
+![Satya Nadella de pé, sorrindo](./images/satya.jpeg)
 
 ```json
 {
@@ -55,13 +55,13 @@ A seguir está um exemplo de resposta JSON retornada pela API **Models/celebrida
 }
 ```
 
-### <a name="enhanced-categorization-analysis"></a>Análise de categorização avançada
+### <a name="enhanced-categorization-analysis"></a>Análise de categorização melhorada
 
-Você também pode usar modelos específicos de domínio para complementar a análise de imagem geral. Você faz isso como parte da [categorização de alto nível](concept-categorizing-images.md) especificando modelos específicos de domínio no parâmetro *Details* da chamada de API de [análise](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) .
+Também pode utilizar modelos específicos de domínio para complementar a análise geral da imagem. Faça-o como parte da [categorização de alto nível](concept-categorizing-images.md) especificando modelos específicos de domínio no parâmetro de *detalhes* da chamada [API de análise.](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)
 
-Nesse caso, o classificador de taxonomia 86-category é chamado primeiro. Se qualquer uma das categorias detectadas tiver um modelo específico de domínio correspondente, a imagem também passará por esse modelo e os resultados serão adicionados.
+Neste caso, o classificador de taxonomia de 86 categorias é chamado primeiro. Se alguma das categorias detetadas tiver um modelo específico de domínio correspondente, a imagem também é transmitida através desse modelo e os resultados são adicionados.
 
-A resposta JSON a seguir mostra como a análise específica de domínio pode ser incluída `detail` como o nó em uma análise de categorização mais ampla.
+A resposta json seguinte mostra como a análise `detail` específica do domínio pode ser incluída como o nó numa análise de categorização mais ampla.
 
 ```json
 "categories":[
@@ -96,16 +96,16 @@ A resposta JSON a seguir mostra como a análise específica de domínio pode ser
 ]
 ```
 
-## <a name="list-the-domain-specific-models"></a>Listar os modelos específicos de domínio
+## <a name="list-the-domain-specific-models"></a>Enumerar os modelos específicos do domínio
 
-Atualmente, Pesquisa Visual Computacional dá suporte aos seguintes modelos específicos de domínio:
+Atualmente, a Computer Vision suporta os seguintes modelos específicos de domínio:
 
 | Nome | Descrição |
 |------|-------------|
-| celebridades | Reconhecimento de celebridade, com suporte para imagens classificadas na `people_` categoria |
-| pontos | Reconhecimento de ponto de referência, com suporte para `outdoor_` imagens `building_` classificadas nas categorias ou |
+| celebridades | Reconhecimento de celebridades, suportado `people_` por imagens classificadas na categoria |
+| marcos | Reconhecimento de marcos, suportado `outdoor_` para `building_` imagens classificadas nas categorias ou categorias |
 
-Chamar a API de [modelos](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) retornará essas informações junto com as categorias às quais cada modelo pode ser aplicado:
+A chamada para os [Modelos](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) API devolverá esta informação juntamente com as categorias a que cada modelo pode aplicar:
 
 ```json
 {
@@ -139,4 +139,4 @@ Chamar a API de [modelos](https://westus.dev.cognitive.microsoft.com/docs/servic
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Aprenda conceitos sobre a categorização de [imagens](concept-categorizing-images.md).
+Aprenda conceitos sobre [categorização de imagens.](concept-categorizing-images.md)

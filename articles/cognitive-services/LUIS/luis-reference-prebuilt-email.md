@@ -1,7 +1,7 @@
 ---
 title: Referência de email de entidades pré-construídas LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém e-mail informações da entidade pré-criados na compreensão de idiomas (LUIS).
+description: Este artigo contém informações de entidades pré-construídas por e-mail em Compreensão de Línguas (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,16 +12,16 @@ ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ms.openlocfilehash: f7aa2a341a82d30f7022af49e626a3cd358854b7
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273471"
 ---
 # <a name="email-prebuilt-entity-for-a-luis-app"></a>E-mail entidade pré-construída para uma app LUIS
-Extração de e-mail inclui o endereço de e-mail completo de uma expressão. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém o e-mail para os objetivos do aplicativo. A entidade de e-mail é suportada apenas na cultura `en-us`.
+A extração de e-mail inclui todo o endereço de e-mail de uma expressão. Como esta entidade já está treinada, não precisa de adicionar declarações de exemplo contendo e-mail para as intenções da aplicação. A entidade de `en-us` e-mail é suportada apenas na cultura.
 
-## <a name="resolution-for-prebuilt-email"></a>Resolução de correio eletrónico pré-criados
+## <a name="resolution-for-prebuilt-email"></a>Resolução para e-mail pré-construído
 
 Os seguintes objetos de entidade são devolvidos para consulta:
 
@@ -29,7 +29,7 @@ Os seguintes objetos de entidade são devolvidos para consulta:
 
 #### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O seguinte JSON está com o parâmetro `verbose` definido para `false`:
+O seguinte JSON `verbose` está com `false`o parâmetro definido para:
 
 ```json
 "entities": {
@@ -40,7 +40,7 @@ O seguinte JSON está com o parâmetro `verbose` definido para `false`:
 ```
 #### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
 
-O seguinte JSON está com o parâmetro `verbose` definido para `true`:
+O seguinte JSON `verbose` está com `true`o parâmetro definido para:
 
 ```json
 "entities": {

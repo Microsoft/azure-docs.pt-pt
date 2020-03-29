@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: diberry
 ms.openlocfilehash: ec6f9592a4c149be382fab66cca27d929644d988
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78194514"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrar para uma chave de autoria de recursos Azure
@@ -61,7 +61,7 @@ Pode atrasar o processo de migração cancelando pela janela. É-lhe pedido peri
 
 ### <a name="before-you-migrate"></a>Antes de migrar
 
-* **Necessário,** precisa de ter uma [subscrição Azure.](https://azure.microsoft.com/free/) Uma parte do processo de subscrição requer informações de faturação. No entanto, pode utilizar o nível de preços Free (`F0`) quando utilizar o LUIS.
+* **Necessário,** precisa de ter uma [subscrição Azure.](https://azure.microsoft.com/free/) Uma parte do processo de subscrição requer informações de faturação. No entanto, pode`F0`utilizar o nível de preços Gratuitos quando utilizar o LUIS.
 * **Opcionalmente,** faça backup das aplicações da lista de aplicações do portal LUIS exportando cada aplicação ou utilizar a [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40)de exportação.
 * **Opcionalmente,** guarde a lista de colaboradores de cada aplicação. Esta lista de e-mails é fornecida como parte do processo de migração.
 
@@ -78,14 +78,14 @@ Siga [estes passos de migração.](luis-migration-authoring-steps.md)
 
 Após o processo de migração, todas as suas aplicações LUIS são agora atribuídas a um único recurso de autoria LUIS.
 
-Pode criar mais recursos de autoria e atribuir a partir da página **de recursos Manage &> Azure** no _portal LUIS._
+Pode criar mais recursos de autoria e atribuir a partir da página de **recursos Do Gere -> Azure** no _portal LUIS._
 
 Pode adicionar colaboradores ao recurso de autoria do _portal Azure,_ na página de Controlo de **Acesso (IAM)** para esse recurso. Para mais informações, consulte [adicionar acesso ao contribuinte.](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource)
 
 |Portal|Objetivo|
 |--|--|
 |[Azure](https://azure.microsoft.com/free/)|* Criar recursos de previsão e autoria.<br>* Atribuir contribuintes.|
-|[LUIS](https://www.luis.ai)|* Migrar para novos recursos de autoria.<br>* Atribuir ou designar a previsão e a autoria de recursos para apps da página **de recursos Manage &> Azure.**|
+|[LUIS](https://www.luis.ai)|* Migrar para novos recursos de autoria.<br>* Atribuir ou designar a previsão e autorizar recursos para aplicações da página de **recursos Manage -> Azure.**|
 
 ## <a name="migration-for-the-app-contributor"></a>Migração para o contribuinte da aplicação
 

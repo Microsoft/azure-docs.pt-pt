@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: d721ceb25b3ce2408563a0bed16457d05affe7b4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79219997"
 ---
 # <a name="design-with-intent-and-entity-models"></a>Design com modelos de intenção e entidade 
@@ -47,9 +47,9 @@ A LUIS apoia entidades compostas com as APIs de autoria v2. Isto proporciona uma
 
 Uma intenção classifica as declarações de exemplo para ensinar LUIS sobre a intenção. As declarações de exemplo dentro de uma intenção são usadas como exemplos positivos da expressão. Estas mesmas expressões são usadas como exemplos negativos em todas as outras intenções.
 
-Considere uma aplicação que precisa determinar a intenção de um utilizador de encomendar um livro e uma app que precisa do endereço de envio para o cliente. Esta aplicação tem duas intenções: `OrderBook` e `ShippingLocation`.
+Considere uma aplicação que precisa determinar a intenção de um utilizador de encomendar um livro e uma app que precisa do endereço de envio para o cliente. Esta aplicação tem `OrderBook` duas `ShippingLocation`intenções: e .
 
-A seguinte expressão é um **exemplo positivo** para a intenção `OrderBook` e um **exemplo negativo** para as intenções `ShippingLocation` e `None`: 
+A seguinte expressão **positive example** é um `OrderBook` exemplo positivo para a `ShippingLocation` `None` intenção e um **exemplo negativo** para as intenções e intenções: 
 
 `Buy the top-rated book on bot architecture.`
 
@@ -90,14 +90,14 @@ O seguinte representa uma entidade aprendida por máquinas com todos estes dados
 * TravelOrder (entidade aprendida por máquinas)
     * DataTime (data pré-construídaV2)
     * Localização (entidade aprendida por máquinas)
-        * Origem (função encontrada através de contexto como `from`)
-        * Destino (função encontrada através de contexto sinuoso `to`)
+        * Origem (função encontrada `from`através de contexto como)
+        * Destino (função encontrada `to`através de contexto como)
     * Assentos (entidade aprendida por máquinas)
         * Quantidade (número pré-construído)
         * Qualidade (entidade aprendida por máquinas com descritor da lista de frases)
     * Refeições (entidade aprendida por máquinas com restrição da entidade da lista como escolhas alimentares)
 
-Alguns destes dados, como a localização da origem e a localização do destino, devem ser aprendidos a partir do contexto da expressão, talvez com uma redação como `from` e `to`. Outras partes dos dados podem ser extraídas com correspondências exatas de cordas (`Vegan`) ou entidades pré-construídas (geografiaV2 de `Seattle` e `Cairo`). 
+Alguns destes dados, como a localização da origem e a localização do destino, devem `from` ser `to`aprendidos a partir do contexto da expressão, talvez com a redação e . Outras partes dos dados podem ser`Vegan`extraídas com correspondências exatas `Seattle` de `Cairo`cordas () ou entidades pré-construídas (geografiaV2 de e). 
 
 Você desenha como os dados são combinados e extraídos por quais os modelos que você escolhe e como os configura.
 
@@ -116,9 +116,9 @@ Os constrangimentos incluem:
 
 Continuando com o exemplo do bilhete de avião, os códigos do aeroporto podem estar numa entidade da Lista para correspondências de texto exatas. 
 
-Para uma lista de aeroportos, a lista de inscrições para Seattle é o nome da cidade, `Seattle` e os sinónimos de Seattle incluem o código do aeroporto para Seattle, juntamente com cidades e cidades circundantes:
+Para uma lista de aeroportos, a lista `Seattle` de entrada para Seattle é o nome da cidade, e os sinónimos para Seattle incluem o código do aeroporto para Seattle, juntamente com cidades e cidades circundantes:
 
-|`Seattle` Lista de sinónimos de entidade|
+|`Seattle`Sinónimos de entidades de lista|
 |--|
 |`Sea`|
 |`seatac`|

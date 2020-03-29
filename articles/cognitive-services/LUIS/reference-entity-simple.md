@@ -1,7 +1,7 @@
 ---
-title: Tipo de entidade simples-LUIS
+title: Tipo de entidade simples - LUIS
 titleSuffix: Azure Cognitive Services
-description: Uma entidade simples descreve um único conceito do contexto aprendido por máquina. Adicione uma lista de frases ao usar uma entidade simples para melhorar os resultados.
+description: Uma entidade simples descreve um único conceito a partir do contexto aprendido pela máquina. Adicione uma lista de frases ao utilizar uma entidade simples para melhorar os resultados.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,31 +11,31 @@ ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
 ms.openlocfilehash: 8b92aa6057c81ec9442372c5b85918cb92196d61
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74894766"
 ---
 # <a name="simple-entity"></a>Entidade simples
 
-Uma entidade simples é uma entidade genérica que descreve um único conceito e é aprendida do contexto aprendido pelo computador. Como as entidades simples são geralmente nomes como nomes de empresa, nomes de produtos ou outras categorias de nomes, adicione uma [lista de frases](luis-concept-feature.md) ao usar uma entidade simples para aumentar o sinal dos nomes usados.
+Uma entidade simples é uma entidade genérica que descreve um único conceito e é aprendida com o contexto aprendido pela máquina. Como as entidades simples são geralmente nomes como nomes de empresa, nomes de produtos ou outras categorias de nomes, adicionam uma lista de [frases](luis-concept-feature.md) quando se usa uma entidade simples para impulsionar o sinal dos nomes utilizados.
 
-**A entidade é uma boa opção quando:**
+**A entidade é um bom ajuste quando:**
 
-* Os dados não são formatados consistentemente, mas indicam a mesma coisa.
+* Os dados não são consistentemente formatados, mas indicam a mesma coisa.
 
-![entidade Simple](./media/luis-concept-entities/simple-entity.png)
+![entidade simples](./media/luis-concept-entities/simple-entity.png)
 
-## <a name="example-json"></a>JSON de exemplo
+## <a name="example-json"></a>Exemplo JSON
 
 `Bob Jones wants 3 meatball pho`
 
-Na expressão anterior, `Bob Jones` é identificado como um simples `Customer` entidade.
+Na expressão anterior, `Bob Jones` é rotulado como `Customer` uma entidade simples.
 
-Os dados devolvidos a partir do ponto final incluem o nome da entidade, o texto detetado da expressão, a localização do texto detetado e a pontuação:
+Os dados devolvidos do ponto final incluem o nome da entidade, o texto descoberto da expressão, a localização do texto descoberto e a pontuação:
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Resposta final de previsão V2](#tab/V2)
 
 ```JSON
 "entities": [
@@ -49,9 +49,9 @@ Os dados devolvidos a partir do ponto final incluem o nome da entidade, o texto 
 ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão v3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Resposta final de previsão V3](#tab/V3)
 
-Esse é o JSON se `verbose=false` for definido na cadeia de caracteres de consulta:
+Este é o JSON se `verbose=false` estiver definido na corda de consulta:
 
 ```json
 "entities": {
@@ -90,9 +90,9 @@ This is the JSON if `verbose=true` is set in the query string:
 
 |Objeto de dados|Nome da entidade|Valor|
 |--|--|--|
-|Entidade Simple|`Customer`|`bob jones`|
+|Entidade Simples|`Customer`|`bob jones`|
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Aprenda a sintaxe do padrão](reference-pattern-syntax.md)
+> [Aprenda sintaxe de padrão](reference-pattern-syntax.md)

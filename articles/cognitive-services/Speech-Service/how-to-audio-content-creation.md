@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: dapine
 ms.openlocfilehash: ab0d2b8d95b4cb5996dd93fa0bb24085c9de26d5
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78331541"
 ---
 # <a name="improve-synthesis-with-audio-content-creation"></a>Melhorar a síntese com a criação de Conteúdo Áudio
@@ -52,7 +52,7 @@ Siga estes passos para criar um recurso da Fala e conectá-lo com o Speech Studi
 
 Existem duas formas de colocar o seu conteúdo na ferramenta Audio Content Creation.
 
-**Opção 1:**
+**Opção 1:**
 
 1. Depois de iniciar sessão na [Audio Content Creation,](https://aka.ms/audiocontentcreation)clique em **Audio Tuning** para criar um novo ficheiro de afinação de áudio.
 2. Quando a janela de edição aparecer, pode inserir até 10.000 caracteres.
@@ -95,7 +95,7 @@ Depois de ter revisto a sua saída de áudio e estar satisfeito com a sua afina�
 2. Escolha o formato de saída para o seu áudio afinado. Uma lista de formatos suportados e taxas de amostra estão disponíveis abaixo.
 3. Pode visualizar o estado da tarefa no separador de **tarefas exportação.** Se a tarefa falhar, consulte a página de informação detalhada para obter um relatório completo.
 4. Quando a tarefa estiver concluída, o seu áudio está disponível para download no separador **Audio Library.**
-5. Clique em **Transferir**. Agora está pronto para usar o seu áudio personalizado nas suas apps ou produtos.
+5. Clique em **Baixar**. Agora está pronto para usar o seu áudio personalizado nas suas apps ou produtos.
 
 ### <a name="supported-audio-formats"></a>Formatos de áudio suportados
 

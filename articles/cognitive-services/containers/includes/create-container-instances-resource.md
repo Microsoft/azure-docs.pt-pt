@@ -1,7 +1,7 @@
 ---
 title: Suporte de contentor
 titleSuffix: Azure Cognitive Services
-description: Saiba como criar um recurso de instância de contêiner do Azure.
+description: Aprenda a criar um recurso de instância de contentores Azure.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,43 +10,43 @@ ms.topic: include
 ms.date: 11/21/2019
 ms.author: dapine
 ms.openlocfilehash: 18f4edf5cc63a448779423cc1b302130b4b80724
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75692582"
 ---
-## <a name="create-an-azure-container-instance-resource"></a>Criar um recurso de instância de contêiner do Azure
+## <a name="create-an-azure-container-instance-resource"></a>Criar um recurso azure container instance
 
-1. Vá para a página [criar](https://ms.portal.azure.com/#create/Microsoft.ContainerInstances) para instâncias de contêiner.
+1. Vá à página [Criar](https://ms.portal.azure.com/#create/Microsoft.ContainerInstances) instâncias de contentores.
 
-2. Na guia **noções básicas** , insira os seguintes detalhes:
+2. No separador **Basics,** introduza os seguintes detalhes:
 
     |Definição|Valor|
     |--|--|
     |Subscrição|Selecione a sua subscrição.|
-    |Grupo de recursos|Selecione o grupo de recursos disponível ou crie um novo, como `cognitive-services`.|
-    |Nome do contentor|Insira um nome como `cognitive-container-instance`. O nome deve estar em minúsculas.|
+    |Grupo de recursos|Selecione o grupo de recursos `cognitive-services`disponíveis ou crie um novo, como .|
+    |Nome do contentor|Introduza um `cognitive-container-instance`nome como . O nome deve estar nas tampas inferiores.|
     |Localização|Selecione uma região para implantação.|
-    |Tipo de imagem|Se a imagem de contêiner estiver armazenada em um registro de contêiner que não requer credenciais, escolha `Public`. Se o acesso à sua imagem de contêiner exigir credenciais, escolha `Private`. Consulte [repositórios e imagens de contêiner](../../cognitive-services-container-support.md#container-repositories-and-images) para obter detalhes sobre se a imagem de contêiner está ou não `Public` ou `Private` ("visualização pública"). |
-    |Nome da imagem|Insira o local do contêiner de serviços cognitivas. O local é o que é usado como um argumento para o comando `docker pull`. Consulte os [repositórios e as imagens do contêiner](../../cognitive-services-container-support.md#container-repositories-and-images) para obter os nomes de imagem disponíveis e seu repositório correspondente.<br><br>O nome da imagem deve ser totalmente qualificado, especificando três partes. Primeiro, o registro de contêiner, em seguida, o repositório, por fim, o nome da imagem: `<container-registry>/<repository>/<image-name>`.<br><br>Aqui está um exemplo, `mcr.microsoft.com/azure-cognitive-services/keyphrase` representaria a imagem de Extração de Frases-chave no registro de contêiner da Microsoft no repositório de serviços cognitivas do Azure. Outro exemplo é, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` que representaria a imagem de fala para texto no repositório da Microsoft do registro de contêiner de visualização do contêiner. |
-    |Tipo de SO|`Linux`|
-    |Tamanho|Altere o tamanho para as recomendações sugeridas para seu contêiner de serviço cognitiva específico:<br>2 núcleos de CPU<br>4GB
+    |Tipo de imagem|Se a sua imagem de contentor for armazenada num registo `Public`de contentores que não exija credenciais, escolha . Se aceder à imagem do seu `Private`recipiente requer credenciais, escolha . Consulte [os repositórios e imagens](../../cognitive-services-container-support.md#container-repositories-and-images) do contentor para `Public` `Private` obter detalhes sobre se a imagem do recipiente é ou não ("Visualização pública"). |
+    |Nome da imagem|Insira a localização do contentor dos Serviços Cognitivos. A localização é o que é `docker pull` usado como argumento para o comando. Consulte os [repositórios e imagens](../../cognitive-services-container-support.md#container-repositories-and-images) do recipiente para os nomes de imagem disponíveis e o seu repositório correspondente.<br><br>O nome da imagem deve ser totalmente qualificado especificando três partes. Primeiro, o registo do contentor, depois o repositório, finalmente o nome da imagem: `<container-registry>/<repository>/<image-name>`.<br><br>Aqui está um `mcr.microsoft.com/azure-cognitive-services/keyphrase` exemplo, representaria a imagem de extração de frases-chave no Registo de Contentores da Microsoft sob o repositório dos Serviços Cognitivos Azure. Outro exemplo `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` é, que representaria a imagem de Discurso a Texto no repositório da Microsoft do registo de contentores de visualização de contentores. |
+    |Tipo OS|`Linux`|
+    |Tamanho|Mude o tamanho para as recomendações sugeridas para o seu recipiente específico do Serviço Cognitivo:<br>2 núcleos CPU<br>4GB
 
-3. Na guia **rede** , insira os seguintes detalhes:
+3. No separador **Networking,** introduza os seguintes detalhes:
 
     |Definição|Valor|
     |--|--|
-    |Portas|Defina a porta TCP como `5000`. Expõe o contêiner na porta 5000.|
+    |Portas|Coloque a porta `5000`TCP para . Expõe o recipiente na porta 5000.|
 
-4. Na guia **avançado** , insira as variáveis de **ambiente** necessárias para as configurações de cobrança de contêiner do recurso de instância de contêiner do Azure:
+4. No separador **Advanced,** introduza as **variáveis ambientais necessárias** para as definições de faturação do contentor do recurso Deporde:
 
     | Chave | Valor |
     |--|--|
-    |`apikey`|Copiado da página de **chaves** do recurso. É uma cadeia de caracteres de caractere alfanumérico 32 sem espaços ou traços, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
-    |`billing`|Copiado da página de **visão geral** do recurso.|
+    |`apikey`|Copiado **da** página keys do recurso. É uma corda de 32 caracteres alfanuméricos sem espaços ou traços, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |`billing`|Copiado da página **geral** do recurso.|
     |`eula`|`accept`|
 
-5. Clique em **revisar e criar**
-6. Após a aprovação da validação, clique em **criar** para concluir o processo de criação
-7. Quando o recurso for implantado com êxito, ele estará pronto
+5. Clique em **Rever e Criar**
+6. Depois de passar os passes de validação, clique **em Criar** para terminar o processo de criação
+7. Quando o recurso é implantado com sucesso, está pronto

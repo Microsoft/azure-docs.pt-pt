@@ -1,7 +1,7 @@
 ---
-title: Avaliação de recurso-personalizador
+title: Avaliação de funcionalidades - Personalizer
 titleSuffix: Azure Cognitive Services
-description: Quando você executa uma avaliação em seu recurso personalizado do portal do Azure, o personalizador fornece informações sobre quais recursos de contexto e ações estão influenciando o modelo.
+description: Ao executar uma Avaliação no seu recurso Personalizer a partir do portal Azure, o Personalizer fornece informações sobre quais as características do contexto e ações que estão a influenciar o modelo.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,75 +11,75 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
 ms.openlocfilehash: 31243b5e9da55aafbc376fa416c1b00a4499c116
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "70242421"
 ---
 # <a name="feature-evaluation"></a>Avaliação de funcionalidade
 
-Quando você executa uma avaliação em seu recurso personalizado do [portal do Azure](https://portal.azure.com), o personalizador fornece informações sobre quais recursos de contexto e ações estão influenciando o modelo. 
+Ao executar uma Avaliação no seu recurso Personalizer a partir do [portal Azure,](https://portal.azure.com)o Personalizer fornece informações sobre quais as características do contexto e ações que estão a influenciar o modelo. 
 
-Isso é útil para:
+Isto é útil para:
 
-* Imagine recursos adicionais que você pode usar, obtendo inspiração de quais recursos são mais importantes no modelo.
-* Veja quais recursos não são importantes e possivelmente remova-os ou analise ainda mais o que pode estar afetando o uso.
-* Forneça orientação para as equipes editoriais ou de organização sobre novos conteúdos ou produtos que valem a pena colocar no catálogo.
-* Solucionar problemas comuns e erros que ocorrem ao enviar recursos para o personalizador.
+* Imagine funcionalidades adicionais que possa utilizar, inspirando-se no que as funcionalidades são mais importantes no modelo.
+* Veja quais as funcionalidades que não são importantes e potencialmente removê-las ou analisar ainda mais o que pode estar a afetar o uso.
+* Fornecer orientação às equipas editoriais ou de curadoria sobre novos conteúdos ou produtos que valha a pena trazer para o catálogo.
+* Problemas comuns que acontecem ao enviar funcionalidades para personalizar.
 
-Os recursos mais importantes têm pesos mais fortes no modelo. Como esses recursos têm um peso mais alto, eles tendem a estar presentes quando o personalizador obtém recompensas mais altas.
+As características mais importantes têm pesos mais fortes no modelo. Como estas características têm um peso mais forte, tendem a estar presentes quando o Personalizer obtém recompensas mais elevadas.
 
-## <a name="getting-feature-importance-evaluation"></a>Obtendo a avaliação de importância do recurso
+## <a name="getting-feature-importance-evaluation"></a>Obtenção de avaliação de importância de recursos
 
-Para ver os resultados de importância do recurso, você deve executar uma avaliação. A avaliação cria rótulos de recursos legíveis com base nos nomes de recursos observados durante o período de avaliação.
+Para ver os resultados da funcionalidade, deve fazer uma avaliação. A avaliação cria etiquetas de recurso legíveis pelo homem com base nos nomes de recurso observados durante o período de avaliação.
 
-As informações resultantes sobre a importância do recurso representam o modelo atual do personalizador online. A avaliação analisa a importância do recurso do modelo salvo na data de término do período de avaliação, depois de passar todo o treinamento realizado durante a avaliação, com a política de aprendizado online atual. 
+A informação resultante sobre a importância da funcionalidade representa o atual modelo online Personalizer. A avaliação analisa a importância do modelo guardado na data final do período de avaliação, depois de ter sido submetido a toda a formação realizada durante a avaliação, com a atual política de aprendizagem online. 
 
-Os resultados de importância do recurso não representam outras políticas e modelos testados ou criados durante a avaliação.  A avaliação não incluirá recursos enviados ao personalizado após o término do período de avaliação.
+Os resultados da funcionalidade não representam outras políticas e modelos testados ou criados durante a avaliação.  A avaliação não incluirá funcionalidades enviadas ao Personalizer após o final do período de avaliação.
 
-## <a name="how-to-interpret-the-feature-importance-evaluation"></a>Como interpretar a avaliação de importância do recurso
+## <a name="how-to-interpret-the-feature-importance-evaluation"></a>Como interpretar a avaliação de importância da característica
 
-O personalizador avalia os recursos criando "grupos" de recursos que têm importância semelhante. Pode-se dizer que um grupo tem uma importância geral mais forte do que outras, mas dentro do grupo, a ordenação de recursos é em ordem alfabética.
+Personalizer avalia funcionalidades criando "grupos" de funcionalidades que têm uma importância semelhante. Um grupo pode dizer-se que tem uma importância globalmente mais forte do que outros, mas dentro do grupo, ordenar características é alfabeticamente.
 
-As informações sobre cada recurso incluem:
+A informação sobre cada Recurso inclui:
 
-* Se o recurso vem de contexto ou ações.
+* Se a funcionalidade vem do Context ou Das Ações.
 * Chave de recurso e valor.
 
-Por exemplo, um aplicativo de ordenação de sorvetes de gelo pode ver "context. clima: quente" como um recurso muito importante.
+Por exemplo, uma aplicação de encomenda de uma gelataria pode ver "Context.Weather:Hot" como uma característica muito importante.
 
-O personalizador exibe correlações de recursos que, quando levados em conta, produzem recompensas mais altas.
+O personalizer exibe correlações de características que, quando tidas em conta em conjunto, produzem recompensas mais elevadas.
 
-Por exemplo, você pode ver "context. clima: quente *com* Action. MenuItem: sorvete", bem como "context. clima: frio *com* Action. MenuItem: WarmTea:
+Por exemplo, pode ver "Context.Weather:Hot *with* Action.MenuItem:IceCream" bem como "Context.Weather:Cold *with* Action.MenuItem:WarmTea:
 
-## <a name="actions-you-can-take-based-on-feature-evaluation"></a>Ações que você pode tomar com base na avaliação de recursos
+## <a name="actions-you-can-take-based-on-feature-evaluation"></a>Ações que pode tomar com base na avaliação de recursos
 
-### <a name="imagine-additional-features-you-could-use"></a>Imagine recursos adicionais que você pode usar
+### <a name="imagine-additional-features-you-could-use"></a>Imagine funcionalidades adicionais que poderia usar
 
-Obtenha inspiração dos recursos mais importantes no modelo. Por exemplo, se você vir "context. MobileBattery: Low" em um aplicativo móvel de vídeo, talvez ache que o tipo de conexão também pode fazer com que os clientes optem por ver um clipe de vídeo sobre outro e, em seguida, adicionar recursos sobre o tipo de conectividade e a largura de banda em seu aplicativo.
+Inspire-se nas características mais importantes do modelo. Por exemplo, se vir "Context.MobileBattery:Low" numa aplicação móvel de vídeo, pode pensar que o tipo de ligação também pode fazer com que os clientes escolham ver um videoclip sobre outro, em seguida, adicionar funcionalidades sobre o tipo de conectividade e largura de banda na sua aplicação.
 
-### <a name="see-what-features-are-not-important"></a>Veja quais recursos não são importantes
+### <a name="see-what-features-are-not-important"></a>Veja quais as funcionalidades que não são importantes
 
-Potencialmente, remova recursos não importantes ou analise ainda mais o que pode afetar o uso. Os recursos podem ter uma classificação baixa por vários motivos. Uma delas poderia ser que o recurso original não afete o comportamento do usuário. Mas isso também pode significar que o recurso não é aparente para o usuário. 
+Potencialmente remova características não importantes ou analise ainda mais o que pode afetar o uso. As características podem estar baixas por muitas razões. Pode ser que, genuinamente, a funcionalidade não afete o comportamento do utilizador. Mas também pode significar que a funcionalidade não é aparente para o utilizador. 
 
-Por exemplo, um site de vídeo poderia ver que "Action. VideoResolution = 4K" é um recurso de baixa prioridade, contradiz a pesquisa do usuário. A causa pode ser que o aplicativo não mencione nem mostrar a resolução de vídeo, de modo que os usuários não alterariam seu comportamento com base nele.
+Por exemplo, um site de vídeo poderia ver que "Action.VideoResolution=4k" é uma funcionalidade de baixa importância, contradizendo a pesquisa do utilizador. A causa pode ser que a aplicação nem sequer mencione ou mostre a resolução de vídeo, para que os utilizadores não mudem o seu comportamento com base no mesmo.
 
-### <a name="provide-guidance-to-editorial-or-curation-teams"></a>Fornecer orientação para as equipes editoriais ou de organização
+### <a name="provide-guidance-to-editorial-or-curation-teams"></a>Fornecer orientação às equipas editoriais ou de curadoria
 
-Forneça diretrizes sobre novos conteúdos ou produtos que valem a pena colocar no catálogo. O personalizador foi projetado para ser uma ferramenta que aumenta a Insight e as equipes humanas. Uma maneira de fazer isso é fornecendo informações aos grupos editorial sobre o que ele faz sobre produtos, artigos ou conteúdo que conduz o comportamento. Por exemplo, o cenário do aplicativo de vídeo pode mostrar que há um recurso importante chamado "Action. VideoEntities. Cat: true", solicitando que a equipe editorial traga mais vídeos em gato.
+Forneça orientações sobre novos conteúdos ou produtos que valha a pena trazer para o catálogo. O personalizer é projetado para ser uma ferramenta que aumenta a perceção humana e as equipas. Uma das formas de o fazer é fornecendo informações aos grupos editoriais sobre o que é sobre produtos, artigos ou conteúdos que impulsionam o comportamento. Por exemplo, o cenário de aplicação de vídeo pode mostrar que há uma característica importante chamada "Action.VideoEntities.Cat:true", levando a equipa editorial a trazer mais vídeos de gatos.
 
-### <a name="troubleshoot-common-problems-and-mistakes"></a>Solucionar problemas e erros comuns
+### <a name="troubleshoot-common-problems-and-mistakes"></a>Problemas de resolução de problemas e erros comuns
 
-Problemas comuns e erros podem ser corrigidos alterando o código do aplicativo para que ele não envie recursos inadequados ou formatados incorretamente para o personalizador. 
+Problemas e erros comuns podem ser corrigidos alterando o seu código de aplicação para que não envie funcionalidades inadequadas ou mal formatadas para personalizar o Personalizer. 
 
-Erros comuns ao enviar recursos incluem o seguinte:
+Erros comuns ao enviar funcionalidades incluem:
 
-* Enviando informações de identificação pessoal (PII). PII específicas para um indivíduo (como nome, número de telefone, números de cartão de crédito, endereços IP) não devem ser usadas com o personalizador. Se seu aplicativo precisar controlar os usuários, use um UUID sem identificação ou algum outro número de UserID. Na maioria dos cenários, isso também é problemático.
-* Com um grande número de usuários, é improvável que a interação de cada usuário avalie mais do que toda a interação da população; portanto, o envio de IDs de usuário (mesmo se não-PII) provavelmente adicionará mais ruído do que o valor ao modelo.
-* Enviando campos de data e hora como carimbos de hora precisos em vez de valores de tempo destacados. Ter recursos como Context. TimeStamp. Day = segunda-feira ou "context. TimeStamp. Hour" = "13" é mais útil. Haverá no máximo 7 ou 24 valores de recurso para cada um. Mas "context. TimeStamp": "1985-04-12T23:20:50.52 Z" é tão preciso que não haverá nenhuma maneira de aprender com ele, pois nunca acontecerá novamente.
+* Envio de informações pessoalmente identificáveis (PII). PiI específico de um indivíduo (como nome, número de telefone, números de cartão de crédito, endereços IP) não deve ser utilizado com personalizer. Se a sua aplicação necessitar de rastrear os utilizadores, utilize um UUID não identificado ou algum outro número userID. Na maioria dos cenários, isto também é problemático.
+* Com um grande número de utilizadores, é pouco provável que a interação de cada utilizador pese mais do que toda a interação da população, pelo que o envio de IDs de utilizador (mesmo que não-PII) provavelmente irá adicionar mais ruído do que valor ao modelo.
+* Envio de campos de data como selos temporais precisos em vez de valores de tempo agrétes. Ter funcionalidades como Context.TimeStamp.Day=Monday ou "Context.TimeStamp.Hour="13" é mais útil. Haverá no máximo 7 ou 24 valores de características para cada um. Mas "Context.TimeStamp":"1985-04-12T23:20:50.52Z" é tão preciso que não haverá forma de aprender com ele porque nunca mais vai acontecer.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Entenda a [escalabilidade e o desempenho](concepts-scalability-performance.md) com o personalizador.
+Compreenda [a escalabilidade e desempenho](concepts-scalability-performance.md) com o Personalizer.
 

@@ -1,7 +1,7 @@
 ---
-title: Pesquise vídeos de tendências na Web usando o API de Pesquisa de Vídeo do Bing
+title: Pesquise na web vídeos de tendência usando a API de Pesquisa de Vídeo Bing
 titleSuffix: Azure Cognitive Services
-description: Saiba como usar o API de Pesquisa de Vídeo do Bing para pesquisar vídeos de tendências na Web.
+description: Saiba como usar a API de Pesquisa de Vídeo Bing para pesquisar na web vídeos de tendência.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
 ms.openlocfilehash: ea6f79bf6c305ecc07b3e684ede15ad439039e7e
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68500618"
 ---
-# <a name="get-trending-videos-with-the-bing-video-search-api"></a>Obtenha vídeos de tendências com o API de Pesquisa de Vídeo do Bing 
+# <a name="get-trending-videos-with-the-bing-video-search-api"></a>Obtenha vídeos de tendência com a API de pesquisa de vídeo bing 
 
-O API de Pesquisa de Vídeo do Bing permite que você encontre vídeos de tendência de hoje em toda a Web e em categorias diferentes. 
+A API bing video search permite-lhe encontrar os vídeos de tendência de hoje de toda a web, e em diferentes categorias. 
 
-## <a name="get-request"></a>OBTER solicitação
+## <a name="get-request"></a>Pedido get
 
-Para obter vídeos de tendência de hoje da API de Pesquisa de Vídeo do Bing, envie a seguinte solicitação GET:  
+Para obter os vídeos de tendência de hoje da API de Pesquisa de Vídeo Bing, envie o seguinte pedido GET:  
   
 ```cURL
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/trending?mkt=en-us HTTP/1.1
@@ -35,27 +35,27 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```
 
-## <a name="market-support"></a>Suporte ao mercado
+## <a name="market-support"></a>Apoio ao mercado
 
-Os seguintes mercados dão suporte a vídeos de tendência.  
+Os seguintes mercados apoiam vídeos de tendência.  
  
--   en-AU (Inglês, Austrália)  
+-   en-UA (Inglês, Austrália)  
 -   en-CA (Inglês, Canadá)  
 -   en-GB (Inglês, Grã-Bretanha)  
--   EN-ID (Inglês, Indonésia)  
--   EN-IE (Inglês, Irlanda)  
+-   en-ID (Inglês, Indonésia)  
+-   en-IE (Inglês, Irlanda)  
 -   en-IN (Inglês, Índia)  
 -   en-NZ (Inglês, Nova Zelândia)  
--   EN-PH (Inglês, Filipinas)  
--   EN-SG (Inglês, Cingapura)  
--   en-US (Inglês, Estados Unidos)  
--   EN-WW (Inglês, código de agregação mundial)  
--   EN-ZA (Inglês, África do Sul)  
--   ZH-CN (chinês, China)
+-   en-PH (Inglês, Filipinas)  
+-   en-SG (Inglês, Singapura)  
+-   en-EUA (Inglês, Estados Unidos)  
+-   en-WW (inglês, código agregado mundial)  
+-   en-ZA (Inglês, África do Sul)  
+-   zh-CN (China, China)
 
-## <a name="example-json-response"></a>Exemplo de resposta JSON  
+## <a name="example-json-response"></a>Exemplo resposta JSON  
 
-O exemplo a seguir mostra uma resposta de API que contém vídeos de tendência, que são listados por categoria e subcategoria. A resposta também contém vídeos de faixa, que são os vídeos mais populares de tendências e podem vir de uma ou mais categorias.  
+O exemplo seguinte mostra uma resposta DaPI que contém vídeos de tendência, que são listados por categoria e subcategoria. A resposta também contém vídeos banner, que são os vídeos de tendência mais populares, e podem vir de uma ou mais categorias.  
 
 ```json
 {  
@@ -121,7 +121,7 @@ O exemplo a seguir mostra uma resposta de API que contém vídeos de tendência,
   
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Obter informações de vídeo](video-insights.md)

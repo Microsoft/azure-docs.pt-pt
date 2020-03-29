@@ -1,7 +1,7 @@
 ---
-title: Pontuações de previsão-LUIS
+title: Pontuações de previsão - LUIS
 titleSuffix: Azure Cognitive Services
-description: Uma pontuação de previsão indica o grau de confiança que o serviço de API LUIS tem para os resultados de previsão, com base em um usuário expressão.
+description: Uma pontuação de previsão indica o grau de confiança que o serviço LUIS API tem para os resultados de previsão, com base na expressão de um utilizador.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,63 +12,63 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
 ms.openlocfilehash: b360bc82b80e834492b524acc5c4535b0409eda1
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74280813"
 ---
-# <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>Pontuações de previsão indicam precisão de previsão para intenção e entidades
+# <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>Os resultados da previsão indicam precisão de previsão para intenções e entidades
 
-Uma pontuação de previsão indica o grau de confiança que o LUIS tem para os resultados de previsão de um usuário expressão.
+Uma pontuação de previsão indica o grau de confiança que a LUIS tem para os resultados de previsão de uma expressão de utilizador.
 
-Uma pontuação de predição é entre zero (0) e um (1). Um exemplo de uma pontuação de LUIS elevada confiança será 0,99. Um exemplo de uma pontuação de confiança baixa é a 0,01. 
+Uma pontuação de previsão é entre zero (0) e um (1). Um exemplo de uma pontuação LUIS altamente confiante é 0,99. Um exemplo de uma pontuação de baixa confiança é 0,01. 
 
-|Valor de pontuação|Confidence|
+|Valor da pontuação|Confiança|
 |--|--|
-|1|correspondência definida|
-|0,99|confiança elevada|
-|0.01|confiança baixa|
-|0|falha definida para corresponder|
+|1|jogo definitivo|
+|0.99|alta confiança|
+|0.01|baixa confiança|
+|0|falha definitiva de corresponder|
 
-## <a name="top-scoring-intent"></a>Intenção da parte superior de classificação
+## <a name="top-scoring-intent"></a>Intenção de pontuação máxima
 
-Predição de cada expressão retorna uma intenção da parte superior de classificação. Essa previsão é uma comparação numérica de pontuações de previsão. 
+Cada previsão de expressão retorna a uma intenção de pontuação máxima. Esta previsão é uma comparação numérica das pontuações de previsão. 
 
-## <a name="proximity-of-scores-to-each-other"></a>Proximidade de pontuações entre si
+## <a name="proximity-of-scores-to-each-other"></a>Proximidade de pontuações uns com os outros
 
-As duas pontuações principais podem ter uma diferença muito pequena entre elas. LUIS não indica essa proximidade além de retornar a pontuação superior.  
+As 2 melhores pontuações podem ter uma diferença muito pequena entre eles. Luis não indica esta proximidade além de devolver a pontuação máxima.  
 
-## <a name="return-prediction-score-for-all-intents"></a>Devolver a pontuação de previsão para todos os objetivos
+## <a name="return-prediction-score-for-all-intents"></a>Pontuação de previsão de retorno para todas as intenções
 
-Um resultado de teste ou ponto de extremidade pode incluir todas as intenções. Essa configuração é definida no ponto de extremidade usando o par nome/valor da QueryString correto.
+Um resultado de teste ou ponto final pode incluir todas as intenções. Esta configuração é definida no ponto final utilizando o nome/par de valor de consulta correta.
 
-|API de predição|Nome da QueryString|
+|API de predição|Nome de corda de consulta|
 |--|--|
 |V3|`show-all-intents=true`|
 |V2|`verbose=true`|
 
-## <a name="review-intents-with-similar-scores"></a>Reveja os objetivos com pontuações semelhantes
+## <a name="review-intents-with-similar-scores"></a>Rever as intenções com pontuações semelhantes
 
-Examinar a pontuação de todas as intenções é uma boa maneira de verificar se não só a intenção correta foi identificada, mas a pontuação da próxima intenção identificada é significativamente e consistentemente menor para declarações.
+Rever a pontuação para todas as intenções é uma boa maneira de verificar que não só é identificada a intenção correta, como que a pontuação da intenção identificada seguinte é significativa e consistentemente mais baixa para as declarações.
 
-Se tem de objetivos várias pontuações de predição de fechar, com base no contexto de uma expressão, LUIS pode alternar entre os objetivos. Para corrigir essa situação, continue a adicionar o declarações a cada tentativa com uma variedade maior de diferenças contextuais ou você pode ter o aplicativo cliente, como um bot de bate-papo, fazer escolhas programáticas sobre como lidar com as duas principais intenções.
+Se as múltiplas intenções tiverem pontuações de previsão próximas, com base no contexto de uma expressão, o LUIS pode alternar entre as intenções. Para corrigir esta situação, continue a adicionar expressões a cada intenção com uma maior variedade de diferenças contextuais ou pode ter a aplicação do cliente, como um chat bot, fazer escolhas programáticas sobre como lidar com as 2 principais intenções.
 
-As duas tentativas, que são pontuadas com muita pontuação, podem ser invertidas devido a **treinamento não determinístico**. A classificação superior poderia se tornar a segunda parte superior e a segunda pontuação superior poderia se tornar a classificação superior primeiro. Para evitar essa situação, adicione um exemplo de declarações a cada uma das duas primeiras intenções para esse expressão com a escolha do Word e o contexto que diferencia as duas intenções. Os dois objetivos devem ter sobre o mesmo número de expressões de exemplo. Um princípio de separação para impedir a inversão devido a formação, é uma diferença de 15% em pontuações.
+As duas intenções, demasiado pontuadas, podem inverter-se devido a **uma formação não determinística.** A pontuação máxima pode tornar-se a segunda melhor e a segunda melhor pontuação pode tornar-se a primeira pontuação máxima. Para prevenir esta situação, adicione declarações exemplo a cada uma das duas principais intenções para que a expressão com escolha de palavras e contexto que diferencia as 2 intenções. As duas intenções devem ter o mesmo número de declarações de exemplo. Uma regra do polegar para a separação para prevenir a inversão devido ao treino, é uma diferença de 15% nas pontuações.
 
-Você pode desativar o **treinamento não determinístico** ao [treinar todos os dados](luis-how-to-train.md#train-with-all-data).
+Pode desligar a **formação não determinística** [treinando com todos os dados.](luis-how-to-train.md#train-with-all-data)
 
-## <a name="differences-with-predictions-between-different-training-sessions"></a>Diferenças com previsões entre diferentes sessões de treinamento
+## <a name="differences-with-predictions-between-different-training-sessions"></a>Diferenças com previsões entre diferentes sessões de treino
 
-Quando você treina o mesmo modelo em um aplicativo diferente e as pontuações não são as mesmas, essa diferença ocorre porque há um **treinamento não determinístico** (um elemento de aleatoriedade). Em segundo lugar, a qualquer sobrepõem-se de uma expressão em mais do que uma intenção significa que a intenção de superior para a mesma expressão pode mudar com base na formação.
+Quando treina o mesmo modelo numa aplicação diferente, e as pontuações não são as mesmas, esta diferença é porque há **treino não determinístico** (um elemento de aleatoriedade). Em segundo lugar, qualquer sobreposição de uma expressão a mais do que uma intenção significa que a intenção máxima para a mesma expressão pode mudar com base no treino.
 
-Se o seu bot de chat exigir uma pontuação LUIS específica para indicar confiança em uma intenção, você deverá usar a diferença de pontuação entre as duas primeiras intenções. Essa situação fornece flexibilidade para variações no treinamento.
+Se o seu chat bot necessitar de uma pontuação LUIS específica para indicar confiança numa intenção, deve utilizar a diferença de pontuação entre as duas principais intenções. Esta situação proporciona flexibilidade para as variações na formação.
 
-Você pode desativar o **treinamento não determinístico** ao [treinar todos os dados](luis-how-to-train.md#train-with-all-data).
+Pode desligar a **formação não determinística** [treinando com todos os dados.](luis-how-to-train.md#train-with-all-data)
 
-## <a name="e-exponent-notation"></a>Notação de I (expoente)
+## <a name="e-exponent-notation"></a>Notação E (expoente)
 
-As pontuações de previsão podem usar a notação exponencial, que _aparece_ acima do intervalo de 0-1, como `9.910309E-07`. Essa pontuação é uma indicação de um número muito **pequeno** .
+As pontuações de previsão podem usar notação exponente, `9.910309E-07` _aparecendo_ acima da gama 0-1, como . Esta pontuação é uma indicação de um número muito **pequeno.**
 
 |Pontuação de notação E |Pontuação real|
 |--|--|
@@ -80,4 +80,4 @@ As pontuações de previsão podem usar a notação exponencial, que _aparece_ a
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte [adicionar entidades](luis-how-to-add-entities.md) para saber mais sobre como adicionar entidades ao seu aplicativo Luis.
+Consulte [adicionar entidades](luis-how-to-add-entities.md) para saber mais sobre como adicionar entidades à sua app LUIS.

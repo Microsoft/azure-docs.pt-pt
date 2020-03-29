@@ -1,7 +1,7 @@
 ---
-title: Transformar texto-API de Tradução de Texto
+title: Transformar texto - Tradutor Texto API
 titleSuffix: Azure Cognitive Services
-description: Transforme o texto usando o API de Tradução de Texto.
+description: Transforme o texto utilizando a API de Texto tradutor.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,31 +11,31 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
 ms.openlocfilehash: 533f09b09b7f5899833669b5f0ad4ffa5efa3a43
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68594904"
 ---
-# <a name="how-to-use-the-transformtext-method"></a>Como usar o método TransformText
+# <a name="how-to-use-the-transformtext-method"></a>Como utilizar o método TransformText
 
 > [!NOTE]
-> Esse método foi preterido. Ele não está disponível em V 3.0 do API de Tradução de Texto.
+> Este método está premeditado. Não está disponível em V3.0 da API de Texto tradutor.
 
-O método TransformText é uma função de normalização de texto para mídia social, que retorna uma forma normalizada da entrada. O método pode ser usado como uma etapa de pré-processamento na tradução automática ou em outros aplicativos que esperam texto de entrada limpo que normalmente não é encontrado em mídia social ou conteúdo gerado pelo usuário. A função atualmente funciona apenas com entrada em inglês.
+O método TransformText é uma função de normalização de texto para as redes sociais, que devolve uma forma normalizada da entrada. O método pode ser usado como um passo de pré-processamento na tradução automática ou outras aplicações que esperam texto de entrada limpo que não é tipicamente encontrado nas redes sociais ou no conteúdo gerado pelo utilizador. A função funciona atualmente apenas com a entrada inglesa.
 
-O método é um serviço RESTful usando GET sobre HTTP. Ele dá suporte à serialização XML e JSON simples.
+O método é um serviço RESTful usando GET over HTTP. Suporta a simples serialização xml e JSON.
 
 ## <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Descrição |
 |:---|:---|
-| Cabeçalho de autorização | **Necessário** Cabeçalho HTTP usado para identificar o aplicativo. Chave de uso: "Autorização" e valor: "Portador" + "" + token de acesso. Para obter detalhes, acesse aqui.|
-| language | **Necessário** Uma cadeia de caracteres que representa o código de idioma. Esse parâmetro dá suporte apenas ao inglês com **en** como o nome do idioma.|
-| category | **Opcional** Uma cadeia de caracteres que contém a categoria ou o domínio da tradução. Esse parâmetro dá suporte apenas à opção padrão **geral**.|
-| frase | **Necessário** Uma frase que você deseja corrigir. |
+| Cabeçalho de autorização | **Obrigatório** Cabeçalho HTTP usado para identificar a aplicação. Utilize a tecla: "Autorização" e valor: "Portador" + " + ficha de acesso. Para mais detalhes, vá aqui.|
+| language | **Obrigatório** Uma corda que representa o código linguístico. Este parâmetro suporta apenas o inglês **com** o nome da língua.|
+| categoria | **Opcional** Uma cadeia que contenha a categoria ou domínio da tradução. Este parâmetro suporta apenas a opção por defeito **geral**.|
+| sentença | **Obrigatório** Uma frase que quer corrigir. |
 
-## <a name="return-value"></a>Valor de retorno
+## <a name="return-value"></a>Valor devolvido
 
 O valor de retorno fornece a frase transformada.
 

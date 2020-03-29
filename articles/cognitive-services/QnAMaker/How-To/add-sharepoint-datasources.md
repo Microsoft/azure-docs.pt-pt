@@ -3,12 +3,12 @@ title: Ficheiros SharePoint - QnA Maker
 description: Adicione fontes de dados seguras do SharePoint à sua base de conhecimentos para enriquecer a base de conhecimentos com perguntas e respostas que possam ser protegidas com O Diretório Ativo.
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 402d8239ee9fbac01e64e3624a7e4d8a13f2e7d8
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 6f05079e39c8afb001bd4ba09d68f435c18efad5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650440"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294883"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Adicione uma fonte de dados segura do SharePoint à sua base de conhecimentos
 
@@ -21,7 +21,7 @@ Se o gestor de base de conhecimento do QnA Maker não for o gestor de Diretório
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * SharePoint baseado em nuvem - QnA Maker usa o Microsoft Graph para permissões. Se o seu SharePoint estiver no local, não poderá extrair do SharePoint porque o Microsoft Graph não será capaz de determinar permissões.
-* Formato URL - QnA Maker apenas suporta urls SharePoint que são gerados para partilha e são de formato https://*.sharepoint.com
+* Formato URL - QnA Maker apenas suporta urls SharePoint que são gerados para partilha e são de formato`https://\*.sharepoint.com`
 
 ## <a name="add-supported-file-types-to-knowledge-base"></a>Adicione tipos de ficheiros suportados à base de conhecimentos
 
@@ -32,7 +32,7 @@ Pode adicionar todos os tipos de [ficheiros](../Concepts/content-types.md) supor
 
    ![Obtenha o URL do ficheiro SharePoint selecionando o menu de elipse do ficheiro e, em seguida, copiando o URL.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
-1. No portal QnA Maker, na página **Definições,** [adicione o URL](edit-knowledge-base.md#add-datasource) à base de conhecimentos.
+1. No portal QnA Maker, na página **Definições,** [adicione o URL](manage-knowledge-bases.md#edit-knowledge-base) à base de conhecimentos.
 
 ### <a name="images-with-sharepoint-files"></a>Imagens com ficheiros SharePoint
 
@@ -44,7 +44,7 @@ Adicione a imagem com a seguinte sintaxe de marcação:
 ![Explanation or description of image](URL of public image)
 ```
 
-O texto nos suportes quadrados, `[]`, explica a imagem. O URL nos parênteses, `()`, é o link direto para a imagem.
+O texto nos suportes `[]`quadrados, explica a imagem. O URL nos parênteses, `()`é o link direto para a imagem.
 
 Quando se testa o par QnA no painel de teste interativo, no portal QnA Maker, a imagem é exibida, em vez do texto de marcação. Isto valida que a imagem pode ser recuperada publicamente a partir da sua aplicação de cliente.
 
@@ -69,7 +69,7 @@ Assim que o gestor do QnA Maker selecionar a conta, o administrador do Diretóri
 
 ### <a name="active-directory-manager-grant-file-read-access-to-qna-maker"></a>Gestor de diretório ativo: ficheiro de subvenção lê acesso ao QnA Maker
 
-O gestor de Diretório Ativo (não o gestor do QnA Maker) precisa de conceder acesso ao QnA Maker para aceder ao recurso SharePoint, selecionando [este link](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=Files.Read%20Files.Read.All%20Sites.Read.All%20User.Read%20User.ReadBasic.All%20profile%20openid%20email&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2F www.qnamaker.ai%3A%2FCreate&state=68) para autorizar a aplicação empresarial QnA Maker Portal SharePoint para ter permissões de leitura de ficheiros.
+O gestor de Diretório Ativo (não o gestor do QnA Maker) precisa de conceder acesso ao QnA Maker para aceder ao recurso SharePoint, selecionando [este link](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=Files.Read%20Files.Read.All%20Sites.Read.All%20User.Read%20User.ReadBasic.All%20profile%20openid%20email&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2Fwww.qnamaker.ai%3A%2FCreate&state=68) para autorizar a aplicação empresarial QnA Maker Portal SharePoint para ter permissões de leitura de ficheiros.
 
 ![Gestor de Diretório Ativo Azure concede permissão interativamente](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
 
@@ -113,7 +113,7 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 1. O gestor de Diretório Ativo inscreve-se no portal Azure e abre **[aplicações da Enterprise.](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)**
 
-1. Procure por `QnAMakerPortalSharePoint` a aplicação QnA Maker.
+1. Procure `QnAMakerPortalSharePoint` a aplicação QnA Maker.
 
     [![Pesquisa por QnAMakerPortalSharePoint na lista de aplicações da Enterprise](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
 
