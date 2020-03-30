@@ -1,6 +1,6 @@
 ---
-title: Políticas no gerenciamento de API do Azure | Microsoft Docs
-description: Saiba como criar, editar e configurar políticas no gerenciamento de API.
+title: Políticas na Gestão da API Azure [ Microsoft Docs
+description: Saiba como criar, editar e configurar políticas na Gestão da API.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,32 +13,32 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
 ms.openlocfilehash: c10939b50a66cd608d27a71f02d959fbc2380f59
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70072311"
 ---
-# <a name="policies-in-azure-api-management"></a>Políticas no gerenciamento de API do Azure
+# <a name="policies-in-azure-api-management"></a>Políticas na Gestão de API do Azure
 
-No gerenciamento de API do Azure (APIM), as políticas são um recurso poderoso do sistema que permite que o editor altere o comportamento da API por meio da configuração. As políticas são uma coleção de instruções que são executadas sequencialmente na solicitação ou resposta de uma API. As instruções populares incluem conversão de formato de XML para JSON e limitação de taxa de chamada para restringir a quantidade de chamadas de entrada de um desenvolvedor. Muitas outras políticas estão disponíveis prontamente.
+Na Azure API Management (APIM), as políticas são uma poderosa capacidade do sistema que permite ao editor alterar o comportamento da API através da configuração. As políticas são uma coleção de Declarações que são executadas sequencialmente a pedido ou resposta de uma API. As Declarações Populares incluem a conversão do formato de XML para JSON e a taxa de chamada limitada para restringir a quantidade de chamadas recebidas de um desenvolvedor. Muitas mais políticas estão disponíveis fora da caixa.
 
-As políticas são aplicadas dentro do gateway, que reside entre o consumidor da API e a API gerenciada. O gateway recebe todas as solicitações e geralmente as encaminha de forma inalterável para a API subjacente. No entanto, uma política pode aplicar alterações tanto à solicitação de entrada quanto à resposta de saída.
+As políticas são aplicadas dentro do portal que se situa entre o consumidor da API e a API gerida. O portal recebe todos os pedidos e geralmente encaminha-os inalterados para a API subjacente. No entanto, uma política pode aplicar alterações tanto ao pedido de entrada como à resposta de saída.
 
 As expressões de política podem ser utilizadas como valores de atributo ou valores de texto em qualquer uma das políticas de API Management, a menos que a política especifique o contrário. Algumas políticas, como [Fluxo de controlo][Control flow] e [Definir variável][Set variable], baseiam-se em expressões de política. Para obter mais informações, veja [Políticas avançadas][Advanced policies] e [Expressões de política][Policy expressions].
 
-## <a name="sections"> </a>Compreendendo a configuração da política
+## <a name="understanding-policy-configuration"></a><a name="sections"> </a>Compreender a configuração da política
 
-A definição de política é um documento XML simples que descreve uma sequência de instruções de entrada e saída. O XML pode ser editado diretamente na janela de definição. Uma lista de instruções é fornecida à direita e as instruções aplicáveis ao escopo atual são habilitadas e realçadas.
+A definição de política é um simples documento XML que descreve uma sequência de declarações de entrada e saída. O XML pode ser editado diretamente na janela de definição. Uma lista de declarações é fornecida ao direito e as declarações aplicáveis ao âmbito atual são ativadas e destacadas.
 
-Clicar em uma instrução habilitada adicionará o XML apropriado no local do cursor na exibição de definição. 
+Clicar numa declaração ativada adicionará o XML apropriado na localização do cursor na vista de definição. 
 
 > [!NOTE]
-> Se a política que você deseja adicionar não estiver habilitada, verifique se você está no escopo correto para essa política. Cada declaração de política foi projetada para uso em determinados escopos e seções de política. Para examinar as seções de política e os escopos de uma política, verifique a seção **uso** dessa política na [referência de política][Policy Reference].
+> Se a política que pretende acrescentar não estiver ativada, certifique-se de que está no âmbito correto para essa política. Cada declaração política destina-se a ser utilizada em determinados âmbitos e secções políticas. Para rever as secções e âmbitos de política para uma política, verifique a secção **de utilização** dessa política na [Referência Política][Policy Reference].
 > 
 > 
 
-A configuração é dividida em `inbound`, `backend`, `outbound`e `on-error`. A série de instruções de política especificadas é executada para uma solicitação e uma resposta.
+A configuração é `inbound` `backend`dividida `outbound`em, , e `on-error`. A série de declarações políticas especificadas é executada para um pedido e uma resposta.
 
 ```xml
 <policies>
@@ -58,25 +58,25 @@ A configuração é dividida em `inbound`, `backend`, `outbound`e `on-error`. A 
 </policies> 
 ```
 
-Se houver um erro durante o processamento de uma solicitação, as `inbound`etapas restantes nas seções, `backend`ou `outbound` serão ignoradas `on-error` e a execução saltará para as instruções na seção. Ao colocar instruções de política na `on-error` seção, você pode examinar o erro usando a `context.LastError` Propriedade, inspecionar e personalizar a resposta de erro `set-body` usando a política e configurar o que acontece se ocorrer um erro. Há códigos de erro para etapas internas e erros que podem ocorrer durante o processamento de instruções de política. Para obter mais informações, consulte [tratamento de erros em políticas de gerenciamento de API](/azure/api-management/api-management-error-handling-policies).
+Se houver um erro durante o processamento de um `inbound` `backend`pedido, `outbound` quaisquer etapas restantes na , `on-error` ou secções são ignoradas e a execução salta para as declarações na secção. Ao colocar declarações `on-error` de política na secção, `context.LastError` pode rever o erro utilizando `set-body` a propriedade, inspecionar e personalizar a resposta de erro utilizando a apólice e configurar o que acontece se ocorrer um erro. Existem códigos de erro para passos incorporados e para erros que podem ocorrer durante o processamento de declarações políticas. Para mais informações, consulte o tratamento de erros nas políticas de [Gestão da API](/azure/api-management/api-management-error-handling-policies).
 
-## <a name="scopes"> </a>Como configurar políticas
+## <a name="how-to-configure-policies"></a><a name="scopes"> </a>Como configurar políticas
 
-Para obter informações sobre como configurar políticas, consulte [definir ou editar políticas](set-edit-policies.md).
+Para obter informações sobre como configurar políticas, consulte [definir ou editar políticas.](set-edit-policies.md)
 
-## <a name="policy-reference"></a>Referência de política
+## <a name="policy-reference"></a>Referência política
 
-Consulte a [referência de política](api-management-policy-reference.md) para obter uma lista completa de instruções de política e suas configurações.
+Consulte a [referência política](api-management-policy-reference.md) para obter uma lista completa de declarações políticas e suas configurações.
 
-## <a name="policy-samples"></a>Exemplos de política
+## <a name="policy-samples"></a>Amostras políticas
 
-Consulte [exemplos de política](policy-samples.md) para obter mais exemplos de código.
+Consulte [as amostras de política](policy-samples.md) para obter mais exemplos de código.
 
 ## <a name="examples"></a>Exemplos
 
-### <a name="apply-policies-specified-at-different-scopes"></a>Aplicar políticas especificadas em escopos diferentes
+### <a name="apply-policies-specified-at-different-scopes"></a>Aplicar políticas especificadas em diferentes âmbitos
 
-Se você tiver uma política no nível global e uma política configurada para uma API, sempre que essa API específica for usada, ambas as políticas serão aplicadas. O gerenciamento de API permite a ordenação determinística de instruções de política combinadas por meio do elemento base. 
+Se tiver uma política a nível global e uma política configurada para uma API, então sempre que essa API em particular for utilizada, ambas as políticas serão aplicadas. A API Management permite a ordenação determinística de declarações políticas combinadas através do elemento base. 
 
 ```xml
 <policies>
@@ -88,15 +88,15 @@ Se você tiver uma política no nível global e uma política configurada para u
 </policies>
 ```
 
-Na definição de política de exemplo acima, `cross-domain` a instrução seria executada antes de `find-and-replace` quaisquer políticas mais altas que, por sua vez, seriam seguidas pela política. 
+Na definição de política `cross-domain` de exemplo acima, a declaração executaria `find-and-replace` antes de quaisquer políticas mais elevadas que, por sua vez, seriam seguidas pela política. 
 
-### <a name="restrict-incoming-requests"></a>Restringir solicitações de entrada
+### <a name="restrict-incoming-requests"></a>Restringir os pedidos de entrada
 
-Para adicionar uma nova instrução para restringir as solicitações de entrada a endereços IP especificados, coloque o cursor apenas dentro do conteúdo `inbound` do elemento XML e clique na instrução **restringir IPS de chamador** .
+Para adicionar uma nova declaração para restringir os pedidos de entrada a endereços IP `inbound` especificados, coloque o cursor dentro do conteúdo do elemento XML e clique na declaração de IPs de **chamada restrita.**
 
 ![Políticas de restrição][policies-restrict]
 
-Isso adicionará um trecho XML ao `inbound` elemento que fornece orientação sobre como configurar a instrução.
+Isto adicionará um corte XML `inbound` ao elemento que fornece orientações sobre como configurar a declaração.
 
 ```xml
 <ip-filter action="allow | forbid">
@@ -105,7 +105,7 @@ Isso adicionará um trecho XML ao `inbound` elemento que fornece orientação so
 </ip-filter>
 ```
 
-Para limitar as solicitações de entrada e aceitar somente aquelas de um endereço IP 1.2.3.4, modifique o XML da seguinte maneira:
+Para limitar os pedidos de entrada e aceitar apenas os de um endereço IP de 1.2.3.4 modificar o XML da seguinte forma:
 
 ```xml
 <ip-filter action="allow">
@@ -113,13 +113,13 @@ Para limitar as solicitações de entrada e aceitar somente aquelas de um endere
 </ip-filter>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre como trabalhar com políticas, consulte:
+Para mais informações que trabalhem com políticas, consulte:
 
-+ [APIs de transformação](transform-api.md)
-+ [Referência de política](api-management-policy-reference.md) para uma lista completa de instruções de política e suas configurações
-+ [Exemplos de política](policy-samples.md)   
++ [Transforme APIs](transform-api.md)
++ [Referência política](api-management-policy-reference.md) para uma lista completa de declarações políticas e suas configurações
++ [Amostras políticas](policy-samples.md)   
 
 [Policy Reference]: api-management-policy-reference.md
 [Product]: api-management-howto-add-products.md

@@ -9,10 +9,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.openlocfilehash: 7b1c7825beb769b610d661cb9644fc3f3919d548
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79139067"
 ---
 # <a name="data-visualization-with-azure-data-explorer"></a>Visualização de dados com O Explorador de Dados Azure 
@@ -23,7 +23,7 @@ A visualização e relatório de dados é um passo crítico no processo de anál
 
 ## <a name="kusto-query-language-visualizations"></a>Visualizações linguísticas de consulta kusto
 
-A linguagem de consulta Kusto [`render operator`](/azure/kusto/query/renderoperator) oferece várias visualizações, tais como mesas, gráficos de tartes e gráficos de barras para retratar resultados de consulta. As visualizações de consultas são úteis na deteção e previsão de anomalias, aprendizagem automática, e muito mais.
+A linguagem [`render operator`](/azure/kusto/query/renderoperator) de consulta Kusto oferece várias visualizações, tais como mesas, gráficos de tartes e gráficos de barras para retratar resultados de consulta. As visualizações de consultas são úteis na deteção e previsão de anomalias, aprendizagem automática, e muito mais.
 
 ## <a name="power-bi"></a>Power BI
 

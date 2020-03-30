@@ -9,21 +9,21 @@ ms.date: 10/09/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 8e0e549f88caf4a541642bab77faf54b5e536b29
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71174982"
 ---
-## <a name="deploy-an-image-with-marketplace-terms"></a>Implantar uma imagem com os termos do Marketplace
+## <a name="deploy-an-image-with-marketplace-terms"></a>Implementar uma imagem com termos de Marketplace
 
-Algumas imagens de VM no Azure Marketplace têm licença adicional e termos de compra que você deve aceitar para poder implantá-las programaticamente.  
+Algumas imagens VM no Azure Marketplace têm licença e termos de compra adicionais que deve aceitar antes de as implementar programáticamente.  
 
-Para implantar uma VM de tal imagem, você precisará aceitar os termos da imagem e habilitar a implantação programática. Você só precisará fazer isso uma vez por assinatura. Posteriormente, sempre que você implantar uma VM programaticamente a partir da imagem, também precisará especificar os parâmetros do *plano de compra* .
+Para implementar um VM a partir de tal imagem, terá de aceitar os termos da imagem e permitir a implementação programática. Só precisa de fazer isto uma vez por subscrição. Depois, cada vez que implementar um VM programáticamente a partir da imagem, também terá de especificar os parâmetros do plano de *compra.*
 
-As seções a seguir mostram como:
+As seguintes secções mostram como:
 
 * Descubra se uma imagem do Marketplace tem termos de licença adicionais 
-* Aceite os termos programaticamente
-* Fornecer parâmetros de plano de compra ao implantar uma VM programaticamente
+* Aceite os termos programáticamente
+* Forneça parâmetros do plano de compra quando implementar um VM programáticamente
 

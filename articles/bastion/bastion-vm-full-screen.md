@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: ff19fd056aa81ca8a1f53c387a208d35fb9a3265
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76989438"
 ---
 # <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Mude para a vista de ecrã completo para uma sessão vm: Azure Bastion
@@ -28,7 +28,7 @@ Durante a sessão remota, lance a paleta de ferramentas de acesso à pasta Basti
 
 Selecione o botão **Fullscreen** para mudar a sessão para uma experiência de ecrã completo. Assim que mudar, a sessão reincionará para o ecrã completo.
 
-![tela completa](./media/bastion-vm-manage/full-screen.png)
+![ecrã inteiro](./media/bastion-vm-manage/full-screen.png)
  
 ## <a name="next-steps"></a>Passos seguintes
 

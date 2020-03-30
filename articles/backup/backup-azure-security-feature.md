@@ -5,10 +5,10 @@ ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.openlocfilehash: 7213f26493a118c2cb32f8f9935b4954176b99a2
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77586398"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funcionalidades de segurança para ajudar a proteger backups híbridos que usam Backup Azure
@@ -48,7 +48,7 @@ Se estiver a criar um cofre dos Serviços de Recuperação, pode utilizar todos 
     ![Screenshot das propriedades do cofre dos Serviços de Recuperação](./media/backup-azure-security-feature/security-settings-update.png)
 
     O link de atualização abre a lâmina definições de **segurança,** que fornece um resumo das funcionalidades e permite-lhe ativar.
-5. A partir da lista de **lançamentos Configurau a Autenticação multi-factor Do Azure?** [](../active-directory/authentication/multi-factor-authentication.md) Se estiver ativado, é-lhe pedido que autenticasse a partir de outro dispositivo (por exemplo, um telemóvel) enquanto se insere no portal Azure.
+5. A partir da lista de **lançamentos Configurau a Autenticação multi-factor Do Azure?** [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) Se estiver ativado, é-lhe pedido que autenticasse a partir de outro dispositivo (por exemplo, um telemóvel) enquanto se insere no portal Azure.
 
    Quando realiza operações críticas em Backup, tem de introduzir um PIN de segurança, disponível no portal Azure. Ativar a autenticação multi-factor Azure adiciona uma camada de segurança. Apenas utilizadores autorizados com credenciais Azure válidas, e autenticados a partir de um segundo dispositivo, podem aceder ao portal Azure.
 6. Para guardar as definições de segurança, selecione **'Activar'** e clicar em **Guardar**. Só pode selecionar **Ativar** depois de selecionar um valor da lista de **autenticação multifactor Azure configurado?**
@@ -89,7 +89,7 @@ Como parte da adição de uma camada extra de autenticação para operações cr
 Para receber este PIN:
 
 1. Inicie sessão no Portal do Azure.
-2. Navegue no cofre de > **Definições** de  **Definições** > Propriedades dos Serviços de **Recuperação** .
+2. Navegue para o cofre > de serviços de **recuperação****Propriedades** > **Properties**.
 3. Em **'Pin' de segurança,** clique em **Gerar**. Isto abre uma lâmina que contém o PIN a ser introduzido na interface de utilizador do agente de recuperação do Azure.
     Este PIN é válido por apenas cinco minutos, e é gerado automaticamente após esse período.
 
@@ -112,9 +112,9 @@ As características de segurança mencionadas neste artigo fornecem mecanismos d
 
 | Operação | Detalhes do erro | Resolução |
 | --- | --- | --- |
-| Mudança de política |A política de apoio não podia ser modificada. Erro: A operação atual falhou devido a um erro de serviço interno [0x29834]. Por favor, tente novamente a operação depois de algum tempo. Se o problema persistir, contacte o suporte da Microsoft. |**Causa:**<br/>Este erro surge quando as definições de segurança estão ativadas, tenta reduzir o intervalo de retenção abaixo dos valores mínimos acima especificados e encontra-se na versão não suportada (as versões suportadas são especificadas na primeira nota deste artigo). <br/>**Ação Recomendada:**<br/> Neste caso, deverá fixar o período de retenção acima do período mínimo de retenção especificado (sete dias para o dia, quatro semanas semanais, três semanas para o mês ou um ano para o ano) para proceder a atualizações relacionadas com as políticas. Opcionalmente, a abordagem preferida seria atualizar o agente de backup, o Azure Backup Server e/ou o DPM UR para alavancar todas as atualizações de segurança. |
-| Alterar a frase-passe |O PIN de segurança introduzido está incorreto. (ID: 100130) Forneça o PIN de Segurança correto para completar esta operação. |**Causa:**<br/> Este erro surge quando introduz PIN de Segurança inválido ou expirado enquanto executa o funcionamento crítico (como alterar a frase de passe). <br/>**Ação Recomendada:**<br/> Para completar a operação, deve introduzir PIN de Segurança válido. Para obter o PIN, inscreva-se no portal Azure e navegue para o cofre > Definições > Propriedades > Gere o PIN de Segurança. Utilize este PIN para alterar a frase-passe. |
-| Alterar a frase-passe |A operação falhou. ID: 120002 |**Causa:**<br/>Este erro surge quando as definições de segurança estão ativadas, tenta alterar a palavra-passe e encontra-se na versão não suportada (versões válidas especificadas na primeira nota deste artigo).<br/>**Ação Recomendada:**<br/> Para alterar a frase de passe, tem primeiro de atualizar o agente de backup para a versão mínima 2.0.9052, o servidor de backup Azure para a atualização mínima 1 e/ou DPM para o mínimo DPM 2012 R2 UR12 ou DPM 2016 UR2 (links de descarregamento abaixo), em seguida, introduzir PIN de Segurança válido. Para obter o PIN, inscreva-se no portal Azure e navegue para o cofre > Definições > Propriedades > Gere o PIN de Segurança. Utilize este PIN para alterar a frase-passe. |
+| Mudança de política |A política de apoio não podia ser modificada. Erro: A operação atual falhou devido a um erro de serviço interno [0x29834]. Por favor, tente novamente a operação depois de algum tempo. Se o problema persistir, contacte o Suporte da Microsoft. |**Causa:**<br/>Este erro surge quando as definições de segurança estão ativadas, tenta reduzir o intervalo de retenção abaixo dos valores mínimos acima especificados e encontra-se na versão não suportada (as versões suportadas são especificadas na primeira nota deste artigo). <br/>**Ação Recomendada:**<br/> Neste caso, deverá fixar o período de retenção acima do período mínimo de retenção especificado (sete dias para o dia, quatro semanas semanais, três semanas para o mês ou um ano para o ano) para proceder a atualizações relacionadas com as políticas. Opcionalmente, a abordagem preferida seria atualizar o agente de backup, o Azure Backup Server e/ou o DPM UR para alavancar todas as atualizações de segurança. |
+| Alterar a frase-passe |O PIN de segurança introduzido está incorreto. (ID: 100130) Forneça o PIN de Segurança correto para completar esta operação. |**Causa:**<br/> Este erro surge quando introduz PIN de Segurança inválido ou expirado enquanto executa o funcionamento crítico (como alterar a frase de passe). <br/>**Ação Recomendada:**<br/> Para completar a operação, deve introduzir PIN de Segurança válido. Para obter o PIN, inste o portal Azure e navegue para o cofre > Definições > Propriedades > Gerar PIN de Segurança. Utilize este PIN para alterar a frase-passe. |
+| Alterar a frase-passe |A operação falhou. ID: 120002 |**Causa:**<br/>Este erro surge quando as definições de segurança estão ativadas, tenta alterar a palavra-passe e encontra-se na versão não suportada (versões válidas especificadas na primeira nota deste artigo).<br/>**Ação Recomendada:**<br/> Para alterar a frase de passe, tem primeiro de atualizar o agente de backup para a versão mínima 2.0.9052, o servidor de backup Azure para a atualização mínima 1 e/ou DPM para o mínimo DPM 2012 R2 UR12 ou DPM 2016 UR2 (links de descarregamento abaixo), em seguida, introduzir PIN de Segurança válido. Para obter o PIN, inste o portal Azure e navegue para o cofre > Definições > Propriedades > Gerar PIN de Segurança. Utilize este PIN para alterar a frase-passe. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

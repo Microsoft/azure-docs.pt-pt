@@ -1,6 +1,6 @@
 ---
-title: Impor a política de nomenclatura de grupo no Azure Active Directory | Microsoft Docs
-description: Como configurar a política de nomenclatura para grupos do Office 365 no Azure Active Directory
+title: Impor política de nomeação de grupo sintetizando no Diretório Ativo azure [ Microsoft Docs
+description: Como criar a política de nomeação para os grupos do Office 365 no Diretório Ativo azure
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,95 +14,97 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9136ce26f0070c8822292c741be59de537d3667
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 141e83e21db18f21468113fd9927c2bdd2ed176d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941064"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79497873"
 ---
-# <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Impor uma política de nomenclatura em grupos do Office 365 no Azure Active Directory
+# <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Impor uma política de nomeação dos grupos do Office 365 no Diretório Ativo de Azure
 
-Para impor convenções de nomenclatura consistentes para grupos do Office 365 criados ou editados por seus usuários, configure uma política de nomenclatura de grupo para seus locatários no Azure Active Directory (Azure AD). Por exemplo, você pode usar a política de nomenclatura para comunicar a função de um grupo, associação, região geográfica ou quem criou o grupo. Você também pode usar a política de nomenclatura para ajudar a categorizar grupos no catálogo de endereços. Você pode usar a política para impedir que palavras específicas sejam usadas em nomes de grupo e aliases.
+Para impor convenções de nomeação consistentes para os grupos office 365 criados ou editados pelos seus utilizadores, criar uma política de nomeação de grupo para os seus inquilinos em Azure Ative Directory (Azure AD). Por exemplo, poderia usar a política de nomeação para comunicar a função de um grupo, membro, região geográfica ou que criou o grupo. Também poderia usar a política de nomeação para ajudar a categorizar grupos no livro de endereços. Pode utilizar a política para impedir que palavras específicas sejam usadas em nomes de grupos e pseudónimos.
 
 > [!IMPORTANT]
-> Usar a política de nomenclatura do Azure AD para grupos do Office 365 requer que você possua, mas não necessariamente, atribua uma licença Azure Active Directory Premium P1 ou Azure AD Basic licença EDU para cada usuário exclusivo que seja membro de um ou mais grupos do Office 365.
+> A utilização da política de nomeação da Azure AD para os grupos Office 365 requer que possua, mas não necessariamente atribua uma licença Azure Ative Directory Premium P1 ou licença Azure AD Basic EDU para cada utilizador único que seja membro de um ou mais grupos do Office 365.
 
-A política de nomenclatura é aplicada à criação ou edição de grupos criados entre cargas de trabalho (por exemplo, Outlook, Microsoft Teams, SharePoint, Exchange ou Planner). Ele é aplicado ao nome do grupo e ao alias do grupo. Se você configurar sua política de nomenclatura no Azure AD e tiver uma política de nomenclatura de grupo do Exchange existente, a política de nomenclatura do Azure AD será imposta em sua organização.
+A política de nomeação é aplicada à criação ou edição de grupos criados em cargas de trabalho (por exemplo, Outlook, Microsoft Teams, SharePoint, Exchange ou Planner). Aplica-se tanto ao nome do grupo como ao pseudónimo do grupo. Se configurar a sua política de nomeação em Azure AD e tiver uma política de nomeação de grupo de intercâmbio existente, a política de nomeação da AD Azure é aplicada na sua organização.
 
-## <a name="naming-policy-features"></a>Recursos de política de nomenclatura
+Quando a política de nomeação em grupo estiver configurada, a política será aplicada aos novos grupos do Office 365 criados pelos utilizadores finais. A política de nomeação não se aplica a determinadas funções de diretório, tais como Administrador Global ou Administrador de Utilizador (consulte abaixo a lista completa de funções isentas da política de nomeação do grupo). Para os grupos existentes do Office 365, a política não se aplicará imediatamente no momento da configuração. Assim que o dono do grupo edita o nome de grupo para estes grupos, a política de nomeação será aplicada.
 
-Você pode impor a política de nomenclatura para grupos de duas maneiras diferentes:
+## <a name="naming-policy-features"></a>Características políticas de nomeação
 
-- **Política de nomenclatura de sufixo de prefixo** Você pode definir prefixos ou sufixos que são adicionados automaticamente para impor uma Convenção de nomenclatura em seus grupos (por exemplo, no nome do grupo "GRP\_o Japão\_meu grupo\_engenharia", GRP\_Japão\_ é o prefixo e \_engenharia é o sufixo). 
+Pode impor a política de nomeação de grupos de duas maneiras diferentes:
 
-- **Palavras bloqueadas personalizadas** Você pode carregar um conjunto de palavras bloqueadas específicas para sua organização para serem bloqueadas em grupos criados por usuários (por exemplo, "CEO, Payroll, HR").
+- **Política de nomeação prefixo-sufixo** Pode definir prefixos ou sufixos que são adicionados automaticamente para impor uma convenção de nomeação nos seus grupos (por exemplo, no nome de grupo "GRP\_\_JAPAN My\_Group Engineering", GRP\_JAPAN\_ é o prefixo, e \_engenharia é o sufixo). 
 
-### <a name="prefix-suffix-naming-policy"></a>Política de nomenclatura de sufixo de prefixo
+- **Palavras bloqueadas personalizadas** Pode fazer o upload de um conjunto de palavras bloqueadas específicas da sua organização para serem bloqueadas em grupos criados pelos utilizadores (por exemplo, "CEO, Payroll, HR").
 
-A estrutura geral da Convenção de nomenclatura é ' prefixo [GroupName] sufixo '. Embora seja possível definir vários prefixos e sufixos, você só pode ter uma instância do [GroupName] na configuração. Os prefixos ou sufixos podem ser cadeias de caracteres fixas ou atributos de usuário, como \[departamento\] que são substituídos com base no usuário que está criando o grupo. O número total permitido de caracteres para suas cadeias de prefixo e sufixo combinados é de 53 caracteres. 
+### <a name="prefix-suffix-naming-policy"></a>Política de nomeação prefixo-sufixo
 
-Os prefixos e sufixos podem conter caracteres especiais com suporte no nome do grupo e no alias do grupo. Todos os caracteres no prefixo ou sufixo que não têm suporte no alias do grupo ainda são aplicados no nome do grupo, mas removidos do alias do grupo. Devido a essa restrição, os prefixos e sufixos aplicados ao nome do grupo podem ser diferentes daqueles aplicados ao alias do grupo. 
+A estrutura geral da convenção de nomeação é "Prefixo[Nome de Grupo]Sufixo". Embora possa definir vários prefixos e sufixos, só pode ter uma instância do [Nome do Grupo] na definição. Os prefixos ou sufixos podem ser cordas fixas ou atributos de utilizador, tais como \[O Departamento\] que são substituídos com base no utilizador que está a criar o grupo. O número total admissível de caracteres para as cordas de prefixo e sufixo combinados é de 53 caracteres. 
 
-#### <a name="fixed-strings"></a>Cadeias de caracteres fixas
+Prefixos e sufixos podem conter caracteres especiais que são suportados em nome de grupo e pseudónimo de grupo. Quaisquer caracteres no prefixo ou sufixo que não sejam suportados no pseudónimo do grupo ainda são aplicados no nome do grupo, mas removidos do pseudónimo do grupo. Devido a esta restrição, os prefixos e sufixos aplicados ao nome de grupo podem ser diferentes dos aplicados ao pseudónimo do grupo. 
 
-Você pode usar cadeias de caracteres para facilitar a verificação e a diferenciação de grupos na lista de endereços global e nos links de navegação à esquerda de cargas de trabalho de grupo. Alguns dos prefixos comuns são palavras-chave como ' GRP\_Name ', '\#Name ', '\_Name '
+#### <a name="fixed-strings"></a>Cordas fixas
 
-#### <a name="user-attributes"></a>Atributos de usuário
+Pode utilizar cordas para facilitar a digitalização e diferenciação de grupos na lista de endereços globais e nas ligações de navegação à esquerda das cargas de trabalho em grupo. Alguns dos prefixos comuns são\_palavras-chave\#como 'Grp Name', 'Nome', '\_Nome'
 
-Você pode usar atributos que podem ajudá-lo e seus usuários a identificar qual departamento, escritório ou região geográfica para o qual o grupo foi criado. Por exemplo, se você definir sua política de nomenclatura como `PrefixSuffixNamingRequirement = "GRP [GroupName] [Department]"`e `User’s department = Engineering`, um nome de grupo imposto poderá ser "GRP My Group Engineering". Os atributos do Azure AD com suporte são \[\]do departamento, \[\]da empresa, \[Office\], \[EstadoOuProvíncia\], \[Paísouregião\], \[título\]. Atributos de usuário sem suporte são tratados como cadeias de caracteres fixas; por exemplo, "\[postalCode\]". Não há suporte para atributos de extensão e atributos personalizados.
+#### <a name="user-attributes"></a>Atributos do utilizador
 
-Recomendamos que você use atributos com valores preenchidos para todos os usuários em sua organização e não use atributos que tenham valores longos.
+Pode utilizar atributos que o podem ajudar e aos seus utilizadores a identificar em que departamento, escritório ou região geográfica o grupo foi criado. Por exemplo, se definir a `PrefixSuffixNamingRequirement = "GRP [GroupName] [Department]"`sua `User’s department = Engineering`política de nomeação como , e então um nome de grupo forçado pode ser "GRP My Group Engineering". Os atributos atributos AD \[\]Azure suportados \[são \[\]Department \[\] \[\], Company\], Office , \[StateOrProvince,\]CountryOrRegion , Title . Os atributos não suportados do utilizador são tratados como cordas fixas; por exemplo",\["Código\]postal". Os atributos de extensão e os atributos personalizados não são suportados.
+
+Recomendamos que utilize atributos que tenham valores preenchidos para todos os utilizadores da sua organização e não utilize atributos que tenham valores longos.
 
 ### <a name="custom-blocked-words"></a>Palavras bloqueadas personalizadas
 
-Uma lista de palavras bloqueadas é uma lista separada por vírgulas de frases a serem bloqueadas em nomes de grupos e aliases. Nenhuma pesquisa de subcadeia de caracteres é executada. Uma correspondência exata entre o nome do grupo e uma ou mais palavras bloqueadas personalizadas é necessária para disparar uma falha. A pesquisa de subcadeia de caracteres não é executada para que os usuários possam usar palavras comuns como ' class ', mesmo se ' Lass ' for uma palavra bloqueada.
+Uma lista de palavras bloqueada é uma lista separada de vírpostas de frases a serem bloqueadas em nomes de grupos e pseudónimos. Não são realizadas buscas de sub-cordas. Uma correspondência exata entre o nome do grupo e uma ou mais palavras bloqueadas personalizadas é necessária para desencadear uma falha. A pesquisa de sub-cordas não é realizada para que os utilizadores possam usar palavras comuns como "Class" mesmo que 'las' seja uma palavra bloqueada.
 
 Regras de lista de palavras bloqueadas:
 
-- As palavras bloqueadas não diferenciam maiúsculas de minúsculas.
-- Quando um usuário insere uma palavra bloqueada como parte de um nome de grupo, ele vê uma mensagem de erro com a palavra bloqueada.
-- Não há restrições de caracteres em palavras bloqueadas.
+- Palavras bloqueadas não são sensíveis ao caso.
+- Quando um utilizador introduz uma palavra bloqueada como parte de um nome de grupo, vê uma mensagem de erro com a palavra bloqueada.
+- Não existem restrições de carácter em palavras bloqueadas.
 - Há um limite superior de 5000 frases que podem ser configuradas na lista de palavras bloqueadas. 
 
 ### <a name="roles-and-permissions"></a>Funções e permissões
 
-Para configurar a política de nomenclatura, uma das funções seguir é necessária:
+Para configurar a política de nomeação, é necessária uma das funções de abrandamento:
 - Administrador global
-- Administrador de grupo
-- Administrador do usuário
+- Administrador do grupo
+- Administrador de utilizadores
 
-Os administradores selecionados podem ser isentos dessas políticas, em todas as cargas de trabalho de grupo e pontos de extremidade, para que possam criar grupos usando palavras bloqueadas e com suas próprias convenções de nomenclatura. A seguir estão a lista de funções de administrador isentadas da política de nomenclatura de grupo.
+Os administradores selecionados podem ser isentos destas políticas, em todas as cargas de trabalho e pontos finais do grupo, para que possam criar grupos usando palavras bloqueadas e com as suas próprias convenções de nomeação. Seguem-se a lista das funções de administrador isentas da política de nomeação do grupo.
 
 - Administrador global
-- Suporte da camada 1 do parceiro
-- Suporte da camada 2 do parceiro
-- Administrador do usuário
-- Gravadores de diretório
+- Suporte de nível 1 do parceiro
+- Suporte de nível parceiro 2
+- Administrador de utilizadores
+- Escritores de diretórios
 
-## <a name="configure-naming-policy-in-azure-portal"></a>Configurar a política de nomenclatura no portal do Azure
+## <a name="configure-naming-policy-in-azure-portal"></a>Configure política de nomeação no portal Azure
 
-1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com uma conta de administrador de grupo.
-1. Selecione **grupos**e, em seguida, selecione **política de nomenclatura** para abrir a página de política de nomenclatura.
+1. Inscreva-se no [centro de administração da Azure AD](https://aad.portal.azure.com) com uma conta de administrador do Grupo.
+1. Selecione **Grupos**, em seguida, selecione **a política de nomeação** para abrir a página de política de Nomeação.
 
-    ![abrir a página de política de nomenclatura no centro de administração](./media/groups-naming-policy/policy.png)
+    ![abrir a página política de nomeação no centro de administração](./media/groups-naming-policy/policy.png)
 
-### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Exibir ou editar a política de nomenclatura de sufixo de prefixo
+### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Ver ou editar a política de nomeação prefixo-sufixo
 
-1. Na página **política de nomenclatura** , selecione **política de nomenclatura de grupo**.
-1. Você pode exibir ou editar o prefixo atual ou as políticas de nomenclatura de sufixo individualmente selecionando os atributos ou as cadeias de caracteres que deseja impor como parte da política de nomenclatura.
-1. Para remover um prefixo ou sufixo da lista, selecione o prefixo ou sufixo e, em seguida, selecione **excluir**. Vários itens podem ser excluídos ao mesmo tempo.
-1. Salve as alterações da nova política para entrar em vigor selecionando **salvar**.
+1. Na página política de **Naming,** selecione Política de **nomeação do Grupo**.
+1. Pode visualizar ou editar as políticas de nomeação de prefixo ou sufixo sufixo sufixo sufixo sufixo individualmente, selecionando os atributos ou cordas que pretende aplicar como parte da política de nomeação.
+1. Para remover um prefixo ou sufixo da lista, selecione o prefixo ou o sufixo e, em seguida, **selecione Delete**. Vários itens podem ser eliminados ao mesmo tempo.
+1. Guarde as suas alterações para que a nova política entre em vigor selecionando **Save**.
 
 ### <a name="edit-custom-blocked-words"></a>Editar palavras bloqueadas personalizadas
 
-1. Na página **política de nomenclatura** , selecione **palavras bloqueadas**.
+1. Na página política de **Naming,** selecione **palavras bloqueadas**.
 
-    ![editar e carregar a lista de palavras bloqueadas para a política de nomenclatura](./media/groups-naming-policy/blockedwords.png)
+    ![editar e carregar lista de palavras bloqueadas para a política de nomeação](./media/groups-naming-policy/blockedwords.png)
 
-1. Exiba ou edite a lista atual de palavras bloqueadas personalizadas selecionando **baixar**.
-1. Carregue a nova lista de palavras bloqueadas personalizadas selecionando o ícone arquivo.
-1. Salve as alterações da nova política para entrar em vigor selecionando **salvar**.
+1. Ver ou editar a lista atual de palavras bloqueadas personalizadas selecionando **Download**.
+1. Faça upload da nova lista de palavras bloqueadas personalizadas selecionando o ícone do ficheiro.
+1. Guarde as suas alterações para que a nova política entre em vigor selecionando **Save**.
 
 ## <a name="install-powershell-cmdlets"></a>Instalar cmdlets do PowerShell
 
@@ -121,11 +123,11 @@ Certifique-se de que desinstala qualquer versão anterior do módulo Azure Activ
    Install-Module AzureADPreview
    ```
 
-   Se você receber uma solicitação sobre como acessar um repositório não confiável, digite **Y**. Pode levar alguns minutos para que o novo módulo seja instalado.
+   Se for solicitado a aceder a um repositório não confiável, insira **Y**. Pode levar alguns minutos para o novo módulo instalar.
 
-## <a name="configure-naming-policy-in-powershell"></a>Configurar a política de nomenclatura no PowerShell
+## <a name="configure-naming-policy-in-powershell"></a>Configure a política de nomeação no PowerShell
 
-1. Abra uma janela do Windows PowerShell no seu computador. Você pode abri-lo sem privilégios elevados.
+1. Abra uma janela Do Windows PowerShell no seu computador. Pode abri-la sem privilégios elevados.
 
 1. Execute os seguintes comandos para preparar a execução dos cmdlets.
   
@@ -138,9 +140,9 @@ Certifique-se de que desinstala qualquer versão anterior do módulo Azure Activ
 
 1. Siga os passos em [Cmdlets do Azure Active Directory para configurar definições de grupo](groups-settings-cmdlets.md) para criar definições de grupo para este inquilino.
 
-### <a name="view-the-current-settings"></a>Exibir as configurações atuais
+### <a name="view-the-current-settings"></a>Ver as definições atuais
 
-1. Busque a política de nomenclatura atual para exibir as configurações atuais.
+1. Pegue a política de nomeação atual para ver as definições atuais.
   
    ``` PowerShell
    $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
@@ -152,9 +154,9 @@ Certifique-se de que desinstala qualquer versão anterior do módulo Azure Activ
    $Setting.Values
    ```
   
-### <a name="set-the-naming-policy-and-custom-blocked-words"></a>Definir a política de nomenclatura e as palavras bloqueadas personalizadas
+### <a name="set-the-naming-policy-and-custom-blocked-words"></a>Desbloqueie a política de nomeação e as palavras bloqueadas personalizadas
 
-1. Defina os prefixos e sufixos de nomes de grupo no Azure AD PowerShell. Para que o recurso funcione corretamente, [GroupName] deve ser incluído na configuração.
+1. Defina os prefixos e sufixos de nomes de grupo no Azure AD PowerShell. Para que a funcionalidade funcione corretamente, [Nome de grupo] deve ser incluído na definição.
   
    ``` PowerShell
    $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
@@ -166,26 +168,26 @@ Certifique-se de que desinstala qualquer versão anterior do módulo Azure Activ
    $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
    ```
   
-1. Salve as configurações da nova política para entrar em vigor, como no exemplo a seguir.
+1. Guarde as definições para que a nova política entre em vigor, como no exemplo seguinte.
   
    ``` PowerShell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
   
-E já está. Você definiu sua política de nomenclatura e adicionou suas palavras bloqueadas.
+Já está. Definiste a tua política de nomeação e adicionaste as tuas palavras bloqueadas.
 
 ## <a name="export-or-import-custom-blocked-words"></a>Exportar ou importar palavras bloqueadas personalizadas
 
-Para obter mais informações, consulte o artigo [Azure Active Directory cmdlets para definir configurações de grupo](groups-settings-cmdlets.md).
+Para mais informações, consulte o artigo [Azure Ative Directory cmdlets para configurar as definições](groups-settings-cmdlets.md)do grupo .
 
-Aqui está um exemplo de um script do PowerShell para exportar várias palavras bloqueadas:
+Aqui está um exemplo de um script PowerShell para exportar várias palavras bloqueadas:
 
 ``` PowerShell
 $Words = (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value CustomBlockedWordsList -EQ 
 Add-Content "c:\work\currentblockedwordslist.txt" -Value $words.value.Split(",").Replace("`"","")  
 ```
 
-Aqui está um exemplo de script do PowerShell para importar várias palavras bloqueadas:
+Aqui está um exemplo do script PowerShell para importar várias palavras bloqueadas:
 
 ``` PowerShell
 $BadWords = Get-Content "C:\work\currentblockedwordslist.txt"
@@ -200,16 +202,16 @@ $Settings["CustomBlockedWordsList"] = $BadWords
 Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings 
 ```
 
-## <a name="remove-the-naming-policy"></a>Remover a política de nomenclatura
+## <a name="remove-the-naming-policy"></a>Remova a política de nomeação
 
-### <a name="remove-the-naming-policy-using-azure-portal"></a>Remover a política de nomenclatura usando portal do Azure
+### <a name="remove-the-naming-policy-using-azure-portal"></a>Remova a política de nomeação usando o portal Azure
 
-1. Na página **política de nomenclatura** , selecione **excluir política**.
-1. Depois de confirmar a exclusão, a política de nomenclatura é removida, incluindo toda a política de nomenclatura de sufixo de prefixo e quaisquer palavras bloqueadas personalizadas.
+1. Na página de **política de Nomeação,** selecione **a política Eliminar**.
+1. Depois de confirmar a eliminação, a política de nomeação é removida, incluindo toda a política de nomeação de prefixo-sufixo e quaisquer palavras bloqueadas personalizadas.
 
-### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Remover a política de nomenclatura usando o PowerShell do Azure AD
+### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Remova a política de nomeação usando a Azure AD PowerShell
 
-1. Esvazie os prefixos e sufixos de nome de grupo no PowerShell do Azure AD.
+1. Esvazie os prefixos e sufixos do nome de grupo em Azure AD PowerShell.
   
    ``` PowerShell
    $Setting["PrefixSuffixNamingRequirement"] =""
@@ -227,42 +229,42 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
 
-## <a name="experience-across-office-365-apps"></a>Experiência em aplicativos do Office 365
+## <a name="experience-across-office-365-apps"></a>Experiência em 365 apps do Office
 
-Depois de definir uma política de nomenclatura de grupo no Azure AD, quando um usuário cria um grupo em um aplicativo do Office 365, ele vê:
+Depois de definir uma política de nomeação de grupo em Azure AD, quando um utilizador cria um grupo numa aplicação do Office 365, eles vêem:
 
-- Uma visualização do nome de acordo com sua política de nomenclatura (com prefixos e sufixos) assim que o usuário digitar o nome do grupo
-- Se o usuário inserir palavras bloqueadas, eles verão uma mensagem de erro para que possam remover as palavras bloqueadas.
+- Uma pré-visualização do nome de acordo com a sua política de nomeação (com prefixos e sufixos) logo que os tipos de utilizador no nome de grupo
+- Se o utilizador introduzir palavras bloqueadas, verá uma mensagem de erro para que possa remover as palavras bloqueadas.
 
 Carga de trabalho | Conformidade
 ----------- | -------------------------------
-Portais Azure Active Directory | O portal do AD do Azure e o portal do painel de acesso mostram o nome imposto da política de nomenclatura quando o usuário digita um nome de grupo ao criar ou editar um grupo. Quando um usuário insere uma palavra bloqueada personalizada, uma mensagem de erro com a palavra bloqueada é exibida para que o usuário possa removê-la.
-Outlook Web Access (OWA) | O Outlook Acesso via Web mostra o nome imposto da política de nomenclatura quando o usuário digita um nome de grupo ou alias de grupo. Quando um usuário insere uma palavra bloqueada personalizada, uma mensagem de erro é mostrada na interface do usuário junto com a palavra bloqueada para que o usuário possa removê-la.
-Área de trabalho do Outlook | Os grupos criados no Outlook desktop são compatíveis com as configurações de política de nomenclatura. O aplicativo de desktop do Outlook ainda não mostra a visualização do nome do grupo imposto e não retorna os erros de palavras bloqueadas personalizadas quando o usuário insere o nome do grupo. No entanto, a política de nomenclatura é aplicada automaticamente ao criar ou editar um grupo, e os usuários veem mensagens de erro se houver palavras bloqueadas personalizadas no nome do grupo ou alias.
-Microsoft Teams | O Microsoft Teams mostra o nome imposto da política de nomenclatura de grupo quando o usuário insere um nome de equipe. Quando um usuário insere uma palavra bloqueada personalizada, uma mensagem de erro é mostrada junto com a palavra bloqueada para que o usuário possa removê-la.
-SharePoint  |  O SharePoint mostra o nome imposto da política de nomenclatura quando o usuário digita um nome de site ou endereço de email de grupo. Quando um usuário insere uma palavra bloqueada personalizada, uma mensagem de erro é mostrada, juntamente com a palavra bloqueada para que o usuário possa removê-la.
-Microsoft Stream | Microsoft Stream mostra o nome imposto da política de nomenclatura de grupo quando o usuário digita um nome de grupo ou alias de email de grupo. Quando um usuário insere uma palavra bloqueada personalizada, uma mensagem de erro é mostrada com a palavra bloqueada para que o usuário possa removê-la.
-Aplicativo Android e iOS do Outlook | Os grupos criados nos aplicativos do Outlook são compatíveis com a política de nomenclatura configurada. O aplicativo móvel do Outlook ainda não mostra a visualização do nome imposto da política de nomenclatura e não retorna erros de palavras bloqueadas personalizadas quando o usuário insere o nome do grupo. No entanto, a política de nomenclatura é aplicada automaticamente ao clicar em criar/editar e os usuários veem mensagens de erro se houver palavras bloqueadas personalizadas no nome do grupo ou alias.
-Aplicativo móvel de grupos | Os grupos criados no aplicativo móvel de grupos são compatíveis com a política de nomenclatura. O aplicativo móvel de grupos não mostra a visualização da política de nomenclatura e não retorna erros de palavras bloqueadas personalizadas quando o usuário insere o nome do grupo. Mas a política de nomenclatura é aplicada automaticamente ao criar ou editar um grupo, e os usuários são apresentados com erros apropriados se houver palavras bloqueadas personalizadas no nome do grupo ou alias.
-Planner | O Planner é compatível com a política de nomenclatura. O Planner mostra a visualização da política de nomenclatura ao inserir o nome do plano. Quando um usuário insere uma palavra bloqueada personalizada, uma mensagem de erro é mostrada durante a criação do plano.
-Dynamics 365 for Customer Engagement | O Dynamics 365 for Customer Engagement é compatível com a política de nomenclatura. O Dynamics 365 mostra o nome imposto da política de nomenclatura quando o usuário digita um nome de grupo ou alias de email de grupo. Quando o usuário insere uma palavra bloqueada personalizada, uma mensagem de erro é mostrada com a palavra bloqueada para que o usuário possa removê-la.
-SDS (estudante Data Sync) | Grupos criados por meio de SDS estão em conformidade com a política de nomenclatura, mas a política de nomenclatura não é aplicada automaticamente. Os administradores do SDS precisam acrescentar os prefixos e sufixos aos nomes de classe para os quais os grupos precisam ser criados e, em seguida, carregados em SDS. Caso contrário, a criação ou edição de grupo falhará.
-Gerenciador de clientes do Outlook (OCM) | O Gerenciador de clientes do Outlook está em conformidade com a política de nomenclatura, que é aplicada automaticamente ao grupo criado no Gerenciador de clientes do Outlook. Se uma palavra bloqueada personalizada for detectada, a criação de grupo em OCM será bloqueada e o usuário será impedido de usar o aplicativo OCM.
-Aplicativo de sala de aula | Os grupos criados no aplicativo de sala de aula estão em conformidade com a política de nomenclatura, mas a política de nomenclatura não é aplicada automaticamente e a visualização da política de nomenclatura não é mostrada aos usuários durante a inserção de um nome de grupo de sala de aula. Os usuários devem inserir o nome de grupo de sala de aula imposto com prefixos e sufixos. Caso contrário, a operação criar ou editar do grupo de salas de aula falhará com erros.
-Power BI | Power BI espaços de trabalho são compatíveis com a política de nomenclatura.    
-Yammer | Quando um usuário conectado ao Yammer com sua conta de Azure Active Directory cria um grupo ou edita um nome de grupo, o nome do grupo será compatível com a política de nomenclatura. Isso se aplica tanto aos grupos conectados do Office 365 quanto a todos os outros grupos do Yammer.<br>Se um grupo conectado do Office 365 tiver sido criado antes da política de nomenclatura estar em vigor, o nome do grupo não seguirá automaticamente as políticas de nomenclatura. Quando um usuário edita o nome do grupo, ele será solicitado a adicionar o prefixo e o sufixo.
-StaffHub  | As equipes do StaffHub não seguem a política de nomenclatura, mas o grupo subjacente do Office 365. O nome da equipe do StaffHub não aplica os prefixos e sufixos e não verifica se há palavras bloqueadas personalizadas. Mas StaffHub aplica os prefixos e sufixos e remove as palavras bloqueadas do grupo do Office 365 subjacente.
-PowerShell do Exchange | Os cmdlets do PowerShell do Exchange são compatíveis com a política de nomenclatura. Os usuários recebem mensagens de erro apropriadas com prefixos e sufixos sugeridos e palavras bloqueadas personalizadas se não seguirem a política de nomenclatura no nome do grupo e no alias do grupo (mailNickname).
-Azure Active Directory cmdlets do PowerShell | Azure Active Directory cmdlets do PowerShell estão em conformidade com a política de nomenclatura. Os usuários recebem mensagens de erro apropriadas com prefixos e sufixos sugeridos e palavras bloqueadas personalizadas se não seguirem a Convenção de nomenclatura em nomes de grupo e alias de grupo.
-Centro de administração do Exchange | O centro de administração do Exchange está em conformidade com a política de nomenclatura. Os usuários recebem mensagens de erro apropriadas com prefixos e sufixos sugeridos e palavras bloqueadas personalizadas se não seguirem a Convenção de nomenclatura no nome do grupo e no alias do grupo.
-Microsoft 365 admin center (Centro de administração do Microsoft 365) | Microsoft 365 centro de administração está em conformidade com a política de nomenclatura. Quando um usuário cria ou edita nomes de grupo, a política de nomenclatura é aplicada automaticamente e os usuários recebem erros apropriados quando inserem palavras bloqueadas personalizadas. O centro de administração do Microsoft 365 ainda não mostra uma visualização da política de nomenclatura e não retorna erros de palavras bloqueadas personalizadas quando o usuário insere o nome do grupo.
+Portais de Diretório Ativo Azure | O portal Azure AD e o portal Access Panel mostram o nome imposto de nomeação quando o utilizador escreve em nome de grupo ao criar ou editar um grupo. Quando um utilizador introduz uma palavra bloqueada personalizada, é apresentada uma mensagem de erro com a palavra bloqueada para que o utilizador possa removê-la.
+Outlook Web Access (OWA) | O Outlook Web Access mostra o nome imposto pela política de nomeação quando o utilizador escreve um nome de grupo ou pseudónimo de grupo. Quando um utilizador introduz uma palavra bloqueada personalizada, uma mensagem de erro é mostrada na UI juntamente com a palavra bloqueada para que o utilizador possa removê-la.
+Outlook Desktop | Os grupos criados no ambiente de trabalho do Outlook estão em conformidade com as definições de política de nomeação. A aplicação outlook desktop ainda não mostra a pré-visualização do nome de grupo imposto e não devolve os erros de palavra bloqueados personalizados quando o utilizador introduz o nome de grupo. No entanto, a política de nomeação é aplicada automaticamente ao criar ou editar um grupo, e os utilizadores vêem mensagens de erro se houver palavras bloqueadas personalizadas no nome de grupo ou pseudónimo.
+Microsoft Teams | As Equipas Microsoft mostram o nome imposto de nomeação do grupo quando o utilizador introduz um nome de equipa. Quando um utilizador introduz uma palavra bloqueada personalizada, é mostrada uma mensagem de erro juntamente com a palavra bloqueada para que o utilizador possa removê-la.
+SharePoint  |  O SharePoint mostra o nome imposto pela política de nomeação quando o utilizador escreve um nome de site ou endereço de e-mail de grupo. Quando um utilizador introduz uma palavra bloqueada personalizada, é mostrada uma mensagem de erro, juntamente com a palavra bloqueada para que o utilizador possa removê-la.
+Microsoft Stream | O Microsoft Stream mostra o nome imposto de nomeação do grupo quando o utilizador escreve um nome de grupo ou um pseudónimo de e-mail de grupo. Quando um utilizador introduz uma palavra bloqueada personalizada, é mostrada uma mensagem de erro com a palavra bloqueada para que o utilizador possa removê-la.
+Outlook iOS e Android App | Os grupos criados nas aplicações do Outlook estão em conformidade com a política de nomeação configurada. A aplicação móvel Outlook ainda não mostra a pré-visualização do nome imposto pela política de nomeação, e não devolve erros de palavras bloqueados personalizados quando o utilizador introduz o nome de grupo. No entanto, a política de nomeação é aplicada automaticamente no clique de criar/editar e os utilizadores vêem mensagens de erro se houver palavras bloqueadas personalizadas no nome de grupo ou pseudónimo.
+Aplicativo móvel de grupos | Os grupos criados na aplicação móvel Grupos estão em conformidade com a política de nomeação. A aplicação móvel de grupos não mostra a pré-visualização da política de nomeação e não devolve erros de palavras bloqueados personalizados quando o utilizador introduz o nome de grupo. Mas a política de nomeação é aplicada automaticamente ao criar ou editar um grupo e os utilizadores são apresentados com erros apropriados se houver palavras bloqueadas personalizadas no nome de grupo ou pseudónimo.
+Planner | O planejador está em conformidade com a política de nomeação. O planejador mostra a pré-visualização da política de nomeação ao introduzir o nome do plano. Quando um utilizador introduz uma palavra bloqueada personalizada, uma mensagem de erro é mostrada ao criar o plano.
+Dynamics 365 for Customer Engagement | A Dynamics 365 para o Envolvimento do Cliente está em conformidade com a política de nomeação. A Dynamics 365 mostra o nome imposto pela política de nomeação quando o utilizador escreve um nome de grupo ou um pseudónimo de e-mail de grupo. Quando o utilizador introduz uma palavra bloqueada personalizada, é mostrada uma mensagem de erro com a palavra bloqueada para que o utilizador possa removê-la.
+Sincronização de dados escolares (SDS) | Os grupos criados através das FDS cumprem a política de nomeação, mas a política de nomeação não é aplicada automaticamente. Os administradores das SDS têm de anexar os prefixos e sufixos aos nomes de classe para os quais os grupos precisam de ser criados e depois enviados para SDS. Criar ou editar em grupo falharia de outra forma.
+Outlook Customer Manager (OCM) | O Outlook Customer Manager está em conformidade com a política de nomeação, que é automaticamente aplicada ao grupo criado no Outlook Customer Manager. Se for detetada uma palavra bloqueada personalizada, a criação de grupo em OCM está bloqueada e o utilizador está impedido de usar a aplicação OCM.
+App de sala de aula | Os grupos criados na aplicação Classroom cumprem a política de nomeação, mas a política de nomeação não é aplicada automaticamente, e a pré-visualização da política de nomeação não é mostrada aos utilizadores enquanto entram num nome de grupo de sala de aula. Os utilizadores devem introduzir o nome de grupo de sala de aula forçado com prefixos e sufixos. Caso contrário, o grupo de sala de aula cria ou edita a operação falha com erros.
+Power BI | Os espaços de trabalho do Power BI estão em conformidade com a política de nomeação.    
+Yammer | Quando um utilizador inscreveu na Yammer com a sua conta Azure Ative Directory cria um grupo ou edita um nome de grupo, o nome do grupo cumprirá a política de nomeação. Isto aplica-se tanto aos grupos ligados ao Office 365 como a todos os outros grupos Yammer.<br>Se um grupo ligado ao Office 365 foi criado antes da política de nomeação estar em vigor, o nome do grupo não seguirá automaticamente as políticas de nomeação. Quando um utilizador edita o nome de grupo, será solicitado a adicionar o prefixo e o sufixo.
+StaffHub  | As equipas do StaffHub não seguem a política de nomeação, mas o grupo subjacente ao Office 365 segue. O nome da equipa StaffHub não aplica os prefixos e sufixos e não verifica as palavras bloqueadas personalizadas. Mas o StaffHub aplica os prefixos e sufixos e remove palavras bloqueadas do grupo subjacente ao Office 365.
+Exchange PowerShell | Os cmdlets Exchange PowerShell estão em conformidade com a política de nomeação. Os utilizadores recebem mensagens de erro apropriadas com prefixos e sufixos sugeridos e para palavras bloqueadas personalizadas se não seguirem a política de nomeação no nome do grupo e pseudónimo de grupo (mailNickname).
+Cindlets powershell de diretório ativo Azure | Os cmdlets de PowerShell do Diretório Ativo Azure estão em conformidade com a política de nomeação. Os utilizadores recebem mensagens de erro apropriadas com prefixos e sufixos sugeridos e para palavras bloqueadas personalizadas se não seguirem a convenção de nomeação em nomes de grupo e pseudónimode grupo.
+Centro de administração de intercâmbio | O centro de administração de intercâmbio está em conformidade com a política de nomeação. Os utilizadores recebem mensagens de erro apropriadas com prefixos e sufixos sugeridos e para palavras bloqueadas personalizadas se não seguirem a convenção de nomeação no nome do grupo e pseudónimo de grupo.
+Centro de administração do Microsoft 365 | O centro de administração do Microsoft 365 está em conformidade com a política de nomeação. Quando um utilizador cria ou edita nomes de grupo, a política de nomeação é aplicada automaticamente e os utilizadores recebem erros adequados quando introduzem palavras bloqueadas personalizadas. O centro de administração do Microsoft 365 ainda não mostra uma pré-visualização da política de nomeação e não devolve erros de palavras bloqueados personalizados quando o utilizador entra no nome do grupo.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Esses artigos fornecem informações adicionais sobre grupos do Azure AD.
+Estes artigos fornecem informações adicionais sobre os grupos AD Azure.
 
 - [Ver grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Política de expiração para grupos do Office 365](groups-lifecycle.md)
+- [Política de expiração para os grupos do Office 365](groups-lifecycle.md)
 - [Gerir definições de um grupo](../fundamentals/active-directory-groups-settings-azure-portal.md)
 - [Gerir membros de um grupo](../fundamentals/active-directory-groups-members-azure-portal.md)
 - [Gerir associações de um grupo](../fundamentals/active-directory-groups-membership-azure-portal.md)

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: 3e4a1fc3de58b8e65ab9c7a288bdf3eb37e7bae0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671975"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Telemetria métrica: Modelo de dados de Insights de Aplicação
@@ -59,7 +59,7 @@ Desvio padrão da métrica agregada. Não deve ser definido para uma medição.
 
 ## <a name="custom-properties"></a>Propriedades personalizadas
 
-Métrica com a propriedade personalizada `CustomPerfCounter` definida para `true` indicar que a métrica representa o contador de desempenho das janelas. Estas métricas colocadas na tabela performanceCounters. Não em Métricas personalizadas. Também o nome desta métrica é analisado para extrair nomes de categoria, contador e instâncias.
+Métrica com a `CustomPerfCounter` propriedade `true` personalizada definida para indicar que a métrica representa o contador de desempenho das janelas. Estas métricas colocadas na tabela performanceCounters. Não em Métricas personalizadas. Também o nome desta métrica é analisado para extrair nomes de categoria, contador e instâncias.
 
 [!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: Visão geral da rede virtual Azure TAP  Microsoft Docs
+title: Visão geral da rede virtual Azure TAP [ Microsoft Docs
 description: Conheça a rede virtual TAP. A rede virtual TAP fornece-lhe uma cópia profunda do tráfego de rede de máquinas virtuais que pode ser transmitido para um colecionador de pacotes.
 services: virtual-network
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
 ms.openlocfilehash: 47db03460ad3c5194a5445f0b25cb8e742e60c21
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79279614"
 ---
 # <a name="virtual-network-tap"></a>TAP de rede virtual
@@ -27,7 +27,7 @@ ms.locfileid: "79279614"
 A rede virtual Azure TAP (Terminal Access Point) permite-lhe transmitir continuamente o tráfego da sua rede virtual de máquinas para uma ferramenta de coleção de pacotes de rede ou de análise. A ferramenta de coleção ou análise é fornecida por um parceiro de aparelho virtual de [rede.](https://azure.microsoft.com/solutions/network-appliances/) Para obter uma lista de soluções parceiras validadas para trabalhar com a rede virtual TAP, consulte [soluções parceiras.](#virtual-network-tap-partner-solutions)
 
 > [!IMPORTANT]
-> A rede virtual TAP encontra-se atualmente em pré-visualização em todas as regiões do Azure. Para utilizar a rede virtual TAP, tem de se inscrever na pré-visualização enviando um e-mail para <azurevnettap@microsoft.com> com o seu ID de subscrição. Receberá um e-mail assim que a sua subscrição tiver sido inscrita. Não poderá utilizar a capacidade até receber um e-mail de confirmação. Esta pré-visualização é fornecida sem um acordo de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Consulte os [Termos De Utilização Suplementares para as Pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) do Microsoft Azure para obter mais detalhes.
+> A rede virtual TAP encontra-se atualmente em pré-visualização em todas as regiões do Azure. Para utilizar a rede virtual TAP, deve inscrever-se na pré-visualização enviando um e-mail para <azurevnettap@microsoft.com> o seu ID de subscrição. Receberá um e-mail assim que a sua subscrição tiver sido inscrita. Não poderá utilizar a capacidade até receber um e-mail de confirmação. Esta pré-visualização é fornecida sem um acordo de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Consulte os [Termos De Utilização Suplementares para visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) do Microsoft Azure para mais detalhes.
 
 ## <a name="virtual-network-tap-partner-solutions"></a>Soluções de parceiros tap de rede virtual
 
@@ -43,7 +43,7 @@ A rede virtual Azure TAP (Terminal Access Point) permite-lhe transmitir continua
 - [Segurança Acordada](https://awakesecurity.com/technology-partners/microsoft-azure/)
 - [Nuvem de stealthwatch cisco](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
 - [Darktrace](https://www.darktrace.com/en/azure/)
-- [ExtraHop Reveal (x)](https://www.extrahop.com/partners/tech-partners/microsoft/)
+- [ExtraHop Reveal(x)](https://www.extrahop.com/partners/tech-partners/microsoft/)
 - [Cibersegurança fidelis](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
 - [Rio Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)

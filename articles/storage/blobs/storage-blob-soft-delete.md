@@ -1,5 +1,5 @@
 ---
-title: Eliminação suave para bolhas de armazenamento Azure  Microsoft Docs
+title: Eliminação suave para bolhas de armazenamento Azure [ Microsoft Docs
 description: O Azure Storage oferece agora uma eliminação suave para objetos blob para que possa recuperar mais facilmente os seus dados quando estes forem erroneamente modificados ou eliminados por uma aplicação ou outro utilizador de conta de armazenamento.
 services: storage
 author: tamram
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 360930b708d6358692de2af7325701b73d5cf9c9
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 4deae235ed15d02874ab5cb3470c62e934324364
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79370564"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80234298"
 ---
-# <a name="soft-delete-for-azure-storage-blobs"></a>Eliminação suave para bolhas de armazenamento Azure
+# <a name="soft-delete-for-azure-storage-blobs"></a>Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure
 
 O Azure Storage oferece agora uma eliminação suave para objetos blob para que possa recuperar mais facilmente os seus dados quando estes forem erroneamente modificados ou eliminados por uma aplicação ou outro utilizador de conta de armazenamento.
 
@@ -77,14 +77,14 @@ Os seguintes detalhes da tabela esperam comportamento quando o soft delete é li
 | Operação REST API | Tipo de recurso | Descrição | Mudança de comportamento |
 |--------------------|---------------|-------------|--------------------|
 | [Eliminar](/rest/api/storagerp/StorageAccounts/Delete) | Conta | Elimina a conta de armazenamento, incluindo todos os recipientes e bolhas que contém.                           | Sem mudanças. Os recipientes e bolhas na conta eliminada não são recuperáveis. |
-| [Eliminar recipiente](/rest/api/storageservices/delete-container) | Contentor | Elimina o recipiente, incluindo todas as bolhas que contém. | Sem mudanças. As bolhas no recipiente apagado não são recuperáveis. |
+| [Eliminar Contentor](/rest/api/storageservices/delete-container) | Contentor | Elimina o recipiente, incluindo todas as bolhas que contém. | Sem mudanças. As bolhas no recipiente apagado não são recuperáveis. |
 | [Coloque Blob](/rest/api/storageservices/put-blob) | Bloco, Apêndice e Page Blobs | Cria uma nova bolha ou substitui uma bolha existente dentro de um recipiente | Se utilizado para substituir uma bolha existente, uma imagem do estado da bolha antes da chamada é gerada automaticamente. Isto aplica-se também a uma bolha eliminada anteriormente macia se e apenas se for substituída por uma bolha do mesmo tipo (Bloco, Apêndice ou Página). Se for substituído por uma bolha de um tipo diferente, todos os dados eliminados e macios existentes serão permanentemente expirados. |
-| [Eliminar blob](/rest/api/storageservices/delete-blob) | Bloco, Apêndice e Page Blobs | Marca uma bolha ou uma imagem de bolha para eliminação. A bolha ou instantâneo é mais tarde apagado durante a recolha de lixo | Se for utilizado para apagar uma imagem de bolha, esta imagem é marcada como suave. Se for utilizado para apagar uma bolha, esta bolha é marcada como suave. |
+| [Eliminar Blob](/rest/api/storageservices/delete-blob) | Bloco, Apêndice e Page Blobs | Marca uma bolha ou uma imagem de bolha para eliminação. A bolha ou instantâneo é mais tarde apagado durante a recolha de lixo | Se for utilizado para apagar uma imagem de bolha, esta imagem é marcada como suave. Se for utilizado para apagar uma bolha, esta bolha é marcada como suave. |
 | [Copy Blob](/rest/api/storageservices/copy-blob) | Bloco, Apêndice e Page Blobs | Copia uma bolha de origem para uma bolha de destino na mesma conta de armazenamento ou noutra conta de armazenamento. | Se utilizado para substituir uma bolha existente, uma imagem do estado da bolha antes da chamada é gerada automaticamente. Isto aplica-se também a uma bolha eliminada anteriormente macia se e apenas se for substituída por uma bolha do mesmo tipo (Bloco, Apêndice ou Página). Se for substituído por uma bolha de um tipo diferente, todos os dados eliminados e macios existentes serão permanentemente expirados. |
-| [Bloquear](/rest/api/storageservices/put-block) | Bloco blobs | Cria um novo bloco para ser cometido como parte de uma bolha de bloco. | Se usado para comprometer um bloco a uma bolha ativa, não há mudança. Se usado para comprometer um bloco a uma bolha que é suave mente apagada, uma nova bolha é criada e um instantâneo é automaticamente gerado para capturar o estado da bolha suave apagada. |
-| [Lista de blocos](/rest/api/storageservices/put-block-list) | Bloco blobs | Comete uma bolha especificando o conjunto de IDs de bloco que compõem a bolha do bloco. | Se utilizado para substituir uma bolha existente, uma imagem do estado da bolha antes da chamada é gerada automaticamente. Isto aplica-se também a uma bolha apagada anteriormente macia se e apenas se for uma Bolha de Bloco. Se for substituído por uma bolha de um tipo diferente, todos os dados eliminados e macios existentes serão permanentemente expirados. |
-| [Página de colocação](/rest/api/storageservices/put-page) | Blobs de página | Escreve uma série de páginas para um Page Blob. | Sem mudanças. Os dados da Página Blob que são substituídos ou limpos usando esta operação não são guardados e não são recuperáveis. |
-| [Bloco de apêndice](/rest/api/storageservices/append-block) | Blocos de apêndice | Escreve um bloco de dados até ao fim de um Append Blob | Sem mudanças. |
+| [Bloquear](/rest/api/storageservices/put-block) | Blobs de blocos | Cria um novo bloco para ser cometido como parte de uma bolha de bloco. | Se usado para comprometer um bloco a uma bolha ativa, não há mudança. Se usado para comprometer um bloco a uma bolha que é suave mente apagada, uma nova bolha é criada e um instantâneo é automaticamente gerado para capturar o estado da bolha suave apagada. |
+| [Lista de blocos](/rest/api/storageservices/put-block-list) | Blobs de blocos | Comete uma bolha especificando o conjunto de IDs de bloco que compõem a bolha do bloco. | Se utilizado para substituir uma bolha existente, uma imagem do estado da bolha antes da chamada é gerada automaticamente. Isto aplica-se também a uma bolha apagada anteriormente macia se e apenas se for uma Bolha de Bloco. Se for substituído por uma bolha de um tipo diferente, todos os dados eliminados e macios existentes serão permanentemente expirados. |
+| [Página de colocação](/rest/api/storageservices/put-page) | Blobs de Páginas | Escreve uma série de páginas para um Page Blob. | Sem mudanças. Os dados da Página Blob que são substituídos ou limpos usando esta operação não são guardados e não são recuperáveis. |
+| [Bloco de apêndice](/rest/api/storageservices/append-block) | Blobs de acréscimo | Escreve um bloco de dados até ao fim de um Append Blob | Sem mudanças. |
 | [Definir propriedades blob](/rest/api/storageservices/set-blob-properties) | Bloco, Apêndice e Page Blobs | Define valores para propriedades do sistema definidas para uma bolha. | Sem mudanças. Propriedades de bolhas por escrito não são recuperáveis. |
 | [Definir Metadados Blob](/rest/api/storageservices/set-blob-metadata) | Bloco, Apêndice e Page Blobs | Define os metadados definidos pelo utilizador para a bolha especificada como um ou mais pares de valor de nome. | Sem mudanças. Os metadados de blob por escrito não são recuperáveis. |
 
@@ -92,9 +92,9 @@ Os seguintes detalhes da tabela esperam comportamento quando o soft delete é li
 
 ### <a name="recovery"></a>Recuperação
 
-Chamar a operação [Undelete Blob](/rest/api/storageservices/undelete-blob) numa bolha de base suave e apagada restaura-a e todas as imagens suaves e macias associadas como ativas. Chamar a `Undelete Blob` operação numa bolha de base ativa restaura todos os instantâneos apagados associados como ativos. Quando as imagens são restauradas como ativas, parecem instantâneos gerados pelo utilizador; não sobreporem a bolha base.
+Chamar a operação [Undelete Blob](/rest/api/storageservices/undelete-blob) numa bolha de base suave e apagada restaura-a e todas as imagens suaves e macias associadas como ativas. Chamar `Undelete Blob` a operação numa bolha de base ativa restaura todas as imagens apagadas associadas como ativas. Quando as imagens são restauradas como ativas, parecem instantâneos gerados pelo utilizador; não sobreporem a bolha base.
 
-Para restaurar uma bolha a um instantâneo suave e suave específico, pode chamar `Undelete Blob` na bolha base. Depois, pode copiar o instantâneo sobre a bolha agora ativa. Também pode copiar o instantâneo para uma nova bolha.
+Para restaurar uma bolha a um instantâneo suave `Undelete Blob` específico, pode chamar a bolha base. Depois, pode copiar o instantâneo sobre a bolha agora ativa. Também pode copiar o instantâneo para uma nova bolha.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-recover.png)
 
@@ -206,7 +206,8 @@ $MatchingAccounts | Enable-AzStorageDeleteRetentionPolicy -RetentionDays 7
 Pode verificar se a eliminação suave foi ativada utilizando o seguinte comando:
 
 ```powershell
-$MatchingAccounts | Get-AzStorageServiceProperty -ServiceType Blob
+$MatchingAccounts | $account = Get-AzStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
+   Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context | Select-Object -ExpandProperty DeleteRetentionPolicy
 ```
 
 Para recuperar bolhas que foram acidentalmente apagadas, ligue para undelete nessas bolhas. Lembre-se que chamar **Undelete Blob**, tanto em bolhas apagadas ativas como suaves, irá restaurar todos os instantâneos apagados associados como ativos. O exemplo seguinte chama Undelete em todas as bolhas macias apagadas e ativas num recipiente:
@@ -243,7 +244,7 @@ Para verificar se a eliminação suave está ligada, utilize o seguinte comando:
 az storage blob service-properties delete-policy show --account-name mystorageaccount 
 ```
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 Para permitir a eliminação suave, atualize as propriedades de serviço de um cliente blob:
 
@@ -368,7 +369,7 @@ Uma máquina virtual Azure escreve para um disco não gerido usando chamadas par
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Código da amostra .NET](https://github.com/Azure-Samples/storage-dotnet-blob-soft-delete)
-* [Blob Serviço REST API](/rest/api/storageservices/blob-service-rest-api)
+* [API REST de Serviço Blob](/rest/api/storageservices/blob-service-rest-api)
 * [Replicação de armazenamento azure](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Conceber Aplicações Altamente Disponíveis utilizando RA-GRS](../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Falha na conta de recuperação e armazenamento de desastres (pré-visualização) no Armazenamento Azure](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

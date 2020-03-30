@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 7460490dbd45862f4269d25e3910373700ec9a03
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77564725"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Quickstart - Configure um ambiente de nuvem privada
@@ -26,7 +26,7 @@ Rever [os pré-requisitos de networking](cloudsimple-network-checklist.md).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 
 ## <a name="create-a-private-cloud"></a>Criar uma Cloud Privada
 
@@ -209,6 +209,6 @@ Para criar um grupo portuário distribuído na vSphere:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Consumir VMware VMs em Azure](quickstart-create-vmware-virtual-machine.md)
+* [Consumir VMs de VMware no Azure](quickstart-create-vmware-virtual-machine.md)
 * [Ligue-se à rede no local utilizando o Azure ExpressRoute](on-premises-connection.md)
 * [Configurar VPN local-a-local a partir do local](vpn-gateway.md)

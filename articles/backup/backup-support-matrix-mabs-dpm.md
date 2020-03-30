@@ -1,13 +1,13 @@
 ---
-title: MABS e System Center DPM matriz de suporte
+title: MABS & System Center DPM support matrix
 description: Este artigo resume o suporte de backup Azure quando utiliza o Microsoft Azure Backup Server (MABS) ou o System Center DPM para fazer backup no local e nos recursos Do VM Do Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: 6664f7b226b75b364fd1c83f2abc56b5a275eff9
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77582658"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de suporte para backup com O Servidor de Backup Microsoft Azure ou DPM do System Center
@@ -24,7 +24,7 @@ O MABS baseia-se no System Center DPM e fornece funcionalidades semelhantes com 
 
 - Nenhuma licença do System Center é necessária para executar MABS.
 - Tanto para MABS como DPM, o Azure fornece armazenamento de reserva a longo prazo. Além disso, o DPM permite-lhe fazer o armazenamento a longo prazo em fita. O MABS não fornece esta funcionalidade.
-- Pode fazer o backup a um servidor DPM primário com um servidor DPM secundário. O servidor secundário protegerá a base de dados primária do servidor e as réplicas de fonte de dados armazenadas no servidor primário. Se o servidor primário falhar, o servidor secundário pode continuar a proteger as cargas de trabalho protegidas pelo servidor primário, até que o servidor primário esteja novamente disponível.  O MABS não fornece esta funcionalidade.
+- Pode fazer o backup a um servidor DPM primário com um servidor DPM secundário. O servidor secundário irá proteger a base de dados do servidor principal e as réplicas das origens de dados armazenadas no servidor principal. Se o servidor principal falhar, o servidor secundário pode continuar a proteger as cargas de trabalho que estão protegidas pelo servidor principal até que este esteja novamente disponível.  O MABS não fornece esta funcionalidade.
 
 Você descarrega MABS do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57520). Pode ser executado no local ou num VM Azure.
 
@@ -58,9 +58,9 @@ Para obter mais informações:
 
 O DPM/MABS pode ser implantado conforme resumido na tabela seguinte.
 
-**Implementação** | **Suporte** | **Detalhes**
+**Implantação** | **Suporte** | **Detalhes**
 --- | --- | ---
-**Implantado no local** | Servidor físico<br/><br/>VM hiper-V<br/><br/> VMware VM | Se o DPM/MABS for instalado como vMware VM, apenas faz backup VMs VMware e cargas de trabalho que estão em execução nesses VMs.
+**Implantado no local** | Servidor físico<br/><br/>VM do Hyper-V<br/><br/> VMware VM | Se o DPM/MABS for instalado como vMware VM, apenas faz backup VMs VMware e cargas de trabalho que estão em execução nesses VMs.
 **Implantado como um VM de pilha de azure** | Apenas MABS | O DPM não pode ser usado para apoiar os VMs do Azure Stack.
 **Implantado como um VM Azure** | Protege os VMs Azure e as cargas de trabalho que estão a decorrer nesses VMs | DPM/MABS em funcionamento em Azure não pode apoiar as máquinas no local.
 
@@ -117,7 +117,7 @@ O servidor DPM/MABS precisa de acesso a estes URLs:
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.microsoftonline.com
-- \*.windows.net
+- *.windows.net
 
 ### <a name="azure-expressroute-support"></a>Suporte Azure ExpressRoute
 
@@ -146,7 +146,7 @@ Para mais detalhes, consulte os requisitos de [encaminhamento expressRoute](http
 
 A conectividade com o serviço de backup Azure é necessária para que as cópias de segurança funcionem corretamente, e a subscrição Azure deve estar ativa. A tabela que se segue mostra o comportamento se estas duas coisas não ocorrerem.
 
-**MABS para Azure** | **Subscrição** | **Backup/Restauro**
+**MABS para Azure** | **Assinatura** | **Cópia de segurança/Restauro**
 --- | --- | ---
 Ligada | Ativa | Volte para o disco DPM/MABS.<br/><br/> De volta a Azure.<br/><br/> Restaurar do disco.<br/><br/> Restaurar de Azure.
 Ligada | Expirado/deprovisionado | Sem reforços para o disco ou para o Azure.<br/><br/> Se a subscrição estiver caducada, pode restaurar a partir do disco ou do Azure.<br/><br/> Se a subscrição for desativada, não pode restaurar a partir do disco ou do Azure. Os pontos de recuperação do Azure são eliminados.

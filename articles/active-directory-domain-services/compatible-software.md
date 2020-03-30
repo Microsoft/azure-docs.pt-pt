@@ -1,6 +1,6 @@
 ---
-title: Software de terceiros compatível para o Azure AD Domain Services | Microsoft Docs
-description: Software de terceiros que funciona com Azure Active Directory Domain Services
+title: Software compatível com terceiros para serviços de domínio Azure AD [ Microsoft Docs
+description: Software de terceiros que trabalha com serviços de domínio de diretório ativo Azure
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -16,29 +16,29 @@ ms.topic: conceptual
 ms.date: 03/06/2017
 ms.author: iainfou
 ms.openlocfilehash: f5a633a49a0f7b99da4eac08a527d17299aa34b9
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72754460"
 ---
-# <a name="third-party-software-compatible-with-azure-ad-domain-services"></a>Software de terceiros compatível com o Azure AD Domain Services
+# <a name="third-party-software-compatible-with-azure-ad-domain-services"></a>Software de terceiros compatível com serviços de domínio Azure AD
 
-## <a name="one-identity-authentication-services"></a>Serviços de autenticação de uma identidade
+## <a name="one-identity-authentication-services"></a>Um Serviço de Autenticação de Identidade
 
-![Uma identidade](./media/compatible-software-icons/OneIdentity.png)
+![Uma Identidade](./media/compatible-software-icons/OneIdentity.png)
 
-Os serviços de autenticação de identidade permitem que os sistemas UNIX, Linux e Mac OS X usem o acesso, a autenticação e a autorização da infraestrutura existente do Active Directory (AD) de uma organização. Os serviços de autenticação agora dão suporte a Azure Active Directory Domain Services habilitando recursos que não são do Windows para utilizar a mesma plataforma de última geração que suas soluções SaaS existentes já usam.
+Um Serviço de Autenticação de Identidade permite que os sistemas Unix, Linux e Mac OS X utilizem o acesso, autenticação e autorização da infraestrutura de Diretório Ativo (AD) existente de uma organização. Os Serviços de Autenticação suportam agora os Serviços de Domínio de Diretório Ativo Azure, permitindo que os recursos não Windows utilizem a mesma plataforma de próxima geração que as suas soluções SaaS já existentes já utilizam.
 
-[Serviços de autenticação de uma identidade](https://www.quest.com/products/authentication-services/)
+[Um Serviço de Autenticação de Identidade](https://www.quest.com/products/authentication-services/)
 
-[Artigo da base de conhecimento – usar um serviço de autenticação de identidade com Azure AD Domain Services](https://support.quest.com/authentication-services/kb/208427)
+[Artigo KB - Utilize serviços de autenticação de identidade com serviços de domínio Azure AD](https://support.quest.com/authentication-services/kb/208427)
 
 
 ## <a name="red-hat-enterprise-linux"></a>Red Hat Enterprise Linux
 
 ![Red Hat](./media/compatible-software-icons/RedHat.png)
 
-Red Hat Enterprise Linux é a plataforma Linux empresarial líder mundial, criada para atender às necessidades da empresa moderna atual. Red Hat Enterprise Linux é a escolha preferida para cargas de trabalho de VM (máquina virtual) Enterprise Linux em Microsoft Azure. Red Hat Enterprise Linux é uma plataforma aberta, confiável e segura projetada para clientes que desejam flexibilidade de implantação para suas cargas de trabalho críticas para os negócios – da data center para a nuvem do Azure, com suporte de nível empresarial totalmente integrado da Red Hat e Microsoft.
+A Red Hat Enterprise Linux é a plataforma linux líder do mundo construída para satisfazer as necessidades da empresa moderna de hoje. Red Hat Enterprise Linux é a escolha preferida para cargas de trabalho da máquina virtual Linux (VM) no Microsoft Azure. A Red Hat Enterprise Linux é uma plataforma aberta, fiável e segura projetada para clientes que querem flexibilidade de implementação para as suas cargas de trabalho críticas de negócio - desde o centro de dados até à nuvem Azure - apoiada por um suporte firmemente integrado e de nível empresarial a partir de Chapéu Vermelho e Microsoft.
 
-[Ingressar Red Hat Enterprise Linux VM 7,2 para Azure AD Domain Services](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+[Junte-se à Red Hat Enterprise Linux 7.2 VM para os Serviços de Domínio Azure AD](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

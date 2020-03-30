@@ -10,10 +10,10 @@ ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
 ms.openlocfilehash: 59199291589a81d0a0d96b7867078b8196be086f
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77366192"
 ---
 # <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Utilize um teclado para utilizar o designer de machine learning Azure (pré-visualização)
@@ -62,7 +62,7 @@ Para ajustar as propriedades do módulo:
 
 ## <a name="action-shortcuts"></a>Atalhos de ação
 
-Utilize os seguintes atalhos com a chave de acesso. Para obter mais informações sobre as teclas de acesso, consulte https://en.wikipedia.org/wiki/Access_key.
+Utilize os seguintes atalhos com a chave de acesso. Para obter mais informações https://en.wikipedia.org/wiki/Access_keysobre as teclas de acesso, consulte .
 
 | Tecla | Ação |
 |-|-|

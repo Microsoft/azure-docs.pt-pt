@@ -1,20 +1,19 @@
 ---
-title: Página todos os publicadores do Azure Marketplace
-description: Artigo de CPP preterido, apontado para o artigo do PC; foi "visão geral de todos os Publicadores no Portal do Cloud Partner para o Azure Marketplace".
-services: Azure, Marketplace, Cloud Partner Portal, Partner Center
-author: ChJenk
+title: Página de todos os editores do Azure Marketplace
+description: Artigo de CPP precatied, apontado para artigo pc; foi "Visão geral das editoras all publishers in the Cloud Partner Portal for Azure Marketplace."
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.author: v-chjen
-ms.openlocfilehash: eb932841d01d61b2753195de30d1b41a13242935
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.author: dsindona
+ms.openlocfilehash: 679a88395dbfe6b41f1c947e605a21faca183e3f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665734"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288959"
 ---
 # <a name="all-publishers-page"></a>Página com todos os editores
 
-Essa funcionalidade foi movida para o portal do Microsoft [Partner Center](https://partner.microsoft.com/). Para obter mais informações, consulte [criar uma conta do Marketplace comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+Esta funcionalidade foi transferida para o portal Microsoft [Partner Center.](https://partner.microsoft.com/) Para mais informações, consulte [Criar uma conta de Marketplace Comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).

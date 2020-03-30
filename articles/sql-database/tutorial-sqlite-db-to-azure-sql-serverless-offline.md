@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: como migrar seu banco de dados SQLite para o banco de dados SQL sem servidor do Azure'
-description: Saiba como executar uma migração offline do SQLite para o banco de dados SQL sem servidor do Azure usando Azure Data Factory.
+title: 'Tutorial: Como migrar a sua base de dados SQLite para o Servidor de Base de Dados Azure SQL'
+description: Aprenda a realizar uma migração offline de SQLite para Azure SQL Database Serverless utilizando a Azure Data Factory.
 services: sql-database
 author: joplum
 ms.author: joplum
@@ -10,76 +10,76 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 01/08/2020
 ms.openlocfilehash: c718daa4bc99bffd6fcfeb084299bed6682fe884
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75780512"
 ---
-# <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>Como migrar seu banco de dados SQLite para o banco de dados SQL sem servidor do Azure
-Para muitas pessoas, o SQLite fornece sua primeira experiência de bancos de dados e programação SQL. A inclusão em muitos sistemas operacionais e aplicativos populares torna o SQLite um dos mecanismos de banco de dados mais implantados e usados no mundo todo. E, como é provável que o primeiro mecanismo de banco de dados use muitas pessoas, muitas vezes isso pode acabar como uma parte central de projetos ou aplicativos. Nesses casos em que o projeto ou aplicativo ultrapassa a implementação inicial do SQLite, os desenvolvedores podem precisar migrar seus dados para um repositório de dados confiável e centralizado.
+# <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>Como migrar a sua base de dados SQLite para o Azure SQL Database Serverless
+Para muitas pessoas, a SQLite fornece a sua primeira experiência de bases de dados e programação SQL. A sua inclusão em muitos sistemas operativos e aplicações populares faz da SQLite um dos motores de base de dados mais utilizados e utilizados do mundo. E como é provavelmente o primeiro motor de base de dados que muitas pessoas usam, muitas vezes pode acabar como uma parte central de projetos ou aplicações. Nos casos em que o projeto ou aplicação supera a implementação inicial do SQLite, os desenvolvedores podem precisar de migrar os seus dados para uma loja de dados fiável e centralizada.
 
-O banco de dados SQL sem servidor do Azure é uma camada de computação para bancos únicos de dados que dimensionam automaticamente a computação com base na demanda da carga de trabalho e cobra pela quantidade de computação usada por segundo. A camada de computação sem servidor também pausa automaticamente os bancos de dados durante períodos inativos quando apenas o armazenamento é cobrado e retoma automaticamente os bancos de dados quando a atividade retorna.
+O servidor da Base de Dados Azure SQL é um nível de cálculo para bases de dados únicas que escala automaticamente a computação com base na procura de carga de trabalho, e contas para a quantidade de computação usada por segundo. O nível de computação sem servidor também interrompe automaticamente as bases de dados durante períodos inativos quando apenas o armazenamento é faturado e retoma automaticamente as bases de dados quando a atividade retorna.
 
-Depois de seguir as etapas abaixo, seu banco de dados será migrado para o banco de dados SQL sem servidor do Azure, permitindo que você disponibilize seu banco de dados para outros usuários ou aplicativos na nuvem e pague apenas pelo que usar, com alterações mínimas de código do aplicativo.
+Depois de ter seguido os passos abaixo, a sua base de dados será migrada para o Azure SQL Database Serverless, permitindo-lhe disponibilizar a sua base de dados a outros utilizadores ou aplicações na nuvem e apenas pagar pelo que utiliza, com alterações mínimas de código de aplicação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- Uma assinatura do Azure
-- Banco de dados SQLite2 ou SQLite3 que você deseja migrar
-- Um ambiente do Windows
-  - Se você não tiver um ambiente local do Windows, poderá usar uma VM do Windows no Azure para a migração. Mova e torne o arquivo de banco de dados SQLite disponível na VM usando arquivos e Gerenciador de Armazenamento do Azure.
+- Uma subscrição azure
+- Base de dados SQLite2 ou SQLite3 que pretende migrar
+- Um ambiente windows
+  - Se não tiver um ambiente Windows local, pode utilizar um VM Windows em Azure para a migração. Mova e disponibilize o ficheiro de base de dados SQLite no VM utilizando ficheiros Azure e Explorador de Armazenamento.
 
 ## <a name="steps"></a>Passos
 
-1. Provisione um novo banco de dados SQL do Azure na camada de computação sem servidor.
+1. Fornecer uma nova Base de Dados Azure SQL no nível de computação Servidor.
 
-    ![captura de tela de portal do Azure mostrando o exemplo de provisionamento para o banco de dados SQL sem servidor do Azure](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/provision-serverless.png)
+    ![screenshot do portal Azure mostrando exemplo de provisão para base de dados azure sql servidor](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/provision-serverless.png)
 
-2. Verifique se você tem o arquivo de banco de dados SQLite disponível em seu ambiente Windows. Instale um driver ODBC do SQLite se você ainda não tiver um (há muitos disponíveis em software livre, por exemplo, http://www.ch-werner.de/sqliteodbc/).
+2. Certifique-se de que tem o seu ficheiro de base de dados SQLite disponível no seu ambiente Windows. Instale um Controlador ODBC SQLite se ainda não tiver um (existem http://www.ch-werner.de/sqliteodbc/)muitos disponíveis em Open Source, por exemplo, .
 
-3. Crie um DSN de sistema para o banco de dados. Certifique-se de usar o aplicativo de administrador de fonte de dados que corresponde à sua arquitetura de sistema (32 bits vs 64 bits). Você pode encontrar qual versão está executando nas configurações do sistema.
+3. Crie um Sistema DSN para a base de dados. Certifique-se de que utiliza a aplicação Data Source Administrator que corresponde à arquitetura do seu sistema (32 bits vs 64 bits). Pode encontrar qual a versão que está a executar nas definições do seu sistema.
 
-    - Abra o administrador de fonte de dados ODBC em seu ambiente.
-    - Clique na guia DSN do sistema e clique em "Adicionar"
-    - Selecione o conector ODBC do SQLite que você instalou e dê à conexão um nome significativo, por exemplo, sqlitemigrationsource
-    - Defina o nome do banco de dados para o arquivo. DB
+    - Abra o Administrador de Fonte de Dados da ODBC no seu ambiente.
+    - Clique no separador DSN do sistema e clique em "Adicionar"
+    - Selecione o conector SQLite ODBC instalado e dê à ligação um nome significativo, por exemplo, sqlitemigrationsource
+    - Desloque o nome da base de dados para o ficheiro .db
     - Salvar e sair
 
-4. Baixe e instale o Integration Runtime de hospedagem interna. A maneira mais fácil de fazer isso é a opção de instalação expressa, conforme detalhado na documentação. Se você optar por uma instalação manual, precisará fornecer ao aplicativo uma chave de autenticação, que pode ser localizada em sua instância de Data Factory:
+4. Descarregue e instale o tempo de execução de integração auto-hospedado. A forma mais fácil de o fazer é a opção de instalação do Expresso, conforme detalhado na documentação. Se optar por uma instalação manual, terá de fornecer à aplicação uma chave de autenticação, que pode estar localizada na sua instância Data Factory por:
 
-    - Iniciando o ADF (criar e monitorar a partir do serviço no portal do Azure)
-    - Clique na guia "autor" (lápis azul) à esquerda
-    - Clique em conexões (inferior à esquerda) e em tempos de execução de integração
-    - Adicione novo Integration Runtime auto-hospedado, dê a ele um nome, selecione a *opção 2*.
+    - Arranque da ADF (Autor e Monitor do serviço no portal Azure)
+    - Clique no separador "Autor" (lápis azul) à esquerda
+    - Clique em Ligações (inferior à esquerda), em seguida, tempos de integração
+    - Adicione o novo Tempo de Funcionação de Integração Auto-Hospedada, dê-lhe um nome, selecione *Opção 2*.
 
-5. Crie um novo serviço vinculado para o banco de dados SQLite de origem em seu Data Factory.
+5. Crie um novo serviço ligado para a base de dados SQLite de origem na sua Fábrica de Dados.
 
-    ![captura de tela mostrando a folha de serviços vinculados vazio no Azure Data Factory](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/linked-services-create.png)
+    ![Screenshot mostrando lâmina de serviços ligados vazio na Fábrica de Dados Azure](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/linked-services-create.png)
 
-6. Em conexões, em serviço vinculado, clique em novo
+6. Em Conexões, sob o Linked Service, clique em Novo
 
-7. Pesquise e selecione o conector "ODBC"
+7. Procure e selecione o conector "ODBC"
 
 
-    ![captura de tela mostrando o logotipo do conector ODBC na folha serviços vinculados no Azure Data Factory](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/linked-services-odbc.png)
+    ![Screenshot mostrando o logotipo do conector ODBC na lâmina de serviços ligados na Fábrica de Dados Azure](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/linked-services-odbc.png)
 
-8. Dê ao serviço vinculado um nome significativo, por exemplo, "sqlite_odbc". Selecione o tempo de execução de integração na lista suspensa "conectar via tempo de execução de integração". Insira o abaixo na cadeia de conexão, substituindo a variável de catálogo inicial pelo caminho de arquivo. db e o DSN pelo nome da conexão DSN do sistema: 
+8. Dar ao serviço ligado um nome significativo, por exemplo, "sqlite_odbc". Selecione o seu tempo de execução de integração a partir do dropdown "Connect via integrationtime". Introduza a seguinte na cadeia de ligação, substituindo a variável Catálogo Inicial pelo ficheiro .db e o DSN com o nome da ligação DSN do sistema: 
 
     ```
     Connection string: Provider=MSDASQL.1;Persist Security Info=False;Mode=ReadWrite;Initial Catalog=C:\sqlitemigrationsource.db;DSN=sqlitemigrationsource
     ```
 
-9. Definir o tipo de autenticação como anônimo
+9. Definir o tipo de autenticação para Anónimo
 
 10. Testar a ligação
 
-    ![captura de tela mostrando conexão bem-sucedida no Azure Data Factory](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/linked-services-test-successful.png)
+    ![Screenshot mostrando conexão bem sucedida na Fábrica de Dados Azure](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/linked-services-test-successful.png)
 
-11. Crie outro serviço vinculado para seu destino SQL sem servidor. Selecione o banco de dados usando o assistente de serviço vinculado e forneça as credenciais de autenticação do SQL.
+11. Crie outro serviço ligado para o seu alvo SQL sem servidor. Selecione a base de dados utilizando o assistente de serviço ligado e forneça as credenciais de autenticação SQL.
 
-    ![captura de tela mostrando o banco de dados SQL do Azure selecionado no Azure Data Factory](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/linked-services-create-target.png)
+    ![Screenshot mostrando base de dados Azure SQL selecionada na Fábrica de Dados Azure](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/linked-services-create-target.png)
 
-12. Extraia as instruções CREATE TABLE do seu banco de dados SQLite. Você pode fazer isso executando o script do Python abaixo em seu arquivo de banco de dados.
+12. Extrai as declarações create TABLE da sua base de dados SQLite. Pode fazê-lo executando o script abaixo python no seu ficheiro de base de dados.
 
     ```
     #!/usr/bin/python
@@ -96,15 +96,15 @@ Depois de seguir as etapas abaixo, seu banco de dados será migrado para o banco
     c.close()
     ```
 
-13. Crie as tabelas de aterrissagem no ambiente de destino SQL sem servidor copiando as instruções CREATE TABLE do arquivo Createtables. SQL e executando as instruções SQL no editor de consultas no portal do Azure.
+13. Crie as tabelas de aterragem no seu ambiente alvo SQL sem servidor, copiando as declarações da tabela CREATE Do ficheiro CreateTables.sql e executando as declarações SQL no Editor de Consulta no portal Azure.
 
-14. Volte para a tela inicial do seu Data Factory e clique em "Copiar Dados" para executar o assistente de criação de trabalho.
+14. Volte ao ecrã principal da sua Fábrica de Dados e clique em "Copiar Dados" para executar através do assistente de criação de emprego.
 
-    ![captura de tela mostrando o logotipo do assistente de Copiar Dados no Azure Data Factory](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/copy-data.png)
+    ![Screenshot mostrando o logotipo do assistente de dados de cópia na Fábrica de Dados Azure](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/copy-data.png)
 
-15. Selecione todas as tabelas do banco de dados SQLite de origem usando as caixas de seleção e mapeie-as para as tabelas de destino no SQL do Azure. Após a execução do trabalho, você migrou com êxito os dados do SQLite para o SQL do Azure!
+15. Selecione todas as tabelas da base de dados SQLite de origem utilizando as caixas de verificação e mapeie-as para as tabelas-alvo em Azure SQL. Uma vez que o trabalho esteja em execução, você tem migrado com sucesso os seus dados da SQLite para o Azure SQL!
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para começar, consulte [início rápido: criar um banco de dados individual no banco de dados SQL do Azure usando o portal do Azure](sql-database-single-database-get-started.md).
-- Para limites de recursos, consulte [limites de recursos da camada de computação sem servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).
+- Para começar, consulte [Quickstart: Crie uma única base de dados na Base de Dados Azure SQL utilizando o portal Azure](sql-database-single-database-get-started.md).
+- Para limites de recursos, consulte os limites de recursos de [nível de computação sem servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).

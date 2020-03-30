@@ -8,10 +8,10 @@ ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.openlocfilehash: 694d2ae529202223869fcbb2a084e32bccaedbf1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77660228"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Quickstart: Comece a monitorizar a sua aplicação Web Node.js com insights de aplicação Azure
@@ -29,9 +29,9 @@ Com o Azure Application Insights, pode monitorizar facilmente a sua aplicação 
 
 Os Insights de Aplicação podem recolher dados de telemetria de qualquer aplicação ligada à Internet, quer esteja ou não a funcionar no local ou na nuvem. Utilize os passos seguintes para começar a ver estes dados.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-2. Selecione **Criar um recurso** > **Ferramentas de programador** > **Application Insights**.
+2. Selecione **Criar um programador de recursos** > **Ferramentas** > **De aplicação Insights**.
 
    ![Adicione um recurso Azure Application Insights](./media/nodejs-quick-start/azure-app-insights-create-resource.png)
 
@@ -60,7 +60,7 @@ Os Insights de Aplicação podem recolher dados de telemetria de qualquer aplica
    npm install applicationinsights --save
    ```
 
-3. Edite o primeiro ficheiro *.js* da sua aplicação e adicione as duas linhas abaixo na parte mais alta do seu script. Se estiver a utilizar a [aplicação Node.js quickstart,](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs)modifica o ficheiro *index.js.* Substitua `<instrumentation_key>` com a chave de instrumentação da sua aplicação. 
+3. Edite o primeiro ficheiro *.js* da sua aplicação e adicione as duas linhas abaixo na parte mais alta do seu script. Se estiver a utilizar a [aplicação Node.js quickstart,](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs)modifica o ficheiro *index.js.* Substitua-a `<instrumentation_key>` com a chave de instrumentação da sua aplicação. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');
@@ -82,7 +82,7 @@ Os Insights de Aplicação podem recolher dados de telemetria de qualquer aplica
 
    ![Mapa de aplicação de insights de aplicação](./media/nodejs-quick-start/azure-app-insights-application-map.png)
 
-3. Selecione o ícone do **aplicativo Analytics** ![ícone do mapa de aplicações](./media/nodejs-quick-start/azure-app-insights-analytics-icon.png) **Visualização no Analytics**.  Esta ação abre o **Application Insights Analytics,** que fornece uma linguagem de consulta rica para analisar todos os dados recolhidos pela Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
+3. Selecione o ![ícone](./media/nodejs-quick-start/azure-app-insights-analytics-icon.png) do ícone do **aplicativo Analytics** **Visualizar no Analytics**.  Esta ação abre o **Application Insights Analytics,** que fornece uma linguagem de consulta rica para analisar todos os dados recolhidos pela Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
 
    ![Insights de aplicação Gráficos de análise](./media/nodejs-quick-start/azure-app-insights-analytics-queries.png)
 

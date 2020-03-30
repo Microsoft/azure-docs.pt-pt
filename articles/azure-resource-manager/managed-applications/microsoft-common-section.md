@@ -1,22 +1,22 @@
 ---
-title: Elemento de interface do usuário da seção
-description: Descreve o elemento da interface do usuário Microsoft. Common. Section para portal do Azure. Use o para agrupar elementos no portal para a implantação de aplicativos gerenciados.
+title: Elemento da secção UI
+description: Descreve o elemento Microsoft.Common.Section UI para o portal Azure. Utilizar para agrupar elementos no portal para a implementação de aplicações geridas.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 999a7386ee7c5b3ef76f87280cc2d0cd45f143cd
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75652258"
 ---
-# <a name="microsoftcommonsection-ui-element"></a>Elemento de interface do usuário Microsoft. Common. Section
+# <a name="microsoftcommonsection-ui-element"></a>Microsoft.Common.Section UI elemento
 
-Um controle que agrupa um ou mais elementos em um título.
+Um controlo que agrupa um ou mais elementos sob um título.
 
-## <a name="ui-sample"></a>Exemplo de interface do usuário
+## <a name="ui-sample"></a>Amostra de UI
 
 ![Microsoft.Common.Section](./media/managed-application-elements/microsoft.common.section.png)
 
@@ -45,19 +45,19 @@ Um controle que agrupa um ou mais elementos em um título.
 
 ## <a name="remarks"></a>Observações
 
-- `elements` deve ter pelo menos um elemento e pode ter todos os tipos de elemento, exceto `Microsoft.Common.Section`.
-- Este elemento não dá suporte à propriedade `toolTip`.
+- `elements`deve ter pelo menos um elemento, e `Microsoft.Common.Section`pode ter todos os tipos de elementos, exceto .
+- Este elemento não suporta `toolTip` a propriedade.
 
 ## <a name="sample-output"></a>Resultado da amostra
-Para acessar os valores de saída dos elementos no `elements`, use as funções [Basics ()](create-uidefinition-functions.md#basics) ou [Steps ()](create-uidefinition-functions.md#steps) e a notação de ponto:
+Para aceder aos valores `elements`de saída dos elementos, utilize as funções [básicas()](create-uidefinition-functions.md#basics) ou [passos](create-uidefinition-functions.md#steps) e notação de pontos:
 
 ```json
 steps('configuration').section1.text1
 ```
 
-Elementos do tipo `Microsoft.Common.Section` não têm nenhum valor de saída.
+Elementos do `Microsoft.Common.Section` tipo não têm valores de saída.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma introdução à criação de definições de interface do usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
-* Para obter uma descrição das propriedades comuns nos elementos da interface do usuário, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).
+* Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
+* Para obter uma descrição das propriedades comuns nos elementos UI, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).

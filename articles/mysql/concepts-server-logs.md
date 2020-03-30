@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.openlocfilehash: 9a3a58cab2d9673a4660967e3a11d7f88900e718
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269435"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Registos de consultas lentas na Base de Dados Azure para MySQL
@@ -21,7 +21,7 @@ Para obter mais informações sobre o registo de consulta lenta MySQL, consulte 
 ## <a name="access-slow-query-logs"></a>Aceder a registos de consultas lentas
 Pode listar e baixar a Base de Dados Azure para registos de consultas lentas MySQL utilizando o portal Azure e o Azure CLI.
 
-No portal do Azure, selecione a base de dados do Azure para o servidor MySQL. Na rubrica **Monitoring,** selecione a página Registos do **Servidor.**
+No portal Azure, selecione a sua Base de Dados Azure para o servidor MySQL. Na rubrica **Monitoring,** selecione a página Registos do **Servidor.**
 
 Para obter mais informações sobre o Azure CLI, consulte [Configure e aceda a registos de consultas lentas utilizando o Azure CLI](howto-configure-server-logs-in-cli.md).
 
@@ -37,15 +37,15 @@ Por defeito, o registo de consulta lenta é desativado. Para o ativar, coloque s
 
 Outros parâmetros que pode ajustar incluem:
 
-- **long_query_time:** se uma consulta demorar mais do que long_query_time (em segundos) que a consulta é registada. O padrão é de 10 segundos.
+- **long_query_time:** se uma consulta demorar mais do que long_query_time (em segundos) que a consulta é registada. A predefinição é de 10 segundos.
 - **log_slow_admin_statements:** se a ON incluir declarações administrativas como ALTER_TABLE e ANALYZE_TABLE nas declarações escritas à slow_query_log.
 - **log_queries_not_using_indexes:** determina se as consultas que não utilizam índices estão registadas na slow_query_log
 - **log_throttle_queries_not_using_indexes**: Este parâmetro limita o número de consultas não indexadas que podem ser escritas no registo de consulta lenta. Este parâmetro entra em vigor quando log_queries_not_using_indexes está definido para ON.
 - **log_output:** se "File", permitir que o registo de consulta lenta seja escrito tanto no armazenamento do servidor local como nos registos de diagnóstico do Monitor Azure. Se "Nenhum", o registo de consulta lenta só será escrito para registos de diagnóstico do Monitor Azure. 
 
 > [!IMPORTANT]
-> Se as suas tabelas não estiverem indexadas, a definição dos parâmetros `log_queries_not_using_indexes` e `log_throttle_queries_not_using_indexes` para ON pode afetar o desempenho do MySQL, uma vez que todas as consultas que correm contra estas tabelas não indexadas serão escritas para o registo de consulta lenta.<br><br>
-> Se planeia registar consultas lentas durante um longo período de tempo, recomenda-se definir `log_output` para "Nenhuma". Se definidos para "File", estes registos são escritos para o armazenamento do servidor local e podem afetar o desempenho do MySQL. 
+> Se as suas tabelas não `log_queries_not_using_indexes` `log_throttle_queries_not_using_indexes` estiverem indexadas, a definição dos parâmetros e parâmetros para ON pode afetar o desempenho do MySQL, uma vez que todas as consultas que correm contra estas tabelas não indexadas serão escritas para o registo de consulta lenta.<br><br>
+> Se planeia registar consultas lentas durante um longo período de `log_output` tempo, recomenda-se que se ajuste a "Nenhuma". Se definidos para "File", estes registos são escritos para o armazenamento do servidor local e podem afetar o desempenho do MySQL. 
 
 Consulte a [documentação](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) de registo de consulta lenta MySQL para obter descrições completas dos parâmetros de registo de consultas lentas.
 
@@ -58,18 +58,18 @@ A tabela seguinte descreve o que está em cada tronco. Dependendo do método de 
 |---|---|
 | `TenantId` | Sua identificação do inquilino |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | Carimbo de tempo quando o registo foi gravado na UTC |
-| `Type` | Tipo de tronco. Sempre `AzureDiagnostics` |
+| `TimeGenerated`[UTC] | Carimbo de tempo quando o registo foi gravado na UTC |
+| `Type` | Tipo de tronco. Sempre`AzureDiagnostics` |
 | `SubscriptionId` | GUID para a subscrição a que o servidor pertence |
 | `ResourceGroup` | Nome do grupo de recursos a que o servidor pertence |
-| `ResourceProvider` | Nome do fornecedor de recursos. Sempre `MICROSOFT.DBFORMYSQL` |
+| `ResourceProvider` | Nome do fornecedor de recursos. Sempre`MICROSOFT.DBFORMYSQL` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Recurso URI |
 | `Resource` | Nome do servidor |
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | Nome do servidor |
-| `start_time_t` [UTC] | Hora da consulta começar |
+| `start_time_t`[UTC] | Hora da consulta começar |
 | `query_time_s` | Tempo total em segundos que a consulta demorou a executar |
 | `lock_time_s` | Tempo total em segundos a consulta foi bloqueada |
 | `user_host_s` | Nome de utilizador |
@@ -79,7 +79,7 @@ A tabela seguinte descreve o que está em cada tronco. Dependendo do método de 
 | `insert_id_s` | Inserir ID |
 | `sql_text_s` | Consulta completa |
 | `server_id_s` | O ID do servidor |
-| `thread_id_s` | ID do Thread |
+| `thread_id_s` | ID da linha |
 | `\_ResourceId` | Recurso URI |
 
 > [!Note]

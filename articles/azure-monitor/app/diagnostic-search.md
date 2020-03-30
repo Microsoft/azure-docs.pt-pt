@@ -1,13 +1,13 @@
 ---
-title: Utilização de Pesquisa em Insights de Aplicação Azure  Microsoft Docs
+title: Utilização de Pesquisa em Insights de Aplicação Azure [ Microsoft Docs
 description: Pesquisar e filtrar a telemetria crua enviada pela sua aplicação web.
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.openlocfilehash: 8039a55784f63030f330d6c1e2061e99b8b63bbf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275987"
 ---
 # <a name="using-search-in-application-insights"></a>Utilização de Pesquisa em Insights de Aplicação
@@ -18,11 +18,11 @@ A pesquisa é uma característica de Insights de [Aplicação](../../azure-monit
 
 ## <a name="where-do-you-see-search"></a>Onde vê a Procura?
 
-### <a name="in-the-azure-portal"></a>No portal Azure
+### <a name="in-the-azure-portal"></a>No portal do Azure
 
 Pode abrir a pesquisa de diagnóstico a partir do separador visão geral da aplicação Insights da sua aplicação (localizada na barra superior) ou sob investigação à esquerda.
 
-![Separador Procura](./media/diagnostic-search/view-custom-events.png)
+![Separador de pesquisa](./media/diagnostic-search/view-custom-events.png)
 
 Vá ao menu suspenso dos tipos de eventos para ver uma lista de itens de telemetria- pedidos de servidores, visualizações de página, eventos personalizados que você tem codificado, e assim por diante. No topo da lista de resultados, está um gráfico resumo que mostra a contagem de eventos ao longo do tempo.
 
@@ -56,12 +56,12 @@ Abra o menu suspenso dos tipos do Evento e escolha os tipos de eventos que prete
 
 Os tipos de eventos são:
 
-* **Trace** - [Registos de diagnóstico](../../azure-monitor/app/asp-net-trace-logs.md) incluindo TrackTrace, log4Net, NLog e System.Diagnostic.Trace calls.
+* **Rastrear** - [registos](../../azure-monitor/app/asp-net-trace-logs.md) de diagnóstico incluindo TrackTrace, log4Net, NLog e System.Diagnostic.Trace calls.
 * **Pedido** - PEDIDOS HTTP recebidos pela sua aplicação de servidor, incluindo páginas, scripts, imagens, ficheiros de estilo e dados. Estes eventos são usados para criar os gráficos de visão geral de pedido e resposta.
-* **Page View** - [Telemetria enviada pelo cliente web,](../../azure-monitor/app/javascript.md)usada para criar relatórios de visualização de páginas.
+* **Página View** - [Telemetria enviada pelo cliente web,](../../azure-monitor/app/javascript.md)usada para criar relatórios de visualização de página.
 * **Evento Personalizado** - Se inseriu chamadas para trackEvent() para monitorizar a [utilização,](../../azure-monitor/app/api-custom-events-metrics.md)pode pesquisar aqui.
 * **Exceção** - Exceções não [apanhadas no servidor,](../../azure-monitor/app/asp-net-exceptions.md)e aquelas que regista utilizando trackException().
-* **Dependência** - [Chamadas da sua aplicação do servidor](../../azure-monitor/app/asp-net-dependencies.md) para outros serviços, tais como APIs rest ou bases de dados, e chamadas AJAX do seu código de [cliente](../../azure-monitor/app/javascript.md).
+* **Ligações** - de dependência[da sua aplicação do servidor](../../azure-monitor/app/asp-net-dependencies.md) para outros serviços, tais como APIs rest ou bases de dados, e chamadas AJAX do seu código de [cliente](../../azure-monitor/app/javascript.md).
 * **Disponibilidade** - Resultados de testes de [disponibilidade.](../../azure-monitor/app/monitor-web-app-availability.md)
 
 ## <a name="filter-on-property-values"></a>Filtrar os valores da propriedade
@@ -81,7 +81,7 @@ Para encontrar todos os itens com o mesmo valor de propriedade, escreva-o na bar
 ## <a name="search-the-data"></a>Pesquisar os dados
 
 > [!NOTE]
-> Para escrever consultas mais [**complexas, abra registos (Analytics)** ](../../azure-monitor/log-query/get-started-portal.md) a partir do topo da lâmina de pesquisa.
+> Para escrever consultas mais [**complexas, abra registos (Analytics)**](../../azure-monitor/log-query/get-started-portal.md) a partir do topo da lâmina de pesquisa.
 >
 
 Pode procurar termos em qualquer um dos valores da propriedade. Isto é útil se tiver escrito [eventos personalizados](../../azure-monitor/app/api-custom-events-metrics.md) com valores de propriedade.
@@ -92,14 +92,14 @@ Pode procurar termos em qualquer um dos valores da propriedade. Isto é útil se
 
 Procure palavras completas, não subcordas. Utilize aspas para encerrar caracteres especiais.
 
-| String | *Não* encontrado | Encontrado |
+| Cadeia | *Não* encontrado | Localizado |
 | --- | --- | --- |
 | HomeController.About |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
 |Estados Unidos|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`
 
 Aqui estão as expressões de pesquisa que pode usar:
 
-| Consulta de amostra | Efeito |
+| Consulta de exemplo | Efeito |
 | --- | --- |
 | `apple` |Encontre todos os eventos na faixa de tempo cujos campos incluem a palavra "maçã" |
 | `apple AND banana` <br/>`apple banana` |Encontre eventos que contenham ambas as palavras. Use maiúscula "E", não "e". <br/>Forma curta. |
@@ -110,7 +110,7 @@ Aqui estão as expressões de pesquisa que pode usar:
 
 Se a sua aplicação gerar uma grande quantidade de telemetria (e estiver a utilizar a versão SDK de ASP.NET 2.0.0-beta3 ou posterior), o módulo de amostragem adaptativo reduz automaticamente o volume que é enviado para o portal enviando apenas uma fração representativa de eventos. No entanto, os eventos relacionados com o mesmo pedido são selecionados ou desselecionados como um grupo, para que possa navegar entre eventos relacionados.
 
-[Saiba mais sobre amostragem](../../azure-monitor/app/sampling.md).
+[Saiba mais sobre a amostragem](../../azure-monitor/app/sampling.md).
 
 ## <a name="create-work-item"></a>Criar artigo de trabalho
 
@@ -133,9 +133,9 @@ Além da telemetria fora da caixa enviada pela Application Insights SDK, pode:
 
 [Saiba como enviar registos e telemetria personalizada para Insights](../../azure-monitor/app/asp-net-trace-logs.md)de Aplicação .
 
-## <a name="questions"></a>Q e A
+## <a name="q--a"></a><a name="questions"></a>Q & A
 
-### <a name="limits"></a>Quantos dados são retidos?
+### <a name="how-much-data-is-retained"></a><a name="limits"></a>Quantos dados são retidos?
 
 Consulte o resumo dos [Limites.](../../azure-monitor/app/pricing.md#limits-summary)
 
@@ -143,7 +143,7 @@ Consulte o resumo dos [Limites.](../../azure-monitor/app/pricing.md#limits-summa
 
 Não registamos automaticamente os dados do POST, mas pode utilizar o [TrackTrace ou as chamadas de registo](../../azure-monitor/app/asp-net-trace-logs.md). Coloque os dados do POST no parâmetro da mensagem. Não é possível filtrar a mensagem da mesma forma que pode filtrar as propriedades, mas o limite de tamanho é mais longo.
 
-## <a name="add"></a>Passos seguintes
+## <a name="next-steps"></a><a name="add"></a>Passos seguintes
 
 * [Escreva consultas complexas em Analytics](../../azure-monitor/log-query/get-started-portal.md)
 * [Envie registos e telemetria personalizada para Insights de Aplicação](../../azure-monitor/app/asp-net-trace-logs.md)

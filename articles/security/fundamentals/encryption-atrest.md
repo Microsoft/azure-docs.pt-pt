@@ -1,5 +1,5 @@
 ---
-title: Encriptação de dados do Microsoft Azure em repouso  Microsoft Docs
+title: Encriptação de dados do Microsoft Azure em repouso [ Microsoft Docs
 description: Este artigo fornece uma visão geral da encriptação de dados do Microsoft Azure no descanso, as capacidades globais e considerações gerais.
 services: security
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/07/2020
+ms.date: 03/23/2020
 ms.author: barclayn
-ms.openlocfilehash: 682f0b66f7632bce16ae134e71ea27c4df976f43
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: d8aa643dcf9734ac983c9c4c0d53bda24ce4688d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79243396"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125077"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Encriptação de dados azure-at-rest
 
@@ -49,9 +49,9 @@ A encriptação em repouso fornece proteção de dados para dados armazenados (e
 
 A encriptação em repouso foi concebida para impedir que o intruso aceda aos dados não encriptados, garantindo que os dados são encriptados quando estão em disco. Se um intruso obtiver um disco rígido com dados encriptados, mas não com as chaves de encriptação, o intruso deve derrotar a encriptação para ler os dados. Este ataque é muito mais complexo e consumista do que aceder a dados não encriptados num disco rígido. Por esta razão, a encriptação em repouso é altamente recomendada e é um requisito de alta prioridade para muitas organizações.
 
-A encriptação em repouso também pode ser exigida pela necessidade de uma organização para a governação de dados e os esforços de conformidade. Regulamentos da indústria e do governo, tais como HIPAA, PCI e FedRAMP, estabelecem salvaguardas específicas no que diz respeito à proteção de dados e requisitos de encriptação. A encriptação em repouso é uma medida obrigatória necessária para o cumprimento de alguns desses regulamentos.
+A encriptação em repouso também pode ser exigida pela necessidade de uma organização para a governação de dados e os esforços de conformidade. Regulamentos da indústria e do governo, tais como HIPAA, PCI e FedRAMP, estabelecem salvaguardas específicas no que diz respeito à proteção de dados e requisitos de encriptação. A encriptação em repouso é uma medida obrigatória necessária para o cumprimento de alguns desses regulamentos. Para obter mais informações sobre a abordagem da Microsoft à validação FIPS 140-2, consulte a [Publicação 140-2 do Federal Information Processing Standard (FIPS).](https://docs.microsoft.com/microsoft-365/compliance/offering-fips-140-2) 
 
-Além de satisfazer os requisitos de conformidade e regulação, a encriptação em repouso proporciona proteção de defesa aprofundada. O Microsoft Azure fornece uma plataforma compatível para serviços, aplicações e dados. Fornece igualmente instalações abrangentes e segurança física, controlo de acesso a dados e auditoria. No entanto, é importante fornecer medidas de segurança adicionais "sobrepostas" no caso de uma das outras medidas de segurança falhar e a encriptação em repouso fornecer tal medida de segurança
+Além de satisfazer os requisitos de conformidade e regulação, a encriptação em repouso proporciona proteção de defesa aprofundada. O Microsoft Azure fornece uma plataforma compatível para serviços, aplicações e dados. Fornece igualmente instalações abrangentes e segurança física, controlo de acesso a dados e auditoria. No entanto, é importante fornecer medidas de segurança adicionais "sobrepostas" no caso de uma das outras medidas de segurança falhar e a encriptação em repouso fornecer tal medida de segurança.
 
 A Microsoft está empenhada em encriptar opções de repouso em serviços na nuvem e dar aos clientes o controlo de chaves de encriptação e registos de utilização chave. Além disso, a Microsoft está a trabalhar para encriptar todos os dados dos clientes em repouso por padrão.
 
@@ -117,7 +117,7 @@ O modelo de encriptação do cliente refere-se à encriptação que é realizada
 
 Os modelos de encriptação do lado do servidor referem-se à encriptação que é executada pelo serviço Azure. Neste modelo, o Fornecedor de Recursos realiza as operações de encriptação e desencriptação. Por exemplo, o Armazenamento Azure pode receber dados em operações de texto simples e executar a encriptação e desencriptação internamente. O Fornecedor de Recursos poderá utilizar chaves de encriptação geridas pela Microsoft ou pelo cliente, dependendo da configuração fornecida.
 
-![Servidor](./media/encryption-atrest/azure-security-encryption-atrest-fig3.png)
+![Server](./media/encryption-atrest/azure-security-encryption-atrest-fig3.png)
 
 ### <a name="server-side-encryption-key-management-models"></a>Modelos de gestão de chaves de encriptação do lado do servidor
 
@@ -176,7 +176,7 @@ Para obter uma chave para utilização na encriptação ou desencriptação de d
 
 - O cliente tem total responsabilidade pela gestão chave do acesso
 - Cliente tem total responsabilidade na gestão chave do ciclo de vida
-- Custos adicionais de configuração e configuração
+- Configuração adicional & configuração sobre carga
 
 #### <a name="server-side-encryption-using-customer-managed-keys-in-customer-controlled-hardware"></a>Encriptação do lado do servidor usando chaves geridas pelo cliente em hardware controlado pelo cliente
 
@@ -268,7 +268,7 @@ A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é supor
 | Power BI                         | Sim                | Pré-visualização, RSA 2048-bit | -                  |
 | **Análise**                    |                    |                    |                    |
 | Azure Stream Analytics           | Sim                | -                  | -                  |
-| Hubs de Eventos                       | Sim                | Sim, todos os Comprimentos RSA. | -                  |
+| Event Hubs                       | Sim                | Sim, todos os Comprimentos RSA. | -                  |
 | Funções                        | Sim                | Sim, todos os Comprimentos RSA. | -                  |
 | Azure Analysis Services          | Sim                | -                  | -                  |
 | Catálogo de Dados do Azure               | Sim                | -                  | -                  |
@@ -283,7 +283,7 @@ A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é supor
 | Container Instances              | Sim                | Sim                | -                  |
 | Registo de Contentor               | Sim                | Sim                | -                  |
 | **Computação**                      |                    |                    |                    |
-| Virtual Machines                 | Sim                | Sim, RSA 2048-bit  | -                  |
+| Máquinas Virtuais                 | Sim                | Sim, RSA 2048-bit  | -                  |
 | Conjunto de escala de máquina virtual        | Sim                | Sim, RSA 2048-bit  | -                  |
 | SAP HANA                         | Sim                | Sim, RSA 2048-bit  | -                  |
 | Serviço de Aplicações                      | Sim                | Sim                | -                  |
@@ -293,13 +293,13 @@ A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é supor
 | Aplicações Geridas do Azure       | Sim                | Sim                | -                  |
 | Service Bus                      | Sim                | Sim                | -                  |
 | Site Recovery                    | Sim                | Sim                | -                  |
-| **Bases de dados**                    |                    |                    |                    |
+| **Bases de Dados**                    |                    |                    |                    |
 | SQL Server em Máquinas Virtuais   | Sim                | Sim, RSA 2048-bit  | Sim                |
 | Base de Dados SQL do Azure               | Sim                | Sim, RSA 2048-bit  | Sim                |
 | Base de Dados Azure SQL para MariaDB   | Sim                | -                  | -                  |
 | Base de dados Azure SQL para MySQL     | Sim                | Sim                | -                  |
 | Base de dados Azure SQL para PostgreSQL | Sim               | Sim                | -                  |
-| Azure Synapse Analytics          | Sim                | Sim, RSA 2048-bit  | Sim                |
+| Azure Synapse Analytics          | Sim                | Sim, RSA 2048-bit  | -                  |
 | SQL Server Stretch Database      | Sim                | Sim, RSA 2048-bit  | Sim                |
 | Armazenamento de Tabelas                    | Sim                | Sim                | Sim                |
 | Azure Cosmos DB                  | Sim                | Sim                | -                  |
@@ -318,13 +318,13 @@ A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é supor
 | IoT Hub                          | Sim                | Sim                | Sim                |
 | **Gestão e Governação**    |                    |                    |                    |
 | Azure Site Recovery              | Sim                | -                  | -                  |
-| **Meios de comunicação**                        |                    |                    |                    |
+| **Meios de comunicação social**                        |                    |                    |                    |
 | Serviços de Multimédia                   | Sim                | -                  | Sim                |
 | **Armazenamento**                      |                    |                    |                    |
-| Armazenamento de Blobs                     | Sim                | Sim, RSA 2048-bit  | Sim                |
+| Blob Storage                     | Sim                | Sim, RSA 2048-bit  | Sim                |
 | Armazenamento em Disco                     | Sim                | Sim                | -                  |
 | Armazenamento de disco gerido             | Sim                | Sim                | -                  |
-| Armazenamento de Ficheiros                     | Sim                | Sim, RSA 2048-bit  | -                  |
+| File Storage                     | Sim                | Sim, RSA 2048-bit  | -                  |
 | Armazenamento de filas                    | Sim                | Sim                | Sim                |
 | Avere vFXT                       | Sim                | -                  | -                  |
 | Azure NetApp Files               | Sim                | -                  | -                  |

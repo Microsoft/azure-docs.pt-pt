@@ -7,17 +7,17 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.openlocfilehash: 581eadc60835b758f67ae616d4413800f1d6d718
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969517"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Como criar uma máquina virtual Linux com modelos de Gestor de Recursos Azure
 
 Aprenda a criar uma máquina virtual Linux (VM) utilizando um modelo de Gestor de Recursos Azure e o Azure CLI da concha Azure Cloud. Para criar uma máquina virtual do Windows, consulte [Criar uma máquina virtual do Windows a partir de um modelo de Gestor de Recursos](../windows/ps-template.md).
 
-## <a name="templates-overview"></a>Visão geral dos modelos
+## <a name="templates-overview"></a>Descrição geral de modelos
 
 Os modelos do Gestor de Recursos Azure são ficheiros JSON que definem a infraestrutura e configuração da sua solução Azure. Ao utilizar um modelo, pode implementar repetidamente a solução durante o ciclo de vida da mesma e ter a confiança de que os recursos são implementados num estado consistente. Para saber mais sobre o formato do modelo e como o constrói, consulte [Quickstart: Crie e implemente modelos](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)do Gestor de Recursos Azure utilizando o portal Azure . Para ver a sintaxe JSON para tipos de recursos, consulte [Define resources in Azure Resource Manager templates (Definir recursos nos modelos do Azure Resource Manager)](/azure/templates/microsoft.compute/allversions).
 
@@ -52,9 +52,9 @@ az vm show --resource-group $resourceGroupName --name "$projectName-vm" --show-d
 
 O último comando Azure CLI mostra o endereço IP público do VM recém-criado. Precisa do endereço IP público para ligar à máquina virtual. Veja a próxima secção deste artigo.
 
-No exemplo anterior, especificou um modelo armazenado no GitHub. Também pode descarregar ou criar um modelo e especificar o caminho local com o parâmetro `--template-file`.
+No exemplo anterior, especificou um modelo armazenado no GitHub. Também pode descarregar ou criar um modelo e `--template-file` especificar o caminho local com o parâmetro.
 
-Aqui estão alguns recursos adicionais:
+Seguem-se alguns recursos adicionais:
 
 - Para aprender a desenvolver modelos de Gestor de Recursos, consulte a [documentação do Gestor de Recursos do Azure.](/azure/azure-resource-manager/)
 - Para ver os esquemas de máquinas virtuais Azure, consulte a referência do [modelo Azure](/azure/templates/microsoft.compute/allversions).

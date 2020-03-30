@@ -1,56 +1,56 @@
 ---
-title: Criar um ASE com ARM
-description: Saiba como criar um ambiente de serviço de aplicativo ILB ou externo usando um modelo de Azure Resource Manager.
+title: Criar uma ASE com ARM
+description: Aprenda a criar um ambiente de serviço de aplicações externo ou ILB utilizando um modelo de Gestor de Recursos Azure.
 author: ccompy
 ms.assetid: 6eb7d43d-e820-4a47-818c-80ff7d3b6f8e
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ce51c6415389ee52cf0371dfbddb98cb48747b05
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1212e77db5e0ec83f8dd966a14872a682b3e0202
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430456"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295542"
 ---
-# <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Criar um ASE usando um modelo de Azure Resource Manager
+# <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Crie uma ASE usando um modelo de Gestor de Recursos Azure
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Os ASEs (ambientes de serviço Azure App) podem ser criados com um ponto de extremidade acessível pela Internet ou um ponto de extremidade em um endereço interno em uma VNet (rede virtual) do Azure. Quando criado com um ponto de extremidade interno, esse ponto de extremidade é fornecido por um componente do Azure chamado ILB (balanceador de carga interno). O ASE em um endereço IP interno é chamado de ASE ILB. O ASE com um ponto de extremidade público é chamado de ASE externo. 
+Os ambientes do Serviço de Aplicações Azure (ASE) podem ser criados com um ponto final acessível à Internet ou um ponto final num endereço interno numa rede virtual Azure (VNet). Quando criado com um ponto final interno, esse ponto final é fornecido por um componente Azure chamado um equilibrador de carga interna (ILB). A ASE num endereço IP interno chama-se ILB ASE. A ASE com um ponto final público chama-se ASE Externa. 
 
-Um ASE pode ser criado usando o portal do Azure ou um modelo de Azure Resource Manager. Este artigo explica as etapas e a sintaxe de que você precisa para criar um ase externo ou um ASE ILB com modelos do Resource Manager. Para saber como criar um ASE no portal do Azure, consulte [fazer um ase externo][MakeExternalASE] ou [fazer um ase ILB][MakeILBASE].
+Uma ASE pode ser criada utilizando o portal Azure ou um modelo de Gestor de Recursos Azure. Este artigo percorre os passos e sintaxe que precisa para criar uma ASE Externa ou ILB ASE com modelos de Gestor de Recursos. Para aprender a criar uma ASE no portal Azure, consulte [Fazer uma ASE Externa][MakeExternalASE] ou Fazer uma [ASE ILB][MakeILBASE].
 
-Ao criar um ASE no portal do Azure, você pode criar sua VNet ao mesmo tempo ou escolher uma VNet preexistente para implantar no. Ao criar um ASE a partir de um modelo, você deve começar com: 
+Quando cria uma ASE no portal Azure, pode criar o seu VNet ao mesmo tempo ou escolher um VNet pré-existente para se implantar. Quando cria uma ASE a partir de um modelo, tem de começar com: 
 
-* Uma VNet do Resource Manager.
-* Uma sub-rede nessa VNet. Recomendamos um tamanho de sub-rede ASE de `/24` com 256 endereços para acomodar necessidades futuras de crescimento e dimensionamento. Depois que o ASE for criado, você não poderá alterar o tamanho.
-* A ID de recurso da sua VNet. Você pode obter essas informações do portal do Azure em suas propriedades de rede virtual.
-* A assinatura na qual você deseja implantar.
-* O local no qual você deseja implantar.
+* Um gestor de recursos VNet.
+* Uma sub-rede no VNet. Recomendamos uma sub-rede `/24` ASE com 256 endereços para acomodar futuras necessidades de crescimento e escala. Depois da Criação da ASE, não se pode alterar o tamanho.
+* A identificação do recurso do seu VNet. Pode obter esta informação do portal Azure sob as suas propriedades de rede virtual.
+* A subscrição que pretende implementar.
+* A localização onde quer se deslocar.
 
-Para automatizar a criação do ASE:
+Para automatizar a sua criação a ASE:
 
-1. Crie o ASE a partir de um modelo. Se você criar um ASE externo, terminará após esta etapa. Se você criar um ASE ILB, haverá mais algumas coisas a fazer.
+1. Crie a ASE a partir de um modelo. Se criar uma ASE externa, terminará depois deste passo. Se criares uma ASE ILB, há mais algumas coisas para fazer.
 
-2. Depois que o ASE ILB for criado, um certificado SSL que corresponda ao domínio do ASE ILB será carregado.
+2. Após a criação do seu ILB ASE, é enviado um certificado SSL que corresponda ao seu domínio ILB ASE.
 
-3. O certificado SSL carregado é atribuído ao ASE ILB como seu certificado SSL "padrão".  Esse certificado é usado para tráfego SSL para aplicativos no ASE ILB quando eles usam o domínio raiz comum que é atribuído ao ASE (por exemplo, https://someapp.mycustomrootdomain.com).
+3. O certificado SSL carregado é atribuído ao ILB ASE como o seu certificado SSL "padrão".  Este certificado é utilizado para o tráfego SSL para aplicações no ILB ASE quando utilizam o `https://someapp.mycustomrootdomain.com`domínio raiz comum que é atribuído à ASE (por exemplo, ).
 
 
-## <a name="create-the-ase"></a>Criar o ASE
-Um modelo do Resource Manager que cria um ASE e seu arquivo de parâmetros associado está disponível [em um exemplo][quickstartasev2create] no github.
+## <a name="create-the-ase"></a>Criar a ASE
+Um modelo de Gestor de Recursos que cria uma ASE e o seu ficheiro de parâmetros associados está disponível [num exemplo][quickstartasev2create] no GitHub.
 
-Se você quiser fazer um ASE ILB, use estes [exemplos][quickstartilbasecreate]de modelo do Resource Manager. Eles atendem a esse caso de uso. A maioria dos parâmetros no arquivo *azuredeploy. Parameters. JSON* é comum à criação de ILB ASEs e ases externa. A lista a seguir chama parâmetros de observação especial, ou que são exclusivos, quando você cria um ASE ILB:
+Se quiser fazer um ILB ASE, use estes [exemplos][quickstartilbasecreate]de modelo de Gestor de Recursos . Eles atendem a esse caso de uso. A maioria dos parâmetros no ficheiro *azuredeploy.parâmetros.json* são comuns à criação de AsEs ILB e ASEs Externos. A lista que se segue chama parâmetros de nota especial, ou que são únicos, quando cria um ILB ASE:
 
-* *internalLoadBalancingMode*: na maioria dos casos, defina como 3, o que significa que o tráfego http/https nas portas 80/443 e as portas de canal de dados/controle atendidas pelo serviço FTP no ase serão associados a um endereço interno de rede virtual alocada ILB. Se essa propriedade for definida como 2, somente as portas relacionadas ao serviço FTP (canais de controle e de dados) serão associadas a um endereço ILB. O tráfego HTTP/HTTPS permanece no VIP público.
-* *DnsSuffix*: esse parâmetro define o domínio raiz padrão atribuído ao ASE. Na variação pública do serviço de Azure App, o domínio raiz padrão para todos os aplicativos Web é *azurewebsites.net*. Como um ASE ILB é interno à rede virtual de um cliente, não faz sentido usar o domínio raiz padrão do serviço público. Em vez disso, um ASE ILB deve ter um domínio raiz padrão que faça sentido para uso na rede virtual interna de uma empresa. Por exemplo, a Contoso Corporation pode usar um domínio raiz padrão de *Internal-contoso.com* para aplicativos que devem ser resolvidos e acessíveis somente na rede virtual da contoso. 
-* *ipSslAddressCount*: esse parâmetro usa automaticamente como padrão o valor 0 no arquivo *azuredeploy. JSON* porque ILB ases tem apenas um único endereço ILB. Não há nenhum endereço IP SSL explícito para um ASE ILB. Portanto, o pool de endereços IP-SSL para um ASE ILB deve ser definido como zero. Caso contrário, ocorrerá um erro de provisionamento. 
+* *internalLoadBalancingMode*: Na maioria dos casos, o conjunto para 3, o que significa que tanto o tráfego HTTP/HTTPS nas portas 80/443, como as portas de controlo/canal de dados ouvidas pelo serviço FTP na ASE, serão vinculados a um endereço interno de rede virtual atribuído ao ILB. Se esta propriedade estiver definida para 2, apenas as portas relacionadas com o serviço FTP (tanto os canais de controlo como os canais de dados) estão ligados a um endereço ILB. O tráfego HTTP/HTTPS permanece no VIP público.
+* *dnsSufix*: Este parâmetro define o domínio de raiz padrão atribuído à ASE. Na variação pública do Azure App Service, o domínio de raiz padrão para todas as aplicações web é *azurewebsites.net*. Como um ILB ASE é interno para a rede virtual de um cliente, não faz sentido usar o domínio de raiz padrão do serviço público. Em vez disso, um ILB ASE deve ter um domínio de raiz padrão que faça sentido para ser usado dentro da rede virtual interna de uma empresa. Por exemplo, a Corporação Contoso pode usar um domínio raiz padrão de *internal-contoso.com* para aplicações que se destinam a ser resolúveis e acessíveis apenas dentro da rede virtual de Contoso. 
+* *ipSslAddressCount*: Este parâmetro falha automaticamente no valor de 0 no ficheiro *azuredeploy.json* porque o ILB ASEs tem apenas um único endereço ILB. Não existem endereços IP-SSL explícitos para um ILB ASE. Por conseguinte, o conjunto de endereços IP-SSL para um ILB ASE deve ser fixado a zero. Caso contrário, ocorre um erro de provisionamento. 
 
-Depois que o arquivo *azuredeploy. Parameters. JSON* for preenchido, crie o ase usando o trecho de código do PowerShell. Altere os caminhos de arquivo para que correspondam aos locais do arquivo de modelo do Resource Manager em seu computador. Lembre-se de fornecer seus próprios valores para o nome de implantação do Resource Manager e o nome do grupo de recursos:
+Depois de preenchido o ficheiro *azuredeploy.parâmetros.json,* crie a ASE utilizando o snippet de código PowerShell. Altere os caminhos de ficheiro para combinar com as localizações do ficheiro de modelo do Gestor de Recursos na sua máquina. Lembre-se de fornecer os seus próprios valores para o nome de implementação do Gestor de Recursos e o nome do grupo de recursos:
 
 ```powershell
 $templatePath="PATH\azuredeploy.json"
@@ -59,28 +59,28 @@ $parameterPath="PATH\azuredeploy.parameters.json"
 New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
-Leva cerca de uma hora para que o ASE seja criado. Em seguida, o ASE aparece no portal na lista de ASEs para a assinatura que disparou a implantação.
+A ASE demora cerca de uma hora a ser criada. Em seguida, a ASE aparece no portal na lista de ASEs para a subscrição que desencadeou a implantação.
 
 ## <a name="upload-and-configure-the-default-ssl-certificate"></a>Carregar e configurar o certificado SSL "padrão"
-Um certificado SSL deve ser associado ao ASE como o certificado SSL "padrão" que é usado para estabelecer conexões SSL com aplicativos. Se o sufixo DNS padrão do ASE for *Internal-contoso.com*, uma conexão com https://some-random-app.internal-contoso.com exigirá um certificado SSL válido para * *. Internal-contoso.com*. 
+Um certificado SSL deve ser associado à ASE como o certificado SSL "padrão" que é usado para estabelecer ligações SSL a apps. Se o sufixo DNS padrão da ASE `https://some-random-app.internal-contoso.com` for *internal-contoso.com,* uma ligação requer um certificado SSL válido para **.internal-contoso.com*. 
 
-Obtenha um certificado SSL válido usando autoridades de certificação internas, comprando um certificado de um emissor externo ou usando um certificado autoassinado. Independentemente da origem do certificado SSL, os seguintes atributos de certificado devem ser configurados corretamente:
+Obtenha um certificado SSL válido utilizando autoridades internas de certificados, adquirindo um certificado a um emitente externo ou utilizando um certificado auto-assinado. Independentemente da origem do certificado SSL, os seguintes atributos de certificado devem ser configurados corretamente:
 
-* **Assunto**: esse atributo deve ser definido como * *. your-root-Domain-here.com*.
-* **Nome alternativo da entidade**: esse atributo deve incluir * *. your-root-Domain-here.com* e * *. SCM.your-root-Domain-here.com*. As conexões SSL com o site SCM/kudu associado a cada aplicativo usam um endereço no formato *Your-app-Name.SCM.your-root-Domain-here.com*.
+* **Objeto:** Este atributo deve ser definido para **.your-root-domain-here.com*.
+* **Nome alternativo**do sujeito: Este atributo deve incluir tanto **.your-root-domain-here.com* e **.scm.your-root-domain-here.com*. As ligações SSL ao site SCM/Kudu associados a cada aplicação utilizam um endereço do formulário *your-app-name.scm.your-root-domain-here.com*.
 
-Com um certificado SSL válido em mãos, são necessárias duas etapas preparatórias adicionais. Converta/guarde o certificado SSL como um ficheiro .pfx. Lembre-se de que o arquivo. pfx deve incluir todos os certificados intermediários e raiz. Proteja-o com uma palavra-passe.
+Com um certificado SSL válido na mão, são necessários dois passos preparatórios adicionais. Converta/guarde o certificado SSL como um ficheiro .pfx. Lembre-se que o ficheiro .pfx deve incluir todos os certificados intermédios e de raiz. Proteja-o com uma palavra-passe.
 
-O arquivo. pfx precisa ser convertido em uma cadeia de caracteres Base64 porque o certificado SSL é carregado usando um modelo do Resource Manager. Como os modelos do Resource Manager são arquivos de texto, o arquivo. pfx deve ser convertido em uma cadeia de caracteres base64. Dessa forma, ele pode ser incluído como um parâmetro do modelo.
+O ficheiro .pfx precisa de ser convertido numa cadeia base64 porque o certificado SSL é carregado utilizando um modelo de Gestor de Recursos. Como os modelos do Gestor de Recursos são ficheiros de texto, o ficheiro .pfx deve ser convertido numa cadeia base64. Desta forma pode ser incluído como parâmetro do modelo.
 
-Use o seguinte trecho de código do PowerShell para:
+Utilize o seguinte corte de código PowerShell para:
 
-* Gere um certificado autoassinado.
-* Exporte o certificado como um arquivo. pfx.
-* Converta o arquivo. pfx em uma cadeia de caracteres codificada em base64.
-* Salve a cadeia de caracteres codificada em base64 em um arquivo separado. 
+* Gere um certificado auto-assinado.
+* Exporte o certificado como ficheiro .pfx.
+* Converta o ficheiro .pfx numa cadeia codificada base64.
+* Guarde a cadeia codificada base 64 para um ficheiro separado. 
 
-Este código do PowerShell para codificação Base64 foi adaptado do [blog scripts do PowerShell][examplebase64encoding]:
+Este código PowerShell para codificação base64 foi adaptado do blog de [scripts PowerShell:][examplebase64encoding]
 
 ```powershell
 $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
@@ -96,18 +96,18 @@ $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
 $fileContentEncoded | set-content ($fileName + ".b64")
 ```
 
-Depois que o certificado SSL for gerado e convertido com êxito em uma cadeia de caracteres codificada em base64, use o modelo do Resource Manager de exemplo [Configurar o certificado SSL padrão][quickstartconfiguressl] no github. 
+Depois de o certificado SSL ser gerado com sucesso e convertido numa cadeia codificada base64, utilize o modelo de gestor de recursos de exemplo [Configure o certificado SSL predefinido][quickstartconfiguressl] no GitHub. 
 
-Os parâmetros no arquivo *azuredeploy. Parameters. JSON* são listados aqui:
+Os parâmetros no ficheiro *azuredeploy.parâmetros.json* estão listados aqui:
 
-* *appServiceEnvironmentName*: o nome do ase ILB que está sendo configurado.
-* *existingAseLocation*: cadeia de texto que contém a região do Azure onde o ase ILB foi implantado.  Por exemplo: "Sul EUA Central".
-* *pfxBlobString*: a representação de cadeia de caracteres codificada em caracteres com do arquivo. pfx. Use o trecho de código mostrado anteriormente e copie a cadeia de caracteres contida em "ExportedCert. pfx. B64". Cole-o como o valor do atributo *pfxBlobString* .
-* *senha*: a senha usada para proteger o arquivo. pfx.
-* *certificateThumbprint*: a impressão digital do certificado. Se você recuperar esse valor do PowerShell (por exemplo, *$Certificate. Impressão digital* do trecho de código anterior), você pode usar o valor como está. Se você copiar o valor da caixa de diálogo certificado do Windows, lembre-se de remover os espaços estranhos. A *certificateThumbprint* deve ser semelhante a AF3143EB61D43F6727842115BB7F17BBCECAECAE.
-* *CertificateName*: um identificador de cadeia de caracteres amigável de sua escolha usada para identificar o certificado. O nome é usado como parte do identificador exclusivo do Gerenciador de recursos para a entidade *Microsoft. Web/Certificates* que representa o certificado SSL. O nome *deve* terminar com o seguinte sufixo: \_yourASENameHere_InternalLoadBalancingASE. O portal do Azure usa esse sufixo como um indicador de que o certificado é usado para proteger um ASE habilitado para ILB.
+* *appServiceEnvironmentName*: O nome da ASE ILB está a ser configurado.
+* *aseLocalização existente*: Cadeia de texto contendo a região de Azure onde foi implantado o ILB ASE.  Por exemplo: "Centro-Sul dos EUA".
+* *pfxBlobString*: A representação de cordas codificada por 64 4 do ficheiro .pfx. Utilize o código de corte mostrado anteriormente e copie a cadeia contida em "exportedcert.pfx.b64". Cola-o como o valor do atributo *pfxBlobString.*
+* *palavra-passe*: A palavra-passe utilizada para proteger o ficheiro .pfx.
+* *certificadoImpressão polegar*: A impressão digital do certificado. Se recuperar este valor da PowerShell (por exemplo, *$certificate. Impressão digital* digital do código anterior, pode usar o valor como está. Se copiar o valor da caixa de diálogo do certificado Windows, lembre-se de despir os espaços estranhos. O *certificadoImpressão Depolegar* deve parecer algo como AF3143EB61D43F6727842115BB7F17BBCECAECAE.
+* *nome de certificado*: Um identificador de cordas amigável à sua escolha usado para identificar o certificado. O nome é usado como parte do identificador exclusivo do Gestor de Recursos para a entidade *Microsoft.Web/certificados* que representa o certificado SSL. O nome *deve* terminar com o \_seguinte sufixo: yourASENameHere_InternalLoadBalancingASE. O portal Azure utiliza este sufixo como um indicador de que o certificado é utilizado para garantir uma ASE ativada pelo ILB.
 
-Um exemplo abreviado de *azuredeploy. Parameters. JSON* é mostrado aqui:
+Um exemplo abreviado de *azuredeploy.parameters.json* é mostrado aqui:
 
 ```json
 {
@@ -136,7 +136,7 @@ Um exemplo abreviado de *azuredeploy. Parameters. JSON* é mostrado aqui:
 }
 ```
 
-Depois que o arquivo *azuredeploy. Parameters. JSON* for preenchido, configure o certificado SSL padrão usando o trecho de código do PowerShell. Altere os caminhos de arquivo para corresponder onde os arquivos de modelo do Resource Manager estão localizados em seu computador. Lembre-se de fornecer seus próprios valores para o nome de implantação do Resource Manager e o nome do grupo de recursos:
+Depois de preenchido o ficheiro *azuredeploy.parâmetros.json,* configure o certificado SSL predefinido utilizando o snippet de código PowerShell. Altere os caminhos de ficheiro para combinar onde os ficheiros do modelo Do Gestor de Recursos estão localizados na sua máquina. Lembre-se de fornecer os seus próprios valores para o nome de implementação do Gestor de Recursos e o nome do grupo de recursos:
 
 ```powershell
 $templatePath="PATH\azuredeploy.json"
@@ -145,20 +145,20 @@ $parameterPath="PATH\azuredeploy.parameters.json"
 New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
-Leva aproximadamente 40 minutos por front-end do ASE para aplicar a alteração. Por exemplo, para um ASE de tamanho padrão que usa dois front-ends, o modelo leva cerca de uma hora e 20 minutos para ser concluído. Enquanto o modelo está em execução, o ASE não pode ser dimensionado.  
+Demora cerca de 40 minutos por extremidade frontal da ASE para aplicar a alteração. Por exemplo, para uma ASE de tamanho padrão que utiliza duas extremidades dianteiras, o modelo demora cerca de uma hora e 20 minutos a ser concluído. Enquanto o modelo está em execução, a ASE não pode escalar.  
 
-Após a conclusão do modelo, os aplicativos no ASE ILB podem ser acessados por HTTPS. As conexões são protegidas usando o certificado SSL padrão. O certificado SSL padrão é usado quando os aplicativos no ASE ILB são resolvidos usando uma combinação do nome do aplicativo mais o nome de host padrão. Por exemplo, https://mycustomapp.internal-contoso.com usa o certificado SSL padrão para * *. Internal-contoso.com*.
+Após o acabamento do modelo, as aplicações no ILB ASE podem ser acedidas em HTTPS. As ligações são protegidas utilizando o certificado SSL predefinido. O certificado SSL predefinido é utilizado quando as aplicações no ILB ASE são abordadas utilizando uma combinação do nome da aplicação mais o nome de anfitrião predefinido. Por exemplo, `https://mycustomapp.internal-contoso.com` utiliza o certificado SSL predefinido para **.internal-contoso.com*.
 
-No entanto, assim como os aplicativos executados no serviço público multilocatário, os desenvolvedores podem configurar nomes de host personalizados para aplicativos individuais. Eles também podem configurar associações de certificado SSL SNI exclusivas para aplicativos individuais.
+No entanto, tal como as aplicações que funcionam no serviço público multiarrendatário, os desenvolvedores podem configurar nomes de anfitriões personalizados para aplicações individuais. Também podem configurar ligações únicas de certificadoS SNI SSL para aplicações individuais.
 
 ## <a name="app-service-environment-v1"></a>Ambiente do Serviço de Aplicações v1 ##
 O Ambiente de Serviço de Aplicações tem duas versões: ASEv1 e ASEv2. As informações anteriores tiveram como base a versão ASEv2. Esta secção mostra as diferenças entre as versões ASEv1 e ASEv2.
 
-No ASEv1, você gerencia todos os recursos manualmente. Tal inclui os front-ends, os trabalhos e os endereços IP utilizados para SSL baseado em IP. Antes de poder escalar horizontalmente o plano do serviço de aplicativo, você deve escalar horizontalmente o pool de trabalho que deseja hospedá-lo.
+Na ASEv1, gere-se todos os recursos manualmente. Tal inclui os front-ends, os trabalhos e os endereços IP utilizados para SSL baseado em IP. Antes de poder esdimensionar o seu plano de Serviço de Aplicações, tem de escalar a piscina de trabalhadores que pretende acolher.
 
-O ASEv1 utiliza um modelo de preços diferente do ASEv2. No ASEv1, paga por cada vCPU alocada. Isso inclui vCPUs que são usados para front-ends ou trabalhadores que não hospedam nenhuma carga de trabalho. No ASEv1, o tamanho de dimensionamento máximo predefinido de um ASE é 55 anfitriões no total. Tal inclui os trabalhos e os front-ends. Uma vantagem do ASEv1 é que pode ser implementado numa rede virtual clássica e numa rede virtual do Resource Manager. Para saber mais sobre o ASEv1, consulte [introdução ao ambiente do serviço de aplicativo v1][ASEv1Intro].
+O ASEv1 utiliza um modelo de preços diferente do ASEv2. No ASEv1, paga por cada vCPU alocada. Isso inclui vCPUs que são usados para frente saem ou trabalhadores que não estão hospedando nenhuma carga de trabalho. No ASEv1, o tamanho de dimensionamento máximo predefinido de um ASE é 55 anfitriões no total. Tal inclui os trabalhos e os front-ends. Uma vantagem do ASEv1 é que pode ser implementado numa rede virtual clássica e numa rede virtual do Resource Manager. Para saber mais sobre o ASEv1, veja o artigo [Introdução ao Ambiente de Serviço de Aplicações v1][ASEv1Intro].
 
-Para criar um ASEv1 usando um modelo do Resource Manager, confira [criar um ase do ILB v1 com um modelo do Resource Manager][ILBASEv1Template].
+Para criar um ASEv1 utilizando um modelo de Gestor de Recursos, consulte [Criar um ILB ASE v1 com um modelo][ILBASEv1Template]de Gestor de Recursos .
 
 
 <!--Links-->

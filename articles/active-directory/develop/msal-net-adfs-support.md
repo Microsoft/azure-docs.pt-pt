@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 15af18177cea217612a4d5276d130abe02d339f4
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77160765"
 ---
 # <a name="active-directory-federation-services-support-in-msalnet"></a>Apoio dos Serviços da Federação de Diretório Ativo em MSAL.NET
@@ -35,7 +35,7 @@ MSAL.NET suporta a ligação ao Azure AD, que assina em utilizadores geridos (ut
 A [autoridade](msal-client-application-configuration.md#authority) que usa neste caso é a autoridade habitual (nome anfitrião da autoridade + inquilino, comum ou organizações).
 
 ### <a name="acquiring-a-token-interactively"></a>Adquirir um símbolo interativamente
-Quando se chama o método `AcquireTokenInteractive`, a experiência do utilizador é tipicamente:
+Quando se `AcquireTokenInteractive` chama o método, a experiência do utilizador é tipicamente:
 
 1. O utilizador introduz o ID da conta.
 2. A Azure AD exibe brevemente a mensagem "Levando-o para a página da sua organização".
@@ -44,10 +44,10 @@ Quando se chama o método `AcquireTokenInteractive`, a experiência do utilizado
 As versões AD FS suportadas neste cenário federado são AD FS v2, AD FS v3 (Windows Server 2012 R2) e AD FS v4 (AD FS 2016).
 
 ### <a name="acquiring-a-token-using-acquiretokenbyintegratedauthentication-or-acquiretokenbyusernamepassword"></a>Adquirir um símbolo utilizando a AcquireTokenByIntegratedAuthentication ou AcquireTokenByUsernamePassword
-Ao adquirir um símbolo utilizando os métodos `AcquireTokenByIntegratedAuthentication` ou `AcquireTokenByUsernamePassword`, MSAL.NET leva o fornecedor de identidade a contactar com base no nome de utilizador.  MSAL.NET recebe um [token SAML 1.1](reference-saml-tokens.md) após contactar o fornecedor de identidade.  MSAL.NET fornece então o token SAML ao Azure AD como uma afirmação do utilizador (semelhante ao [fluxo em nome](msal-authentication-flows.md#on-behalf-of)) para recuperar um JWT.
+Ao adquirir um símbolo `AcquireTokenByIntegratedAuthentication` utilizando `AcquireTokenByUsernamePassword` os ou métodos, MSAL.NET o fornecedor de identidade contacte com base no nome de utilizador.  MSAL.NET recebe um [token SAML 1.1](reference-saml-tokens.md) após contactar o fornecedor de identidade.  MSAL.NET fornece então o token SAML ao Azure AD como uma afirmação do utilizador (semelhante ao [fluxo em nome](msal-authentication-flows.md#on-behalf-of)) para recuperar um JWT.
 
 ## <a name="msal-connects-directly-to-ad-fs"></a>MSAL liga-se diretamente ao AD FS
-MSAL.NET suporta a ligação ao AD FS 2019, que é compatível com o Open ID Connect e compreende o PKCE e os âmbitos. Este suporte requer que um pacote de [serviçoS KB 4490481](https://support.microsoft.com/en-us/help/4490481/windows-10-update-kb4490481) seja aplicado ao Windows Server. Ao ligar-se diretamente ao AD FS, a autoridade que pretende utilizar para construir a sua aplicação é semelhante à `https://mysite.contoso.com/adfs/`.
+MSAL.NET suporta a ligação ao AD FS 2019, que é compatível com o Open ID Connect e compreende o PKCE e os âmbitos. Este suporte requer que um pacote de [serviçoS KB 4490481](https://support.microsoft.com/en-us/help/4490481/windows-10-update-kb4490481) seja aplicado ao Windows Server. Ao ligar-se diretamente ao AD FS, a autoridade que pretende utilizar `https://mysite.contoso.com/adfs/`para construir a sua aplicação é semelhante a .
 
 Atualmente, não existem planos para apoiar uma ligação direta a:
 

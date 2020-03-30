@@ -1,26 +1,26 @@
 ---
-title: Cobertura de encaminhamento  Microsoft Azure Maps
+title: Cobertura de encaminhamento [ Microsoft Azure Maps
 description: Neste artigo, você vai aprender sobre regiões com cobertura de encaminhamento para o Microsoft Azure Maps.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: b8b3dbf515aa3bcc9075a748b9d717cfa36b6ab0
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
-ms.translationtype: HT
+ms.openlocfilehash: b59816abf0cd03450c9fc4ebb8417c62df7e3288
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77648926"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79529396"
 ---
 # <a name="azure-maps-routing-coverage"></a>Cobertura de encaminhamento do Azure Maps
 
 Este artigo fornece informações de cobertura para o encaminhamento do Azure Maps. Após uma consulta de pesquisa, o Azure Maps retorna uma rota ideal desde o local A até ao local B. Você está equipado com tempos de viagem precisos, atualizações ao vivo de informações de viagem e instruções de rota. Também pode adicionar parâmetros de pesquisa adicionais, tais como tráfego atual, tipo de veículo e condições para evitar. A otimização do percurso depende da região. Isto porque, o Azure Maps tem vários níveis de informação e precisão para diferentes regiões. A tabela que se segue lista as regiões e que tipo de informação pode solicitar para elas.
  
-Confira a cobertura da [**Geocoding.** ](geocoding-coverage.md)       
-Confira a cobertura do [**Tráfego.** ](traffic-coverage.md)  
+Confira a cobertura da [**Geocoding.**](geocoding-coverage.md)       
+Confira a cobertura do [**Tráfego.**](traffic-coverage.md)  
 Confira a cobertura do [**Render**](render-coverage.md).
 <br>  
 **Lenda**
@@ -51,7 +51,7 @@ A tabela seguinte fornece informações de cobertura para o encaminhamento do Az
 | Cabo Verde                     |        ✓       |                       |             |
 | Congo- Brazzaville Kinshasa    |        ✓       |                       |             |
 | Congo- Kinshasa                |        ✓       |                       |             |
-| Costa do Marfim (Côte d’Ivoire)                  |        ✓       |                       |             |
+| côte d'ivoire                  |        ✓       |                       |             |
 | Egito                          |        ✓       |         ✓            |             |
 | Gabão                          |        ✓       |                       |             |
 | Gâmbia                         |        ✓       |                       |             |
@@ -69,7 +69,7 @@ A tabela seguinte fornece informações de cobertura para o encaminhamento do Az
 | Nigéria                        |        ✓       |         ✓            |             |
 | Ruanda                         |        ✓       |                       |             |
 | Senegal                        |        ✓       |                       |             |
-| Seychelles                     |        ✓       |                       |             |
+| Seicheles                     |        ✓       |                       |             |
 | África do Sul                   |        ✓       ||         ✓            |             |
 | Suazilândia                      |        ✓       |                       |             |
 | Tanzânia                       |        ✓       |                       |             |
@@ -113,9 +113,9 @@ A tabela seguinte fornece informações de cobertura para o encaminhamento do Az
 | Peru                           |        ✓       |         ✓            |             |
 | São Cristóvão e Nevis            |        ✓       |                      |             |
 | Santa Lúcia                      |        ✓       |                      |             |
-| São Vicente e Granadinas       |        ✓       |                      |             |
+| São Vicente & Granadinas       |        ✓       |                      |             |
 | Suriname                       |        ✓       |                      |             |
-| Trinidad e Tobago              |        ✓       |                      |             |
+| Trinidad & Tobago              |        ✓       |                      |             |
 | Estados Unidos                  |        ✓       |         ✓            |     ✓      | 
 | +Samoa Americana                |        ✓       |                      |             |
 | +Ilhas Marianas do Norte      |        ✓       |                      |             |
@@ -131,10 +131,10 @@ A tabela seguinte fornece informações de cobertura para o encaminhamento do Az
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Austrália                      |        ✓       |         ✓            |     ✓       |
 | +Ilha de Natal              |        ✓       |                      |             |
-| Rio Brunei                         |        ✓       |         ✓            |             |
+| Brunei                         |        ✓       |         ✓            |             |
 | Camboja                       |        ✓       |                      |             |
 | Fiji                           |        ✓       |                      |             |
-| Rio Guam                           |        ✓       |                      |             |
+| Guame                           |        ✓       |                      |             |
 | RAE de Hong Kong                  |        ✓       |         ✓            |             |
 | Índia                          |        ✓       |         ✓            |             |
 | Indonésia                      |        ✓       |         ✓            |             |
@@ -162,7 +162,7 @@ A tabela seguinte fornece informações de cobertura para o encaminhamento do Az
 | Bielorrússia                        |        ✓       |                      |             |
 | Bélgica                        |        ✓       |         ✓            |     ✓      | 
 | Bolívia                        |        ✓       |                      |             |
-| Bosnia e Herzegovina             |        ✓       |                      |             |
+| Bósnia-Herzegovina             |        ✓       |                      |             |
 | Bulgária                       |        ✓       |         ✓            |     ✓      | 
 | Croácia                        |        ✓       |         ✓            |     ✓      |
 | Chipre                         |        ✓       |                      |             |
@@ -176,11 +176,11 @@ A tabela seguinte fornece informações de cobertura para o encaminhamento do Az
 | +Martinica                    |        ✓       |                      |             |
 | +St. Barthélemy                |        ✓       |                      |             |
 | +St. Martin                    |        ✓       |                      |             |
-| +St. Pierre e Miquelon         |        ✓       |                      |             |
+| +St. Pierre & Miquelon         |        ✓       |                      |             |
 | Geórgia                        |        ✓       |                      |             |
 | Alemanha                        |        ✓       |         ✓            |     ✓      | 
 | Grécia                         |        ✓       |         ✓            |     ✓      |  
-| Guernsey                       |        ✓       |                      |             |
+| Guernesey                       |        ✓       |                      |             |
 | Hungria                        |        ✓       |         ✓            |     ✓      | 
 | Islândia                        |        ✓       |         ✓            |             |
 | Irlanda                        |        ✓       |         ✓            |     ✓      | 
@@ -197,7 +197,7 @@ A tabela seguinte fornece informações de cobertura para o encaminhamento do Az
 | Montenegro                     |        ✓       |                      |     ✓      | 
 | Países Baixos                    |        ✓       |         ✓            |     ✓      | 
 | +Aruba                         |        ✓       |                      |             | 
-| +Holanda         |        ✓       |                      |             |
+| +Caraíbas Holanda         |        ✓       |                      |             |
 | +Curaçao                       |        ✓       |                      |             |
 | +Sint Maarten                  |        ✓       |                      |             |
 | Noruega                         |        ✓       |         ✓            |     ✓      | 

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 01/09/2020
-ms.openlocfilehash: b37b386273947f8c39fe182e4f29b7b080addf7b
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: d945540a769f01c33ca3d3e467fe7c983fb5e286
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605620"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80287361"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança empresarial para Aprendizagem automática Azure
 
@@ -51,7 +51,7 @@ Para exemplos de código, consulte a [secção de autenticação do serviço web
 
 ## <a name="authorization"></a>Autorização
 
-Pode criar várias áreas de trabalho, e cada área de trabalho pode ser partilhada por várias pessoas. Ao partilhar um espaço de trabalho, pode controlar o acesso ao mesmo atribuindo estas funções aos utilizadores:
+Você pode criar vários espaços de trabalho, e cada espaço de trabalho pode ser partilhado por várias pessoas. Ao partilhar um espaço de trabalho, pode controlar o acesso ao mesmo atribuindo estas funções aos utilizadores:
 
 * Proprietário
 * Contribuinte
@@ -67,7 +67,7 @@ A tabela seguinte lista algumas das principais operações de Aprendizagem autom
 | Criar o alvo da computação | ✓ | ✓ | |
 | Anexar o alvo do cálculo | ✓ | ✓ | |
 | Anexar lojas de dados | ✓ | ✓ | |
-| Execute experimentação | ✓ | ✓ | |
+| Executar experiência | ✓ | ✓ | |
 | Ver corridas/métricas | ✓ | ✓ | ✓ |
 | Registar o modelo | ✓ | ✓ | |
 | Criar imagem | ✓ | ✓ | |
@@ -99,7 +99,7 @@ Para obter mais informações sobre identidades geridas, consulte [identidades g
 
 Não recomendamos que os administradores revoguem o acesso da identidade gerida aos recursos mencionados na tabela anterior. Pode restabelecer o acesso utilizando a operação de resincronização das teclas.
 
-O Azure Machine Learning cria uma aplicação adicional (o nome começa com `aml-` ou `Microsoft-AzureML-Support-App-`) com acesso ao nível dos contribuintes na sua subscrição para cada região do espaço de trabalho. Por exemplo, se tiver um espaço de trabalho no Leste dos EUA e um no Norte da Europa na mesma subscrição, verá duas destas aplicações. Estas aplicações permitem ao Azure Machine Learning ajudá-lo a gerir os recursos da computação.
+O Azure Machine Learning cria uma `aml-` aplicação adicional (o nome começa com ou) `Microsoft-AzureML-Support-App-`com acesso ao nível dos contribuintes na sua subscrição para cada região do espaço de trabalho. Por exemplo, se tiver um espaço de trabalho no Leste dos EUA e um no Norte da Europa na mesma subscrição, verá duas destas aplicações. Estas aplicações permitem ao Azure Machine Learning ajudá-lo a gerir os recursos da computação.
 
 ## <a name="network-security"></a>Segurança da rede
 
@@ -132,12 +132,9 @@ O Azure Machine Learning armazena métricas e metadados numa instância de Azure
 
 Para utilizar as suas próprias chaves (geridas pelo cliente) para encriptar a instância Azure Cosmos DB, pode criar uma instância db cosmos dedicada para uso com o seu espaço de trabalho. Recomendamos esta abordagem se quiser armazenar os seus dados, tais como informações de histórico de execução, fora da instância cosmos DB multi-inquilino alojada na nossa subscrição da Microsoft. 
 
-> [!NOTE]
-> Esta funcionalidade está atualmente disponível apenas em US East, US West 2, US South Central.
-
 Para permitir o fornecimento de uma instância Cosmos DB na sua subscrição com chaves geridas pelo cliente, execute as seguintes ações:
 
-* Ative as principais capacidades geridas pelo cliente para a Cosmos DB. Neste momento, deve solicitar o acesso à utilização desta capacidade. Para isso, contacte [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com).
+* Ative as principais capacidades geridas pelo cliente para a Cosmos DB. Neste momento, deve solicitar o acesso à utilização desta capacidade. Para isso, por [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com)favor contacte.
 
 * Registe os fornecedores de recursos Azure Machine Learning e Azure Cosmos DB na sua subscrição, se não for feito já.
 
@@ -190,17 +187,17 @@ Este processo permite-lhe encriptar tanto os Dados como o Disco OS das máquinas
 
 O disco OS para cada nó computacional armazenado no Armazenamento Azure é encriptado com chaves geridas pela Microsoft nas contas de armazenamento de Machine Learning Azure. Este alvo computacional é efémero, e os clusters são tipicamente reduzidos quando não há corridas em fila. A máquina virtual subjacente é desprovisionada e o disco de SO é eliminado. A encriptação do disco azure não é suportada para o disco OS.
 
-Cada máquina virtual também tem um disco temporário local para operações de SO. Se quiser, pode usar o disco para encenar dados de treino. O disco é encriptado por padrão para espaços de trabalho com o parâmetro `hbi_workspace` definido para `TRUE`. Este ambiente é de curta duração apenas durante a duração da sua execução, e o suporte de encriptação está limitado apenas a chaves geridas pelo sistema.
+Cada máquina virtual também tem um disco temporário local para operações de SO. Se quiser, pode usar o disco para encenar dados de treino. O disco é encriptado por padrão `hbi_workspace` para espaços `TRUE`de trabalho com o parâmetro definido para . Este ambiente é de curta duração apenas durante a duração da sua execução, e o suporte de encriptação está limitado apenas a chaves geridas pelo sistema.
 
 #### <a name="azure-databricks"></a>Azure Databricks
 
 Os tijolos de dados azure podem ser usados em oleodutos Azure Machine Learning. Por padrão, o Sistema de Ficheiros Databricks (DBFS) utilizado pelo Azure Databricks é encriptado utilizando uma chave gerida pela Microsoft. Para configurar os Bricks Azure para utilizar as chaves geridas pelo cliente, consulte [as chaves geridas pelo cliente no DBFS predefinido (raiz)](/azure/databricks/security/customer-managed-keys-dbfs).
 
-### <a name="encryption-in-transit"></a>Encriptação em trânsito
+### <a name="encryption-in-transit"></a>Encriptação de dados em circulação
 
-Pode utilizar o SSL para garantir a comunicação interna entre os microserviços de Aprendizagem automática do Azure e para garantir chamadas externas ao ponto final de pontuação. Todo o acesso ao Armazenamento Azure também ocorre sobre um canal seguro.
+Pode utilizar o TLS para garantir a comunicação interna entre os microserviços de Aprendizagem automática do Azure e para garantir chamadas externas ao ponto final de pontuação. Todo o acesso ao Armazenamento Azure também ocorre sobre um canal seguro.
 
-Para mais informações, consulte [Use O SSL para garantir um serviço web através](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service)do Azure Machine Learning .
+Para mais informações, consulte [Use TLS para garantir um serviço web através](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service)do Azure Machine Learning .
 
 ### <a name="using-azure-key-vault"></a>Usando o cofre da chave azure
 
@@ -222,7 +219,7 @@ A Microsoft pode recolher informações de identificação não-utilizadora como
 
 A Microsoft também recomenda não armazenar informações sensíveis (como segredos chave de conta) em variáveis ambientais. As variáveis ambientais são registadas, encriptadas e armazenadas por nós. Da mesma forma ao nomear [runid](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py), evite incluir informações sensíveis, tais como nomes de utilizadores ou nomes secretos do projeto. Estas informações podem aparecer em registos de telemetria acessíveis aos engenheiros do Microsoft Support.
 
-Pode optar por não fazer os dados de diagnóstico recolhidos, definindo o parâmetro `hbi_workspace` para `TRUE` enquanto aprovisiona o espaço de trabalho. Esta funcionalidade é suportada ao utilizar os modelos AzureML Python SDK, CLI, REST APIs ou Azure Resource Manager.
+Pode optar por não fazer os `hbi_workspace` dados de `TRUE` diagnóstico recolhidos, definindo o parâmetro para o fornecimento do espaço de trabalho. Esta funcionalidade é suportada ao utilizar os modelos AzureML Python SDK, CLI, REST APIs ou Azure Resource Manager.
 
 ### <a name="microsoft-generated-data"></a>Dados gerados pela Microsoft
 
@@ -256,7 +253,7 @@ Os detalhes do pedido de pontuação são armazenados em Insights de Aplicação
 * UserAgent
 * ComputeType
 * RequestUrl
-* StatusCode
+* Código de Estado
 * Requestid
 * Duração
 
@@ -292,7 +289,7 @@ O diagrama seguinte mostra o fluxo de trabalho de instantâneo de código.
 
 Associados a um espaço de trabalho azure machine learning são diretórios (experiências) que contêm o código fonte (scripts de treino). Estes scripts são armazenados na sua máquina local e na nuvem (no armazenamento Azure Blob para a sua subscrição). Os instantâneos de código são utilizados para execução ou inspeção para auditoria histórica.
 
-[fluxo de trabalho instantâneo do código ![](media/concept-enterprise-security/code-snapshot.png)](media/concept-enterprise-security/code-snapshot-expanded.png#lightbox)
+[![Fluxo de trabalho instantâneo de código](media/concept-enterprise-security/code-snapshot.png)](media/concept-enterprise-security/code-snapshot-expanded.png#lightbox)
 
 ### <a name="training"></a>Formação
 
@@ -334,16 +331,16 @@ Aqui estão os detalhes:
 * Os detalhes do pedido de pontuação são armazenados em Insights de Aplicação, que está na subscrição do utilizador.
 * A telemetria também é empurrada para a subscrição Microsoft/Azure.
 
-[fluxo de trabalho de Inferência ![](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing-expanded.png#lightbox)
+[![Fluxo de trabalho de inferência](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing-expanded.png#lightbox)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Serviços web Secure Azure Machine Learning com SSL](how-to-secure-web-service.md)
+* [Serviços web Secure Azure Machine Learning com TLS](how-to-secure-web-service.md)
 * [Consumir um modelo de Machine Learning implementado como um serviço web](how-to-consume-web-service.md)
 * [Como executar as previsões do lote](how-to-use-parallel-run-step.md)
 * [Monitorize os seus modelos de Aprendizagem automática Azure com Insights de Aplicação](how-to-enable-app-insights.md)
 * [Recolher dados para modelos em produção](how-to-enable-data-collection.md)
-* [SDK de aprendizagem automática azure](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 * [Utilize machine learning azure com rede virtual Azure](how-to-enable-virtual-network.md)
 * [Boas práticas para a construção de sistemas de recomendação](https://github.com/Microsoft/Recommenders)
 * [Construa uma recomendação em tempo real API no Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

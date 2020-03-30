@@ -1,112 +1,112 @@
 ---
 title: Aprovar acesso just-in-time
-description: Descreve como os consumidores de aplicativos gerenciados do Azure aprovam solicitações de acesso just-in-time a um aplicativo gerenciado.
+description: Descreve como os consumidores de Aplicações Geridas azure aprovam pedidos de acesso just-in-time a uma aplicação gerida.
 author: MSEvanhi
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi
 ms.openlocfilehash: 4a3604a3256fb2d3f4253891bbc28c7685748cd2
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75651023"
 ---
-# <a name="configure-and-approve-just-in-time-access-for-azure-managed-applications"></a>Configurar e aprovar o acesso just-in-time para aplicativos gerenciados do Azure
+# <a name="configure-and-approve-just-in-time-access-for-azure-managed-applications"></a>Configure e aprove o acesso just-in-time para aplicações geridas pelo Azure
 
-Como um consumidor de um aplicativo gerenciado, talvez você não esteja familiarizado com o acesso permanente do Publicador ao grupo de recursos gerenciado. Para oferecer maior controle sobre a concessão de acesso a recursos gerenciados, os aplicativos gerenciados do Azure fornecem um recurso chamado acesso JIT (just-in-time), que está atualmente em versão prévia. Ele permite que você aprove quando e por quanto tempo o Publicador tem acesso ao grupo de recursos. O Publicador pode fazer as atualizações necessárias durante esse tempo, mas quando esse tempo terminar, o acesso do editor expirará.
+Como consumidor de uma aplicação gerida, pode não se sentir confortável em dar ao editor acesso permanente ao grupo de recursos geridos. Para lhe conferir um maior controlo sobre a concessão de acesso a recursos geridos, a Azure Managed Applications fornece uma funcionalidade chamada acesso just-in-time (JIT), que está atualmente em pré-visualização. Permite-lhe aprovar quando e por quanto tempo a editora tem acesso ao grupo de recursos. A editora pode fazer atualizações necessárias durante esse período, mas quando esse tempo terminar, o acesso da editora expira.
 
-O fluxo de trabalho para conceder acesso é:
+O fluxo de trabalho para a concessão de acesso é:
 
-1. O Publicador adiciona um aplicativo gerenciado ao Marketplace e especifica que o acesso JIT está disponível.
+1. A editora adiciona uma aplicação gerida ao mercado e especifica que o acesso ao JIT está disponível.
 
-1. Durante a implantação, você habilita o acesso JIT para sua instância do aplicativo gerenciado.
+1. Durante a implementação, permite o acesso ao JIT para a sua aplicação gerida.
 
-1. Após a implantação, você pode alterar as configurações de acesso JIT.
+1. Após a implementação, pode alterar as definições para acesso jIT.
 
-1. O Publicador envia uma solicitação de acesso.
+1. A editora envia um pedido de acesso.
 
-1. Você aprova a solicitação.
+1. Aprova o pedido.
 
-Este artigo se concentra nas ações que os consumidores adotam para habilitar o acesso JIT e aprovar solicitações. Para saber mais sobre como publicar um aplicativo gerenciado com acesso JIT, consulte [solicitar acesso just-in-time em aplicativos gerenciados do Azure](request-just-in-time-access.md).
+Este artigo centra-se nas ações que os consumidores tomam para permitir o acesso ao JIT e aprovar pedidos. Para saber publicar uma aplicação gerida com acesso jIT, consulte [Solicit just-in-time access in-time in Azure Managed Applications](request-just-in-time-access.md).
 
 > [!NOTE]
-> Para usar o acesso just-in-time, você deve ter uma [licença Azure Active Directory P2](../../active-directory/privileged-identity-management/subscription-requirements.md).
+> Para utilizar o acesso just-in-time, deve ter uma [licença Azure Ative Directory P2](../../active-directory/privileged-identity-management/subscription-requirements.md).
 
-## <a name="enable-during-deployment"></a>Habilitar durante a implantação
+## <a name="enable-during-deployment"></a>Ativar durante a implantação
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-1. Encontre uma entrada do Marketplace para um aplicativo gerenciado com o JIT habilitado. Selecione **Criar**.
+1. Encontre uma entrada no mercado para uma aplicação gerida com JIT habilitado. Selecione **Criar**.
 
-1. Ao fornecer valores para o novo aplicativo gerenciado, a etapa de **configuração JIT** permite habilitar ou desabilitar o acesso JIT para o aplicativo gerenciado. Selecione **Sim** para **habilitar o acesso JIT**. Essa opção é selecionada por padrão para aplicativos gerenciados que definidos com o JIT habilitado no Marketplace.
+1. Ao mesmo tempo que fornece valores para a nova aplicação gerida, o passo **de Configuração JIT** permite-lhe ativar ou desativar o acesso do JIT à aplicação gerida. Selecione **Sim** para **ativar o acesso ao JIT**. Esta opção é selecionada por padrão para aplicações geridas que definidas com JIT ativadas no mercado.
 
-   ![Configurar o acesso](./media/approve-just-in-time-access/configure-jit-access.png)
+   ![Configure o acesso](./media/approve-just-in-time-access/configure-jit-access.png)
 
-   Você só pode habilitar o acesso JIT durante a implantação. Se você selecionar **não**, o Publicador obterá acesso permanente ao grupo de recursos gerenciado. Você não pode habilitar o acesso JIT posteriormente.
+   Só é possível ativar o acesso ao JIT durante a implantação. Se selecionar **Não,** a editora obtém acesso permanente ao grupo de recursos geridos. Não pode permitir o acesso ao JIT mais tarde.
 
-1. Para alterar as configurações de aprovação padrão, selecione **Personalizar configuração de JIT**.
+1. Para alterar as definições de aprovação predefinidas, selecione Personalizar a **configuração jIT**.
 
    ![Personalizar o acesso](./media/approve-just-in-time-access/customize-jit-access.png)
 
-   Por padrão, um aplicativo gerenciado com o JIT habilitado tem as seguintes configurações:
+   Por predefinição, uma aplicação gerida com JIT ativada tem as seguintes definições:
 
    * Modo de aprovação – automático
-   * Duração máxima de acesso – 8 horas
-   * Aprovadores – nenhum
+   * Duração máxima de acesso - 8 horas
+   * Aprovadores - nenhum
 
-   Quando o modo de aprovação é definido como **automático**, os aprovadores recebem uma notificação para cada solicitação, mas a solicitação é aprovada automaticamente. Quando definido como **manual**, os aprovadores recebem uma notificação para cada solicitação e um deles deve aprová-lo.
+   Quando o modo de aprovação é definido **para automático,** os aprovadores recebem uma notificação para cada pedido, mas o pedido é automaticamente aprovado. Quando definidos **manualmente,** os aprovadores recebem uma notificação para cada pedido, e um deles deve aprová-lo.
 
-   A duração máxima da ativação especifica a quantidade máxima de tempo que um Publicador pode solicitar para acessar o grupo de recursos gerenciado.
+   A duração máxima de ativação especifica o tempo máximo que um editor pode solicitar para aceder ao grupo de recursos geridos.
 
-   A lista de aprovadores é a Azure Active Directory usuários que podem aprovar solicitações de acesso JIT. Para adicionar um aprovador, selecione **Adicionar aprovador** e pesquise o usuário.
+   A lista de aprovadores é o Diretório Ativo Azure que pode aprovar pedidos de acesso jit. Para adicionar um aprovador, selecione **Adicionar O Aforr** e procurar o utilizador.
 
-   Depois de atualizar a configuração, selecione **salvar**.
+   Depois de atualizar a definição, selecione **Guardar**.
 
-## <a name="update-after-deployment"></a>Atualizar após a implantação
+## <a name="update-after-deployment"></a>Atualizar após a implementação
 
-Você pode alterar os valores de como as solicitações são aprovadas. No entanto, se você não tiver habilitado o acesso JIT durante a implantação, não poderá habilitá-lo mais tarde.
+Pode alterar os valores de como os pedidos são aprovados. No entanto, se não permitiu o acesso ao JIT durante a implementação, não poderá permitir mais tarde.
 
-Para alterar as configurações de um aplicativo gerenciado implantado:
+Para alterar as definições para uma aplicação gerida implantada:
 
-1. No portal, selecione o aplicativo gerenciar.
+1. No portal, selecione a aplicação de gestão.
 
-1. Selecione **configuração de JIT** e altere as configurações conforme necessário.
+1. Selecione **configuração JIT** e altere as definições conforme necessário.
 
-   ![Alterar configurações de acesso](./media/approve-just-in-time-access/change-settings.png)
+   ![Alterar as definições de acesso](./media/approve-just-in-time-access/change-settings.png)
 
 1. Quando terminar, selecione **Guardar**.
 
 ## <a name="approve-requests"></a>Aprovar pedidos
 
-Quando o Publicador solicitar acesso, você será notificado sobre a solicitação. Você pode aprovar solicitações de acesso JIT diretamente por meio do aplicativo gerenciado ou em todos os aplicativos gerenciados por meio do serviço de Azure AD Privileged Identity Management. Para usar o acesso just-in-time, você deve ter uma [licença Azure Active Directory P2](../../active-directory/privileged-identity-management/subscription-requirements.md).
+Quando a editora pede acesso, é notificado do pedido. Pode aprovar pedidos de acesso jit diretamente através da aplicação gerida, ou em todas as aplicações geridas através do serviço de Gestão de Identidade Privilegiada azure AD. Para utilizar o acesso just-in-time, deve ter uma [licença Azure Ative Directory P2](../../active-directory/privileged-identity-management/subscription-requirements.md).
 
-Para aprovar solicitações por meio do aplicativo gerenciado:
+Para aprovar pedidos através do pedido gerido:
 
-1. Selecione **acesso JIT** para o aplicativo gerenciado e selecione **aprovar solicitações**.
+1. Selecione **Acesso JIT** para a aplicação gerida e selecione **Pedidos de Aprovação**.
 
    ![Aprovar pedidos](./media/approve-just-in-time-access/approve-requests.png)
  
-1. Selecione a solicitação a ser aprovada.
+1. Selecione o pedido para aprovar.
 
-   ![Selecionar solicitação](./media/approve-just-in-time-access/select-request.png)
+   ![Selecione pedido](./media/approve-just-in-time-access/select-request.png)
 
-1. No formulário, forneça o motivo para a aprovação e selecione **aprovar**.
+1. No formulário, forneça o motivo da aprovação e selecione **Aprovar**.
 
-Para aprovar solicitações por meio de Azure AD Privileged Identity Management:
+Para aprovar pedidos através da Azure AD Privileged Identity Management:
 
-1. Selecione **todos os serviços** e comece a procurar por **Azure ad Privileged Identity Management**. Selecione-o nas opções disponíveis.
+1. Selecione **Todos os serviços** e comece a procurar a **Azure AD Privileged Identity Management**. Selecione-o a partir das opções disponíveis.
 
-   ![Pesquisar serviço](./media/approve-just-in-time-access/search.png)
+   ![Procurar serviço](./media/approve-just-in-time-access/search.png)
 
-1. Selecione **aprovar solicitações**.
+1. Selecione **Aprovar pedidos**.
 
-   ![Selecione aprovar solicitações](./media/approve-just-in-time-access/select-approve-requests.png)
+   ![Selecione aprovar pedidos](./media/approve-just-in-time-access/select-approve-requests.png)
 
-1. Selecione **aplicativos gerenciados do Azure**e selecione a solicitação a ser aprovada.
+1. Selecione **aplicações geridas pelo Azure**e selecione o pedido de aprovação.
 
-   ![Solicitações de seleção](./media/approve-just-in-time-access/view-requests.png)
+   ![Selecione pedidos](./media/approve-just-in-time-access/view-requests.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre como publicar um aplicativo gerenciado com acesso JIT, consulte [solicitar acesso just-in-time em aplicativos gerenciados do Azure](request-just-in-time-access.md).
+Para saber publicar uma aplicação gerida com acesso jIT, consulte [Solicit just-in-time access in-time in Azure Managed Applications](request-just-in-time-access.md).

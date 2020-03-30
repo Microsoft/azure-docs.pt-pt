@@ -1,5 +1,5 @@
 ---
-title: Quickstart para configuração de app Azure com ASP.NET Core  Microsoft Docs
+title: Quickstart para configuração de app Azure com ASP.NET Core [ Microsoft Docs
 description: Quickstart para usar configuração de app Azure com aplicações ASP.NET Core
 services: azure-app-configuration
 author: lisaguthrie
@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: ee50d180c579e117c16f1a956871068f0a46e976
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 537dabe09c41012b9e15998ce3af8198dcfb62d3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77498564"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80245779"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Quickstart: Crie uma app core ASP.NET com configuração de app Azure
 
@@ -31,16 +31,16 @@ Neste arranque rápido, utilizará a Configuração da Aplicação Azure para ce
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione O Explorador de **Configuração** > **Criar** para adicionar os seguintes pares de valor-chave:
+6. Selecione **Select Configuration Explorer** > **Create** > **Key-value** para adicionar os seguintes pares de valor-chave:
 
     | Chave | Valor |
     |---|---|
-    | TestApp:Settings:BackgroundColor | Branco |
+    | TestApp:Definições:BackgroundColor | Branco |
     | TestApp:Definições:FontSize | 24 |
-    | TestApp:Settings:FontColor | Preto |
+    | TestApp:Definições:FontColor | Preto |
     | TestApp:Definições:Mensagem | Dados da Configuração de Aplicações Azure |
 
-    Deixe o **rótulo** e o **tipo de conteúdo** vazios por enquanto.
+    Deixe o **rótulo** e o **tipo de conteúdo** vazios por enquanto. Selecione **Aplicar**.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Criar uma aplicação Web ASP.NET Core
 
@@ -56,50 +56,57 @@ dotnet new mvc --no-https
 
 ## <a name="add-secret-manager"></a>Adicionar Gestor Secreto
 
-Para utilizar o Secret Manager, adicione um elemento `UserSecretsId` ao seu ficheiro *.csproj.*
+Para utilizar o Secret `UserSecretsId` Manager, adicione um elemento ao seu ficheiro *.csproj.*
 
-Abra o ficheiro *.csproj.* Adicione um elemento `UserSecretsId` como mostrado aqui. Pode utilizar o mesmo GUID, ou pode substituir este valor pelo seu. Guarde o ficheiro.
+1. Abra o ficheiro *.csproj.*
 
-> [!IMPORTANT]
-> `CreateHostBuilder` substitui `CreateWebHostBuilder` em .NET Core 3.0.  Selecione a sintaxe correta com base no seu ambiente.
+1.  Adicione `UserSecretsId` um elemento como mostrado aqui. Pode utilizar o mesmo GUID, ou pode substituir este valor pelo seu.
 
-#### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
-
-```xml
-<Project Sdk="Microsoft.NET.Sdk.Web">
-
-    <PropertyGroup>
-        <TargetFramework>netcoreapp2.1</TargetFramework>
-        <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
-    </PropertyGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.App" />
-        <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-    </ItemGroup>
-
-</Project>
-```
-
-#### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
-
-```xml
-<Project Sdk="Microsoft.NET.Sdk.Web">
+    > [!IMPORTANT]
+    > `CreateHostBuilder`substitui `CreateWebHostBuilder` em .NET Core 3.0.  Selecione a sintaxe correta com base no seu ambiente.
     
-    <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
-        <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
-    </PropertyGroup>
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+    
+    ```xml
+    <Project Sdk="Microsoft.NET.Sdk.Web">
+    
+        <PropertyGroup>
+            <TargetFramework>netcoreapp2.1</TargetFramework>
+            <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
+        </PropertyGroup>
+    
+        <ItemGroup>
+            <PackageReference Include="Microsoft.AspNetCore.App" />
+            <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+        </ItemGroup>
+    
+    </Project>
+    ```
+    
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
+    
+    ```xml
+    <Project Sdk="Microsoft.NET.Sdk.Web">
+        
+        <PropertyGroup>
+            <TargetFramework>netcoreapp3.1</TargetFramework>
+            <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
+        </PropertyGroup>
+    
+    </Project>
+    ```
+    ---
 
-</Project>
-```
----
+1. Guarde o ficheiro *.csproj.*
 
-Esta ferramenta armazena os dados confidenciais dos projetos de programação fora da árvore dos projetos. Esta abordagem ajuda a evitar a partilha acidental de segredos de aplicações no código fonte. Para mais informações sobre o Gestor Secreto, consulte [o armazenamento seguro de segredos de aplicações em desenvolvimento em ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets)
+Esta ferramenta armazena os dados confidenciais dos projetos de programação fora da árvore dos projetos. Esta abordagem ajuda a evitar a partilha acidental de segredos de aplicações no código fonte.
+
+> [!TIP]
+> Para saber mais sobre o Secret Manager, consulte [o armazenamento seguro de segredos de aplicações em desenvolvimento em ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets)
 
 ## <a name="connect-to-an-app-configuration-store"></a>Ligar a uma loja de configuração de aplicações
 
-1. Adicione uma referência ao pacote nuGet `Microsoft.Azure.AppConfiguration.AspNetCore` executando o seguinte comando:
+1. Adicione uma referência `Microsoft.Azure.AppConfiguration.AspNetCore` ao pacote NuGet executando o seguinte comando:
 
     ```dotnetcli
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
@@ -113,7 +120,7 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
 
 1. Adicione um segredo chamado *ConnectionStrings:AppConfig* ao Secret Manager.
 
-    Este segredo contém a cadeia de ligação para aceder à sua loja de configuração de aplicações. Substitua o valor no seguinte comando com a cadeia de ligação para a sua loja de configuração de aplicações.
+    Este segredo contém a cadeia de ligação para aceder à sua loja de configuração de aplicações. Substitua o valor no seguinte comando com a cadeia de ligação para a sua loja de configuração de aplicações. Pode encontrar a cadeia de ligação sob **teclas** de acesso no portal Azure.
 
     Este comando tem de ser executado no mesmo diretório que o ficheiro *.csproj*.
 
@@ -122,7 +129,7 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
     ```
 
     > [!IMPORTANT]
-    > Algumas conchas truncarão a corda de ligação a menos que seja fechada em aspas. Certifique-se de que a saída do comando `dotnet user-secrets` mostra toda a cadeia de ligação. Se não o fizer, refaça o comando, encerrando a cadeia de ligação em aspas.
+    > Algumas conchas truncarão a corda de ligação a menos que seja fechada em aspas. Certifique-se de `dotnet user-secrets` que a saída do comando mostra toda a cadeia de ligação. Se não o fizer, refaça o comando, encerrando a cadeia de ligação em aspas.
 
     O Secret Manager é usado apenas para testar a aplicação web localmente. Quando a aplicação é implantada para o [Azure App Service](https://azure.microsoft.com/services/app-service/web), por exemplo, utiliza a definição da aplicação **Connection Strings** no Serviço de Aplicações em vez do Secret Manager para armazenar a cadeia de ligação.
 
@@ -134,10 +141,10 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-1. Atualize o método `CreateWebHostBuilder` para utilizar a Configuração da App, ligando para o método `config.AddAzureAppConfiguration()`.
+1. Atualize `CreateWebHostBuilder` o método para utilizar `config.AddAzureAppConfiguration()` a Configuração da Aplicação, ligando para o método.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder` substitui `CreateWebHostBuilder` em .NET Core 3.0.  Selecione a sintaxe correta com base no seu ambiente.
+    > `CreateHostBuilder`substitui `CreateWebHostBuilder` em .NET Core 3.0.  Selecione a sintaxe correta com base no seu ambiente.
 
     #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -168,7 +175,7 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
 
     ---
 
-1. Navegue para *<app root>/Vistas/Casa* e abra *o Index.cshtml*. Substitua o seu conteúdo pelo seguinte código:
+1. Navegue para * <app root>/Views/Home* e abra *index.cshtml*. Substitua o seu conteúdo pelo seguinte código:
 
     ```HTML
     @using Microsoft.Extensions.Configuration
@@ -187,7 +194,7 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
     <h1>@Configuration["TestApp:Settings:Message"]</h1>
     ```
 
-1. Navegue para *<app root>/Vistas/Partilhados* e *abertos _Layout.cshtml*. Substitua o seu conteúdo pelo seguinte código:
+1. Navegue para * <app root>/Vistas/Partilhados* e *abertos _Layout.cshtml*. Substitua o seu conteúdo pelo seguinte código:
 
     ```HTML
     <!DOCTYPE html>
@@ -228,7 +235,7 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
     dotnet run
     ```
 
-1. Se estiver a trabalhar na sua máquina local, use um browser para navegar para `http://localhost:5000`. Este é o URL padrão para a aplicação web hospedada localmente.  
+1. Se estiver a trabalhar na sua máquina local, `http://localhost:5000`use um browser para navegar para . Este é o URL padrão para a aplicação web hospedada localmente.  
 
 Se estiver a trabalhar na Casca de Nuvem Azure, selecione o botão *de pré-visualização web* seguido de *Configurar*.  
 

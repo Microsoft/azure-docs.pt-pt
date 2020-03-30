@@ -1,6 +1,6 @@
 ---
-title: Ingestão de dados usando a biblioteca de nó de Explorador de dados do Azure
-description: Neste artigo, irá aprender a ingerir dados de (carga) no Explorador de dados do Azure com node. js.
+title: Ingerir dados utilizando a biblioteca do Nó do Explorador de Dados Azure
+description: Neste artigo, aprende-se a ingerir (carregar) dados no Azure Data Explorer utilizando o Node.js.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,21 +8,21 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 19da42437cfe1d7b63dfed4bd2b30716d691a0e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66494486"
 ---
-# <a name="ingest-data-using-the-azure-data-explorer-node-library"></a>Ingestão de dados usando a biblioteca de nó de Explorador de dados do Azure
+# <a name="ingest-data-using-the-azure-data-explorer-node-library"></a>Ingerir dados utilizando a biblioteca do Nó do Explorador de Dados Azure
 
-O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer oferece duas bibliotecas de cliente para o Node: uma [biblioteca de ingestão](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) e [uma biblioteca de dados](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data). Estas bibliotecas permitem ingerir (carregar) dados para um cluster e consultar dados a partir do código. Neste artigo, primeiro crie uma tabela e o mapeamento de dados num cluster de teste. Em seguida, vai colocar em fila a ingestão para o cluster e validar os resultados.
+O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer oferece duas bibliotecas de cliente para o Node: uma [biblioteca de ingestão](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) e [uma biblioteca de dados](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data). Estas bibliotecas permitem ingerir (carregar) dados para um cluster e consultar dados a partir do código. Neste artigo, cria-se primeiro uma tabela e mapeamento de dados num cluster de teste. Em seguida, vai colocar em fila a ingestão para o cluster e validar os resultados.
 
 Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Além de uma subscrição do Azure, é necessário o seguinte para concluir este artigo:
+Além de uma subscrição do Azure, precisa do seguinte para completar este artigo:
 
 * [Um cluster e uma base de dados de teste](create-cluster-database-portal.md)
 
@@ -88,7 +88,7 @@ const blobPath = `https://${account}.blob.core.windows.net/${container}/${filePa
 
 ## <a name="create-a-table-on-your-test-cluster"></a>Criar uma tabela no cluster de teste
 
-Crie uma tabela que corresponda ao esquema dos dados no ficheiro `StormEvents.csv`. Quando esse código é executado, ele retorna uma mensagem semelhante ao seguinte: *Para iniciar sessão, utilize um browser para abrir a página https://microsoft.com/devicelogin e introduza o código XXXXXXXXX para autenticar*. Siga os passos para iniciar sessão e regresse para executar o próximo bloco de código. Os blocos de código subsequentes que estabelecerem uma ligação terão de iniciar sessão novamente.
+Crie uma tabela que corresponda ao esquema dos dados no ficheiro `StormEvents.csv`. Quando este código é executado, devolve uma mensagem semelhante à seguinte: *Para iniciar sessão, utilize um browser para abrir a página https://microsoft.com/devicelogin e introduza o código XXXXXXXXX para autenticar*. Siga os passos para iniciar sessão e regresse para executar o próximo bloco de código. Os blocos de código subsequentes que estabelecerem uma ligação terão de iniciar sessão novamente.
 
 ```javascript
 const kustoClient = new KustoClient(kcsbData);
@@ -141,7 +141,7 @@ kustoClient.execute(kustoDatabase, query, (err, results) => {
 
 ## <a name="run-troubleshooting-queries"></a>Executar consultas de resolução de problemas
 
-Inicie sessão no [https://dataexplorer.azure.com](https://dataexplorer.azure.com) e ligue ao cluster. Execute o seguinte comando na base de dados para ver se ocorreram quaisquer falhas de ingestão nas últimas quatro horas. Substitua o nome da base de dados antes de executar.
+Inscreva-se [https://dataexplorer.azure.com](https://dataexplorer.azure.com) e ligue-se ao seu cluster. Execute o seguinte comando na base de dados para ver se ocorreram quaisquer falhas de ingestão nas últimas quatro horas. Substitua o nome da base de dados antes de executar.
     
 ```Kusto
 .show ingestion failures
@@ -158,12 +158,12 @@ Execute o seguinte comando para ver o estado de todas as operações de ingestã
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se planeja seguir nossos outros artigos, mantenha os recursos que criou. Caso contrário, execute o seguinte comando na base de dados para limpar a tabela `StormEvents`.
+Se planeia seguir os nossos outros artigos, guarde os recursos que criou. Caso contrário, execute o seguinte comando na base de dados para limpar a tabela `StormEvents`.
 
 ```Kusto
 .drop table StormEvents
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Escrever consultas](write-queries.md)

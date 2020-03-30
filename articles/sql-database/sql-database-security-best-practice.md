@@ -9,12 +9,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: c18e1b1a1feba5c528a692b7d63287b3751b62cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c1260bb1fab23ede2d1a96725c3086dc128fffc
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77506221"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387653"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database"></a>Livro de jogadas para abordar requisitos comuns de segurança com base de dados Azure SQL
 
@@ -657,7 +657,7 @@ O rastreio de eventos de base de dados ajuda-o a compreender a atividade da base
 **Boas práticas:**
 
 - Ao configurar a Auditoria de Bases de [Dados SQL](sql-database-auditing.md) no seu servidor de base de dados para auditar eventos, todas as bases de dados existentes e recém-criadas nesse servidor serão auditadas.
-- Por política de auditoria por defeito inclui todas as ações (consultas, procedimentos armazenados e logins bem sucedidos e falhados) contra as bases de dados, o que pode resultar num elevado volume de registos de auditoria. É recomendado para os clientes [configurar auditoria para diferentes tipos de ações e grupos de ação usando powerShell](sql-database-auditing.md#subheading-7). Configurar isto ajudará a controlar o número de ações auditadas e minimizará o risco de perda de eventos. A configuração de auditoria personalizada permite que os clientes capturem apenas os dados de auditoria necessários.
+- Por política de auditoria por defeito inclui todas as ações (consultas, procedimentos armazenados e logins bem sucedidos e falhados) contra as bases de dados, o que pode resultar num elevado volume de registos de auditoria. É recomendado para os clientes [configurar auditoria para diferentes tipos de ações e grupos de ação usando powerShell](sql-database-auditing.md#manage-auditing). Configurar isto ajudará a controlar o número de ações auditadas e minimizará o risco de perda de eventos. A configuração de auditoria personalizada permite que os clientes capturem apenas os dados de auditoria necessários.
 - Os registos de auditoria podem ser consumidos diretamente no [portal Azure,](https://portal.azure.com/)ou a partir do local de armazenamento que foi configurado. 
 
 

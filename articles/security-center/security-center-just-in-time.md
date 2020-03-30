@@ -1,5 +1,5 @@
 ---
-title: Acesso a máquina virtual just-in-time no Centro de Segurança Azure  Microsoft Docs
+title: Acesso a máquina virtual just-in-time no Centro de Segurança Azure [ Microsoft Docs
 description: Este documento demonstra como o acesso vm just-in-time no Azure Security Center ajuda-o a controlar o acesso às suas máquinas virtuais Azure.
 services: security-center
 author: memildin
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: memildin
 ms.openlocfilehash: 4b2b388fb736997010a6cbbdf93b23b77c7ef3a3
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77603982"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Proteja as suas portas de gestão com acesso just-in-time
@@ -36,7 +36,7 @@ Existem três formas de configurar uma política de JIT num VM:
 
 A partir do Security Center, pode configurar uma política jit e solicitar acesso a um VM usando uma política jit
 
-### Configure o acesso jIT a um VM no Centro de Segurança<a name="jit-asc"></a>
+### <a name="configure-jit-access-on-a-vm-in-security-center"></a>Configure o acesso jIT a um VM no Centro de Segurança<a name="jit-asc"></a>
 
 1. Abra o dashboard **Centro de Segurança**.
 
@@ -139,7 +139,7 @@ Modifique os filtros e clique **Em Aplicar** para criar uma pesquisa e registo.
 
 
 
-## Configure o acesso jIT a partir de uma página de Azure VM<a name="jit-vm"></a>
+## <a name="configure-jit-access-from-an-azure-vms-page"></a>Configure o acesso jIT a partir de uma página de Azure VM<a name="jit-vm"></a>
 
 Para sua conveniência, pode ligar-se a um VM usando JIT diretamente da página do VM no Centro de Segurança.
 
@@ -177,7 +177,7 @@ No portal Azure, quando se tenta ligar a um VM, o Azure verifica se tem uma pol�
 
   É solicitado acesso com os seguintes parâmetros predefinidos:
 
-  - **IP fonte:** 'Qualquer' (*) (não pode ser alterado)
+  - **IP fonte:**'Qualquer' (*) (não pode ser alterado)
   - **intervalo de tempo:** Três horas (não pode ser alterada) <!--Isn't this set in the policy-->
   - **número da porta** Porta RDP 3389 para Windows / porta 22 para Linux (pode ser alterada)
 
@@ -188,7 +188,7 @@ No portal Azure, quando se tenta ligar a um VM, o Azure verifica se tem uma pol�
 
   ![jit pronta](./media/security-center-just-in-time/jit-prompt.png)
 
-## Configure uma política de JIT num VM programática<a name="jit-program"></a>
+## <a name="configure-a-jit-policy-on-a-vm-programmatically"></a>Configure uma política de JIT num VM programática<a name="jit-program"></a>
 
 Pode configurar e utilizar apenas no tempo através de APIs REST e via PowerShell.
 
@@ -198,7 +198,7 @@ A funcionalidade de acesso VM just-in-time pode ser utilizada através da API do
 
 ### <a name="jit-vm-access-via-powershell"></a>Acesso JIT VM via PowerShell
 
-Para utilizar a solução de acesso VM just-in-time via PowerShell, utilize os cmdlets oficiais do Centro de Segurança Azure PowerShell e, especificamente, `Set-AzJitNetworkAccessPolicy`.
+Para utilizar a solução de acesso VM just-in-time via PowerShell, utilize os `Set-AzJitNetworkAccessPolicy`cmdlets oficiais do Centro de Segurança Azure PowerShell, e especificamente .
 
 O exemplo que se segue define uma política de acesso vm just-in-time num VM específico, e define o seguinte:
 

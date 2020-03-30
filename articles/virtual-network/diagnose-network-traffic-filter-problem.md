@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
-ms.openlocfilehash: f84e8a24e8f28cdccc987afbd1449cb17422ce0c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 6939ea2497a9f12321e1a6dfb9bf9fbb353bc7db
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79279757"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240768"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticar um problema de filtro de tráfego de rede de máquinas virtuais
 
@@ -79,7 +79,7 @@ Embora regras de segurança eficazes tenham sido vistas através do VM, você ta
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Pode executar os comandos que se seguem na Casca de [Nuvem Azure,](https://shell.azure.com/powershell)ou executando a PowerShell a partir do seu computador. A Casca de Nuvem Azure é uma concha interativa gratuita. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se executar o PowerShell a partir do seu computador, precisa do módulo Azure PowerShell, versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` no seu computador, para encontrar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar a PowerShell localmente, também precisa de executar `Connect-AzAccount` para entrar no Azure com uma conta que tenha as [permissões necessárias].](virtual-network-network-interface.md#permissions)
+Pode executar os comandos que se seguem na Casca de [Nuvem Azure,](https://shell.azure.com/powershell)ou executando a PowerShell a partir do seu computador. A Casca de Nuvem Azure é uma concha interativa gratuita. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se executar o PowerShell a partir do seu computador, precisa do módulo Azure PowerShell, versão 1.0.0 ou posterior. Navere `Get-Module -ListAvailable Az` no seu computador, para encontrar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar a PowerShell `Connect-AzAccount` localmente, também precisa de correr para entrar no Azure com uma conta que tenha as [permissões necessárias].](virtual-network-network-interface.md#permissions)
 
 Obtenha as regras de segurança eficazes para uma interface de rede com [get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). O exemplo seguinte obtém as regras de segurança eficazes para uma interface de rede chamada *myVMVMNic,* que está num grupo de recursos chamado *myResourceGroup:*
 
@@ -103,7 +103,7 @@ $VM.NetworkProfile
 
 Recebe uma saída semelhante ao seguinte exemplo:
 
-```powershell
+```output
 NetworkInterfaces
 -----------------
 {/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic
@@ -113,7 +113,7 @@ Na saída anterior, o nome da interface de rede é *myVMVMNic*.
 
 ## <a name="diagnose-using-azure-cli"></a>Diagnosticar usando Azure CLI
 
-Se utilizar comandos de interface de linha de comando Azure (CLI) para completar tarefas neste artigo, execute os comandos na [Casca de Nuvem Azure,](https://shell.azure.com/bash)ou executando o CLI a partir do seu computador. Este artigo requer a versão Azure CLI 2.0.32 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver a executar o Azure CLI localmente, também precisa de executar `az login` e entrar no Azure com uma conta que tenha as [permissões necessárias.](virtual-network-network-interface.md#permissions)
+Se utilizar comandos de interface de linha de comando Azure (CLI) para completar tarefas neste artigo, execute os comandos na [Casca de Nuvem Azure,](https://shell.azure.com/bash)ou executando o CLI a partir do seu computador. Este artigo requer a versão Azure CLI 2.0.32 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli). Se estiver a executar o Azure CLI `az login` localmente, também precisa de correr e entrar no Azure com uma conta que tenha as [permissões necessárias.](virtual-network-network-interface.md#permissions)
 
 Obtenha as regras de segurança eficazes para uma interface de rede com [az rede nic lista-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg). O exemplo seguinte obtém as regras de segurança eficazes para uma interface de rede chamada *myVMVMNic* que está num grupo de recursos chamado *myResourceGroup:*
 
@@ -138,7 +138,7 @@ az vm show \
 
 Dentro da saída devolvida, vê informações semelhantes ao seguinte exemplo:
 
-```azurecli
+```output
 "networkProfile": {
     "additionalProperties": {},
     "networkInterfaces": [
@@ -177,7 +177,7 @@ Quer utilize o [portal](#diagnose-using-azure-portal)Azure, [PowerShell,](#diagn
 | Protocolo                | TCP                                                                                |
 | Ação                  | Permitir                                                                              |
 | Prioridade                | 100                                                                                |
-| Nome                    | Allow-HTTP-All                                                                     |
+| Nome                    | Permitir-HTTP-All                                                                     |
 
 Depois de criar a regra, a porta 80 é permitida a entrada a partir da internet, porque a prioridade da regra é maior do que a regra de segurança padrão chamada *DenyAllInBound*, que nega o tráfego. Aprenda a criar uma regra de [segurança.](manage-network-security-group.md#create-a-security-rule) Se diferentes NSGs estiverem associados tanto à interface da rede como à sub-rede, deve criar a mesma regra em ambos os NSGs.
 

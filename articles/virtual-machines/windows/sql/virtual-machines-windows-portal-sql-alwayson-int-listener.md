@@ -1,5 +1,5 @@
 ---
-title: Configure os ouvintes do grupo de disponibilidade e o equilibrador de carga (portal Azure)
+title: Configure os ouvintes do grupo de disponibilidade & balanceador de carga (portal Azure)
 description: Instruções passo a passo para criar um ouvinte para um grupo de disponibilidade Always On para O Servidor SQL em máquinas virtuais Azure
 services: virtual-machines
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.date: 02/16/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: aefd7a55090da7f55404d6f551ab61268582ff5a
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79096329"
 ---
 # <a name="configure-a-load-balancer-for-an-availability-group-on-azure-sql-server-vms"></a>Configure um balancer de carga para um grupo de disponibilidade em VMs de servidor Estivado Azure
@@ -33,7 +33,7 @@ Este artigo requer que os seus grupos de disponibilidade já estejam configurado
 Os tópicos relacionados incluem:
 
 * [Configure Sempre em grupos de disponibilidade em Azure VM (GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
-* [Configure uma ligação VNet-to-VNet utilizando o Gestor de Recursos Azure e a PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
+* [Configurar uma ligação VNet a VNet com o Azure Resource Manager e o PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 Ao percorrer este artigo, cria-se e configura um equilibrador de carga no portal Azure. Após a conclusão do processo, configura o cluster para utilizar o endereço IP do balanceor de carga para o ouvinte do grupo de disponibilidade.
 
@@ -69,9 +69,9 @@ Primeiro, crie o equilibrador de carga.
    | **Tipo** |**Interna**: A maioria das implementações utiliza um equilibrador de carga interno, que permite que aplicações dentro da mesma rede virtual se conectem ao grupo de disponibilidade.  </br> **Externo**: Permite que as aplicações se conectem ao grupo de disponibilidade através de uma ligação à Internet pública. |
    | **Rede virtual** |Selecione a rede virtual em que os casos do Servidor SQL estão. |
    | **Sub-rede** |Selecione a sub-rede em que as instâncias do Servidor SQL estão dentro. |
-   | **Atribuição de endereçoIP** |**Estática** |
-   | **Endereço IP privado** |Especifique um endereço IP disponível a partir da sub-rede. Utilize este endereço IP quando criar um ouvinte no cluster. Num script PowerShell, mais tarde neste artigo, utilize este endereço para a variável `$ILBIP`. |
-   | **Subscrição** |Se tiver várias subscrições, este campo pode aparecer. Selecione a subscrição que pretende associar a este recurso. É normalmente a mesma subscrição que todos os recursos para o grupo de disponibilidade. |
+   | **Atribuição de endereçoIP** |**Estático** |
+   | **Endereço IP privado** |Especifique um endereço IP disponível a partir da sub-rede. Utilize este endereço IP quando criar um ouvinte no cluster. Num script PowerShell, mais tarde neste artigo, `$ILBIP` utilize este endereço para a variável. |
+   | **Assinatura** |Se tiver várias subscrições, este campo pode aparecer. Selecione a subscrição que pretende associar a este recurso. É normalmente a mesma subscrição que todos os recursos para o grupo de disponibilidade. |
    | **Grupo de recursos** |Selecione o grupo de recursos em que os casos do Servidor SQL estão. |
    | **Localização** |Selecione a localização Azure onde os casos do Servidor SQL estão. |
 
@@ -113,9 +113,9 @@ A sonda define como o Azure verifica qual dos casos do SQL Server detém atualme
    | --- | --- |
    | **Nome** |Um nome de texto representando a sonda. Por exemplo, **SQLAlwaysOnEndPointProbe**. |
    | **Protocolo** |**TCP** |
-   | **Porta** |Pode utilizar qualquer porta disponível. Por exemplo, *59999*. |
+   | **Porto** |Pode utilizar qualquer porta disponível. Por exemplo, *59999*. |
    | **Intervalo** |*5* |
-   | **Limiar insalubre** |*2* |
+   | **Limiar com funcionamento incorreto** |*2* |
 
 4.  Clique em **OK**. 
 
@@ -139,10 +139,10 @@ As regras de equilíbrio de carga configuram como o equilibrador de carga direci
    | --- | --- |
    | **Nome** |Um nome de texto que representa as regras de equilíbrio da carga. Por exemplo, **SQLAlwaysOnEndPointListener**. |
    | **Protocolo** |**TCP** |
-   | **Porta** |*1433* |
-   | **Porto backend** |*1433*. Este valor é ignorado porque esta regra utiliza **IP flutuante (retorno do servidor direto)** . |
+   | **Porto** |*1433* |
+   | **Porta back-end** |*1433*. Este valor é ignorado porque esta regra utiliza **IP flutuante (retorno do servidor direto)**. |
    | **Sonda** |Use o nome da sonda que criou para este equilibrador de carga. |
-   | **Persistência da sessão** |**Nenhuma.** |
+   | **Persistência da sessão** |**Nenhum** |
    | **Tempo limite (minutos)** |*4* |
    | **IP flutuante (devolução do servidor direto)** |**Ativado** |
 
@@ -178,7 +178,7 @@ Se os recursos e dependências do cluster estiverem corretamente configurados, d
 
 1. Inicie o Estúdio de Gestão de Servidores SQL e, em seguida, ligue-se à réplica primária.
 
-2. Vá a **SempreOn High Availability** > **Grupos** de Disponibilidade > **Ouvintes**do Grupo de Disponibilidade .  
+2. Vá a **AlwaysOn High Availability** > **Availability Groups** > **Availability Group Ouviros .**  
     Agora deve ver o nome do ouvinte que criou no Failover Cluster Manager. 
 
 3. Clique no nome do ouvinte e, em seguida, clique em **Propriedades**.
@@ -225,9 +225,9 @@ Para adicionar um endereço IP a um equilibrador de carga com o portal Azure, fa
    |:-----|:----
    |**Nome** |Um nome para identificar a sonda.
    |**Protocolo** |TCP
-   |**Porta** |Uma porta TCP não utilizada, que deve estar disponível em todas as máquinas virtuais. Não pode ser usado para qualquer outro fim. Nenhum ouvinte pode usar a mesma porta de sonda. 
+   |**Porto** |Uma porta TCP não utilizada, que deve estar disponível em todas as máquinas virtuais. Não pode ser usado para qualquer outro fim. Nenhum ouvinte pode usar a mesma porta de sonda. 
    |**Intervalo** |A quantidade de tempo entre as tentativas de sonda. Utilize o predefinido (5).
-   |**Limiar insalubre** |O número de limiares consecutivos que devem falhar antes de uma máquina virtual é considerado insalubre.
+   |**Limiar com funcionamento incorreto** |O número de limiares consecutivos que devem falhar antes de uma máquina virtual é considerado insalubre.
 
 8. Clique **em OK** para salvar a sonda. 
 
@@ -238,13 +238,13 @@ Para adicionar um endereço IP a um equilibrador de carga com o portal Azure, fa
     |Definição |Valor
     |:-----|:----
     |**Nome** |Um nome para identificar a regra de equilíbrio de carga. 
-    |**Endereço IP frontend** |Selecione o endereço IP que criou. 
+    |**Endereço IP de front-end** |Selecione o endereço IP que criou. 
     |**Protocolo** |TCP
-    |**Porta** |Utilize a porta que as instâncias do Servidor SQL estão a utilizar. Uma instância predefinida utiliza a porta 1433, a não ser que a tenha alterado. 
+    |**Porto** |Utilize a porta que as instâncias do Servidor SQL estão a utilizar. Uma instância predefinida utiliza a porta 1433, a não ser que a tenha alterado. 
     |**Porto backend** |Use o mesmo valor que o **Porto.**
     |**Piscina de backend** |A piscina que contém as máquinas virtuais com as instâncias do SQL Server. 
     |**Sonda de saúde** |Escolha a sonda que criou.
-    |**Persistência da sessão** |Nenhum
+    |**Persistência da sessão** |Nenhuma
     |**Tempo limite (minutos)** |Padrão (4)
     |**IP flutuante (devolução do servidor direto)** | Ativado
 
@@ -287,13 +287,13 @@ Se um grupo de disponibilidade participar num grupo de disponibilidade distribu�
    |Definição |Valor
    |:-----|:----
    |**Nome** |Um nome para identificar a regra de equilíbrio de carga para o grupo de disponibilidade distribuído. 
-   |**Endereço IP frontend** |Utilize o mesmo endereço IP frontal que o grupo de disponibilidade.
+   |**Endereço IP de front-end** |Utilize o mesmo endereço IP frontal que o grupo de disponibilidade.
    |**Protocolo** |TCP
-   |**Porta** |5022 - A porta para o ouvinte final do [grupo de disponibilidade distribuído](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Pode ser qualquer porta disponível.  
+   |**Porto** |5022 - A porta para o ouvinte final do [grupo de disponibilidade distribuído](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Pode ser qualquer porta disponível.  
    |**Porto backend** | 5022 - Use o mesmo valor que a **Porta**.
    |**Piscina de backend** |A piscina que contém as máquinas virtuais com as instâncias do SQL Server. 
    |**Sonda de saúde** |Escolha a sonda que criou.
-   |**Persistência da sessão** |Nenhum
+   |**Persistência da sessão** |Nenhuma
    |**Tempo limite (minutos)** |Padrão (4)
    |**IP flutuante (devolução do servidor direto)** | Ativado
 

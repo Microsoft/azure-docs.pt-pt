@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7142e3f9aaa25e7ba327194c04ad6a9b5f4e3ad1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258775"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descreva um cluster de tecido de serviço usando cluster Resource Manager
@@ -62,7 +62,7 @@ Como são os domínios desequilibrados? O diagrama seguinte mostra dois layouts 
 
 <center>
 
-![Dois diferentes layouts de cluster][Image2]
+![Dois layouts diferentes de cluster][Image2]
 </center>
 
 Em Azure, a escolha de qual domínio de falha contém um nó é gerida para si. Mas dependendo do número de nós que você providenciar, você ainda pode acabar com domínios de falhas que têm mais nós neles do que em outros. 
@@ -78,7 +78,7 @@ O diagrama seguinte mostra três domínios de atualização listrados em três d
 
 <center>
 
-colocação ![Com domínios de falha e atualização][Image3]
+![Colocação com domínios de avaria e upgrade][Image3]
 </center>
 
 Há prós e contras para ter um grande número de domínios de upgrade. Mais domínios de atualização significam que cada passo da atualização é mais granular e afeta um número menor de nós ou serviços. Menos serviços têm de se mover de cada vez, introduzindo menos agitação no sistema. Isto tende a melhorar a fiabilidade, porque menos do serviço é afetado por qualquer problema introduzido durante a atualização. Mais domínios de upgrade também significam que você precisa de menos tampão disponível em outros nós para lidar com o impacto da atualização. 
@@ -357,13 +357,13 @@ Para suportar este tipo de configurações, o Service Fabric inclui etiquetas qu
 
 <center>
 
-![diferentes cargas de trabalho para um layout de cluster][Image5]
+![Diferentes cargas de trabalho para um layout de cluster][Image5]
 </center>
 
 ### <a name="built-in-node-properties"></a>Propriedades do nó embutidos
 O Tecido de Serviço define algumas propriedades de nó padrão que podem ser usadas automaticamente para que não tenha que defini-las. As propriedades predefinidas definidas em cada nó são **NodeType** e **NodeName**. 
 
-Por exemplo, pode escrever uma restrição de colocação como `"(NodeType == NodeType03)"`. **NodeType** é uma propriedade comumente usada. É útil porque corresponde a 1:1 com um tipo de máquina. Cada tipo de máquina corresponde a um tipo de carga de trabalho numa aplicação tradicional n-tier.
+Por exemplo, pode escrever uma `"(NodeType == NodeType03)"`restrição de colocação como . **NodeType** é uma propriedade comumente usada. É útil porque corresponde a 1:1 com um tipo de máquina. Cada tipo de máquina corresponde a um tipo de carga de trabalho numa aplicação tradicional n-tier.
 
 <center>
 
@@ -416,7 +416,7 @@ Digamos que as seguintes propriedades do nó foram definidas para um tipo de nó
 O exemplo seguinte mostra propriedades do nó definidas via ClusterConfig.json para implementações autónomas ou Template.json para clusters hospedados em Azure. 
 
 > [!NOTE]
-> No seu modelo de Gestor de Recursos Azure, o tipo de nó é geralmente parametrizado. Pareceria `"[parameters('vmNodeType1Name')]"` em vez de NodeType01.
+> No seu modelo de Gestor de Recursos Azure, o tipo de nó é geralmente parametrizado. Seria mais `"[parameters('vmNodeType1Name')]"` do que nodeType01.
 >
 
 ```json
@@ -447,7 +447,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceType -Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementConstraint "HasSSD == true && SomeProperty >= 4"
 ```
 
-Se todos os nós de NodeType01 forem válidos, também pode selecionar esse tipo de nó com a restrição `"(NodeType == NodeType01)"`.
+Se todos os nós de NodeType01 forem válidos, também `"(NodeType == NodeType01)"`pode selecionar esse tipo de nó com a restrição .
 
 Os constrangimentos de colocação de um serviço podem ser atualizados dinamicamente durante o tempo de execução. Se precisar, pode mover um serviço no cluster, adicionar e remover requisitos, e assim por diante. O Service Fabric garante que o serviço se mantém em pé e disponível mesmo quando este tipo de alterações são feitas.
 
@@ -487,7 +487,7 @@ Durante o tempo de execução, cluster Resource Manager rastreia a capacidade re
 
 <center>
 
-![Cluster nós e capacidade][Image7]
+![Nós de cluster e capacidade][Image7]
 </center>
 
 ```csharp

@@ -7,17 +7,17 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: lahugh
-ms.openlocfilehash: fd8f01f0fc7180d271404ffee4496ff9cbac7222
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 7834c8a32d4d85fc354bac209e13f19f3b8315fe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78205930"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80256934"
 ---
-# <a name="preview-dcv2-series"></a>Pré-visualização: DCv2-series
+# <a name="preview-dcsv2-series"></a>Pré-visualização: Série DCsv2
 
 
-A série DCv2 pode ajudar a proteger a confidencialidade e integridade dos seus dados e código enquanto é processado na nuvem pública. Estas máquinas são apoiadas pela mais recente geração do processador Intel XEON E-2288G com tecnologia SGX. Com a Tecnologia Intel Turbo Boost estas máquinas podem ir até 5.0GHz. As instâncias da série DCv2 permitem que os clientes construam aplicações seguras baseadas no enclave para proteger o seu código e dados enquanto estão em uso.
+A série DCsv2 pode ajudar a proteger a confidencialidade e integridade dos seus dados e código enquanto é processado na nuvem pública. Estas máquinas são apoiadas pela mais recente geração do processador Intel XEON E-2288G com tecnologia SGX. Com a Tecnologia Intel Turbo Boost estas máquinas podem ir até 5.0GHz. As instâncias da série DCsv2 permitem que os clientes construam aplicações seguras baseadas no enclave para proteger o seu código e dados enquanto estão em uso.
 
 Os casos de utilização por exemplo incluem partilha de dados multipartidários confidenciais, deteção de fraudes, anti-branqueamento de capitais, blockchain, análise de uso confidencial, análise de inteligência e aprendizagem automática confidencial.
 
@@ -40,10 +40,10 @@ Atualizações de preservação da memória: não suportadas
 | Standard_DC4s_v2 | 4    | 16          | 200                    | 4              | 8000/64 (86)                                                            | 6400/96                                   | 2                                            |
 | Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128 (172)                                                         | 12800/192                                 | 2                                            |
 
-- Os VMs da série DCv2 são [VMs de geração 2](./linux/generation-2.md#creating-a-generation-2-vm) e apenas suportam `Gen2` imagens.
-- Atualmente disponível apenas no Reino Unido Sul.
+- Os VMs da série DCsv2 são [VMs de geração 2](./linux/generation-2.md#creating-a-generation-2-vm) e apenas suportam `Gen2` imagens.
+- Atualmente disponível apenas no Reino Unido Sul e Canadá Central.
 - Geração anterior de VMs de Computação Confidencial: [SÉRIE DC](sizes-previous-gen.md)
-- Criar VMs DCv2 usando portal Azure [Criar VM - Portal](./linux/quick-create-portal.md)
+- Criar VMs DCsv2 usando o Portal Azure [Criar VM - Portal](./linux/quick-create-portal.md)
 
 
 

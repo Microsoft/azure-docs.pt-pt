@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.openlocfilehash: edddd100bddab1d642a8169353298a2d20620274
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281343"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Mova dados de MongoDB usando a Fábrica de Dados Azure
@@ -58,41 +58,41 @@ Quando utiliza o assistente, as definições jSON para estas entidades da Fábri
 
 As seguintes secções fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades da Fábrica de Dados específicas da fonte mongoDB:
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 O quadro seguinte fornece descrição para elementos JSON específicos do serviço ligado **onPremisesMongoDB.**
 
-| Propriedade | Descrição | Required |
+| Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | tipo |A propriedade tipo deve ser definida para: **OnPremisesMongoDb** |Sim |
-| relatórios |Endereço IP ou nome de anfitrião do servidor MongoDB. |Sim |
+| servidor |Endereço IP ou nome de anfitrião do servidor MongoDB. |Sim |
 | porta |Porta TCP que o servidor MongoDB usa para ouvir ligações ao cliente. |Opcional, valor por defeito: 27017 |
 | authenticationType |Básico, ou Anónimo. |Sim |
-| username |Conta de utilizador para aceder ao MongoDB. |Sim (se for utilizada a autenticação básica). |
+| o nome de utilizador |Conta de utilizador para aceder ao MongoDB. |Sim (se for utilizada a autenticação básica). |
 | palavra-passe |A palavra-passe do utilizador. |Sim (se for utilizada a autenticação básica). |
 | authSource |Nome da base de dados MongoDB que pretende utilizar para verificar as suas credenciais para autenticação. |Opcional (se for utilizada a autenticação básica). predefinição: utiliza a conta de administração e a base de dados especificada utilizando a propriedade databaseName. |
-| databaseName |Nome da base de dados MongoDB a que pretende aceder. |Sim |
-| gatewayName |Nome do portal que acede à loja de dados. |Sim |
-| encryptedCredential |Credencial encriptado por portal. |Opcional |
+| nome da base de dados |Nome da base de dados MongoDB a que pretende aceder. |Sim |
+| nome gateway |Nome do portal que acede à loja de dados. |Sim |
+| credenta encriptado |Credencial encriptado por portal. |Opcional |
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
-Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
+Para obter uma lista completa de secções & propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção TypeProperties para conjunto de dados do tipo **MongoDbCollection** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Required |
+| Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| collectionName |Nome da coleção na base de dados mongoDB. |Sim |
+| coleçãoNome |Nome da coleção na base de dados mongoDB. |Sim |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
-Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e a política estão disponíveis para todos os tipos de atividades.
+Para obter uma lista completa de secções & propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e a política estão disponíveis para todos os tipos de atividades.
 
 As propriedades disponíveis na secção **tipoPropriedades** da atividade por outro lado variam com cada tipo de atividade. Para a atividade de Cópia, variam dependendo dos tipos de fontes e pias.
 
 Quando a fonte é do tipo **MongoDbSource** as seguintes propriedades estão disponíveis na secção typeProperties:
 
-| Propriedade | Descrição | Valores permitidos | Required |
+| Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| query |Use a consulta personalizada para ler dados. |Fio de consulta SQL-92. Por exemplo: selecione * do MyTable. |Não (se for especificado o nome da **recolha do conjunto** de **dados)** |
+| consulta |Use a consulta personalizada para ler dados. |Fio de consulta SQL-92. Por exemplo: selecione * do MyTable. |Não (se for especificado o nome da **recolha do conjunto** de **dados)** |
 
 
 
@@ -279,7 +279,7 @@ O pipeline contém uma Atividade de Cópia que está configurada para utilizar o
 ```
 
 
-## <a name="schema-by-data-factory"></a>Esquema pelo Data Factory
+## <a name="schema-by-data-factory"></a>Schema by Data Factory
 O serviço Azure Data Factory infere o esquema de uma coleção mongoDB utilizando os últimos 100 documentos da coleção. Se estes 100 documentos não contiverem esquema completo, algumas colunas podem ser ignoradas durante a operação de cópia.
 
 ## <a name="type-mapping-for-mongodb"></a>Mapeamento de tipo para MongoDB
@@ -295,12 +295,12 @@ Ao mover dados para MongoDB, os seguintes mapeamentos são utilizados de tipos M
 | Binário |Byte[] |
 | Booleano |Booleano |
 | Date |DateTime |
-| NumberDouble |Valor de duplo |
-| NumberInt |Int32 |
-| NumberLong |Int64 |
-| ObjectID |String |
-| String |String |
-| UUID |Guid |
+| Número Duplo |Double |
+| NúmeroInt |Int32 |
+| Número longo |Int64 |
+| ObjectID |Cadeia |
+| Cadeia |Cadeia |
+| UUID |GUID |
 | Objeto |Renormalizado em colunas achatadas com "_" como separador aninhada |
 
 > [!NOTE]
@@ -324,14 +324,14 @@ Por exemplo, "ExampleTable" abaixo é uma tabela MongoDB que tem uma coluna com 
 | _id | Nome do cliente | Faturas | Nível de Serviço | Classificações |
 | --- | --- | --- | --- | --- |
 | 1111 |ABC |[{invoice_id:"123", item:"torradeira", preço:"456", desconto:"0.2"}, {invoice_id:"124", item:"forno", preço: "1235", desconto: "0,2"}] |Silver |[5,6] |
-| 2222 |XYZ |[{invoice_id:"135", item:"frigorífico", preço: "12543", desconto: "0.0"}] |Dourado |[1,2] |
+| 2222 |XYZ |[{invoice_id:"135", item:"frigorífico", preço: "12543", desconto: "0.0"}] |Gold |[1,2] |
 
 O condutor geraria várias tabelas virtuais para representar esta única tabela. A primeira tabela virtual é a tabela base chamada "ExampleTable", mostrada abaixo. A tabela base contém todos os dados da tabela original, mas os dados das matrizes foram omitidos e são expandidos nas tabelas virtuais.
 
 | _id | Nome do cliente | Nível de Serviço |
 | --- | --- | --- |
 | 1111 |ABC |Silver |
-| 2222 |XYZ |Dourado |
+| 2222 |XYZ |Gold |
 
 As tabelas seguintes mostram as tabelas virtuais que representam as matrizes originais no exemplo. Estas tabelas contêm o seguinte:
 
@@ -343,9 +343,9 @@ Tabela "ExampleTable_Invoices":
 
 | _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | preço | Desconto |
 | --- | --- | --- | --- | --- | --- |
-| 1111 |0 |123 |torradeira |456 |0.2 |
-| 1111 |1 |124 |forno |1235 |0.2 |
-| 2222 |0 |135 |frigorífico |12543 |0.0 |
+| 1111 |0 |123 |torradeira |456 |0,2 |
+| 1111 |1 |124 |forno |1235 |0,2 |
+| 2222 |0 |135 |frigorífico |12543 |0,0 |
 
 Tabela "ExampleTable_Ratings":
 
@@ -365,5 +365,5 @@ Ao copiar dados de lojas de dados relacionais, tenha em mente a repetível para 
 ## <a name="performance-and-tuning"></a>Desempenho e Afinação
 Consulte o [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) para conhecer os fatores-chave que impactam o desempenho do movimento de dados (Copy Activity) na Fábrica de Dados Do Azure e várias formas de o otimizar.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 Consulte os dados entre as [instalações e o](data-factory-move-data-between-onprem-and-cloud.md) artigo em nuvem para obter instruções passo a passo para criar um pipeline de dados que transfifique os dados de uma loja de dados no local para uma loja de dados Azure.

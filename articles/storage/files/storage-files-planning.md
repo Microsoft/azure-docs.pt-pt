@@ -1,5 +1,5 @@
 ---
-title: Planeamento para uma implantação de Ficheiros Azure  Microsoft Docs
+title: Planeamento para uma implantação de Ficheiros Azure [ Microsoft Docs
 description: Saiba o que considerar ao planear uma implementação de Ficheiros Azure.
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b5bf5cc5c44226236f39a6e32c33ebe346e36eeb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 76a96d36387f55889b65f16ea1ca6ec07359c377
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79269019"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79502429"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 [Os Ficheiros Azure](storage-files-introduction.md) podem ser implementados de duas formas principais: montando diretamente as ações de ficheiros Azure sem servidor ou por cache ingequedem ações de ficheiros Azure no local utilizando o Azure File Sync. Qual a opção de implementação que escolher altera as coisas que precisa de considerar como planeia para a sua implantação. 
@@ -37,7 +37,7 @@ Ao implantar as ações de ficheiros Azure em contas de armazenamento, recomenda
 ## <a name="identity"></a>Identidade
 Para aceder a uma partilha de ficheiros Azure, o utilizador da parte do ficheiro deve ser autenticado e ter autorização para aceder à partilha. Isto é feito com base na identidade do utilizador que acede à partilha de ficheiros. A Azure Files integra-se com três principais fornecedores de identidade:
 - **Ative Directory** (pré-visualização): As contas de armazenamento do Azure podem ser unidas ao domínio de um Diretório Ativo do Windows Server, propriedade do Windows Server, tal como um servidor de ficheiros do Windows Server ou um dispositivo NAS. O seu Controlador de Domínio de Diretório Ativo pode ser implantado no local, num VM Azure, ou mesmo como VM noutro fornecedor de nuvem; O Azure Files é agnóstico onde o seu DC está hospedado. Uma vez que uma conta de armazenamento é unida, o utilizador final pode montar uma partilha de ficheiros com a conta de utilizador com a que assinou no seu PC. A autenticação baseada em AD utiliza o protocolo de autenticação Kerberos.
-- **Azure Ative Directory Domain Services (Azure AD DS)** : O Azure AD DS fornece um controlador de domínio de diretório ativo gerido pela Microsoft que pode ser utilizado para recursos Azure. O domínio que une a sua conta de armazenamento ao Azure AD DS proporciona benefícios semelhantes ao domínio que a une a um Diretório Ativo propriedade do cliente. Esta opção de implementação é mais útil para cenários de elevação e mudança de aplicações que requerem permissões baseadas em AD. Uma vez que o Azure AD DS fornece autenticação baseada em AD, esta opção também utiliza o protocolo de autenticação Kerberos.
+- **Azure Ative Directory Domain Services (Azure AD DS)**: O Azure AD DS fornece um controlador de domínio de diretório ativo gerido pela Microsoft que pode ser utilizado para recursos Azure. O domínio que une a sua conta de armazenamento ao Azure AD DS proporciona benefícios semelhantes ao domínio que a une a um Diretório Ativo propriedade do cliente. Esta opção de implementação é mais útil para cenários de elevação e mudança de aplicações que requerem permissões baseadas em AD. Uma vez que o Azure AD DS fornece autenticação baseada em AD, esta opção também utiliza o protocolo de autenticação Kerberos.
 - Chave da conta de **armazenamento Azure:** As ações de ficheiros Azure também podem ser montadas com uma chave de conta de armazenamento Azure. Para montar uma partilha de ficheirodesta forma, o nome da conta de armazenamento é usado como nome de utilizador e a chave da conta de armazenamento é usada como senha. A utilização da chave da conta de armazenamento para montar a parte do ficheiro Azure é efetivamente uma operação de administrador, uma vez que a parte de ficheiro montada terá permissões completas para todos os ficheiros e pastas da parte, mesmo que tenham ACLs. Ao utilizar a chave da conta de armazenamento para montar sobre SMB, é utilizado o protocolo de autenticação NTLMv2.
 
 Para os clientes que migram de servidores de ficheiros no local ou para criar novas ações de ficheiros em Ficheiros Azure destinados a comportar-se como servidores de ficheiros Windows ou aparelhos NAS, a junção do domínio à sua conta de armazenamento para o **Ative Directory, propriedade do Cliente,** é a opção recomendada. Para saber mais sobre a adesão ao domínio da sua conta de armazenamento a um Diretório Ativo propriedade do cliente, consulte a [visão geral do Diretório Ativo dos Ficheiros Azure.](storage-files-active-directory-overview.md)
@@ -57,14 +57,14 @@ Embora do ponto de vista técnico seja consideravelmente mais fácil montar as s
 
 - **Túneis de rede utilizando expressRoute, Local-a-Local ou VPN Ponto-a-Local**: A escavação numa rede virtual permite aceder a partilhas de ficheiros Azure a partir do local, mesmo que o porto 445 esteja bloqueado.
 - **Pontos finais privados**: Os pontos finais privados dão à sua conta de armazenamento um endereço IP dedicado a partir do espaço de endereço da rede virtual. Isto permite a escavação da rede sem necessidade de abrir redes no local até todas as gamas de endereços IP pertencentes aos clusters de armazenamento Azure. 
-- **DNS reencaminhado**: Configure o seu DNS no local para resolver o nome da sua conta de armazenamento (ou seja, `storageaccount.file.core.windows.net` para as regiões públicas de nuvem) para resolver o endereço IP dos seus pontos finais privados.
+- **DNS reencaminhado**: Configure o seu DNS no local para resolver o `storageaccount.file.core.windows.net` nome da sua conta de armazenamento (isto é, para as regiões públicas de nuvem) para resolver o endereço IP dos seus pontos finais privados.
 
 Para planear a rede associada à implementação de uma partilha de ficheiros Azure, consulte as considerações de [networking do Azure Files](storage-files-networking-overview.md).
 
 ## <a name="encryption"></a>Encriptação
 O Azure Files suporta dois tipos diferentes de encriptação: encriptação em trânsito, que se relaciona com a encriptação utilizada na montagem/acesso à partilha de ficheiros Azure, e encriptação em repouso, que se relaciona com a forma como os dados são encriptados quando são armazenados no disco. 
 
-### <a name="encryption-in-transit"></a>Encriptação em trânsito
+### <a name="encryption-in-transit"></a>Encriptação de dados em circulação
 Por padrão, todas as contas de armazenamento do Azure têm encriptação ativada em trânsito. Isto significa que quando montar uma partilha de ficheiros sobre SMB ou acedê-la através do protocolo FileREST (como por exemplo através do portal Azure, PowerShell/CLI ou Azure SDKs), o Azure Files só permitirá a ligação se for feita com SMB 3.0+ com encriptação ou HTTPS. Os clientes que não suportam SMB 3.0 ou clientes que suportem sMB 3.0 mas não encriptação SMB não serão capazes de montar a partilha de ficheiros Azure se a encriptação em trânsito estiver ativada. Para obter mais informações sobre quais os sistemas operativos suportam SMB 3.0 com encriptação, consulte a nossa documentação detalhada para [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md)e [Linux](storage-how-to-use-files-linux.md). Todas as versões atuais do PowerShell, CLI e SDKs suportam HTTPS.  
 
 Pode desativar a encriptação em trânsito para uma conta de armazenamento Azure. Quando a encriptação é desativada, o Azure Files também permitirá chamadas SMB 2.1, SMB 3.0 sem encriptação e chamadas API de FileREST não encriptadas sobre HTTP. A principal razão para desativar a encriptação em trânsito é para suportar uma aplicação antiga que deve ser executada num sistema operativo mais antigo, como o Windows Server 2008 R2 ou a distribuição linux mais antiga. O Azure Files apenas permite ligações SMB 2.1 dentro da mesma região azure que a quota de ficheiros Azure; um cliente SMB 2.1 fora da região Azure da quota de ficheiros Azure, como no local ou numa região do Azure diferente, não poderá aceder à partilha de ficheiros.
@@ -76,7 +76,7 @@ Para obter mais informações sobre encriptação em trânsito, consulte a neces
 ### <a name="encryption-at-rest"></a>Encriptação inativa
 [!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
 
-## <a name="storage-tiers"></a>Níveis de armazenamento
+## <a name="storage-tiers"></a>Camadas de armazenamento
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 
 Em geral, as funcionalidades do Azure Files e a interoperabilidade com outros serviços são as mesmas entre as ações de ficheiros premium e as ações de ficheiros padrão, no entanto existem algumas diferenças importantes:
@@ -88,13 +88,13 @@ Em geral, as funcionalidades do Azure Files e a interoperabilidade com outros se
     - As ações padrão de ficheiros estão disponíveis para armazenamento localmente redundante, redundante, geo-redundante (GRS) e geozona redundante (GZRS).
 - **Tamanho máximo da partilha de ficheiros**
     - As ações de ficheiropremium podem ser provisionadas até 100 TiB sem qualquer trabalho adicional.
-    - Por predefinição, as ações de ficheiropadrão podem abranger apenas até 5 TiB, embora o limite de ações possa ser aumentado para 100 TiB, optando pela bandeira de recurso de armazenamento de grandes partes de *ficheiros.* As ações de ficheiros standard só podem abranger até 100 TiB para contas de armazenamento redundantes ou redundantes locais. Para mais informações sobre o aumento  
+    - Por predefinição, as ações de ficheiropadrão podem abranger apenas até 5 TiB, embora o limite de ações possa ser aumentado para 100 TiB, optando pela bandeira de recurso de armazenamento de grandes partes de *ficheiros.* As ações de ficheiros standard só podem abranger até 100 TiB para contas de armazenamento redundantes ou redundantes locais. Para obter mais informações sobre o aumento do tamanho das partilhas de ficheiros, consulte [Enable e crie grandes partilhas](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share)de ficheiros .
 - **Disponibilidade regional**
     - As ações de ficheiros premium não estão disponíveis em todas as regiões, e o apoio redundante da zona está disponível num subconjunto menor de regiões. Para saber se as ações de ficheiropremium estão atualmente disponíveis na sua região, consulte os [produtos disponíveis por página da região](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para o Azure. Para saber quais as regiões que suportam o ZRS, consulte o [suporte da Zona de Disponibilidade Azure por região.](../../availability-zones/az-overview.md#services-support-by-region) Para nos ajudar a priorizar novas regiões e características de nível premium, preencha este [inquérito.](https://aka.ms/pfsfeedback)
     - As ações padrão de ficheiros estão disponíveis em todas as regiões do Azure.
 - O Azure Kubernetes Service (AKS) suporta ações de ficheiropremium na versão 1.13 e posteriormente.
 
-Uma vez criada uma parte de ficheiro como um prémio ou uma partilha de ficheiros padrão, não pode convertê-la automaticamente para o outro nível. Se quiser mudar para o outro nível, tem de criar uma nova quota de ficheiro nesse nível e copiar manualmente os dados da sua parte original para a nova partilha que criou. Recomendamos que utilize `robocopy` para Windows ou `rsync` para o macOS e o Linux executarem essa cópia.
+Uma vez criada uma parte de ficheiro como um prémio ou uma partilha de ficheiros padrão, não pode convertê-la automaticamente para o outro nível. Se quiser mudar para o outro nível, tem de criar uma nova quota de ficheiro nesse nível e copiar manualmente os dados da sua parte original para a nova partilha que criou. Recomendamos `robocopy` a utilização para windows ou `rsync` para macOS e Linux para executar esta cópia.
 
 ### <a name="understanding-provisioning-for-premium-file-shares"></a>Compreensão do provisionamento das ações de ficheiros premium
 As ações de ficheiropremium são provisionadas com base numa relação gib/iops/perput fixa. Para cada GiB previsto, a ação será emitida uma entrada IOPS e 0,1 MiB/s até aos limites máximos por ação. O fornecimento mínimo permitido é 100 GiB com min IOPS/entrada.
@@ -127,7 +127,7 @@ O quadro que se segue ilustra alguns exemplos destas fórmulas para as dimensõe
 |10,240      | 10,240  | Até 30.720  | 675 | 450   |
 |33,792      | 33,792  | Até 100.000 | 2,088 | 1,392   |
 |51,200      | 51,200  | Até 100.000 | 3,132 | 2,088   |
-|102,400     | 100,000 | Até 100.000 | 6,204 | 4,136   |
+|102,400     | 100 000 | Até 100.000 | 6,204 | 4,136   |
 
 > [!NOTE]
 > O desempenho das partilhas de ficheiros está sujeito a limites de rede de máquinas, largura de banda de rede disponível, tamanhos IO, paralelismo, entre muitos outros fatores. Por exemplo, com base em testes internos com 8 tamanhos de IO de leitura/escrita KiB, uma única máquina virtual do Windows, *Standard F16s_v2*, ligada à partilha de ficheiros premium sobre SMB poderia atingir IOPS de leitura de 20K e 15K escrever IOPS. Com 512 tamanhos de IO de leitura/escrita MiB, o mesmo VM poderia alcançar 1.1 GiB/s egress e 370 MiB/s entrada de entrada. Para atingir a escala máxima de desempenho, espalhe a carga por vários VMs. Consulte o guia de resolução de [problemas](storage-troubleshooting-files-performance.md) para alguns problemas comuns de desempenho e sobras.
@@ -163,14 +163,14 @@ As novas ações começam com o número total de créditos no balde de rutura. O
 Em muitos casos, não irá estabelecer uma nova quota de ficheiros líquida para a sua organização, mas sim migrar uma quota de ficheiro existente de um servidor de ficheiros no local ou dispositivo NAS para O Ficheiro Sino. Existem muitas ferramentas, fornecidas tanto pela Microsoft como pela 3ª parte, para fazer uma migração para uma partilha de ficheiros, mas podem aproximadamente ser divididas em duas categorias:
 
 - **Ferramentas que mantêm atributos do sistema de ficheiros tais como ACLs e carimbos**de tempo:
-    - **[Sincronização de ficheiros Azure](storage-sync-files-planning.md)** : O Sincronizado de Ficheiros Azure pode ser usado como um método para ingerir dados numa partilha de ficheiros Azure, mesmo quando a implementação final desejada não é para manter uma presença no local. O Azure File Sync pode ser instalado nas implementações existentes do Windows Server 2012 R2, Windows Server 2016 e Windows Server 2019. Uma vantagem para usar o Sync de Ficheiros Azure como um mecanismo ingerir é que os utilizadores finais podem continuar a utilizar a parte de ficheiro existente no lugar; A redução da parte do ficheiro Azure pode ocorrer depois de todos os dados terem terminado o upload em segundo plano.
-    - **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy é uma ferramenta de cópia bem conhecida que envia com Windows e Windows Server. A robocópia pode ser usada para transferir dados para Ficheiros Azure, montando a parte do ficheiro localmente e, em seguida, usando a localização montada como destino no comando Robocopy.
+    - **[Sincronização de ficheiros Azure](storage-sync-files-planning.md)**: O Sincronizado de Ficheiros Azure pode ser usado como um método para ingerir dados numa partilha de ficheiros Azure, mesmo quando a implementação final desejada não é para manter uma presença no local. O Azure File Sync pode ser instalado nas implementações existentes do Windows Server 2012 R2, Windows Server 2016 e Windows Server 2019. Uma vantagem para usar o Sync de Ficheiros Azure como um mecanismo ingerir é que os utilizadores finais podem continuar a utilizar a parte de ficheiro existente no lugar; A redução da parte do ficheiro Azure pode ocorrer depois de todos os dados terem terminado o upload em segundo plano.
+    - **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy é uma ferramenta de cópia bem conhecida que envia com Windows e Windows Server. A robocópia pode ser usada para transferir dados para Ficheiros Azure, montando a parte do ficheiro localmente e, em seguida, usando a localização montada como destino no comando Robocopy.
 
 - **Ferramentas que não mantêm atributos**do sistema de ficheiros:
     - **Data Box**: Data Box fornece um mecanismo offline de transferência de dados para dados físicos do navio para o Azure. Este método foi concebido para aumentar a largura de banda de entrada e poupar, mas atualmente não suporta atributos do sistema de ficheiros como selos temporais e ACLs.
-    - **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : AzCopy é um utilitário de linha de comando projetado para copiar dados de e para o Azure Files, bem como armazenamento Azure Blob, utilizando comandos simples com um desempenho ótimo.
+    - **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: AzCopy é um utilitário de linha de comando projetado para copiar dados de e para o Azure Files, bem como armazenamento Azure Blob, utilizando comandos simples com um desempenho ótimo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Planejamento de uma implantação de sincronização de ficheiros Azure](storage-sync-files-planning.md)
 * [Implementação de ficheiros Azure](storage-files-deployment-guide.md)
 * [Implementação de sincronização de ficheiros Azure](storage-sync-files-deployment-guide.md)

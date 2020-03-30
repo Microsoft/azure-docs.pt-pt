@@ -1,42 +1,41 @@
 ---
-title: Gerenciamento Remoto do Windows sobre HTTPS para o Azure | Azure Marketplace
-description: Explica como configurar uma VM do Windows hospedada no Azure para que ela possa ser gerenciada remotamente com o PowerShell.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Gestão remota do Windows sobre HTTPS para Azure Mercado Azure
+description: Explica como configurar um VM baseado no Windows, baseado no Windows, para que possa ser gerido remotamente com o PowerShell.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: pabutler
-ms.openlocfilehash: e39f83b2ed715afbfff69770c151cfc4d527105d
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.author: dsindona
+ms.openlocfilehash: 7c799c4a56ee5fc2074e4d644bdbcbc6d2b1ca5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132257"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288755"
 ---
-# <a name="windows-remote-management-over-https"></a>Gerenciamento Remoto do Windows sobre HTTPS
+# <a name="windows-remote-management-over-https"></a>Gestão Remota do Windows através de HTTPS
 
-Esta seção explica como configurar uma VM do Windows hospedada no Azure para que ela possa ser gerenciada e implantada remotamente com o PowerShell.  Para habilitar a comunicação remota do PowerShell, a VM de destino deve expor um ponto de extremidade HTTPS de Gerenciamento Remoto do Windows (WinRM).  Para obter mais informações sobre a comunicação remota do PowerShell, consulte [executando comandos remotos](https://docs.microsoft.com/powershell/scripting/learn/remoting/running-remote-commands).  Para obter mais informações sobre o WinRM, consulte [gerenciamento remoto do Windows](https://docs.microsoft.com/windows/desktop/WinRM/portal).
+Esta secção explica como configurar um VM baseado no Windows, baseado no Windows, para que possa ser gerido e implantado remotamente com o PowerShell.  Para permitir a remoção powerShell, o VM alvo deve expor um ponto final HTTPS de Gestão Remota do Windows (WinRM).  Para obter mais informações sobre o remo powerShell, consulte [Comandos Remotos em Execução](https://docs.microsoft.com/powershell/scripting/learn/remoting/running-remote-commands).  Para mais informações sobre o WinRM, consulte [a Windows Remote Management](https://docs.microsoft.com/windows/desktop/WinRM/portal).
 
-Se você criou uma VM usando uma das abordagens "clássicas" do Azure — o portal de Service Manager do Azure ou o [API de gerenciamento de serviços do Azure](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100))preterido, ele será configurado automaticamente com um ponto de extremidade do WinRM.  No entanto, se você criar uma VM usando qualquer uma das seguintes abordagens "modernas" do Azure, sua VM *não* será configurada para WinRM por HTTPS.
+Se criou um VM utilizando uma das abordagens "clássicas" do Azure — ou o Portal do Gestor de Serviços Azure ou a Depreciada API de Gestão de [Serviços Azure](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100))— então é automaticamente configurado com um ponto final WinRM.  No entanto, se criar um VM utilizando qualquer uma das seguintes abordagens "modernas" do Azure, então o seu VM *não* será configurado para WinRM em HTTPS.
 
-- Usando o [portal do Azure](https://portal.azure.com/), normalmente de uma base aprovada, conforme descrito na seção [criar um VHD compatível com o Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd)
-- [Usando os modelos de Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
-- Usando o Azure PowerShell ou o Shell de comando CLI do Azure.  Para obter exemplos, consulte [início rápido: criar uma máquina virtual do Windows no Azure com o PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell) e [o início rápido: criar uma máquina virtual Linux com o CLI do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli).
+- Utilizando o [portal Azure](https://portal.azure.com/), tipicamente a partir de uma base aprovada, como descrito na secção [Criar um VHD compatível com Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd)
+- [Usando os modelos de Gestor de Recursos Azure](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
+- Utilizando a concha de comando Azure PowerShell ou Azure CLI.  Por exemplo, consulte [Quickstart: Crie uma máquina virtual Windows em Azure com PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell) e [Quickstart: Crie uma máquina virtual Linux com o Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli).
 
-Esse ponto de extremidade do WinRM também é necessário para executar o kit de ferramentas de certificação para integração da VM, conforme descrito em [certificar sua imagem de VM](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-certify-vm).
+Este ponto final WinRM também é necessário para executar o kit de ferramentas de certificação para embarcar no VM, conforme descrito em [Certify a sua imagem VM](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-certify-vm).
 
-Por outro lado, normalmente as VMs do Linux são gerenciadas remotamente usando comandos [CLI do Azure](https://docs.microsoft.com/cli/azure) ou Linux de um console do SSH.  O Azure também fornece vários métodos alternativos para [executar scripts em sua VM Linux](https://docs.microsoft.com/azure/virtual-machines/linux/run-scripts-in-vm).  Para cenários mais complexos, há uma série de soluções de automação e integração disponíveis para VMs baseadas em Windows ou Linux.
+Em contraste, normalmente os VMs Linux são geridos remotamente usando comandos [Azure CLI](https://docs.microsoft.com/cli/azure) ou Linux a partir de uma consola SSH.  O Azure também fornece vários métodos alternativos para [executar scripts no seu Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/run-scripts-in-vm).  Para cenários mais complexos, existem várias soluções de automação e integração disponíveis para VMs baseados no Windows ou Linux.
 
 
-## <a name="configure-and-deploy-with-winrm"></a>Configurar e implantar com o WinRM
+## <a name="configure-and-deploy-with-winrm"></a>Configure e implemente com winRM
 
-O ponto de extremidade do WinRM para uma VM baseada no Windows pode ser configurado durante dois estágios diferentes de seu desenvolvimento:
+O ponto final winRM para um VM baseado em janelas pode ser configurado em duas fases diferentes do seu desenvolvimento:
 
-- Durante a criação-durante a implantação de uma VM em um VHD existente.  Essa é a abordagem preferida para novas ofertas.  Essa abordagem requer a criação de um certificado do Azure, o uso de modelos de Azure Resource Manager fornecidos e a execução de scripts personalizados do PowerShell.
-- Após a implantação-em uma VM existente hospedada no Azure.  Use essa abordagem se você já tiver uma solução de VM implantada no Azure e precisar habilitar o gerenciamento remoto de janelas para ela.  Essa abordagem requer alterações manuais no portal do Azure e a execução de um script na VM de destino.
+- Durante a criação - durante a implantação de um VM para um VHD existente.  Esta é a abordagem preferida para novas ofertas.  Esta abordagem requer a criação de um certificado Azure, utilizando modelos fornecidos do Gestor de Recursos Azure, e executando scripts PowerShell personalizados.
+- Após a implantação - num VM existente hospedado no Azure.  Utilize esta abordagem se já tiver uma solução VM implantada no Azure e precisa de ativar a Gestão remota da janela para o mesmo.  Esta abordagem requer alterações manuais no portal Azure e a execução de um script no VM alvo.
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Se você estiver criando uma nova VM, poderá habilitar o WinRM durante a [implantação da VM a partir de seus VHDs](./cpp-deploy-vm-vhd.md).  Caso contrário, o WinRM poderá ser habilitado em uma VM existente
+Se estiver a criar um novo VM, pode ativar o WinRM durante a [implementação do seu VM a partir dos seus VHDs](./cpp-deploy-vm-vhd.md).  Caso contrário, o WinRM pode ser ativado num VM existente

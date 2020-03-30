@@ -1,15 +1,15 @@
 ---
 title: Referência da API do Agente de Insights de Aplicação Azure
-description: Referência da API do Agente Insights de Aplicação Insights. Enable-ApplicationInsightsMonitoring. Monitorize o desempenho do site sem reimplantar o website. Trabalha com ASP.NET aplicações web hospedadas no local, em VMs ou no Azure.
+description: Referência da API do Agente Insights de Aplicação Insights. Monitorização de Insights de aplicação de ativação. Monitorize o desempenho do site sem reimplantar o website. Trabalha com ASP.NET aplicações web hospedadas no local, em VMs ou no Azure.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 8bbdc96a49fffc91f80d24a9eb0926766f86ee16
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671312"
 ---
 # <a name="application-insights-agent-api-enable-applicationinsightsmonitoring"></a>Agente de Insights de Aplicação API: Monitorização de Insights de aplicação de ativação
@@ -46,11 +46,11 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 
 ### <a name="example-with-an-instrumentation-key-map"></a>Exemplo com um mapa chave de instrumentação
 Neste exemplo:
-- `MachineFilter` corresponde ao computador atual utilizando o wildcard `'.*'`.
-- `AppFilter='WebAppExclude'` fornece uma chave de instrumentação `null`. A aplicação especificada não será instrumentada.
-- `AppFilter='WebAppOne'` atribui à aplicação especificada uma chave de instrumentação única.
-- `AppFilter='WebAppTwo'` atribui à aplicação especificada uma chave de instrumentação única.
-- Finalmente, `AppFilter` também usa o wildcard `'.*'` para combinar com todas as aplicações web que não são correspondidas pelas regras anteriores e atribuir uma chave de instrumentação padrão.
+- `MachineFilter`corresponde ao computador atual `'.*'` utilizando o wildcard.
+- `AppFilter='WebAppExclude'`fornece uma `null` chave de instrumentação. A aplicação especificada não será instrumentada.
+- `AppFilter='WebAppOne'`atribui à aplicação especificada uma chave de instrumentação única.
+- `AppFilter='WebAppTwo'`atribui à aplicação especificada uma chave de instrumentação única.
+- Finalmente, `AppFilter` também `'.*'` usa o wildcard para combinar com todas as aplicações web que não são correspondidas às regras anteriores e atribuir uma chave de instrumentação padrão.
 - Os espaços são adicionados para a legibilidade.
 
 ```powershell
@@ -68,9 +68,9 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 ### <a name="-instrumentationkey"></a>-InstrumentaçãoChave
 **Necessário.** Utilize este parâmetro para fornecer uma única chave de instrumentação para utilização por todas as aplicações no computador-alvo.
 
-### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
+### <a name="-instrumentationkeymap"></a>-InstrumentaçãoKeyMap
 **Necessário.** Utilize este parâmetro para fornecer várias chaves de instrumentação e um mapeamento das teclas de instrumentação utilizadas por cada aplicação.
-Pode criar um único script de instalação para vários computadores, definindo `MachineFilter`.
+Pode criar um único script de `MachineFilter`instalação para vários computadores, definindo .
 
 > [!IMPORTANT]
 > As aplicações vão corresponder às regras no despacho que as regras são fornecidas. Por isso, deve especificar as regras mais específicas primeiro e as regras mais genéricas.
@@ -78,17 +78,17 @@ Pode criar um único script de instalação para vários computadores, definindo
 #### <a name="schema"></a>Esquema
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'}})`
 
-- **O Filtro do** C# Máquina é um regex obrigatório do computador ou nome VM.
+- **O Filtro de Máquina** saem-se a um regex C# obrigatório do computador ou do nome VM.
     - '.*' vai corresponder a todos
     - O 'Nome do Computador' corresponderá apenas aos computadores com o nome exato especificado.
-- **O AppFilter** é C# um regex exigido do Nome do Site IIS. Pode obter uma lista de sites no seu servidor executando o site [get-iissite](https://docs.microsoft.com/powershell/module/iisadministration/get-iissite)do comando .
+- **AppFilter** é um C# regex necessário do Nome do Site IIS. Pode obter uma lista de sites no seu servidor executando o site [get-iissite](https://docs.microsoft.com/powershell/module/iisadministration/get-iissite)do comando .
     - '.*' vai corresponder a todos
     - 'SiteName' corresponderá apenas ao Site IIS com o nome exato especificado.
 - **A InstrumentationKey** é necessária para permitir a monitorização de aplicações que correspondam aos dois filtros anteriores.
     - Deixe este valor nulo se quiser definir regras para excluir a monitorização.
 
 
-### <a name="-enableinstrumentationengine"></a>-EnableInstrumentationEngine
+### <a name="-enableinstrumentationengine"></a>-Motor de Instrumentação de Habilitação
 **Opcional.** Utilize este interruptor para permitir que o motor de instrumentação recolha eventos e mensagens sobre o que está a acontecer durante a execução de um processo gerido. Estes eventos e mensagens incluem códigos de resultados de dependência, verbos HTTP e texto de comando SQL.
 
 O motor de instrumentação adiciona sobrecarga e está desligado por defeito.
@@ -105,7 +105,7 @@ Utilize este interruptor para ignorar esta verificação e continuar a instalar 
 ### <a name="-verbose"></a>-Verbose
 **Parâmetro comum.** Utilize este interruptor para visualizar registos detalhados.
 
-### <a name="-whatif"></a>-WhatIf 
+### <a name="-whatif"></a>- O que se 
 **Parâmetro comum.** Utilize este interruptor para testar e validar os seus parâmetros de entrada sem permitir a monitorização.
 
 ## <a name="output"></a>Saída
@@ -153,7 +153,7 @@ Successfully enabled Application Insights Status Monitor
 - [Criar dashboards](../../azure-monitor/app/overview-dashboard.md).
  
  Adicionar mais telemetria:
- - [Crie testes web](monitor-web-app-availability.md) para garantir que o seu site permaneça ao vivo.
+ - [Criar testes Web](monitor-web-app-availability.md) para se certificar de que mantém o seu site em direto.
 - [Adicione telemetria](../../azure-monitor/app/javascript.md) de cliente web para ver exceções do código da página web e para ativar chamadas de rastreio.
 - [Adicione o SDK de Insights de Aplicação ao seu código](../../azure-monitor/app/asp-net.md) para que possa inserir chamadas de rastreio e log.
  

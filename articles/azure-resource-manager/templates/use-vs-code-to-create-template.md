@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: jgao
 ms.openlocfilehash: 585e2773ea5d6af184f85e65b63d39b60d632146
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273634"
 ---
 # <a name="use-visual-studio-code-to-create-azure-resource-manager-templates"></a>Use o Código do Estúdio Visual para criar modelos de Gestor de Recursos Azure
 
 Visual Studio Code é um editor leve, multiplataforma e open-source. A extensão de ferramentas de modelo do Gestor de Recursos Azure é um plugin para o desenvolvimento do modelo de gestor de recursos. A extensão adiciona suporte linguístico para modelos que lhe dão intellisense, sintaxe realçando, ajuda em linha e muitas outras funções linguísticas. Juntos, proporcionam uma experiência recomendada de desenvolvimento do modelo.
 
-## <a name="install-visual-studio-code"></a>Instalar Visual Studio Code
+## <a name="install-visual-studio-code"></a>Instalar o Visual Studio Code
 
 O visual de estúdio Code suporta MacOS, Windows e Linux.  Pode ser instalado a partir do [Visual Studio Code](https://code.visualstudio.com/).
 
@@ -69,7 +69,7 @@ Ao pairar sobre os nomes de funções, a extensão mostra a ajuda de assinatura 
 
 ### <a name="go-to-definition-for-variable-and-parameter-references"></a>Ir definição para referências variáveis e parâmetros
 
-Pode saltar para a definição com **Ctrl+Click,** ou utilizando o menu de contexto como mostrado na imagem: ![as extensões de ferramentas do Visual Studio Code Resource Manager vão para a definição](./media/use-vs-code-to-create-template/resource-manager-tools-extension-context-menu.png)
+Pode saltar para a definição com **Ctrl+Click,** ou usando o ![menu de contexto como mostrado na imagem: As extensões de ferramentas do Visual Studio Code Resource Manager vão para a definição](./media/use-vs-code-to-create-template/resource-manager-tools-extension-context-menu.png)
 
 Pode abrir a definição para o lado com **Ctrl+Alt+Click**.
 

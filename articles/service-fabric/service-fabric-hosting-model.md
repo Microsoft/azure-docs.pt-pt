@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
 ms.openlocfilehash: 69c7edb08693937aad5a658e0b22b00cd2a81647
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282396"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modelo de hospedagem de tecido de serviço Azure
@@ -26,7 +26,7 @@ Antes de prosseguir, certifique-se de que compreende os vários conceitos e rela
 
 Para entender o modelo de hospedagem, vamos dar um exemplo. Digamos que temos um Tipo de *Aplicação* 'MyAppType', que tem um *ServiceType* 'MyServiceType'. 'MyServiceType' é fornecido pelo *ServicePackage* 'MyServicePackage', que tem um *CódigoPacote* 'MyCodePackage'. 'MyCodePackage' regista *serviceType* 'MyServiceType' quando funciona.
 
-Digamos que temos um cluster de três nós, e criamos um tecido de **aplicação:/App1** do tipo 'MyAppType'. Dentro deste tecido de **aplicação:/App1,** criamos um tecido de **serviço:/App1/ServiceA** do tipo 'MyServiceType'. Este serviço tem duas divisórias (por exemplo, **P1** e **P2)** e três réplicas por partição. O diagrama seguinte mostra a visão desta aplicação à medida que acaba implantada num nó.
+Digamos que temos um cluster de três nós, e criamos um tecido de **aplicação:/App1** do tipo 'MyAppType'. *application* Dentro deste tecido de **aplicação:/App1,** criamos um tecido de **serviço:/App1/ServiceA** do tipo 'MyServiceType'. Este serviço tem duas divisórias (por exemplo, **P1** e **P2)** e três réplicas por partição. O diagrama seguinte mostra a visão desta aplicação à medida que acaba implantada num nó.
 
 
 ![Diagrama da visão do nó da aplicação implantada][node-view-one]
@@ -106,7 +106,7 @@ Quando utiliza apenas o modelo De processo partilhado para uma aplicação, exis
 ## <a name="work-with-a-deployed-service-package"></a>Trabalhar com um pacote de serviço sintetizado
 Uma cópia ativa de um *ServicePackage* num nó é referida como um pacote de [serviço implantado][p3]. Quando utiliza o modelo De Processo Exclusivo para a criação de serviços, para uma determinada aplicação, pode haver vários pacotes de serviços implantados para o mesmo *ServicePackage*. Se estiver a realizar operações específicas de um pacote de serviços implantado, deve fornecer o **ServicePackageActivationId** para identificar um pacote de serviço si. Por exemplo, forneça o ID se estiver [a reportar a saúde de um pacote de serviços implantado][p4] ou a reiniciar o pacote de código de um pacote de [serviços implantado][p5].
 
-Pode descobrir o **ServicePackageActivationId** de um pacote de serviço sionante consultando a lista de pacotes de [serviços implantados][p3] num nó. Quando está a consultar os tipos de serviço [implantados, réplicas implantadas][p7]e pacotes de [código implantados][p8] num nó, o resultado da consulta também contém o **ServicePackageActivationId** do pacote de serviço si. [][p6]
+Pode descobrir o **ServicePackageActivationId** de um pacote de serviço sionante consultando a lista de pacotes de [serviços implantados][p3] num nó. Quando está a consultar os tipos de serviço [implantados, réplicas implantadas][p7]e pacotes de [código implantados][p8] num nó, o resultado da consulta também contém o **ServicePackageActivationId** do pacote de serviço si. [deployed service types][p6]
 
 > [!NOTE]
 >- No âmbito do modelo de hospedagem do Processo Partilhado, num dado nó, para uma determinada aplicação, apenas é ativada uma cópia de um *ServicePackage.* Possui um **ServicePackageActivationId** igual a *uma corda vazia,* e não precisa de ser especificado durante a realização de operações relacionadas com o pacote de serviços implantado. 
@@ -159,7 +159,7 @@ Num dado nó, ambos os serviços têm duas réplicas cada. Como usamos o modelo 
 ![Diagrama da visão do nó da aplicação implantada][node-view-five]
 
 
-Na ativação do 'MultiTypeServicePackage' para a réplica da partição **P1** do tecido de **serviço:/SpecialApp/ServiceA,** 'MyCodePackageA' está a acolher a réplica. 'MyCodePackageB' está a decorrer. Da mesma forma, na ativação do 'MultiTypeServicePackage' para a réplica da partição **P3** do tecido de **serviço:/SpecialApp/ServiceB**, 'MyCodePackageB' está hospedando a réplica. 'MyCodePackageA' está a decorrer. Assim, quanto maior for o número de *Códigos Embalados* (registando diferentes Tipos de *Serviços)* por *ServicePackage,* maior é o uso de recursos redundantes. 
+Na ativação do 'MultiTypeServicePackage' para a réplica da partição **P1** do tecido de **serviço:/SpecialApp/ServiceA,**'MyCodePackageA' está a acolher a réplica. 'MyCodePackageB' está a decorrer. Da mesma forma, na ativação do 'MultiTypeServicePackage' para a réplica da partição **P3** do tecido de **serviço:/SpecialApp/ServiceB**, 'MyCodePackageB' está hospedando a réplica. 'MyCodePackageA' está a decorrer. Assim, quanto maior for o número de *Códigos Embalados* (registando diferentes Tipos de *Serviços)* por *ServicePackage,* maior é o uso de recursos redundantes. 
  
  No entanto, se criarmos o tecido dos **serviços:/SpecialApp/ServiceA** e **tecido:/SpecialApp/ServiceB** com o modelo de Processo Partilhado, o Tecido de Serviço ativa apenas uma cópia do 'MultiTypeServicePackage' para o tecido da **aplicação:/SpecialApp**. 'MyCodePackageA' acolhe todas as réplicas para o tecido de **serviço:/SpecialApp/ServiceA**. 'MyCodePackageB' acolhe todas as réplicas para o tecido de **serviço:/SpecialApp/ServiceB**. O diagrama seguinte mostra a vista do nó nesta definição: 
 

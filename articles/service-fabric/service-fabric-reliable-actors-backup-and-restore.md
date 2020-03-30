@@ -1,24 +1,24 @@
 ---
-title: Fazer backup e restaurar atores de Service Fabric do Azure
-description: Saiba como implementar o backup e a restauração em seus atores de Service Fabric do Azure.
+title: Backup e restaurar atores de tecido de serviço Azure
+description: Aprenda a implementar backup e restaurar os seus atores Azure Service Fabric.
 author: vturecek
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vturecek
 ms.openlocfilehash: 41ba3f9c7d362756b800005d0c140c23dd96caa6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75370464"
 ---
-# <a name="implement-reliable-actors-backup-and-restore"></a>Implementar Reliable Actors backup e restauração
+# <a name="implement-reliable-actors-backup-and-restore"></a>Implementar backup e restauro de atores fiáveis
 
 > [!NOTE]
-> A Microsoft recomenda usar [backup e restauração periódicos](service-fabric-backuprestoreservice-quickstart-azurecluster.md) para configurar o backup de dados de serviços confiáveis com estado e Reliable Actors. 
+> A Microsoft recomenda utilizar a [cópia de segurança periódica e restaurar](service-fabric-backuprestoreservice-quickstart-azurecluster.md) para configurar a cópia de segurança de dados de serviços fiáveis e atores fiáveis. 
 > 
 
-No exemplo a seguir, um serviço de ator personalizado expõe um método para fazer backup de dados de ator aproveitando o ouvinte de comunicação remota já presente no `ActorService`:
+No exemplo seguinte, um serviço de ator personalizado expõe um método para apoiar os dados `ActorService`do ator, tirando partido do ouvinte remoting já presente em:
 
 ```csharp
 public interface IMyActorService : IService
@@ -94,7 +94,7 @@ class MyActorServiceImpl extends ActorService implements MyActorService
 }
 ```
 
-Neste exemplo, `IMyActorService` é um contrato de comunicação remota que implementa `IService`C#() e `Service` (Java) e, em seguida, é implementado pelo `MyActorService`. Ao adicionar esse contrato de comunicação remota, os métodos no `IMyActorService` agora também estão disponíveis para um cliente criando um proxy de comunicação remota via `ActorServiceProxy`:
+Neste exemplo, `IMyActorService` é um contrato de `IService` remoque implementa (C#) e `Service` `MyActorService`(Java), e é depois implementado por . Ao adicionar este contrato de `IMyActorService` remoing, os métodos estão agora `ActorServiceProxy`também disponíveis para um cliente através da criação de um proxy remoting via:
 
 ```csharp
 IMyActorService myActorServiceProxy = ActorServiceProxy.Create<IMyActorService>(
@@ -109,12 +109,12 @@ MyActorService myActorServiceProxy = ActorServiceProxy.create(MyActorService.cla
 myActorServiceProxy.backupActorsAsync();
 ```
 
-Para obter mais informações sobre Reliable Actors, leia os seguintes artigos:
-* [Gerenciamento de estado do ator](service-fabric-reliable-actors-state-management.md)
-* [Ciclo de vida do ator e coleta de lixo](service-fabric-reliable-actors-lifecycle.md)
+Para mais informações sobre atores fiáveis, leia os seguintes artigos:
+* [Gestão do Estado do ator](service-fabric-reliable-actors-state-management.md)
+* [Ciclo de vida do ator e recolha de lixo](service-fabric-reliable-actors-lifecycle.md)
 * [Documentação de referência da API dos atores](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Código de exemplo do .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Código de exemplo Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Código de amostra .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Código da amostra java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

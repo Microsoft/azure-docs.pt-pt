@@ -11,17 +11,17 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 01/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4c3e60e9c296dc8e3a1e31a52a262d8462237407
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: a86b8ddb59719db9bdaffea44aecd5428ad16834
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79283696"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282669"
 ---
-# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo do Azure Machine Learning implementado como um serviço web
+# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo azure machine learning implementado como um serviço web
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Implementar um modelo do Azure Machine Learning como um serviço web cria uma API REST. Pode enviar dados para esta API e receber a predição devolvida pelo modelo. Neste documento, aprenda a criar clientes para C#o serviço web utilizando , Go, Java e Python.
+A implementação de um modelo azure de machine learning como um serviço web cria uma API REST. Pode enviar dados para esta API e receber a previsão devolvida pelo modelo. Neste documento, aprenda a criar clientes para o serviço web utilizando C#, Go, Java e Python.
 
 Cria um serviço web quando implementa uma imagem para as instâncias de contentores Azure, o Serviço Azure Kubernetes ou matrizes de porta programáveis em campo (FPGA). Cria imagens de modelos registados e de ficheiros de pontuação. Você recupera o URI usado para aceder a um serviço web usando o [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Se a autenticação estiver ativada, também pode utilizar o SDK para obter as chaves de autenticação ou fichas.
 
@@ -37,18 +37,18 @@ O fluxo de trabalho geral para a criação de um cliente que utiliza um serviço
 ## <a name="connection-information"></a>Informações da ligação
 
 > [!NOTE]
-> Utilize o Azure Machine Learning SDK para obter a informação do serviço web. Trata-se de um SDK de Python. Pode usar qualquer idioma para criar um cliente para o serviço.
+> Utilize o Azure Machine Learning SDK para obter a informação do serviço web. Este é um SDK Python. Pode usar qualquer idioma para criar um cliente para o serviço.
 
-A classe [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) fornece a informação de que precisa para criar um cliente. As seguintes propriedades `Webservice` são úteis para criar uma aplicação de cliente:
+A classe [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) fornece a informação de que precisa para criar um cliente. As `Webservice` seguintes propriedades são úteis para a criação de uma aplicação de cliente:
 
-* `auth_enabled` - Se a autenticação chave estiver ativada, `True`; caso contrário, `False`.
-* `token_auth_enabled` - Se a autenticação simbólica estiver ativada, `True`; caso contrário, `False`.
-* `scoring_uri` - O endereço REST API.
-* `swagger_uri` - O endereço da especificação OpenAPI. Este URI está disponível se tiver ativado a geração automática de esquemas. Para mais informações, consulte [Implementar modelos com Aprendizagem automática Azure](how-to-deploy-and-where.md#schema).
+* `auth_enabled`- Se a autenticação `True`chave estiver ativada; caso contrário, `False`.
+* `token_auth_enabled`- Se a autenticação simbólica `True`estiver ativada; caso contrário, `False`.
+* `scoring_uri`- O endereço REST API.
+* `swagger_uri`- O endereço da especificação OpenAPI. Este URI está disponível se tiver ativado a geração automática de esquemas. Para mais informações, consulte [Implementar modelos com Aprendizagem automática Azure](how-to-deploy-and-where.md).
 
-Para obter estas informações para os serviços web implementados, há um três formas:
+Existem três formas de recuperar esta informação para serviços web implantados:
 
-* Quando implementa um modelo, um objeto `Webservice` é devolvido com informações sobre o serviço:
+* Quando implementa um `Webservice` modelo, um objeto é devolvido com informações sobre o serviço:
 
     ```python
     service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
@@ -57,7 +57,7 @@ Para obter estas informações para os serviços web implementados, há um três
     print(service.swagger_uri)
     ```
 
-* Pode utilizar `Webservice.list` para recuperar uma lista de serviços web implantados para modelos no seu espaço de trabalho. Pode adicionar filtros para refinar a lista de informações devolvidas. Para obter mais informações sobre o que pode ser filtrado, consulte a documentação de referência da [Webservice.list.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py)
+* Pode utilizar `Webservice.list` para recuperar uma lista de serviços web implantados para modelos no seu espaço de trabalho. Pode adicionar filtros para reduzir a lista de informações devolvidas. Para obter mais informações sobre o que pode ser filtrado, consulte a documentação de referência da [Webservice.list.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py)
 
     ```python
     services = Webservice.list(ws)
@@ -65,7 +65,7 @@ Para obter estas informações para os serviços web implementados, há um três
     print(services[0].swagger_uri)
     ```
 
-* Se souber o nome do serviço implantado, pode criar uma nova instância de `Webservice`, e fornecer o espaço de trabalho e o nome do serviço como parâmetros. O novo objeto contém informações sobre o serviço implementado.
+* Se souber o nome do serviço implantado, pode criar `Webservice`uma nova instância de, e fornecer o espaço de trabalho e o nome de serviço como parâmetros. O novo objeto contém informações sobre o serviço implantado.
 
     ```python
     service = Webservice(workspace=ws, name='myservice')
@@ -75,23 +75,23 @@ Para obter estas informações para os serviços web implementados, há um três
 
 ### <a name="secured-web-service"></a>Serviço web seguro
 
-Se tiver assegurado o serviço web implantado utilizando um certificado SSL, pode utilizar o [HTTPS](https://en.wikipedia.org/wiki/HTTPS) para se ligar ao serviço utilizando a pontuação ou swagger URI. HTTPS ajuda a garantir comunicações entre um cliente e um serviço web encriptando comunicações entre os dois. A encriptação utiliza segurança da [camada de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS é por vezes ainda referido como *Secure Sockets Layer* (SSL), que foi o antecessor do TLS.
+Se tiver assegurado o serviço web implantado utilizando um certificado TLS/SSL, pode utilizar [https](https://en.wikipedia.org/wiki/HTTPS) para se ligar ao serviço utilizando a pontuação ou swagger URI. HTTPS ajuda a garantir comunicações entre um cliente e um serviço web encriptando comunicações entre os dois. A encriptação utiliza segurança da [camada de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS é por vezes ainda referido como *Secure Sockets Layer* (SSL), que foi o antecessor do TLS.
 
 > [!IMPORTANT]
 > Os serviços web implementados pelo Azure Machine Learning suportam apenas a versão TLS 1.2. Ao criar uma aplicação de cliente, certifique-se de que suporta esta versão.
 
-Para mais informações, consulte [Use O SSL para garantir um serviço web através](how-to-secure-web-service.md)do Azure Machine Learning .
+Para mais informações, consulte [Use TLS para garantir um serviço web através](how-to-secure-web-service.md)do Azure Machine Learning .
 
 ### <a name="authentication-for-services"></a>Autenticação para serviços
 
 O Azure Machine Learning fornece duas formas de controlar o acesso aos seus serviços web.
 
-|Método de Autenticação|ACI|AKS|
+|Método de autenticação|ACI|AKS|
 |---|---|---|
 |Chave|Desativado por defeito| Ativado por predefinição|
-|Certificado de| Não disponível| Desativado por defeito |
+|Certificado de| Não Disponível| Desativado por defeito |
 
-Ao enviar um pedido para um serviço que esteja protegido com uma chave ou ficha, utilize o cabeçalho __de Autorização__ para passar a chave ou ficha. A chave ou ficha deve ser formatada como `Bearer <key-or-token>`, onde `<key-or-token>` é a sua chave ou valor simbólico.
+Ao enviar um pedido para um serviço que esteja protegido com uma chave ou ficha, utilize o cabeçalho __de Autorização__ para passar a chave ou ficha. A chave ou ficha deve `Bearer <key-or-token>`ser `<key-or-token>` formatada como, onde está a sua chave ou valor simbólico.
 
 #### <a name="authentication-with-keys"></a>Autenticação com chaves
 
@@ -100,9 +100,9 @@ Quando ativa a autenticação para uma implementação, cria automaticamente as 
 * A autenticação é ativada por padrão quando está a ser implementada para o Serviço Azure Kubernetes.
 * A autenticação é desativada por padrão quando está a ser implementada para as instâncias do contentor Azure.
 
-Para controlar a autenticação, utilize o parâmetro `auth_enabled` quando estiver a criar ou atualizar uma implementação.
+Para controlar a autenticação, utilize o `auth_enabled` parâmetro quando estiver a criar ou atualizar uma implementação.
 
-Se a autenticação estiver ativada, pode utilizar o método `get_keys` para recuperar uma chave de autenticação primária e secundária:
+Se a autenticação estiver ativada, pode utilizar o `get_keys` método para recuperar uma chave de autenticação primária e secundária:
 
 ```python
 primary, secondary = service.get_keys()
@@ -110,7 +110,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Se precisar regenerar uma chave, use [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
+> Se precisar regenerar uma chave, use. [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
 
 #### <a name="authentication-with-tokens"></a>Autenticação com fichas
 
@@ -119,9 +119,9 @@ Quando ativa a autenticação simbólica para um serviço web, um utilizador dev
 * A autenticação token é desativada por padrão quando está a ser implementada para o Serviço Azure Kubernetes.
 * A autenticação token não é suportada quando estiver a ser implantada para instâncias de contentores Azure.
 
-Para controlar a autenticação simbólica, utilize o parâmetro `token_auth_enabled` quando estiver a criar ou atualizar uma implementação.
+Para controlar a autenticação `token_auth_enabled` simbólica, utilize o parâmetro quando estiver a criar ou atualizar uma implementação.
 
-Se a autenticação simbólica estiver ativada, pode utilizar o método `get_token` para recuperar um token do portador e que tokens tempo de validade:
+Se a autenticação simbólica estiver ativada, pode utilizar o `get_token` método para recuperar um token do portador e que tokens tempo de validade:
 
 ```python
 token, refresh_by = service.get_token()
@@ -129,11 +129,11 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> Terá de pedir um novo sinal depois do `refresh_by` tempo do token. 
+> Terá de pedir um novo sinal depois do `refresh_by` tempo do símbolo. 
 
-## <a name="request-data"></a>Dados de pedidos
+## <a name="request-data"></a>Solicitar dados
 
-A API REST espera que o corpo da solicitação para ser um documento JSON com a seguinte estrutura:
+A API REST espera que o corpo do pedido seja um documento JSON com a seguinte estrutura:
 
 ```json
 {
@@ -145,9 +145,9 @@ A API REST espera que o corpo da solicitação para ser um documento JSON com a 
 ```
 
 > [!IMPORTANT]
-> A estrutura dos dados tem de corresponder ao que a classificação script e o modelo no expect serviço. O script de classificação pode modificar os dados antes de o transmitir para o modelo.
+> A estrutura dos dados precisa de corresponder ao que o script e o modelo de pontuação no serviço esperam. O script de pontuação pode modificar os dados antes de passá-los para o modelo.
 
-Por exemplo, o modelo no Comboio dentro do [portátil,](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) exemplo, espera uma série de 10 números. O roteiro de pontuação para este exemplo cria uma matriz numpy a partir do pedido, e passa-o para o modelo. O exemplo seguinte mostra os dados que deste serviço de espera:
+Por exemplo, o modelo no Comboio dentro do [portátil,](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) exemplo, espera uma série de 10 números. O roteiro de pontuação para este exemplo cria uma matriz numpy a partir do pedido, e passa-o para o modelo. O exemplo que se segue mostra os dados que este serviço espera:
 
 ```json
 {
@@ -169,7 +169,7 @@ Por exemplo, o modelo no Comboio dentro do [portátil,](https://github.com/Azure
 }
 ```
 
-O serviço web pode aceitar vários conjuntos de dados numa solicitação. Ele retorna um documento JSON que contenha uma matriz de respostas.
+O serviço web pode aceitar vários conjuntos de dados num único pedido. Devolve um documento JSON contendo uma série de respostas.
 
 ### <a name="binary-data"></a>Dados binários
 
@@ -179,9 +179,9 @@ Para obter informações sobre como ativar o suporte para dados binários no seu
 
 Para obter informações sobre a ativação do suporte cors no seu serviço, consulte a [partilha de recursos de origem cruzada](how-to-deploy-and-where.md#cors).
 
-## <a name="call-the-service-c"></a>Chamar o serviço (C#)
+## <a name="call-the-service-c"></a>Ligue para o serviço (C#)
 
-Este exemplo demonstra como C# usar para chamar o serviço web criado a partir do Comboio no exemplo do [portátil:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb)
+Este exemplo demonstra como usar C# para chamar o serviço web criado a partir do Comboio dentro do exemplo [do portátil:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb)
 
 ```csharp
 using System;
@@ -262,13 +262,13 @@ namespace MLWebServiceClient
 }
 ```
 
-Os resultados retornados são semelhantes para o documento JSON seguinte:
+Os resultados devolvidos são semelhantes ao seguinte documento JSON:
 
 ```json
 [217.67978776218715, 224.78937091757172]
 ```
 
-## <a name="call-the-service-go"></a>Chamar o serviço (Go)
+## <a name="call-the-service-go"></a>Ligue para o serviço (Ir)
 
 Este exemplo demonstra como usar o Go para ligar para o serviço web criado a partir do Comboio no exemplo do [portátil:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb)
 
@@ -354,13 +354,13 @@ func main() {
 }
 ```
 
-Os resultados retornados são semelhantes para o documento JSON seguinte:
+Os resultados devolvidos são semelhantes ao seguinte documento JSON:
 
 ```json
 [217.67978776218715, 224.78937091757172]
 ```
 
-## <a name="call-the-service-java"></a>Chamar o serviço (Java)
+## <a name="call-the-service-java"></a>Ligue para o serviço (Java)
 
 Este exemplo demonstra como usar java para chamar o serviço web criado a partir do Comboio dentro do exemplo [do portátil:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb)
 
@@ -434,13 +434,13 @@ public class App {
 }
 ```
 
-Os resultados retornados são semelhantes para o documento JSON seguinte:
+Os resultados devolvidos são semelhantes ao seguinte documento JSON:
 
 ```json
 [217.67978776218715, 224.78937091757172]
 ```
 
-## <a name="call-the-service-python"></a>Chamar o serviço (Python)
+## <a name="call-the-service-python"></a>Ligue para o serviço (Python)
 
 Este exemplo demonstra como usar python para chamar o serviço web criado a partir do Comboio dentro do exemplo [do portátil:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb)
 
@@ -494,13 +494,13 @@ resp = requests.post(scoring_uri, input_data, headers=headers)
 print(resp.text)
 ```
 
-Os resultados retornados são semelhantes para o documento JSON seguinte:
+Os resultados devolvidos são semelhantes ao seguinte documento JSON:
 
 ```JSON
 [217.67978776218715, 224.78937091757172]
 ```
 
-## <a name="consume-the-service-from-power-bi"></a>Consumir o serviço da Power BI
+## <a name="consume-the-service-from-power-bi"></a>Consumir o serviço no Power BI
 
 O Power BI suporta o consumo de serviços web Azure Machine Learning para enriquecer os dados em Power BI com previsões. 
 

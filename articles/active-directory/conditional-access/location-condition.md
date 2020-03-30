@@ -13,10 +13,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 915675af1e646f2cb77e36c0018ed372ff9496fc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263234"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Qual é a condição de localização no Acesso Condicional do Diretório Ativo Azure? 
@@ -34,7 +34,7 @@ A Azure AD permite um único acesso a dispositivos, aplicações e serviços de 
 
 Uma localização é uma etiqueta para uma localização de rede que representa uma localização nomeada ou iPs fidedignos de autenticação multifactor.
 
-## <a name="named-locations"></a>Locais nomeados
+## <a name="named-locations"></a>Localizações com nome
 
 Com localizações nomeadas, pode criar agrupamentos lógicos de gamas de endereços IP ou países e regiões.
 

@@ -1,21 +1,21 @@
 ---
-title: Notas de lançamento para o agente Dessincronização de Ficheiros Azure  Microsoft Docs
+title: Notas de lançamento para o agente Dessincronização de Ficheiros Azure [ Microsoft Docs
 description: Notas de lançamento para o agente Dessincronização de Ficheiros Azure.
 services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 3/16/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 51b7b37466ae8a6988ee4bfa85a054fb42d23124
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 5b247e8f4a611ace227f5adcef7e0e27de341c96
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79268174"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79454640"
 ---
-# <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de lançamento para o agente Dessincronização de Ficheiros Azure
+# <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente do Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
 
 Este artigo disponibiliza as notas de versão das versões suportadas do agente do Azure File Sync.
@@ -31,10 +31,10 @@ São suportadas as seguintes versões para o agente do Azure File Sync:
 | Julho 2019 atualização rollup - [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 de julho de 2019 | Suportado |
 | Julho 2019 atualização rollup - [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 12 de julho de 2019 | Suportado |
 | V7 Lançamento - [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 19 de junho de 2019 | Suportado |
-| Junho de 2019 rollup - [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 27 de junho de 2019 | Suportado |
-| Junho de 2019 atualização rollup - [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 de junho de 2019 | Suportado |
-| Rollup de atualização de maio de 2019 - [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 7 de maio de 2019 | Suportado |
-| V6 Lançamento - [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 21 de abril de 2019 | Suportado |
+| Junho de 2019 rollup - [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 27 de junho de 2019 | Suportado - Versão do agente expirará no dia 21 de abril de 2020 |
+| Junho de 2019 atualização rollup - [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 de junho de 2019 | Suportado - Versão do agente expirará no dia 21 de abril de 2020 |
+| Rollup de atualização de maio de 2019 - [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 7 de maio de 2019 | Suportado - Versão do agente expirará no dia 21 de abril de 2020 |
+| V6 Lançamento - [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 21 de abril de 2019 | Suportado - Versão do agente expirará no dia 21 de abril de 2020 |
 | Abril de 2019 atualização rollup - [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 4 de abril de 2019 | Suportado - Versão do agente expirará a 18 de março de 2020 |
 | Março 2019 rollup - [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 7 de março de 2019 | Suportado - Versão do agente expirará a 18 de março de 2020 |
 | V5 Lançamento - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 de fevereiro de 2019 | Suportado - Versão do agente expirará a 18 de março de 2020 |
@@ -83,7 +83,7 @@ As seguintes notas de lançamento são para a versão 9.0.0.0 do agente Azure Fi
 - Remova a melhoria do ponto final do servidor quando o tiering da nuvem estiver ativado 
     - Como antes, a remoção de um ponto final do servidor não resulta na remoção de ficheiros na partilha de ficheiros Azure. No entanto, o comportamento dos pontos de reparse no servidor local mudou. Os pontos de reparse (indicações para ficheiros que não são locais no servidor) são agora eliminados ao remover um ponto final do servidor. Os ficheiros totalmente em cache permanecerão no servidor. Esta melhoria foi feita para evitar [ficheiros órfãos](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) ao remover um ponto final do servidor. Se o ponto final do servidor for recriado, os pontos de reparse para os ficheiros hierárquicos serão recriados no servidor.  
  
-- Aprimoramentos de confiabilidade e desempenho 
+- Melhorias no desempenho e na fiabilidade 
     - Falhas de recordação reduzidas. O tamanho da recolha é agora automaticamente ajustado com base na largura de banda da rede. 
     - Melhordesempenho de download ao adicionar um novo servidor a um grupo de sincronização. 
     - Ficheiros reduzidos não sincronizados devido a conflitos de restrição. 
@@ -234,7 +234,7 @@ As seguintes notas de lançamento são para a versão 7.0.0.0 do agente Azure Fi
 ### <a name="improvements-and-issues-that-are-fixed"></a>Melhorias e questões que são corrigidas
 
 - Suporte para maiores tamanhos de partilha de ficheiros
-    - Com a pré-visualização de maiores ações de ficheiros Azure, estamos a aumentar os nossos limites de suporte para sincronização de ficheiros também. Neste primeiro passo, o Azure File Sync suporta agora até 25 TB e 50 milhões de ficheiros num único espaço de nome sincronizado. Para se candidatar à pré-visualização de partilha de ficheiros, preencha este formulário https://aka.ms/azurefilesatscalesurvey. 
+    - Com a pré-visualização de maiores ações de ficheiros Azure, estamos a aumentar os nossos limites de suporte para sincronização de ficheiros também. Neste primeiro passo, o Azure File Sync suporta agora até 25 TB e 50 milhões de ficheiros num único espaço de nome sincronizado. Para se candidatar à pré-visualização https://aka.ms/azurefilesatscalesurveyde partilha de ficheiros, preencha este formulário . 
 - Suporte para firewall e configuração de rede virtual em contas de armazenamento
     - O Azure File Sync suporta agora a definição de firewall e rede virtual nas contas de armazenamento. Para configurar a sua implementação para funcionar com a firewall e a definição de rede virtual, consulte configurações de [firewall configure e redes virtuais](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings).
 - PowerShell cmdlet para sincronizar imediatamente ficheiros alterados na partilha de ficheiros Azure
@@ -425,8 +425,8 @@ As seguintes notas de lançamento são para a versão 5.0.2.0 do agente Azure Fi
 ### <a name="improvements-and-issues-that-are-fixed"></a>Melhorias e questões que são corrigidas
 
 - Apoio à nuvem do Governo de Azure
-  - Acrescentámos apoio de pré-visualização à nuvem do Governo de Azure. Isto requer uma subscrição listada em branco e um download de um agente especial da Microsoft. Para ter acesso à pré-visualização, por favor envie-nos um e-mail diretamente para [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com).
-- Suporte Para a Eliminação de Dados Duplicados
+  - Acrescentámos apoio de pré-visualização à nuvem do Governo de Azure. Isto requer uma subscrição listada em branco e um download de um agente especial da Microsoft. Para ter acesso à pré-visualização, [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com)por favor envie-nos um e-mail diretamente para .
+- Suporte para Deduplicação de Dados
     - A deduplicação de dados está agora totalmente suportada com o tiering em nuvem ativado no Windows Server 2016 e no Windows Server 2019. Permitir a duplicação num volume com tiering em nuvem ativado permite-lhe guardar mais ficheiros no local sem fornecer mais armazenamento.
 - Suporte para transferência de dados offline (por exemplo, via Data Box)
     - Migrar facilmente grandes quantidades de dados para o Azure File Sync através de quaisquer meios que escolha. Pode escolher a Azure Data Box, a AzCopy e até serviços de migração de terceiros. Não é necessário utilizar quantidades massivas de largura de banda para obter os seus dados no Azure, no caso da Data Box – basta enviá-lo para lá! Para saber mais, consulte [Offline Data Transfer Docs](https://aka.ms/AFS/OfflineDataTransfer).

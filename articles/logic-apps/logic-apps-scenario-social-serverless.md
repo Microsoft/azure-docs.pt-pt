@@ -1,6 +1,6 @@
 ---
-title: Criar painel de informações do cliente
-description: Gerencie comentários de clientes, dados de mídia social e muito mais criando um painel de clientes com aplicativos lógicos do Azure e Azure Functions
+title: Criar painel de insights do cliente
+description: Gerencie o feedback dos clientes, dados das redes sociais e muito mais através da construção de um dashboard de clientes com Aplicações lógicas Azure e Funções Azure
 services: logic-apps
 ms.suite: integration
 author: jeffhollan
@@ -9,108 +9,108 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
 ms.openlocfilehash: e300bf9c9aa0acf0bed6426eb73f690f9a38bd74
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75980430"
 ---
-# <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Criar um painel de informações do cliente de streaming com os aplicativos lógicos do Azure e Azure Functions
+# <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Crie um dashboard de informação de clientes em streaming com aplicações da Lógica Azure e funções azure
 
-O Azure oferece ferramentas sem [servidor](https://azure.microsoft.com/solutions/serverless/) que ajudam você a criar e hospedar aplicativos na nuvem rapidamente, sem precisar pensar na infraestrutura. Neste tutorial, você pode criar um painel que é disparado nos comentários do cliente, analisa os comentários com o aprendizado de máquina e publica informações em uma fonte, como Power BI ou Azure Data Lake.
+O Azure oferece ferramentas [sem servidorque](https://azure.microsoft.com/solutions/serverless/) o ajudam a construir e hospedar aplicações rapidamente na nuvem, sem ter de pensar em infraestruturas. Neste tutorial, pode criar um dashboard que desencadeie o feedback do cliente, analise o feedback com machine learning e publique insights para uma fonte, como power BI ou Azure Data Lake.
 
-Para essa solução, você usa estes componentes principais do Azure para aplicativos sem servidor: [Azure Functions](https://azure.microsoft.com/services/functions/) e [aplicativos lógicos do Azure](https://azure.microsoft.com/services/logic-apps/).
-O aplicativo lógico do Azure fornece um mecanismo de fluxo de trabalho sem servidor na nuvem para que você possa criar orquestrações em componentes sem servidor e se conectar a mais de 200 serviços e APIs. O Azure Functions fornece computação sem servidor na nuvem. Essa solução usa Azure Functions para sinalizar tweets de cliente com base em palavras-chave predefinidas.
+Para esta solução, utiliza estes componentes chave Azure para aplicações sem servidor: [Funções Azure](https://azure.microsoft.com/services/functions/) e [Aplicações Lógicas Azure](https://azure.microsoft.com/services/logic-apps/).
+As Aplicações Lógicas Azure fornecem um motor de fluxo de trabalho sem servidores na nuvem para que possa criar orquestrações através de componentes sem servidor estoirar e ligar-se a serviços e APIs de mais de 200. As Funções Azure fornecem computação sem servidor estoque na nuvem. Esta solução utiliza funções Azure para sinalizar tweets de clientes com base em palavras-chave predefinidas.
 
-Nesse cenário, você cria um aplicativo lógico que dispara ao encontrar comentários de clientes. Alguns conectores que ajudam você a responder aos comentários dos clientes incluem Outlook.com, Office 365, macaco de pesquisa, Twitter e uma [solicitação HTTP de um formulário da Web](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). O fluxo de trabalho que você cria monitora uma hashtag no Twitter.
+Neste cenário, cria-se uma aplicação lógica que desencadeia a procura de feedback por parte dos clientes. Alguns conectores que o ajudam a responder ao feedback do cliente incluem Outlook.com, Office 365, Survey Monkey, Twitter e um [pedido http de um formulário web](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). O fluxo de trabalho que cria monitoriza uma hashtag no Twitter.
 
-Você pode [criar a solução inteira no Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) e [implantar a solução com Azure Resource Manager modelo](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md). Para ver uma explicação em vídeo que mostra como criar essa solução, [Assista a este vídeo do Channel 9](https://aka.ms/logicappsdemo). 
+Você pode [construir toda a solução no Estúdio Visual](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) e implementar a [solução com o modelo De Gestor de Recursos Azure](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md). Para um vídeo que mostra como criar esta solução, [veja este vídeo do Canal 9](https://aka.ms/logicappsdemo). 
 
-## <a name="trigger-on-customer-data"></a>Disparar nos dados do cliente
+## <a name="trigger-on-customer-data"></a>Desencadear os dados do cliente
 
-1. No portal do Azure ou no Visual Studio, crie um aplicativo lógico em branco. 
+1. No portal Azure ou No Estúdio Visual, crie uma aplicação lógica em branco. 
 
-   Se você for novo em aplicativos lógicos, leia o guia de [início rápido para o portal do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md) ou o guia de [início rápido para o Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+   Se você é novo em aplicativos lógicos, reveja o [quickstart para o portal Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md) ou o [quickstart para Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
-2. No designer de aplicativo lógico, localize e adicione o gatilho do Twitter que tem esta ação: **quando um novo tweet é Postado**
+2. Na Logic App Designer, encontre e adicione o gatilho do Twitter que tem esta ação: **Quando um novo tweet é publicado**
 
-3. Configure o gatilho para escutar tweets com base em uma palavra-chave ou hashtag.
+3. Configurar o gatilho para ouvir tweets com base numa palavra-chave ou hashtag.
 
-   Em gatilhos baseados em sondagem, como o gatilho do Twitter, a propriedade Recurrence determina com que frequência o aplicativo lógico verifica se há novos itens.
+   Nos gatilhos baseados nas sondagens, como o gatilho do Twitter, a propriedade de recorrência determina com que frequência a aplicação lógica verifica novos itens.
 
-   ![Exemplo de gatilho do Twitter][1]
+   ![Exemplo do gatilho do Twitter][1]
 
-Este aplicativo lógico agora é acionado em todos os novos tweets. Você pode pegar e analisar os dados do tweet para que você possa entender melhor as opiniões expressas. 
+Esta aplicação lógica agora dispara em todos os novos tweets. Em seguida, pode pegar e analisar os dados do tweet para que possa entender melhor os sentimentos expressos. 
 
-## <a name="analyze-tweet-text"></a>Analisar texto do tweet
+## <a name="analyze-tweet-text"></a>Analisar texto de tweet
 
-Para detectar a percepção por trás de algum texto, você pode usar os [Serviços cognitivas do Azure](https://azure.microsoft.com/services/cognitive-services/).
+Para detetar o sentimento por trás de algum texto, pode utilizar [serviços cognitivos Azure](https://azure.microsoft.com/services/cognitive-services/).
 
-1. No designer de aplicativo lógico, no gatilho, escolha **nova etapa**.
+1. Na Logic App Designer, sob o gatilho, escolha **novo passo**.
 
-2. Localize o conector de **análise de texto** .
+2. Encontre o conector **Text Analytics.**
 
-3. Selecione a ação **detectar sentimentos** .
+3. Selecione a ação **Detect Sentiment.**
 
-4. Se solicitado, forneça uma chave de serviços cognitivas válida para o serviço de Análise de Texto.
+4. Se solicitado, forneça uma chave de Serviços Cognitivos válida para o serviço Text Analytics.
 
-5. Em **corpo da solicitação**, selecione o campo de **texto tweet** , que fornece o texto do tweet como entrada para análise.
+5. No **âmbito do Request Body,** selecione o campo de texto do **Tweet,** que fornece o texto do tweet como entrada para análise.
 
-Depois de obter os dados e as informações do tweet sobre o tweet, agora você pode usar vários outros conectores relevantes e suas ações:
+Depois de obter os dados do tweet e insights sobre o tweet, pode agora usar vários outros conectores relevantes e suas ações:
 
-* **Power bi-adicionar linhas ao conjunto de registros de streaming**: Exibir tweets de entrada em um painel de Power bi.
-* **Azure data Lake-acrescentar arquivo**: adiciona dados do cliente a um conjunto de Azure data Lake para incluir em trabalhos de análise.
-* **SQL-adicionar linhas**: armazene dados em um banco de dado para recuperação posterior.
-* **Margem de atraso – enviar mensagem**: Notifique um canal de margem de atraso sobre comentários negativos que podem exigir ação.
+* **Power BI - Adicione linhas ao conjunto**de dados de streaming : Veja os tweets de entrada num dashboard Power BI.
+* **Azure Data Lake - Ficheiro apêndice**: Adicione os dados dos clientes a um conjunto de dados do Lago de Dados Azure para incluir em trabalhos de análise.
+* **SQL - Adicionar linhas**: Armazenar dados numa base de dados para posterior recuperação.
+* **Folga - Enviar mensagem**: Notifique um canal Slack sobre feedback negativo que possa exigir ação.
 
-Você também pode criar e uma função do Azure para que possa executar o processamento personalizado em seus dados. 
+Também pode criar e uma Função Azure para que possa realizar o processamento personalizado dos seus dados. 
 
-## <a name="process-data-with-azure-functions"></a>Processar dados com Azure Functions
+## <a name="process-data-with-azure-functions"></a>Processar dados com funções azure
 
-Antes de criar uma função, crie um aplicativo de funções em sua assinatura do Azure. Além disso, para seu aplicativo lógico chamar diretamente uma função, a função deve ter uma associação de gatilho HTTP, por exemplo, usar o modelo **HttpTrigger** . Saiba [como criar seu primeiro aplicativo de funções e função no portal do Azure](../azure-functions/functions-create-first-azure-function-azure-portal.md).
+Antes de criar uma função, crie uma aplicação de função na subscrição do Azure. Além disso, para que a sua aplicação lógica ligue diretamente a uma função, a função deve ter um gatilho HTTP, por exemplo, usar o modelo **HttpTrigger.** Aprenda [a criar a sua primeira aplicação de funções e a função no portal Azure](../azure-functions/functions-create-first-azure-function-azure-portal.md).
 
-Para este cenário, use o texto do tweet como o corpo da solicitação para sua função do Azure. No seu código de função, defina a lógica que determina se o texto do tweet contém uma palavra-chave ou frase. Mantenha a função tão simples ou complexa quanto necessário para o cenário.
-No final da função, retorne uma resposta para o aplicativo lógico com alguns dados, por exemplo, um valor booliano simples, como `containsKeyword` ou um objeto complexo.
+Para este cenário, utilize o texto do tweet como o organismo de pedido para a sua Função Azure. No seu código de função, defina a lógica que determina se o texto do tweet contém uma palavra-chave ou frase. Mantenha a função tão simples ou complexa quanto necessária para o cenário.
+No final da função, devolva uma resposta à aplicação lógica com alguns dados, por exemplo, um simples valor booleano, como `containsKeyword` ou um objeto complexo.
 
 > [!TIP]
-> Para acessar uma resposta complexa de uma função em um aplicativo lógico, use a ação **analisar JSON** .
+> Para aceder a uma resposta complexa de uma função numa aplicação lógica, utilize a ação **Parse JSON.**
 
-Quando terminar, salve a função e adicione a função como uma ação no aplicativo lógico que você está criando.
+Quando terminar, guarde a função e adicione a função como uma ação na aplicação lógica que está a construir.
 
-## <a name="add-azure-function-to-logic-app"></a>Adicionar Azure function ao aplicativo lógico
+## <a name="add-azure-function-to-logic-app"></a>Adicione a função Azure à aplicação lógica
 
-1. No designer de aplicativo lógico, na ação **detectar sentimentos** , escolha **nova etapa**.
+1. Na Logic App Designer, no âmbito da ação **Detect Sentiment,** escolha **novo passo.**
 
-2. Localize o conector de **Azure Functions** e, em seguida, selecione a função que você criou.
+2. Encontre o conector **funções Azure** e, em seguida, selecione a função que criou.
 
-3. Em **corpo da solicitação**, selecione **texto do tweet**.
+3. Sob **o Corpo de Pedido,** selecione Tweet **Text**.
 
-![Etapa da função do Azure configurada][2]
+![Passo de função Azure configurado][2]
 
-## <a name="run-and-monitor-your-logic-app"></a>Executar e monitorar seu aplicativo lógico
+## <a name="run-and-monitor-your-logic-app"></a>Executar e monitorizar a sua aplicação lógica
 
-Para examinar as execuções atuais ou anteriores para seu aplicativo lógico, você pode usar os recursos avançados de depuração e monitoramento que os aplicativos lógicos do Azure fornecem no portal do Azure, no Visual Studio ou por meio de APIs REST do Azure e SDKs.
+Para rever quaisquer execuções atuais ou anteriores para a sua aplicação lógica, pode utilizar as ricas capacidades de depuração e monitorização que as Aplicações Lógicas Azure fornecem no portal Azure, Visual Studio, ou através dos APIs e SDKs do Azure REST.
 
-Para testar facilmente seu aplicativo lógico, no designer de aplicativo lógico, escolha **executar gatilho**. O gatilho sonda os tweets com base na agenda especificada até que um tweet que atenda aos seus critérios seja encontrado. Enquanto a execução progride, o designer mostra uma exibição dinâmica para essa execução.
+Para testar facilmente a sua aplicação lógica, no Logic App Designer, escolha **O Gatilho de Execução**. As sondagens para tweets com base na sua agenda especificada até que seja encontrado um tweet que cumpra os seus critérios. Enquanto a corrida progride, o designer mostra uma visão ao vivo para esta corrida.
 
-Para exibir os históricos de execução anteriores no Visual Studio ou no portal do Azure: 
+Para ver histórias anteriores no Estúdio Visual ou no portal Azure: 
 
-* Abra o Visual Studio Cloud Explorer. Localize seu aplicativo lógico, abra o menu de atalho do aplicativo. Selecione **abrir histórico de execução**.
+* Open Visual Studio Cloud Explorer. Encontre a sua aplicação lógica, abra o menu de atalho da aplicação. Selecione **histórico de execução aberta.**
 
   > [!TIP]
-  > Se você não tiver esse comando no Visual Studio 2019, verifique se você tem as atualizações mais recentes para o Visual Studio.
+  > Se não tiver este comando no Visual Studio 2019, verifique se tem as últimas atualizações para o Visual Studio.
 
-* Na portal do Azure, localize seu aplicativo lógico. No menu do aplicativo lógico, escolha **visão geral**. 
+* No portal Azure, encontre a sua aplicação lógica. No menu da sua aplicação lógica, escolha **visão geral**. 
 
 ## <a name="create-automated-deployment-templates"></a>Criar modelos de implementação automatizada
 
-Depois de criar uma solução de aplicativo lógico, você pode capturar e implantar seu aplicativo como um [modelo de Azure Resource Manager](../azure-resource-manager/templates/overview.md) em qualquer região do Azure no mundo. Você pode usar essa capacidade para modificar parâmetros para criar versões diferentes do seu aplicativo e para integrar sua solução no Azure Pipelines. Você também pode incluir Azure Functions em seu modelo de implantação para que possa gerenciar toda a solução com todas as dependências como um único modelo. Saiba como [automatizar a implantação do aplicativo lógico](logic-apps-azure-resource-manager-templates-overview.md).
+Depois de criar uma solução lógica de aplicações, pode capturar e implementar a sua aplicação como modelo de Gestor de [Recursos Azure](../azure-resource-manager/templates/overview.md) para qualquer região do Azure no mundo. Pode utilizar esta capacidade tanto para modificar parâmetros para criar diferentes versões da sua aplicação como para integrar a sua solução em Pipelines Azure. Também pode incluir funções Azure no seu modelo de implementação para que possa gerir toda a solução com todas as dependências como um único modelo. Aprenda a automatizar a implementação de [aplicações lógicas.](logic-apps-azure-resource-manager-templates-overview.md)
 
-Para obter um exemplo de modelo de implantação com uma função do Azure, verifique o [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
+Para um modelo de implantação com uma função Azure, verifique o [repositório](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic)do modelo de arranque rápido Azure .
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Encontre outros exemplos e cenários para aplicativos lógicos do Azure](logic-apps-examples-and-scenarios.md)
+* [Encontre outros exemplos e cenários para apps lógicas do Azure](logic-apps-examples-and-scenarios.md)
 
 <!-- Image References -->
 [1]: ./media/logic-apps-scenario-social-serverless/twitter.png

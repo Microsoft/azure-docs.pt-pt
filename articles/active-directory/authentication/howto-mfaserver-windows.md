@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: faab28a714b1a62e1e34de5b07119aa3018db24e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263663"
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Autenticação do Windows e Servidor Multi-Factor Authentication do Azure
@@ -35,14 +35,14 @@ Utilize a secção Autenticação do Windows do Servidor Multi-Factor Authentica
 ## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Para garantir uma aplicação com autenticação do Windows, utilize o seguinte procedimento
 
 1. No Servidor Multi-Factor Authentication do Azure, clique no ícone Autenticação do Windows.
-   ![autenticação do Windows no](./media/howto-mfaserver-windows/windowsauth.png) do Servidor MFA
+   ![Autenticação do Windows no Servidor MFA](./media/howto-mfaserver-windows/windowsauth.png)
 2. Selecione a caixa de verificação **Ativar Autenticação do Windows**. Por predefinição, esta caixa está desmarcada.
 3. O separador Aplicações permite ao administrador configurar uma ou mais aplicações para a Autenticação do Windows.
 4. Selecione um servidor ou uma aplicação e especifique se o servidor/aplicação está ativado. Clique em **OK**.
 5. Clique em **Adicionar...**
 6. O separador IPs Fidedignos permite ignorar sessões o Multi-Factor Authentication do Azure para as sessões do Windows com origem em IPs específicos. Por exemplo, se os empregados utilizarem a aplicação a partir do escritório e de casa, pode decidir que não pretende que os respetivos telefones toquem para o Multi-Factor Authentication do Azure enquanto estiverem no escritório. Para tal, especifique a sub-rede do escritório como uma entrada de IPs Fidedignos.
 7. Clique em **Adicionar...**
-8. Selecione **IP Único** se gostaria de ignorar um único endereço IP.
+8. Selecione **IP único** se quiser saltar um único endereço IP.
 9. Selecione **Intervalo de IP** se gostaria de ignorar um intervalo de IP completo. Por exemplo, 10.63.193.1-10.63.193.100.
 10. Selecione **Sub-rede** se pretende especificar um intervalo de IPs utilizando a notação de sub-rede. Introduza o IP inicial da sub-rede e escolha a máscara de rede adequada na lista pendente.
 11. Clique em **OK**.

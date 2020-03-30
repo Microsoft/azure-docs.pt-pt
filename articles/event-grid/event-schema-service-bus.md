@@ -1,6 +1,6 @@
 ---
-title: Esquema de eventos do Event Grid Service Bus do Azure
-description: Descreve as propriedades que são fornecidas para eventos do Service Bus com o Azure Event Grid
+title: Esquema de evento de ônibus de rede de eventos de rede de eventos de evento seletiva de eventos de eventos de eventos de evento
+description: Descreve as propriedades que são fornecidas para eventos de ônibus de serviço com rede de eventos Azure
 services: event-grid
 author: banisadr
 manager: darosa
@@ -9,30 +9,30 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: babanisa
 ms.openlocfilehash: f44d2c1c5be6ac895b6f5ea9feca29c0f8ed09f3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60561766"
 ---
-# <a name="azure-event-grid-event-schema-for-service-bus"></a>Esquema de eventos do Azure Event Grid para o Service Bus
+# <a name="azure-event-grid-event-schema-for-service-bus"></a>Esquema de evento da Azure Event Grid para ônibus de serviço
 
-Este artigo fornece as propriedades e o esquema de eventos do Service Bus. Para obter uma introdução aos esquemas de eventos, consulte [esquema de eventos do Azure Event Grid](event-schema.md).
+Este artigo fornece as propriedades e esquemas para eventos de ônibus de serviço.Para uma introdução aos eventos schemas, consulte [o evento Azure Event Grid schema](event-schema.md).
 
-Para obter uma lista de scripts de exemplo e tutoriais, consulte [origem do evento do Service Bus](event-sources.md#service-bus).
+Para obter uma lista de scripts e tutoriais de amostras, consulte a fonte do [evento Service Bus](event-sources.md#service-bus).
 
 ## <a name="available-event-types"></a>Tipos de eventos disponíveis
 
-Service Bus emite os seguintes tipos de evento:
+O Ônibus de Serviço emite os seguintes tipos de eventos:
 
 | Tipo de evento | Descrição |
 | ---------- | ----------- |
-| Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | Desencadeado quando existem mensagens ativas numa fila ou subscrição, sem recetores à escuta. |
-| Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener | Desencadeado quando existem mensagens ativas numa fila entregues e não existem serviços de escuta ativos. |
+| Microsoft.serviceBus.ActiveMessagesAvailableWithNoListeners | Levantados quando há mensagens ativas numa fila ou subscrição e nenhum recetor a ouvir. |
+| Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener | Levantados quando há mensagens ativas numa Fila da Carta Morta e nenhum ouvinte ativo. |
 
 ## <a name="example-event"></a>Evento de exemplo
 
-O exemplo seguinte mostra o esquema de mensagens ativas com nenhum evento de serviços de escuta:
+O exemplo que se segue mostra o esquema de mensagens ativas sem evento de ouvintes:
 
 ```json
 [{
@@ -54,7 +54,7 @@ O exemplo seguinte mostra o esquema de mensagens ativas com nenhum evento de ser
 }]
 ```
 
-O esquema para um evento de fila entregues é semelhante:
+O esquema para um evento de fila de cartas mortas é semelhante:
 
 ```json
 [{
@@ -78,33 +78,33 @@ O esquema para um evento de fila entregues é semelhante:
 
 ## <a name="event-properties"></a>Propriedades do evento
 
-Um evento tem os seguintes dados de nível superior:
+Um evento tem os seguintes dados de alto nível:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| topic | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| subject | string | Caminho definidos pelo publicador para o assunto de evento. |
-| eventType | string | Um dos tipos de eventos registrados para esta origem de evento. |
-| eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
-| id | string | Identificador exclusivo para o evento. |
-| data | object | Dados de eventos de armazenamento de Blobs. |
+| tópico | string | Caminho de recursos completos para a fonte do evento. Este campo não é repreensível. O Event Grid fornece este valor. |
+| Assunto | string | Caminho definido pelo publicador para o assunto do evento. |
+| eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
+| eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
+| ID | string | Identificador único para o evento. |
+| data | objeto | Dados do evento de armazenamento blob. |
 | dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | string | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| namespaceName | string | O espaço de nomes do Service Bus o recurso existe. |
-| requestUri | string | O URI para a fila específica ou a subscrição que emite o evento. |
-| entityType | string | O tipo de entidade do Service Bus emite eventos (fila ou subscrição). |
-| queueName | string | A fila com mensagens ativas se subscrever uma fila. Valor null, se utilizar tópicos / subscrições. |
-| topicName | string | O tópico a subscrição do Service Bus com mensagens ativas pertence. Valor nulo se a utilização de uma fila. |
-| subscriptionName | string | A subscrição do Service Bus com mensagens de Active Directory. Valor nulo se a utilização de uma fila. |
+| nomespaceName | string | O espaço de nome do Ônibus de serviço em que o recurso existe. |
+| requestUri | string | O URI para a fila específica ou subscrição que emite o evento. |
+| entidadeType | string | O tipo de entidade de ônibus de serviço que emite eventos (fila ou subscrição). |
+| queueName | string | A fila com mensagens ativas se subscrever uma fila. Valor nulo se utilizar tópicos/subscrições. |
+| tópicoNome | string | O tema a assinatura do Ônibus de serviço com mensagens ativas pertence. Valor nulo se utilizar uma fila. |
+| subscriptionName | string | A subscrição do Ônibus de serviço com mensagens ativas. Valor nulo se utilizar uma fila. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma introdução ao Azure Event Grid, consulte [o que é o Event Grid?](overview.md)
-* Para obter mais informações sobre a criação de uma subscrição do Azure Event Grid, veja [esquema de subscrições do Event Grid](subscription-creation-schema.md).
-* Para obter detalhes sobre como utilizar o Azure Event Grid com o Service Bus, consulte a [Service Bus para descrição geral da integração do Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md).
-* Tente [a receção de eventos do Service Bus com as funções ou o Logic Apps](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json).
+* Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grelha de Eventos?](overview.md)
+* Para mais informações sobre a criação de uma subscrição da Rede de Eventos Do Evento, consulte o esquema de subscrição da [Rede de Eventos](subscription-creation-schema.md).
+* Para mais detalhes sobre a utilização da Rede de Eventos Azure com ônibus de serviço, consulte a visão geral da integração do [Bus de Serviço para a Rede de Eventos.](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md)
+* Experimente [receber eventos de ônibus de serviço com funções ou aplicações lógicas.](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json)

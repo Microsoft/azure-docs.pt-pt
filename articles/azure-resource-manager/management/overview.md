@@ -2,15 +2,15 @@
 title: Descrição geral
 description: Descreve como utilizar o Azure Resource Manager para a implementação, a gestão e o controlo de acesso de recursos no Azure.
 ms.topic: overview
-ms.date: 08/29/2019
-ms.openlocfilehash: f7e11ada8bf10baa99faf08d2b4b401e3bea2d9e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/25/2020
+ms.openlocfilehash: 1e2a6959117749b4e7d08a9768b4189b97ef08bd
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79240325"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80258146"
 ---
-# <a name="azure-resource-manager-overview"></a>Descrição geral do Azure Resource Manager
+# <a name="what-is-azure-resource-manager"></a>O que é o Gestor de Recursos Azure?
 
 O Azure Resource Manager é o serviço de implementação e gestão do Azure. Fornece uma camada de gestão que lhe permite criar, atualizar e eliminar recursos na sua subscrição Azure. Utiliza funcionalidades de gestão, como controlo de acesso, fechaduras e etiquetas, para proteger e organizar os seus recursos após a implantação.
 
@@ -20,7 +20,7 @@ Para saber sobre os modelos do Gestor de Recursos Azure, consulte a visão geral
 
 Quando um utilizador envia um pedido de qualquer uma das ferramentas, APIs ou SDKs do Azure, o Gestor de Recursos recebe o pedido. Autentica e autoriza o pedido. O Gestor de Recursos envia o pedido para o serviço Azure, que toma a ação solicitada. Como todos os pedidos são tratados através da mesma API, você vê resultados e capacidades consistentes em todas as diferentes ferramentas.
 
-A imagem seguinte mostra o papel que o Gestor de Recursos azure desempenha no tratamento dos pedidos do Azure. 
+A imagem seguinte mostra o papel que o Gestor de Recursos azure desempenha no tratamento dos pedidos do Azure.
 
 ![Modelo de pedido do Resource Manager](./media/overview/consistent-management-layer.png)
 
@@ -30,8 +30,8 @@ Todas as capacidades disponíveis no portal também estão disponíveis através
 
 Se é a primeira vez que utiliza o Azure Resource Manager, existem alguns termos com os quais poderá não estar familiarizado.
 
-* **recurso** -um item gerível que está disponível através do Azure. Máquinas virtuais, contas de armazenamento, aplicações web, bases de dados e redes virtuais são exemplos de recursos.
-* **grupo de recursos** - um contentor que retém recursos relacionados para uma solução do Azure. O grupo de recursos inclui os recursos que pretende gerir como um grupo. Você decide quais os recursos que pertencem a um grupo de recursos baseado no que faz mais sentido para a sua organização. Veja [Grupos de recursos](#resource-groups).
+* **recurso** - Um item manejável que está disponível através do Azure. Máquinas virtuais, contas de armazenamento, aplicações web, bases de dados e redes virtuais são exemplos de recursos.
+* **grupo de recursos** - um contentor que retém recursos relacionados para uma solução do Azure. O grupo de recursos inclui os recursos que pretende gerir como um grupo. Decide que recursos pertencem a um grupo de recursos com base no que faz mais sentido para a sua organização. Ver [Grupos de Recursos](#resource-groups).
 * **fornecedor de recursos** - Um serviço que fornece recursos Azure. Por exemplo, um fornecedor comum de recursos é a Microsoft.Compute, que fornece o recurso virtual da máquina. Microsoft.Storage é outro fornecedor comum de recursos. Consulte [os fornecedores e tipos](resource-providers-and-types.md)de recursos.
 * **Modelo** de Gestor de Recursos - Um ficheiro De Notação de Objetos JavaScript (JSON) que define um ou mais recursos para implantar para um grupo de recursos ou subscrição. O modelo pode ser utilizado para implementar os recursos de forma consistente e repetida. Ver [visão geral da implementação](../templates/overview.md)do modelo .
 * **sintaxe declarativa** - sintaxe que permite afirmar "Aqui está o que pretendo criar" sem ter de escrever a sequência de comandos de programação para criá-la. O modelo do Resource Manager é um exemplo de sintaxe declarativa. No ficheiro, é possível definir as propriedades da infraestrutura de implementação para o Azure.  Ver [visão geral da implementação](../templates/overview.md)do modelo .
@@ -102,12 +102,8 @@ Esta resiliência aplica-se aos serviços que recebem pedidos através do Gestor
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para todas as operações oferecidas pelos fornecedores de recursos, consulte as [APIs do Azure REST](/rest/api/azure/).
-
 * Para aprender sobre a movimentação de recursos, consulte [o Move recursos para um novo grupo de recursos ou subscrição.](move-resource-group-and-subscription.md)
 
 * Para aprender sobre a marcação de recursos, consulte [Use tags para organizar os seus recursos Azure.](tag-resources.md)
 
 * Para aprender sobre o bloqueio de recursos, consulte [os recursos de bloqueio para evitar mudanças inesperadas](lock-resources.md).
-
-* Para obter informações sobre a criação de modelos para implementações, consulte a visão geral da [implementação](../templates/overview.md)do modelo .

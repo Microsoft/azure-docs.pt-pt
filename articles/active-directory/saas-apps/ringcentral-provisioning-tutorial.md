@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure RingCentral para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+title: 'Tutorial: Configure RingCentral para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
 description: Aprenda a fornecer e desfornecer automaticamente contas de utilizadores de Azure AD para RingCentral.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: 052223f69fc1c1d59ec5f1bcbeb3746ef7122c86
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79087055"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Tutorial: Configure RingCentral para fornecimento automático de utilizadores
@@ -50,7 +50,7 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 ## <a name="step-2-configure-ringcentral-to-support-provisioning-with-azure-ad"></a>Passo 2. Configure ringCentral para apoiar o provisionamento com a Azure AD
 
-1. Inscreva-se na consola [RingCentral Admin](https://login.ringcentral.com/sw.html). Navegar para **Ferramentas > Integração de Diretórios.**
+1. Inscreva-se na consola [RingCentral Admin](https://login.ringcentral.com/sw.html). Navegue para **ferramentas > Integração de Diretórios.**
 
     ![Consola de administrador RingCentral](media/ringcentral-provisioning-tutorial/admin.png)
 
@@ -58,7 +58,7 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
     ![RingCentral Adicionar SCIM](media/ringcentral-provisioning-tutorial/scim.png)
 
-3.  Contacte a equipa de suporte ringcentral na matthew.hunt@ringcentral.com para obter um Token de **Autenticação SCIM**. Este valor será inserido no campo Secret Token no separador de provisionamento da sua aplicação RingCentral no portal Azure.
+3.  Contacte a equipa matthew.hunt@ringcentral.com de suporte da RingCentral para obter um Token de **Autenticação SCIM**. Este valor será inserido no campo Secret Token no separador de provisionamento da sua aplicação RingCentral no portal Azure.
 
 > [!NOTE]
 > Para atribuir licenças aos utilizadores, consulte o link de vídeo [aqui](https://support.ringcentral.com/s/article/5-10-Adding-Extensions-via-Web?language).
@@ -82,7 +82,7 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
 
 ### <a name="to-configure-automatic-user-provisioning-for-ringcentral-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para ringcentral em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
@@ -98,7 +98,7 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
 
     ![Guia de provisionamento](common/provisioning-automatic.png)
 
-5. No âmbito da secção **de Credenciais de Administrador,** a entrada `https://platform.ringcentral.com/scim/v2` no **URL do Arrendatário**. Insera o valor token de **autenticação SCIM** recuperado anteriormente em **Ficha Secreta**. Clique na **ligação de teste** para garantir que o Azure AD pode ligar-se ao RingCentral. Se a ligação falhar, certifique-se de que a sua conta RingCentral tem permissões de administrador e tente novamente.
+5. No âmbito da secção de `https://platform.ringcentral.com/scim/v2` **Credenciais de Administrador,** insere-se no URL do **Arrendatário**. Insera o valor token de **autenticação SCIM** recuperado anteriormente em **Ficha Secreta**. Clique na **ligação de teste** para garantir que o Azure AD pode ligar-se ao RingCentral. Se a ligação falhar, certifique-se de que a sua conta RingCentral tem permissões de administrador e tente novamente.
 
     ![Guia de provisionamento](./media/ringcentral-provisioning-tutorial/provisioning.png)
 
@@ -114,21 +114,21 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
 
    |Atributo|Tipo|
    |---|---|
-   |userName|String|
-   |externalId|String|
+   |userName|Cadeia|
+   |id externo|Cadeia|
    |ativo|Booleano|
-   |displayName|String|
-   |Título|String|
-   |. Value de e-mails [tipo eq "trabalho"]|String|
-   |endereços[tipo eq "trabalho"].país|String|
-   |endereços[tipo eq "trabalho"].região|String|
-   |endereços[tipo eq "trabalho"].localidade|String|
-   |.postalCode endereços [tipo eq "trabalho"]|String|
-   |.streetAddress endereços [tipo eq "trabalho"]|String|
-   |name.givenName|String|
-   |name.familyName|String|
-   |. Value de phoneNumbers [tipo eq "móvel"]|String|
-   |urn:ietf:params:scim:schemas:extens:enterprise:2.0:User:department|String|
+   |displayName|Cadeia|
+   |título|Cadeia|
+   |e-mails[tipo eq "work"].valor|Cadeia|
+   |endereços[tipo eq "trabalho"].país|Cadeia|
+   |endereços[tipo eq "trabalho"].região|Cadeia|
+   |endereços[tipo eq "trabalho"].localidade|Cadeia|
+   |endereços[tipo eq "trabalho"].código postal|Cadeia|
+   |endereços[tipo eq "trabalho"].streetAddress|Cadeia|
+   |nome.dadoNome|Cadeia|
+   |nome.familyName|Cadeia|
+   |telefoneNumbers[tipo eq "mobile"].valor|Cadeia|
+   |urn:ietf:params:scim:schemas:extens:enterprise:2.0:User:department|Cadeia|
    |urn:ietf:params:scim:schemas:extens:enterprise:2.0:User:manager|Referência|
 
 10. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).

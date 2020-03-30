@@ -1,95 +1,95 @@
 ---
-title: Exibir as recomendações do Azure Advisor que são importantes para você
-description: Exiba e filtre as recomendações do Azure Advisor para reduzir o ruído.
+title: Consulte as recomendações do Azure Advisor que lhe interessam
+description: Ver e filtrar as recomendações do Azure Advisor para reduzir o ruído.
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 10d7b16864f8e449dc51e870c5ff9f20d8c0dc87
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75422361"
 ---
-# <a name="view-azure-advisor-recommendations-that-matter-to-you"></a>Exibir as recomendações do Azure Advisor que são importantes para você
+# <a name="view-azure-advisor-recommendations-that-matter-to-you"></a>Consulte as recomendações do Azure Advisor que lhe interessam
 
-O Azure Advisor fornece recomendações para ajudá-lo a otimizar suas implantações do Azure. No Advisor, você tem acesso a alguns recursos que ajudam a restringir suas recomendações apenas às que forem importantes para você.
+O Azure Advisor fornece recomendações para o ajudar a otimizar as suas implementações azure. Dentro do Advisor, tem acesso a algumas funcionalidades que o ajudam a reduzir as suas recomendações apenas para aqueles que lhe interessam.
 
-## <a name="configure-subscriptions-and-resource-groups"></a>Configurar assinaturas e grupos de recursos
+## <a name="configure-subscriptions-and-resource-groups"></a>Configure subscrições e grupos de recursos
 
-O Advisor oferece a capacidade de selecionar assinaturas e grupos de recursos que são importantes para você e sua organização. Você só vê recomendações para as assinaturas e os grupos de recursos que você selecionar. Por padrão, todos são selecionados. As definições de configuração se aplicam à assinatura ou ao grupo de recursos, portanto, as mesmas configurações se aplicam a todos que têm acesso a essa assinatura ou grupo de recursos. As definições de configuração podem ser alteradas no portal do Azure ou de forma programática.
+O Advisor dá-lhe a capacidade de selecionar Subscrições e Grupos de Recursos que sejam importantes para si e para a sua organização. Basta ver recomendações para as subscrições e grupos de recursos que seleciona. Por padrão, todos são selecionados. As definições de configuração aplicam-se ao grupo de subscrição ou recursos, pelo que as mesmas definições se aplicam a todos os que tenham acesso a essa subscrição ou grupo de recursos. As definições de configuração podem ser alteradas no portal Azure ou programáticamente.
 
-Para fazer alterações no portal do Azure:
+Para fazer alterações no portal Azure:
 
-1. Abra o [Azure Advisor](https://aka.ms/azureadvisordashboard) no portal do Azure.
+1. Abra [o Azure Advisor](https://aka.ms/azureadvisordashboard) no portal Azure.
 
-1. Selecione **configuração** no menu.
+1. **Selecione Configuração** do menu.
 
-   ![Menu de configuração do Advisor](./media/view-recommendations/configuration.png)
+   ![Menu de configuração de conselheiro](./media/view-recommendations/configuration.png)
 
-1. Marque a caixa na coluna **incluir** para qualquer assinatura ou grupo de recursos para receber as recomendações do Advisor. Se a caixa estiver desabilitada, talvez você não tenha permissão para fazer uma alteração de configuração nessa assinatura ou grupo de recursos. Saiba mais sobre [as permissões no Azure Advisor](permissions.md).
+1. Verifique a caixa na coluna **Incluir** quaisquer subscrições ou grupos de recursos para receber recomendações do Advisor. Se a caixa estiver desativada, poderá não ter permissão para fazer uma alteração de configuração nessa subscrição ou grupo de recursos. Saiba mais sobre [permissões no Azure Advisor.](permissions.md)
 
-1. Clique em **aplicar** na parte inferior depois de fazer uma alteração.
+1. Clique Em **Aplicar** na parte inferior depois de fazer uma alteração.
 
-## <a name="filtering-your-view-in-the-azure-portal"></a>Filtrando sua exibição no portal do Azure
+## <a name="filtering-your-view-in-the-azure-portal"></a>Filtrando a sua vista no portal Azure
 
-As definições de configuração permanecem ativas até serem alteradas. Se você quiser limitar a exibição de recomendações para uma única exibição, poderá usar os menus suspensos fornecidos na parte superior do painel do Advisor. Na visão geral, alta disponibilidade, segurança, desempenho, custo e todos os painéis de recomendação, você pode selecionar as assinaturas, os tipos de recursos e o status de recomendação que deseja ver.
+As definições de configuração permanecem ativas até ser alteradas. Se pretender limitar a visão das recomendações para uma única visualização, pode utilizar as descidas fornecidas no topo do painel Advisor. A partir da visão geral, alta disponibilidade, segurança, desempenho, custo e todos os painéis de recomendação, pode selecionar as Subscrições, Tipos de Recursos e o estado de recomendação que pretende ver.
 
-   ![Menu de filtragem do Advisor](./media/view-recommendations/filtering.png)
+   ![Menu de filtragem de conselheiro](./media/view-recommendations/filtering.png)
 
-## <a name="dismissing-and-postponing-recommendations"></a>Ignorando e adiando recomendações
+## <a name="dismissing-and-postponing-recommendations"></a>Recomendações de destituição e adiamento
 
-O Azure Advisor permite ignorar ou adiar as recomendações em um único recurso. Se você ignorar uma recomendação, não a verá novamente, a menos que você a ative manualmente. No entanto, adiar uma recomendação permite que você especifique uma duração após a qual a recomendação é automaticamente ativada novamente. A adiação pode ser feita no portal do Azure ou de forma programática.
+O Azure Advisor permite-lhe descartar ou adiar recomendações sobre um único recurso. Se rejeitar uma recomendação, não a verá novamente a menos que a ative manualmente. No entanto, adiar uma recomendação permite especificar uma duração após a qual a recomendação é ativada automaticamente novamente. O adiamento pode ser feito no portal Azure ou programáticamente.
 
-### <a name="postpone-a-single-recommendation-in-the-azure-portal"></a>Adiar uma única recomendação no portal do Azure 
+### <a name="postpone-a-single-recommendation-in-the-azure-portal"></a>Adiar uma única recomendação no portal Azure 
 
-1. Abra o [Azure Advisor](https://aka.ms/azureadvisordashboard) no portal do Azure.
-1. Selecione uma categoria de recomendação para exibir suas recomendações
-1. Selecione uma recomendação na lista de recomendações
-1. Selecione adiar ou ignorar para a recomendação que você deseja adiar ou ignorar
+1. Abra [o Azure Advisor](https://aka.ms/azureadvisordashboard) no portal Azure.
+1. Selecione uma categoria de recomendação para ver as suas recomendações
+1. Selecione uma recomendação da lista de recomendações
+1. Selecione Adiar ou Dispensar a recomendação que pretende adiar ou dispensar
 
-     ![Menu de filtragem do Advisor](./media/view-recommendations/postpone-dismiss.png)
+     ![Menu de filtragem de conselheiro](./media/view-recommendations/postpone-dismiss.png)
 
-### <a name="postpone-or-dismiss-a-multiple-recommendations-in-the-azure-portal"></a>Adiar ou ignorar várias recomendações no portal do Azure
+### <a name="postpone-or-dismiss-a-multiple-recommendations-in-the-azure-portal"></a>Adiar ou rejeitar várias recomendações no portal Azure
 
-1. Abra o [Azure Advisor](https://aka.ms/azureadvisordashboard) no portal do Azure.
-1. Selecione uma categoria de recomendação para exibir suas recomendações.
-1. Selecione uma recomendação na lista de recomendações.
-1. Marque a caixa de seleção à esquerda da linha para todos os recursos que você deseja adiar ou ignorar a recomendação.
-1. Selecione **adiar** ou **ignorar** na parte superior esquerda da tabela.
+1. Abra [o Azure Advisor](https://aka.ms/azureadvisordashboard) no portal Azure.
+1. Selecione uma categoria de recomendação para ver as suas recomendações.
+1. Selecione uma recomendação da lista de recomendações.
+1. Selecione a caixa de verificação à esquerda da fila para todos os recursos que pretende adiar ou rejeitar a recomendação.
+1. Selecione **Adiar** ou **Dispensar** na parte superior esquerda da mesa.
 
-     ![Menu de filtragem do Advisor](./media/view-recommendations/postpone-dismiss-multiple.png)
-
-> [!NOTE]
-> Você precisa de um colaborador ou permissão de proprietário para ignorar ou adiar uma recomendação. Saiba mais sobre as permissões no Azure Advisor.
+     ![Menu de filtragem de conselheiro](./media/view-recommendations/postpone-dismiss-multiple.png)
 
 > [!NOTE]
-> Se as caixas de seleção estiverem desabilitadas, as recomendações ainda poderão ser carregadas. Aguarde até que todas as recomendações sejam carregadas antes de tentar adiar ou ignorar.
+> Precisa de autorização do contribuinte ou do proprietário para rejeitar ou adiar uma recomendação. Saiba mais sobre permissões no Azure Advisor.
 
-### <a name="reactivate-a-postponed-or-dismissed-recommendation"></a>Reativar uma recomendação adiada ou ignorada
+> [!NOTE]
+> Se as caixas de seleção estiverem desativadas, as recomendações podem ainda estar a ser carregadas. Por favor, aguarde que todas as recomendações carreguem antes de tentar adiar ou dispensar.
 
-Você pode ativar uma recomendação que foi adiada ou ignorada. Essa ação pode ser feita no portal do Azure ou de forma programática. No portal do Azure:
+### <a name="reactivate-a-postponed-or-dismissed-recommendation"></a>Reativar uma recomendação adiada ou rejeitada
 
-1. Abra o [Azure Advisor](https://aka.ms/azureadvisordashboard) no portal do Azure.
+Pode ativar uma recomendação que foi adiada ou dispensada. Esta ação pode ser feita no portal Azure ou programáticamente. No portal do Azure:
 
-1. Altere o filtro no painel Visão geral para **adiado**. Em seguida, o Advisor exibe recomendações adiadas ou ignoradas.
+1. Abra [o Azure Advisor](https://aka.ms/azureadvisordashboard) no portal Azure.
 
-    ![Menu de filtragem do Advisor](./media/view-recommendations/activate-postponed.png)
+1. Mude o filtro no painel de visão geral para **adiado**. O conselheiro apresenta então recomendações adiadas ou rejeitadas.
 
-1. Selecione uma categoria para ver as recomendações **adiadas** e **ignoradas** .
+    ![Menu de filtragem de conselheiro](./media/view-recommendations/activate-postponed.png)
 
-1. Selecione uma recomendação na lista de recomendações. Isso abre as recomendações com a guia **adiada & ignorada** já selecionada para mostrar os recursos para os quais essa recomendação foi adiada ou ignorada.
+1. Selecione uma categoria para ver recomendações **adiadas** e **dispensadas.**
 
-1. Clique em **Ativar** no final da linha. Depois de clicado, a recomendação está ativa para esse recurso e, portanto, removida dessa tabela. A recomendação agora está visível na guia **ativa** .
+1. Selecione uma recomendação da lista de recomendações. Isto abre recomendações com o **separador Desconsiderado** & Adiado já selecionado para mostrar os recursos para os quais esta recomendação foi adiada ou descartada.
+
+1. Clique em **Ativar** no final da linha. Uma vez clicado, a recomendação está ativa para esse recurso e assim removida desta tabela. A recomendação é agora visível no separador **Ative.**
  
-     ![Menu de filtragem do Advisor](./media/view-recommendations/activate-postponed-2.png)
+     ![Menu de filtragem de conselheiro](./media/view-recommendations/activate-postponed-2.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este artigo explica como você pode exibir recomendações relevantes para você no Azure Advisor. Para saber mais sobre o Advisor, consulte: 
+Este artigo explica como pode ver recomendações que lhe interessam no Azure Advisor. Para saber mais sobre o Advisor, consulte: 
 
-- [O que é o Azure Advisor?](advisor-overview.md)
-- [Introdução com o Advisor](advisor-get-started.md)
-- [Permissões no Azure Advisor](permissions.md)
+- [O que é o Assistente do Azure?](advisor-overview.md)
+- [Começar com o Advisor](advisor-get-started.md)
+- [Permissões no Consultor Azure](permissions.md)
 
 
 

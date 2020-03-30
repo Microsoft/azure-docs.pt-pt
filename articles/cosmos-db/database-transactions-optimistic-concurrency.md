@@ -1,6 +1,6 @@
 ---
-title: Transações de banco de dados e controle de simultaneidade otimista no Azure Cosmos DB
-description: Este artigo descreve as transações de banco de dados e o controle de simultaneidade otimista no Azure Cosmos DB
+title: Transações de bases de dados e controlo de condivisas otimista saca do Azure Cosmos DB
+description: Este artigo descreve transações de bases de dados e controlo de condivisas otimista saca do Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -8,60 +8,60 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
 ms.openlocfilehash: d453bb4071c4a6972e01b8f7e90375181caf6d01
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74806529"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transações e controlo de simultaneidade otimista
 
-As transações de banco de dados fornecem um modelo de programação seguro e previsível para lidar com alterações simultâneas nos dados. Os bancos de dados relacionais tradicionais, como SQL Server, permitem que você grave a lógica de negócios usando procedimentos armazenados e/ou gatilhos, envie-o para o servidor para execução diretamente no mecanismo de banco de dados. Com os bancos de dados relacionais tradicionais, você precisa lidar com duas linguagens de programação diferentes a linguagem de programação de aplicativo (não transacional), como JavaScript, C#Python, Java, etc., e a linguagem de programação transacional (como T-SQL) que é executada nativamente pelo banco de dados.
+As transações de bases de dados fornecem um modelo de programação seguro e previsível para lidar com alterações simultâneas dos dados. As bases de dados relacionais tradicionais, como o SQL Server, permitem escrever a lógica do negócio utilizando procedimentos armazenados e/ou gatilhos, enviá-la para o servidor para ser executada diretamente dentro do motor de base de dados. Com bases de dados relacionais tradicionais, é-lhe exigido lidar com duas línguas de programação diferentes, a linguagem de programação de aplicações (não transacional), como JavaScript, Python, C#, Java, etc. e a linguagem de programação transacional (como t-SQL) que é executada de forma nativa pela base de dados.
 
-O mecanismo de banco de dados no Azure Cosmos DB dá suporte a transações inteiras em conformidade com ACID (atomicidade, consistência, isolamento, durabilidade) com isolamento de instantâneo. Todas as operações de banco de dados no escopo da [partição lógica](partition-data.md) de um contêiner são executadas de forma transacional no mecanismo de banco de dados hospedado pela réplica da partição. Essas operações incluem gravação (Atualizando um ou mais itens dentro da partição lógica) e operações de leitura. A tabela a seguir ilustra diferentes operações e tipos de transação:
+O motor de base de dados em Azure Cosmos DB suporta transações completas de acid (Atomicity, Consistência, Isolamento, Durabilidade) com isolamento instantâneo. Todas as operações de base de dados no âmbito da [partição lógica](partition-data.md) de um contentor são executadas transacionadamente dentro do motor de base de dados que é alojado pela réplica da divisória. Estas operações incluem tanto a escrita (atualização de um ou mais itens dentro da partição lógica) como as operações de leitura. O quadro seguinte ilustra diferentes operações e tipos de transações:
 
-| **Operação**  | **Tipo de operação** | **Transação de um ou vários itens** |
+| **Operação**  | **Tipo de Operação** | **Transação de itens únicos ou multi** |
 |---------|---------|---------|
-| Inserir (sem um gatilho anterior/pós) | Escrita | Transação de item único |
-| Inserir (com um gatilho anterior/pós) | Gravar e ler | Transação de vários itens |
-| Substituir (sem um gatilho anterior/pós) | Escrita | Transação de item único |
-| Substituir (por um gatilho pre/post) | Gravar e ler | Transação de vários itens |
-| Upsert (sem um gatilho anterior/pós) | Escrita | Transação de item único |
-| Upsert (com um gatilho anterior/pós) | Gravar e ler | Transação de vários itens |
-| Excluir (sem um gatilho anterior/pós) | Escrita | Transação de item único |
-| Excluir (com um gatilho anterior/pós) | Gravar e ler | Transação de vários itens |
-| Executar procedimento armazenado | Gravar e ler | Transação de vários itens |
-| Execução iniciada pelo sistema de um procedimento de mesclagem | Escrita | Transação de vários itens |
-| O sistema iniciou a execução da exclusão de itens com base na expiração (TTL) de um item | Escrita | Transação de vários itens |
+| Inserir (sem um gatilho pré/post) | Escrita | Transação de item único |
+| Inserir (com um gatilho pré/post) | Escrever e Ler | Transação multi-item |
+| Substitua (sem um gatilho pré/post) | Escrita | Transação de item único |
+| Substitua (com um gatilho pré/post) | Escrever e Ler | Transação multi-item |
+| Upsert (sem um gatilho pré/post) | Escrita | Transação de item único |
+| Upsert (com um gatilho pré/post) | Escrever e Ler | Transação multi-item |
+| Eliminar (sem um gatilho pré/post) | Escrita | Transação de item único |
+| Eliminar (com um gatilho pré/post) | Escrever e Ler | Transação multi-item |
+| Executar procedimento armazenado | Escrever e Ler | Transação multi-item |
+| Sistema iniciado execução de um procedimento de fusão | Escrita | Transação multi-item |
+| Sistema iniciado execução de itens de aleting com base na expiração (TTL) de um item | Escrita | Transação multi-item |
 | Leitura | Leitura | Transação de item único |
-| Feed de Alterações | Leitura | Transação de vários itens |
-| Leitura paginada | Leitura | Transação de vários itens |
-| Consulta paginada | Leitura | Transação de vários itens |
-| Executar UDF como parte da consulta paginada | Leitura | Transação de vários itens |
+| Feed de Alterações | Leitura | Transação multi-item |
+| Leitura paginada | Leitura | Transação multi-item |
+| Consulta Paginada | Leitura | Transação multi-item |
+| Executar a UDF como parte da consulta paginada | Leitura | Transação multi-item |
 
-## <a name="multi-item-transactions"></a>Transações de vários itens
+## <a name="multi-item-transactions"></a>Transações multi-item
 
-Azure Cosmos DB permite que você escreva [procedimentos armazenados, gatilhos pre/post, UDFs (funções definidas pelo usuário)](stored-procedures-triggers-udfs.md) e procedimentos de mesclagem em JavaScript. Azure Cosmos DB nativamente dá suporte à execução de JavaScript dentro de seu mecanismo de banco de dados. Você pode registrar procedimentos armazenados, gatilhos pre/post, UDFs (funções definidas pelo usuário) e procedimentos de mesclagem em um contêiner e, posteriormente, executá-los de forma transacional no mecanismo de banco de dados Cosmos do Azure. Gravar a lógica do aplicativo em JavaScript permite a expressão natural do fluxo de controle, o escopo da variável, a atribuição e a integração de primitivos de manipulação de exceção nas transações do banco de dados diretamente na linguagem JavaScript.
+O Azure Cosmos DB permite-lhe escrever [procedimentos armazenados, gatilhos pré/post, funções definidas pelo utilizador (UDFs)](stored-procedures-triggers-udfs.md) e procedimentos de fusão no JavaScript. A Azure Cosmos DB suporta de forma nativa a execução do JavaScript dentro do seu motor de base de dados. Pode registar procedimentos armazenados, gatilhos pré/post, funções definidas pelo utilizador (UDFs) e fundir procedimentos num recipiente e executá-los posteriormente de forma transacional dentro do motor de base de dados Azure Cosmos. A lógica da aplicação de escrita no JavaScript permite a expressão natural do fluxo de controlo, da deteção variável, da atribuição e integração de primitivos de manipulação de exceções dentro das transações de base de dados diretamente na linguagem JavaScript.
 
-Os procedimentos armazenados, gatilhos, UDFs e procedimentos de mesclagem baseados em JavaScript são encapsulados em uma transação ACID ambiente com isolamento de instantâneo em todos os itens dentro da partição lógica. Durante a sua execução, se o programa JavaScript lançar uma exceção, toda a transação será anulada e revertida. O modelo de programação resultante é simples, mas poderoso. Os desenvolvedores de JavaScript obtêm um modelo de programação durável e, ao mesmo tempo, usam suas estruturas de linguagem familiares e primitivos de biblioteca.
+Os procedimentos, gatilhos, UDFs e procedimentos de fusão baseados no JavaScript estão envolvidos numa transação de ACID ambiente com isolamento instantâneo em todos os itens dentro da divisória lógica. Durante a sua execução, se o programa JavaScript lançar uma exceção, toda a transação é abortada e enrolada. O modelo de programação resultante é simples, mas poderoso. Os desenvolvedores javaScript obtêm um modelo de programação durável enquanto ainda usam as suas construções linguísticas familiares e primitivos de biblioteca.
 
-A capacidade de executar o JavaScript diretamente no mecanismo de banco de dados fornece desempenho e execução transacional de operações de banco de dados em relação aos itens de um contêiner. Além disso, como o mecanismo de banco de dados Cosmos do Azure dá suporte nativo a JSON e JavaScript, não há nenhuma incompatibilidade de impedância entre os sistemas de tipos de um aplicativo e o banco de dados.
+A capacidade de executar o JavaScript diretamente dentro do motor de base de dados fornece desempenho e execução transacional de operações de base de dados contra os itens de um recipiente. Além disso, uma vez que o motor de base de dados Azure Cosmos suporta nativamente o JSON e o JavaScript, não existe um desfasamento de impedância entre os sistemas de tipo de uma aplicação e a base de dados.
 
-## <a name="optimistic-concurrency-control"></a>Controle de simultaneidade otimista
+## <a name="optimistic-concurrency-control"></a>Controlo de moeda otimista
 
-O controle de simultaneidade otimista permite que você impeça atualizações e exclusões perdidas. Operações simultâneas e conflitantes estão sujeitas ao bloqueio pessimista regular do mecanismo de banco de dados hospedado pela partição lógica que possui o item. Quando duas operações simultâneas tentam atualizar a versão mais recente de um item em uma partição lógica, uma delas vencerá e a outra falhará. No entanto, se uma ou duas operações tentarem atualizar simultaneamente o mesmo item tiver lido anteriormente um valor mais antigo do item, o banco de dados não saberá se o valor lido anteriormente por uma ou ambas as operações conflitantes era realmente o valor mais recente do item. Felizmente, essa situação pode ser detectada com o **controle de simultaneidade otimista (OCC)** antes de permitir que as duas operações insiram o limite da transação dentro do mecanismo de banco de dados. O OCC protege seus dados contra a substituição acidental de alterações feitas por outras pessoas. Ele também impede que outras pessoas substituam acidentalmente suas próprias alterações.
+O controlo de moeda sinuosa permite evitar atualizações e eliminações perdidas. Operações simultâneas e conflituosas estão sujeitas ao bloqueio pessimista regular do motor de base de dados alojado pela partição lógica que detém o item. Quando duas operações simultâneas tentarem atualizar a versão mais recente de um item dentro de uma divisória lógica, uma delas ganhará e a outra falhará. No entanto, se uma ou duas operações que tentam atualizar simultaneamente o mesmo item tinham lido previamente um valor mais antigo do item, a base de dados não sabe se o valor previamente lido por qualquer uma das operações contraditórias foi, de facto, o valor mais recente do item. Felizmente, esta situação pode ser detetada com o **Optimistic Concurrency Control (OCC)** antes de deixar as duas operações entrarem no limite de transação dentro do motor de base de dados. A OCC protege os seus dados de alterações de sobreposição acidental que foram feitas por outros. Também impede que outros sobreponham acidentalmente as suas próprias alterações.
 
-As atualizações simultâneas de um item estão sujeitas ao OCC pela camada de protocolo de comunicação do Azure Cosmos DB. O banco de dados Cosmos do Azure garante que a versão do lado do cliente do item que você está atualizando (ou excluindo) seja a mesma que a versão do item no contêiner Cosmos do Azure. Isso garante que suas gravações sejam protegidas acidentalmente por gravações de outros e vice-versa. Em um ambiente de vários usuários, o controle de simultaneidade otimista protege você contra acidentalmente exclusão ou atualização de versão incorreta de um item. Dessa forma, os itens são protegidos contra os problemas infamosos de "atualização perdida" ou "exclusão perdida".
+As atualizações simultâneas de um item são submetidas ao OCC pela camada de protocolo de comunicação da Azure Cosmos DB. A base de dados Azure Cosmos garante que a versão do lado do cliente do item que está a atualizar (ou apagando) é a mesma que a versão do item no contentor Azure Cosmos. Isto garante que as suas escritas estão protegidas de serem substituídas acidentalmente pelos escritos de outros e vice-versa. Num ambiente multiutilizador, o controlo de moeda otimista protege-o de apagar ou atualizar acidentalmente a versão errada de um item. Como tal, os itens estão protegidos contra os infames problemas de "atualização perdida" ou "eliminação perdida".
 
-Cada item armazenado em um contêiner Cosmos do Azure tem uma propriedade de `_etag` definida pelo sistema. O valor da `_etag` é gerado automaticamente e atualizado pelo servidor sempre que o item é atualizado. `_etag` pode ser usado com o cabeçalho de solicitação `if-match` fornecido pelo cliente para permitir que o servidor decida se um item pode ser atualizado condicionalmente. O valor do cabeçalho de `if-match` corresponde ao valor do `_etag` no servidor, o item é então atualizado. Se o valor do cabeçalho de solicitação `if-match` não for mais atual, o servidor rejeitará a operação com uma mensagem de resposta "falha na pré-condição HTTP 412". Em seguida, o cliente pode buscar novamente o item para adquirir a versão atual do item no servidor ou substituir a versão do item no servidor pelo seu próprio valor `_etag` para o item. Além disso, `_etag` pode ser usado com o cabeçalho `if-none-match` para determinar se uma rebusca de um recurso é necessária.
+Cada item armazenado num contentor Azure Cosmos `_etag` tem um sistema de propriedade definida. O valor `_etag` do é gerado e atualizado automaticamente pelo servidor sempre que o item é atualizado. `_etag`pode ser usado com `if-match` o cabeçalho de pedido fornecido pelo cliente para permitir que o servidor decida se um item pode ser atualizado condicionalmente. O valor `if-match` do cabeçalho corresponde `_etag` ao valor do servidor, o item é então atualizado. Se o valor `if-match` do cabeçalho de pedido já não estiver atual, o servidor rejeita a operação com uma mensagem de resposta "HTTP 412 Precondition failure". O cliente pode então re-obter o item para adquirir a versão atual do item no servidor `_etag` ou anular a versão do item no servidor com o seu próprio valor para o item. Além `_etag` disso, pode `if-none-match` ser usado com o cabeçalho para determinar se é necessária uma rebusca de um recurso.
 
-O valor `_etag` do item é alterado toda vez que o item é atualizado. Para operações de substituição de item, `if-match` deve ser expressa explicitamente como parte das opções de solicitação. Para obter um exemplo, consulte o código de exemplo no [GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L578-L674). `_etag` valores são verificados implicitamente para todos os itens gravados tocadas pelo procedimento armazenado. Se qualquer conflito for detectado, o procedimento armazenado reverterá a transação e lançará uma exceção. Com esse método, todas ou nenhuma gravação no procedimento armazenado é aplicada atomicamente. Esse é um sinal para o aplicativo reaplicar atualizações e tentar novamente a solicitação original do cliente.
+O valor do `_etag` artigo muda cada vez que o item é atualizado. Para operações de `if-match` substituição do artigo, deve ser explicitamente expressa como parte das opções de pedido. Por exemplo, consulte o código da amostra no [GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L578-L674). `_etag`os valores são verificados implicitamente para todos os itens escritos tocados pelo procedimento armazenado. Se for detetado algum conflito, o procedimento armazenado reverterá a transação e lançará uma exceção. Com este método, todas ou nenhumas escritas dentro do procedimento armazenado são aplicadas atomicamente. Este é um sinal para a aplicação para reaplicar atualizações e rejulgar o pedido original do cliente.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre transações de banco de dados e controle de simultaneidade otimista nos seguintes artigos:
+Saiba mais sobre transações de bases de dados e controlo de moedas otimistas nos seguintes artigos:
 
-- [Trabalhando com bancos de dados, contêineres e itens do Azure Cosmos](databases-containers-items.md)
+- [Trabalhar com bases de dados da Azure Cosmos, contentores e itens](databases-containers-items.md)
 - [Níveis de consistência](consistency-levels.md)
 - [Tipos de conflito e políticas de resolução](conflict-resolution-policies.md)
-- [Procedimentos armazenados, gatilhos e funções definidas pelo usuário](stored-procedures-triggers-udfs.md)
+- [Procedimentos armazenados, gatilhos e funções definidas pelo utilizador](stored-procedures-triggers-udfs.md)

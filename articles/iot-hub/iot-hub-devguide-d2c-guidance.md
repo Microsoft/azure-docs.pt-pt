@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: 02dc1b55d85b7137a5c1f57999cc3b7e9b1efe29
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77591341"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Orientação de comunicações dispositivo-nuvem
@@ -29,7 +29,7 @@ Ao enviar informações da aplicação do dispositivo para a extremidade traseir
 
 Aqui está uma comparação detalhada das várias opções de comunicação dispositivo-nuvem.
 
-|  | Mensagens do dispositivo para a cloud | Propriedades reportadas do dispositivo twin | Carrega o ficheiro |
+|  | Mensagens do dispositivo para a cloud | Propriedades reportadas do dispositivo twin | Uploads de ficheiros |
 | ---- | ------- | ---------- | ---- |
 | Cenário | Telemetria série seleção e alertas. Por exemplo, os lotes de dados de sensores 256-KB enviados a cada 5 minutos. | Capacidades e condições disponíveis. Por exemplo, o atual modo de conectividade do dispositivo, como o telemóvel ou o WiFi. Sincronizar fluxos de trabalho de longo prazo, tais como configurações e atualizações de software. | Ficheiros da imprensa. Lotes de telemetria grandes (tipicamente comprimidos). |
 | Armazenamento e recuperação | Temporariamente armazenado pelo IoT Hub, até 7 dias. Só leitura sequencial. | Armazenado por IoT Hub no dispositivo twin. Recuperável utilizando a [linguagem de consulta IoT Hub](iot-hub-devguide-query-language.md). | Armazenado na conta de Armazenamento Azure fornecida pelo utilizador. |

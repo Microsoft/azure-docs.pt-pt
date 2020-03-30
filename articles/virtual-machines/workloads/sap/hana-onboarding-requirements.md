@@ -14,10 +14,10 @@ ms.date: 01/31/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 141a75a75a214ff4a6f136df7570d6e81f7f4e82
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617008"
 ---
 # <a name="onboarding-requirements"></a>Requisitos de integração
@@ -30,11 +30,11 @@ Esta lista reúne requisitos para executar SAP HANA em Azure (Instâncias Maiore
 - Contrato de suporte da Microsoft Premier. Para obter informações específicas relacionadas com o funcionamento do SAP em Azure, consulte a Nota de [Suporte SAP #2015553 – SAP no Microsoft Azure: Suporte pré-requisitos](https://launchpad.support.sap.com/#/notes/2015553). Se utilizar unidades HANA Large Instance com 384 e mais CPUs, também precisa de alargar o contrato de apoio premier para incluir a Resposta Rápida Azure.
 - Consciência das SKUs de Grande Instância HANA que você precisa depois de realizar um exercício de tamanho com SAP.
 
-**Conectividade da rede**
+**Conectividade de rede**
 
 - ExpressRoute entre as instalações do Azure: Para ligar o seu centro de dados no local ao Azure, certifique-se de encomendar pelo menos uma ligação de 1-Gbps do seu ISP. A conectividade entre as unidades HANA Large Instance e azure também está a usar a tecnologia ExpressRoute. Esta ligação ExpressRoute entre as unidades HANA Large Instance e Azure está incluída no preço das unidades HANA Large Instance, incluindo todos os dados de entrada e taxas de saída para este circuito expressroute específico. Portanto, você, como cliente, não encontrará custos adicionais para além da sua ligação ExpressRoute entre as instalações e o Azure.
 
-**Sistema operativo**
+**Sistema Operativo**
 
 - Licenças para SUSE Linux Enterprise Server 12 para Aplicações SAP.
 
@@ -82,5 +82,5 @@ Para a matriz de compatibilidade do sistema operativo e versões de firmware/con
 - A expectativa é que seja um cliente SAP e tenha um contrato de apoio com a SAP.
 - Especialmente para implementações da classe Tipo II da HANA Large Instance SKUs, consulte a SAP sobre versões do SAP HANA e as configurações eventuais em hardware de grande escala.
 
-**Passos seguintes?**
+**Passos seguintes**
 - Consulte [a arquitetura SAP HANA (Grandes Instâncias) em Azure](hana-architecture.md)

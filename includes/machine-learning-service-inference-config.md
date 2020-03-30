@@ -4,43 +4,20 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 01/28/2020
 ms.author: larryfr
-ms.openlocfilehash: 6970732f53ffa99849e20f279c8bdf4160c30a0a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5102e8f75da14c58e948e81aaa418539dd18869a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845141"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80159421"
 ---
-As entradas no mapa de documentos `inferenceconfig.json` para os parâmetros da classe [InferenceConfig.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) A tabela seguinte descreve o mapeamento entre entidades no documento JSON e os parâmetros para o método:
+As entradas `inferenceconfig.json` no mapa do documento para os parâmetros da classe [InferenceConfig.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) A tabela seguinte descreve o mapeamento entre entidades no documento JSON e os parâmetros para o método:
 
 | Entidade JSON | Parâmetro de método | Descrição |
 | ----- | ----- | ----- |
 | `entryScript` | `entry_script` | Caminho para um ficheiro local que contém o código para correr para a imagem. |
-| `runtime` | `runtime` | Opcional. Qual tempo de execução usar para a imagem. Os tempos de execução suportados são `spark-py` e `python`. Se `environment` for definida, esta entrada é ignorada. |
-| `condaFile` | `conda_file` | Opcional. Caminho para um arquivo local que contém uma definição de ambiente Conda para usar para a imagem.  Se `environment` for definida, esta entrada é ignorada. |
-| `extraDockerFileSteps` | `extra_docker_file_steps` | Opcional. Caminho para um ficheiro local que contém passos adicionais do Docker para executar ao configurar a imagem.  Se `environment` for definida, esta entrada é ignorada.|
 | `sourceDirectory` | `source_directory` | Opcional. Caminho para pastas que contenham todos os ficheiros para criar a imagem, o que facilita o acesso a quaisquer ficheiros dentro desta pasta ou subpasta. Pode fazer o upload de uma pasta inteira da sua máquina local como dependências para o Serviço Web. Nota: os seus caminhos entry_script, conda_file e extra_docker_file_steps são caminhos relativos para o caminho source_directory. |
-| `enableGpu` | `enable_gpu` | Opcional. Se o suporte à GPU deve ser habilitado na imagem. A imagem gpu deve ser utilizada num serviço Azure, como as Instâncias de Contentores Azure. Por exemplo, A Computação de Machine Learning Azure, máquinas virtuais Azure e serviço Azure Kubernetes. O padrão é falso. Se `environment` for definida, esta entrada é ignorada.|
-| `baseImage` | `base_image` | Opcional. Imagem personalizada para ser usada como uma imagem base. Se não for fornecida nenhuma imagem base, a imagem será baseada no parâmetro de tempo de execução fornecido. Se `environment` for definida, esta entrada é ignorada. |
-| `baseImageRegistry` | `base_image_registry` | Opcional. Registro de imagem que contém a imagem base. Se `environment` for definida, esta entrada é ignorada.|
-| `cudaVersion` | `cuda_version` | Opcional. Versão do CUDA a ser instalada para imagens que precisam de suporte à GPU. A imagem da GPU deve ser utilizada num serviço Azure. Por exemplo, Instâncias de Contentores Azure, Computação de Machine Learning Azure, Máquinas Virtuais Azure e Serviço Azure Kubernetes. As versões com suporte são 9,0, 9,1 e 10,0. Se `enable_gpu` estiver definido, o predefinido é de 9.1. Se `environment` for definida, esta entrada é ignorada. |
-| `description` | `description` | Uma descrição para a imagem. Se `environment` for definida, esta entrada é ignorada.  |
 | `environment` | `environment` | Opcional.  Ambiente de [aprendizagem](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)automática azure.|
-
-O jSON seguinte é uma configuração de inferência exemplo para utilização com o CLI:
-
-```json
-{
-    "entryScript": "score.py",
-    "runtime": "python",
-    "condaFile": "myenv.yml",
-    "extraDockerfileSteps": null,
-    "sourceDirectory": null,
-    "enableGpu": false,
-    "baseImage": null,
-    "baseImageRegistry": null
-}
-```
 
 Pode incluir especificações completas de um [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) de aprendizagem automática Azure no ficheiro de configuração de inferência. Se este ambiente não existir no seu espaço de trabalho, o Azure Machine Learning irá criá-lo. Caso contrário, o Azure Machine Learning atualizará o ambiente se necessário. O seguinte JSON é um exemplo:
 

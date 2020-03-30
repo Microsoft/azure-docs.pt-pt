@@ -1,76 +1,75 @@
 ---
-title: Definir configurações de oferta para uma oferta de serviço de consultoria | Azure Marketplace
-description: Defina as configurações de oferta em uma oferta de serviço de consultoria do Azure ou Dynamics 365 no Portal do Cloud Partner para o Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
+title: Defina as definições de oferta para uma oferta de serviço de consultoria [ Mercado Azure
+description: Defina as definições de oferta numa oferta de serviço de consultoria Azure ou Dynamics 365 no Portal do Parceiro cloud para o Mercado Azure.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pabutler
-ms.openlocfilehash: e505f9aa1ec08708b85176d5b05fc5b40ceb295e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: ac7ac2cc049c87b3f619f68a9a93a2268d961114
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818133"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278574"
 ---
 # <a name="offer-settings-tab"></a>Separador Definições de Oferta
 
-Na nova tela de **oferta** , a primeira etapa é criar a identidade da oferta. A identidade da oferta consiste em três partes: **ID da oferta**, ID do **Editor**e **nome**. Cada uma dessas partes é abordada nas seções a seguir.
+No ecrã **New Offer,** o primeiro passo é criar a identidade da oferta. A identidade da oferta é composta por três partes: **ID de oferta,** **ID da editora,** e **nome**. Cada uma destas peças está coberta nas seguintes secções.
 
-![Criar uma nova oferta de serviço de consultoria – guia Configurações de oferta](media/consultingoffer-settings-tab.png)
+![Criar uma nova oferta de serviço de consultoria - Oferta De Definições](media/consultingoffer-settings-tab.png)
 
 
-### <a name="offer-id"></a>ID da oferta *
+### <a name="offer-id"></a>Oferta ID*
 
-Esse identificador é um nome exclusivo que você cria ao enviar pela primeira vez a oferta. Ele deve consistir apenas em caracteres alfanuméricos minúsculos, traços ou sublinhados. A **ID da oferta** é visível na URL e afeta os resultados do mecanismo de pesquisa. Um exemplo é *yourcompanyname_exampleservice*.
+Este identificador é um nome único que se cria quando submete a oferta pela primeira vez. Deve consistir apenas em caracteres alfanuméricos minúsculos, traços ou sublinhados. O **ID da Oferta** é visível no URL e afeta os resultados do motor de busca. Um exemplo é *yourcompanyname_exampleservice.*
 
-Conforme mostrado no exemplo, a **ID da oferta** é anexada à sua ID do editor para criar um identificador exclusivo. Esse identificador exclusivo é exposto como um link permanente que pode ser reservado e indexado pelos mecanismos de pesquisa.
+Como mostra o exemplo, o ID da **Oferta** está anexado ao SEU ID de editor para criar um identificador único. Este identificador único é exposto como um elo permanente que pode ser reservado e é indexado pelos motores de busca.
 
 >[!Note]
->Depois que uma oferta estiver ativa, seu identificador não poderá ser atualizado.
+>Depois de uma oferta ao vivo, o seu identificador não pode ser atualizado.
 
 
-### <a name="publisher-id"></a>ID do Publicador *
+### <a name="publisher-id"></a>ID da editora*
 
-Esse identificador está relacionado à sua conta. Depois de entrar com sua conta institucional, a **ID do editor** aparecerá no menu suspenso.
+Este identificador está relacionado com a sua conta. Depois de iniciar sessão com a sua conta organizacional, o seu **ID** editor aparece no menu suspenso.
 
 
-### <a name="name"></a>Nomes
+### <a name="name"></a>Nome*
 
-Essa cadeia de caracteres é exibida como o nome da oferta em AppSource ou no Azure Marketplace. A caixa **nome** é limitada a 50 caracteres. O revisor pode precisar editar seu título para acrescentar o tipo de duração e oferta ao seu nome de oferta.
+Esta cadeia exibe como nome de oferta no AppSource ou no Azure Marketplace. A caixa **de nomes** está limitada a 50 caracteres. O revisor poderá ter de editar o seu título para anexar a duração e oferecer o tipo de oferta ao seu nome de oferta.
 
-O exemplo a seguir mostra como o nome da oferta é montado. 
+O exemplo que se segue mostra como o nome da oferta é montado. 
 
 ![Criar uma nova oferta de serviço de consultoria](media/cppsampleconsultingoffer.png)
 
-O nome da oferta é composto de quatro partes:
+O nome da oferta é composto por quatro partes:
 
--   **Duração:** Definido na guia **detalhes da vitrine** do editor. A duração pode ser expressa em horas, dias ou semanas.
--   **Tipo de serviço:** Definido na guia **detalhes da vitrine** do editor. Os tipos de serviços são `Assessment`, `Briefing`, `Implementation`, `Proof of concept`e `Workshop`.
--   **Preposição:** Inserido pelo revisor.
--   **Nome:** Definido na página de **configurações da oferta** .
+-   **Duração:** Definido no separador **Storefront Details** do editor. A duração pode ser expressa em horas, dias ou semanas.
+-   **Tipo de serviço:** Definido no separador **Storefront Details** do editor. Os tipos `Assessment`de `Briefing` `Implementation`serviços são, e `Proof of concept` `Workshop`.
+-   **Preposição:** Inserida pelo revisor.
+-   **Nome:** Definido na página Definições de **Oferta.**
 
 >[!Note]
->A caixa **nome** é limitada a 50 caracteres. O revisor pode precisar editar seu título para acrescentar o tipo de duração e oferta ao seu nome de oferta.
+>A caixa **de nomes** está limitada a 50 caracteres. O revisor poderá ter de editar o seu título para anexar a duração e oferecer o tipo de oferta ao seu nome de oferta.
 
-A lista a seguir fornece vários nomes de oferta bem nomeados:
+A seguinte lista fornece vários nomes de ofertabem nomeados:
 
--   Conceitos básicos para serviços profissionais: Resumo de 1 a h
--   Plataforma Migração na Nuvem: Resumo de 1 a HR
+-   Essencial para Serviços Profissionais: Briefing 1-Hr
+-   Plataforma de Migração em Nuvem: Briefing de 1-Hr
 -   PowerApps e Microsoft Flow: Workshop de 1 dia
--   Azure Machine Learning: 3-WK de VDC
--   Brick e clique em solução de varejo: Resumo de 1 a HR
--   Traga seus próprios dados: Workshop 1-WK
--   Análise de nuvem: Workshop de três dias
--   Treinamento de Power BI: Workshop de três dias
--   Solução de gerenciamento de vendas: implementação de 1 semana
--   Início rápido do CRM: Workshop de 1 dia
--   Dynamics 365 para vendas: avaliação de 2 dias
+-   Aprendizagem automática azure: 3-Wk PoC
+-   Brick and Click Retail Solution: 1-Hr Briefing
+-   Traga os seus próprios dados: Workshop 1-Wk
+-   Cloud Analytics: Workshop de 3 dias
+-   Formação Power BI: Workshop de 3 dias
+-   Solução de Gestão de Vendas: Implementação de 1 semana
+-   CRM Quickstart: Workshop de 1 Dia
+-   Dinâmica 365 para Vendas: Avaliação de 2 dias
 
-Depois de preencher a guia **configurações da oferta** , salve o envio. O nome da oferta agora aparece acima do editor e você pode encontrá-lo em **todas as ofertas**.
+Depois de preencher o separador Definições de **Oferta,** guarde a sua submissão. O nome da oferta aparece agora acima do editor, e você pode encontrá-lo em **Todas as Ofertas.**
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora você pode inserir [detalhes da vitrine e determinar se deseja publicar no Azure Marketplace ou em AppSource](./cpp-consulting-service-storefront-details.md).
+Agora pode introduzir [detalhes da montra e determinar se deve publicar no Azure Marketplace ou no AppSource](./cpp-consulting-service-storefront-details.md).

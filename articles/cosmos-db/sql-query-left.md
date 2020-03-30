@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 0eac35a91e4d5158335d6797d49a09f8f6f391e3
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303754"
 ---
 # <a name="left-azure-cosmos-db"></a>ESQUERDA (Azure Cosmos DB)
- Devolve a parte esquerda de uma cadeia com o número especificado de carateres.  
+ Devolve a parte esquerda de uma corda com o número especificado de caracteres.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -33,11 +33,11 @@ LEFT(<str_expr>, <num_expr>)
   
 ## <a name="return-types"></a>Tipos de retorno
   
-  Devolve uma expressão de cadeia.  
+  Devolve uma expressão de corda.  
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte devolve a parte esquerda de "abc" para vários valores de comprimento.  
+  O exemplo seguinte devolve a parte esquerda do "abc" para vários valores de comprimento.  
   
 ```sql
 SELECT LEFT("abc", 1) AS l1, LEFT("abc", 2) AS l2 

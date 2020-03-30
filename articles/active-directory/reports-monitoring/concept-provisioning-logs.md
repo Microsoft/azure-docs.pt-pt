@@ -1,6 +1,6 @@
 ---
-title: Provisionando logs no portal de Azure Active Directory (versão prévia) | Microsoft Docs
-description: Introdução ao provisionamento de relatórios de atividade no portal de Azure Active Directory
+title: Registos de fornecimento no portal de Diretório Ativo Azure (pré-visualização) / Microsoft Docs
+description: Introdução de relatórios de atividades de provisionamento no portal azure Ative Diretório
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,79 +18,79 @@ ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6e0c697f9ab9796feade9b4d5c2a64794f3980b
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73612806"
 ---
-# <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisionando relatórios no portal de Azure Active Directory (versão prévia)
+# <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Relatórios de provisionamento no portal azure ative diretório (pré-visualização)
 
-A arquitetura de relatórios no Azure Active Directory (Azure AD) consiste nos seguintes componentes:
+A arquitetura de reporte em Azure Ative Directory (Azure AD) consiste nos seguintes componentes:
 
 - **Atividade** 
-    - **Entradas** – informações sobre o uso de aplicativos gerenciados e atividades de entrada do usuário.
-    - Os **logs de auditoria** - logs de [auditoria](concept-audit-logs.md) fornecem informações de atividade do sistema sobre gerenciamento de usuários e de grupos, aplicativos gerenciados e atividades de diretório.
-    - **Logs de provisionamento** – forneça a atividade do sistema sobre usuário, grupos e funções que são provisionadas pelo serviço de provisionamento do Azure AD. 
+    - **Iniciars inscrições** – Informação sobre a utilização de aplicações geridas e atividades de sessão de utilizadores.
+    - **Registos de auditoria Registos** - [de auditoria Registos](concept-audit-logs.md) de auditoria fornecem informações sobre a atividade do sistema sobre utilizadores e gestão de grupos, aplicações geridas e atividades de diretório.
+    - **Registos de fornecimento** - Forneça a atividade do sistema sobre utilizadores, grupos e funções que são provisionados pelo serviço de provisionamento da AD Azure. 
 
 - **Segurança** 
-    - **Entradas arriscadas** -uma [entrada arriscada](concept-risky-sign-ins.md) é um indicador de uma tentativa de entrada que pode ter sido executada por alguém que não seja o proprietário legítimo de uma conta de usuário.
-    - **Usuários sinalizados para risco** – um [usuário arriscado](concept-user-at-risk.md) é um indicador para uma conta de usuário que pode ter sido comprometida.
+    - **Inscrições arriscadas** - Um [sinal de inscrição arriscado](concept-risky-sign-ins.md) é um indicador para uma tentativa de inscrição que poderia ter sido realizada por alguém que não é o legítimo proprietário de uma conta de utilizador.
+    - **Utilizadores sinalizados para o risco** - Um [utilizador arriscado](concept-user-at-risk.md) é um indicador para uma conta de utilizador que pode ter sido comprometida.
 
-Este tópico fornece uma visão geral do relatório de provisionamento.
+Este tópico dá-lhe uma visão geral do relatório de prestação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="who-can-access-the-data"></a>Quem pode aceder aos dados?
-* Usuários das funções administrador de segurança, leitor de segurança, leitor de relatórios, administrador de aplicativos e administrador de aplicativos de nuvem
-* Administradores globais
+* Utilizadores nas funções de Administrador de Segurança, Leitor de Segurança, Leitor de Relatórios, Administrador de Aplicações e Administrador de Aplicações em Nuvem
+* Administradores Globais
 
 
-### <a name="what-azure-ad-license-do-you-need-to-access-provisioning-activities"></a>Qual licença do Azure AD você precisa para acessar as atividades de provisionamento?
+### <a name="what-azure-ad-license-do-you-need-to-access-provisioning-activities"></a>Que licença da Azure AD precisa para aceder a atividades de provisionamento?
 
-Seu locatário deve ter uma licença de Azure AD Premium associada a ele para ver o relatório de atividade de provisionamento. Consulte [introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar sua edição do Azure Active Directory. 
+O seu inquilino deve ter uma licença Azure AD Premium associada a ela para ver o relatório de atividades de provisionamento. Ver [Começar com o Azure Ative Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar a sua edição de Diretório Ativo Azure. 
 
 ## <a name="provisioning-logs"></a>Registos de aprovisionamento
 
-Os logs de provisionamento fornecem respostas para as seguintes perguntas:
+Os registos de fornecimento fornecem respostas às seguintes perguntas:
 
-* Quais grupos foram criados com êxito no ServiceNow?
-* Como as funções foram importadas do Amazon Web Services?
-* Quais usuários não foram criados com êxito no DropBox?
+* Que grupos foram criados com sucesso no ServiceNow?
+* Como foram importados os papéis da Amazon Web Services?
+* Que utilizadores foram criados sem sucesso no DropBox?
 
-Você pode acessar os logs de provisionamento selecionando **logs de provisionamento** na seção **monitoramento** da folha **Azure Active Directory** na [portal do Azure](https://portal.azure.com). Pode levar até duas horas para que alguns registros de provisionamento sejam exibidos no Portal.
+Pode aceder aos registos de provisionamento **selecionando Registos** de Provisionamento na secção **de Monitorização** da lâmina **de diretório Ativo Azure** no [portal Azure](https://portal.azure.com). Pode levar até duas horas para alguns registos de provisionamento aparecerem no portal.
 
-![Logs de provisionamento](./media/concept-provisioning-logs/access-provisioning-logs.png "Registos de aprovisionamento")
+![Registos de aprovisionamento](./media/concept-provisioning-logs/access-provisioning-logs.png "Registos de aprovisionamento")
 
 
-Um log de provisionamento tem uma exibição de lista padrão que mostra:
+Um registo de provisionamento tem uma visão de lista padrão que mostra:
 
 - A identidade
 - A ação
 - O sistema de origem
-- O sistema de destino
-- O status
+- O sistema alvo
+- O estado
 - A data
 
 
-![Colunas padrão](./media/concept-provisioning-logs/default-columns.png "Colunas padrão")
+![Colunas predefinidas](./media/concept-provisioning-logs/default-columns.png "Colunas predefinidas")
 
 Pode personalizar a vista de lista ao clicar em **Colunas** na barra de ferramentas.
 
-![Seletor de coluna](./media/concept-provisioning-logs/column-chooser.png "Seletor de coluna")
+![Escolhador de colunas](./media/concept-provisioning-logs/column-chooser.png "Escolhador de colunas")
 
 Isto permite-lhe apresentar campos adicionais ou remover campos que já são apresentados.
 
 ![Colunas disponíveis](./media/concept-provisioning-logs/available-columns.png "Colunas disponíveis")
 
-Selecione um item na exibição de lista para obter informações mais detalhadas.
+Selecione um item na vista da lista para obter informações mais detalhadas.
 
 ![Informações detalhadas](./media/concept-provisioning-logs/steps.png "Filtro")
 
 
-## <a name="filter-provisioning-activities"></a>Filtrar atividades de provisionamento
+## <a name="filter-provisioning-activities"></a>Atividades de fornecimento de filtros
 
-Para restringir os dados relatados a um nível que funciona para você, você pode filtrar os dados de provisionamento usando os campos padrão a seguir. Observe que os valores nos filtros são preenchidos dinamicamente com base em seu locatário. Se, por exemplo, você não tiver nenhum evento de criação em seu locatário, não haverá uma opção de filtro para Create.
+Para reduzir os dados reportados a um nível que funcione para si, pode filtrar os dados de fornecimento utilizando os seguintes campos predefinidos. Note que os valores nos filtros são povoados dinamicamente com base no seu inquilino. Se, por exemplo, não tiver nenhum evento de criação no seu inquilino, não haverá uma opção de filtro para criar.
 
 - Identidade
 - Ação
@@ -100,22 +100,22 @@ Para restringir os dados relatados a um nível que funciona para você, você po
 - Date
 
 
-![Sem](./media/concept-provisioning-logs/filter.png "Filtro")
+![Filtro](./media/concept-provisioning-logs/filter.png "Filtro")
 
-O filtro de **identidade** permite que você especifique o nome ou a identidade sobre a qual você se preocupa. Essa identidade pode ser um usuário, grupo, função ou outro objeto. Você pode Pesquisar pelo nome ou ID do objeto. A ID varia de acordo com o cenário. Por exemplo, ao provisionar um objeto do Azure AD para o SalesForce, a ID de origem é a ID de objeto do usuário no Azure AD, enquanto a TargetId é a ID do usuário no Salesforce. Ao provisionar do WORKDAY para Active Directory, a ID de origem é a ID de funcionário do workday Worker. Observe que o nome do usuário talvez nem sempre esteja presente na coluna de identidade. Sempre haverá uma ID. 
+O filtro **Identidade** permite especificar o nome ou a identidade com que se preocupa. Esta identidade pode ser um utilizador, grupo, papel ou outro objeto. Pode pesquisar pelo nome ou identificação do objeto. A identificação varia de acordo com o cenário. Por exemplo, ao fornecer um objeto da AD Azure para o SalesForce, o ID de origem é o ID de objeto do utilizador em AD Azure enquanto o TargetID é o ID do utilizador na Salesforce. Ao fornecer do Workday para Ative Directy, o ID fonte é o ID do trabalhador do trabalho. Note que o nome do utilizador pode nem sempre estar presente na coluna Identidade. Sempre haverá uma identificação. 
 
-O filtro do **sistema de origem** permite que você especifique onde a identidade está sendo provisionada. Por exemplo, ao provisionar um objeto do Azure AD para o ServiceNow, o sistema de origem é o Azure AD. 
+O filtro **Source System** permite especificar de onde a identidade está a ser disponibilizada. Por exemplo, ao fornecer um objeto de Azure AD para ServiceNow, o sistema Fonte é Azure AD. 
 
-O filtro do **sistema de destino** permite especificar para onde a identidade está sendo provisionada. Por exemplo, ao provisionar um objeto do Azure AD para o ServiceNow, o sistema de destino é ServiceNow. 
+O filtro **Target System** permite especificar para onde a identidade está a ser disponibilizada. Por exemplo, ao fornecer um objeto de Azure AD para ServiceNow, o Sistema alvo é ServiceNow. 
 
-O filtro de **status** permite que você selecione:
+O filtro **'Estado'** permite selecionar:
 
 - Todos
 - Êxito
 - Falha
-- Ignorada
+- Ignorado
 
-O filtro de **ação** permite filtrar o:
+O filtro **Action** permite filtrar o:
 
 - Criar 
 - Atualizar
@@ -132,106 +132,106 @@ Os valores possíveis são:
 - 24 horas
 - Intervalo de tempo personalizado
 
-Ao selecionar um período de tempo personalizado, você pode configurar uma data de início e uma data de término.
+Quando selecionar um prazo personalizado, pode configurar uma data de início e uma data de fim.
 
 
-Além dos campos padrão, quando selecionado, você também pode incluir os seguintes campos em seu filtro:
+Além dos campos predefinidos, quando selecionados, também pode incluir os seguintes campos no seu filtro:
 
-- **ID do trabalho** – uma ID de trabalho exclusiva está associada a cada aplicativo para o qual você habilitou o provisionamento.   
+- **Job ID** - Um ID de trabalho único está associado a cada aplicação que você permitiu o provisionamento.   
 
-- **ID do ciclo** -identifica exclusivamente o ciclo de provisionamento. Você pode compartilhar essa ID para dar suporte à pesquisa do ciclo em que esse evento ocorreu.
+- **ID do ciclo** - Identifica exclusivamente o ciclo de provisionamento. Você pode compartilhar este ID para apoiar para olhar para o ciclo em que este evento ocorreu.
 
-- **ID de alteração** -identificador exclusivo do evento de provisionamento. Você pode compartilhar essa ID para dar suporte à pesquisa do evento de provisionamento.   
+- **Alterar ID** - Identificador único para o evento de provisionamento. Você pode partilhar este ID para apoiar para procurar o evento de provisionamento.   
 
 
 
   
 
-## <a name="provisioning-details"></a>Detalhes de provisionamento 
+## <a name="provisioning-details"></a>Fornecer detalhes 
 
-Ao selecionar um item no modo de exibição de lista de provisionamento, você obtém mais detalhes sobre esse item.
+Ao selecionar um item na vista da lista de fornecimento, obtém mais detalhes sobre este item.
 Os detalhes são agrupados com base nas seguintes categorias:
 
 - Passos
 
-- Solução de problemas e recomendações
+- Resolução de problemas e recomendações
 
 - Propriedades modificadas
 
 - Resumo
 
 
-![Sem](./media/concept-provisioning-logs/provisioning-tabs.png "Temas")
+![Filtro](./media/concept-provisioning-logs/provisioning-tabs.png "Separadores")
 
 
 
 ### <a name="steps"></a>Passos
 
-A guia **etapas** descreve as etapas executadas para provisionar um objeto. O provisionamento de um objeto pode consistir em quatro etapas: 
+O separador **Steps** descreve os passos dados para fornecer um objeto. O fornecimento de um objeto pode consistir em quatro etapas: 
 
-- Importar objeto
-- Determinar se o objeto está no escopo
-- Corresponder objeto entre origem e destino
-- Provisionar objeto (executar ação-pode ser criar, atualizar, excluir ou desabilitar)
-
-
-
-![Sem](./media/concept-provisioning-logs/steps.png "Filtro")
+- Objeto de importação
+- Determine se o objeto está no âmbito
+- Combinar objeto entre fonte e alvo
+- Objeto de provisão (tomar medidas - isto pode ser uma criação, atualização, eliminação ou desativação)
 
 
-### <a name="troubleshoot-and-recommendations"></a>Solução de problemas e recomendações
+
+![Filtro](./media/concept-provisioning-logs/steps.png "Filtro")
 
 
-A guia **solucionar problemas e recomendações** fornece o código de erro e o motivo. As informações de erro só estão disponíveis no caso de uma falha. 
+### <a name="troubleshoot-and-recommendations"></a>Resolução de problemas e recomendações
+
+
+O separador de resolução de **problemas e recomendações** fornece o código de erro e a razão. A informação de erro só está disponível em caso de falha. 
 
 
 ### <a name="modified-properties"></a>Propriedades modificadas
 
-As **propriedades modificadas** mostram o valor antigo e o novo valor. Nos casos em que não há nenhum valor antigo, a coluna valor antigo fica em branco. 
+As **propriedades modificadas** mostram o valor antigo e o novo valor. Nos casos em que não há valor antigo, a antiga coluna de valor está em branco. 
 
 
 ### <a name="summary"></a>Resumo
 
-A guia **Resumo** fornece uma visão geral do que aconteceu e identificadores para o objeto no sistema de origem e de destino. 
+O separador **resumo** fornece uma visão geral do que aconteceu e identifica o objeto no sistema de origem e alvo. 
 
 ## <a name="what-you-should-know"></a>O que deve saber
 
-- O portal do Azure repositórios relataram dados de provisionamento por 30 dias se você tiver uma edição Premium e 7 dias se tiver uma edição gratuita.
+- O portal Azure armazena dados de fornecimento por 30 dias se tiver uma edição premium e 7 dias se tiver uma edição gratuita..
 
-- Você pode usar o atributo ID de alteração como um identificador exclusivo. Isso é, por exemplo, útil ao interagir com o suporte ao produto.
+- Pode utilizar o atributo de Id de alteração como identificador único. Isto é, por exemplo, útil quando interage com o suporte do produto.
 
-- Atualmente, não há nenhuma opção para baixar dados de provisionamento.
+- Atualmente não existe qualquer opção para descarregar dados de fornecimento.
 
-- No momento, não há suporte para o log Analytics.
+- Atualmente não existe suporte para análise de registos.
 
-- Quando você acessa os logs de provisionamento do contexto de um aplicativo, ele não filtra automaticamente os eventos para o aplicativo específico, como faz os logs de auditoria.
+- Ao aceder aos registos de fornecimento a partir do contexto de uma aplicação, não filtra automaticamente os eventos para a aplicação específica como os registos de auditoria fazem.
 
 ## <a name="error-codes"></a>Códigos de Erro
 
-Use a tabela a seguir para entender melhor como resolver erros que podem ser encontrados nos logs de provisionamento. Para quaisquer códigos de erro ausentes, forneça comentários usando o link na parte inferior desta página. 
+Utilize a tabela abaixo para entender melhor como resolver erros que pode encontrar nos registos de fornecimento. Para quaisquer códigos de erro que estejam em falta, forneça feedback utilizando o link na parte inferior desta página. 
 
-|Código de erro|Descrição|
+|Código de Erro|Descrição|
 |---|---|
-|Conflito, EntryConflict|Corrija os valores de atributo conflitantes no Azure AD ou no aplicativo ou revise a configuração de atributo correspondente se a conta de usuário conflitante deveria ser correspondida e assumida. Examine a [documentação](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) a seguir para obter mais informações sobre como configurar atributos correspondentes.|
-|TooManyRequests|O aplicativo de destino rejeitou essa tentativa de atualizar o usuário porque ele está sobrecarregado e recebendo muitas solicitações. Não há nada a fazer. Essa tentativa será desativada automaticamente. A Microsoft também foi notificada desse problema.|
-|InternalServerError |O aplicativo de destino retornou um erro inesperado. Pode haver um problema de serviço com o aplicativo de destino que está impedindo que isso funcione. Essa tentativa será desativada automaticamente em 40 minutos.|
-|InsufficientRights, MethodNotAllowed, não permitido, não autorizado| O Azure AD foi capaz de autenticar com o aplicativo de destino, mas não foi autorizado a executar a atualização. Examine todas as instruções fornecidas pelo aplicativo de destino, bem como o respectivo [tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)de aplicativo.|
-|UnprocessableEntity|O aplicativo de destino retornou uma resposta inesperada. A configuração do aplicativo de destino pode não estar correta, ou pode haver um problema de serviço com o aplicativo de destino que está impedindo que isso funcione.|
-|WebExceptionProtocolError |Ocorreu um erro de protocolo HTTP durante a conexão com o aplicativo de destino. Não há nada a fazer. Essa tentativa será desativada automaticamente em 40 minutos.|
-|InvalidAnchor|Um usuário que foi criado ou correspondido anteriormente pelo serviço de provisionamento não existe mais. Verifique se o usuário existe. Para forçar uma nova correspondência de todos os usuários, use o MS API do Graph para [reiniciar o trabalho](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Observe que a reinicialização do provisionamento disparará um ciclo inicial, o que pode levar tempo para ser concluído. Ele também exclui o cache que o serviço de provisionamento usa para operar, o que significa que todos os usuários e grupos no locatário terão que ser avaliados novamente e determinados eventos de provisionamento poderão ser descartados.|
-|Não implementado | O aplicativo de destino retornou uma resposta inesperada. A configuração do aplicativo pode não estar correta ou pode haver um problema de serviço com o aplicativo de destino que está impedindo que isso funcione. Examine todas as instruções fornecidas pelo aplicativo de destino, bem como o respectivo [tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)de aplicativo. |
-|MandatoryFieldsMissing, MissingValues |Não foi possível criar o usuário porque os valores necessários estão ausentes. Corrija os valores de atributo ausentes no registro de origem ou examine a configuração de atributo correspondente para garantir que os campos obrigatórios não sejam omitidos. [Saiba mais](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) sobre como configurar atributos correspondentes.|
-|SchemaAttributeNotFound |Não foi possível executar a operação porque foi especificado um atributo que não existe no aplicativo de destino. Consulte a [documentação](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) sobre personalização de atributo e verifique se a configuração está correta.|
-|InternalError |Ocorreu um erro de serviço interno no serviço de provisionamento do Azure AD. Não há nada a fazer. Essa tentativa será repetida automaticamente em 40 minutos.|
-|InvalidDomain |A operação não pôde ser executada devido a um valor de atributo que contém um nome de domínio inválido. Atualize o nome de domínio no usuário ou adicione-o à lista de permitidos no aplicativo de destino. |
-|cedido |A operação não pôde ser concluída porque o aplicativo de destino demorou muito tempo para responder. Não há nada a fazer. Essa tentativa será repetida automaticamente em 40 minutos.|
-|LicenseLimitExceeded|Não foi possível criar o usuário no aplicativo de destino porque não há licenças disponíveis para esse usuário. Adquira licenças adicionais para o aplicativo de destino ou examine as atribuições de usuário e a configuração de mapeamento de atributo para garantir que os usuários corretos sejam atribuídos com os atributos corretos.|
-|DuplicateTargetEntries  |A operação não pôde ser concluída porque mais de um usuário no aplicativo de destino foi encontrado com os atributos correspondentes configurados. Remova o usuário duplicado do aplicativo de destino ou RECONFIGURE os mapeamentos de atributo conforme descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
-|DuplicateSourceEntries | A operação não pôde ser concluída porque mais de um usuário foi encontrado com os atributos correspondentes configurados. Remova o usuário duplicado ou RECONFIGURE os mapeamentos de atributo conforme descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
+|Conflito, Conflito de Entrada|Corrija os valores de atributos conflituosos em Azure AD ou na aplicação, ou reveja a configuração do atributo correspondente se a conta de utilizador conflituosa fosse compatível e assumido. Reveja a seguinte [documentação](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) para obter mais informações sobre a configuração de atributos correspondentes.|
+|Pedidos De TooMany|A aplicação alvo rejeitou esta tentativa de atualizar o utilizador porque está sobrecarregado e recebe muitos pedidos. Não há nada a fazer. Esta tentativa será automaticamente retirada. A Microsoft também foi notificada deste problema.|
+|InternalServerError |A aplicação alvo devolveu um erro inesperado. Pode haver um problema de serviço com a aplicação-alvo que está a impedir que isso funcione. Esta tentativa será automaticamente retirada em 40 minutos.|
+|Direitos Insuficientes, MétodoNão Permitido, Não Permitido, Não Autorizado| A Azure AD conseguiu autenticar com a aplicação-alvo, mas não foi autorizada a realizar a atualização. Por favor, reveja quaisquer instruções fornecidas pela aplicação-alvo, bem como o respetivo [tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)de aplicação.|
+|Entidade Não Processável|A aplicação alvo devolveu uma resposta inesperada. A configuração da aplicação-alvo pode não estar correta, ou pode haver um problema de serviço com a aplicação-alvo que está a impedir que isso funcione.|
+|Erro de Protocolo de Exceção web |Ocorreu um erro de protocolo HTTP durante a ligação à aplicação-alvo. Não há nada a fazer. Esta tentativa será automaticamente retirada em 40 minutos.|
+|Âncora Inválida|Um utilizador que tenha sido previamente criado ou acompanhado pelo serviço de provisionamento já não existe. Verifique se o utilizador existe. Para forçar uma recorrespondência de todos os utilizadores, utilize a API do Gráfico MS para reiniciar o [trabalho](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Note que o reinício do fornecimento irá desencadear um ciclo inicial, que pode levar algum tempo a concluir. Também elimina a cache que o serviço de provisionamento utiliza para operar, o que significa que todos os utilizadores e grupos do inquilino terão de ser novamente avaliados e que certos eventos de provisionamento poderão ser eliminados.|
+|Não Implementado | A aplicação alvo devolveu uma resposta inesperada. A configuração da aplicação pode não estar correta, ou pode haver um problema de serviço com a aplicação alvo que está a impedir que isso funcione. Por favor, reveja quaisquer instruções fornecidas pela aplicação-alvo, bem como o respetivo [tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)de aplicação. |
+|Campos Obrigatórios Desaparecidos, Valores Desaparecidos |O utilizador não pôde ser criado porque faltam valores necessários. Corrija os valores de atributo em falta no registo de origem ou reveja a configuração do atributo correspondente para garantir que os campos necessários não são omitidos. [Saiba mais](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) sobre configurar atributos correspondentes.|
+|SchemaAttributeNotFound |Não pôde executar a operação porque foi especificado um atributo que não existe na aplicação-alvo. Consulte a [documentação](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) sobre a personalização do atributo e certifique-se de que a sua configuração está correta.|
+|InternalError |Ocorreu um erro de serviço interno no serviço de provisionamento da AD Azure. Não há nada a fazer. Esta tentativa será automaticamente novamente experimentada em 40 minutos.|
+|Domínio inválido |A operação não pôde ser executada devido a um valor de atributo contendo um nome de domínio inválido. Atualize o nome de domínio no utilizador ou adicione-o à lista permitida na aplicação-alvo. |
+|Tempo limite |A operação não pôde ser concluída porque o pedido-alvo demorou demasiado tempo a responder. Não há nada a fazer. Esta tentativa será automaticamente novamente experimentada em 40 minutos.|
+|LicenciadoLimite Ultrapassado|O utilizador não pôde ser criado na aplicação-alvo porque não existem licenças disponíveis para este utilizador. Ou obtém licenças adicionais para a aplicação alvo, ou revê as atribuições do utilizador e atribui a configuração de mapeamento para garantir que os utilizadores corretos são atribuídos com os atributos corretos.|
+|DuplicarTargetEntries  |A operação não pôde ser concluída porque mais de um utilizador na aplicação-alvo foi encontrado com os atributos de correspondência configurados. Ou remova o utilizador duplicado da aplicação alvo ou reconfigure os mapeamentos do atributo como descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
+|DuplicateSourceEntries | A operação não pôde ser concluída porque mais de um utilizador foi encontrado com os atributos de correspondência configurados. Ou remova o utilizador duplicado ou reconfigure os mapeamentos do atributo como descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Verificar o status do provisionamento do usuário](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)
-* [Problema ao configurar o provisionamento de usuário para um aplicativo da galeria do Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem)
+* [Verifique o estado do fornecimento de utilizadores](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)
+* [Problema de configuração do fornecimento de utilizadores a uma aplicação da Galeria AD Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem)
 
 

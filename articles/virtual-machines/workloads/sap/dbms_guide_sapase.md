@@ -1,5 +1,5 @@
 ---
-title: Implantação dbms das máquinas virtuais SAP ASE Azure para carga de trabalho SAP  SAP ASE Azure Virtual Machines) para carga de trabalho SAP Microsoft Docs
+title: Implantação dbms das máquinas virtuais SAP ASE Azure para carga de trabalho SAP [ SAP ASE Azure Virtual Machines) para carga de trabalho SAP Microsoft Docs
 description: Implementação em SAP ASE do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 02/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 007e8d87c670376ad334c1c4e58fd93995930b78
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616245"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementação em SAP ASE do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
@@ -50,7 +50,7 @@ Lock Pages in Memory é uma definição que impedirá que o tampão de base de d
 
 
 ## <a name="linux-operating-system-specific-settings"></a>Definições específicas do sistema operativo Linux
-Nos VMs Linux, executar `saptune` com perfil SAP-ASE Linux Páginas Enormes devem ser ativados por padrão e podem ser verificados com comando  
+Nos VMs Linux, executar `saptune` com perfil SAP-ASE Linux Páginas Enormes deve ser ativado por padrão e pode ser verificado com comando  
 
 `cat /proc/meminfo` 
 
@@ -61,11 +61,11 @@ O tamanho da página é tipicamente 2048 KB. Para mais detalhes veja o artigo [P
 
 As aplicações SAP ASE para Aplicações SAP NetWeaver são suportadas em qualquer tipo VM listado na [nota de suporte SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533) tipos típicos de VM utilizados para servidores de base de dados SAP ASE de tamanho médio incluem Esv3.  Grandes bases de dados multiterabytes podem alavancar tipos vM da série M. O desempenho de escrita do disco de registo de transação SAP ASE pode ser melhorado permitindo o acelerador de escrita da série M. O Acelerador de Escrita deve ser testado cuidadosamente com a SAP ASE devido à forma como o SAP ASE executa log Writes.  Reveja a nota de [suporte do SAP #2816580](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) e considere executar um teste de desempenho.  
 O Acelerador de Escrita foi concebido apenas para o disco de registo de transações. A cache de nível do disco deve ser definida para NENHUMA. Não se surpreenda se o Acelerador De Escrita Azure não apresentar melhorias semelhantes às de outros DBMS. Com base na forma como a SAP ASE escreve no registo de transações, pode ser que haja pouca ou nenhuma aceleração por parte do Acelerador de Escrita Azure.
-São recomendados discos separados para dispositivos de dados e dispositivos de registo.  As bases de dados do sistema sybsecurity e `saptools` não requerem discos dedicados e podem ser colocadas nos discos que contêm os dados da base de dados SAP e dispositivos de registo 
+São recomendados discos separados para dispositivos de dados e dispositivos de registo.  As bases de dados do `saptools` sistema sybsecurity e não requerem discos dedicados e podem ser colocadas nos discos que contêm os dados da base de dados SAP e dispositivos de registo 
 
 ![Configuração de armazenamento para SAP ASE](./media/dbms-guide-sap-ase/sap-ase-disk-structure.png)
 
-### <a name="file-systems-stripe-size--io-balancing"></a>Sistemas de ficheiros, tamanho de listras e equilíbrio de IO 
+### <a name="file-systems-stripe-size--io-balancing"></a>Sistemas de ficheiros, tamanho de listra& equilíbrio IO 
 A SAP ASE escreve dados sequencialmente em dispositivos de armazenamento de discos, a menos que estejam configurados de outra forma. Isto significa que uma base de dados SAP ASE vazia com quatro dispositivos irá escrever dados apenas no primeiro dispositivo.  Os outros dispositivos de disco só serão escritos quando o primeiro dispositivo estiver cheio.  A quantidade de READ e WRITE IO para cada dispositivo SAP ASE é provável que seja diferente. Para equilibrar o disco IO em todos os discos Azure disponíveis, quer os Espaços de Armazenamento do Windows quer o Linux LVM2 precisam de ser utilizados. No Linux, recomenda-se a utilização do sistema de ficheiros XFS para formatar os discos. O tamanho da risca LVM deve ser testado com um teste de desempenho. 128 KB tamanho de listra é um bom ponto de partida. No Windows, o tamanho da unidade de atribuição ntfs (AUS) deve ser testado. 64 KB pode ser usado como um valor inicial. 
 
 Recomenda-se configurar a expansão automática da base de dados, tal como descrito no artigo Configurando a expansão automática do espaço da base de [dados em SAP Adaptive Server Enterprise](https://blogs.sap.com/2014/07/09/configuring-automatic-database-space-expansion-in-sap-adaptive-server-enterprise/) e nota de suporte [SAP #1815695](https://launchpad.support.sap.com/#/notes/1815695). 
@@ -190,7 +190,7 @@ O Guia de Utilizadores HADR detalha a configuração e configuração de uma sol
 ### <a name="third-node-for-disaster-recovery"></a>Terceiro nó para recuperação de desastres
 Além de utilizar o SAP ASE Always-On para alta disponibilidade local, é melhor que a configuração seja alargada a um nó assíncronamente replicado noutra região do Azure. A documentação para tal cenário pode ser consultada [aqui.](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199)
 
-## <a name="sap-ase-database-encryption--ssl"></a>Encriptação e SSL da base de dados SAP ASE 
+## <a name="sap-ase-database-encryption--ssl"></a>Encriptação da base de dados SAP ASE & SSL 
 O Gestor de Fornecimento de Software SAP (SWPM) está a dar uma opção de encriptar a base de dados durante a instalação.  Se pretender utilizar encriptação, recomenda-se a utilização da encriptação De base de dados completa SAP.  Consulte os detalhes documentados em:
 
 - [Nota de apoio SAP #2556658](https://launchpad.support.sap.com/#/notes/2556658)
@@ -215,23 +215,23 @@ O Gestor de Fornecimento de Software SAP (SWPM) está a dar uma opção de encri
 - Proteja a base de dados com encriptação DB – guarde manualmente as chaves no Cofre de Chaves Azure 
 - Complete o SAP na Lista de [Verificação Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist) 
 - Configure a cópia de segurança de registo e a cópia de segurança completa 
-- Teste HA/DR, cópia de segurança e restauro e efetuar teste de stress e volume 
+- Teste HA/DR, cópia de segurança e restauro e efetuar teste de volume & de stress 
 - Confirmar que a extensão automática da base de dados está a funcionar 
 
 ## <a name="using-dbacockpit-to-monitor-database-instances"></a>Utilização do DBACockpit para monitorizar as instâncias da base de dados
 Para os sistemas SAP, que estão a usar o SAP ASE como plataforma de base de dados, o DBACockpit está acessível como janelas de navegador incorporadas em transação DBACockpit ou como Webdynpro. No entanto, a funcionalidade completa para monitorizar e administrar a base de dados está disponível apenas na implementação webdynpro do DBACockpit.
 
-Tal como acontece com os sistemas no local, são necessários vários passos para permitir a toda a funcionalidade SAP NetWeaver utilizada pela implementação webdynpro do DBACockpit. Siga a nota de [suporte SAP #1245200](https://launchpad.support.sap.com/#/notes/1245200) para permitir a utilização de webdynpros e gerar os necessários. Ao seguir as instruções nas notas acima, configura também o Gestor de Comunicação da Internet (`ICM`), juntamente com as portas a utilizar para ligações http e https. A definição padrão para http parece:
+Tal como acontece com os sistemas no local, são necessários vários passos para permitir a toda a funcionalidade SAP NetWeaver utilizada pela implementação webdynpro do DBACockpit. Siga a nota de [suporte SAP #1245200](https://launchpad.support.sap.com/#/notes/1245200) para permitir a utilização de webdynpros e gerar os necessários. Ao seguir as instruções nas notas acima, configura também`ICM`o Internet Communication Manager ( ) juntamente com as portas a utilizar para ligações http e https. A definição padrão para http parece:
 
 > icm/server_port_0 = PROT=HTTP,PORT=8000,PROCTIMEOUT=600,TIMEOUT=600
 > 
-> icm/server_port_1 = PROT=HTTPS,PORT=443$$,PROCTIMEOUT=600,TIMEOUT=600
+> ICM/server_port_1 = PROT=HTTPS,PORT=443$,PROCTIMEOUT=600,TIMEOUT=600
 > 
 > 
 
 e os links gerados na transação DBACockpit são semelhantes a:
 
-> https:\//\<nome de anfitriões totalmente qualificado>:44300/sap/bc/webdynpro/sap/dba_cockpit
+> https:\//\<nome de anfitrião totalmente qualificado>:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
 > http:\//\<nome de anfitrião totalmente qualificado>:8000/sap/bc/webdynpro/sap/dba_cockpit
 > 
@@ -239,9 +239,9 @@ e os links gerados na transação DBACockpit são semelhantes a:
 
 Dependendo de como a Máquina Virtual Azure que acolhe o sistema SAP está ligada ao seu AD e DNS, você precisa ter certeza de que o ICM está usando um nome de anfitrião totalmente qualificado que pode ser resolvido na máquina de onde está aabrir o DBACockpit. Consulte a nota de [suporte SAP #773830](https://launchpad.support.sap.com/#/notes/773830) para entender como o ICM determina o nome do hospedeiro totalmente qualificado com base em parâmetros de perfil e definir o parâmetro icm/host_name_full explicitamente, se necessário.
 
-Se implementou o VM num cenário só em nuvem sem conectividade transversal entre as instalações e o Azure, tem de definir um endereço IP público e um `domainlabel`. O formato do nome público dNS do VM parece:
+Se implementou o VM num cenário apenas em nuvem sem conectividade transversal entre as instalações e o `domainlabel`Azure, tem de definir um endereço IP público e um . O formato do nome público dNS do VM parece:
 
-> `<custom domainlabel`>.`<azure region`>.cloudapp.azure.com
+> `<custom domainlabel`>. `<azure region`>.cloudapp.azure.com
 > 
 > 
 
@@ -276,11 +276,11 @@ Mais informações sobre o Cockpit dBA para ASE SAP podem ser encontradas nas se
 * [Nota de apoio SAP #1956005](https://launchpad.support.sap.com/#/notes/1956005)
 
 
-## <a name="useful-links-notes--whitepapers-for-sap-ase"></a>Links úteis, notas e whitepapers para ASE SAP
+## <a name="useful-links-notes--whitepapers-for-sap-ase"></a>Links úteis, notas & whitepapers para ASE SAP
 A página inicial da [Sybase ASE 16.3 PL7 Documentação](https://help.sap.com/viewer/product/SAP_ASE/16.0.3.7/en-US) dá links a vários documentos dos quais os documentos de:
 
-- Jornada de Aprendizagem SAP ASE - Administração e Monitorização
-- Jornada de Aprendizagem SAP ASE - Instalação e Upgrade
+- Jornada de Aprendizagem SAP ASE - Administração & Monitorização
+- Jornada de Aprendizagem SAP ASE - Atualização de instalação &
 
 são úteis. Outro documento útil é [aplicações SAP em SAP Adaptive Server Enterprise As Melhores Práticas para Migração e Tempo](https://assets.cdn.sap.com/sapcom/docs/2016/06/26450353-767c-0010-82c7-eda71af511fa.pdf)de Execução .
 

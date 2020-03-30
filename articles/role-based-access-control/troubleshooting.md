@@ -1,6 +1,6 @@
 ---
-title: Resolução de problemas RBAC para os recursos do Azure Microsoft Docs
-description: Problemas de resolução de problemas com controlo de acesso baseado em papéis (RBAC) para recursos Azure.
+title: Resolução de problemas Azure RBAC
+description: Problemas de resolução de problemas com o controlo de acesso baseado em funções azure (Azure RBAC).
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -11,58 +11,87 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 67d624bb81105b8219030c57460b6d7bf7458671
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 8aedc78772858815a18425fb1e6cb36a4600f647
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79245528"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80385100"
 ---
-# <a name="troubleshoot-rbac-for-azure-resources"></a>RBAC de resolução de problemas para recursos Azure
+# <a name="troubleshoot-azure-rbac"></a>Resolução de problemas Azure RBAC
 
-Este artigo responde a perguntas comuns sobre o controlo de acesso baseado em papéis (RBAC) para recursos Azure, para que você saiba o que esperar quando usar as funções no portal Azure e pode resolver problemas de acesso.
+Este artigo responde a algumas questões comuns sobre o controlo de acesso baseado em papéis azure (Azure RBAC), para que você saiba o que esperar quando usar as funções e pode resolver problemas de acesso.
 
-## <a name="problems-with-rbac-role-assignments"></a>Problemas com atribuições de funções do RBAC
+## <a name="azure-role-assignments-limit"></a>Limite de atribuição de funções azure
 
-- Se não conseguir adicionar uma atribuição de funções no portal Azure sobre controlo de **acesso (IAM)** porque a opção de atribuição de **funções** **Add** > Add é desativada ou porque obtém o erro de permissões "O cliente com id de objeto não tem autorização para realizar ação", verifique se está atualmente inscrito com um utilizador que tem uma função que tem a `Microsoft.Authorization/roleAssignments/write` permissão como [Proprietário](built-in-roles.md#owner) ou Administrador de Acesso ao [Utilizador](built-in-roles.md#user-access-administrator) no âmbito que está a tentar atribuir ao papel.
-- Se receber a mensagem de erro "Não podem ser criadas mais atribuições de funções (código: RoleAssignmentLimitExceeded)" quando tentar atribuir uma função, tente reduzir o número de atribuições de funções atribuindo funções a grupos. O Azure suporta até **duas mil** atribuições de funções por subscrição. Este limite de atribuição de funções é fixado e não pode ser aumentado.
+O Azure suporta até **duas mil** atribuições de funções por subscrição. Se receber a mensagem de erro "Não podem ser criadas mais atribuições de funções (código: RoleAssignmentLimitExceeded)" quando tentar atribuir uma função, tente reduzir o número de atribuições de funções na subscrição.
+
+> [!NOTE]
+> O limite de atribuições de funções de **2000** por subscrição é fixado e não pode ser aumentado.
+
+Se está a aproximar-se deste limite, eis algumas formas de reduzir o número de atribuições de papéis:
+
+- Adicione os utilizadores a grupos e atribua funções aos grupos. 
+- Combine múltiplos papéis incorporados com um papel personalizado. 
+- Faça atribuições de funções comuns de âmbito mais elevado, como por exemplo, subscrição ou grupo de gestão.
+- Se tiver O Azure AD Premium P2, faça atribuições de funções elegíveis na [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) em vez de ser permanentemente atribuído. 
+- Adicione uma subscrição adicional. 
+
+Para obter o número de atribuições de funções, pode ver a tabela na página de Controlo de [Acesso (IAM)](role-assignments-list-portal.md#list-number-of-role-assignments) no portal Azure. Também pode utilizar os seguintes comandos Azure PowerShell:
+
+```azurepowershell
+$scope = "/subscriptions/<subscriptionId>"
+$ras = Get-AzRoleAssignment -Scope $scope | Where-Object {$_.scope.StartsWith($scope)}
+$ras.Count
+```
+
+## <a name="problems-with-azure-role-assignments"></a>Problemas com atribuições de papel azure
+
+- Se não conseguir adicionar uma atribuição de funções no portal Azure sobre controlo de **acesso (IAM)** porque a opção de atribuição de**funções** **Add** > Add está desativada ou porque obtém o erro `Microsoft.Authorization/roleAssignments/write` de permissões "O cliente com id de objeto não tem autorização para realizar ação", verifique se está atualmente inscrito com um utilizador que tem uma função que tem a permissão como [Proprietário](built-in-roles.md#owner) ou Administrador de Acesso ao [Utilizador](built-in-roles.md#user-access-administrator) no âmbito que está a tentar atribuir à função.
 
 ## <a name="problems-with-custom-roles"></a>Problemas com funções personalizadas
 
-- Se precisar de passos para criar um papel personalizado, consulte os tutoriais de função personalizada utilizando [o Azure PowerShell](tutorial-custom-role-powershell.md) ou [o Azure CLI](tutorial-custom-role-cli.md).
-- Se não conseguir atualizar uma função personalizada existente, verifique se está atualmente a assinar com um utilizador que tenha uma função que tenha a permissão `Microsoft.Authorization/roleDefinition/write`, como [Proprietário](built-in-roles.md#owner) ou Administrador de Acesso ao [Utilizador.](built-in-roles.md#user-access-administrator)
+- Se precisar de passos para criar um papel personalizado, consulte os tutoriais de função personalizada utilizando o [portal Azure](custom-roles-portal.md) (atualmente em pré-visualização), [Azure PowerShell](tutorial-custom-role-powershell.md), ou [Azure CLI](tutorial-custom-role-cli.md).
+- Se não conseguir atualizar uma função personalizada existente, verifique se está atualmente a assinar com `Microsoft.Authorization/roleDefinition/write` um utilizador que lhe seja atribuída uma função que tenha a permissão, como [Proprietário](built-in-roles.md#owner) ou Administrador de Acesso ao [Utilizador.](built-in-roles.md#user-access-administrator)
 - Se não conseguir apagar uma função personalizada e obter a mensagem de erro "Existem atribuições de funções existentes a referenciar funções (código: RoleDefinitionHasAssignments)", então ainda existem atribuições de funções utilizando a função personalizada. Remova essas atribuições e experimente eliminar a função personalizada novamente.
-- Se receber a mensagem de erro “Limite de definição de função excedido. Não podem ser criadas mais definições de papéis (código: RoleDefinitionLimitExceeded)" quando se tenta criar uma nova função personalizada, eliminar quaisquer funções personalizadas que não estejam a ser utilizadas. Azure suporta até **5000** papéis personalizados em um inquilino. (para clouds especializadas, como o Azure Government, o Azure Alemanha e o Azure China 21Vianet, o limite é de 2000 funções personalizadas).
-- Se tiver um erro semelhante ao "O cliente tem permissão para executar a ação 'Microsoft.Authorization/roleDefinitions/write' no âmbito '/subscrições/{subscrição}', no entanto a subscrição ligada não foi encontrada" quando tenta atualizar uma função personalizada, verifique se um ou mais [âmbitos atribuíveis](role-definitions.md#assignablescopes) foram eliminados no inquilino. Se o âmbito tiver sido eliminado, crie um pedido de suporte, pois não existe nenhuma solução self-service atualmente.
+- Se receber a mensagem de erro “Limite de definição de função excedido. Não podem ser criadas mais definições de papéis (código: RoleDefinitionLimitExceeded)" quando se tenta criar uma nova função personalizada, eliminar quaisquer funções personalizadas que não estejam a ser utilizadas. O Azure suporta até **5000** papéis personalizados num diretório. (Para a Azure Germany e a Azure China 21Vianet, o limite é 2000 funções personalizadas.)
+- Se tiver um erro semelhante ao "O cliente tem permissão para executar a ação 'Microsoft.Authorization/roleDefinitions/write' no âmbito '/subscrições/{subscrição}', no entanto a subscrição ligada não foi encontrada" quando tenta atualizar uma função personalizada, verifique se um ou mais [âmbitos atribuíveis](role-definitions.md#assignablescopes) foram eliminados no diretório. Se o âmbito tiver sido eliminado, crie um pedido de suporte, pois não existe nenhuma solução self-service atualmente.
 
-## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Recuperar o RBAC quando as subscrições são movidas entre inquilinos
+## <a name="custom-roles-and-management-groups"></a>Funções personalizadas e grupos de gestão
 
-- Se precisar de passos para transferir uma subscrição para um inquilino Azure AD diferente, consulte a [propriedade do Transfer de uma subscrição Azure para outra conta](../cost-management-billing/manage/billing-subscription-transfer.md).
-- Se transferir uma subscrição para outro inquilino do Azure AD, todas as atribuições de funções são eliminadas permanentemente do inquilino do Azure AD de origem e não são migradas para o inquilino do Azure AD de destino. Tem de recriar as atribuições de funções no inquilino de destino. Também tem de recriar manualmente identidades geridas para os recursos do Azure. Para mais informações, consulte [faQs e questões conhecidas com identidades geridas](../active-directory/managed-identities-azure-resources/known-issues.md).
-- Se é administrador global da Azure AD e não tem acesso a uma subscrição depois de ter sido transferida entre inquilinos, utilize a **gestão de acesso para recursos Do Azure** para elevar temporariamente o [seu acesso](elevate-access-global-admin.md) para ter acesso à subscrição.
+- Só se pode definir `AssignableScopes` um grupo de gestão com um papel personalizado. A adição de `AssignableScopes` um grupo de gestão está atualmente em pré-visualização.
+- As funções personalizadas não `DataActions` podem ser atribuídas no âmbito do grupo de gestão.
+- O Gestor de Recursos Azure não valida a existência do grupo de gestão no âmbito atribuível da definição de funções.
+- Para obter mais informações sobre papéis personalizados e grupos de gestão, consulte Organizar os seus recursos com grupos de [gestão Azure.](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment)
+
+## <a name="transferring-a-subscription-to-a-different-directory"></a>Transferir uma subscrição para um diretório diferente
+
+- Se precisar de passos para transferir uma subscrição para um diretório Azure AD diferente, consulte a [propriedade do Transfer de uma subscrição Azure para outra conta](../cost-management-billing/manage/billing-subscription-transfer.md).
+- Se transferir uma subscrição para um diretório Azure AD diferente, todas as atribuições de funções são **permanentemente** eliminadas do diretório Azure AD de origem e não são migradas para o diretório Azure AD-alvo. Tens de recriar as tuas atribuições no diretório de alvos. Também tem de recriar manualmente identidades geridas para os recursos do Azure. Para mais informações, consulte [faQs e questões conhecidas com identidades geridas](../active-directory/managed-identities-azure-resources/known-issues.md).
+- Se é administrador global da Azure AD e não tem acesso a uma subscrição depois de ter sido transferida entre diretórios, utilize a **gestão de acesso para recursos Do Azure** para elevar temporariamente o [seu acesso](elevate-access-global-admin.md) para ter acesso à subscrição.
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>Problemas relacionados com administradores ou coadministradores de serviços
 
-- Se tiver problemas com administradores de serviços ou coadministradores, consulte adicionar ou alterar administradores de [subscrição Azure](../cost-management-billing/manage/add-change-subscription-administrator.md) e funções de administrador de [subscrição Classic, funções Azure RBAC e funções de administrador ad.](rbac-and-directory-admin-roles.md)
+- Se tiver problemas com administradores de serviços ou coadministradores, consulte adicionar ou alterar administradores de [subscrição Azure](../cost-management-billing/manage/add-change-subscription-administrator.md) e funções de administrador de [subscrição Classic, funções Azure e administrador aD Azure](rbac-and-directory-admin-roles.md).
 
 ## <a name="access-denied-or-permission-errors"></a>Erros de acesso negados ou de permissão
 
 - Se obtém o erro de permissões "O cliente com id de objeto não tem autorização para realizar ação sobre o âmbito (código: AutorizaçãoFalha)" quando tentar criar um recurso, verifique se está atualmente inscrito com um utilizador que lhe é atribuída uma função que tenha escrito permissão para o recurso no âmbito selecionado. Por exemplo, para gerir máquinas virtuais num grupo de recursos, deve ter a função [Contribuidor de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) no grupo de recursos (ou no âmbito principal). Para obter uma lista das permissões de cada função incorporada, veja [Built-in roles for Azure resources](built-in-roles.md) (Funções incorporadas dos recursos do Azure)
-- Se obtém o erro de permissões "Não tem permissão para criar um pedido de suporte" quando tentar criar ou atualizar um bilhete de suporte, verifique se está atualmente inscrito com um utilizador que tem uma função que tem a `Microsoft.Support/supportTickets/write` permissão, como o Colaborador de Pedido de [Apoio.](built-in-roles.md#support-request-contributor)
+- Se obtém o erro de permissões "Não tem permissão para criar um pedido de suporte" quando tentar criar ou atualizar um bilhete de `Microsoft.Support/supportTickets/write` suporte, verifique se está atualmente inscrito com um utilizador que lhe é atribuída uma função que tenha a permissão, como o Colaborador do Pedido de [Apoio.](built-in-roles.md#support-request-contributor)
 
 ## <a name="role-assignments-with-unknown-security-principal"></a>Atribuições de funções com diretor de segurança desconhecido
 
-Se atribuir uma função a um diretor de segurança (utilizador, grupo, diretor de serviço ou identidade gerida) e, posteriormente, eliminar esse diretor de segurança sem remover a atribuição de funções, o tipo principal de segurança para a atribuição de funções será listado como **Desconhecido**. A imagem que se segue mostra um exemplo no portal Azure. O nome principal de segurança está listado como **Identidade apagada** e identidade já **não existe**. 
+Se atribuir uma função a um diretor de segurança (utilizador, grupo, diretor de serviço ou identidade gerida) e, posteriormente, eliminar esse diretor de segurança sem remover a atribuição de funções, o tipo principal de segurança para a atribuição de funções será listado como **Desconhecido**. A seguinte captura de ecrã mostra um exemplo no portal do Azure. O nome principal de segurança está listado como **Identidade apagada** e identidade já **não existe**. 
 
 ![Grupo de recursos de aplicativos web](./media/troubleshooting/unknown-security-principal.png)
 
-Se listar esta tarefa usando o Azure PowerShell, verá um `DisplayName` vazio e um conjunto de `ObjectType` para Desconhecido. Por exemplo, [a Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) devolve uma atribuição de funções semelhante à seguinte:
+Se listar esta tarefa usando o Azure PowerShell, verá um vazio `DisplayName` e um `ObjectType` conjunto para Desconhecido. Por exemplo, [a Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) devolve uma atribuição de funções semelhante à seguinte:
 
-```azurepowershell
+```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
 Scope              : /subscriptions/11111111-1111-1111-1111-111111111111
 DisplayName        :
@@ -74,9 +103,9 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-Da mesma forma, se listar esta atribuição de funções usando o Azure CLI, verá um `principalName`vazio . Por exemplo, a [lista de atribuição de papéis az](/cli/azure/role/assignment#az-role-assignment-list) devolve uma atribuição de funções semelhante à seguinte:
+Da mesma forma, se listar esta atribuição de funções `principalName`usando o Azure CLI, verá um vazio . Por exemplo, a [lista de atribuição de papéis az](/cli/azure/role/assignment#az-role-assignment-list) devolve uma atribuição de funções semelhante à seguinte:
 
-```azurecli
+```
 {
     "canDelegate": null,
     "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222",
@@ -94,7 +123,7 @@ Não é um problema deixar estas atribuições, mas pode removê-las usando pass
 
 Na PowerShell, se tentar remover as atribuições de funções utilizando o nome de identificação do objeto e definição de papel, e mais do que uma função de atribuição corresponde aos seus parâmetros, receberá a mensagem de erro: "A informação fornecida não mapeia para uma atribuição de funções". O seguinte mostra um exemplo da mensagem de erro:
 
-```Example
+```
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor"
 
 Remove-AzRoleAssignment : The provided information does not map to a role assignment.
@@ -105,15 +134,17 @@ At line:1 char:1
 + FullyQualifiedErrorId : Microsoft.Azure.Commands.Resources.RemoveAzureRoleAssignmentCommand
 ```
 
-Se receber esta mensagem de erro, certifique-se de que também especifica os parâmetros `-Scope` ou `-ResourceGroupName`.
+Se receber esta mensagem de erro, `-Scope` certifique-se de que também especifica os parâmetros ou `-ResourceGroupName` parâmetros.
 
-```Example
+```
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor" - Scope /subscriptions/11111111-1111-1111-1111-111111111111
 ```
 
-## <a name="rbac-changes-are-not-being-detected"></a>Não estão a ser detetadas alterações rBAC
+## <a name="role-assignment-changes-are-not-being-detected"></a>Não estão a ser detetadas alterações na atribuição de funções
 
-O Azure Resource Manager, por vezes, caches configurações e dados para melhorar o desempenho. Ao criar ou eliminar atribuições de papéis, pode levar até 30 minutos para que as alterações entrem em vigor. Se estiver a utilizar o portal Azure, Azure PowerShell ou Azure CLI, pode forçar uma atualização das alterações de atribuição de funções ao iniciar sessão e iniciar sessão. Se estiver a fazer alterações de atribuição de papéis com chamadas REST API, pode forçar uma atualização refrescando o seu token de acesso.
+O Azure Resource Manager, por vezes, caches configurações e dados para melhorar o desempenho. Quando adiciona ou remove as atribuições de funções, pode demorar até 30 minutos para que as alterações entrem em vigor. Se estiver a utilizar o portal Azure, Azure PowerShell ou Azure CLI, pode forçar uma atualização das alterações de atribuição de funções ao iniciar sessão e iniciar sessão. Se estiver a fazer alterações de atribuição de papéis com chamadas REST API, pode forçar uma atualização refrescando o seu token de acesso.
+
+Se você estiver adicionando ou removendo uma atribuição `DataActions`de funções no âmbito do grupo de gestão e a função tiver , o acesso no plano de dados pode não ser atualizado por várias horas. Isto aplica-se apenas ao âmbito do grupo de gestão e ao plano de dados.
 
 ## <a name="web-app-features-that-require-write-access"></a>Funcionalidades da aplicação web que requerem acesso por escrito
 
@@ -149,8 +180,8 @@ Estes itens requerem acesso **por escrito** ao plano do Serviço de **Aplicaçõ
 Estes itens requerem acesso **por escrito** a todo o **grupo Derecursos** que contém o seu website:  
 
 * Certificados e encadernações SSL (os certificados SSL podem ser partilhados entre sites do mesmo grupo de recursos e geolocalização)  
-* Regras de alertas  
-* definições de escala automática  
+* Regras de alerta  
+* Definições de escala automática  
 * Componentes de insights de aplicação  
 * Testes web  
 
@@ -171,13 +202,13 @@ Estes requerem acesso **escrito** tanto à **máquina virtual,** como ao **grupo
 
 * Conjunto de disponibilidade  
 * Conjunto equilibrado de carga  
-* Regras de alertas  
+* Regras de alerta  
 
 Se não conseguir aceder a nenhum destes azulejos, peça ao seu administrador o acesso ao grupo Recursos.
 
 ## <a name="azure-functions-and-write-access"></a>Funções Azure e acesso de escrita
 
-Algumas [funcionalidades das Funções Azure](../azure-functions/functions-overview.md) requerem acesso por escrito. Por exemplo, se um utilizador for atribuído a função [Reader,](built-in-roles.md#reader) não será capaz de visualizar as funções dentro de uma aplicação de função. O portal irá exibir **(sem acesso)** .
+Algumas [funcionalidades das Funções Azure](../azure-functions/functions-overview.md) requerem acesso por escrito. Por exemplo, se um utilizador for atribuído a função [Reader,](built-in-roles.md#reader) não será capaz de visualizar as funções dentro de uma aplicação de função. O portal irá exibir **(sem acesso)**.
 
 ![Aplicativos de função sem acesso](./media/troubleshooting/functionapps-noaccess.png)
 
@@ -188,4 +219,3 @@ Um leitor pode clicar no separador de **funcionalidades** da Plataforma e, em se
 - [Resolução de problemas para utilizadores convidados](role-assignments-external-users.md#troubleshoot)
 - [Manage access to Azure resources using RBAC and the Azure portal](role-assignments-portal.md) (Gerir o acesso a recursos do Azure com RBAC e o portal do Azure)
 - [Ver registos de atividade para alterações rBAC nos recursos do Azure](change-history-report.md)
-

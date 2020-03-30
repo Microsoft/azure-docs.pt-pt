@@ -11,17 +11,17 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 209ed755a7ef83b67170ef75911f93cdda742caa
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 24c0d9955a857e8bbc1e1c09e600031a7541026c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79368201"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80296952"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e utilizar alvos de cálculo para formação de modelos 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Com o Azure Machine Learning, pode treinar o seu modelo numa variedade de recursos ou ambientes, coletivamente referidos como alvos de [__cálculo.__ ](concept-azure-machine-learning-architecture.md#compute-targets) Um alvo computacional pode ser uma máquina local ou um recurso em nuvem, como uma Computação de Aprendizagem automática Azure, Azure HDInsight ou uma máquina virtual remota.  Também pode criar alvos de cálculo para a implementação do modelo, conforme descrito em ["Onde e como implementar os seus modelos".](how-to-deploy-and-where.md)
+Com o Azure Machine Learning, pode treinar o seu modelo numa variedade de recursos ou ambientes, coletivamente referidos como alvos de [__cálculo.__](concept-azure-machine-learning-architecture.md#compute-targets) Um destino de computação pode ser um computador local ou um recurso da cloud, tal como uma Computação do Azure Machine Learning, o Azure HDInsight ou uma máquina virtual remota.  Também pode criar alvos de cálculo para a implementação do modelo, conforme descrito em ["Onde e como implementar os seus modelos".](how-to-deploy-and-where.md)
 
 Pode criar e gerir um alvo de cálculo utilizando a extensão Azure Machine Learning SDK, Azure Machine Learning, Azure CLI ou Azure Machine Learning VS Code. Se tiver alvos de cálculo que foram criados através de outro serviço (por exemplo, um cluster HDInsight), pode usá-los ligando-os ao seu espaço de trabalho Azure Machine Learning.
  
@@ -36,7 +36,7 @@ Neste artigo, aprende-se a usar vários alvos de computação para a formação 
 
 ## <a name="compute-targets-for-training"></a>Metas computadas para a formação
 
-O Azure Machine Learning tem um suporte variado em diferentes alvos de cálculo. Inicia um ciclo de vida de desenvolvimento do modelo típico com dev/experimentação numa pequena quantidade de dados. Nesta fase, recomendamos que utilize um ambiente local. Por exemplo, seu computador local ou uma VM com base na cloud. À medida que aumentar verticalmente o seu treinamento em conjuntos de dados maiores ou fazer o treinamento distribuído, recomendamos que utilize a computação do Azure Machine Learning para criar um cluster único ou vários node que é dimensionado automaticamente sempre que submete uma execução. Também pode anexar seus próprios recursos de computação, embora o suporte para vários cenários podem variar como detalhadas abaixo:
+O Azure Machine Learning tem um suporte variado em diferentes alvos de cálculo. Um ciclo de vida de desenvolvimento de modelotípico começa com dev/experimentação em uma pequena quantidade de dados. Nesta fase, recomendamos a utilização de um ambiente local. Por exemplo, o seu computador local ou um VM baseado em nuvem. À medida que aumenta a sua formação em conjuntos de dados maiores, ou faz treino distribuído, recomendamos a utilização da Azure Machine Learning Compute para criar um cluster de um ou vários nós que se autodimensiona cada vez que submete uma corrida. Também pode anexar o seu próprio recurso computacional, embora o suporte para vários cenários possa variar conforme detalhado abaixo:
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
@@ -76,12 +76,12 @@ Enquanto os gasodutos ML podem treinar modelos, também podem preparar dados ant
 Utilize as secções abaixo para configurar estes objetivos de cálculo:
 
 * [Computador local](#local)
-* [Computação de aprendizagem automática azure](#amlcompute)
+* [Computação do Azure Machine Learning](#amlcompute)
 * [Máquinas virtuais remotas](#vm)
 * [Azure HDInsight](#hdinsight)
 
 
-### <a id="local"></a>Computador local
+### <a name="local-computer"></a><a id="local"></a>Computador local
 
 1. **Criar e anexar**: Não há necessidade de criar ou anexar um alvo de cálculo para usar o computador local como ambiente de treino.  
 
@@ -91,18 +91,18 @@ Utilize as secções abaixo para configurar estes objetivos de cálculo:
 
 Agora que ligou o cálculo e configurou a sua execução, o próximo passo é [submeter o treino.](#submit)
 
-### <a id="amlcompute"></a>Computação de aprendizagem automática azure
+### <a name="azure-machine-learning-compute"></a><a id="amlcompute"></a>Computação do Azure Machine Learning
 
 A Azure Machine Learning Compute é uma infraestrutura de computação gerida que permite ao utilizador criar facilmente uma computação única ou multi-nó. A computação é criada dentro da sua região do espaço de trabalho como um recurso que pode ser partilhado com outros utilizadores no seu espaço de trabalho. O cálculo escala automaticamente quando um trabalho é submetido, e pode ser colocado numa Rede Virtual Azure. O cálculo executa num ambiente contentorizado e embala as dependências do seu modelo num [recipiente Docker](https://www.docker.com/why-docker).
 
-Pode usar a computação do Azure Machine Learning para distribuir o processo de treinamento em clusters de nós de computação de CPU ou de GPU na cloud. Para obter mais informações sobre os tamanhos vm que incluem GPUs, consulte tamanhos de [máquinavirtual otimizadas por GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
+Você pode usar a Azure Machine Learning Compute para distribuir o processo de treino através de um conjunto de nós computacionais CPU ou GPU na nuvem. Para obter mais informações sobre os tamanhos vm que incluem GPUs, consulte tamanhos de [máquinavirtual otimizadas por GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
 
 A Azure Machine Learning Compute tem limites de predefinição, como o número de núcleos que podem ser atribuídos. Para mais informações, consulte [Gerir e solicitar quotas para os recursos do Azure.](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas)
 
 
 Você pode criar um ambiente de computação de Aprendizagem automática Azure a pedido quando você agenda uma corrida, ou como um recurso persistente.
 
-#### <a name="run-based-creation"></a>Criação baseados em execução
+#### <a name="run-based-creation"></a>Criação baseada em corridas
 
 Pode criar a Computação de Aprendizagem automática Azure como alvo de cálculo no tempo de execução. O cálculo é automaticamente criado para a sua execução. O cálculo é apagado automaticamente assim que a execução estiver concluída. 
 
@@ -116,7 +116,7 @@ Pode criar a Computação de Aprendizagem automática Azure como alvo de cálcul
 
 Agora que ligou o cálculo e configurou a sua execução, o próximo passo é [submeter o treino.](#submit)
 
-#### <a id="persistent"></a>Computação persistente
+#### <a name="persistent-compute"></a><a id="persistent"></a>Computação persistente
 
 Uma computação de aprendizagem automática Azure persistente pode ser reutilizada em todos os trabalhos. A computação pode ser partilhada com outros utilizadores no espaço de trabalho e é mantida entre empregos.
 
@@ -139,11 +139,11 @@ Uma computação de aprendizagem automática Azure persistente pode ser reutiliz
 Agora que ligou o cálculo e configurou a sua execução, o próximo passo é [submeter o treino.](#submit)
 
 
-### <a id="vm"></a>Máquinas virtuais remotas
+### <a name="remote-virtual-machines"></a><a id="vm"></a>Máquinas virtuais remotas
 
-O Azure Machine Learning também suporta a colocarem os seus próprios recursos de computação e ligá-la à sua área de trabalho. Um desses recursos é um VM remoto arbitrário, desde que seja acessível a partir de Azure Machine Learning. O recurso pode ser um Azure VM, um servidor remoto na sua organização, ou no local. Especificamente, dado o endereço IP e credenciais (nome de utilizador e palavra-passe, ou chave SSH), pode utilizar qualquer VM acessível para executagens remotas.
+O Azure Machine Learning também suporta trazer o seu próprio recurso computacional e anexá-lo ao seu espaço de trabalho. Um desses recursos é um VM remoto arbitrário, desde que seja acessível a partir de Azure Machine Learning. O recurso pode ser um Azure VM, um servidor remoto na sua organização, ou no local. Especificamente, dado o endereço IP e credenciais (nome de utilizador e palavra-passe, ou chave SSH), pode utilizar qualquer VM acessível para executagens remotas.
 
-Pode utilizar um ambiente de sistema criado conda, um ambiente de Python já existente ou um contentor do Docker. Para executar num contentor do Docker, deve ter um Motor Docker a funcionar na VM. Esta funcionalidade é especialmente útil quando pretender que um ambiente de dev/experimentação mais flexível, com base na cloud que o seu computador local.
+Você pode usar um ambiente de conda construído pelo sistema, um ambiente Python já existente, ou um recipiente Docker. Para executar num contentor do Docker, deve ter um Motor Docker a funcionar na VM. Esta funcionalidade é especialmente útil quando se deseja um ambiente de experimentação/dev/experimentação mais flexível e baseado em nuvem do que a sua máquina local.
 
 Utilize a Máquina Virtual de Ciência de Dados Azure (DSVM) como o Azure VM de eleição para este cenário. Este VM é um ambiente pré-configurado de ciência de dados e desenvolvimento de IA em Azure. O VM oferece uma escolha com curadoria de ferramentas e quadros para o desenvolvimento de machine learning de ciclo completo. Para obter mais informações sobre como utilizar o DSVM com Aprendizagem automática Azure, consulte [Configurar um ambiente](https://docs.microsoft.com/azure/machine-learning/how-to-configure-environment#dsvm)de desenvolvimento .
 
@@ -152,16 +152,16 @@ Utilize a Máquina Virtual de Ciência de Dados Azure (DSVM) como o Azure VM de 
     > [!WARNING]
     > O Azure Machine Learning só suporta máquinas virtuais que executam o Ubuntu. Quando criar um VM ou escolher um VM existente, deve selecionar um VM que utilize Ubuntu.
 
-1. **Anexar**: Para fixar uma máquina virtual existente como alvo de cálculo, deve fornecer o nome de domínio totalmente qualificado (FQDN), nome do utilizador e palavra-passe para a máquina virtual. No exemplo, substitua \<fqdn> com o Público FQDN do VM, ou o endereço IP público. Substitua \<username> e \<password> com o nome de utilizador sSH e palavra-passe para o VM.
+1. **Anexar**: Para fixar uma máquina virtual existente como alvo de cálculo, deve fornecer o nome de domínio totalmente qualificado (FQDN), nome do utilizador e palavra-passe para a máquina virtual. No exemplo, \<substitua a fqdn> pelo FQDN público do VM ou pelo endereço IP público. Substitua \<o \<nome de utilizador> e a palavra-passe> pelo nome de utilizador ssh e palavra-passe para o VM.
 
     > [!IMPORTANT]
-    > As seguintes regiões azure não suportam a fixação de uma máquina virtual utilizando o endereço IP público do VM. Em vez disso, utilize o ID do Gestor de Recursos Azure do VM com o parâmetro `resource_id`:
+    > As seguintes regiões azure não suportam a fixação de uma máquina virtual utilizando o endereço IP público do VM. Em vez disso, utilize o ID do `resource_id` Gestor de Recursos Azure do VM com o parâmetro:
     >
     > * E.U.A Leste
     > * E.U.A. Oeste 2
     > * E.U.A. Centro-Sul
     >
-    > O ID de recurso do VM pode ser construído utilizando o ID de subscrição, o nome do grupo de recursos e o nome VM utilizando o seguinte formato de cadeia: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`.
+    > O ID de recurso do VM pode ser construído utilizando o ID de subscrição, `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`o nome do grupo de recursos e o nome VM utilizando o seguinte formato de cadeia: .
 
 
    ```python
@@ -201,7 +201,7 @@ Utilize a Máquina Virtual de Ciência de Dados Azure (DSVM) como o Azure VM de 
 
 Agora que ligou o cálculo e configurou a sua execução, o próximo passo é [submeter o treino.](#submit)
 
-### <a id="hdinsight"></a>Azure HDInsight 
+### <a name="azure-hdinsight"></a><a id="hdinsight"></a>Azure HDInsight 
 
 O Azure HDInsight é uma plataforma popular para análise de big data. A plataforma fornece Apache Spark, que pode ser usado para treinar o seu modelo.
 
@@ -209,12 +209,12 @@ O Azure HDInsight é uma plataforma popular para análise de big data. A platafo
 
     Quando criar o cluster, deve especificar um nome de utilizador SSH e uma palavra-passe. Tome nota destes valores, pois precisa que eles utilizem o HDInsight como alvo de cálculo.
     
-    Depois de criado o cluster, ligue-se ao nome de anfitrião \<clustername>-ssh.azurehdinsight.net, onde \<clustername> é o nome que forneceu para o cluster. 
+    Depois de criado o cluster, ligue-se ao nome de clustername \<de>-ssh.azurehdinsight.net, onde \<o nome de cluster> é o nome que forneceu para o cluster. 
 
-1. **Anexar:** Para fixar um cluster HDInsight como um alvo de cálculo, deve fornecer o nome de anfitrião, o nome do utilizador e a palavra-passe para o cluster HDInsight. O exemplo seguinte utiliza o SDK para anexar um cluster a sua área de trabalho. No exemplo, substitua \<clustername> com o nome do seu cluster. Substitua \<username> e \<password> com o nome de utilizador sSH e palavra-passe para o cluster.
+1. **Anexar:** Para fixar um cluster HDInsight como um alvo de cálculo, deve fornecer o nome de anfitrião, o nome do utilizador e a palavra-passe para o cluster HDInsight. O exemplo seguinte utiliza o SDK para anexar um cluster ao seu espaço de trabalho. No exemplo, \<substitua o nome de cluster> pelo nome do seu cluster. Substitua \<o \<nome de utilizador> e a palavra-passe> pelo nome de utilizador e palavra-passe do SSH para o cluster.
 
     > [!IMPORTANT]
-    > As seguintes regiões azure não suportam a fixação de um cluster HDInsight utilizando o endereço IP público do cluster. Em vez disso, utilize o ID do Gestor de Recursos Azure do cluster com o parâmetro `resource_id`:
+    > As seguintes regiões azure não suportam a fixação de um cluster HDInsight utilizando o endereço IP público do cluster. Em vez disso, utilize o ID do `resource_id` Gestor de Recursos Azure do cluster com o parâmetro:
     >
     > * E.U.A Leste
     > * E.U.A. Oeste 2
@@ -257,7 +257,7 @@ O Azure HDInsight é uma plataforma popular para análise de big data. A platafo
 Agora que ligou o cálculo e configurou a sua execução, o próximo passo é [submeter o treino.](#submit)
 
 
-### <a id="azbatch"></a>Lote Azure 
+### <a name="azure-batch"></a><a id="azbatch"></a>Azure Batch 
 
 O Lote Azure é utilizado para executar aplicações de computação paralela e de alta performance (HPC) de grande escala na nuvem. O AzureBatchStep pode ser utilizado num pipeline de aprendizagem automática Azure para submeter postos de trabalho a uma piscina de máquinas Azure Batch.
 
@@ -306,14 +306,14 @@ Pode aceder aos alvos da computação que estão associados ao seu espaço de tr
 * [Anexar um alvo de cálculo](#portal-reuse) que foi criado fora do espaço de trabalho
 
 
-Depois de um alvo ser criado e ligado ao seu espaço de trabalho, irá usá-lo na configuração do seu funcionar com um `ComputeTarget` objeto: 
+Depois de um alvo ser criado e ligado ao seu espaço `ComputeTarget` de trabalho, irá usá-lo na configuração do seu funcionar com um objeto: 
 
 ```python
 from azureml.core.compute import ComputeTarget
 myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 ```
 
-### <a id="portal-view"></a>Ver alvos de cálculo
+### <a name="view-compute-targets"></a><a id="portal-view"></a>Ver alvos de cálculo
 
 
 Para ver os alvos da computação para o seu espaço de trabalho, utilize os seguintes passos:
@@ -324,7 +324,7 @@ Para ver os alvos da computação para o seu espaço de trabalho, utilize os seg
 
     [![Ver separador computacional](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
 
-### <a id="portal-create"></a>Criar um alvo de computação
+### <a name="create-a-compute-target"></a><a id="portal-create"></a>Criar um alvo de computação
 
 Siga os passos anteriores para ver a lista de alvos da computação. Em seguida, use estes passos para criar um alvo de cálculo: 
 
@@ -352,7 +352,7 @@ Siga os passos anteriores para ver a lista de alvos da computação. Em seguida,
 
     ![Ver os detalhes do alvo do computador](./media/how-to-set-up-training-targets/compute-target-details.png) 
 
-### <a id="portal-reuse"></a>Anexar alvos de cálculo
+### <a name="attach-compute-targets"></a><a id="portal-reuse"></a>Anexar alvos de cálculo
 
 Para utilizar alvos de cálculo criados fora do espaço de trabalho Azure Machine Learning, deve anexá-los. A fixação de um alvo de cálculo disponibiliza-o ao seu espaço de trabalho.
 
@@ -395,18 +395,18 @@ Para mais informações, consulte [a gestão de Recursos.](reference-azure-machi
 
 Pode aceder, criar e gerir os alvos da computação que estão associados ao seu espaço de trabalho utilizando a [extensão](tutorial-train-deploy-image-classification-model-vscode.md#configure-compute-targets) do Código VS para o Azure Machine Learning.
 
-## <a id="submit"></a>Submeter execução de formação utilizando O SDK de Aprendizagem automática Azure
+## <a name="submit-training-run-using-azure-machine-learning-sdk"></a><a id="submit"></a>Submeter execução de formação utilizando O SDK de Aprendizagem automática Azure
 
 Depois de criar uma configuração de execução, usa-a para executar a sua experiência.  O padrão de código para submeter uma execução de formação é o mesmo para todos os tipos de alvos computacionais:
 
 1. Criar uma experiência para executar
-1. Submeta a execução.
-1. Aguarde a execução concluir.
+1. Submeta a corrida.
+1. Espere que a corrida termine.
 
 > [!IMPORTANT]
 > Quando submete o treino, uma imagem do diretório que contém os seus scripts de treino é criada e enviada para o alvo da computação. Também é armazenado como parte da experiência no seu espaço de trabalho. Se alterar ficheiros e submeter a execução novamente, apenas os ficheiros alterados serão carregados.
 >
-> Para evitar que os ficheiros sejam incluídos no instantâneo, crie um ficheiro [.gitignore](https://git-scm.com/docs/gitignore) ou `.amlignore` no diretório e adicione-lhe os ficheiros. O ficheiro `.amlignore` utiliza a mesma sintaxe e padrões que o ficheiro [.gitignore.](https://git-scm.com/docs/gitignore) Se ambos os ficheiros existirem, o ficheiro `.amlignore` tem precedência.
+> Para evitar que os ficheiros sejam incluídos no `.amlignore` instantâneo, crie um [.gitignore](https://git-scm.com/docs/gitignore) ou ficheiro no diretório e adicione os ficheiros ao mesmo. O `.amlignore` ficheiro utiliza a mesma sintaxe e padrões que o ficheiro [.gitignore.](https://git-scm.com/docs/gitignore) Se ambos os `.amlignore` ficheiros existirem, o ficheiro tem precedência.
 > 
 > Para mais informações, consulte [Snapshots](concept-azure-machine-learning-architecture.md#snapshots).
 
@@ -418,7 +418,7 @@ Primeiro, crie uma experiência no seu espaço de trabalho.
 
 ### <a name="submit-the-experiment"></a>Submeter a experimentação
 
-Submeta a experiência com um objeto `ScriptRunConfig`.  Este objeto inclui o:
+Submeta a `ScriptRunConfig` experiência com um objeto.  Este objeto inclui o:
 
 * **source_directory**: O diretório de origem que contém o seu roteiro de treino
 * **script**: Identificar o script de treino
@@ -433,7 +433,7 @@ Altere a mesma experiência para ser executada num alvo de computação diferent
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=amlcompute_submit)]
 
 > [!TIP]
-> Este exemplo falha a penas que se utilizam apenas um nó do alvo da computação para o treino. Para utilizar mais do que um nó, detete a `node_count` da configuração do funcionar para o número desejado de nós. Por exemplo, o seguinte código define o número de nós utilizados para a formação a quatro:
+> Este exemplo falha a penas que se utilizam apenas um nó do alvo da computação para o treino. Para utilizar mais do que `node_count` um nó, detete a configuração da execução para o número desejado de nós. Por exemplo, o seguinte código define o número de nós utilizados para a formação a quatro:
 >
 > ```python
 > src.run_config.node_count = 4
@@ -441,7 +441,7 @@ Altere a mesma experiência para ser executada num alvo de computação diferent
 
 Ou pode:
 
-* Submeta a experiência com um objeto `Estimator` como mostrado nos [modelos Train ML com estimadores](how-to-train-ml-models.md).
+* Submeta a `Estimator` experiência com um objeto como mostrado nos [modelos Train ML com estimadores](how-to-train-ml-models.md).
 * Submeta uma corrida hyperDrive para [a finação do hiperparâmetro](how-to-tune-hyperparameters.md).
 * Envie uma experiência através da [extensão](tutorial-train-deploy-image-classification-model-vscode.md#train-the-model)do Código VS .
 
@@ -449,7 +449,9 @@ Para mais informações, consulte a documentação [ScriptRunConfig](https://doc
 
 ## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>Criar configuração de execução e submeter execução utilizando o AZURE Machine Learning CLI
 
-Pode utilizar a [extensão CLI](reference-azure-machine-learning-cli.md) [azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e machine learning para criar configurações de execução e submeter execuções em diferentes alvos de computação. Os exemplos seguintes assumem que você tem um espaço de trabalho de aprendizagem automática Azure existente e você entrou em Azure usando `az login` comando CLI. 
+Pode utilizar a [extensão CLI](reference-azure-machine-learning-cli.md) [azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e machine learning para criar configurações de execução e submeter execuções em diferentes alvos de computação. Os exemplos seguintes assumem que você tem um espaço de trabalho de `az login` aprendizagem automática Azure existente e você entrou no Azure usando o comando CLI. 
+
+[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
 
 ### <a name="create-run-configuration"></a>Criar configuração de execução
 
@@ -459,7 +461,7 @@ A forma mais simples de criar a configuração do execução é navegar na pasta
 az ml folder attach
 ```
 
-Este comando cria uma subpasta `.azureml` que contém ficheiros de configuração de execução de modelos para diferentes alvos de cálculo. Pode copiar e editar estes ficheiros para personalizar a sua configuração, por exemplo, para adicionar pacotes Python ou alterar as definições do Docker.  
+Este comando cria `.azureml` uma subpasta que contém ficheiros de configuração de execução de modelos para diferentes alvos de computação. Pode copiar e editar estes ficheiros para personalizar a sua configuração, por exemplo, para adicionar pacotes Python ou alterar as definições do Docker.  
 
 ### <a name="structure-of-run-configuration-file"></a>Estrutura do ficheiro de configuração de execução
 
@@ -522,7 +524,7 @@ az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configur
 
 Note a secção *de argumentos* em runconfig e *espaço parametrómetro* em config HyperDrive. Contêm os argumentos da linha de comando para serem passados para o guião de treino. O valor em runconfig permanece o mesmo para cada iteração, enquanto a gama em Config HyperDrive é iterada. Não especifique o mesmo argumento em ambos os ficheiros.
 
-Para mais detalhes sobre estes comandos ```az ml``` CLI e conjunto completo de argumentos, consulte [a documentação de referência](reference-azure-machine-learning-cli.md).
+Para mais detalhes ```az ml``` sobre estes comandos CLI e conjunto completo de argumentos, consulte [a documentação de referência](reference-azure-machine-learning-cli.md).
 
 <a id="gitintegration"></a>
 
@@ -534,7 +536,7 @@ Quando se inicia uma corrida de formação onde o diretório de origem é um rep
 
 Consulte estes cadernos, por exemplo, de formação com vários alvos de cálculo:
 * [como-usar-azureml/formação](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
-* [tutoriais/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
+* [tutoriais/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: Use um modelo para se juntar a um VM Windows para Azure AD DS  Microsoft Docs
+title: Use um modelo para se juntar a um VM Windows para Azure AD DS [ Microsoft Docs
 description: Aprenda a usar os modelos do Gestor de Recursos Azure para se juntar a um VM de servidor windows novo ou existente para um domínio gerido pelo Azure Ative Directory Domain Services.
 services: active-directory-ds
 author: iainfoulds
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: iainfou
 ms.openlocfilehash: c9b25fe7bc47e05972aebb194e9d94c1ea6dd247
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78298739"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Junte-se a uma máquina virtual do Windows Server para um domínio gerido pelo Azure Ative Directory Services usando um modelo de Gestor de Recursos
@@ -94,7 +94,7 @@ Para criar um VM do Servidor windows, junte-o a um domínio gerido por AD DS azu
     | Prefixo de etiqueta DNS          | Introduza um nome DNS para utilizar para o VM, como *o myvm*. |
     | Tamanho da VM                   | Especifique um tamanho VM, como *Standard_DS2_v2*. |
     | Domínio para aderir            | O nome DNS de domínio gerido pelo Azure AD DS, como *aaddscontoso.com*. |
-    | Nome de utilizador de domínio           | A conta de utilizador no domínio gerido pelo Azure AD DS deve ser utilizada para aderir ao VM ao domínio gerido, como `contosoadmin@aaddscontoso.com`. Esta conta deve fazer parte do domínio gerido pela AD DS azure. |
+    | Nome de utilizador de domínio           | A conta de utilizador no domínio gerido pelo Azure AD DS deve ser utilizada `contosoadmin@aaddscontoso.com`para aderir ao VM ao domínio gerido, como . Esta conta deve fazer parte do domínio gerido pela AD DS azure. |
     | Palavra-passe de domínio           | A palavra-passe para a conta de utilizador especificada na definição anterior. |
     | Caminho opcional da OU          | O OU personalizado para adicionar o VM. Se não especificar um valor para este parâmetro, o VM é adicionado ao *AAD DC Computers* OU padrão. |
     | Nome de utilizador de administrador vm         | Especifique uma conta de administrador local para criar no VM. |
@@ -123,7 +123,7 @@ Para se juntar a um VM de servidor windows existente a um domínio gerido por AD
     | Grupo de recursos            | Escolha o grupo de recursos com o seu VM existente. |
     | Localização                  | Selecione a localização do seu VM existente. |
     | Lista VM                   | Insira a lista separada da vírce dos VM(s) existentes para se juntar ao domínio gerido pela AD DS Azure, como o *myVM1,myVM2 .* |
-    | Nome de utilizador de adesão ao domínio     | A conta de utilizador no domínio gerido pelo Azure AD DS deve ser utilizada para aderir ao VM ao domínio gerido, como `contosoadmin@aaddscontoso.com`. Esta conta deve fazer parte do domínio gerido pela AD DS azure. |
+    | Nome de utilizador de adesão ao domínio     | A conta de utilizador no domínio gerido pelo Azure AD DS deve ser utilizada `contosoadmin@aaddscontoso.com`para aderir ao VM ao domínio gerido, como . Esta conta deve fazer parte do domínio gerido pela AD DS azure. |
     | Domain Join User Password | A palavra-passe para a conta de utilizador especificada na definição anterior. |
     | Caminho opcional da OU          | O OU personalizado para adicionar o VM. Se não especificar um valor para este parâmetro, o VM é adicionado ao *AAD DC Computers* OU padrão. |
 

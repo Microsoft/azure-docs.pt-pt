@@ -10,10 +10,10 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.openlocfilehash: 11fecd875385d8ba044cbe44e2270eed11d61ce1
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77581554"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Quickstart: A bordo do Azure Sentinel
@@ -39,19 +39,19 @@ Depois de ligar as suas fontes de dados, escolha entre uma galeria de livros de 
 - Podem ser necessárias permissões adicionais para ligar fontes de dados específicas.
 - Azure Sentinel é um serviço pago. Para obter informações sobre preços consulte [O Sentinel a ua.](https://go.microsoft.com/fwlink/?linkid=2104058)
  
-## Ativar o Sentinela Azure<a name="enable"></a>
+## <a name="enable-azure-sentinel"></a>Ativar o Sentinela Azure<a name="enable"></a>
 
 1. Inicie sessão no Portal do Azure. Certifique-se de que a subscrição em que o Azure Sentinel é criado é selecionada.
 
 1. Procure e selecione **Azure Sentinel**.
 
-   ![pesquisa](./media/quickstart-onboard/search-product.png)
+   ![pesquisar](./media/quickstart-onboard/search-product.png)
 
 1. Selecione **Adicionar**.
 
 1. Selecione o espaço de trabalho que pretende utilizar ou crie um novo. Pode executar o Azure Sentinel em mais de um espaço de trabalho, mas os dados estão isolados num único espaço de trabalho.
 
-   ![pesquisa](./media/quickstart-onboard/choose-workspace.png)
+   ![pesquisar](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
    > - Os espaços de trabalho por defeito criados pelo Azure Security Center não constam da lista; não se pode instalar o Azure Sentinel neles.

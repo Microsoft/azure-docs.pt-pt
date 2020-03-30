@@ -4,12 +4,12 @@ description: Este artigo descreve como usar o Backup Explorer para realizar a mo
 ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: b65f68e33b53dff341ee72f6b9e9f42e344c49b1
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: fa30a061dfe0d9f7721bd2405280f8a01bea87fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77149581"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131797"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Monitorize as suas cópias de segurança com o Backup Explorer
 
@@ -26,6 +26,7 @@ Estas capacidades são fornecidas fora da caixa por integração nativa com o Az
 > [!NOTE]
 > * O Backup Explorer está atualmente disponível apenas para dados de máquinas virtuais Azure (VMs).
 > * O Backup Explorer destina-se a ser um dashboard operacional para visualizar informações sobre as suas cópias de segurança nos últimos 7 dias (máximo).
+> * O Backup Explorer não é atualmente suportado nas nuvens nacionais.
 > * Atualmente, personalizar o modelo do Explorador de Backup não é suportado. 
 > * Não recomendamos a escrita de automatizações personalizadas em dados do Azure Resource Graph.
 
@@ -87,7 +88,7 @@ O painel **de backup não ativado** exibe uma tabela com uma lista de máquinas 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nQXZ]
 
-## <a name="export-to-excel"></a>Exportação para Excel
+## <a name="export-to-excel"></a>Exportar para o Excel
 
 Pode exportar o conteúdo de qualquer tabela ou gráfico como uma folha de cálculo do Excel. Os conteúdos são exportados tal como estão, com os filtros existentes aplicados. Para exportar linhas de mesa adicionais, pode aumentar o número de linhas a serem exibidas na página utilizando a lista de down-down **Rows Per Page** no topo de cada separador.
 

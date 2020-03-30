@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure ServiceNow para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+title: 'Tutorial: Configure ServiceNow para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
 description: Aprenda a fornecer e desfornecer automaticamente contas de utilizador de Azure AD para ServiceNow.
 services: active-directory
 documentationCenter: na
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 9e93d4b3f1880f2ac56a32a7b85aa6801fb7c14e
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78205114"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutorial: Configure ServiceNow para fornecimento automático de utilizadores
@@ -80,7 +80,7 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
 
 ### <a name="to-configure-automatic-user-provisioning-for-servicenow-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para o ServiceNow em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
@@ -137,7 +137,7 @@ Depois de configurar o fornecimento, utilize os seguintes recursos para monitori
 2. Verifique a barra de [progresso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de provisionamento e quão perto está da conclusão
 3. Se a configuração do fornecimento parecer estar num estado pouco saudável, a aplicação entrará em quarentena. Saiba mais sobre estados de quarentena [aqui.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)  
 
-## <a name="troubleshooting-tips"></a>Dicas de resolução de problemas
+## <a name="troubleshooting-tips"></a>Sugestões de Resolução de Problemas
 * **InvalidLookupReference:** Ao fornecer certos atributos, como Department and Location in ServiceNow, os valores já devem existir numa tabela de referência no ServiceNow. Por exemplo, você pode ter duas localizações (Seattle, Los Angeles) e três departamentos (Vendas, Finanças, Marketing) na tabela de nomes de mesa de **inserção** no ServiceNow. Se tentar fornecer um utilizador onde o seu departamento é "Sales" e a localização for "Seattle" ele será provisionado com sucesso. Se tentar fornecer a um utilizador com "Vendas" e localização "LA" o utilizador não será provisionado. A localização LA deve ser adicionada à tabela de referência no ServiceNow ou o atributo do utilizador em Azure AD deve ser atualizado para corresponder ao formato no ServiceNow. 
 * **EntryJoiningPropertyValueIs Missing:** Reveja os [mapeamentos](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) do atributo para identificar o atributo correspondente. Este valor deve estar presente no utilizador ou grupo que está a tentar fornecer. 
 * Reveja a [API serviceNow SOAP](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) para compreender quaisquer requisitos ou limitações (por exemplo, formato para especificar código de país para um utilizador)

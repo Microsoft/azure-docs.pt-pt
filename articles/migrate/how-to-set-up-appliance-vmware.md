@@ -2,37 +2,34 @@
 title: Instale um aparelho Azure Migrate para VMware
 description: Aprenda a configurar um aparelho Azure Migrate para avaliar e migrar VMware VMware VMs.
 ms.topic: article
-ms.date: 11/18/2019
-ms.openlocfilehash: e331d45d3e87f8007642675a0349839e7494958c
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.date: 03/23/2020
+ms.openlocfilehash: 7a7d0007d2824abc781411f9529f9fa4ac89e55c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598158"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336783"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurar um aparelho para VMware VMs
 
-Este artigo descreve como configurar o aparelho Azure Migrate se estiver a avaliar vMware VMs com a ferramenta de avaliação do servidor de migração Azure, ou vMs migratórios para Azure com migração sem agente usando a ferramenta de migração do servidor migratório Azure Migrate.
+Este artigo descreve como configurar o aparelho Migratório Azure para avaliação com a ferramenta De avaliação de [migração de emigração Azure e](migrate-services-overview.md#azure-migrate-server-assessment-tool) para migração sem agente utilizando a ferramenta de [migração Azure Migrate:Server.](migrate-services-overview.md#azure-migrate-server-migration-tool)
 
-O aparelho VMware VM é um aparelho leve utilizado pela Azure Migrate Server Assessment/Migration para fazer o seguinte:
+O [aparelho Azure Migrate](migrate-appliance.md) é um aparelho leve utilizado pela Azure Migrate:Server Assessment e Server Migration para descobrir VMware VMware no local, enviar metadados/dados de desempenho VM para o Azure e para replicação de VMware VMware VMware durante a migração sem agente.
 
-- detete VMs VMware no local.
-- Envie metadados e dados de desempenho para VMs descobertos para A Avaliação/Migração do Servidor Migratório Azure.
-
-[Saiba mais](migrate-appliance.md) sobre o aparelho Azure Migrate.
+Pode configurar o aparelho Azure Migrate para avaliação VMware VM utilizando um modelo OVA que descarrega ou utilizando um script de instalação PowerShell. Este artigo descreve como configurar o aparelho utilizando o modelo OVA. Se pretender configurar o aparelho utilizando o script, siga as instruções [deste artigo](deploy-appliance-script.md).
 
 
-## <a name="appliance-deployment-steps"></a>Passos de implantação de aparelhos
+## <a name="appliance-deployment-ova"></a>Implantação de aparelhos (OVA)
 
-Para configurar o aparelho:
+Para configurar o aparelho utilizando um modelo OVA:
 - Descarregue um ficheiro de modelo OVA e importe-o para vCenter Server.
 - Crie o aparelho e verifique se pode ligar-se à Avaliação do Servidor Migratório Azure.
 - Configure o aparelho pela primeira vez e registe-o com o projeto Azure Migrate.
 
 ## <a name="download-the-ova-template"></a>Descarregue o modelo OVA
 
-1. Em **Objetivos de Migração** > **servidores** > **Azure Migrate: Avaliação do servidor,** clique **em Descobrir**.
-2. Nos **Descobrir computadores** > **Os computadores estão virtualizados?** , clique **Sim, com o hipervisor VMware vSphere**.
+1. Em **Objetivos** > de Migração**Servidores** > **Azure Migrar: Avaliação do servidor,** clique **em Descobrir**.
+2. Em **Discover machines** > **As suas máquinas estão virtualizadas?** **Yes, with VMWare vSphere hypervisor**
 3. Clique em **Transferir** para transferir o ficheiro de modelo .OVA.
 
   ![Seleções para descarregar um ficheiro OVA](./media/tutorial-assess-vmware/download-ova.png)
@@ -53,10 +50,10 @@ Verifique se o ficheiro OVA está seguro, antes de o implementar.
 
 Importe o ficheiro descarregado e crie um VM.
 
-1. Na consola do vSphere Client, clique em **Ficheiro** > **Implementar Modelo OVF**.
-comando de menu ![para a implementação de um modelo OVF](./media/tutorial-assess-vmware/deploy-ovf.png)
+1. Na consola do cliente vSphere, clique em Modelo**OVF de implementação**de **ficheiros** > .
+![Comando de menu para implantação de um modelo OVF](./media/tutorial-assess-vmware/deploy-ovf.png)
 
-2. No modelo de implantação do MODELO OVF Assistente > **Fonte,** especifique a localização do ficheiro OVA.
+2. No assistente de modelo de implante OVF > **Fonte,** especifique a localização do ficheiro OVA.
 3. Em **Nome** e **Localização,** especifique um nome amigável para o VM. Selecione o objeto de inventário no qual o VM será hospedado.
 5. No **hospedeiro/cluster,** especifique o hospedeiro ou o cluster em que o VM irá funcionar.
 6. No **Armazenamento,** especifique o destino de armazenamento para o VM.
@@ -72,7 +69,7 @@ Certifique-se de que o VM do aparelho pode ligar-se a [URLs Azure](migrate-appli
 
 ## <a name="configure-the-appliance"></a>Configure o aparelho
 
-Instale o aparelho pela primeira vez.
+Instale o aparelho pela primeira vez. Se colocar o aparelho utilizando um script em vez de um modelo OVA, os dois primeiros passos do procedimento não são aplicáveis.
 
 1. Na consola do vSphere Client, clique com o botão direito do rato na VM > **Abrir Consola**.
 2. Forneça o idioma, o fuso horário e a palavra-passe para o aparelho.
@@ -82,7 +79,7 @@ Instale o aparelho pela primeira vez.
 4. Na aplicação web > **Configurar pré-requisitos,** faça o seguinte:
     - **Licença**: Aceite os termos da licença e leia as informações de terceiros.
     - **Conectividade**: A aplicação verifica se o VM tem acesso à Internet. Se o VM utilizar um proxy:
-        - Clique em **definições proxy**, e especifique o endereço proxy e a porta de escuta, sob a forma http://ProxyIPAddress ou http://ProxyFQDN.
+        - Clique em **definições proxy**, e especifique o endereço proxy e a porta de escuta, no formulário http://ProxyIPAddress ou http://ProxyFQDN.
         - Especifique as credenciais se o proxy precisar de autenticação.
         - Apenas é suportado o proxy HTTP.
     - **Sincronização de tempo**: O tempo é verificado. O tempo no aparelho deve estar sincronizado com o tempo de internet para que a descoberta funcione corretamente.
@@ -109,7 +106,7 @@ O aparelho precisa de se ligar ao VCenter Server para descobrir os dados de conf
 
 ### <a name="specify-vcenter-server-details"></a>Especificar detalhes do vCenter Server
 1. Em especificar os detalhes do **servidor vCenter,** especifique o nome (FQDN) ou o endereço IP do servidor vCenter. Pode deixar a porta predefinida ou especificar uma porta personalizada na qual o seu vCenter Server ouve.
-2. No **nome do utilizador** e na **palavra-passe,** especifique as credenciais de conta apenas de leitura que o aparelho utilizará para descobrir VMs no servidor vCenter. Pode analisar a descoberta limitando o acesso à conta vCenter em conformidade; saiba mais sobre a descoberta de scoping [aqui.](tutorial-assess-vmware.md#set-the-scope-of-discovery)
+2. No **nome do utilizador** e na **palavra-passe,** especifique as credenciais de conta apenas de leitura que o aparelho utilizará para descobrir VMs no servidor vCenter. Pode analisar a descoberta limitando o acesso à conta vCenter. [Saiba mais](set-discovery-scope.md).
 3. Clique em **relação validar** a ligação para se certificar de que o aparelho pode ligar-se ao VCenter Server.
 
 ### <a name="specify-vm-credentials"></a>Especificar credenciais VM

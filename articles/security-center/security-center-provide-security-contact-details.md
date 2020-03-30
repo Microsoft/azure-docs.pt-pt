@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2019
 ms.author: memildin
-ms.openlocfilehash: c591dc1efc3b64b0f926e95c14cff681dbcdf957
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
-ms.translationtype: HT
+ms.openlocfilehash: 64a9600a3014f7e85a7f924d38882bfadaf631db
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385015"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387823"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Forneça detalhes de contacto de segurança no Centro de Segurança Azure
 O Centro de Segurança do Azure recomendará que forneça os detalhes de contacto de segurança para a subscrição do Azure, caso ainda não o tenha feito. A Microsoft irá utilizar estas informações para o contactar se o Microsoft Security Response Center (MSRC) detetar que os seus dados de cliente foram acedidos de forma ilícita ou não autorizada. O MSRC realiza uma monitorização de segurança selecionada da rede e da infraestrutura do Azure e recebe informações sobre ameaças e reclamações de abuso de terceiros.
@@ -43,16 +43,19 @@ Por exemplo, se uma mensagem de e-mail já tiver sido enviada para o alertar sob
 
 1. Abra a página de notificações por **e-mail:**
 
-    1. Para alertas, abra **as definições de preços &**, selecione a subscrição relevante e selecione notificações de **e-mail.**
+    - Para alertas, abra **as definições de preços &**, selecione a subscrição relevante e selecione notificações de **e-mail.**
 
-    1. Se estiver a implementar uma recomendação, então, em **recomendações,** selecione Fornecer dados de contacto de **segurança,** selecione a subscrição Azure para fornecer informações de contacto. Isto abre notificações por **e-mail.**
+    - Se estiver a implementar uma recomendação, então, em **recomendações,** selecione Fornecer dados de contacto de **segurança,** selecione a subscrição Azure para fornecer informações de contacto. Isto abre notificações por **e-mail.**
 
    ![Disponibilizar detalhes de contacto de segurança][2]
 
-   * Introduza o endereço de e-mail de contacto de segurança ou endereços separados por vírgulas. Não existe limite para o número de endereços de e-mail que pode introduzir.
-   * Para receber e-mails sobre alertas de alta severidade, ligue a opção **Enviar-me um email sobre alertas**. Para outros níveis de gravidade, utilize uma App Lógica, como explicado na automatização do fluxo de [trabalho.](workflow-automation.md)
-   * Pode enviar notificações de e-mail aos proprietários de subscrições (administrador de serviço clássico e coadministradores, além da função do Proprietário RBAC no âmbito da subscrição).
-   * Para aplicar as informações de contacto de segurança na sua subscrição, selecione **Guardar**.
+1. Introduza o endereço de e-mail de contacto de segurança ou endereços separados por vírgulas. Não existe limite para o número de endereços de e-mail que pode introduzir.
+
+1. Para receber e-mails sobre alertas de alta severidade, ligue a opção **Enviar-me um email sobre alertas**. Para outros níveis de gravidade, utilize uma App Lógica, como explicado na automatização do fluxo de [trabalho.](workflow-automation.md)
+
+1. Pode enviar notificações de e-mail aos proprietários de subscrições (administrador de serviço clássico e coadministradores, além da função do Proprietário RBAC no âmbito da subscrição).
+
+1. Para aplicar as informações de contacto de segurança na sua subscrição, selecione **Guardar**.
 
 ## <a name="see-also"></a>Consulte também
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:

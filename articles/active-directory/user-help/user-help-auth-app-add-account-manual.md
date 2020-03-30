@@ -12,22 +12,22 @@ ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: b237f710866ad3960dd65902c0789228d8c391bc
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77062324"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Adicione manualmente uma conta à app
 
-Se a câmera não conseguir capturar o código QR, você poderá adicionar manualmente as informações da conta ao aplicativo Microsoft Authenticator para verificação de dois fatores. Isto funciona para contas de trabalho ou escolares e contas não Microsoft.
+Se a sua câmara não conseguir capturar o código QR, pode adicionar manualmente as informações da sua conta à aplicação Microsoft Authenticator para verificação de dois fatores. Isto funciona para contas de trabalho ou escolares e contas não Microsoft.
 
 Os códigos fornecidos para as suas contas não são sensíveis a casos e não requerem espaços quando adicionados à aplicação Microsoft Authenticator.
 
 >[!Important]
->Para poder adicionar sua conta, você deve baixar e instalar o aplicativo Microsoft Authenticator. Se ainda não o fez, siga os passos no Download e instale o artigo [da aplicação.](user-help-auth-app-download-install.md)
+>Antes de poder adicionar a sua conta, tem de descarregar e instalar a aplicação Microsoft Authenticator. Se ainda não o fez, siga os passos no Download e instale o artigo [da aplicação.](user-help-auth-app-download-install.md)
 
-## <a name="add-your-work-or-school-account"></a>Adicionar sua conta corporativa ou de estudante
+## <a name="add-your-work-or-school-account"></a>Adicione o seu trabalho ou conta escolar
 
 1. No seu computador, note as informações de **Código** e **Url** na página de **aplicações móveis Configure.** Mantenha esta página aberta para que possa ver o código e a URL.
 
@@ -43,7 +43,7 @@ Os códigos fornecidos para as suas contas não são sensíveis a casos e não r
 
     ![Tela para introduzir código e URL](./media/user-help-auth-app-add-account-manual/auth-app-code-url.png)
 
-    O ecrã **contas** da aplicação mostra-lhe o seu nome de conta e um código de verificação de seis dígitos. Para segurança adicional, o código de verificação é alterado a cada 30 segundos, impedindo que alguém use um código várias vezes.
+    O ecrã **contas** da aplicação mostra-lhe o seu nome de conta e um código de verificação de seis dígitos. Para obter segurança adicional, o código de verificação muda a cada 30 segundos impedindo alguém de usar um código várias vezes.
 
 ## <a name="add-your-google-account"></a>Adicione a sua conta google
 
@@ -51,13 +51,13 @@ Os códigos fornecidos para as suas contas não são sensíveis a casos e não r
 
     A página de código de **barras can't can** aparece com o código secreto. Mantenha esta página aberta para que possa ver o código secreto.
 
-2. Abra a aplicação Microsoft Authenticator, selecione **Adicionar conta** do ícone Personalizar **e controlar** no canto superior direito, selecione Outra conta **(Google, Facebook, etc.)** , e, em seguida, selecione **OU ENTER CODE MANUALmente**.
+2. Abra a aplicação Microsoft Authenticator, selecione **Adicionar conta** do ícone Personalizar **e controlar** no canto superior direito, selecione Outra conta **(Google, Facebook, etc.)**, e, em seguida, selecione **OU ENTER CODE MANUALmente**.
 
 3. Introduza um **nome de Conta** (por exemplo, Google) e escreva a chave **Segredo** a partir do Passo 1 e, em seguida, selecione **Terminar**.
 
 4. Na página **'Instalar autenticador'** no seu computador, digite o código de verificação de seis dígitos fornecido na aplicação para a sua conta Google e, em seguida, selecione **Verificar**.
 
-    O ecrã **contas** da aplicação mostra-lhe o seu nome de conta e um código de verificação de seis dígitos. Para segurança adicional, o código de verificação é alterado a cada 30 segundos, impedindo que alguém use um código várias vezes.
+    O ecrã **contas** da aplicação mostra-lhe o seu nome de conta e um código de verificação de seis dígitos. Para obter segurança adicional, o código de verificação muda a cada 30 segundos impedindo alguém de usar um código várias vezes.
 
     >[!NOTE]
     >Para mais informações sobre a verificação de dois fatores e a sua conta Google, consulte [a Verificação 2-Passo](https://support.google.com/accounts/answer/185839) e saiba mais sobre a [verificação de 2 passos](https://www.google.com/landing/2step/help.html).
@@ -66,13 +66,13 @@ Os códigos fornecidos para as suas contas não são sensíveis a casos e não r
 
 1. Na configuração através da página **Autenticadorde de Terceiros,** que inclui o código QR, e um código escrito para entrada na sua aplicação. Mantenha esta página aberta para que possa ver o código.
 
-2. Abra a aplicação Microsoft Authenticator, selecione **Adicionar conta** do ícone Personalizar **e controlar** no canto superior direito, selecione Outra conta **(Google, Facebook, etc.)** , e, em seguida, selecione **OU ENTER CODE MANUALmente**.
+2. Abra a aplicação Microsoft Authenticator, selecione **Adicionar conta** do ícone Personalizar **e controlar** no canto superior direito, selecione Outra conta **(Google, Facebook, etc.)**, e, em seguida, selecione **OU ENTER CODE MANUALmente**.
 
 3. Introduza um **nome de conta** (por exemplo, Facebook) e escreva a tecla **Segredo** a partir do Passo 1 e, em seguida, selecione **Terminar**.
 
 4. Na página **do Autenticador de Dois Fatores** no seu computador, escreva o código de verificação de seis dígitos fornecido na aplicação para a sua conta de Facebook e, em seguida, selecione **Verificar**.
 
-    O ecrã **contas** da aplicação mostra-lhe o seu nome de conta e um código de verificação de seis dígitos. Para segurança adicional, o código de verificação é alterado a cada 30 segundos, impedindo que alguém use um código várias vezes.
+    O ecrã **contas** da aplicação mostra-lhe o seu nome de conta e um código de verificação de seis dígitos. Para obter segurança adicional, o código de verificação muda a cada 30 segundos impedindo alguém de usar um código várias vezes.
 
     >[!NOTE]
     >Para obter mais informações sobre a verificação de dois fatores e a sua conta de Facebook, consulte o que é a [autenticação de dois fatores e como funciona?](https://www.facebook.com/help/148233965247823)
@@ -85,7 +85,7 @@ Pode adicionar a sua conta Amazon ligando a verificação de dois fatores e, em 
 
     O **Can't Scan a** mensagem de código de barras aparece com o código secreto. Mantenha esta mensagem aberta para que possa ver o código secreto.
 
-2. Abra a aplicação Microsoft Authenticator, selecione **Adicionar conta** do ícone Personalizar **e controlar** no canto superior direito, selecione Outra conta **(Google, Facebook, etc.)** , e, em seguida, selecione **OU ENTER CODE MANUALmente**.
+2. Abra a aplicação Microsoft Authenticator, selecione **Adicionar conta** do ícone Personalizar **e controlar** no canto superior direito, selecione Outra conta **(Google, Facebook, etc.)**, e, em seguida, selecione **OU ENTER CODE MANUALmente**.
 
 3. Introduza um **nome de Conta** (por exemplo, Amazon) e escreva a tecla **Segredo** a partir do Passo 1 e, em seguida, selecione **Terminar**.
 
@@ -104,6 +104,6 @@ Pode adicionar a sua conta Amazon ligando a verificação de dois fatores e, em 
 
 - Depois de adicionar as suas contas à aplicação, pode iniciar sessão utilizando a aplicação Microsoft Authenticator no seu dispositivo. Para mais informações, consulte [O Sign in usando a aplicação](user-help-auth-app-sign-in.md).
 
-- Se tiver problemas em obter o seu código de verificação para a sua conta pessoal da Microsoft, consulte a secção de **problemas** de código de verificação de resolução de problemas do artigo de [informações e códigos de verificação](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) da conta da Microsoft.
+- Se tiver problemas em obter o seu código de verificação para a sua conta pessoal da Microsoft, consulte a secção de problemas de código de verificação de resolução de **problemas** da informação de segurança da conta da Microsoft & artigo de códigos de [verificação.](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes)
 
-- Para dispositivos que executam o iOS, você também pode fazer backup de suas credenciais de conta e configurações de aplicativo relacionadas, como a ordem de suas contas, para a nuvem. Para mais informações, consulte [Backup e recupere com a aplicação Microsoft Authenticator](user-help-auth-app-backup-recovery.md).
+- Para dispositivos que executam o iOS, também pode fazer o back up as credenciais da sua conta e configurações de aplicações relacionadas, como a ordem das suas contas, para a nuvem. Para mais informações, consulte [Backup e recupere com a aplicação Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

@@ -14,20 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 6199beadc3a23b8e973ea26c2b525add98d3dcbb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 1ff13d8ef0ca4c6cf499c3245d3ef14370283075
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79216962"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80066393"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-the-azure-portal"></a>Quickstart: Criar um portal NAT utilizando o portal Azure
 
 Este quickstart mostra-lhe como utilizar o serviço AZURE Virtual Network NAT. Você vai criar uma porta de entrada NAT para fornecer conectividade de saída para uma máquina virtual em Azure. 
 
+Se preferir, pode fazer estes passos utilizando o [Azure CLI,](quickstart-create-nat-gateway-cli.md) [Azure PowerShell,](quickstart-create-nat-gateway-powershell.md)ou implementar um [modelo ARM](quickstart-create-nat-gateway-powershell.md) em vez do portal.
+
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 ## <a name="virtual-network-and-parameters"></a>Rede virtual e parâmetros
 
@@ -37,12 +39,12 @@ Nesta secção terá de substituir os seguintes parâmetros nos passos com as in
 
 | Parâmetro                   | Valor                |
 |-----------------------------|----------------------|
-| **\<nome de grupo de recursos>**  | myResourceGroupNAT |
-| **\<nome de rede virtual>** | myVNet          |
-| **\<nome da região>**          | E.U.A. Leste 2      |
-| **\<IPv4-address-space>**   | 192.168.0.0\16          |
-| **\<sub-nome>**          | mySubnet        |
-| **\<sub-endereço-gama>** | 192.168.0.0\24          |
+| **\<>de nome de grupo de recursos**  | myResourceGroupNAT |
+| **\<>de nome de rede virtual** | myVNet          |
+| **\<>de nome da região**          | E.U.A. Leste 2      |
+| **\<>espaço de endereçoI4**   | 192.168.0.0\16          |
+| **\<>de nome de subnet**          | mySubnet        |
+| **\<>de endereços-endereço de subnet** | 192.168.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -53,19 +55,19 @@ Vamos agora criar um VM para usar o serviço NAT. Este VM tem um IP público par
 1. No lado superior esquerdo do portal, selecione **Criar um recurso** > **Compute** > **Ubuntu Server 18.04 LTS,** ou procurar **ubuntu Server 18.04 LTS** na pesquisa do Marketplace.
 
 2. Em **Criar uma máquina virtual,** digite ou selecione os seguintes valores no separador **Basics:**
-   - **Grupo de** **recursos** > de assinatura : Selecione **myResourceGroupNAT**.
-   - **Detalhes da > ** **nome virtual**da máquina : **Digitar myVM**.
-   - **Detalhes da instância** > **Região** > selecione **East US 2**.
-   - **Conta de administrador** > Tipo de **autenticação:** Selecione **Palavra-passe**.
-   - **Conta administradora** > Introduza o nome de **utilizador,** **palavra-passe**e confirme informações de **senha.**
-   - **Regras** de entrada > **portas de entrada públicas**: Selecione permitir portas **selecionadas**.
-   - **Regras de entrada** > **Selecione portas de entrada :** Selecione **SSH (22)**
+   - **Subscription** > **Grupo de recursos**de subscrição : Selecione **myResourceGroupNAT**.
+   - **Detalhes da** > ocorrência**Nome da máquina virtual**: **Digite myVM**.
+   - **Detalhes de instância****Região** > selecionar **Leste US 2**. > 
+   - **Conta administrador** > Tipo de**autenticação**: Selecione **Palavra-passe**.
+   - **Conta administrador>** Insira o nome de **utilizador,** **palavra-passe**e confirme as informações de **senha.**
+   - **Regras de entrada** > nas**portas de entrada As portas de entrada públicas**: Selecione Permitir portas **selecionadas**.
+   - **Regras da** > porta de entrada**Selecione portas de entrada**: Selecione **SSH (22)**
    - Selecione o separador **de rede** ou selecione **Seguinte: Discos,** em seguida **Seguinte: Networking**.
 
 3. No separador **de rede** certifique-se de que são selecionados os seguintes:
    - **Rede virtual**: **myVnet**
    - **Subnet**: **mySubnet**
-   - **IP &gt público;** **Selecione Criar novo**.  Na janela **de endereços IP públicos Criar,** digite **o myPublicIPVM** no campo **Nome** e escolha **Standard** para o **SKU**.  Clique em **OK**.
+   - **Ip público** > Selecione **Criar novo**.  Na janela **de endereços IP públicos Criar,** digite **o myPublicIPVM** no campo **Nome** e escolha **Standard** para o **SKU**.  Clique em **OK**.
    - **Grupo de segurança da rede NIC**: Selecione **Basic**.
    - **Portas de entrada públicas**: Selecione **Permitir portas selecionadas**.
    - **Selecione portas de entrada**: Confirme se está selecionado **o SSH.**
@@ -86,7 +88,7 @@ Esta secção detalha como pode criar e configurar os seguintes componentes do s
 
 ### <a name="create-a-public-ip-address"></a>Crie um endereço IP público
 
-1. No lado superior esquerdo do portal, selecione **Criar um recurso** > **networking** > **endereço IP público,** ou procurar endereço **IP público** na pesquisa do Marketplace.
+1. No lado superior esquerdo do portal, selecione Criar um**endereço IP público**em**rede** > de **recursos,** > ou procurar endereço **IP público** na pesquisa do Mercado.
 
 2. No **Endereço IP do Público,** insira ou selecione esta informação:
 
@@ -103,13 +105,13 @@ Esta secção detalha como pode criar e configurar os seguintes componentes do s
 
 ### <a name="create-a-public-ip-prefix"></a>Criar um prefixo IP público
 
-1. No lado superior esquerdo do portal, selecione **Criar um recurso** > **Networking** > **prefixo IP público,** ou procurar **prefixo IP público** na pesquisa do Marketplace. 
+1. No lado superior esquerdo do portal, selecione Criar um**prefixo IP público**em**rede** > de **recursos,** > ou procurar **prefixo IP público** na pesquisa do Mercado. 
 
 2. Em **Criar um prefixo IP público,** digite ou selecione os **seguintes valores** no separador Basics:
-   - **Grupo de** **recursos** > de assinatura : Selecione **myResourceGroupNAT**>
-   - **Detalhes da > ** **nome**: Digite **myPublicIPprefix**.
-   - **Detalhes da instância** > **Região**: Selecione **East US 2**.
-   - **Detalhes da > ** **tamanho prefixo**: Selecione **/31 (2 endereços)**
+   - **Subscription** > **Grupo de recursos**de subscrição : Selecione **myResourceGroupNAT**>
+   - **Detalhes da** > instância**Nome**: Digite **myPublicIPprefix**.
+   - **Detalhes da** > instância**Região**: Selecione **East US 2**.
+   - **Detalhes da** > **prefixação:** Selecione **/31 (2 endereços)**
 
 3. Deixe o resto os defeitos e selecione **Rever + criar**.
 
@@ -118,13 +120,13 @@ Esta secção detalha como pode criar e configurar os seguintes componentes do s
 
 ### <a name="create-a-nat-gateway-resource"></a>Criar um recurso de gateway NAT
 
-1. No lado superior esquerdo do portal, selecione **Criar um recurso** > **Networking** > **gateway NAT,** ou procurar gateway **NAT** na pesquisa do Marketplace.
+1. No lado superior esquerdo do portal, selecione Criar um**portal NAT**de**rede** > de **recursos,** > ou procurar gateway **NAT** na pesquisa do Mercado.
 
 2. Na Criação de gateway de tradução de **endereços de rede (NAT),** escreva ou selecione os **seguintes valores** no separador Basics:
-   - **Grupo de** **recursos** > de assinatura : Selecione **myResourceGroupNAT**.
-   - **Detalhes da instância** > **nome de gateway NAT**: Digite **myNATgateway**.
-   - **Detalhes da instância** > **Região**: Selecione **East US 2**.
-   - **Detalhes da > ** **tempo de inativo (minutos)** : Tipo **10**.
+   - **Subscription** > **Grupo de recursos**de subscrição : Selecione **myResourceGroupNAT**.
+   - **Detalhes da** > instância**nome gateway NAT**: Digite **myNATgateway**.
+   - **Detalhes da** > instância**Região**: Selecione **East US 2**.
+   - **Pormenores da** > ocorrência **(minutos)**: Tipo **10**.
    - Selecione o **separador IP público** ou selecione **Seguinte: IP público**.
 
 3. No **separador IP público,** escreva ou selecione os seguintes valores:

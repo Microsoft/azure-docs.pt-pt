@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8156f8706828afae30889b3250cf0b26252bf394
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77598481"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -219,15 +219,15 @@ No Windows, uma instância SAP ASCS/SCS contém serviços centrais SAP, o servid
 Uma instância SAP ASCS/SCS tem os seguintes componentes:
 
 * Serviços centrais DaAp:
-    * Dois processos, um servidor de mensagens e filas, e um \<nome de anfitrião virtual ASCS/SCS>, que é usado para aceder a estes dois processos.
+    * Dois processos, um servidor de mensagens e fila, e um \<nome de anfitrião virtual ASCS/SCS>, que é usado para aceder a estes dois processos.
     * Estrutura de ficheiros: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<número de instância\>
 
 
 * Ficheiros de anfitriões globais da SAP:
   * Estrutura de ficheiros: S:\usr\sap\\&lt;SID&gt;\SYS\...
-  * A partilha de ficheiros sapmnt, que permite o acesso a estes s:\usr\sap global\\&lt;SID&gt;\SYS\... ficheiros utilizando o seguinte caminho da CNU:
+  * A partilha de ficheiros sapmnt, que permite o acesso\\&lt;a&gt;estes S:\usr\sap SID \SYS\... ficheiros utilizando o seguinte caminho da CNU:
 
-    \\\\<ASCS/SCS nome de hospedeiro virtual\>\\SID &lt;&gt;\SYS\...
+    \\\\<nome\>\\&lt;de anfitrião virtual ASCS/SCS \sapmnt SID&gt;\SYS\...
 
 
 ![Figura 2: Processos, estrutura de ficheiros e quota global de ficheiros sapmnt anfitrião de uma instância SAP ASCS/SCS][sap-ha-guide-figure-8001]
@@ -242,7 +242,7 @@ _**Figura 3:** Arquitetura SAP ASCS/SCS HA com disco partilhado_
 
 > [!IMPORTANT]
 > Estes dois componentes são executados sob a mesma instância SAP ASCS/SCS:
->* O mesmo \<nome de anfitrião virtual ASCS/SCS> é usado para aceder aos processos de mensagens SAP e servidor esportiva, e aos ficheiros de anfitriões globais do SAP através da partilha de ficheiros sapmnt.
+>* O \<mesmo nome de anfitrião virtual ASCS/SCS> é usado para aceder aos processos de mensagens SAP e servidor esportiva, e os ficheiros de anfitriões globais do SAP através da partilha de ficheiros sapmnt.
 >* A mesma unidade de disco partilhada do cluster S é partilhada entre eles.
 >
 

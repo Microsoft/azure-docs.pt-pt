@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
 ms.openlocfilehash: 1e5253d617c87d5869cebc817da6d265ebfdfa7e
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77539472"
 ---
 # <a name="troubleshoot-azure-private-link-connectivity-problems"></a>Resolver problemas de conectividade do Azure Private Link
@@ -30,9 +30,9 @@ Pode ativar o seu serviço que corre atrás do nível Standard de Balancer de Ca
 
 Aqui estão os cenários de conectividade que estão disponíveis com Private Link:
 
-- rede virtual da mesma região
-- redes virtuais regionalmente peered
-- redes virtuais globalmente peered
+- Rede virtual da mesma região
+- Redes virtuais regionalmente espreitadas
+- Redes virtuais globalmente espreitadas
 - Cliente no local sobre circuitos VPN ou Azure ExpressRoute
 
 ## <a name="deployment-troubleshooting"></a>Resolução de problemas de implantação

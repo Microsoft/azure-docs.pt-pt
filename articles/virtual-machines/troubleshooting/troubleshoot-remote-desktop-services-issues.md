@@ -1,6 +1,6 @@
 ---
-title: Os Serviços de Ambiente de Trabalho Remoto não estão a começar num Azure VM  Microsoft Docs
-description: Saiba como resolver problemas com os Serviços de Desktop Remotoquando se conecta a uma máquina virtual  Microsoft Docs
+title: Os Serviços de Ambiente de Trabalho Remoto não estão a começar num Azure VM [ Microsoft Docs
+description: Saiba como resolver problemas com os Serviços de Desktop Remotoquando se conecta a uma máquina virtual [ Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 4b314fbdb9cbc0c0b797cbee8e92ee4702bbea81
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919469"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Os Serviços de Ambiente de Trabalho Remoto não estão a começar num VM Azure
@@ -32,7 +32,7 @@ Quando tenta ligar-se a um VM, experimenta os seguintes cenários:
 
     ![Screenshot do estado vm](./media/troubleshoot-remote-desktop-services-issues/login-page.png)
 
-- Ver remotamente os registos de eventos na VM com o Visualizador de eventos. Você vê que os Serviços de Ambiente de Trabalho Remoto, TermService, não estão a começar ou não começam. O seguinte tronco é uma amostra:
+- Você vê remotamente os registos do evento no VM utilizando o Espectador de Eventos. Você vê que os Serviços de Ambiente de Trabalho Remoto, TermService, não estão a começar ou não começam. O seguinte tronco é uma amostra:
 
     **Nome de registo**: Sistema </br>
     **Fonte**: Gestor de Controlo de Serviços </br>
@@ -63,7 +63,7 @@ Para resolver este problema, utilize a Consola em Série. Ou então [repare o VM
 
 ### <a name="use-serial-console"></a>Utilizar consola em série
 
-1. Aceda à [Consola em Série](serial-console-windows.md) selecionando Suporte e **Resolução de Problemas** > **consola em série**. Se a funcionalidade estiver ativada no VM, pode ligar o VM com sucesso.
+1. Aceda à [Consola em Série](serial-console-windows.md) selecionando suporte & consola**série** **de resolução de** > problemas . Se a funcionalidade estiver ativada no VM, pode ligar o VM com sucesso.
 
 2. Crie um novo canal para uma instância CMD. Introduza a **CMD** para iniciar o canal e obter o nome do canal.
 
@@ -96,7 +96,7 @@ Para resolver este problema, utilize a Consola em Série. Ou então [repare o VM
 
     |  Erro |  Sugestão |
     |---|---|
-    |5 - ACESSO NEGADO |Ver [O serviço TermService está parado devido a um erro de Acesso Negado](#termservice-service-is-stopped-because-of-an-access-denied-problem). |
+    |5- ACESSO NEGADO |Ver [O serviço TermService está parado devido a um erro de Acesso Negado](#termservice-service-is-stopped-because-of-an-access-denied-problem). |
     |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Ver [serviço TermService está desativado](#termservice-service-is-disabled).  |  
     |1058 - ERROR_SERVICE_DISABLED  |Ver [Serviço TermService falha ou fica pendurado](#termservice-service-crashes-or-hangs).  |
     |1059 - ERROR_CIRCULAR_DEPENDENCY |[Suporte de contato](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o seu problema rapidamente.|
@@ -133,7 +133,7 @@ Para resolver este problema, utilize a Consola em Série. Ou então [repare o VM
    sc start TermService 
    ```
 
-   Quando ocorre uma falha, encerrar o rastreio de Monitor do processo:
+   Quando falhar, termine o rastreio do Monitor de Processo:
 
    ```   
    procmon /Terminate 
@@ -143,7 +143,7 @@ Para resolver este problema, utilize a Consola em Série. Ou então [repare o VM
 
     1. Fixe um disco de [dados ao VM](../windows/attach-managed-disk-portal.md
 ).
-    2. Utilize a consola de série, pode copiar o ficheiro para o novo disco. Por exemplo, `copy C:\temp\ProcMonTrace.PML F:\`. Neste comando, F é a letra de unidade do disco de dados anexados.
+    2. Utilize a Consola em Série pode copiar o ficheiro para a nova unidade. Por exemplo, `copy C:\temp\ProcMonTrace.PML F:\`. Neste comando, F é a letra condutora do disco de dados anexado.
     3. Desmontar a unidade de dados e anexá-la num VM de trabalho que tenha o Monitor de Processo sutiques instalado.
 
 6. Abra **procMonTrace.PML** utilizando o Monitor de Processo do VM de trabalho. Em seguida, o filtro por **Resultado é O ACESSO NEGADO,** como mostra a seguinte imagem:
@@ -151,17 +151,17 @@ Para resolver este problema, utilize a Consola em Série. Ou então [repare o VM
     ![Filtrar por resultado no Monitor de Processos](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
  
-6. Corrigi as chaves do Registro, pastas ou ficheiros que estão na saída. Normalmente, esse problema é causado quando a conta de início de sessão que é utilizada no serviço não tem permissão de ACL de acesso esses objetos. Para saber a permissão ACL correta para a conta de entrada, pode verificar um VM saudável. 
+6. Corrija as teclas, pastas ou ficheiros de registo que estejam na saída. Normalmente, este problema é causado quando a conta de entrada que é usada no serviço não tem permissão ACL para aceder a estes objetos. Para saber a permissão ACL correta para a conta de entrada, pode verificar um VM saudável. 
 
 #### <a name="termservice-service-is-disabled"></a>O serviço TermService está desativado
 
-1. Restaure o serviço para o valor de arranque predefinido:
+1. Restaurar o serviço ao seu valor de arranque padrão:
 
    ```
    sc config TermService start= demand 
    ```
 
-2. Inicie o serviço:
+2. Iniciar o serviço:
 
    ```
    sc start TermService
@@ -180,7 +180,7 @@ Para resolver este problema, utilize a Consola em Série. Ou então [repare o VM
 1. Este problema ocorre se a conta de arranque deste serviço for alterada. Mudou isto de volta ao seu padrão: 
 
         sc config TermService obj= 'NT Authority\NetworkService'
-2. Inicie o serviço:
+2. Iniciar o serviço:
 
         sc start TermService
 3. Tente ligar-se à VM utilizando o Remote Desktop.
@@ -189,21 +189,21 @@ Para resolver este problema, utilize a Consola em Série. Ou então [repare o VM
 1. Se o estado de serviço estiver preso em **Iniciar** ou **Parar,** tente parar o serviço: 
 
         sc stop TermService
-2. Isole o serviço no seu próprio contentor "svchost":
+2. Isole o serviço no seu próprio recipiente de 'svchost':
 
         sc config TermService type= own
-3. Inicie o serviço:
+3. Iniciar o serviço:
 
         sc start TermService
 4. Se o serviço ainda não tiver iniciado, suporte de [contato](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-### <a name="repair-the-vm-offline"></a>Repare a VM offline
+### <a name="repair-the-vm-offline"></a>Reparar o VM offline
 
-#### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Anexar o disco do SO a uma VM de recuperação
+#### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Fixe o disco OS a um VM de recuperação
 
 1. [Fixe o disco OS a um VM](../windows/troubleshoot-recovery-disks-portal.md)de recuperação .
-2. Inicie uma ligação de ambiente de trabalho remoto para a VM de recuperação. Certifique-se de que o disco em anexo está sinalizado como **Online** na consola de Gestão de Discos. Tenha em atenção a letra de unidade que está atribuída ao disco do SO anexado.
-3. Abra uma instância de instrução de comando elevada **(Executar como administrador).** Em seguida, execute o seguinte script. Assumimos que a carta de unidade atribuída ao disco operativo em anexo é **F**. Substitua-o pelo valor adequado no seu VM. 
+2. Inicie uma ligação remote Desktop ao VM de recuperação. Certifique-se de que o disco em anexo está sinalizado como **Online** na consola de Gestão de Discos. Repare na carta de unidade atribuída ao disco operativo em anexo.
+3. Abra uma instância de instrução de comando elevada **(Executar como administrador).** Em seguida, executar o seguinte script. Assumimos que a carta de unidade atribuída ao disco operativo em anexo é **F**. Substitua-o pelo valor adequado no seu VM. 
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv

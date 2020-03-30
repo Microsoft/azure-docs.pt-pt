@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: 22744ecbced40b3195f4d047227b1e2a37228102
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260907"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Visão geral do processamento de transações de ônibus de serviço
@@ -36,8 +36,8 @@ O Service Bus suporta operações de agrupamento em relação a uma entidade de 
 
 As operações que podem ser realizadas dentro de um âmbito de transação são as seguintes:
 
-* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)** : Enviar, EnviarAsync, Enviar, EnviarAsync 
-* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)** : Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
+* ** [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: Enviar, EnviarAsync, Enviar, EnviarAsync 
+* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
 
 As operações de receção não estão incluídas, pois presume-se que a aplicação adquire mensagens utilizando o modo [ReceiveMode.PeekLock,](/dotnet/api/microsoft.azure.servicebus.receivemode) dentro de algum loop de receção ou com um backback [OnMessage,](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) e só então abre uma margem de transação para o processamento da mensagem.
 
@@ -101,7 +101,7 @@ using (var ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
 
 Consulte os seguintes artigos para obter mais informações sobre as filas de ônibus de serviço:
 
-* [Como utilizar as filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
+* [Como usar as filas de ônibus de serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Entidades de ônibus de serviço de cadeia com auto-encaminhamento](service-bus-auto-forwarding.md)
 * [Amostra autoavançada](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward)
 * [Transações Atómicas com amostra de ônibus de serviço](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions)

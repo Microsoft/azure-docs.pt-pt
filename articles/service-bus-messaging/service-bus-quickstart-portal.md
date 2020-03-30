@@ -9,14 +9,14 @@ ms.custom: mvc
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 0c88db652efe54a497af094160fb426be7c43d16
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240647"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Quickstart: Use o portal Azure para criar uma fila de ônibus de serviço
-Este quickstart descreve como enviar e receber mensagens de e para uma fila de ônibus de serviço, usando o [portal Azure][Azure portal] para criar um espaço de nome de mensagens e uma fila dentro desse espaço de nome, e para obter as credenciais de autorização nesse espaço de nome. O procedimento, em seguida, mostra como enviar e receber mensagens desta fila com a [biblioteca .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
+Este início rápido descreve como enviar e receber mensagens de e para uma fila do Service Bus, com o [portal do Azure][Azure portal] para criar um espaço de nomes de mensagens e uma fila dentro desse espaço de nomes e obter as credenciais de autorização nesse espaço de nomes. O procedimento, em seguida, mostra como enviar e receber mensagens desta fila através da [biblioteca .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
@@ -24,7 +24,7 @@ Este quickstart descreve como enviar e receber mensagens de e para uma fila de �
 
 Para concluir este tutorial, confirme que tem instalada:
 
-- Uma subscrição do Azure. Se não tiver uma subscrição do Azure, pode criar uma [conta gratuita][] antes de começar.
+- Uma subscrição do Azure. Se não tiver uma subscrição Azure, pode criar uma [conta gratuita][] antes de começar.
 - [Visual Studio 2017 Atualização 3 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior. Usa o Estúdio Visual para construir uma amostra que envia mensagens e recebe mensagens de uma fila. A amostra é para testar a fila que criou usando o PowerShell. 
 - [SDK NET Core](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
 
@@ -43,20 +43,20 @@ Para concluir este tutorial, confirme que tem instalada:
 > - [Nó.js usando pacote azure/service-bus](service-bus-nodejs-how-to-use-queues-new-package.md)
 > - [Nó.js usando pacote azure-sb](service-bus-nodejs-how-to-use-queues.md)
 > - [PHP](service-bus-php-how-to-use-queues.md)
-> - [python](service-bus-python-how-to-use-queues.md)
+> - [Pitão](service-bus-python-how-to-use-queues.md)
 > - [Ruby](service-bus-ruby-how-to-use-queues.md)
 
 Depois de aprovisionar a fila e o espaço de nomes e se tiver as credenciais necessárias, está pronto para enviar e receber mensagens. Pode examinar o código nesta [pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters).
 
-Para executar o código, efetue o seguinte:
+Para executar o código, faça o seguinte:
 
-1. Clone o [repositório do GitHub do Service Bus](https://github.com/Azure/azure-service-bus/) ao emitir o seguinte comando:
+1. Clone o [repositório do GitHub do Service Bus](https://github.com/Azure/azure-service-bus/) ao emitir o comando seguinte:
 
    ```
    git clone https://github.com/Azure/azure-service-bus.git
    ```
-3. Navegue para a pasta de exemplo `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
-4. Copie a cadeia de ligação e o nome da fila obtido na secção Obter a secção de credenciais de gestão.
+3. Navegue para a pasta `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart` de exemplo.
+4. Copie o nome da fila e a cadeia de ligação que obteve na secção Obter credenciais de gestão.
 5.  Na linha de comandos, escreva o seguinte comando:
 
     ```
@@ -82,7 +82,7 @@ Esta secção contém mais detalhes sobre o que faz o código de exemplo.
 
 ### <a name="get-connection-string-and-queue"></a>Obter a cadeia de ligação e a fila
 
-A corda de ligação e o nome da fila são passados para o método `Main()` como argumentos de linha de comando. `Main()` declara duas variáveis de cadeia para armazenar estes valores:
+A corda de ligação e `Main()` o nome da fila são passados para o método como argumentos de linha de comando. `Main()` declara duas variáveis de cadeia para armazenar estes valores:
 
 ```csharp
 static void Main(string[] args)
@@ -119,7 +119,7 @@ Em seguida, o método `Main()` inicia o ciclo de mensagens assíncronas, `MainAs
 
 ### <a name="message-loop"></a>Ciclo de mensagens
 
-O método MainAsync() cria um cliente de fila com os argumentos da linha de comando, chama um manipulador de mensagens receptorchamado `RegisterOnMessageHandlerAndReceiveMessages()`, e envia o conjunto de mensagens:
+O método MainAsync() cria um cliente de fila com os argumentos `RegisterOnMessageHandlerAndReceiveMessages()`da linha de comando, chama um manipulador de mensagens recetora chamado , e envia o conjunto de mensagens:
 
 ```csharp
 static async Task MainAsync(string ServiceBusConnectionString, string QueueName)
@@ -219,7 +219,7 @@ Neste artigo, criou um espaço de nomes do Service Bus e outros recursos necess�
 > [Enviar e receber mensagens](service-bus-dotnet-get-started-with-queues.md)
 
 
-[Conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 

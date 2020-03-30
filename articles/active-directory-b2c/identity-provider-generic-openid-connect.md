@@ -12,10 +12,10 @@ ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c72abf79f0a420309ebe229673be9439fd99b74c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78188261"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Configurar o sign-up e iniciar sessão com o OpenID Connect utilizando o Diretório Ativo Azure B2C
@@ -31,7 +31,7 @@ ms.locfileid: "78188261"
 
 ## <a name="configure-the-identity-provider"></a>Configure o fornecedor de identidade
 
-Todos os fornecedores de identidade OpenID Connect descrevem um documento de metadados que contém a maioria das informações necessárias para realizar o sessão. Isto inclui informações como os URLs a utilizar e a localização das chaves de assinatura pública do serviço. O documento de metadados OpenID Connect está sempre localizado num ponto final que termina em `.well-known\openid-configuration`. Para o fornecedor de identidade OpenID Connect que procura adicionar, introduza o seu URL de metadados.
+Todos os fornecedores de identidade OpenID Connect descrevem um documento de metadados que contém a maioria das informações necessárias para realizar o sessão. Isto inclui informações como os URLs a utilizar e a localização das chaves de assinatura pública do serviço. O documento de metadados OpenID Connect está sempre `.well-known\openid-configuration`localizado num ponto final que termina em . Para o fornecedor de identidade OpenID Connect que procura adicionar, introduza o seu URL de metadados.
 
 ## <a name="client-id-and-secret"></a>ID do cliente e segredo
 
@@ -42,25 +42,25 @@ Para permitir que os utilizadores assinem, o fornecedor de identidade exige que 
 
 ## <a name="scope"></a>Âmbito
 
-O Âmbito define as informações e permissões que pretende recolher do seu fornecedor de identidade personalizado. Os pedidos openID Connect devem conter o valor de âmbito `openid` para receber o símbolo de identificação do fornecedor de identidade. Sem o token ID, os utilizadores não podem iniciar sessão no Azure AD B2C utilizando o fornecedor de identidade personalizado. Outros âmbitos podem ser anexados separados pelo espaço. Consulte a documentação do fornecedor de identidade personalizada para ver que outros âmbitos podem estar disponíveis.
+O Âmbito define as informações e permissões que pretende recolher do seu fornecedor de identidade personalizado. Os pedidos openID Connect `openid` devem conter o valor de âmbito para receber o símbolo de identificação do fornecedor de identidade. Sem o token ID, os utilizadores não podem iniciar sessão no Azure AD B2C utilizando o fornecedor de identidade personalizado. Outros âmbitos podem ser anexados separados pelo espaço. Consulte a documentação do fornecedor de identidade personalizada para ver que outros âmbitos podem estar disponíveis.
 
 ## <a name="response-type"></a>Tipo de resposta
 
-O tipo de resposta descreve que tipo de informação é enviada na chamada inicial para o `authorization_endpoint` do fornecedor de identidade personalizado. Podem ser utilizados os seguintes tipos de resposta:
+O tipo de resposta descreve que tipo de informação é enviada na chamada inicial para o `authorization_endpoint` fornecedor de identidade personalizada. Podem ser utilizados os seguintes tipos de resposta:
 
-* `code`: De acordo com o fluxo de código de [autorização,](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)um código será devolvido ao Azure AD B2C. O Azure AD B2C continua a ligar para o `token_endpoint` para trocar o código pelo símbolo.
+* `code`: De acordo com o fluxo de código de [autorização,](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)um código será devolvido ao Azure AD B2C. O Azure AD B2C `token_endpoint` continua a ligar para trocar o código pelo símbolo.
 * `id_token`: Um token de identificação é devolvido ao Azure AD B2C do fornecedor de identidade personalizada.
 
 ## <a name="response-mode"></a>Modo de resposta
 
 O modo de resposta define o método que deve ser usado para enviar os dados de volta do fornecedor de identidade personalizado para O Azure AD B2C. Podem ser utilizados os seguintes modos de resposta:
 
-* `form_post`: Este modo de resposta é recomendado para uma melhor segurança. A resposta é transmitida através do método HTTP `POST`, com o código ou token a ser codificado no organismo utilizando o formato `application/x-www-form-urlencoded`.
+* `form_post`: Este modo de resposta é recomendado para uma melhor segurança. A resposta é transmitida `POST` através do método HTTP, com o código ou `application/x-www-form-urlencoded` token a ser codificado no organismo utilizando o formato.
 * `query`: O código ou ficha é devolvido como parâmetro de consulta.
 
 ## <a name="domain-hint"></a>Sugestão de domínio
 
-A dica de domínio pode ser usada para saltar diretamente para o sinal na página do fornecedor de identidade especificado, em vez de o utilizador fazer uma seleção entre a lista de fornecedores de identidade disponíveis. Para permitir este tipo de comportamento, insira um valor para a dica de domínio. Para saltar para o fornecedor de identidade personalizado, acomode o parâmetro `domain_hint=<domain hint value>` ao final do seu pedido ao ligar para o Azure AD B2C para iniciar sessão.
+A dica de domínio pode ser usada para saltar diretamente para o sinal na página do fornecedor de identidade especificado, em vez de o utilizador fazer uma seleção entre a lista de fornecedores de identidade disponíveis. Para permitir este tipo de comportamento, insira um valor para a dica de domínio. Para saltar para o fornecedor de identidade `domain_hint=<domain hint value>` personalizado, acomode o parâmetro até ao final do seu pedido ao ligar para o Azure AD B2C para iniciar sessão.
 
 ## <a name="claims-mapping"></a>Mapeamento de reclamações
 

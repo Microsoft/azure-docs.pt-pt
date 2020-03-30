@@ -1,6 +1,6 @@
 ---
-title: Recursos de renderização – lote do Azure
-description: Os recursos do lote do Azure padrão são usados para executar aplicativos e cargas de trabalho de renderização. O lote inclui recursos específicos para dar suporte à renderização de cargas de trabalho.
+title: Capacidades de renderização - Lote Azure
+description: As capacidades standard Azure Batch são usadas para executar cargas de trabalho e aplicações de renderização. O lote inclui funcionalidades específicas para suportar a renderização de cargas de trabalho.
 services: batch
 ms.service: batch
 author: mscurrell
@@ -8,91 +8,91 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: 697e2640b7215e0bbb9202c672f936535831eb99
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75449711"
 ---
-# <a name="azure-batch-rendering-capabilities"></a>Recursos de renderização do lote do Azure
+# <a name="azure-batch-rendering-capabilities"></a>Capacidades de renderização do Lote Azure
 
-Os recursos padrão do lote do Azure são usados para executar processamento de cargas de trabalho e aplicativos. O lote também inclui recursos específicos para dar suporte à renderização de cargas de trabalho.
+As capacidades standard azure batch são usadas para executar cargas de trabalho e aplicações de renderização. O lote também inclui funcionalidades específicas para suportar a renderização de cargas de trabalho.
 
-Para obter uma visão geral dos conceitos do lote, incluindo pools, trabalhos e tarefas, consulte [Este artigo](https://docs.microsoft.com/azure/batch/batch-api-basics).
+Para uma visão geral dos conceitos de Lote, incluindo piscinas, empregos e tarefas, consulte [este artigo](https://docs.microsoft.com/azure/batch/batch-api-basics).
 
-## <a name="batch-pools"></a>Pools do lote
+## <a name="batch-pools"></a>Piscinas de Lote
 
-### <a name="rendering-application-installation"></a>Processando a instalação do aplicativo
+### <a name="rendering-application-installation"></a>Instalação de aplicação de renderização
 
-Uma imagem de VM de renderização do Azure Marketplace pode ser especificada na configuração do pool se apenas os aplicativos pré-instalados precisarem ser usados.
+Uma imagem VM de renderização do Azure Marketplace pode ser especificada na configuração da piscina se apenas as aplicações pré-instaladas precisarem de ser utilizadas.
 
-Há uma imagem do Windows 2016 e uma imagem CentOS.  No [Azure Marketplace](https://azuremarketplace.microsoft.com), as imagens de VM podem ser encontradas pesquisando ' renderização em lote '.
+Existe uma imagem do Windows 2016 e uma imagem CentOS.  No [Mercado Azure,](https://azuremarketplace.microsoft.com)as imagens VM podem ser encontradas procurando por 'renderização de lote'.
 
-Para obter um exemplo de configuração de pool, consulte o [tutorial de renderização de CLI do Azure](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  O portal do Azure e Batch Explorer fornecem ferramentas de GUI para selecionar uma imagem de renderização de VM quando você cria um pool.  Se estiver usando uma API do lote, especifique os seguintes valores de propriedade para [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) ao criar um pool:
+Para um exemplo, configuração da piscina, consulte o tutorial de [renderização Azure CLI](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  O portal Azure e o Batch Explorer fornecem ferramentas GUI para selecionar uma imagem VM de renderização quando criar uma piscina.  Se utilizar uma API de lote, especifique os seguintes valores de propriedade para [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) ao criar um pool:
 
-| Publicador | Oferta | SKU | Versão |
+| Publicador | Oferta | Sku | Versão |
 |---------|---------|---------|--------|
-| batch | rendering-centos73 | tratamento | mais recente |
-| batch | rendering-windows2016 | tratamento | mais recente |
+| lote | renderização-centos73 | renderização | mais recente |
+| lote | renderização-windows2016 | renderização | mais recente |
 
-Outras opções estarão disponíveis se forem necessários aplicativos adicionais nas VMs do pool:
+Outras opções estão disponíveis se forem necessárias aplicações adicionais nos VMs do pool:
 
-* Uma imagem personalizada da Galeria de imagens compartilhadas:
-  * Com esta opção, pode configurar a VM com as aplicações e versões específicas exatas de que precisa. Para obter mais informações, consulte [criar um pool com a Galeria de imagens compartilhadas](batch-sig-images.md). O Autodesk e o grupo de caos modificaram o Arnold e o V-Ray, respectivamente, para validar em relação a um serviço de licenciamento do lote do Azure. Verifique se você tem as versões desses aplicativos com esse suporte, caso contrário, o licenciamento de pagamento por uso não funcionará. As versões atuais do Maya ou 3ds Max não exigem um servidor de licença ao serem executadas sem periféricos (no modo de linha de comando/lote). Contate o suporte do Azure se você não tiver certeza de como continuar com essa opção.
-* [Pacotes de aplicativos](https://docs.microsoft.com/azure/batch/batch-application-packages):
-  * Empacote os arquivos de aplicativo usando um ou mais arquivos ZIP, carregue por meio do portal do Azure e especifique o pacote na configuração de pool. Quando as VMs do pool são criadas, os arquivos ZIP são baixados e os arquivos são extraídos.
-* Arquivos de recurso:
-  * Os arquivos de aplicativo são carregados no armazenamento de BLOBs do Azure e você especifica as referências de arquivo na [tarefa de início do pool](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask). Quando as VMs do pool são criadas, os arquivos de recursos são baixados em cada VM.
+* Uma imagem personalizada da Galeria de Imagem Partilhada:
+  * Com esta opção, pode configurar a VM com as aplicações e versões específicas exatas de que precisa. Para mais informações, consulte [Criar uma piscina com a Galeria de Imagem Partilhada.](batch-sig-images.md) A Autodesk e o Grupo Caos modificaram arnold e V-Ray, respectivamente, para validar com um serviço de licenciamento azure Batch. Certifique-se de que tem as versões destas aplicações com este suporte, caso contrário o licenciamento pay-per-use não funcionará. As versões atuais de Maya ou 3ds Max não necessitam de um servidor de licença quando estão a correr sem cabeça (no modo de lote/linha de comando). Contacte o suporte azure se não tiver a certeza de como proceder com esta opção.
+* [Pacotes de candidatura:](https://docs.microsoft.com/azure/batch/batch-application-packages)
+  * Embaas os ficheiros de aplicação utilizando um ou mais ficheiros ZIP, carregues através do portal Azure e especifique o pacote na configuração do pool. Quando os VMs da piscina são criados, os ficheiros ZIP são descarregados e os ficheiros extraídos.
+* Ficheiros de recursos:
+  * Os ficheiros de aplicação são enviados para o armazenamento de blob Azure e especifica referências de ficheiros na tarefa de início da [piscina](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask). Quando os VMs do pool são criados, os ficheiros de recursos são descarregados em cada VM.
 
-### <a name="pay-for-use-licensing-for-pre-installed-applications"></a>Licenciamento de pagamento por uso para aplicativos pré-instalados
+### <a name="pay-for-use-licensing-for-pre-installed-applications"></a>Licenciamento pay-for-use para aplicações pré-instaladas
 
-Os aplicativos que serão usados e terão uma taxa de licenciamento precisam ser especificados na configuração do pool.
+As aplicações que serão utilizadas e têm uma taxa de licenciamento precisam de ser especificadas na configuração do pool.
 
-* Especifique a propriedade `applicationLicenses` ao [criar um pool](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body).  Os valores a seguir podem ser especificados na matriz de cadeias de caracteres-"Vray", "Arnold", "3dsmax", "Maya".
-* Quando você especifica um ou mais aplicativos, o custo desses aplicativos é adicionado ao custo das VMs.  Os preços de aplicativo são listados na [página de preços do lote do Azure](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
+* Especifique a `applicationLicenses` propriedade ao [criar uma piscina.](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body)  Os seguintes valores podem ser especificados na gama de cordas - "vray", "arnold", "3dsmax", "maya".
+* Quando especifica uma ou mais aplicações, o custo dessas aplicações é adicionado ao custo dos VMs.  Os preços da aplicação estão listados na página de preços do [Lote Azure](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
 > [!NOTE]
-> Se, em vez disso, você se conectar a um servidor de licença para usar os aplicativos de renderização, não especifique a propriedade `applicationLicenses`.
+> Se em vez disso se ligar a um servidor de `applicationLicenses` licença para utilizar as aplicações de renderização, não especifique a propriedade.
 
-Você pode usar o portal do Azure ou Batch Explorer para selecionar aplicativos e mostrar os preços do aplicativo.
+Pode utilizar o portal Azure ou o Batch Explorer para selecionar aplicações e mostrar os preços de aplicação.
 
-Se for feita uma tentativa de usar um aplicativo, mas o aplicativo não tiver sido especificado na propriedade `applicationLicenses` da configuração do pool ou não alcançar um servidor de licença, a execução do aplicativo falhará com um erro de licenciamento e um código de saída diferente de zero.
+Se for feita uma tentativa de utilização de uma aplicação, mas a aplicação não foi especificada na `applicationLicenses` propriedade da configuração do pool ou não chega a um servidor de licença, então a execução da aplicação falha com um erro de licenciamento e código de saída não zero.
 
-### <a name="environment-variables-for-pre-installed-applications"></a>Variáveis de ambiente para aplicativos pré-instalados
+### <a name="environment-variables-for-pre-installed-applications"></a>Variáveis ambientais para aplicações pré-instaladas
 
-Para poder criar a linha de comando para as tarefas de renderização, o local de instalação dos executáveis do aplicativo de renderização deve ser especificado.  Variáveis de ambiente do sistema foram criadas nas imagens de VM do Azure Marketplace, que podem ser usadas em vez de ter que especificar caminhos reais.  Essas variáveis de ambiente são além das [variáveis de ambiente do lote padrão](https://docs.microsoft.com/azure/batch/batch-compute-node-environment-variables) criadas para cada tarefa.
+Para poder criar a linha de comando para tarefas de renderização, deve especificar-se a localização de instalação dos executíveis da aplicação de renderização.  Foram criadas variáveis do ambiente do sistema nas imagens VM do Azure Marketplace, que podem ser usadas em vez de terem de especificar caminhos reais.  Estas variáveis ambientais são além das [variáveis ambientais padrão](https://docs.microsoft.com/azure/batch/batch-compute-node-environment-variables) do Lote criadas para cada tarefa.
 
-|Candidatura|Executável do aplicativo|Variável de ambiente|
+|Aplicação|Execução de aplicação|Variável ambiental|
 |---------|---------|---------|
 |Autodesk 3ds Max 2018|3dsmaxcmdio.exe|3DSMAX_2018_EXEC|
 |Autodesk 3ds Max 2019|3dsmaxcmdio.exe|3DSMAX_2019_EXEC|
 |Autodesk Maya 2017|render.exe|MAYA_2017_EXEC|
 |Autodesk Maya 2018|render.exe|MAYA_2018_EXEC|
-|Grupo de caoss V-Ray autônomo|vray.exe|VRAY_3.60.4_EXEC|
-Linha de comando do Arnold 2017|Iniciar. exe|ARNOLD_2017_EXEC|
-|Linha de comando do Arnold 2018|Iniciar. exe|ARNOLD_2018_EXEC|
-|Blender|blender.exe|BLENDER_2018_EXEC|
+|Grupo Caos V-Ray Autónomo|vray.exe|VRAY_3.60.4_EXEC|
+Linha de comando Arnold 2017|kick.exe|ARNOLD_2017_EXEC|
+|Linha de comando Arnold 2018|kick.exe|ARNOLD_2018_EXEC|
+|Liquidificador|liquidificador.exe|BLENDER_2018_EXEC|
 
-### <a name="azure-vm-families"></a>Famílias de VMs do Azure
+### <a name="azure-vm-families"></a>Famílias Azure VM
 
-Assim como acontece com outras cargas de trabalho, a renderização dos requisitos do sistema de aplicativos varia e os requisitos de desempenho variam para trabalhos e projetos.  Uma grande variedade de famílias de VMs está disponível no Azure, dependendo de seus requisitos – custo mais baixo, melhor preço/desempenho, melhor desempenho e assim por diante.
-Alguns aplicativos de renderização, como Arnold, são baseados em CPU; outros, como ciclos de V-Ray e do Blender, podem usar CPUs e/ou GPUs.
-Para obter uma descrição das famílias de VMs disponíveis e tamanhos de VM, [Consulte tipos e tamanhos de VM](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+Tal como acontece com outras cargas de trabalho, os requisitos do sistema de aplicação variam e os requisitos de desempenho variam para empregos e projetos.  Uma grande variedade de famílias vm estão disponíveis em Azure dependendo das suas necessidades – custo mais baixo, melhor preço/desempenho, melhor desempenho, e assim por diante.
+Algumas aplicações de renderização, como arnold, são baseadas em CPU; outros, como os Ciclos V-Ray e Blender, podem utilizar CPUs e/ou GPUs.
+Para obter uma descrição das famílias VM disponíveis e tamanhos VM, [consulte tipos e tamanhos VM](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
 
 ### <a name="low-priority-vms"></a>VMs de baixa prioridade
 
-Assim como acontece com outras cargas de trabalho, as VMs de baixa prioridade podem ser utilizadas em pools do lote para renderização.  As VMs de baixa prioridade executam as mesmas como VMs dedicadas regulares, mas utilizam capacidade excedente do Azure e estão disponíveis para um grande desconto.  A desvantagem de usar VMs de baixa prioridade é que essas VMs podem não estar disponíveis para serem alocadas ou podem sofrer preempção a qualquer momento, dependendo da capacidade disponível. Por esse motivo, as VMs de baixa prioridade não serão adequadas para todos os trabalhos de renderização. Por exemplo, se as imagens demorarem muitas horas para serem renderizadas, é provável que a renderização dessas imagens seja interrompida e reiniciada porque as VMs que estão sendo admitidas não seriam aceitáveis.
+Tal como acontece com outras cargas de trabalho, os VMs de baixa prioridade podem ser utilizados em piscinas de lote para renderização.  Os VMs de baixa prioridade executam o mesmo que os VMs dedicados regulares, mas utilizam a capacidade excedentária do Azure e estão disponíveis para um grande desconto.  A compensação pela utilização de VMs de baixa prioridade é que esses VMs podem não estar disponíveis para serem atribuídos ou podem ser antecipados a qualquer momento, dependendo da capacidade disponível. Por esta razão, os VMs de baixa prioridade não serão adequados para todos os trabalhos de representação. Por exemplo, se as imagens demoram muitas horas a renderizar, então é provável que ter a renderização dessas imagens interrompida e reiniciada devido à prevenção de VMs não seria aceitável.
 
-Para obter mais informações sobre as características de VMs de baixa prioridade e as várias maneiras de configurá-las usando o lote, consulte [usar VMs de baixa prioridade com o lote](https://docs.microsoft.com/azure/batch/batch-low-pri-vms).
+Para obter mais informações sobre as características dos VMs de baixa prioridade e as várias formas de configurá-los usando o Batch, consulte [Use VMs de baixa prioridade com Lote](https://docs.microsoft.com/azure/batch/batch-low-pri-vms).
 
-## <a name="jobs-and-tasks"></a>Trabalhos e tarefas
+## <a name="jobs-and-tasks"></a>Empregos e tarefas
 
-Nenhum suporte específico de renderização é necessário para trabalhos e tarefas.  O principal item de configuração é a linha de comando da tarefa, que precisa fazer referência ao aplicativo necessário.
-Quando as imagens de VM do Azure Marketplace são usadas, a prática recomendada é usar as variáveis de ambiente para especificar o caminho e o executável do aplicativo.
+Não é necessário um apoio específico para os postos de trabalho e tarefas.  O item principal de configuração é a linha de comando de tarefa, que precisa de fazer referência à aplicação necessária.
+Quando as imagens VM do Azure Marketplace são utilizadas, então a melhor prática é utilizar as variáveis ambientais para especificar o caminho e a aplicação executáveis.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter exemplos de renderização em lote, experimente os dois tutoriais:
+Por exemplo, a renderização do Lote experimente os dois tutoriais:
 
-* [Renderização usando o CLI do Azure](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
-* [Renderizando usando Batch Explorer](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
+* [Renderização utilizando o Azure CLI](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
+* [Compor com o Batch Explorer](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)

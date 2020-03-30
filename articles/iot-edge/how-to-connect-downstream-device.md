@@ -1,6 +1,6 @@
 ---
-title: Ligar dispositivos downstream - Azure IoT Edge | Documentos da Microsoft
-description: Como configurar dispositivos downstream ou de folha para se conectar a dispositivos Azure IoT Edge gateway.
+title: Ligar dispositivos a jusante - Azure IoT Edge [ Borda Azure IoT ] Microsoft Docs
+description: Como configurar dispositivos a jusante ou de folhas para ligar aos dispositivos de gateway Azure IoT Edge.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,130 +9,130 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 6ddda38d887cdfe30b449847e2f625ba17f33898
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76510809"
 ---
-# <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Ligar um dispositivo jusante a um gateway do Azure IoT Edge
+# <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Ligar um dispositivo a jusante a um gateway do Azure IoT Edge
 
-Este artigo fornece instruções para estabelecer uma conexão confiável entre dispositivos downstream e IoT Edge gateways transparentes. Em um cenário de gateway transparente, um ou mais dispositivos podem passar suas mensagens por meio de um único dispositivo de gateway que mantém a conexão com o Hub IoT. Um dispositivo de downstream pode ser qualquer aplicação ou a plataforma que têm uma identidade criada com o [IoT Hub do Azure](https://docs.microsoft.com/azure/iot-hub) serviço em nuvem. Em muitos casos, estas aplicações se utilizar o [do Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). Um dispositivo downstream poderia até ser um aplicativo em execução no próprio dispositivo de gateway de IoT Edge.
+Este artigo fornece instruções para estabelecer uma ligação fidedigna entre dispositivos a jusante e gateways transparentes IoT Edge. Num cenário transparente de gateway, um ou mais dispositivos podem passar as suas mensagens através de um único dispositivo de gateway que mantém a ligação ao IoT Hub. Um dispositivo a jusante pode ser qualquer aplicação ou plataforma que tenha uma identidade criada com o serviço de nuvem [Azure IoT Hub.](https://docs.microsoft.com/azure/iot-hub) Em muitos casos, estas aplicações utilizam o [dispositivo Azure IoT SDK](../iot-hub/iot-hub-devguide-sdks.md). Um dispositivo a jusante pode até ser uma aplicação em execução no próprio dispositivo de gateway IoT Edge.
 
-Há três etapas gerais para configurar uma conexão de gateway transparente bem-sucedida. Este artigo aborda a terceira etapa:
+Existem três passos gerais para estabelecer uma ligação transparente e bem sucedida. Este artigo cobre o terceiro passo:
 
-1. O dispositivo de gateway precisa conectar-se com segurança a dispositivos downstream, receber comunicações de dispositivos downstream e rotear mensagens para o destino apropriado. Para obter mais informações, consulte [configurar um dispositivo de IOT Edge para atuar como um gateway transparente](how-to-create-transparent-gateway.md).
-2. O dispositivo downstream precisa de uma identidade de dispositivo para ser capaz de se autenticar no Hub IoT e conhecer a comunicação por meio de seu dispositivo de gateway. Para obter mais informações, consulte [autenticar um dispositivo downstream no Hub IOT do Azure](how-to-authenticate-downstream-device.md).
-3. **O dispositivo downstream precisa se conectar ao seu dispositivo de gateway com segurança.**
+1. O dispositivo gateway precisa de ligar-se de forma segura a dispositivos a jusante, receber comunicações de dispositivos a jusante e direcionar mensagens para o destino adequado. Para mais informações, consulte [Configure um dispositivo IoT Edge para funcionar como uma porta de entrada transparente](how-to-create-transparent-gateway.md).
+2. O dispositivo a jusante precisa de uma identidade de dispositivo para ser capaz de autenticar com o IoT Hub, e saber comunicar através do seu dispositivo gateway. Para mais informações, consulte [Authenticate um dispositivo a jusante para o Hub Azure IoT](how-to-authenticate-downstream-device.md).
+3. **O dispositivo a jusante tem de se ligar ao seu dispositivo de gateway de forma segura.**
 
-Este artigo identifica os problemas comuns com ligações de dispositivos de downstream e orienta-o na configuração de seus dispositivos downstream por:
+Este artigo identifica problemas comuns com ligações a jusante e guia-o na configuração dos seus dispositivos a jusante por:
 
-* Explicando transport layer security (TLS) e conceitos básicos de certificados.
-* Explicar como bibliotecas TLS funcionam em sistemas operativos diferentes e a forma como cada sistema operacional lida com certificados.
-* Percorrendo o IoT do Azure a utilizar o exemplos em vários idiomas para ajudá-lo.
+* Explicando a segurança da camada de transporte (TLS) e os fundamentos do certificado.
+* Explicando como as bibliotecas TLS funcionam em diferentes sistemas operativos e como cada sistema operativo lida com certificados.
+* Andando por amostras de IoT Azure em várias línguas para ajudá-lo a começar.
 
-Neste artigo, os termos *gateway* e *gateway do IoT Edge* consulte um dispositivo IoT Edge configurado como um gateway transparente.
+Neste artigo, os termos *gateway* e *IoT Edge gateway* referem-se a um dispositivo IoT Edge configurado como um gateway transparente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Tenha o arquivo de certificado **Azure-IOT-Test-only. root. ca. cert. pem** que foi gerado em [configurar um dispositivo IOT Edge para atuar como um gateway transparente](how-to-create-transparent-gateway.md) disponível em seu dispositivo downstream. O dispositivo downstream usa esse certificado para validar a identidade do dispositivo de gateway.
-* Tenha a cadeia de conexão modificada que aponta para o dispositivo de gateway, conforme explicado em [autenticar um dispositivo downstream no Hub IOT do Azure](how-to-authenticate-downstream-device.md).
+* Disponha do ficheiro de certificado **azure-iot-test-only.root.ca.cert.pem** que foi gerado no [Configure um dispositivo IoT Edge para funcionar como uma porta](how-to-create-transparent-gateway.md) de entrada transparente disponível no seu dispositivo a jusante. O seu dispositivo a jusante utiliza este certificado para validar a identidade do dispositivo gateway.
+* Dispor da cadeia de ligação modificada que aponta para o dispositivo gateway, como explica do [Authenticate um dispositivo a jusante ao Hub Azure IoT](how-to-authenticate-downstream-device.md).
 
-## <a name="prepare-a-downstream-device"></a>Preparar um dispositivo de downstream
+## <a name="prepare-a-downstream-device"></a>Prepare um dispositivo a jusante
 
-Um dispositivo de downstream pode ser qualquer aplicação ou a plataforma que têm uma identidade criada com o [IoT Hub do Azure](https://docs.microsoft.com/azure/iot-hub) serviço em nuvem. Em muitos casos, estas aplicações se utilizar o [do Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). Um dispositivo downstream poderia até ser um aplicativo em execução no próprio dispositivo de gateway de IoT Edge. No entanto, outro dispositivo de IoT Edge não pode ser downstream de um gateway de IoT Edge.
+Um dispositivo a jusante pode ser qualquer aplicação ou plataforma que tenha uma identidade criada com o serviço de nuvem [Azure IoT Hub.](https://docs.microsoft.com/azure/iot-hub) Em muitos casos, estas aplicações utilizam o [dispositivo Azure IoT SDK](../iot-hub/iot-hub-devguide-sdks.md). Um dispositivo a jusante pode até ser uma aplicação em execução no próprio dispositivo de gateway IoT Edge. No entanto, outro dispositivo IoT Edge não pode estar a jusante de um gateway IoT Edge.
 
 >[!NOTE]
->Os dispositivos IoT que têm identidades registradas no Hub IoT podem usar o [módulo gêmeos](../iot-hub/iot-hub-devguide-module-twins.md) para isolar diferentes processos, hardware ou funções em um único dispositivo. IoT Edge gateways dão suporte a conexões de módulo downstream usando a autenticação de chave simétrica, mas não a autenticação de certificado X. 509.
+>Os dispositivos IoT que tenham identidades registadas no IoT Hub podem usar [gémeos módulos](../iot-hub/iot-hub-devguide-module-twins.md) para isolar diferentes processos, hardware ou funções num único dispositivo. Os gateways IoT Edge suportam ligações de módulos a jusante utilizando a autenticação simétrica da chave, mas não a autenticação do certificado X.509.
 
-Para ligar um dispositivo jusante a um gateway do IoT Edge, precisa de duas coisas:
+Para ligar um dispositivo a jusante a um portal IoT Edge, precisa de duas coisas:
 
-* Um dispositivo ou aplicação que está configurada com uma cadeia de ligação de dispositivos do IoT Hub anexada com informações para ligá-lo para o gateway.
+* Um dispositivo ou aplicação configurado com uma cadeia de ligação de dispositivo IoT Hub anexada com informações para ligá-lo ao gateway.
 
-    Esta etapa é explicada em [autenticar um dispositivo downstream no Hub IOT do Azure](how-to-authenticate-downstream-device.md).
+    Este passo é explicado em [Authenticate um dispositivo a jusante para o Hub Azure IoT](how-to-authenticate-downstream-device.md).
 
-* O dispositivo ou aplicativo precisa confiar no certificado de **autoridade de certificação raiz** do gateway para validar as conexões TLS com o dispositivo de gateway.
+* O dispositivo ou aplicação tem de confiar no certificado **CA raiz** do gateway para validar as ligações TLS ao dispositivo gateway.
 
-    Esta etapa é explicada em detalhes no restante deste artigo. Essa etapa pode ser executada de duas maneiras: Instalando o certificado de autoridade de certificação no repositório de certificados do sistema operacional ou (para determinados idiomas) referenciando o certificado em aplicativos usando os SDKs do IoT do Azure.
+    Este passo é explicado em detalhe no resto deste artigo. Este passo pode ser realizado de duas formas: instalando o certificado CA no certificado do sistema operativo, ou (para certos idiomas) fazendo referência ao certificado dentro das aplicações utilizando os SDKs Azure IoT.
 
-## <a name="tls-and-certificate-fundamentals"></a>Noções básicas do TLS e o certificado
+## <a name="tls-and-certificate-fundamentals"></a>TLS e fundamentos de certificado
 
-O desafio de ligar com segurança a jusante dispositivos IoT Edge é como qualquer comunicação de cliente/servidor seguro que ocorre através da internet. Um cliente e um servidor comunicam de forma segura com o uso de internet [security (TLS) da camada de transporte](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS baseia-se com a norma [infraestrutura de chaves públicas (PKI)](https://en.wikipedia.org/wiki/Public_key_infrastructure) construções chamado de certificados. O TLS é uma especificação bastante envolvida e aborda uma ampla variedade de tópicos relacionados à proteção de dois pontos de extremidade. Esta seção resume os conceitos relevantes para você conectar dispositivos com segurança a um IoT Edge gateway.
+O desafio de ligar os dispositivos a jusante de forma segura ao IoT Edge é como qualquer outra comunicação segura de cliente/servidor que ocorra através da internet. Um cliente e um servidor comunicam de forma segura através da internet utilizando a segurança da camada de [transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). O TLS é construído utilizando as construções padrão de [infraestrutura pública (PKI)](https://en.wikipedia.org/wiki/Public_key_infrastructure) chamadas certificados. TLS é uma especificação bastante envolvida e aborda uma vasta gama de tópicos relacionados com a garantia de dois pontos finais. Esta secção resume os conceitos relevantes para que possa ligar os dispositivos de forma segura a um gateway IoT Edge.
 
-Quando um cliente se liga a um servidor, o servidor apresenta uma cadeia de certificados, chamado de *cadeia de certificados de servidor*. Uma cadeia de certificados normalmente é composto por um certificado de autoridade (CA) do certificado de raiz, um ou mais certificados de AC intermediários e, finalmente, o certificado do servidor em si. Um cliente estabelece a fidedignidade com um servidor criptograficamente verificando a cadeia de certificados de servidor completo. Essa validação de cliente da cadeia de certificados de servidor é chamada *validação de cadeia de servidores*. O cliente desafia criptograficamente o serviço a provar a posse da chave privada associada ao certificado do servidor em um processo chamado *prova de posse*. A combinação de validação de cadeia de servidores e prova de posse é chamada de *autenticação de servidor*. Para validar uma cadeia de certificados de servidor, um cliente precisa de uma cópia do certificado de AC de raiz que foi utilizado para criar (ou emitir) o certificado do servidor. Normalmente ao ligar ao Web sites, um navegador está pré-configurada com certificados de AC usados para que o cliente tenha um processo uniforme.
+Quando um cliente se conecta a um servidor, o servidor apresenta uma cadeia de certificados, chamada cadeia de *certificados*do servidor . Uma cadeia de certificados normalmente compreende um certificado de autoridade de certificado de raiz (CA), um ou mais certificados ca intermédios, e finalmente o próprio certificado do servidor. Um cliente estabelece a confiança com um servidor verificando criptograficamente toda a cadeia de certificados do servidor. Esta validação do cliente da cadeia de certificados de servidor chama-se *validação da cadeia*de servidores. O cliente desafia criptograficamente o serviço para provar a posse da chave privada associada ao certificado de servidor num processo chamado *prova de posse*. A combinação de validação da cadeia de servidores e prova de posse chama-se *autenticação*do servidor . Para validar uma cadeia de certificados de servidor, um cliente precisa de uma cópia do certificado CA raiz que foi usado para criar (ou emitir) o certificado do servidor. Normalmente, quando se conecta a websites, um navegador vem pré-configurado com certificados CA geralmente usados para que o cliente tenha um processo sem emenda.
 
-Quando um dispositivo se liga ao IoT Hub do Azure, o dispositivo é o cliente e o serviço em nuvem do IoT Hub é o servidor. O serviço em nuvem do IoT Hub é apoiado por um certificado de AC de raiz chamado **Baltimore CyberTrust Root**, que é amplamente utilizada e disponível ao público. Uma vez que o certificado de AC do IoT Hub já está instalado na maioria dos dispositivos, muitas implementações do TLS (OpenSSL, Schannel, LibreSSL) utilizá-lo durante a validação de certificados de servidor. Um dispositivo que pode ligar com êxito para o IoT Hub pode ter problemas, tentando se conectar a um gateway do IoT Edge.
+Quando um dispositivo se liga ao Azure IoT Hub, o dispositivo é o cliente e o serviço de nuvem IoT Hub é o servidor. O serviço de nuvem IoT Hub é apoiado por um certificado ca raiz chamado **Baltimore CyberTrust Root**, que é publicamente disponível e amplamente utilizado. Uma vez que o certificado IoT Hub CA já está instalado na maioria dos dispositivos, muitas implementações de TLS (OpenSSL, Schannel, LibreSSL) usam-no automaticamente durante a validação do certificado do servidor. Um dispositivo que pode ligar-se com sucesso ao IoT Hub pode ter problemas ao tentar ligar-se a um gateway IoT Edge.
 
-Quando um dispositivo se liga a um gateway do IoT Edge, o dispositivo de downstream é o cliente e o dispositivo de gateway é o servidor. O Azure IoT Edge permite que os operadores (ou usuários) criar cadeias de certificados de gateway, no entanto, sua preferência. O operador pode optar por utilizar um certificado de AC público, como o Baltimore, ou utilize uma raiz autoassinada (ou interna) certificado da AC. Certificados de AC públicos, muitas vezes, têm um custo associado a eles, portanto, são normalmente utilizadas em cenários de produção. Certificados de AC autoassinados são preferenciais para desenvolvimento e teste. Os artigos de configuração do gateway transparente listados na introdução usam certificados de AC raiz autoassinados.
+Quando um dispositivo se liga a um portal IoT Edge, o dispositivo a jusante é o cliente e o dispositivo gateway é o servidor. O Azure IoT Edge permite que os operadores (ou utilizadores) construam cadeias de certificados de gateway como entenderem. O operador pode optar por utilizar um certificado de AC público, como Baltimore, ou utilizar um certificado de ac raiz auto-assinado (ou interno). Os certificados públicos de CA têm frequentemente um custo associado a eles, por isso são normalmente usados em cenários de produção. Os certificados de A Auto-assinados são preferidos para o desenvolvimento e teste. Os artigos de configuração transparentes de gateway listados na introdução utilizam certificados ca raiz auto-assinados.
 
-Quando utiliza um certificado de AC de raiz autoassinado para um gateway do IoT Edge, precisará ser instalado ou fornecido para todos os dispositivos de downstream tentando se conectar ao gateway.
+Quando utilizar um certificado de AC raiz auto-assinado para um gateway IoT Edge, este tem de ser instalado ou fornecido a todos os dispositivos a jusante que tentem ligar-se ao portal.
 
-![Configurar o certificado do gateway](./media/how-to-create-transparent-gateway/gateway-setup.png)
+![Configuração do certificado gateway](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
-Para saber mais sobre certificados do IoT Edge e algumas implicações de produção, veja [detalhes de utilização de certificados do IoT Edge](iot-edge-certs.md).
+Para saber mais sobre os certificados IoT Edge e algumas implicações de produção, consulte detalhes de utilização do [certificado IoT Edge](iot-edge-certs.md).
 
-## <a name="provide-the-root-ca-certificate"></a>Fornecer o certificado de autoridade de certificação raiz
+## <a name="provide-the-root-ca-certificate"></a>Fornecer o certificado de ca raiz
 
-Para verificar os certificados do dispositivo de gateway, o dispositivo downstream precisa de sua própria cópia do certificado de autoridade de certificação raiz. Se você usou os scripts fornecidos no repositório git IoT Edge para criar certificados de teste, o certificado de autoridade de certificação raiz será chamado **Azure-IOT-Test-only. root. ca. cert. pem**. Se você ainda não fez parte das outras etapas de preparação do dispositivo downstream, mova esse arquivo de certificado para qualquer diretório em seu dispositivo downstream. Você pode usar um serviço como [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) ou uma função como [protocolo de cópia segura](https://www.ssh.com/ssh/scp/) para mover o arquivo de certificado.
+Para verificar os certificados do dispositivo gateway, o dispositivo a jusante precisa da sua própria cópia do certificado ca raiz. Se utilizou os scripts fornecidos no repositório IoT Edge git para criar certificados de teste, então o certificado ca raiz é chamado **azure-iot-test-only.root.ca.cert.pem**. Se ainda não fez parte das outras etapas de preparação do dispositivo a jusante, desloque este ficheiro de certificado para qualquer diretório no seu dispositivo a jusante. Pode utilizar um serviço como [o Azure Key Vault](https://docs.microsoft.com/azure/key-vault) ou uma função como o protocolo de cópia [Segura](https://www.ssh.com/ssh/scp/) para mover o ficheiro de certificado.
 
-## <a name="install-certificates-in-the-os"></a>Instalar certificados no sistema operacional
+## <a name="install-certificates-in-the-os"></a>Instalar certificados no SO
 
-A instalação do certificado de autoridade de certificação raiz no repositório de certificados do sistema operacional geralmente permite que a maioria dos aplicativos use o certificado de autoridade de certificação raiz. Há algumas exceções, como aplicativos NodeJS que não usam o repositório de certificados do sistema operacional, mas usam o repositório de certificados interno do tempo de execução do nó. Se você não puder instalar o certificado no nível do sistema operacional, pule para [usar certificados com SDKs de IOT do Azure](#use-certificates-with-azure-iot-sdks).
+A instalação do certificado CA raiz na loja de certificados do sistema operativo permite geralmente que a maioria das aplicações utilizem o certificado CA raiz. Existem algumas exceções, como aplicações nodeJS que não usam a loja de certificados S, mas sim usam a loja de certificados internos do Nó. Se não conseguir instalar o certificado ao nível do sistema operativo, salte para a frente para [utilizar certificados com SDKs Azure IoT](#use-certificates-with-azure-iot-sdks).
 
 ### <a name="ubuntu"></a>Ubuntu
 
-Os comandos seguintes são um exemplo de como instalar um certificado de AC num host de Ubuntu. Este exemplo pressupõe que você esteja usando o certificado **Azure-IOT-Test-only. root. ca. cert. pem** dos artigos de pré-requisitos e que você copiou o certificado em um local no dispositivo downstream.
+Os seguintes comandos são um exemplo de como instalar um certificado CA num hospedeiro Ubuntu. Este exemplo pressupõe que está a usar o certificado **azure-iot-test-only.root.ca.cert.pem** dos artigos pré-requisitos, e que copiou o certificado para um local no dispositivo a jusante.
 
 ```bash
 sudo cp <path>/azure-iot-test-only.root.ca.cert.pem /usr/local/share/ca-certificates/azure-iot-test-only.root.ca.cert.pem.crt
 sudo update-ca-certificates
 ```
 
-Você deverá ver uma mensagem que diz "Atualizando certificados no/etc/SSL/Certs... 1 adicionado, 0 removido; concluído ".
+Deve ver uma mensagem que diz: "Atualizar certificados em /etc/ssl/certs... 1 adicionado, 0 removido; feito.
 
 ### <a name="windows"></a>Windows
 
-Os seguintes passos são um exemplo de como instalar um certificado de AC num host do Windows. Este exemplo pressupõe que você esteja usando o certificado **Azure-IOT-Test-only. root. ca. cert. pem** dos artigos de pré-requisitos e que você copiou o certificado em um local no dispositivo downstream.
+Os seguintes passos são um exemplo de como instalar um certificado CA num hospedeiro do Windows. Este exemplo pressupõe que está a usar o certificado **azure-iot-test-only.root.ca.cert.pem** dos artigos pré-requisitos, e que copiou o certificado para um local no dispositivo a jusante.
 
-Você pode instalar certificados usando o [importar certificado](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate?view=win10-ps) do PowerShell como administrador:
+Pode instalar certificados utilizando o [Certificado de Importação](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate?view=win10-ps) da PowerShell como administrador:
 
 ```powershell
 import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
 ```
 
-Você também pode instalar certificados usando o utilitário **certlm** :
+Também pode instalar certificados utilizando o utilitário **certlm:**
 
-1. No menu Iniciar, procure e selecione **gerir certificados de computador**. Um utilitário chamado **certlm** abre.
-2. Navegue para **certificados - Computador Local** > **autoridades de certificação de raiz fidedigna**.
-3. Com o botão direito **certificados** e selecione **todas as tarefas** > **importação**. Deve iniciar o Assistente para importar certificados.
-4. Siga os passos conforme indicado e importar o ficheiro de certificado `<path>/azure-iot-test-only.root.ca.cert.pem`. Quando concluída, deverá ver uma mensagem "Importada com êxito".
+1. No menu Iniciar, procure e selecione **Gerir certificados de computador**. Abre-se um utilitário chamado **certlm.**
+2. Navegar para **Certificados - Autoridades locais** > de**certificação de raiz fidedignas**de computador.
+3. Clique em **certificados** de clique à direita e selecione **Todas as Tarefas** > **Importadas**. O assistente de importação de certificados deve ser lançado.
+4. Siga os passos como ficheiro `<path>/azure-iot-test-only.root.ca.cert.pem`de certificado de importação e direcionado. Quando concluído, deve ver uma mensagem "importada com sucesso".
 
-Também pode instalar certificados através de programação através de APIs do .NET, conforme mostrado no exemplo de .NET neste artigo.
+Também pode instalar certificados programáticamente utilizando APIs .NET, como mostra a amostra .NET mais tarde neste artigo.
 
-Normalmente, aplicativos usam o Windows fornecido chamado de pilha TLS [Schannel](https://docs.microsoft.com/windows/desktop/com/schannel) para ligar em segurança por TLS. Schannel *requer* que todos os certificados ser instalado no arquivo de certificados do Windows antes de tentar estabelecer uma conexão TLS.
+Normalmente, as aplicações utilizam o Windows fornecido a pilha TLS chamada [Schannel](https://docs.microsoft.com/windows/desktop/com/schannel) para se conectarem de forma segura sobre tLS. O Schannel exige que quaisquer certificados sejam *instalados* na loja de certificados Windows antes de tentar estabelecer uma ligação TLS.
 
-## <a name="use-certificates-with-azure-iot-sdks"></a>Utilizar certificados com o Azure IoT SDKs
+## <a name="use-certificates-with-azure-iot-sdks"></a>Utilize certificados com DSKs Azure IoT
 
-Esta secção descreve como o Azure IoT SDKs ligar a um dispositivo IoT Edge com aplicativos de exemplo simples. O objetivo de todos os exemplos é ligar o cliente do dispositivo e enviar mensagens de telemetria para o gateway, em seguida, feche a ligação e sair.
+Esta secção descreve como os SDKs Azure IoT se ligam a um dispositivo IoT Edge utilizando aplicações simples de amostra. O objetivo de todas as amostras é ligar o cliente do dispositivo e enviar mensagens de telemetria para o portal, em seguida, fechar a ligação e sair.
 
-Ter prontas antes de utilizar os exemplos de nível de aplicativo de duas coisas:
+Tenha duas coisas prontas antes de utilizar as amostras de nível de aplicação:
 
-* A cadeia de conexão do Hub IoT do dispositivo downstream foi modificada para apontar para o dispositivo de gateway e todos os certificados necessários para autenticar seu dispositivo downstream no Hub IoT. Para obter mais informações, consulte [autenticar um dispositivo downstream no Hub IOT do Azure](how-to-authenticate-downstream-device.md).
+* A cadeia de ligação IoT Hub do seu dispositivo a jusante modificada para apontar para o dispositivo gateway, e quaisquer certificados necessários para autenticar o seu dispositivo a jusante ao IoT Hub. Para mais informações, consulte [Authenticate um dispositivo a jusante para o Hub Azure IoT](how-to-authenticate-downstream-device.md).
 
-* O caminho completo para o certificado de AC de raiz que copiados e guardados em algum lugar no seu dispositivo de downstream.
+* O caminho completo para o certificado de ca raiz que copiou e guardou algures no seu dispositivo a jusante.
 
     Por exemplo, `<path>/azure-iot-test-only.root.ca.cert.pem`.
 
 ### <a name="nodejs"></a>NodeJS
 
-Esta seção fornece um aplicativo de exemplo para ligar um cliente de dispositivo do Azure IoT NodeJS para um gateway do IoT Edge. Para aplicativos NodeJS, você deve instalar o certificado de autoridade de certificação raiz no nível do aplicativo, conforme mostrado aqui. Os aplicativos NodeJS não usam o repositório de certificados do sistema.
+Esta secção fornece uma aplicação de amostra para ligar um cliente do dispositivo Azure IoT NodeJS a um gateway IoT Edge. Para aplicações NodeJS, deve instalar o certificado CA raiz ao nível da aplicação, como mostrado aqui. As aplicações nodeJS não usam a loja de certificados do sistema.
 
-1. Obter o de exemplo **edge_downstream_device.js** partir a [repositório de exemplos do Azure IoT device SDK para node. js](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples).
-2. Certifique-se de que tem todos os pré-requisitos para executar o exemplo ao rever o **readme.md** ficheiro.
-3. No ficheiro edge_downstream_device.js, atualize o **connectionString** e **edge_ca_cert_path** variáveis.
-4. Consulte a documentação do SDK para obter instruções sobre como executar o exemplo no seu dispositivo.
+1. Obtenha a amostra para **edge_downstream_device.js** do [dispositivo Azure IoT SDK para amostras node.js repo](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples).
+2. Certifique-se de que tem todos os pré-requisitos para executar a amostra revendo o ficheiro **readme.md.**
+3. No ficheiro edge_downstream_device.js, atualize as variáveis **connectionString** e **edge_ca_cert_path.**
+4. Consulte a documentação do SDK para obter instruções sobre como executar a amostra no seu dispositivo.
 
-Para compreender o que estiver a executar o exemplo, o seguinte trecho de código é como o cliente SDK lê o ficheiro de certificado e a utiliza para estabelecer uma conexão TLS segura:
+Para compreender a amostra que está a executar, o seguinte código é como o SDK cliente lê o ficheiro de certificado e o utiliza para estabelecer uma ligação TLS segura:
 
 ```javascript
 // Provide the Azure IoT device client via setOptions with the X509
@@ -144,70 +144,70 @@ var options = {
 
 ### <a name="net"></a>.NET
 
-Esta secção apresenta um aplicativo de exemplo para ligar um cliente de dispositivo do IoT do Azure .NET para um gateway do IoT Edge. No entanto, os aplicativos .NET são podem utilizar quaisquer certificados instalados no arquivo de certificados do sistema em anfitriões de Linux e Windows automaticamente.
+Esta secção introduz uma aplicação de amostra para ligar um cliente de dispositivo Azure IoT .NET a um gateway IoT Edge. No entanto, as aplicações .NET podem utilizar automaticamente quaisquer certificados instalados na loja de certificados do sistema, tanto nos anfitriões do Linux como do Windows.
 
-1. Obter o de exemplo **EdgeDownstreamDevice** da [pasta de exemplos do IoT Edge .NET](https://github.com/Azure/iotedge/tree/master/samples/dotnet/EdgeDownstreamDevice).
-2. Certifique-se de que tem todos os pré-requisitos para executar o exemplo ao rever o **readme.md** ficheiro.
-3. Na **propriedades / launchSettings.json** de ficheiros, atualize o **DEVICE_CONNECTION_STRING** e **CA_CERTIFICATE_PATH** variáveis. Se pretender utilizar o certificado instalado no arquivo de certificados fidedignos no sistema host, deixe esta variável em branco.
-4. Consulte a documentação do SDK para obter instruções sobre como executar o exemplo no seu dispositivo.
+1. Obtenha a amostra para **EdgeDownstreamDevice** na pasta de [amostras IoT Edge .NET](https://github.com/Azure/iotedge/tree/master/samples/dotnet/EdgeDownstreamDevice).
+2. Certifique-se de que tem todos os pré-requisitos para executar a amostra revendo o ficheiro **readme.md.**
+3. No ficheiro **Properties / launchSettings.json,** atualize as variáveis **DEVICE_CONNECTION_STRING** e **CA_CERTIFICATE_PATH.** Se pretender utilizar o certificado instalado no certificado de confiança no sistema de hospedagem, deixe esta variável em branco.
+4. Consulte a documentação do SDK para obter instruções sobre como executar a amostra no seu dispositivo.
 
-Por meio de programação instalar um certificado fidedigno no arquivo de certificados através de um aplicativo .NET, consulte a **InstallCACert()** funcionar a **EdgeDownstreamDevice / Program.cs** ficheiro. Esta operação é idempotente, pelo que pode ser executado várias vezes com os mesmos valores com nenhum efeito adicional.
+Para instalar programáticamente um certificado fidedigno na loja de certificados através de uma aplicação .NET, consulte a função **InstallCACert** no ficheiro **EdgeDownstreamDevice/Program.cs.** Esta operação é idempotente, pelo que pode ser executada várias vezes com os mesmos valores sem efeito adicional.
 
 ### <a name="c"></a>C
 
-Esta secção apresenta um aplicativo de exemplo para ligar um cliente de dispositivo C de IoT do Azure para um gateway do IoT Edge. O SDK de C pode operar com muitas bibliotecas TLS, incluindo OpenSSL, WolfSSL e Schannel. Para obter mais informações, consulte a [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c).
+Esta secção introduz uma aplicação de amostra para ligar um cliente do dispositivo Azure IoT C a um gateway IoT Edge. O C SDK pode operar com muitas bibliotecas TLS, incluindo OpenSSL, WolfSSL e Schannel. Para mais informações, consulte o [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
-1. Obter o **iotedge_downstream_device_sample** aplicação a partir do [Azure IoT device SDK para C exemplos](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples).
-2. Certifique-se de que tem todos os pré-requisitos para executar o exemplo ao rever o **readme.md** ficheiro.
-3. No ficheiro iotedge_downstream_device_sample.c, atualize o **connectionString** e **edge_ca_cert_path** variáveis.
-4. Consulte a documentação do SDK para obter instruções sobre como executar o exemplo no seu dispositivo.
+1. Obtenha a aplicação **iotedge_downstream_device_sample** do [dispositivo Azure IoT SDK para amostras De C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples).
+2. Certifique-se de que tem todos os pré-requisitos para executar a amostra revendo o ficheiro **readme.md.**
+3. No ficheiro iotedge_downstream_device_sample.c, atualize as variáveis **de ligaçãoString** e **edge_ca_cert_path.**
+4. Consulte a documentação do SDK para obter instruções sobre como executar a amostra no seu dispositivo.
 
-Azure IoT device SDK para C fornece uma opção para registar um certificado de AC quando configurar o cliente. Esta operação não instala o certificado em qualquer lugar, mas em vez disso, usa um formato de cadeia de caracteres do certificado na memória. O certificado guardado é fornecido para a pilha TLS subjacente ao estabelecer uma ligação.
+O dispositivo Azure IoT SDK para C oferece uma opção de registar um certificado CA ao configurar o cliente. Esta operação não instala o certificado em lado nenhum, mas utiliza um formato de cadeia do certificado na memória. O certificado guardado é fornecido à pilha tLS subjacente ao estabelecer uma ligação.
 
 ```C
 (void)IoTHubDeviceClient_SetOption(device_handle, OPTION_TRUSTED_CERT, cert_string);
 ```
 
-Em anfitriões do Windows, se não estiver a utilizar OpenSSL ou outra biblioteca TLS, o SDK padrão usando o Schannel. Para o Schannel funcionar, o certificado de AC de raiz do IoT Edge deve ser instalado no arquivo de certificados do Windows, não definido usando o `IoTHubDeviceClient_SetOption` operação.
+Nos anfitriões do Windows, se não estiver a utilizar o OpenSSL ou outra biblioteca TLS, o padrão SDK é utilizar o Canal schannel. Para que o Schannel funcione, o certificado CA raiz IoT Edge deve `IoTHubDeviceClient_SetOption` ser instalado na loja de certificados Windows, não definido utilizando a operação.
 
 ### <a name="java"></a>Java
 
-Esta secção apresenta um aplicativo de exemplo para ligar um cliente de dispositivo do Azure IoT Java para um gateway do IoT Edge.
+Esta secção introduz uma aplicação de amostra para ligar um cliente do dispositivo Azure IoT Java a um gateway IoT Edge.
 
-1. Obter o de exemplo **evento de envio** da [Azure IoT device SDK para exemplos de Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples).
-2. Certifique-se de que tem todos os pré-requisitos para executar o exemplo ao rever o **readme.md** ficheiro.
-3. Consulte a documentação do SDK para obter instruções sobre como executar o exemplo no seu dispositivo.
+1. Obtenha a amostra para o **envio** do [dispositivo Azure IoT SDK para amostras java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples).
+2. Certifique-se de que tem todos os pré-requisitos para executar a amostra revendo o ficheiro **readme.md.**
+3. Consulte a documentação do SDK para obter instruções sobre como executar a amostra no seu dispositivo.
 
 ### <a name="python"></a>Python
 
-Esta secção apresenta um aplicativo de exemplo para ligar um cliente de dispositivo do Azure IoT Python para um gateway do IoT Edge.
+Esta secção introduz uma aplicação de amostra para ligar um cliente do dispositivo Azure IoT Python a um gateway IoT Edge.
 
-1. Obtenha o exemplo de **send_message** do [SDK do dispositivo IOT do Azure para exemplos do Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios).
-2. Verifique se você está executando em um contêiner de IoT Edge ou em um cenário de depuração, se o `EdgeHubConnectionString` e `EdgeModuleCACertificateFile` variáveis de ambiente estão definidas.
-3. Consulte a documentação do SDK para obter instruções sobre como executar o exemplo no seu dispositivo.
+1. Obtenha a amostra para **send_message** do [dispositivo Azure IoT SDK para amostras de Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios).
+2. Certifique-se de que está a correr num recipiente IoT Edge, ou num cenário de depuração, tem as `EdgeHubConnectionString` variáveis e `EdgeModuleCACertificateFile` ambiente definidas.
+3. Consulte a documentação do SDK para obter instruções sobre como executar a amostra no seu dispositivo.
 
 ## <a name="test-the-gateway-connection"></a>Testar a ligação de gateway
 
-Use este comando de exemplo para testar se o dispositivo downstream pode se conectar ao dispositivo de gateway:
+Utilize este comando de amostra para testar que o seu dispositivo a jusante pode ligar-se ao dispositivo de gateway:
 
 ```cmd/sh
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 ```
 
-Esse comando testa conexões em MQTTS (porta 8883). Se você estiver usando um protocolo diferente, ajuste o comando conforme necessário para AMQPS (5671) ou HTTPS (433)
+Este comando testa ligações sobre MQTTS (porta 8883). Se estiver a utilizar um protocolo diferente, ajuste o comando conforme necessário para AMQPS (5671) ou HTTPS (433)
 
-A saída desse comando pode ser longa, incluindo informações sobre todos os certificados na cadeia. Se a conexão for bem-sucedida, você verá uma linha como `Verification: OK` ou `Verify return code: 0 (ok)`.
+A saída deste comando pode ser longa, incluindo informações sobre todos os certificados da cadeia. Se a sua ligação for bem `Verification: OK` sucedida, verá uma linha como ou. `Verify return code: 0 (ok)`
 
-![Verificar conexão de gateway](./media/how-to-connect-downstream-device/verification-ok.png)
+![Verificar a ligação de gateway](./media/how-to-connect-downstream-device/verification-ok.png)
 
-## <a name="troubleshoot-the-gateway-connection"></a>Solucionar problemas de conexão de gateway
+## <a name="troubleshoot-the-gateway-connection"></a>Problemas de resolução da ligação de gateway
 
-Se o dispositivo de folha tiver uma conexão intermitente com seu dispositivo de gateway, tente as etapas a seguir para resolução.
+Se o seu dispositivo de folha tiver ligação intermitente ao seu dispositivo gateway, experimente os seguintes passos para resolução.
 
-1. O nome do host do gateway na cadeia de conexão é igual ao valor do nome do host no arquivo IoT Edge config. YAML no dispositivo de gateway?
-2. O nome do host do gateway é resolvido para um endereço IP? Você pode resolver conexões intermitentes usando DNS ou adicionando uma entrada de arquivo de host no dispositivo de folha.
-3. As portas de comunicação são abertas em seu firewall? A comunicação baseada no protocolo usado (MQTTS: 8883/AMQPS: 5671/HTTPS: 433) deve ser possível entre o dispositivo downstream e o IoT Edge transparente.
+1. O nome de gateway na cadeia de ligação é o mesmo que o valor do nome de anfitrião no ficheiro config.yaml IoT Edge no dispositivo gateway?
+2. O nome de anfitrião do portal é resolúvel para um endereço IP? Pode resolver ligações intermitentes utilizando DNS ou adicionando uma entrada de ficheiro de hospedeiro no dispositivo de folha.
+3. As portas de comunicação estão abertas na sua firewall? A comunicação com base no protocolo utilizado (MQTTS:8883/AMQPS:5671/HTTPS:433) deve ser possível entre o dispositivo a jusante e o IoT Edge transparente.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como pode estender o IoT Edge [recursos offline](offline-capabilities.md) a jusante dispositivos.
+Saiba como o IoT Edge pode estender [as capacidades offline](offline-capabilities.md) a dispositivos a jusante.

@@ -1,6 +1,6 @@
 ---
-title: Provisionar o StorSimple Virtual Array no VMware
-description: Este segundo tutorial da série de implantação do StorSimple virtual array envolve o provisionamento de um dispositivo virtual no VMware.
+title: Provision StorSimple Virtual Array em VMware
+description: Este segundo tutorial na série de implementação StorSimple Virtual Array envolve o fornecimento de um dispositivo virtual em VMware.
 author: alkohli
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
@@ -9,84 +9,84 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5f5ded3faec3a080022eea70de2cca5d27529c4d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76272085"
 ---
-# <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Implantar o StorSimple virtual array-Provision no VMware
+# <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Implementar Matriz Virtual StorSimple - Provisão em VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
-Este tutorial descreve como provisionar e conectar-se a uma matriz virtual StorSimple em um sistema de host executando o VMware ESXi 5,0, 5,5, 6,0 ou 6,5. Este artigo se aplica à implantação de matrizes virtuais do StorSimple no portal do Azure e na nuvem de Microsoft Azure Governamental.
+Este tutorial descreve como fornecer e ligar a um StorSimple Virtual Array num sistema de anfitriões que executa VMware ESXi 5.0, 5.5, 6.0 ou 6.5. Este artigo aplica-se à implementação de Matrizes Virtuais StorSimple no portal Azure e na Cloud do Governo do Microsoft Azure.
 
 Necessita de privilégios de administrador para aprovisionar e ligar a um dispositivo virtual. O aprovisionamento e a configuração inicial demoram cerca de 10 minutos a concluir.
 
-## <a name="provisioning-prerequisites"></a>Pré-requisitos de provisionamento
-Os pré-requisitos para provisionar um dispositivo virtual em um sistema de host executando o VMware ESXi 5,0, 5,5, 6,0 ou 6,5 são os seguintes.
+## <a name="provisioning-prerequisites"></a>Predisposição de pré-requisitos
+Os pré-requisitos para fornecer um dispositivo virtual num sistema de anfitriões que executa VMware ESXi 5.0, 5.5, 6.0 ou 6.5, são os seguintes.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>Para o serviço Gestor de Dispositivos do StorSimple
 Antes de começar, certifique-se de que:
 
-* Você concluiu todas as etapas em [preparar o portal para o StorSimple virtual array](storsimple-virtual-array-deploy1-portal-prep.md).
-* Você baixou a imagem do dispositivo virtual para VMware do portal do Azure. Para obter mais informações, consulte **etapa 3: baixar o dispositivo virtual imagem** de [preparar o portal para o guia do StorSimple virtual array](storsimple-virtual-array-deploy1-portal-prep.md).
+* Completou todos os passos em [Preparar o portal para StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md).
+* Descarregou a imagem do dispositivo virtual para VMware a partir do portal Azure. Para mais informações, consulte **passo 3: Descarregue a imagem** do dispositivo virtual de Preparar o portal para o guia [StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md).
 
 ### <a name="for-the-storsimple-virtual-device"></a>Para o dispositivo virtual StorSimple
 Antes de implementar um dispositivo virtual, certifique-se de que:
 
-* Você tem acesso a um sistema de host executando o Hyper-V (2008 R2 ou posterior) que pode ser usado para provisionar um dispositivo.
+* Tem acesso a um sistema de anfitriões que executa o Hyper-V (2008 R2 ou mais tarde) que pode ser utilizado para fornecer um dispositivo.
 * O sistema anfitrião tem capacidade para dedicar os seguintes recursos para aprovisionar o seu dispositivo virtual:
 
   * Um mínimo de 4 núcleos.
-  * Pelos menos 8 GB de RAM. Se você planeja configurar a matriz virtual como servidor de arquivos, 8 GB oferece suporte a menos de 2 milhões arquivos. Você precisa de 16 GB de RAM para dar suporte a 2-4 milhões de arquivos.
+  * Pelos menos 8 GB de RAM. Se planeia configurar a matriz virtual como servidor de ficheiros, 8 GB suporta menos de 2 milhões de ficheiros. Precisa de 16 GB de RAM para suportar 2 a 4 milhões de ficheiros.
   * Uma interface de rede.
   * Um disco virtual de 500 GB para dados do sistema.
 
 ### <a name="for-the-network-in-datacenter"></a>Para a rede no datacenter
 Antes de começar, certifique-se de que:
 
-* Você analisou os requisitos de rede para implantar um dispositivo virtual StorSimple e configurou a rede do datacenter de acordo com os requisitos. 
+* Reviu os requisitos de networking para implementar um dispositivo virtual StorSimple e configurou a rede datacenter de acordo com os requisitos. 
 
 ## <a name="step-by-step-provisioning"></a>Provisionamento passo a passo
-Para provisionar e conectar-se a um dispositivo virtual, você precisa executar as seguintes etapas:
+Para fornecer e ligar a um dispositivo virtual, é necessário efetuar os seguintes passos:
 
-1. Verifique se o sistema host tem recursos suficientes para atender aos requisitos mínimos de dispositivo virtual.
-2. Provisionar um dispositivo virtual em seu hipervisor.
+1. Certifique-se de que o sistema de acolhimento dispõe de recursos suficientes para satisfazer os requisitos mínimos do dispositivo virtual.
+2. Forneca um dispositivo virtual no seu hipervisor.
 3. Inicie o dispositivo virtual e obtenha o endereço IP.
 
-## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>Etapa 1: garantir que o sistema host atenda aos requisitos mínimos de dispositivo virtual
-Para criar um dispositivo virtual, será necessário:
+## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>Passo 1: Garantir que o sistema de acolhimento cumpre os requisitos mínimos dos dispositivos virtuais
+Para criar um dispositivo virtual, necessitará:
 
-* Acesso a um sistema de host executando o VMware ESXi Server 5,0, 5,5, 6,0 ou 6,5.
+* Acesso a um sistema de anfitriões em execução VMware ESXi Server 5.0, 5.5, 6.0 ou 6.5.
 * Ter o cliente VMware vSphere no seu sistema para gerir o anfitrião ESXi.
 
   * Um mínimo de 4 núcleos.
-  * Pelos menos 8 GB de RAM. Se você planeja configurar a matriz virtual como servidor de arquivos, 8 GB oferece suporte a menos de 2 milhões arquivos. Você precisa de 16 GB de RAM para dar suporte a 2-4 milhões de arquivos.
-  * Uma interface de rede ligada à rede com capacidade para encaminhar o tráfego para a Internet. A largura de banda mínima da Internet deve ser de 5 Mbps para permitir o funcionamento ideal do dispositivo.
+  * Pelos menos 8 GB de RAM. Se planeia configurar a matriz virtual como servidor de ficheiros, 8 GB suporta menos de 2 milhões de ficheiros. Precisa de 16 GB de RAM para suportar 2 a 4 milhões de ficheiros.
+  * Uma interface de rede ligada à rede com capacidade para encaminhar o tráfego para a Internet. A largura de banda mínima da Internet deve ser de 5 Mbps para permitir um ótimo funcionamento do dispositivo.
   * Um disco virtual de 500 GB para dados.
 
-## <a name="step-2-provision-a-virtual-device-in-hypervisor"></a>Etapa 2: provisionar um dispositivo virtual no hipervisor
+## <a name="step-2-provision-a-virtual-device-in-hypervisor"></a>Passo 2: Fornecer um dispositivo virtual em hipervisor
 Execute os passos seguintes para aprovisionar um dispositivo virtual no seu hipervisor.
 
-1. Copie a imagem do dispositivo virtual no seu sistema. Você baixou essa imagem virtual por meio do portal do Azure.
+1. Copie a imagem do dispositivo virtual no seu sistema. Descarregou esta imagem virtual através do portal Azure.
 
-   1. Verifique se você baixou o arquivo de imagem mais recente. Se você baixou a imagem anteriormente, baixe-a novamente para garantir que você tem a imagem mais recente. A imagem mais recente tem dois arquivos (em vez de um).
+   1. Certifique-se de que descarregou o ficheiro de imagem mais recente. Se descarregou a imagem mais cedo, descarregue-a novamente para garantir que tem a imagem mais recente. A imagem mais recente tem dois ficheiros (em vez de um).
    2. Tome nota da localização onde copiou a imagem, uma vez que vai utilizar esta imagem mais à frente no procedimento.
 
 2. Inicie sessão no servidor ESXi com o cliente vSphere. Tem de ter privilégios de administrador para criar uma máquina virtual.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image1.png)
-3. No cliente vSphere, na seção inventário no painel esquerdo, selecione o servidor ESXi.
+3. No cliente vSphere, na secção de inventário no painel esquerdo, selecione o EsXi Server.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image2.png)
-4. Carregue o VMDK para o servidor ESXi. Navegue até a guia **configuração** no painel direito. Em **hardware**, selecione **armazenamento**.
+4. Carregue o VMDK para o servidor ESXi. Navegue para o separador **Configuração** no painel direito. Em **hardware,** **selecione Storage**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image3.png)
-5. No painel da direita, em **Datastores** (Arquivos de dados), selecione o arquivo de dados onde pretende carregar o VMDK. O repositório de dados deve ter espaço livre suficiente para o sistema operacional e os discos de disco.
+5. No painel da direita, em **Datastores** (Arquivos de dados), selecione o arquivo de dados onde pretende carregar o VMDK. O datastore deve ter espaço livre suficiente para o SISTEMA e os discos de dados.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image4.png)
 6. Clique com o botão direito do rato e selecione **Browse Datastore** (Procurar arquivo de dados).
@@ -95,13 +95,13 @@ Execute os passos seguintes para aprovisionar um dispositivo virtual no seu hipe
 7. É apresentada a janela **Datastore Browser** (Browser de arquivos de dados).
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image6.png)
-8. Na barra de ferramentas, clique no ícone ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image7.png) para criar uma nova pasta. Especifique o nome da pasta e tome nota do mesmo. Vai utilizar este nome de pasta mais tarde quando criar uma máquina virtual (melhor prática recomendada). Clique em **OK**.
+8. Na barra de ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image7.png) ferramentas, clique no ícone para criar uma nova pasta. Especifique o nome da pasta e tome nota do mesmo. Vai utilizar este nome de pasta mais tarde quando criar uma máquina virtual (melhor prática recomendada). Clique em **OK**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image8.png)
 9. A nova pasta aparece no painel esquerdo do **Datastore Browser** (Browser de arquivos de dados).
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image9.png)
-10. Clique no ícone carregar ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image10.png) e selecione **carregar arquivo**.
+10. Clique no ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image10.png) ícone upload e selecione **Upload File**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image11.png)
 11. Procure e aponte para os ficheiros VMDK que descarregou. Existem dois ficheiros. Selecione um ficheiro para carregar.
@@ -113,102 +113,102 @@ Execute os passos seguintes para aprovisionar um dispositivo virtual no seu hipe
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image14.png)
 
     Agora, carregue o segundo ficheiro VMDK para o mesmo arquivo de dados.
-14. Volte à janela do cliente vSphere. Com o servidor ESXi selecionado, clique com o botão direito do mouse e selecione **nova máquina virtual**.
+14. Volte à janela do cliente vSphere. Com o servidor ESXi selecionado, clique à direita e selecione **New Virtual Machine**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image15.png)
-15. Uma janela **criar nova máquina virtual** será exibida. Na página **configuração** , selecione a opção **personalizado** . Clique em **Seguinte**.
+15. Aparecerá uma janela **Create New Virtual Machine.** Na página **de Configuração,** selecione a opção **Custom.** Clique em **Seguinte**.
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image16.png)
-16. Na página **nome e local** , especifique o nome da sua máquina virtual. Esse nome deve corresponder ao nome da pasta (melhor prática recomendada) que você especificou anteriormente na etapa 8.
+16. Na página **Nome e Localização,** especifique o nome da sua máquina virtual. Este nome deve coincidir com o nome da pasta (boas práticas recomendadas) especificado anteriormente no Passo 8.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image17.png)
-17. Na página **armazenamento** , selecione um repositório de armazenamento que você deseja usar para provisionar sua VM.
+17. Na página **de Armazenamento,** selecione uma loja de dados que pretende utilizar para fornecer o seu VM.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image18.png)
-18. Na página **versão da máquina virtual** , selecione **versão da máquina virtual: 8**.
+18. Na página versão da versão virtual da **máquina,** selecione **Versão Virtual Machine: 8**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image19.png)
-19. Na página **sistema operacional convidado** , selecione o **sistema operacional convidado** como **Windows**. Para **versão**, na lista suspensa, selecione **Microsoft Windows Server 2012 (64 bits)** .
+19. Na página do **Sistema Operativo Convidado,** selecione o **Sistema Operativo Convidado** como **Windows**. Para **versão**, a partir da lista de dropdown, selecione **Microsoft Windows Server 2012 (64-bits)**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image20.png)
-20. Na página **CPUs** , ajuste o **número de soquetes virtuais** e o **número de núcleos por soquete virtual** para que o **número total de núcleos** seja 4 (ou mais). Clique em **Seguinte**.
+20. Na página **CPUs,** ajuste o **número de tomadas virtuais** e o número de **núcleos por tomada virtual** de modo a que o número total de **núcleos** seja de 4 (ou mais). Clique em **Seguinte**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image21.png)
-21. Na página **memória** , ESPECIFIQUE 8 GB (ou mais) de RAM. Clique em **Seguinte**.
+21. Na página **Memória,** especifique 8 GB (ou mais) de RAM. Clique em **Seguinte**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image22.png)
-22. Na página **rede** , especifique o número de interfaces de rede. O requisito mínimo é uma interface de rede.
+22. Na página **da Rede,** especifique o número das interfaces de rede. O requisito mínimo é uma interface de rede.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image23.png)
-23. Na página **controlador SCSI** , aceite o **controlador SAS da LSI Logic**padrão.
+23. Na página do **Controlador SCSI,** aceite o **controlador LSI Logic SAS**predefinido .
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image24.png)
-24. Na página **selecionar um disco** , escolha **usar um disco virtual existente**. Clique em **Seguinte**.
+24. Na página **Select a Disk,** escolha **Utilizar um disco virtual existente**. Clique em **Seguinte**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image25.png)
-25. Na página **selecionar disco existente** , em **caminho do arquivo de disco**, clique em **procurar**. Isso abre uma caixa de diálogo **procurar repositórios de armazenamento** . Navegue até o local onde você carregou o VMDK. Agora você verá apenas um arquivo no repositório de armazenamento, pois os dois arquivos que você carregou inicialmente foram mesclados. Selecione o arquivo e clique em **OK**. Clique em **Seguinte**.
+25. Na página **Do Disco Existente,** em seguir no Caminho do **Ficheiro do Disco,** clique em **Navegar**. Isto abre um diálogo **browse Datastores.** Navegue para o local onde fez o upload do VMDK. Agora vê apenas um ficheiro na loja de dados, uma vez que os dois ficheiros que inicialmente carregou foram fundidos. Selecione o ficheiro e clique em **OK**. Clique em **Seguinte**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image26.png)
-26. Na página **Opções avançadas** , aceite o padrão e clique em **Avançar**.
+26. Na página **Opções Avançadas,** aceite o predefinido e clique **em Seguinte**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image27.png)
-27. Na página **Ready to Complete** (Pronto para concluir), reveja todas as definições associadas à nova máquina virtual. Marque **Editar as configurações da máquina virtual antes da conclusão**. Clique em **Continue** (Continuar).
+27. Na página **Ready to Complete** (Pronto para concluir), reveja todas as definições associadas à nova máquina virtual. Verifique **Editar as definições da máquina virtual antes de terminar**. Clique em **Continue** (Continuar).
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image28.png)
-28. Na página de **Propriedades máquinas virtuais** , na guia **hardware** , localize o hardware do dispositivo. Selecione **novo disco rígido**. Clique em **Adicionar**.
+28. Na página **Virtual Machines Properties,** no separador **Hardware,** localize o hardware do dispositivo. Selecione **novo disco rígido**. Clique em **Adicionar**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image29.png)
-29. Você verá uma janela **adicionar hardware** . Na página **tipo de dispositivo** , em **escolha o tipo de dispositivo que você deseja adicionar**, selecione **disco rígido**e clique em **Avançar**.
+29. Vê uma janela **de adicionar hardware.** Na página **Tipo de Dispositivo,** em baixo **Escolha o tipo de dispositivo que pretende adicionar,** selecione **Disco Rígido**e clique **em Seguinte**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image30.png)
-30. Na página **selecionar um disco** , escolha **criar um novo disco virtual**. Clique em **Seguinte**.
+30. Na página **Select a Disk,** escolha **Criar um novo disco virtual**. Clique em **Seguinte**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image31.png)
-31. Na página **criar um disco** , altere o **tamanho do disco** para 500 GB (ou mais). Embora 500 GB seja o requisito mínimo, você sempre pode provisionar um disco maior. Observe que você não pode expandir ou reduzir o disco depois de provisionado. Para obter mais informações sobre o tamanho do disco a ser provisionado, examine a seção de dimensionamento no [documento de práticas recomendadas](storsimple-ova-best-practices.md). Em **provisionamento de disco**, selecione **provisionamento thin**. Clique em **Seguinte**.
+31. Na página **Criar um Disco,** altere o tamanho do **disco** para 500 GB (ou mais). Embora 500 GB seja o requisito mínimo, pode sempre fornecer um disco maior. Note que não pode expandir ou encolher o disco uma vez provisionado. Para obter mais informações sobre o tamanho do disco para fornecer, reveja a secção de dimensionamento no documento de [boas práticas.](storsimple-ova-best-practices.md) No fornecimento **de disco,** selecione **Thin Provision**. Clique em **Seguinte**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image32.png)
-32. Na página **Opções avançadas** , aceite o padrão.
+32. Na página **Opções Avançadas,** aceite o padrão.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image33.png)
-33. Na página **pronto para concluir** , examine as opções de disco. Clique em **Concluir**.
+33. Na página **Ready to Complete,** reveja as opções do disco. Clique em **Concluir**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image34.png)
-34. Retorne à página de propriedades da máquina virtual. Um novo disco rígido é adicionado à sua máquina virtual. Clique em **Concluir**.
+34. Volte à página Virtual Machine Properties. Um novo disco rígido é adicionado à sua máquina virtual. Clique em **Concluir**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image35.png)
-35. Com sua máquina virtual selecionada no painel direito, navegue até a guia **Resumo** . Examine as configurações de sua máquina virtual.
+35. Com a sua máquina virtual selecionada no painel certo, navegue para o separador **Resumo.** Reveja as definições para a sua máquina virtual.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image36.png)
 
 A sua máquina virtual está agora aprovisionada. O passo seguinte é ligar esta máquina e obter o endereço IP.
 
 > [!NOTE]
-> Recomendamos que você não instale as ferramentas do VMware em sua matriz virtual (como provisionado acima). A instalação de ferramentas VMware resultará numa configuração não suportada.
+> Recomendamos que não instale ferramentas VMware na sua matriz virtual (conforme acima previsto). A instalação de ferramentas VMware resultará numa configuração não suportada.
 
-## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>Etapa 3: iniciar o dispositivo virtual e obter o IP
+## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>Passo 3: Inicie o dispositivo virtual e obtenha o IP
 Execute os passos seguintes para iniciar o dispositivo virtual e ligar ao mesmo.
 
 #### <a name="to-start-the-virtual-device"></a>Para iniciar o dispositivo virtual
-1. Inicie o dispositivo virtual. No Configuration Manager vSphere, no painel esquerdo, selecione seu dispositivo e clique com o botão direito do mouse para abrir o menu de contexto. Selecione **Power** (Alimentação) e, em seguida, selecione **Power on** (Ligar). Esta ação deve ligar a máquina virtual. Você pode exibir o status no painel **últimas tarefas recentes** do cliente vSphere.
+1. Inicie o dispositivo virtual. No Gestor de Configuração vSphere, no painel esquerdo, selecione o seu dispositivo e clique à direita para elevar o menu de contexto. Selecione **Power** (Alimentação) e, em seguida, selecione **Power on** (Ligar). Esta ação deve ligar a máquina virtual. Pode ver o estado no painel de **tarefas recentes** do cliente vSphere.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image37.png)
-2. As tarefas de instalação levarão alguns minutos para serem concluídas. Depois que o dispositivo estiver em execução, navegue até a guia **console** . envie Ctrl + Alt + Delete para fazer logon no dispositivo. Como alternativa, você pode apontar o cursor na janela do console e pressionar Ctrl + Alt + Insert. O usuário padrão é *StorSimpleAdmin* e a senha padrão é *password1*.
+2. As tarefas de configuração levarão alguns minutos para serem concluídas. Uma vez que o dispositivo esteja em funcionamento, navegue para o separador **Consola.** Enviar CTRL+Alt+Delete para iniciar sessão no dispositivo. Em alternativa, pode apontar o cursor na janela da consola e premir Ctrl+Alt+Insert. O utilizador predefinido é *o StorSimpleAdmin* e a palavra-passe predefinida é *password1*.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image38.png)
 3. Por motivos de segurança, a palavra-passe de administrador do dispositivo expira após o primeiro início de sessão. É-lhe pedido que altere a palavra-passe.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image39.png)
-4. Introduza uma palavra-passe com, pelo menos, 8 carateres. A senha deve conter 3 desses quatro requisitos: letras maiúsculas, minúsculas, números e caracteres especiais. Reintroduza a palavra-passe para a confirmar. Você será notificado de que a senha foi alterada.
+4. Introduza uma palavra-passe com, pelo menos, 8 carateres. A palavra-passe deve conter 3 em 4 destes requisitos: maiúsculas, minúsculas, numéricas e caracteres especiais. Reintroduza a palavra-passe para a confirmar. Será notificado de que a palavra-passe foi alterada.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image40.png)
-5. Depois que a senha for alterada com êxito, o dispositivo virtual poderá ser reinicializado. Aguarde a conclusão da reinicialização. O console do Windows PowerShell do dispositivo pode ser exibido junto com uma barra de progresso.
+5. Depois de a palavra-passe ser alterada com sucesso, o dispositivo virtual pode reiniciar. Aguarde que o reboot termine. A consola Windows PowerShell do dispositivo pode ser exibida juntamente com uma barra de progresso.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image41.png)
-6. Os passos 6 a 8 aplicam-se apenas se estiver a iniciar num ambiente não DHCP. Se estiver num ambiente DHCP, ignore estes passos e avance para o passo 9. Se você tiver inicializado seu dispositivo em um ambiente não-DHCP, verá a tela a seguir.
+6. Os passos 6 a 8 aplicam-se apenas se estiver a iniciar num ambiente não DHCP. Se estiver num ambiente DHCP, ignore estes passos e avance para o passo 9. Se tiver iniciado o seu dispositivo em ambiente não DHCP, verá o seguinte ecrã.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image42m.png)
 
-   Em seguida, configure a rede.
-7. Use o comando `Get-HcsIpAddress` para listar as interfaces de rede habilitadas em seu dispositivo virtual. Se o seu dispositivo tiver uma única interface de rede ativada, o nome predefinido atribuído a essa interface é `Ethernet`.
+   Em seguida, configurar a rede.
+7. Utilize `Get-HcsIpAddress` o comando para listar as interfaces de rede ativadas no seu dispositivo virtual. Se o seu dispositivo tiver uma única interface de rede ativada, o nome predefinido atribuído a essa interface é `Ethernet`.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image43m.png)
 8. Utilize o cmdlet `Set-HcsIpAddress` para configurar a rede. Apresentamos um exemplo abaixo:
@@ -216,18 +216,18 @@ Execute os passos seguintes para iniciar o dispositivo virtual e ligar ao mesmo.
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image44.png)
-9. Depois de a configuração inicial estar concluída e o dispositivo iniciado, verá o texto da faixa do dispositivo. Tome nota do endereço IP e do URL apresentado no texto da faixa para gerir o dispositivo. Você usará esse endereço IP para se conectar à interface do usuário da Web do seu dispositivo virtual e concluir a instalação local e o registro.
+9. Depois de a configuração inicial estar concluída e o dispositivo iniciado, verá o texto da faixa do dispositivo. Tome nota do endereço IP e do URL apresentado no texto da faixa para gerir o dispositivo. Utilizará este endereço IP para se ligar à UI web do seu dispositivo virtual e completar a configuração e registo locais.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image45.png)
-10. Adicional Execute esta etapa somente se você estiver implantando seu dispositivo na nuvem governamental. Agora, você habilitará o modo de Estados Unidos padrão FIPS (FIPS) em seu dispositivo. O padrão FIPS 140 define os algoritmos criptográficos aprovados para uso pelos sistemas de computador do governo federal dos EUA para a proteção de dados confidenciais.
+10. (Opcional) Execute este passo apenas se estiver a implementar o seu dispositivo na Nuvem do Governo. Irá agora ativar o modo Padrão de Processamento de Informação (FIPS) dos Estados Unidos no seu dispositivo. O padrão FIPS 140 define algoritmos criptográficos aprovados para uso por sistemas informáticos do governo federal dos EUA para a proteção de dados sensíveis.
 
-    1. Para habilitar o modo FIPS, execute o seguinte cmdlet:
+    1. Para ativar o modo FIPS, execute o seguinte cmdlet:
 
         `Enable-HcsFIPSMode`
-    2. Reinicialize o dispositivo depois de habilitar o modo FIPS para que as validações criptográficas entrem em vigor.
+    2. Reinicie o seu dispositivo depois de ter ativado o modo FIPS para que as validações criptográficas entrem em vigor.
 
        > [!NOTE]
-       > Você pode habilitar ou desabilitar o modo FIPS em seu dispositivo. Não há suporte para a alternância do dispositivo entre o modo FIPS e não FIPS.
+       > Pode ativar ou desativar o modo FIPS no seu dispositivo. Não é suportado alternar o dispositivo entre o modo FIPS e o modo não-FIPS.
        >
        >
 
@@ -235,11 +235,11 @@ Se o dispositivo não cumprir os requisitos mínimos de configuração, verá um
 
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image46.png)
 
-Se você enfrentar qualquer outro erro durante a configuração inicial usando a interface do usuário da Web local, consulte os seguintes fluxos de trabalho:
+Se enfrentar qualquer outro erro durante a configuração inicial utilizando o UI web local, consulte os seguintes fluxos de trabalho:
 
-* Execute testes de diagnóstico para [solucionar problemas de configuração da interface do usuário](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
-* [Gerar pacote de log e exibir arquivos de log](storsimple-ova-web-ui-admin.md#generate-a-log-package).
+* Ecorra em testes de diagnóstico para resolver problemas na [configuração da UI](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors)web .
+* [Gere o pacote de registo e ver ficheiros de registo](storsimple-ova-web-ui-admin.md#generate-a-log-package).
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Configurar sua matriz virtual StorSimple como um servidor de arquivos](storsimple-virtual-array-deploy3-fs-setup.md)
-* [Configurar sua matriz virtual StorSimple como um servidor iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md)
+* [Configurar o seu StorSimple Virtual Array como servidor de ficheiros](storsimple-virtual-array-deploy3-fs-setup.md)
+* [Configurar o seu StorSimple Virtual Array como um servidor iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md)

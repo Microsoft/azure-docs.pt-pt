@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0ab876a871037908981c95a962f53e1936e31905
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: b390c0beb20b7557294c18f889a0f41023513e2a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128153"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246964"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Criar um conjunto de anfitriões com o PowerShell
 
@@ -63,7 +63,7 @@ Pode criar uma máquina virtual de várias maneiras:
 
 - [Criar uma máquina virtual a partir de uma imagem da Galeria Azure](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [Criar uma máquina virtual a partir de uma imagem gerida](../virtual-machines/windows/create-vm-generalized-managed.md)
-- [Criar uma máquina virtual a partir de uma imagem não gerida](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image.md)
+- [Criar uma máquina virtual a partir de uma imagem não gerida](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-user-image-data-disks)
 
 >[!NOTE]
 >Se estiver a implementar uma máquina virtual utilizando o Windows 7 como o sistema operativo anfitrião, o processo de criação e implementação será um pouco diferente. Para mais detalhes, consulte [A implementação de uma máquina virtual do Windows 7 no Windows Virtual Desktop](deploy-windows-7-virtual-machine.md).
@@ -98,11 +98,11 @@ Para registar os agentes do Windows Virtual Desktop, faça o seguinte em cada m�
 2. Descarregue e instale o Windows Virtual Desktop Agent.
    - Descarregue o [Windows Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
    - Clique no instalador descarregado, selecione **Propriedades,** selecione **Desbloquear**e, em seguida, selecione **OK**. Isto permitirá ao seu sistema confiar no instalador.
-   - Executar o instalador. Quando o instalador lhe pedir o sinal de registo, insira o valor que obteve do **cmdlet Export-RdsRegistrationInfo.**
+   - Execute o instalador. Quando o instalador lhe pedir o sinal de registo, insira o valor que obteve do **cmdlet Export-RdsRegistrationInfo.**
 3. Descarregue e instale o Bootloader do Agente de Ambiente de Trabalho Virtual do Windows.
    - Descarregue o [Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)do Agente de Ambiente de Trabalho Virtual do Windows .
    - Clique no instalador descarregado, selecione **Propriedades,** selecione **Desbloquear**e, em seguida, selecione **OK**. Isto permitirá ao seu sistema confiar no instalador.
-   - Executar o instalador.
+   - Execute o instalador.
 
 >[!IMPORTANT]
 >Para ajudar a proteger o ambiente de ambiente de trabalho virtual do Windows em Azure, recomendamos que não abra a porta de entrada 3389 nos seus VMs. O Windows Virtual Desktop não necessita de uma porta de entrada aberta 3389 para os utilizadores acederem aos VMs do grupo anfitrião. Se tiver de abrir a porta 3389 para efeitos de resolução de problemas, recomendamos que utilize [o acesso VM just-in-time](../security-center/security-center-just-in-time.md).

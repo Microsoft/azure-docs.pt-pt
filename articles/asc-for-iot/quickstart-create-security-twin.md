@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: criar um módulo de segurança para a central de segurança do Azure para IoT'
-description: Neste guia de início rápido, saiba como criar uma central de segurança do Azure para o módulo do IoT para usar com a central de segurança do Azure para IoT.
+title: 'Quickstart: Criar um módulo de segurança twin para o Azure Security Center para IoT'
+description: Neste arranque rápido, aprenda a criar um Azure Security Center para o módulo IoT twin para utilização com o Azure Security Center para IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,67 +16,67 @@ ms.workload: na
 ms.date: 11/08/2019
 ms.author: mlottner
 ms.openlocfilehash: b362130c2b717f813a6332f81a3c8179bea4166a
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73904172"
 ---
-# <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Início rápido: criar um módulo azureiotsecurity
+# <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Quickstart: Criar um módulo de segurança azul twin
 
-Este guia de início rápido explica como criar gêmeos de módulo _azureiotsecurity_ individuais para novos dispositivos ou criar lote de gêmeos de módulo para todos os dispositivos em um hub IOT.  
+Este quickstart explica como criar gémeos individuais de módulos _de azureiotsecurity_ para novos dispositivos, ou criar gémeos de módulos para todos os dispositivos num Hub IoT.  
 
-## <a name="understanding-azureiotsecurity-module-twins"></a>Entendendo o módulo azureiotsecurity gêmeos 
+## <a name="understanding-azureiotsecurity-module-twins"></a>Compreender os gémeos do módulo de segurança azureiot 
 
-Para soluções de IoT criadas no Azure, o dispositivo gêmeos desempenha um papel fundamental no gerenciamento de dispositivos e na automação de processos. 
+Para soluções IoT construídas em Azure, os gémeos dispositivos desempenham um papel fundamental tanto na gestão de dispositivos como na automatização de processos. 
 
-A central de segurança do Azure para IoT oferece integração total com sua plataforma de gerenciamento de dispositivo IoT existente, permitindo que você gerencie o status de segurança do dispositivo e use os recursos de controle de dispositivo existentes.
-A central de segurança do Azure para integração de IoT é obtida com o uso do mecanismo de entrelaçamento do Hub IoT.  
+O Azure Security Center for IoT oferece total integração com a sua plataforma de gestão de dispositivos IoT existente, permitindo-lhe gerir o estado de segurança do seu dispositivo, bem como utilizar as capacidades de controlo de dispositivos existentes.
+O Azure Security Center for IoT integration é conseguido através da utilização do mecanismo de gémeos IoT Hub.  
 
-Consulte [módulo do Hub IOT gêmeos](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) para saber mais sobre o conceito geral do módulo gêmeos no Hub IOT do Azure. 
+Consulte os [gémeos do módulo IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) para saber mais sobre o conceito geral de gémeos módulo sinos no Hub Azure IoT. 
  
-A central de segurança do Azure para IoT usa o mecanismo de entrelaçamento do módulo e mantém um módulo de segurança com o nome _azureiotsecurity_ para cada um dos seus dispositivos.
+O Azure Security Center for IoT utiliza o mecanismo de módulo sino gémeo e mantém um módulo de segurança twin chamado _azureiotsecurity_ para cada um dos seus dispositivos.
 
-O módulo de segurança de tudo contém todas as informações relevantes à segurança do dispositivo para cada um de seus dispositivos. 
+O módulo de segurança twin detém todas as informações relevantes para a segurança do dispositivo para cada um dos seus dispositivos. 
  
-Para fazer uso completo da central de segurança do Azure para recursos de IoT, você precisará criar, configurar e usar esses gêmeos de módulo de segurança para cada dispositivo no serviço.  
+Para utilizar plenamente o Azure Security Center para funcionalidades IoT, terá de criar, configurar e utilizar estes gémeos de módulos de segurança para todos os dispositivos do serviço.  
 
-## <a name="create-azureiotsecurity-module-twin"></a>Criar o módulo azureiotsecurity. 
+## <a name="create-azureiotsecurity-module-twin"></a>Criar módulo de segurança azul twin 
 
-o módulo _azureiotsecurity_ gêmeos pode ser criado de duas maneiras:
-1. [Script em lote de módulo](https://aka.ms/iot-security-github-create-module) -cria automaticamente o módulo "r" para novos dispositivos ou dispositivos sem um módulo "r" usando a configuração padrão.
-2. Editando manualmente cada módulo para cima com configurações específicas para cada dispositivo.
+Os gémeos do módulo _de segurança azul_ podem ser criados de duas formas:
+1. [Script de lote](https://aka.ms/iot-security-github-create-module) de módulo - cria automaticamente o módulo twin para novos dispositivos ou dispositivos sem um módulo twin usando a configuração padrão.
+2. Editar manualmente cada módulo gémeo individualmente com configurações específicas para cada dispositivo.
 
 >[!NOTE] 
-> O uso do método batch não substituirá o gêmeos do módulo azureiotsecurity existente. O uso do método batch cria apenas um novo módulo gêmeos para dispositivos que ainda não têm um módulo de segurança. 
+> A utilização do método do lote não substituirá os gémeos existentes do módulo de azureiotsecurity. Utilização do método do lote APENAS cria novos módulos gémeos para dispositivos que ainda não têm um módulo de segurança twin. 
 
-Consulte [configuração do agente](how-to-agent-configuration.md) para saber como modificar ou alterar a configuração de um módulo atual. 
+Consulte a [configuração](how-to-agent-configuration.md) do agente para aprender a modificar ou alterar a configuração de um módulo gémeo existente. 
 
-Para criar manualmente um novo módulo _azureiotsecurity_ , use as seguintes instruções: 
+Para criar manualmente um novo módulo de _segurança azul_ para um dispositivo, utilize as seguintes instruções: 
 
-1. No Hub IoT, localize e selecione o dispositivo para o qual você deseja criar um módulo de segurança.
-1. Clique em seu dispositivo e, em seguida, em **Adicionar identidade do módulo**.
-1. No campo **nome da identidade do módulo** , insira **azureiotsecurity**.
+1. No seu IoT Hub, localize e selecione o dispositivo para o quais pretende criar um módulo de segurança twin.
+1. Clique no seu dispositivo e, em seguida, em **Adicionar identidade**do módulo .
+1. No campo Nome de Identidade do **Módulo,** **introduza a segurança em azureiotsecurity**.
 
 1. Clique em **Guardar**. 
 
-## <a name="verify-creation-of-a-module-twin"></a>Verificar a criação de um módulo "r"
+## <a name="verify-creation-of-a-module-twin"></a>Verifique a criação de um módulo twin
 
-Para verificar se existe um módulo de segurança para um dispositivo específico:
+Para verificar se existe um módulo de segurança twin para um dispositivo específico:
 
-1. No Hub IoT do Azure, selecione **dispositivos IOT** no menu **Gerenciador** .    
-1. Insira a ID do dispositivo ou selecione uma opção no **campo do dispositivo de consulta** e clique em **consultar dispositivos**. 
-    ![dispositivos de consulta](./media/quickstart/verify-security-module-twin.png)
-1. Selecione o dispositivo ou clique duas vezes nele para abrir a página de detalhes do dispositivo. 
-1. Selecione o menu **identidades do módulo** e confirme a existência do módulo **azureiotsecurity** na lista de identidades de módulo associadas ao dispositivo. 
-    Módulos ![associados a um dispositivo](./media/quickstart/verify-security-module-twin-3.png)
+1. No seu Hub Azure IoT, selecione **dispositivos IoT** do menu **Explorers.**    
+1. Introduza o ID do dispositivo ou selecione uma opção no campo do **dispositivo Consulta** e clique em **dispositivos De consulta**. 
+    ![Dispositivos de consulta](./media/quickstart/verify-security-module-twin.png)
+1. Selecione o dispositivo ou clique duas vezes nele para abrir a página de detalhes do Dispositivo. 
+1. Selecione o menu de **identidades do Módulo** e confirme a existência do módulo de **segurança azureiotna** na lista de identidades do módulo associadas ao dispositivo. 
+    ![Módulos associados a um dispositivo](./media/quickstart/verify-security-module-twin-3.png)
 
 
-Para saber mais sobre como personalizar as propriedades da central de segurança do Azure para o módulo IoT gêmeos, consulte [configuração do agente](how-to-agent-configuration.md).
+Para saber mais sobre personalizar propriedades do Azure Security Center para gémeos móduloio IoT, consulte a [configuração do Agente](how-to-agent-configuration.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Avance para o próximo artigo para saber como configurar alertas personalizados...
+Avançar para o próximo artigo para aprender a configurar alertas personalizados...
 
 > [!div class="nextstepaction"]
 > [Configurar alertas personalizados](quickstart-create-custom-alerts.md)

@@ -1,38 +1,37 @@
 ---
-title: APIs de preenchimento de SaaS | Azure Marketplace
-description: Apresenta as versões das APIs de preenchimento que permitem que você integre suas ofertas de SaaS com o Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Apis de realização do SaaS Mercado Azure
+description: Introduz as versões das APIs de realização que lhe permitem integrar as suas ofertas SaaS com o Azure Marketplace.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.author: evansma
-ms.openlocfilehash: ebfc278d09c244970df5807df1505295fe7016c4
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 92b1c52457fa92709381124480c05a5f636167f4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819128"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275735"
 ---
 # <a name="saas-fulfillment-apis"></a>SaaS Fulfillment APIs
 
-As APIs de cumprimento de SaaS permitem que fornecedores de software independentes (ISVs) integrem seus aplicativos SaaS com o Azure Marketplace. Essas APIs permitem que aplicativos ISV participem de todos os canais habilitados para comércio: direto, orientado por parceiros (revendedor) e orientado por campo.  Eles são um requisito para listar as ofertas de SaaS transactáveis no Azure Marketplace.
+As APIs de cumprimento do SaaS permitem que fornecedores de software independentes (ISVs) integrem as suas aplicações SaaS com o Azure Marketplace. Estas APIs permitem que as aplicações ISV participem em todos os canais habilitados ao comércio: diretos, liderados por parceiros (revendedores) e orientados para o campo.  São um requisito para a listagem de ofertas transacionárias saaS no Mercado Azure.
 
 > [!WARNING]
-> A versão atual desta API é a versão 2, que deve ser usada para todas as novas ofertas de SaaS.  A versão 1 da API foi preterida e está sendo mantida para dar suporte às ofertas existentes.
+> A versão atual deste API é a versão 2, que deve ser usada para todas as novas ofertas do SaaS.  A versão 1 da API está depreciada e está a ser mantida para suportar as ofertas existentes.
 
 
-## <a name="business-model-support"></a>Suporte a modelos de negócios
+## <a name="business-model-support"></a>Suporte de modelo de negócio
 
-Esta API dá suporte aos seguintes recursos de modelo de negócios; É possível:
+Esta API suporta as seguintes capacidades de modelo de negócio; É possível:
 
-* Especifique vários planos para uma oferta. Esses planos têm uma funcionalidade diferente e podem ter preços diferentes.
-* Forneça uma oferta por site ou por modelo de cobrança por usuário.
-* Forneça opções de cobrança mensal e anual (pagas antecipadas).
-* Forneça preços privados a um cliente com base em um contrato de negócios negociado.
+* Especifique vários planos para uma oferta. Estes planos têm funcionalidades diferentes e podem ter um preço diferente.
+* Forneça uma oferta por site ou uma base de modelo de faturação por utilizador.
+* Fornecer opções mensais e anuais de faturação (paga antecipadamente).
+* Fornecer preços privados a um cliente com base num acordo comercial negociado.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você ainda não tiver feito isso, Registre seu aplicativo SaaS na [portal do Azure](https://ms.portal.azure.com) , conforme explicado em [registrar um aplicativo do Azure ad](./pc-saas-registration.md).  Posteriormente, use a versão mais atual desta interface para desenvolvimento: [API de preenchimento de SaaS versão 2](./pc-saas-fulfillment-api-v2.md).
+Se ainda não o fez, registe a sua aplicação SaaS no [portal Azure,](https://ms.portal.azure.com) conforme explicado no [Registo de Uma Aplicação AD Azure](./pc-saas-registration.md).  Em seguida, utilize a versão mais atual desta interface para desenvolvimento: [SaaS Fulfillment API Version 2](./pc-saas-fulfillment-api-v2.md).

@@ -4,15 +4,15 @@ description: Desloque o seu primeiro Node.js Hello World para o Serviço de Apli
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 08/23/2019
-ms.custom: seodec18
+ms.custom: mvc, devcenter, seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: 585eb1f11a285722e34c6dd084f4c6cb26a06249
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 84953c79093ebd4e53e7e7feef5ab72b8afce002
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78247625"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80047535"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Criar uma aplicação Web Node.js no Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "78247625"
 
 O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática.  Este quickstart mostra como implementar uma aplicação Node.js para o Azure App Service. Cria a aplicação web utilizando a [Cloud Shell,](https://docs.microsoft.com/azure/cloud-shell/overview)mas também pode executar estes comandos localmente com [o Azure CLI](/cli/azure/install-azure-cli). Implementa o código Node.js da amostra para a aplicação web utilizando o comando config-zip de fonte de [implementação da webapp az.](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip)  
 
-![Aplicação de exemplo em execução no Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
+![Aplicação Web de exemplo em execução no Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
 Pode seguir os passos aqui indicados num computador Mac, Windows ou Linux. Leva cerca de três minutos para completar os passos.
 
@@ -93,20 +93,20 @@ Quando a aplicação Web tiver sido criada, a CLI do Azure mostra informações 
 
 ### <a name="set-nodejs-runtime"></a>Definir o runtime do Node.js
 
-Detete o tempo de execução do nó para 10.14.1. Para ver todos os runtimes suportados, execute [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes).
+Detete o tempo de execução do nó para 10.14.1. Para ver todos os tempos de corrida suportados, corra. [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes)
 
 ```azurecli-interactive
 # Bash and Powershell
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=10.14.1
 ```
 
-Navegue para a sua aplicação Web recentemente criada. Substitua `<app_name>` por um nome de aplicação único.
+Navegue para a sua aplicação Web recentemente criada. Substitua `<app_name>` por um nome de aplicativo único.
 
 ```http
 http://<app_name>.azurewebsites.net
 ```
 
-Aqui está o aspeto da sua nova aplicação web: ![página de aplicação web Empty](media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
+Aqui está o que a sua ![nova aplicação web deve ser: página de aplicação web vazia](media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
 
 ## <a name="deploy-zip-file"></a>Implementar o ficheiro ZIP
 
@@ -136,7 +136,7 @@ http://<app_name>.azurewebsites.net
 
 O código Node.js de exemplo está em execução numa aplicação Web do serviço de aplicações do Azure.
 
-![Aplicação de exemplo em execução no Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
+![Aplicação Web de exemplo em execução no Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
 > [!NOTE]
 > No Serviço de Aplicações do Azure, a aplicação é executada no IIS usando [iisnode](https://github.com/Azure/iisnode). Para ativar a aplicação a ser executada com o iisnode, o diretório da aplicação de raiz contém um arquivo web.config. O ficheiro é lido pelo IIS e as definições relacionadas com o iisnode são documentadas no [repositório do GitHub iisnode](https://github.com/Azure/iisnode/blob/master/src/samples/configuration/web.config).
@@ -145,7 +145,7 @@ O código Node.js de exemplo está em execução numa aplicação Web do serviç
 
 ## <a name="update-and-redeploy-the-code"></a>Atualizar e voltar a implementar o código
 
-Na Cloud Shell, escreva `code index.js` para abrir o editor da Cloud Shell.
+Na Cloud Shell, `code index.js` escreva para abrir o editor da Cloud Shell.
 
 ![Índice de código.js](media/app-service-web-get-started-nodejs-poc/code-indexjs.png)
 

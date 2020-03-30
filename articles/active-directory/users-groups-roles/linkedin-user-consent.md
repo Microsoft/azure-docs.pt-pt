@@ -1,6 +1,6 @@
 ---
-title: Compartilhamento e consentimento de dados do LinkedIn – Azure Active Directory | Microsoft Docs
-description: Explica como a integração do LinkedIn compartilha dados por meio de aplicativos da Microsoft no Azure Active Directory
+title: Partilha e consentimento de dados do LinkedIn - Diretório Ativo Azure / Microsoft Docs
+description: Explica como a integração do LinkedIn partilha dados através de aplicações da Microsoft no Diretório Ativo do Azure
 services: active-directory
 author: curtand
 manager: daveba
@@ -14,70 +14,70 @@ ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a21c986ccfe96bae5d341e0ba2ee6622d998d076
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74025397"
 ---
-# <a name="linkedin-account-connections-data-sharing-and-consent"></a>Consentimento e compartilhamento de dados de conexões de contas do LinkedIn
+# <a name="linkedin-account-connections-data-sharing-and-consent"></a>LinkedIn liga a partilha e consentimento de dados da conta
 
-Você pode permitir que usuários em sua organização do Active Directory (Azure AD) consentim para conectar sua conta corporativa ou de estudante da Microsoft à sua conta do LinkedIn. Depois que um usuário conecta suas contas, as informações e os destaques do LinkedIn estão disponíveis em alguns aplicativos e serviços da Microsoft. Os usuários também podem esperar que sua experiência de rede no LinkedIn seja aprimorada e enriqueceda com as informações da Microsoft.
+Pode permitir que os utilizadores da sua organização Ative Directory (Azure AD) consintam em ligar o seu trabalho ou conta escolar da Microsoft à sua conta LinkedIn. Depois de um utilizador ligar as suas contas, as informações e os destaques do LinkedIn estão disponíveis em algumas aplicações e serviços da Microsoft. Os utilizadores também podem esperar que a sua experiência de networking no LinkedIn seja melhorada e enriquecida com informações da Microsoft.
 
-Para ver informações do LinkedIn em aplicativos e serviços da Microsoft, os usuários devem consentir para conectar suas próprias contas da Microsoft e do LinkedIn. Os usuários são solicitados a conectar suas contas na primeira vez em que clicam para ver as informações do LinkedIn de alguém em um cartão de perfil no Outlook, OneDrive ou SharePoint Online. As conexões de conta do LinkedIn não são totalmente habilitadas para seus usuários até que eles consentissem na experiência e conectem suas contas.
+Para ver informações do LinkedIn em aplicações e serviços da Microsoft, os utilizadores devem consentir em ligar as suas próprias contas Microsoft e LinkedIn. Os utilizadores são solicitados a ligar as suas contas na primeira vez que clicam para ver as informações do LinkedIn de alguém num cartão de perfil no Outlook, OneDrive ou SharePoint Online. As ligações da conta LinkedIn não estão totalmente ativas para os seus utilizadores até que consintam com a experiência e conectem as suas contas.
 
 [!INCLUDE [active-directory-gdpr-note](../../../includes/gdpr-hybrid-note.md)]
 
-## <a name="benefits-of-sharing-linkedin-information"></a>Benefícios do compartilhamento de informações do LinkedIn
+## <a name="benefits-of-sharing-linkedin-information"></a>Benefícios da partilha de informações do LinkedIn
 
-O acesso às informações do LinkedIn nos aplicativos e serviços da Microsoft facilita para os usuários a conexão, o envolvimento e a criação de relações profissionais com colegas, clientes e parceiros dentro e fora da sua organização. Novos usuários podem se familiarizar mais rapidamente conectando-se com colegas, aprendendo mais sobre eles e acessando facilmente mais informações. Aqui está um exemplo de como as informações do LinkedIn aparecem no cartão de perfil nos aplicativos da Microsoft:
+O acesso à informação do LinkedIn dentro de aplicações e serviços da Microsoft facilita a ligação, envolvimento e construção de relações profissionais com colegas, clientes e parceiros dentro e fora da sua organização. Os novos utilizadores podem acelerar mais rapidamente, conectando-se com os colegas, aprendendo mais sobre eles e acedendo facilmente a mais informações. Aqui está um exemplo de como a informação do LinkedIn aparece no cartão de perfil nas aplicações da Microsoft:
 
-![Habilitando a integração do LinkedIn em sua organização](./media/linkedin-user-consent/display-example.png)
+![Permitir a integração do LinkedIn na sua organização](./media/linkedin-user-consent/display-example.png)
 
-## <a name="enable-and-announce-linkedin-integration"></a>Habilitar e anunciar a integração do LinkedIn
+## <a name="enable-and-announce-linkedin-integration"></a>Ativar e anunciar integração do LinkedIn
 
-Você deve ser um administrador de Azure Active Directory para gerenciar a configuração da sua organização. Você pode habilitá-lo para todos os usuários ou para um conjunto específico de usuários.
+Você deve ser um Administrador de Diretório Ativo Azure para gerir o cenário para a sua organização. Pode ativar para todos os utilizadores ou para um conjunto específico de utilizadores.
 
-1. Para habilitar ou desabilitar a integração, siga as etapas em [consentir a integração do LinkedIn para sua organização do Azure ad](linkedin-integration.md).
-2. Ao anunciar a integração do LinkedIn em sua organização, aponte seus usuários para as perguntas frequentes sobre [informações do LinkedIn em aplicativos e serviços da Microsoft](https://support.office.com/article/about-linkedin-information-and-features-in-microsoft-apps-and-services-dc81cc70-4d64-4755-9f1c-b9536e34d381). O artigo fornece informações sobre onde as informações do LinkedIn aparecem, como conectar contas e muito mais.
+1. Para permitir ou desativar a integração, siga os passos em [Consentir a integração do LinkedIn para a sua organização Azure AD](linkedin-integration.md).
+2. Quando anunciar a integração do LinkedIn na sua organização, aponte os seus utilizadores para as FAQ sobre informações do [LinkedIn nas aplicações e serviços](https://support.office.com/article/about-linkedin-information-and-features-in-microsoft-apps-and-services-dc81cc70-4d64-4755-9f1c-b9536e34d381)da Microsoft. O artigo fornece informações sobre onde as informações do LinkedIn aparecem, como conectar contas, e muito mais.
 
-## <a name="user-consent-for-data-access-in-microsoft-and-linkedin"></a>Consentimento do usuário para acesso a dados no Microsoft e no LinkedIn
+## <a name="user-consent-for-data-access-in-microsoft-and-linkedin"></a>Consentimento do utilizador para acesso a dados na Microsoft e linkedIn
 
-Os dados que são acessados no LinkedIn não são armazenados permanentemente nos serviços da Microsoft. Os dados que são acessados pela Microsoft não são armazenados permanentemente com o LinkedIn, exceto para contatos. Os contatos da Microsoft são armazenados no LinkedIn até que os usuários os removam, conforme descrito em [excluindo contatos importados do LinkedIn](https://www.linkedin.com/help/linkedin/answer/43377).
+Os dados acedidos a partir do LinkedIn não são armazenados permanentemente nos serviços da Microsoft. Os dados acedidos a partir da Microsoft não são armazenados permanentemente no LinkedIn, com exceção dos Contactos. Os Contactos microsoft são armazenados no LinkedIn até que os utilizadores os removam, conforme descrito na [eliminação de contactos importados do LinkedIn](https://www.linkedin.com/help/linkedin/answer/43377).
 
-Quando os usuários conectam suas contas, informações e ideias do LinkedIn estão disponíveis em alguns aplicativos da Microsoft, como o cartão de perfil. Os usuários também podem esperar que sua experiência de rede no LinkedIn seja aprimorada e enriqueceda com as informações da Microsoft.
-Quando os usuários em sua organização conectam suas contas corporativas ou de estudante do LinkedIn e da Microsoft, eles têm duas opções:
+Quando os utilizadores conectam as suas contas, informações e insights do LinkedIn estão disponíveis em algumas aplicações da Microsoft, como o cartão de perfil. Os utilizadores também podem esperar que a sua experiência de networking no LinkedIn seja melhorada e enriquecida com informações da Microsoft.
+Quando os utilizadores da sua organização conectam o seu trabalho linkedIn e microsoft ou contas escolares, eles têm duas opções:
 
-* Conceda permissão para que os dados sejam acessados de ambas as contas. Isso significa que eles dão permissão para sua conta da Microsoft ou corporativa para acessar dados de sua conta do LinkedIn e para [sua conta do LinkedIn para acessar dados de sua conta corporativa ou de estudante da Microsoft](https://www.linkedin.com/help/linkedin/answer/84077).
-* Conceda permissão somente aos dados do LinkedIn para serem acessados por sua conta corporativa e de estudante da Microsoft.
+* Autorize o acesso dos dados a partir de ambas as contas. Isto significa que eles dão permissão para que a sua Microsoft ou conta de trabalho aceda mato a partir da sua conta LinkedIn, e para que a [sua conta LinkedIn aceda a dados a partir do seu trabalho ou conta escolar da Microsoft](https://www.linkedin.com/help/linkedin/answer/84077).
+* Autorize apenas os dados do LinkedIn a serem acedidos pela sua conta de trabalho e escola da Microsoft.
 
-Os usuários podem desconectar contas e remover permissões de acesso a dados a qualquer momento, e [os usuários podem controlar como seu próprio perfil do LinkedIn é exibido](https://www.linkedin.com/help/linkedin/answer/83), incluindo se seu perfil pode ser exibido nos aplicativos da Microsoft.
+Os utilizadores podem desligar as contas e remover permissões de acesso a dados a qualquer momento, e os utilizadores podem controlar a forma como o [seu próprio perfil LinkedIn é visualizado](https://www.linkedin.com/help/linkedin/answer/83)– incluindo se o seu perfil pode ser visto nas aplicações da Microsoft.
 
-### <a name="linkedin-account-data"></a>Dados da conta do LinkedIn
+### <a name="linkedin-account-data"></a>Dados da conta LinkedIn
 
-Ao conectar suas contas Microsoft e LinkedIn, você permite que o LinkedIn forneça os seguintes dados à Microsoft:
+Quando liga as suas contas Microsoft e LinkedIn, permite que o LinkedIn forneça os seguintes dados à Microsoft:
 
-* Dados de perfil-inclui a identidade do LinkedIn, informações de contato e as informações que você compartilha com outras pessoas em seu [perfil do LinkedIn](https://www.linkedin.com/help/linkedin/answer/15493).
-* Dados de interesses – inclui interesses sobre o LinkedIn, como pessoas e tópicos que você segue, os grupos de cursos e o conteúdo que você gosta e compartilha.
-* Dados de assinaturas-inclui assinaturas para aplicativos e serviços do LinkedIn juntamente com dados associados. 
-* Dados de conexões-inclui sua [rede do LinkedIn](https://www.linkedin.com/help/linkedin/answer/110) , incluindo perfis e informações de contato de suas conexões de 1 °.
+* Os dados de perfil - incluem identidade LinkedIn, informações de contacto e as informações que partilha com outros no seu [perfil LinkedIn](https://www.linkedin.com/help/linkedin/answer/15493).
+* Dados de interesses - inclui interesses no LinkedIn, como pessoas e tópicos que segue, grupos de cursos e conteúdo que gosta e partilha.
+* Os dados de subscrições - inclui subscrições de aplicações e serviços do LinkedIn juntamente com dados associados. 
+* Dados de ligações - inclui a sua [rede LinkedIn,](https://www.linkedin.com/help/linkedin/answer/110) incluindo perfis e informações de contacto das suas ligações de 1º grau.
 
-Os dados que são acessados no LinkedIn não são armazenados permanentemente nos serviços da Microsoft. Para obter mais informações sobre o uso de dados pessoais da Microsoft, consulte a [política de privacidade da Microsoft](https://privacy.microsoft.com/privacystatement/).
+Os dados acedidos a partir do LinkedIn não são armazenados permanentemente nos serviços da Microsoft. Para obter mais informações sobre a utilização de dados pessoais da [Microsoft,](https://privacy.microsoft.com/privacystatement/)consulte a Declaração de Privacidade da Microsoft .
 
-### <a name="microsoft-work-or-school-account-data"></a>Dados da conta corporativa ou de estudante da Microsoft
+### <a name="microsoft-work-or-school-account-data"></a>Dados do trabalho da Microsoft ou da conta escolar
 
-Ao conectar suas contas Microsoft e LinkedIn, você permite que a Microsoft forneça os seguintes dados ao LinkedIn:
+Quando liga as suas contas Microsoft e LinkedIn, permite que a Microsoft forneça os seguintes dados ao LinkedIn:
 
-* Dados de perfil-inclui informações como seu nome, sobrenome, foto de perfil, endereço de email, gerente e pessoas que você gerencia.
-* Dados de calendário-inclui reuniões em seus calendários, seus horários, localizações e informações de contato dos participantes. As informações sobre a reunião, como a pauta, o conteúdo ou o título da reunião, não estão incluídas nos dados do calendário.
-* Dados de interesses-inclui os interesses associados à sua conta, com base no uso dos serviços da Microsoft, como o Cortana e o Bing for Business.
-* Dados de assinaturas-inclui assinaturas fornecidas pela sua organização para aplicativos e serviços da Microsoft, como o Office 365.
-* Dados de contatos – inclui listas de contatos no Outlook, Skype e outros serviços de conta Microsoft, incluindo as informações de contato para pessoas com quem você se comunica com frequência ou colabora. Os contatos serão importados periodicamente, armazenados e usados pelo LinkedIn, por exemplo, para sugerir conexões, ajudar a organizar contatos e mostrar atualizações sobre contatos.
+* Dados de perfil - inclui informações como o seu primeiro nome, apelido, foto de perfil, endereço de e-mail, gestor e pessoas que gere.
+* Dados do calendário - inclui reuniões nos seus calendários, horários, locais e informações de contacto dos participantes. As informações sobre a reunião, como agenda, conteúdo ou título de reunião não estão incluídas nos dados do calendário.
+* Dados de interesses - inclui os interesses associados à sua conta, com base na utilização de serviços da Microsoft, como cortana e Bing for Business.
+* Dados de subscrições - inclui subscrições fornecidas pela sua organização a aplicações e serviços da Microsoft, como o Office 365.
+* Os dados de contactos - incluem listas de contactos no Outlook, Skype e outros serviços de conta da Microsoft, incluindo as informações de contacto para pessoas com quem comunica ou colabora frequentemente. Os contactos serão periodicamente importados, armazenados e utilizados pelo LinkedIn, por exemplo, para sugerir ligações, ajudar a organizar contactos e mostrar atualizações sobre contactos.
 
-Os dados que são acessados pela Microsoft não são armazenados permanentemente com o LinkedIn, exceto para contatos. Os contatos da Microsoft são armazenados no LinkedIn até que os usuários os removam. Saiba mais sobre como [excluir contatos importados do LinkedIn](https://www.linkedin.com/help/linkedin/answer/43377).
+Os dados acedidos a partir da Microsoft não são armazenados permanentemente no LinkedIn, com exceção dos Contactos. Os Contactos microsoft são armazenados no LinkedIn até que os utilizadores os removam. Saiba mais sobre [a apagar contactos importados do LinkedIn](https://www.linkedin.com/help/linkedin/answer/43377).
 
-Para obter mais informações sobre o uso de dados pessoais do LinkedIn, consulte a [política de privacidade do LinkedIn](https://www.linkedin.com/legal/privacy-policy). Para serviços do LinkedIn, transferência de dados e armazenamento, os dados podem fluir da União Europeia para a Estados Unidos e voltar, e sua privacidade é protegida conforme descrito em [transferências de dados da União Europeia](https://www.linkedin.com/help/linkedin/answer/62533).
+Para obter mais informações sobre a utilização de dados pessoais do LinkedIn, consulte a Política de [Privacidade do LinkedIn](https://www.linkedin.com/legal/privacy-policy). Para os serviços linkedIn, transferência de dados e armazenamento, os dados podem fluir da União Europeia para os Estados Unidos e voltar, e a sua privacidade está protegida como descrito nas transferências de [dados da União Europeia.](https://www.linkedin.com/help/linkedin/answer/62533)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [LinkedIn em aplicativos da Microsoft com sua conta corporativa ou de estudante](https://www.linkedin.com/help/linkedin/answer/84077)
+* [LinkedIn em aplicações da Microsoft com o seu trabalho ou conta escolar](https://www.linkedin.com/help/linkedin/answer/84077)

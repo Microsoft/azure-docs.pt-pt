@@ -1,6 +1,6 @@
 ---
-title: Serviços da Microsoft em segurança cibernética | Microsoft Docs
-description: O artigo fornece uma introdução sobre os serviços da Microsoft relacionados ao segurança cibernética e como obter mais informações sobre esses serviços.
+title: Serviços Microsoft em Cibersegurança Microsoft Docs
+description: O artigo fornece uma introdução sobre os serviços da Microsoft relacionados com a cibersegurança e como obter mais informações sobre estes serviços.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -16,28 +16,28 @@ ms.workload: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.openlocfilehash: 7821fdc0dfda5db8d660a38a59efc774e30b9f4a
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727461"
 ---
-# <a name="microsoft-services-in-cybersecurity"></a>Serviços da Microsoft no segurança cibernética
+# <a name="microsoft-services-in-cybersecurity"></a>Serviços Microsoft em Cibersegurança
 
-Os serviços da Microsoft fornecem uma abordagem abrangente de segurança, identidade e segurança cibernética. Eles incluem uma matriz de serviços de identidade e segurança em estratégia, planejamento, implementação e suporte contínuo. Esses serviços podem ajudar os clientes corporativos a implementar soluções de segurança que se alinhem às suas metas estratégicas.
+A Microsoft Services fornece uma abordagem abrangente à segurança, identidade e cibersegurança. Incluem uma série de serviços de Segurança e Identidade através de estratégia, planeamento, implementação e apoio contínuo. Estes serviços podem ajudar os clientes da Enterprise a implementar soluções de segurança que se alinham com os seus objetivos estratégicos.
 
-Os serviços da Microsoft podem criar soluções que se integram e aprimoram os recursos mais recentes de segurança e identidade de nossos produtos para ajudar a proteger seus negócios e impulsionar a inovação.
+Os serviços da Microsoft podem criar soluções que se integrem e melhorar as mais recentes capacidades de segurança e identidade dos nossos produtos para ajudar a proteger o seu negócio e impulsionar a inovação.
 
-Nossa equipe de profissionais técnicos consiste em especialistas altamente treinados que oferecem uma ampla experiência de segurança e identidade.
+A nossa equipa de profissionais técnicos é constituída por especialistas altamente treinados que oferecem uma vasta experiência de segurança e identidade.
 
-Saiba mais sobre os serviços fornecidos pelos serviços da Microsoft:
+Saiba mais sobre os serviços prestados pelos Serviços microsoft:
 
-* [Avaliação de riscos de segurança](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-security-risk-assessment-solution-brief.pdf)
-* [Avaliação da estrutura de identidade dinâmica](https://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/dynamic-identity-framework-identity-assessment-datasheet.pdf)
-* [Avaliação offline para serviços Active Directorys](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/offline-assessment-for-active-directory-security-datasheet.pdf)
-* [Ambiente de administração de segurança aprimorado](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/enhanced-security-administrative-environment-solution-brief.pdf)
-* [Serviços de implementação do Azure AD](https://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/azure-active-directory-implementation-services-solution-brief.pdf)
-* [Protegendo contra movimentação de conta lateral](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/pop-securing-lateral-account-movement.pdf)
-* [Resposta a incidentes e recuperação](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-incident-response-and-recovery-process-brief.pdf)
+* [Avaliação do risco de segurança](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-security-risk-assessment-solution-brief.pdf)
+* [Avaliação do quadro de identidade dinâmica](https://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/dynamic-identity-framework-identity-assessment-datasheet.pdf)
+* [Avaliação offline para serviços de diretório ativo](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/offline-assessment-for-active-directory-security-datasheet.pdf)
+* [Ambiente de Administração de Segurança Melhorado](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/enhanced-security-administrative-environment-solution-brief.pdf)
+* [Serviços de Implementação da AD Azure](https://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/azure-active-directory-implementation-services-solution-brief.pdf)
+* [Assegurar contra o movimento da conta lateral](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/pop-securing-lateral-account-movement.pdf)
+* [Resposta e Recuperação de Incidentes](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-incident-response-and-recovery-process-brief.pdf)
 
-[Saiba mais](https://aka.ms/cyberserv) sobre os serviços de consultoria de segurança de serviços da Microsoft.
+[Saiba mais](https://aka.ms/cyberserv) sobre os serviços de consultoria de Segurança dos Serviços microsoft.

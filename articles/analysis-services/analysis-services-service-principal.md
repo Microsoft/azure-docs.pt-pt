@@ -8,10 +8,10 @@ ms.date: 02/18/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: dc163de9a7fb46d62f4bc2983e040e68bbf9231c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266146"
 ---
 # <a name="automation-with-service-principals"></a>Automatização com principais de serviço
@@ -26,14 +26,14 @@ Os Serviços de Análise também apoiam as operações realizadas por identidade
  
 Os principais de serviço podem ser criados no portal Azure ou utilizando o PowerShell. Para saber mais, consulte:
 
-[Criar o diretor de serviço - portal Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
+[Criar o principal de serviço - Portal Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
 [Criar principal de serviço - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Armazenar ativos credenciais e certificados na Azure Automation
 
 As principais credenciais e certificados de serviço podem ser armazenados de forma segura na Azure Automation para operações de livro de reprodução. Para saber mais, consulte:
 
-[Ativos credenciais na  de Automação Azure](../automation/automation-credentials.md)  
+[Ativos credenciais na Automação Azure](../automation/automation-credentials.md)   
 [Recursos de certificados na Automatização do Azure](../automation/automation-certificates.md)
 
 ## <a name="add-service-principals-to-server-admin-role"></a>Adicionar diretores de serviço à função de administração do servidor
@@ -48,9 +48,9 @@ O aplicativo principal de serviço e a palavra-passe ou certificado podem ser ut
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Usando o módulo Az.AnalysisServices
+#### <a name="using-azanalysisservices-module"></a><a name="azmodule" />Utilizando o módulo Az.AnalysisServices
 
-Quando utilizar um diretor de serviço para operações de gestão de recursos com o módulo [Az.AnalysisServices,](/powershell/module/az.analysisservices) utilize `Connect-AzAccount` cmdlet. 
+Ao utilizar um diretor de serviço para operações de `Connect-AzAccount` gestão de recursos com o módulo [Az.AnalysisServices,](/powershell/module/az.analysisservices) utilize cmdlet. 
 
 No exemplo seguinte, o appID e uma palavra-passe são utilizados para realizar operações de plano de controlo para sincronização a réplicas apenas de leitura e escala para cima/para fora:
 
@@ -92,9 +92,9 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO e ADOMD 
 
-Ao conectar-se com aplicações de clientes e aplicações web, bibliotecas de [clientes AMO e ADOMD](analysis-services-data-providers.md) versão 15.0.2 e pacotes instalados mais altos dos principais de suporte do NuGet nas cadeias de ligação utilizando a seguinte sintaxe: `app:AppID` e senha ou `cert:thumbprint`. 
+Ao conectar-se com aplicações de clientes e aplicações web, bibliotecas de [clientes AMO e ADOMD](analysis-services-data-providers.md) versão 15.0.2 e `app:AppID` pacotes `cert:thumbprint`instalados mais altos dos principais de suporte do NuGet nas cadeias de ligação utilizando a seguinte sintaxe: e palavra-passe ou . 
 
-No exemplo seguinte, `appID` e um `password` são utilizados para executar uma operação de atualização de base de dados modelo:
+No exemplo seguinte, `appID` `password` e a são utilizados para executar uma operação de atualização de base de dados modelo:
 
 ```csharp
 string appId = "xxx";
@@ -108,6 +108,6 @@ tbl.RequestRefresh(RefreshType.Full);
 db.Model.SaveChanges();
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-[Inscreva-se na  Da PowerShell da Azure](https://docs.microsoft.com/powershell/azure/authenticate-azureps)  
+## <a name="next-steps"></a>Passos seguintes
+[Inscreva-se na Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
 [Adicione um principal de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md)   

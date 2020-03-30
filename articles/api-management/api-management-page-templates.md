@@ -1,5 +1,5 @@
 ---
-title: Modelos de página em Azure API Management  Microsoft Docs
+title: Modelos de página em Azure API Management [ Microsoft Docs
 description: Saiba como personalizar o conteúdo das páginas do portal do desenvolvedor utilizando um conjunto de modelos na Gestão aPI Azure.
 services: api-management
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: ce56c406c884471c445b25343d5c42f9edcbe4c4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249545"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Modelos de página na Gestão da API Azure
@@ -27,7 +27,7 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
   
 -   [Iniciar sessão](#SignIn)  
   
--   [Inscreva-se](#SignUp)  
+-   [Registar-me](#SignUp)  
   
 -   [Página não encontrada](#PageNotFound)  
   
@@ -38,7 +38,7 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="SignIn"></a>Iniciar sessão  
+##  <a name="sign-in"></a><a name="SignIn"></a>Iniciar sessão  
  O **modelo de sinal de sinal** permite personalizar o sinal na página no portal do desenvolvedor.  
   
  ![Assinar na página](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "Sinal aPIM nos modelos do portal do desenvolvedor da página")  
@@ -137,7 +137,7 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
 }
 ```  
   
-##  <a name="SignUp"></a>Registar-me  
+##  <a name="sign-up"></a><a name="SignUp"></a>Registar-me  
  O modelo de **inscrição** permite personalizar a página de inscrição no portal do desenvolvedor.  
   
  ![Página de inscrição](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "APIM Inscrever-se na página modelos do portal do programador")  
@@ -185,7 +185,7 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
 }  
 ```  
   
-##  <a name="PageNotFound"></a>Página não encontrada  
+##  <a name="page-not-found"></a><a name="PageNotFound"></a>Página não encontrada  
  O modelo **de página não encontrado** permite personalizar a página não encontrada no portal do desenvolvedor.  
   
  ![Página não encontrada](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "APIM não encontrado modelos de portal de desenvolvedor de página")  
@@ -229,11 +229,11 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|código de referência|Cadeia de caracteres|Código gerado se esta página foi exibida como resultado de um erro interno.|  
-|errorCode|Cadeia de caracteres|Código gerado se esta página foi exibida como resultado de um erro interno.|  
-|e-mailBody|Cadeia de caracteres|Corpo de e-mail gerado se esta página foi exibida como resultado de um erro interno.|  
-|requestedUrl|Cadeia de caracteres|O URL solicitado quando a página não foi encontrada.|  
-|referrerUrl|Cadeia de caracteres|O URL de referência para o URL solicitado.|  
+|código de referência|string|Código gerado se esta página foi exibida como resultado de um erro interno.|  
+|erroCódigo|string|Código gerado se esta página foi exibida como resultado de um erro interno.|  
+|e-mailBody|string|Corpo de e-mail gerado se esta página foi exibida como resultado de um erro interno.|  
+|requeridoUrl|string|O URL solicitado quando a página não foi encontrada.|  
+|referrerUrl|string|O URL de referência para o URL solicitado.|  
   
 ### <a name="sample-template-data"></a>Dados do modelo de amostra  
   
@@ -247,5 +247,5 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
 }  
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre o trabalho com modelos, consulte como personalizar o portal de desenvolvimento de [gestão da API utilizando modelos](api-management-developer-portal-templates.md).

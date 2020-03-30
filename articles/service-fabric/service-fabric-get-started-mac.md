@@ -1,15 +1,15 @@
 ---
-title: Configurar seu ambiente de desenvolvimento no macOS
-description: Instale o runtime, o SDK e as ferramentas e crie um cluster de desenvolvimento local. Depois de concluir essa configuração, você estará pronto para criar aplicativos no macOS.
+title: Instale o seu ambiente de dev no macOS
+description: Instale o runtime, o SDK e as ferramentas e crie um cluster de desenvolvimento local. Depois de concluir esta configuração, estará pronto para construir aplicações no macOS.
 author: suhuruli
 ms.topic: conceptual
 ms.date: 11/17/2017
 ms.author: suhuruli
 ms.openlocfilehash: f2ca1566358fad45f6ec2860fcca96b887c54adb
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76722582"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurar o ambiente de desenvolvimento no Mac OS X
@@ -44,7 +44,7 @@ Para configurar um contentor do Docker local e executar um cluster do Service Fa
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    Pode atualizar estas definições diretamente no ficheiro daemon.json no caminho de instalação do Docker. Você pode modificar diretamente as definições de configuração do daemon no Docker. Selecione o **ícone de Docker**e, em seguida, selecione **Preferências** > **Daemon** > **Avançadas**.
+    Pode atualizar estas definições diretamente no ficheiro daemon.json no caminho de instalação do Docker. Pode modificar diretamente as definições de configuração da daemon no Docker. Selecione o **ícone de Docker**e, em seguida, selecione **Preferências** > **Daemon** > **Avançadas**.
     
     >[!NOTE]
     >
@@ -76,7 +76,7 @@ Para configurar um contentor do Docker local e executar um cluster do Service Fa
     >Por exemplo, se adicionar `RUN apt-get install nodejs -y` irá permitir o suporte para aplicações `nodejs` como convidado executáveis.
     
     >[!TIP]
-    > Por predefinição, isto irá extrair a imagem com a versão mais recente do Service Fabric. Para revisões específicas, visite a página do [Hub do Docker](https://hub.docker.com/r/microsoft/service-fabric-onebox/)
+    > Por predefinição, isto irá extrair a imagem com a versão mais recente do Service Fabric. Para revisões particulares, visite a página [do Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/)
 
 3. Para criar a imagem reutilizável a partir do `Dockerfile`, abra um terminal e `cd` para o diretório que contém o `Dockerfile` e, em seguida, execute:
 
@@ -101,7 +101,7 @@ Para configurar um contentor do Docker local e executar um cluster do Service Fa
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
-5. O cluster levará alguns instantes para ser iniciado. Quando estiver em funcionamento, pode ver os registos utilizando o seguinte comando ou saltar para o painel de instrumentos para ver os clusters de saúde [http://localhost:19080: ](http://localhost:19080)
+5. O aglomerado vai demorar um pouco para começar. Quando estiver em funcionamento, pode ver os registos utilizando o seguinte [http://localhost:19080](http://localhost:19080)comando ou saltar para o painel de instrumentos para ver a saúde dos clusters:
 
     ```bash 
     docker logs sftestcluster
@@ -109,7 +109,7 @@ Para configurar um contentor do Docker local e executar um cluster do Service Fa
 
 
 
-6. Para parar e limpar o contêiner, use o comando a seguir. No entanto, usaremos esse contêiner na próxima etapa.
+6. Para parar e limpar o recipiente, utilize o seguinte comando. No entanto, usaremos este recipiente no próximo passo.
 
     ```bash 
     docker rm -f sftestcluster
@@ -166,7 +166,7 @@ O Service Fabric fornece ferramentas estruturais que o ajudam a criar uma aplica
     ```
 
     > [!IMPORTANT]
-    > As versões atuais do `brew cask install java` podem instalar uma versão mais recente do JDK.
+    > As versões atuais podem `brew cask install java` instalar uma versão mais recente do JDK.
     > Certifique-se de instalar o JDK 8.
 
 ## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>Implementar a aplicação no seu Mac a partir do terminal
@@ -211,7 +211,7 @@ Os atributos são definidos do seguinte modo:
 >Se iniciar o contentor com um nome que não seja `sfonebox`, atualize o valor de nome no ficheiro testclient.sh na sua aplicação Java de atores do Service Fabric.
 >
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 <!-- Links -->
 * [Criar e implementar a sua primeira aplicação Java do Service Fabric no Linux com o Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Criar e implementar a sua primeira aplicação Java do Service Fabric no Linux com o plug-in do Service Fabric para Eclipse](service-fabric-get-started-eclipse.md)

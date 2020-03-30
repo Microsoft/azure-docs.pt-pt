@@ -1,5 +1,5 @@
 ---
-title: Aprovar ou negar pedidos de funções da Azure AD na PIM - Azure AD  Microsoft Docs
+title: Aprovar ou negar pedidos de funções da Azure AD na PIM - Azure AD [ Microsoft Docs
 description: Saiba como aprovar ou negar pedidos de funções de AD Azure na Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 02/07/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b39336591e9939d0e5200304cbeced2d9831979
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 73ccfd1ad270072989e9b575fda538b94fd8927c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77498774"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049020"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Aprovar ou negar pedidos de funções da Azure AD na Gestão de Identidade Privilegiada
 
@@ -116,7 +116,7 @@ Como um aprovador delegado, receberá uma notificação por e-mail quando um ped
 
     ![Aprovar painel de pedidos selecionados com uma razão de aprovação](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
 
-1. Clique **em Aprovar**.
+1. Clique em **Aprovar**.
 
     O símbolo de Estado será atualizado com a sua aprovação.
 
@@ -138,7 +138,7 @@ Como um aprovador delegado, receberá uma notificação por e-mail quando um ped
 
 ---
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Notificações por e-mail em Gestão de Identidade Privilegiada](pim-email-notifications.md)
 - [Aprovar ou negar pedidos de funções de recurso Azure na Gestão de Identidade Privilegiada](pim-resource-roles-approval-workflow.md)

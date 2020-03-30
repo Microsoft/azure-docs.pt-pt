@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 5718106aee0e60d111398efdb839945c2c7a8a06
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471742"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introdução às filas do Service Bus
@@ -43,19 +43,19 @@ Para enviar mensagens para a fila, escreva uma aplicação de consola C# com o V
 
 ### <a name="create-a-console-application"></a>Criar uma aplicação de consola
 
-Lançar O Estúdio Visual e criar um novo C#projeto de Consola App **(.NET Core)** para . Este exemplo dá nome à aplicação *CoreSenderApp*.
+Lançar o Visual Studio e criar um novo projeto de **Console App (.NET Core)** para C#. Este exemplo dá nome à aplicação *CoreSenderApp*.
 
 ### <a name="add-the-service-bus-nuget-package"></a>Adicionar o pacote NuGet do Service Bus
 
 1. Clique com o botão direito do rato no projeto recém-criado e selecione **Gerir Pacotes NuGet**.
-1. Selecione **Procurar**. Procure e selecione **[Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)** .
+1. Selecione **Procurar**. Procure e selecione **[Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)**.
 1. Selecione **Instalar** para completar a instalação e, em seguida, fechar o NuGet Package Manager.
 
     ![Selecionar um pacote NuGet][nuget-pkg]
 
 ### <a name="write-code-to-send-messages-to-the-queue"></a>Escrever código e enviar mensagens para a fila
 
-1. Em *Program.cs,* adicione as seguintes declarações `using` no topo da definição de espaço de nome, antes da declaração de classe:
+1. Em *Program.cs,* adicione `using` as seguintes declarações no topo da definição de espaço de nome, antes da declaração de classe:
 
     ```csharp
     using System.Text;
@@ -64,7 +64,7 @@ Lançar O Estúdio Visual e criar um novo C#projeto de Consola App **(.NET Core)
     using Microsoft.Azure.ServiceBus;
     ```
 
-1. Na classe `Program`, declare as seguintes variáveis:
+1. Na `Program` aula, declare as seguintes variáveis:
 
     ```csharp
     const string ServiceBusConnectionString = "<your_connection_string>";
@@ -72,9 +72,9 @@ Lançar O Estúdio Visual e criar um novo C#projeto de Consola App **(.NET Core)
     static IQueueClient queueClient;
     ```
 
-    Introduza a sua cadeia de ligação para o espaço de nome como variável `ServiceBusConnectionString`. Insira o nome da sua fila.
+    Introduza a sua cadeia de `ServiceBusConnectionString` ligação para o espaço de nome como variável. Insira o nome da sua fila.
 
-1. Substitua o método `Main()` pelo método `Main` **asincronizado** seguinte. Chama ao método `SendMessagesAsync()` que irá adicionar no próximo passo para enviar mensagens para a fila. 
+1. Substitua `Main()` o método pelo seguinte método **de asincronização.** `Main` Chama o `SendMessagesAsync()` método que irá adicionar no próximo passo para enviar mensagens para a fila. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -94,7 +94,7 @@ Lançar O Estúdio Visual e criar um novo C#projeto de Consola App **(.NET Core)
         await queueClient.CloseAsync();
     }
     ```
-1. Imediatamente após o método `MainAsync()`, adicione o seguinte método `SendMessagesAsync()` que faça o trabalho de envio do número de mensagens especificadas por `numberOfMessagesToSend` (atualmente fixado para 10):
+1. Imediatamente após `MainAsync()` o método, `SendMessagesAsync()` adicione o seguinte método que faz o `numberOfMessagesToSend` trabalho de envio do número de mensagens especificadas por (atualmente definido para 10):
 
     ```csharp
     static async Task SendMessagesAsync(int numberOfMessagesToSend)
@@ -201,7 +201,7 @@ Para receber as mensagens que enviou, crie outra aplicação de **Consola (.NET 
 
 ### <a name="write-code-to-receive-messages-from-the-queue"></a>Escrever código para receber mensagens da fila
 
-1. Em *Program.cs,* adicione as seguintes declarações `using` no topo da definição de espaço de nome, antes da declaração de classe:
+1. Em *Program.cs,* adicione `using` as seguintes declarações no topo da definição de espaço de nome, antes da declaração de classe:
 
     ```csharp
     using System;
@@ -211,7 +211,7 @@ Para receber as mensagens que enviou, crie outra aplicação de **Consola (.NET 
     using Microsoft.Azure.ServiceBus;
     ```
 
-1. Na classe `Program`, declare as seguintes variáveis:
+1. Na `Program` aula, declare as seguintes variáveis:
 
     ```csharp
     const string ServiceBusConnectionString = "<your_connection_string>";
@@ -219,7 +219,7 @@ Para receber as mensagens que enviou, crie outra aplicação de **Consola (.NET 
     static IQueueClient queueClient;
     ```
 
-    Introduza a sua cadeia de ligação para o espaço de nome como variável `ServiceBusConnectionString`. Insira o nome da sua fila.
+    Introduza a sua cadeia de `ServiceBusConnectionString` ligação para o espaço de nome como variável. Insira o nome da sua fila.
 
 1. Substitua o método `Main()` pelo código abaixo:
 
@@ -246,7 +246,7 @@ Para receber as mensagens que enviou, crie outra aplicação de **Consola (.NET 
     }
     ```
 
-1. Imediatamente após o método `MainAsync()`, adicione o seguinte método, que regista o manipulador de mensagens e recebe as mensagens enviadas pela aplicação remetente:
+1. Imediatamente após `MainAsync()` o método, adicione o seguinte método, que regista o manipulador de mensagens e recebe as mensagens enviadas pela aplicação remetente:
 
     ```csharp
     static void RegisterOnMessageHandlerAndReceiveMessages()

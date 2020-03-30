@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/31/2020
 ms.openlocfilehash: f7198aeff5e9ef6d37e29c2336dc38e4eec0dda1
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77023978"
 ---
 # <a name="migrate-hdinsight-cluster-to-a-newer-version"></a>Migrar o cluster HDInsight para uma versão mais recente
@@ -26,7 +26,7 @@ Para tirar partido das mais recentes funcionalidades hDInsight, recomendamos que
 ## <a name="migration-tasks"></a>Tarefas de migração
 
 O fluxo de trabalho para atualizar o Cluster HDInsight é o seguinte.
-![o diagrama de fluxo de trabalho de upgrade da HDInsight](./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png)
+![Diagrama de fluxo de trabalho de upgrade HDInsight](./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png)
 
 1. Leia cada secção deste documento para compreender as alterações que podem ser necessárias ao atualizar o seu cluster HDInsight.
 2. Crie um cluster como um ambiente de garantia de teste/qualidade. Para obter mais informações sobre a criação de um cluster, consulte [Saiba como criar clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md)
@@ -35,11 +35,11 @@ O fluxo de trabalho para atualizar o Cluster HDInsight é o seguinte.
 
 Depois de verificar que tudo funciona como esperado, marque o tempo de paragem para a migração. Durante este tempo de inatividade, faça as seguintes ações:
 
-1. Faça backup de todos os dados transitórios armazenados localmente nos nós do cluster. Por exemplo, se tiver dados armazenados diretamente num nó de cabeça.
+1. Recue quaisquer dados transitórios armazenados localmente nos nós do cluster. Por exemplo, se tiver dados armazenados diretamente num nó de cabeça.
 1. [Eliminar o cluster existente](./hdinsight-delete-cluster.md).
 1. Crie um cluster na mesma subnet VNET com versão HDI mais recente (ou suportada) utilizando a mesma loja de dados padrão que o cluster anterior utilizou. Isto permite que o novo cluster continue a trabalhar contra os dados de produção existentes.
 1. Importe quaisquer dados transitórios que tenha apoiado.
-1. Iniciar trabalhos/continuar o processamento usando o novo cluster.
+1. Inicie empregos/continue a processar usando o novo cluster.
 
 ## <a name="workload-specific-guidance"></a>Orientação específica da carga de trabalho
 

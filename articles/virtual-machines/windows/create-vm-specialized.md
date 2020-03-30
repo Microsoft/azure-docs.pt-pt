@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
 ms.openlocfilehash: fc157c2253a718860e028fa493574cb9aa2ccdf2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243370"
 ---
-# <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Criar um VM Windows a partir de um disco especializado utilizando o PowerShell
+# <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Create a Windows VM from a specialized disk by using PowerShell (Utilizar o PowerShell para criar uma VM do Windows a partir de um disco especializado)
 
 Crie um novo VM anexando um disco gerido especializado como o disco OS. Um disco especializado é uma cópia de um disco rígido virtual (VHD) de um VM existente que contém as contas, aplicações e outros dados do estado do seu VM original. 
 
@@ -118,7 +118,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-Para utilizar este instantâneo para criar um VM que precisa de ser de alto desempenho, adicione o parâmetro `-AccountType Premium_LRS` ao comando New-AzSnapshotConfig. Este parâmetro cria o instantâneo para que seja armazenado como um Disco Gerido Premium. Os Discos Geridos Premium são mais caros do que o Standard, por isso certifique-se de que vai precisar de Premium antes de utilizar este parâmetro.
+Para utilizar este instantâneo para criar um VM que precisa `-AccountType Premium_LRS` de ser de alto desempenho, adicione o parâmetro ao comando New-AzSnapshotConfig. Este parâmetro cria o instantâneo para que seja armazenado como um Disco Gerido Premium. Os Discos Geridos Premium são mais caros do que o Standard, por isso certifique-se de que vai precisar de Premium antes de utilizar este parâmetro.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>Criar um novo disco a partir do instantâneo
 
@@ -267,13 +267,13 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>Verifique se o VM foi criado
-Deve ver o VM recém-criado, quer no [portal Azure,](https://portal.azure.com) em **Browse** > **Máquinas Virtuais,** quer utilizando os seguintes comandos PowerShell.
+Deve ver o VM recém-criado, quer no [portal Azure,](https://portal.azure.com) sob as máquinas **Browse** > **Virtual,** quer utilizando os seguintes comandos PowerShell.
 
 ```powershell
 $vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup
 $vmList.Name
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Inscreva-se na sua nova máquina virtual. Para mais informações, consulte [Como ligar e iniciar sessão numa máquina virtual Azure que executa o Windows](connect-logon.md).
 

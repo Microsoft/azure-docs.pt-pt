@@ -1,6 +1,6 @@
 ---
-title: Testes de benchmark de desempenho recomendados-Azure NetApp Files
-description: Saiba mais sobre as recomendações de teste de benchmark para desempenho e métricas de volume usando Azure NetApp Files.
+title: Testes de referência de desempenho recomendados - Ficheiros Azure NetApp
+description: Conheça as recomendações de teste de referência para o desempenho do volume e métricas utilizando ficheiros Azure NetApp.
 author: b-juche
 ms.author: b-juche
 ms.service: azure-netapp-files
@@ -8,114 +8,114 @@ ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.openlocfilehash: 8f354152c23dd7ad0413f27585d724f8070ca003
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75551527"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Recomendações do teste da referência de desempenho do Azure NetApp Files
 
-Este artigo fornece recomendações de teste de benchmark para desempenho e métricas de volume usando Azure NetApp Files.
+Este artigo fornece recomendações de teste de referência para desempenho de volume e métricas usando Ficheiros Azure NetApp.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
-Para entender as características de desempenho de um volume Azure NetApp Files, você pode usar a ferramenta de código-fonte aberto [fio](https://github.com/axboe/fio) para executar uma série de benchmarks para simular uma variedade de cargas de trabalho. O FIO pode ser instalado em sistemas operacionais baseados em Linux e Windows.  É uma excelente ferramenta para obter um instantâneo rápido de IOPS e taxa de transferência para um volume.
+Para compreender as características de desempenho de um volume de Ficheiros Azure NetApp, pode utilizar a ferramenta de código aberto [FIO](https://github.com/axboe/fio) para executar uma série de referências para simular uma variedade de cargas de trabalho. O FIO pode ser instalado em sistemas operativos baseados no Linux e no Windows.  É uma excelente ferramenta para obter uma imagem rápida tanto do IOPS como da entrada para um volume.
 
-### <a name="vm-instance-sizing"></a>Dimensionamento da instância de VM
+### <a name="vm-instance-sizing"></a>Tamanho da instância VM
 
-Para obter melhores resultados, verifique se você está usando uma instância de máquina virtual (VM) que é dimensionada adequadamente para executar os testes. Os exemplos a seguir usam uma instância de Standard_D32s_v3. Para obter mais informações sobre tamanhos de instância de VM, consulte [tamanhos de máquinas virtuais do Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) para VMs baseadas no Windows e [tamanhos para máquinas virtuais do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para VMs baseadas em Linux.
+Para obter os melhores resultados, certifique-se de que está a utilizar uma instância de máquina virtual (VM) que é adequadamente dimensionada para efetuar os testes. Os exemplos que se seguem utilizam uma Standard_D32s_v3 exemplo. Para obter mais informações sobre tamanhos de instância VM, consulte [Sizes para máquinas virtuais Windows em Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) para VMs baseados no Windows e [Tamanhos para máquinas virtuais Linux em Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para VMs baseados em Linux.
 
-### <a name="azure-netapp-files-volume-sizing"></a>Azure NetApp Filesndo o dimensionamento de volume
+### <a name="azure-netapp-files-volume-sizing"></a>Tamanho do volume de ficheiros Azure NetApp
 
-Certifique-se de escolher o nível de serviço e o tamanho da cota de volume corretos para o nível de desempenho esperado. Consulte [níveis de serviço para Azure NetApp files](azure-netapp-files-service-levels.md) para obter mais informações.
+Certifique-se de que escolhe o nível de serviço correto e o tamanho da quota de volume para o nível de desempenho esperado. Consulte [os níveis de serviço dos Ficheiros Azure NetApp](azure-netapp-files-service-levels.md) para obter mais informações.
 
 ### <a name="virtual-network-vnet-recommendations"></a>Recomendações de rede virtual (VNet)
 
-Você deve executar o teste de parâmetro de comparação na mesma VNet que Azure NetApp Files. O exemplo a seguir demonstra a recomendação:
+Deve realizar os testes de referência no mesmo VNet que o Azure NetApp Files. O exemplo abaixo demonstra a recomendação:
 
-![Recomendações de VNet](../media/azure-netapp-files/azure-netapp-files-benchmark-testing-vnet.png)
+![Recomendações VNet](../media/azure-netapp-files/azure-netapp-files-benchmark-testing-vnet.png)
 
-## <a name="installation-of-fio"></a>Instalação do FIO
+## <a name="installation-of-fio"></a>Instalação da FIO
 
-O FIO está disponível em formato binário para Linux e Windows. Siga a seção de pacotes binários em [fio](https://github.com/axboe/fio) para instalar para a plataforma de sua escolha.
+O FIO está disponível em formato binário tanto para linux como windows. Siga a secção pacotes binários na [FIO](https://github.com/axboe/fio) para instalar para a plataforma à sua escolha.
 
-## <a name="fio-examples-for-iops"></a>Exemplos de FIO para IOPS 
+## <a name="fio-examples-for-iops"></a>Exemplos fio para IOPS 
 
-Os exemplos de FIO nesta seção usam a seguinte configuração:
-* Tamanho da instância de VM: D32s_v3
-* Nível de serviço e tamanho do pool de capacidade: Premium/50 TiB
-* Tamanho da cota de volume: 48 TiB
+Os exemplos fio nesta secção utilizam a seguinte configuração:
+* Tamanho da instância VM: D32s_v3
+* Nível e tamanho do serviço de piscina de capacidade: Premium / 50 TiB
+* Tamanho da quota de volume: 48 TiB
 
-Os exemplos a seguir mostram as leituras e gravações aleatórias do FIO.
+Os seguintes exemplos mostram que o FIO lê e escreve aleatoriamente.
 
-### <a name="fio-8k-block-size-100-random-reads"></a>FIO: tamanho do bloco de 8K 100% de leituras aleatórias
+### <a name="fio-8k-block-size-100-random-reads"></a>FIO: 8k bloco tamanho 100% leituras aleatórias
 
 `fio --name=8krandomreads --rw=randread --direct=1 --ioengine=libaio --bs=8k --numjobs=4 --iodepth=128 --size=4G --runtime=600 --group_reporting`
 
-### <a name="output-68k-read-iops-displayed"></a>Saída: IOPS de leitura de 68k exibido
+### <a name="output-68k-read-iops-displayed"></a>Saída: 68k ler IOPS exibido
 
 `Starting 4 processes`  
 `Jobs: 4 (f=4): [r(4)][84.4%][r=537MiB/s,w=0KiB/s][r=68.8k,w=0 IOPS][eta 00m:05s]`
 
-### <a name="fio-8k-block-size-100-random-writes"></a>FIO: tamanho do bloco de 8K 100% de gravações aleatórias
+### <a name="fio-8k-block-size-100-random-writes"></a>FIO: 8k bloco tamanho 100% escritos aleatórios
 
 `fio --name=8krandomwrites --rw=randwrite --direct=1 --ioengine=libaio --bs=8k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
-### <a name="output-73k-write-iops-displayed"></a>Saída: IOPS de gravação de 73k exibido
+### <a name="output-73k-write-iops-displayed"></a>Saída: 73k escrever IOPS exibido
 
 `Starting 4 processes`  
 `Jobs: 4 (f=4): [w(4)][26.7%][r=0KiB/s,w=571MiB/s][r=0,w=73.0k IOPS][eta 00m:22s]`
 
-## <a name="fio-examples-for-bandwidth"></a>Exemplos de FIO de largura de banda
+## <a name="fio-examples-for-bandwidth"></a>Exemplos FIO para largura de banda
 
-Os exemplos nesta seção mostram as leituras e gravações sequenciais do FIO.
+Os exemplos desta secção mostram o fio sequencial que lê e escreve.
 
-### <a name="fio-64k-block-size-100-sequential-reads"></a>FIO: tamanho do bloco de 64K 100% de leituras sequenciais
+### <a name="fio-64k-block-size-100-sequential-reads"></a>FIO: 64k bloco tamanho 100% leituras sequenciais
 
 `fio --name=64kseqreads --rw=read --direct=1 --ioengine=libaio --bs=64k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
-### <a name="output-118-gbits-throughput-displayed"></a>Saída: taxa de transferência de 11,8 Gbit/s exibida
+### <a name="output-118-gbits-throughput-displayed"></a>Saída: 11.8 Gbit/s de entrada visualizada
 
 `Starting 4 processes`  
 `Jobs: 4 (f=4): [R(4)][40.0%][r=1313MiB/s,w=0KiB/s][r=21.0k,w=0 IOPS][eta 00m:09s]`
 
-### <a name="fio-64k-block-size-100-sequential-writes"></a>FIO: tamanho do bloco de 64K 100% de gravações sequenciais
+### <a name="fio-64k-block-size-100-sequential-writes"></a>FIO: 64k bloco tamanho 100% sequencial escreve
 
 `fio --name=64kseqwrites --rw=write --direct=1 --ioengine=libaio --bs=64k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
-### <a name="output-122-gbits-throughput-displayed"></a>Saída: taxa de transferência de 12,2 Gbit/s exibida
+### <a name="output-122-gbits-throughput-displayed"></a>Saída: 12.2 Gbit/s de entrada visualizada
 
 `Starting 4 processes`  
 `Jobs: 4 (f=4): [W(4)][85.7%][r=0KiB/s,w=1356MiB/s][r=0,w=21.7k IOPS][eta 00m:02s]`
 
 ## <a name="volume-metrics"></a>Métricas de volume
 
-Azure NetApp Files dados de desempenho estão disponíveis por meio de contadores de Azure Monitor. Os contadores estão disponíveis por meio do portal do Azure e das solicitações GET da API REST. 
+Os dados de desempenho do Azure NetApp Files estão disponíveis através de balcões do Monitor Do Azure. Os balcões estão disponíveis através do portal Azure e dos pedidos REST API GET. 
 
-Você pode exibir dados históricos para as seguintes informações:
+Pode ver dados históricos para obter as seguintes informações:
 * Latência média de leitura 
-* Latência média de gravação 
-* IOPS de leitura (média)
-* IOPS de gravação (média)
-* Tamanho lógico do volume (média)
+* Latência média de escrita 
+* Ler IOPS (média)
+* Escreva IOPS (média)
+* Tamanho lógico de volume (média)
 * Tamanho do instantâneo de volume (média)
 
 ### <a name="using-azure-monitor"></a>Utilizar o Azure Monitor 
 
-Você pode acessar contadores de Azure NetApp Files por volume na página de métricas, conforme mostrado abaixo:
+Pode aceder aos contadores do Azure NetApp Files numa base por volume a partir da página Métricas, como mostrado abaixo:
 
-![Métricas de Azure Monitor](../media/azure-netapp-files/azure-netapp-files-benchmark-monitor-metrics.png)
+![Métricas do Monitor Azure](../media/azure-netapp-files/azure-netapp-files-benchmark-monitor-metrics.png)
 
-Você também pode criar um painel em Azure Monitor para Azure NetApp Files acessando a página métricas, filtrando o NetApp e especificando os contadores de volume de interesse: 
+Também pode criar um dashboard no Azure Monitor para Ficheiros Azure NetApp, indo para a página Métricas, filtrando para o NetApp e especificando os contadores de volume de interesse: 
 
 ![Dashboard Azure Monitor](../media/azure-netapp-files/azure-netapp-files-benchmark-monitor-dashboard.png)
 
-### <a name="azure-monitor-api-access"></a>Acesso Azure Monitor API
+### <a name="azure-monitor-api-access"></a>Acesso à API do Monitor Azure
 
-Você pode acessar contadores de Azure NetApp Files usando chamadas à API REST. Consulte [métricas com suporte com Azure monitor: Microsoft. NetApp/netAppAccounts/capacityPools/volumes](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftnetappnetappaccountscapacitypoolsvolumes) para contadores para pools de capacidade e volumes.
+Pode aceder aos balcões do Azure NetApp Files utilizando chamadas REST API. Consulte [as métricas suportadas com o Monitor Azure: Microsoft.NetApp/netAppAccounts/capacityPools/Volumes](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftnetappnetappaccountscapacitypoolsvolumes) para contadores para piscinas e volumes de capacidade.
 
-O exemplo a seguir mostra uma URL GET para exibição do tamanho do volume lógico:
+O exemplo seguinte mostra um URL GET para visualizar o tamanho do volume lógico:
 
 `#get ANF volume usage`  
 `curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/ANFACCOUNTGOESHERE/capacityPools/ANFPOOLGOESHERE/Volumes/ANFVOLUMEGOESHERE/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=VolumeLogicalSize`
@@ -123,5 +123,5 @@ O exemplo a seguir mostra uma URL GET para exibição do tamanho do volume lógi
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Níveis de serviço para Azure NetApp Files](azure-netapp-files-service-levels.md)
-- [Benchmarks de desempenho para Azure NetApp Files](azure-netapp-files-performance-benchmarks.md)
+- [Níveis de serviços do Azure NetApp Files](azure-netapp-files-service-levels.md)
+- [Referências de desempenho para o Azure NetApp Files](azure-netapp-files-performance-benchmarks.md)

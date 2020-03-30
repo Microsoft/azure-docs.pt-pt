@@ -1,30 +1,30 @@
 ---
-title: Elemento de interface do usuário VirtualNetworkCombo
-description: Descreve o elemento de interface do usuário Microsoft. Network. VirtualNetworkCombo para portal do Azure.
+title: Elemento UI VirtualNetworkCombo
+description: Descreve o elemento Microsoft.Network.VirtualNetworkCombo UI para o portal Azure.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: 53c9653b44a6c9d26d49d37b351cf6000676e2d4
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75651972"
 ---
-# <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Elemento de interface do usuário Microsoft. Network. VirtualNetworkCombo
+# <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Microsoft.Network.VirtualNetworkCombo UI
 
-Um grupo de controles para selecionar uma rede virtual nova ou existente.
+Um grupo de controlos para selecionar uma rede virtual nova ou existente.
 
-## <a name="ui-sample"></a>Exemplo de interface do usuário
+## <a name="ui-sample"></a>Amostra de UI
 
-Quando o usuário escolhe uma nova rede virtual, o usuário pode personalizar o nome e o prefixo de endereço de cada sub-rede. A configuração de sub-redes é opcional.
+Quando o utilizador escolhe uma nova rede virtual, o utilizador pode personalizar o nome e o prefixo de endereço de cada subnet. Configurar subredes é opcional.
 
-![Microsoft. Network. VirtualNetworkCombo novo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-new.png)
+![Microsoft.Network.VirtualNetworkCombo novo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-new.png)
 
-Quando o usuário escolhe uma rede virtual existente, o usuário deve mapear cada sub-rede que o modelo de implantação requer para uma sub-rede existente. A configuração de sub-redes, nesse caso, é necessária.
+Quando o utilizador escolhe uma rede virtual existente, o utilizador deve mapear cada sub-rede que o modelo de implementação requer para uma sub-rede existente. Neste caso, é necessário configurar as subredes.
 
-![Microsoft. Network. VirtualNetworkCombo existente](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-existing.png)
+![Microsoft.Network.VirtualNetworkCombo existente](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-existing.png)
 
 ## <a name="schema"></a>Esquema
 
@@ -105,16 +105,16 @@ Quando o usuário escolhe uma rede virtual existente, o usuário deve mapear cad
 
 ## <a name="remarks"></a>Observações
 
-- Se especificado, o primeiro prefixo de endereço não sobreposto de tamanho `defaultValue.addressPrefixSize` será determinado automaticamente com base nas redes virtuais existentes na assinatura do usuário.
-- O valor padrão para `defaultValue.name` e `defaultValue.addressPrefixSize` é **nulo**.
-- `constraints.minAddressPrefixSize` deve ser especificado. Todas as redes virtuais existentes com um espaço de endereço menor do que o valor especificado não estarão disponíveis para seleção.
-- `subnets` deve ser especificado e `constraints.minAddressPrefixSize` deve ser especificado para cada sub-rede.
-- Ao criar uma nova rede virtual, cada prefixo de endereço de sub-rede é calculado automaticamente com base no prefixo de endereço da rede virtual e no respectivo `addressPrefixSize`.
-- Ao usar uma rede virtual existente, qualquer sub-rede menor que a respectiva `constraints.minAddressPrefixSize` não estará disponível para seleção. Além disso, se especificado, as sub-redes que não tiverem pelo menos `minAddressCount` endereços disponíveis ficarão indisponíveis para seleção. O valor padrão é **0**. Para garantir que os endereços disponíveis sejam contíguos, especifique **true** para `requireContiguousAddresses`. O valor padrão é **true**.
-- Não há suporte para a criação de sub-redes em uma rede virtual existente.
-- Se `options.hideExisting` for **true**, o usuário não poderá escolher uma rede virtual existente. O valor predefinido é **false**.
+- Se especificado, o primeiro prefixo de `defaultValue.addressPrefixSize` tamanho não sobreposto é determinado automaticamente com base nas redes virtuais existentes na subscrição do utilizador.
+- O valor `defaultValue.name` predefinido para e `defaultValue.addressPrefixSize` é **nulo**.
+- `constraints.minAddressPrefixSize`deve ser especificado. Quaisquer redes virtuais existentes com um espaço de endereço inferior ao valor especificado não estão disponíveis para seleção.
+- `subnets`deve ser especificado `constraints.minAddressPrefixSize` e especificado para cada sub-rede.
+- Ao criar uma nova rede virtual, o prefixo de endereço de cada subnet é calculado `addressPrefixSize`automaticamente com base no prefixo de endereço da rede virtual e no respetivo .
+- Ao utilizar uma rede virtual existente, quaisquer `constraints.minAddressPrefixSize` subredes menores do que as respetivas não estão disponíveis para seleção. Além disso, se especificado, as subredes `minAddressCount` que não têm endereços disponíveis não estão disponíveis para seleção. O valor predefinido é **0**. Para garantir que os endereços disponíveis são contíguos, especifique **verdadeiramente** para `requireContiguousAddresses`. O valor padrão é **verdadeiro.**
+- A criação de subredes numa rede virtual existente não é suportada.
+- Se `options.hideExisting` for **verdade,** o utilizador não pode escolher uma rede virtual existente. O valor predefinido é **falso**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma introdução à criação de definições de interface do usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
-* Para obter uma descrição das propriedades comuns nos elementos da interface do usuário, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).
+* Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
+* Para obter uma descrição das propriedades comuns nos elementos UI, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).

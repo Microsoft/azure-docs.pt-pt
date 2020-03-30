@@ -14,10 +14,10 @@ ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
 ms.openlocfilehash: a2b775afcd9e603a11b560bb7c42d6cf76be9b34
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79241557"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Quickstart: Criar uma fábrica de dados e um oleoduto utilizando o .NET SDK
@@ -52,16 +52,16 @@ Das secções de *Como: Utilize o portal para criar uma aplicação e um diretor
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
-Em seguida, C# crie uma aplicação de consola .NET no Estúdio Visual:
+Em seguida, crie uma aplicação de consola C# .NET no Estúdio Visual:
 
 1. Inicie o **Visual Studio**.
-2. Na janela Iniciar, selecione **Criar um novo projeto** > App consola **(.NET Framework)** . É necessária a versão 4.5.2 ou superior do .NET.
+2. Na janela Iniciar, selecione **Criar uma nova** > app de consola de projeto **(.QUADRO NET)**. É necessária a versão 4.5.2 ou superior do .NET.
 3. No **nome do Projeto,** insira **ADFv2QuickStart**.
 4. Selecione **Create** (Criar) para criar o projeto.
 
 ## <a name="install-nuget-packages"></a>Instalar pacotes NuGet
 
-1. Selecione **ferramentas** > **NuGet Package Manager** > Consola de Gestor de **Pacotes**.
+1. Selecione **ferramentas** > **nuget pacote manager** > **consola**.
 2. No painel de **consola sinuoso do gestor** de pacotes, execute os seguintes comandos para instalar pacotes. Para mais informações, consulte o [pacote nuget Microsoft.Azure.Management.DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
 
     ```powershell
@@ -113,7 +113,7 @@ Em seguida, C# crie uma aplicação de consola .NET no Estúdio Visual:
    string pipelineName = "Adfv2QuickStartPipeline";
    ```
 
-3. Adicione o código seguinte ao método **Main** que cria uma instância da classe **DataFactoryManagementClient**. Utilize este objeto para criar uma fábrica de dados, um serviço ligado, conjuntos de dados e um pipeline. Também pode utilizar este objeto para monitorizar os detalhes de execução do pipeline.
+3. Adicione o seguinte código ao método **Principal** que cria uma instância da classe **DataFactoryManagementClient.** Utilize este objeto para criar uma fábrica de dados, um serviço ligado, conjuntos de dados e um pipeline. Também pode utilizar este objeto para monitorizar os detalhes de execução do pipeline.
 
    ```csharp
    // Authenticate and create a data factory management client
@@ -151,7 +151,7 @@ while (client.Factories.Get(resourceGroup, dataFactoryName).ProvisioningState ==
 
 ## <a name="create-a-linked-service"></a>Criar um serviço ligado
 
-Adicione o código seguinte ao método **Main**, que cria um **serviço ligado do Armazenamento do Microsoft Azure**.
+Adicione o código seguinte ao método **Main** que cria um **serviço ligado do Armazenamento do Azure**.
 
 Os serviços ligados são criados numa fábrica de dados para ligar os seus arquivos de dados e serviços de computação a essa fábrica de dados. Neste Quickstart, basta criar um serviço ligado ao Armazenamento Azure tanto para a fonte de cópia como para a loja de pias; chama-se "AzureStorageLinkedService" na amostra.
 

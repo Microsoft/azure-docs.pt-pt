@@ -14,23 +14,23 @@ ms.workload: na
 ms.date: 03/01/2020
 ms.author: memildin
 ms.openlocfilehash: 9d3fa1e0b62ea6f4762c3df6ac7da310d5703807
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79245242"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recurso para máquinas
 
 As tabelas abaixo mostram as funcionalidades do Azure Security Center que estão disponíveis para máquinas virtuais e servidores.
 
-## Funcionalidades suportadas para máquinas virtuais e servidores<a name="vm-server-features"></a>
+## <a name="supported-features-for-virtual-machines-and-servers"></a>Funcionalidades suportadas para máquinas virtuais e servidores<a name="vm-server-features"></a>
 
 ### <a name="windows-machines"></a>[Máquinas windows](#tab/features-windows)
 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-|**Funcionalidade**|**Máquinas Virtuais do Azure**|**Conjuntos de escala de máquina seleção azul**|**Máquinas não-Azure**|**Preços**
+|**Funcionalidade**|**Máquinas Virtuais Azure**|**Conjuntos de Dimensionamento de Máquinas Virtuais do Azure**|**Máquinas não-Azure**|**Preços**
 |[Integração ATP do Microsoft Defender](security-center-wdatp.md)|✔</br>(em versões suportadas)|✔</br>(em versões suportadas)|✔|Standard|
 |[Análise Comportamental de Máquina Virtual (e alertas de segurança)](threat-protection.md)|✔|✔|✔|Recomendações (Grátis) </br></br> Alertas de segurança (Standard)|
 |[Alertas de segurança sem ficheiros](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
@@ -40,9 +40,9 @@ As tabelas abaixo mostram as funcionalidades do Azure Security Center que estão
 |[Monitorização da integridade do ficheiro](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Controlos de aplicação adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mapa da rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
-|[Endurecimento da rede adaptável](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
+|[Proteção de rede ajustável](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |Controlos de rede adaptativo|✔|✔|-|Standard|
-|[Dashboard e relatórios de conformidade regulamentar](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
+|[Relatórios de & do painel de conformidade regulamentar](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Recomendações e proteção contra ameaças em contentores IaaS hospedados pelo Docker|-|-|-|Standard|
 |Avaliação de patches de OS em falta|✔|✔|✔|Gratuito|
 |Avaliação de configurações erradas de segurança|✔|✔|✔|Gratuito|
@@ -56,7 +56,7 @@ As tabelas abaixo mostram as funcionalidades do Azure Security Center que estão
 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-|**Funcionalidade**|**Máquinas Virtuais do Azure**|**Conjuntos de escala de máquina seleção azul**|**Máquinas não-Azure**|**Preços**
+|**Funcionalidade**|**Máquinas Virtuais Azure**|**Conjuntos de Dimensionamento de Máquinas Virtuais do Azure**|**Máquinas não-Azure**|**Preços**
 |[Integração ATP do Microsoft Defender](security-center-wdatp.md)|-|-|-|Standard|
 |[Análise Comportamental de Máquina Virtual (e alertas de segurança)](security-center-alerts-iaas.md)|✔</br>(em versões suportadas)|✔</br>(em versões suportadas)|✔|Recomendações (Grátis) </br></br> Alertas de segurança (Standard)|
 |[Alertas de segurança sem ficheiros](alerts-reference.md#alerts-windows)|-|-|-|Standard|
@@ -66,9 +66,9 @@ As tabelas abaixo mostram as funcionalidades do Azure Security Center que estão
 |[Monitorização da integridade do ficheiro](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Controlos de aplicação adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mapa da rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
-|[Endurecimento da rede adaptável](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
+|[Proteção de rede ajustável](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |Controlos de rede adaptativo|✔|✔|-|Standard|
-|[Dashboard e relatórios de conformidade regulamentar](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
+|[Relatórios de & do painel de conformidade regulamentar](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Recomendações e proteção contra ameaças em contentores IaaS hospedados pelo Docker|✔|✔|✔|Standard|
 |Avaliação de patches de OS em falta|✔|✔|✔|Gratuito|
 |Avaliação de configurações erradas de segurança|✔|✔|✔|Gratuito|
@@ -84,7 +84,7 @@ As tabelas abaixo mostram as funcionalidades do Azure Security Center que estão
 >Para experimentar funcionalidades que só estão disponíveis no nível de preços padrão, os utilizadores de nível gratuito podem inscrever-se num ensaio de 30 dias. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 
-## Soluções de proteção de pontos finais suportadas<a name="endpoint-supported"></a>
+## <a name="supported-endpoint-protection-solutions"></a>Soluções de proteção de pontos finais suportadas<a name="endpoint-supported"></a>
 
 A tabela seguinte fornece uma matriz de:
 
@@ -100,8 +100,8 @@ Para obter informações sobre quando são geradas recomendações para cada uma
 | Trend Micro – Todas as versões* | Família Windows Server  | Não | Sim |
 | Symantec v12.1.1100+| Família Windows Server  | Não | Sim |
 | McAfee v10+ | Família Windows Server  | Não | Sim |
-| McAfee v10+ | Família Linux Server  | Não | Sim, **\*** |
-| Sophos V9+| Família Linux Server  | Não | Sim, **\***  |
+| McAfee v10+ | Família Linux Server  | Não | Sim, é o que**\*** |
+| Sophos V9+| Família Linux Server  | Não | Sim, é o que**\***  |
 
  **\*** Atualmente, o estado de cobertura e os dados de suporte estão apenas disponíveis no espaço de trabalho log Analytics associado às suas subscrições protegidas. Não se reflete no portal do Centro de Segurança Azure.
 

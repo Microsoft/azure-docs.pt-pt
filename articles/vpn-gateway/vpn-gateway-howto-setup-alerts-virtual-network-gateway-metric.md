@@ -1,6 +1,6 @@
 ---
-title: Configure alertas em métricas de Gateway de VPN do Azure
-description: Passos para configurar alertas em métricas de Gateway de VPN
+title: Configurar alertas sobre as métricas do Azure VPN Gateway
+description: Passos para configurar alertas sobre métricas VPN Gateway
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
@@ -8,67 +8,67 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: alzam
 ms.openlocfilehash: d57663f683ba4e2107ec6813a19fac7b2dcdd26a
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67605221"
 ---
-# <a name="set-up-alerts-on-vpn-gateway-metrics"></a>Configure alertas em métricas de Gateway de VPN
+# <a name="set-up-alerts-on-vpn-gateway-metrics"></a>Configurar alertas sobre as métricas vpN Gateway
 
-Este artigo ajuda-o a configurar alertas em métricas de Gateway de VPN do Azure. O Azure Monitor proporciona a capacidade de configurar alertas para recursos do Azure. Pode configurar alertas para gateways de rede virtual do tipo "VPN".
+Este artigo ajuda-o a configurar alertas sobre as métricas do Azure VPN Gateway. O Azure Monitor fornece a capacidade de criar alertas para os recursos do Azure. Pode configurar alertas para gateways de rede virtuais do tipo "VPN".
 
 
-|**Métricas**   | **Unit** | **Granularidade** | **Descrição** | 
+|**Métricas**   | **Unidade** | **Granularidade** | **Descrição** | 
 |---       | ---        | ---       | ---            | ---       |
-|**AverageBandwidth**| Bytes/s  | 5 minutos| Média de utilização de largura de banda combinada de todas as ligações site a site no gateway.     |
-|**P2SBandwidth**| Bytes/s  | 1 minuto  | Média de utilização de largura de banda combinada de todas as ligações ponto a site no gateway.    |
-|**P2SConnectionCount**| Count  | 1 minuto  | Contagem de ligações de ponto a site no gateway.   |
-|**TunnelAverageBandwidth** | Bytes/s    | 5 minutos  | Média de utilização de largura de banda de túneis criada no gateway. |
-|**TunnelEgressBytes** | Bytes | 5 minutos | Tráfego de saída em túneis criada no gateway.   |
-|**TunnelEgressPackets** | Count | 5 minutos | Contagem de pacotes de saída em túneis criadas no gateway.   |
-|**TunnelEgressPacketDropTSMismatch** | Count | 5 minutos | Contagem de pacotes de saída ignorados em túneis causados por erro de correspondência de Seletor de tráfego. |
-|**TunnelIngressBytes** | Bytes | 5 minutos | Tráfego de entrada em túneis criada no gateway.   |
-|**TunnelIngressPackets** | Count | 5 minutos | Contagem de pacotes de entrada em túneis criadas no gateway.   |
-|**TunnelIngressPacketDropTSMismatch** | Count | 5 minutos | Contagem de pacotes de entrada ignorados em túneis causados por erro de correspondência de Seletor de tráfego. |
+|**Largura média de banda**| Bytes/s  | 5 minutos| Utilização média combinada da largura de banda de todas as ligações site-to-site no gateway.     |
+|**Largura de banda p2S**| Bytes/s  | 1 minuto  | Utilização média combinada da largura de banda de todas as ligações ponto-a-local no portal.    |
+|**Contagem de Conexões P2S**| Contagem  | 1 minuto  | Contagem de ligações ponto-a-local na porta de entrada.   |
+|**TunnelAverageBandwidth** | Bytes/s    | 5 minutos  | Utilização média da largura de banda dos túneis criados na porta de entrada. |
+|**TunnelEgressBytes** | Bytes | 5 minutos | Tráfego de saída em túneis criados na porta de entrada.   |
+|**TunnelEgressPackets** | Contagem | 5 minutos | Contagem de pacotes de saída em túneis criados na porta de entrada.   |
+|**TunnelEgressPacketDropTSMismatch** | Contagem | 5 minutos | A contagem de pacotes de saída caiu nos túneis causados pela incompatibilidade do selecionador de tráfego. |
+|**TunnelIngressBytes** | Bytes | 5 minutos | Tráfego de entrada em túneis criados na porta de entrada.   |
+|**TunnelIngressPackets** | Contagem | 5 minutos | Contagem de pacotes de entrada em túneis criados na porta de entrada.   |
+|**Tunnelingresspacketdroptsmismatch** | Contagem | 5 minutos | A contagem de pacotes de entrada caiu nos túneis causados pela incompatibilidade do selecionador de tráfego. |
 
 
-## <a name="setup"></a>Configurar alertas do Azure Monitor com base nas métricas ao utilizar o portal do Azure
+## <a name="set-up-azure-monitor-alerts-based-on-metrics-by-using-the-azure-portal"></a><a name="setup"></a>Configurar alertas do Monitor Azure com base nas métricas utilizando o portal Azure
 
-Os seguintes passos de exemplo irão criar um alerta num gateway para:
+Os seguintes passos de exemplo criarão um alerta sobre uma porta de entrada para:
 
 - **Métrica:** TunnelAverageBandwidth
-- **Condição:** Largura de banda > 10 bytes / segundo
+- **Condição:** Largura de banda > 10 bytes/segundo
 - **Janela:** 5 minutos
-- **Ação do alerta:** Email
+- **Ação de alerta:** E-mail
 
 
 
-1. Vá para o recurso de gateway de rede virtual e selecione **alertas** partir do **monitorização** separador. Em seguida, criar uma nova regra de alerta ou editar uma regra de alerta existente.
+1. Vá ao recurso de gateway da rede virtual e selecione **Alertas** do separador **Monitor.** Em seguida, crie uma nova regra de alerta ou edite uma regra de alerta existente.
 
-   ![Seleções para a criação de uma regra de alerta](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert1.png "Create")
+   ![Seleções para criar uma regra de alerta](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert1.png "Criar")
 
-2. Selecione o gateway de VPN que o recurso.
+2. Selecione o seu gateway VPN como recurso.
 
-   ![O botão de seleção e o gateway VPN na lista de recursos](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert2.png "selecione")
+   ![O botão Select e o gateway VPN na lista de recursos](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert2.png "Selecione")
 
-3. Selecione uma métrica para o configurar para o alerta.
+3. Selecione uma métrica para configurar para o alerta.
 
-   ![Selecionar métrica na lista de métricas](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert3.png "selecione")
-4. Configure a lógica de sinal. Existem três componentes à mesma:
+   ![Métrica selecionada na lista de métricas](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert3.png "Selecione")
+4. Configure a lógica do sinal. Há três componentes:
 
-    a. **Dimensões**: Se a métrica tem dimensões, pode selecionar os valores de dimensão específicos para que o alerta é avaliada apenas os dados daquela dimensão. Estes são opcionais.
+    a. **Dimensões**: Se a métrica tiver dimensões, pode selecionar valores de dimensão específicos para que o alerta avalie apenas dados dessa dimensão. Estes são opcionais.
 
-    b. **Condição**: Esta é a operação para avaliar o valor de métrica.
+    b. **Condição**: Esta é a operação para avaliar o valor métrico.
 
-    c. **Tempo**: Especifique a granularidade de dados métricos e o período de tempo para avaliar o alerta.
+    c. **Tempo**: Especificar a granularidade dos dados métricos e o período de tempo para avaliar o alerta.
 
-   ![Detalhes de configuração sinalizam logic](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert4.png "selecione")
+   ![Detalhes para configurar lógica de sinal](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert4.png "Selecione")
 
-5. Para ver as regras configuradas, selecione **gerir regras de alerta**.
+5. Para ver as regras configuradas, selecione **Gerir as regras**de alerta .
 
-   ![Botão para o gerenciamento de regras de alerta](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert8.png "selecione")
+   ![Botão para gestão das regras de alerta](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert8.png "Selecione")
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para configurar alertas em registos de diagnóstico de túnel, veja [configurar alertas em registos de diagnóstico do Gateway de VPN](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).
+Para configurar alertas nos registos de diagnóstico do túnel, consulte [os alertas de configuração nos registos de diagnóstico vpn Gateway](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).

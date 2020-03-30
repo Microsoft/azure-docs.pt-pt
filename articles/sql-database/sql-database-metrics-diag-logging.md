@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: 3784b94a8571ab57d191d0bdb1e38aaa16d3cabb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 880072c9865e38e181869506e35968767fa95e8a
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255980"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387908"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-diagnostic-telemetry"></a>Configure a exportação de streaming da telemetria de diagnóstico da Base de Dados Azure SQL
 
@@ -84,7 +84,7 @@ Pode ativar e gerir métricas e fazer telemetria de diagnóstico utilizando um d
 - Modelo Azure Resource Manager
 
 > [!NOTE]
-> Para permitir o streaming de registode auditoria da telemetria de segurança, consulte [A instalação de auditoria para](sql-database-auditing.md#subheading-2) a sua base de dados e [registos de auditoria em registos do Monitor Azure e nos Hubs de Eventos Azure](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
+> Para permitir o streaming de registode auditoria da telemetria de segurança, consulte [A instalação de auditoria para](sql-database-auditing.md#setup-auditing) a sua base de dados e [registos de auditoria em registos do Monitor Azure e nos Hubs de Eventos Azure](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 
 ## <a name="configure-the-streaming-export-of-diagnostic-telemetry"></a>Configure a exportação de streaming de telemetria de diagnóstico
 

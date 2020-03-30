@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 02/06/2020
+ms.date: 03/26/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2078869aef5964b30723d8b6854c4b15f0423205
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 3a853dc32f8716f3f2ba32896a7a4a239efcc5bd
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127533"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80349868"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Anfitriões de sessão de escala usando a Automação Azure
 
@@ -40,7 +40,7 @@ Durante o tempo de utilização máxima, o trabalho verifica o número atual de 
 
 Durante o tempo de utilização fora do pico, o trabalho determina quais os VMs hospedeiros da sessão devem desligar-se com base no parâmetro *NúmeroDeRDSH mínimo.* O trabalho definirá os VMs hospedeiros da sessão para drenar o modo de drenagem para evitar que novas sessões se liguem aos anfitriões. Se definir o parâmetro *LimitSecondsToForceLogOffUser* para um valor positivo não nulo, o trabalho notificará qualquer pessoa atualmente assinada nos utilizadores para salvar o seu trabalho, aguardar o tempo configurado e, em seguida, forçar os utilizadores a assinar. Uma vez assinadas todas as sessões de utilizador da sessão de vm anfitrião, o trabalho encerrará o VM.
 
-Se definir o parâmetro *LimitSecondsToForceLogOffUser* para zero, o trabalho permitirá a definição de configuração da sessão em políticas específicas do grupo para lidar com a assinatura de sessões de utilizador. Para ver estas políticas de grupo, vá às **políticas** de **configuração** de computador >  > **modelos administrativos** > componentes do Windows > **Serviços** **de Terminal** > servidor **de terminais** > prazo de **sessão**. Se houver sessões ativas numa vm anfitriã de sessão, o trabalho deixará a vm anfitriã da sessão em funcionamento. Se não houver sessões ativas, o trabalho encerrará a vm anfitriã da sessão.
+Se definir o parâmetro *LimitSecondsToForceLogOffUser* para zero, o trabalho permitirá a definição de configuração da sessão em políticas específicas do grupo para lidar com a assinatura de sessões de utilizador. Para ver estas políticas de grupo, vá a políticas de **configuração** > de computador**Terminal Server** > **Modelos** > **Administrativos Modelos** > de Terminal de**Serviços** > Windows**Terminal** > Prazo de**sessão**de servidores . Se houver sessões ativas numa vm anfitriã de sessão, o trabalho deixará a vm anfitriã da sessão em funcionamento. Se não houver sessões ativas, o trabalho encerrará a vm anfitriã da sessão.
 
 O trabalho funciona periodicamente com base num intervalo de recorrência. Pode alterar este intervalo com base no tamanho do seu ambiente de trabalho virtual do Windows, mas lembre-se que iniciar e desligar máquinas virtuais pode demorar algum tempo, por isso lembre-se de ter em conta o atraso. Recomendamos que o intervalo de recorrência a cada 15 minutos.
 
@@ -71,7 +71,7 @@ Se tem tudo pronto, vamos começar.
 
 Primeiro, vai precisar de uma conta Azure Automation para executar o livro de execução PowerShell. Aqui está como configurar a sua conta:
 
-1. Abra o Windows PowerShell como administrador.
+1. Abra o Windows PowerShell Como um administrador.
 2. Execute o seguinte cmdlet para iniciar sessão na sua Conta Azure.
 
      ```powershell
@@ -97,11 +97,11 @@ Primeiro, vai precisar de uma conta Azure Automation para executar o livro de ex
 
 5. A saída do cmdlet incluirá um webhook URI. Certifique-se de manter um registo do URI porque vai usá-lo como parâmetro quando configurar o calendário de execução das aplicações Azure Logic.
 
-Depois de configurar a sua conta Azure Automation, inscreva-se na sua subscrição Azure e verifique se a sua conta De automação Azure e o livro de execução relevante apareceram no seu grupo de recursos especificado, como mostra a seguinte imagem:
+6. Depois de configurar a sua conta Azure Automation, inscreva-se na sua subscrição Azure e verifique se a sua conta De automação Azure e o livro de execução relevante apareceram no seu grupo de recursos especificado, como mostra a seguinte imagem:
 
-![Uma imagem da página geral do Azure mostrando a conta de automação recém-criada e o livro de execução.](media/automation-account.png)
+   ![Uma imagem da página geral do Azure mostrando a conta de automação recém-criada e o livro de execução.](media/automation-account.png)
 
-Para verificar se o seu webhook está onde deveria estar, vá à lista de Recursos do lado esquerdo do ecrã e selecione **Webhook**.
+  Para verificar se o seu webhook está onde deveria estar, selecione o nome do seu livro de execução. Em seguida, vá à secção de Recursos do seu livro de execução e selecione **Webhooks**.
 
 ## <a name="create-an-azure-automation-run-as-account"></a>Criar uma corrida de automação Azure Como conta
 
@@ -113,7 +113,7 @@ Qualquer utilizador que seja membro da função de Administrador de Subscrição
 
 Para criar uma conta Run As na sua conta Azure:
 
-1. No portal do Azure, selecione **Todos os serviços**. Na lista de recursos, insira e selecione **Contas de Automação.**
+1. No portal Azure, selecione **Todos os serviços.** Na lista de recursos, insira e selecione **Contas de Automação.**
 
 2. Na página Contas de **Automação,** selecione o nome da sua conta Desmase.
 
@@ -256,3 +256,7 @@ Pode visualizar os registos de operações de escala e escala, abrindo o seu liv
 Navegue para o livro de execução (o nome predefinido é WVDAutoScaleRunbook) no seu grupo de recursos que acolhe a conta De automação Azure e selecione **visão geral**. Na página geral, selecione um trabalho no Recent Jobs para ver a sua saída de ferramentas de escala, como mostra a imagem seguinte.
 
 ![Uma imagem da janela de saída para a ferramenta de escala.](media/tool-output.png)
+
+## <a name="report-issues"></a>Comunicar problemas
+
+Se encontrar algum problema com a ferramenta de escala, pode denunciá-los na [página RDS GitHub](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).

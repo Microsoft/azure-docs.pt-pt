@@ -1,18 +1,18 @@
 ---
-title: Criar definição de aplicativo gerenciado
+title: Criar definição de aplicativo gerido
 description: Mostra como criar uma aplicação gerida do Azure que se destina aos membros da sua organização.
 author: tfitzmac
 ms.topic: quickstart
 ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 11d4eb396d332327addcd85ed7badd36ef8f1d10
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 5168dab7501cdb2907b3eede5877dce39e9e5c97
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75650346"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79473052"
 ---
-# <a name="publish-an-azure-managed-application-definition"></a>Publicar uma definição de uma aplicação gerida do Azure
+# <a name="quickstart-publish-an-azure-managed-application-definition"></a>Início Rápido: Publicar uma definição de uma aplicação gerida do Azure
 
 Este início rápido disponibiliza uma introdução ao funcionamento das aplicações geridas. Começa por adicionar uma definição de aplicação gerida a um catálogo interno de utilizadores da sua organização. Para simplificar a introdução, já criámos os ficheiros para a aplicação gerida. Estes ficheiros estão disponíveis através do GitHub. Pode aprender a criar estes ficheiros no tutorial [Criar uma aplicação de catálogo de serviço](publish-service-catalog-app.md).
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Geo-replicação e falha no portal'
+title: 'Tutorial: Geo-replicação & falha no portal'
 description: Configure a geo-replicação para uma única ou piscina de base de dados na Base de Dados Azure SQL utilizando o portal Azure e inicie a falha.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
 ms.openlocfilehash: 601c537a51e29ae1f107127e1b83c07448eee9ab
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256435"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configure a geo-replicação ativa para a Base de Dados Azure SQL no portal Azure e inicie a falha
@@ -66,7 +66,7 @@ Após a criação e semeado do secundário, os dados começam a replicar-se da b
 A base de dados secundária pode ser trocada para se tornar a principal.  
 
 1. No [portal Azure,](https://portal.azure.com)navegue até à base de dados primária na parceria de geo-replicação.
-2. Na lâmina de base de dados SQL, selecione **Todas as definições** > **geo-replicação**.
+2. Na lâmina de base de dados SQL, selecione **todas as definições** > **de geo-replicação**.
 3. Na lista **SECONDARIES,** selecione a base de dados que pretende tornar-se a nova primária e clique em **Failover**.
 
     ![failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)

@@ -1,6 +1,6 @@
 ---
-title: Diagnosticar e solucionar problemas de desconexões com o DPS do Hub IoT do Azure
-description: Aprenda a diagnosticar e solucionar erros comuns com conectividade de dispositivo para o serviço de provisionamento de dispositivos no Hub IoT do Azure (DPS)
+title: Diagnosticar e resolver problemas desliga-se com DPS do Hub Azure IoT
+description: Aprenda a diagnosticar e resolver erros comuns com conectividade do dispositivo para o Serviço de Provisionamento de Dispositivos Hub Azure IoT (DPS)
 author: xujing-ms
 manager: nberdy
 ms.service: iot-dps
@@ -9,77 +9,77 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
 ms.openlocfilehash: 3cbab09c6b50abb590cfe9f2720713a8fa547aa7
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75646477"
 ---
-# <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Solução de problemas com o serviço de provisionamento de dispositivos no Hub IoT do Azure
+# <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Resolução de problemas com o Serviço de Provisionamento de Dispositivos Hub Azure IoT
 
-Problemas de conectividade para dispositivos IoT podem ser difíceis de solucionar porque há muitos pontos possíveis de falhas, como falhas de atestado, falhas de registro etc. Este artigo fornece orientação sobre como detectar e solucionar problemas de conectividade do dispositivo por meio de [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+Problemas de conectividade para dispositivos IoT podem ser difíceis de resolver porque existem muitos pontos possíveis de falhas como falhas de atestado, falhas de registo, etc. Este artigo fornece orientações sobre como detetar e resolver problemas de conectividade do dispositivo através do [Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/overview).
 
-## <a name="using-azure-monitor-to-view-metrics-and-set-up-alerts"></a>Usando Azure Monitor para exibir métricas e configurar alertas
+## <a name="using-azure-monitor-to-view-metrics-and-set-up-alerts"></a>Utilização do Monitor Azure para visualizar métricas e criar alertas
 
-O procedimento a seguir descreve como exibir e configurar o alerta na métrica do serviço de provisionamento de dispositivos no Hub IoT. 
+O procedimento seguinte descreve como visualizar e configurar alerta na métrica do Serviço de Provisionamento de Dispositivos IoT Hub. 
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-2. Navegue até o serviço de provisionamento de dispositivos do Hub IoT.
+2. Navegue no seu Serviço de Provisionamento de Dispositivos IoT Hub.
 
 3. Selecione **Métricas**.
 
 4. Selecione a métrica desejada. 
-   <br />Atualmente, há três métricas para o DPS:
+   <br />Atualmente existem três métricas para DPS:
 
-    | Nome da Métrica | Descrição |
+    | Nome métrico | Descrição |
     |-------|------------|
-    | Tentativas de atestado | Número de dispositivos que tentaram autenticar com o serviço de provisionamento de dispositivos|
-    | Tentativas de registro | Número de dispositivos que tentaram registrar no Hub IoT após a autenticação bem-sucedida|
-    | Dispositivo atribuído | Número de dispositivos que foram atribuídos com êxito ao Hub IoT|
+    | Tentativas de atestação | Número de dispositivos que tentaram autenticar com o Serviço de Fornecimento de Dispositivos|
+    | Tentativas de registo | Número de dispositivos que tentaram registar-se no IoT Hub após autenticação bem sucedida|
+    | Dispositivo atribuído | Número de dispositivos que com sucesso atribuídos ao IoT Hub|
 
-5. Selecione o método de agregação desejado para criar uma exibição Visual da métrica. 
+5. Selecione o método de agregação desejado para criar uma visão visual da métrica. 
 
-6. Para configurar um alerta de uma métrica, selecione **novas regras de alerta** na parte superior direita da folha métrica, da mesma forma você pode ir para a folha **alerta** e selecionar **novas regras de alerta**.
+6. Para configurar um alerta de uma métrica, selecione **Novas regras** de alerta a partir da parte superior direita da lâmina métrica, da mesma forma que pode ir para a lâmina **alerta** e selecionar Novas regras de **alerta**.
 
-7. Selecione **Adicionar condição**e, em seguida, selecione a métrica e o limite desejados seguindo os prompts.
+7. **Selecione Adicionar condição**e, em seguida, selecione a métrica e o limiar desejados seguindo as instruções.
 
-Para saber mais, confira [o que são alertas clássicos no Microsoft Azure?](../azure-monitor/platform/alerts-overview.md)
+Para saber mais, veja [quais são os alertas clássicos no Microsoft Azure?](../azure-monitor/platform/alerts-overview.md)
 
-## <a name="using-log-analytic-to-view-and-resolve-errors"></a>Usando o log analítico para exibir e resolver erros
+## <a name="using-log-analytic-to-view-and-resolve-errors"></a>Usar log analítico para ver e resolver erros
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-2. Navegue até o Hub IoT.
+2. Navegue pelo seu hub ioT.
 
-3. Selecione **configurações de diagnóstico**.
+3. Selecione **definições de Diagnóstico**.
 
-4. Selecione **ativar os diagnósticos**.
+4. Selecione **Ligar os diagnósticos**.
 
-5. Habilite os logs desejados a serem coletados.
+5. Permitir a recolha dos registos desejados.
 
     | Nome do registo | Descrição |
     |-------|------------|
-    | DeviceOperations | Logs relacionados aos eventos de conexão do dispositivo |
-    | ServiceOperations | Logs de eventos relacionados ao uso do SDK do serviço (por exemplo, criação ou atualização de grupos de registro)|
+    | Operações de Dispositivos | Registos relacionados com eventos de ligação ao dispositivo |
+    | Operações de Serviço | Registos de eventos relacionados com a utilização do serviço SDK (por exemplo, criação ou atualização de grupos de inscrição)|
 
-6. Ative **Enviar para log Analytics** ([consulte preços](https://azure.microsoft.com/pricing/details/log-analytics/)). 
+6. Ligue **Enviar para Registar Analytics** [(ver preços).](https://azure.microsoft.com/pricing/details/log-analytics/) 
 
-7. Vá para a guia **logs** na portal do Azure em recurso de serviço de provisionamento de dispositivos.
+7. Aceda ao separador **Logs** no portal Azure sob recurso do Serviço de Provisionamento de Dispositivos.
 
-8. Clique em **executar** para exibir eventos recentes.
+8. Clique em **Correr** para ver eventos recentes.
 
-9. Se houver resultados, procure `OperationName`, `ResultType`, `ResultSignature`e `ResultDescription` (mensagem de erro) para obter mais detalhes sobre o erro.
+9. Se houver resultados, `OperationName` `ResultType`procure, `ResultSignature` `ResultDescription` e (mensagem de erro) para obter mais detalhes sobre o erro.
 
 
 ## <a name="common-error-codes"></a>Códigos de erro comuns
-Use esta tabela para entender e resolver erros comuns.
+Use esta tabela para compreender e resolver erros comuns.
 
-| Código de Erro| Descrição | Código de Estado de HTTP |
+| Código de Erro| Descrição | Código de Estado HTTP |
 |-------|------------|------------|
-| 400 | O corpo da solicitação não é válido; por exemplo, ele não pode ser analisado ou o objeto não pode ser validado.| 400 formato inadequado |
-| 401 | O token de autorização não pode ser validado; por exemplo, ele está expirado ou não se aplica ao URI da solicitação. Esse código de erro também é retornado para dispositivos como parte do fluxo de atestado do TPM. | 401 não autorizado|
-| 404 | A instância do serviço de provisionamento de dispositivos ou um recurso (por exemplo, um registro) não existe. |404 Não Encontrado |
-| 412 | A ETag na solicitação não corresponde à ETag do recurso existente, de acordo com o RFC7232. | 412 falha na pré-condição |
-| 429 | As operações estão sendo limitadas pelo serviço. Para limites de serviço específicos, consulte [limites do serviço de provisionamento de dispositivos no Hub IOT](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 número excessivo de solicitações |
+| 400 | O corpo do pedido não é válido; por exemplo, não pode ser analisado, ou o objeto não pode ser validado.| 400 Mau formato |
+| 401 | O símbolo de autorização não pode ser validado; por exemplo, está expirado ou não se aplica ao URI do pedido. Este código de erro também é devolvido aos dispositivos como parte do fluxo de atestado TPM. | 401 Não autorizado|
+| 404 | A instância do Serviço de Provisionamento de Dispositivos, ou um recurso (por exemplo, uma inscrição) não existe. |404 Não Encontrado |
+| 412 | O ETag no pedido não corresponde ao ETag do recurso existente, de acordo com o RFC7232. | 412 Pré-condição falhou |
+| 429 | As operações estão a ser aceleradas pelo serviço. Para limites de serviço específicos, consulte os limites do Serviço de [Provisionamento de Dispositivos IoT Hub](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 Pedidos a mais |
 | 500 | Ocorreu um erro interno. | 500 Erro de Servidor Interno|

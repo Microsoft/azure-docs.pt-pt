@@ -1,6 +1,6 @@
 ---
-title: Compartilhar imagens da Galeria entre locatários no Azure
-description: Saiba como compartilhar imagens de VM entre locatários do Azure usando galerias de imagens compartilhadas.
+title: Partilhe imagens de galerias entre inquilinos em Azure
+description: Saiba como partilhar imagens vm em inquilinos do Azure usando Galerias de Imagem Partilhada.
 services: virtual-machines-linux
 author: cynthn
 manager: gwallace
@@ -11,24 +11,24 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: cynthn
 ms.openlocfilehash: 18337620a6f9506e402149909667026e4a8ba7eb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034978"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants"></a>Compartilhar imagens de VM da galeria em locatários do Azure
+# <a name="share-gallery-vm-images-across-azure-tenants"></a>Partilhar imagens vM da galeria através dos inquilinos do Azure
 
-As galerias de imagens compartilhadas permitem compartilhar imagens usando o RBAC. Você pode usar o RBAC para compartilhar imagens dentro de seu locatário e até mesmo para indivíduos fora do seu locatário. Para obter mais informações sobre essa opção de compartilhamento simples, consulte [compartilhar a Galeria](/azure/virtual-machines/linux/shared-images-portal#share-the-gallery).
+As Galerias de Imagem Partilhada permitem-lhe partilhar imagens usando o RBAC. Você pode usar RBAC para partilhar imagens dentro do seu inquilino, e até mesmo para indivíduos fora do seu inquilino. Para mais informações sobre esta simples opção de partilha, consulte a [Partilha da galeria.](/azure/virtual-machines/linux/shared-images-portal#share-the-gallery)
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
 > [!IMPORTANT]
-> Você não pode usar o portal para implantar uma VM de uma imagem em outro locatário do Azure. Para criar uma VM de uma imagem compartilhada entre locatários, você deve usar o CLI do Azure ou o [PowerShell](../windows/share-images-across-tenants.md).
+> Não é possível usar o portal para implantar um VM a partir de uma imagem em outro inquilino azul. Para criar um VM a partir de uma imagem partilhada entre inquilinos, você deve usar o Azure CLI ou [Powershell](../windows/share-images-across-tenants.md).
 
-## <a name="create-a-vm-using-azure-cli"></a>Criar uma VM usando CLI do Azure
+## <a name="create-a-vm-using-azure-cli"></a>Criar um VM usando o Azure CLI
 
-Conecte a entidade de serviço para o locatário 1 usando a appID, a chave do aplicativo e a ID do locatário 1. Você pode usar `az account show --query "tenantId"` para obter as IDs de locatário, se necessário.
+Inscreva-se no principal de serviço para o inquilino 1 usando o appID, a chave da aplicação e a identificação do inquilino 1. Pode usar `az account show --query "tenantId"` para obter as identificações dos inquilinos, se necessário.
 
 ```azurecli-interactive
 az account clear
@@ -36,14 +36,14 @@ az login --service-principal -u '<app ID>' -p '<Secret>' --tenant '<tenant 1 ID>
 az account get-access-token 
 ```
  
-Conecte a entidade de serviço para o locatário 2 usando a appID, a chave do aplicativo e a ID do locatário 2:
+Inscreva-se no principal de serviço para inquilino 2 usando o appID, a chave da aplicação e a identificação do inquilino 2:
 
 ```azurecli-interactive
 az login --service-principal -u '<app ID>' -p '<Secret>' --tenant '<tenant 2 ID>'
 az account get-access-token
 ```
 
-Crie a VM. Substitua as informações no exemplo pelo seu próprio.
+Crie o VM. Substitua a informação no exemplo com a sua.
 
 ```azurecli-interactive
 az vm create \
@@ -56,4 +56,4 @@ az vm create \
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você tiver problemas, poderá [solucionar problemas de galerias de imagens compartilhadas](troubleshooting-shared-images.md).
+Se tiver algum problema, pode resolver as galerias de [imagens partilhadas.](troubleshooting-shared-images.md)

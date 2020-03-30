@@ -14,10 +14,10 @@ ms.date: 01/17/2020
 ms.author: baselden
 ms.reviewer: mimart
 ms.openlocfilehash: 4ccd8834671725ace72497391090f81eb197ad6a
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77032260"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>Integrar com o Proxy de Aplicação AD Azure num servidor do Serviço de Inscrição de Dispositivos de Rede (NDES)
@@ -34,7 +34,7 @@ A Procuração de Aplicação Azure AD é construída em Azure. Dá-lhe uma enor
 
 ## <a name="install-and-register-the-connector-on-the-ndes-server"></a>Instale e registe o conector no servidor NDES
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com/) como administrador de candidatura sintetizador do diretório que utiliza o Application Proxy. Por exemplo, se o domínio do inquilino for contoso.com, o administrador deve ser admin@contoso.com ou qualquer outro pseudónimo administrativo nesse domínio.
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) como administrador de candidatura sintetizador do diretório que utiliza o Application Proxy. Por exemplo, se o domínio do inquilino admin@contoso.com for contoso.com, o administrador deve ser ou qualquer outro pseudónimo administrativo nesse domínio.
 1. Selecione o seu nome de utilizador no canto superior direito. Verifique se está inscrito num diretório que usa procuração de aplicação. Se precisar de mudar de diretórios, selecione **'Diretório' da Switch** e escolha um diretório que utilize proxy de aplicação.
 1. No painel de navegação esquerdo, selecione **Azure Ative Directory**.
 1. Em **'Gerir',** selecione **Proxy de Aplicação**.
@@ -42,7 +42,7 @@ A Procuração de Aplicação Azure AD é construída em Azure. Dá-lhe uma enor
 
     ![Descarregue o serviço de conector para ver os Termos de Serviço](./media/active-directory-app-proxy-protect-ndes/application-proxy-download-connector-service.png)
 
-1. Leia os Termos de Serviço. Quando estiver pronto, selecione **Aceitar termos e baixar**.
+1. Leia os Termos de Serviço. Quando estiver pronto, **selecione Aceitar termos & Baixar**.
 1. Copie o ficheiro de configuração do conector proxy de aplicação AD Azure para o seu servidor NDES. 
    > Pode instalar o conector em qualquer servidor dentro da sua rede corporativa com acesso ao NDES. Não é preciso instalá-lo no próprio servidor NDES.
 1. Executar o ficheiro de configuração, tal como *AADApplicationProxyConnectorInstaller.exe*. Aceite os termos da licença de software.
@@ -56,7 +56,7 @@ A Procuração de Aplicação Azure AD é construída em Azure. Dá-lhe uma enor
 
    * Se a configuração de segurança melhorada do Internet Explorer for ligada para o servidor onde instala o conector, o ecrã de registo poderá estar bloqueado. Para permitir o acesso, siga as instruções na mensagem de erro ou desligue a Segurança Melhorada do Internet Explorer durante o processo de instalação.
    * Se o registo do conector falhar, consulte [o Proxy da Aplicação Troubleshoot](application-proxy-troubleshoot.md).
-1. No final da configuração, é mostrada uma nota para ambientes com procuração de saída. Para configurar o conector proxy de aplicação AD Azure para trabalhar através do proxy de saída, executar o script fornecido, como `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`.
+1. No final da configuração, é mostrada uma nota para ambientes com procuração de saída. Para configurar o conector proxy de aplicação AD Azure para `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`trabalhar através do proxy de saída, executar o script fornecido, como .
 1. Na página proxy da Aplicação no portal Azure, o novo conector está listado com um estatuto de *Ative,* como mostra o seguinte exemplo:
 
     ![O novo conector De Procuração de Aplicação AD Azure mostrado como ativo no portal Azure](./media/active-directory-app-proxy-protect-ndes/connected-app-proxy.png)

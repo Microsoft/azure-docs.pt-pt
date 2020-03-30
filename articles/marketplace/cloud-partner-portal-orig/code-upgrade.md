@@ -1,23 +1,21 @@
 ---
-title: Atualizando o código para a plataforma mais recente | Azure Marketplace
-description: Este artigo da CPP foi preterido, vinculado ao artigo do PC; "Este tópico explica como atualizar sua versão da plataforma Microsoft Dynamics 365 for Operations para a versão mais recente da plataforma"
-services: Azure, Marketplace, Cloud Partner Portal,
-author: ChJenk
-manager: Ricardo.Villalobos
+title: Atualizar código para a mais recente plataforma Mercado Azure
+description: Depreciou este artigo do CPP, ligado ao artigo do PC; foi "Este tópico explica como atualizar a sua versão da plataforma Microsoft Dynamics 365 para operações para o mais recente lançamento da plataforma"
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
-ms.openlocfilehash: 2647e59ddd08e0051afc97415c79c20c431b1e3e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: db5ec661e575d7a6d2f994040a9fb452bd87b507
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819063"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80276160"
 ---
-# <a name="upgrading-code-to-the-latest-platform"></a>Atualizando o código para a plataforma mais recente
+# <a name="upgrading-code-to-the-latest-platform"></a>Atualizar código para a mais recente plataforma
 
-O [portal do Cloud Partner](https://cloudpartner.azure.com/) não dá mais suporte à criação e ao gerenciamento do Dynamics 365 para ofertas de finanças e operações. Em vez disso, essa funcionalidade foi movida para o [portal do Microsoft Partner Center](https://partner.microsoft.com/). Para obter mais informações, consulte [criar uma nova oferta do Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
+O [Portal do Parceiro Cloud](https://cloudpartner.azure.com/) já não apoia a criação e gestão da Dinâmica 365 para ofertas de Finanças e Operações. Em vez disso, esta funcionalidade foi transferida para o portal Microsoft [Partner Center](https://partner.microsoft.com/). Para mais informações, consulte [Criar uma nova oferta de Dinâmica 365 para Operações.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer)
 
-Antes de criar uma nova oferta do Dynamics 365 for Operations, você deve ler [criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e, em seguida, abra o [painel do Marketplace comercial](https://partner.microsoft.com/dashboard/directory) com a página **visão geral** selecionada. Siga as instruções em [criar uma nova oferta do Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) para criar sua oferta.
+Antes de criar uma nova oferta De Dinâmica 365 para Operações, deve ler [Criar uma conta Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e, em seguida, abrir o dashboard do Mercado [Comercial](https://partner.microsoft.com/dashboard/directory) com a página **'Visão Geral'** selecionada. Siga as instruções em Criar uma nova oferta da [Dynamics 365 para Operações](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) para criar a sua oferta.

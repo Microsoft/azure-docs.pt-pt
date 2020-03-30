@@ -1,35 +1,34 @@
 ---
-title: Entrar em tempo real | Azure Marketplace
-description: A API Go Live inicia o processo de listagem dinâmica da oferta.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Ir ao vivo Mercado Azure
+description: A API Go Live inicia o processo de listagem ao vivo.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 30500e9dfae9411563fc727290d0569998ba3550
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: bf7bebf6e72e373811879a311d70255c29988ed6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819676"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288585"
 ---
-<a name="go-live"></a>Entrar em tempo real
+<a name="go-live"></a>Ir ao vivo
 =======
 
-Essa API inicia o processo de envio por push de um aplicativo para produção. Essa operação geralmente é de execução longa. Essa chamada usa a lista email de notificação da operação [publicar](./cloud-partner-portal-api-publish-offer.md) API.
+Esta API inicia o processo de empurrar uma app para a produção. Esta operação é geralmente de longa duração. Esta chamada utiliza a lista de e-mails de notificação da operação [Publish](./cloud-partner-portal-api-publish-offer.md) API.
 
  `POST  https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/golive?api-version=2017-10-31` 
 
-<a name="uri-parameters"></a>Parâmetros de URI
+<a name="uri-parameters"></a>Parâmetros URI
 --------------
 
 |  **Nome**      |   **Descrição**                                                           | **Tipo de dados** |
 |  --------      |   ---------------                                                           | ------------- |
-| publisherId    | Identificador de editor da oferta a ser recuperada, por exemplo `contoso`       |  String       |
-| OfferId        | Identificador da oferta para recuperar                                   |  String       |
-| versão da API    | Versão mais recente da API                                                   |  Date         |
+| editorId    | Identificador de editor para a oferta de recuperação, por exemplo`contoso`       |  Cadeia       |
+| offerId        | Ofereça identificador da oferta para recuperar                                   |  Cadeia       |
+| api-version    | Versão mais recente da API                                                   |  Date         |
 |  |  |  |
 
 
@@ -38,12 +37,12 @@ Essa API inicia o processo de envio por push de um aplicativo para produção. E
 
 |  **Nome**       |     **Valor**       |
 |  ---------      |     ----------      |
-| Tipo de conteúdo    | `application/json`  |
+| Content-Type    | `application/json`  |
 | Autorização   | `Bearer YOUR_TOKEN` |
 |  |  |
 
 
-<a name="body-example"></a>Exemplo de corpo
+<a name="body-example"></a>Exemplo do corpo
 ------------
 
 ### <a name="response"></a>Resposta
@@ -55,15 +54,15 @@ Essa API inicia o processo de envio por push de um aplicativo para produção. E
 
 |  **Nome**             |      **Valor**                                                            |
 |  --------             |      ----------                                                           |
-| Operação-localização    |  URL para consulta para determinar o status atual da operação            |
+| Localização da Operação    |  URL para consulta para determinar o estado atual da operação            |
 |  |  |
 
 
-### <a name="response-status-codes"></a>Códigos de status de resposta
+### <a name="response-status-codes"></a>Códigos de estado de resposta
 
-| **Auto-completar** |  **Descrição**                                                                        |
+| **Código** |  **Descrição**                                                                        |
 | -------- |  ----------------                                                                        |
-|  202     | `Accepted`-a solicitação foi aceita com êxito. A resposta contém um local para acompanhar o status da operação. |
-|  400     | `Bad/Malformed request`-informações de erro adicionais são encontradas no corpo da resposta. |
-|  404     |  `Not found`-a entidade especificada não existe.                                       |
+|  202     | `Accepted`- O pedido foi aceite com sucesso. A resposta contém um local para rastrear o estado de operação. |
+|  400     | `Bad/Malformed request`- Informações adicionais de erro são encontradas dentro do corpo de resposta. |
+|  404     |  `Not found`- A entidade especificada não existe.                                       |
 |  |  |

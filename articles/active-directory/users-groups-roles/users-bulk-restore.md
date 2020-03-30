@@ -1,6 +1,6 @@
 ---
-title: Restauração em massa de usuários excluídos (versão prévia) no portal de Azure Active Directory | Microsoft Docs
-description: Restaurar usuários excluídos em massa no centro de administração do Azure AD no Azure Active Directory
+title: Restaurar a granel utilizadores eliminados (pré-visualização) no portal de Diretório Ativo Azure [ Microsoft Docs
+description: Restaurar utilizadores apagados a granel no centro de administração da AD Azure em Azure Ative Directory
 services: active-directory
 author: curtand
 ms.author: curtand
@@ -14,51 +14,51 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d392ae97a8325dd4a56acd807ebfb2b951216eae
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72174264"
 ---
-# <a name="bulk-restore-deleted-users-preview-in-azure-active-directory"></a>Restauração em massa de usuários excluídos (visualização) no Azure Active Directory
+# <a name="bulk-restore-deleted-users-preview-in-azure-active-directory"></a>Restaurar a granel utilizadores eliminados (pré-visualização) no Diretório Ativo do Azure
 
-O Azure Active Directory (AD do Azure) dá suporte a operações de criação e exclusão de usuário em massa, convite em massa para convidados e dá suporte a download de listas de usuários, grupos e membros do grupo.
+O Azure Ative Directory (Azure AD) suporta a criação e eliminação de operações em massa do utilizador, convite a granel para hóspedes e suporta o download de listas de utilizadores, grupos e membros do grupo.
 
-## <a name="to-bulk-restore-users"></a>Para usuários de restauração em massa
+## <a name="to-bulk-restore-users"></a>Para restaurar a granel os utilizadores
 
-1. [Entre em sua organização do Azure ad](https://aad.portal.azure.com) com uma conta que seja um administrador de usuário na organização do Azure AD.
-1. No Azure AD, selecione **usuários** > **excluídos**.
-1. Na página **usuários excluídos** , selecione **restauração em massa** para carregar um arquivo CSV válido de propriedades dos usuários a serem restaurados.
+1. [Inscreva-se na sua organização Azure AD](https://aad.portal.azure.com) com uma conta que é administradora de utilizador na organização Azure AD.
+1. No Anúncio Azure, selecione **Utilizadores Apagados** > **Deleted**.
+1. Na página **de utilizadores Eliminados,** selecione **Restaurar a Granel** para carregar um ficheiro CSV válido de propriedades dos utilizadores para restaurar.
 
-   ![Selecione o comando restauração em massa na página usuários excluídos](./media/users-bulk-restore/bulk-restore.png)
+   ![Selecione o comando de restauro a granel na página de utilizadores Eliminados](./media/users-bulk-restore/bulk-restore.png)
 
-1. Abra o arquivo CSV e adicione uma linha para cada usuário que você deseja restaurar. O único valor necessário é **ObjectID**. Em seguida, guarde o ficheiro.
+1. Abra o ficheiro CSV e adicione uma linha para cada utilizador que pretende restaurar. O único valor exigido é **objectID**. Em seguida, guarde o ficheiro.
 
-   ![Selecione um arquivo CSV local no qual você lista os usuários que deseja adicionar](./media/users-bulk-restore/upload-button.png)
+   ![Selecione um ficheiro CSV local no qual lista os utilizadores que pretende adicionar](./media/users-bulk-restore/upload-button.png)
 
-1. Na página **restauração em massa (versão prévia)** , em **carregar o arquivo CSV**, navegue até o arquivo. Quando você seleciona o arquivo e clica em **Enviar**, a validação do arquivo CSV é iniciada.
-1. Quando o conteúdo do arquivo for validado, você verá o **arquivo carregado com êxito**. Se houver erros, você deverá corrigi-los antes de poder enviar o trabalho.
-1. Quando o arquivo passar na validação, selecione **Enviar** para iniciar a operação em massa do Azure que restaura os usuários.
-1. Quando a operação de restauração for concluída, você verá uma notificação de que a operação em massa foi bem-sucedida.
+1. Na página **de restauro a granel (Pré-visualização),** sob o upload do ficheiro **CSV,** navegue para o ficheiro. Quando selecionar o ficheiro e clicar **em Submeter,** a validação do ficheiro CSV começa.
+1. Quando o conteúdo do ficheiro for validado, verá o **Ficheiro carregado com sucesso**. Se houver erros, tem de os corrigir antes de poder submeter o trabalho.
+1. Quando o seu ficheiro passar a validação, selecione **Enviar** para iniciar a operação a granel Azure que restaura os utilizadores.
+1. Quando a operação de restauro terminar, verá uma notificação de que a operação a granel foi bem sucedida.
 
-Se houver erros, você poderá baixar e exibir o arquivo de resultados na página **resultados da operação em massa** . O arquivo contém o motivo de cada erro.
+Se houver erros, pode descarregar e ver o ficheiro de resultados na página de resultados da **operação Bulk.** O ficheiro contém a razão de cada erro.
 
 ## <a name="check-status"></a>Verificar o estado
 
-Você pode ver o status de todas as suas solicitações em massa pendentes na página **resultados da operação em massa (versão prévia)** .
+Pode ver o estado de todos os seus pedidos a granel pendentes na página de resultados da **operação Bulk (pré-visualização).**
 
-   ![Verificar o status do carregamento na página de resultados de operações em massa](./media/users-bulk-restore/bulk-center.png)
+   ![Verifique o estado de upload na página resultados das operações a granel](./media/users-bulk-restore/bulk-center.png)
 
-Em seguida, você pode verificar para ver se os usuários restaurados existem na organização do Azure AD na portal do Azure ou usando o PowerShell.
+Em seguida, pode verificar se os utilizadores restaurados existem na organização Azure AD, quer no portal Azure, quer através da utilização do PowerShell.
 
-## <a name="view-restored-users-in-the-azure-portal"></a>Exibir usuários restaurados no portal do Azure
+## <a name="view-restored-users-in-the-azure-portal"></a>Veja os utilizadores restaurados no portal Azure
 
-1. [Entre no centro de administração do Azure ad](https://aad.portal.azure.com) com uma conta que seja um administrador de usuário na organização.
-1. No painel de navegação, selecione **Azure Active Directory**.
+1. [Inscreva-se no centro de administração da Azure AD](https://aad.portal.azure.com) com uma conta que é administradora de Utilizador na organização.
+1. No painel de navegação, selecione **Azure Ative Directory**.
 1. Em **Gerir**, selecione **Utilizadores**.
-1. Em **Mostrar**, selecione **todos os usuários** e verifique se os usuários restaurados estão listados.
+1. No **Show**Programa , selecione **Todos os utilizadores** e verifique se os utilizadores restaurados estão listados.
 
-### <a name="view-users-with-powershell"></a>Exibir usuários com o PowerShell
+### <a name="view-users-with-powershell"></a>Ver utilizadores com PowerShell
 
 Execute o seguinte comando:
 
@@ -66,10 +66,10 @@ Execute o seguinte comando:
 Get-AzureADUser -Filter "UserType eq 'Member'"
 ```
 
-Você deve ver que os usuários restaurados estão listados.
+Deve ver que os utilizadores que restaurou estão listados.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Usuários de importação em massa](users-bulk-add.md)
-- [Excluir usuários em massa](users-bulk-delete.md)
-- [Baixar lista de usuários](users-bulk-download.md)
+- [Utilizadores de importação a granel](users-bulk-add.md)
+- [A granel, apaga os utilizadores](users-bulk-delete.md)
+- [Lista de descarregamento de utilizadores](users-bulk-download.md)

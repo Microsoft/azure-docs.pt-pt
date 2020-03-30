@@ -7,13 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: dsindona
-ms.reviewer: v-divte; v-miclar
-ms.openlocfilehash: 192fea4101fb972ec66bb5f21a2a83f9903f0855
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8ae1dcbeff6e14e6f1f7cd44ae3a0a68bd379b56
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278114"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387347"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Questões comuns durante a criação de VHD (FAQ)
 

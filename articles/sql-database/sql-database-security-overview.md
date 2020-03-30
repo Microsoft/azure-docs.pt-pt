@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 348b8fc44628437cbbcfbcd39a26d048284aa60e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 2a4c6dd3dd6f1bb2f15e31226086c73fb8e63521
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79208862"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80124837"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma visão geral das capacidades de segurança da Base de Dados Azure SQL
 
@@ -56,7 +56,7 @@ A autenticação é o processo de provar que o utilizador é quem afirmam ser. A
 
 - **Autenticação do Diretório Ativo Azure:**
 
-    A autenticação do Diretório Ativo Azure é um mecanismo de ligação à Base de [Dados Azure SQL](sql-database-technical-overview.md) e ao [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) utilizando identidades no Azure Ative Directory (Azure AD). A autenticação da AD Azure permite aos administradores gerir centralmente as identidades e permissões dos utilizadores de bases de dados, juntamente com outros serviços da Microsoft numa localização central. Isto inclui a minimização do armazenamento de palavras-passe e permite políticas centralizadas de rotação de passwords.
+    A autenticação do Diretório Ativo Azure é um mecanismo de ligação à Base de [Dados Azure SQL](sql-database-technical-overview.md) e ao [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) utilizando identidades no Azure Ative Directory (Azure AD). A autenticação da AD Azure permite aos administradores gerir centralmente as identidades e permissões dos utilizadores de bases de dados, juntamente com outros serviços da Microsoft numa localização central. Isto inclui a minimização do armazenamento de palavras-passe e permite políticas centralizadas de rotação de passwords.
 
      Um administrador de servidor chamado administrador de **Diretório Ativo** deve ser criado para utilizar a autenticação Azure AD com base de dados SQL. Para mais informações, consulte a Ligação à Base de [Dados SQL utilizando a autenticação de diretório ativo Azure](sql-database-aad-authentication.md). A autenticação azure AD suporta contas geridas e federadas. As contas federadas suportam utilizadores e grupos do Windows para um domínio de cliente federado com AD Azure.
 
@@ -110,7 +110,7 @@ Por exemplo, ao utilizar o ADO.NET controlador, este é realizado através de **
 
 ### <a name="transparent-data-encryption-encryption-at-rest"></a>Encriptação transparente de dados (Encriptação em repouso)
 
-[A Encriptação transparente de dados (TDE) para a Base de Dados SQL azure](transparent-data-encryption-azure-sql.md) adiciona uma camada de segurança para ajudar a proteger os dados em repouso do acesso não autorizado ou offline a ficheiros ou backups brutos. Os cenários comuns incluem roubo de datacenter ou eliminação não segura de hardware ou meios, tais como discos e fitas de backup. O TDE encripta toda a base de dados usando um algoritmo de encriptação AES, que não requer que os desenvolvedores de aplicações façam alterações nas aplicações existentes.
+[A Encriptação transparente de dados (TDE) para a Base de Dados SQL azure](transparent-data-encryption-azure-sql.md) adiciona uma camada de segurança para ajudar a proteger os dados em repouso do acesso não autorizado ou offline a ficheiros ou backups brutos. Os cenários comuns incluem roubo de datacenter ou eliminação não segura de hardware ou meios, tais como discos e fitas de backup.O TDE encripta toda a base de dados usando um algoritmo de encriptação AES, que não requer que os desenvolvedores de aplicações façam alterações nas aplicações existentes.
 
 No Azure, todas as bases de dados SQL recém-criadas são encriptadas por padrão e a chave de encriptação da base de dados está protegida por um certificado de servidor incorporado.  A manutenção e rotação do certificado são geridas pelo serviço e não requerem nenhuma entrada do utilizador. Os clientes que preferem assumir o controlo das chaves de encriptação podem gerir as chaves no [Cofre de Chaves Azure](../key-vault/key-vault-secure-your-key-vault.md).
 
@@ -138,13 +138,13 @@ A base de dados dinâmica SQL limita a exposição de dados sensíveis, mascaran
 
 ### <a name="data-discovery--classification"></a>Deteção e classificação de dados
 
-A descoberta e classificação de dados (atualmente em pré-visualização) fornece capacidades avançadas incorporadas na Base de Dados Azure SQL para descobrir, classificar, rotular e proteger os dados sensíveis nas suas bases de dados. Descobrir e classificar os seus dados mais sensíveis (negócios/financeiros, cuidados de saúde, dados pessoais, etc.) pode desempenhar um papel fundamental na sua estatura organizacional de proteção de informação. Pode servir de infraestrutura para:
+A descoberta de dados & classificação (atualmente em pré-visualização) fornece capacidades avançadas incorporadas na Base de Dados Azure SQL para descobrir, classificar, rotular e proteger os dados sensíveis nas suas bases de dados. Descobrir e classificar os seus dados mais sensíveis (negócios/financeiros, cuidados de saúde, dados pessoais, etc.) pode desempenhar um papel fundamental na sua estatura organizacional de proteção de informação. Pode funcionar como infraestrutura para:
 
 - Vários cenários de segurança, como a monitorização (auditoria) e o alerta sobre o acesso anómalo a dados sensíveis.
 - Controlar o acesso e reforçar a segurança das bases de dados contendo dados altamente sensíveis.
-- Ajudar a cumprir as normas de privacidade dos dados e os requisitos de conformidade regulamentar.
+- Ajudar a cumprir as normas de privacidade dos dados e os requisitos de conformidade regulamentares.
 
-Para mais informações, consulte [Começar com a descoberta e classificação](sql-database-data-discovery-and-classification.md)de dados.
+Para mais informações, consulte [Começar com a descoberta de dados & classificação](sql-database-data-discovery-and-classification.md).
 
 ### <a name="compliance"></a>Conformidade
 

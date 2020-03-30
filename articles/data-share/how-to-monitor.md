@@ -1,55 +1,55 @@
 ---
-title: Como monitorar o compartilhamento de dados do Azure
-description: Saiba como monitorar o status do convite, assinaturas de compartilhamento e histórico de instantâneos no compartilhamento de dados do Azure
+title: Como monitorizar a Partilha de Dados do Azure
+description: Saiba como monitorizar o estado dos convites, partilhar subscrições e histórico de instantâneos em Azure Data Share
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: 15089dd99de0471c244a6c0d93931438442599a7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73490511"
 ---
 # <a name="monitor-azure-data-share"></a>Monitorizar o Azure Data Share  
 
-Este artigo explica como você pode monitorar seus compartilhamentos de dados usando o compartilhamento de dados do Azure. Como um provedor de dados, você pode monitorar vários aspectos de suas relações de compartilhamento de dados. Detalhes, como se os consumidores de dados tiverem aceitado seu convite para o compartilhamento de dados, bem como se eles criaram uma assinatura de compartilhamento e começarem a usar seus dados estão disponíveis para monitoramento. 
+Este artigo explica como pode monitorizar as suas partilhas de dados utilizando a Azure Data Share. Como fornecedor de dados, é capaz de monitorizar vários aspetos das suas relações de partilha de dados. Detalhes como se os seus consumidores de dados aceitaram o seu convite para a partilha de dados, bem como se eles criaram uma subscrição de ação e começaram a usar os seus dados estão todos disponíveis para monitorizar. 
 
-Como um consumidor de dados, você pode monitorar os instantâneos que foram disparados em sua assinatura do Azure. 
+Como consumidor de dados, pode monitorizar as imagens que foram desencadeadas na sua subscrição do Azure. 
 
-## <a name="monitor-invitation-status"></a>Monitorar o status do convite
+## <a name="monitor-invitation-status"></a>Monitorizar o estado do convite
 
-Exiba o status de seus convites de compartilhamento de dados navegando para compartilhamentos enviados-> convites. 
+Veja o estado dos seus convites de partilha de dados navegando para as ações enviadas -> Convites. 
 
-![Status do convite](./media/invitation-status.png "Status do convite") 
+![Estatuto do convite](./media/invitation-status.png "Estatuto do convite") 
 
-Há três Estados em que seu convite pode estar:
+Há três estados em que o seu convite pode estar em:
 
-* O destinatário de compartilhamento de dados pendentes ainda não aceitou o convite.
-* Aceito-o destinatário do compartilhamento de dados aceitou o convite.
-* Rejeitado-o destinatário do compartilhamento de dados rejeitou o convite.
+* Pendente - Destinatário de partilha de dados ainda não aceitou o convite.
+* Aceite - Destinatário de partilha de dados aceitou o convite.
+* Rejeitado - O destinatário da partilha de dados rejeitou o convite.
 
 > [!IMPORTANT]
-> Se você excluir um convite depois que ele já tiver sido aceito, não será equivalente a revogar o acesso. Se você deseja impedir que instantâneos futuros sejam copiados para sua conta de armazenamento de consumidores de dados, você deve revogar o acesso por meio da guia *assinaturas de compartilhamento* . 
+> Se apagar um convite depois de já ter sido aceite, não é equivalente a revogar o acesso. Se quiser impedir que futuras fotos sejam copiadas na sua conta de armazenamento de dados, deve revogar o acesso através do separador *de subscrições Share.* 
 
-## <a name="monitor-share-subscriptions"></a>Monitorar assinaturas de compartilhamento
+## <a name="monitor-share-subscriptions"></a>Monitorizar subscrições de ações
 
-Exiba o status de suas assinaturas de compartilhamento navegando para compartilhamentos enviados-> compartilhar assinaturas. Isso fornecerá detalhes sobre as assinaturas ativas criadas por seus consumidores de dados depois de aceitar seu convite. Você pode parar as atualizações futuras para o consumidor de dados selecionando a assinatura de compartilhamento e selecionando *revogar*. 
+Veja o estado das suas subscrições de ações navegando para Subscrições de Partilha seleções enviadas ->. Isto irá dar-lhe detalhes sobre subscrições ativas criadas pelos seus consumidores de dados depois de aceitar o seu convite. Pode parar futuras atualizações ao seu consumidor de dados selecionando a subscrição de ações e selecionando *Revogar*. 
 
-## <a name="snapshot-history"></a>Histórico de instantâneos 
+## <a name="snapshot-history"></a>História instantânea 
 
-Na guia histórico, você pode exibir os instantâneos que foram copiados para o locatário do consumidor de dados. Você pode monitorar a frequência e a duração de cada intervalo de instantâneo. 
+No separador de história, você é capaz de ver as fotos que foram copiadas para o inquilino do seu consumidor de dados. É possível monitorizar a frequência e duração de cada intervalo instantâneo. 
 
-![Histórico de instantâneos](./media/sent-shares.png "Histórico de instantâneos") 
+![História instantânea](./media/sent-shares.png "História instantânea") 
 
-Você pode exibir mais detalhes sobre cada execução de instantâneo clicando na data de início da execução. 
+Pode ver mais detalhes sobre cada instantâneo executado clicando na data de início da execução. 
 
-Por padrão, até 30 dias de histórico de instantâneos são exibidos. Se você precisar ver mais de 30 dias de histórico, navegue até monitoramento-> configurações de diagnóstico e selecione **Adicionar configuração de diagnóstico**. Você será solicitado a selecionar uma conta de armazenamento na qual armazenar esses logs. 
+Até 30 dias de história instantânea é exibido por padrão. Se precisar de ver mais de 30 dias de história, navegue para monitorizar -> Definições de diagnóstico e **selecione Adicionar definição**de diagnóstico . Será necessário selecionar uma conta de armazenamento para armazenar estes registos. 
 
-![Histórico de instantâneos](./media/diagnostic-settings.png "Definições de diagnóstico") 
+![História instantânea](./media/diagnostic-settings.png "Definições de diagnóstico") 
 
-## <a name="next-steps"></a>Próximos Passos 
+## <a name="next-steps"></a>Passos Seguintes 
 
-Saiba mais sobre a [terminologia do compartilhamento de dados do Azure](terminology.md)
+Saiba mais sobre a [terminologia](terminology.md) da Partilha de Dados do Azure

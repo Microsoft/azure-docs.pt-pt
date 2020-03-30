@@ -1,6 +1,6 @@
 ---
-title: Reescrever cabeçalhos de solicitação e resposta HTTP no portal-Aplicativo Azure gateway
-description: Saiba como usar o portal do Azure para configurar um gateway de Aplicativo Azure para regravar os cabeçalhos HTTP nas solicitações e respostas que passam pelo gateway
+title: Reescrever cabeçalhos de pedido e resposta HTTP no portal - Gateway de aplicação azure
+description: Saiba como usar o portal Azure para configurar um Portal de Aplicação Azure para reescrever os cabeçalhos HTTP nos pedidos e respostas que passam pelo portal
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
@@ -9,126 +9,126 @@ ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: b90736b3ed1c1f69488fde4a386cf215d751c362
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74012862"
 ---
-# <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Reescrever cabeçalhos de solicitação e resposta HTTP com Aplicativo Azure gateway-portal do Azure
+# <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Reescrever http pedido e cabeçalhos de resposta com Portal de Aplicação Azure - Portal Azure
 
-Este artigo descreve como usar o portal do Azure para configurar uma instância de [SKU do gateway de aplicativo v2](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) para regravar os cabeçalhos HTTP em solicitações e respostas.
+Este artigo descreve como usar o portal Azure para configurar uma instância [de Gateway v2 SKU](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) para reescrever os cabeçalhos HTTP em pedidos e respostas.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Você precisa ter uma instância de SKU do gateway de aplicativo v2 para concluir as etapas neste artigo. Não há suporte para a regravação de cabeçalhos na SKU v1. Se você não tiver a SKU v2, crie uma instância de [SKU do gateway de aplicativo v2](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) antes de começar.
+Você precisa ter uma instância de Application Gateway v2 SKU para completar os passos neste artigo. Reescrever cabeçalhos não é suportado no V1 SKU. Se não tiver o V2 SKU, crie uma instância [SKU De Gateway v2](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) antes de começar.
 
 ## <a name="create-required-objects"></a>Criar objetos necessários
 
-Para configurar a reescrita do cabeçalho HTTP, você precisa concluir estas etapas.
+Para configurar a reescrita do cabeçalho HTTP, é necessário completar estes passos.
 
-1. Crie os objetos que são necessários para a reescrita do cabeçalho HTTP:
+1. Criar os objetos necessários para reescrever o cabeçalho HTTP:
 
-   - **Ação de regravação**: usada para especificar os campos de cabeçalho de solicitação e solicitação que você pretende reescrever e o novo valor para os cabeçalhos. Você pode associar uma ou mais condições de regravação a uma ação de regravação.
+   - **Reescrever ação**: Utilizado para especificar o pedido e solicitar campos de cabeçalho que pretende reescrever e o novo valor para os cabeçalhos. Pode associar uma ou mais condições de reescrita com uma ação de reescrita.
 
-   - **Condição de regravação**: uma configuração opcional. As condições de regravação avaliam o conteúdo das solicitações e respostas HTTP (S). A ação de regravação ocorrerá se a solicitação ou resposta HTTP (S) corresponder à condição de regravação.
+   - **Condição de reescrita**: Uma configuração opcional. As condições de reescrita avaliam o conteúdo dos pedidos e respostas http(S). A ação de reescrita ocorrerá se o pedido ou resposta HTTP(S) corresponder à condição de reescrita.
 
-     Se você associar mais de uma condição a uma ação, a ação ocorrerá somente quando todas as condições forem atendidas. Em outras palavras, a operação é uma operação AND lógica.
+     Se associar mais do que uma condição a uma ação, a ação ocorre apenas quando todas as condições são satisfeitas. Por outras palavras, a operação é uma operação lógica e operacional.
 
-   - **Regra de regravação**: contém várias combinações de condição de ação de regravação/regravação.
+   - **Regra de reescrita**: Contém múltiplas combinações de condições de reescrita/ reescrita.
 
-   - **Sequência de regras**: ajuda a determinar a ordem na qual as regras de regravação são executadas. Essa configuração é útil quando você tem várias regras de regravação em um conjunto de regravação. Uma regra de regravação que tem um valor de sequência de regra mais baixo é executada primeiro. Se você atribuir o mesmo valor de sequência de regra a duas regras de reescrita, a ordem de execução será não determinística.
+   - **Sequência de regras**: Ajuda a determinar a ordem em que as regras de reescrita executam. Esta configuração é útil quando se tem várias regras de reescrita num conjunto de reescrita. Uma regra de reescrita que tem um valor de sequência de regras inferior corre primeiro. Se atribuir o mesmo valor de sequência de regras a duas regras de reescrita, a ordem de execução não é determinista.
 
-   - **Conjunto de regravação**: contém várias regras de regravação que serão associadas a uma regra de roteamento de solicitação.
+   - **Reescrever conjunto**: Contém múltiplas regras de reescrita que serão associadas a uma regra de encaminhamento de pedidos.
 
-2. Anexe a regravação definida a uma regra de roteamento. A configuração de regravação é anexada ao ouvinte de origem por meio da regra de roteamento. Quando você usa uma regra de roteamento básica, a configuração de reescrita de cabeçalho é associada a um ouvinte de origem e é uma reescrita de cabeçalho global. Quando você usa uma regra de roteamento com base em caminho, a configuração de reescrita de cabeçalho é definida no mapa de caminho de URL. Nesse caso, ele se aplica somente à área de caminho específica de um site.
+2. Fixe a reescrita definida numa regra de encaminhamento. A configuração de reescrita é fixada ao ouvinte de origem através da regra de encaminhamento. Quando se utiliza uma regra básica de encaminhamento, a configuração de reescrita do cabeçalho está associada a um ouvinte de origem e é uma reescrita global do cabeçalho. Quando utiliza uma regra de encaminhamento baseada no caminho, a configuração de reescrita do cabeçalho é definida no mapa do caminho do URL. Nesse caso, aplica-se apenas à área específica do caminho de um local.
 
-Você pode criar vários conjuntos de regravação de cabeçalho HTTP e aplicar cada regravação definida a vários ouvintes. Mas você pode aplicar apenas uma regravação definida a um ouvinte específico.
+Pode criar vários conjuntos de reescrita de cabeçalho HTTP e aplicar cada conjunto de reescrita a vários ouvintes. Mas só pode aplicar um conjunto de reescrita a um ouvinte específico.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/) com a sua conta do Azure.
+Inscreva-se no [portal Azure](https://portal.azure.com/) com a sua conta Azure.
 
-## <a name="configure-header-rewrite"></a>Configurar a regravação do cabeçalho
+## <a name="configure-header-rewrite"></a>Configurar a reescrita do cabeçalho
 
-Neste exemplo, modificaremos uma URL de redirecionamento regravando o cabeçalho de local na resposta HTTP enviada por um aplicativo de back-end.
+Neste exemplo, modificaremos um URL de reorientação reescrevendo o cabeçalho de localização na resposta HTTP enviada por uma aplicação de back-end.
 
-1. Selecione **todos os recursos**e, em seguida, selecione o gateway de aplicativo.
+1. **Selecione Todos os recursos**e, em seguida, selecione o gateway da sua aplicação.
 
-2. Selecione **regravações** no painel esquerdo.
+2. Selecione **Reescritas** no painel esquerdo.
 
-3. Selecione **reescrever conjunto**:
+3. Selecione **reescrever definido**:
 
-   ![Adicionar conjunto de regravação](media/rewrite-http-headers-portal/add-rewrite-set.png)
+   ![Adicionar conjunto de reescrever](media/rewrite-http-headers-portal/add-rewrite-set.png)
 
-4. Forneça um nome para o conjunto de regravação e associe-o a uma regra de roteamento:
+4. Forneça um nome para o conjunto de reescrita e associe-o a uma regra de encaminhamento:
 
-   - Insira o nome para a regravação definida na caixa **nome** .
-   - Selecione uma ou mais das regras listadas na lista **regras de roteamento associadas** . Você pode selecionar apenas as regras que não foram associadas a outros conjuntos de regravação. As regras que já foram associadas a outros conjuntos de regravação estão esmaecidas.
-   - Selecione **Seguinte**.
+   - Introduza o nome para o conjunto de reescrita na caixa **nome.**
+   - Selecione uma ou mais das regras listadas na lista de regras de **encaminhamento associados.** Só pode selecionar regras que não tenham sido associadas a outros conjuntos de reescrita. As regras que já foram associadas a outros conjuntos de reescrita são diminuídas.
+   - Selecione **Next**.
    
-     ![Adicionar nome e Associação](media/rewrite-http-headers-portal/name-and-association.png)
+     ![Adicionar nome e associação](media/rewrite-http-headers-portal/name-and-association.png)
 
 5. Criar uma regra de reescrita:
 
-   - Selecione **Adicionar regra de regravação**.
+   - Selecione **Adicionar regra de reescrever**.
 
-     ![Adicionar regra de reescrita](media/rewrite-http-headers-portal/add-rewrite-rule.png)
+     ![Adicionar regra de reescrever](media/rewrite-http-headers-portal/add-rewrite-rule.png)
 
-   - Insira um nome para a regra de reescrita na caixa **reescrever nome da regra** . Insira um número na caixa **sequência de regras** .
+   - Introduza um nome para a regra de reescrever na caixa de nomes de **reescrever.** Introduza um número na caixa de sequência de **regras.**
 
-     ![Adicionar nome da regra de regravação](media/rewrite-http-headers-portal/rule-name.png)
+     ![Adicione o nome da regra de reescrever](media/rewrite-http-headers-portal/rule-name.png)
 
-6. Neste exemplo, Reescreveremos o cabeçalho Location apenas quando ele contiver uma referência a azurewebsites.net. Para fazer isso, adicione uma condição para avaliar se o cabeçalho local na resposta contém azurewebsites.net:
+6. Neste exemplo, reescreveremos o cabeçalho de localização apenas quando contiver uma referência a azurewebsites.net. Para tal, adicione uma condição para avaliar se o cabeçalho de localização na resposta contém azurewebsites.net:
 
-   - Selecione **Adicionar condição** e, em seguida, selecione a caixa que contém as instruções **If** para expandi-la.
+   - **Selecione Adicionar condição** e, em seguida, selecione a caixa contendo as instruções **se** as instruções para expandi-la.
 
      ![Adicionar uma condição](media/rewrite-http-headers-portal/add-condition.png)
 
-   - Na lista **tipo de variável a ser verificada** , selecione **cabeçalho http**.
+   - No **tipo de variável para verificar lista,** selecione **cabeçalho HTTP**.
 
-   - Na lista **tipo de cabeçalho** , selecione **resposta**.
+   - Na lista do **tipo Header,** selecione **Resposta**.
 
-   - Como neste exemplo estamos avaliando o cabeçalho de local, que é um cabeçalho comum, selecione o **cabeçalho comum** sob **nome do cabeçalho**.
+   - Porque neste exemplo estamos a avaliar o cabeçalho de localização, que é um cabeçalho comum, selecione **cabeçalho comum** sob **o nome header**.
 
-   - Na lista **cabeçalho comum** , selecione **local**.
+   - Na lista **de cabeçalhos comum,** selecione **Localização**.
 
-   - Em **diferenciação de maiúsculas e minúsculas**, selecione **não**.
+   - Em **caso sensível ao caso,** selecione **Nº**.
 
-   - Na lista **operador** , selecione **igual (=)** .
+   - Na lista **do Operador,** selecione **igual (=)**.
 
-   - Insira um padrão de expressão regular. Neste exemplo, usaremos o `(https?):\/\/.*azurewebsites\.net(.*)$`padrão.
+   - Introduza um padrão de expressão regular. Neste exemplo, usaremos o `(https?):\/\/.*azurewebsites\.net(.*)$`padrão.
 
    - Selecione **OK**.
 
-     ![Configurar uma condição if](media/rewrite-http-headers-portal/condition.png)
+     ![Configurar uma condição se](media/rewrite-http-headers-portal/condition.png)
 
-7. Adicione uma ação para reescrever o cabeçalho de local:
+7. Adicione uma ação para reescrever o cabeçalho de localização:
 
-   - Na lista **tipo de ação** , selecione **definir**.
+   - Na lista do **tipo Ação,** selecione **set**.
 
-   - Na lista **tipo de cabeçalho** , selecione **resposta**.
+   - Na lista do **tipo Header,** selecione **Resposta**.
 
-   - Em **nome do cabeçalho**, selecione **cabeçalho comum**.
+   - Sob **o nome cabeçalho,** selecione **Cabeçalho Comum**.
 
-   - Na lista **cabeçalho comum** , selecione **local**.
+   - Na lista **de cabeçalhos comum,** selecione **Localização**.
 
-   - Insira o valor do cabeçalho. Neste exemplo, usaremos `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` como o valor do cabeçalho. Esse valor substituirá *azurewebsites.net* por *contoso.com* no cabeçalho de local.
+   - Introduza o valor do cabeçalho. Neste exemplo, usaremos `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` como valor cabeçalho. Este valor substituirá *azurewebsites.net* por *contoso.com* no cabeçalho de localização.
 
    - Selecione **OK**.
 
      ![Adicionar uma ação](media/rewrite-http-headers-portal/action.png)
 
-8. Selecione **criar** para criar o conjunto de regravação:
+8. Selecione **Criar** para criar o conjunto de reescrever:
 
    ![Selecione Criar](media/rewrite-http-headers-portal/create.png)
 
-9. A exibição do conjunto de regravação será aberta. Verifique se o conjunto de reescrita que você criou está na lista de conjuntos de regravação:
+9. A vista definida de Reescrita será aberta. Verifique se o conjunto de reescrita que criou está na lista de conjuntos de reescrita:
 
-   ![Reescrever conjunto de exibição](media/rewrite-http-headers-portal/rewrite-set-list.png)
+   ![Reescrever a vista do conjunto](media/rewrite-http-headers-portal/rewrite-set-list.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre como configurar alguns casos de uso comuns, consulte [cenários de reescrita de cabeçalho comum](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
+Para saber mais sobre como configurar alguns casos de uso comum, consulte [cenários comuns](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)de reescrita do cabeçalho .

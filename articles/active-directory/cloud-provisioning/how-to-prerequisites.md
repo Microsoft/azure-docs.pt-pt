@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 382c588ca005f95f4ae38e7506c0e3e8d842bd2c
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 45648170f69d513b15e79cdd76f56e66bbc88bfa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78298654"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80332075"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Pré-requisitos para o fornecimento de nuvem azure AD Connect
 Este artigo fornece orientações sobre como escolher e utilizar o Azure Ative Directory (Azure AD) Connect cloud provisioning como a sua solução de identidade.
@@ -53,14 +53,14 @@ Executar a [ferramenta IdFix](https://docs.microsoft.com/office365/enterprise/pr
 
         | Número da porta | Como é usado |
         | --- | --- |
-        | **80** | Descarrega as listas de revogação do certificado (CRLs) enquanto valida o certificado SSL.  |
+        | **80** | Descarrega as listas de revogação do certificado (CRLs) enquanto valida o certificado TLS/SSL.  |
         | **443** | Lida com toda a comunicação de saída com o serviço. |
         | **8080** (opcional) | Os agentes reportam o seu estado a cada 10 minutos sobre o porto 8080, se a porta 443 não estiver disponível. Este estado é apresentado no portal Azure AD. |
      
    - Se a sua firewall aplicar regras de acordo com os utilizadores originários, abra estas portas para tráfego a partir de serviços Windows que funcionam como um serviço de rede.
-   - Se a sua firewall ou procuração lhe permitir especificar sufixos seguros, adicione ligações a \*.msappproxy.net e \*.servicebus.windows.net. Caso contrário, permita o acesso às gamas IP do Centro de [Dados Azure,](https://www.microsoft.com/download/details.aspx?id=41653)que são atualizadas semanalmente.
+   - Se a sua firewall ou proxy permitir especificar sufixos seguros, adicione ligações a \*.msappproxy.net e \*.servicebus.windows.net. Caso contrário, permita o acesso às gamas IP do Centro de [Dados Azure,](https://www.microsoft.com/download/details.aspx?id=41653)que são atualizadas semanalmente.
    - Os seus agentes precisam de acesso a login.windows.net e login.microsoftonline.com para registo inicial. Abra a sua firewall para os URLs também.
-   - Para validação de certificados, desbloqueie os seguintes URLs: mscrl.microsoft.com:80, crl.microsoft.com:80, ocsp.msocsp.com:80 e www\.microsoft.com:80. Estes URLs são usados para validação de certificados com outros produtos da Microsoft, pelo que pode já ter estes URLs desbloqueados.
+   - Para validação de certificados, desbloqueie os seguintes\.URLs: mscrl.microsoft.com:80, crl.microsoft.com:80, ocsp.msocsp.com:80 e www microsoft.com:80. Estes URLs são usados para validação de certificados com outros produtos da Microsoft, pelo que pode já ter estes URLs desbloqueados.
 
 ### <a name="verify-the-port"></a>Verifique a porta
 Para verificar se o Azure está a ouvir na porta 443 e que o seu agente pode comunicar com ele, utilize o seguinte URL:
@@ -83,7 +83,7 @@ O servidor Windows que acolhe o agente de fornecimento de nuvem Azure AD Connect
 
 Para ativar o TLS 1.2, siga estes passos.
 
-1. Defina as seguintes chaves de registo:
+1. Detete as seguintes teclas de registo:
     
     ```
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
@@ -92,11 +92,11 @@ Para ativar o TLS 1.2, siga estes passos.
     [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
     ```
 
-1. Reiniciar o servidor.
+1. Reinicie o servidor.
 
 
 ## <a name="next-steps"></a>Passos seguintes 
 
-- [O que é o provisionamento?](what-is-provisioning.md)
-- [O que é o fornecimento de nuvem Azure AD Connect?](what-is-cloud-provisioning.md)
+- [O que é o aprovisionamento?](what-is-provisioning.md)
+- [O que é o aprovisionamento na cloud do Azure AD Connect?](what-is-cloud-provisioning.md)
 
