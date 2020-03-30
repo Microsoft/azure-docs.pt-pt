@@ -9,10 +9,10 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 59d385ba7de5bf7bceae4dc8ddadbca813046094
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78269715"
 ---
 # <a name="threat-modeling-tool-update-release-71604081---492019"></a>Lançamento da atualização da Ferramenta de Modelação de Ameaças 7.1.60408.1 - 4/9/2019
@@ -40,7 +40,7 @@ A versão cliente da Ferramenta de Modelação de Ameaças é agora mostrada no 
 
 ### <a name="support-links-have-been-updated"></a>Os links de suporte foram atualizados
 
-Todas as ligações de suporte dentro da ferramenta foram atualizadas para direcionar os utilizadores para [tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com) em vez de um fórum MSDN.
+Todas as ligações de suporte dentro [tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com) da ferramenta foram atualizadas para direcionar os utilizadores para e não para um fórum MSDN.
 
 ## <a name="system-requirements"></a>Requisitos de sistema
 

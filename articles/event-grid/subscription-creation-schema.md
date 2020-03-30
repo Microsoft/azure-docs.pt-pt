@@ -1,5 +1,5 @@
 ---
-title: Esquema de subscrições do Azure Event Grid
+title: Esquema de assinatura da Rede de Eventos Azure
 description: Este artigo descreve as propriedades para subscrever um evento com a Azure Event Grid. Esquema de subscrição da Grelha de Eventos.
 services: event-grid
 author: banisadr
@@ -8,53 +8,53 @@ ms.topic: reference
 ms.date: 01/23/2020
 ms.author: babanisa
 ms.openlocfilehash: 4bb04d22b762f31a02515549b698030a5267e4cd
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76720763"
 ---
-# <a name="event-grid-subscription-schema"></a>Esquema de subscrições do Event Grid
+# <a name="event-grid-subscription-schema"></a>Esquema de subscrição da Grelha de Eventos
 
-Para criar uma subscrição do Event Grid, envie um pedido para a operação de subscrição de evento de criar. Utilize o seguinte formato:
+Para criar uma subscrição da Rede de Eventos, envia um pedido para a operação de subscrição do Evento Criar. Utilize o seguinte formato:
 
 ```HTTP
 PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
-Por exemplo, para criar uma subscrição de evento para uma conta de armazenamento chamada `examplestorage` num grupo de recursos chamado `examplegroup`, utilize o seguinte formato:
+Por exemplo, para criar uma subscrição `examplestorage` de evento `examplegroup`para uma conta de armazenamento nomeada num grupo de recursos chamado , use o seguinte formato:
 
 ```HTTP
 PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
-O nome de subscrição de evento tem de ter 3 e 64 carateres de comprimento e só pode conter a-z, A-Z, 0-9, e "-". O artigo descreve as propriedades e o esquema para o corpo do pedido.
+O nome de Subscrição de Eventos deve ter 3-64 caracteres de comprimento e só pode conter a-z, A-Z, 0-9 e "-". O artigo descreve as propriedades e o esquema para o corpo do pedido.
  
-## <a name="event-subscription-properties"></a>Propriedades de subscrição de evento
+## <a name="event-subscription-properties"></a>Propriedades de subscrição de eventos
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| destination | object | O objeto que define o ponto final. |
-| filter | object | Um campo opcional para filtrar os tipos de eventos. |
+| destino | objeto | O objeto que define o ponto final. |
+| filter | objeto | Um campo opcional para filtrar os tipos de eventos. |
 
 ### <a name="destination-object"></a>objeto de destino
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| endpointType | Cadeia de caracteres | O tipo de ponto final para a subscrição (webhook/HTTP, Hub de eventos ou fila). | 
-| endpointUrl | Cadeia de caracteres | O URL de destino para eventos nesta subscrição de evento. | 
+| ponto finalType | string | O tipo de ponto final para a subscrição (webhook/HTTP, Event Hub ou fila). | 
+| endpointUrl | string | O URL de destino para eventos nesta subscrição do evento. | 
 
 ### <a name="filter-object"></a>objeto de filtro
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| includedEventTypes | matriz | Correspondência quando o tipo de evento na mensagem de evento é uma correspondência exata com um destes nomes de tipo de evento. Gera um erro quando o nome do evento não coincide com os nomes de tipos de eventos registrados para a origem do evento. Predefinição corresponde a todos os tipos de eventos. |
-| subjectBeginsWith | Cadeia de caracteres | Uma correspondência de prefixo filtro para o campo do requerente de eventos da mensagem. A predefinição ou uma cadeia vazia corresponde a todos. | 
-| subjectEndsWith | Cadeia de caracteres | Uma correspondência de sufixo de filtro para o campo do requerente de eventos da mensagem. A predefinição ou uma cadeia vazia corresponde a todos. |
-| isSubjectCaseSensitive | Cadeia de caracteres | Controlos de maiúsculas e minúsculas correspondente para filtros. |
+| incluídoEventTypes | array | Combine quando o tipo de evento na mensagem do evento é uma correspondência exata com um destes nomes do tipo evento. Levanta um erro quando o nome do evento não corresponde aos nomes do tipo de evento registado para a fonte do evento. O padrão corresponde a todos os tipos de eventos. |
+| assuntosComeçaCom | string | Um filtro de pré-fixação para o campo de assunto na mensagem do evento. A cadeia padrão ou vazia corresponde a todas. | 
+| subjectEndsWith | string | Um filtro de correspondência de sufixo para o campo de assunto na mensagem do evento. A cadeia padrão ou vazia corresponde a todas. |
+| isSubjectCaseSensitive | string | Controla a correspondência sensível a casos para filtros. |
 
 
-## <a name="example-subscription-schema"></a>Esquema de subscrições de exemplo
+## <a name="example-subscription-schema"></a>Esquema de assinatura de exemplo
 
 ```json
 {
@@ -75,6 +75,6 @@ O nome de subscrição de evento tem de ter 3 e 64 carateres de comprimento e s�
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma introdução à Grelha de Eventos, veja [o que é a Grelha de Eventos?](overview.md)

@@ -1,86 +1,86 @@
 ---
-title: Testar um trabalho de Azure Stream Analytics localmente com dados de exemplo usando Visual Studio Code
-description: Este artigo descreve como testar consultas localmente com dados de exemplo usando ferramentas de Azure Stream Analytics para Visual Studio Code.
+title: Teste um trabalho de Azure Stream Analytics localmente com dados de amostra usando código de estúdio visual
+description: Este artigo descreve como testar consultas localmente com dados de amostra usando ferramentas de análise de Azure Stream para código de estúdio visual.
 ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.date: 11/10/2019
 ms.topic: conceptual
 ms.openlocfilehash: c29d0d9ecd856ee9611df21d23b1b2b763e24652
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75486472"
 ---
-# <a name="test-stream-analytics-queries-locally-with-sample-data-using-visual-studio-code"></a>Testar Stream Analytics consultas localmente com dados de exemplo usando Visual Studio Code
+# <a name="test-stream-analytics-queries-locally-with-sample-data-using-visual-studio-code"></a>Teste Stream Analytics consulta localmente com dados de amostra usando código de estúdio visual
 
-Você pode usar as ferramentas de Azure Stream Analytics para Visual Studio Code para testar seus trabalhos de Stream Analytics localmente com dados de exemplo. Você pode encontrar os resultados da consulta em arquivos JSON na pasta **LocalRunOutputs** do seu projeto.
+Pode utilizar ferramentas Azure Stream Analytics para O Código de Estúdio Visual para testar os seus trabalhos de Streaming Analytics localmente com dados de amostra. Pode encontrar os resultados da consulta em ficheiros JSON na pasta **LocalRunOutputs** do seu projeto.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Instale o [SDK do .NET Core](https://dotnet.microsoft.com/download) e reinicie o Visual Studio Code.
+* Instale [o Núcleo .NET SDK](https://dotnet.microsoft.com/download) e reinicie o Código do Estúdio Visual.
 
-* Use este guia de [início rápido](quick-create-vs-code.md) para aprender a criar um trabalho de Stream Analytics usando Visual Studio Code.
+* Use este [quickstart](quick-create-vs-code.md) para aprender a criar um trabalho stream analytics usando o Código de Estúdio Visual.
 
-## <a name="prepare-sample-data"></a>Preparar dados de exemplo
+## <a name="prepare-sample-data"></a>Preparar dados da amostra
 
-Primeiro, você precisa preparar arquivos de dados de entrada de exemplo. Se você já tiver alguns arquivos de dados de exemplo em seu computador, poderá ignorar essa etapa e passar para a próxima.
+Tem de preparar primeiro os ficheiros de dados de entrada de amostras. Se já tiver alguns ficheiros de dados de amostras na sua máquina, pode saltar este passo e passar para o próximo.
 
-1. Clique em **Visualizar dados** no arquivo de configuração de entrada na linha superior. Alguns dados de entrada serão buscados do Hub IoT e mostrados na janela de visualização. Observe que isso pode demorar um pouco.
+1. Clique em **dados de Pré-visualização** no ficheiro de configuração de entrada a partir da linha superior. Alguns dados de entrada serão recolhidos do IoT Hub e mostrados na janela de pré-visualização. Note que isto pode demorar um pouco.
 
-2. Depois que os dados forem mostrados, clique em **salvar como** para salvar os dados em um arquivo local.
+2. Assim que os dados forem mostrados, clique em **Guardar para** guardar os dados para um ficheiro local.
 
- ![Visualizar entrada ao vivo](./media/quick-create-vs-code/preview-live-input.png)
+ ![Pré-visualizar entrada ao vivo](./media/quick-create-vs-code/preview-live-input.png)
 
 ## <a name="define-a-local-input"></a>Definir uma entrada local
 
-1. Clique em **Input. JSON** na pasta entradas em seu projeto Stream Analytics. Em seguida, selecione **Adicionar entrada local** na linha superior.
+1. Clique em **input.json** sob a pasta De Entradas no seu projeto Stream Analytics. Em seguida, **selecione Adicionar entrada local** a partir da linha superior.
 
-    ![Adicionar entrada local do projeto](./media/quick-create-vs-code/add-input-from-project.png)
+    ![Adicione a entrada local do projeto](./media/quick-create-vs-code/add-input-from-project.png)
 
-    Você também pode usar **Ctrl + Shift + P** para abrir a paleta de comandos e inserir **asa: Adicionar entrada**.
+    Também pode utilizar **o Ctrl+Shift+P** para abrir a paleta de comando e introduzir **asa: Adicionar entrada**.
 
-   ![Adicionar Stream Analytics entrada no VS Code](./media/quick-create-vs-code/add-input.png)
+   ![Adicionar entrada stream analytics no código VS](./media/quick-create-vs-code/add-input.png)
 
-2. Selecione **entrada local**.
+2. Selecione **Entrada Local**.
 
-    ![Adicionar entrada local do ASA no Visual Studio Code](./media/vscode-local-run/add-local-input.png)
+    ![Adicione a entrada local ASA no código Do Estúdio Visual](./media/vscode-local-run/add-local-input.png)
 
-3. Selecione **+ nova entrada local**.
+3. Selecione **+ Nova Entrada Local**.
 
-    ![Adicionar uma nova entrada local do ASA no Visual Studio Code](./media/vscode-local-run/add-new-local-input.png)
+    ![Adicione uma nova entrada local DAA no código Visual Studio](./media/vscode-local-run/add-new-local-input.png)
 
-4. Insira o mesmo alias de entrada que você usou em sua consulta.
+4. Insira o mesmo pseudónimo que usou na sua consulta.
 
-    ![Adicionar um novo alias de entrada local do ASA](./media/vscode-local-run/new-local-input-alias.png)
+    ![Adicione um novo pseudónimo de entrada local ASA](./media/vscode-local-run/new-local-input-alias.png)
 
-5. No arquivo **LocalInput_Input. JSON** recém-gerado, insira o caminho do arquivo no qual o arquivo de dados local está localizado.
+5. No ficheiro **LocalInput_Input.json** recentemente gerado, introduza o caminho do ficheiro onde está localizado o ficheiro de dados local.
 
-    ![Insira o caminho do arquivo local no Visual Studio](./media/vscode-local-run/local-file-path.png)
+    ![Insira o caminho de arquivo local no Estúdio Visual](./media/vscode-local-run/local-file-path.png)
 
-6. Selecione **Visualizar dados** para visualizar os dados de entrada. O tipo de serialização para seus dados será detectado automaticamente se seu JSON ou CSV. Use o seletor para exibir seus dados em formato de **tabela** ou **bruto** . A tabela a seguir é um exemplo de dados no **formato de tabela**:
+6. Selecione Dados de **Pré-visualização** para pré-visualizar os dados de entrada. O tipo de serialização dos seus dados é automaticamente detetado se o seu JSON ou CSV. Utilize o seletor para visualizar os seus dados em **formato Tabela** ou **Cru.** O quadro seguinte é um exemplo de dados no **formato tabela:**
 
-     ![Visualizar dados locais em formato de tabela](./media/vscode-local-run/local-file-preview-table.png)
+     ![Pré-visualizar dados locais em formato de tabela](./media/vscode-local-run/local-file-preview-table.png)
 
-    A tabela a seguir é um exemplo de dados no **formato bruto**:
+    O quadro seguinte é um exemplo de dados no **formato Raw:**
 
-    ![Visualizar dados locais em formato bruto](./media/vscode-local-run/local-file-preview-raw.png)
+    ![Pré-visualizar dados locais em formato bruto](./media/vscode-local-run/local-file-preview-raw.png)
 
 ## <a name="run-queries-locally"></a>Executar consultas localmente
 
-Volte para o editor de consultas e selecione **executar localmente**. Em seguida, selecione **usar entrada local** na lista suspensa.
+Volte ao seu editor de consulta e selecione **Run localmente**. Em seguida, selecione **Utilize a entrada local** da lista de dropdown.
 
-![Selecione executar localmente no editor de consultas](./media/vscode-local-run/run-locally.png)
+![Selecione executar localmente no editor de consulta](./media/vscode-local-run/run-locally.png)
 
-![Usar entrada local](./media/vscode-local-run/run-locally-use-local-input.png)
+![Use a entrada local](./media/vscode-local-run/run-locally-use-local-input.png)
 
-O resultado é mostrado na janela direita. Você pode clicar em **executar** para testar novamente. Você também pode selecionar **abrir na pasta** para ver os arquivos de resultado no explorador de arquivos e abri-los ainda mais com outras ferramentas. Observe que os arquivos de resultado estão disponíveis apenas no formato JSON.
+O resultado é mostrado na janela certa. Pode clicar em **Correr** para testar novamente. Também pode selecionar **Open in folder** para ver os ficheiros de resultados no explorador de ficheiros e abra-os ainda mais com outras ferramentas. Note que os ficheiros de resultados só estão disponíveis no formato JSON.
 
-![Exibir resultado da execução local](./media/vscode-local-run/run-locally-result.png)
+![Ver resultado da execução local](./media/vscode-local-run/run-locally-result.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Testar Azure Stream Analytics trabalhos localmente com a entrada ao vivo usando Visual Studio Code](visual-studio-code-local-run-live-input.md)
+* [Test Azure Stream Analytics empregos localmente com entrada ao vivo usando Código de Estúdio Visual](visual-studio-code-local-run-live-input.md)
 
-* [Explorar Azure Stream Analytics trabalhos com Visual Studio Code (versão prévia)](visual-studio-code-explore-jobs.md)
+* [Explore os trabalhos do Azure Stream Analytics com código de estúdio visual (pré-visualização)](visual-studio-code-explore-jobs.md)

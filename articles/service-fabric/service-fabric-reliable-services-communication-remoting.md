@@ -1,18 +1,18 @@
 ---
-title: Comunicação remota do serviço C# usando no Service Fabric
-description: Service Fabric comunicação remota permite que clientes e serviços se C# comuniquem com serviços usando uma chamada de procedimento remoto.
+title: Serviço remoing usando C# em Tecido de Serviço
+description: O remoing de tecido de serviço permite que clientes e serviços se comuniquem com os serviços C# utilizando uma chamada de procedimento remoto.
 author: vturecek
 ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: vturecek
 ms.openlocfilehash: 0d59275f25931a11b2d551a2e9eb019838e4c1b3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75433871"
 ---
-# <a name="service-remoting-in-c-with-reliable-services"></a>Comunicação remota do C# serviço no com o Reliable Services
+# <a name="service-remoting-in-c-with-reliable-services"></a>Serviço remoing em C# com Serviços Fiáveis
 
 > [!div class="op_single_selector"]
 > * [C# no Windows](service-fabric-reliable-services-communication-remoting.md)
@@ -20,19 +20,19 @@ ms.locfileid: "75433871"
 >
 >
 
-Para serviços que não estão vinculados a um determinado protocolo de comunicação ou pilha, como uma API Web, Windows Communication Foundation ou outros, a estrutura de Reliable Services fornece um mecanismo de comunicação remota para configurar de forma rápida e fácil as chamadas de procedimento remoto para serviços. Este artigo discute como configurar chamadas de procedimento remoto para serviços escritos com C#o.
+Para serviços que não estão ligados a um determinado protocolo de comunicação ou stack, como uma API web, Windows Communication Foundation, ou outros, o quadro de Serviços Fiáveis fornece um mecanismo de remoing para configurar de forma rápida e fácil o procedimento remoto exige serviços. Este artigo discute como configurar procedimento remoto requer serviços escritos com C#.
 
-## <a name="set-up-remoting-on-a-service"></a>Configurar a comunicação remota em um serviço
+## <a name="set-up-remoting-on-a-service"></a>Configurar remoting em um serviço
 
-Você pode configurar a comunicação remota para um serviço em duas etapas simples:
+Você pode configurar remoting para um serviço em dois passos simples:
 
-1. Crie uma interface para o serviço implementar. Essa interface define os métodos que estão disponíveis para uma chamada de procedimento remoto em seu serviço. Os métodos devem ser métodos assíncronos que retornam tarefas. A interface deve implementar `Microsoft.ServiceFabric.Services.Remoting.IService` para sinalizar que o serviço tem uma interface de comunicação remota.
-2. Use um ouvinte de comunicação remota em seu serviço. Um ouvinte de comunicação remota é uma implementação `ICommunicationListener` que fornece recursos de comunicação remota. O namespace `Microsoft.ServiceFabric.Services.Remoting.Runtime` contém o método de extensão `CreateServiceRemotingInstanceListeners` para serviços com e sem estado que podem ser usados para criar um ouvinte de comunicação remota usando o protocolo de transporte remoto padrão.
+1. Crie uma interface para o seu serviço implementar. Esta interface define os métodos disponíveis para uma chamada de procedimento remoto no seu serviço. Os métodos devem ser métodos assíncronos de retorno de tarefas. A interface `Microsoft.ServiceFabric.Services.Remoting.IService` deve ser implementada para sinalizar que o serviço tem uma interface remoting.
+2. Use um ouvinte remoting ao seu serviço. Um ouvinte remoting `ICommunicationListener` é uma implementação que fornece capacidades de remoing. O `Microsoft.ServiceFabric.Services.Remoting.Runtime` espaço de nome `CreateServiceRemotingInstanceListeners` contém o método de extensão para serviços apátridas e apátridas que podem ser usados para criar um ouvinte remoting utilizando o protocolo de transporte de remoing padrão.
 
 >[!NOTE]
->O namespace `Remoting` está disponível como um pacote NuGet separado chamado `Microsoft.ServiceFabric.Services.Remoting`.
+>O `Remoting` espaço de nome está disponível `Microsoft.ServiceFabric.Services.Remoting`como um pacote NuGet separado chamado .
 
-Por exemplo, o serviço sem estado a seguir expõe um único método para obter "Olá, Mundo" sobre uma chamada de procedimento remoto.
+Por exemplo, o seguinte serviço apátrida expõe um único método para obter "Hello World" sobre uma chamada de procedimento remoto.
 
 ```csharp
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
@@ -65,13 +65,13 @@ class MyService : StatelessService, IMyService
 ```
 
 > [!NOTE]
-> Os argumentos e os tipos de retorno na interface de serviço podem ser de tipos simples, complexos ou personalizados, mas eles devem ser capazes de serem serializados pelo [DataContractSerializer](https://msdn.microsoft.com/library/ms731923.aspx)do .net.
+> Os argumentos e os tipos de devolução na interface de serviço podem ser de tipos simples, complexos ou personalizados, mas devem ser serializados pelo .NET [DataContractSerializer](https://msdn.microsoft.com/library/ms731923.aspx).
 >
 >
 
-## <a name="call-remote-service-methods"></a>Chamar métodos de serviço remoto
+## <a name="call-remote-service-methods"></a>Ligue para métodos de serviço remoto
 
-Chamar métodos em um serviço usando a pilha de comunicação remota é feito usando um proxy local para o serviço por meio da classe `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy`. O método `ServiceProxy` cria um proxy local usando a mesma interface implementada pelo serviço. Com esse proxy, você pode chamar métodos na interface remotamente.
+A chamada de métodos num serviço utilizando a pilha de remo `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` é feita utilizando um representante local para o serviço através da classe. O `ServiceProxy` método cria um proxy local utilizando a mesma interface que o serviço implementa. Com esse representante, pode ligar para métodos na interface remotamente.
 
 ```csharp
 
@@ -81,43 +81,43 @@ string message = await helloWorldClient.HelloWorldAsync();
 
 ```
 
-A estrutura de comunicação remota propaga exceções geradas pelo serviço para o cliente. Como resultado, quando `ServiceProxy`é usado, o cliente é responsável por manipular as exceções geradas pelo serviço.
+O quadro de remoing propaga exceções lançadas pelo serviço ao cliente. Como resultado, `ServiceProxy`quando é utilizado, o cliente é responsável pelo tratamento das exceções lançadas pelo serviço.
 
-## <a name="service-proxy-lifetime"></a>Tempo de vida do proxy de serviço
+## <a name="service-proxy-lifetime"></a>Vida útil de procuração de serviço
 
-A criação de proxy de serviço é uma operação leve, para que você possa criar quantos forem necessários. As instâncias de proxy de serviço podem ser reutilizadas desde que sejam necessárias. Se uma chamada de procedimento remoto lançar uma exceção, você ainda poderá reutilizar a mesma instância de proxy. Cada proxy de serviço contém um cliente de comunicação usado para enviar mensagens pela conexão. Ao invocar chamadas remotas, verificações internas são executadas para determinar se o cliente de comunicação é válido. Com base nos resultados dessas verificações, o cliente de comunicação é recriado, se necessário. Portanto, se ocorrer uma exceção, você não precisará recriar `ServiceProxy`.
+A criação de procuração de serviço é uma operação leve, para que possa criar quantos precisar. As instâncias de procuração de serviço podem ser reutilizadas durante o tempo necessário. Se uma chamada de procedimento remoto lançar uma exceção, ainda pode reutilizar a mesma instância de procuração. Cada representante de serviço contém um cliente de comunicação usado para enviar mensagens por cima do fio. Ao invocar chamadas remotas, são realizadas verificações internas para determinar se o cliente de comunicação é válido. Com base nos resultados desses controlos, o cliente de comunicação é recriado se necessário. Portanto, se ocorrer uma exceção, não precisa `ServiceProxy`de recriar .
 
-### <a name="service-proxy-factory-lifetime"></a>Tempo de vida da fábrica de proxy de serviço
+### <a name="service-proxy-factory-lifetime"></a>Vida útil da fábrica de procuração de serviço
 
-[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) é uma fábrica que cria instâncias de proxy para diferentes interfaces de comunicação remota. Se você usar o `ServiceProxyFactory.CreateServiceProxy` de API para criar um proxy, a estrutura criará um proxy de serviço singleton.
-É útil criar um manualmente quando você precisa substituir as propriedades [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory) .
-A criação de fábrica é uma operação cara. Uma fábrica de proxy de serviço mantém um cache interno do cliente de comunicação.
-Uma prática recomendada é armazenar em cache a fábrica de proxy de serviço pelo máximo de tempo possível.
+[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) é uma fábrica que cria instâncias de procuração para diferentes interfaces de remo. Se utilizar a `ServiceProxyFactory.CreateServiceProxy` API para criar um proxy, a estrutura cria um representante de serviço singleton.
+É útil criar um manualmente quando precisa de substituir as propriedades [iServiceRemotingClientFactory.](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory)
+A criação de fábrica é uma operação dispendiosa. Uma fábrica de procuração de serviço mantém uma cache interna do cliente de comunicação.
+A melhor prática é cache a fábrica de procuração de serviço durante o maior tempo possível.
 
-## <a name="remoting-exception-handling"></a>Manipulação de exceção de comunicação remota
+## <a name="remoting-exception-handling"></a>Manipulação de exceções remoing
 
-Todas as exceções remotas geradas pela API de serviço são enviadas de volta ao cliente como AggregateException. Exceções remotas devem ser capazes de ser serializadas pelo DataContract. Se não forem, a API de proxy lançará [ServiceException](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) com o erro de serialização nele.
+Todas as exceções remotas lançadas pelo serviço API são enviadas de volta para o cliente como AgregadoException. As exceções remotas devem poder ser serializadas pelo DataContract. Se não forem, a Proxy API lança [ServiceException](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) com o erro de serialização nele.
 
-O proxy de serviço trata todas as exceções de failover para a partição de serviço para a qual ela é criada. Ele resolverá novamente os pontos de extremidade se houver exceções de failover (exceções não transitórias) e tentará novamente a chamada com o ponto de extremidade correto. O número de repetições para exceções de failover é indefinido.
-Se ocorrerem exceções transitórias, o proxy tentará novamente a chamada.
+O proxy de serviço trata de todas as exceções de failover para a partição de serviço para a sua criação. Reresolve os pontos finais se houver exceções de failover (exceções não transitórias) e retentar a chamada com o ponto final correto. O número de tentativas de reprovação de exceções por falhas é indefinido.
+Se ocorrerem exceções transitórias, o representante repete a chamada.
 
-Os parâmetros de repetição padrão são fornecidos pelo [OperationRetrySettings](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
+Os parâmetros de retry predefinidos são fornecidos pela [OperationRetrySettings](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
 
-Um usuário pode configurar esses valores passando o objeto OperationRetrySettings para o Construtor ServiceProxyFactory.
+Um utilizador pode configurar estes valores passando o objeto OperationRetrySettings para o construtor ServiceProxyFactory.
 
-## <a name="use-the-remoting-v2-stack"></a>Usar a pilha v2 de comunicação remota
+## <a name="use-the-remoting-v2-stack"></a>Use a pilha V2 remoting
 
-A partir da versão 2,8 do pacote de comunicação remota do NuGet, você tem a opção de usar a pilha v2 de comunicação remota. A pilha v2 de comunicação remota apresenta melhor desempenho. Ele também fornece recursos como serialização personalizada e mais APIs conectáveis.
-O código do modelo continua a usar a pilha remota v1.
-A comunicação remota v2 não é compatível com V1 (a pilha remota anterior). Siga as instruções no artigo [Atualizar de v1 para v2](#upgrade-from-remoting-v1-to-remoting-v2) para evitar efeitos sobre a disponibilidade do serviço.
+A partir da versão 2.8 do pacote de remor NuGet, tem a opção de utilizar a pilha V2 remoting. A pilha V2 remoting funciona melhor. Também fornece funcionalidades como serialização personalizada e APIs mais pluggable.
+O código do modelo continua a utilizar a pilha V1 remoting.
+Remoting V2 não é compatível com V1 (a pilha de remo anterior). Siga as instruções do artigo [Upgrade de V1 para V2](#upgrade-from-remoting-v1-to-remoting-v2) para evitar efeitos na disponibilidade do serviço.
 
-As abordagens a seguir estão disponíveis para habilitar a pilha v2.
+As seguintes abordagens estão disponíveis para ativar a pilha V2.
 
-### <a name="use-an-assembly-attribute-to-use-the-v2-stack"></a>Usar um atributo de assembly para usar a pilha v2
+### <a name="use-an-assembly-attribute-to-use-the-v2-stack"></a>Use um atributo de montagem para usar a pilha V2
 
-Essas etapas alteram o código do modelo para usar a pilha v2 usando um atributo de assembly.
+Estes passos alteram o código de modelo para utilizar a pilha V2 utilizando um atributo de montagem.
 
-1. Altere o recurso de ponto de extremidade de `"ServiceEndpoint"` para `"ServiceEndpointV2"` no manifesto do serviço.
+1. Altere o recurso `"ServiceEndpoint"` `"ServiceEndpointV2"` final de para o manifesto de serviço.
 
    ```xml
    <Resources>
@@ -127,7 +127,7 @@ Essas etapas alteram o código do modelo para usar a pilha v2 usando um atributo
    </Resources>
    ```
 
-2. Use o método de extensão `Microsoft.ServiceFabric.Services.Remoting.Runtime.CreateServiceRemotingInstanceListeners` para criar ouvintes de comunicação remota (igual para v1 e v2).
+2. Utilize `Microsoft.ServiceFabric.Services.Remoting.Runtime.CreateServiceRemotingInstanceListeners` o método de extensão para criar ouvintes remoting (igual tanto para V1 como V2).
 
    ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -136,22 +136,22 @@ Essas etapas alteram o código do modelo para usar a pilha v2 usando um atributo
     }
    ```
 
-3. Marque o assembly que contém as interfaces de comunicação remota com um atributo `FabricTransportServiceRemotingProvider`.
+3. Marque o conjunto que contém as `FabricTransportServiceRemotingProvider` interfaces de remo com um atributo.
 
    ```csharp
    [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2, RemotingClientVersion = RemotingClientVersion.V2)]
    ```
 
-Nenhuma alteração de código é necessária no projeto cliente.
-Crie o assembly de cliente com o assembly de interface para certificar-se de que o atributo de assembly mostrado anteriormente é usado.
+Não são necessárias alterações de código no projeto do cliente.
+Construa o conjunto do cliente com o conjunto de interface seleções para se certificar de que o atributo de montagem anteriormente mostrado é utilizado.
 
-### <a name="use-explicit-v2-classes-to-use-the-v2-stack"></a>Usar classes v2 explícitas para usar a pilha v2
+### <a name="use-explicit-v2-classes-to-use-the-v2-stack"></a>Use classes V2 explícitas para usar a pilha V2
 
-Como alternativa ao uso de um atributo de assembly, a pilha V2 também pode ser habilitada usando classes v2 explícitas.
+Como alternativa à utilização de um atributo de montagem, a pilha V2 também pode ser ativada através da utilização de classes V2 explícitas.
 
-Essas etapas alteram o código do modelo para usar a pilha v2 usando classes v2 explícitas.
+Estes passos alteram o código de modelo para utilizar a pilha V2 utilizando classes V2 explícitas.
 
-1. Altere o recurso de ponto de extremidade de `"ServiceEndpoint"` para `"ServiceEndpointV2"` no manifesto do serviço.
+1. Altere o recurso `"ServiceEndpoint"` `"ServiceEndpointV2"` final de para o manifesto de serviço.
 
    ```xml
    <Resources>
@@ -161,7 +161,7 @@ Essas etapas alteram o código do modelo para usar a pilha v2 usando classes v2 
    </Resources>
    ```
 
-2. Use [FabricTransportServiceRemotingListener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingListener?view=azure-dotnet) do namespace `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime`.
+2. Utilize [FabricTransportServiceRemotingListener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingListener?view=azure-dotnet) `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime` a partir do espaço de nome.
 
    ```csharp
    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -177,7 +177,7 @@ Essas etapas alteram o código do modelo para usar a pilha v2 usando classes v2 
     }
    ```
 
-3. Use [FabricTransportServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet) do namespace `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client` para criar clientes.
+3. Utilize [o FabricTransportServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet) a partir do `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client` espaço de nome para criar clientes.
 
    ```csharp
    var proxyFactory = new ServiceProxyFactory((c) =>
@@ -186,14 +186,14 @@ Essas etapas alteram o código do modelo para usar a pilha v2 usando classes v2 
           });
    ```
 
-## <a name="upgrade-from-remoting-v1-to-remoting-v2"></a>Atualização do Remoting v1 para o Remoting v2
+## <a name="upgrade-from-remoting-v1-to-remoting-v2"></a>Upgrade de remoing V1 para removing V2
 
-Para atualizar de v1 para v2, são necessárias atualizações em duas etapas. Siga as etapas nesta sequência.
+Para atualizar de V1 para V2, são necessárias atualizações de dois passos. Siga os passos nesta sequência.
 
-1. Atualize o serviço v1 para o serviço v2 usando este atributo.
-Essa alteração certifica-se de que o serviço escuta no ouvinte v1 e v2.
+1. Atualize o serviço V1 para o serviço V2 utilizando este atributo.
+Esta alteração garante que o serviço ouve o ouvinte V1 e V2.
 
-    a. Adicione um recurso de ponto de extremidade com o nome "ServiceEndpointV2" no manifesto do serviço.
+    a. Adicione um recurso de ponto final com o nome "ServiceEndpointV2" no manifesto de serviço.
       ```xml
       <Resources>
         <Endpoints>
@@ -202,7 +202,7 @@ Essa alteração certifica-se de que o serviço escuta no ouvinte v1 e v2.
       </Resources>
       ```
 
-    b. Use o método de extensão a seguir para criar um ouvinte de comunicação remota.
+    b. Utilize o seguinte método de extensão para criar um ouvinte remoting.
 
     ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -211,33 +211,33 @@ Essa alteração certifica-se de que o serviço escuta no ouvinte v1 e v2.
     }
     ```
 
-    c. Adicione um atributo de assembly em interfaces de comunicação remota para usar o ouvinte v1 e V2 e o cliente v2.
+    c. Adicione um atributo de montagem nas interfaces de remoting para utilizar o ouvinte V1 e V2 e o cliente V2.
     ```csharp
     [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2|RemotingListenerVersion.V1, RemotingClientVersion = RemotingClientVersion.V2)]
 
       ```
-2. Atualize o cliente v1 para um cliente v2 usando o atributo cliente v2.
-Essa etapa garante que o cliente use a pilha v2.
-Nenhuma alteração no projeto/serviço do cliente é necessária. A criação de projetos de cliente com o assembly de interface atualizado é suficiente.
+2. Atualize o cliente V1 para um cliente V2 utilizando o atributo do cliente V2.
+Este passo garante que o cliente usa a pilha V2.
+Não é necessária qualquer alteração no projeto/serviço do cliente. Construir projetos de clientes com montagem de interface atualizada é suficiente.
 
-3. Este passo é opcional. Use o atributo de ouvinte V2 e, em seguida, atualize o serviço v2.
-Essa etapa garante que o serviço esteja escutando apenas no ouvinte v2.
+3. Este passo é opcional. Utilize o atributo do ouvinte V2 e, em seguida, atualize o serviço V2.
+Este passo garante que o serviço está a ouvir apenas no ouvinte V2.
 
     ```csharp
     [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2, RemotingClientVersion = RemotingClientVersion.V2)]
     ```
 
 
-## <a name="use-the-remoting-v2-interface-compatible-stack"></a>Usar a pilha do Remoting v2 (compatível com a interface)
+## <a name="use-the-remoting-v2-interface-compatible-stack"></a>Utilize a pilha V2 remoting (compatível com interface)
 
- A pilha remota v2 (compatível com a interface, conhecida como V2_1) tem todos os recursos da pilha de comunicação remota v2. Sua pilha de interface é compatível com a pilha de comunicação remota v1, mas não é compatível com a versão V2 e v1. Para atualizar do v1 para o V2_1 sem afetar a disponibilidade do serviço, siga as etapas no artigo atualizar da v1 para v2 (compatível com a interface).
+ A pilha V2 remoting (compatível com interface, conhecida como V2_1) tem todas as características da pilha de removing V2. A sua pilha de interface é compatível com a pilha V1 remoting, mas não é compatível com V2 e V1. Para atualizar de V1 para V2_1 sem afetar a disponibilidade do serviço, siga os passos do artigo Upgrade de V1 para V2 (compatível com interface).
 
 
-### <a name="use-an-assembly-attribute-to-use-the-remoting-v2-interface-compatible-stack"></a>Usar um atributo de assembly para usar a pilha do Remoting v2 (compatível com a interface)
+### <a name="use-an-assembly-attribute-to-use-the-remoting-v2-interface-compatible-stack"></a>Utilize um atributo de montagem para utilizar a pilha V2 remoting (compatível com interface)
 
-Siga estas etapas para mudar para uma pilha de V2_1.
+Siga estes passos para mudar para uma pilha de V2_1.
 
-1. Adicione um recurso de ponto de extremidade com o nome "ServiceEndpointV2_1" no manifesto do serviço.
+1. Adicione um recurso de ponto final com o nome "ServiceEndpointV2_1" no manifesto de serviço.
 
    ```xml
    <Resources>
@@ -247,7 +247,7 @@ Siga estas etapas para mudar para uma pilha de V2_1.
    </Resources>
    ```
 
-2. Use o método de extensão de comunicação remota para criar um ouvinte de comunicação remota.
+2. Utilize o método de extensão de remopara criar um ouvinte remoting.
 
    ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -256,21 +256,21 @@ Siga estas etapas para mudar para uma pilha de V2_1.
     }
    ```
 
-3. Adicione um [atributo de assembly](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportserviceremotingproviderattribute?view=azure-dotnet) em interfaces de comunicação remota.
+3. Adicione um [atributo](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportserviceremotingproviderattribute?view=azure-dotnet) de montagem nas interfaces de remo.
 
    ```csharp
     [assembly:  FabricTransportServiceRemotingProvider(RemotingListenerVersion=  RemotingListenerVersion.V2_1, RemotingClientVersion= RemotingClientVersion.V2_1)]
 
    ```
 
-Nenhuma alteração é necessária no projeto cliente.
-Crie o assembly de cliente com o assembly de interface para certificar-se de que o atributo de assembly anterior está sendo usado.
+Não são necessárias alterações no projeto do cliente.
+Construa o conjunto do cliente com o conjunto de interface seleções para se certificar de que o atributo de montagem anterior está a ser utilizado.
 
-### <a name="use-explicit-remoting-classes-to-create-a-listenerclient-factory-for-the-v2-interface-compatible-version"></a>Usar classes de comunicação remota explícitas para criar uma fábrica de ouvinte/cliente para a versão v2 (compatível com interface)
+### <a name="use-explicit-remoting-classes-to-create-a-listenerclient-factory-for-the-v2-interface-compatible-version"></a>Utilize aulas explícitas de remo para criar uma fábrica de ouvintes/clientes para a versão V2 (compatível com interface)
 
 Siga estes passos.
 
-1. Adicione um recurso de ponto de extremidade com o nome "ServiceEndpointV2_1" no manifesto do serviço.
+1. Adicione um recurso de ponto final com o nome "ServiceEndpointV2_1" no manifesto de serviço.
 
    ```xml
    <Resources>
@@ -280,7 +280,7 @@ Siga estes passos.
    </Resources>
    ```
 
-2. Use o [ouvinte remoto v2](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet). O nome de recurso do ponto de extremidade de serviço padrão usado é "ServiceEndpointV2_1". Ele deve ser definido no manifesto do serviço.
+2. Utilize o [ouvinte V2 remoting](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet). O nome de recurso final do serviço predefinido utilizado é "ServiceEndpointV2_1". Deve ser definido no manifesto de serviço.
 
    ```csharp
    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -298,7 +298,7 @@ Siga estes passos.
     }
    ```
 
-3. Use a [fábrica de cliente](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet)v2.
+3. Utilize a [fábrica](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet)de clientes V2.
    ```csharp
    var proxyFactory = new ServiceProxyFactory((c) =>
           {
@@ -308,19 +308,19 @@ Siga estes passos.
           });
    ```
 
-## <a name="upgrade-from-remoting-v1-to-remoting-v2-interface-compatible"></a>Atualização do Remoting v1 para o Remoting v2 (compatível com a interface)
+## <a name="upgrade-from-remoting-v1-to-remoting-v2-interface-compatible"></a>Upgrade de remoing V1 para removv (compatível com interface)
 
-Para atualizar da v1 para a v2 (compatível com a interface, conhecida como V2_1), são necessárias atualizações em duas etapas. Siga as etapas nesta sequência.
+Para atualizar de V1 para V2 (compatível com interface, conhecido como V2_1), são necessárias atualizações em duas etapas. Siga os passos nesta sequência.
 
 > [!NOTE]
-> Ao atualizar da v1 para a v2, verifique se o namespace `Remoting` está atualizado para usar v2. Exemplo: ' Microsoft. FabricTransport. Services. Remoting. v2. Client '
+> Ao atualizar de V1 para V2, certifique-se de que o espaço de `Remoting` nome está atualizado para utilizar o V2. Exemplo: 'Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client'
 >
 >
 
-1. Atualize o serviço v1 para V2_1 serviço usando o atributo a seguir.
-Essa alteração garante que o serviço esteja escutando no v1 e no ouvinte de V2_1.
+1. Atualize o serviço V1 para V2_1 serviço utilizando o seguinte atributo.
+Esta alteração garante que o serviço está a ouvir o V1 e o V2_1 ouvinte.
 
-    a. Adicione um recurso de ponto de extremidade com o nome "ServiceEndpointV2_1" no manifesto do serviço.
+    a. Adicione um recurso de ponto final com o nome "ServiceEndpointV2_1" no manifesto de serviço.
       ```xml
       <Resources>
         <Endpoints>
@@ -329,7 +329,7 @@ Essa alteração garante que o serviço esteja escutando no v1 e no ouvinte de V
       </Resources>
       ```
 
-    b. Use o método de extensão a seguir para criar um ouvinte de comunicação remota.
+    b. Utilize o seguinte método de extensão para criar um ouvinte remoting.
 
     ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -338,29 +338,29 @@ Essa alteração garante que o serviço esteja escutando no v1 e no ouvinte de V
     }
     ```
 
-    c. Adicione um atributo de assembly em interfaces de comunicação remota para usar o cliente v1, V2_1 Listener e V2_1.
+    c. Adicione um atributo de montagem em interfaces remoting para usar o V1, V2_1 ouvinte e V2_1 cliente.
     ```csharp
    [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1 | RemotingListenerVersion.V1, RemotingClientVersion = RemotingClientVersion.V2_1)]
 
       ```
-2. Atualize o cliente v1 para o V2_1 cliente usando o atributo de cliente V2_1.
-Essa etapa garante que o cliente esteja usando a pilha de V2_1.
-Nenhuma alteração no projeto/serviço do cliente é necessária. A criação de projetos de cliente com o assembly de interface atualizado é suficiente.
+2. Atualize o cliente V1 para o cliente V2_1 utilizando o atributo do cliente V2_1.
+Este passo garante que o cliente está a usar a pilha de V2_1.
+Não é necessária qualquer alteração no projeto/serviço do cliente. Construir projetos de clientes com montagem de interface atualizada é suficiente.
 
-3. Este passo é opcional. Remova a versão v1 do ouvinte do atributo e, em seguida, atualize o serviço v2.
-Essa etapa garante que o serviço esteja escutando apenas no ouvinte v2.
+3. Este passo é opcional. Retire a versão do ouvinte V1 do atributo e, em seguida, atualize o serviço V2.
+Este passo garante que o serviço está a ouvir apenas no ouvinte V2.
 
     ```csharp
     [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1, RemotingClientVersion = RemotingClientVersion.V2_1)]
     ```
   
-### <a name="use-custom-serialization-with-a-remoting-wrapped-message"></a>Usar a serialização personalizada com uma mensagem encapsulada de comunicação remota
+### <a name="use-custom-serialization-with-a-remoting-wrapped-message"></a>Utilize a serialização personalizada com uma mensagem embrulhada em remo
 
-Para uma mensagem encapsulada de comunicação remota, criamos um único objeto encapsulado com todos os parâmetros como um campo nele.
+Para uma mensagem embrulhada em remo, criamos um único objeto embrulhado com todos os parâmetros como um campo nele.
 Siga estes passos.
 
-1. Implemente a interface `IServiceRemotingMessageSerializationProvider` para fornecer implementação para serialização personalizada.
-    Esse trecho de código mostra a aparência da implementação.
+1. Implementar `IServiceRemotingMessageSerializationProvider` a interface para fornecer implementação para serialização personalizada.
+    Este código mostra como é a implementação.
 
       ```csharp
       public class ServiceRemotingJsonSerializationProvider : IServiceRemotingMessageSerializationProvider
@@ -521,7 +521,7 @@ Siga estes passos.
     }
     ```
 
-2. Substitua o provedor de serialização padrão por `JsonSerializationProvider` para um ouvinte de comunicação remota.
+2. Anular o fornecedor de `JsonSerializationProvider` serialização padrão com para um ouvinte remoting.
 
    ```csharp
    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -537,7 +537,7 @@ Siga estes passos.
    }
    ```
 
-3. Substitua o provedor de serialização padrão por `JsonSerializationProvider` para uma fábrica de cliente remoto.
+3. Sobrepor-se ao fornecedor `JsonSerializationProvider` de serialização padrão com para uma fábrica de clientes em remo.
 
     ```csharp
     var proxyFactory = new ServiceProxyFactory((c) =>
@@ -549,6 +549,6 @@ Siga estes passos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [API Web com OWIN em Reliable Services](service-fabric-reliable-services-communication-webapi.md)
-* [Windows Communication Foundation comunicação com Reliable Services](service-fabric-reliable-services-communication-wcf.md)
-* [Comunicação segura para Reliable Services](service-fabric-reliable-services-secure-communication.md)
+* [Web API com OWIN em Serviços Fiáveis](service-fabric-reliable-services-communication-webapi.md)
+* [Comunicação da Fundação de Comunicação do Windows com Serviços Fiáveis](service-fabric-reliable-services-communication-wcf.md)
+* [Comunicação segura para serviços fiáveis](service-fabric-reliable-services-secure-communication.md)

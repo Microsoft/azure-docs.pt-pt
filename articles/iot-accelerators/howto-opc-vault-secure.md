@@ -1,6 +1,6 @@
 ---
-title: Proteger a comunicação de dispositivos OPC UA com o cofre OPC – Azure | Microsoft Docs
-description: Como registrar aplicativos OPC UA e como emitir certificados de aplicativo assinados para seus dispositivos OPC UA com o cofre OPC.
+title: Proteja a comunicação de dispositivos OPC UA com OPC Vault - Azure / Microsoft Docs
+description: Como registar as aplicações da OPC UA e como emitir certificados de candidatura assinados para os seus dispositivos OPC UA com OPC Vault.
 author: mregen
 ms.author: mregen
 ms.date: 8/16/2018
@@ -9,102 +9,102 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: af5e511cbf273bc4e4fa0a08d089a955426fe75c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75454196"
 ---
-# <a name="use-the-opc-vault-certificate-management-service"></a>Usar o serviço de gerenciamento de certificados do cofre OPC
+# <a name="use-the-opc-vault-certificate-management-service"></a>Utilize o serviço de gestão de certificados OPC Vault
 
-Este artigo explica como registrar aplicativos e como emitir certificados de aplicativo assinados para seus dispositivos OPC UA.
+Este artigo explica como registar aplicações e como emitir certificados de candidatura assinados para os seus dispositivos OPC UA.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="deploy-the-certificate-management-service"></a>Implantar o serviço de gerenciamento de certificados
+### <a name="deploy-the-certificate-management-service"></a>Implementar o serviço de gestão de certificados
 
-Primeiro, implante o serviço na nuvem do Azure. Para obter detalhes, consulte [implantar o serviço de gerenciamento de certificados do cofre do OPC](howto-opc-vault-deploy.md).
+Primeiro, desloque o serviço para a nuvem Azure. Para mais detalhes, consulte Implementar o serviço de [gestão de certificados OPC Vault](howto-opc-vault-deploy.md).
 
-### <a name="create-the-issuer-ca-certificate"></a>Criar o certificado de autoridade de certificação do emissor
+### <a name="create-the-issuer-ca-certificate"></a>Criar o certificado CA emitente
 
-Se você ainda não tiver feito isso, crie o certificado de autoridade de certificação do emissor. Para obter detalhes, consulte [criar e gerenciar o certificado do emissor para o cofre OPC](howto-opc-vault-manage.md).
+Se ainda não o fez, crie o certificado DE EMitente CA. Para mais detalhes, consulte [Criar e gerir o certificado emitente para o Cofre OPC](howto-opc-vault-manage.md).
 
-## <a name="secure-opc-ua-applications"></a>Proteger aplicativos OPC UA
+## <a name="secure-opc-ua-applications"></a>Aplicações Seguras da OPC UA
 
-### <a name="step-1-register-your-opc-ua-application"></a>Etapa 1: registrar seu aplicativo OPC UA 
+### <a name="step-1-register-your-opc-ua-application"></a>Passo 1: Registe a sua aplicação OPC UA 
 
 > [!IMPORTANT]
-> A função de gravador é necessária para registrar um aplicativo.
+> O papel de Escritor é obrigado a registar uma candidatura.
 
-1. Abra seu serviço de certificado em `https://myResourceGroup-app.azurewebsites.net`e entre.
-2. Vá para **registrar novo**. Para um registro de aplicativo, um usuário precisa ter pelo menos a função de gravador atribuída.
-2. O formulário de entrada segue as convenções de nomenclatura no OPC UA. Por exemplo, na captura de tela a seguir, as configurações para o exemplo de [servidor de referência do OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/Reference) na pilha de .net standard do OPC UA são mostradas:
+1. Abra o seu `https://myResourceGroup-app.azurewebsites.net`serviço de certificados em, e inscreva-se.
+2. Ir para **registar novo**. Para um registo de candidatura, um utilizador precisa de ter pelo menos o papel de Escritor atribuído.
+2. O formulário de entrada segue as convenções de nomeação na OPC UA. Por exemplo, na seguinte imagem, as definições para a amostra do Servidor de [Referência OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/Reference) na pilha padrão OPC UA .NET são mostradas:
 
-   ![Captura de tela do registro do servidor de referência do UA](media/howto-opc-vault-secure/reference-server-registration.png "Registro do servidor de referência do UA")
+   ![Screenshot do registo do servidor de referência ua](media/howto-opc-vault-secure/reference-server-registration.png "Registo do Servidor de Referência ua")
 
-5. Selecione **registrar** para registrar o aplicativo no banco de dados do aplicativo do serviço de certificado. O fluxo de trabalho orienta diretamente o usuário para a próxima etapa para solicitar um certificado assinado para o aplicativo.
+5. Selecione **Registar** para registar a aplicação na base de dados de aplicação de serviço de certificado. O fluxo de trabalho orienta diretamente o utilizador para o passo seguinte para solicitar um certificado assinado para a aplicação.
 
-### <a name="step-2-secure-your-application-with-a-ca-signed-application-certificate"></a>Etapa 2: proteger seu aplicativo com um certificado de aplicativo assinado pela AC
+### <a name="step-2-secure-your-application-with-a-ca-signed-application-certificate"></a>Passo 2: Proteja o seu pedido com um certificado de candidatura assinado pela AC
 
-Proteja seu aplicativo OPC UA emitindo um certificado assinado com base em uma solicitação de assinatura de certificado (CSR). Como alternativa, você pode solicitar um novo par de chaves, que inclui uma nova chave privada no formato PFX ou PEM. Para obter informações sobre qual método tem suporte para seu aplicativo, consulte a documentação do seu dispositivo OPC UA. Em geral, o método CSR é recomendado, pois ele não requer que uma chave privada seja transferida por uma transmissão.
+Proteja o seu pedido de UA OPC através da emissão de um certificado assinado com base num Pedido de Assinatura de Certificado (CSR). Em alternativa, pode solicitar um novo par de chaves, que inclui uma nova chave privada em formato PFX ou PEM. Para obter informações sobre qual o método suportado para a sua aplicação, consulte a documentação do seu dispositivo OPC UA. Em geral, recomenda-se o método CSR, porque não é necessária uma chave privada para ser transferida por um fio.
 
-#### <a name="request-a-new-certificate-with-a-new-keypair"></a>Solicitar um novo certificado com um novo par de chaves
+#### <a name="request-a-new-certificate-with-a-new-keypair"></a>Solicite um novo certificado com um novo par de chaves
 
-1. Vá para **aplicativos**.
-3. Selecione **nova solicitação** para um aplicativo listado.
+1. Ir a **Candidaturas.**
+3. Selecione **Novo Pedido** para uma candidatura listada.
 
-   ![Captura de tela de solicitação de novo certificado](media/howto-opc-vault-secure/request-new-certificate.png "Solicitar novo certificado")
+   ![Screenshot do pedido novo certificado](media/howto-opc-vault-secure/request-new-certificate.png "Solicitar Novo Certificado")
 
-3. Selecione **solicitar novo par de chaves e certificado** para solicitar uma chave privada e um novo certificado assinado com a chave pública para seu aplicativo.
+3. Selecione **Solicitar novos KeyPair e Certificado** para solicitar uma chave privada e um novo certificado assinado com a chave pública para a sua aplicação.
 
-   ![Captura de tela de gerar um novo par de chaves e certificado](media/howto-opc-vault-secure/generate-new-key-pair.png "Gerar Novo Par de Chaves")
+   ![Screenshot de Gerar um novo KeyPair e certificado](media/howto-opc-vault-secure/generate-new-key-pair.png "Gerar novo par de chaves")
 
-4. Preencha o formulário com um assunto e os nomes de domínio. Para a chave privada, escolha PEM ou PFX com senha. Selecione **gerar novo par de chaves** para criar a solicitação de certificado.
+4. Preencha o formulário com um sujeito e os nomes de domínio. Para a chave privada, escolha PEM ou PFX com senha. Selecione **Generate New KeyPair** para criar o pedido de certificado.
 
-   ![Captura de tela de exibir detalhes da solicitação de certificado](media/howto-opc-vault-secure/approve-reject.png "Aprovar certificado")
+   ![Screenshot de ver detalhes do pedido de certificado](media/howto-opc-vault-secure/approve-reject.png "Aprovar Certificado")
 
-5. A aprovação exige um usuário com a função de aprovador e com permissões de assinatura no Azure Key Vault. No fluxo de trabalho típico, as funções aprovador e solicitante devem ser atribuídas a diferentes usuários. Selecione **aprovar** ou **rejeitar** para iniciar ou cancelar a criação real do par de chaves e a operação de assinatura. O novo par de chaves é criado e armazenado com segurança em Azure Key Vault, até ser baixado pelo solicitante do certificado. O certificado resultante com a chave pública é assinado pela autoridade de certificação. Essas operações podem levar alguns segundos para serem concluídas.
+5. A aprovação requer um utilizador com a função De aprovação, e com permissões de assinatura no Cofre chave Azure. No fluxo de trabalho típico, as funções de Aprovador e Requester devem ser atribuídas a diferentes utilizadores. Selecione **Aprovar** ou **Rejeitar** para iniciar ou cancelar a criação real do par chave e a operação de assinatura. O novo par chave é criado e armazenado de forma segura no Cofre de Chaves Azure, até ser descarregado pelo solicitor de certificado. O certificado resultante com chave pública é assinado pela AC. Estas operações podem levar alguns segundos para terminar.
 
-   ![Captura de tela de exibir detalhes da solicitação de certificado, com mensagem de aprovação na parte inferior](media/howto-opc-vault-secure/view-key-pair.png "Exibir par de chaves")
+   ![Screenshot de Ver Dados de Pedido de Certificado, com mensagem de aprovação na parte inferior](media/howto-opc-vault-secure/view-key-pair.png "Ver par de chaves")
 
-7. A chave privada resultante (PFX ou PEM) e o certificado (DER) podem ser baixados aqui no formato selecionado como download de arquivo binário. Uma versão codificada em base64 também está disponível, por exemplo, para copiar e colar o certificado em uma linha de comando ou entrada de texto. 
-8. Depois que a chave privada for baixada e armazenada com segurança, você poderá selecionar **Excluir chave privada**. O certificado com a chave pública permanece disponível para uso futuro.
-9. Devido ao uso de um certificado assinado por uma autoridade de certificação, o certificado de CA e a CRL (lista de certificados revogados) também devem ser baixados aqui.
+7. A chave privada resultante (PFX ou PEM) e o certificado (DER) podem ser descarregados daqui no formato selecionado como download de ficheiros binários. Está também disponível uma versão codificada base64, por exemplo, para copiar e colar o certificado a uma linha de comando ou entrada de texto. 
+8. Depois de a chave privada ser descarregada e armazenada de forma segura, pode selecionar **apagar a tecla privada**. O certificado com a chave pública permanece disponível para utilização futura.
+9. Devido à utilização de um certificado assinado pela AC, a Lista de Revogação de Certificados ca e certificado (CRL) também deve ser descarregada aqui.
 
-Agora, ele depende do dispositivo OPC UA como aplicar o novo par de chaves. Normalmente, o certificado de autoridade de certificação e a CRL são copiados para uma pasta `trusted`, enquanto as chaves pública e privada do certificado de aplicativo são aplicadas a uma pasta `own` no repositório de certificados. Alguns dispositivos podem já dar suporte ao push do servidor para atualizações de certificado. Consulte a documentação do seu dispositivo OPC UA.
+Agora depende do dispositivo OPC UA como aplicar o novo par de chaves. Normalmente, o CA cert e o `trusted` CRL são copiados para uma pasta, `own` enquanto as chaves públicas e privadas do certificado de inscrição são aplicadas a uma pasta na loja de certificados. Alguns dispositivos podem já suportar o impulso do servidor para atualizações de certificados. Consulte a documentação do seu dispositivo OPC UA.
 
-#### <a name="request-a-new-certificate-with-a-csr"></a>Solicitar um novo certificado com um CSR 
+#### <a name="request-a-new-certificate-with-a-csr"></a>Solicite um novo certificado com uma RSE 
 
-1. Vá para **aplicativos**.
-3. Selecione **nova solicitação** para um aplicativo listado.
+1. Ir a **Candidaturas.**
+3. Selecione **Novo Pedido** para uma candidatura listada.
 
-   ![Captura de tela de solicitação de novo certificado](media/howto-opc-vault-secure/request-new-certificate.png "Solicitar novo certificado")
+   ![Screenshot do pedido novo certificado](media/howto-opc-vault-secure/request-new-certificate.png "Solicitar Novo Certificado")
 
-3. Selecione **solicitar novo certificado com solicitação de assinatura** para solicitar um novo certificado assinado para seu aplicativo.
+3. Selecione **Solicitar novo Certificado com Pedido** de Assinatura para solicitar um novo certificado assinado para a sua candidatura.
 
-   ![Captura de tela de gerar um novo certificado](media/howto-opc-vault-secure/generate-new-certificate.png "Gerar novo certificado")
+   ![Screenshot de Gerar um novo Certificado](media/howto-opc-vault-secure/generate-new-certificate.png "Gerar Novo Certificado")
 
-4. Carregue o CSR selecionando um arquivo local ou colando um CSR codificado em base64 no formulário. Selecione **gerar novo certificado**.
+4. Faça upload de CSR selecionando um ficheiro local ou colando um CSR codificado base64 no formulário. **Selecione Gerar novo certificado**.
 
-   ![Captura de tela de exibir detalhes da solicitação de certificado](media/howto-opc-vault-secure/approve-reject-csr.png "Aprovar CSR")
+   ![Screenshot de ver detalhes do pedido de certificado](media/howto-opc-vault-secure/approve-reject-csr.png "Aprovar a RSE")
 
-5. A aprovação exige um usuário com a função de aprovador e com permissões de assinatura no Azure Key Vault. Selecione **aprovar** ou **rejeitar** para iniciar ou cancelar a operação de assinatura real. O certificado resultante com a chave pública é assinado pela autoridade de certificação. Essa operação pode levar alguns segundos para ser concluída.
+5. A aprovação requer um utilizador com a função De aprovação, e com permissões de assinatura no Cofre chave Azure. Selecione **Aprovar** ou **Rejeitar** para iniciar ou cancelar a operação de assinatura real. O certificado resultante com chave pública é assinado pela AC. Esta operação pode levar alguns segundos para terminar.
 
-   ![Captura de tela de exibir detalhes da solicitação de certificado, com mensagem de aprovação na parte inferior](media/howto-opc-vault-secure/view-cert-csr.png "Ver Certificado")
+   ![Screenshot de Ver Dados de Pedido de Certificado, com mensagem de aprovação na parte inferior](media/howto-opc-vault-secure/view-cert-csr.png "Ver Certificado")
 
-6. O certificado resultante (DER) pode ser baixado aqui como arquivo binário. Uma versão codificada em base64 também está disponível, por exemplo, para copiar e colar o certificado em uma linha de comando ou entrada de texto. 
-10. Depois que o certificado for baixado e armazenado com segurança, você poderá selecionar **excluir certificado**.
-11. Devido ao uso de um certificado assinado por uma autoridade de certificação, o certificado de CA e a CRL devem ser baixados aqui também.
+6. O certificado resultante (DER) pode ser descarregado daqui como ficheiro binário. Está também disponível uma versão codificada base64, por exemplo, para copiar e colar o certificado a uma linha de comando ou entrada de texto. 
+10. Depois de o certificado ser descarregado e armazenado de forma segura, pode selecionar **o Certificado de Exclusão**.
+11. Devido à utilização de um certificado assinado pela AC, o CA cert e o CRL também devem ser descarregados aqui.
 
-Agora, isso depende do dispositivo OPC UA como aplicar o novo certificado. Normalmente, o certificado de autoridade de certificação e a CRL são copiados para uma pasta de `trusted`, enquanto esse é aplicado a uma pasta `own` no repositório de certificados. Alguns dispositivos podem já dar suporte ao push do servidor para atualizações de certificado. Consulte a documentação do seu dispositivo OPC UA.
+Agora depende do dispositivo OPC UA como aplicar o novo certificado. Normalmente, o CA cert e o `trusted` CRL são copiados para `own` uma pasta, enquanto o certificado de inscrição é aplicado a uma pasta na loja de certificados. Alguns dispositivos podem já suportar o impulso do servidor para atualizações de certificados. Consulte a documentação do seu dispositivo OPC UA.
 
-### <a name="step-3-device-secured"></a>Etapa 3: dispositivo protegido
+### <a name="step-3-device-secured"></a>Passo 3: Dispositivo seguro
 
-O dispositivo OPC UA agora está pronto para se comunicar com outros dispositivos OPC UA protegidos por certificados assinados por CA, sem configuração adicional.
+O dispositivo OPC UA está agora pronto para comunicar com outros dispositivos OPC UA protegidos por certificados assinados pela CA, sem configuração adicional.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você aprendeu a proteger os dispositivos OPC UA, você pode:
+Agora que aprendeu a proteger dispositivos OPC UA, pode:
 
 > [!div class="nextstepaction"]
-> [Executar um serviço de gerenciamento de certificados seguro](howto-opc-vault-secure-ca.md)
+> [Executar um serviço de gestão de certificados seguro](howto-opc-vault-secure-ca.md)

@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 554260f403104d815b9b63c576c7ba0a2f3cf1e1
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76761037"
 ---
-# <a name="asynchronous-messaging-patterns-and-high-availability"></a>Padrões de mensagens assíncronas e elevada disponibilidade
+# <a name="asynchronous-messaging-patterns-and-high-availability"></a>Padrões de mensagens assíncronos e alta disponibilidade
 
 As mensagens assíncronas podem ser implementadas de várias maneiras diferentes. Com filas, tópicos e subscrições, o Azure Service Bus suporta o assincronismo através de uma loja e mecanismo de encaminhamento. No funcionamento normal (sincronizado), envia mensagens para filas e tópicos e recebe mensagens de filas e subscrições. As aplicações que escreve dependem destas entidades estarem sempre disponíveis. Quando a entidade muda de saúde, devido a uma variedade de circunstâncias, você precisa de uma maneira de fornecer uma entidade de capacidade reduzida que possa satisfazer a maioria das necessidades.
 

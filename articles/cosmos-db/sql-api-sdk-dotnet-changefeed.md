@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB API do processador do feed de alterações do .NET, notas de versão do SDK
-description: Saiba tudo sobre a API do processador do feed de alterações e o SDK, incluindo datas de lançamento, datas de desativação e alterações feitas entre cada versão do SDK do processador do feed de alterações do .NET.
+title: Azure Cosmos DB .NET change feed Processador API, notas de lançamento SDK
+description: Saiba tudo sobre o Processador de Feed de Mudança API e SDK, incluindo datas de lançamento, datas de reforma e alterações efetuadas entre cada versão do Processador de Feed de Mudança .NET SDK.
 author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,178 +9,178 @@ ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
 ms.openlocfilehash: 9252e3e41d0c639231a2abe20202499c6b3ee32a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75444861"
 ---
-# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do processador do feed de alterações do .NET: download e notas de versão
+# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET Change Feed Processor SDK: Descarregamento e descarregamento de notas
 
 > [!div class="op_single_selector"]
 >
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [Feed de alterações de .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.js](sql-api-sdk-node.md)
-> * [Async Java](sql-api-sdk-async-java.md)
+> * [Nó.js](sql-api-sdk-node.md)
+> * [Java assíncrono](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
-> * [Python](sql-api-sdk-python.md)
+> * [Pitão](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Executor em massa-.NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Executor em massa – Java](sql-api-sdk-bulk-executor-java.md)
+> * [Executor a granel - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor a granel - Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
 |---|---|
-|**Transferência de SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
-|**Documentação da API**|[Documentação de referência da API da biblioteca do processador de feed de alterações](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Introdução**|[Introdução ao SDK do .NET do processador do feed de alterações](change-feed.md)|
-|**Estrutura de suporte atual**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Núcleo de Microsoft .NET](https://www.microsoft.com/net/download/core) |
+|**Download sDK**|[Nuget](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
+|**Documentação da API**|[Alterar documentação de referência da biblioteca de processadores de feed aPI](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
+|**Começar**|[Começar com o Processador de Feed de Mudança .NET SDK](change-feed.md)|
+|**Quadro apoiado atual**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 > [!NOTE]
-> Se você estiver usando o processador do feed de alterações, consulte a versão mais recente 3. x do [SDK do .net](change-feed-processor.md), que tem o feed de alterações interno do SDK. 
+> Se estiver a utilizar o processador de feed de mudança, consulte a versão mais recente 3.x do [.NET SDK,](change-feed-processor.md)que tem o feed de alteração incorporado no SDK. 
 
 ## <a name="release-notes"></a>Notas de versão
 
-### <a name="v2-builds"></a>compilações v2
+### <a name="v2-builds"></a>v2 constrói
 
-### <a name="a-name228228"></a><a name="2.2.8"/>2.2.8
-* Aprimoramentos de estabilidade e diagnóstico:
-  * Suporte adicionado para detectar a leitura do feed de alterações demorando muito. Quando demora mais do que o valor especificado pela propriedade `ChangeFeedProcessorOptions.ChangeFeedTimeout`, as etapas a seguir são executadas:
-    * A operação para ler o feed de alterações na partição problemática foi anulada.
-    * A instância do processador do feed de alterações elimina a propriedade da concessão problemática. A concessão descartada será coletada durante a próxima etapa de aquisição de concessão que será feita pela mesma instância do processador do feed de alterações ou diferente. Dessa forma, a leitura do feed de alterações será reiniciada.
-    * Um problema é relatado no Health Monitor. O monitor integridade padrão envia todos os problemas relatados para o log de rastreamento.
-  * Adicionada uma nova propriedade pública: `ChangeFeedProcessorOptions.ChangeFeedTimeout`. O valor padrão dessa propriedade é 10 minutos.
-  * Adicionado um novo valor de enumeração público: `Monitoring.MonitoredOperation.ReadChangeFeed`. Quando o valor de `HealthMonitoringRecord.Operation` é definido como `Monitoring.MonitoredOperation.ReadChangeFeed`, ele indica que o problema de integridade está relacionado à leitura do feed de alterações.
+### <a name="228"></a><a name="2.2.8"/>2.2.8
+* Melhorias de estabilidade e de diagnosticabilidade:
+  * Suporte adicional para detetar a mudança de leitura alimentação demorando muito tempo. Quando demora mais do que o `ChangeFeedProcessorOptions.ChangeFeedTimeout` valor especificado pela propriedade, são tomadas as seguintes etapas:
+    * A operação para ler a mudança de alimentos sobre a divisória problemática é abortada.
+    * A instância do processador de feed de mudança deixa cair a propriedade do contrato de arrendamento problemático. O arrendamento suspenso será recolhido durante o próximo passo de aquisição de locação que será feito pela mesma ou diferente instância do processador de feed de mudança. Desta forma, a leitura da mudança vai recomeçar.
+    * Um problema é reportado ao monitor de saúde. O monitor de saúde predefinido envia todos os problemas reportados para rastrear o registo.
+  * Acrescentou uma nova `ChangeFeedProcessorOptions.ChangeFeedTimeout`propriedade pública: . O valor padrão desta propriedade é de 10 minutos.
+  * Acrescentou um novo valor `Monitoring.MonitoredOperation.ReadChangeFeed`público enum: . Quando o `HealthMonitoringRecord.Operation` valor é `Monitoring.MonitoredOperation.ReadChangeFeed`definido para , indica que a questão da saúde está relacionada com a mudança de leitura alimentos.
 
-### <a name="a-name227227"></a><a name="2.2.7"/>2.2.7
-* Melhor estratégia de balanceamento de carga para o cenário ao obter todas as concessões leva mais tempo do que o intervalo de expiração de concessão, por exemplo, devido a problemas de rede:
-  * Nesse cenário, o algoritmo de balanceamento de carga usado para considerar de forma falsa as concessões expiradas, causando o roubo de concessões de proprietários ativos. Isso poderia disparar um novo balanceamento desnecessário de muitas concessões.
-  * Esse problema é corrigido nesta versão, evitando a repetição em conflito ao adquirir a concessão expirada cujo proprietário não foi alterado e posponing adquirir a concessão expirada para a próxima iteração de balanceamento de carga.
+### <a name="227"></a><a name="2.2.7"/>2.2.7
+* A melhoria da estratégia de equilíbrio de carga para o cenário ao obter todos os contratos de arrendamento demora mais tempo do que o intervalo de expiração do arrendamento, por exemplo, devido a problemas de rede:
+  * Neste cenário, o algoritmo de equilíbrio de carga usado para considerar falsamente os contratos de arrendamento como expirados, causando o roubo de arrendamentos de proprietários ativos. Isto pode desencadear um reequilíbrio desnecessário de muitos contratos de arrendamento.
+  * Esta questão é corrigida nesta versão, evitando a repetição do conflito enquanto adquire o arrendamento expirado que o proprietário não mudou e posicionando a aquisição de locação caducada para a próxima iteração de equilíbrio de carga.
 
-### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
-* Tratamento aprimorado de exceções de observador.
-* Informações mais detalhadas sobre erros de observador:
-  * Quando um observador é fechado devido a uma exceção gerada pelo ProcessChangesAsync do observador, o CloseAsync agora receberá o parâmetro Reason definido como ChangeFeedObserverCloseReason. ObserverError.
-  * Rastreamentos adicionados para identificar erros no código do usuário em um observador.
+### <a name="226"></a><a name="2.2.6"/>2.2.6
+* Melhor gestão das exceções do Observador.
+* Informação mais rica sobre erros do Observador:
+  * Quando um Observador é fechado devido a uma exceção lançada pelo Processo ChangesAsync do Observador, o CloseAsync passará a receber o parâmetro de razão definido para ChangeFeedObserverCloseReason.ObserverError.
+  * Vestígios adicionados para identificar erros dentro do código de utilizador num Observador.
 
-### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
-* Adicionado suporte para manipulação de divisão em coleções que usam taxa de transferência de banco de dados compartilhado.
-  * Esta versão corrige um problema que pode ocorrer durante a divisão em coleções usando a taxa de transferência do banco de dados compartilhado quando dividir o resultado na partição rebalanceando apenas um intervalo de chaves de partição filho criado, em vez de dois. Quando isso acontece, o processador do feed de alterações pode ficar preso excluindo a concessão de um intervalo de chaves de partição antiga e não criando novas concessões. O problema foi corrigido nesta versão.
+### <a name="225"></a><a name="2.2.5"/>2.2.5
+* Suporte adicional para manuseamento dividido em coleções que usam a entrada de base de dados partilhada.
+  * Esta versão corrige um problema que pode ocorrer durante a divisão em coleções utilizando a entrada de base de dados partilhada quando o resultado dividido em reequilíbrio da divisória com apenas uma gama de chaves de partição infantil criada, em vez de duas. Quando isso acontecer, o Processador change feed pode ficar preso a eliminar o aluguer de uma antiga gama de chaves de partição e não criar novos contratos de arrendamento. A questão está corrigida nesta versão.
 
-### <a name="a-name224224"></a><a name="2.2.4"/>2.2.4
-* Adicionada nova propriedade ChangeFeedProcessorOptions. StartContinuation para dar suporte ao início do feed de alterações a partir do token de continuação de solicitação. Isso só é usado quando a coleta de concessão está vazia ou uma concessão não tem ContinuationToken definido. Para concessões na coleção de concessão que têm ContinuationToken definido, o ContinuationToken é usado e ChangeFeedProcessorOptions. StartContinuation é ignorado.
+### <a name="224"></a><a name="2.2.4"/>2.2.4
+* Adicionou nova propriedade ChangeFeedProcessorOptions.StartContinuation para suportar o feed de mudança inicial a partir do token de continuação do pedido. Isto só é usado quando a coleção de arrendamento está vazia ou um arrendamento não tem conjunto De ContinuaçãoToken. Para arrendamentos em coleção de arrendamento que tenham conjunto ContinuationToken, o ContinuationToken é usado e ChangeFeedProcessorOptions.StartContinuation é ignorado.
 
-### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
-* Suporte adicionado para usar o repositório personalizado para persistir tokens de continuação por partição.
-  * Por exemplo, um repositório de concessão personalizado pode ser Azure Cosmos DB coleção de concessão particionada de qualquer forma personalizada.
-  * Os repositórios de concessão personalizados podem usar o novo ponto de extensibilidade ChangeFeedProcessorBuilder. WithLeaseStoreManager (ILeaseStoreManager) e a interface pública ILeaseStoreManager.
-  * Refatorar a interface ILeaseManager em várias interfaces de função.
-* Alteração significativa de quebra: o ponto de extensibilidade removido ChangeFeedProcessorBuilder. WithLeaseManager (ILeaseManager), use ChangeFeedProcessorBuilder. WithLeaseStoreManager (ILeaseStoreManager) em vez disso.
+### <a name="223"></a><a name="2.2.3"/>2.2.3
+* Suporte adicional para a utilização de loja personalizada para persistir tokens de continuação por partição.
+  * Por exemplo, uma loja de arrendamento personalizada pode ser a coleção de arrendamento Azure Cosmos DB dividida de qualquer forma personalizada.
+  * As lojas de arrendamento personalizadas podem usar o novo ponto de extensibility ChangeFeedProcessorBuilder.WithLeaseStoreManager (ILeaseStoreManager) e interface pública ILeaseStoreManager.
+  * Refactored a interface iLeaseManager em várias interfaces de funções.
+* Pequena alteração de rutura: ponto de extensibility removido ChangeFeedProcessorBuilder.WithLeaseManager (ILeaseManager), use ChangeFeedProcessorBuilder.WithLeaseStoreManager (ILeaseStoreManager) em vez disso.
 
-### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
-* Esta versão corrige um problema que ocorre durante o processamento de uma divisão na coleção monitorada e usando uma coleção de concessão particionada. Ao processar uma concessão para a partição de divisão, a concessão correspondente a essa partição pode não ser excluída. O problema foi corrigido nesta versão.
+### <a name="222"></a><a name="2.2.2"/>2.2.2
+* Esta versão corrige um problema que ocorre durante o processamento de uma divisão na recolha monitorizada e utilizando uma coleção de arrendamento dividido. Ao processar um contrato de arrendamento para partição dividida, o contrato de arrendamento correspondente a essa divisória não pode ser eliminado. A questão está corrigida nesta versão.
 
-### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
-* Corrigido o cálculo do estimador para contas de vários mestres e o novo formato de token de sessão.
+### <a name="221"></a><a name="2.2.1"/>2.2.1
+* Cálculo estimador fixo para contas Multi Master e novo formato Sessão Token.
 
-### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
-* Suporte adicionado para coleções de concessão particionadas. A chave de partição deve ser definida como/ID.
-* Alteração significativa de quebra: os métodos da interface IChangeFeedDocumentClient e da classe ChangeFeedDocumentClient foram alterados para incluir os parâmetros requestoptions e CancellationToken. IChangeFeedDocumentClient é um ponto de extensibilidade avançado que permite que você forneça a implementação personalizada do cliente de documento para usar com o processador do feed de alterações, por exemplo, decorar o DocumentClient e interceptar todas as chamadas para ele para fazer rastreamento extra, tratamento de erros diante. Com essa atualização, o código que implementa IChangeFeedDocumentClient precisará ser alterado para incluir novos parâmetros na implementação.
-* Melhorias de diagnóstico secundárias.
+### <a name="220"></a><a name="2.2.0"/>2.2.0
+* Apoio adicional para coleções de arrendamento divididos. A chave de partição deve ser definida como /id.
+* Pequena alteração de quebra: os métodos da interface IChangeFeedDocumentClient e da classe ChangeFeedDocumentClient foram alterados para incluir os parâmetros RequestOptions e CancelamentoSToken. IChangeFeedDocumentClient é um ponto avançado de extensibility que lhe permite fornecer implementação personalizada do Cliente de Documento para usar com processador de feed de mudança, por exemplo, decorar o DocumentClient e intercetar todas as chamadas para fazer rastreioextra, manipulação de erros , etc. Com esta atualização, o código que implementa o IChangeFeedDocumentClient terá de ser alterado para incluir novos parâmetros na implementação.
+* Pequenas melhorias de diagnóstico.
 
-### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
-* Adição da nova API, tarefa&lt;IReadOnlyList&lt;RemainingPartitionWork&gt;&gt; IRemainingWorkEstimator. GetEstimatedRemainingWorkPerPartitionAsync (). Isso pode ser usado para obter o trabalho estimado para cada partição.
-* Dá suporte ao SDK do Microsoft. Azure. DocumentDB 2,0. Requer Microsoft. Azure. DocumentDB 2,0 ou posterior.
+### <a name="210"></a><a name="2.1.0"/>2.1.0
+* Adicionou novo API,&lt;Task&lt;IReadOnlyList RemainingPartitionWorkWork&gt; &gt; IRemainingWorkEstimatetor.GetEstimatedRemainingRemainingWorkPerPartitionAsync(). Isto pode ser usado para obter trabalho estimado para cada partição.
+* Suporta Microsoft.Azure.DocumentDB SDK 2.0. Requer Microsoft.Azure.DocumentDB 2.0 ou mais tarde.
 
-### <a name="a-name206206"></a><a name="2.0.6"/>2.0.6
-* Adicionada a propriedade pública ChangeFeedEventHost. HostName para compatibilidade com v1.
+### <a name="206"></a><a name="2.0.6"/>2.0.6
+* Adicionado ChangeFeedEventHost.HostName propriedade pública para compatibilidade com v1.
 
-### <a name="a-name205205"></a><a name="2.0.5"/>2.0.5
-* Correção de uma condição de corrida que ocorre durante a divisão da partição. A condição de corrida pode levar à aquisição da concessão e à sua perda imediata durante a divisão da partição e à causa da contenção. O problema da condição de corrida é corrigido com esta versão.
+### <a name="205"></a><a name="2.0.5"/>2.0.5
+* Fixou uma condição de corrida que ocorre durante a divisão. A condição de corrida pode levar à aquisição do arrendamento e perdê-la imediatamente durante a divisão e causar contenção. A questão da condição da corrida é corrigida com esta libertação.
 
-### <a name="a-name204204"></a><a name="2.0.4"/>2.0.4
-* SDK DE DISPONIBILIDADE GERAL
+### <a name="204"></a><a name="2.0.4"/>2.0.4
+* GA SDK
 
-### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>2.0.3-prerelease
+### <a name="203-prerelease"></a><a name="2.0.3-prerelease"/>2.0.3 pré-lançamento
 * Foram corrigidos os problemas seguintes:
-  * Quando a divisão de partição acontece, pode haver processamento duplicado de documentos modificados antes da divisão.
-  * A API GetEstimatedRemainingWork retornou 0 quando nenhuma concessão estava presente na coleção de concessão.
+  * Quando a divisão acontece, pode haver duplicado processamento de documentos modificados antes da divisão.
+  * A GetEstimatedRemainingWork API devolveu 0 quando não havia arrendamentos na coleção de arrendamento.
 
-* As seguintes exceções se tornam públicas. As extensões que implementam IPartitionProcessor podem gerar essas exceções.
+* As seguintes exceções são tornadas públicas. As extensões que implementam o IPartitionProcessor podem lançar estas exceções.
   * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.LeaseLostException. 
   * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionException. 
   * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionNotFoundException.
   * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionSplitException. 
 
-### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2-prerelease
-* Alterações secundárias da API:
-  * Removeu ChangeFeedProcessorOptions. IsAutoCheckpointEnabled que foi marcado como obsoleto.
+### <a name="202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2 pré-lançamento
+* Alterações menores da API:
+  * Opções de processador de changeFeed removeu.IsAutoCheckpointEnabled que foi marcado como obsoleto.
 
-### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1-prerelease
-* Aprimoramentos de estabilidade:
-  * Melhor manipulação da inicialização do armazenamento de concessão. Quando o repositório de concessão está vazio, apenas uma instância do processador pode inicializá-lo, os outros esperam.
-  * Renovação/lançamento de concessão mais estável/eficiente. A renovação e a liberação de uma partição de concessão de uma só é independente da renovação de outras. Em v1, que foi feito sequencialmente para todas as partições.
+### <a name="201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1 pré-lançamento
+* Melhorias da estabilidade:
+  * Melhor manuseamento da inicialização da loja de arrendamento. Quando a loja de arrendamento está vazia, apenas uma instância de processador pode rubricar, as outras esperarão.
+  * Renovação/libertação de locação mais estável/eficiente. Renovar e libertar um contrato de arrendamento uma partição é independente de renovar outras. Em v1 que foi feito sequencialmente para todas as divisórias.
 * Nova API v2:
-  * Padrão de construtor para a construção flexível do processador: a classe ChangeFeedProcessorBuilder.
-    * Pode usar qualquer combinação de parâmetros.
-    * Pode usar a instância DocumentClient para monitoramento e/ou coleta de concessão (não disponível em v1).
-  * IChangeFeedObserver. ProcessChangesAsync agora leva CancellationToken.
-  * IRemainingWorkEstimator-o estimador de trabalho restante pode ser usado separadamente do processador.
-  * Novos pontos de extensibilidade:
-    * IPartitionLoadBalancingStrategy-para o balanceamento de carga personalizado de partições entre instâncias do processador.
-    * ILease, ILeaseManager-para gerenciamento de concessão personalizado.
-    * IPartitionProcessor-para alterações de processamento personalizado em uma partição.
-* Logging-usa a biblioteca [LibLog](https://github.com/damianh/LibLog) .
-* 100% compatível com versões anteriores com a API v1.
+  * Padrão de construtor para construção flexível do processador: a classe ChangeFeedProcessorBuilder.
+    * Pode tomar qualquer combinação de parâmetros.
+    * Pode tomar documentClient por exemplo para monitorização e/ou coleção de arrendamento (não disponível em v1).
+  * IChangeFeedObserver.ProcessChangesAsync leva agora o CancelamentoToken.
+  * IRemainingWorkEstimator - o estimador de trabalho restante pode ser utilizado separadamente do processador.
+  * Novos pontos de extebilidade:
+    * IPartitionLoadBalanceBalanceStrategy - para equilibrar a carga personalizada de divisórias entre as instâncias do processador.
+    * ILease, ILeaseManager - para gestão de arrendamento personalizado.
+    * IPartitionProcessor - para alterações de processamento personalizado numa partição.
+* Logging - usa biblioteca [LibLog.](https://github.com/damianh/LibLog)
+* 100% para trás compatível com v1 API.
 * Nova base de código.
-* Compatível com o [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.21.1 e posteriores.
+* Compatível com as versões [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21.1 ou superior.
 
-### <a name="v1-builds"></a>compilações v1
+### <a name="v1-builds"></a>v1 constrói
 
-### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
-* Adição de mais registro em log.
-* Corrigido um vazamento de DocumentClient ao chamar a estimativa de trabalho pendente várias vezes.
+### <a name="133"></a><a name="1.3.3"/>1.3.3
+* Adicionei mais madeira.
+* Corrigiu uma fuga de informação do Cliente documental ao ligar várias vezes à estimativa de trabalho pendente.
 
-### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
+### <a name="132"></a><a name="1.3.2"/>1.3.2
 * Correções na estimativa de trabalho pendente.
 
-### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
-* Aprimoramentos de estabilidade.
-  * Correção para lidar com o problema de tarefas canceladas que podem levar a observadores interrompidos em algumas partições.
-* Suporte para ponto de verificação manual.
-* Compatível com o [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1,21 e posteriores.
+### <a name="131"></a><a name="1.3.1"/>1.3.1
+* Melhorias de estabilidade.
+  * Correção para lidar com a questão das tarefas canceladas que podem levar a que os observadores parados em algumas divisórias.
+* Suporte para controlo manual.
+* Compatível com as versões [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21 ou superior.
 
-### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
-* Adiciona suporte para .NET Standard 2,0. O pacote agora dá suporte a monikers `netstandard2.0` e `net451` Framework.
-* Compatível com o [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.17.0 e posteriores.
-* Compatível com o [SQL SDK do .NET Core](sql-api-sdk-dotnet-core.md) versões 1.5.1 e posteriores.
+### <a name="120"></a><a name="1.2.0"/>1.2.0
+* Adiciona suporte para .NET Standard 2.0. O pacote agora `netstandard2.0` `net451` apoia e as alcunhas-quadro.
+* Compatível com as versões [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.17.0 ou superior.
+* Compatível com as versões [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md) 1.5.1 ou superior.
 
-### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
-* Corrige um problema com o cálculo da estimativa do trabalho restante quando o feed de alterações estava vazio ou nenhum trabalho estava pendente.
-* Compatível com o [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.13.2 e posteriores.
+### <a name="111"></a><a name="1.1.1"/>1.1.1
+* Corrige um problema com o cálculo da estimativa do trabalho remanescente quando o Change Feed estava vazio ou não estava pendente nenhum trabalho.
+* Compatível com as versões [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.13.2 ou superior.
 
-### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
-* Um método foi adicionado para obter uma estimativa do trabalho restante a ser processado no feed de alterações.
-* Compatível com o [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.13.2 e posteriores.
+### <a name="110"></a><a name="1.1.0"/>1.1.0
+* Adicione um método para obter uma estimativa do trabalho restante a ser processado no Change Feed.
+* Compatível com as versões [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.13.2 ou superior.
 
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* SDK DE DISPONIBILIDADE GERAL
-* Compatível com as versões 1.14.1 e abaixo do [SDK do SQL .net](sql-api-sdk-dotnet.md) .
+### <a name="100"></a><a name="1.0.0"/>1.0.0
+* GA SDK
+* Compatível com as versões [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.14.1 e abaixo.
 
-## <a name="release--retirement-dates"></a>Datas de lançamento & desativação
+## <a name="release--retirement-dates"></a>Datas de lançamento & de aposentadoria
 
-A Microsoft irá fornecer, pelo menos, notificação **12 meses** antecedência extinguir um SDK para facilitar a transição para uma versão mais recente/suportadas.
+A Microsoft irá notificar com pelo menos **12 meses** de antecedência a retirada de um SDK de forma a suavizar a transição para uma versão mais recente/suportada.
 
-Novos recursos e funcionalidades e otimizações são adicionados somente ao SDK atual, por isso é recomendável que você sempre atualize para a versão mais recente do SDK o mais cedo possível. 
+Novas funcionalidades e funcionalidades e otimizações só são adicionadas ao SDK atual, como tal é recomendado que você sempre atual ize para a versão Mais recente SDK o mais cedo possível. 
 
-Qualquer pedido ao Cosmos DB com um SDK extinto será rejeitado pelo serviço.
+Qualquer pedido à Cosmos DB utilizando um SDK reformado será rejeitado pelo serviço.
 
 <br/>
 
-| Versão | Data de lançamento | Data de retirada |
+| Versão | Data de Lançamento | Data de Aposentadoria |
 | --- | --- | --- |
 | [2.2.8](#2.2.8) |28 de outubro de 2019 |--- |
 | [2.2.7](#2.2.7) |14 de maio de 2019 |--- |
@@ -202,6 +202,6 @@ Qualquer pedido ao Cosmos DB com um SDK extinto será rejeitado pelo serviço.
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-Para saber mais sobre o Cosmos DB, veja [do Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) página do serviço.
+Para saber mais sobre cosmos DB, consulte a página de serviço [do Microsoft Azure Cosmos DB.](https://azure.microsoft.com/services/cosmos-db/)

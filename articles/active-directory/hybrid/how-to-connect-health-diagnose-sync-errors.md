@@ -16,15 +16,15 @@ ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48ed9abf3e088e2581a3dd81b7c89e6b99da3ceb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76897187"
 ---
-# <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticar e remediar erros de sincronização duplicados de atributos
+# <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnose and remediate duplicated attribute sync errors (Diagnosticar e resolver erros de sincronização de atributos duplicados)
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 Dando um passo mais longe para destacar erros de sincronização, o Azure Ative Directory (Azure AD) Connect Health introduz a reparação de self-service. Resolve problemas duplicados erros de sincronização de atributos e corrige objetos órfãos de Azure AD.
 A funcionalidade de diagnóstico tem estes benefícios:
 - Fornece um procedimento de diagnóstico que reduz os erros duplicados de sincronização de atributos. E dá correções específicas.
@@ -53,9 +53,9 @@ A função de diagnóstico suporta objetos do utilizador com os seguintes atribu
 | Nome do atributo | Tipos de erros de sincronização|
 | ------------------ | -----------------|
 | UserPrincipalName | QuarentenaAtribuieValueMustBeUnique ou AttributeValueMustBeUnique | 
-| ProxyAddresss | QuarentenaAtribuieValueMustBeUnique ou AttributeValueMustBeUnique | 
-| SipProxyAddress | AttributeValueMustBeUnique | 
-| OnPremiseSecurityIdentifier |  AttributeValueMustBeUnique |
+| ProxyAddresses | QuarentenaAtribuieValueMustBeUnique ou AttributeValueMustBeUnique | 
+| SipProxyAddress | AtribuivalueMustBeUnique | 
+| Identificador onPremiseSecurityIdentifier |  AtribuivalueMustBeUnique |
 
 >[!IMPORTANT]
 > Para aceder a esta funcionalidade, é necessária a permissão global da **Administração,** ou autorização do **Colaborador** a partir das definições RBAC.
@@ -68,7 +68,7 @@ Siga os passos do portal Azure para reduzir os detalhes do erro de sincronizaç�
 A partir do portal Azure, tome algumas medidas para identificar cenários específicos reparáveis:  
 1.  Verifique a coluna de estado do **diagnóstico.** O estado mostra se há uma maneira possível de corrigir um erro de sincronização diretamente do Diretório Ativo Azure. Por outras palavras, existe um fluxo de resolução de problemas que pode reduzir o caso de erro e potencialmente corrigi-lo.
 
-| Estado | O que isso significa? |
+| Estado | O que é que isso significa? |
 | ------------------ | -----------------|
 | Não começou | Não visitou este processo de diagnóstico. Dependendo do resultado do diagnóstico, há uma forma potencial de corrigir o erro de sincronização diretamente do portal. |
 | Correção Manual Necessária | O erro não se enquadra nos critérios das correções disponíveis no portal. Ou os tipos de objetos conflituosos não são utilizadores, ou já passou pelos passos de diagnóstico, e não estava disponível nenhuma resolução de correção a partir do portal. Neste último caso, uma correção do lado no local continua a ser uma das soluções. [Leia mais sobre correções no local](https://support.microsoft.com/help/2647098). | 
@@ -140,20 +140,20 @@ O utilizador baseado em nuvem em Azure AD não deve ter âncora de origem. A atu
 
 ## <a name="faq"></a>FAQ
 **P.** O que acontece se a execução da **Correção de Aplicação** falhar?  
-**R.** Se a execução falhar, é possível que o Azure AD Connect esteja a cometer um erro de exportação. Refresque a página do portal e tente novamente após a próxima sincronização. O ciclo de sincronização padrão é de 30 minutos. 
+**A.** Se a execução falhar, é possível que o Azure AD Connect esteja a cometer um erro de exportação. Refresque a página do portal e tente novamente após a próxima sincronização. O ciclo de sincronização padrão é de 30 minutos. 
 
 
 **P.** E se o **objeto existente** for o objeto a ser eliminado?  
-**R.** Se o **objeto existente** for eliminado, o processo não implica uma alteração da Âncora **de Origem**. Normalmente, pode consertá-lo a partir do Diretório Ativo no local. 
+**A.** Se o **objeto existente** for eliminado, o processo não implica uma alteração da Âncora **de Origem**. Normalmente, pode consertá-lo a partir do Diretório Ativo no local. 
 
 
 **P.** Que permissão precisa um utilizador para aplicar a correção?  
-**R.** **A Global Admin**, ou **Colaborador a** partir das definições rBAC, tem permissão para aceder ao processo de diagnóstico e resolução de problemas.
+**A.** **A Global Admin**, ou **Colaborador a** partir das definições rBAC, tem permissão para aceder ao processo de diagnóstico e resolução de problemas.
 
 
 **P.** Tenho de configurar o Azure AD Connect ou atualizar o agente Azure AD Connect Health para esta funcionalidade?  
-**R.** Não, o processo de diagnóstico é uma característica completa baseada na nuvem.
+**A.** Não, o processo de diagnóstico é uma característica completa baseada na nuvem.
 
 
 **P.** Se o objeto existente for apagado suavemente, o processo de diagnóstico tornará o objeto ativo novamente?  
-**R.** Não, a correção não atualiza os atributos do objeto para além da **Âncora de Origem**.
+**A.** Não, a correção não atualiza os atributos do objeto para além da **Âncora de Origem**.

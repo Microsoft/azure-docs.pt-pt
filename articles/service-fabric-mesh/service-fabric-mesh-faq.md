@@ -5,10 +5,10 @@ ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: 2a5c2ea63d162eb6fb78ab702e0519f8ac25dcc7
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252497"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Perguntas de malha de tecido de serviço comumente perguntas
@@ -42,7 +42,7 @@ Sim. As quotas para cada subscrição são:
 
 Atualmente, limitamos a vida útil de uma candidatura a dois dias. Isto para maximizar a utilização dos núcleos gratuitos atribuídos à pré-visualização. Como resultado, só é permitido executar uma determinada implantação continuamente durante 48 horas, após o qual será desligado.
 
-Se vir isto acontecer, pode validar que o sistema o desligou executando o comando `az mesh app show` no Azure CLI. Verifique se devolve `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
+Se vir isto acontecer, pode validar que o `az mesh app show` sistema o desligou executando o comando no Azure CLI. Verifique se volta`"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
 Por exemplo: 
 
@@ -73,7 +73,7 @@ az mesh app show --resource-group myResourceGroup --name helloWorldApp
 }
 ```
 
-Para eliminar o grupo de recursos, utilize o comando `az group delete <nameOfResourceGroup>`.
+Para eliminar o grupo `az group delete <nameOfResourceGroup>` de recursos, utilize o comando.
 
 ## <a name="deployments"></a>Implementações
 
@@ -86,7 +86,7 @@ Se estiver a desenvolver uma máquina de atualização do Windows 10 de abril de
 As seguintes imagens de osso do recipiente podem ser utilizadas para a implantação de serviços:
 - Windows - windowsservercore e nanoserver
     - Windows Server 1709
-    - Windows Server versão 1803
+    - Windows Server 1803
     - Windows Server 1809
     - Windows Server 2019 LTSC
 - Linux
@@ -107,7 +107,7 @@ As consultas de DNS de saída de um contentor para o serviço DNS de tecido de s
 
 - Utilize a atualização dos Criadores de outono do Windows (versão 1709) ou superior à imagem do recipiente base.
 - Se o nome do serviço por si só não funcionar, experimente o nome totalmente qualificado: ServiceName.ApplicationName.
-- No ficheiro Docker para o seu serviço, adicione `EXPOSE <port>` onde a porta é a porta onde está a expor o seu serviço. Por exemplo:
+- No ficheiro Docker para o `EXPOSE <port>` seu serviço, adicione onde é a porta onde está a exposição do seu serviço. Por exemplo:
 
 ```Dockerfile
 EXPOSE 80
@@ -117,7 +117,7 @@ EXPOSE 80
 
 Você pode precisar de referência de serviços de forma diferente no seu cluster de desenvolvimento local do que em Azure Mesh.
 
-No seu cluster de desenvolvimento local, utilize `{serviceName}.{applicationName}`. Na malha de tecido de serviço Azure, utilize `{servicename}`. 
+No seu cluster `{serviceName}.{applicationName}`de desenvolvimento local. Na malha de tecido `{servicename}`de serviço Azure, utilize. 
 
 A Malha Azure não suporta atualmente a resolução do DNS através de aplicações.
 
@@ -127,7 +127,7 @@ Para outros problemas conhecidos do DNS com a execução de um cluster de desenv
 
 A rede ServiceFabric NAT pode desaparecer enquanto utiliza a sua aplicação na sua máquina local. Para diagnosticar se isto aconteceu, corra o seguinte a partir de um pedido de comando:
 
-`docker network ls` e note se `servicefabric_nat` está listado.  Caso contrário, execute o seguinte comando: `docker network create -d=nat --subnet 10.128.0.0/24 --gateway 10.128.0.1 servicefabric_nat`
+`docker network ls`e note `servicefabric_nat` se está listado.  Caso contrário, execute o seguinte comando:`docker network create -d=nat --subnet 10.128.0.0/24 --gateway 10.128.0.1 servicefabric_nat`
 
 Isto abordará o problema mesmo que a aplicação já esteja implantada localmente e em estado pouco saudável.
 
@@ -135,7 +135,7 @@ Isto abordará o problema mesmo que a aplicação já esteja implantada localmen
 
 Pode encontrar disponibilidade de CPU e limites a serem fixados em todas as aplicações. Para mitigar:
 - Crie um aglomerado de cinco nós.
-- Reduza o uso de CPU em serviços em toda a app que é implementada. Por exemplo, no ficheiro service.yaml do seu serviço, mude de `cpu: 1.0` para `cpu: 0.5`
+- Reduza o uso de CPU em serviços em toda a app que é implementada. Por exemplo, no ficheiro service.yaml do `cpu: 1.0` seu serviço, altere para`cpu: 0.5`
 
 Várias aplicações não podem ser implantadas para um aglomerado de um nó. Para mitigar:
 - Use um cluster de cinco nós ao implementar várias aplicações para um cluster local.

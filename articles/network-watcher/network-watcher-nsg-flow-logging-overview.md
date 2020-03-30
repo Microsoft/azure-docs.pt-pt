@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: fb4a55b9757748581e26f3d6594f9be2139658cb
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78228256"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução à exploração de fluxos de exploração de grupos de segurança da rede
 
-Os registos de fluxo do grupo de segurança de rede (NSG) são uma característica do Observador de Rede que lhe permite visualizar informações sobre ingresse e egress TRÁFEGO IP através de um NSG. Os registos de fluxo são escritos em formato JSON, e mostram fluxos de saída e de entrada por regra, a interface de rede (NIC) a que o fluxo se aplica a informações de 5-tuple sobre o fluxo (Fonte/destino IP, porta de origem/destino e protocolo), se o tráfego foi permitido ou negado, e na versão 2, informações de entrada (Bytes e Pacotes).
+Os registos do fluxo do grupo de segurança de rede (NSG) são uma funcionalidade do Observador de Rede que lhe permite visualizar informações sobre a entrada e saída de tráfego IP através de um NSG. Os registos do fluxo são escritos no formato JSON e mostram os fluxos de entrada e saída por regra, a interface de rede (NIC) à qual o fluxo se aplica, informações de cinco cadeias de identificação sobre o fluxo (IP de origem/destino, porta de origem/destino e protocolo), se o tráfego foi permitido ou negado e, na Versão 2, informações de débito (Bytes e Pacotes).
 
 
 ![visão geral dos registos de fluxo](./media/network-watcher-nsg-flow-logging-overview/figure1.png)

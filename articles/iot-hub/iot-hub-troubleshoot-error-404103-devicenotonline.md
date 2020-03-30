@@ -9,13 +9,13 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: e648428f924cfc33421c8591c41f7ac85b05a033
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76960818"
 ---
-# <a name="404103-devicenotonline"></a>404103 DispositivoSNotOnline
+# <a name="404103-devicenotonline"></a>404103 DeviceNotOnline
 
 Este artigo descreve as causas e soluções para **erros 404103 DeviceNotOnline.**
 

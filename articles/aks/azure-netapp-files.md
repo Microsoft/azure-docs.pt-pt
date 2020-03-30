@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 09/26/2019
 ms.author: zarhoads
 ms.openlocfilehash: 1c4996df66d475c63110e3d2797f55598fd85b8d
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273756"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integrar ficheiros Azure NetApp com o Serviço Azure Kubernetes
@@ -23,7 +23,7 @@ Este artigo assume que você tem um aglomerado AKS existente. Se precisar de um 
 > [!IMPORTANT]
 > O seu cluster AKS também deve estar [numa região que suporta ficheiros Azure NetApp][anf-regions].
 
-Também precisa da versão 2.0.59 do Azure CLI ou posteriormente instalada e configurada. Execute `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
+Também precisa da versão 2.0.59 do Azure CLI ou posteriormente instalada e configurada. Corra `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
 
 ### <a name="limitations"></a>Limitações
 
@@ -49,7 +49,7 @@ az provider register --namespace Microsoft.NetApp --wait
 > [!NOTE]
 > Isto pode levar algum tempo a ser concluído.
 
-Quando cria uma conta Azure NetApp para uso com AKS, precisa de criar a conta no grupo de recursos do **nó.** Primeiro, obtenha o nome do grupo de recursos com o comando [az aks mostrar][az-aks-show] e adicionar o parâmetro de consulta `--query nodeResourceGroup`. O exemplo seguinte obtém o grupo de recursos do nó para o cluster AKS chamado *myAKSCluster* no nome do grupo de recursos *myResourceGroup*:
+Quando cria uma conta Azure NetApp para uso com AKS, precisa de criar a conta no grupo de recursos do **nó.** Primeiro, obtenha o nome do grupo de recursos com `--query nodeResourceGroup` o comando [az aks mostrar][az-aks-show] e adicionar o parâmetro de consulta. O exemplo seguinte obtém o grupo de recursos do nó para o cluster AKS chamado *myAKSCluster* no nome do grupo de recursos *myResourceGroup*:
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -148,7 +148,7 @@ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_
 }
 ```
 
-Crie uma `pv-nfs.yaml` definindo um PersistenteVolume. Substitua `path` pela *criaçãoToken* e `server` por *ipAddress* do comando anterior. Por exemplo:
+Crie `pv-nfs.yaml` um Volume Persistente que defina. Substitua-a `path` pela `server` *criaçãoToken* e pelo *ipAddress* do comando anterior. Por exemplo:
 
 ```yaml
 ---
@@ -180,7 +180,7 @@ kubectl describe pv pv-nfs
 
 ## <a name="create-the-persistentvolumeclaim"></a>Criar a Reclamação persistente de volume
 
-Crie uma `pvc-nfs.yaml` definindo um PersistenteVolume. Por exemplo:
+Crie `pvc-nfs.yaml` um Volume Persistente que defina. Por exemplo:
 
 ```yaml
 apiVersion: v1
@@ -210,7 +210,7 @@ kubectl describe pvc pvc-nfs
 
 ## <a name="mount-with-a-pod"></a>Monte com uma vagem
 
-Crie uma `nginx-nfs.yaml` definindo uma cápsula que utilize o PersistentVolumeClaim. Por exemplo:
+Crie `nginx-nfs.yaml` uma cápsula que defina a utilização do PersistentVolumeClaim. Por exemplo:
 
 ```yaml
 kind: Pod
@@ -246,7 +246,7 @@ Verifique se a cápsula está *a funcionar* utilizando o comando de [descrever k
 kubectl describe pod nginx-nfs
 ```
 
-Verifique se o seu volume foi montado na cápsula utilizando o [executivo kubectl][kubectl-exec] para se ligar à cápsula e, em seguida, `df -h` para verificar se o volume está montado.
+Verifique se o seu volume foi montado na cápsula utilizando o executivo `df -h` [kubectl][kubectl-exec] para ligar à cápsula e, em seguida, para verificar se o volume está montado.
 
 ```console
 $ kubectl exec -it nginx-nfs -- bash

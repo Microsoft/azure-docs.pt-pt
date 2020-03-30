@@ -1,6 +1,6 @@
 ---
-title: Os links na página não funcionam para um aplicativo de proxy de aplicativo
-description: Como solucionar problemas com links desfeitos em aplicativos de proxy de aplicativo que você integrou ao Azure AD
+title: Links na página não funcionam para uma aplicação de procuração de aplicação
+description: Como resolver problemas com links quebrados em aplicações de Proxy de aplicação que integrou com a AD Azure
 services: active-directory
 author: msmimart
 ms.service: active-directory
@@ -12,39 +12,39 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ca782b5a190704911472d70c414d12afa7e558f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75430233"
 ---
-# <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Os links na página não funcionam para um aplicativo de proxy de aplicativo
+# <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Links na página não funcionam para uma aplicação de procuração de aplicação
 
-Este artigo ajuda você a solucionar problemas por que os links em seu aplicativo Proxy de Aplicativo do Azure Active Directory não funcionam corretamente.
+Este artigo ajuda-o a resolver o porquê de as ligações na sua aplicação de procuração de pedido de diretório ativo Azure não funcionarem corretamente.
 
-## <a name="overview"></a>Visão geral 
-Depois de publicar um aplicativo de proxy de aplicativo, os únicos links que funcionam por padrão no aplicativo são links para os destinos contidos na URL raiz publicada. Os links nos aplicativos não estão funcionando, a URL interna para o aplicativo provavelmente não inclui todos os destinos de links dentro do aplicativo.
+## <a name="overview"></a>Descrição geral 
+Após a publicação de uma aplicação Proxy de aplicação, os únicos links que funcionam por padrão na aplicação são ligações a destinos contidos no URL raiz publicado. Os links dentro das aplicações não estão funcionando, o URL interno para a aplicação provavelmente não inclui todos os destinos de links dentro da aplicação.
 
-**Por que isso acontece?** Ao clicar em um link em um aplicativo, o proxy de aplicativo tenta resolver a URL como uma URL interna dentro do mesmo aplicativo ou como uma URL disponível externamente. Se o link apontar para uma URL interna que não está dentro do mesmo aplicativo, ele não pertence a nenhum desses buckets e resulta em um erro não encontrado.
+**Porque é que isto acontece?** Ao clicar num link numa aplicação, o Application Proxy tenta resolver o URL como um URL interno dentro da mesma aplicação, ou como um URL externo disponível. Se o link apontar para um URL interno que não esteja dentro da mesma aplicação, não pertence a nenhum destes baldes e resulta num erro não encontrado.
 
-## <a name="ways-you-can-resolve-broken-links"></a>Maneiras de resolver links desfeitos
+## <a name="ways-you-can-resolve-broken-links"></a>Formas de resolver links quebrados
 
-Há três maneiras de resolver esse problema. As opções a seguir estão listadas em complexidade crescente.
+Há três formas de resolver esta questão. As escolhas abaixo estão listadas em crescente complexidade.
 
-1.  Verifique se a URL interna é uma raiz que contém todos os links relevantes para o aplicativo. Isso permite que todos os links sejam resolvidos como conteúdo publicado no mesmo aplicativo.
+1.  Certifique-se de que o URL interno é uma raiz que contém todos os links relevantes para a aplicação. Isto permite que todos os links sejam resolvidos como conteúdo publicado dentro da mesma aplicação.
 
-    Se você alterar a URL interna, mas não quiser alterar a página de aterrissagem para os usuários, altere a URL da Home Page para a URL interna publicada anteriormente. Isso pode ser feito acessando "Azure Active Directory"-&gt; registros do aplicativo-&gt; selecione a identidade visual do&gt; de aplicativos. Na seção identidade visual, você vê o campo "URL da Home Page", que pode ser ajustado para ser a página de aterrissagem desejada. Se você ainda estiver usando a experiência de Registros de aplicativo herdada, a guia Propriedades mostrará os detalhes da "URL da Home Page". 
+    Se alterar o URL interno mas não quiser alterar a página de aterragem para os utilizadores, altere o URL da página inicial para o URL interno previamente publicado. Isto pode ser feito indo para "Azure Ative Diretório" -&gt; Registos de Aplicações -&gt; selecione a aplicação -&gt; Branding. Na secção de marca, vê o campo "HOME Page URL", que pode ajustar para ser a página de aterragem desejada. Se ainda estiver a utilizar os registos da Aplicação do legado, o separador de propriedades mostraria os detalhes do "HOME Page URL". 
     
     > [!IMPORTANT]
-    > Para fazer as alterações acima, você precisa de direitos para modificar objetos de aplicativo no Azure AD. O usuário precisa ser atribuído à função de [administrador de aplicativos](../users-groups-roles/roles-delegate-app-roles.md#assign-built-in-application-admin-roles) que concede direitos de modificaion de aplicativo no Azure ad para o usuário.
+    > Para efazer as alterações acima, é necessário alterar os objetos de aplicação em Azure AD. O utilizador deve ser atribuído ao utilizador a função de Administrador de [Aplicação](../users-groups-roles/roles-delegate-app-roles.md#assign-built-in-application-admin-roles) que concede direitos de modificação de aplicações em Azure AD ao utilizador.
     >
 
-2.  Se seus aplicativos usarem FQDNs (nomes de domínio totalmente qualificados), use [domínios personalizados](application-proxy-configure-custom-domain.md) para publicar seus aplicativos. Esse recurso permite que a mesma URL seja usada interna e externamente.
+2.  Se as suas aplicações utilizarem nomes de domínio totalmente qualificados (FQDNs), utilize [domínios personalizados](application-proxy-configure-custom-domain.md) para publicar as suas aplicações. Esta função permite que o mesmo URL seja utilizado interna e externamente.
 
-    Essa opção garante que os links em seu aplicativo sejam acessíveis externamente por meio do proxy de aplicativo, pois os links dentro do aplicativo para URLs internas também são reconhecidos externamente. Todos os links ainda precisam pertencer a um aplicativo publicado. No entanto, com essa opção, os links não precisam pertencer ao mesmo aplicativo e podem pertencer a vários aplicativos.
+    Esta opção garante que os links da sua aplicação são acessíveis externamente através do Proxy de Aplicação, uma vez que os links dentro da aplicação aos URLs internos também são reconhecidos externamente. Todos os links ainda precisam pertencer a uma aplicação publicada. No entanto, com esta opção, os links não precisam de pertencer à mesma aplicação e podem pertencer a múltiplas aplicações.
 
-3.  Se nenhuma dessas opções for viável, haverá várias opções para habilitar a conversão de link embutido. Essas opções incluem o uso do Intune Managed Browser, a extensão My Apps ou o uso da configuração de conversão de link em seu aplicativo. Para saber mais sobre cada uma dessas opções e como habilitá-las, consulte [redirecionar links codificados para aplicativos publicados com o Azure proxy de aplicativo do AD](application-proxy-configure-hard-coded-link-translation.md).
+3.  Se nenhuma destas opções for viável, existem múltiplas opções para permitir a tradução de ligação inline. Estas opções incluem a utilização do Navegador Gerido Intune, a extensão das Minhas Aplicações ou a utilização da definição de tradução de link na sua aplicação. Para saber mais sobre cada uma destas opções e como as permitir, consulte [redirecionar links codificados para aplicações publicadas com o Procurador de Aplicação AD Azure](application-proxy-configure-hard-coded-link-translation.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-[Trabalhar com servidores de proxy no local existentes](application-proxy-configure-connectors-with-proxy-servers.md)
+[Trabalhar com servidores proxy existentes no local](application-proxy-configure-connectors-with-proxy-servers.md)
 

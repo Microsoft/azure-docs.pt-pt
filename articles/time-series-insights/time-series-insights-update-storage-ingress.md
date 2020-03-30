@@ -1,5 +1,5 @@
 ---
-title: Armazenamento de dados e ingresso em Pré-visualização - Azure Time Series Insights  Microsoft Docs
+title: Armazenamento de dados e ingresso em Pré-visualização - Azure Time Series Insights [ Microsoft Docs
 description: Saiba mais sobre o armazenamento de dados e a entrada em Visualização de Insights da Série De Tempo Azure.
 author: lyrana
 ms.author: lyhughes
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.custom: seodec18
 ms.openlocfilehash: 2f12cf303c58f0fa614c59ffe643c6c2ee5d2415
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78246191"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Armazenamento de dados e ingresso na Pré-visualização de Insights da Série De Tempo azure
@@ -35,12 +35,12 @@ Time Series Insights Preview Políticas de ingresso de dados determinam de onde 
 
 A configuração das chaves, a formatação e as melhores práticas são resumidas abaixo.
 
-#### <a name="event-sources"></a>Fontes de eventos
+#### <a name="event-sources"></a>Origens de Eventos
 
 A Pré-visualização da Série de Tempo Azure suporta as seguintes fontes de evento:
 
 - [Hub IoT do Azure](../iot-hub/about-iot-hub.md)
-- [Azure Event Hubs](../event-hubs/event-hubs-about.md)
+- [Hubs de Eventos do Azure](../event-hubs/event-hubs-about.md)
 
 A Pré-visualização da Série de Tempo Azure suporta um máximo de duas fontes de eventopor exemplo.
 
@@ -57,10 +57,10 @@ Os tipos de dados suportados são:
 
 | Tipo de dados | Descrição |
 |---|---|
-| **bool** | Um tipo de dados com um de dois estados: `true` ou `false`. |
+| **bool** | Um tipo de dados com `true` `false`um de dois estados: ou . |
 | **dataTempo** | Representa um instante no tempo, tipicamente expresso como uma data e hora do dia. Expresso no formato [ISO 8601.](https://www.iso.org/iso-8601-date-and-time-format.html) |
-| **duplo** | Um ponto flutuante De precisão dupla 64 [bits IEEE 754.](https://ieeexplore.ieee.org/document/8766229) |
-| **cadeia** | Valores de texto, compostos por caracteres Unicode.          |
+| **double** | Um ponto flutuante De precisão dupla 64 [bits IEEE 754.](https://ieeexplore.ieee.org/document/8766229) |
+| **string** | Valores de texto, compostos por caracteres Unicode.          |
 
 #### <a name="objects-and-arrays"></a>Objetos e matrizes
 
@@ -198,7 +198,7 @@ Para garantir a consulta de desempenho e disponibilidade de dados, não edite ou
 
 Além de aceder aos seus dados do explorador de [pré-visualização](./time-series-insights-update-explorer.md) da Time Series Insights e da Consulta da Série de [Tempo,](./time-series-insights-update-tsq.md)também poderá querer aceder aos seus dados diretamente a partir dos ficheiros Parquet armazenados na loja de frio. Por exemplo, pode ler, transformar e limpar dados num caderno jupyter, depois usá-lo para treinar o seu modelo de Aprendizagem automática Azure no mesmo fluxo de trabalho spark.
 
-Para aceder aos dados diretamente da sua conta de Armazenamento Azure, precisa de ler o acesso à conta utilizada para armazenar os dados de Pré-visualização da Série Time Insights. Pode então ler dados selecionados com base no tempo de criação do ficheiro Parquet localizado na pasta `PT=Time` descrita abaixo na secção de formato de [ficheiroParquet.](#parquet-file-format-and-folder-structure)  Para obter mais informações sobre o acesso à sua conta de armazenamento, consulte [Gerir o acesso aos recursos da sua conta de armazenamento.](../storage/blobs/storage-manage-access-to-resources.md)
+Para aceder aos dados diretamente da sua conta de Armazenamento Azure, precisa de ler o acesso à conta utilizada para armazenar os dados de Pré-visualização da Série Time Insights. Pode então ler dados selecionados com base no tempo `PT=Time` de criação do ficheiro Parquet localizado na pasta descrita abaixo na secção de formato de [ficheiro Parquet.](#parquet-file-format-and-folder-structure)  Para obter mais informações sobre o acesso à sua conta de armazenamento, consulte [Gerir o acesso aos recursos da sua conta de armazenamento.](../storage/blobs/storage-manage-access-to-resources.md)
 
 #### <a name="data-deletion"></a>Eliminação de dados
 
@@ -212,27 +212,27 @@ Para mais informações sobre o tipo de ficheiro Parquet, leia a documentação 
 
 Time Series Insights Preview armazena cópias dos seus dados da seguinte forma:
 
-* A primeira cópia inicial é dividida pelo tempo de ingestão e armazena os dados aproximadamente por ordem de chegada. Estes dados residem na pasta `PT=Time`:
+* A primeira cópia inicial é dividida pelo tempo de ingestão e armazena os dados aproximadamente por ordem de chegada. Estes dados residem `PT=Time` na pasta:
 
   `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
 
-* A segunda cópia, reparticionada é agrupada por IDs da Série Do Tempo e reside na pasta `PT=TsId`:
+* A segunda cópia, reparticionada é agrupada `PT=TsId` por IDs da Série Do Tempo e reside na pasta:
 
   `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
 
-Em ambos os casos, a propriedade temporal do ficheiro Parquet corresponde ao tempo de criação de bolhas. Os dados da pasta `PT=Time` são preservados sem alterações uma vez que esteja escrito no ficheiro. Os dados da pasta `PT=TsId` serão otimizados para consulta ao longo do tempo e não estão estáticos.
+Em ambos os casos, a propriedade temporal do ficheiro Parquet corresponde ao tempo de criação de bolhas. Os dados `PT=Time` na pasta são preservados sem alterações uma vez que esteja escrito no ficheiro. Os dados `PT=TsId` na pasta serão otimizados para consulta ao longo do tempo e não são estáticos.
 
 > [!NOTE]
-> * `<YYYY>` mapas para uma representação de quatro dígitos.
-> * `<MM>` mapas para uma representação de dois dígitos.
-> * `<YYYYMMDDHHMMSSfff>` mapas para uma representação de carimbo de tempo com quatro dígitos ano (`YYYY`), mês de dois dígitos (`MM`), dia de dois dígitos (`DD`), hora de dois dígitos (`HH`), dois dígitos de minuto (`MM`), segundo de dois dígitos (`SS`) e milissegundo de três dígitos (`fff`).
+> * `<YYYY>`mapas para uma representação de quatro dígitos.
+> * `<MM>`mapas para uma representação de dois dígitos meses.
+> * `<YYYYMMDDHHMMSSfff>`mapas para uma representação de carimbo`YYYY`de tempo com`MM`quatro dígitos ano`DD`( ), dois`HH`dígitos (),`MM`dia de dois`SS`dígitos ( ),`fff`dois dígitos de minuto ( ), dois dígitos segundo ( e milissegundo de três dígitos ).
 
 Os eventos de pré-visualização da Série Time Insights são mapeados para conteúdos de ficheiros Parquet da seguinte forma:
 
 * Cada evento mapeia para uma única fila.
 * Cada linha inclui a coluna de **carimbo** sinuoso com um carimbo de tempo de evento. A propriedade do carimbo do tempo nunca é nula. Não se incorre no **evento, o tempo que** apropriedade do carimbo de tempo não é especificado na fonte do evento. O carimbo de tempo armazenado está sempre na UTC.
-* Todas as linhas incluem a(s) coluna(s) da Série de Tempo (TSID), tal como definida quando o ambiente Time Series Insights é criado. O nome da propriedade TSID inclui o sufixo `_string`.
-* Todas as outras propriedades enviadas como dados de telemetria são mapeadas para nomes de colunas que terminam com `_string` (corda), `_bool` (Boolean), `_datetime` (data), ou `_double` (duplo), dependendo do tipo de propriedade.
+* Todas as linhas incluem a(s) coluna(s) da Série de Tempo (TSID), tal como definida quando o ambiente Time Series Insights é criado. O nome da propriedade `_string` TSID inclui o sufixo.
+* Todas as outras propriedades enviadas como dados de telemetria são mapeadas para nomes de colunas que terminam `_string` com (string), `_bool` (Boolean), `_datetime` (data), ou `_double` (duplo), dependendo do tipo de propriedade.
 * Este esquema de mapeamento aplica-se à primeira versão do formato de ficheiro, referenciada como **V=1** e armazenada na pasta base com o mesmo nome. À medida que esta funcionalidade evolui, este esquema de mapeamento pode mudar e o nome de referência incrementado.
 
 ## <a name="next-steps"></a>Passos seguintes

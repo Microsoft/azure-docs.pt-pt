@@ -1,6 +1,6 @@
 ---
-title: Atividade de execução de pipeline no Azure Data Factory
-description: Saiba como você pode usar a atividade executar pipeline para invocar um pipeline de Data Factory de outro pipeline Data Factory.
+title: Executar atividade de gasoduto na fábrica de dados azure
+description: Saiba como pode utilizar a Atividade do Gasoduto executar para invocar um oleoduto data factory a partir de outro pipeline data Factory.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 26dd7c4f33360030b13ddbfc1516396436724c40
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75440444"
 ---
-# <a name="execute-pipeline-activity-in-azure-data-factory"></a>Atividade de execução de pipeline no Azure Data Factory
-A atividade executar pipeline permite que um pipeline de Data Factory invoque outro pipeline.
+# <a name="execute-pipeline-activity-in-azure-data-factory"></a>Executar atividade do pipeline na Fábrica de Dados Azure
+A atividade Executar Pipeline permite que um pipeline do Data Factory invoque outro pipeline.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -57,23 +57,23 @@ A atividade executar pipeline permite que um pipeline de Data Factory invoque ou
 }
 ```
 
-## <a name="type-properties"></a>Propriedades do tipo
+## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | Descrição | Valores permitidos | Obrigatório
+Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade executar pipeline. | String | Sim
-tipo | Deve ser definido como: **ExecutePipeline**. | String | Sim
-tubula | Referência de pipeline para o pipeline dependente que esse pipeline invoca. Um objeto de referência de pipeline tem duas propriedades: **referencename** e **Type**. A propriedade referencename especifica o nome do pipeline de referência. A propriedade Type deve ser definida como PipelineReference. | PipelineReference | Sim
-parâmetros | Parâmetros a serem passados para o pipeline invocado | Um objeto JSON que mapeia nomes de parâmetro para valores de argumento | Não
-waitOnCompletion | Define se a execução da atividade aguarda a conclusão da execução do pipeline dependente. A predefinição é falso. | Booleano | Não
+nome | Nome da atividade do gasoduto de execução. | Cadeia | Sim
+tipo | Deve ser definido para: **ExecutarPipeline**. | Cadeia | Sim
+oleoduto | Referência do gasoduto ao gasoduto dependente que este gasoduto invoca. Um objeto de referência de gasoduto tem duas propriedades: nome de **referência** e **tipo**. A propriedade de nome de referência especifica o nome do pipeline de referência. A propriedade tipo deve ser definida para PipelineReference. | PipelineReference | Sim
+parâmetros | Parâmetros a serem passados para o oleoduto invocado | Um objeto JSON que mapeia nomes de parâmetros para valores de argumento | Não
+waitOnCompletion | Define se a execução da atividade aguarda que a execução do gasoduto dependente termine. A predefinição é falso. | Booleano | Não
 
-## <a name="sample"></a>Exemplo
-Esse cenário tem dois pipelines:
+## <a name="sample"></a>Sample
+Este cenário tem dois oleodutos:
 
-- **Pipeline mestre** -esse pipeline tem uma atividade executar pipeline que chama o pipeline invocado. O pipeline mestre usa dois parâmetros: `masterSourceBlobContainer`, `masterSinkBlobContainer`.
-- **Pipeline invocado** -esse pipeline tem uma atividade de cópia que copia dados de uma origem de blob do Azure para o coletor de BLOBs do Azure. O pipeline invocado usa dois parâmetros: `sourceBlobContainer`, `sinkBlobContainer`.
+- **Pipeline principal** - Este gasoduto tem uma atividade execute pipeline que chama o gasoduto invocado. O gasoduto principal leva `masterSourceBlobContainer`dois `masterSinkBlobContainer`parâmetros: .
+- **Pipeline invocado** - Este pipeline tem uma atividade de Cópia que copia dados de uma fonte de Blob Azure para a pia de Azure Blob. O gasoduto invocado leva `sourceBlobContainer`dois `sinkBlobContainer`parâmetros: .
 
-### <a name="master-pipeline-definition"></a>Definição de pipeline mestre
+### <a name="master-pipeline-definition"></a>Definição de pipeline principal
 
 ```json
 {
@@ -115,7 +115,7 @@ Esse cenário tem dois pipelines:
 
 ```
 
-### <a name="invoked-pipeline-definition"></a>Definição de pipeline invocada
+### <a name="invoked-pipeline-definition"></a>Definição de gasoduto invocado
 
 ```json
 {
@@ -160,7 +160,7 @@ Esse cenário tem dois pipelines:
 
 ```
 
-**Serviço vinculado**
+**Serviço ligado**
 
 ```json
 {
@@ -174,7 +174,7 @@ Esse cenário tem dois pipelines:
 }
 ```
 
-**Conjunto de fonte de origem**
+**Conjunto de dados de origem**
 ```json
 {
     "name": "SourceBlobDataset",
@@ -195,7 +195,7 @@ Esse cenário tem dois pipelines:
 }
 ```
 
-**Conjunto de coleta**
+**Conjunto de dados sink**
 ```json
 {
     "name": "sinkBlobDataset",
@@ -215,9 +215,9 @@ Esse cenário tem dois pipelines:
 }
 ```
 
-### <a name="running-the-pipeline"></a>Executando o pipeline
+### <a name="running-the-pipeline"></a>Correndo o oleoduto
 
-Para executar o pipeline mestre neste exemplo, os valores a seguir são passados para os parâmetros os e masterSinkBlobContainer: 
+Para executar o pipeline principal neste exemplo, são passados os seguintes valores para os parâmetros masterSourceBlobContainer e masterSinkBlobContainer: 
 
 ```json
 {
@@ -226,7 +226,7 @@ Para executar o pipeline mestre neste exemplo, os valores a seguir são passados
 }
 ```
 
-O pipeline mestre encaminha esses valores para o pipeline invocado, conforme mostrado no exemplo a seguir: 
+O principal gasoduto encaminha estes valores para o gasoduto invocado, como mostra o seguinte exemplo: 
 
 ```json
 {
@@ -252,9 +252,9 @@ O pipeline mestre encaminha esses valores para o pipeline invocado, conforme mos
 
 ```
 ## <a name="next-steps"></a>Passos seguintes
-Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 
+Consulte outras atividades de fluxo de controlo suportadas pela Data Factory: 
 
-- [Para cada atividade](control-flow-for-each-activity.md)
+- [Para Cada Atividade](control-flow-for-each-activity.md)
 - [Atividade Obter Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
-- [Atividade da Web](control-flow-web-activity.md)
+- [Atividade Web](control-flow-web-activity.md)

@@ -1,6 +1,6 @@
 ---
-title: Desabilitar políticas de rede para pontos de extremidade privados no Azure
-description: Saiba como desabilitar as políticas de rede para pontos de extremidade privados.
+title: Desativar as políticas de rede para pontos finais privados em Azure
+description: Aprenda a desativar as políticas de rede para pontos finais privados.
 services: private-link
 author: malopMSFT
 ms.service: private-link
@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: b5ab62e7ab57d32a11a45713519633034deb6a5b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75453024"
 ---
-# <a name="disable-network-policies-for-private-endpoints"></a>Desabilitar políticas de rede para pontos de extremidade privados
+# <a name="disable-network-policies-for-private-endpoints"></a>Desativar as políticas de rede para pontos finais privados
 
-Não há suporte para as políticas de rede, como NSG (grupos de segurança de rede) para pontos de extremidade privados. Para implantar um ponto de extremidade privado em uma determinada sub-rede, uma configuração de desabilitação explícita é necessária nessa sub-rede. Essa configuração é aplicável somente para o ponto de extremidade privado. Para outros recursos na sub-rede, o acesso é controlado com base na definição de regras de segurança de NSG (grupos de segurança de rede). 
+As políticas de rede como os grupos de segurança da rede (NSG) não são apoiadas para pontos finais privados. Para implantar um Ponto Final Privado numa determinada sub-rede, é necessária uma definição explícita de desativação nessa sub-rede. Esta definição só é aplicável para o Ponto Final Privado. Para outros recursos na subrede, o acesso é controlado com base na definição de regras de segurança dos Grupos de Segurança da Rede (NSG). 
  
-Ao usar o portal para criar um ponto de extremidade privado, essa configuração é automaticamente desabilitada como parte do processo de criação. A implantação usando outros clientes requer uma etapa adicional para alterar essa configuração. Você pode desabilitar a configuração usando o Cloud shell do portal do Azure, ou instalações locais do Azure PowerShell, CLI do Azure ou usar modelos de Azure Resource Manager.  
+Ao utilizar o portal para criar um ponto final privado, esta definição é automaticamente desativada como parte do processo de criação. A implementação utilizando outros clientes requer um passo adicional para alterar esta definição. Pode desativar a definição utilizando a casca de nuvem do portal Azure, ou instalações locais de Azure PowerShell, Azure CLI ou utilizar modelos do Gestor de Recursos Azure.  
  
-Os exemplos a seguir descrevem como desabilitar `PrivateEndpointNetworkPolicies` para uma rede virtual chamada *myVirtualNetwork* com uma sub-rede *padrão* hospedada em um grupo de recursos chamado *MyResource*Group.
+Os exemplos seguintes `PrivateEndpointNetworkPolicies` descrevem como desativar uma rede virtual chamada *myVirtualNetwork* com uma subnet *padrão* hospedada num grupo de recursos chamado *myResourceGroup*.
 
 ## <a name="using-azure-powershell"></a>Utilizar o Azure PowerShell
-Esta seção descreve como desabilitar políticas de ponto de extremidade privadas de sub-rede usando Azure PowerShell.
+Esta secção descreve como desativar as políticas de ponto final privado da subnet utilizando o Azure PowerShell.
 
 ```azurepowershell
 $virtualNetwork= Get-AzVirtualNetwork `
@@ -35,7 +35,7 @@ $virtualNetwork= Get-AzVirtualNetwork `
 $virtualNetwork | Set-AzVirtualNetwork 
 ```
 ## <a name="using-azure-cli"></a>Utilizar a CLI do Azure
-Esta seção descreve como desabilitar políticas de ponto de extremidade privadas de sub-rede usando CLI do Azure.
+Esta secção descreve como desativar as políticas de pontofinal privado da sub-rede utilizando o Azure CLI.
 ```azurecli
 az network vnet subnet update \ 
   --name default \ 
@@ -44,7 +44,7 @@ az network vnet subnet update \
   --disable-private-endpoint-network-policies true
 ```
 ## <a name="using-a-template"></a>Usando um modelo
-Esta seção descreve como desabilitar políticas de ponto de extremidade privadas de sub-rede usando Azure Resource Manager modelo.
+Esta secção descreve como desativar as políticas de ponto final privado da subnet utilizando o modelo de gestor de recursos azure.
 ```json
 { 
           "name": "myVirtualNetwork", 
@@ -70,5 +70,5 @@ Esta seção descreve como desabilitar políticas de ponto de extremidade privad
 } 
 ```
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre o [ponto de extremidade privado do Azure](private-endpoint-overview.md)
+- Saiba mais sobre [o ponto final privado do Azure](private-endpoint-overview.md)
  

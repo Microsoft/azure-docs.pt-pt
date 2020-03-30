@@ -9,15 +9,15 @@ ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
 ms.openlocfilehash: a9473f69d600a86ff71da69c7efe0dea3f2b0a08
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76159505"
 ---
-## <a name="os-config"></a>Adicionar endereços IP ao sistema operativo de uma VM
+## <a name="add-ip-addresses-to-a-vm-operating-system"></a><a name="os-config"></a>Adicionar endereços IP ao sistema operativo de uma VM
 
-Conecte-se e entre em uma VM que você criou com vários endereços IP privados. Tem de adicionar manualmente todos os endereços IP privados (incluindo o principal) que adicionou à VM. Conclua as etapas a seguir para o sistema operacional da VM.
+Conecte-se e inscreva-se num VM que criou com vários endereços IP privados. Tem de adicionar manualmente todos os endereços IP privados (incluindo o principal) que adicionou à VM. Complete os passos que se seguem para o seu sistema operativo VM.
 
 ### <a name="windows"></a>Windows
 
@@ -30,16 +30,16 @@ Conecte-se e entre em uma VM que você criou com vários endereços IP privados.
     * **Endereço IP**: Introduza o endereço IP privado *Principal*
     * **Máscara de sub-rede**: Conjunto baseado na sua sub-rede. Por exemplo, se a sub-rede for uma sub-rede /24, a máscara de sub-rede será 255.255.255.0.
     * **Gateway predefinido**: O primeiro endereço IP na sub-rede. Se a sua sub-rede for 10.0.0.0/24, o endereço IP do gateway será 10.0.0.1.
-    * Selecione **usar os seguintes endereços de servidor DNS** e insira os seguintes valores:
+    * Selecione **Utilize os seguintes endereços do servidor DNS** e introduza os seguintes valores:
         * **Servidor DNS preferencial**: Se não estiver a utilizar o seu próprio servidor DNS, introduza 168.63.129.16.  Se estiver a utilizar o seu próprio servidor DNS, introduza o endereço IP do seu servidor.
-    * Selecione o botão **avançado** e adicione endereços IP adicionais. Adicione cada um dos endereços IP privados secundários que você adicionou ao adaptador de rede do Azure em uma etapa anterior, à interface de rede do Windows que é atribuída ao endereço IP primário atribuído à interface de rede do Azure.
+    * Selecione o botão **Avançado** e adicione endereços IP adicionais. Adicione cada um dos endereços IP privados secundários, que adicionou à interface de rede Azure num passo anterior, à interface de rede Windows que é atribuída ao endereço IP primário atribuído à interface de rede Azure.
 
-        Nunca manualmente deve atribuir o endereço IP público atribuído a uma máquina virtual do Azure no sistema de operativo da máquina virtual. Quando você definir manualmente o endereço IP no sistema operacional, verifique se ele é o mesmo endereço que o endereço IP privado atribuído ao [adaptador de rede](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings)do Azure ou se você pode perder a conectividade com a máquina virtual. Saiba mais sobre as configurações de [endereço IP privado](../articles/virtual-network/virtual-network-network-interface-addresses.md#private) . Você nunca deve atribuir um endereço IP público do Azure dentro do sistema operacional.
+        Nunca deve atribuir manualmente o endereço IP público atribuído a uma máquina virtual Azure dentro do sistema operativo da máquina virtual. Quando definir manualmente o endereço IP dentro do sistema operativo, certifique-se de que é o mesmo endereço que o endereço IP privado atribuído à interface de [rede](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings)Azure, ou pode perder a conectividade com a máquina virtual. Saiba mais sobre as definições privadas de [endereço IP.](../articles/virtual-network/virtual-network-network-interface-addresses.md#private) Nunca deve atribuir um endereço IP público Azure dentro do sistema operativo.
 
     * Clique em **OK** para fechar as definições de TCP/IP e, em seguida, novamente em **OK** para fechar as definições do adaptador. A ligação RDP é restabelecida.
 
 6. A partir de uma linha de comandos, escreva *ipconfig /all*. Todos os endereços IP adicionados por si são apresentados e o DHCP é desativado.
-7. Configure o Windows para usar o endereço IP privado da configuração de IP primário no Azure como o endereço IP primário para o Windows. Consulte [sem acesso à Internet da VM do Windows do Azure que tem vários endereços IP](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) para obter detalhes. 
+7. Configure o Windows para utilizar o endereço IP privado da configuração IP primária em Azure como o principal endereço IP para Windows. Não consulte [o Acesso à Internet a partir do Azure Windows VM que tenha vários endereços IP](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) para mais detalhes. 
 
 ### <a name="validation-windows"></a>Validação (Windows)
 
@@ -49,11 +49,11 @@ Para se certificar de que pode estabelecer uma ligação à Internet a partir da
 ping -S 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->Para configurações de IP secundário, você só poderá executar ping na Internet se a configuração tiver um endereço IP público associado a ela. Para configurações de IP primário, um endereço IP público não é necessário para executar o ping na Internet.
+>Para configurações ip secundárias, só pode fazer ping na Internet se a configuração tiver um endereço IP público associado ao mesmo. Para configurações primárias de IP, não é necessário um endereço IP público para ping para a Internet.
 
 ### <a name="linux-ubuntu-1416"></a>Linux (Ubuntu 14/16)
 
-É recomendável observar a documentação mais recente para sua distribuição do Linux. 
+Recomendamos que veja a documentação mais recente para a sua distribuição Linux. 
 
 1. Abra uma janela de terminal.
 2. Certifique-se de que é o utilizador raiz. Se não for, introduza o seguinte comando:
@@ -112,9 +112,9 @@ ping -S 10.0.0.5 hotmail.com
 
    Deverá ver o endereço IP que adicionou como parte da lista.
 
-### <a name="linux-ubuntu-1804"></a>Linux (Ubuntu 18.04 +)
+### <a name="linux-ubuntu-1804"></a>Linux (Ubuntu 18.04+)
 
-O Ubuntu 18, 4 e versões superiores foram alterados para `netplan` para o gerenciamento de rede do so. É recomendável observar a documentação mais recente para sua distribuição do Linux. 
+Ubuntu 18.04 ou acima `netplan` mudaram para gestão da rede osso. Recomendamos que veja a documentação mais recente para a sua distribuição Linux. 
 
 1. Abra uma janela de terminal.
 2. Certifique-se de que é o utilizador raiz. Se não for, introduza o seguinte comando:
@@ -123,13 +123,13 @@ O Ubuntu 18, 4 e versões superiores foram alterados para `netplan` para o geren
     sudo -i
     ```
 
-3. Crie um arquivo para a segunda interface e abra-o em um editor de texto:
+3. Crie um ficheiro para a segunda interface e abra-o num editor de texto:
 
     ```bash
     vi /etc/netplan/60-static.yaml
     ```
 
-4. Adicione as seguintes linhas ao arquivo, substituindo `10.0.0.6/24` pelo seu IP/máscara de rede:
+4. Adicione as seguintes linhas ao `10.0.0.6/24` ficheiro, substituindo pelo seu IP/netmask:
 
     ```bash
     network:
@@ -146,16 +146,16 @@ O Ubuntu 18, 4 e versões superiores foram alterados para `netplan` para o geren
     :wq
     ```
 
-6. Teste as alterações usando o [netplan tente](http://manpages.ubuntu.com/manpages/cosmic/man8/netplan-try.8.html) confirmar a sintaxe:
+6. Teste as alterações utilizando [o netplan tente](http://manpages.ubuntu.com/manpages/cosmic/man8/netplan-try.8.html) confirmar a sintaxe:
 
     ```bash
     netplan try
     ```
 
 > [!NOTE]
-> `netplan try` aplicará as alterações temporariamente e reverterá as alterações após 120 segundos. Se houver uma perda de conectividade, aguarde 120 segundos e, em seguida, reconecte-se. Nesse momento, as alterações serão revertidas.
+> `netplan try`aplicará as alterações temporariamente e relançará as alterações após 120 segundos. Se houver uma perda de conectividade, por favor, espere 120 segundos e, em seguida, reconecte-se. Nessa altura, as mudanças terão sido revertidas.
 
-7. Supondo que não haja problemas com `netplan try`, aplique as alterações de configuração:
+7. Assumindo que `netplan try`não há problemas com, aplique as alterações de configuração:
 
     ```bash
     netplan apply
@@ -186,7 +186,7 @@ O Ubuntu 18, 4 e versões superiores foram alterados para `netplan` para o geren
         valid_lft forever preferred_lft forever
     ```
     
-### <a name="linux-red-hat-centos-and-others"></a>Linux (Red Hat, CentOS e outros)
+### <a name="linux-red-hat-centos-and-others"></a>Linux (Chapéu Vermelho, CentOS, entre outros)
 
 1. Abra uma janela de terminal.
 2. Certifique-se de que é o utilizador raiz. Se não for, introduza o seguinte comando:
@@ -254,7 +254,7 @@ Para se certificar de que pode estabelecer uma ligação à Internet a partir da
 ping -I 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->Para configurações de IP secundário, você só poderá executar ping na Internet se a configuração tiver um endereço IP público associado a ela. Para configurações de IP primário, um endereço IP público não é necessário para executar o ping na Internet.
+>Para configurações ip secundárias, só pode fazer ping na Internet se a configuração tiver um endereço IP público associado ao mesmo. Para configurações primárias de IP, não é necessário um endereço IP público para ping para a Internet.
 
 Para VMs de Linux, ao tentar validar a conectividade de saída a partir de um NIC secundário, poderá ter de adicionar rotas adequadas. Existem várias formas de efetuar este procedimento. Consulte a documentação adequada para a distribuição de Linux. O método seguinte é adequado para realizar este procedimento:
 

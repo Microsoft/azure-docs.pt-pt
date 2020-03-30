@@ -1,34 +1,34 @@
 ---
-title: Recuperação de desastre geográfica do Azure Spring Cloud | Microsoft Docs
-description: Saiba como proteger seu aplicativo Spring Cloud de interrupções regionais
+title: Recuperação geo-desastre da Nuvem de primavera de Azure Microsoft Docs
+description: Saiba como proteger a sua aplicação Spring Cloud de interrupções regionais
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
 ms.openlocfilehash: 4961e5a63e5bc1933cf19b1f291b521d89cbda0e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76279144"
 ---
-# <a name="azure-spring-cloud-disaster-recovery"></a>Recuperação de desastres na nuvem do Azure Spring
+# <a name="azure-spring-cloud-disaster-recovery"></a>Recuperação do desastre da Nuvem de primavera de Azure
 
-Este artigo explica algumas estratégias que você pode usar para proteger seus aplicativos do Azure Spring Cloud de sofrerem tempo de inatividade.  Qualquer região ou data center pode enfrentar tempo de inatividade causado por desastres regionais, mas o planejamento cuidadoso pode reduzir o impacto sobre os clientes.
+Este artigo explica algumas estratégias que pode usar para proteger as suas aplicações Azure Spring Cloud de experimentar o tempo de inatividade.  Qualquer região ou centro de dados pode experimentar o tempo de inatividade causado por desastres regionais, mas um planeamento cuidadoso pode mitigar o impacto nos seus clientes.
 
-## <a name="plan-your-application-deployment"></a>Planejar a implantação do aplicativo
+## <a name="plan-your-application-deployment"></a>Planeie a sua implementação de aplicações
 
-Os aplicativos de nuvem Spring do Azure são executados em uma região específica.  O Azure funciona em várias geografias em todo o mundo. Uma geografia do Azure é uma área definida do mundo que contém pelo menos uma região do Azure. Uma região do Azure é uma área em uma geografia, que contém um ou mais data centers.  Cada região do Azure é emparelhada com outra região na mesma geografia, juntos criando um par regional. O Azure serializa atualizações de plataforma (manutenção planejada) entre pares regionais, garantindo que apenas uma região em cada par seja atualizada de cada vez. No caso de uma interrupção que afete várias regiões, pelo menos uma região em cada par será priorizada para recuperação.
+As aplicações Azure Spring Cloud funcionam numa região específica.  O Azure funciona em várias geografias em todo o mundo. Uma geografia Azure é uma área definida do mundo que contém pelo menos uma região azure. Uma região de Azure é uma área dentro de uma geografia, contendo um ou mais centros de dados.  Cada região de Azure é emparelhada com outra região dentro da mesma geografia, fazendo juntos um par regional. O Azure serializa atualizações de plataformas (manutenção planeada) em pares regionais, garantindo que apenas uma região em cada par é atualizada de cada vez. Em caso de paralisação que afete várias regiões, pelo menos uma região de cada par será priorizada para recuperação.
 
-Garantir a alta disponibilidade e a proteção contra desastres exige que você implante seus aplicativos Spring Cloud em várias regiões.  O Azure fornece uma lista de [regiões emparelhadas](../best-practices-availability-paired-regions.md) para que você possa planejar suas implantações de nuvem Spring em pares regionais.  Recomendamos que você considere três fatores principais ao projetar sua arquitetura de micro serviço: disponibilidade de região, regiões emparelhadas do Azure e disponibilidade de serviço.
+Garantir uma elevada disponibilidade e proteção contra desastres requer que você implemente as suas aplicações de Nuvem de primavera para várias regiões.  O Azure fornece uma lista de [regiões emparelhadas](../best-practices-availability-paired-regions.md) para que possa planear as suas implantações da Nuvem de primavera para pares regionais.  Recomendamos que considere três fatores fundamentais na conceção da sua arquitetura de microserviços: disponibilidade da região, regiões emparelhadas com Azure e disponibilidade de serviço.
 
-*  Disponibilidade da região: escolha uma área geográfica perto de seus usuários para minimizar o tempo de transmissão e a latência da rede.
-*  Regiões emparelhadas do Azure: escolha regiões emparelhadas dentro de sua área geográfica escolhida para garantir atualizações de plataforma coordenadas e esforços de recuperação priorizados, se necessário.
-*  Disponibilidade do serviço: decida se suas regiões emparelhadas devem ser executadas em alta/quente, quente/quente ou quente/frio.
+*  Disponibilidade da região: Escolha uma área geográfica próxima dos seus utilizadores para minimizar o atraso de rede e o tempo de transmissão.
+*  Regiões emparelhadas com Azure: Escolha regiões emparelhadas dentro da sua área geográfica escolhida para garantir atualizações coordenadas da plataforma e priorizar os esforços de recuperação, se necessário.
+*  Disponibilidade do serviço: Decida se as suas regiões emparelhadas devem funcionar quentes/quentes, quentes/quentes ou quentes/frios.
 
-## <a name="use-azure-traffic-manager-to-route-traffic"></a>Usar o Gerenciador de tráfego do Azure para rotear o tráfego
+## <a name="use-azure-traffic-manager-to-route-traffic"></a>Utilize o Gestor de Tráfego Azure para direcionar o tráfego
 
-O [Gerenciador de tráfego do Azure](../traffic-manager/traffic-manager-overview.md) fornece balanceamento de carga de tráfego baseado em DNS e pode distribuir o tráfego de rede entre várias regiões.  Use o Gerenciador de tráfego do Azure para direcionar os clientes para a instância mais próxima do serviço de nuvem Spring do Azure para eles.  Para obter melhor desempenho e redundância, direcione todo o tráfego do aplicativo por meio do Gerenciador de tráfego do Azure antes de enviá-lo para o serviço de nuvem do Azure Spring.
+[O Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) fornece o equilíbrio de carga de tráfego baseado no DNS e pode distribuir o tráfego da rede por várias regiões.  Utilize o Gestor de Tráfego Azure para direcionar os clientes para a instância de serviço azure spring cloud mais próxima.  Para melhor desempenho e redundância, direcione todo o tráfego de aplicações através do Azure Traffic Manager antes de enviá-lo para o seu serviço Azure Spring Cloud.
 
-Se você tiver aplicativos do Azure Spring Cloud em várias regiões, use o Gerenciador de tráfego do Azure para controlar o fluxo de tráfego para seus aplicativos em cada região.  Defina um ponto de extremidade do Gerenciador de tráfego do Azure para cada serviço usando o IP do serviço. Os clientes devem se conectar a um nome DNS do Gerenciador de tráfego do Azure apontando para o serviço de nuvem Spring do Azure.  O Gerenciador de tráfego do Azure equilibra o tráfego entre os pontos de extremidade definidos.  Se um desastre ocorrer um data center, o Gerenciador de tráfego do Azure direcionará o tráfego dessa região para seu par, garantindo a continuidade do serviço.
+Se tiver aplicações Azure Spring Cloud em várias regiões, utilize o Gestor de Tráfego Azure para controlar o fluxo de tráfego para as suas aplicações em cada região.  Defina um ponto final do Gestor de Tráfego Azure para cada serviço utilizando o IP de serviço. Os clientes devem ligar-se a um nome DNS do Gestor de Tráfego Azure que aponta para o serviço Azure Spring Cloud.  A carga do Gestor de Tráfego Azure equilibra o tráfego nos pontos finais definidos.  Se um desastre atingir um centro de dados, o Gestor de Tráfego azure direcionará o tráfego daquela região para o seu par, garantindo a continuidade do serviço.

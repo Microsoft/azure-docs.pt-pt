@@ -12,10 +12,10 @@ ms.date: 08/17/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 312d093548b6e3cf3654f45d7610e8fc474a87b8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78187791"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Passe um sinal de acesso através de um fluxo de utilizador para a sua aplicação no Azure Ative Directory B2C
@@ -44,10 +44,10 @@ Atualmente, o Azure AD B2C apenas suporta a passagem do sinal de acesso dos forn
 
 ## <a name="test-the-user-flow"></a>Testar o fluxo do utilizador
 
-Ao testar as suas aplicações em Azure AD B2C, pode ser útil que o token Azure AD B2C seja devolvido à `https://jwt.ms` para rever as reclamações nele.
+Ao testar as suas aplicações em Azure AD B2C, pode ser útil que `https://jwt.ms` o token Azure AD B2C seja devolvido para rever as reclamações nele.
 
 1. Na página 'Visão Geral' do fluxo do utilizador, selecione **Executar o fluxo do utilizador**.
-2. Para **Aplicação,** selecione a sua aplicação que registou anteriormente. Para ver o símbolo no exemplo abaixo, o URL de **resposta** deve mostrar `https://jwt.ms`.
+2. Para **Aplicação,** selecione a sua aplicação que registou anteriormente. Para ver o símbolo no exemplo abaixo, `https://jwt.ms`o URL de **resposta** deve mostrar .
 3. Clique no **fluxo do utilizador executar**e, em seguida, inscreva-se com as credenciais da sua conta. Deve ver o sinal de acesso do fornecedor de identidade na **idp_access_token** reivindicação.
 
     Deve ver algo semelhante ao seguinte exemplo:

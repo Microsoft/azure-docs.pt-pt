@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/02/2020
 ms.custom: sfrev
 ms.openlocfilehash: f08c6b0675475b4e15ce6db3a9dbe0e2863b9ddb
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252774"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparar o ambiente de desenvolvimento no Windows
@@ -21,7 +21,7 @@ ms.locfileid: "78252774"
 >
 >
 
-Para construir e executar [aplicações de tecido][1] de serviço Azure na sua máquina de desenvolvimento Windows, instale o tempo de execução do Tecido de Serviço, SDK e ferramentas. Também precisa de [ativar a execução dos scripts do Windows PowerShell](#enable-powershell-script-execution) incluídos no SDK.
+Para compilar e executar [aplicações do Azure Service Fabric][1] no computador de desenvolvimento Windows, tem de instalar o runtime do Service Fabric, o SDK e as ferramentas. Também precisa de [ativar a execução dos scripts do Windows PowerShell](#enable-powershell-script-execution) incluídos no SDK.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,7 +33,7 @@ As seguintes versões do sistema operativo são suportadas para desenvolvimento:
 * Windows 8/Windows 8.1
 * Windows Server 2012 R2
 * Windows Server 2016
-* Windows 10
+* Windows 10
 
 > [!NOTE]
 > Suporte do Windows 7:
@@ -52,7 +52,7 @@ O Instalador de Plataformas Web (WebPI) é a forma recomendada de instalar o SDK
 As Ferramentas de Tecido de Serviço fazem parte da carga de trabalho do Azure Development no Visual Studio 2017 e 2019. Ative esta carga de trabalho como parte da instalação do Visual Studio.
 Para além disso, deve instalar o runtime e o Microsoft Azure Service Fabric SDK, utilizando o Instalador de Plataforma Web.
 
-* [Instale o SDK do Microsoft Azure Service Fabric][core-sdk]
+* [Instalar o SDK do Microsoft Azure Service Fabric][core-sdk]
 
 ### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Utilizar Visual Studio 2015 (requer a Atualização 2 do Visual Studio 2015 ou posterior)
 
@@ -64,7 +64,7 @@ Para o Visual Studio 2015, as ferramentas do Service Fabric são instaladas junt
 
 Se apenas precisa do SDK, pode instalar este pacote:
 
-* [Instale o SDK do Microsoft Azure Service Fabric][core-sdk]
+* [Instalar o SDK do Microsoft Azure Service Fabric][core-sdk]
 
 As versões atuais são:
 
@@ -100,7 +100,7 @@ Agora que o ambiente de desenvolvimento está configurado, pode começar a criar
 
 [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Página da campanha do Service Fabric"
 [2]: https://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[full-bundle-vs2015]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "Ligação VS 2015 WebPI"
-[full-bundle-dev15]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Ligação Dev15 WebPI"
-[core-sdk]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Ligação Core SDK WebPI"
+[full-bundle-vs2015]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "Ligação VS 2015 WebPI"
+[full-bundle-dev15]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Ligação Dev15 WebPI"
+[core-sdk]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Ligação Core SDK WebPI"
 [powershell5-download]:https://www.microsoft.com/download/details.aspx?id=54616

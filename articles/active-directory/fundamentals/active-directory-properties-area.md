@@ -1,6 +1,6 @@
 ---
-title: Adicionar informações de privacidade da sua organização - Azure Active Directory | Documentos da Microsoft
-description: Instruções sobre como adicionar informações de privacidade da sua organização para a área de propriedades do Active Directory do Azure.
+title: Adicione as informações de privacidade da sua organização - Azure Ative Diretórios / Microsoft Docs
+description: Instruções sobre como adicionar as informações de privacidade da sua organização à área de Propriedades de Diretório Ativo Azure.
 services: active-directory
 author: msaburnley
 manager: daveba
@@ -14,47 +14,47 @@ ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 95f1877ae630919ba7da5a851b5f8291ade2d165
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76897579"
 ---
-# <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Adicionar informações de privacidade da sua organização com o Azure Active Directory
-Este artigo explica como um administrador de inquilinos pode adicionar informações relacionadas com a privacidade ao inquilino do Azure Active Directory (Azure AD) de uma organização, através do portal do Azure.
+# <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Adicione as informações de privacidade da sua organização usando o Diretório Ativo Azure
+Este artigo explica como um administrador inquilino pode adicionar informações relacionadas com a privacidade ao inquilino Azure Ative Directory (Azure AD) de uma organização, através do portal Azure.
 
-Recomendamos vivamente que adicione o seu contacto de privacidade global e declaração de privacidade da sua organização, para que os seus funcionários internos e convidados externos, podem rever as suas políticas. Como declarações de privacidade são exclusivamente criadas e desenvolvido sob medidas para cada empresa, é altamente recomendável que contate um advogado para obter assistência.
+Recomendamos vivamente que adicione tanto o seu contacto de privacidade global como a declaração de privacidade da sua organização, para que os seus colaboradores internos e hóspedes externos possam rever as suas políticas. Como as declarações de privacidade são criadas e adaptadas exclusivamente para cada negócio, recomendamos vivamente que contacte um advogado para obter assistência.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="add-your-privacy-info-on-azure-ad"></a>Adicionar as suas informações de privacidade no Azure AD
-Adicionar informações de privacidade da sua organização no **propriedades** área do Azure AD.
+## <a name="add-your-privacy-info-on-azure-ad"></a>Adicione as suas informações de privacidade no Azure AD
+Você adiciona as informações de privacidade da sua organização na área de **Propriedades** do Azure AD.
 
-### <a name="to-access-the-properties-area-and-add-your-privacy-information"></a>Para acessar a área de propriedades e adicionar as informações de privacidade
+### <a name="to-access-the-properties-area-and-add-your-privacy-information"></a>Para aceder à área de Propriedades e adicionar as suas informações de privacidade
 
-1.  Inicie sessão no portal do Azure como um administrador inquilino.
+1.  Inscreva-se no portal Azure como administrador de inquilinos.
 
-2.  Na barra de navegação esquerda, selecione **do Azure Active Directory**e, em seguida, selecione **propriedades**.
+2.  Na barra de navegação à esquerda, selecione **Azure Ative Directory**, e depois selecione **Propriedades**.
 
-    O **propriedades** área é apresentada.
+    A área **de Propriedades** aparece.
 
-    ![Área de propriedades do AD do Azure, realce a área de informações de privacidade](media/active-directory-properties-area/properties-area.png)
+    ![Área da Azure AD Properties destacando a área de informação de privacidade](media/active-directory-properties-area/properties-area.png)
 
-3.  Adicione as suas informações de privacidade para os seus funcionários:
+3.  Adicione as suas informações de privacidade aos seus colaboradores:
 
-    - **Contacto técnico.** Escreva o endereço de e-mail da pessoa entrar em contacto para suporte técnico da sua organização.
+    - **Contacto técnico.** Digite o endereço de e-mail para que a pessoa contacte para obter apoio técnico dentro da sua organização.
     
-    - **Contacto de privacidade global.** Escreva o endereço de e-mail da pessoa entrar em contacto para questões sobre a privacidade dos dados pessoais. Essa pessoa também se trata de quem entra em contacto com Microsoft se houver uma violação de dados. Se não houver nenhuma pessoa listada aqui, Microsoft entra em contacto com os administradores globais.
+    - **Contacto global de privacidade.** Digite o endereço de e-mail para a pessoa contactar para obter informações sobre privacidade de dados pessoais. Esta pessoa também é quem a Microsoft contacta se houver uma violação de dados. Se não houver ninguém listado aqui, a Microsoft contacta os seus administradores globais.
 
-    - **URL da declaração de privacidade.** Escreva a ligação para documento da sua organização que descreve como a sua organização lida com ambos privacidade dos dados internos e externos do convidado.
+    - **URL de declaração de privacidade.** Digite o link para o documento da sua organização que descreve como a sua organização lida com a privacidade de dados dos hóspedes internos e externos.
 
         >[!Important]
-        >Se não incluir a sua declaração de privacidade ou seu contacto de privacidade, os convidados externos irão ver o texto na **permissões de revisão** caixa que diz  **< _seu nome da org_> não forneceu ligações para os seus termos para rever**. Por exemplo, um utilizador convidado irá ver esta mensagem quando recebem um convite para aceder a uma organização por meio da colaboração B2B.
+        >Se não incluir a sua declaração de privacidade ou o seu contacto de privacidade, os seus hóspedes externos verão texto na caixa **de Permissões de Revisão** que diz, ** <o seu nome _org_> não forneceu links para os seus termos para que possa rever**. Por exemplo, um utilizador convidado verá esta mensagem quando receber um convite para aceder a uma organização através da colaboração B2B.
 
-        ![Caixa de permissões de revisão de colaboração do B2B com a mensagem](media/active-directory-properties-area/active-directory-no-privacy-statement-or-contact.png)
+        ![Caixa de permissões de revisão de colaboração B2B com mensagem](media/active-directory-properties-area/active-directory-no-privacy-statement-or-contact.png)
 
 4.  Selecione **Guardar**.
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Resgate de convite de colaboração do Azure Active Directory B2B](https://aka.ms/b2bredemption)
-- [Adicionar ou alterar as informações de perfil para um utilizador no Azure Active Directory](active-directory-users-profile-azure-portal.md)
+- [Redenção do convite de colaboração Azure Ative Directory B2B](https://aka.ms/b2bredemption)
+- [Adicionar ou alterar informações de perfil para um utilizador no Diretório Ativo do Azure](active-directory-users-profile-azure-portal.md)

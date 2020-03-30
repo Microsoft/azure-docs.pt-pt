@@ -1,5 +1,5 @@
 ---
-title: Apache Oozie fluxos de trabalho e segurança empresarial - Azure HDInsight
+title: Apache Oozie fluxos de trabalho & Segurança Empresarial - Azure HDInsight
 description: Fluxos de trabalho De Apache Oozie seguros utilizando o Pacote de Segurança Empresarial Azure HDInsight. Aprenda a definir um fluxo de trabalho oozie e submeta um trabalho oozie.
 author: omidm1
 ms.author: omidm
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seodec18
 ms.date: 12/09/2019
 ms.openlocfilehash: 9ef54707f7fac3dd1328e29f6d05f62c1dee2561
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78194908"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Executar Apache Oozie em clusters Hadoop HDInsight com pacote de segurança empresarial
@@ -43,7 +43,7 @@ Para obter mais informações sobre a Secure Shell (SSH), consulte [Connect to H
     ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
     ```
 
-1. Para verificar a autenticação kerberos bem sucedida, utilize o comando `klist`. Caso contrário, utilize `kinit` para iniciar a autenticação kerberos.
+1. Para verificar a autenticação kerberos bem sucedida, utilize o `klist` comando. Caso contrário, `kinit` utilize para iniciar a autenticação kerberos.
 
 1. Inscreva-se na porta de entrada hDInsight para registar o símbolo OAuth necessário para aceder ao Armazenamento do Lago De dados Azure:
 
@@ -67,9 +67,9 @@ As definições de fluxo de trabalho oozie são escritas na Linguagem de Defini�
    hdfs dfs -put examples /user/<DomainUser>/
    ```
 
-   Substitua `DomainUser` pelo nome de utilizador do domínio.
-   Substitua `DomainUserPath` pelo caminho do diretório inicial para o utilizador do domínio.
-   Substitua `ClusterVersion` com a versão da plataforma de dados do cluster.
+   Substitua-a `DomainUser` com o nome de utilizador do domínio.
+   Substitua-a `DomainUserPath` pelo percurso de diretório inicial para o utilizador do domínio.
+   Substitua-a `ClusterVersion` pela versão da plataforma de dados do cluster.
 
 2. Utilize a seguinte declaração para criar e editar um novo ficheiro:
 
@@ -176,7 +176,7 @@ As definições de fluxo de trabalho oozie são escritas na Linguagem de Defini�
     </workflow-app>
     ```
 
-4. Substitua `clustername` pelo nome do cluster.
+4. Substitua-o `clustername` pelo nome do cluster.
 
 5. Para guardar o ficheiro, selecione **Ctrl+X**. Insira **Y**. Em seguida, selecione **Enter**.
 
@@ -194,15 +194,15 @@ As definições de fluxo de trabalho oozie são escritas na Linguagem de Defini�
 
      - As ações do servidor hive 2 e hive 1 executam uma consulta numa tabela de colmeia sinuosa fornecida com HDInsight.
 
-     As ações da Colmeia utilizam as credenciais definidas na secção de credenciais para autenticação utilizando a palavra-chave `cred` no elemento de ação.
+     As ações da Colmeia utilizam as credenciais definidas na `cred` secção de credenciais para autenticação utilizando a palavra-chave no elemento de ação.
 
-6. Utilize o seguinte comando para copiar o ficheiro `workflow.xml` para `/user/<domainuser>/examples/apps/map-reduce/workflow.xml`:
+6. Utilize o seguinte comando `workflow.xml` para `/user/<domainuser>/examples/apps/map-reduce/workflow.xml`copiar o ficheiro para:
 
     ```bash
     hdfs dfs -put workflow.xml /user/<domainuser>/examples/apps/map-reduce/workflow.xml
     ```
 
-7. Substitua `domainuser` com o seu nome de utilizador para o domínio.
+7. Substitua-a `domainuser` pelo seu nome de utilizador para o domínio.
 
 ## <a name="define-the-properties-file-for-the-oozie-job"></a>Defina o ficheiro de propriedades para o trabalho de Oozie
 
@@ -230,11 +230,11 @@ As definições de fluxo de trabalho oozie são escritas na Linguagem de Defini�
    hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
    ```
 
-   - Utilize o `adl://home` URI para a propriedade `nameNode` se tiver o Azure Data Lake Storage Gen1 como o seu armazenamento principal de cluster. Se estiver a utilizar o Armazenamento Azure Blob, mude-o para `wasb://home`. Se estiver a utilizar o Azure Data Lake Storage Gen2, mude-o para `abfs://home`.
-   - Substitua `domainuser` com o seu nome de utilizador para o domínio.  
-   - Substitua `ClusterShortName` com o nome curto para o cluster. Por exemplo, se o nome do cluster for https:// *[link por exemplo]* sechadoopcontoso.azurehdisnight.net, o `clustershortname` é o primeiro seis caracteres do cluster: **secha**.  
-   - Substitua `jdbcurlvalue` com o URL JDBC da configuração da Colmeia. Um exemplo é jdbc:hive2://headnodehost:10001/;transportMode=http.
-   - Para guardar o ficheiro, selecione Ctrl+X, introduza `Y`, e, em seguida, selecione **Enter**.
+   - Utilize `adl://home` o URI `nameNode` para a propriedade se tiver o Azure Data Lake Storage Gen1 como o seu armazenamento principal de cluster. Se estiver a utilizar o Armazenamento Azure `wasb://home`Blob, mude-o para . Se estiver a utilizar o Azure Data Lake `abfs://home`Storage Gen2, então mude-o para .
+   - Substitua-a `domainuser` pelo seu nome de utilizador para o domínio.  
+   - Substitua `ClusterShortName` com o nome curto para o cluster. Por exemplo, se o nome do cluster for `clustershortname` https:// *[link exemplo]* sechadoopcontoso.azurehdisnight.net, são os primeiros seis caracteres do cluster: **secha**.  
+   - Substitua-a `jdbcurlvalue` com o URL JDBC da configuração da Colmeia. Um exemplo é jdbc:hive2://headnodehost:10001/;transportMode=http.
+   - Para guardar o ficheiro, selecione `Y`Ctrl+X, introduza , e, em seguida, selecione **Enter**.
 
    Este ficheiro de propriedades precisa estar presente localmente quando executar empregos Oozie.
 
@@ -331,7 +331,7 @@ Os registos de auditoria do Ranger para as ações do servidor hive 2 mostram o 
 
 ## <a name="configure-user-authorization-in-oozie"></a>Configure a autorização do utilizador em Oozie
 
-A Oozie por si só tem uma configuração de autorização de utilizador que pode impedir os utilizadores de parar ou apagar o emprego de outros utilizadores. Para ativar esta configuração, detete a `oozie.service.AuthorizationService.security.enabled` para `true`. 
+A Oozie por si só tem uma configuração de autorização de utilizador que pode impedir os utilizadores de parar ou apagar o emprego de outros utilizadores. Para ativar esta `oozie.service.AuthorizationService.security.enabled` configuração, detete o para `true`. 
 
 Para mais informações, consulte [a Instalação e Configuração Apache Oozie.](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html)
 

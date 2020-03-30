@@ -1,22 +1,22 @@
 ---
 title: Erros de modelo inválidos
-description: Descreve como resolver erros de modelo inválido ao implantar modelos de Azure Resource Manager.
+description: Descreve como resolver erros de modelo inválidos ao implementar modelos do Gestor de Recursos Do Azure.
 ms.topic: troubleshooting
 ms.date: 03/08/2018
 ms.openlocfilehash: 65cd69d67933d117b51f37b587b276aec2bd635a
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76154062"
 ---
-# <a name="resolve-errors-for-invalid-template"></a>Resolver erros de modelo inválido
+# <a name="resolve-errors-for-invalid-template"></a>Resolve errors for invalid template (Resolver erros de modelo inválido)
 
 Este artigo descreve como resolver erros de modelo inválidos.
 
 ## <a name="symptom"></a>Sintoma
 
-Ao implantar um modelo, você receberá um erro indicando:
+Ao implementar um modelo, recebe um erro indicando:
 
 ```
 Code=InvalidTemplate
@@ -27,32 +27,32 @@ A mensagem de erro depende do tipo de erro.
 
 ## <a name="cause"></a>Causa
 
-Esse erro pode resultar de vários tipos diferentes de erros. Em geral, eles envolvem uma sintaxe ou um erro estrutural no modelo.
+Este erro pode resultar de vários tipos diferentes de erros. Geralmente envolvem uma sintaxe ou erro estrutural no modelo.
 
 <a id="syntax-error" />
 
-## <a name="solution-1---syntax-error"></a>Solução 1-erro de sintaxe
+## <a name="solution-1---syntax-error"></a>Solução 1 - erro de sintaxe
 
-Se você receber uma mensagem de erro indicando que o modelo falhou na validação, você poderá ter um problema de sintaxe em seu modelo.
+Se receber uma mensagem de erro que indique a validação falhada do modelo, poderá ter um problema de sintaxe no seu modelo.
 
 ```
 Code=InvalidTemplate
 Message=Deployment template validation failed
 ```
 
-Esse erro é fácil de fazer porque as expressões de modelo podem ser complexas. Por exemplo, a atribuição de nome a seguir para uma conta de armazenamento tem um conjunto de colchetes, três funções, três conjuntos de parênteses, um conjunto de aspas simples e uma propriedade:
+Este erro é fácil de fazer porque as expressões do modelo podem ser intrincadas. Por exemplo, a seguinte atribuição de nome para uma conta de armazenamento tem um conjunto de parênteses, três funções, três conjuntos de parênteses, um conjunto de cotações individuais e uma propriedade:
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 ```
 
-Se você não fornecer a sintaxe correspondente, o modelo produzirá um valor diferente de sua intenção.
+Se não fornecer a sintaxe correspondente, o modelo produz um valor diferente da sua intenção.
 
-Quando você receber esse tipo de erro, examine atentamente a sintaxe da expressão. Considere o uso de um editor JSON como o [Visual Studio](create-visual-studio-deployment-project.md) ou o [Visual Studio Code](use-vs-code-to-create-template.md), que pode avisá-lo sobre erros de sintaxe.
+Quando receber este tipo de erro, reveja cuidadosamente a sintaxe da expressão. Considere usar um editor da JSON como [Visual Studio](create-visual-studio-deployment-project.md) ou Visual [Studio Code](use-vs-code-to-create-template.md), que pode alertá-lo sobre erros de sintaxe.
 
 <a id="incorrect-segment-lengths" />
 
-## <a name="solution-2---incorrect-segment-lengths"></a>Solução 2-comprimentos de segmento incorretos
+## <a name="solution-2---incorrect-segment-lengths"></a>Solução 2 - comprimentos de segmento incorretos
 
 Outro erro de modelo inválido ocorre quando o nome do recurso não está no formato correto.
 
@@ -62,7 +62,7 @@ Message=Deployment template validation failed: 'The template resource {resource-
 for type {resource-type} has incorrect segment lengths.
 ```
 
-Um recurso de nível raiz deve ter um segmento less no nome do que no tipo de recurso. Cada segmento é diferenciado por uma barra. No exemplo a seguir, o tipo tem dois segmentos e o nome tem um segmento, portanto, é um **nome válido**.
+Um recurso de nível raiz deve ter um segmento a menos no nome do que no tipo de recurso. Cada segmento é diferenciado por um corte. No exemplo seguinte, o tipo tem dois segmentos e o nome tem um segmento, por isso é um **nome válido.**
 
 ```json
 {
@@ -72,7 +72,7 @@ Um recurso de nível raiz deve ter um segmento less no nome do que no tipo de re
 }
 ```
 
-Mas o exemplo a seguir **não é um nome válido** porque tem o mesmo número de segmentos que o tipo.
+Mas o próximo exemplo não é **um nome válido** porque tem o mesmo número de segmentos que o tipo.
 
 ```json
 {
@@ -82,7 +82,7 @@ Mas o exemplo a seguir **não é um nome válido** porque tem o mesmo número de
 }
 ```
 
-Para recursos filho, o tipo e o nome têm o mesmo número de segmentos. Esse número de segmentos faz sentido porque o nome completo e o tipo do filho incluem o nome e o tipo do pai. Portanto, o nome completo ainda tem um segmento menor do que o tipo completo.
+Para os recursos infantis, o tipo e o nome têm o mesmo número de segmentos. Este número de segmentos faz sentido porque o nome completo e o tipo para a criança incluem o nome e o tipo dos pais. Portanto, o nome completo ainda tem um segmento a menos do que o tipo completo.
 
 ```json
 "resources": [
@@ -101,7 +101,7 @@ Para recursos filho, o tipo e o nome têm o mesmo número de segmentos. Esse nú
 ]
 ```
 
-Obter o direito dos segmentos pode ser complicado com tipos do Resource Manager que são aplicados em provedores de recursos. Por exemplo, a aplicação de um bloqueio de recurso a um site requer um tipo com quatro segmentos. Portanto, o nome tem três segmentos:
+Acertar os segmentos pode ser complicado com os tipos de Gestor de Recursos que são aplicados entre fornecedores de recursos. Por exemplo, aplicar um bloqueio de recursos num web site requer um tipo com quatro segmentos. Portanto, o nome é três segmentos:
 
 ```json
 {
@@ -113,9 +113,9 @@ Obter o direito dos segmentos pode ser complicado com tipos do Resource Manager 
 
 <a id="parameter-not-valid" />
 
-## <a name="solution-3---parameter-is-not-valid"></a>Solução 3-o parâmetro não é válido
+## <a name="solution-3---parameter-is-not-valid"></a>Solução 3 - parâmetro não é válido
 
-Se você fornecer um valor de parâmetro que não seja um dos valores permitidos, você receberá uma mensagem semelhante ao seguinte erro:
+Se fornecer um valor parâmetro que não seja um dos valores permitidos, receberá uma mensagem semelhante ao seguinte erro:
 
 ```
 Code=InvalidTemplate;
@@ -124,40 +124,40 @@ for the template parameter {parameter name} is not valid. The parameter value is
 part of the allowed values
 ```
 
-Verifique as duas vezes os valores permitidos no modelo e forneça um durante a implantação. Para obter mais informações sobre os valores de parâmetro permitidos, consulte a [seção de parâmetros de modelos de Azure Resource Manager](template-syntax.md#parameters).
+Verifique duas vezes os valores permitidos no modelo e forneça um durante a implementação. Para obter mais informações sobre os valores permitidos dos parâmetros, consulte a [secção parâmetros dos modelos do Gestor de Recursos Azure](template-syntax.md#parameters).
 
 <a id="too-many-resource-groups" />
 
-## <a name="solution-4---too-many-target-resource-groups"></a>Solução 4-muitos grupos de recursos de destino
+## <a name="solution-4---too-many-target-resource-groups"></a>Solução 4 - Demasiados grupos de recursos-alvo
 
-Se você especificar mais de cinco grupos de recursos de destino em uma única implantação, receberá esse erro. Considere a consolidação do número de grupos de recursos em sua implantação ou a implantação de alguns dos modelos como implantações separadas. Para obter mais informações, consulte [implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](cross-resource-group-deployment.md).
+Se especificar mais de cinco grupos de recursos-alvo numa única implementação, recebe este erro. Considere consolidar o número de grupos de recursos na sua implementação ou implementar alguns dos modelos como implementações separadas. Para mais informações, consulte a Implantação de [recursos Azure para mais do que um grupo de subscrição ou recursos.](cross-resource-group-deployment.md)
 
 <a id="circular-dependency" />
 
-## <a name="solution-5---circular-dependency-detected"></a>Solução 5-dependência circular detectada
+## <a name="solution-5---circular-dependency-detected"></a>Solução 5 - dependência circular detetada
 
-Você recebe esse erro quando os recursos dependem uns dos outros de uma maneira que impede a inicialização da implantação. Uma combinação de interdependências faz com que duas ou mais esperas de recursos para outros recursos que também estejam aguardando. Por exemplo, recurso1 depende de resource3, resource2 depende de recurso1 e resource3 depende de resource2. Normalmente, você pode resolver esse problema removendo dependências desnecessárias.
+Recebe este erro quando os recursos dependem uns dos outros de uma forma que impede que a implantação comece. Uma combinação de interdependências faz com que dois ou mais recursos esperem por outros recursos que também estão à espera. Por exemplo, o recurso1 depende do recurso3, o recurso2 depende do recurso1, e os recursos 3 dependem do recurso2. Normalmente, pode resolver este problema removendo dependências desnecessárias.
 
 Para resolver uma dependência circular:
 
-1. Em seu modelo, localize o recurso identificado na dependência circular.
-2. Para esse recurso, examine a propriedade **dependy** e quaisquer usos da função de **referência** para ver os recursos dos quais ela depende.
-3. Examine esses recursos para ver quais recursos eles dependem. Siga as dependências até observar um recurso que depende do recurso original.
-5. Para os recursos envolvidos na dependência circular, Examine cuidadosamente todos os usos da propriedade **depending** para identificar as dependências que não são necessárias. Remova essas dependências. Se você não tiver certeza de que uma dependência é necessária, tente removê-la.
-6. Reimplante o modelo.
+1. No seu modelo, encontre o recurso identificado na dependência circular.
+2. Para esse recurso, examine a propriedade **dependente** e quaisquer utilizações da função de **referência** para ver de que recursos depende.
+3. Examine esses recursos para ver de que recursos dependem. Siga as dependências até notar um recurso que dependa do recurso original.
+5. Para os recursos envolvidos na dependência circular, examine cuidadosamente todos os usos da propriedade dependente para identificar quaisquer **dependências** que não sejam necessárias. Remova as dependências. Se não tem a certeza de que é necessária uma dependência, tente removê-la.
+6. Reutilizar o modelo.
 
-A remoção de valores da propriedade **dependy** pode causar erros quando você implanta o modelo. Se você receber um erro, adicione a dependência de volta ao modelo.
+Remover valores da propriedade **dependsOn** pode causar erros quando você implementa o modelo. Se tiver um erro, adicione a dependência de volta ao modelo.
 
-Se essa abordagem não resolver a dependência circular, considere mover parte da lógica de implantação para recursos filho (como extensões ou definições de configuração). Configure os recursos filho a serem implantados após os recursos envolvidos na dependência circular. Por exemplo, suponha que você esteja implantando duas máquinas virtuais, mas deve definir propriedades em cada uma delas referente à outra. Você pode implantá-los na seguinte ordem:
+Se essa abordagem não resolver a dependência circular, considere mover parte da sua lógica de implantação em recursos infantis (como extensões ou configurações de configuração). Configure esses recursos infantis para implantar após os recursos envolvidos na dependência circular. Por exemplo, suponha que está a implementar duas máquinas virtuais, mas tem de definir propriedades em cada uma que se refira à outra. Pode implantá-los na seguinte ordem:
 
 1. vm1
 2. vm2
-3. A extensão em VM1 depende de VM1 e VM2. A extensão define valores em VM1 que obtém de VM2.
-4. A extensão em VM2 depende de VM1 e VM2. A extensão define valores em VM2 que obtém de VM1.
+3. A extensão do vm1 depende do vm1 e vm2. A extensão define valores em vm1 que obtém a partir de vm2.
+4. A extensão do vm2 depende do vm1 e vm2. A extensão define valores em vm2 que obtém a partir de vm1.
 
-A mesma abordagem funciona para aplicativos do serviço de aplicativo. Considere mover os valores de configuração para um recurso filho do recurso de aplicativo. Você pode implantar dois aplicativos Web na seguinte ordem:
+A mesma abordagem funciona para aplicações do App Service. Considere mover valores de configuração para um recurso infantil do recurso da aplicação. Pode implementar duas aplicações web na seguinte ordem:
 
 1. webapp1
 2. webapp2
-3. a configuração para webapp1 depende de webapp1 e webapp2. Ele contém configurações de aplicativo com valores de webapp2.
-4. a configuração para webapp2 depende de webapp1 e webapp2. Ele contém configurações de aplicativo com valores de webapp1.
+3. config para webapp1 depende de webapp1 e webapp2. Contém definições de aplicativos com valores do webapp2.
+4. config para webapp2 depende de webapp1 e webapp2. Contém definições de aplicativos com valores do webapp1.

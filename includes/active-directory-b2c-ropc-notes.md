@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: mimart
 ms.openlocfilehash: f4944881e6eff3e9a56a74bc997c280f9fff6be8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78187010"
 ---
 ## <a name="ropc-flow-notes"></a>Notas de fluxo ROPC

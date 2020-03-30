@@ -1,5 +1,5 @@
 ---
-title: Gerir o acesso ao utilizador no Diretório Ativo Azure B2C  Microsoft Docs
+title: Gerir o acesso ao utilizador no Diretório Ativo Azure B2C [ Microsoft Docs
 description: Saiba identificar menores, recolher dados data de nascimento e país/região e obter a aceitação dos termos de utilização na sua aplicação utilizando o Azure AD B2C.
 services: active-directory-b2c
 author: msmimart
@@ -11,10 +11,10 @@ ms.date: 07/24/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: f04a3fea3801f917a3ae4aced04ef3824d1cfa82
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78184524"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gerir o acesso ao utilizador no Diretório Ativo Azure B2C
@@ -50,7 +50,7 @@ Segue-se um exemplo de fluxo de utilizador para recolher o consentimento dos pai
 
 2. A aplicação processa o símbolo JSON e mostra um ecrã ao menor, notificando-os de que o consentimento dos pais é necessário e solicitando o consentimento de um progenitor online.
 
-3. O Azure AD B2C mostra uma viagem de entrada em que o utilizador pode iniciar sessão normalmente e emite um símbolo da aplicação que está definida para incluir **legalAgeGroupClassification = "minorWithParentConsent".** A aplicação recolhe o endereço de e-mail do progenitor e verifica que o progenitor é um adulto. Para tal, utiliza uma fonte de confiança, como um escritório nacional de identificação, verificação de licença ou prova de cartão de crédito. Se a verificação for bem sucedida, a aplicação solicita ao menor que assine o fluxo do utilizador Azure AD B2C. Se o consentimento for negado (por exemplo, se **legalAgeGroupClassification = "minorWithoutParentConsent"** ), Azure AD B2C devolve um símbolo JSON (não um login) ao pedido para reiniciar o processo de consentimento. É opcionalmente possível personalizar o fluxo do utilizador para que um menor ou um adulto possa recuperar o acesso à conta de um menor enviando um código de registo para o endereço de e-mail do menor ou o endereço de e-mail do adulto registado.
+3. O Azure AD B2C mostra uma viagem de entrada em que o utilizador pode iniciar sessão normalmente e emite um símbolo da aplicação que está definida para incluir **legalAgeGroupClassification = "minorWithParentConsent".** A aplicação recolhe o endereço de e-mail do progenitor e verifica que o progenitor é um adulto. Para tal, utiliza uma fonte de confiança, como um escritório nacional de identificação, verificação de licença ou prova de cartão de crédito. Se a verificação for bem sucedida, a aplicação solicita ao menor que assine o fluxo do utilizador Azure AD B2C. Se o consentimento for negado (por exemplo, se **legalAgeGroupClassification = "minorWithoutParentConsent"**), Azure AD B2C devolve um símbolo JSON (não um login) ao pedido para reiniciar o processo de consentimento. É opcionalmente possível personalizar o fluxo do utilizador para que um menor ou um adulto possa recuperar o acesso à conta de um menor enviando um código de registo para o endereço de e-mail do menor ou o endereço de e-mail do adulto registado.
 
 4. O pedido oferece uma opção ao menor para revogar o consentimento.
 
@@ -87,7 +87,7 @@ Para obter mais informações sobre a recolha de dados DOB, consulte [A marcha d
 
 ## <a name="capture-terms-of-use-agreement"></a>Capturar termos de acordo de utilização
 
-Ao desenvolver a sua aplicação, normalmente captura a aceitação dos termos de utilização dos utilizadores dentro das suas aplicações sem, ou apenas menor, participação do diretório do utilizador. No entanto, é possível utilizar um fluxo de utilizador Azure AD B2C para recolher a aceitação de termos de utilização por parte de um utilizador, restringir o acesso se não for concedida a aceitação, e impor a aceitação de futuras alterações aos termos de utilização, com base na data da última aceitação e data do  versão mais recente dos termos de utilização.
+Ao desenvolver a sua aplicação, normalmente captura a aceitação dos termos de utilização dos utilizadores dentro das suas aplicações sem, ou apenas menor, participação do diretório do utilizador. No entanto, é possível utilizar um fluxo de utilizador Azure AD B2C para recolher a aceitação de termos de utilização por parte de um utilizador, restringir o acesso se não for concedida a aceitação, e impor a aceitação de futuras alterações aos termos de utilização, com base na data da última aceitação e data do versão mais recente dos termos de utilização.
 
 **Os termos de utilização** também podem incluir "Consentimento para partilhar dados com terceiros". Dependendo dos regulamentos locais e das regras comerciais, pode reunir a aceitação de um utilizador de ambas as condições combinadas, ou pode permitir que o utilizador aceite uma condição e não a outra.
 

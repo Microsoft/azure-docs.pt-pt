@@ -6,15 +6,15 @@ ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
 ms.openlocfilehash: 37d4c27d3033545c523cefc2f317073af531f095
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78199721"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nó de tecido de serviço Azure e conjuntos de escala de máquina virtual
 
-[Os conjuntos](/azure/virtual-machine-scale-sets) de escala de máquinas virtuais são um recurso de computação Azure. Pode utilizar conjuntos de escala para implantar e gerir uma coleção de máquinas virtuais como conjunto. Cada tipo de nó que define num cluster de tecido de serviço Azure configura exatamente um conjunto de escala: vários tipos de nó não podem ser apoiados pelo mesmo conjunto de escala e um tipo de nó não deve (na maioria dos casos) ser apoiado por conjuntos de escala múltipla. Uma exceção a isso é na rara situação de [escala vertical](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) de um tipo de nó, quando você tem temporariamente dois conjuntos de escala com o mesmo valor `nodeTypeRef` enquanto as réplicas são migradas do original para o conjunto de escala atualizado.
+[Os conjuntos](/azure/virtual-machine-scale-sets) de escala de máquinas virtuais são um recurso de computação Azure. Pode utilizar conjuntos de escala para implantar e gerir uma coleção de máquinas virtuais como conjunto. Cada tipo de nó que define num cluster de tecido de serviço Azure configura exatamente um conjunto de escala: vários tipos de nó não podem ser apoiados pelo mesmo conjunto de escala e um tipo de nó não deve (na maioria dos casos) ser apoiado por conjuntos de escala múltipla. Uma exceção a isso é na rara situação de [escala vertical](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) de um tipo de `nodeTypeRef` nó, quando você tem temporariamente dois conjuntos de escala com o mesmo valor enquanto as réplicas são migradas do original para o conjunto de escala atualizado.
 
 O tempo de execução do Tecido de Serviço está instalado em cada máquina virtual na escala definida pela extensão *Microsoft.Azure.ServiceFabric* Virtual Machine. Pode escalar de forma independente cada nó para cima ou para baixo, alterar o OS SKU em cada nó de cluster, ter diferentes conjuntos de portas abertas e usar métricas de capacidade diferentes.
 
@@ -30,7 +30,7 @@ Quando se escala um conjunto de escala, cria-se um novo exemplo. O nome da nova 
 
 ## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Conjunto de conjuntode balança de mapas para tipos de nó e conjuntos de escala
 
-Se implementou o seu cluster no portal Azure ou usou o modelo de gestor de recursos Azure, todos os recursos sob um grupo de recursos estão listados. Pode ver os equilibradores de carga para cada conjunto de calcário ou tipo de nó. O nome do equilíbrio de carga utiliza o seguinte formato: **LB-&lt;nome** do tipo nó&gt;. Um exemplo é LB-sfcluster4doc-0, como mostra a seguinte figura:
+Se implementou o seu cluster no portal Azure ou usou o modelo de gestor de recursos Azure, todos os recursos sob um grupo de recursos estão listados. Pode ver os equilibradores de carga para cada conjunto de calcário ou tipo de nó. O nome do equilíbrio de carga utiliza o seguinte formato: **nome&lt;&gt;do tipo LB-nó**. Um exemplo é LB-sfcluster4doc-0, como mostra a seguinte figura:
 
 ![Recursos][Resources]
 
@@ -79,12 +79,12 @@ Seguem-se as descrições da propriedade:
 | autoUpgradeMinorVersion | true ou false | Ativar atualização automática de versões menores de prazo de execução SF |
 | publicador | Microsoft.Azure.ServiceFabric | Nome do editor de extensão de tecido de serviço |
 | clusterEndpont | string | URI:PORTO para ponto final de gestão |
-| nodeTypeRef | string | Nome do nóType |
-| durabilidadeN | bronze, silver, gold, platinum | Tempo permitido para parar infraestrutura supreendível Azure |
+| nóTypeRef | string | Nome do nóType |
+| durabilidadeN | bronze, prata, ouro, platina | Tempo permitido para parar infraestrutura supreendível Azure |
 | enableParallelJobs | true ou false | Ativar Compute ParallelJobs como remover VM e reiniciar VM na mesma escala definida em paralelo |
 | nicPrefixOverride | string | Prefixo de sub-rede como "10.0.0.0.0/24" |
-| commonNames | string[] | Nomes comuns dos certificados de cluster instalados |
-| x509StoreName | string | Nome da Loja onde está localizado certificado de cluster instalado |
+| nomes comuns | cadeia[] | Nomes comuns dos certificados de cluster instalados |
+| x509Nome da loja | string | Nome da Loja onde está localizado certificado de cluster instalado |
 | typeHandlerVersion | 1.1 | Versão da Extensão. 1.0 versão clássica da extensão é recomendada para atualizar para 1.1 |
 | dataPath | string | Caminho para a unidade utilizada para salvar o estado dos serviços de sistema de tecido de serviço e dados de aplicação.
 

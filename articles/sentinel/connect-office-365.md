@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/12/2020
 ms.author: yelevin
 ms.openlocfilehash: 43eba727b1dc724aae6eea3ec77de1363c5db73f
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252521"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Ligar dados do Office 365 Logs
@@ -35,7 +35,7 @@ Pode transmitir registos de auditoria do [Office 365](https://docs.microsoft.com
 - Deve ser administrador global ou administrador de segurança do seu inquilino.
 - O seu inquilino deve ter uma auditoria unificada ativada. Os inquilinos com licenças Do Office 365 E3 ou E5 têm auditoria unificada viavida por defeito. <br>Se o seu inquilino não tiver uma destas licenças, deve permitir uma auditoria unificada ao seu inquilino utilizando um destes métodos:
     - [Utilizando o cmdlet Set-AdminAuditLogConfig](https://docs.microsoft.com/powershell/module/exchange/policy-and-compliance-audit/set-adminauditlogconfig?view=exchange-ps) e ativar o parâmetro "UnificadoAuditLogIngestionEnabled").
-    - [Utilização do UI do Centro de Segurança e Conformidade](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin).
+    - [Utilização do Centro](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin)de Conformidade & de Segurança UI .
 
 ## <a name="connect-to-office-365"></a>Ligar ao Office 365
 

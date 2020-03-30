@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 376808a6d8f61d4dc03d17061323a473d48053a6
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76908166"
 ---
 # <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>Mover uma aplicação de malha de tecido de serviço para outra região do Azure
@@ -24,19 +24,19 @@ Este artigo descreve como mover a sua aplicação de malha de tecido de serviço
 * Controlador de ingresso (como [Application Gateway)](https://docs.microsoft.com/azure/application-gateway/)para servir de intermediário para encaminhamento de tráfego entre clientes e a sua aplicação de malha de tecido de serviço
 * Disponibilidade de malha de tecido de serviço (pré-visualização) na região-alvo de Azure (`westus`, `eastus`ou `westeurope`)
 
-## <a name="prepare"></a>Preparar
+## <a name="prepare"></a>Preparação
 
-1. Tome uma "imagem instantânea" do estado atual da sua aplicação de malha de tecido de serviço exportando o modelo e parâmetros do Gestor de Recursos Azure da mais recente implementação. Para isso, siga os passos no [modelo de exportação após a implantação](../azure-resource-manager/templates/export-template-portal.md#export-template-after-deployment) utilizando o portal Azure. Você também pode usar [CLI do Azure](../azure-resource-manager/management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)ou [API REST](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate).
+1. Tome uma "imagem instantânea" do estado atual da sua aplicação de malha de tecido de serviço exportando o modelo e parâmetros do Gestor de Recursos Azure da mais recente implementação. Para isso, siga os passos no [modelo de exportação após a implantação](../azure-resource-manager/templates/export-template-portal.md#export-template-after-deployment) utilizando o portal Azure. Também pode utilizar [o Azure CLI,](../azure-resource-manager/management/manage-resource-groups-cli.md#export-resource-groups-to-templates) [O PowerShell Azure](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)ou o [REST API](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate).
 
 2. Se aplicável, [exportar outros recursos no mesmo grupo](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal#export-template-from-a-resource-group) de recursos para reafectação na região-alvo.
 
-3. Reveja (e edite, se necessário) o modelo exportado para garantir que os valores de propriedade existentes são os que pretende utilizar na região alvo. O novo `location` (região de Azure) é um parâmetro que irá fornecer durante a redistribuição.
+3. Reveja (e edite, se necessário) o modelo exportado para garantir que os valores de propriedade existentes são os que pretende utilizar na região alvo. O `location` novo (região de Azure) é um parâmetro que irá fornecer durante a redistribuição.
 
 ## <a name="move"></a>Mover
 
 1. Crie um novo grupo de recursos (ou utilize um existente) na região alvo.
 
-2. Com o seu modelo exportado, siga os passos em [Deploy recursos a partir do modelo personalizado](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template) usando o portal Azure. Você também pode usar [CLI do Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli), [Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell)ou [API REST](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-rest).
+2. Com o seu modelo exportado, siga os passos em [Deploy recursos a partir do modelo personalizado](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template) usando o portal Azure. Também pode utilizar [o Azure CLI,](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli) [O PowerShell Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell)ou o [REST API](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-rest).
 
 3. Para obter orientações sobre a movimentação de recursos relacionados, como as contas de [Armazenamento Azure,](../storage/common/storage-account-move.md)consulte a orientação para os serviços individuais listados no âmbito do tema [Moving Azure resources across regions](../azure-resource-manager/management/move-region.md).
 
@@ -59,5 +59,5 @@ Para completar o movimento da aplicação malha de tecido de serviço, [elimine 
 * [Mover recursos Azure através de regiões](../azure-resource-manager/management/move-region.md)
 * [Apoio à movimentação de recursos azure em regiões](../azure-resource-manager/management/region-move-support.md)
 * [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md) (Mover recursos para um grupo de recursos ou uma subscrição nova)
-* [Mover apoio operacional para recursos](../azure-resource-manager/management/move-support-resources.md
+* [Suporte da operação de movimentação para recursos](../azure-resource-manager/management/move-support-resources.md
 )

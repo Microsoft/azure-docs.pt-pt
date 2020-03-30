@@ -5,25 +5,25 @@ ms.topic: include
 ms.date: 01/20/2020
 ms.author: ilayr
 ms.openlocfilehash: d9e23e74cd980ecf44cd04ad2b6f89dc6a4cf868
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76548227"
 ---
-A tabela a seguir descreve os limites máximos para clusters de Data Explorer do Azure.
+A tabela que se segue descreve os limites máximos para os clusters do Azure Data Explorer.
 
 | Recurso | Limite |
 | --- | --- |
-| Clusters por região por assinatura | 20 |
+| Aglomerados por região por subscrição | 20 |
 | Instâncias por cluster | 1000 | 
-| Número de bancos de dados em um cluster | 10,000 |
-| Número de configurações de banco de dados anexadas em um cluster | 70 |
+| Número de bases de dados num cluster | 10,000 |
+| Número de configurações de bases de dados anexadas num cluster | 70 |
 
-A tabela a seguir descreve os limites de operações de gerenciamento executadas nos clusters Data Explorer do Azure.
+O quadro seguinte descreve os limites das operações de gestão realizadas nos clusters do Azure Data Explorer.
 
 | Âmbito | Operação | Limite |
 | --- | --- | --- |
 | Cluster | ler (por exemplo, obter um cluster) | 500 por 5 minutos |
-| Cluster | gravação (por exemplo, criar um banco de dados) | 1000 por hora |
+| Cluster | escrever (por exemplo, criar uma base de dados) | 1000 por hora |
 

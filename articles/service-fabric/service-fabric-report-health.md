@@ -1,66 +1,66 @@
 ---
-title: Adicionar relatórios personalizados de estado de funcionamento do Service Fabric
-description: Descreve como enviar relatórios de integridade personalizados para entidades do Azure Service Fabric Health. Fornece recomendações para projetar e implementar relatórios de integridade de qualidade.
+title: Adicione relatórios de saúde personalizados de tecido de serviço
+description: Descreve como enviar relatórios de saúde personalizados para entidades de saúde azure service fabric. Dá recomendações para a conceção e implementação de relatórios de saúde de qualidade.
 author: oanapl
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: d00f740085b15bdb5fe698a069d97f168507f31f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75451592"
 ---
-# <a name="add-custom-service-fabric-health-reports"></a>Adicionar relatórios personalizados de estado de funcionamento do Service Fabric
-O Azure Service Fabric introduz um [modelo de integridade](service-fabric-health-introduction.md) projetado para sinalizar condições de cluster e aplicativo não íntegras em entidades específicas. O modelo de integridade usa **relatórios de integridade** (componentes do sistema e Watchdogs). O objetivo é o diagnóstico e o reparo rápidos e fáceis. Os gravadores de serviço precisam pensar antecipadamente sobre a integridade. Qualquer condição que possa afetar a integridade deve ser relatada, especialmente se puder ajudar a sinalizar problemas próximos à raiz. As informações de integridade podem poupar tempo e esforço na depuração e investigação. A utilidade é especialmente clara quando o serviço está em funcionamento em escala na nuvem (particular ou Azure).
+# <a name="add-custom-service-fabric-health-reports"></a>Adicione relatórios de saúde personalizados de tecido de serviço
+A Azure Service Fabric introduz um modelo de [saúde](service-fabric-health-introduction.md) concebido para sinalizar condições de cluster e aplicação pouco saudáveis em entidades específicas. O modelo de saúde utiliza repórteres de **saúde** (componentes do sistema e cães de guarda). O objetivo é fácil e rápido de diagnóstico e reparação. Os escritores de serviços precisam pensar bem na saúde. Qualquer condição que possa ter impacto na saúde deve ser reportada, especialmente se puder ajudar problemas de sinalização perto da raiz. A informação de saúde pode economizar tempo e esforço na depuração e investigação. A utilidade é especialmente clara quando o serviço está em funcionamento em escala na nuvem (privada ou Azure).
 
-Os relatórios de Service Fabric monitoram as condições de interesse identificadas. Eles relatam nessas condições com base em sua exibição local. O [repositório de integridade](service-fabric-health-introduction.md#health-store) agrega os dados de integridade enviados por todos os relatórios para determinar se as entidades estão íntegras globalmente. O modelo deve ser avançado, flexível e fácil de usar. A qualidade dos relatórios de integridade determina a precisão da exibição de integridade do cluster. Falsos positivos que mostram incorretamente problemas não íntegros podem afetar negativamente as atualizações ou outros serviços que usam dados de integridade. Exemplos desses serviços são os serviços de reparo e os mecanismos de alerta. Portanto, algumas idéias são necessárias para fornecer relatórios que capturam condições de interesse da melhor maneira possível.
+Os repórteres do Serviço Fabric monitorizam as condições de interesse identificadas. Relatam essas condições com base na sua visão local. A loja de [saúde](service-fabric-health-introduction.md#health-store) agrega dados de saúde enviados por todos os repórteres para determinar se as entidades são globalmente saudáveis. O modelo destina-se a ser rico, flexível e fácil de usar. A qualidade dos relatórios de saúde determina a exatidão da visão de saúde do cluster. Falsos positivos que mostram erradamente problemas insalubres podem impactar negativamente upgrades ou outros serviços que usam dados de saúde. Exemplos desses serviços são serviços de reparação e mecanismos de alerta. Por conseguinte, é necessário pensar em fornecer relatórios que captem as condições de interesse da melhor forma possível.
 
-Para projetar e implementar relatórios de integridade, os Watchdogs e os componentes do sistema devem:
+Para conceber e implementar relatórios de saúde, cães de guarda e componentes do sistema devem:
 
-* Defina a condição em que eles estão interessados, a maneira como ele é monitorado e o impacto na funcionalidade do cluster ou do aplicativo. Com base nessas informações, decida sobre a propriedade do relatório de integridade e o estado de integridade.
-* Determine a [entidade](service-fabric-health-introduction.md#health-entities-and-hierarchy) à qual o relatório se aplica.
-* Determine onde o relatório é feito, de dentro do serviço ou de um Watchdog interno ou externo.
-* Defina uma fonte usada para identificar o reporter.
-* Escolha uma estratégia de relatório, seja periodicamente ou em transições. A maneira recomendada é periodicamente, pois requer um código mais simples e é menos propenso a erros.
-* Determine por quanto tempo o relatório para condições não íntegras deve permanecer no repositório de integridade e como ele deve ser limpo. Usando essas informações, decida a vida útil do relatório e o comportamento de remoção na expiração.
+* Defina a condição em que estão interessados, a forma como é monitorizado e o impacto no cluster ou na funcionalidade da aplicação. Com base nesta informação, decida sobre a propriedade do relatório de saúde e o estado de saúde.
+* Determine a [entidade](service-fabric-health-introduction.md#health-entities-and-hierarchy) a que o relatório se aplica.
+* Determine onde o relatório é feito, a partir do interior do serviço ou de um cão de guarda interno ou externo.
+* Defina uma fonte usada para identificar o repórter.
+* Escolha uma estratégia de reporte, periodicamente ou em transições. A forma recomendada é periodicamente, pois requer código mais simples e é menos propensa a erros.
+* Determine quanto tempo o relatório para condições pouco saudáveis deve permanecer no armazém de saúde e como deve ser apurado. Utilizando esta informação, decida o tempo do relatório para viver e remover o comportamento de expiração.
 
-Conforme mencionado, os relatórios podem ser feitos em:
+Como mencionado, a comunicação pode ser feita a partir de:
 
-* A réplica do serviço Service Fabric monitorado.
-* Watchdogs internos implantados como um serviço de Service Fabric (por exemplo, um serviço sem estado Service Fabric que monitora as condições e os relatórios de problemas). Os Watchdogs podem ser implantados em todos os nós ou podem ser relacionadosdos para o serviço monitorado.
-* Watchdogs internos que são executados nos nós de Service Fabric, mas *não* são implementados como Service Fabric serviços.
-* Watchdogs externos que investigam o recurso de *fora* do cluster de Service Fabric (por exemplo, serviço de monitoramento como Gomez).
-
-> [!NOTE]
-> O cluster é populado com relatórios de integridade enviados pelos componentes do sistema. Leia mais em [usando relatórios de integridade do sistema para solução de problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md). Os relatórios do usuário devem ser enviados em [entidades de integridade](service-fabric-health-introduction.md#health-entities-and-hierarchy) que já foram criadas pelo sistema.
-> 
-> 
-
-Quando o design do relatório de integridade estiver claro, os relatórios de integridade poderão ser enviados facilmente. Você pode usar o [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) para relatar a integridade se o cluster não for [seguro](service-fabric-cluster-security.md) ou se o cliente de malha tiver privilégios de administrador. Os relatórios podem ser feitos por meio da API usando [FabricClient. healthmanager. ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth), por meio do PowerShell ou do REST. Botões de configuração relatórios em lote para melhorar o desempenho.
+* A réplica de serviço de serviço de serviço monitorado.
+* Cães de guarda internos implantados como um serviço de tecido de serviço (por exemplo, um serviço apátrida service Fabric que monitoriza as condições e os relatórios de problemas). Os cães de guarda podem ser implantados com todos os nós ou podem ser afinados com o serviço monitorizado.
+* Cães de guarda internos que funcionam nos nódosos de Tecido de Serviço mas *não* são implementados como serviços de Fabricação de Serviço.
+* Cães de guarda externos que sondam o recurso de *fora* do cluster Service Fabric (por exemplo, serviço de monitorização como o Gomez).
 
 > [!NOTE]
-> A integridade do relatório é síncrona e representa apenas o trabalho de validação no lado do cliente. O fato de que o relatório é aceito pelo cliente de integridade ou os objetos `Partition` ou `CodePackageActivationContext` não significa que ele é aplicado na loja. Ele é enviado de forma assíncrona e possivelmente em lote com outros relatórios. O processamento no servidor ainda pode falhar: o número de sequência pode estar obsoleto, a entidade na qual o relatório deve ser aplicado foi excluída, etc.
+> Fora da caixa, o aglomerado é povoado com relatórios de saúde enviados pelos componentes do sistema. Leia mais na [Utilização de relatórios de saúde do sistema para resolução de problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md). Os relatórios dos utilizadores devem ser enviados a entidades de [saúde](service-fabric-health-introduction.md#health-entities-and-hierarchy) que já tenham sido criadas pelo sistema.
 > 
 > 
 
-## <a name="health-client"></a>Cliente de integridade
-Os relatórios de integridade são enviados para o Gerenciador de integridade por meio de um cliente de integridade, que reside dentro do cliente de malha. O Gerenciador de integridade salva os relatórios no repositório de integridade. O cliente de integridade pode ser configurado com as seguintes configurações:
-
-* **HealthReportSendInterval**: o atraso entre a hora em que o relatório é adicionado ao cliente e a hora em que ele é enviado para o Gerenciador de integridade. Usado para gerar relatórios em lote em uma única mensagem, em vez de enviar uma mensagem para cada relatório. O envio em lote melhora o desempenho. Padrão: 30 segundos.
-* **HealthReportRetrySendInterval**: o intervalo no qual o cliente de integridade reenvia relatórios de integridade acumulados para o Gerenciador de integridade. Padrão: 30 segundos, mínimo: 1 segundo.
-* **HealthOperationTimeout**: o período de tempo limite para uma mensagem de relatório enviada ao Gerenciador de integridade. Se uma mensagem atingir o tempo limite, o cliente de integridade o tentará novamente até que o Gerenciador de integridade confirme que o relatório foi processado. Padrão: dois minutos.
+Uma vez que o design de relatórios de saúde é claro, relatórios de saúde podem ser enviados facilmente. Pode utilizar o [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) para reportar saúde se o cluster não for [seguro](service-fabric-cluster-security.md) ou se o cliente do tecido tiver privilégios de administração. O reporte pode ser feito através da API utilizando [FabricClient.HealthManager.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth), através da PowerShell, ou através do REST. Relatórios de lote de botões de configuração para um melhor desempenho.
 
 > [!NOTE]
-> Quando os relatórios são armazenados em lote, o cliente de malha deve ser mantido ativo por pelo menos o HealthReportSendInterval para garantir que eles sejam enviados. Se a mensagem for perdida ou o Gerenciador de integridade não puder aplicá-las devido a erros transitórios, o cliente de malha deverá ser mantido ativo por mais tempo para dar a oportunidade de tentar novamente.
+> A saúde do relatório é sincronizada, e representa apenas o trabalho de validação do lado do cliente. O facto de o relatório ser aceite `Partition` `CodePackageActivationContext` pelo cliente de saúde ou pelos ou objetos não significa que seja aplicado na loja. É enviado assincronicamente e possivelmente repleto de outros relatórios. O processamento no servidor pode ainda falhar: o número da sequência pode estar estagnado, a entidade em que o relatório deve ser aplicado foi eliminada, etc.
 > 
 > 
 
-O armazenamento em buffer no cliente leva a exclusividade dos relatórios em consideração. Por exemplo, se um determinado notificador inadequado estiver relatando relatórios 100 por segundo na mesma propriedade da mesma entidade, os relatórios serão substituídos pela última versão. No máximo um relatório existe na fila do cliente. Se o envio em lote estiver configurado, o número de relatórios enviados para o Gerenciador de integridade será apenas um por intervalo de envio. Este relatório é o último relatório adicionado, que reflete o estado mais atual da entidade.
-Especifique parâmetros de configuração quando `FabricClient` for criado passando [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) com os valores desejados para entradas relacionadas à integridade.
+## <a name="health-client"></a>Cliente de saúde
+Os relatórios de saúde são enviados ao gerente de saúde através de um cliente de saúde, que vive dentro do cliente de tecido. O gerente da saúde guarda relatórios na loja de saúde. O cliente de saúde pode ser configurado com as seguintes definições:
 
-O exemplo a seguir cria um cliente de malha e especifica que os relatórios devem ser enviados quando são adicionados. Em tempos limite e erros que podem ser repetidos, as repetições acontecem a cada 40 segundos.
+* **HealthReportSendInterval**: O atraso entre o momento em que o relatório é adicionado ao cliente e o tempo que é enviado ao gestor de saúde. Usado para enviar relatórios numa única mensagem, em vez de enviar uma mensagem para cada relatório. O lote melhora o desempenho. Predefinição: 30 segundos.
+* **HealthReportRetrySendInterval**: O intervalo em que o cliente de saúde reenvia relatórios de saúde acumulados ao gestor de saúde. Predefinição: 30 segundos, mínimo: 1 segundo.
+* **SaúdeOperationTimeout**: O período de tempo de paragem para uma mensagem de relatório enviada ao gestor de saúde. Se uma mensagem for para fora, o cliente de saúde a retenta até que o gestor de saúde confirme que o relatório foi processado. Padrão: dois minutos.
+
+> [!NOTE]
+> Quando os relatórios são loteados, o cliente de tecido deve ser mantido vivo pelo menos para o HealthReportSendInterval para garantir que são enviados. Se a mensagem for perdida ou o gestor de saúde não puder aplicá-los devido a erros transitórios, o cliente do tecido deve ser mantido vivo por mais tempo para lhe dar a oportunidade de se recandidatar.
+> 
+> 
+
+O tampão no cliente leva em consideração a singularidade dos relatórios. Por exemplo, se um repórter em particular está a reportar 100 relatórios por segundo sobre a mesma propriedade da mesma entidade, os relatórios são substituídos pela última versão. No máximo, existe um relatório deste tipo na fila do cliente. Se o lote estiver configurado, o número de relatórios enviados ao gestor de saúde é apenas um por intervalo de envio. Este relatório é o último relatório acrescentado, que reflete o estado mais atual da entidade.
+Especifique `FabricClient` os parâmetros de configuração quando for criado através do [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) com os valores desejados para entradas relacionadas com a saúde.
+
+O exemplo seguinte cria um cliente de tecido e especifica que os relatórios devem ser enviados quando são adicionados. Nos intervalos e erros que podem ser retentados, as tentativas acontecem a cada 40 segundos.
 
 ```csharp
 var clientSettings = new FabricClientSettings()
@@ -72,9 +72,9 @@ var clientSettings = new FabricClientSettings()
 var fabricClient = new FabricClient(clientSettings);
 ```
 
-É recomendável manter as configurações do cliente de malha padrão, que definem `HealthReportSendInterval` como 30 segundos. Essa configuração garante o desempenho ideal devido ao envio em lote. Para relatórios críticos que devem ser enviados assim que possível, use `HealthReportSendOptions` com `true` imediato na API [FabricClient. HealthClient. ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) . Os relatórios imediatos ignoram o intervalo de envio em lote. Use este sinalizador com cuidado; Queremos aproveitar o envio em lote do cliente de integridade sempre que possível. O envio imediato também é útil quando o cliente de malha está sendo fechado (por exemplo, o processo determinou um estado inválido e precisa ser desligado para evitar efeitos colaterais). Ele garante um envio de melhor esforço dos relatórios acumulados. Quando um relatório é adicionado com o sinalizador imediato, o cliente de integridade faz o lote de todos os relatórios acumulados desde o último envio.
+Recomendamos manter as definições de `HealthReportSendInterval` cliente de tecido predefinido, que se fixam em 30 segundos. Esta definição garante um desempenho ótimo devido ao loteamento. Para relatórios críticos que devem ser `HealthReportSendOptions` enviados o mais rapidamente possível, utilize com immediate `true` in [FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API. Relatórios imediatos contornam o intervalo de loteamento. Use esta bandeira com cuidado; queremos aproveitar o lote do cliente de saúde sempre que possível. O envio imediato também é útil quando o cliente do tecido está a fechar (por exemplo, o processo determinou o estado inválido e precisa de ser encerrado para evitar efeitos secundários). Garante um melhor envio dos relatórios acumulados. Quando um relatório é adicionado com bandeira imediata, o cliente de saúde emlota todos os relatórios acumulados desde o último envio.
 
-Os mesmos parâmetros podem ser especificados quando uma conexão com um cluster é criada por meio do PowerShell. O exemplo a seguir inicia uma conexão com um cluster local:
+Os mesmos parâmetros podem ser especificados quando uma ligação a um cluster é criada através do PowerShell. O exemplo seguinte inicia uma ligação a um cluster local:
 
 ```powershell
 PS C:\> Connect-ServiceFabricCluster -HealthOperationTimeoutInSec 120 -HealthReportSendIntervalInSec 0 -HealthReportRetrySendIntervalInSec 40
@@ -102,80 +102,80 @@ GatewayInformation   : {
                        }
 ```
 
-Da mesma forma que a API, os relatórios podem ser enviados usando `-Immediate` opção a ser enviada imediatamente, independentemente do valor de `HealthReportSendInterval`.
+Da mesma forma que a API, os relatórios podem ser enviados utilizando `-Immediate` o interruptor para serem enviados imediatamente, independentemente do `HealthReportSendInterval` valor.
 
-Para REST, os relatórios são enviados para o gateway de Service Fabric, que tem um cliente de malha interna. Por padrão, esse cliente é configurado para enviar relatórios em lote a cada 30 segundos. Você pode alterar o intervalo de lote com a configuração de cluster `HttpGatewayHealthReportSendInterval` em `HttpGateway`. Como mencionado, uma opção melhor é enviar os relatórios com `Immediate` verdadeiro. 
-
-> [!NOTE]
-> Para garantir que os serviços não autorizados não possam relatar a integridade em relação às entidades no cluster, configure o servidor para aceitar solicitações somente de clientes protegidos. O `FabricClient` usado para relatórios deve ter a segurança habilitada para ser capaz de se comunicar com o cluster (por exemplo, com autenticação Kerberos ou de certificado). Leia mais sobre a [segurança do cluster](service-fabric-cluster-security.md).
-> 
-> 
-
-## <a name="report-from-within-low-privilege-services"></a>Relatório de dentro dos serviços de baixo privilégio
-Se os serviços de Service Fabric não tiverem acesso de administrador ao cluster, você poderá relatar a integridade em entidades do contexto atual por meio de `Partition` ou `CodePackageActivationContext`.
-
-* Para serviços sem estado, use [IStatelessServicePartition. ReportInstanceHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) para relatar a instância de serviço atual.
-* Para serviços com estado, use [IStatefulServicePartition. ReportReplicaHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) para relatar a réplica atual.
-* Use [IServicePartition. ReportPartitionHealth](https://docs.microsoft.com/dotnet/api/system.fabric.iservicepartition.reportpartitionhealth) para relatar a entidade de partição atual.
-* Use [CodePackageActivationContext. ReportApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth) para relatar o aplicativo atual.
-* Use [CodePackageActivationContext. ReportDeployedApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth) para relatar o aplicativo atual implantado no nó atual.
-* Use [CodePackageActivationContext. ReportDeployedServicePackageHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth) para relatar um pacote de serviço para o aplicativo implantado no nó atual.
+Para o REST, os relatórios são enviados para o gateway service Fabric, que tem um cliente de tecido interno. Por padrão, este cliente está configurado para enviar relatórios loteados a cada 30 segundos. Pode alterar o intervalo do lote `HttpGatewayHealthReportSendInterval` `HttpGateway`com a definição de configuração do cluster . Como mencionado, uma melhor opção `Immediate` é enviar os relatórios com verdade. 
 
 > [!NOTE]
-> Internamente, o `Partition` e o `CodePackageActivationContext` mantêm um cliente de integridade configurado com as configurações padrão. Conforme explicado para o [cliente de integridade](service-fabric-report-health.md#health-client), os relatórios são agrupados e enviados em um temporizador. Os objetos devem ser mantidos ativos para ter a oportunidade de enviar o relatório.
+> Para garantir que os serviços não autorizados não podem reportar saúde contra as entidades do cluster, configure o servidor para aceitar pedidos apenas de clientes seguros. O `FabricClient` utilizado para reportar deve ter segurança habilitada para poder comunicar com o cluster (por exemplo, com Kerberos ou autenticação de certificado). Leia mais sobre segurança de [clusters](service-fabric-cluster-security.md).
 > 
 > 
 
-Você pode especificar `HealthReportSendOptions` ao enviar relatórios por meio de APIs de `Partition` e `CodePackageActivationContext` integridade. Se você tiver relatórios críticos que devem ser enviados assim que possível, use `HealthReportSendOptions` com `true`imediatos. Os relatórios imediatos ignoram o intervalo de envio em lote do cliente de integridade interno. Como mencionado anteriormente, use este sinalizador com cuidado; Queremos aproveitar o envio em lote do cliente de integridade sempre que possível.
+## <a name="report-from-within-low-privilege-services"></a>Relatório de dentro de serviços de baixo privilégio
+Se os serviços de Serviço Fabric não tiverem acesso ao cluster, pode `Partition` reportar `CodePackageActivationContext`saúde em entidades do contexto atual através ou .
 
-## <a name="design-health-reporting"></a>Relatórios de integridade de design
-A primeira etapa na geração de relatórios de alta qualidade é identificar as condições que podem afetar a integridade do serviço. Qualquer condição que possa ajudar a sinalizar problemas no serviço ou cluster quando ele inicia--ou ainda melhor, antes que um problema ocorra, pode potencialmente economizar bilhões de dólares. Os benefícios incluem menos tempo de inatividade, menos horas da noite gasto investigando e reparando problemas e maior satisfação do cliente.
-
-Depois que as condições são identificadas, os gravadores de Watchdog precisam descobrir a melhor maneira de monitorá-las para o equilíbrio entre sobrecarga e utilidade. Por exemplo, considere um serviço que faz cálculos complexos que usam alguns arquivos temporários em um compartilhamento. Um Watchdog pode monitorar o compartilhamento para garantir que haja espaço suficiente disponível. Ele pode escutar notificações de alterações de arquivo ou diretório. Ele poderá relatar um aviso se um limite inicial for atingido e relatar um erro se o compartilhamento estiver cheio. Em um aviso, um sistema de reparo pode começar a limpar arquivos mais antigos no compartilhamento. Em um erro, um sistema de reparo pode mover a réplica de serviço para outro nó. Observe como os Estados de condição são descritos em termos de integridade: o estado da condição que pode ser considerada íntegra (OK) ou não íntegro (aviso ou erro).
-
-Depois que os detalhes de monitoramento são definidos, um gravador de Watchdog precisa descobrir como implementar o Watchdog. Se as condições puderem ser determinadas de dentro do serviço, o Watchdog poderá fazer parte do próprio serviço monitorado. Por exemplo, o código de serviço pode verificar o uso do compartilhamento e, em seguida, relatar toda vez que tentar gravar um arquivo. A vantagem dessa abordagem é que o relatório é simples. Deve-se ter cuidado para impedir que bugs de Watchdog afetem a funcionalidade do serviço.
-
-O relatório de dentro do serviço monitorado nem sempre é uma opção. Um Watchdog dentro do serviço pode não ser capaz de detectar as condições. Pode não ter a lógica ou os dados para fazer a determinação. A sobrecarga de monitorar as condições pode ser alta. As condições também podem não ser específicas de um serviço, mas afetam as interações entre os serviços. Outra opção é ter Watchdogs no cluster como processos separados. Os Watchdogs monitoram as condições e o relatório, sem afetar os principais serviços de forma alguma. Por exemplo, esses Watchdogs podem ser implementados como serviços sem estado no mesmo aplicativo, implantados em todos os nós ou nos mesmos nós que o serviço.
-
-Às vezes, um Watchdog em execução no cluster também não é uma opção. Se a condição monitorada for a disponibilidade ou a funcionalidade do serviço conforme os usuários a veem, é melhor ter os Watchdogs no mesmo local que os clientes do usuário. Lá, eles podem testar as operações da mesma forma que os usuários as chamam. Por exemplo, você pode ter um Watchdog que reside fora do cluster, emite solicitações para o serviço e verifica a latência e a exatidão do resultado. (Para um serviço de calculadora, por exemplo, 2 + 2 retorna 4 em um período de tempo razoável?)
-
-Depois que os detalhes do Watchdog forem finalizados, você deverá decidir em uma ID de origem que o identifique de forma exclusiva. Se vários Watchdogs do mesmo tipo estiverem em vida no cluster, eles deverão relatar entidades diferentes ou, se eles reportarem a mesma entidade, usar ID de origem ou propriedade diferente. Dessa forma, seus relatórios podem coexistir. A propriedade do relatório de integridade deve capturar a condição monitorada. (Para o exemplo acima, a propriedade pode ser **compartilhada**.) Se vários relatórios se aplicarem à mesma condição, a propriedade deverá conter algumas informações dinâmicas que permitem que os relatórios coexistam. Por exemplo, se vários compartilhamentos precisarem ser monitorados, o nome da propriedade poderá ser **compartilhando-ShareName**.
+* Para serviços apátridas, utilize [iStatelessServicePartition.ReportInstanceHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) para reportar sobre a atual instância de serviço.
+* Para serviços estatais, utilize [iStatefulServicePartition.ReportReplicaHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) para reportar sobre a réplica atual.
+* Utilize [iServicePartition.ReportPartitionHealth](https://docs.microsoft.com/dotnet/api/system.fabric.iservicepartition.reportpartitionhealth) para reportar sobre a entidade partição atual.
+* Utilize [codePackageActivationContext.ReportApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth) para reportar sobre a aplicação atual.
+* Utilize [codePackageActivationContext.ReportDeployedApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth) para reportar sobre a aplicação atual implementada no nó atual.
+* Utilize [codePackageActivationContext.ReportDeployedServicePackageHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth) para reportar um pacote de serviço para a aplicação implementada no nó atual.
 
 > [!NOTE]
-> *Não* use o repositório de integridade para manter informações de status. Somente informações relacionadas à integridade devem ser relatadas como integridade, pois essas informações afetam a avaliação de integridade de uma entidade. O repositório de integridade não foi projetado como um repositório de uso geral. Ele usa a lógica de avaliação de integridade para agregar todos os dados no estado de integridade. O envio de informações não relacionadas à integridade (como relatar o status com um estado de integridade OK) não afeta o estado de integridade agregado, mas pode afetar negativamente o desempenho do repositório de integridade.
+> Internamente, `Partition` o `CodePackageActivationContext` e o porão de um cliente de saúde configurado com configurações predefinidas. Como explicado para o cliente de [saúde,](service-fabric-report-health.md#health-client)os relatórios são lotados e enviados num temporizador. Os objetos devem ser mantidos vivos para poderem enviar o relatório.
 > 
 > 
 
-O próximo ponto de decisão é a entidade a ser reportada. Na maioria das vezes, a condição identifica claramente a entidade. Escolha a entidade com a melhor granularidade possível. Se uma condição impactar todas as réplicas em uma partição, o relatório na partição, não no serviço. No entanto, há casos de canto em que é necessário mais pensamento. Se a condição afetar uma entidade, como uma réplica, mas o desejo for ter a condição sinalizada por mais do que a duração da vida útil da réplica, ela deverá ser relatada na partição. Caso contrário, quando a réplica for excluída, o repositório de integridade limpará todos os seus relatórios. Os gravadores de Watchdog devem pensar sobre os tempos de vida da entidade e do relatório. Deve ser claro quando um relatório deve ser limpo de uma loja (por exemplo, quando um erro relatado em uma entidade não se aplica).
+Pode especificar `HealthReportSendOptions` ao enviar `Partition` `CodePackageActivationContext` relatórios através e APIs de saúde. Se tiver relatórios críticos que devem ser `HealthReportSendOptions` enviados o mais rapidamente possível, utilize com Imediatamente `true`. Relatórios imediatos contornam o intervalo de loteamento do cliente de saúde interna. Como mencionado anteriormente, use esta bandeira com cuidado; queremos aproveitar o lote do cliente de saúde sempre que possível.
 
-Vejamos um exemplo que reúne os pontos descritos. Considere um aplicativo Service Fabric composto por um serviço persistente com estado mestre e serviços sem estado secundários implantados em todos os nós (um tipo de serviço secundário para cada tipo de tarefa). O mestre tem uma fila de processamento que contém comandos a serem executados por secundários. Os secundários executam as solicitações de entrada e enviam sinais de confirmação de retorno. Uma condição que poderia ser monitorada é o comprimento da fila de processamento mestre. Se o comprimento da fila mestre atingir um limite, um aviso será relatado. O aviso indica que os secundários não podem manipular a carga. Se a fila atingir o comprimento máximo e os comandos forem removidos, um erro será relatado, pois o serviço não poderá ser recuperado. Os relatórios podem estar na propriedade **statusfila**. O Watchdog reside dentro do serviço e é enviado periodicamente na réplica primária mestra. A vida útil é de dois minutos e é enviada periodicamente a cada 30 segundos. Se o primário ficar inativo, o relatório será limpo automaticamente do repositório. Se a réplica de serviço estiver ativa, mas estiver bloqueada ou tiver outros problemas, o relatório expirará no repositório de integridade. Nesse caso, a entidade é avaliada com erro.
+## <a name="design-health-reporting"></a>Relatórios de saúde de conceção
+O primeiro passo para gerar relatórios de alta qualidade é identificar as condições que podem afetar a saúde do serviço. Qualquer condição que possa ajudar a sinalizar problemas no serviço ou no cluster quando começa - ou melhor, antes que um problema aconteça - pode potencialmente poupar biliões de dólares. Os benefícios incluem menos tempo de descanso, menos horas noturnas passadas a investigar e reparar problemas, e uma maior satisfação do cliente.
 
-Outra condição que pode ser monitorada é o tempo de execução da tarefa. O mestre distribui tarefas para os secundários com base no tipo de tarefa. Dependendo do design, o mestre poderia sondar os secundários para o status da tarefa. Ele também pode aguardar que os secundários enviem sinais de confirmação quando forem concluídos. No segundo caso, deve-se ter cuidado para detectar situações em que os secundários ou as mensagens são perdidos. Uma opção é que o mestre envie uma solicitação de ping para o mesmo secundário, o que envia de volta seu status. Se nenhum status for recebido, o mestre considerará uma falha e reagendará a tarefa. Esse comportamento pressupõe que as tarefas sejam idempotentes.
+Uma vez identificadas as condições, os escritores de cães de guarda precisam descobrir a melhor maneira de monitorizá-los para o equilíbrio entre a sobrecarga e a utilidade. Por exemplo, considere um serviço que faça cálculos complexos que usam alguns ficheiros temporários numa ação. Um cão de guarda poderia monitorizar a partilha para garantir que há espaço suficiente disponível. Pode ouvir notificações de ficheiros ou alterações de diretório. Pode denunciar um aviso se for atingido um limiar inicial e denunciar um erro se a parte estiver cheia. Num aviso, um sistema de reparação pode começar a limpar ficheiros mais antigos da parte. Num erro, um sistema de reparação pode mover a réplica do serviço para outro nó. Note como a condição é descrita em termos de saúde: o estado da condição que pode ser considerada saudável (ok) ou insalubre (aviso ou erro).
 
-A condição monitorada poderá ser convertida como um aviso se a tarefa não for feita em um determinado tempo (**T1**, por exemplo, 10 minutos). Se a tarefa não for concluída no tempo (**T2**, por exemplo, 20 minutos), a condição monitorada poderá ser traduzida como erro. Esse relatório pode ser feito de várias maneiras:
+Uma vez definidos os detalhes de monitorização, um escritor de cães de guarda precisa descobrir como implementar o cão de guarda. Se as condições puderem ser determinadas dentro do serviço, o cão de guarda pode fazer parte do próprio serviço monitorizado. Por exemplo, o código de serviço pode verificar o uso da partilha e, em seguida, reportar cada vez que tenta escrever um ficheiro. A vantagem desta abordagem é que a comunicação é simples. Deve ser tomado cuidado para evitar que os bugs de cão de guarda afetem a funcionalidade do serviço.
 
-* A réplica primária principal se reporta periodicamente. Você pode ter uma propriedade para todas as tarefas pendentes na fila. Se pelo menos uma tarefa demorar mais, o status do relatório na propriedade **PendingTasks** será um aviso ou erro, conforme apropriado. Se não houver nenhuma tarefa pendente ou todas as tarefas iniciarem a execução, o status do relatório será OK. As tarefas são persistentes. Se o primário ficar inativo, o primário promovido recentemente poderá continuar a relatar corretamente.
-* Outro processo de Watchdog (na nuvem ou externo) verifica as tarefas (de fora, com base no resultado da tarefa desejada) para ver se elas foram concluídas. Se eles não respeitarem os limites, um relatório será enviado no serviço mestre. Um relatório também é enviado em cada tarefa que inclui o identificador da tarefa, como **PendingTask + TaskId**. Os relatórios devem ser enviados somente em Estados não íntegros. Defina a vida útil para alguns minutos e marque os relatórios a serem removidos quando eles expirarem para garantir a limpeza.
-* O secundário que está executando uma tarefa relata quando demora mais do que o esperado para executá-lo. Ele relata a instância de serviço na propriedade **PendingTasks**. O relatório indica a instância de serviço que tem problemas, mas não captura a situação em que a instância se apresenta. Os relatórios são limpos. Ele pode relatar o serviço secundário. Se o secundário concluir a tarefa, a instância secundária limpará o relatório da loja. O relatório não captura a situação em que a mensagem de confirmação é perdida e a tarefa não é concluída a partir do ponto de vista do mestre.
+O reporte de dentro do serviço monitorizado nem sempre é uma opção. Um cão de guarda dentro do serviço pode não ser capaz de detetar as condições. Pode não ter a lógica ou os dados para fazer a determinação. A sobrecarga de monitorização das condições pode ser elevada. As condições também podem não ser específicas de um serviço, mas sim afetar as interações entre serviços. Outra opção é ter cães de guarda no cluster como processos separados. Os cães de guarda monitorizam as condições e reportam, sem afetar de forma alguma os principais serviços. Por exemplo, estes cães de guarda poderiam ser implementados como serviços apátridas na mesma aplicação, implantados em todos os nós ou nos mesmos nós que o serviço.
 
-No entanto, o relatório é feito nos casos descritos acima, os relatórios são capturados na integridade do aplicativo quando a integridade é avaliada.
+Às vezes, um cão de guarda correndo no aglomerado também não é uma opção. Se a condição monitorizada for a disponibilidade ou funcionalidade do serviço como os utilizadores o vêem, o melhor é ter os cães de guarda no mesmo local que os clientes do utilizador. Lá, podem testar as operações da mesma forma que os utilizadores as chamam. Por exemplo, pode ter um cão de guarda que vive fora do cluster, emite pedidos ao serviço, e verifica a latência e correção do resultado. (Para um serviço de calculadora, por exemplo, 2+2 devolve 4 num período de tempo razoável?)
 
-## <a name="report-periodically-vs-on-transition"></a>Relatar periodicamente versus transição
-Usando o modelo de relatório de integridade, os Watchdogs podem enviar relatórios periodicamente ou em transições. A maneira recomendada para o relatório de Watchdog é periodicamente, pois o código é muito mais simples e menos propenso a erros. Os Watchdogs devem se esforçar para ser o mais simples possível para evitar bugs que disparem relatórios incorretos. Relatórios não *íntegros* incorretos afetam avaliações de integridade e cenários com base na integridade, incluindo atualizações. Relatórios *íntegros* incorretos ocultam problemas no cluster, o que não é desejado.
+Uma vez finalizados os detalhes do cão de guarda, deve decidir sobre um ID de origem que o identifique de forma única. Se vários cães de guarda do mesmo tipo estiverem a viver no cluster, devem reportar sobre diferentes entidades ou, se reportarem sobre a mesma entidade, utilizar diferentes identidades ou propriedades de origem. Desta forma, os seus relatórios podem coexistir. A propriedade do relatório de saúde deve capturar a condição monitorizada. (Para o exemplo acima, a propriedade pode ser **ShareSize**.) Se vários relatórios se aplicarem à mesma condição, a propriedade deve conter alguma informação dinâmica que permita que os relatórios coexistam. Por exemplo, se várias ações precisarem de ser monitorizadas, o nome da propriedade pode ser **ShareSize-sharename**.
 
-Para relatórios periódicos, o Watchdog pode ser implementado com um temporizador. Em um retorno de chamada do temporizador, o Watchdog pode verificar o estado e enviar um relatório com base no estado atual. Não é necessário ver qual relatório foi enviado anteriormente ou fazer qualquer otimização em termos de mensagens. O cliente de integridade tem lógica em lote para ajudar com o desempenho. Embora o cliente de integridade seja mantido ativo, ele se repete internamente até que o relatório seja confirmado pelo repositório de integridade ou o Watchdog gera um relatório mais recente com a mesma entidade, propriedade e origem.
+> [!NOTE]
+> *Não* utilize a loja de saúde para manter as informações sobre o estado. Apenas informações relacionadas com a saúde devem ser comunicadas como saúde, uma vez que esta informação tem impacto na avaliação da saúde de uma entidade. A loja de saúde não foi concebida como uma loja de fins gerais. Usa a lógica de avaliação da saúde para agregar todos os dados no estado de saúde. O envio de informações não relacionadas com a saúde (como o estado de reporte com um estado de saúde de OK) não afeta o estado de saúde agregado, mas pode afetar negativamente o desempenho da loja de saúde.
+> 
+> 
 
-A geração de relatórios sobre transições requer tratamento cuidadoso de estado. O Watchdog monitora algumas condições e relata somente quando as condições são alteradas. A vantagem dessa abordagem é que menos relatórios são necessários. A desvantagem é que a lógica do Watchdog é complexa. O Watchdog deve manter as condições ou os relatórios, para que eles possam ser inspecionados para determinar as alterações de estado. No failover, deve-se ter cuidado com os relatórios adicionados, mas ainda não enviados para o repositório de integridade. O número de sequência deve ser cada vez maior. Caso contrário, os relatórios serão rejeitados como obsoletos. Nos casos raros em que a perda de dados é incorrida, a sincronização pode ser necessária entre o estado do Reporter e o estado do repositório de integridade.
+O próximo ponto de decisão é qual a entidade a informar. Na maior parte do tempo, a condição identifica claramente a entidade. Escolha a entidade com a melhor granularidade possível. Se uma condição impactar todas as réplicas numa divisória, informe sobre a partição, não no serviço. Há casos de canto onde mais pensamento é necessário, no entanto. Se a condição impactar uma entidade, como uma réplica, mas o desejo é ter a condição sinalizada por mais do que a duração da vida da réplica, então deve ser reportada na partição. Caso contrário, quando a réplica é apagada, a loja de saúde limpa todos os seus relatórios. Os escritores de cães de guarda devem pensar nas vidas da entidade e no relatório. Deve ficar claro quando um relatório deve ser limpo de uma loja (por exemplo, quando um erro reportado numa entidade já não se aplica).
 
-A geração de relatórios sobre transições faz sentido para os serviços que se reportam, por meio de `Partition` ou `CodePackageActivationContext`. Quando o objeto local (réplica ou pacote de serviço implantado/aplicativo implantado) é removido, todos os seus relatórios também são removidos. Essa limpeza automática ameniza a necessidade de sincronização entre o Reporter e o Health Store. Se o relatório for para a partição pai ou o aplicativo pai, é necessário ter cuidado com o failover para evitar relatórios obsoletos no repositório de integridade. A lógica deve ser adicionada para manter o estado correto e limpar o relatório da loja quando não for necessário mais.
+Vejamos um exemplo que reúne os pontos que descrevi. Considere uma aplicação de Tecido de Serviço composta por um serviço principal e persistente e serviços apátridas secundários implantados em todos os nós (um tipo de serviço secundário para cada tipo de tarefa). O mestre tem uma fila de processamento que contém comandos para ser executado por secundários. Os secundários executam os pedidos de entrada e enviam de volta sinais de reconhecimento. Uma condição que poderia ser monitorizada é o comprimento da fila de processamento principal. Se o comprimento da fila principal atingir um limiar, é comunicado um aviso. O aviso indica que os secundários não aguentam a carga. Se a fila atingir o comprimento máximo e os comandos forem retirados, é reportado um erro, uma vez que o serviço não pode recuperar. Os relatórios podem estar na propriedade **QueueStatus**. O cão de guarda vive dentro do serviço, e é enviado periodicamente na réplica primária principal. A hora de viver é de dois minutos, e é enviada periodicamente a cada 30 segundos. Se a primária descer, o relatório é limpo automaticamente da loja. Se a réplica do serviço estiver em cima, mas estiver num impasse ou com outros problemas, o relatório expira na loja de saúde. Neste caso, a entidade é avaliada por engano.
 
-## <a name="implement-health-reporting"></a>Implementar relatórios de integridade
-Depois que os detalhes da entidade e do relatório estiverem claros, o envio de relatórios de integridade poderá ser feito por meio da API, do PowerShell ou do REST.
+Outra condição que pode ser monitorizada é o tempo de execução da tarefa. O mestre distribui tarefas aos secundários com base no tipo de tarefa. Dependendo do design, o mestre pode sondar os secundários para o estatuto de tarefa. Também poderia esperar que os secundários enviassem de volta sinais de reconhecimento quando terminarem. No segundo caso, é necessário ter cuidado para detetar situações em que os secundários morrem ou se perdem mensagens. Uma opção é que o mestre envie um pedido de ping para o mesmo secundário, que devolve o seu estatuto. Se nenhum estatuto for recebido, o mestre considera-o uma falha e remarca a tarefa. Este comportamento pressupõe que as tarefas são idempotentes.
+
+A condição monitorizada pode ser traduzida como um aviso se a tarefa não for feita num determinado tempo **(t1**, por exemplo, 10 minutos). Se a tarefa não estiver concluída a tempo **(t2**, por exemplo, 20 minutos), a condição monitorizada pode ser traduzida como Erro. Este relatório pode ser feito de várias maneiras:
+
+* A réplica primária principal principal relata sobre si mesma periodicamente. Você pode ter uma propriedade para todas as tarefas pendentes na fila. Se pelo menos uma tarefa demorar mais tempo, o estado do relatório na propriedade **Pendentes Tarefas** é um aviso ou erro, conforme apropriado. Se não houver tarefas pendentes ou todas as tarefas iniciadas, o estado do relatório está bem. As tarefas são persistentes. Se as primárias descerem, as primárias recém-promovidas podem continuar a reportar corretamente.
+* Outro processo de vigilância (na nuvem ou externa) verifica as tarefas (de fora, com base no resultado de tarefa pretendido) para ver se estão concluídas. Se não respeitarem os limiares, é enviado um relatório sobre o serviço principal. É também enviado um relatório em cada tarefa que inclui o identificador de tarefas, como **o PendenteTask+taskId**. Os relatórios só devem ser enviados em estados pouco saudáveis. Marque o tempo para viver até alguns minutos e marque os relatórios a remover quando expirarem para garantir a limpeza.
+* O secundário que está a executar um relatório de tarefas quando demora mais do que o esperado a executá-lo. Informa sobre a instância de serviço na propriedade **Pendentes Tarefas**. O relatório aponta a instância de serviço que tem problemas, mas não capta a situação em que a ocorrência morre. Os relatórios estão limpos. Pode reportar sobre o serviço secundário. Se o secundário completar a tarefa, a instância secundária retira o relatório da loja. O relatório não capta a situação em que a mensagem de reconhecimento se perde e a tarefa não está terminada do ponto de vista do mestre.
+
+No entanto, o relatório é feito nos casos acima descritos, os relatórios são capturados na saúde da aplicação quando a saúde é avaliada.
+
+## <a name="report-periodically-vs-on-transition"></a>Relatório periódico vs. sobre transição
+Utilizando o modelo de relatóriode saúde, os cães de guarda podem enviar relatórios periodicamente ou sobre transições. A forma recomendada de reportagem de cães de guarda é periodicamente, porque o código é muito mais simples e menos propenso a erros. Os cães de guarda devem esforçar-se para serem o mais simples possível para evitar bugs que desencadeiem relatórios incorretos. Relatórios *incorretos e insalubres* têm impacto em avaliações e cenários de saúde com base na saúde, incluindo upgrades. Relatórios *saudáveis* incorretos escondem problemas no cluster, o que não é desejado.
+
+Para reportagens periódicas, o cão de guarda pode ser implementado com um temporizador. Numa chamada de temporizador, o cão de guarda pode verificar o estado e enviar um relatório baseado no estado atual. Não há necessidade de ver que relatório foi enviado anteriormente ou fazer quaisquer otimizações em termos de mensagens. O cliente de saúde tem lógica de loteamento para ajudar com o desempenho. Enquanto o cliente de saúde é mantido vivo, ele se retenta internamente até que o relatório seja reconhecido pela loja de saúde ou o cão de guarda gera um relatório mais recente com a mesma entidade, propriedade e fonte.
+
+A comunicação sobre as transições requer um manuseamento cuidadoso do Estado. O cão de guarda monitoriza algumas condições e reporta apenas quando as condições mudam. O lado positivo desta abordagem é que são necessários menos relatórios. A desvantagem é que a lógica do cão de guarda é complexa. O cão de guarda deve manter as condições ou os relatórios, de modo a que possam ser inspecionados para determinar as alterações do Estado. No caso do fracasso, há que ter cuidado com relatórios adicionados, mas ainda não enviados para a loja de saúde. O número da sequência deve estar cada vez maior. Caso contrário, os relatórios são rejeitados como estando velhos. Nos raros casos em que a perda de dados é incorrida, pode ser necessária sincronização entre o estado do repórter e o estado da loja de saúde.
+
+A comunicação sobre as transições faz `Partition` `CodePackageActivationContext`sentido para os serviços que se reportam sobre si mesmos, através ou . Quando o objeto local (réplica ou pacote de serviço implantado/aplicação implantada) é removido, todos os seus relatórios também são removidos. Esta limpeza automática relaxa a necessidade de sincronização entre repórter e loja de saúde. Se o relatório for para a partição dos pais ou para a aplicação dos pais, deve ser tomado cuidado para evitar relatórios antigos na loja de saúde. Há que acrescentar a lógica para manter o estado correto e limpar o relatório da loja quando já não é necessário.
+
+## <a name="implement-health-reporting"></a>Implementar relatórios de saúde
+Uma vez que a entidade e os detalhes do relatório sejam claros, o envio de relatórios de saúde pode ser feito através da API, PowerShell ou REST.
 
 ### <a name="api"></a>API
-Para relatar por meio da API, você precisa criar um relatório de integridade específico para o tipo de entidade que deseja relatar. Dê ao relatório um cliente de integridade. Como alternativa, crie uma informação de integridade e passe-a para os métodos de relatório corretos em `Partition` ou `CodePackageActivationContext` para relatar as entidades atuais.
+Para informar através da API, é necessário criar um relatório de saúde específico do tipo de entidade que pretende reportar. Dê o relatório a um cliente de saúde. Em alternativa, crie uma informação de `Partition` saúde e aprove-a para corrigir métodos de reporte sobre ou `CodePackageActivationContext` para reportar sobre as entidades atuais.
 
-O exemplo a seguir mostra relatórios periódicos de um Watchdog dentro do cluster. O Watchdog verifica se um recurso externo pode ser acessado de dentro de um nó. O recurso é necessário para um manifesto do serviço dentro do aplicativo. Se o recurso não estiver disponível, os outros serviços dentro do aplicativo ainda poderão funcionar corretamente. Portanto, o relatório é enviado na entidade do pacote de serviço implantado a cada 30 segundos.
+O exemplo seguinte mostra relatórios periódicos de um cão de guarda dentro do cluster. O cão de guarda verifica se um recurso externo pode ser acedido dentro de um nó. O recurso é necessário por um manifesto de serviço dentro da aplicação. Se o recurso não estiver disponível, os outros serviços dentro da aplicação ainda podem funcionar corretamente. Por conseguinte, o relatório é enviado sobre a entidade do pacote de serviços implantado a cada 30 segundos.
 
 ```csharp
 private static Uri ApplicationName = new Uri("fabric:/WordCount");
@@ -206,9 +206,9 @@ public static void SendReport(object obj)
 ```
 
 ### <a name="powershell"></a>PowerShell
-Envie relatórios de integridade com **Send-Imfabric*EntityType*HealthReport**.
+Envie relatórios de saúde com O Relatório de Saúde da Entidade de **Fabricação de Envio*EntityType*** de Serviços De Saúde .
 
-O exemplo a seguir mostra relatórios periódicos sobre valores de CPU em um nó. Os relatórios devem ser enviados a cada 30 segundos e têm um tempo de vida de dois minutos. Se eles expirarem, o reporter terá problemas, portanto, o nó será avaliado com erro. Quando a CPU está acima de um limite, o relatório tem um estado de integridade de aviso. Quando a CPU permanece acima de um limite por mais do que o tempo configurado, ela é relatada como um erro. Caso contrário, o reporter envia um estado de integridade OK.
+O exemplo seguinte mostra relatórios periódicos sobre os valores da CPU num nó. Os relatórios devem ser enviados a cada 30 segundos, e têm tempo para viver dois minutos. Se expirarem, o repórter tem problemas, por isso o nó é avaliado por engano. Quando a CPU está acima de um limiar, o relatório tem um estado de alerta sanitário. Quando o CPU permanece acima de um limiar por mais do que o tempo configurado, é reportado como um erro. Caso contrário, o repórter envia um estado de saúde de OK.
 
 ```powershell
 PS C:\> Send-ServiceFabricNodeHealthReport -NodeName Node.1 -HealthState Warning -SourceId PowershellWatcher -HealthProperty CPU -Description "CPU is above 80% threshold" -TimeToLiveSec 120
@@ -245,7 +245,7 @@ HealthEvents          :
                         Transitions           : ->Warning = 4/21/2015 9:01:21 PM
 ```
 
-O exemplo a seguir relata um aviso transitório em uma réplica. Ele primeiro obtém a ID da partição e, em seguida, a ID da réplica para o serviço em que está interessado. Em seguida, ele envia um relatório de **PowershellWatcher** na propriedade **ResourceDependency**. O relatório é de interesse por apenas dois minutos e é removido do repositório automaticamente.
+O exemplo que se segue relata um aviso transitório sobre uma réplica. Primeiro obtém a identificação da divisória e, em seguida, a réplica de identificação para o serviço em que está interessado. Em seguida, envia um relatório do **PowershellWatcher** sobre a **propriedade ResourceDependency**. O relatório é de interesse por apenas dois minutos, e é removido automaticamente da loja.
 
 ```powershell
 PS C:\> $partitionId = (Get-ServiceFabricPartition -ServiceName fabric:/WordCount/WordCount.Service).PartitionId
@@ -290,20 +290,20 @@ HealthEvents          :
 ```
 
 ### <a name="rest"></a>REST
-Envie relatórios de integridade usando REST com solicitações POST que vão para a entidade desejada e que têm no corpo a descrição do relatório de integridade. Por exemplo, consulte Como enviar relatórios de [integridade do cluster](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-cluster) REST ou [relatórios de integridade do serviço](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service). Todas as entidades têm suporte.
+Envie relatórios de saúde usando o REST com pedidos POST que vão para a entidade desejada e têm no organismo a descrição do relatório de saúde. Por exemplo, consulte como enviar relatórios de [saúde](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-cluster) do cluster REST ou relatórios de [saúde](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service)de serviço . Todas as entidades são apoiadas.
 
 ## <a name="next-steps"></a>Passos seguintes
-Com base nos dados de integridade, os gravadores de serviço e os administradores de cluster/aplicativo podem considerar maneiras de consumir as informações. Por exemplo, eles podem configurar alertas com base no status de integridade para capturar problemas graves antes que eles provoquemm interrupções. Os administradores também podem configurar sistemas de reparo para corrigir problemas automaticamente.
+Com base nos dados de saúde, os escritores de serviços e administradores de cluster/aplicação podem pensar em formas de consumir a informação. Por exemplo, podem criar alertas baseados no estado de saúde para apanhar problemas graves antes de provocarem interrupções. Os administradores também podem criar sistemas de reparação para corrigir problemas automaticamente.
 
-[Introdução ao monitoramento de integridade Service Fabric](service-fabric-health-introduction.md)
+[Introdução à monitorização da saúde do tecido de serviço](service-fabric-health-introduction.md)
 
-[Exibir Service Fabric relatórios de integridade](service-fabric-view-entities-aggregated-health.md)
+[Ver relatórios de saúde de tecido de serviço](service-fabric-view-entities-aggregated-health.md)
 
-[Como relatar e verificar a integridade do serviço](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+[Como reportar e verificar a saúde do serviço](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
-[Usar relatórios de integridade do sistema para solução de problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+[Use relatórios de saúde do sistema para resolução de problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
-[Monitorar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+[Monitorizar e diagnosticar os serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[Atualização do aplicativo Service Fabric](service-fabric-application-upgrade.md)
+[Upgrade de aplicação de tecido de serviço](service-fabric-application-upgrade.md)
 

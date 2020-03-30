@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 01/31/2020
 ms.author: cynthn
 ms.openlocfilehash: 092dafff6622d3402322eb96d0fe4215e52e16b5
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76964928"
 ---
 # <a name="change-the-availability-set-for-a-vm"></a>Alterar o conjunto de disponibilidade de uma VM

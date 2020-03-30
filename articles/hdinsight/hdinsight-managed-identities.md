@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/20/2019
 ms.openlocfilehash: daae9c16797ad9c1b85635f5aec7d0cf884e003f
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78206015"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Identidades geridas no Azure HDInsight
@@ -31,10 +31,10 @@ No Azure HDInsight, as identidades geridas são aprovisionadas em cada nó do cl
 
 As identidades geridas podem ser criadas com qualquer um dos seguintes métodos:
 
-* [Portal do Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
+* [Portal Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
 * [Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
 * [Azure Resource Manager](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md)
-* [CLI do Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)
+* [Azure CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)
 
 Os passos restantes para configurar a identidade gerida dependem do cenário onde será utilizado.
 
@@ -43,8 +43,8 @@ Os passos restantes para configurar a identidade gerida dependem do cenário ond
 As identidades geridas são usadas no Azure HDInsight em vários cenários. Consulte os documentos relacionados para obter instruções detalhadas de configuração e configuração:
 
 * [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md#create-a-user-assigned-managed-identity) (Armazenamento do Azure Data Lake Gen2)
-* [Pacote de Segurança Empresarial](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
-* [Encriptação de disco de chave gerida pelo cliente](disk-encryption.md)
+* [Pacote de Segurança Enterprise](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
+* [Encriptação de discos chave gerida pelo cliente](disk-encryption.md)
 
 ## <a name="faq"></a>FAQ
 ### <a name="what-happens-if-i-delete-the-managed-identity-after-the-cluster-creation"></a>O que acontece se eu apagar a identidade gerida após a criação do cluster?

@@ -17,10 +17,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e27287a414a2a4edef3e9090b7d91beb1c70f554
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76897308"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>Utilizar o Azure AD Connect Health com o AD DS
@@ -56,12 +56,12 @@ Esta funcionalidade fornece as tendências gráficas de diferentes contadores de
 
 Por predefinição, podemos pré-selecionar quatro contadores de desempenho. No entanto, pode incluir outros clicando no comando de filtro e selecionando ou desmarcando contadores de desempenho pretendidos. Além disso, pode fazer duplo clique num gráfico de contador de desempenho específico para abrir um painel novo, que inclui os pontos de dados para cada um dos controladores de domínio monitorizados.
 
-## <a name="related-links"></a>Hiperligações relacionadas
+## <a name="related-links"></a>Ligações relacionadas
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Instalação do Agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)
-* [Azure AD Connect Health Operations (Operações do Azure AD Connect Health)](how-to-connect-health-operations.md)
-* [Utilizar o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
-* [Utilizar o Azure AD Connect Health para sincronização](how-to-connect-health-sync.md)
+* [Operações de Saúde Azure AD Connect](how-to-connect-health-operations.md)
+* [Utilizar o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
+* [Utilização da Azure AD Connect Health para sincronização](how-to-connect-health-sync.md)
 * [FAQ do Azure AD Connect Health](reference-connect-health-faq.md)
-* [Histórico das Versões do Azure AD Connect Health](reference-connect-health-version-history.md)
+* [História da versão da versão de ligação da saúde azure AD](reference-connect-health-version-history.md)
 

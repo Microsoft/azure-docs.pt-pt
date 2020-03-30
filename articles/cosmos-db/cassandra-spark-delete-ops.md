@@ -1,6 +1,6 @@
 ---
-title: Operações Delete no Azure Cosmos DB API do Cassandra do Spark
-description: Este artigo fornece detalhes sobre como excluir dados em tabelas no Azure Cosmos DB API do Cassandra do Spark
+title: Apagar operações na Azure Cosmos DB Cassandra API da Spark
+description: Este artigo detalha como eliminar dados em tabelas em Azure Cosmos DB Cassandra API da Spark
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
@@ -9,15 +9,15 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 0317fab158b2ea73b365bedc272721816da22c4e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75442091"
 ---
-# <a name="delete-data-in-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Excluir dados em Azure Cosmos DB tabelas de API do Cassandra do Spark
+# <a name="delete-data-in-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Eliminar dados nas tabelas da API da Azure Cosmos DB Cassandra da Spark
 
-Este artigo descreve como excluir dados em Azure Cosmos DB API do Cassandra tabelas do Spark.
+Este artigo descreve como apagar dados em tabelas aPi Da Spark.
 
 ## <a name="cassandra-api-configuration"></a>Configuração da API de Cassandra
 
@@ -46,8 +46,8 @@ spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
 spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
 
-## <a name="sample-data-generator"></a>Gerador de dados de exemplo
-Usaremos este fragmento de código para gerar dados de exemplo:
+## <a name="sample-data-generator"></a>Gerador de dados de amostras
+Usaremos este fragmento de código para gerar dados da amostra:
 
 ```scala
 //Create dataframe
@@ -67,9 +67,9 @@ booksDF.write
   .save()
 ```
 
-## <a name="dataframe-api"></a>Pacote de API de dados
+## <a name="dataframe-api"></a>Dataframe API
 
-### <a name="delete-rows-that-match-a-condition"></a>Excluir linhas que correspondem a uma condição
+### <a name="delete-rows-that-match-a-condition"></a>Eliminar linhas que correspondam a uma condição
 
 ```scala
 //1) Create dataframe
@@ -153,7 +153,7 @@ deleteBooksDF: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] = [book_id
 cdbConnector: com.datastax.spark.connector.cql.CassandraConnector = com.datastax.spark.connector.cql.CassandraConnector@187deb43
 ```
 
-### <a name="delete-all-the-rows-in-the-table"></a>Excluir todas as linhas da tabela
+### <a name="delete-all-the-rows-in-the-table"></a>Apague todas as linhas da mesa
 
 ```scala
 //1) Create dataframe
@@ -231,9 +231,9 @@ ReadSchema: struct<book_id:string,book_author:string,book_name:string,book_price
 +-------+-----------+---------+----------+-------------+
 ```
 
-## <a name="rdd-api"></a>API DE RDD
+## <a name="rdd-api"></a>RDD API
 
-### <a name="delete-all-the-rows-in-the-table"></a>Excluir todas as linhas da tabela
+### <a name="delete-all-the-rows-in-the-table"></a>Apague todas as linhas da mesa
 ```scala
 //1) Create RDD with all rows
 val deleteBooksRDD = 
@@ -300,7 +300,7 @@ deleteBooksRDD: com.datastax.spark.connector.rdd.CassandraTableScanRDD[com.datas
 cdbConnector: com.datastax.spark.connector.cql.CassandraConnector = com.datastax.spark.connector.cql.CassandraConnector@317927
 ```
 
-### <a name="delete-specific-columns"></a>Excluir colunas específicas
+### <a name="delete-specific-columns"></a>Eliminar colunas específicas
 
 ```scala
 //1) Create RDD 
@@ -358,7 +358,7 @@ deleteBooksRDD: com.datastax.spark.connector.rdd.CassandraTableScanRDD[com.datas
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para executar operações de agregação e de cópia de dados, consulte-
+Para efetuar operações de agregação e cópia de dados, consulte -
  
 * [Operações de agregação](cassandra-spark-aggregation-ops.md)
-* [Operações de cópia da tabela](cassandra-spark-table-copy-ops.md)
+* [Operações de cópia de tabela](cassandra-spark-table-copy-ops.md)

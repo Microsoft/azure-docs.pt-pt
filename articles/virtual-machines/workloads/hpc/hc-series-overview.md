@@ -13,21 +13,21 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
 ms.openlocfilehash: a4cd74c9c85ee7413cde9f0fb4cf3ffb54c9b3d0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76906737"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Visão geral da máquina virtual da série HC
 
 Maximizar o desempenho da aplicação HPC em Processadores Scalable Intel Xeon requer uma abordagem ponderada para processar a colocação nesta nova arquitetura. Aqui, delineamos a nossa implementação em VMs da série Azure HC para aplicações HPC. Usaremos o termo "pNUMA" para se referir a um domínio físico da NUM, e "vNUMA" para se referir a um domínio NUMA virtualizado. Da mesma forma, usaremos o termo "pCore" para se referir a núcleos de CPU físicos, e "vCore" para se referir a núcleos de CPU virtualizados.
 
-Fisicamente, um servidor HC é 2 * 24 núcleoIntel Xeon Platinum 8168 CPUs para um total de 48 núcleos físicos. Cada CPU é um domínio único do pNUMA, e tem acesso unificado a seis canais de DRAM. A Intel Xeon Platinum CPUs possui uma cache L2 4x maior do que nas gerações anteriores (256 KB/core -> 1 MB/core), reduzindo também a cache L3 em comparação com as cpUs anteriores da Intel (2,5 MB/core -> 1.375 MB/core).
+Fisicamente, um servidor HC é 2 * 24 núcleoIntel Xeon Platinum 8168 CPUs para um total de 48 núcleos físicos. Cada CPU é um domínio único do pNUMA, e tem acesso unificado a seis canais de DRAM. A Intel Xeon Platinum CPUs possui uma cache L2 4x maior do que nas gerações anteriores (256 KB/core -> 1 MB/core), reduzindo também a cache L3 em comparação com as CPUs anteriores da Intel (2,5 MB/core -> 1,375 MB/core).
 
 A topologia acima leva para a configuração hipervisor da série HC também. Para proporcionar espaço para o hipervisor Azure funcionar sem interferir com o VM, reservamos pCores 0-1 e 24-25 (isto é, os primeiros 2 pCores em cada tomada). Em seguida, atribuímos domínios pNUMA todos os núcleos restantes ao VM. Assim, o VM verá:
 
-`(2 vNUMA domains) * (22 cores/vNUMA) = 44` núcleos por VM
+`(2 vNUMA domains) * (22 cores/vNUMA) = 44`núcleos por VM
 
 O VM não tem conhecimento de que os pCores 0-1 e 24-25 não lhe foram dados. Assim, expõe cada vNUMA como se tivesse 22 núcleos.
 

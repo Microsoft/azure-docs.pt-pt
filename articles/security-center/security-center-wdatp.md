@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
 ms.openlocfilehash: 13852acb39a420e2f0da84e18bef4df823c1fa78
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78206270"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Advanced Threat Protection com Azure Security Center
@@ -55,7 +55,7 @@ O Microsoft Defender ATP no Security Center suporta a deteção no Windows Serve
 > [!NOTE]
 > Quando utiliza o Azure Security Center para monitorizar servidores, é criado automaticamente um inquilino ATP do Microsoft Defender e os dados ATP do Microsoft Defender são armazenados na Europa por padrão. Se precisar de transferir os seus dados para outro local, tem de contactar o Microsoft Support para redefinir o inquilino. A monitorização do ponto final do servidor utilizando esta integração foi desativada para os clientes do Office 365 GCC.
 
-## <a name="onboarding-servers-to-security-center"></a>Servidores de embarque para centro de segurança 
+## <a name="onboarding-servers-to-security-center"></a>Inclusão de servidores no Centro de Segurança 
 
 Para embarcar nos servidores do Security Center, clique em **Ir para o Azure Security Center para os servidores de bordo** do servidor ATP do Microsoft Defender a bordo.
 
@@ -70,7 +70,7 @@ Para embarcar nos servidores do Security Center, clique em **Ir para o Azure Sec
 
 ## <a name="enable-microsoft-defender-atp-integration"></a>Ativar a integração ATP do Microsoft Defender
 
-Para ver se a integração ATP do Microsoft Defender está ativada, selecione **O Centro** de Segurança > Preços **e Definições** > clique na sua subscrição.
+Para ver se a integração ATP do Microsoft Defender está ativada, selecione **Definições** > de preços do centro de segurança **&** > clique na sua subscrição.
 Aqui pode ver as integrações atualmente ativadas.
 
   ![Página de definições de deteção de ameaças do Azure Security Center com integração ATP do Microsoft Defender ativada](media/security-center-wdatp/enable-integrations.png)
@@ -109,7 +109,7 @@ Para gerar um alerta benigno de teste ATP do Microsoft Defender:
 
 3. Se o comando for bem sucedido, verá um novo alerta no painel do Azure Security Center e no portal ATP do Microsoft Defender. Este alerta pode levar alguns minutos para aparecer.
 
-4. Para rever o alerta no Centro de Segurança, vá a **alertas** de Segurança > **Linha de Comando PowerShell Suspeita**.
+4. Para rever o alerta no Centro de Segurança, vá a **Alertas** > de Segurança**Suspeitos PowerShell CommandLine**.
 
 5. A partir da janela de investigação, selecione o link para ir ao portal ATP microsoft Defender.
 

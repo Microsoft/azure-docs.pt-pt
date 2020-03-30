@@ -1,6 +1,6 @@
 ---
-title: Diretrizes de limitação do Azure Key Vault
-description: Limitação do Key Vault limita o número de chamadas simultâneas para impedir o uso excessivo de recursos.
+title: Orientação de estrangulamento do cofre de chaves azure
+description: A aceleração do cofre-chave limita o número de chamadas simultâneas para evitar o uso excessivo de recursos.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 6c4923e86f8678458d6301503043413fb8a5629b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78197373"
 ---
-# <a name="azure-key-vault-throttling-guidance"></a>Diretrizes de limitação do Azure Key Vault
+# <a name="azure-key-vault-throttling-guidance"></a>Orientação de estrangulamento do cofre de chaves azure
 
-Limitação é um processo iniciar que limita o número de chamadas simultâneas para o serviço do Azure para impedir o uso excessivo de recursos. Cofre de chaves do Azure (AKV) foi concebida para lidar com um grande volume de pedidos. Se ocorrer um número massivo de pedidos, limitar os pedidos de seu cliente ajuda a manter a otimizar o desempenho e fiabilidade do serviço AKV.
+O estrangulamento é um processo que inicia que limita o número de chamadas simultâneas ao serviço Azure para evitar o uso excessivo de recursos. O Azure Key Vault (AKV) foi concebido para lidar com um elevado volume de pedidos. Se ocorrer um número esmagador de pedidos, a aceleração dos pedidos do seu cliente ajuda a manter o desempenho e a fiabilidade ideais do serviço AKV.
 
-Limites de limitação variar com base no cenário. Por exemplo, se estiver executando um grande volume de escritas, a possibilidade de limitação é maior do que se estiver a efetuar apenas leituras.
+Os limites de estrangulamento variam em função do cenário. Por exemplo, se estiver a realizar um grande volume de escritos, a possibilidade de estrangulamento é maior do que se estiver apenas a executar leituras.
 
-## <a name="how-does-key-vault-handle-its-limits"></a>Como é que o Cofre de chaves com seus limites?
+## <a name="how-does-key-vault-handle-its-limits"></a>Como é que o Key Vault lida com os seus limites?
 
 Os limites de serviço no Key Vault impedem o uso indevido de recursos e garantem a qualidade do serviço para todos os clientes da Key Vault. Quando um limiar de serviço é ultrapassado, o Cofre chave limita quaisquer pedidos adicionais desse cliente por um período de tempo, devolve o código de estado HTTP 429 (pedidos a mais), e o pedido falha. Pedidos falhados que devolvem uma contagem de 429 para os limites de aceleração rastreados pela Key Vault. 
 
@@ -43,7 +43,7 @@ Se descobrir que o acima ainda não satisfaz as suas necessidades, preencha a ta
 |--|--|--|--|--|--|--|--|--|
 | https://mykeyvault.vault.azure.net/ | | Chave | Assinar | EC | P-256 | Não | 200 | 1000 |
 
-\* Para obter uma lista completa de valores possíveis, consulte [as operações do Cofre chave do Azure.](/rest/api/keyvault/key-operations)
+\*Para obter uma lista completa de valores possíveis, consulte [as operações do Cofre chave do Azure](/rest/api/keyvault/key-operations).
 
 Se for aprovada uma capacidade adicional, note o seguinte como resultado do aumento da capacidade:
 1. O modelo de consistência de dados muda. Uma vez que um cofre é permitido listado com capacidade de entrada adicional, a garantia de consistência de dados do serviço Key Vault altera as alterações (necessárias para atender rpS de volume mais elevado, uma vez que o serviço de armazenamento azure subjacente não consegue acompanhar).  Em poucas palavras:
@@ -51,19 +51,19 @@ Se for aprovada uma capacidade adicional, note o seguinte como resultado do aume
   1. **Com a listagem de permitines**: O serviço Key Vault refletirá os resultados de uma operação de escrita (por exemplo. SecretSet, CreateKey) dentro de 60 segundos em chamadas subsequentes (por exemplo. SecretGet, KeySign).
 1. O código do cliente deve honrar a política de back-off por 429 repetições. O código do cliente que liga para o serviço Key Vault não deve rejulgar imediatamente os pedidos do Key Vault quando receber um código de resposta 429.  A orientação de estrangulamento do Cofre-Chave Azure publicada aqui recomenda a aplicação de backoff exponencial ao receber um código de resposta http 429.
 
-Se tiver um caso comercial válido para limites de limitação mais elevados, entre em contato conosco.
+Se tiver um caso de negócio válido para limites de aceleração mais elevados, contacte-nos.
 
-## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>Como limitar a sua aplicação em resposta a limites de serviço
+## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>Como acelerar a sua app em resposta aos limites de serviço
 
 Seguem-se **as melhores práticas** que deve implementar quando o seu serviço está estrangulado:
-- Reduza o número de operações por pedido.
-- Reduza a frequência de pedidos.
-- Evite as repetições imediatas. 
-    - Todos os pedidos de acumulam em relação a seus limites de utilização.
+- Reduzir o número de operações por pedido.
+- Reduza a frequência dos pedidos.
+- Evite repetições imediatas. 
+    - Todos os pedidos se acumulam contra os seus limites de utilização.
 
-Quando implementar o tratamento de erros da sua aplicação, utilize o código de erro HTTP 429 para detetar a necessidade de limitação do lado do cliente. Se o pedido falhar novamente com um código de erro HTTP 429, tiver ainda com um limite de serviço do Azure. Continue a utilizar o recomendado lado do cliente a limitação de método, repetir o pedido até ter êxito.
+Quando implementar o manuseamento de erros da sua aplicação, utilize o código de erro HTTP 429 para detetar a necessidade de estrangulamento do lado do cliente. Se o pedido falhar novamente com um código de erro HTTP 429, ainda encontra um limite de serviço Azure. Continue a utilizar o método de estrangulamento recomendado do lado do cliente, reexperimentando o pedido até que tenha sucesso.
 
-Código que implementa um término exponencial é mostrado abaixo. 
+O código que implementa backoff exponencial é mostrado abaixo. 
 ```
 SecretClientOptions options = new SecretClientOptions()
     {
@@ -82,19 +82,19 @@ SecretClientOptions options = new SecretClientOptions()
 ```
 
 
-A utilização deste C# código numa aplicação de cliente é simples. 
+A utilização deste código numa aplicação C# do cliente é simples. 
 
-### <a name="recommended-client-side-throttling-method"></a>Método de limitação do lado do cliente recomendado
+### <a name="recommended-client-side-throttling-method"></a>Método recomendado de estrangulamento do lado do cliente
 
-No código de erro HTTP 429, começar o seu cliente usando uma abordagem de término exponencial de limitação:
+No código de erro HTTP 429, comece a estrangular o seu cliente usando uma abordagem exponencial de backoff:
 
-1. Aguarde 1 segundo, o pedido de repetição
-2. Se ainda otimizado espera 2 segundos, repita o pedido
-3. Se ainda otimizado espera 4 segundos, repita o pedido
-4. Se ainda otimizado espera 8 segundos, repita o pedido
-5. Se ainda otimizado espera 16 segundos, repita o pedido
+1. Espere 1 segundo, pedido de novo
+2. Se ainda estiver estrangulado espere 2 segundos, peça de novo
+3. Se ainda estiver estrangulado espere 4 segundos, peça de novo
+4. Se ainda estiver estrangulado espere 8 segundos, peça de novo
+5. Se ainda estiver estrangulado espere 16 segundos, peça de novo
 
-Neste ponto, deverá não receber códigos de resposta de HTTP 429.
+Neste momento, não deverá receber códigos de resposta HTTP 429.
 
 ## <a name="see-also"></a>Consulte também
 

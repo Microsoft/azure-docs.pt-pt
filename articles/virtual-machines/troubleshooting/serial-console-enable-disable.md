@@ -1,6 +1,6 @@
 ---
-title: Habilitar e desabilitar o console serial do Azure | Microsoft Docs
-description: Como habilitar e desabilitar o serviço de console serial do Azure
+title: Ativar e desativar a Consola Em Série Azure [ Microsoft Docs
+description: Como ativar e desativar o serviço de consola em série Azure
 services: virtual-machines
 documentationcenter: ''
 author: asinn826
@@ -15,46 +15,46 @@ ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
 ms.openlocfilehash: e09e08f8ba36cf576bc27551254225adee3bb0fd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75451307"
 ---
-# <a name="enable-and-disable-the-azure-serial-console"></a>Habilitar e desabilitar o console serial do Azure
+# <a name="enable-and-disable-the-azure-serial-console"></a>Ativar e desativar a consola em série Azure
 
-Assim como qualquer outro recurso, o console serial do Azure pode ser habilitado e desabilitado. O console serial está habilitado por padrão para todas as assinaturas no Azure global. Atualmente, desabilitar o console serial desabilitará o serviço para toda a sua assinatura. Desabilitar ou reabilitar o console serial para uma assinatura requer acesso no nível de colaborador ou acima na assinatura.
+Tal como qualquer outro recurso, a Consola Em Série Azure pode ser ativada e desativada. A Consola de Série é ativada por padrão para todas as subscrições no Global Azure. Atualmente, a Desativação da Consola Em Série irá desativar o serviço para toda a sua subscrição. Desativar ou reativar a Consola Em Série para uma subscrição requer acesso ao nível dos contribuintes ou superior na subscrição.
 
-Você também pode desabilitar o console serial para uma VM individual ou instância do conjunto de dimensionamento de máquinas virtuais desabilitando o diagnóstico de inicialização. Você precisará de acesso no nível de colaborador ou acima no conjunto de dimensionamento de máquinas virtuais/VM e na sua conta de armazenamento de diagnóstico de inicialização.
+Também pode desativar a consola em série para uma instância de conjunto de vm ou de escala virtual de máquina, desativando os diagnósticos de arranque. Necessitará de acesso ao nível do contribuinte ou superior tanto no conjunto de escala VM/máquina virtual como na sua conta de armazenamento de diagnóstico de arranque.
 
-## <a name="vm-level-disable"></a>Desativar ao nível da VM
-O console serial pode ser desabilitado para uma VM específica ou um conjunto de dimensionamento de máquinas virtuais desabilitando a configuração de diagnóstico de inicialização. Desative o diagnóstico de inicialização do portal do Azure para desabilitar o console serial para a VM ou o conjunto de dimensionamento de máquinas virtuais. Se você estiver usando o console serial em um conjunto de dimensionamento de máquinas virtuais, certifique-se de atualizar suas instâncias do conjunto de dimensionamento de máquinas virtuais para o modelo mais recente.
+## <a name="vm-level-disable"></a>Desativação do nível VM
+A consola em série pode ser desativada para um conjunto específico de vm ou máquina virtual, desativando a definição de diagnóstico de arranque. Desligue os diagnósticos de boot do portal Azure para desativar a consola em série para o VM ou o conjunto de escala de máquina virtual. Se estiver a utilizar uma consola em série num conjunto de escala de máquina virtual, certifique-se de atualizar as instâncias de conjunto de escala de máquinavirtual para o modelo mais recente.
 
 
-## <a name="subscription-level-enabledisable"></a>Habilitação/desabilitação no nível da assinatura
+## <a name="subscription-level-enabledisable"></a>Ativação/desativação a nível de subscrição
 
 > [!NOTE]
-> Verifique se você está na nuvem certa (nuvem pública do Azure, nuvem do governo dos EUA do Azure) antes de executar este comando. Você pode verificar `az cloud list` e definir sua nuvem com `az cloud set -n <Name of cloud>`.
+> Certifique-se de que está na nuvem certa (Azure Public Cloud, Azure US Government Cloud) antes de executar este comando. Pode verificar `az cloud list` e definir a `az cloud set -n <Name of cloud>`sua nuvem com .
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Console serial pode ser desabilitado e habilitado novamente para uma assinatura inteira usando os comandos a seguir na CLI do Azure (você pode usar o botão "Experimente" para iniciar uma instância do Azure Cloud Shell no qual você pode executar os comandos):
+A consola em série pode ser desativada e reativada para uma subscrição inteira utilizando os seguintes comandos no ClI Azure (pode utilizar o botão "Experimente".
 
-Para desabilitar o console serial para uma assinatura, use os seguintes comandos:
+Para desativar a consola em série para uma subscrição, utilize os seguintes comandos:
 ```azurecli-interactive
 subscriptionId=$(az account show --output=json | jq -r .id)
 
 az resource invoke-action --action disableConsole --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default" --api-version="2018-05-01"
 ```
 
-Para habilitar o console serial para uma assinatura, use os seguintes comandos:
+Para ativar a consola em série para uma subscrição, utilize os seguintes comandos:
 ```azurecli-interactive
 subscriptionId=$(az account show --output=json | jq -r .id)
 
 az resource invoke-action --action enableConsole --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default" --api-version="2018-05-01"
 ```
 
-Para obter o status atual habilitado/desabilitado do console serial para uma assinatura, use os seguintes comandos:
+Para obter o estado atual ativado/desativado da consola em série para uma subscrição, utilize os seguintes comandos:
 ```azurecli-interactive
 subscriptionId=$(az account show --output=json | jq -r .id)
 
@@ -63,16 +63,16 @@ az resource show --ids "/subscriptions/$subscriptionId/providers/Microsoft.Seria
 
 ### <a name="powershell"></a>PowerShell
 
-Console serial também pode ser habilitado e desabilitado usando o PowerShell.
+A consola em série também pode ser ativada e desativada utilizando o PowerShell.
 
-Para desabilitar o console serial para uma assinatura, use os seguintes comandos:
+Para desativar a consola em série para uma subscrição, utilize os seguintes comandos:
 ```azurepowershell-interactive
 $subscription=(Get-AzContext).Subscription.Id
 
 Invoke-AzResourceAction -Action disableConsole -ResourceId /subscriptions/$subscription/providers/Microsoft.SerialConsole/consoleServices/default -ApiVersion 2018-05-01
 ```
 
-Para habilitar o console serial para uma assinatura, use os seguintes comandos:
+Para ativar a consola em série para uma subscrição, utilize os seguintes comandos:
 ```azurepowershell-interactive
 $subscription=(Get-AzContext).Subscription.Id
 
@@ -80,6 +80,6 @@ Invoke-AzResourceAction -Action enableConsole -ResourceId /subscriptions/$subscr
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre o [console serial do Azure para VMs Linux](./serial-console-linux.md)
-* Saiba mais sobre o [console serial do Azure para VMs do Windows](./serial-console-windows.md)
-* Saiba mais sobre [as opções de gerenciamento de energia no console serial do Azure](./serial-console-power-options.md)
+* Saiba mais sobre a [Consola Em Série Azure para VMs Linux](./serial-console-linux.md)
+* Saiba mais sobre a [consola em série Azure para VMs do Windows](./serial-console-windows.md)
+* Conheça [as opções](./serial-console-power-options.md) de gestão de energia dentro da Consola Série Azure

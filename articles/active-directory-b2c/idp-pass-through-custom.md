@@ -12,10 +12,10 @@ ms.date: 08/17/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ff5ef8f742914129d868152814d84d2112267c09
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78187800"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Passe um sinal de acesso através de uma política personalizada para a sua aplicação no Azure Ative Directory B2C
@@ -30,7 +30,7 @@ O Azure AD B2C suporta a passagem do sinal de acesso dos fornecedores de identid
 
 ## <a name="add-the-claim-elements"></a>Adicione os elementos de reclamação
 
-1. Abra o ficheiro *TrustframeworkExtensions.xml* e adicione o seguinte elemento **ClaimType** com um identificador de `identityProviderAccessToken` ao elemento **ClaimsSchema:**
+1. Abra o ficheiro *TrustframeworkExtensions.xml* e adicione o seguinte `identityProviderAccessToken` elemento **ClaimType** com um identificador do elemento **ClaimsSchema:**
 
     ```XML
     <BuildingBlocks>
@@ -80,11 +80,11 @@ O Azure AD B2C suporta a passagem do sinal de acesso dos fornecedores de identid
 
 ## <a name="test-your-policy"></a>Teste a sua política
 
-Ao testar as suas aplicações em Azure AD B2C, pode ser útil que o token Azure AD B2C seja devolvido à `https://jwt.ms` para poder rever as reclamações nele.
+Ao testar as suas aplicações em Azure AD B2C, pode ser útil que `https://jwt.ms` o token Azure AD B2C seja devolvido para poder rever as reclamações nele.
 
-### <a name="upload-the-files"></a>Faça upload dos ficheiros
+### <a name="upload-the-files"></a>Carregar os ficheiros
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C clicando no filtro de **subscrição Do Diretório +** + no menu superior e escolhendo o diretório que contém o seu inquilino.
 3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 4. Selecione Quadro de **Experiência de Identidade**.
@@ -96,7 +96,7 @@ Ao testar as suas aplicações em Azure AD B2C, pode ser útil que o token Azure
 ### <a name="run-the-policy"></a>Executar a política
 
 1. Abre a política que mudaste. Por exemplo, *B2C_1A_signup_signin.*
-2. Para **Aplicação,** selecione a sua aplicação que registou anteriormente. Para ver o símbolo no exemplo abaixo, o URL de **resposta** deve mostrar `https://jwt.ms`.
+2. Para **Aplicação,** selecione a sua aplicação que registou anteriormente. Para ver o símbolo no exemplo abaixo, `https://jwt.ms`o URL de **resposta** deve mostrar .
 3. Selecione **Executar agora**.
 
     Deve ver algo semelhante ao seguinte exemplo:

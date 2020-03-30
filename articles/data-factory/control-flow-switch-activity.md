@@ -1,6 +1,6 @@
 ---
-title: Alternar atividade no Azure Data Factory
-description: A atividade switch permite controlar o fluxo de processamento com base em uma condição.
+title: Atividade de switch na Fábrica de Dados Azure
+description: A atividade da Switch permite controlar o fluxo de processamento com base numa condição.
 services: data-factory
 author: djpmsft
 ms.author: daperlov
@@ -10,15 +10,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.openlocfilehash: fd0e6d526f0c47304e7bf53f91d08f42b924ff23
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75440389"
 ---
-# <a name="switch-activity-in-azure-data-factory"></a>Alternar atividade no Azure Data Factory
+# <a name="switch-activity-in-azure-data-factory"></a>Atividade de switch na Fábrica de Dados Azure
 
-A atividade switch fornece a mesma funcionalidade que uma instrução switch fornece em linguagens de programação. Ele avalia um conjunto de atividades correspondentes a um caso que corresponde à avaliação da condição.
+A atividade da Switch fornece a mesma funcionalidade que uma declaração de switch fornece em linguagens de programação. Avalia um conjunto de atividades correspondentes a um caso que corresponde à avaliação da condição.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -63,24 +63,24 @@ A atividade switch fornece a mesma funcionalidade que uma instrução switch for
 }
 ```
 
-## <a name="type-properties"></a>Propriedades do tipo
+## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | Descrição | Valores permitidos | Obrigatório
+Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade do comutador. | String | Sim
-tipo | Deve ser definido como *Switch** | String | Sim
-expression | Expressão que deve ser avaliada como valor da cadeia de caracteres | Expressão com cadeia de caracteres de tipo de resultado | Sim
-bolsas | Conjunto de casos que contêm um valor e um conjunto de atividades a serem executadas quando o valor corresponde à avaliação da expressão. Deve fornecer pelo menos um caso. Há um limite máximo de 25 casos. | Matriz de objetos Case | Sim
-defaultactivities | Conjunto de atividades que são executadas quando a avaliação da expressão não é satisfeita. | Matriz de atividades | Sim
+nome | Nome da atividade da switch. | Cadeia | Sim
+tipo | Deve ser definido para *Switch** | Cadeia | Sim
+expression | Expressão que deve avaliar ao valor de cadeia | Expressão com cadeia de tipo de resultado | Sim
+casos | Conjunto de casos que contêm um valor e um conjunto de atividades para executar quando o valor corresponde à avaliação de expressão. Deve fornecer pelo menos um caso. Há um limite máximo de 25 casos. | Conjunto de objetos de caso | Sim
+atividades padrão | Conjunto de atividades que são executadas quando a avaliação de expressão não está satisfeita. | Conjunto de Atividades | Sim
 
 ## <a name="example"></a>Exemplo
 
-O pipeline neste exemplo copia dados de uma pasta de entrada para uma pasta de saída. A pasta de saída é determinada pelo valor do parâmetro de pipeline: routeSelection.
+O pipeline neste exemplo copia dados de uma pasta de entrada para uma pasta de saída. A pasta de saída é determinada pelo valor do parâmetro do gasoduto: routeSelection.
 
 > [!NOTE]
-> Esta seção fornece definições de JSON e comandos do PowerShell de exemplo para executar o pipeline. Para obter instruções passo a passo de como criar um pipeline de Data Factory usando definições de Azure PowerShell e JSON, consulte [tutorial: criar um data Factory usando Azure PowerShell](quickstart-create-data-factory-powershell.md).
+> Esta secção fornece definições JSON e amostra de comandos PowerShell para executar o gasoduto. Para um passeio com instruções passo a passo para criar um pipeline data Factory utilizando definições Azure PowerShell e JSON, consulte [tutorial: crie uma fábrica de dados utilizando a Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>Pipeline com atividade de comutador (Adfv2QuickStartPipeline. JSON)
+### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>Pipeline com atividade switch (Adfv2QuickStartPipeline.json)
 
 ```json
 {
@@ -228,7 +228,7 @@ O pipeline neste exemplo copia dados de uma pasta de entrada para uma pasta de s
 
 ```
 
-### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Serviço vinculado do armazenamento do Azure (AzureStorageLinkedService. JSON)
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Serviço ligado ao armazenamento azure (AzureStorageLinkedService.json)
 
 ```json
 {
@@ -242,9 +242,9 @@ O pipeline neste exemplo copia dados de uma pasta de entrada para uma pasta de s
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Conjunto de conjuntos de BLOBs do Azure com parâmetros (BlobDataset. JSON)
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Conjunto de dados Azure Blob parametrizado (BlobDataset.json)
 
-O pipeline define **FolderPath** como o valor do parâmetro **outputPath1** ou **outputPath2** do pipeline. 
+O gasoduto define a **pastaCaminho** para o valor de **saídaPath1** ou **outputPath2** parâmetro do gasoduto. 
 
 ```json
 {
@@ -270,7 +270,7 @@ O pipeline define **FolderPath** como o valor do parâmetro **outputPath1** ou *
 }
 ```
 
-### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Parâmetro de pipeline JSON (Pipelineparameters. JSON)
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Parâmetro de gasoduto JSON (PipelineParameters.json)
 
 ```json
 {
@@ -286,7 +286,7 @@ O pipeline define **FolderPath** como o valor do parâmetro **outputPath1** ou *
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Esses comandos pressupõem que você salvou os arquivos JSON na pasta: C:\ADF. 
+Estes comandos assumem que guardou os ficheiros JSON na pasta: C:\ADF. 
 
 ```powershell
 Connect-AzAccount
@@ -329,11 +329,11 @@ $result.Error -join "`r`n"
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 
+Consulte outras atividades de fluxo de controlo suportadas pela Data Factory: 
 
 - [Atividade Se Condição](control-flow-if-condition-activity.md)
 - [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)
-- [Para cada atividade](control-flow-for-each-activity.md)
+- [Para Cada Atividade](control-flow-for-each-activity.md)
 - [Atividade Obter Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
-- [Atividade da Web](control-flow-web-activity.md)
+- [Atividade Web](control-flow-web-activity.md)

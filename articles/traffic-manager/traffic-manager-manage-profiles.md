@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: rohink
 ms.openlocfilehash: adfe7d117d2329832a5b5e9e782a9029a682ff3b
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938614"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Gerir um perfil no Traffic Manager do Azure
@@ -30,7 +30,7 @@ Pode utilizar o portal do Azure para criar um perfil do Gestor de Tráfego. Depo
 ### <a name="to-create-a-traffic-manager-profile"></a>Para criar um perfil do Gestor de Tráfego
 
 1. Num browser, inicie sessão no [portal do Azure](https://portal.azure.com). Se ainda não tiver uma conta, pode inscrever-se para obter uma [avaliação gratuita durante um mês](https://azure.microsoft.com/free/). 
-2. Clique em **Criar um recurso** > **Rede** > **Perfil do Gestor de Tráfego** > **Criar**.
+2. Clique **em Criar um** > **perfil** > de Gestor de Tráfego**de** > Rede de recursos**Criar**.
 4. No painel **Criar perfil do Gestor de Tráfego**, preencha o seguinte:
     1. Em **Nome**, indique um nome para o perfil. Este nome tem de ser exclusivo na zona trafficmanager.net e resultar no nome DNS `<name>`, trafficmanager.net, que é utilizado para aceder ao seu perfil do Gestor de Tráfego.
     2. Em **Método de encaminhamento**, selecione o método de encaminhamento **Prioridade**.
@@ -50,14 +50,14 @@ Pode desativar um perfil existente para que o Gestor de Tráfego não refira ped
 2. O tráfego deixa de ser direcionado para os pontos finais através das definições de perfil do Gestor de Tráfego.
 3. Num browser, inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra de pesquisa do portal, procure o nome do **perfil do Gestor de Tráfego** que pretende modificar e, em seguida, clique no perfil do Gestor de Tráfego nos resultados apresentados.
-3. Clique em **Descrição geral** > **Desativar**.
+3. Clique em**Desativar**a **visão geral** > .
 4. Confirme para desativar o perfil do Gestor de Tráfego.
 
 ### <a name="to-enable-a-profile"></a>Para ativar um perfil
 
 1. Num browser, inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra de pesquisa do portal, procure o nome do **perfil do Gestor de Tráfego** que pretende modificar e, em seguida, clique no perfil do Gestor de Tráfego nos resultados apresentados.
-3. Clique em **Descrição geral** > **Ativar**.
+3. Clique em **visualização geral** > **Ativar**.
 1. Se estiver a utilizar um nome de domínio personalizado, crie um registo de recursos CNAME no seu servidor DNS da Internet, para que aponte para o nome de domínio do perfil do Gestor de Tráfego.
 2. O tráfego é direcionado para os pontos finais novamente.
 
@@ -65,13 +65,13 @@ Pode desativar um perfil existente para que o Gestor de Tráfego não refira ped
 
 1. Certifique-se de que o registo de recursos DNS no servidor DNS de Internet já não utiliza um registo de recurso CNAME que aponta para o nome de domínio do perfil do Traffic Manager.
 2. Na barra de pesquisa do portal, procure o nome do **perfil do Gestor de Tráfego** que pretende modificar e, em seguida, clique no perfil do Gestor de Tráfego nos resultados apresentados.
-3. Clique em **Descrição geral** > **Eliminar**.
+3. Clique em**apagar**a **visão geral** > .
 4. Confirme para eliminar o perfil do Gestor de Tráfego.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Adicionar um ponto final](traffic-manager-endpoints.md)
-* [Configure Priority routing method](traffic-manager-configure-priority-routing-method.md) (Configurar o método de encaminhamento Prioritário)
-* [Configure Geographic routing method](traffic-manager-configure-geographic-routing-method.md) (Configurar o método de encaminhamento Geográfico) 
-* [Configure Weighted routing method](traffic-manager-configure-weighted-routing-method.md) (Configurar o método de encaminhamento Ponderado)
+* [Configurar método de encaminhamento prioritário](traffic-manager-configure-priority-routing-method.md)
+* [Método de encaminhamento geográfico de configuração](traffic-manager-configure-geographic-routing-method.md) 
+* [Configurar método de encaminhamento ponderado](traffic-manager-configure-weighted-routing-method.md)
 * [Configure Performance routing method](traffic-manager-configure-performance-routing-method.md) (Configurar o método de encaminhamento Desempenho)

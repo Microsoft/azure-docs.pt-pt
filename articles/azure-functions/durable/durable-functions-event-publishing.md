@@ -4,10 +4,10 @@ description: Saiba como configurar a publicação automática da Rede de Eventos
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 52ffcd4eb81936ffcfa61580288c60bd59ffb744
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78249767"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Funções Duráveis publicação na Grelha de Eventos Azure (pré-visualização)
@@ -32,7 +32,7 @@ Seguem-se alguns cenários em que esta funcionalidade é útil:
 
 Crie um tópico de Grelha de Eventos para o envio de eventos a partir de Funções Duráveis. As seguintes instruções mostram como criar um tópico utilizando o Azure CLI. Também pode fazê-lo utilizando o [PowerShell](../../event-grid/custom-event-quickstart-powershell.md) ou [utilizando o portal Azure](../../event-grid/custom-event-quickstart-portal.md).
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Crie um grupo de recursos com o comando `az group create`. Atualmente, a Azure Event Grid não apoia todas as regiões. Para obter informações sobre quais as regiões apoiadas, consulte a visão geral da Grelha de [Eventos Azure.](../../event-grid/overview.md)
 
@@ -66,9 +66,9 @@ Agora pode enviar eventos para o tema.
 
 ## <a name="configure-event-grid-publishing"></a>Configure a publicação da Rede de Eventos
 
-No seu projeto DeFunções Duráveis, encontre o ficheiro `host.json`.
+No seu projeto DeFunções `host.json` Duráveis, encontre o ficheiro.
 
-Adicione `eventGridTopicEndpoint` e `eventGridKeySettingName` numa propriedade `durableTask`.
+Adicione `eventGridTopicEndpoint` `eventGridKeySettingName` e `durableTask` em uma propriedade.
 
 ```json
 {
@@ -79,9 +79,9 @@ Adicione `eventGridTopicEndpoint` e `eventGridKeySettingName` numa propriedade `
 }
 ```
 
-As possíveis propriedades de configuração da Grelha de Eventos Azure podem ser encontradas na [documentação host.json](../functions-host-json.md#durabletask). Depois de configurar o ficheiro `host.json`, a sua aplicação de função envia eventos de ciclo de vida para o tópico da Grelha de Eventos. Isto funciona quando executa a sua aplicação de funções tanto localmente como em Azure.
+As possíveis propriedades de configuração da Grelha de Eventos Azure podem ser encontradas na [documentação host.json](../functions-host-json.md#durabletask). Depois de configurar o ficheiro, a `host.json` sua aplicação de função envia eventos de ciclo de vida para o tópico da Grelha de Eventos. Isto funciona quando executa a sua aplicação de funções tanto localmente como em Azure.
 
-Defina a definição da aplicação para a chave de tópicos na App de Funções e `local.settings.json`. O JSON seguinte é uma amostra do `local.settings.json` para depuração local. Substitua `<topic_key>` com a chave do tópico.  
+Defina a definição da aplicação `local.settings.json`para a chave de tópicos na App de Funções e . O JSON seguinte é `local.settings.json` uma amostra da depuração local. Substitua-a `<topic_key>` com a tecla de tópico.  
 
 ```json
 {
@@ -94,9 +94,9 @@ Defina a definição da aplicação para a chave de tópicos na App de Funções
 }
 ```
 
-Se estiver a utilizar o [Emulador](../../storage/common/storage-use-emulator.md) de Armazenamento (apenas windows), certifique-se de que está a funcionar. É uma boa ideia dirigir o comando `AzureStorageEmulator.exe clear all` antes de executar.
+Se estiver a utilizar o [Emulador](../../storage/common/storage-use-emulator.md) de Armazenamento (apenas windows), certifique-se de que está a funcionar. É uma boa ideia dirigir `AzureStorageEmulator.exe clear all` o comando antes de executar.
 
-Se estiver a utilizar uma conta de Armazenamento Azure existente, substitua `UseDevelopmentStorage=true` em `local.settings.json` com a sua cadeia de ligação.
+Se estiver a utilizar uma conta de `UseDevelopmentStorage=true` `local.settings.json` Armazenamento Azure existente, substitua-a com a sua cadeia de ligação.
 
 ## <a name="create-functions-that-listen-for-events"></a>Criar funções que ouçam eventos
 
@@ -118,7 +118,7 @@ Introduza o nome da função e, em seguida, selecione `Create`.
 
 É criada uma função com o seguinte código:
 
-# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -147,7 +147,7 @@ Selecione `Add Event Grid Subscription`. Esta operação adiciona uma subscriç�
 
 ![Selecione a ligação de gatilho da grelha de eventos.](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
-Selecione `Event Grid Topics` para **o Tipo tópico**. Selecione o grupo de recursos que criou para o tópico da Grelha de Eventos. Em seguida, selecione a instância do tópico da Grelha de Eventos. Pressione `Create`.
+Selecione `Event Grid Topics` para **Tópico .** Selecione o grupo de recursos que criou para o tópico da Grelha de Eventos. Em seguida, selecione a instância do tópico da Grelha de Eventos. Prima. `Create`
 
 ![Crie uma subscrição do Event Grid.](./media/durable-functions-event-publishing/eventsubscription.png)
 
@@ -197,23 +197,23 @@ No projeto Funções Duráveis que configuraste anteriormente, começa a depurar
 2019-04-20T09:28:37.098 [Info] Function completed (Success, Id=36fadea5-198b-4345-bb8e-2837febb89a2, Duration=0ms)
 ```
 
-## <a name="event-schema"></a>Evento Schema
+## <a name="event-schema"></a>Esquema de Eventos
 
 A lista que se segue explica o esquema de eventos de ciclo de vida:
 
-* **`id`** : Identificador único para o evento Event Grid.
-* **`subject`** : Caminho para o assunto do evento. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` serão `Running`, `Completed`, `Failed`e `Terminated`.  
-* **`data`:** Parâmetros específicos de funções duráveis.
-  * **`hubName`** : Nome [TaskHub.](durable-functions-task-hubs.md)
-  * **`functionName`** : Nome de função de orquestrador.
-  * **`instanceId`:** Funções Duráveis instânciaId.
-  * **`reason`** : Dados adicionais associados ao evento de rastreio. Para mais informações, consulte [Diagnósticos em Funções Duráveis (Funções Azure)](durable-functions-diagnostics.md)
-  * **`runtimeStatus`** : Estado de execução da orquestração. Correr, Completar, Falhar, Cancelado.
-* **`eventType`** : "orchestratorEvent"
-* **`eventTime`** : Hora do evento (UTC).
-* **`dataVersion`** : Versão do esquema do evento lifecycle.
-* **`metadataVersion`** : Versão dos metadados.
-* **`topic`** : Recurso tópico da grelha de eventos.
+* **`id`**: Identificador único para o evento Event Grid.
+* **`subject`**: Caminho para o assunto do evento. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}`será, `Running` `Completed`e `Failed` `Terminated`.  
+* **`data`**: Funções Duráveis Parâmetros específicos.
+  * **`hubName`**: [Nome TaskHub.](durable-functions-task-hubs.md)
+  * **`functionName`**: Nome de função orquestrador.
+  * **`instanceId`**: Funções Duráveis instânciaId.
+  * **`reason`**: Dados adicionais associados ao evento de rastreio. Para mais informações, consulte [Diagnósticos em Funções Duráveis (Funções Azure)](durable-functions-diagnostics.md)
+  * **`runtimeStatus`**: Estado de execução da orquestração. Correr, Completar, Falhar, Cancelado.
+* **`eventType`**: "orchestratorEvent"
+* **`eventTime`**: Hora do evento (UTC).
+* **`dataVersion`**: Versão do esquema do evento lifecycle.
+* **`metadataVersion`**: Versão dos metadados.
+* **`topic`**: Recurso tópico da grelha de eventos.
 
 ## <a name="how-to-test-locally"></a>Como testar localmente
 

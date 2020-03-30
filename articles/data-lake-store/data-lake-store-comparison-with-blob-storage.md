@@ -1,6 +1,6 @@
 ---
-title: Comparação de Azure Data Lake Storage Gen1 com Azure Storage Blob | Microsoft Docs
-description: Comparação de Azure Data Lake Storage Gen1 com Azure Storage Blob
+title: Azure Data Lake Storage Gen1 comparação com Azure Storage Blob [ Microsoft Docs
+description: Azure Data Lake Storage Gen1 comparação com Azure Storage Blob
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -13,39 +13,39 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 7c958c3ed4d6ddaabd87f053005fcfc1eba8c842
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75438727"
 ---
-# <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Comparando Azure Data Lake Storage Gen1 e o armazenamento de BLOBs do Azure
+# <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Comparando o armazenamento de dados azure Gen1 e o armazenamento de Blob Azure
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)] 
 
-A tabela neste artigo resume as diferenças entre Azure Data Lake Storage Gen1 e o armazenamento de BLOBs do Azure ao longo de alguns aspectos importantes do processamento de Big Data. O armazenamento de BLOBs do Azure é um repositório de objetos escalonável, de uso geral, projetado para uma ampla variedade de cenários de armazenamento. Azure Data Lake Storage Gen1 é um repositório de hiperescala otimizado para cargas de trabalho de Big Data Analytics.
+A tabela deste artigo resume as diferenças entre o Armazenamento de Lagos De Dados Azure Gen1 e o Armazenamento de Blob Azure ao longo de alguns aspetos fundamentais do processamento de big data. O Armazenamento Azure Blob é um propósito geral, loja de objetos escalável que é projetado para uma grande variedade de cenários de armazenamento. Azure Data Lake Storage Gen1 é um repositório de hiperescala que está otimizado para grandes cargas de trabalho de análise de dados.
 
-|  | Armazenamento Ger1 do Azure Data Lake | Armazenamento de Blobs do Azure |
+|  | Armazenamento do Azure Data Lake Ger1 | Armazenamento de Blobs do Azure |
 | --- | --- | --- |
-| Finalidade |Armazenamento otimizado para cargas de trabalho de análise de Big Data |Armazenamento de objetos de uso geral para uma ampla variedade de cenários de armazenamento, incluindo Big Data Analytics |
-| Casos de Utilização |Lote, interativo, análise de streaming e dados de aprendizado de máquina, como arquivos de log, dados de IoT, fluxos de cliques, conjuntos de grandes volumes |Qualquer tipo de dados de texto ou binários, como back-end de aplicativo, dados de backup, armazenamento de mídia para streaming e dados de uso geral. Além disso, suporte completo para cargas de trabalho de análise; lote, interativo, análise de streaming e dados de aprendizado de máquina, como arquivos de log, dados de IoT, fluxos de cliques, conjuntos de grandes volumes |
-| Conceitos-chave |Data Lake Storage Gen1 conta contém pastas que, por sua vez, contêm dados armazenados como arquivos |A conta de armazenamento tem contêineres que, por sua vez, têm dados na forma de BLOBs |
-| Estrutura |Sistema de arquivos hierárquico |Repositório de objetos com namespace simples |
-| API |API de REST através de HTTPS |API de REST através de HTTP/HTTPS |
-| API do lado do servidor |[API REST compatíveis com WebHDFS](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[API REST do armazenamento de BLOBs do Azure](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
-| Cliente de sistema de ficheiro do Hadoop |Sim |Sim |
-| Operações de dados-autenticação |Com base em [identidades de Azure Active Directory](../active-directory/develop/authentication-scenarios.md) |Com base em segredos compartilhados- [chaves de acesso da conta](../storage/common/storage-account-keys-manage.md) e chaves de assinatura de [acesso compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
-| Operações de dados-protocolo de autenticação |OAuth 2.0. As chamadas devem conter um JWT (token Web JSON) válido emitido por Azure Active Directory |Message Authentication Code com base em hash (HMAC). As chamadas devem conter um hash SHA-256 codificado na base64 em uma parte da solicitação HTTP. |
-| Operações de dados-autorização |ACLs (listas de controle de acesso) do POSIX.  ACLs com base em Azure Active Directory identidades podem ser definidas no nível de arquivo e pasta. |Para autorização em nível de conta – usar [chaves de acesso da conta](../storage/common/storage-account-keys-manage.md)<br>Para autorização de conta, contêiner ou BLOB-use [chaves de assinatura de acesso compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
-| Operações de dados – auditoria |Há. Consulte [aqui](data-lake-store-diagnostic-logs.md) para obter informações. |Disponível |
-| Dados de encriptação em repouso |<ul><li>Transparente, lado do servidor</li> <ul><li>Com chaves gerenciadas pelo serviço</li><li>Com chaves gerenciadas pelo cliente no Azure keyvault</li></ul></ul> |<ul><li>Transparente, lado do servidor</li> <ul><li>Com chaves gerenciadas pelo serviço</li><li>Com chaves gerenciadas pelo cliente no Azure keyvault (visualização)</li></ul><li>Encriptação do lado do cliente</li></ul> |
-| Operações de gestão (por exemplo, criar conta) |[Controlo de acesso baseado em funções](../role-based-access-control/overview.md) (RBAC) fornecida pelo Azure para a gestão de conta |[Controlo de acesso baseado em funções](../role-based-access-control/overview.md) (RBAC) fornecida pelo Azure para a gestão de conta |
-| SDKs de programador |.NET, node. js de Java, Python, |.Net, Java, Python, Node. js, C++, Ruby, PHP, go, Android, Ios |
-| Desempenho da carga de trabalho de análise |Desempenho otimizado para cargas de trabalho de análise paralela. Alto débito e IOPS. |Desempenho otimizado para cargas de trabalho de análise paralela. |
-| Limites de tamanho |Sem limites de tamanhos de conta, tamanhos de ficheiro ou número de ficheiros |Para limites específicos, consulte [metas de escalabilidade para contas de armazenamento Standard](../storage/common/scalability-targets-standard-account.md) e [escalabilidade e metas de desempenho para o armazenamento de BLOBs](../storage/blobs/scalability-targets.md). Limites de conta maiores disponíveis entrando em contato com o [suporte do Azure](https://azure.microsoft.com/support/faq/) |
-| Redundância geográfica |Com redundância local (várias cópias de dados em uma região do Azure) |Localmente redundante (LRS), com redundância de zona (ZRS), globalmente redundante (GRS), acesso de leitura globalmente redundante (RA-GRS). Consulte [aqui](../storage/common/storage-redundancy.md) para obter mais informações |
-| Estado do serviço |Disponível em geral |Disponível em geral |
-| Disponibilidade regional |Consulte [aqui](https://azure.microsoft.com/regions/#services) |Disponível em todas as regiões do Azure |
-| Preço |Consulte [preços](https://azure.microsoft.com/pricing/details/data-lake-store/) |Consulte [preços](https://azure.microsoft.com/pricing/details/storage/) |
+| Objetivo |Armazenamento otimizado para grandes cargas de trabalho de análise de dados |Loja de objetos de propósito geral para uma grande variedade de cenários de armazenamento, incluindo análise de big data |
+| Casos de Utilização |Lote, análise interativa, streaming de análise e dados de aprendizagem automática, tais como ficheiros de registo, dados IoT, fluxos de cliques, grandes conjuntos de dados |Any type of text or binary data, such as application back end, backup data, media storage for streaming and general purpose data. Adicionalmente, apoio total para cargas de trabalho analíticas; lote, análise interativa, streaming e dados de aprendizagem automática, tais como ficheiros de registo, dados IoT, fluxos de cliques, grandes conjuntos de dados |
+| Conceitos-chave |Data Lake Storage Gen1 conta contém pastas, que por sua vez contêm dados armazenados como ficheiros |A conta de armazenamento tem contentores, que por sua vez têm dados sob a forma de bolhas |
+| Estrutura |Sistema hierárquico de ficheiros |Loja de objetos com espaço de nome plano |
+| API |REST API sobre HTTPS |REST API sobre HTTP/HTTPS |
+| API do lado do servidor |[API REST compatível com WebHDFS](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[API DE ARMAZENAMENTO De Caixa De Depósito Azure Blob](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
+| Cliente do sistema de ficheiros Hadoop |Sim |Sim |
+| Operações de Dados - Autenticação |Baseado em [identidades de diretório ativo azure](../active-directory/develop/authentication-scenarios.md) |Baseado em segredos partilhados - [Chaves de acesso](../storage/common/storage-account-keys-manage.md) à conta e chaves de assinatura de acesso [partilhado.](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
+| Operações de Dados - Protocolo de Autenticação |OAuth 2.0. As chamadas devem conter um JWT válido (JSON Web Token) emitido pelo Azure Ative Directory |Código de Autenticação de Mensagens Baseada em Hash (HMAC) . As chamadas devem conter um hash SHA-256 codificado pela Base64 sobre uma parte do pedido HTTP. |
+| Operações de Dados - Autorização |Listas de Controlo de Acesso POSIX (ACLs).  Os ACLs baseados em identidades de diretório ativo azure podem ser definidos ao nível do ficheiro e da pasta. |Para autorização ao nível da conta - Utilizar chaves de acesso à [conta](../storage/common/storage-account-keys-manage.md)<br>Para a conta, contentor ou autorização de bolha - Utilize [chaves de assinatura](../storage/common/storage-dotnet-shared-access-signature-part-1.md) de acesso partilhado |
+| Operações de Dados - Auditoria |Disponível. Consulte [aqui](data-lake-store-diagnostic-logs.md) informações. |Disponível |
+| Dados de encriptação em repouso |<ul><li>Transparente, lado do servidor</li> <ul><li>Com chaves geridas pelo serviço</li><li>Com chaves geridas pelo cliente no Azure KeyVault</li></ul></ul> |<ul><li>Transparente, lado do servidor</li> <ul><li>Com chaves geridas pelo serviço</li><li>Com chaves geridas pelo cliente no Azure KeyVault (pré-visualização)</li></ul><li>Encriptação do lado do cliente</li></ul> |
+| Operações de gestão (por exemplo, Criação de Conta) |[Controlo de acesso baseado em funções](../role-based-access-control/overview.md) (RBAC) fornecido pelo Azure para gestão de contas |[Controlo de acesso baseado em funções](../role-based-access-control/overview.md) (RBAC) fornecido pelo Azure para gestão de contas |
+| SDKs de desenvolvimento |.NET, Java, Python, Node.js |.Net, Java, Python, Node.js, C++, Ruby, PHP, Go, Android, iOS |
+| Desempenho da carga de trabalho analítica |Desempenho otimizado para cargas de trabalho de análise paralela. Alta Entrada e IOPS. |Desempenho otimizado para cargas de trabalho de análise paralela. |
+| Limites de tamanho |Sem limites no tamanho da conta, tamanho de ficheiroou número de ficheiros |Para limites específicos, consulte os objetivos de [escalabilidade para as contas de armazenamento padrão](../storage/common/scalability-targets-standard-account.md) e para a [escalabilidade e os objetivos](../storage/blobs/scalability-targets.md)de desempenho para o armazenamento de Blob . Limites de conta maiores disponíveis contactando [o Suporte Azure](https://azure.microsoft.com/support/faq/) |
+| Geo-redundância |Redundante localmente (múltiplas cópias de dados numa região de Azure) |Redundante localmente (LRS), zona redundante (ZRS), globalmente redundante (GRS), acesso de leitura globalmente redundante (RA-GRS). Veja [aqui](../storage/common/storage-redundancy.md) mais informações |
+| Estado do serviço |Disponível em Geral |Disponível em Geral |
+| Disponibilidade regional |Ver [aqui](https://azure.microsoft.com/regions/#services) |Disponível em todas as regiões do Azure |
+| Preço |Ver [Preços](https://azure.microsoft.com/pricing/details/data-lake-store/) |Ver [Preços](https://azure.microsoft.com/pricing/details/storage/) |
 
 

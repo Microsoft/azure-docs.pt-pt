@@ -1,6 +1,6 @@
 ---
-title: Pré-limites e cotas Plug and Play visualização de IoT | Microsoft Docs
-description: Entenda os limites, as cotas e a limitação que se aplicam quando você usa a visualização de Plug and Play de IoT.
+title: Limites e quotas IoT Plug e Play Preview / Microsoft Docs
+description: Compreenda os limites, quotas e estrangulamentos que se aplicam quando utiliza o Plug IoT e a Pré-visualização.
 author: miagdp
 ms.author: miag
 ms.date: 12/26/2019
@@ -8,55 +8,55 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 48ecaaba6d956efd9da75d0582fa06d231cb3f80
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75531382"
 ---
-# <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>Limites, cotas e limitações da visualização do IoT Plug and Play
+# <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>Limites de pré-visualização de plug e reprodução ioT
 
-Este artigo explica os limites, as cotas e a limitação específicos do Plug and Play IoT que se aplicam à visualização pública. Há [cotas e limitação do Hub IOT](../iot-hub/iot-hub-devguide-quotas-throttling.md) que também se aplicam.
+Este artigo explica os limites, quotas e estrangulamentos específicos do IoT Plug e play que se aplicam na pré-visualização pública. Existem quotas existentes do [Hub IoT e estrangulamentos](../iot-hub/iot-hub-devguide-quotas-throttling.md) que também se aplicam.
 
-## <a name="iot-hub"></a>Hub IoT
+## <a name="iot-hub"></a>IoT Hub
 
-Para a visualização pública, os limites e as cotas a seguir se aplicam a um hub IoT:
+Para a pré-visualização pública, os seguintes limites e quotas aplicam-se a um hub IoT:
 
-| Limites, restrições e limitação | Valor | Notas |
+| Limites, restrições e aceleradores | Valor | Notas |
 |-----|-----|-----|
-| Número de modelos de capacidade de dispositivo (DCMs) ou interfaces que podem ser registrados por Hub | 1500 ||
-| Número máximo de interfaces que podem ser registradas por dispositivo | 40 ||
-| Número máximo de DCMs que podem ser registrados por dispositivo | 1 ||
-| Tamanho máximo do arquivo de interface/DCM | caracteres de 512 ||
-| Tamanho máximo de um nome de interface | caracteres de 256 ||
-| Tamanho máximo de um nome de propriedade  | 64 bytes, 7 níveis em profundidade (e o primeiro nível é reservado para `$iotin`) | Caracteres permitidos: a-z, A-Z, 0-9 (não como o primeiro caractere) e sublinhado. |
-| Tamanho máximo de um valor de propriedade | 512 bytes ||
+| Número de modelos de capacidade do dispositivo (DCMs) ou interfaces que podem ser registadas por hub | 1500 ||
+| Número máximo de interfaces que podem ser registadas por dispositivo | 40 ||
+| Número máximo de DCMs que podem ser registados por dispositivo | 1 ||
+| Tamanho máximo da interface/ficheiro DCM | 512 chars ||
+| Tamanho máximo de um nome de interface | 256 chars ||
+| Tamanho máximo de um nome de propriedade  | 64 bytes, 7 níveis de profundidade (e `$iotin`o primeiro nível é reservado para) | Caracteres permitidos: a-z, A-Z, 0-9 (não como o primeiro personagem), e sublinham. |
+| Tamanho máximo de um valor patrimonial | 512 bytes ||
 | Tamanho máximo de um nome de comando | 100 bytes ||
-| Tamanho do dispositivo | Mesmo que [os limites do Hub IOT](../iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) ||
-| Resoluções de API de resolução no SKU (independentemente das unidades) | 100 solicitação/segundo ||
+| Tamanho gémeo do dispositivo | O mesmo que [os limites do Hub IoT](../iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) ||
+| Resolução API apela através do SKU (independentemente das unidades) | 100 pedido/segundo ||
 
-## <a name="model-repository"></a>Repositório de modelos
+## <a name="model-repository"></a>Repositório modelo
 
-Para a visualização pública, os limites e as cotas a seguir se aplicam a um repositório de modelo:
+Para a pré-visualização pública, aplicam-se os seguintes limites e quotas a um repositório modelo:
 
-| Limites, restrições e limitação| Valor |
+| Limites, restrições e aceleradores| Valor |
 |-----|-----|
-| Número de repositórios de modelo da empresa por locatário Azure Active Directory | 1 |
-| Número de chaves de autorização por repositório de modelo | 10  |
-| Número de modelos (DCMs ou interfaces) por repositório de modelo da empresa| 1500  |
-| Número de modelos (DCMs ou interfaces) no repositório de modelo público por locatário Azure Active Directory| 1500  |
-| Número de DCMs ou interfaces sendo excluídas em um repositório de modelos da empresa | 10 consultas por segundo (QPS)|
-| Número de repositórios de modelo sendo criados/atualizados por um locatário| 1 QPS |
-| Número de chaves de autorização sendo criadas/atualizadas/excluídas em um repositório de modelos | 1 QPS|
-| Número de DCMs que estão sendo criadas em um repositório de modelos da empresa | 10 QPS |
-| Número de interfaces que estão sendo criadas em um repositório de modelos da empresa | 10 QPS|
-| Número de DCMs que estão sendo criadas no repositório de modelos públicos | 10 QPS|
-| Número de interfaces que estão sendo criadas no repositório de modelos públicos | 10 QPS|
+| Número de repositórios de modelos de empresa por inquilino do Diretório Ativo Azure | 1 |
+| Número de chaves de autorização por repositório modelo | 10  |
+| Número de modelos (DCMs ou interfaces) por repositório de modelos da empresa| 1500  |
+| Número de modelos (DCMs ou interfaces) no repositório de modelos públicos por inquilino do Diretório Ativo Azure| 1500  |
+| Número de DCMs ou interfaces sendo eliminados num repositório de modelo seletiva | 10 consultas por segundo (QPS)|
+| Número de repositórios modelo criados/atualizados por um inquilino| 1 QPS |
+| Número de chaves de autorização criadas/atualizadas/eliminadas num repositório modelo | 1 QPS|
+| Número de DCMs criados num repositório modelo da empresa | 10 QPS |
+| Número de interfaces criadas num repositório modelo da empresa | 10 QPS|
+| Número de DCMs criados no repositório de modelos públicos | 10 QPS|
+| Número de interfaces criadas no repositório de modelopúblico | 10 QPS|
 
-## <a name="parser-library"></a>Biblioteca do analisador
+## <a name="parser-library"></a>Biblioteca Parser
 
-A biblioteca do analisador segue os limites que se aplicam à [linguagem de definição de entrelaçamento digital](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
+A biblioteca de parser segue os limites aplicáveis à Linguagem de [Definição Gémea Digital.](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Uma próxima etapa sugerida é aprender a [se conectar e interagir com um dispositivo de plug and Play de IOT](./howto-develop-solution.md).
+Um próximo passo sugerido é aprender a [conectar-se e interagir com um dispositivo IoT Plug and Play](./howto-develop-solution.md).

@@ -1,6 +1,6 @@
 ---
-title: Copiar dados do Office 365 usando Azure Data Factory
-description: Saiba como copiar dados do Office 365 para armazenamentos de dados de coletor com suporte usando a atividade de cópia em um pipeline de Azure Data Factory.
+title: Copiar dados do Office 365 utilizando a Azure Data Factory
+description: Saiba como copiar dados do Office 365 para lojas de dados de sink suportadas utilizando a atividade de cópia num pipeline azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,83 +12,83 @@ ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
 ms.openlocfilehash: d97b3caccc92f0fdfeb229d94e30ee6499c26181
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74912410"
 ---
-# <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copiar dados do Office 365 para o Azure usando Azure Data Factory
+# <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copiar dados do Office 365 para O Azure utilizando a Azure Data Factory
 
-O Azure Data Factory integra- [se com o Microsoft Graph data Connect](https://docs.microsoft.com/graph/data-connect-concept-overview), permitindo que você coloque os dados organizacionais avançados em seu locatário do Office 365 no Azure de uma maneira escalonável e crie aplicativos de análise e extraia informações com base nesses valiosos ativos de dados. A integração com o Privileged Access Management fornece controle de acesso seguro para os valiosos dados organizados no Office 365.  Consulte [este link](https://docs.microsoft.com/graph/data-connect-concept-overview) para obter uma visão geral sobre Microsoft Graph data Connect e consulte [este link](https://docs.microsoft.com/graph/data-connect-policies#licensing) para obter informações de licenciamento.
+A Azure Data Factory integra-se com a ligação de dados do [Microsoft Graph,](https://docs.microsoft.com/graph/data-connect-concept-overview)permitindo-lhe trazer os dados organizacionais ricos do seu Office 365 tenant para o Azure de uma forma escalável e construir aplicações de análise e extrair insights com base nestes valiosos ativos de dados. A Integração com a Privileged Access Management fornece um controlo de acesso garantido para os valiosos dados curados no Office 365.  Consulte [este link](https://docs.microsoft.com/graph/data-connect-concept-overview) para uma visão geral da ligação de dados do Microsoft Graph e consulte [este link](https://docs.microsoft.com/graph/data-connect-policies#licensing) para obter informações de licenciamento.
 
-Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados do Office 365. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados do Office 365. Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
-O conector do ADF do Office 365 e o Microsoft Graph data Connect permite a ingestão de escala de diferentes tipos de conjuntos de dados de caixas de correio com email habilitado do Exchange, incluindo contatos do catálogo de endereços, eventos de calendário, mensagens de email, informações do usuário, configurações de caixa de correio e assim por diante.  Consulte [aqui](https://docs.microsoft.com/graph/data-connect-datasets) para ver a lista completa de conjuntos de valores disponíveis.
+O conector ADF Office 365 e a ligação de dados do Microsoft Graph permitem a ingestão de diferentes tipos de conjuntos de dados a partir de caixas de correio ativadas pelo Exchange Email, incluindo contactos de livros de endereços, eventos de calendário, mensagens de correio eletrónico, informações do utilizador, definições de caixa de correio e assim por diante.  Consulte [aqui](https://docs.microsoft.com/graph/data-connect-datasets) a lista completa de conjuntos de dados disponíveis.
 
-Por enquanto, em uma única atividade de cópia, você só pode **copiar dados do Office 365 para o [armazenamento de BLOBs do Azure](connector-azure-blob-storage.md), [Azure data Lake Storage Gen1](connector-azure-data-lake-store.md)e [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md) no formato JSON** (tipo setOfObjects). Se você quiser carregar o Office 365 em outros tipos de armazenamentos de dados ou em outros formatos, você poderá encadear a primeira atividade de cópia com uma atividade de cópia subsequente para carregar mais dados em qualquer um dos [repositórios de destino do ADF com suporte](copy-activity-overview.md#supported-data-stores-and-formats) (consulte a coluna "com suporte como um coletor" na tabela "armazenamentos de dados e formatos com suporte").
+Por enquanto, dentro de uma única atividade de cópia só pode **copiar dados do Office 365 para o Armazenamento de [Blob Azure,](connector-azure-blob-storage.md) [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)e [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) em formato JSON** (conjunto de tipoOfObjects). Se pretender carregar o Office 365 noutros tipos de lojas de dados ou noutros formatos, pode acorrentar a primeira atividade de cópia com uma atividade de cópia subsequente para carregar mais dados em qualquer uma das lojas de [destino ADF suportadas](copy-activity-overview.md#supported-data-stores-and-formats) (consulte a coluna "suportada como um lavatório" na tabela "Lojas de dados e formatos suportados").
 
 >[!IMPORTANT]
->- A assinatura do Azure que contém o data factory e o armazenamento de dados do coletor deve estar no mesmo locatário do Azure Active Directory (AD do Azure) que o locatário do Office 365.
->- Verifique se a região de Azure Integration Runtime usada para a atividade de cópia, bem como o destino, está na mesma região em que a caixa de correio dos usuários do locatário do Office 365 está localizada. Consulte [aqui](concepts-integration-runtime.md#integration-runtime-location) para entender como o local de Azure ir é determinado. Consulte a [tabela aqui](https://docs.microsoft.com/graph/data-connect-datasets#regions) para obter a lista de regiões do Office com suporte e regiões do Azure correspondentes.
->- A autenticação de entidade de serviço é o único mecanismo de autenticação com suporte para armazenamento de BLOBs do Azure, Azure Data Lake Storage Gen1 e Azure Data Lake Storage Gen2 como armazenamentos de destino.
+>- A assinatura Azure que contenha a fábrica de dados e a loja de dados do lavatório deve estar sob o mesmo inquilino azure Ative Directory (Azure AD) como inquilino do Office 365.
+>- Certifique-se de que a região de Runtime de Integração Azure utilizada para a atividade de cópia, bem como o destino, se encontra na mesma região onde está localizada a caixa de correio dos inquilinos do Office 365. Consulte [aqui](concepts-integration-runtime.md#integration-runtime-location) para entender como a localização do Ir Azure é determinada. Consulte a [tabela aqui](https://docs.microsoft.com/graph/data-connect-datasets#regions) para a lista de regiões apoiadas do Office e regiões de Azure correspondentes.
+>- A autenticação principal do serviço é o único mecanismo de autenticação suportado para o armazenamento de Blob Azure, Azure Data Lake Storage Gen1 e Azure Data Lake Storage Gen2 como lojas de destino.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para copiar dados do Office 365 para o Azure, você precisa concluir as seguintes etapas de pré-requisito:
+Para copiar os dados do Office 365 para o Azure, é necessário completar as seguintes etapas pré-requisitos:
 
-- Seu administrador de locatários do Office 365 deve concluir ações de integração, conforme descrito [aqui](https://docs.microsoft.com/graph/data-connect-get-started).
-- Criar e configurar um aplicativo Web do Azure AD no Azure Active Directory.  Para obter instruções, consulte [criar um aplicativo do Azure ad](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
-- Anote os seguintes valores, que serão usados para definir o serviço vinculado para o Office 365:
-    - ID do locatário. Para obter instruções, consulte [obter ID do locatário](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
-    - ID do aplicativo e chave do aplicativo.  Para obter instruções, consulte [obter a ID do aplicativo e a chave de autenticação](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
-- Adicione a identidade do usuário que fará a solicitação de acesso a dados como o proprietário do aplicativo Web do Azure AD (do aplicativo Web do Azure AD > Configurações > proprietários > Adicionar proprietário). 
-    - A identidade do usuário deve estar na organização do Office 365 da qual você está obtendo dados e não deve ser um usuário convidado.
+- O administrador do seu Gabinete 365 inquilino deve concluir as ações de embarque, conforme descrito [aqui.](https://docs.microsoft.com/graph/data-connect-get-started)
+- Crie e configure uma aplicação web Azure AD no Diretório Ativo Azure.  Para obter instruções, consulte [Criar uma aplicação Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
+- Tome nota dos seguintes valores, que utilizará para definir o serviço vinculado para o Office 365:
+    - Identificação do inquilino. Para obter instruções, consulte [Obter identificação do inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+    - Id de aplicação e chave de aplicação.  Para obter instruções, consulte [Obter id da aplicação e chave de autenticação](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+- Adicione a identidade do utilizador que irá fazer o pedido de acesso a dados como proprietário da aplicação web Azure AD (a partir da aplicação web Da Azure AD > Definições > Proprietários > Adicionar proprietário). 
+    - A identidade do utilizador deve estar na organização do Office 365 de onde está a obter dados e não deve ser um utilizador convidado.
 
-## <a name="approving-new-data-access-requests"></a>Aprovando novas solicitações de acesso a dados
+## <a name="approving-new-data-access-requests"></a>Aprovação de novos pedidos de acesso a dados
 
-Se esta for a primeira vez que você está solicitando dados para esse contexto (uma combinação de qual tabela de dados está sendo acessada, em qual conta de destino os dados estão sendo carregados e qual identidade de usuário está fazendo a solicitação de acesso a dados), você verá o status da atividade de cópia como "em andamento" e somente quando clicar no [link "detalhes" em ações](copy-activity-overview.md#monitoring) , você verá o status como "RequestingConsent".  Um membro do grupo Aprovador de acesso a dados precisa aprovar a solicitação no Privileged Access Management antes que a extração de dados possa continuar.
+Se esta for a primeira vez que solicita dados para este contexto (uma combinação da qual a tabela de dados está a ser acedida, qual a conta de destino que está a ser carregada, e qual a identidade do utilizador que está a fazer o pedido de acesso de dados), verá o estado da atividade da cópia como "Em Curso", e só quando clicar no [link "Detalhes" em Ações](copy-activity-overview.md#monitoring) verá o estado como "RequestingConsent".  Um membro do grupo de aprovadores de acesso a dados precisa de aprovar o pedido na Gestão de Acesso Privilegiado antes que a extração de dados possa prosseguir.
 
-Consulte [aqui](https://docs.microsoft.com/graph/data-connect-tips#approve-pam-requests-via-office-365-admin-portal) como o aprovador pode aprovar a solicitação de acesso a dados e consulte [aqui](https://docs.microsoft.com/graph/data-connect-pam) uma explicação sobre a integração geral com o Privileged Access Management, incluindo como configurar o grupo de aprovador de acesso a dados.
+Consulte [aqui](https://docs.microsoft.com/graph/data-connect-tips#approve-pam-requests-via-office-365-admin-portal) como o aprovador pode aprovar o pedido de acesso a dados, e consulte [aqui](https://docs.microsoft.com/graph/data-connect-pam) uma explicação sobre a integração global com a Privileged Access Management, incluindo como configurar o grupo de aprovadores de acesso a dados.
 
 ## <a name="policy-validation"></a>Validação de políticas
 
-Se o ADF for criado como parte de um aplicativo gerenciado e as atribuições de políticas do Azure forem feitas em recursos dentro do grupo de recursos de gerenciamento, para cada execução da atividade de cópia, o ADF verificará se as atribuições de política são impostas. Consulte [aqui](https://docs.microsoft.com/graph/data-connect-policies#policies) para obter uma lista de políticas com suporte.
+Se a ADF for criada como parte de uma app gerida e as atribuições de políticas do Azure forem feitas em recursos dentro do grupo de recursos de gestão, então para cada execução de atividade de cópia, a ADF verificará para garantir que as atribuições de políticas são executadas. Consulte [aqui](https://docs.microsoft.com/graph/data-connect-policies#policies) uma lista de políticas apoiadas.
 
 ## <a name="getting-started"></a>Introdução
 
 >[!TIP]
->Para obter uma explicação sobre o uso do conector do Office 365, consulte [carregar dados do artigo do office 365](load-office-365-data.md) .
+>Para uma passagem pela utilização do conector office 365, consulte os dados de carga do artigo [do Office 365.](load-office-365-data.md)
 
-Você pode criar um pipeline com a atividade de cópia usando uma das ferramentas ou SDKs a seguir. Selecione um link para ir até um tutorial com as instruções detalhadas para criar um pipeline com uma atividade de cópia. 
+Pode criar um pipeline com a atividade da cópia utilizando uma das seguintes ferramentas ou SDKs. Selecione um link para ir a um tutorial com instruções passo a passo para criar um pipeline com uma atividade de cópia. 
 
-- [Portal do Azure](quickstart-create-data-factory-portal.md)
-- [SDK do .NET](quickstart-create-data-factory-dot-net.md)
+- [Portal Azure](quickstart-create-data-factory-portal.md)
+- [.NET SDK](quickstart-create-data-factory-dot-net.md)
 - [Python SDK](quickstart-create-data-factory-python.md)
-- [O Azure PowerShell](quickstart-create-data-factory-powershell.md)
-- [API REST](quickstart-create-data-factory-rest-api.md)
-- [Modelo de Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md). 
+- [Azure PowerShell](quickstart-create-data-factory-powershell.md)
+- [REST API](quickstart-create-data-factory-rest-api.md)
+- Modelo de [Gestor de Recursos Azure](quickstart-create-data-factory-resource-manager-template.md). 
 
-As seções a seguir fornecem detalhes sobre as propriedades que são usadas para definir Data Factory entidades específicas para o conector do Office 365.
+As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades data Factory específicas do conector do Office 365.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 
-As propriedades a seguir têm suporte para o serviço vinculado do Office 365:
+As seguintes propriedades são suportadas para o serviço ligado ao Office 365:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade Type deve ser definida como: **Office365** | Sim |
-| office365TenantId | ID de locatário do Azure à qual a conta do Office 365 pertence. | Sim |
-| servicePrincipalTenantId | Especifique as informações de locatário sob as quais o aplicativo Web do Azure AD reside. | Sim |
-| servicePrincipalId | Especifique o ID de cliente. da aplicação | Sim |
-| servicePrincipalKey | Especifique a chave da aplicação. Marque este campo como uma SecureString para armazená-lo com segurança em Data Factory. | Sim |
-| connectVia | O Integration Runtime a ser usado para se conectar ao armazenamento de dados.  Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não |
+| tipo | A propriedade tipo deve ser definida para: **Office365** | Sim |
+| office365TenantId | Id do inquilino azure a que pertence a conta 365 do Escritório. | Sim |
+| serviçoPrincipalTenantId | Especifique as informações do arrendatário segundo as quais reside a sua aplicação web Azure AD. | Sim |
+| serviçoPrincipalId | Especifique a identificação do cliente do pedido. | Sim |
+| serviçoPrincipalKey | Especifique a chave da aplicação. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory. | Sim |
+| connectVia | O Tempo de Integração a utilizar para se ligar à loja de dados.  Se não especificado, utiliza o tempo de funcionar de integração azure padrão. | Não |
 
 >[!NOTE]
-> A diferença entre **office365TenantId** e **servicePrincipalTenantId** e o valor correspondente a fornecer:
->- Se você for um desenvolvedor empresarial desenvolvendo um aplicativo em relação aos dados do Office 365 para o uso de sua própria organização, deverá fornecer a mesma ID de locatário para ambas as propriedades, que é a ID de locatário do AAD da sua organização.
->- Se você for um desenvolvedor de ISV desenvolvendo um aplicativo para seus clientes, office365TenantId será a ID de locatário do AAD do seu cliente (instalador do aplicativo) e servicePrincipalTenantId será a ID de locatário do AAD da sua empresa.
+> A diferença entre **o office365TenantId** e o **serviçoPrincipalTenantId** e o valor correspondente a fornecer:
+>- Se você é um desenvolvedor de empresas desenvolvendo uma aplicação contra os dados do Office 365 para o uso da sua própria organização, então você deve fornecer o mesmo ID de inquilino para ambas as propriedades, que é o ID de inquilino AAD da sua organização.
+>- Se você é um desenvolvedor ISV desenvolvendo uma aplicação para os seus clientes, então office365TenantId será o ID de inquilino aad do seu cliente (instalador de aplicações) AAD inquilino e serviçoPrincipalTenantId será o ID de inquilino AAD da sua empresa.
 
 **Exemplo:**
 
@@ -110,18 +110,18 @@ As propriedades a seguir têm suporte para o serviço vinculado do Office 365:
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de acordos do Office 365.
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo conjuntos de [dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo Conjunto de dados do Office 365.
 
-Para copiar dados do Office 365, há suporte para as seguintes propriedades:
+Para copiar dados do Office 365, são suportadas as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade Type do conjunto de conjuntos deve ser definida como: **Office365Table** | Sim |
-| tableName | Nome do conjunto de DataSet a ser extraído do Office 365. Consulte [aqui](https://docs.microsoft.com/graph/data-connect-datasets#datasets) a lista de conjuntos de itens do Office 365 disponíveis para extração. | Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **Office365Table** | Sim |
+| tableName | Nome do conjunto de dados para extrair do Office 365. Consulte [aqui](https://docs.microsoft.com/graph/data-connect-datasets#datasets) a lista dos conjuntos de dados do Office 365 disponíveis para extração. | Sim |
 
-Se você estivesse Configurando `dateFilterColumn`, `startTime`, `endTime`e `userScopeFilterUri` no conjunto de código, ainda há suporte no estado em que se encontra, enquanto você é sugerido para usar o novo modelo na origem da atividade no futuro.
+Se estava `dateFilterColumn`a `startTime` `endTime`definir `userScopeFilterUri` , e no conjunto de dados, ainda é suportado como está, enquanto é sugerido que utilize o novo modelo na fonte de atividade.
 
 **Exemplo**
 
@@ -144,21 +144,21 @@ Se você estivesse Configurando `dateFilterColumn`, `startTime`, `endTime`e `use
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista das propriedades com suporte pela origem do Office 365.
+Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas pela fonte do Office 365.
 
-### <a name="office-365-as-source"></a>Office 365 como fonte
+### <a name="office-365-as-source"></a>Escritório 365 como fonte
 
-Para copiar dados do Office 365, há suporte para as seguintes propriedades na seção **origem** da atividade de cópia:
+Para copiar dados do Office 365, as seguintes propriedades são suportadas na secção **de origem** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade Type da fonte da atividade de cópia deve ser definida como: **Office365Source** | Sim |
-| allowedGroups | Predicado de seleção de grupo.  Use essa propriedade para selecionar até 10 grupos de usuários para os quais os dados serão recuperados.  Se nenhum grupo for especificado, os dados serão retornados para toda a organização. | Não |
-| userScopeFilterUri | Quando `allowedGroups` propriedade não é especificada, você pode usar uma expressão de predicado que é aplicada em todo o locatário para filtrar as linhas específicas a serem extraídas do Office 365. O formato do predicado deve corresponder ao formato de consulta de APIs de Microsoft Graph, por exemplo, `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`. | Não |
-| dateFilterColumn | Nome da coluna de filtro DateTime. Use essa propriedade para limitar o intervalo de tempo para o qual os dados do Office 365 são extraídos. | Sim se o conjunto de informações tiver uma ou mais colunas DateTime. Consulte [aqui](https://docs.microsoft.com/graph/data-connect-filtering#filtering) para obter a lista de conjuntos de valores que exigem este filtro de data e hora. |
-| startTime | Inicie o valor DateTime para filtrar. | Sim se `dateFilterColumn` for especificado |
-| endTime | Valor DateTime final para filtrar. | Sim se `dateFilterColumn` for especificado |
-| outputColumns | Matriz das colunas a serem copiadas para o coletor. | Não |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **Office365Source** | Sim |
+| grupos permitidos | Predicado de seleção de grupos.  Utilize esta propriedade para selecionar até 10 grupos de utilizadores para os quais os dados serão recuperados.  Se não forem especificados grupos, os dados serão devolvidos para toda a organização. | Não |
+| userScopeFilterUri | Quando `allowedGroups` a propriedade não é especificada, você pode usar uma expressão predicada que é aplicada em todo o inquilino para filtrar as linhas específicas para extrair do Office 365. O formato predicado deve corresponder ao formato de consulta `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`das APIs do Microsoft Graph, por exemplo. | Não |
+| dataFilterColuna | Nome da coluna do filtro DateTime. Utilize esta propriedade para limitar o intervalo de tempo para o qual os dados do Office 365 são extraídos. | Sim, se o conjunto de dados tiver uma ou mais colunas DateTime. Consulte [aqui](https://docs.microsoft.com/graph/data-connect-filtering#filtering) a lista de conjuntos de dados que requerem este filtro DateTime. |
+| startTime | Iniciar o valor datatempo para filtrar. | Sim, `dateFilterColumn` se for especificado |
+| endTime | Fim do valor data tempo para filtrar. | Sim, `dateFilterColumn` se for especificado |
+| outputColunas | Conjunto de colunas para copiar para afundar. | Não |
 
 **Exemplo:**
 
@@ -303,4 +303,4 @@ Para copiar dados do Office 365, há suporte para as seguintes propriedades na s
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Azure Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).

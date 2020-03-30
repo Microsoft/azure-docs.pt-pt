@@ -1,5 +1,5 @@
 ---
-title: Utilize uma galeria de imagens partilhada nos Serviços de Laboratório Azure  Microsoft Docs
+title: Utilize uma galeria de imagens partilhada nos Serviços de Laboratório Azure [ Microsoft Docs
 description: Aprenda a configurar uma conta de laboratório para usar uma galeria de imagens partilhada para que um utilizador possa partilhar uma imagem com outro e outro utilizador possa usar a imagem para criar um Modelo VM no laboratório.
 services: lab-services
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/24/2020
 ms.author: spelluru
 ms.openlocfilehash: c611ecdb5a2534f7368e533e3e19e6e3f96de57f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78190454"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Use uma galeria de imagens partilhada nos Serviços de Laboratório Azure

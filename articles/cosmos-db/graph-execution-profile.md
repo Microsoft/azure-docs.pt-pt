@@ -1,6 +1,6 @@
 ---
-title: Usar o perfil de execução para avaliar consultas na API Azure Cosmos DB Gremlin
-description: Saiba como solucionar problemas e aprimorar suas consultas do Gremlin usando a etapa perfil de execução.
+title: Use o perfil de execução para avaliar consultas na API Do MÍldia Azure Cosmos
+description: Aprenda a resolver problemas e a melhorar as suas consultas de Gremlin utilizando o passo do perfil de execução.
 services: cosmos-db
 author: luisbosquez
 manager: kfile
@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: lbosq
 ms.openlocfilehash: 5705ef4fb6aa895009d554617c968543cc3fcd63
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75441842"
 ---
-# <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Como usar a etapa de perfil de execução para avaliar suas consultas do Gremlin
+# <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Como utilizar o passo do perfil de execução para avaliar as consultas do Gremlin
 
-Este artigo fornece uma visão geral de como usar a etapa de perfil de execução para Azure Cosmos DB bancos de dados de grafo da API do Gremlin. Esta etapa fornece informações relevantes para solução de problemas e otimizações de consulta e é compatível com qualquer consulta Gremlin que possa ser executada em uma conta de API do Gremlin Cosmos DB.
+Este artigo fornece uma descrição geral de como utilizar o passo do perfil de execução para bases de dados de gráficos da API do Gremlin no Azure Cosmos DB. Este passo fornece informações relevantes para a resolução de problemas e otimizações de consulta, e é compatível com qualquer consulta do Gremlin que possa ser executada relativamente a uma conta da API do Gremlin no Cosmos DB.
 
-Para usar essa etapa, basta acrescentar a chamada de função `executionProfile()` ao final da consulta Gremlin. **Sua consulta Gremlin será executada** e o resultado da operação retornará um objeto de resposta JSON com o perfil de execução de consulta.
+Para utilizar este passo, `executionProfile()` basta anexar a chamada de função no final da sua consulta gremlin. **A sua consulta gremlin será executada** e o resultado da operação devolverá um objeto de resposta JSON com o perfil de execução da consulta.
 
 Por exemplo:
 
@@ -32,18 +32,18 @@ Por exemplo:
     g.V('mary').out().executionProfile()
 ```
 
-Depois de chamar a etapa de `executionProfile()`, a resposta será um objeto JSON que inclui a etapa Gremlin executada, o tempo total necessário e uma matriz dos operadores de tempo de execução de Cosmos DB que a instrução resultou.
+Depois de `executionProfile()` dar o passo, a resposta será um objeto JSON que inclui o passo gremlin executado, o tempo total que demorou, e uma série de operadores de tempo de execução cosmos DB em que a declaração resultou.
 
 > [!NOTE]
-> Esta implementação para o perfil de execução não está definida na especificação do Apache Tinkerpop. É específico para Azure Cosmos DB implementação da API Gremlin.
+> Esta implementação para o Perfil de Execução não está definida na especificação Apache Tinkerpop. É específico para a implementação da API da Azure Cosmos DB Gremlin.
 
 
 ## <a name="response-example"></a>Exemplo de resposta
 
-Este é um exemplo anotado da saída que será retornada:
+Segue-se um exemplo anotado da saída que será devolvida:
 
 > [!NOTE]
-> Este exemplo é anotado com comentários que explicam a estrutura geral da resposta. Uma resposta executionProfile real não conterá nenhum comentário.
+> Este exemplo é anotado com comentários que explicam a estrutura geral da resposta. Uma resposta real do Perfil de execução não conterá comentários.
 
 ```json
 [
@@ -134,50 +134,50 @@ Este é um exemplo anotado da saída que será retornada:
 ```
 
 > [!NOTE]
-> A etapa executionProfile executará a consulta Gremlin. Isso inclui as etapas `addV` ou `addE`, que resultarão na criação e confirmarão as alterações especificadas na consulta. Como resultado, as unidades de solicitação geradas pela consulta Gremlin também serão cobradas.
+> O passo de execuçãoDo executará a consulta de Gremlin. Isto inclui `addV` `addE`os ou passos, que resultarão na criação e comprometerão as alterações especificadas na consulta. Como resultado, as Unidades de Pedido geradas pela consulta Gremlin também serão cobradas.
 
-## <a name="execution-profile-response-objects"></a>Objetos de resposta do perfil de execução
+## <a name="execution-profile-response-objects"></a>Objetos de resposta de perfil de execução
 
-A resposta de uma função executionProfile () produzirá uma hierarquia de objetos JSON com a seguinte estrutura:
-  - **Objeto de operação Gremlin**: representa a operação Gremlin inteira que foi executada. Contém as propriedades a seguir.
-    - `gremlin`: a instrução Gremlin explícita que foi executada.
-    - `totalTime`: o tempo, em milissegundos, que a execução da etapa incorreu no. 
-    - `metrics`: uma matriz que contém cada um dos operadores de tempo de execução Cosmos DB que foram executados para atender à consulta. Essa lista é classificada em ordem de execução.
+A resposta de uma função de execuçãoPerfil() produzirá uma hierarquia de objetos JSON com a seguinte estrutura:
+  - Objeto de **operação Gremlin:** Representa toda a operação Gremlin que foi executada. Contém as seguintes propriedades.
+    - `gremlin`: A declaração explícita de Gremlin que foi executada.
+    - `totalTime`: O tempo, em milissegundos, de que a execução do passo incorreu. 
+    - `metrics`: Uma matriz que contém cada um dos operadores de tempo de execução cosmos DB que foram executados para cumprir a consulta. Esta lista está ordenada por ordem de execução.
     
-  - **Operadores de tempo de execução Cosmos DB**: representa cada um dos componentes de toda a operação Gremlin. Essa lista é classificada em ordem de execução. Cada objeto contém as seguintes propriedades:
-    - `name`: o nome do operador. Esse é o tipo de etapa que foi avaliado e executado. Leia mais na tabela a seguir.
-    - `time`: a quantidade de tempo, em milissegundos, que um determinado operador levou.
-    - `annotations`: contém informações adicionais, específicas para o operador que foi executado.
-    - `annotations.percentTime`: porcentagem do tempo total necessário para executar o operador específico.
-    - `counts`: número de objetos que foram retornados da camada de armazenamento por este operador. Isso está contido no `counts.resultCount` valor escalar dentro de.
-    - `storeOps`: representa uma operação de armazenamento que pode abranger uma ou várias partições.
-    - `storeOps.fanoutFactor`: representa o número de partições que essa operação de armazenamento específico acessou.
-    - `storeOps.count`: representa o número de resultados que essa operação de armazenamento retornou.
-    - `storeOps.size`: representa o tamanho em bytes do resultado de uma determinada operação de armazenamento.
+  - **Operadores de tempo de funcionamento Cosmos DB**: Representa cada um dos componentes de toda a operação Gremlin. Esta lista está ordenada por ordem de execução. Cada objeto contém as seguintes propriedades:
+    - `name`: Nome do operador. Este é o tipo de passo que foi avaliado e executado. Leia mais na tabela abaixo.
+    - `time`: Quantidade de tempo, em milissegundos, que um determinado operador levou.
+    - `annotations`: Contém informações adicionais, específicas do operador que foi executado.
+    - `annotations.percentTime`: Percentagem do tempo total que demorou a executar o operador específico.
+    - `counts`: Número de objetos devolvidos da camada de armazenamento por este operador. Isto está contido `counts.resultCount` no valor escalar dentro.
+    - `storeOps`: Representa uma operação de armazenamento que pode abranger uma ou várias divisórias.
+    - `storeOps.fanoutFactor`: Representa o número de divisórias a que esta operação de armazenamento específica acedeu.
+    - `storeOps.count`: Representa o número de resultados que esta operação de armazenamento devolveu.
+    - `storeOps.size`: Representa a dimensão dos bytes resultantes de uma determinada operação de armazenagem.
 
-Cosmos DB operador de tempo de execução Gremlin|Descrição
+Operador de tempo de corrida Cosmos DB Gremlin|Descrição
 ---|---
-`GetVertices`| Esta etapa Obtém um conjunto de objetos predicados da camada de persistência. 
-`GetEdges`| Esta etapa Obtém as bordas que são adjacentes a um conjunto de vértices. Essa etapa pode resultar em uma ou várias operações de armazenamento.
-`GetNeighborVertices`| Esta etapa Obtém os vértices que estão conectados a um conjunto de bordas. As bordas contêm as chaves de partição e as IDs de seus vértices de origem e de destino.
-`Coalesce`| Esta etapa conta a avaliação de duas operações sempre que a etapa de `coalesce()` Gremlin é executada.
-`CartesianProductOperator`| Esta etapa computa um produto cartesiano entre dois conjuntos de os. Geralmente executado sempre que os predicados `to()` ou `from()` são usados.
-`ConstantSourceOperator`| Esta etapa computa uma expressão para produzir um valor constante como resultado.
-`ProjectOperator`| Esta etapa prepara e serializa uma resposta usando o resultado de operações anteriores.
-`ProjectAggregation`| Esta etapa prepara e serializa uma resposta para uma operação de agregação.
+`GetVertices`| Este passo obtém um conjunto de objetos dedicados a partir da camada de persistência. 
+`GetEdges`| Este passo obtém as bordas adjacentes a um conjunto de vértices. Este passo pode resultar em uma ou muitas operações de armazenamento.
+`GetNeighborVertices`| Este passo obtém os vértices que estão ligados a um conjunto de bordas. As bordas contêm as chaves de partição e os ID dos seus vértices de origem e alvo.
+`Coalesce`| Este passo explica a avaliação de `coalesce()` duas operações sempre que o passo Gremlin é executado.
+`CartesianProductOperator`| Este passo calcula um produto cartesiano entre dois conjuntos de dados. Normalmente executado sempre que `to()` os `from()` predicados ou são usados.
+`ConstantSourceOperator`| Este passo calcula uma expressão para produzir um valor constante como resultado.
+`ProjectOperator`| Este passo prepara e serializa uma resposta utilizando o resultado de operações anteriores.
+`ProjectAggregation`| Este passo prepara e serializa uma resposta para uma operação agregada.
 
 > [!NOTE]
-> Esta lista continuará a ser atualizada à medida que novos operadores forem adicionados.
+> Esta lista continuará a ser atualizada à medida que forem adicionados novos operadores.
 
-## <a name="examples-on-how-to-analyze-an-execution-profile-response"></a>Exemplos de como analisar uma resposta de perfil de execução
+## <a name="examples-on-how-to-analyze-an-execution-profile-response"></a>Exemplos sobre como analisar uma resposta de perfil de execução
 
-Veja a seguir exemplos de otimizações comuns que podem ser expostas usando a resposta do perfil de execução:
-  - Consulta de Fan-out.
+Seguem-se exemplos de otimizações comuns que podem ser detetadas utilizando a resposta do Perfil de Execução:
+  - Consulta de fã cego.
   - Consulta não filtrada.
 
-### <a name="blind-fan-out-query-patterns"></a>Padrões de consulta de Fan-out cego
+### <a name="blind-fan-out-query-patterns"></a>Padrões de consulta de fã cego
 
-Suponha a seguinte resposta de perfil de execução de um **grafo particionado**:
+Assuma a seguinte resposta do perfil de execução a partir de um **gráfico dividido:**
 
 ```json
 [
@@ -219,17 +219,17 @@ Suponha a seguinte resposta de perfil de execução de um **grafo particionado**
 ```
 
 As seguintes conclusões podem ser feitas a partir dela:
-- A consulta é uma pesquisa de ID única, já que a instrução Gremlin segue o padrão `g.V('id')`.
-- Julgamento da métrica de `time`, a latência dessa consulta parece estar alta, pois é [mais de 10 ms para uma única operação de leitura de ponto](https://docs.microsoft.com/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide).
-- Se olharmos para o objeto `storeOps`, podemos ver que o `fanoutFactor` é `5`, o que significa que [cinco partições](https://docs.microsoft.com/azure/cosmos-db/partition-data) foram acessadas por essa operação.
+- A consulta é uma única procura de IDENTIFICAção, uma `g.V('id')`vez que a declaração de Gremlin segue o padrão .
+- A julgar `time` pela métrica, a latência desta consulta parece ser alta, uma vez que são [mais de 10 mpara uma única operação de leitura de pontos.](https://docs.microsoft.com/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide)
+- Se olharmos `storeOps` para o objeto, `fanoutFactor` podemos ver que o é `5`, o que significa que [5 divisórias](https://docs.microsoft.com/azure/cosmos-db/partition-data) foram acedidas por esta operação.
 
-Como uma conclusão dessa análise, podemos determinar que a primeira consulta está acessando mais partições do que o necessário. Isso pode ser resolvido especificando-se a chave de particionamento na consulta como um predicado. Isso resultará em menos latência e menos custo por consulta. Saiba mais sobre o [particionamento de grafo](graph-partitioning.md). Uma consulta mais ideal seria `g.V('tt0093640').has('partitionKey', 't1001')`.
+Como conclusão desta análise, podemos determinar que a primeira consulta é aceder a mais divisórias do que o necessário. Isto pode ser abordado especificando a chave de partição na consulta como predicado. Isto conduzirá a menos latência e menos custo por consulta. Saiba mais sobre [a partilha de gráficos.](graph-partitioning.md) Uma consulta mais ideal `g.V('tt0093640').has('partitionKey', 't1001')`seria.
 
 ### <a name="unfiltered-query-patterns"></a>Padrões de consulta não filtrados
 
-Compare as duas respostas de perfil de execução a seguir. Para simplificar, esses exemplos usam um único grafo particionado.
+Compare as duas respostas de perfil de execução seguintes. Para a simplicidade, estes exemplos usam um único gráfico dividido.
 
-Essa primeira consulta recupera todos os vértices com o rótulo `tweet` e, em seguida, obtém seus vértices vizinhos:
+Esta primeira consulta recupera todos os vértices com a etiqueta `tweet` e, em seguida, obtém os seus vértices vizinhos:
 
 ```json
 [
@@ -306,7 +306,7 @@ Essa primeira consulta recupera todos os vértices com o rótulo `tweet` e, em s
 ]
 ```
 
-Observe o perfil da mesma consulta, mas agora com um filtro adicional, `has('lang', 'en')`, antes de explorar os vértices adjacentes:
+Note o perfil da mesma consulta, mas `has('lang', 'en')`agora com um filtro adicional, antes de explorar os vértices adjacentes:
 
 ```json
 [
@@ -383,10 +383,10 @@ Observe o perfil da mesma consulta, mas agora com um filtro adicional, `has('lan
 ]
 ```
 
-Essas duas consultas atingiram o mesmo resultado, no entanto, a primeira exigirá mais unidades de solicitação, pois precisava iterar um conjunto de dado inicial maior antes de consultar os itens adjacentes. Podemos ver os indicadores desse comportamento ao comparar os seguintes parâmetros de ambas as respostas:
-- O valor de `metrics[0].time` é maior na primeira resposta, o que indica que essa única etapa demorou mais para ser resolvida.
-- O valor `metrics[0].counts.resultsCount` é mais alto também na primeira resposta, o que indica que o conjunto de valores de trabalho inicial foi maior.
+Estas duas consultas atingiram o mesmo resultado, no entanto, a primeira exigirá mais Unidades de Pedido, uma vez que necessitava de iterar um conjunto de dados inicial maior antes de consultar os itens adjacentes. Podemos ver indicadores deste comportamento ao comparar os seguintes parâmetros de ambas as respostas:
+- O `metrics[0].time` valor é mais elevado na primeira resposta, o que indica que este único passo demorou mais tempo a ser resolvido.
+- O `metrics[0].counts.resultsCount` valor é também maior na primeira resposta, o que indica que o conjunto inicial de dados de trabalho foi maior.
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre os [recursos de Gremlin com suporte](gremlin-support.md) no Azure Cosmos DB. 
-* Saiba mais sobre a [API Gremlin no Azure Cosmos DB](graph-introduction.md).
+* Conheça as [características suportadas pela Gremlin](gremlin-support.md) no Azure Cosmos DB. 
+* Saiba mais sobre a [API Gremlin em Azure Cosmos DB](graph-introduction.md).

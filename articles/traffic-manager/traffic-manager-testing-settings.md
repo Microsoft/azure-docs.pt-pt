@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: rohink
 ms.openlocfilehash: 94ab5e550f0053fa19b9b93f1d67690211543325
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938385"
 ---
 # <a name="verify-traffic-manager-settings"></a>Verificar definições do Gestor de Tráfego
@@ -70,4 +70,4 @@ Em alternativa, existem serviços gratuitos de procura e escavação de DNS base
 
 * [Sobre os métodos de encaminhamento de tráfego do Gestor de Tráfego](traffic-manager-routing-methods.md)
 * [Considerações de desempenho para o Gestor de Tráfego](traffic-manager-performance-considerations.md)
-* [Resolução de problemas do estado degradado do Gestor de Tráfego](traffic-manager-troubleshooting-degraded.md)
+* [Resolução de problemas do estado degradado do Traffic Manager](traffic-manager-troubleshooting-degraded.md)

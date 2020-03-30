@@ -1,6 +1,6 @@
 ---
-title: Cópia em massa de um banco de dados usando a tabela de controle
-description: Saiba como usar um modelo de solução para copiar dados em massa de um banco de dado usando uma tabela de controle externo para armazenar uma lista de partições de tabelas de origem usando Azure Data Factory.
+title: Cópia a granel de uma base de dados utilizando tabela de controlo
+description: Aprenda a utilizar um modelo de solução para copiar dados a granel a partir de uma base de dados utilizando uma tabela de controlo externo para armazenar uma lista de tabelas de divisórias utilizando a Azure Data Factory.
 services: data-factory
 author: dearandyxu
 ms.author: yexu
@@ -12,41 +12,41 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/14/2018
 ms.openlocfilehash: 3a42d7da21cfb2e3066fbdd81b27c82155d8456f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75439941"
 ---
-# <a name="bulk-copy-from-a-database-with-a-control-table"></a>Cópia em massa de um banco de dados com uma tabela de controle
+# <a name="bulk-copy-from-a-database-with-a-control-table"></a>Cópia a granel de uma base de dados com uma tabela de controlo
 
-Para copiar dados de um data warehouse no Oracle Server, Netezza, Teradata ou SQL Server para o Azure SQL Data Warehouse, você precisa carregar enormes quantidades de dados de várias tabelas. Normalmente, os dados têm que ser particionados em cada tabela para que você possa carregar linhas com vários threads em paralelo a partir de uma única tabela. Este artigo descreve um modelo a ser usado nesses cenários.
+Para copiar dados de um armazém de dados no Oracle Server, Netezza, Teradata ou SQL Server para o Azure SQL Data Warehouse, tem de carregar enormes quantidades de dados a partir de várias tabelas. Normalmente, os dados têm de ser divididos em cada tabela para que possa carregar linhas com vários fios em paralelo a partir de uma única tabela. Este artigo descreve um modelo para usar nestes cenários.
 
- >! Observação Se você quiser copiar dados de um pequeno número de tabelas com volume de dados relativamente pequeno para SQL Data Warehouse, será mais eficiente usar a ferramenta de [copiar dados de Azure data Factory](copy-data-tool.md). O modelo descrito neste artigo é mais do que você precisa para esse cenário.
+ >! NOTA Se pretender copiar dados de um pequeno número de tabelas com volume de dados relativamente pequeno para o SQL Data Warehouse, é mais eficiente utilizar a ferramenta de dados de cópia de cópia de dados da fábrica de [dados do Azure Data](copy-data-tool.md). O modelo descrito neste artigo é mais do que você precisa para esse cenário.
 
 ## <a name="about-this-solution-template"></a>Sobre este modelo de solução
 
-Este modelo recupera uma lista de partições de banco de dados de origem para copiar de uma tabela de controle externa. Em seguida, ela faz a iteração em cada partição no banco de dados de origem e a copia para o destino.
+Este modelo recupera uma lista de divisórias de base de dados de origem para copiar a partir de uma tabela de controlo externo. Em seguida, iterates sobre cada divisória na base de dados de origem e copia os dados para o destino.
 
 O modelo contém três atividades:
-- **Lookup** recupera a lista de partições de banco de dados de uma tabela de controle externa.
-- **Foreach** Obtém a lista de partições da atividade de pesquisa e itera cada partição para a atividade de cópia.
-- **Copiar** copia cada partição do repositório de banco de dados de origem para o repositório de destino.
+- **A procura** recupera a lista de divisórias seguras de uma tabela de controlo externo.
+- **ForEach** obtém a lista de partição da atividade Lookup e itera cada partição para a atividade copy.
+- **Copie** cópias de cada partição da loja de bases de dados de origem para a loja de destino.
 
 O modelo define os seguintes parâmetros:
-- *Control_Table_Name* é a tabela de controle externa, que armazena a lista de partições para o banco de dados de origem.
-- *Control_Table_Schema_PartitionID* é o nome do nome da coluna na tabela de controle externo que armazena cada ID de partição. Verifique se a ID da partição é exclusiva para cada partição no banco de dados de origem.
-- *Control_Table_Schema_SourceTableName* é a tabela de controle externo que armazena cada nome de tabela do banco de dados de origem.
-- *Control_Table_Schema_FilterQuery* é o nome da coluna na tabela de controle externo que armazena a consulta de filtro para obter os dados de cada partição no banco de dados de origem. Por exemplo, se você particionou os dados por ano, a consulta armazenada em cada linha pode ser semelhante a ' Select * from DataSource, em que LastModifytime > = ' ' ' 2015-01-01 00:00:00 ' ' e LastModifytime < = ' ' 2015-12-31 23:59:59.999 ' ' '.
-- *Data_Destination_Folder_Path* é o caminho em que os dados são copiados no armazenamento de destino (aplicável quando o destino escolhido é "sistema de arquivos" ou "Azure data Lake Storage Gen1"). 
-- *Data_Destination_Container* é o caminho da pasta raiz para onde os dados são copiados no armazenamento de destino. 
-- *Data_Destination_Directory* é o caminho do diretório sob a raiz onde os dados são copiados para o armazenamento de destino. 
+- *Control_Table_Name* é a sua tabela de controlo externo, que armazena a lista de partição para a base de dados de origem.
+- *Control_Table_Schema_PartitionID* é o nome do nome da coluna na sua tabela de controlo externo que armazena cada id de partição. Certifique-se de que o ID de partição é único para cada partição na base de dados de origem.
+- *Control_Table_Schema_SourceTableName* é a sua tabela de controlo externo que armazena cada nome de mesa a partir da base de dados fonte.
+- *Control_Table_Schema_FilterQuery* é o nome da coluna na sua tabela de controlo externo que armazena a consulta do filtro para obter os dados de cada partição na base de dados de origem. Por exemplo, se dividiu os dados por ano, a consulta que é armazenada em cada linha pode ser semelhante a 'select * a partir de datasource onde lastModificartime >= ''2015-01-01 00:00:00'' e LastModifytime <= ''2015-12-31 23:59:59.999'''"
+- *Data_Destination_Folder_Path* é o caminho onde os dados são copiados para a sua loja de destino (aplicável quando o destino que escolhe é "File System" ou "Azure Data Lake Storage Gen1"). 
+- *Data_Destination_Container* é o caminho da pasta de raiz para onde os dados são copiados na sua loja de destino. 
+- *Data_Destination_Directory* é o caminho do diretório sob a raiz onde os dados são copiados para a sua loja de destino. 
 
-Os últimos três parâmetros, que definem o caminho no armazenamento de destino, só estarão visíveis se o destino escolhido for um armazenamento baseado em arquivo. Se você escolher "Azure Synapse Analytics (anteriormente conhecido como SQL DW)" como o armazenamento de destino, esses parâmetros não serão necessários. Mas os nomes de tabela e o esquema em SQL Data Warehouse devem ser iguais aos do banco de dados de origem.
+Os três últimos parâmetros, que definem o caminho na sua loja de destino, só são visíveis se o destino que escolher for armazenamento baseado em ficheiros. Se escolher "Azure Synapse Analytics (anteriormente SQL DW)" como loja de destino, estes parâmetros não são necessários. Mas os nomes das tabelas e o esquema no Armazém de Dados SQL devem ser os mesmos que os da base de dados de origem.
 
 ## <a name="how-to-use-this-solution-template"></a>Como usar este modelo de solução
 
-1. Crie uma tabela de controle no SQL Server ou no banco de dados SQL do Azure para armazenar a lista de partições de banco de dados de origem para cópia em massa. No exemplo a seguir, há cinco partições no banco de dados de origem. Três partições são para o *datasource_table*e duas são para o *project_table*. A coluna *LastModifytime* é usada para particionar os dados na tabela *datasource_table* do banco de dados de origem. A consulta usada para ler a primeira partição é ' Select * from datasource_table em que LastModifytime > = ' ' 2015-01-01 00:00:00 ' ' e LastModifytime < = ' ' 2015-12-31 23:59:59.999 ' ' '. Você pode usar uma consulta semelhante para ler dados de outras partições.
+1. Crie uma tabela de controlo no SQL Server ou na Base de Dados Azure SQL para armazenar a lista de divisórias de base de dados de origem para cópia a granel. No exemplo seguinte, existem cinco divisórias na base de dados de origem. Três divisórias são para o *datasource_table*, e duas são para o *project_table*. A coluna *LastModificatime* é utilizada para dividir os dados na tabela *datasource_table* a partir da base de dados fonte. A consulta que é usada para ler a primeira partição é 'select * de datasource_table onde lastModificatime >= ''2015-01-01 00:00:00'' e LastModifytime <= ''2015-12-31 23:59:59.999'''. Pode utilizar uma consulta semelhante para ler dados de outras divisórias.
 
      ```sql
             Create table ControlTableForTemplate
@@ -66,35 +66,35 @@ Os últimos três parâmetros, que definem o caminho no armazenamento de destino
             (5, 'project_table','select * from project_table where ID >= 1000 and ID < 2000');
     ```
 
-2. Vá para o modelo **cópia em massa do banco de dados** . Crie uma **nova** conexão com a tabela de controle externo que você criou na etapa 1.
+2. Vá à cópia a granel do modelo **base de dados.** Crie uma **nova** ligação à tabela de controlo externo que criou no passo 1.
 
-    ![Criar uma nova conexão com a tabela de controle](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable2.png)
+    ![Criar uma nova ligação à tabela de controlo](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable2.png)
 
-3. Crie uma **nova** conexão com o banco de dados de origem para o qual você está copiando o dado.
+3. Crie uma **nova** ligação à base de dados de origem da qual está a copiar dados.
 
-    ![Criar uma nova conexão com o banco de dados de origem](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png)
+    ![Criar uma nova ligação à base de dados de origem](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png)
     
-4. Crie uma **nova** conexão com o armazenamento de dados de destino para o qual você está copiando os dados.
+4. Crie uma **nova** ligação à loja de dados de destino para a qual está a copiar os dados.
 
-    ![Criar uma nova conexão com o repositório de destino](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable4.png)
+    ![Criar uma nova ligação à loja de destino](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable4.png)
 
-5. Selecione **Utilizar este modelo**.
+5. Selecione **Utilize este modelo**.
 
-6. Você verá o pipeline, conforme mostrado no exemplo a seguir:
+6. Vê o gasoduto, como mostra o seguinte exemplo:
 
-    ![Examinar o pipeline](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png)
+    ![Reveja o oleoduto](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png)
 
-7. Selecione **depurar**, insira os **parâmetros**e, em seguida, selecione **concluir**.
+7. Selecione **Debug,** introduza os **Parâmetros**e, em seguida, selecione **Terminar**.
 
-    ![Clique em * * Depurar * *](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable7.png)
+    ![Clique em **Debug**](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable7.png)
 
-8. Você verá resultados semelhantes ao exemplo a seguir:
+8. Vê resultados semelhantes aos seguintes exemplos:
 
-    ![Examinar o resultado](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
+    ![Reveja o resultado](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. Adicional Se você escolheu "Azure Synapse Analytics (anteriormente conhecido como SQL DW)" como o destino de dados, deverá inserir uma conexão com o armazenamento de BLOBs do Azure para preparo, conforme exigido pelo SQL Data Warehouse polybase. O modelo gerará automaticamente um caminho de contêiner para o armazenamento de BLOBs. Verifique se o contêiner foi criado após a execução do pipeline.
+9. (Opcional) Se escolheu "Azure Synapse Analytics (anteriormente SQL DW)" como destino de dados, deve introduzir uma ligação ao armazenamento Azure Blob para encenação, conforme exigido pela SQL Data Warehouse Polybase. O modelo gerará automaticamente um caminho de contentor estoque para o seu armazenamento Blob. Verifique se o recipiente foi criado após a execução do gasoduto.
     
-    ![Configuração do polybase](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
+    ![Definição de polibase](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
        
 ## <a name="next-steps"></a>Passos seguintes
 

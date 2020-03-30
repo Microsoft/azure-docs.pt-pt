@@ -1,6 +1,6 @@
 ---
-title: Transformar dados usando a atividade de procedimento armazenado
-description: Explica como usar SQL Server atividade de procedimento armazenado para invocar um procedimento armazenado em um banco de dados SQL do Azure/data warehouse de um pipeline Data Factory.
+title: Transformar dados utilizando a atividade do Procedimento Armazenado
+description: Explica como utilizar a Atividade de Procedimento Armazenada do Servidor SQL para invocar um procedimento armazenado numa Base de Dados/Armazém de Dados Azure SQL a partir de um pipeline data factory.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -12,37 +12,37 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
 ms.openlocfilehash: 4a0709b4eaa8742069eecb4c39712e384645304b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74926667"
 ---
-# <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformar dados usando a SQL Server atividade de procedimento armazenado no Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
+# <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transforme os dados utilizando a atividade do Procedimento Armazenado do Servidor SQL na Fábrica de Dados Azure
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-stored-proc-activity.md)
 > * [Versão atual](transform-data-using-stored-procedure.md)
 
-Você usa atividades de transformação de dados em um [pipeline](concepts-pipelines-activities.md) data Factory para transformar e processar dados brutos em previsões e ideias. A atividade de procedimento armazenado é uma das atividades de transformação às quais Data Factory dá suporte. Este artigo se baseia no artigo [transformar dados](transform-data.md) , que apresenta uma visão geral da transformação de dados e das atividades de transformação com suporte no data Factory.
+Utiliza atividades de transformação de dados num [oleoduto](concepts-pipelines-activities.md) data factory para transformar e processar dados brutos em previsões e insights. A Atividade de Procedimento Armazenado é uma das atividades de transformação que a Data Factory suporta. Este artigo baseia-se no artigo de transformação de [dados,](transform-data.md) que apresenta uma visão geral da transformação de dados e das atividades de transformação apoiadas na Data Factory.
 
 > [!NOTE]
-> Se você for novo no Azure Data Factory, leia a [introdução ao Azure data Factory](introduction.md) e faça o tutorial: [tutorial: transformar dados](tutorial-transform-data-spark-powershell.md) antes de ler este artigo. 
+> Se é novo na Azure Data Factory, leia através da [Introdução à Azure Data Factory](introduction.md) e faça o tutorial: [Tutorial: transforme dados](tutorial-transform-data-spark-powershell.md) antes de ler este artigo. 
 
-Você pode usar a atividade de procedimento armazenado para invocar um procedimento armazenado em um dos seguintes repositórios de dados em sua empresa ou em uma VM (máquina virtual) do Azure: 
+Pode utilizar a Atividade do Procedimento Armazenado para invocar um procedimento armazenado numa das seguintes lojas de dados da sua empresa ou numa máquina virtual Azure (VM): 
 
 - Base de Dados SQL do Azure
-- Armazém de Dados SQL do Azure
-- SQL Server banco de dados.  Se você estiver usando SQL Server, instale o tempo de execução de integração auto-hospedado no mesmo computador que hospeda o banco de dados ou em um computador separado que tenha acesso ao banco de dados. O tempo de execução de integração auto-hospedado é um componente que conecta fontes de dados locais/na VM do Azure com serviços de nuvem de maneira segura e gerenciada. Confira o artigo de [tempo de execução de integração auto-hospedado](create-self-hosted-integration-runtime.md) para obter detalhes.
+- Azure SQL Data Warehouse
+- Base de dados do Servidor SQL.  Se estiver a utilizar o SQL Server, instale o tempo de execução de integração auto-hospedado na mesma máquina que acolhe a base de dados ou numa máquina separada que tenha acesso à base de dados. O tempo de execução de integração auto-hospedado é um componente que liga fontes de dados no local/no Azure VM com serviços na nuvem de forma segura e gerida. Consulte o artigo de tempo de execução de [integração auto-hospedado](create-self-hosted-integration-runtime.md) para mais detalhes.
 
 > [!IMPORTANT]
-> Durante a cópia de dados no Azure SQL Database ou SQL Server, você pode configurar o **sqlsink** na atividade de cópia para invocar um procedimento armazenado usando a propriedade **sqlWriterStoredProcedureName** . Para obter detalhes sobre a propriedade, consulte os seguintes artigos de conector: [banco de dados SQL do Azure](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md). Não há suporte para invocar um procedimento armazenado ao copiar dados em uma SQL Data Warehouse do Azure usando uma atividade de cópia. Mas, você pode usar a atividade de procedimento armazenado para invocar um procedimento armazenado em um SQL Data Warehouse. 
+> Ao copiar dados para a Base de Dados Azure SQL ou para o Servidor SQL, pode configurar o **SqlSink** na atividade de cópia para invocar um procedimento armazenado utilizando a propriedade **sqlWriterStoredProcedureName.** Para mais detalhes sobre a propriedade, consulte os seguintes artigos de conector: [Base de Dados Azure SQL,](connector-azure-sql-database.md) [Servidor SQL](connector-sql-server.md). Invocar um procedimento armazenado enquanto copia dados num Armazém de Dados Azure SQL utilizando uma atividade de cópia não é suportado. Mas pode utilizar a atividade do procedimento armazenado para invocar um procedimento armazenado num Armazém de Dados SQL. 
 >
-> Ao copiar dados do Azure SQL Database ou SQL Server ou do SQL Data Warehouse do Azure, você pode configurar **sqlsource** na atividade de cópia para invocar um procedimento armazenado para ler dados do banco de dados de origem usando a propriedade **sqlReaderStoredProcedureName** . Para obter mais informações, consulte os seguintes artigos de conector: [banco de dados SQL do Azure](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure SQL data warehouse](connector-azure-sql-data-warehouse.md)          
+> Ao copiar dados da Base de Dados Azure SQL ou do SQL Server ou do Azure SQL Data Warehouse, pode configurar o **SqlSource** na atividade de cópia para invocar um procedimento armazenado para ler dados da base de dados de origem utilizando a propriedade **SqlReaderStoredProcedureName.** Para mais informações, consulte os seguintes artigos de conector: Base de [Dados Azure SQL,](connector-azure-sql-database.md) [Servidor SQL,](connector-sql-server.md)Armazém de [Dados Azure SQL](connector-azure-sql-data-warehouse.md)          
 
  
 
 ## <a name="syntax-details"></a>Detalhes da sintaxe
-Este é o formato JSON para definir uma atividade de procedimento armazenado:
+Aqui está o formato JSON para definir uma Atividade de Procedimento Armazenada:
 
 ```json
 {
@@ -64,41 +64,41 @@ Este é o formato JSON para definir uma atividade de procedimento armazenado:
 }
 ```
 
-A tabela a seguir descreve essas propriedades JSON:
+A tabela seguinte descreve estas propriedades JSON:
 
-| Propriedade                  | Descrição                              | Obrigatório |
+| Propriedade                  | Descrição                              | Necessário |
 | ------------------------- | ---------------------------------------- | -------- |
 | nome                      | Nome da atividade                     | Sim      |
-| descrição               | Texto que descreve para que a atividade é usada | Não       |
-| tipo                      | Para a atividade de procedimento armazenado, o tipo de atividade é **SqlServerStoredProcedure** | Sim      |
-| linkedServiceName         | Referência ao **banco de dados SQL do Azure** ou ao **azure SQL data warehouse** ou **SQL Server** registrado como um serviço vinculado no data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Serviços vinculados de computação](compute-linked-services.md) . | Sim      |
-| storedProcedureName       | Especifique o nome do procedimento armazenado a ser invocado. | Sim      |
-| storedProcedureParameters | Especifique os valores para parâmetros de procedimento armazenado. Use `"param1": { "value": "param1Value","type":"param1Type" }` para passar valores de parâmetro e seu tipo com suporte pela fonte de dados. Se você precisar passar NULL para um parâmetro, use `"param1": { "value": null }` (todas as letras minúsculas). | Não       |
+| descrição               | Texto descrevendo para que a atividade é usada | Não       |
+| tipo                      | Para a atividade do procedimento armazenado, o tipo de atividade é **SqlServerStoredProcedure** | Sim      |
+| linkedServiceName         | Referência à Base de **Dados Azure SQL** ou **Azure SQL Data Warehouse** ou **SQL Server** registado como um serviço ligado na Data Factory. Para conhecer este serviço ligado, consulte o artigo de [serviços ligados à Compute.](compute-linked-services.md) | Sim      |
+| nome de procedimento armazenado       | Especifique o nome do procedimento armazenado para invocar. | Sim      |
+| parâmetros de procedimento saqueados | Especifique os valores dos parâmetros de procedimento armazenados. Utilize `"param1": { "value": "param1Value","type":"param1Type" }` para passar os valores dos parâmetros e o seu tipo suportado pela fonte de dados. Se precisar de passar nulo para `"param1": { "value": null }` um parâmetro, utilize (todos os casos inferiores). | Não       |
 
-## <a name="parameter-data-type-mapping"></a>Mapeamento de tipo de dados de parâmetro
-O tipo de dados especificado para o parâmetro é o tipo de Azure Data Factory que é mapeado para o tipo de dados na fonte de dados que você está usando. Você pode encontrar os mapeamentos de tipo de dados para sua fonte de dados na área conectores. Alguns exemplos são
+## <a name="parameter-data-type-mapping"></a>Mapeamento do tipo de dados do parâmetro
+O tipo de dados que especifica para o parâmetro é o tipo Azure Data Factory que mapeia para o tipo de dados na fonte de dados que está a utilizar. Pode encontrar os mapeamentos do tipo de dados para a sua fonte de dados na área dos conectores. Alguns exemplos são
 
-| Origem de Dados          | Mapeamento de tipo de dados |
+| Origem de Dados          | Mapeamento do tipo de dados |
 | ---------------------|-------------------|
-| Armazém de Dados SQL do Azure | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
+| Azure SQL Data Warehouse | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
 | Base de Dados SQL do Azure   | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
 | Oracle               | https://docs.microsoft.com/azure/data-factory/connector-oracle#data-type-mapping-for-oracle |
 | SQL Server           | https://docs.microsoft.com/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |
 
 
-## <a name="error-info"></a>Informações do erro
+## <a name="error-info"></a>Informação de erro
 
-Quando um procedimento armazenado falha e retorna detalhes do erro, você não pode capturar as informações do erro diretamente na saída da atividade. No entanto, Data Factory bombas todos os eventos de execução de sua atividade para Azure Monitor. Entre os eventos que Data Factory bombas Azure Monitor, ele envia detalhes do erro por push. Você pode, por exemplo, configurar alertas de email a partir desses eventos. Para obter mais informações, consulte [alertas e monitorar fábricas de dados usando Azure monitor](monitor-using-azure-monitor.md).
+Quando um procedimento armazenado falha e devolve detalhes de erro, não é possível capturar a informação de erro diretamente na saída de atividade. No entanto, a Data Factory bombeia todos os eventos de execução de atividade para o Monitor Azure. Entre os eventos que a Data Factory bombeia para o Monitor Azure, coloca ali detalhes de erro. Pode, por exemplo, configurar alertas de e-mail desses eventos. Para mais informações, consulte as fábricas de dados Alert e Monitor utilizando o [Monitor Azure](monitor-using-azure-monitor.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte os seguintes artigos que explicam como transformar dados de outras maneiras: 
+Consulte os seguintes artigos que explicam como transformar dados de outras formas: 
 
-* [Atividade de U-SQL](transform-data-using-data-lake-analytics.md)
-* [Atividade do hive](transform-data-using-hadoop-hive.md)
-* [Atividade Pig](transform-data-using-hadoop-pig.md)
-* [Atividade MapReduce](transform-data-using-hadoop-map-reduce.md)
-* [Atividade de streaming do Hadoop](transform-data-using-hadoop-streaming.md)
-* [Atividade do Spark](transform-data-using-spark.md)
+* [Atividade U-SQL](transform-data-using-data-lake-analytics.md)
+* [Atividade da Colmeia](transform-data-using-hadoop-hive.md)
+* [Atividade do Porco](transform-data-using-hadoop-pig.md)
+* [MapReduce Atividade](transform-data-using-hadoop-map-reduce.md)
+* [Atividade de streaming de hadoop](transform-data-using-hadoop-streaming.md)
+* [Atividade de Faísca](transform-data-using-spark.md)
 * [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning atividade de execução Bach](transform-data-using-machine-learning.md)
+* [Atividade de execução de Bach de aprendizagem automática](transform-data-using-machine-learning.md)
 * [Atividade de procedimento armazenado](transform-data-using-stored-procedure.md)

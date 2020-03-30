@@ -1,6 +1,6 @@
 ---
-title: Usar o gerenciamento de API do Azure com microservices implantados no serviço kubernetes do Azure | Microsoft Docs
-description: Este artigo descreve as opções de implantação do gerenciamento de API com o AKS
+title: Utilizar a Azure API Management com microserviços implantados no Serviço Azure Kubernetes [ Microsoft Docs
+description: Este artigo descreve as opções de implementação da Gestão aPI com AKS
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -13,115 +13,115 @@ ms.topic: article
 ms.date: 12/14/2019
 ms.author: apimpm
 ms.openlocfilehash: 1d6773b4daac256234c33bf50fb3736d585ac505
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75480999"
 ---
-# <a name="use-azure-api-management-with-microservices-deployed-in-azure-kubernetes-service"></a>Usar o gerenciamento de API do Azure com microservices implantados no serviço kubernetes do Azure
+# <a name="use-azure-api-management-with-microservices-deployed-in-azure-kubernetes-service"></a>Utilizar a Azure API Management com microserviços implantados no Serviço Azure Kubernetes
 
-Os microserviços são perfeitos para a criação de APIs. Com o AKs ( [serviço kubernetes do Azure](https://azure.microsoft.com/services/kubernetes-service/) ), você pode implantar e operar rapidamente uma [arquitetura baseada em microserviços](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/microservices) na nuvem. Em seguida, você pode aproveitar o [Gerenciamento de API do Azure](https://aka.ms/apimrocks) (gerenciamento de API) para publicar seus microserviços como APIs para consumo interno e externo. Este artigo descreve as opções de implantação do gerenciamento de API com o AKS. Ele assume o conhecimento básico do kubernetes, do gerenciamento de API e da rede do Azure. 
+Os microserviços são perfeitos para a construção de APIs. Com o [Serviço Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/) (AKS), pode implementar rapidamente e operar uma arquitetura baseada em [microserviços](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/microservices) na nuvem. Em seguida, pode aproveitar a [Azure API Management](https://aka.ms/apimrocks) (API Management) para publicar os seus microserviços como APIs para consumo interno e externo. Este artigo descreve as opções de implementação da Gestão aPI com AKS. Assume conhecimentos básicos de Kubernetes, API Management e Azure networking. 
 
 ## <a name="background"></a>Segundo plano
 
-Ao publicar os microserviços como APIs para consumo, pode ser desafiador gerenciar a comunicação entre os microserviço e os clientes que os consomem. Há uma infinidade de preocupações abrangentes, como autenticação, autorização, limitação, Caching, transformação e monitoramento. Essas preocupações são válidas independentemente se os microserviços são expostos a clientes internos ou externos. 
+Ao publicar microserviços como APIs para consumo, pode ser desafiante gerir a comunicação entre os microserviços e os clientes que os consomem. Há uma multiplicidade de preocupações transversais como a autenticação, autorização, estrangulamento, cache, transformação e monitorização. Estas preocupações são válidas independentemente de os microserviços estarem expostos a clientes internos ou externos. 
 
-O padrão de [Gateway de API](https://docs.microsoft.com/dotnet/architecture/microservices/architect-microservice-container-applications/direct-client-to-microservice-communication-versus-the-api-gateway-pattern) aborda essas preocupações. Um gateway de API serve como uma porta de front-end para os microserviços, dissocia clientes de seus microserviços, adiciona uma camada adicional de segurança e diminui a complexidade de seus microserviços removendo a carga de lidar com preocupações de corte cruzada. 
+O padrão [API Gateway](https://docs.microsoft.com/dotnet/architecture/microservices/architect-microservice-container-applications/direct-client-to-microservice-communication-versus-the-api-gateway-pattern) aborda estas preocupações. Um portal DaPI serve de porta de entrada para os microserviços, dissocia clientes dos seus microserviços, adiciona uma camada adicional de segurança, e diminui a complexidade dos seus microserviços, removendo o fardo de lidar com preocupações de corte cruzado. 
 
-O [Gerenciamento de API do Azure](https://aka.ms/apimrocks) é uma solução completa para resolver suas necessidades de gateway de API. Você pode criar rapidamente um gateway consistente e moderno para seus microserviços e publicá-los como APIs. Como uma solução de gerenciamento de API de ciclo de vida completo, ela também fornece recursos adicionais, incluindo um portal de desenvolvedor de autoatendimento para descoberta de API, gerenciamento de ciclo de vida de API e análise de API.
+[A Azure API Management](https://aka.ms/apimrocks) é uma solução chave na mão para resolver as suas necessidades de gateway API. Você pode rapidamente criar uma porta de entrada consistente e moderna para os seus microserviços e publicá-los como APIs. Como solução de gestão de API de ciclo de vida completo, também fornece capacidades adicionais, incluindo um portal de desenvolvimento de self-service para descoberta de API, gestão de ciclo de vida API e análise de API.
 
-Quando usados juntos, o AKS e o gerenciamento de API fornecem uma plataforma para implantar, publicar, proteger, monitorar e gerenciar suas APIs baseadas em microserviços. Neste artigo, veremos algumas opções de implantação do AKS em conjunto com o gerenciamento de API. 
+Quando utilizados em conjunto, a AKS e a API Management fornecem uma plataforma para a implementação, publicação, segurança, monitorização e gestão das suas APIs baseadas em microserviços. Neste artigo, vamos analisar algumas opções de implantação de AKS em conjunto com a API Management. 
 
-## <a name="kubernetes-services-and-apis"></a>Serviços e APIs do kubernetes
+## <a name="kubernetes-services-and-apis"></a>Serviços kubernetes e APIs
 
-Em um cluster kubernetes, os contêineres são implantados em [pods](https://kubernetes.io/docs/concepts/workloads/pods/pod/), que são efêmeros e têm um ciclo de vida. Quando um nó de trabalho se tornar inativo, o pods em execução no nó será perdido. Portanto, o endereço IP de um pod pode ser alterado a qualquer momento. Não podemos depender dele para se comunicar com o pod. 
+Num aglomerado de Kubernetes, os contentores são implantados em [Pods,](https://kubernetes.io/docs/concepts/workloads/pods/pod/)que são efémeros e têm um ciclo de vida. Quando um nó de operário morre, os Pods que correm no nó perdem-se. Portanto, o endereço IP de um Pod pode ser alterado a qualquer momento. Não podemos confiar nele para comunicar com a cápsula. 
 
-Para resolver esse problema, o kubernetes introduziu o conceito de [Serviços](https://kubernetes.io/docs/concepts/services-networking/service/). Um serviço kubernetes é uma camada de abstração que define um grupo lógico de pods e permite exposição de tráfego externo, balanceamento de carga e descoberta de serviço para esses pods. 
+Para resolver este problema, a Kubernetes introduziu o conceito de [Serviços.](https://kubernetes.io/docs/concepts/services-networking/service/) Um Serviço Kubernetes é uma camada de abstração que define um grupo lógico de Pods e permite exposição externa ao tráfego, equilíbrio de carga e descoberta de serviço para esses Pods. 
 
-Quando estamos prontos para publicar nossos microserviços como APIs por meio do gerenciamento de API, precisamos pensar em como mapear nossos serviços em kubernetes para APIs no gerenciamento de API. Não há regras de conjunto. Depende de como você criou e particionou seus recursos de negócios ou domínios em microserviços no início. Por exemplo, se o pods por trás de um serviço for responsável por todas as operações em um determinado recurso (por exemplo, cliente), o serviço poderá ser mapeado para uma API. Se as operações em um recurso forem particionadas em vários microserviços (por exemplo, GetOrder, PlaceOrder), vários serviços poderão ser logicamente agregados em uma única API no gerenciamento de API (consulte Fig. 1). 
+Quando estivermos prontos para publicar os nossos microserviços como APIs através da API Management, precisamos de pensar em como mapear os nossos Serviços em Kubernetes para APIs em Gestão de API. Não há regras definidas. Depende de como concebeu e dividiu as suas capacidades de negócio ou domínios em microserviços no início. Por exemplo, se as cápsulas por trás de um Serviço forem responsáveis por todas as operações num determinado recurso (por exemplo, Cliente), o Serviço pode ser mapeado para uma API. Se as operações num recurso forem divididas em múltiplos microserviços (por exemplo, GetOrder, PlaceOrder), então vários Serviços podem ser logicamente agregados numa única API na gestão da API (Ver Fig. 1). 
 
-Os mapeamentos também podem evoluir. Como o gerenciamento de API cria uma fachada na frente dos microserviços, ele nos permite Refatorar e dimensionar os nossos microserviços ao longo do tempo. 
+Os mapeamentos também podem evoluir. Uma vez que a API Management cria uma fachada em frente aos microserviços, permite-nos refactore e tamanho certo os nossos microserviços ao longo do tempo. 
 
-![Mapear serviços para APIs](./media/api-management-aks/service-api-mapping.png)
+![Serviços de mapas para APIs](./media/api-management-aks/service-api-mapping.png)
 
-## <a name="deploy-api-management-in-front-of-aks"></a>Implantar o gerenciamento de API na frente do AKS
+## <a name="deploy-api-management-in-front-of-aks"></a>Implementar Gestão aPI em frente à AKS
 
-Há algumas opções de implantação do gerenciamento de API na frente de um cluster AKS. 
+Existem algumas opções de implementação da Gestão API em frente a um cluster AKS. 
 
-Embora um cluster AKS sempre seja implantado em uma VNet (rede virtual), uma instância de gerenciamento de API não precisa ser implantada em uma VNet. Quando o gerenciamento de API não reside na VNet do cluster, o cluster AKS precisa publicar pontos de extremidade públicos para o gerenciamento de API se conectar ao. Nesse caso, há a necessidade de proteger a conexão entre o gerenciamento de API e o AKS. Em outras palavras, precisamos garantir que o cluster só possa ser acessado exclusivamente por meio do gerenciamento de API. Vamos percorrer as opções. 
+Embora um cluster AKS seja sempre implantado numa rede virtual (VNet), uma instância de Gestão API não é necessária para ser implantada num VNet. Quando a API Management não reside dentro do cluster VNet, o cluster AKS tem de publicar pontos finais públicos para a API Management ligar-se. Nesse caso, é necessário assegurar a ligação entre a API Management e a AKS. Por outras palavras, temos de garantir que o cluster só pode ser acedido exclusivamente através da Gestão API. Vamos ver as opções. 
 
-### <a name="option-1-expose-services-publicly"></a>Opção 1: expor serviços publicamente
+### <a name="option-1-expose-services-publicly"></a>Opção 1: Expor serviços publicamente
 
-Os serviços em um cluster AKs podem ser expostos publicamente usando [tipos de serviço](https://docs.microsoft.com/azure/aks/concepts-network) de NodePort, Balancer ou externalname. Nesse caso, os serviços podem ser acessados diretamente da Internet pública. Depois de implantar o gerenciamento de API na frente do cluster, precisamos garantir que todo o tráfego de entrada passe pelo gerenciamento de API aplicando a autenticação nos microserviços. Por exemplo, o gerenciamento de API pode incluir um token de acesso em cada solicitação feita ao cluster. Cada microserviço é responsável por validar o token antes de processar a solicitação. 
+Os serviços num cluster AKS podem ser expostos publicamente utilizando tipos de [serviço](https://docs.microsoft.com/azure/aks/concepts-network) de NodePort, LoadBalancer ou ExternalName. Neste caso, os serviços são acessíveis diretamente da internet pública. Depois de implantar a API Management em frente ao cluster, precisamos de garantir que todo o tráfego de entrada passa pela API Management aplicando a autenticação nos microserviços. Por exemplo, a API Management pode incluir um sinal de acesso em cada pedido feito ao cluster. Cada microserviço é responsável pela validação do símbolo antes de processar o pedido. 
 
 
-Essa pode ser a opção mais fácil de implantar o gerenciamento de API na frente do AKS, especialmente se você já tiver a lógica de autenticação implementada em seus microserviços. 
+Esta pode ser a opção mais fácil de implementar a API Management em frente ao AKS, especialmente se já tiver a lógica de autenticação implementada nos seus microserviços. 
 
 ![Publicar serviços diretamente](./media/api-management-aks/direct.png)
 
 Prós:
-* Configuração fácil no lado do gerenciamento de API porque ele não precisa ser injetado na VNet do cluster
-* Nenhuma alteração no lado do AKS se os serviços já estão expostos publicamente e se a lógica de autenticação já existe em microserviços
+* Configuração fácil no lado da Gestão API porque não precisa de ser injetada no cluster VNet
+* Nenhuma mudança do lado aks se os Serviços já estão expostos publicamente e a lógica de autenticação já existe nos microserviços
 
 Contras:
-* Possível risco de segurança devido à visibilidade pública dos pontos de extremidade de serviço
-* Nenhum ponto de entrada única para tráfego de cluster de entrada
+* Risco potencial de segurança devido à visibilidade pública dos pontos finais do Serviço
+* Nenhum ponto de entrada única para o tráfego de cluster de entrada
 * Complica os microserviços com lógica de autenticação duplicada
 
-### <a name="option-2-install-an-ingress-controller"></a>Opção 2: instalar um controlador de entrada
+### <a name="option-2-install-an-ingress-controller"></a>Opção 2: Instalar um Controlador De Entrada
 
-Embora a opção 1 possa ser mais fácil, ela tem desvantagens notáveis, conforme mencionado acima. Se uma instância de gerenciamento de API não residir na VNet do cluster, a mTLS (autenticação TLS mútua) é uma maneira robusta de garantir que o tráfego é seguro e confiável em ambas as direções entre uma instância de gerenciamento de API e um cluster AKS. 
+Embora a opção 1 possa ser mais fácil, tem desvantagens notáveis como mencionado acima. Se uma instância de Gestão API não residir no cluster VNet, a autenticação Mútua TLS (mTLS) é uma forma robusta de garantir que o tráfego é seguro e confiável em ambas as direções entre uma instância de Gestão API e um cluster AKS. 
 
-A autenticação TLS mútua tem [suporte nativo](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates) do gerenciamento de API e pode ser habilitada no kubernetes [instalando um controlador de entrada](https://docs.microsoft.com/azure/aks/ingress-own-tls) (Fig. 3). Como resultado, a autenticação será executada no controlador de entrada, o que simplifica os microserviços. Além disso, você pode adicionar os endereços IP do gerenciamento de API à lista de permissões por entrada para garantir que somente o gerenciamento de API tenha acesso ao cluster.  
+A autenticação Mútua TLS é [apoiada de forma nativa](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates) pela API Management e pode ser ativada em Kubernetes [instalando um Controlador Ingress](https://docs.microsoft.com/azure/aks/ingress-own-tls) (Fig. 3). Como resultado, a autenticação será realizada no Controlador Ingress, que simplifica os microserviços. Além disso, pode adicionar os endereços IP da API Management à lista permitida pela Ingress para garantir que apenas a API Management tem acesso ao cluster.  
 
  
-![Publicar por meio de um controlador de entrada](./media/api-management-aks/ingress-controller.png)
+![Publicar através de um controlador de ingresso](./media/api-management-aks/ingress-controller.png)
 
 
 Prós:
-* Configuração fácil no lado do gerenciamento de API porque ele não precisa ser injetado na VNet do cluster e a mTLS tem suporte nativo
-* Centraliza a proteção para tráfego de cluster de entrada na camada do controlador de entrada
-* Reduz o risco de segurança ao minimizar os pontos de extremidade de cluster visíveis publicamente
+* Uma configuração fácil no lado da API Management porque não precisa de ser injetada no cluster VNet e mTLS é suportada de forma nativa
+* Centraliza a proteção para o tráfego de cluster de entrada na camada do Controlador de Ingress
+* Reduz o risco de segurança minimizando os pontos finais do cluster publicamente visíveis
 
 Contras:
-* Aumenta a complexidade da configuração de cluster devido ao trabalho extra para instalar, configurar e manter o controlador de entrada e gerenciar certificados usados para mTLS
-* Risco de segurança devido à visibilidade pública dos pontos de extremidade do controlador de entrada
+* Aumenta a complexidade da configuração do cluster devido ao trabalho extra para instalar, configurar e manter o Controlador Ingress e gerir os certificados utilizados para mTLS
+* Risco de segurança devido à visibilidade pública do(s) ponto final do Controlador de Ingress
 
 
-Quando você publica APIs por meio do gerenciamento de API, é fácil e comum proteger o acesso a essas APIs usando chaves de assinatura. Os desenvolvedores que precisam consumir as APIs publicadas devem incluir uma chave de assinatura válida em solicitações HTTP quando fizerem chamadas para essas APIs. Caso contrário, as chamadas serão rejeitadas imediatamente pelo gateway de gerenciamento de API. Eles não são encaminhados para os serviços de back-end.
+Quando publica APIs através da API Management, é fácil e comum garantir o acesso a essas APIs utilizando chaves de subscrição. Os desenvolvedores que necessitem de consumir as APIs publicadas devem incluir uma chave de subscrição válida nos pedidos http quando fazem chamadas para essas APIs. Caso contrário, as chamadas são imediatamente rejeitadas pela porta de entrada da API Management. Não são encaminhados para os serviços de back-end.
 
-Para obter uma chave de assinatura para acessar APIs, é necessária uma assinatura. Uma assinatura é essencialmente um contêiner nomeado para um par de chaves de assinatura. Os desenvolvedores que precisam consumir as APIs publicadas podem obter assinaturas. E eles não precisam de aprovação de editores de API. Os editores de API também podem criar assinaturas diretamente para consumidores de API.
+Para obter uma chave de subscrição para aceder a APIs, é necessária uma subscrição. Uma subscrição é essencialmente um recipiente nomeado para um par de chaves de subscrição. Os desenvolvedores que precisam de consumir as APIs publicadas podem obter subscrições. E não precisam da aprovação dos editores da API. Os editores da API também podem criar subscrições diretamente para consumidores de API.
 
-### <a name="option-3-deploy-apim-inside-the-cluster-vnet"></a>Opção 3: implantar o APIM dentro da VNet do cluster
+### <a name="option-3-deploy-apim-inside-the-cluster-vnet"></a>Opção 3: Implementar a APIM dentro do cluster VNet
 
-Em alguns casos, os clientes com restrições regulatórias ou requisitos de segurança estritos podem encontrar a opção 1 e 2 soluções não viáveis devido a pontos de extremidade publicamente expostos. Em outros, o cluster AKS e os aplicativos que consomem os microserviços podem residir na mesma VNet, portanto, não há motivo para expor o cluster publicamente, pois todo o tráfego da API permanecerá na VNet. Para esses cenários, você pode implantar o gerenciamento de API na VNet do cluster. A [camada Premium de gerenciamento de API](https://aka.ms/apimpricing) dá suporte à implantação de VNet. 
+Em alguns casos, os clientes com restrições regulamentares ou requisitos de segurança rigorosos podem encontrar soluções não viáveis da Opção 1 e 2 devido a pontos finais expostos publicamente. Noutros, o cluster AKS e as aplicações que consomem os microserviços podem residir dentro do mesmo VNet, pelo que não há razão para expor publicamente o cluster, uma vez que todo o tráfego de API permanecerá dentro do VNet. Para estes cenários, pode implantar a API Management no cluster VNet. [O nível API Management Premium](https://aka.ms/apimpricing) suporta a implantação da VNet. 
 
-Há dois modos de [implantar o gerenciamento de API em uma VNet](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet) – externo e interno. 
+Existem dois modos de implantação da [API Management num VNet](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet) – Externo e Interno. 
 
-Se os consumidores de API não residirem na VNet do cluster, o modo externo (Fig. 4) deverá ser usado. Nesse modo, o gateway de gerenciamento de API é injetado na VNet do cluster, mas acessível pela Internet pública por meio de um balanceador externo de carga. Ele ajuda a ocultar o cluster completamente e, ao mesmo tempo, permitir que clientes externos consumam os microserviços. Além disso, você pode usar os recursos de rede do Azure, como NSG (grupos de segurança de rede) para restringir o tráfego de rede.
+Se os consumidores de API não residirem no cluster VNet, deve utilizar-se o modo Externo (Fig. 4). Neste modo, o gateway de Gestão API é injetado no cluster VNet mas acessível a partir da internet pública através de um equilibrista de carga externo. Ajuda a esconder completamente o cluster, ao mesmo tempo que permite que clientes externos consumam os microserviços. Além disso, pode utilizar capacidades de networking Azure, como Network Security Groups (NSG) para restringir o tráfego de rede.
 
-![Modo de VNet externa](./media/api-management-aks/vnet-external.png)
+![Modo VNet externo](./media/api-management-aks/vnet-external.png)
 
-Se todos os consumidores de API residirem na VNet do cluster, o modo interno (Fig. 5) poderá ser usado. Nesse modo, o gateway de gerenciamento de API é injetado na VNET do cluster e acessível somente de dentro dessa VNet por meio de um balanceador de carga interno. Não é possível acessar o gateway de gerenciamento de API ou o cluster AKS da Internet pública. 
+Se todos os consumidores de API residirem dentro do cluster VNet, então o modo Interno (Fig. 5) poderá ser utilizado. Neste modo, o gateway de Gestão API é injetado no Cluster VNET e acessível apenas a partir deste VNet através de um equilíbrio interno de carga. Não há como chegar ao portal de gestão da API ou ao cluster AKS da internet pública. 
 
-![Modo VNet interna](./media/api-management-aks/vnet-internal.png)
+![Modo VNet interno](./media/api-management-aks/vnet-internal.png)
 
- Em ambos os casos, o cluster AKS não é visível publicamente. Em comparação com a opção 2, o controlador de entrada pode não ser necessário. Dependendo do cenário e da configuração, a autenticação ainda pode ser necessária entre o gerenciamento de API e seus microserviços. Por exemplo, se uma malha de serviço for adotada, ela sempre exigirá autenticação TLS mútua. 
+ Em ambos os casos, o cluster AKS não é visível publicamente. Em comparação com a opção 2, o Controlador De Entrada pode não ser necessário. Dependendo do seu cenário e configuração, a autenticação poderá ainda ser necessária entre a API Management e os seus microserviços. Por exemplo, se for adotada uma malha de serviço, requer sempre autenticação mútua de TLS. 
 
 Prós:
-* A opção mais segura porque o cluster AKS não tem nenhum ponto de extremidade público
-* Simplifica a configuração do cluster porque ele não tem nenhum ponto de extremidade público
-* Capacidade de ocultar o gerenciamento de API e AKS dentro da VNet usando o modo interno
-* Capacidade de controlar o tráfego de rede usando recursos de rede do Azure, como NSG (grupos de segurança de rede)
+* A opção mais segura porque o cluster AKS não tem ponto final público
+* Simplifica a configuração do cluster uma vez que não tem ponto final público
+* Capacidade de ocultar tanto a Gestão API como o AKS dentro da VNet utilizando o modo Interno
+* Capacidade de controlar o tráfego de rede utilizando capacidades de rede Azure, tais como Grupos de Segurança de Rede (NSG)
 
 Contras:
-* Aumenta a complexidade de implantar e configurar o gerenciamento de API para trabalhar dentro da VNet
+* Aumenta a complexidade da implantação e configuração da Gestão aPI para trabalhar dentro da VNet
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [os conceitos de rede para aplicativos no AKs](https://docs.microsoft.com/azure/aks/concepts-network)
-* Saiba mais sobre [como usar o gerenciamento de API com redes virtuais](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet)
+* Saiba mais sobre [conceitos de rede para aplicações em AKS](https://docs.microsoft.com/azure/aks/concepts-network)
+* Saiba mais sobre [como usar a Gestão API com redes virtuais](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet)
 
 
 

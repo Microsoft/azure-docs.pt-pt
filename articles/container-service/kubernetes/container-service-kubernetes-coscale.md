@@ -1,6 +1,6 @@
 ---
-title: PRETERIDO Monitorar um cluster kubernetes do Azure com coescala
-description: Monitorar um cluster kubernetes no serviço de contêiner do Azure usando a coescala
+title: (DEPRECIADO) Monitorize um cluster Azure Kubernetes com CoScale
+description: Monitorize um cluster Kubernetes no Serviço de Contentores Azure utilizando coScale
 author: fryckbos
 ms.service: container-service
 ms.topic: conceptual
@@ -8,76 +8,76 @@ ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: f1d0ca1ffc2e7a3d645ac5acbaafdf45f85550be
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76271103"
 ---
-# <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>PRETERIDO Monitorar um cluster kubernetes do serviço de contêiner do Azure com coescala
+# <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>(DEPRECIADO) Monitorize um cluster de Kubernetes do Serviço de Contentores Azure com CoScale
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-Neste artigo, mostraremos como implantar o agente de [coescala](https://web.archive.org/web/20180317071550/https://www.coscale.com/) para monitorar todos os nós e contêineres em seu cluster kubernetes no serviço de contêiner do Azure. Você precisa de uma conta com coescala para essa configuração. 
+Neste artigo, mostramos-lhe como implantar o agente [CoScale](https://web.archive.org/web/20180317071550/https://www.coscale.com/) para monitorizar todos os nós e contentores do seu cluster Kubernetes no Serviço de Contentores Azure. Precisa de uma conta com CoScale para esta configuração. 
 
 
-## <a name="about-coscale"></a>Sobre coescala 
+## <a name="about-coscale"></a>Sobre coscale 
 
-A coescala é uma plataforma de monitoramento que reúne métricas e eventos de todos os contêineres em várias plataformas de orquestração. O coscale oferece monitoramento de pilha completa para ambientes kubernetes. Ele fornece visualizações e análises para todas as camadas na pilha: o OS, o kubernetes, o Docker e os aplicativos em execução dentro de seus contêineres. A coescala oferece vários painéis de monitoramento internos e tem detecção interna de anomalias para permitir que operadores e desenvolvedores encontrem problemas de infraestrutura e de aplicativos rapidamente.
+CoScale é uma plataforma de monitorização que reúne métricas e eventos de todos os contentores em várias plataformas de orquestração. CoScale oferece monitorização completa para ambientes Kubernetes. Fornece visualizações e análises para todas as camadas da pilha: o S, Kubernetes, Docker e aplicações que correm dentro dos seus recipientes. O CoScale oferece vários dashboards de monitorização incorporados, e tem uma deteção de anomalias incorporada para permitir que operadores e desenvolvedores encontrem rapidamente problemas de infraestrutura e aplicação.
 
-![Interface do usuário de coescala](./media/container-service-kubernetes-coscale/coscale.png)
+![CoScale UI](./media/container-service-kubernetes-coscale/coscale.png)
 
-Conforme mostrado neste artigo, você pode instalar agentes em um cluster kubernetes para executar o coescala como uma solução de SaaS. Se você quiser manter seus dados no local, o coscale também estará disponível para instalação local.
+Como mostrado neste artigo, pode instalar agentes num cluster Kubernetes para executar o CoScale como uma solução SaaS. Se pretender manter os seus dados no local, o CoScale também está disponível para instalação no local.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Primeiro, você precisa [criar uma conta de coescala](https://web.archive.org/web/20170507123133/https://www.coscale.com/free-trial).
+Primeiro é necessário [criar uma conta CoScale.](https://web.archive.org/web/20170507123133/https://www.coscale.com/free-trial)
 
-Este tutorial pressupõe que você [criou um cluster kubernetes usando o serviço de contêiner do Azure](container-service-kubernetes-walkthrough.md).
+Este walkthrough pressupõe que [criou um cluster Kubernetes usando](container-service-kubernetes-walkthrough.md)o Serviço de Contentores Azure .
 
-Ele também pressupõe que você tenha as ferramentas `az` CLI do Azure e `kubectl` instaladas.
+Também assume que tem `az` o AZURE `kubectl` CLI e ferramentas instaladas.
 
-Você pode testar se tem a ferramenta de `az` instalada executando:
+Pode testar se tiver `az` a ferramenta instalada executando:
 
 ```azurecli
 az --version
 ```
 
-Se você não tiver a ferramenta de `az` instalada, há instruções [aqui](/cli/azure/install-azure-cli).
+Se não tiver a `az` ferramenta instalada, existem instruções [aqui.](/cli/azure/install-azure-cli)
 
-Você pode testar se tem a ferramenta de `kubectl` instalada executando:
+Pode testar se tiver `kubectl` a ferramenta instalada executando:
 
 ```bash
 kubectl version
 ```
 
-Se você não tiver `kubectl` instalado, poderá executar:
+Se não tiver `kubectl` instalado, pode correr:
 
 ```azurecli
 az acs kubernetes install-cli
 ```
 
-## <a name="installing-the-coscale-agent-with-a-daemonset"></a>Instalando o agente de coescala com um Daemonset
-[DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) são usados pelo kubernetes para executar uma única instância de um contêiner em cada host no cluster.
-Eles são perfeitos para a execução de agentes de monitoramento, como o agente de coescala.
+## <a name="installing-the-coscale-agent-with-a-daemonset"></a>Instalação do agente CoScale com um DaemonSet
+[DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) são usados por Kubernetes para executar uma única instância de um recipiente em cada hospedeiro no cluster.
+São perfeitos para executar agentes de monitorização, como o agente CoScale.
 
-Depois de fazer logon no coscale, vá para a [página do agente](https://app.coscale.com/) para instalar os agentes de coescala no cluster usando um daemonset. A interface do usuário de coescala fornece etapas de configuração guiadas para criar um agente e iniciar o monitoramento de seu cluster kubernetes completo.
+Depois de iniciar sessão no CoScale, aceda à página do [agente](https://app.coscale.com/) para instalar agentes CoScale no seu cluster utilizando um DaemonSet. O CoScale UI fornece passos de configuração guiados para criar um agente e começar a monitorizar o seu cluster completo de Kubernetes.
 
-![Configuração do agente de coescala](./media/container-service-kubernetes-coscale/installation.png)
+![Configuração do agente CoScale](./media/container-service-kubernetes-coscale/installation.png)
 
-Para iniciar o agente no cluster, execute o comando fornecido:
+Para ligar o agente no cluster, executar o comando fornecido:
 
-![Iniciar o agente de coescala](./media/container-service-kubernetes-coscale/agent_script.png)
+![Inicie o agente CoScale](./media/container-service-kubernetes-coscale/agent_script.png)
 
-Já está! Depois que os agentes estiverem em execução, você deverá ver os dados no console em alguns minutos. Visite a [página do agente](https://app.coscale.com/) para ver um resumo do cluster, executar etapas de configuração adicionais e ver painéis como a **visão geral do cluster kubernetes**.
+Já está! Uma vez que os agentes estejam a funcionar, deve ver os dados na consola em poucos minutos. Visite a página do [agente](https://app.coscale.com/) para ver um resumo do seu cluster, execute passos de configuração adicionais e veja dashboards como a visão geral do **cluster Kubernetes**.
 
 ![Visão geral do cluster kubernetes](./media/container-service-kubernetes-coscale/dashboard_clusteroverview.png)
 
-O agente de coescala é implantado automaticamente em novos computadores no cluster. O agente é atualizado automaticamente quando uma nova versão é liberada.
+O agente CoScale é automaticamente implantado em novas máquinas no cluster. O agente atualiza-se automaticamente quando é lançada uma nova versão.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte a [documentação de coescala](https://web.archive.org/web/20180415164304/http://docs.coscale.com:80/) e o [blog](https://web.archive.org/web/20170501021344/http://www.coscale.com:80/blog) para obter mais informações sobre soluções de monitoramento de coescala. 
+Consulte a documentação [e](https://web.archive.org/web/20170501021344/http://www.coscale.com:80/blog) blog [coScale](https://web.archive.org/web/20180415164304/http://docs.coscale.com:80/) para obter mais informações sobre as soluções de monitorização do CoScale. 
 

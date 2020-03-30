@@ -1,44 +1,44 @@
 ---
-title: Mover VMs do Azure para uma nova assinatura ou grupo de recursos
-description: Use Azure Resource Manager para mover máquinas virtuais para um novo grupo de recursos ou assinatura.
+title: Move Os VMs Azure para um novo grupo de subscrição ou recursos
+description: Utilize o Gestor de Recursos Azure para mover máquinas virtuais para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.openlocfilehash: 97c49f90dab2aafd89de322e57ad44ff1fc9d367
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75479764"
 ---
-# <a name="move-guidance-for-virtual-machines"></a>Mover diretrizes para máquinas virtuais
+# <a name="move-guidance-for-virtual-machines"></a>Mover orientação para máquinas virtuais
 
-Este artigo descreve os cenários que atualmente não têm suporte e as etapas para mover as máquinas virtuais com o backup.
+Este artigo descreve os cenários que não são suportados atualmente e os passos para mover máquinas virtuais com backup.
 
-## <a name="scenarios-not-supported"></a>Cenários sem suporte
+## <a name="scenarios-not-supported"></a>Cenários não suportados
 
-Os cenários a seguir ainda não têm suporte:
+Os seguintes cenários ainda não são suportados:
 
-* Managed Disks no Zonas de Disponibilidade não podem ser movidos para uma assinatura diferente.
-* Conjuntos de dimensionamento de máquinas virtuais com Load Balancer SKU padrão ou IP público SKU Standard não podem ser movidos.
-* Máquinas virtuais criadas a partir dos recursos de mercado com planos ligados não pode ser movidas entre grupos de recursos ou subscrições. Desprovisionar a máquina virtual na assinatura atual e implantá-la novamente na nova assinatura.
-* As máquinas virtuais em uma rede virtual existente não podem ser movidas para uma nova assinatura quando você não está movendo todos os recursos na rede virtual.
-* As máquinas virtuais de baixa prioridade e os conjuntos de dimensionamento de máquinas virtuais de baixa prioridade não podem ser movidos entre grupos de recursos ou assinaturas.
-* As máquinas virtuais em um conjunto de disponibilidade não podem ser movidas individualmente.
+* Discos geridos em Zonas de Disponibilidade não podem ser movidos para uma subscrição diferente.
+* Conjuntos de escala de máquina virtual com balanceor de carga Padrão SKU ou IP público Padrão SKU não podem ser movidos.
+* As máquinas virtuais criadas a partir de recursos do Marketplace com planos anexados não podem ser movidas através de grupos de recursos ou subscrições. Desfore a máquina virtual na subscrição atual e volte a implantar-se na nova subscrição.
+* As máquinas virtuais de uma rede virtual existente não podem ser transferidas para uma nova subscrição quando não está a mover todos os recursos da rede virtual.
+* Máquinas virtuais de baixa prioridade e conjuntos de escala de máquinas virtuais de baixa prioridade não podem ser movidos através de grupos de recursos ou subscrições.
+* As máquinas virtuais num conjunto de disponibilidade não podem ser movidas individualmente.
 
-## <a name="virtual-machines-with-azure-backup"></a>Máquinas virtuais com o backup do Azure
+## <a name="virtual-machines-with-azure-backup"></a>Máquinas virtuais com Backup Azure
 
-Para mover as máquinas virtuais configuradas com o backup do Azure, use a seguinte solução alternativa:
+Para mover máquinas virtuais configuradas com Cópia de Segurança Azure, utilize a seguinte suver:
 
-* Localize o local da sua máquina virtual.
-* Localize um grupo de recursos com o seguinte padrão de nomenclatura: `AzureBackupRG_<location of your VM>_1` por exemplo, AzureBackupRG_westus2_1
-* Se no portal do Azure, em seguida, verificação "Mostrar tipos ocultos"
-* Se, no PowerShell, utilize o `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
-* Se, na CLI, utilize o `az resource list -g AzureBackupRG_<location of your VM>_1`
-* Localize o recurso com o tipo `Microsoft.Compute/restorePointCollections` que tem o padrão de nomenclatura `AzureBackup_<name of your VM that you're trying to move>_###########`
-* Excluir este recurso. Esta operação exclui somente os pontos de recuperação instantâneas, não os dados de backup no cofre.
-* Após a conclusão da exclusão, você pode mover o cofre e a máquina virtual para a assinatura de destino. Após a movimentação, você pode continuar os backups sem perda nos dados.
-* Para obter informações sobre como mover cofres de serviço de recuperação para backup, consulte [limitações dos serviços de recuperação](../../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+* Encontre a localização da sua Máquina Virtual.
+* Encontre um grupo de recursos `AzureBackupRG_<location of your VM>_1` com o seguinte padrão de nomeação: por exemplo, AzureBackupRG_westus2_1
+* Se no portal Azure, verifique "Mostrar tipos ocultos"
+* Se estiver no PowerShell, utilize o `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
+* Se no CLI, use o`az resource list -g AzureBackupRG_<location of your VM>_1`
+* Encontre o recurso `Microsoft.Compute/restorePointCollections` com tipo que tem o padrão de nomeação`AzureBackup_<name of your VM that you're trying to move>_###########`
+* Apague este recurso. Esta operação elimina apenas os pontos de recuperação instantâneas, não os dados de back-up no cofre.
+* Depois de ser apagado, pode mover o cofre e a máquina virtual para a subscrição do alvo. Após a mudança, pode continuar as cópias de segurança sem perda de dados.
+* Para obter informações sobre a deslocação de cofres do Serviço de Recuperação para backup, consulte [as limitações dos Serviços](../../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)de Recuperação .
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter comandos para mover recursos, consulte [mover recursos para um novo grupo de recursos ou assinatura](../move-resource-group-and-subscription.md).
+Para que os comandos movam recursos, consulte [mover recursos para um novo grupo de recursos ou subscrição](../move-resource-group-and-subscription.md).

@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4dd525973a8c8ba5bb3103126b4ddb5b6973590a
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78205029"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configure definições de funções de AD Azure na Gestão de Identidade Privilegiada
@@ -44,7 +44,7 @@ Siga estes passos para abrir as definições para uma função de Anúncio Azure
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador no papel de Administrador de [Funções Privilegiadas.](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 gt
-1. Open **Azure AD Privileged Identity Management** &gt; **Azure AD funções** &gt; Definições de **funções.**
+1. Open **Azure AD Privileged Identity Management** &gt; **Azure Roles** Definições de &gt; **funções**.
 
     ![Página de definições de funções listando funções de Anúncio Azure](./media/pim-how-to-change-default-settings/role-settings.png)
 
@@ -167,7 +167,7 @@ Utilize o interruptor **de bilhete Incident/Request** para exigir que os adminis
 
 Utilize o interruptor de **autenticação multi-factor** para especificar se exige que os utilizadores verifiquem a sua identidade com MFA antes de poderem ativar as suas funções. Só têm de verificar a sua identidade uma vez por sessão, não sempre que ativam um papel. Há duas dicas a ter em mente quando ativa o MFA:
 
-- Os utilizadores que possuem contas microsoft para os seus endereços de e-mail (normalmente @outlook.com, mas nem sempre) não podem registar-se para autenticação multi-factor do Azure. Se pretender atribuir funções aos utilizadores com contas da Microsoft, deverá efetuar administradores permanentes ou desativar a autenticação de vários fatores para essa função.
+- Os utilizadores que possuem contas microsoft para @outlook.comos seus endereços de e-mail (normalmente, mas nem sempre) não podem registar-se para autenticação multi-factor do Azure. Se pretender atribuir funções aos utilizadores com contas da Microsoft, deverá efetuar administradores permanentes ou desativar a autenticação de vários fatores para essa função.
 - Não é possível desativar a Autenticação Multi-Factor Azure para funções altamente privilegiadas para o Azure AD e office 365. Esta função de segurança ajuda a proteger as seguintes funções:  
   
   - Administrador de Proteção de Informação Azure
@@ -178,14 +178,14 @@ Utilize o interruptor de **autenticação multi-factor** para especificar se exi
   - Administrador da Dinâmica 365
   - Aprovador de acesso lockBox do cliente
   - Escritores de diretórios
-  - Administrador de intercâmbio
+  - Administrador do Exchange
   - Administrador global
-  - Administrador insinado
+  - Administrador do Intune
   - Administrador power BI
   - Administrador privilegiado
   - Administrador de segurança
   - Administrador do SharePoint
-  - Skype para administrador de negócios
+  - Administrador do Skype para Empresas
   - Administrador de utilizadores
 
 Para mais informações, consulte a [autenticação multifactor e a Gestão de Identidade Privilegiada.](pim-how-to-require-mfa.md)

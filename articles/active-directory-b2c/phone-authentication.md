@@ -12,10 +12,10 @@ ms.date: 02/25/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: eadac0e973b361b1fdee63dcc9cfa848a0b2bacb
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78183963"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c-preview"></a>Configurar o registo telefónico e iniciar sessão com políticas personalizadas em Azure AD B2C (Pré-visualização)
@@ -38,7 +38,7 @@ Precisa dos seguintes recursos antes de configurar a OTP.
 * [Aplicação web registada](tutorial-register-applications.md) no seu inquilino
 * [Políticas personalizadas](custom-policy-get-started.md) enviadas para o seu inquilino
 
-## <a name="get-the-phone-sign-up--sign-in-starter-pack"></a>Obtenha o pacote de entrada de entrada e entrada de telefone
+## <a name="get-the-phone-sign-up--sign-in-starter-pack"></a>Obtenha a inscrição do telefone & pacote de entrada de entrada
 
 Comece por atualizar os ficheiros de política personalizadas de inscrição e de registo do telefone para trabalhar com o seu inquilino Azure AD B2C.
 
@@ -48,9 +48,9 @@ Os seguintes passos assumem que preencheu os [pré-requisitos](#prerequisites) e
 
     `active-directory-b2c-custom-policy-starterpack/scenarios/`**`phone-number-passwordless`**
 
-1. Em cada ficheiro, substitua a cadeia `yourtenant` pelo nome do seu inquilino Azure AD B2C. Por exemplo, se o nome do seu inquilino B2C for *contosob2c,* todos os casos de `yourtenant.onmicrosoft.com` se tornam `contosob2c.onmicrosoft.com`.
+1. Em cada ficheiro, `yourtenant` substitua a cadeia pelo nome do seu inquilino Azure AD B2C. Por exemplo, se o nome do seu inquilino B2C for `yourtenant.onmicrosoft.com` `contosob2c.onmicrosoft.com` *contosob2c,* todos os casos de tornar-se .
 
-1. Complete os passos nas [IDs](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) da aplicação Add para a secção de política personalizada do Get started com políticas [personalizadas no Diretório Ativo Azure B2C](custom-policy-get-started.md). Neste caso, atualize `/phone-number-passwordless/` **`Phone_Email_Base.xml`** com as **IDs de Aplicação (cliente)** das duas aplicações que registou ao completar os pré-requisitos, *IdentityExperienceFramework* e *ProxyIdentityExperienceFramework*.
+1. Complete os passos nas [IDs](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) da aplicação Add para a secção de política personalizada do Get started com políticas [personalizadas no Diretório Ativo Azure B2C](custom-policy-get-started.md). Neste caso, `/phone-number-passwordless/` **`Phone_Email_Base.xml`** atualize com as **IDs da Aplicação (cliente)** das duas aplicações que registou ao completar os pré-requisitos, *IdentityExperienceFramework* e *ProxyIdentityExperienceFramework*.
 
 ## <a name="upload-the-policy-files"></a>Faça upload dos ficheiros de política
 
@@ -66,13 +66,13 @@ Os seguintes passos assumem que preencheu os [pré-requisitos](#prerequisites) e
     1. *ChangePhoneNumber.xml*
     1. *PasswordResetEmail.xml*
 
-Ao fazer o upload de cada ficheiro, o Azure adiciona o prefixo `B2C_1A_`.
+Ao fazer o upload de cada `B2C_1A_`ficheiro, o Azure adiciona o prefixo .
 
 ## <a name="test-the-custom-policy"></a>Testar a política personalizada
 
 1. Em **políticas personalizadas,** selecione **B2C_1A_SignUpOrSignInWithPhone**.
 1. Na **aplicação Select,** selecione a aplicação *webapp1* que registou ao completar os pré-requisitos.
-1. Para selecionar url de **resposta,** escolha `https://jwt.ms`.
+1. Para selecionar url `https://jwt.ms`de **resposta,** escolha .
 1. Selecione **Executar agora** e inscreva-se usando um endereço de e-mail ou um número de telefone.
 1. Selecione **Executar agora** mais uma vez e iniciar sessão com a mesma conta para confirmar que tem a configuração correta.
 

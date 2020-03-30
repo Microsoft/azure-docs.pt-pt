@@ -1,6 +1,6 @@
 ---
-title: Adicione os principais cluster para o Azure Data Explorer utilizandoC#
-description: Neste artigo, aprende-se a adicionar diretores de cluster C#para o Azure Data Explorer utilizando .
+title: 'Adicione os principais cluster para o Azure Data Explorer utilizando C #'
+description: Neste artigo, aprende-se a adicionar diretores de cluster para o Azure Data Explorer utilizando C#.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -8,30 +8,30 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.openlocfilehash: e6c3970890dfe2c669dee1acf631e9dd45ab1085
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76965063"
 ---
-# <a name="add-cluster-principals-for-azure-data-explorer-by-using-c"></a>Adicione os principais cluster para o Azure Data Explorer utilizandoC#
+# <a name="add-cluster-principals-for-azure-data-explorer-by-using-c"></a>Adicione os principais cluster para o Azure Data Explorer utilizando C #
 
 > [!div class="op_single_selector"]
-> * [C#](cluster-principal-csharp.md)
-> * [Python](cluster-principal-python.md)
-> * [Modelo do Azure Resource Manager](cluster-principal-resource-manager.md)
+> * [C #](cluster-principal-csharp.md)
+> * [Pitão](cluster-principal-python.md)
+> * [Modelo Azure Resource Manager](cluster-principal-resource-manager.md)
 
-O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. Neste artigo, adiciona-se os principais de C#cluster para o Azure Data Explorer utilizando .
+O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. Neste artigo, adiciona-se os principais de cluster para o Azure Data Explorer utilizando C#.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se você não tiver o Visual Studio 2019 instalado, poderá baixar e usar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)gratuito. Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
+* Se não tiver o Visual Studio 2019 instalado, pode descarregar e utilizar a Edição Comunitária **gratuita** do [Visual Studio 2019.](https://www.visualstudio.com/downloads/) Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
 * Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 * [Criar um cluster.](create-cluster-database-csharp.md)
 
-## <a name="install-c-nuget"></a>Instalar C# o NuGet
+## <a name="install-c-nuget"></a>Instalar C# NuGet
 
-* Instale [Microsoft. Azure. Management. Kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
+* Instale [microsoft.Azure.Management.kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
 * Instale [microsoft.rest.clientRuntime.Azure.Autenticação](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication) para autenticação.
 
 [!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]
@@ -67,15 +67,15 @@ await kustoManagementClient.ClusterPrincipalAssignments.CreateOrUpdateAsync(reso
 
 |**Definição** | **Valor sugerido** | **Descrição do campo**|
 |---|---|---|
-| tenantId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxx* | Sua ID de locatário. Também conhecido como ID diretório.|
-| subscriptionId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxx* | A ID da assinatura que você usa para a criação de recursos.|
-| clientId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxx* | A ID do cliente do aplicativo que pode acessar recursos em seu locatário.|
-| clientSecret | *xxxxxxxxxxxxxx* | O segredo do cliente do aplicativo que pode acessar recursos em seu locatário. |
+| inquilinoId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxx* | Sua identificação do inquilino. Também conhecido como ID diretório.|
+| subscriptionId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxx* | O ID de subscrição que utiliza para a criação de recursos.|
+| clientId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxx* | A identificação do cliente da aplicação que pode aceder a recursos no seu inquilino.|
+| clienteSecret | *xxxxxxxxxxxxxx* | O segredo do cliente da aplicação que pode aceder a recursos no seu inquilino. |
 | resourceGroupName | *testrg* | O nome do grupo de recursos que contém o seu cluster.|
 | clusterName | *mykustocluster* | O nome do seu aglomerado.|
 | nome principal de atribuição | *clusterPrincipalAssignment1* | O nome do seu recurso principal do cluster.|
-| principalId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxx* | O ID principal, que pode ser o e-mail do utilizador, o ID da aplicação ou o nome do grupo de segurança.|
-| role | *AllDatabasesAdmin* | O papel do seu diretor de cluster, que pode ser 'AllDatabasesAdmin' ou 'AllDatabasesViewer'.|
+| principais | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxx* | O ID principal, que pode ser o e-mail do utilizador, o ID da aplicação ou o nome do grupo de segurança.|
+| papel | *AllDatabasesAdmin* | O papel do seu diretor de cluster, que pode ser 'AllDatabasesAdmin' ou 'AllDatabasesViewer'.|
 | inquilinoIdForPrincipal | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxx* | A identificação do inquilino do diretor.|
 | principalType | *Aplicação* | O tipo de comitente, que pode ser 'Utilizador', 'App' ou 'Grupo'|
 

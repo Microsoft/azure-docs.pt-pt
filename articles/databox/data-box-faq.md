@@ -1,6 +1,6 @@
 ---
 title: FAQ do Microsoft Azure Data Box | Microsoft Docs em dados
-description: Contém perguntas frequentes e respostas para Azure Data Box, uma solução de nuvem que permite transferir grandes quantidades de dados para o Azure.
+description: Contém perguntas e respostas frequentemente feitas para a Azure Data Box, uma solução cloud que lhe permite transferir grandes quantidades de dados para o Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 73256aef19a03c4c971be5fc9e69f988ef5a831a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75438619"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Perguntas Mais Frequentes
@@ -36,30 +36,30 @@ As perguntas e respostas estão organizadas pelas seguintes categorias:
 R.  O serviço Azure Data Box foi concebido para ingestão de dados offline. Este serviço gere uma panóplia de produtos de diferentes capacidades de armazenamento, feitos à medida para o transporte de dados. 
 
 ### <a name="q-what-is-azure-data-box"></a>P. O que é o Azure Data Box?
-R. O Azure Data Box permite uma transferência rápida, barata e segura de terabytes de dados para o Azure. Pode encomendar o dispositivo Data Box no portal do Azure. A Microsoft envia a você um dispositivo de armazenamento de 80 TB de capacidade utilizável por meio de uma operadora regional. 
+R. A Caixa de Dados Azure permite uma transferência rápida, barata e segura de terabytes de dados para o Azure. Pode encomendar o dispositivo Data Box no portal do Azure. A Microsoft envia-lhe um dispositivo de armazenamento de 80 TB de capacidade utilizável através de uma transportadora regional. 
 
 Quando receber o dispositivo, a configuração do mesmo na IU da Web local é rápida. Copie os dados dos seus servidores para o dispositivo e envie-o para o Azure. No datacenter do Azure, os seus dados são carregados automaticamente do dispositivo para o Azure. O serviço Data Box faz o acompanhamento de todo o processo ponto a ponto no portal do Azure.
 
 ### <a name="q-when-should-i-use-data-box"></a>P. Quando devo utilizar o Data Box?
-R. Se tiver entre 40 a 500 TB de dados e quiser transferi-los para o Azure, pode tirar partido do Data Box. Para tamanhos de dados < 40 TB, use Disco do Data Box e para tamanhos de dados > 500 TB, Inscreva-se para [Data Box Heavy](data-box-heavy-overview.md).
+R. Se tiver entre 40 a 500 TB de dados e quiser transferi-los para o Azure, pode tirar partido do Data Box. Para tamanhos de dados < 40 TB, utilize o Disco de Caixa de Dados e para tamanhos de dados > 500 TB, inscreva-se na [Data Box Heavy](data-box-heavy-overview.md).
 
 ### <a name="q-what-is-the-price-of-data-box"></a>P. Qual é o preço do Data Box?
 R. O Data Box está disponível a um custo nominal durante dez dias. Quando seleciona o modelo de produto durante a criação de uma encomenda no portal do Azure, são apresentados os custos do dispositivo. O envio também é gratuito; contudo, serão aplicados custos do armazenamento do Azure. Para obter mais informações, aceda aos [preços do Azure Data Box](https://azure.microsoft.com/pricing/details/storage/databox/). 
 
 ### <a name="q-what-is-the-maximum-amount-of-data-i-can-transfer-with-data-box-in-one-instance"></a>P. Qual é a quantidade máxima de dados que posso transferir com o Data Box numa instância?
-R. O Data Box tem uma capacidade bruta de 100 TB e uma capacidade utilizável de 80 TB. Você pode transferir até 80 TB de dados com Data Box. Para transferir mais dados, tem de encomendar mais dispositivos.
+R. O Data Box tem uma capacidade bruta de 100 TB e uma capacidade utilizável de 80 TB. Pode transferir até 80 TB de dados com Data Box. Para transferir mais dados, tem de encomendar mais dispositivos.
 
 ### <a name="q-how-can-i-check-if-data-box-is-available-in-my-region"></a>P. Como posso saber se o Data Box está disponível na minha região? 
-R.  Para obter informações sobre em quais países/regiões o Data Box está disponível, vá para [disponibilidade de região](data-box-overview.md#region-availability).  
+R.  Para obter informações sobre quais os países/regiões que a Caixa de Dados está disponível, vá à [disponibilidade da região.](data-box-overview.md#region-availability)  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>P. Em que regiões posso armazenar dados com o Data Box?
-R. Data Box tem suporte para todas as regiões dentro dos EUA, Europa Ocidental, Europa Setentrional, França, Reino Unido, Japão, Austrália e Canadá. Para obter mais informações, aceda a [Disponibilidade de região](data-box-overview.md#region-availability).
+R. Data Box é apoiado para todas as regiões dos EUA, Europa Ocidental, Norte da Europa, França, Reino Unido, Japão, Austrália e Canadá. Para obter mais informações, aceda a [Disponibilidade de região](data-box-overview.md#region-availability).
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>P. Quem devo contactar se me deparar com problemas com o Data Box?
 R. Se se deparar com problemas com o Data Box, contacte o [Suporte da Microsoft](data-box-disk-contact-microsoft-support.md).
 
-### <a name="q-i-have-lost-my-data-box-is-there-a-lost-device-charge"></a>P. Perdi meu Data Box. Há um encargo de dispositivo perdido?
-R. Sim. Há um encargo de dispositivo perdido ou danificado. Essa cobrança é abordada na [página de preços](https://azure.microsoft.com/pricing/details/storage/databox/) , bem como nos [termos de serviço do produto](https://www.microsoft.com/licensing/product-licensing/products).
+### <a name="q-i-have-lost-my-data-box-is-there-a-lost-device-charge"></a>P. Perdi a minha Caixa de Dados. Há uma carga perdida no dispositivo?
+R. Sim. Há uma carga de dispositivo perdida ou danificada. Esta carga está coberta na [página de Preços,](https://azure.microsoft.com/pricing/details/storage/databox/) bem como nos [Termos de Serviço do Produto](https://www.microsoft.com/licensing/product-licensing/products).
 
 
 ## <a name="order-device"></a>Encomendar dispositivo
@@ -100,8 +100,8 @@ R.  Só pode cancelar a encomenda depois de o Data Box ter sido encomendado e an
 ### <a name="q-can-i-connect-a-data-box-at-the-same-to-multiple-host-computers-to-transfer-data"></a>P. Posso ligar um dispositivo Data Box a vários computadores anfitriões para transferir dados?
 R. Sim. É possível ligar vários computadores anfitriões ao Data Box para transferir dados e podem ser executados múltiplos trabalhos de cópia em paralelo. Para obter mais informações, aceda a [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md) (Tutorial: Copiar dados para o Azure Data Box).
 
-### <a name="q-can-i-connect-to-both-the-10-gbe-interfaces-on-the-data-box-to-transfer-data"></a>P. Posso me conectar a ambas as interfaces de 10 GbE no Data Box para transferir dados?
-R. Sim. Ambas as interfaces de 10 GbE podem ser conectadas na Data Box para copiar dados ao mesmo tempo. Para obter mais informações sobre como copiar dados, acesse [tutorial: copiar dados para Azure data Box](data-box-deploy-copy-data.md).
+### <a name="q-can-i-connect-to-both-the-10-gbe-interfaces-on-the-data-box-to-transfer-data"></a>P. Posso ligar-me às duas interfaces 10-GbE na Caixa de Dados para transferir dados?
+R. Sim. Ambas as interfaces de 10-GbE podem ser ligadas na Caixa de Dados para copiar dados ao mesmo tempo. Para mais informações sobre como copiar dados, vá ao [Tutorial: Copie dados para A Caixa](data-box-deploy-copy-data.md)de Dados Do Azure .
 
 <!--### Q. The network interface on my Data Box is not working. What should I do? 
 A. 
@@ -116,13 +116,13 @@ A.
 A.-->
 
 ### <a name="q-the-system-fault-indicator-led-on-the-front-operating-panel-is-on-what-should-i-do"></a>P. O LED indicador de falha do sistema no painel de funcionamento frontal está ligado. O que devo fazer?
-R. Se o LED indicador de falha do sistema estiver ligado, significa que o sistema não está em bom estado de funcionamento. [Contacte o Suporte da Microsoft](data-box-disk-contact-microsoft-support.md) para saber quais os próximos passos.
+R. Se o LED indicador de falha do sistema estiver ligado, significa que o sistema não está em bom estado de funcionamento. [Contacte o Microsoft Support](data-box-disk-contact-microsoft-support.md) para os próximos passos.
 
 ### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why-would-this-be"></a>P. Não consigo aceder à palavra-passe de desbloqueio do Data Box no portal do Azure. O que correu mal?
-R. Se não conseguir aceder à palavra-passe de desbloqueio no portal do Azure, verifique as permissões na sua subscrição e na sua conta de armazenamento. Confirme que tem a permissão Contribuidor ou Proprietário ao nível do grupo de recursos. Caso contrário, você precisa ter pelo menos Data Box permissão de função de operador para ver as credenciais de acesso.
+R. Se não conseguir aceder à palavra-passe de desbloqueio no portal do Azure, verifique as permissões na sua subscrição e na sua conta de armazenamento. Confirme que tem a permissão Contribuidor ou Proprietário ao nível do grupo de recursos. Caso contrário, terá de ter pelo menos permissão de função de Operador de Caixa de Dados para ver as credenciais de acesso.
 
-### <a name="q-is-port-channel-configuration-supported-on-data-box-how-about-mpio"></a>P. A configuração do canal de porta é compatível com o Data Box? E quanto ao MPIO?
-R. Não há suporte para configuração de canal de porta, configuração de MPIO (Multipath IO) ou configuração de vLAN em Data Box.
+### <a name="q-is-port-channel-configuration-supported-on-data-box-how-about-mpio"></a>P. A configuração do canal de porta é suportada na Data Box? Que tal MPIO?
+R. Não suportamos a configuração do canal de porta, configuração Multipath IO (MPIO) ou configuração vLAN na Data Box.
 
 ## <a name="track-status"></a>Acompanhar o estado
 
@@ -138,10 +138,10 @@ R. Pode ver a sua encomenda do Data Box no portal do Azure e aceder a **Descriç
 ## <a name="migrate-data"></a>Migrar dados
 
 ### <a name="q-what-is-the-maximum-data-size-that-can-be-used-with-data-box"></a>P. Qual é o tamanho máximo de dados que pode ser utilizado com o Data Box?  
-R.  O Data Box tem uma capacidade de armazenamento utilizável de 80 TB. Pode utilizar um dispositivo Data Box individual para dados que variem entre os 40 TB e os 80 TB. Para tamanhos de dados maiores de até 500 TB, você pode ordenar vários dispositivos Data Box. Para tamanhos que excedam os 500 TB, inscreva-se no Data Box Heavy.  
+R.  O Data Box tem uma capacidade de armazenamento utilizável de 80 TB. Pode utilizar um dispositivo Data Box individual para dados que variem entre os 40 TB e os 80 TB. Para tamanhos de dados maiores até 500 TB, pode encomendar vários dispositivos Data Box. Para tamanhos que excedam os 500 TB, inscreva-se no Data Box Heavy.  
 
 ### <a name="q-what-are-the-maximum-block-blob-and-page-blob-sizes-supported-by-data-box"></a>P. Quais são os tamanhos máximos de blobs de blocos e de blobs de páginas que o Data Box suporta? 
-R.  Os tamanhos máximos são regidos pelos limites do Armazenamento do Azure. O tamanho máximo dos blobs de blocos é de, aproximadamente, 4,768 TiB e o dos blobs de páginas é de 8 TiB. Para obter mais informações, consulte [escalabilidade e metas de desempenho para o armazenamento de BLOBs](../storage/blobs/scalability-targets.md).
+R.  Os tamanhos máximos são regidos pelos limites do Armazenamento do Azure. O tamanho máximo dos blobs de blocos é de, aproximadamente, 4,768 TiB e o dos blobs de páginas é de 8 TiB. Para obter mais informações, consulte [a escalabilidade e os objetivos](../storage/blobs/scalability-targets.md)de desempenho para o armazenamento blob .
 
 ### <a name="q-how-do-i-know-that-my-data-is-secure-during-transit"></a>P. Como posso saber que os meus dados estão seguros durante o transporte? 
 R. Foram implementadas múltiplas funcionalidades de segurança para garantir que o seu Data Box está seguro durante o transporte. Algumas dessas funcionalidades incluem selos invioláveis, deteção de adulteração de hardware e software e palavra-passe de desbloqueio do dispositivo. Para obter mais informações, aceda a [Proteção de dados e segurança do Azure Data Box](data-box-security.md).
@@ -159,7 +159,7 @@ R.  Para acelerar o processo de cópia:
 - Utilize vários fluxos de cópia de dados. Por exemplo, com o Robocopy, utilize a opção multithreaded. Para obter informações sobre o comando exato utilizado, aceda a [Tutorial: Copy data to Azure Data Box and verify](data-box-deploy-copy-data.md) (Tutorial: Copiar dados para o Azure Data Box e verificar).
 - Utilize várias sessões.
 - Em vez de copiar através de uma partilha de rede (em que pode estar limitado pelas velocidades da rede), certifique-se de que os dados residem localmente no computador ao qual o Data Box vai ser ligado.
-- Compare o desempenho do computador utilizado para copiar os dados. Transfira e utilize a [ferramenta Bluestop FIO](https://ci.appveyor.com/project/axboe/fio) para comparar o desempenho do hardware do servidor. Selecione a compilação mais recente do x86 ou x64, selecione a guia **artefatos** e baixe a MSI.
+- Compare o desempenho do computador utilizado para copiar os dados. Transfira e utilize a [ferramenta Bluestop FIO](https://ci.appveyor.com/project/axboe/fio) para comparar o desempenho do hardware do servidor. Selecione a mais recente construção x86 ou x64, selecione o separador **Artefactos** e baixe o MSI.
 
 <!--### Q. How to speed up the data copy if the source data has small files (KBs or few MBs)?
 A.  To speed up the copy process:
@@ -180,25 +180,25 @@ R.  Sim. O Data Box suporta um máximo de dez contas de armazenamento, sejam de 
 ### <a name="q-my-device-was-delivered-but-the-device-seems-to-be-damaged-what-should-i-do"></a>P. O meu dispositivo foi entregue, mas parece estar danificado. O que devo fazer?
 R. Se o dispositivo foi entregue danificado ou se houver provas de adulteração, não o utilize. [Contacte o Suporte da Microsoft](data-box-disk-contact-microsoft-support.md) e devolva o dispositivo o mais depressa possível. Também pode criar uma encomenda do Data Box nova para substituir o dispositivo. Nesse caso, o dispositivo de substituição não lhe é cobrado.
 
-### <a name="q-can-i-pick-up-my-data-box-order-myself-can-i-return-the-data-box-via-a-carrier-that-i-choose"></a>P. Posso pegar meu Data Box ordem? Posso retornar a Data Box por meio de uma operadora que escolho?
-R. Sim. A Microsoft também oferece entregas autogerenciadas somente na região US Gov. Ao colocar o pedido de Data Box, você pode escolher a opção de envio autogerenciado. Para pegar seu dispositivo Data Box, execute as seguintes etapas:
+### <a name="q-can-i-pick-up-my-data-box-order-myself-can-i-return-the-data-box-via-a-carrier-that-i-choose"></a>P. Posso pegar a minha ordem da Caixa de Dados? Posso devolver a Caixa de Dados através de uma transportadora que escolher?
+R. Sim. A Microsoft também oferece envios autogeridos apenas na região de Us Gov. Ao colocar a encomenda data Box, pode escolher a opção de envio autogerida. Para recolher o seu dispositivo Data Box, tome os seguintes passos:
     
-1. Depois que você tiver colocado o pedido, o pedido será processado e o Data Box será preparado. Você será notificado por um email de que seu pedido está pronto para o recebimento. 
-2. Quando o pedido estiver pronto para o recebimento, vá para seu pedido na portal do Azure e navegue até a folha **visão geral** . 
-3. Você verá uma notificação com um código na portal do Azure. Envie a [equipe de operações de Azure data Box](mailto:adbops@microsoft.com) por email e forneça o código. A equipe fornecerá o local e agendará uma data e hora de retirada. Você deve chamar a equipe dentro de 5 dias úteis depois de receber a notificação por email.
+1. Depois de ter feito a encomenda, a encomenda é processada e a Caixa de Dados está preparada. Será notificado através de um e-mail que a sua encomenda está pronta para ser recolhida. 
+2. Uma vez que a encomenda esteja pronta para recolha, vá à sua encomenda no portal Azure e navegue até à lâmina **de visão geral.** 
+3. Verá uma notificação com um código no portal Azure. Envie um e-mail à equipa de Operações de Caixa de [Dados Azure](mailto:adbops@microsoft.com) e forneça-lhes o código. A equipa fornecerá a localização e marcará uma data e hora de recolha. Deve ligar para a equipa no prazo de 5 dias úteis após receber a notificação por e-mail.
 
-Depois que a cópia de dados for concluída, execute as seguintes etapas para retornar seu dispositivo:
+Uma vez concluída a cópia de dados, tome os seguintes passos para devolver o seu dispositivo:
 
-1. Depois que a cópia de dados for concluída sem erros, execute **preparação para o envio**. Após a conclusão da preparação, você receberá um código na interface do usuário da Web local do dispositivo. Copie e salve o código.
-2. Desligue o dispositivo e remova os cabos de conexão.
+1. Uma vez que a cópia de dados esteja completa sem erros, executar **Prepare-se para enviar**. Após a preparação estar concluída, receberá um código na Web UI local do dispositivo. Copie e guarde o código.
+2. Desligue o aparelho e retire os cabos de ligação.
 3. Coloque em segurança o cabo de alimentação enviado com o dispositivo atrás do mesmo.
-4. Envie a [equipe de operações de Azure data Box](mailto:adbops@microsoft.com) por email e forneça o código que você salvou anteriormente. Eles fornecerão informações sobre onde e quando descartar o dispositivo.
+4. Envie um e-mail à equipa de Operações de Caixas de [Dados Azure](mailto:adbops@microsoft.com) e forneça-lhes o código que guardou anteriormente. Eles fornecer-lhe-iam informações sobre onde e quando deixar o dispositivo.
 
-### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>P. Meus dispositivos Data Boxão bordas entre países durante o envio?
-R. Todos os dispositivos Data Box são enviados de dentro do mesmo país que seu destino e não atravessam nenhuma borda internacional. A única exceção é para pedidos na União Europeia (UE), em que os dispositivos podem enviar de e para qualquer país da UE. Isso se aplica aos dispositivos Data Box e Data Box Heavy.
+### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>P. Os meus dispositivos data Box atravessarão as fronteiras do país durante o transporte?
+R. Todos os dispositivos Data Box são enviados de dentro do mesmo país que o seu destino e não atravessarão quaisquer fronteiras internacionais. A única exceção é as encomendas na União Europeia (UE), onde os dispositivos podem ser enviados de e para qualquer país da UE. Isto aplica-se tanto à Caixa de Dados como aos dispositivos Data Box Heavy.
 
-### <a name="q-i-ordered-a-data-box-in-us-east-but-i-received-a-device-that-was-shipped-from-a-location-in-us-west-where-should-i-return-the-device-to"></a>P. Eu solicitei um Data Box no leste dos EUA, mas recebi um dispositivo que foi enviado de um local no oeste dos EUA. Onde devo retornar o dispositivo?
-R. Tentamos obter um dispositivo Data Box o mais rápido possível. Nós priorizamos a remessa de um datacenter mais próximo ao local da conta de armazenamento, mas enviará um dispositivo de qualquer Datacenter do Azure que tenha um inventário disponível. Seu Data Box deve ser retornado para o mesmo local em que foi enviado, conforme exibido no rótulo de remessa.
+### <a name="q-i-ordered-a-data-box-in-us-east-but-i-received-a-device-that-was-shipped-from-a-location-in-us-west-where-should-i-return-the-device-to"></a>P. Encomendei uma Caixa de Dados no Leste dos EUA, mas recebi um dispositivo que foi enviado de um local em Us West. Para onde devo devolver o dispositivo?
+R. Tentamos obter um dispositivo Data Box o mais rápido possível para si. Priorizamos o envio de um datacenter mais próximo da sua conta de armazenamento, mas enviaremos um dispositivo a partir de qualquer datacenter Azure que tenha inventário disponível. A sua Caixa de Dados deve ser devolvida ao mesmo local onde foi enviada, tal como exibida na etiqueta de envio.
 
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>P. O ecrã E-Ink não está a mostrar a guia de remessa da devolução. O que devo fazer?
 R. Se o ecrã E-Ink não mostrar a guia de remessa da devolução, siga os passos abaixo:
@@ -216,28 +216,28 @@ Para obter mais informações, aceda a [Data Box security features](data-box-sec
 ### <a name="q-i-have-finished-prepare-to-ship-and-shut-down-the-device-can-i-still-add-more-data-to-data-box"></a>P. Concluí a preparação para envio e encerrei o dispositivo. Posso continuar a adicionar mais dados ao Data Box?
 R. Sim. Pode ligar o dispositivo e adicionar mais dados. Quando concluir a cópia dos dados, tem de **Preparar o Envio** outra vez.
 
-### <a name="q-i-received-my-device-and-it-is-not-booting-up-how-do-i-ship-the-device-back"></a>P. Recebi meu dispositivo e ele não está inicializando? Como fazer enviar o dispositivo de volta?
-R. Se o dispositivo não estiver inicializando, vá para o seu pedido na portal do Azure. Baixe um rótulo de remessa e afixa-o no dispositivo. Para obter mais informações, aceda a [Download shipping label](data-box-portal-admin.md#download-shipping-label) (Transferir a guia de remessa).
+### <a name="q-i-received-my-device-and-it-is-not-booting-up-how-do-i-ship-the-device-back"></a>P. Recebi o meu dispositivo e não está a arrancar? Como posso enviar o dispositivo de volta?
+R. Se o seu dispositivo não estiver a arrancar, vá à sua encomenda no portal Azure. Faça o download de uma etiqueta de envio e afixe-a no dispositivo. Para obter mais informações, aceda a [Download shipping label](data-box-portal-admin.md#download-shipping-label) (Transferir a guia de remessa).
 
 ## <a name="verify-and-upload"></a>Verificar e carregar
 
 ### <a name="q-how-soon-can-i-access-my-data-in-azure-once-ive-shipped-the-data-box-back"></a>P. Quanto tempo depois de devolver o Data Box é que posso aceder aos meus dados no Azure? 
-R.  Quando o estado da encomenda para **Cópia de Dados** aparecer como **Concluído**, deverá conseguir aceder aos seus dados de imediato.
+R.  Assim que o estado de encomenda **da Data Copy** mostrar como **Completo,** deverá poder aceder imediatamente aos seus dados.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>P. Depois do carregamento, onde é que os meus dados ficam localizados no Azure?
-R.  Quando você copia os dados para Data Box, dependendo se os dados são blob de blocos ou BLOB de páginas ou arquivos do Azure, os dados são carregados em um dos seguintes caminhos na sua conta de armazenamento do Azure.
+R.  Quando copia os dados para data Box, dependendo se os dados são ficheiros blob ou de página blob ou Azure, os dados são enviados para um dos seguintes caminhos na sua conta de Armazenamento Azure.
 - `https://<storage_account_name>.blob.core.windows.net/<containername>` 
 - `https://<storage_account_name>.file.core.windows.net/<sharename>`
  
   Em alternativa, pode aceder à sua conta de armazenamento do Azure no portal do Azure e navegar a partir daí.
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>P. Acabei de reparar que não segui os requisitos de nomenclatura do Azure nos meus contentores. O carregamento dos meus dados para o Azure vai falhar?
-R.  Se os nomes dos contêineres tiverem letras maiúsculas, esses nomes serão automaticamente convertidos em minúsculas. Se os nomes não estiverem em conformidade por outros motivos (carateres especiais, outros idiomas, etc.), o carregamento falhará. Para obter mais informações sobre as melhores práticas de nomenclatura de partilhas, contentores e ficheiros, aceda a:
+R.  Se os nomes do recipiente tiverem letra maiúscula, esses nomes são automaticamente convertidos para minúsculas. Se os nomes não estiverem em conformidade por outros motivos (carateres especiais, outros idiomas, etc.), o carregamento falhará. Para obter mais informações sobre as melhores práticas de nomenclatura de partilhas, contentores e ficheiros, aceda a:
 - [Naming and referencing shares](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata) (Nomenclatura e referência a partilhas)
 - [Block blobs and page blob conventions](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) (Convenções de blobs de blocos e de blobs de páginas).
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-data-box"></a>P. Como posso verificar os dados que copiei para o Data Box?
-R.  Após a conclusão da cópia dos dados, quando executa **Preparação para envio**, os seus dados são validados. Durante o processo de validação, o Data Box gera uma lista de ficheiros e somas de verificação para os dados. Você pode baixar a lista de arquivos e verificar a lista em relação aos arquivos nos dados de origem. Para obter mais informações, aceda a [Prepare to ship](data-box-deploy-picked-up.md#prepare-to-ship) (Preparar para enviar).
+R.  Após a conclusão da cópia dos dados, quando executa **Preparação para envio**, os seus dados são validados. Durante o processo de validação, o Data Box gera uma lista de ficheiros e somas de verificação para os dados. Pode descarregar a lista de ficheiros e verificar a lista com os ficheiros nos dados de origem. Para obter mais informações, aceda a [Prepare to ship](data-box-deploy-picked-up.md#prepare-to-ship) (Preparar para enviar).
 
 ### <a name="q-what-happens-to-my-data-after-i-have-returned-the-data-box"></a>P. O que acontece aos dados depois de devolver o Data Box?
 R.  Após a conclusão da cópia dos dados para o Azure, os dados dos discos no Data Box são apagados em segurança, de acordo com as diretrizes SP 800-88 Revision 1 da NIST. Para obter mais informações, aceda a [Erasure of data from Data Box](data-box-deploy-picked-up.md#erasure-of-data-from-data-box) (Apagar dados do Data Box).
@@ -251,17 +251,17 @@ R.  O serviço Azure Data Box disponibiliza, de forma nativa, relatórios que po
 ### <a name="what-type-of-reporting-is-available-to-support-chain-of-custody"></a>Que tipos de relatórios estão disponíveis para suportar a cadeia de custódia?
 R.  Para suportar a cadeia de custódia, estão disponíveis os seguintes relatórios:
 
-- Logística de transporte do UPS.
+- Transporte logístico da UPS.
 - Registo de ligar e de partilha de acesso do utilizador.
 - Ficheiro de manifesto com uma verificação de redundância cíclica de 64 bits (CRC-64) ou soma de verificação para cada ficheiro que é ingerido pelo Data Box.
 - Relatórios de ficheiros que não foram devidamente carregados para a conta de armazenamento do Azure.
 - Limpeza do dispositivo Data Box (de acordo com as normas 800 88R1 da NIST) após a cópia dos dados para a sua conta de armazenamento do Azure.
 
-### <a name="are-the-carrier-tracking-logs-from-ups-available"></a>Os logs de rastreamento da transportadora (da UPS) estão disponíveis? 
+### <a name="are-the-carrier-tracking-logs-from-ups-available"></a>Os registos de rastreio da transportadora (da UPS) estão disponíveis? 
 R.  Os registos de acompanhamento da transportadora são guardados no histórico de encomendas do Data Box. Este relatório está disponível após o dispositivo ter chegado ao datacenter do Azure e de os dados no mesmo terem sido limpos. Para necessidades imediatas, também pode aceder diretamente ao site da transportadora com o número de acompanhamento da encomenda e obter as informações de acompanhamento.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>Posso transportar o Data Box para o datacenter do Azure? 
-R.  Não. Atualmente, o datacenter do Azure não aceita a entrega do Data Box de clientes ou de operadoras diferentes de UPS.
+R.  Não. Atualmente o Centro de Dados Azure não aceita a entrega da Caixa de Dados de clientes ou de transportadoras que não sejam ups.
 
 
 ## <a name="next-steps"></a>Passos seguintes

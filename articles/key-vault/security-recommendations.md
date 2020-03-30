@@ -11,10 +11,10 @@ ms.date: 09/30/2019
 ms.author: barclayn
 ms.custom: security-recommendations
 ms.openlocfilehash: 9fd41ae9b61a9c74fd5d99dd71199cfde06f5cb2
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78192375"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Recomendações de segurança para cofre de chaves Azure
@@ -43,7 +43,7 @@ Algumas das recomendações incluídas neste artigo podem ser automaticamente mo
 
 | Recomendação | Comentários | Centro de Segurança |
 |-|----|--|
- Os registos de diagnóstico no Cofre chave devem ser ativados | Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. | [Sim](../security-center/security-center-identity-access.md) |
+ Os registos de diagnósticos no Key Vault devem ser ativados | Ative os registos e retenha-os até um ano. Isto permite-lhe recriar trilhas de atividade para fins de investigação quando ocorre um incidente de segurança ou a sua rede está comprometida. | [Sim](../security-center/security-center-identity-access.md) |
 | Restrinja quem pode aceder aos seus registos de cofre seledores Azure Key | [Os registos do Cofre de Chaves](key-vault-logging.md) guardam informações sobre as atividades realizadas no seu cofre, tais como criação ou eliminação de cofres, chaves, segredos e podem ser usados durante uma investigação |  - |
 
 ## <a name="networking"></a>Redes

@@ -13,13 +13,13 @@ ms.date: 03/16/2018
 ms.author: rohink
 ms.custom: ''
 ms.openlocfilehash: e38e1255b1a84ab5d3fd37e16eb65c76001dbfa1
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938439"
 ---
-# <a name="traffic-manager-real-user-measurements-overview"></a>Visão geral do gestor de tráfego real do utilizador
+# <a name="traffic-manager-real-user-measurements-overview"></a>Descrição geral das Medições de Utilizador Reais do Gestor de Tráfego
 
 Ao configurar um perfil do Traffic Manager para utilizar o método de encaminhamento de desempenho, o serviço analisa de onde vêm os pedidos de consulta do DNS e toma decisões de encaminhamento para direcionar esses solicitadores para a região de Azure que lhes dá a menor latência. Isto é conseguido utilizando a inteligência de latência da rede que o Traffic Manager mantém para diferentes redes de utilizadores finais.
 
@@ -35,7 +35,7 @@ Com o tempo, isto acontece muitas vezes e em muitas redes levando o Traffic Mana
 
 Quando utiliza medições reais do utilizador, é faturado com base no número de medições enviadas ao Traffic Manager. Para mais detalhes sobre os preços, visite a página de preços do Gestor de [Tráfego.](https://azure.microsoft.com/pricing/details/traffic-manager/)
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQs
 
 * [Quais são os benefícios da utilização de Medições reais do Utilizador?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-benefits-of-using-real-user-measurements)
 

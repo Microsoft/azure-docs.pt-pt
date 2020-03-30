@@ -1,6 +1,6 @@
 ---
-title: Design híbrido do (s) subsistemas DRM usando os serviços de mídia do Azure | Microsoft Docs
-description: Este tópico discute o design híbrido do (s) subsistemas DRM usando os serviços de mídia do Azure.
+title: Design híbrido do subsistema DRM utilizando o Azure Media Services [ Microsoft Docs
+description: Este tema discute o design híbrido do subsistema DRM utilizando o Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -16,40 +16,40 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: juliako
 ms.openlocfilehash: d2f4ddfbff791fbfeb2eb006a628c0fdeb4fdce1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74975198"
 ---
-# <a name="hybrid-design-of-drm-subsystems"></a>Design híbrido de subsistemas DRM 
+# <a name="hybrid-design-of-drm-subsystems"></a>Design híbrido dos subsistemas DRM 
 
-Este tópico discute o design híbrido do (s) subsistemas DRM usando os serviços de mídia do Azure.
+Este tema discute o design híbrido do subsistema DRM utilizando o Azure Media Services.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
-Os serviços de mídia do Azure fornecem suporte para os três sistemas DRM a seguir:
+A Azure Media Services presta suporte para o seguinte sistema de DRM:
 
 * PlayReady
-* Widevine (modular)
+* Widevine (Modular)
 * FairPlay
 
-O suporte a DRM inclui criptografia DRM (criptografia dinâmica) e entrega de licença, com Player de Mídia do Azure dando suporte a todos os 3 DRMs como um SDK do Player do navegador.
+O suporte a DRM inclui encriptação DRM (encriptação dinâmica) e entrega de licença, com o Azure Media Player a suportar todos os 3 DRMs como um leitor de navegador SDK.
 
-Para obter um tratamento detalhado do design e da implementação do subsistema DRM/CENC, consulte o documento intitulado [Cenc com multi-DRM e controle de acesso](media-services-cenc-with-multidrm-access-control.md).
+Para um tratamento detalhado da conceção e implementação do subsistema DRM/CENC, consulte o documento intitulado [CENC com Multi-DRM e Controlo](media-services-cenc-with-multidrm-access-control.md)de Acesso .
 
-Embora ofereçamos suporte completo para três sistemas DRM, às vezes, os clientes precisam usar várias partes de sua própria infraestrutura/subsistemas, além dos serviços de mídia do Azure para criar um subsistema DRM híbrido.
+Embora ofereçamos apoio total a três sistemas DEDRM, por vezes os clientes precisam de utilizar várias partes da sua própria infraestrutura/subsistemas, além dos Serviços De Mídia Azure para construir um subsistema híbrido de DRM.
 
-Abaixo estão algumas perguntas comuns solicitadas pelos clientes:
+Abaixo estão algumas perguntas comuns colocadas pelos clientes:
 
-* "Posso usar meus próprios servidores de licença DRM?" (Nesse caso, os clientes investiram no farm de servidores de licença do DRM com a lógica comercial inserida).
-* "Posso usar apenas sua entrega de licença do DRM nos serviços de mídia do Azure sem hospedar conteúdo no AMS?"
+* "Posso usar os meus próprios servidores de licença de DRM?" (Neste caso, os clientes investiram na exploração de servidores de licenças DRM com lógica de negócio incorporada).
+* "Posso usar apenas a sua entrega de licença de DRM na Azure Media Services sem hospedar conteúdo na AMS?"
 
-## <a name="modularity-of-the-ams-drm-platform"></a>Modularidade da plataforma DRM do AMS
+## <a name="modularity-of-the-ams-drm-platform"></a>Modularidade da plataforma AMS DRM
 
-Como parte de uma plataforma de vídeo em nuvem abrangente, o DRM dos serviços de mídia do Azure tem um design com flexibilidade e modularidade em mente. Você pode usar os serviços de mídia do Azure com qualquer uma das diferentes combinações descritas na tabela a seguir (uma explicação da notação usada na tabela a seguir). 
+Como parte de uma plataforma abrangente de vídeo em nuvem, a Azure Media Services DRM tem em mente um design com flexibilidade e modularidade. Pode utilizar o Azure Media Services com qualquer uma das seguintes combinações diferentes descritas na tabela abaixo (segue-se uma explicação da notação utilizada na tabela). 
 
-|**Origem de & de Hospedagem de conteúdo**|**Criptografia de conteúdo**|**Entrega de licença DRM**|
+|**Hospedagem de conteúdos & origem**|**Encriptação de conteúdo**|**Entrega de licença DRM**|
 |---|---|---|
 |AMS|AMS|AMS|
 |AMS|AMS|Terceiros|
@@ -57,86 +57,86 @@ Como parte de uma plataforma de vídeo em nuvem abrangente, o DRM dos serviços 
 |AMS|Terceiros|Terceiros|
 |Terceiros|Terceiros|AMS|
 
-### <a name="content-hosting--origin"></a>Origem de & de Hospedagem de conteúdo
+### <a name="content-hosting--origin"></a>Hospedagem de conteúdos & origem
 
-* AMS: o ativo de vídeo é hospedado no AMS e o streaming é por meio de pontos de extremidade de streaming do AMS (mas não necessariamente empacotamento dinâmico).
-* Terceiros: o vídeo é hospedado e entregue em uma plataforma de streaming de terceiros fora do AMS.
+* AMS: o ativo de vídeo está hospedado em AMS e o streaming é através de pontos finais de streaming AMS (mas não necessariamente de embalagem dinâmica).
+* Terceiros: o vídeo é hospedado e entregue numa plataforma de streaming de terceiros fora da AMS.
 
-### <a name="content-encryption"></a>Criptografia de conteúdo
+### <a name="content-encryption"></a>Encriptação de conteúdo
 
-* AMS: a criptografia de conteúdo é executada dinamicamente/sob demanda pela criptografia dinâmica do AMS.
-* Terceiros: a criptografia de conteúdo é executada fora do AMS usando um fluxo de trabalho de pré-processamento.
+* AMS: a encriptação do conteúdo é realizada dinamicamente/a pedido pela encriptação dinâmica AMS.
+* Terceiros: a encriptação do conteúdo é realizada fora da AMS utilizando um fluxo de trabalho pré-processamento.
 
 ### <a name="drm-license-delivery"></a>Entrega de licença de DRM
 
-* AMS: a licença DRM é fornecida pelo serviço de entrega de licenças do AMS.
-* Terceiros: a licença DRM é fornecida por um servidor de licença DRM de terceiros fora do AMS.
+* AMS: A licença DE DRM é entregue pelo serviço de entrega de licenças AMS.
+* Terceiro: A licença DRM é entregue por um servidor de licença DRM de terceiros fora da AMS.
 
-## <a name="configure-based-on-your-hybrid-scenario"></a>Configurar com base em seu cenário híbrido
+## <a name="configure-based-on-your-hybrid-scenario"></a>Configure com base no seu cenário híbrido
 
 ### <a name="content-key"></a>Chave de conteúdo
 
-Por meio da configuração de uma chave de conteúdo, você pode controlar os seguintes atributos de criptografia dinâmica do AMS e serviço de entrega de licença do AMS:
+Através da configuração de uma chave de conteúdo, pode controlar os seguintes atributos tanto da encriptação dinâmica AMS como do serviço de entrega de licenças AMS:
 
-* A chave de conteúdo usada para criptografia de DRM dinâmica.
-* Conteúdo de licença do DRM a ser entregue pelos serviços de entrega de licença: direitos, chave de conteúdo e restrições.
-* Tipo de **restrição de política de autorização de chave de conteúdo**: restrição de abertura, IP ou token.
-* Se o tipo de **token** da **restrição de política de autorização de chave de conteúdo for usado**, a **restrição de política de autorização de chave de conteúdo** deverá ser atendida antes que uma licença seja emitida.
+* A chave de conteúdo utilizada para encriptação dDRD dinâmica.
+* Conteúdo da licença DRM a ser entregue por serviços de entrega de licenças: direitos, chave de conteúdo e restrições.
+* Tipo de restrição da política de autorização de chaves de **conteúdo: restrição**aberta, IP ou simbólica.
+* Se **token** **for utilizada uma restrição**da política de autorização de chave de conteúdo, a **restrição** da política de autorização de conteúdo deve ser cumprida antes da emissão de uma licença.
 
 ### <a name="asset-delivery-policy"></a>Política de entrega de ativos
 
-Por meio da configuração de uma política de entrega de ativos, você pode controlar os seguintes atributos usados pelo empacotador dinâmico do AMS e criptografia dinâmica de um ponto de extremidade de streaming do AMS:
+Através da configuração de uma política de entrega de ativos, pode controlar os seguintes atributos utilizados pelo pacote dinâmico AMS e encriptação dinâmica de um ponto final de streaming AMS:
 
-* Combinação de protocolo de streaming e criptografia DRM, como DASH em CENC (PlayReady e Widevine), Smooth streaming sob PlayReady, HLS em Widevine ou PlayReady.
-* As URLs de entrega de licença padrão/inseridas para cada um dos DRMs envolvidos.
-* Se as URLs de aquisição de licença (LA_URLs) na lista de reprodução de traço MPD ou HLS contêm cadeia de caracteres de consulta de ID de chave (KID) para Widevine e FairPlay, respectivamente.
+* Protocolo de streaming e combinação de encriptação DRM, como o DASH sob cenc (PlayReady e Widevine), streaming suave em PlayReady, HLS em Widevine ou PlayReady.
+* Os URLs de entrega de licença sinuosos/incorporados para cada uma das DDR envolvidas.
+* Se a aquisição de licençauris (LA_URLs) em DASH MPD ou HLS playlist contém uma cadeia de consulta de ID chave (KID) para Widevine e FairPlay, respectivamente.
 
-## <a name="scenarios-and-samples"></a>Cenários e exemplos
+## <a name="scenarios-and-samples"></a>Cenários e amostras
 
-Com base nas explicações na seção anterior, os cinco cenários híbridos a seguir usam a respectiva **chave de conteúdo**-combinações de configuração de política de **entrega de ativos** (os exemplos mencionados na última coluna seguem a tabela):
+Com base nas explicações na secção anterior, os seguintes cinco cenários híbridos utilizam as respetivas combinações de**configuração** da política de entrega de ativos de **conteúdo**-(as amostras mencionadas na última coluna seguem a tabela):
 
-|**Origem de & de Hospedagem de conteúdo**|**Criptografia DRM**|**Entrega de licença DRM**|**Configurar chave de conteúdo**|**Configurar política de entrega de ativos**|**Exemplo**|
+|**Hospedagem de conteúdos & origem**|**Encriptação DRM**|**Entrega de licença DRM**|**Configurar a chave de conteúdo**|**Configurar a política de entrega de ativos**|**Amostra**|
 |---|---|---|---|---|---|
 |AMS|AMS|AMS|Sim|Sim|Exemplo 1|
 |AMS|AMS|Terceiros|Sim|Sim|Exemplo 2|
 |AMS|Terceiros|AMS|Sim|Não|Exemplo 3|
-|AMS|Terceiros|Exterior|Não|Não|Exemplo 4|
+|AMS|Terceiros|Lá fora|Não|Não|Exemplo 4|
 |Terceiros|Terceiros|AMS|Sim|Não|    
 
-Nos exemplos, a proteção PlayReady funciona tanto para o DASH quanto para Smooth streaming. As URLs de vídeo abaixo são URLs de Smooth streaming. Para obter as URLs de DASH correspondentes, basta acrescentar "(Format = MPD-time-CSF)". Você pode usar o [player de teste de mídia do Azure](https://aka.ms/amtest) para testar em um navegador. Ele permite que você configure qual protocolo de streaming usar, sob o qual Tech. O IE11 e o Microsoft Edge no Windows 10 dão suporte ao PlayReady por meio do EME. Para obter mais informações, consulte [detalhes sobre a ferramenta de teste](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
+Nas amostras, a proteção PlayReady funciona tanto para o DASH como para o streaming suave. Os URLs de vídeo abaixo são URLs de streaming suaves. Para obter os URLs DASH correspondentes, basta anexar "(formato=mpd-time-csf)". Você poderia usar o leitor de teste de [mídia azul](https://aka.ms/amtest) para testar em um navegador. Permite-lhe configurar qual o protocolo de streaming a utilizar, sob o qual tecnologia. IE11 e Microsoft Edge no suporte do Windows 10 PlayReady através de EME. Para mais informações, consulte [detalhes sobre a ferramenta de teste](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
 
 ### <a name="sample-1"></a>Exemplo 1
 
-* URL de origem (base): https://willzhanmswest.streaming.mediaservices.windows.net/1efbd6bb-1e66-4e53-88c3-f7e5657a9bbd/RussianWaltz.ism/manifest 
-* LA_URL PlayReady (traço & suave): https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/ 
-* Widevine LA_URL (DASH): https://willzhanmswest.keydelivery.mediaservices.windows.net/Widevine/?kid=78de73ae-6d0f-470a-8f13-5c91f7c4 
-* FairPlay LA_URL (HLS): https://willzhanmswest.keydelivery.mediaservices.windows.net/FairPlay/?kid=ba7e8fb0-ee22-4291-9654-6222ac611bd8 
+* URL de origem (base):https://willzhanmswest.streaming.mediaservices.windows.net/1efbd6bb-1e66-4e53-88c3-f7e5657a9bbd/RussianWaltz.ism/manifest 
+* PlayReady LA_URL (DASH & suave):https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/ 
+* LA_URL de grande nitida (DASH):https://willzhanmswest.keydelivery.mediaservices.windows.net/Widevine/?kid=78de73ae-6d0f-470a-8f13-5c91f7c4 
+* FairPlay LA_URL (HLS):https://willzhanmswest.keydelivery.mediaservices.windows.net/FairPlay/?kid=ba7e8fb0-ee22-4291-9654-6222ac611bd8 
 
 ### <a name="sample-2"></a>Exemplo 2
 
-* URL de origem (base): https://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
-* LA_URL PlayReady (traço & suave): http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx 
+* URL de origem (base):https://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
+* PlayReady LA_URL (DASH & suave):http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx 
 
 ### <a name="sample-3"></a>Exemplo 3
 
-* URL de origem: https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500.ism/manifest 
-* LA_URL PlayReady (traço & suave): https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/ 
+* URL de origem:https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500.ism/manifest 
+* PlayReady LA_URL (DASH & suave):https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/ 
 
 ### <a name="sample-4"></a>Exemplo 4
 
-* URL de origem: https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
-* LA_URL PlayReady (traço & suave): https://willzhan12.cloudapp.net/playready/rightsmanager.asmx 
+* URL de origem:https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
+* PlayReady LA_URL (DASH & suave):https://willzhan12.cloudapp.net/playready/rightsmanager.asmx 
 
 ## <a name="additional-notes"></a>Notas adicionais
 
-* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+* A Widevine é um serviço prestado pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
 ## <a name="summary"></a>Resumo
 
-Em resumo, os componentes DRM dos serviços de mídia do Azure são flexíveis, você pode usá-los em um cenário híbrido Configurando adequadamente a chave de conteúdo e a política de entrega de ativos, conforme descrito neste tópico.
+Em resumo, os componentes DRM da Azure Media Services são flexíveis, pode utilizá-los num cenário híbrido configurando adequadamente a chave de conteúdo e a política de entrega de ativos, como descrito neste tópico.
 
 ## <a name="next-steps"></a>Passos seguintes
-Exibir os roteiros de aprendizagem dos serviços de mídia.
+Ver caminhos de aprendizagem dos Serviços de Media.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

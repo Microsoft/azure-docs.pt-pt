@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/28/2020
 ms.author: spelluru
 ms.openlocfilehash: 3f18425408e6526904db85eae1c3a4db41d11a58
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78198873"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Anexar ou desmontar um disco de dados a uma máquina virtual em Laboratórios Azure DevTest
@@ -35,7 +35,7 @@ Antes de anexar um disco de dados a um VM, reveja estas dicas:
 ### <a name="attach-a-new-disk"></a>Anexar um disco novo
 Siga estes passos para criar e anexar um novo disco de dados gerido a um VM em Azure DevTest Labs.
 
-1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista.
 1. Da lista de laboratórios, selecione o laboratório desejado. 
 1. A partir da lista das **Minhas máquinas virtuais,** selecione um VM em execução.
@@ -84,7 +84,7 @@ Se pretender voltar a utilizar os dados existentes no disco, pode voltar a ligá
 O disco está desconectado e está disponível para anexar a outro VM. 
 ### <a name="detach-from-the-labs-main-pane"></a>Desprender-se do painel principal do laboratório
 1. No painel principal do seu laboratório, selecione os meus discos de **dados.**
-1. Clique no disco de dados que pretende desprender – ou selecione a sua elipse ( **...** ) – e escolha **Desmontar**.
+1. Clique no disco de dados que pretende desprender – ou selecione a sua elipse (**...**) – e escolha **Desmontar**.
 
     ![Desanexar um disco de dados](./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-data-disk.png)
 1. Selecione **Sim** para confirmar que pretende desmontá-lo.

@@ -1,6 +1,6 @@
 ---
 title: Implemente um trabalho de Análise de Fluxo Salédis Azure utilizando pacote ci/CD npm
-description: Este artigo descreve como usar Azure Stream Analytics pacote de NPM CI/CD para configurar um processo de implantação e integração contínua.
+description: Este artigo descreve como utilizar o pacote ci/CD npm do Azure Stream Analytics para configurar um processo contínuo de integração e implementação.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.openlocfilehash: deb6c2439cc84f196b7f42fd9f49d3ebfd057cbb
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76962226"
 ---
 # <a name="deploy-an-azure-stream-analytics-job-using-cicd-npm-package"></a>Implemente um trabalho de Análise de Fluxo Salédis Azure utilizando pacote ci/CD npm 
@@ -21,13 +21,13 @@ Pode utilizar o pacote de npm CI/CD do Azure Stream Analytics para configurar um
 
 Para obter mais informações sobre a implementação com powershell, consulte a implementação com um ficheiro de [modelo de Gestor de Recursos e Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). Também pode aprender mais sobre como [usar um objeto como parâmetro num modelo](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters)de Gestor de Recursos .
 
-## <a name="build-the-vs-code-project"></a>Criar o projeto de VS Code
+## <a name="build-the-vs-code-project"></a>Construa o projeto vs Código
 
-Você pode habilitar a integração e a implantação contínuas para trabalhos de Azure Stream Analytics usando o pacote NPM- **streamanalytics-cICD** . O pacote NPM fornece as ferramentas para gerar Azure Resource Manager modelos de [Stream Analytics projetos de Visual Studio Code](quick-create-vs-code.md). Ele pode ser usado no Windows, no macOS e no Linux sem instalar Visual Studio Code.
+Pode permitir a integração e implantação contínuas para trabalhos de Azure Stream Analytics utilizando o pacote **npm asa-streamanalytics-cicd** npm. O pacote npm fornece as ferramentas para gerar modelos de Gestor de Recursos Azure de [projetos de Código de Estúdio Visual Stream Analytics.](quick-create-vs-code.md) Pode ser usado em Windows, macOS e Linux sem instalar o Visual Studio Code.
 
-Você pode [baixar o pacote](https://www.npmjs.com/package/azure-streamanalytics-cicd) diretamente ou instalá-lo [globalmente](https://docs.npmjs.com/downloading-and-installing-packages-globally) por meio do comando `npm install -g azure-streamanalytics-cicd`. Esta é a abordagem recomendada, que também pode ser usada numa tarefa de script PowerShell ou Azure CLI de um pipeline de construção em **Pipelines Azure**.
+Pode [descarregar o pacote](https://www.npmjs.com/package/azure-streamanalytics-cicd) diretamente ou instalá-lo [globalmente](https://docs.npmjs.com/downloading-and-installing-packages-globally) através do `npm install -g azure-streamanalytics-cicd` comando. Esta é a abordagem recomendada, que também pode ser usada numa tarefa de script PowerShell ou Azure CLI de um pipeline de construção em **Pipelines Azure**.
 
-Depois de instalar o pacote, use o comando a seguir para gerar os modelos de Azure Resource Manager. O argumento **ScriptPath** é o caminho absoluto para o arquivo **asaql** em seu projeto. Verifique se os arquivos asaproj. JSON e JobConfig. JSON estão na mesma pasta com o arquivo de script. Se o **outputPath** não for especificado, os modelos serão colocados na pasta **Deploy** na pasta **bin** do projeto.
+Depois de ter instalado a embalagem, utilize o seguinte comando para obter os modelos do Gestor de Recursos Azure. O argumento **scriptPath** é o caminho absoluto para o arquivo **asaql** no seu projeto. Certifique-se de que os ficheiros asaproj.json e JobConfig.json estão na mesma pasta com o ficheiro script. Se o **outputPath** não for especificado, os modelos serão colocados na pasta **Deploy** sob a pasta do **lixo** do projeto.
 
 ```powershell
 azure-streamanalytics-cicd build -scriptPath <scriptFullPath> -outputPath <outputPath>
@@ -39,18 +39,18 @@ azure-streamanalytics-cicd build -scriptPath "/Users/roger/projects/samplejob/sc
 
 Quando um projeto stream analytics visual studio code constrói com sucesso, gera os seguintes dois ficheiros de modelo de Gestor de Recursos Azure sob a pasta **bin/[Debug/Retail]/Deploy:** 
 
-*  Arquivo de modelo do Resource Manager
+*  Ficheiro de modelo do Gestor de Recursos
 
        [ProjectName].JobTemplate.json 
 
-*  Arquivo de parâmetros do Resource Manager
+*  Ficheiro de parâmetros do Gestor de Recursos
 
        [ProjectName].JobTemplate.parameters.json   
 
-Os parâmetros padrão no arquivo Parameters. JSON são das configurações no seu projeto Visual Studio Code. Se você quiser implantar em outro ambiente, substitua os parâmetros de acordo.
+Os parâmetros predefinidos no ficheiro parâmetros.json são das definições do seu projeto Visual Studio Code. Se quiser implantar para outro ambiente, substitua os parâmetros em conformidade.
 
 > [!NOTE]
-> Para todas as credenciais, os valores padrão são definidos como NULL. Você precisa **definir** os valores antes de implantar na nuvem.
+> Para todas as credenciais, os valores predefinidos são definidos como nulos. É **necessário** definir os valores antes de se deslocar para a nuvem.
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {
@@ -58,7 +58,7 @@ Os parâmetros padrão no arquivo Parameters. JSON são das configurações no s
     },
 ```
 
-## <a name="deploy-with-azure-pipelines"></a>Implantação com oleodutos Azure
+## <a name="deploy-with-azure-pipelines"></a>Implementar com os Pipelines do Azure
 
 Esta secção detalha como criar oleodutos Azure [para construir](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) e [lançar](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts) oleodutos usando o npm.
 
@@ -123,7 +123,7 @@ Abra um navegador web e navegue para o seu projeto de Estúdio Visual Azure Stre
 
 ### <a name="save-and-run"></a>Salvar e correr
 
-Uma vez concluída a adição da npm, linha de comando, ficheiros de cópias e publicar tarefas de construção de artefactos, selecione **Save & queue**. Quando for solicitado, introduza um comentário de salvamento e selecione **Guardar e executar**.
+Uma vez concluída a adição da npm, linha de comando, ficheiros de cópias e publicar tarefas de construção de artefactos, selecione **Guardar & fila**. Quando for solicitado, introduza um comentário de salvamento e selecione **Guardar e executar**.
 
 ## <a name="release-with-azure-pipelines"></a>Lançamento com Oleodutos Azure
 
@@ -145,13 +145,13 @@ Abra um navegador web e navegue para o seu projeto de Estúdio Visual Azure Stre
 
 1. A partir das tarefas de dropdown, selecione **Implementar trabalho para testar ambiente**. 
 
-2. Selecione o **+** ao lado do **trabalho** do Agente e procure a implantação do grupo de *recursos Azure*. Insira os seguintes parâmetros:
+2. Selecione o **+** **trabalho** ao lado do Agente e procure a implantação do grupo de recursos *Azure*. Introduza os seguintes parâmetros:
 
    |Definição|Valor|
    |-|-|
    |Nome a apresentar| *Implementar o myASAJob*|
    |Subscrição do Azure| Escolha a sua subscrição.|
-   |Ação| *Criar ou atualizar grupo de recursos*|
+   |Ação| *Criar ou atualizar o grupo de recursos*|
    |Grupo de recursos| Escolha um nome para o grupo de recursos de teste que contenha o seu trabalho de Stream Analytics.|
    |Localização|Escolha a localização do seu grupo de recursos de teste.|
    |Localização do modelo| *Artefacto ligado*|
@@ -162,13 +162,13 @@ Abra um navegador web e navegue para o seu projeto de Estúdio Visual Azure Stre
 
 3. A partir das tarefas de dropdown, selecione **Implementar trabalho para o ambiente**de produção .
 
-4. Selecione o **+** ao lado do **trabalho** do Agente e procure a implantação do grupo de *recursos Azure*. Insira os seguintes parâmetros:
+4. Selecione o **+** **trabalho** ao lado do Agente e procure a implantação do grupo de recursos *Azure*. Introduza os seguintes parâmetros:
 
    |Definição|Valor|
    |-|-|
    |Nome a apresentar| *Implementar o myASAJob*|
    |Subscrição do Azure| Escolha a sua subscrição.|
-   |Ação| *Criar ou atualizar grupo de recursos*|
+   |Ação| *Criar ou atualizar o grupo de recursos*|
    |Grupo de recursos| Escolha um nome para o grupo de recursos de produção que contenha o seu trabalho de Stream Analytics.|
    |Localização|Escolha a localização do seu grupo de recursos de produção.|
    |Localização do modelo| *Artefacto ligado*|
@@ -185,11 +185,11 @@ Para criar um lançamento, selecione **Criar lançamento** no canto superior dir
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-Para usar a identidade gerenciada para Azure Data Lake Store Gen1 como coletor de saída, você precisa fornecer acesso à entidade de serviço usando o PowerShell antes de implantar no Azure. Saiba mais sobre como [implantar ADLS Gen1 com identidade gerenciada com o modelo do Resource Manager](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment).
+Para utilizar a Identidade Gerida para azure Data Lake Store Gen1 como pia de saída, você precisa fornecer Acesso ao principal de serviço usando powerShell antes de ser implantado para O Azure. Saiba mais sobre como [implementar a ADLS Gen1 com identidade gerida com modelo](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment)de Gestor de Recursos .
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Início rápido: criar um trabalho de Azure Stream Analytics nuvem no Visual Studio Code (visualização)](quick-create-vs-code.md)
-* [Testar Stream Analytics consultas localmente com Visual Studio Code (versão prévia)](visual-studio-code-local-run.md)
-* [Explorar Azure Stream Analytics com Visual Studio Code (versão prévia)](visual-studio-code-explore-jobs.md)
+* [Quickstart: Crie um trabalho em nuvem Azure Stream Analytics em Código de Estúdio Visual (Pré-visualização)](quick-create-vs-code.md)
+* [Test Stream Analytics consultas localmente com Código de Estúdio Visual (Pré-visualização)](visual-studio-code-local-run.md)
+* [Explore o Azure Stream Analytics com o Código do Estúdio Visual (Pré-visualização)](visual-studio-code-explore-jobs.md)

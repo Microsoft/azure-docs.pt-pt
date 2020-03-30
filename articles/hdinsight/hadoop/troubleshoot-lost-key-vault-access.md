@@ -8,19 +8,19 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.openlocfilehash: 2ae389be25cd8633a53a49cf000796c1510733a1
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76965167"
 ---
 # <a name="scenario-azure-hdinsight-clusters-with-disk-encryption-lose-key-vault-access"></a>Cenário: Clusters Azure HDInsight com encriptação de disco perdem acesso ao Cofre chave
 
-Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao interagir com clusters do Azure HDInsight.
+Este artigo descreve etapas de resolução de problemas e possíveis resoluções para problemas ao interagir com clusters Azure HDInsight.
 
 ## <a name="issue"></a>Problema
 
-O alerta do Centro de Saúde de Recursos (RHC), `The HDInsight cluster is unable to access the key for BYOK encryption at rest`, é mostrado para os clusters Bring Your Own Key (BYOK) onde os nós do cluster perderam o acesso aos clientes Key Vault (KV). Alertas semelhantes também podem ser vistos na Apache Ambari UI.
+O alerta do Centro de `The HDInsight cluster is unable to access the key for BYOK encryption at rest`Saúde de Recursos (RHC), é mostrado para os clusters Bring Your Own Key (BYOK) onde os nós do cluster perderam o acesso aos clientes Key Vault (KV). Alertas semelhantes também podem ser vistos na Apache Ambari UI.
 
 ## <a name="cause"></a>Causa
 
@@ -32,7 +32,7 @@ Navegue até à Apache Ambari UI para encontrar mais informações sobre o alert
 
 ### <a name="kvaad-outage"></a>Interrupção de KV/AAD
 
-Veja a [disponibilidade do Cofre chave azure e a página](../../key-vault/key-vault-disaster-recovery-guidance.md) de estado de Azure para mais detalhes https://status.azure.com/
+Veja a [disponibilidade do Cofre chave azure e a página](../../key-vault/key-vault-disaster-recovery-guidance.md) de estado de Azure para mais detalheshttps://status.azure.com/
 
 ### <a name="kv-accidental-deletion"></a>Eliminação acidental de KV
 
@@ -66,7 +66,7 @@ Verifique as regras da NSG associadas à rede virtual anexada ao cluster.
 * Configurar o cofre de chaves com [o conjunto](../../azure-resource-manager/management/lock-resources.md)de bloqueio de recursos .
 * As chaves de segurança do hardware.
 
-### <a name="key-deletion"></a>Exclusão de chave
+### <a name="key-deletion"></a>Eliminação da chave
 
 O cluster deve ser eliminado antes da eliminação da chave.
 
@@ -82,10 +82,10 @@ Auditar e testar regularmente políticas de acesso.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
+Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure através do [Apoio Comunitário de Azure.](https://azure.microsoft.com/support/community/)
 
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) -a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligar a comunidade Azure aos recursos certos: respostas, apoio e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** a partir da barra de menus ou abra o centro de **suporte Ajuda +.** Para obter informações mais detalhadas, reveja [como criar um pedido de apoio azure.](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte do Azure.](https://azure.microsoft.com/support/plans/)

@@ -1,6 +1,6 @@
 ---
-title: EXP na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre a função de sistema SQL do expoente (EXP) no Azure Cosmos DB para retornar o valor exponencial da expressão numérica especificada
+title: EXP em linguagem de consulta de Azure Cosmos DB
+description: Conheça a função do sistema Exponent (EXP) SQL em Azure Cosmos DB para devolver o valor exponencial da expressão numérica especificada
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 76d614264124e1ce4138663b702ff6d899b3aa4e
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74873323"
 ---
 # <a name="exp-azure-cosmos-db"></a>EXP (Azure Cosmos DB)
- Devolve o valor exponencial da expressão especificada numérico.  
+ Devolve o valor exponencial da expressão numérica especificada.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -34,11 +34,11 @@ EXP (<numeric_expr>)
   
 ## <a name="remarks"></a>Observações
   
-  A constante **i** (2.718281...), é a base do logaritmos naturais.  
+  A constante **e** (2.718281...), é a base de logarithms naturais.  
   
-  O expoente de um número é a constante **i** elevado à potência do número. Por exemplo, EXP(1.0) = e ^ 1.0 = 2.71828182845905 e EXP(10) = e ^ 10 = 22026.4657948067.  
+  O expoente de um número é o constante **e** elevado ao poder do número. Por exemplo, EXP(1.0) = e^1.0 = 2.71828182845905 e EXP(10) = e^10 = 22026.4657948067.  
   
-  Exponencial do logaritmo natural de um número é o número em si: EXP (LOG (n)) = n. E o logaritmo natural de exponencial de um número é o número em si: registo (EXP (n)) = n.  
+  O exponencial do logarithm natural de um número é o próprio número: EXP (LOG (n)) = n. E o logarithm natural do exponencial de um número é o próprio número: LOG (EXP (n)) = n.  
   
 ## <a name="examples"></a>Exemplos
   
@@ -54,7 +54,7 @@ SELECT EXP(10) AS exp
 [{exp: 22026.465794806718}]  
 ```  
   
- O exemplo seguinte devolve o valor exponencial de natural logarithm de 20 e o logaritmo natural de exponencial de 20. Uma vez que estas funções são funções inversas entre si, o valor de retorno com o arredondamento para matemática de ponto flutuante em ambos os casos é 20.  
+ O exemplo seguinte devolve o valor exponencial do logarithm natural de 20 e o logarithm natural do exponencial de 20. Como estas funções são funções inversas umas das outras, o valor de retorno com arredondamento para matemática de ponto flutuante em ambos os casos é de 20.  
   
 ```sql
 SELECT EXP(LOG(20)) AS exp1, LOG(EXP(20)) AS exp2  
@@ -69,5 +69,5 @@ SELECT EXP(LOG(20)) AS exp1, LOG(EXP(20)) AS exp2
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

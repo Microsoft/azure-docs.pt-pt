@@ -12,10 +12,10 @@ ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b23b60ae49a4973fa04e6fa5f795f99536e32e7f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78188754"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Implementar políticas personalizadas com pipelines Azure
@@ -29,7 +29,7 @@ Existem três etapas primárias necessárias para permitir que os oleodutos Azur
 1. Configure um oleoduto Azure
 
 > [!IMPORTANT]
-> Gerir as políticas personalizadas do Azure AD B2C com um Pipeline Azure utiliza atualmente operações de **pré-visualização** disponíveis no Microsoft Graph API `/beta` ponto final. A utilização destas APIs em aplicações de produção não é suportada. Para mais informações, consulte a referência beta do [Microsoft Graph REST API](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta).
+> Gerir as políticas personalizadas do Azure AD B2C com um Pipeline `/beta` Azure utiliza atualmente operações de **pré-visualização** disponíveis no ponto final da Microsoft Graph API. A utilização destas APIs em aplicações de produção não é suportada. Para mais informações, consulte a referência beta do [Microsoft Graph REST API](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,7 +46,7 @@ O cenário aqui descrito utiliza chamadas de serviço-a-serviço entre a Azure P
 
 Como mencionado nos [Pré-requisitos,](#prerequisites)precisa de um registo de inscrição que os seus scripts PowerShell - executados pela Azure Pipelines -- podem usar para aceder aos recursos do seu inquilino.
 
-Se já tem um registo de aplicação que utiliza para tarefas de automação, certifique-se de que lhe foi concedida a **política** >  > Política do Gráfico da **Microsoft.ReadWrite.TrustFramework** no âmbito das **Permissões API** do registo da aplicação.
+Se já tem um registo de aplicação que utiliza para tarefas de automação, certifique-se de que lhe foi concedida a política de**política** > do **gráfico** > da**Microsoft.ReadWrite.TrustFramework** no âmbito das **permissões** da API do registo da aplicação.
 
 Para obter instruções sobre o registo de uma aplicação de gestão, consulte [Manage Azure AD B2C com o Microsoft Graph](microsoft-graph-get-started.md).
 
@@ -114,7 +114,7 @@ Com o seu repositório inicializado e povoado com os seus ficheiros de política
 ### <a name="create-pipeline"></a>Criar pipeline
 
 1. Inscreva-se na sua organização DevOps Azure E navegue para o seu projeto.
-1. No seu projeto, selecione **Pipelines** > **Lançamentos** > **Novo oleoduto.**
+1. No seu projeto, selecione **Pipelines** > **Releases** > **Novo oleoduto**.
 1. Em **selecione um modelo,** selecione **Trabalho vazio**.
 1. Introduza um **nome de palco**, por *exemplo, implemente Políticas Personalizadas,* em seguida, feche o painel.
 1. **Selecione Adicionar um artefacto,** e sob o **tipo fonte,** selecione **Repositório Azure**.
@@ -144,7 +144,7 @@ Com o seu repositório inicializado e povoado com os seus ficheiros de política
 Em seguida, adicione uma tarefa para implementar um ficheiro de política.
 
 1. Selecione o separador **Tarefas.**
-1. Selecione **a função de Agente**, e, em seguida, selecione o sinal de adição **(+** ) para adicionar uma tarefa ao trabalho do Agente.
+1. Selecione **a função de****+** Agente , e, em seguida, selecione o sinal de adição ( ) para adicionar uma tarefa ao trabalho do Agente.
 1. Procure e selecione **PowerShell**. Não selecione "Azure PowerShell", "PowerShell on target machines", ou outra entrada powerShell.
 1. Selecione a nova tarefa **do Script PowerShell.**
 1. Introduza os seguintes valores para a tarefa do Script PowerShell:
@@ -154,7 +154,7 @@ Em seguida, adicione uma tarefa para implementar um ficheiro de política.
     * **Script Path**: Selecione a elipsis ***(...),*** navegue para a pasta *Scripts* e, em seguida, selecione o ficheiro *DeployToB2C.ps1.*
     * **Argumentos:**
 
-        Introduza os seguintes **valores**para argumentos . Substitua `{alias-name}` pelo pseudónimo especificado na secção anterior.
+        Introduza os seguintes **valores**para argumentos . Substitua-a `{alias-name}` pelo pseudónimo especificado na secção anterior.
 
         ```PowerShell
         # Before
@@ -172,9 +172,9 @@ Em seguida, adicione uma tarefa para implementar um ficheiro de política.
 
 A tarefa que acaba de adicionar envia *um* ficheiro de política para o Azure AD B2C. Antes de prosseguir, desencadeie manualmente o trabalho **(Criar libertação**) para garantir que completa com sucesso antes de criar tarefas adicionais.
 
-Se a tarefa completar com sucesso, adicione tarefas de implementação executando os passos anteriores para cada um dos ficheiros de política personalizados. Modificar os valores de argumento `-PolicyId` e `-PathToFile` para cada política.
+Se a tarefa completar com sucesso, adicione tarefas de implementação executando os passos anteriores para cada um dos ficheiros de política personalizados. Modificar `-PolicyId` os `-PathToFile` valores e argumentos de cada política.
 
-O `PolicyId` é um valor encontrado no início de um ficheiro político XML dentro do nó TrustFrameworkPolicy. Por exemplo, o `PolicyId` na seguinte política XML é *B2C_1A_TrustFrameworkBase:*
+Trata-se de `PolicyId` um valor encontrado no início de um ficheiro político XML no nó TrustFrameworkPolicy. Por exemplo, `PolicyId` a seguinte política XML é *B2C_1A_TrustFrameworkBase:*
 
 ```XML
 <TrustFrameworkPolicy
@@ -212,7 +212,7 @@ Deve ver um banner de notificação que diz que um lançamento foi feito na fila
 Saiba mais sobre:
 
 * [Chamadas de serviço a serviço usando credenciais de cliente](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
-* [Serviços Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/?view=azure-devops)
+* [Serviços de DevOps do Azure](https://docs.microsoft.com/azure/devops/user-guide/?view=azure-devops)
 
 <!-- LINKS - External -->
 [devops]: https://docs.microsoft.com/azure/devops/?view=azure-devops

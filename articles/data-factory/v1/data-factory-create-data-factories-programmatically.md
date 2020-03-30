@@ -1,6 +1,6 @@
 ---
-title: Criar pipelines de dados usando o SDK do .NET do Azure
-description: Saiba como criar, monitorar e gerenciar as fábricas de dados do Azure programaticamente usando Data Factory SDK.
+title: Criar gasodutos de dados utilizando o Azure .NET SDK
+description: Aprenda a criar, monitorizar e gerir programáticamente as fábricas de dados Azure utilizando o Data Factory SDK.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,34 +12,34 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: 9cd3cd60f5d62a0c416b0e05ea408c20483bff13
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74931321"
 ---
-# <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Criar, monitorar e gerenciar fábricas de dados do Azure usando o SDK do .NET Azure Data Factory
+# <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Criar, monitorizar e gerir fábricas de dados azure utilizando a Azure Data Factory .NET SDK
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja [tutorial de atividade de cópia](../quickstart-create-data-factory-dot-net.md). 
 
-## <a name="overview"></a>Visão geral
-Você pode criar, monitorar e gerenciar fábricas de dados do Azure programaticamente usando Data Factory SDK do .NET. Este artigo contém um passo a passos que você pode seguir para criar um aplicativo de console .NET de exemplo que cria e monitora um data factory. 
+## <a name="overview"></a>Descrição geral
+Pode criar, monitorizar e gerir as fábricas de dados Azure programáticamente utilizando data factory .NET SDK. Este artigo contém uma passagem que pode seguir para criar uma aplicação de consola .NET que cria e monitoriza uma fábrica de dados. 
 
 > [!NOTE]
-> Este artigo não abrange toda a API .NET do Data Factory. Consulte [Data Factory referência da API .net](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) para obter uma documentação abrangente sobre a API do .net para data Factory. 
+> Este artigo não abrange toda a API .NET do Data Factory. Consulte [data Factory .NET API Referência](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) para documentação completa em .NET API for Data Factory. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Visual Studio 2012 ou 2013 ou 2015
-* Transfira e instale [SDK .NET do Azure](https://azure.microsoft.com/downloads/).
+* Descarregue e [instale Azure .NET SDK](https://azure.microsoft.com/downloads/).
 * Azure PowerShell. Siga as instruções do artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para instalar o Azure PowerShell no seu computador. Utilize o Azure PowerShell para criar uma aplicação do Azure Active Directory.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Criar uma Aplicação no Azure Active Directory
 Crie uma aplicação no Azure Active Directory, crie um principal de serviço para a aplicação e atribua-a à função **Contribuinte do Data Factory**.
 
-1. Inicie o **Azure PowerShell**.
+1. Lançamento **PowerShell**.
 2. Execute o comando seguinte e introduza o nome de utilizador e a palavra-passe que utiliza para iniciar sessão no portal do Azure.
 
     ```powershell
@@ -50,7 +50,7 @@ Crie uma aplicação no Azure Active Directory, crie um principal de serviço pa
     ```powershell
     Get-AzSubscription
     ```
-4. Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua **&lt;NameOfAzureSubscription**&gt; pelo nome da sua subscrição do Azure.
+4. Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua ** &lt;o NomeOfAzureSubscription** &gt; pelo nome da sua subscrição Azure.
 
     ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -99,19 +99,19 @@ Crie uma aplicação no Azure Active Directory, crie um principal de serviço pa
 Deve obter os quatro valores seguintes destes passos:
 
 * ID do inquilino
-* ID de Subscrição
+* ID da subscrição
 * ID da aplicação
 * Palavra-passe (especificada no primeiro comando)
 
 ## <a name="walkthrough"></a>Instruções
-No passo a passo, você cria um data factory com um pipeline que contém uma atividade de cópia. A atividade de cópia copia dados de uma pasta no armazenamento de BLOBs do Azure para outra pasta no mesmo armazenamento de BLOBs. 
+Na passagem, cria-se uma fábrica de dados com um oleoduto que contém uma atividade de cópia. A atividade de cópia copia dados de uma pasta no seu armazenamento de blob Azure para outra pasta no mesmo armazenamento de blob. 
 
-A Atividade de Cópia executa o movimento dos dados no Azure Data Factory. A atividade utiliza a tecnologia de um serviço globalmente disponível que pode copiar dados entre vários arquivos de dados de uma forma segura, fiável e dimensionável. Veja o artigo [Atividades de Movimentos de Dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia.
+A Atividade de Cópia executa o movimento de dados no Azure Data Factory. A atividade utiliza a tecnologia de um serviço globalmente disponível que pode copiar dados entre vários arquivos de dados de uma forma segura, fiável e dimensionável. Veja o artigo [Atividades de Movimentos de Dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia.
 
 1. Com o Visual Studio 2012/2013/2015, crie uma aplicação de consola de C# .NET.
    1. Inicie o **Visual Studio** 2012/2013/2015.
    2. Clique em **Ficheiro**, aponte para **Novo** e, em seguida, clique em **Projeto**.
-   3. Expanda **Modelos** e selecione **Visual C#** . Nestas instruções, utiliza C#, mas pode utilizar qualquer linguagem .NET.
+   3. Expanda **Modelos** e selecione **Visual C#**. Nestas instruções, utiliza C#, mas pode utilizar qualquer linguagem .NET.
    4. Selecione **Aplicação de Consola** na lista de tipos de projeto à direita.
    5. Introduza **DataFactoryAPITestApp** para o Nome.
    6. Selecione **C:\ADFGetStarted** para a Localização.
@@ -120,7 +120,7 @@ A Atividade de Cópia executa o movimento dos dados no Azure Data Factory. A ati
 3. Na **Consola do Gestor de Pacotes**, realize os seguintes passos:
    1. Execute o seguinte comando para instalar o pacote do Data Factory: `Install-Package Microsoft.Azure.Management.DataFactories`
    2. Execute o seguinte comando para instalar o pacote do Azure Active Directory (utilize a API do Azure Active Directory no código): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
-4. Substitua o conteúdo do arquivo **app. config** no projeto pelo seguinte conteúdo: 
+4. Substitua o conteúdo do ficheiro **App.config** no projeto pelo seguinte conteúdo: 
     
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>
@@ -137,8 +137,8 @@ A Atividade de Cópia executa o movimento dos dados no Azure Data Factory. A ati
         </appSettings>
     </configuration>
     ```
-5. No arquivo app. config, atualize os valores para **&lt;ID do aplicativo&gt;** , **&lt;senha&gt;** , **&lt;id da assinatura** &gt;e **&lt;ID do locatário**&gt;com seus próprios valores.
-6. Adicione as seguintes instruções **using** ao arquivo **Program.cs** no projeto.
+5. No ficheiro App.Config, atualizar valores para ** &lt;&gt;** ** &lt;&gt; ** ** &lt;ID&gt;de aplicação,** ** &lt;palavra-passe,&gt;** ID de subscrição e ID do inquilino com os seus próprios valores.
+6. Adicione as seguintes declarações **utilizando** o ficheiro **Program.cs** no projeto.
 
     ```csharp
     using System.Configuration;
@@ -176,7 +176,7 @@ A Atividade de Cópia executa o movimento dos dados no Azure Data Factory. A ati
     ```
 
    > [!IMPORTANT]
-   > Substitua o valor do **resourceGroupName** pelo nome do seu grupo de recursos do Azure. Você pode criar um grupo de recursos usando o cmdlet [New-AzureResourceGroup](/powershell/module/az.resources/new-azresourcegroup) .
+   > Substitua o valor do **resourceGroupName** pelo nome do seu grupo de recursos do Azure. Pode criar um grupo de recursos utilizando o cmdlet [New-AzureResourceGroup.](/powershell/module/az.resources/new-azresourcegroup)
    >
    > Atualize o nome da fábrica de dados (dataFactoryName) para que seja exclusivo. O nome da fábrica de dados deve ser globalmente exclusivo. Veja o tópico [Data Factory – Naming Rules (Data Factory – Regras de Nomenclatura)](data-factory-naming-rules.md) para obter as regras de nomenclatura dos artefactos do Data Factory.
 7. Adicione o código seguinte, que cria uma **fábrica de dados**, ao método **Principal**.
@@ -220,9 +220,9 @@ A Atividade de Cópia executa o movimento dos dados no Azure Data Factory. A ati
     ```
 9. Adicione o código seguinte, que cria **conjuntos de dados de entrada e saída**, ao método **Principal**.
 
-    O **FolderPath** do blob de entrada é definido como **adftutorial/** onde **adftutorial** é o nome do contêiner em seu armazenamento de BLOBs. Se esse contêiner não existir no armazenamento de BLOBs do Azure, crie um contêiner com este nome: **adftutorial** e carregue um arquivo de texto para o contêiner.
+    O **FolderPath** para a bolha de entrada está definido para **adftutorial/** onde o **adftutorial** é o nome do recipiente no seu armazenamento de bolhas. Se este recipiente não existir no seu armazenamento de blob Azure, crie um recipiente com este nome: **adftutorial** e carregue um ficheiro de texto para o recipiente.
 
-    O FolderPath do blob de saída é definido como: **adftutorial/apifactoryoutput/{Slice}** em que a **fatia** é calculada dinamicamente com base no valor de **SliceStart** (data e hora de início de cada fatia).
+    O FolderPath para a bolha de saída está definido para: **adftutorial/apifactoryoutput/{Slice}** onde a **Slice** é calculada dinamicamente com base no valor do **SliceStart** (hora de início da data de cada fatia.)
 
     ```csharp
     // create input and output datasets
@@ -300,7 +300,7 @@ A Atividade de Cópia executa o movimento dos dados no Azure Data Factory. A ati
     ```
 10. Adicione o código seguinte, que **cria e ativa um pipeline**, ao método **Principal**. Este pipeline tem um **CopyActivity** que assume **BlobSource** como uma origem e **BlobSink** como um sink.
 
-    A Atividade de Cópia executa o movimento dos dados no Azure Data Factory. A atividade utiliza a tecnologia de um serviço globalmente disponível que pode copiar dados entre vários arquivos de dados de uma forma segura, fiável e dimensionável. Veja o artigo [Atividades de Movimentos de Dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia.
+    A Atividade de Cópia executa o movimento de dados no Azure Data Factory. A atividade utiliza a tecnologia de um serviço globalmente disponível que pode copiar dados entre vários arquivos de dados de uma forma segura, fiável e dimensionável. Veja o artigo [Atividades de Movimentos de Dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia.
 
     ```csharp
     // create a pipeline
@@ -358,7 +358,7 @@ A Atividade de Cópia executa o movimento dos dados no Azure Data Factory. A ati
         }
     });
     ```
-12. Adicione o código seguinte ao método **Principal** para obter o estado de um setor de dados do conjunto de dados de saída. Há apenas uma fatia esperada neste exemplo.
+12. Adicione o código seguinte ao método **Principal** para obter o estado de um setor de dados do conjunto de dados de saída. Só há uma fatia esperada nesta amostra.
 
     ```csharp
     // Pulling status within a timeout threshold
@@ -393,7 +393,7 @@ A Atividade de Cópia executa o movimento dos dados no Azure Data Factory. A ati
         }
     }
     ```
-13. **(opcional)** Adicione o código a seguir para obter detalhes de execução de uma fatia de dados para o método **principal** .
+13. **(opcional)** Adicione o seguinte código para obter detalhes de execução para obter detalhes de execução para uma fatia de dados ao método **Principal.**
 
     ```csharp
     Console.WriteLine("Getting run details of a data slice");
@@ -425,7 +425,7 @@ A Atividade de Cópia executa o movimento dos dados no Azure Data Factory. A ati
     Console.WriteLine("\nPress any key to exit.");
     Console.ReadKey();
     ```
-14. Adicione o método de ajuda seguinte, utilizado pelo método **Principal**, à classe de **Programa**. Esse método exibe uma caixa de diálogo que permite que você forneça o **nome de usuário** e a **senha** que você usa para fazer logon no portal do Azure.
+14. Adicione o método de ajuda seguinte, utilizado pelo método **Principal**, à classe de **Programa**. Este método abre uma caixa de diálogo que lhe permite fornecer **o nome** de utilizador e **a palavra-passe** que utiliza para iniciar sessão no portal Azure.
 
     ```csharp
     public static async Task<string> GetAuthorizationHeader()
@@ -445,22 +445,22 @@ A Atividade de Cópia executa o movimento dos dados no Azure Data Factory. A ati
     }
     ```
 
-15. No Gerenciador de Soluções, expanda o projeto: **DataFactoryAPITestApp**, clique com o botão direito do mouse em **referências**e clique em **Adicionar referência**. Marque a caixa de seleção para `System.Configuration` assembly e clique em **OK**.
+15. No Solution Explorer, expanda o projeto: **DataFactoryAPITestApp,** **referências**de clique direito, e clique em **Adicionar Referência**. Selecione `System.Configuration` a caixa de verificação para montagem e clique **em OK**.
 15. Crie a aplicação da consola. Clique em **Criar** no menu e clique em **Criar Solução**.
-16. Confirme se há pelo menos um arquivo no contêiner adftutorial no armazenamento de BLOBs do Azure. Caso contrário, crie o arquivo EMP. txt no bloco de notas com o conteúdo a seguir e carregue-o no contêiner adftutorial.
+16. Confirme se existe pelo menos um ficheiro no contentor adftutorial do seu armazenamento de blobs do Azure. Se não existir, crie um ficheiro Emp.txt no Bloco de Notas com o seguinte conteúdo e carregue-o para o contentor adftutorial.
 
     ```
     John, Doe
     Jane, Doe
     ```
-17. Execute o exemplo, clicando em **Depurar** -> **Iniciar Depuração** no menu. Quando vir **A obter detalhes da execução de um setor de dados**, aguarde alguns minutos e prima **ENTER**.
+17. Executar a amostra clicando em **Debug** -> **Start Debugging** no menu. Quando vir **A obter detalhes da execução de um setor de dados**, aguarde alguns minutos e prima **ENTER**.
 18. Utilize o portal do Azure para verificar se a fábrica de dados **APITutorialFactory** foi criada com os artefactos seguintes:
-    * Serviço vinculado: **AzureStorageLinkedService**
+    * Serviço ligado: **AzureStorageLinkedService**
     * Conjunto de dados: **DatasetBlobSource** e **DatasetBlobDestination**.
     * Pipeline: **PipelineBlobSample**
-19. Verifique se um arquivo de saída foi criado na pasta **apifactoryoutput** no contêiner **adftutorial** .
+19. Verifique se é criado um ficheiro de saída na pasta **de saída apifactory** no recipiente **adftutorial.**
 
-## <a name="get-a-list-of-failed-data-slices"></a>Obter uma lista de fatias de dados com falha 
+## <a name="get-a-list-of-failed-data-slices"></a>Obtenha uma lista de fatias de dados falhadas 
 
 ```csharp
 // Parse the resource path
@@ -500,6 +500,6 @@ while (response != null);
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte o exemplo a seguir para criar um pipeline usando o SDK do .NET que copia dados de um armazenamento de BLOBs do Azure para um banco de dados SQL do Azure: 
+Consulte o seguinte exemplo para a criação de um pipeline utilizando o .NET SDK que copia dados de um armazenamento de blob Azure para uma base de dados Azure SQL: 
 
-- [Criar um pipeline para copiar dados do armazenamento de BLOBs para o banco de dados SQL](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Criar um pipeline para copiar dados do Blob Storage para a Base de Dados SQL](data-factory-copy-activity-tutorial-using-dotnet-api.md)

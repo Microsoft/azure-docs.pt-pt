@@ -1,49 +1,49 @@
 ---
-title: Excluir discos de VM do VMware da recuperação de desastre para o Azure com Azure Site Recovery
-description: Como excluir discos de VM do VMware da replicação para o Azure com Azure Site Recovery.
+title: Excluir discos VM de VMware da recuperação de desastres para Azure com recuperação do site Azure
+description: Como excluir discos VMware VM da replicação para Azure com recuperação do site Azure.
 author: mayurigupta13
 manager: rochakm
 ms.date: 12/10/2019
 ms.author: mayg
 ms.topic: conceptual
 ms.openlocfilehash: cd54da5ee01206e576157435135065189bfb8035
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75495362"
 ---
-# <a name="exclude-disks-from-vmware-vm-replication-to-azure"></a>Excluir discos da replicação de VM do VMware para o Azure
+# <a name="exclude-disks-from-vmware-vm-replication-to-azure"></a>Excluir discos da replicação VMware VM para o Azure
 
-Este artigo descreve como excluir discos ao replicar VMs VMware para o Azure para recuperação de desastre. Talvez você queira excluir discos da replicação por vários motivos:
+Este artigo descreve como excluir discos ao replicar VMware VMs para Azure para recuperação de desastres. É melhor excluir discos da replicação por uma série de razões:
 
-- Certifique-se de que os dados não importantes que foram copiados no disco excluído não sejam replicados.
-- Otimize a largura de banda de replicação consumida ou os recursos do lado do destino, excluindo discos que você não precisa replicar.
-- Salve os recursos de armazenamento e de rede não replicando os dados de que você não precisa.
+- Certifique-se de que os dados não importantes no disco excluído não são replicados.
+- Otimize a largura de banda de replicação consumida, ou os recursos do lado do alvo, excluindo discos que não precisa de replicar.
+- Poupe recursos de armazenamento e rede não replicando dados de que não precisa.
 
-Antes de excluir discos da replicação:
+Antes de excluir discos de replicação:
 
-- [Saiba mais](exclude-disks-replication.md) sobre como excluir discos.
-- Examine os cenários e [exemplos](exclude-disks-replication.md#example-1-exclude-the-sql-server-tempdb-disk) [comuns de exclusão](exclude-disks-replication.md#typical-scenarios) que mostram como a exclusão de um disco afeta a replicação, o failover e o failback.
+- [Saiba mais](exclude-disks-replication.md) sobre a exclusão dos discos.
+- Reveja [cenários e](exclude-disks-replication.md#typical-scenarios) [exemplos típicos](exclude-disks-replication.md#example-1-exclude-the-sql-server-tempdb-disk) que mostrem como excluir um disco afeta a replicação, a falha e o recuo.
 
 ## <a name="before-you-start"></a>Antes de começar
 
- Tenha em atenção o seguinte antes de iniciar:
+ Note o seguinte antes de começar:
 
-- **Replicação**: por padrão, todos os discos em um computador são replicados.
-- **Tipo de disco**: somente discos básicos podem ser excluídos da replicação. Não é possível excluir discos do sistema operativo ou discos dinâmicos.
-- **Serviço de mobilidade**: para excluir um disco da replicação, você deve instalar manualmente o serviço de mobilidade no computador antes de habilitar a replicação. Não é possível usar a instalação por push, já que esse método instala o serviço de mobilidade em uma VM somente após a replicação ser habilitada.  
-- **Adicionar/remover/excluir discos**: depois de habilitar a replicação, você não pode adicionar/remover/excluir discos para replicação. Se desejar adicionar/remover ou excluir discos, você precisará desabilitar a proteção do computador e habilitá-la novamente.
-- **Failover**: após o failover, se os aplicativos com falha forem necessários discos excluídos para funcionar, você precisará criar esses discos manualmente. Como alternativa, você pode integrar a automação do Azure em um plano de recuperação para criar o disco durante o failover do computador.
-- **Failback-Windows**: quando você realiza o failback para o site local após o failover, os discos do Windows que você criar manualmente no Azure não sofrerão failback. Por exemplo, se você executar failover de três discos e criar dois discos diretamente nas VMs do Azure, somente os três discos que sofreram failover serão submetidos a failback.
-- **Failback-Linux**: para o failback de computadores Linux, os discos que você cria manualmente no Azure são submetidos a failback. Por exemplo, se você executar failover de três discos e criar dois discos diretamente nas VMs do Azure, todos os cinco serão submetidos a failback. Você não pode excluir discos que foram criados manualmente no failback ou em nova proteção de VMs.
+- **Replicação**: Por defeito, todos os discos de uma máquina são replicados.
+- **Tipo de disco:** Apenas os discos básicos podem ser excluídos da replicação. Não é possível excluir discos do sistema operativo ou discos dinâmicos.
+- **Serviço de mobilidade**: Para excluir um disco de replicação, tem de instalar manualmente o serviço mobility na máquina antes de ativar a replicação. Não é possível utilizar a instalação push, uma vez que este método instala o serviço mobility num VM apenas após a replicação estar ativada.  
+- **Adicionar/remover/excluir discos**: Depois de ativar a replicação, não pode adicionar/remover/excluir discos para replicação. Se pretender adicionar/remover ou excluir discos, tem de desativar a proteção da máquina e depois ativa-la novamente.
+- **Failover**: Depois de falhar, se falhar em aplicações, precisa de discos excluídos para funcionar, precisa de criar esses discos manualmente. Em alternativa, pode integrar a automatização azure num plano de recuperação, para criar o disco durante a falha da máquina.
+- **Failback-Windows**: Quando falha no seu site após falha, os discos windows que cria manualmente em Azure não são reemprimeiros. Por exemplo, se falhar em três discos e criar dois discos diretamente nos VMs Azure, apenas os três discos que foram falhados serão refalhados.
+- **Failback-Linux**: Para o failback das máquinas Linux, os discos que cria manualmente em Azure são falhados. Por exemplo, se falhar em três discos e criar dois discos diretamente em VMs Azure, todos os cinco serão refalhados. Não é possível excluir discos que foram criados manualmente no backback, ou na reproteção de VMs.
 
 
 
 ## <a name="exclude-disks-from-replication"></a>Excluir discos da replicação
 
-1. Ao [habilitar a replicação](site-recovery-hyper-v-site-to-azure.md) para uma VM do VMware, depois de selecionar as VMs que você deseja replicar, na página habilitar propriedades **de > de** **replicação** > **configuração de propriedade** , examine a coluna **discos para replicar** . Por padrão, todos os discos são selecionados para replicação.
-2. Se você não quiser replicar um disco específico, em **discos para replicar** , limpe a seleção de todos os discos que você deseja excluir. 
+1. Quando ativa a [replicação](site-recovery-hyper-v-site-to-azure.md) de um VMware VM, depois de selecionar os VMs que pretende replicar, na**página** de propriedades de configuração de propriedades de **replicação** > **Properties** > Enable, reveja a coluna **De Discos para Replicar.** Por predefinição, todos os discos são selecionados para replicação.
+2. Se não quiser replicar um disco específico, em **Discos para replicar** a seleção para quaisquer discos que queira excluir. 
 
     ![Excluir discos da replicação](./media/vmware-azure-exclude-disk/enable-replication-exclude-disk1.png)
 

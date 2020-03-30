@@ -9,25 +9,25 @@ ms.date: 05/05/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 6a053b94813145f9ccd69158d18edb728d5dad61
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74796013"
 ---
-| Recurso | Visar | Limite rígido |
+| Recurso | Destino | Limite difícil |
 |----------|--------------|------------|
-| Serviços de sincronização de armazenamento por região | 20 serviços de sincronização de armazenamento | Sim |
-| Grupos de sincronização por serviço de sincronização de armazenamento | 100 grupos de sincronização | Sim |
-| Servidores registrados por serviço de sincronização de armazenamento | servidores de 99 | Sim |
-| Pontos de extremidade de nuvem por grupo de sincronização | 1 ponto de extremidade de nuvem | Sim |
-| Pontos de extremidade do servidor por grupo de sincronização | 50 pontos de extremidade do servidor | Não |
-| Pontos de extremidade do servidor por servidor | 30 pontos de extremidade do servidor | Sim |
-| Objetos do sistema de arquivos (diretórios e arquivos) por grupo de sincronização | 100 milhões objetos | Não |
-| Número máximo de objetos do sistema de arquivos (diretórios e arquivos) em um diretório | 5 milhões objetos | Sim |
-| Tamanho do descritor de segurança máximo de objetos (diretórios e arquivos) | 64 KiB | Sim |
+| Serviços de Sincronização de Armazenamento por região | 20 Serviços de Sincronização de Armazenamento | Sim |
+| Grupos de sincronização por Serviço de Sincronização de Armazenamento | 100 grupos de sincronização | Sim |
+| Servidores registados por Serviço de Sincronização de Armazenamento | 99 servidores | Sim |
+| Pontos finais de nuvem por grupo de sincronização | 1 ponto final de nuvem | Sim |
+| Pontos finais do servidor por grupo de sincronização | 50 pontos finais do servidor | Não |
+| Pontos finais do servidor por servidor | 30 pontos finais do servidor | Sim |
+| Objetos do sistema de ficheiros (diretórios e ficheiros) por grupo de sincronização | 100 milhões de objetos | Não |
+| Número máximo de objetos do sistema de ficheiros (diretórios e ficheiros) num diretório | 5 milhões de objetos | Sim |
+| Tamanho máximo do descritor de segurança do objeto (diretórios e ficheiros) | 64 KiB | Sim |
 | Tamanho dos ficheiros | 100 GiB | Não |
-| Tamanho mínimo de arquivo para que um arquivo seja em camadas | V9: com base no tamanho do cluster do sistema de arquivos (tamanho de cluster de sistema de arquivos duplo). Por exemplo, se o tamanho do cluster do sistema de arquivos for 4 KB, o tamanho mínimo do arquivo será 8 KB.<br> V8 e mais antigo: 64 KiB  | Sim |
+| Tamanho mínimo do ficheiro para um ficheiro a ser niveado | V9: Baseado no tamanho do cluster do sistema de ficheiros (tamanho duplo do cluster do sistema de ficheiros). Por exemplo, se o tamanho do cluster do sistema de ficheiros for de 4kb, o tamanho mínimo do ficheiro será de 8kb.<br> V8 ou mais: 64 KiB  | Sim |
 
 > [!Note]  
-> Um ponto de extremidade Sincronização de Arquivos do Azure pode ser escalado verticalmente para o tamanho de um compartilhamento de arquivos do Azure. Se o limite de tamanho do compartilhamento de arquivos do Azure for atingido, a sincronização não será capaz de operar.
+> Um ponto final de Sincronização de Ficheiros Azure pode escalar até ao tamanho de uma partilha de ficheiros Azure. Se o limite de tamanho da partilha de ficheiros Azure for atingido, a sincronização não será capaz de funcionar.

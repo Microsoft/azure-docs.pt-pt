@@ -1,33 +1,33 @@
 ---
-title: Gerenciar recursos-CLI do Azure
-description: Use CLI do Azure e Azure Resource Manager para gerenciar seus recursos. Mostra como implantar e excluir recursos.
+title: Gerir recursos - Azure CLI
+description: Utilize o Azure CLI e o Azure Resource Manager para gerir os seus recursos. Mostra como implantar e apagar recursos.
 author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.openlocfilehash: f00c1725201b0e49f80fec64e5d69b375ec7a233
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75485536"
 ---
-# <a name="manage-azure-resources-by-using-azure-cli"></a>Gerenciar recursos do Azure usando o CLI do Azure
+# <a name="manage-azure-resources-by-using-azure-cli"></a>Gerir os recursos azure utilizando o Azure CLI
 
-Saiba como usar CLI do Azure com [Azure Resource Manager](overview.md) para gerenciar os recursos do Azure. Para gerenciar grupos de recursos, consulte [gerenciar grupos de recursos do Azure usando CLI do Azure](manage-resource-groups-cli.md).
+Aprenda a utilizar o Azure CLI com o [Azure Resource Manager](overview.md) para gerir os seus recursos Azure. Para gerir grupos de recursos, consulte manage os grupos de [recursos Do Manage Azure utilizando o Azure CLI](manage-resource-groups-cli.md).
 
-Outros artigos sobre o gerenciamento de recursos:
+Outros artigos sobre gestão de recursos:
 
-- [Gerenciar recursos do Azure usando o portal do Azure](manage-resources-portal.md)
-- [Gerenciar recursos do Azure usando o Azure PowerShell](manage-resources-powershell.md)
+- [Gerir os recursos do Azure utilizando o portal Azure](manage-resources-portal.md)
+- [Gerir os recursos azure utilizando o Azure PowerShell](manage-resources-powershell.md)
 
-## <a name="deploy-resources-to-an-existing-resource-group"></a>Implantar recursos em um grupo de recursos existente
+## <a name="deploy-resources-to-an-existing-resource-group"></a>Mobilizar recursos para um grupo de recursos existente
 
-Você pode implantar recursos do Azure diretamente usando CLI do Azure ou implantar um modelo do Resource Manager para criar recursos do Azure.
+Pode implantar os recursos do Azure diretamente utilizando o Azure CLI, ou implementar um modelo de Gestor de Recursos para criar recursos Azure.
 
-### <a name="deploy-a-resource"></a>Implantar um recurso
+### <a name="deploy-a-resource"></a>Implementar um recurso
 
-O script a seguir cria uma conta de armazenamento.
+O seguinte script cria uma conta de armazenamento.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -40,9 +40,9 @@ az storage account create --resource-group $resourceGroupName --name $storageAcc
 az storage account show --resource-group $resourceGroupName --name $storageAccountName 
 ```
 
-### <a name="deploy-a-template"></a>Implantar um modelo
+### <a name="deploy-a-template"></a>Implementar um modelo
 
-O script a seguir cria uma implantação de um modelo de início rápido para criar uma conta de armazenamento. Para obter mais informações, consulte [início rápido: criar modelos de Azure Resource Manager usando Visual Studio Code](../templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
+O seguinte script cria implementar um modelo Quickstart para criar uma conta de armazenamento. Para mais informações, consulte [Quickstart: Crie modelos de Gestor de Recursos Azure utilizando o Código do Estúdio Visual](../templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -52,19 +52,19 @@ read location &&
 az group deployment create --resource-group $resourceGroupName --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
-Para obter mais informações, consulte [implantar recursos com modelos e CLI do Azure do Resource Manager](../templates/deploy-cli.md).
+Para mais informações, consulte [A implantação de recursos com modelos de Gestor de Recursos e ClI Azure](../templates/deploy-cli.md).
 
-## <a name="deploy-a-resource-group-and-resources"></a>Implantar um grupo de recursos e recursos
+## <a name="deploy-a-resource-group-and-resources"></a>Implementar um grupo de recursos e recursos
 
-Você pode criar um grupo de recursos e implantar recursos no grupo. Para obter mais informações, consulte [Criar grupo de recursos e implantar recursos](../templates/deploy-to-subscription.md#resource-group-and-resources).
+Pode criar um grupo de recursos e implantar recursos para o grupo. Para mais informações, consulte [Criar grupo de recursos e implementar recursos.](../templates/deploy-to-subscription.md#resource-group-and-resources)
 
-## <a name="deploy-resources-to-multiple-subscriptions-or-resource-groups"></a>Implantar recursos em várias assinaturas ou grupos de recursos
+## <a name="deploy-resources-to-multiple-subscriptions-or-resource-groups"></a>Implementar recursos para múltiplas subscrições ou grupos de recursos
 
-Normalmente, você implanta todos os recursos em seu modelo em um único grupo de recursos. No entanto, há cenários em que você deseja implantar um conjunto de recursos juntos, mas colocá-los em diferentes grupos de recursos ou assinaturas. Para obter mais informações, consulte [implantar recursos do Azure em várias assinaturas ou grupos de recursos](../templates/cross-resource-group-deployment.md).
+Normalmente, você implementa todos os recursos do seu modelo para um único grupo de recursos. No entanto, existem cenários em que pretende utilizar um conjunto de recursos, mas colocá-los em diferentes grupos de recursos ou subscrições. Para mais informações, consulte a Implantação de [recursos azure para várias subscrições ou grupos de recursos.](../templates/cross-resource-group-deployment.md)
 
 ## <a name="delete-resources"></a>Eliminar recursos
 
-O script a seguir mostra como excluir uma conta de armazenamento.
+O seguinte script mostra como eliminar uma conta de armazenamento.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -74,11 +74,11 @@ read storageAccountName &&
 az storage account delete --resource-group $resourceGroupName --name $storageAccountName 
 ```
 
-Para obter mais informações sobre como Azure Resource Manager ordena a exclusão de recursos, consulte [Azure Resource Manager exclusão de grupo de recursos](delete-resource-group.md).
+Para obter mais informações sobre como o Gestor de Recursos azure ordena a eliminação de recursos, consulte a eliminação do grupo de recursos do Gestor de [Recursos do Azure.](delete-resource-group.md)
 
 ## <a name="move-resources"></a>Mover recursos
 
-O script a seguir mostra como remover uma conta de armazenamento de um grupo de recursos para outro grupo de recursos.
+O seguinte script mostra como remover uma conta de armazenamento de um grupo de recursos para outro grupo de recursos.
 
 ```azurecli-interactive
 echo "Enter the source Resource Group name:" &&
@@ -95,9 +95,9 @@ Para obter mais informações, consulte [Mover recursos para um novo grupo de re
 
 ## <a name="lock-resources"></a>Bloquear recursos
 
-O bloqueio impede que outros usuários em sua organização excluam ou modifiquem acidentalmente recursos críticos, como assinatura do Azure, grupo de recursos ou recurso. 
+O bloqueio impede que outros utilizadores da sua organização apagam ou modifiquem acidentalmente recursos críticos, tais como subscrição azure, grupo de recursos ou recursos. 
 
-O script a seguir bloqueia uma conta de armazenamento para que a conta não possa ser excluída.
+O seguinte script bloqueia uma conta de armazenamento para que a conta não possa ser eliminada.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -107,7 +107,7 @@ read storageAccountName &&
 az lock create --name LockSite --lock-type CanNotDelete --resource-group $resourceGroupName --resource-name $storageAccountName --resource-type Microsoft.Storage/storageAccounts 
 ```
 
-O script a seguir obtém todos os bloqueios para uma conta de armazenamento:
+O seguinte script recebe todas as fechaduras para uma conta de armazenamento:
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -117,7 +117,7 @@ read storageAccountName &&
 az lock list --resource-group $resourceGroupName --resource-name $storageAccountName --resource-type Microsoft.Storage/storageAccounts --parent ""
 ```
 
-O script a seguir exclui um bloqueio de uma conta de armazenamento:
+O seguinte script elimina um bloqueio de uma conta de armazenamento:
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -132,15 +132,15 @@ Para obter mais informações, consulte [Bloquear recursos com o Azure Resource 
 
 ## <a name="tag-resources"></a>Etiquetar recursos
 
-A marcação ajuda a organizar o grupo de recursos e os recursos logicamente. Para obter informações, consulte [usando marcas para organizar os recursos do Azure](tag-resources.md#azure-cli).
+A marcação ajuda a organizar o seu grupo de recursos e recursos logicamente. Para obter informações, consulte [Utilizar tags para organizar os seus recursos Azure.](tag-resources.md#azure-cli)
 
 ## <a name="manage-access-to-resources"></a>Gerir o acesso aos recursos
 
-[O controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md) é a forma de gerir o acesso a recursos no Azure. Para obter mais informações, consulte [gerenciar o acesso usando RBAC e CLI do Azure](../../role-based-access-control/role-assignments-cli.md).
+[O controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md) é a forma como gere o acesso aos recursos em Azure. Para mais informações, consulte [Gerir o acesso utilizando rBAC e Azure CLI](../../role-based-access-control/role-assignments-cli.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para saber Azure Resource Manager, consulte [Azure Resource Manager visão geral](overview.md).
-- Para saber mais sobre a sintaxe do modelo do Resource Manager, consulte [entender a estrutura e a sintaxe dos modelos de Azure Resource Manager](../templates/template-syntax.md).
-- Para saber como desenvolver modelos, consulte os tutoriais passo a [passo](/azure/azure-resource-manager/).
-- Para exibir os esquemas de modelo de Azure Resource Manager, consulte [referência de modelo](/azure/templates/).
+- Para aprender O Gestor de Recursos Azure, consulte a [visão geral do Gestor de Recursos do Azure.](overview.md)
+- Para aprender a sintaxe do modelo do Gestor de Recursos, consulte [Compreender a estrutura e a sintaxe dos modelos do Gestor](../templates/template-syntax.md)de Recursos Azure .
+- Para aprender a desenvolver modelos, consulte os [tutoriais passo a passo.](/azure/azure-resource-manager/)
+- Para ver os esquemas de modelo do Gestor de Recursos Azure, consulte a referência do [modelo](/azure/templates/).

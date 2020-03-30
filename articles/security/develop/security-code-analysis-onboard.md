@@ -13,10 +13,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 6132aab98cc8145cb99cf153c64f20fbac00131c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78197010"
 ---
 # <a name="onboarding-and-installing"></a>Embarque e instalação
@@ -48,7 +48,7 @@ Contacte um Parceiro a partir da lista abaixo e peça para adquirir a extensão 
 
 >**Parceiros:**
 
-- Zonas - Detalhes de contato: cloudsupport@zones.com
+- Zonas - Detalhes de contato:cloudsupport@zones.com
 
 ### <a name="become-a-partner"></a>Torne-se um Parceiro
 
@@ -56,7 +56,7 @@ A equipa de Análise de Códigos de Segurança da Microsoft está a procurar par
 
 ## <a name="installing-the-microsoft-security-code-analysis-extension"></a>Instalação da extensão de análise de código de segurança da Microsoft
 
-1. Depois de a extensão ser partilhada com a sua organização Azure DevOps, vá à sua página de organização Azure DevOps. Um URL de exemplo para tal página é `https://dev.azure.com/contoso`.
+1. Depois de a extensão ser partilhada com a sua organização Azure DevOps, vá à sua página de organização Azure DevOps. Um URL de exemplo `https://dev.azure.com/contoso`para tal página é .
 1. Selecione o ícone do saco de compras no canto superior direito ao lado do seu nome e, em seguida, selecione **extensões de gestão**.
 1. Selecione **Shared**.
 1. Selecione a extensão de análise de código de segurança da Microsoft, **selecione instalar**.

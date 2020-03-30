@@ -13,10 +13,10 @@ ms.date: 03/16/2018
 ms.author: rohink
 ms.custom: ''
 ms.openlocfilehash: d5a03fde564b14baee97f50fa63fd58bf83694b7
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938347"
 ---
 # <a name="traffic-manager-traffic-view"></a>Vista de tráfego do gestor de tráfego
@@ -70,7 +70,7 @@ Pode ver os dados do Traffic View num formato tabular no portal Azure. Existe um
 
 Quando utiliza a Traffic View, é faturado com base no número de pontos de dados utilizados para criar os insights apresentados. Atualmente, o único tipo de ponto de dados utilizado são as consultas recebidas contra o seu perfil de Gestor de Tráfego. Para mais detalhes sobre os preços, visite a página de preços do Gestor de [Tráfego.](https://azure.microsoft.com/pricing/details/traffic-manager/)
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQs
 
 * [O que faz a Vista de Trânsito?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-does-traffic-view-do)
 

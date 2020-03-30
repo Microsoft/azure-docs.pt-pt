@@ -1,52 +1,52 @@
 ---
-title: Como resolver problemas relacionados com o Azure Monitor para contentores | Documentos da Microsoft
-description: Este artigo descreve como pode resolver problemas e resolver problemas com o Azure Monitor para contentores.
+title: Como resolver o Monitor Azure para contentores Microsoft Docs
+description: Este artigo descreve como pode resolver problemas e resolver problemas com o Monitor Azure para contentores.
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.openlocfilehash: 17a2817b320599b2aa2c331c354d316b9d864a32
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75403385"
 ---
-# <a name="troubleshooting-azure-monitor-for-containers"></a>Resolução de problemas do Azure Monitor para contentores
+# <a name="troubleshooting-azure-monitor-for-containers"></a>Resolução de problemas do Monitor Azure para contentores
 
-Quando configurar a monitorização do seu cluster do Azure Kubernetes Service (AKS) com o Azure Monitor para contentores, poderá ocorrer um problema que impede a recolha de dados ou comunicar o estado. Este artigo fornece detalhes sobre alguns problemas comuns e passos de resolução de problemas.
+Quando configurar a monitorização do seu cluster azure Kubernetes Service (AKS) com o Azure Monitor para contentores, poderá encontrar um problema que impeça a recolha de dados ou o estado de reporte. Este artigo detalha algumas questões comuns e passos de resolução de problemas.
 
-## <a name="authorization-error-during-onboarding-or-update-operation"></a>Erro de autorização durante a operação de atualização ou integração
-Ao habilitar Azure Monitor para contêineres ou atualizar um cluster para dar suporte à coleta de métricas, você pode receber um erro semelhante ao seguinte: *a identidade do usuário < cliente > ' with ID do objeto ' < o ObjectID do usuário > ' não tem autorização para executar a ação ' Microsoft. Authorization/roleAssignments/Write ' sobre o escopo*
+## <a name="authorization-error-during-onboarding-or-update-operation"></a>Erro de autorização durante o embarque ou operação de atualização
+Ao mesmo tempo que permite o Monitor Azure para contentores ou atualizar um cluster para suportar métricas de recolha, poderá receber um erro que se assemelhe ao seguinte - *o cliente <identidade> do utilizador" com o id de objeto '<objectid>' do utilizador não tem autorização para realizar a ação 'Microsoft.Authorization/roleAssignments/write' sobre* o âmbito
 
-Durante a integração ou o processo de atualização, é tentada a concessão da atribuição de função de **Editor de métricas de monitoramento** no recurso de cluster. O usuário que inicia o processo para habilitar a Azure Monitor para contêineres ou a atualização para dar suporte à coleção de métricas deve ter acesso à permissão **Microsoft. Authorization/roleAssignments/Write** no escopo de recurso de cluster AKs. Somente os membros das funções internas do **proprietário** e do **administrador de acesso do usuário** recebem acesso a essa permissão. Se suas políticas de segurança exigirem a atribuição de permissões de nível granular, recomendamos que você exiba [funções personalizadas](../../role-based-access-control/custom-roles.md) e atribua-as aos usuários que precisam dela. 
+Durante o processo de embarque ou atualização, a atribuição da função de Editor de Métricas de **Monitorização** é tentada no recurso do cluster. O utilizador que inicie o processo para permitir o Monitor Azure para contentores ou a atualização para suportar a recolha de métricas deve ter acesso à **Microsoft.Autorizações/tarefas/autorização/autorização** de escrita no âmbito do recurso de cluster AKS. Apenas os membros das funções incorporadas do **Proprietário** e **do Administrador** de Acesso ao Utilizador têm acesso a esta permissão. Se as suas políticas de segurança exigirem a atribuição de permissões de nível granular, recomendamos que veja [funções personalizadas](../../role-based-access-control/custom-roles.md) e atribua-as aos utilizadores que o necessitem. 
 
-Você também pode conceder manualmente essa função da portal do Azure executando as seguintes etapas:
+Também pode conceder manualmente este papel do portal Azure executando os seguintes passos:
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
-2. No portal do Azure, clique em **Todos os serviços**, que se encontra no canto superior esquerdo. Na lista de recursos, digite **kubernetes**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Azure kubernetes**.
-3. Na lista de clusters kubernetes, selecione um na lista.
-2. No menu à esquerda, clique em **controle de acesso (iam)** .
-3. Selecione **+ Adicionar** para adicionar uma atribuição de função e selecione a função de **Editor de métricas de monitoramento** e, na caixa **selecionar** , digite **AKs** para filtrar os resultados em apenas as entidades de serviço de clusters definidas na assinatura. Selecione aquele na lista específica para esse cluster.
-4. Selecione **guardar** para concluir a atribuir a função. 
+2. No portal do Azure, clique em **Todos os serviços**, que se encontra no canto superior esquerdo. Na lista de recursos, digite **Kubernetes.** À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Azure Kubernetes**.
+3. Na lista de clusters kubernetes, selecione um da lista.
+2. A partir do menu à esquerda, clique no controlo de **acesso (IAM)**.
+3. Selecione **+ Adicione** para adicionar uma atribuição de funções e selecione a função de Editor de **Métricas de Monitorização** e sob o tipo de caixa **Select** **AKS** para filtrar os resultados apenas nos principais de serviço de clusters definidos na subscrição. Selecione o da lista específico para esse cluster.
+4. Selecione **Guardar** para terminar a atribuição da função. 
 
-## <a name="azure-monitor-for-containers-is-enabled-but-not-reporting-any-information"></a>Monitor do Azure para contentores está ativado mas não comunicam quaisquer informações
-Se Azure Monitor para contêineres for habilitado e configurado com êxito, mas você não puder exibir informações de status ou nenhum resultado for retornado de uma consulta de log, você diagnosticará o problema seguindo estas etapas: 
+## <a name="azure-monitor-for-containers-is-enabled-but-not-reporting-any-information"></a>O Monitor Azure para contentores está habilitado, mas não reporta qualquer informação
+Se o Monitor Azure para contentores estiver ativado e configurado com sucesso, mas não conseguir visualizar informações sobre o estado ou não fordevolvido nenhum resultado de uma consulta de registo, diagnostica o problema seguindo estes passos: 
 
-1. Verifique o estado do agente ao executar o comando: 
+1. Verifique o estado do agente executando o comando: 
 
     `kubectl get ds omsagent --namespace=kube-system`
 
-    A saída deve assemelhar-se o seguinte, que indica que foi implementado devidamente:
+    A saída deve assemelhar-se à seguinte, o que indica que foi corretamente implantada:
 
     ```
     User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
     NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
     omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
     ```  
-2. Verifique o estado de implementação com a versão do agente *06072018* ou posteriormente utilizando o comando:
+2. Verifique o estado de implantação com a versão *06072018* do agente ou posteriormente utilizando o comando:
 
     `kubectl get deployment omsagent-rs -n=kube-system`
 
-    A saída deve assemelhar-se ao seguinte exemplo, o que indica que foi implementado devidamente:
+    A saída deve assemelhar-se ao seguinte exemplo, o que indica que foi corretamente implantada:
 
     ```
     User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
@@ -54,9 +54,9 @@ Se Azure Monitor para contêineres for habilitado e configurado com êxito, mas 
     omsagent   1         1         1            1            3h
     ```
 
-3. Verifique o estado de pod para verificar se ele está em execução com o comando: `kubectl get pods --namespace=kube-system`
+3. Verifique o estado da cápsula para verificar se está a funcionar utilizando o comando:`kubectl get pods --namespace=kube-system`
 
-    A saída deve assemelhar-se o exemplo a seguir com o estado *em execução* para o omsagent:
+    A saída deve assemelhar-se ao seguinte exemplo com um estado de *execução* para o omsagent:
 
     ```
     User@aksuser:~$ kubectl get pods --namespace=kube-system 
@@ -68,11 +68,11 @@ Se Azure Monitor para contêineres for habilitado e configurado com êxito, mas 
     omsagent-fkq7g                      1/1       Running   0          1d 
     ```
 
-4. Verifique os registos do agente. Quando o agente em contentores é implementado, ele executa uma verificação rápida ao executar comandos OMI e apresenta a versão do agente e fornecedor. 
+4. Verifique os registos do agente. Quando o agente contentorizado é implantado, executa uma verificação rápida executando comandos OMI e exibe a versão do agente e do fornecedor. 
 
-5. Para verificar se o agente foi implantado com êxito, execute o comando: `kubectl logs omsagent-484hw --namespace=kube-system`
+5. Para verificar se o agente foi destacado com sucesso, execute o comando:`kubectl logs omsagent-484hw --namespace=kube-system`
 
-    O estado deve assemelhar-se o exemplo seguinte:
+    O estatuto deve assemelhar-se ao seguinte exemplo:
 
     ```
     User@aksuser:~$ kubectl logs omsagent-484hw --namespace=kube-system
@@ -97,19 +97,19 @@ Se Azure Monitor para contêineres for habilitado e configurado com êxito, mas 
 
 ## <a name="error-messages"></a>Mensagens de erro
 
-A tabela abaixo resume erros conhecidos que pode encontrar ao utilizar o Azure Monitor para contentores.
+A tabela abaixo resume erros conhecidos que pode encontrar ao utilizar o Monitor Azure para contentores.
 
 | Mensagens de erro  | Ação |  
 | ---- | --- |  
-| Mensagem de erro `No data for selected filters`  | Pode demorar algum tempo a estabelecer o fluxo de dados de monitorização para os clusters recém-criado. Aguarde pelo menos 10 a 15 minutos para que os dados sejam exibidos para o cluster. |   
-| Mensagem de erro `Error retrieving data` | Enquanto o cluster do serviço kubernetes do Azure está configurando para monitoramento de integridade e desempenho, uma conexão é estabelecida entre o cluster e o espaço de trabalho do Azure Log Analytics. Uma área de trabalho do Log Analytics é utilizada para armazenar todos os dados de monitorização para o seu cluster. Esse erro pode ocorrer quando seu espaço de trabalho Log Analytics foi excluído. Verifique se o espaço de trabalho foi excluído e, se ele foi, será necessário reabilitar o monitoramento do cluster com Azure Monitor para contêineres e especificar um novo espaço de trabalho ou criar um existente. Para reabilitar, você precisará [desabilitar](container-insights-optout.md) o monitoramento do cluster e [habilitar](container-insights-enable-new-cluster.md) Azure monitor para contêineres novamente. |  
-| `Error retrieving data` Depois de adicionar o Azure Monitor para contentores através da cli do az aks | Ao habilitar o monitoramento usando `az aks cli`, os Azure Monitor para contêineres podem não ser implantados corretamente. Verifique se a solução está implantada. Para tal, aceda à sua área de trabalho do Log Analytics e ver se a solução está disponível, selecionando **soluções** partir do painel no lado esquerdo. Para resolver este problema, terá de voltar a implementar a solução ao seguir as instruções [como implementar o Azure Monitor para contentores](container-insights-onboard.md) |  
+| Mensagem de erro`No data for selected filters`  | Poderá demorar algum tempo a estabelecer o fluxo de dados de monitorização para os clusters recentemente criados. Deixe pelo menos 10 a 15 minutos para que os dados apareçam para o seu cluster. |   
+| Mensagem de erro`Error retrieving data` | Enquanto o cluster do Serviço Azure Kubernetes está a criar-se para monitorização da saúde e do desempenho, estabelece-se uma ligação entre o cluster e o espaço de trabalho Azure Log Analytics. Um espaço de trabalho log Analytics é usado para armazenar todos os dados de monitorização para o seu cluster. Este erro pode ocorrer quando o seu espaço de trabalho Log Analytics tiver sido eliminado. Verifique se o espaço de trabalho foi apagado e, se foi, terá de reativar a monitorização do seu cluster com o Monitor Azure para obter contentores e especificar um espaço de trabalho existente ou criar um novo espaço de trabalho. Para voltar a ativar, terá de [desativar](container-insights-optout.md) a monitorização do cluster e voltar a [ativar](container-insights-enable-new-cluster.md) o Monitor Azure para os contentores. |  
+| `Error retrieving data`depois de adicionar O Monitor Azure para contentores através de az aks cli | Ao ativar `az aks cli`a utilização, o Monitor Azure para os contentores pode não estar corretamente implantado. Verifique se a solução está implantada. Para isso, vá ao seu espaço de trabalho Log Analytics e veja se a solução está disponível selecionando **Soluções** do painel do lado esquerdo. Para resolver este problema, terá de recolocar a solução seguindo as instruções sobre [como implantar o Monitor Azure para contentores](container-insights-onboard.md) |  
 
-Para ajudar a diagnosticar o problema, nós fornecemos um script de resolução de problemas disponível [aqui](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script).
+Para ajudar a diagnosticar o problema, fornecemos um roteiro de resolução de problemas disponível [aqui.](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script)
 
-## <a name="azure-monitor-for-containers-agent-replicaset-pods-are-not-scheduled-on-non-azure-kubernetes-cluster"></a>O Azure Monitor para os pods do agente de Réplicaset de contêineres não estão agendados no cluster kubernetes não Azure
+## <a name="azure-monitor-for-containers-agent-replicaset-pods-are-not-scheduled-on-non-azure-kubernetes-cluster"></a>O Monitor Azure para contentores agente ReplicaSet Pods não está programado no cluster não-Azure Kubernetes
 
-Azure Monitor for containers o pods do agente de Réplicaset tem uma dependência nos seguintes seletores de nó nos nós de trabalho (ou agente) para o agendamento:
+O Monitor Azure para o agente de contentores ReplicaSet Pods tem uma dependência dos seguintes selecionadores de nó nos nós do trabalhador (ou agente) para o agendamento:
 
 ```
 nodeSelector:
@@ -117,16 +117,16 @@ nodeSelector:
   kubernetes.io/role: agent
 ```
 
-Se os nós de trabalho não tiverem rótulos de nó anexados, o pods de agente de Réplicaset não será agendado. Consulte [kubernetes atribuir rótulo seletores](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/) para obter instruções sobre como anexar o rótulo.
+Se os seus nós de trabalhador não tiverem etiquetas de nó anexadas, então o agente ReplicaSet Pods não será programado. Consulte os [selecionadores de etiquetas kubernetes](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/) para obter instruções sobre como fixar a etiqueta.
 
-## <a name="performance-charts-dont-show-cpu-or-memory-of-nodes-and-containers-on-a-non-azure-cluster"></a>Os gráficos de desempenho não mostram a CPU ou memória de nós e contêineres em um cluster não Azure
+## <a name="performance-charts-dont-show-cpu-or-memory-of-nodes-and-containers-on-a-non-azure-cluster"></a>Gráficos de desempenho não mostram CPU ou memória de nós e contentores em um cluster não-Azure
 
-Azure Monitor para os pods de agente de contêineres usa o ponto de extremidade cAdvisor no agente de nó para coletar as métricas de desempenho. Verifique se o agente em contêineres no nó está configurado para permitir que `cAdvisor port: 10255` seja aberto em todos os nós no cluster para coletar métricas de desempenho.
+O Monitor Azure para o agente de contentores Pods utiliza o ponto final do cAdvisor no agente do nó para recolher as métricas de desempenho. Verifique se o agente contentorizado no nó `cAdvisor port: 10255` está configurado para permitir a abertura de todos os nós do cluster para recolher métricas de desempenho.
 
-## <a name="non-azure-kubernetes-cluster-are-not-showing-in-azure-monitor-for-containers"></a>O cluster kubernetes não Azure não está aparecendo em Azure Monitor para contêineres
+## <a name="non-azure-kubernetes-cluster-are-not-showing-in-azure-monitor-for-containers"></a>Cluster kubernetes não-Azure não está a aparecer no Monitor Azure para contentores
 
-Para exibir o cluster kubernetes não Azure no Azure Monitor para contêineres, o acesso de leitura é necessário no espaço de trabalho Log Analytics que dá suporte a essa percepção e no recurso **ContainerInsights (*espaço de trabalho*)** da solução de informações do contêiner.
+Para ver o cluster não Azure Kubernetes no Monitor Azure para contentores, é necessário ler o acesso no espaço de trabalho log Analytics suportando esta Insight e no recurso de soluções Container Insights ***(espaço de trabalho*).**
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Com a monitorização ativada para capturar métricas de estado de funcionamento para os nós de cluster do AKS e os pods, estas métricas de estado de funcionamento estão disponíveis no portal do Azure. Para saber como utilizar o Azure Monitor para contentores, veja [estado de funcionamento do serviço de Kubernetes do Azure de modo de exibição](container-insights-analyze.md).
+Com a monitorização habilitada a capturar métricas de saúde tanto para os nós e cápsulas do cluster AKS, estas métricas de saúde estão disponíveis no portal Azure. Para aprender a utilizar o Monitor Azure para contentores, consulte a [saúde do Serviço View Azure Kubernetes](container-insights-analyze.md).

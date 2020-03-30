@@ -4,10 +4,10 @@ description: Saiba mais sobre planeamento e preparação para uma implantação 
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.openlocfilehash: 1762a6975448301957579b3437a8af5c89b3accd
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78193481"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planeie e prepare-se para uma implantação de cluster
@@ -21,7 +21,7 @@ Para gerir com sucesso aplicações e clusters azure Service Fabric, existem ope
 O Service Fabric permite a criação de clusters de Tecido de Serviço em quaisquer VMs ou computadores que executem o Windows Server ou o Linux.  Antes de implementar o seu cluster, deve escolher o SISTEMA: Windows ou Linux.  Cada nó (máquina virtual) do cluster executa o mesmo SISTEMA, não pode misturar Windows e VMs Linux no mesmo cluster.
 
 ## <a name="capacity-planning"></a>Planeamento de capacidade
-Para qualquer implantação de produção, o planeamento da capacidade é um passo importante. Seguem-se alguns aspetos a considerar como parte do processo.
+Para qualquer implementação de produção, o planeamento da capacidade é um passo importante. Seguem-se alguns aspetos a considerar como parte do processo.
 
 * O número inicial de tipos de nó para o seu cluster 
 * As propriedades de cada tipo de nó (tamanho, número de instâncias, primárias, viradas para a Internet, número de VMs, etc.)
@@ -62,14 +62,14 @@ Os discos Ephemeral OS não são uma característica específica do Tecido de Se
     > [!NOTE]
     > Certifique-se de selecionar um tamanho VM com um tamanho de cache igual ou superior ao tamanho do disco OS do próprio VM, caso contrário a sua implantação Azure pode resultar em erro (mesmo que seja inicialmente aceite).
 
-2. Especifique uma versão virtual de conjunto de escala de máquina (`vmssApiVersion`) de `2018-06-01` ou posteriormente:
+2. Especifique uma versão`vmssApiVersion`de `2018-06-01` conjunto de escala de máquina virtual () de ou posteriormente:
 
     ```xml
     "variables": {
         "vmssApiVersion": "2018-06-01",
     ```
 
-3. Na secção de conjunto de escala de máquina virtual do seu modelo de implementação, especifique `Local` opção para `diffDiskSettings`:
+3. Na secção de conjunto de escala de `Local` máquina `diffDiskSettings`virtual do seu modelo de implementação, especifique a opção para:
 
     ```xml
     "apiVersion": "[variables('vmssApiVersion')]",

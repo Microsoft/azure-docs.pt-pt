@@ -12,10 +12,10 @@ ms.date: 02/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 3d0cb06f84fdd96d099e05f55ba62c37cb1192c7
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78183980"
 ---
 # <a name="page-layout-versions"></a>Versões do esquema de página
@@ -33,13 +33,13 @@ Os pacotes de layout da página são periodicamente atualizados para incluir cor
 
 - Todas as páginas
   - Correções de acessibilidade
-  - Agora pode adicionar o `data-preload="true"` atributo [nas suas tags HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) para controlar a ordem de carga para CSS e JavaScript.
+  - Agora pode adicionar `data-preload="true"` o atributo [nas suas tags HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) para controlar a ordem de carga para CSS e JavaScript.
     - Carregue os ficheiros CSS ligados ao mesmo tempo que o seu modelo HTML para que não 'cintile' entre carregar os ficheiros.
-    - Controle a ordem em que as suas etiquetas de `script` são recolhidas e executadas antes da carga da página.
-  - O campo de e-mail está agora `type=email` e os teclados móveis fornecerão as sugestões corretas
+    - Controle a ordem `script` em que as suas etiquetas são rebuscadas e executadas antes da carga da página.
+  - O campo `type=email` de e-mail é agora e os teclados móveis fornecerão as sugestões corretas
   - Suporte para tradução do Chrome
 - Páginas unificadas e autoafirmadas
-  - Os campos de username/email e password utilizam agora o elemento `form` para permitir que o Edge e o Internet Explorer (IE) guardem corretamente esta informação.
+  - Os campos de username/email `form` e password utilizam agora o elemento HTML para permitir que o Edge e o Internet Explorer (IE) guardem corretamente esta informação.
 
 ## <a name="110"></a>1.1.0
 

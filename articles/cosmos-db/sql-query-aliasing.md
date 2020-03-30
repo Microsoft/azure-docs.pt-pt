@@ -1,25 +1,25 @@
 ---
-title: Alias no Azure Cosmos DB
-description: Saiba como usar o alias em consultas do Azure Cosmos DB SQL para diferenciar duas propriedades com o mesmo nome
+title: Aliasing em Azure Cosmos DB
+description: Aprenda a usar o pseudónimo em consultas Azure Cosmos DB SQL para diferenciar duas propriedades com o mesmo nome
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.openlocfilehash: 74849eec4c5808a584894321269c49c41f0b8a5c
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74873476"
 ---
-# <a name="aliasing-in-azure-cosmos-db"></a>Alias no Azure Cosmos DB
+# <a name="aliasing-in-azure-cosmos-db"></a>Aliasing em Azure Cosmos DB
 
-Você pode explicitamente alias de valores em consultas. Se uma consulta tiver duas propriedades com o mesmo nome, use alias para renomear uma ou ambas as propriedades para que elas sejam desambiguadas no resultado projetado.
+Pode explicitamente alias valores em consultas. Se uma consulta tiver duas propriedades com o mesmo nome, use o pseudónimo para mudar o nome de uma ou ambas as propriedades para que sejam desambiguadas no resultado projetado.
 
 ## <a name="examples"></a>Exemplos
 
-A palavra-chave as usada para o alias é opcional, conforme mostrado no exemplo a seguir ao projetar o segundo valor como `NameInfo`:
+A palavra-chave AS utilizada para aliasing é opcional, como mostra o `NameInfo`seguinte exemplo ao projetar o segundo valor como:
 
 ```sql
     SELECT 
@@ -45,6 +45,6 @@ Os resultados são:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Exemplos do Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [Amostras Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Cláusula SELECT](sql-query-select.md)
 - [Cláusula FROM](sql-query-from.md)

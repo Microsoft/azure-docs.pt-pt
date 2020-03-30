@@ -12,10 +12,10 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 7f734844859d44e66bddbc2ddd999659e52f9668
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78184082"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico OAuth1 numa política personalizada do Diretório Ativo Azure B2C
@@ -26,7 +26,7 @@ O Azure Ative Directory B2C (Azure AD B2C) presta apoio ao fornecedor de identid
 
 ## <a name="protocol"></a>Protocolo
 
-O **nome** atributo do elemento **protocolo** tem de ser definido para `OAuth1`. Por exemplo, o protocolo para o perfil técnico **Twitter-OAUTH1** é `OAuth1`.
+O **atributo** nome do elemento **protocolo** `OAuth1`tem de ser definido para . Por exemplo, o protocolo para o perfil técnico `OAuth1` **Twitter-OAUTH1** é .
 
 ```XML
 <TechnicalProfile Id="Twitter-OAUTH1">
@@ -54,7 +54,7 @@ O exemplo que se segue mostra as alegações devolvidas pelo fornecedor de ident
 O perfil técnico também devolve reclamações que não são devolvidas pelo fornecedor de identidade:
 
 - A **alegação do Fornecedor de Identidade** que contém o nome do fornecedor de identidade.
-- A **autenticaçãoSource** reclama com um valor predefinido de `socialIdpAuthentication`.
+- A **autenticaçãoSource** reclama com `socialIdpAuthentication`um valor predefinido de .
 
 ```xml
 <OutputClaims>
@@ -71,12 +71,12 @@ O perfil técnico também devolve reclamações que não são devolvidas pelo fo
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | client_id | Sim | O identificador de aplicação do fornecedor de identidade. |
-| Nome do provedor | Não | O nome do fornecedor de identidade. |
+| ProviderName | Não | O nome do fornecedor de identidade. |
 | request_token_endpoint | Sim | O URL do ponto final simbólico do pedido de acordo com o RFC 5849. |
 | authorization_endpoint | Sim | O URL do ponto final de autorização de acordo com o RFC 5849. |
 | access_token_endpoint | Sim | O URL do ponto final simbólico de acordo com o RFC 5849. |
 | Ponto final de reclamações | Não | O URL do ponto final da informação do utilizador. |
-| ClaimsResponseFormat | Não | O formato de resposta a sinistros.|
+| Formato Resposta a Reclamações | Não | O formato de resposta a sinistros.|
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas
 
@@ -88,7 +88,7 @@ O elemento **CryptographicKeys** contém o seguinte atributo:
 
 ## <a name="redirect-uri"></a>URI de Redirecionamento
 
-Quando configurar o URL de redirecionamento do seu fornecedor de identidade, insira `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Certifique-se de substituir o **inquilino** pelo seu nome de inquilino (por exemplo, contosob2c.onmicrosoft.com) e **políticaId** pelo identificador da sua política (por exemplo, b2c_1a_policy). O URI redirecionado tem de estar em todas as minúsculas. Adicione um URL de redirecionamento para todas as políticas que utilizem o login do fornecedor de identidade.
+Quando configurar o URL redirecionado do `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`seu fornecedor de identidade, introduza . Certifique-se de substituir o **inquilino** pelo seu nome de inquilino (por exemplo, contosob2c.onmicrosoft.com) e **políticaId** pelo identificador da sua política (por exemplo, b2c_1a_policy). O URI redirecionado tem de estar em todas as minúsculas. Adicione um URL de redirecionamento para todas as políticas que utilizem o login do fornecedor de identidade.
 
 Se estiver a utilizar o domínio **b2clogin.com** em vez de **login.microsoftonline.com** certifique-se de utilizar b2clogin.com em vez de login.microsoftonline.com.
 

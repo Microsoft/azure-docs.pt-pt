@@ -5,17 +5,17 @@ ms.service: expressroute
 ms.topic: include
 ms.author: cherylmc
 ms.openlocfilehash: b6ab3e80c7a27263039de3d371adea3d49ddfcc9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75437004"
 ---
-|  | **Peering privado** | **Peering da Microsoft** |  **Peering público** (preterido para os novos circuitos do) |
+|  | **Peering Privado** | **Peering da Microsoft** |  **Público** (depreciado por novos circuitos) |
 | --- | --- | --- | --- |
-| **Máx. prefixos de # suportados por peering** |4000 por padrão, 10 000 com o ExpressRoute Premium |200 |200 |
-| **Intervalos de endereços IP suportados** |Qualquer endereço IP válido na sua WAN. |Endereços IP públicos pertencentes ao utilizador ou o fornecedor de conectividade. |Endereços IP públicos pertencentes ao utilizador ou o fornecedor de conectividade. |
-| **COMO os requisitos de número** |Privados e públicos como números. Tem de o proprietário público como número se optar por utilizar um. |Privados e públicos como números. No entanto, tem de provar a propriedade de endereços IP públicos. |Privados e públicos como números. No entanto, tem de provar a propriedade de endereços IP públicos. |
+| **Max, max. # prefixos suportados por peering** |4000 por padrão, 10.000 com ExpressRoute Premium |200 |200 |
+| **Intervalos de endereçoip suportados** |Qualquer endereço IP válido dentro do seu WAN. |Endereços IP públicos que lhe pertencem ou do seu fornecedor de conectividade. |Endereços IP públicos que lhe pertencem ou do seu fornecedor de conectividade. |
+| **Requisitos de número as** |Números de AS privados e públicos. Deve possuir o número de AS do público se optar por utilizar um. |Números de AS privados e públicos. No entanto, deve provar a propriedade de endereços IP públicos. |Números de AS privados e públicos. No entanto, deve provar a propriedade de endereços IP públicos. |
 | **Protocolos IP suportados**| IPv4 |  IPv4, IPv6 | IPv4 |
-| **Encaminhamento de IP de Interface de endereços** |Endereços IP público e de RFC1918 |Endereços IP públicos registados nos registos de encaminhamento. |Endereços IP públicos registados nos registos de encaminhamento. |
-| **Suporte de MD5 Hash** |Sim |Sim |Sim |
+| **Endereços IP da Interface de Encaminhamento** |RFC1918 e endereços IP públicos |Endereços IP públicos registados em registos de encaminhamento. |Endereços IP públicos registados em registos de encaminhamento. |
+| **Suporte de Hash MD5** |Sim |Sim |Sim |

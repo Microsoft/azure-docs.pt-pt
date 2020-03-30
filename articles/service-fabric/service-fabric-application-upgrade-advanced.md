@@ -1,22 +1,22 @@
 ---
-title: Tópicos avançados de atualização de aplicativos
-description: Este artigo aborda alguns tópicos avançados referentes à atualização de um aplicativo Service Fabric.
+title: Tópicos avançados de atualização de aplicações
+description: Este artigo aborda alguns tópicos avançados relativos à atualização de uma aplicação de Tecido de Serviço.
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.openlocfilehash: 09f3fdf1f26a13c6722eb039e132256f33be38ff
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76845426"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Upgrade de aplicação service Fabric: Tópicos avançados
 
 ## <a name="add-or-remove-service-types-during-an-application-upgrade"></a>Adicionar ou remover tipos de serviço durante uma atualização de aplicações
 
-Se um novo tipo de serviço for adicionado a um aplicativo publicado como parte de uma atualização, o novo tipo de serviço será adicionado ao aplicativo implantado. Essa atualização não afeta nenhuma das instâncias de serviço que já faziam parte do aplicativo, mas uma instância do tipo de serviço que foi adicionada deve ser criada para que o novo tipo de serviço esteja ativo (consulte [New-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)).
+Se um novo tipo de serviço for adicionado a uma aplicação publicada como parte de uma atualização, então o novo tipo de serviço é adicionado à aplicação implementada. Esta atualização não afeta nenhuma das instâncias de serviço que já faziam parte da aplicação, mas deve ser criada uma instância do tipo de serviço que foi adicionada para que o novo tipo de serviço esteja ativo (ver [New-ServiceFabricService).](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)
 
-Da mesma forma, os tipos de serviço podem ser removidos de um aplicativo como parte de uma atualização. No entanto, todas as instâncias de serviço do tipo de serviço a ser removido devem ser removidas antes de prosseguir com a atualização (consulte [Remove-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
+Da mesma forma, os tipos de serviço podem ser removidos de uma aplicação como parte de uma atualização. No entanto, todas as instâncias de serviço do tipo de serviço a remover devem ser removidas antes de proceder à atualização (ver [Remover-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
 
 ## <a name="avoid-connection-drops-during-stateless-service-planned-downtime-preview"></a>Evite quedas de ligação durante o tempo de paragem previsto para o serviço apátrida (pré-visualização)
 
@@ -28,13 +28,13 @@ Para evitar isto, configure a função *RequestDrain* (pré-visualização) adic
 
 Existem várias formas de configurar o atraso no lado do serviço.
 
- * **Ao criar um novo serviço,** especifique um `-InstanceCloseDelayDuration`:
+ * **Ao criar um novo serviço,** especifique um: `-InstanceCloseDelayDuration`
 
     ```powershell
     New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>`
     ```
 
- * Ao definir o serviço na secção de **incumprimentos no manifesto de aplicação,** atribua a propriedade `InstanceCloseDelayDurationSeconds`:
+ * Ao definir o serviço na secção de **incumprimentos no manifesto de aplicação,** atribua a `InstanceCloseDelayDurationSeconds` propriedade:
 
     ```xml
           <StatelessService ServiceTypeName="Web1Type" InstanceCount="[Web1_InstanceCount]" InstanceCloseDelayDurationSeconds="15">
@@ -42,7 +42,7 @@ Existem várias formas de configurar o atraso no lado do serviço.
           </StatelessService>
     ```
 
- * **Ao atualizar um serviço existente,** especifique um `-InstanceCloseDelayDuration`:
+ * **Ao atualizar um serviço existente,** especifique um: `-InstanceCloseDelayDuration`
 
     ```powershell
     Update-ServiceFabricService [-Stateless] [-ServiceName] <Uri> [-InstanceCloseDelayDuration <TimeSpan>]`
@@ -50,7 +50,7 @@ Existem várias formas de configurar o atraso no lado do serviço.
 
 ### <a name="client-configuration"></a>Configuração do cliente
 
-Para receber a notificação quando um ponto final foi alterado, os clientes podem registar um callback (`ServiceManager_ServiceNotificationFilterMatched`) como este: 
+Para receber a notificação quando um ponto final foi`ServiceManager_ServiceNotificationFilterMatched`alterado, os clientes podem registar um callback () como este: 
 
 ```csharp
     var filterDescription = new ServiceNotificationFilterDescription
@@ -71,7 +71,7 @@ A notificação de alteração é uma indicação de que os pontos finais mudara
 
 ### <a name="optional-upgrade-overrides"></a>Sobreposições de upgrade opcionais
 
-Além de definir as durações de atraso por serviço, também pode anular o atraso durante a atualização de aplicações/clusterutilizando a mesma opção (`InstanceCloseDelayDurationSec`) :
+Além de definir as durações de atraso por serviço, também pode anular`InstanceCloseDelayDurationSec`o atraso durante a atualização de aplicações/clusterutilizando a mesma opção ( ) ):
 
 ```powershell
 Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationTypeVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
@@ -79,36 +79,36 @@ Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationType
 Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManifestVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
 ```
 
-A duração do atraso aplica-se apenas à instância de atualização invocada e não altera as configurações individuais de atraso de serviço. Por exemplo, pode usá-lo para especificar um atraso de `0` para evitar quaisquer atrasos de atualização pré-configurados.
+A duração do atraso aplica-se apenas à instância de atualização invocada e não altera as configurações individuais de atraso de serviço. Por exemplo, pode usá-lo para `0` especificar um atraso de modo a ignorar quaisquer atrasos de atualização pré-configurados.
 
 ## <a name="manual-upgrade-mode"></a>Modo de atualização manual
 
 > [!NOTE]
-> O modo de atualização *monitorado* é recomendado para todas as atualizações de Service Fabric.
-> O modo de atualização *UnmonitoredManual* deve ser considerado somente para atualizações com falha ou suspensas. 
+> O modo de atualização *Monitorizado* é recomendado para todas as atualizações do Tecido de Serviço.
+> O modo de atualização *Manual Unmonitorsó* deve ser considerado para atualizações falhadas ou suspensas. 
 >
 >
 
-No modo *monitorado* , Service Fabric aplica as políticas de integridade para garantir que o aplicativo esteja íntegro à medida que a atualização progride. Se as políticas de integridade forem violadas, a atualização será suspensa ou automaticamente revertida, dependendo da *falhaaction*especificada.
+No modo *Monitorizado,* o Tecido de Serviço aplica políticas de saúde para garantir que a aplicação é saudável à medida que a atualização progride. Se as políticas de saúde forem violadas, a atualização é suspensa ou relançada automaticamente dependendo da ação de *falhas*especificada .
 
-No modo *UnmonitoredManual* , o administrador do aplicativo tem total controle sobre a progressão da atualização. Esse modo é útil ao aplicar políticas de avaliação de integridade personalizadas ou executar atualizações não convencionais para ignorar completamente o monitoramento de integridade (por exemplo, o aplicativo já está em perda de dados). Uma atualização em execução neste modo será suspensa após a conclusão de cada UD e deverá ser retomada explicitamente usando [resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps). Quando uma atualização é suspensa e está pronta para ser retomada pelo usuário, seu estado de atualização mostrará *RollforwardPending* (consulte [upgradestate](https://docs.microsoft.com/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet)).
+No modo *UnmonitoredManual,* o administrador de aplicação tem total controlo sobre a progressão da atualização. Este modo é útil na aplicação de políticas personalizadas de avaliação da saúde ou na realização de atualizações não convencionais para contornar completamente a monitorização da saúde (por exemplo, a aplicação já está em perda de dados). Uma atualização em execução neste modo suspender-se-á depois de completar cada UD e deve ser explicitamente retomada utilizando o [Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps). Quando uma atualização for suspensa e pronta a ser retomada pelo utilizador, o seu estado de atualização mostrará *RollforwardPending* (ver [UpgradeState](https://docs.microsoft.com/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet)).
 
-Por fim, o modo *UnmonitoredAuto* é útil para executar iterações de atualização rápidas durante o desenvolvimento ou teste de serviço, já que nenhuma entrada do usuário é necessária e nenhuma política de integridade do aplicativo é avaliada.
+Finalmente, o modo *UnmonitoredAuto* é útil para realizar iterações de atualização rápida durante o desenvolvimento do serviço ou testes, uma vez que não é necessária nenhuma entrada do utilizador e não são avaliadas políticas de saúde de aplicação.
 
-## <a name="upgrade-with-a-diff-package"></a>Atualizar com um pacote diff
+## <a name="upgrade-with-a-diff-package"></a>Upgrade com um pacote difuso
 
-Em vez de provisionar um pacote de aplicativos completo, as atualizações também podem ser realizadas pelo provisionamento de pacotes diff que contêm apenas os pacotes atualizados de código/configuração/dados, juntamente com o manifesto completo do aplicativo e os manifestos do serviço completo. Os pacotes de aplicativos completos só são necessários para a instalação inicial de um aplicativo no cluster. As atualizações subsequentes podem ser de pacotes de aplicativos completos ou de pacotes diff.  
+Em vez de fornecer um pacote completo de aplicações, as atualizações também podem ser efetuadas através do fornecimento de pacotes difusos que contenham apenas os pacotes de código/config/dados atualizados, juntamente com o manifesto completo de aplicação e manifestos completos de serviço. Os pacotes completos de aplicação só são necessários para a instalação inicial de uma aplicação ao cluster. As atualizações subsequentes podem ser de pacotes completos de aplicações ou pacotes difusos.  
 
-Qualquer referência no manifesto do aplicativo ou nos manifestos do serviço de um pacote diff que não pode ser encontrado no pacote de aplicativos é substituída automaticamente pela versão provisionada no momento.
+Qualquer referência no manifesto de aplicação ou manifestos de serviço de um pacote difuso que não possa ser encontrado no pacote de aplicação é automaticamente substituída pela versão atualmente provisionada.
 
-Os cenários para usar um pacote diff são:
+Os cenários para a utilização de um pacote difuso são:
 
-* Quando você tem um pacote de aplicativo grande que faz referência a vários arquivos de manifesto do serviço e/ou vários pacotes de código, pacotes de configuração ou pacotes de dados.
-* Quando você tem um sistema de implantação que gera o layout de compilação diretamente do processo de compilação do aplicativo. Nesse caso, embora o código não tenha sido alterado, os assemblies recém-criados obtêm uma soma de verificação diferente. O uso de um pacote de aplicativos completo exigirá que você atualize a versão em todos os pacotes de código. Usando um pacote diff, você só fornece os arquivos que foram alterados e os arquivos de manifesto em que a versão foi alterada.
+* Quando tem um grande pacote de aplicações que faz referência a vários ficheiros de manifesto de serviço e/ou vários pacotes de código, pacotes de config ou pacotes de dados.
+* Quando se tem um sistema de implementação que gere o layout de construção diretamente do seu processo de construção de aplicações. Neste caso, mesmo que o código não tenha mudado, os conjuntos recém-construídos recebem um controlo diferente. A utilização de um pacote completo de aplicações exigiria que atualizasse a versão em todos os pacotes de código. Utilizando um pacote difuso, apenas fornece os ficheiros que mudaram e os ficheiros manifestos onde a versão foi alterada.
 
-Quando um aplicativo é atualizado usando o Visual Studio, um pacote diff é publicado automaticamente. Para criar um pacote de comparação manualmente, o manifesto do aplicativo e os manifestos do serviço devem ser atualizados, mas somente os pacotes alterados devem ser incluídos no pacote de aplicativo final.
+Quando uma aplicação é atualizada utilizando o Visual Studio, um pacote difuso é publicado automaticamente. Para criar manualmente um pacote difuso, o manifesto de aplicação e os manifestos de serviço devem ser atualizados, mas apenas os pacotes alterados devem ser incluídos no pacote de aplicação final.
 
-Por exemplo, vamos começar com o seguinte aplicativo (números de versão fornecidos para facilitar a compreensão):
+Por exemplo, comecemos pela seguinte aplicação (números de versão fornecidos para facilitar a compreensão):
 
 ```text
 app1           1.0.0
@@ -120,7 +120,7 @@ app1           1.0.0
     config     1.0.0
 ```
 
-Vamos supor que você quisesse atualizar apenas o pacote de códigos de Service1 usando um pacote diff. Seu aplicativo atualizado tem as seguintes alterações de versão:
+Vamos supor que queria atualizar apenas o pacote de código de serviço1 usando um pacote difuso. A sua aplicação atualizada tem as seguintes alterações de versão:
 
 ```text
 app1           2.0.0      <-- new version
@@ -132,7 +132,7 @@ app1           2.0.0      <-- new version
     config     1.0.0
 ```
 
-Nesse caso, você atualiza o manifesto do aplicativo para 2.0.0 e o manifesto do serviço para Service1 para refletir a atualização do pacote de códigos. A pasta do seu pacote de aplicativos teria a seguinte estrutura:
+Neste caso, atualiza o manifesto de aplicação para 2.0.0 e o manifesto de serviço para o serviço1 para refletir a atualização do pacote de código. A pasta para o seu pacote de aplicações teria a seguinte estrutura:
 
 ```text
 app1/
@@ -140,11 +140,11 @@ app1/
     code/
 ```
 
-Em outras palavras, crie um pacote de aplicativo completo normalmente e, em seguida, remova todas as pastas de pacote de código/config/de dados para as quais a versão não foi alterada.
+Por outras palavras, crie normalmente um pacote completo de aplicação e, em seguida, remova quaisquer pastas de pacote de código/config/data para as quais a versão não tenha mudado.
 
-## <a name="upgrade-application-parameters-independently-of-version"></a>Atualizar parâmetros do aplicativo independentemente da versão
+## <a name="upgrade-application-parameters-independently-of-version"></a>Upgrade de parâmetros de aplicação independentemente da versão
 
-Às vezes, é desejável alterar os parâmetros de um aplicativo Service Fabric sem alterar a versão do manifesto. Isso pode ser feito convenientemente usando o sinalizador **-ApplicationParameter** com o cmdlet **Start-ServiceFabricApplicationUpgrade** do PowerShell do Azure Service Fabric. Suponha um aplicativo Service Fabric com as seguintes propriedades:
+Por vezes, é desejável alterar os parâmetros de uma aplicação De Tecido de Serviço sem alterar a versão manifesto. Isto pode ser feito convenientemente utilizando a bandeira **-ApplicationParameter** com o sistema de fabricação powerShell do serviço **Start-ServiceFabricApplicationUpgrade** Azure PowerShell. Assuma uma aplicação de Tecido de Serviço com as seguintes propriedades:
 
 ```PowerShell
 PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/Application1
@@ -157,7 +157,7 @@ HealthState            : Ok
 ApplicationParameters  : { "ImportantParameter" = "1"; "NewParameter" = "testBefore" }
 ```
 
-Agora, atualize o aplicativo usando o cmdlet **Start-ServiceFabricApplicationUpgrade** . Este exemplo mostra uma atualização monitorada, mas uma atualização não monitorada também pode ser usada. Para ver uma descrição completa dos sinalizadores aceitos por esse cmdlet, consulte a [referência de módulo do PowerShell Service Fabric do Azure](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps#parameters)
+Agora, atualize a aplicação utilizando o **cmdlet Start-ServiceFabricApplicationUpgrade.** Este exemplo mostra uma atualização monitorizada, mas também pode ser utilizada uma atualização não monitorizada. Para ver uma descrição completa das bandeiras aceites por este cmdlet, consulte a referência do módulo PowerShell de tecido de [serviço Azure](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps#parameters)
 
 ```PowerShell
 PS C:\> $appParams = @{ "ImportantParameter" = "2"; "NewParameter" = "testAfter"}
@@ -167,7 +167,7 @@ ion 1.0.0 -ApplicationParameter $appParams -Monitored
 
 ```
 
-Após a atualização, confirme se o aplicativo tem os parâmetros atualizados e a mesma versão:
+Após a atualização, confirme que a aplicação tem os parâmetros atualizados e a mesma versão:
 
 ```PowerShell
 PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/Application1
@@ -182,19 +182,19 @@ ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAft
 
 ## <a name="roll-back-application-upgrades"></a>Reverter as atualizações de aplicações
 
-Embora as atualizações possam ser roladas para frente em um dos três modos (*monitorado*, *UnmonitoredAuto*ou *UnmonitoredManual*), elas só podem ser revertidas no modo *UnmonitoredAuto* ou *UnmonitoredManual* . A reversão no modo *UnmonitoredAuto* funciona da mesma maneira que o progressivo com a exceção de que o valor padrão de *UpgradeReplicaSetCheckTimeout* é diferente-consulte [parâmetros de atualização de aplicativos](service-fabric-application-upgrade-parameters.md). A reversão no modo *UnmonitoredManual* funciona da mesma maneira que o roll forward – a reversão será suspensa após a conclusão de cada UD e deverá ser retomada explicitamente usando [resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) para continuar com a reversão.
+Embora as atualizações possam ser lançadas para a frente num dos três modos *(Monitorizado*, *UnmonitoredAuto*, ou *UnmonitoredManual),* só podem ser reencaminhados no modo *UnmonitoredAuto* ou *UnmonitoredManual.* Voltar a rolar no modo *UnmonitoredAuto* funciona da mesma forma que avançar com a exceção de que o valor padrão do *UpgradeReplicaCheckCheckTimeout* é diferente - ver [Parâmetros](service-fabric-application-upgrade-parameters.md)de atualização de aplicações . Voltar a rolar no modo *Unmonitormanual* funciona da mesma forma que avançar - a reversão suspender-se-á após completar cada UD e deve ser explicitamente retomada utilizando o [Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) para continuar com a reversão.
 
-As reversões podem ser disparadas automaticamente quando as políticas de integridade de uma atualização no modo *monitorado* com uma *falhaaction* de *reversão* são violadas (consulte [parâmetros de atualização de aplicativo](service-fabric-application-upgrade-parameters.md)) ou explicitamente usando [Start-ServiceFabricApplicationRollback](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
+As reversão podem ser ativadas automaticamente quando as políticas de saúde de uma atualização no modo *Monitorizado* com uma *FalhaAction* of *Rollback* são violadas (ver Parâmetros de atualização de [aplicações](service-fabric-application-upgrade-parameters.md)) ou utilizar explicitamente o [Start-ServiceFabricApplicationRollback](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
 
-Durante a reversão, o valor de *UpgradeReplicaSetCheckTimeout* e o modo ainda podem ser alterados a qualquer momento usando [Update-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps).
+Durante a reversão, o valor do *UpgradeReplicaCheckCheckTimeout* e o modo ainda podem ser alterados a qualquer momento utilizando o [Update-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps).
 
 ## <a name="next-steps"></a>Passos seguintes
-[Atualizar seu aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você durante uma atualização de aplicativo usando o Visual Studio.
+[Atualizar a sua aplicação Utilizando o Estúdio Visual](service-fabric-application-upgrade-tutorial.md) leva-o através de uma atualização de aplicações utilizando o Visual Studio.
 
-[Atualizar seu aplicativo usando o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você durante uma atualização de aplicativo usando o PowerShell.
+[Atualizar a sua aplicação Utilizando powershell](service-fabric-application-upgrade-tutorial-powershell.md) passa por si através de uma atualização de aplicações utilizando o PowerShell.
 
-Controle como o aplicativo é atualizado usando [parâmetros de atualização](service-fabric-application-upgrade-parameters.md).
+Controle a forma como a sua aplicação melhora utilizando parâmetros de [atualização](service-fabric-application-upgrade-parameters.md).
 
-Faça com que o aplicativo seja atualizado de forma compatível aprendendo a usar a [serialização de dados](service-fabric-application-upgrade-data-serialization.md).
+Torne as atualizações da sua aplicação compatíveis aprendendo a utilizar a [Serialização](service-fabric-application-upgrade-data-serialization.md)de Dados .
 
-Corrija problemas comuns em atualizações de aplicativos consultando as etapas em [solução de problemas de atualizações de aplicativos](service-fabric-application-upgrade-troubleshooting.md).
+Corrija problemas comuns nas atualizações de aplicações, referindo-se aos passos nas atualizações de aplicações de [resolução de problemas.](service-fabric-application-upgrade-troubleshooting.md)
